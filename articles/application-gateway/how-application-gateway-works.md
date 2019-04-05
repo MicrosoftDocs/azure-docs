@@ -11,7 +11,7 @@ ms.author: absha
 
 # How Azure Application Gateway works
 
-This article explains how an application gateway accepts the incoming requests and routes them to the backend.
+This article explains how an Azure application gateway accepts the incoming requests and routes them to the backend.
 
 ![how-application-gateway-works](./media/how-application-gateway-works/how-application-gateway-works.png)
 
@@ -47,8 +47,8 @@ Both internet-facing and internal-application gateways route requests to backend
 
 - An internal application gateway uses only private IP addresses. The DNS name of an internal application gateway is resolvable to its private IP address. As a result, internal load-balancers can only route requests from clients with access to the VNet for the application gateway.
 
-    [!NOTE]
-    Both internet-facing and internal application gateways route requests to backend servers by using private IP addresses. This action happens when your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address.
+    >[!NOTE]
+    >Both internet-facing and internal application gateways route requests to backend servers by using private IP addresses. This action happens when your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address.
 
   - If the backend pool is a public endpoint, Application Gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
 
