@@ -52,7 +52,7 @@
     items:
     - name: Create and configure route tables
       href: ./ansible-create-configure-route-table.md
-    - name: Create and configure Azure virtual network peering
+    - name: Create Azure VNet peering
       href: ./ansible-virtual-network-peering-create-configure.md
   - name: VMSS
     items:
