@@ -12,6 +12,9 @@ ms.subservice: metrics
 
 # Advanced features of Azure Metrics Explorer
 
+> [!NOTE]
+> This article assumes that you are familiar with basic features of Metrics Explorer. If you are a new user and want to learn how to create your first metric chart, see [Getting started with Azure Metrics Explorer](metrics-getting-started.md).
+
 Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
@@ -49,7 +52,7 @@ Azure Monitor metrics explorer is a component of the Microsoft Azure portal that
    > [!NOTE]
    > You typically don’t want to have metrics with different units of measure (i.e. “milliseconds” and “kilobytes”) or with significantly different scale on one chart. Instead, consider using multiple charts. Click on the Add Chart button to create multiple charts in metrics explorer.
 
-## Create views with multiple metrics and charts
+## Views with multiple metrics and charts
 
 You can create charts that plot multiple metrics lines or show multiple metric charts at once. This functionality allows you to:
 
