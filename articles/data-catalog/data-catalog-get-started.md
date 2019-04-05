@@ -97,7 +97,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
     ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
-## Next Steps
+## Next steps
 
 In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now register data sources in your data catalog.
 
