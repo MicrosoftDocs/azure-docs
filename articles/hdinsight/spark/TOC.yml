@@ -25,6 +25,7 @@
       href: apache-spark-load-data-run-query.md
     - name: Use VSCode to run Apache Spark queries
       href: ../hdinsight-for-vscode.md
+      maintainContext: true
     - name: Use IntelliJ to run Apache Spark queries
       href: apache-spark-intellij-tool-plugin.md
     - name: Analyze data using BI tools
@@ -36,7 +37,8 @@
     - name: Create an Apache Spark app in IntelliJ
       href: apache-spark-create-standalone-application.md
     - name: Monitor cluster availability with Ambari and Azure Monitor logs
-      href: ../hdinsight-cluster-availability.md    
+      href: ../hdinsight-cluster-availability.md
+      maintainContext: true
 - name: How to
   items:
     - name: Use cluster storage
@@ -104,6 +106,7 @@
           href: apache-spark-connect-to-sql-database.md
         - name: Implement a lambda architecture using Apache Spark and Cosmos DB
           href: ../../cosmos-db/lambda-architecture.md
+          maintainContext: true
         - name: Run Azure ML workloads with AutoML
           href: apache-spark-run-machine-learning-automl.md
           maintainContext: true
