@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: cosmos-db
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/04/2019
 ms.author: rogarana
 ms.subservice: cosmosdb-table
 ---
@@ -28,7 +28,7 @@ This how-to article covers common Azure Table storage operations. You learn how 
 
 This how-to article shows you how to create a new Azure Storage account in a new resource group so you can easily remove it when you're done. If you'd rather use an existing Storage account, you can do that instead.
 
-The examples require Az PowerShell modules `Az.Storage (1.1.3 or greater)` and `Az.Resources (1.2.0 or greater)`. In a PowerShell window, run `Get-Module -ListAvailable Az*` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+The examples require Az PowerShell modules `Az.Storage (1.1.0 or greater)` and `Az.Resources (1.2.0 or greater)`. In a PowerShell window, run `Get-Module -ListAvailable Az*` to find the version. If nothing is displayed, or you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > Using this Azure feature from PowerShell requires that you have the `Az` module installed. The current version of AzureRmStorageTable is not compatible with the older AzureRM module.
