@@ -26,7 +26,9 @@ You can use Mlflow logging on local runs, different Azure ML compute targets, su
  * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
  * [Install Azure ML Python SDK on your local computer and create Azure ML Workspace](setup-create-workspace.md). The SDK provides the connectivity for MLflow to access your Workspace.
 
-## Local runs
+## Interactive runs
+
+You can use MLflow with Azure ML interactively, for example when training models in your local Jupyter Notebook or code editor. 
 
 To switch your Mlflow code to use Azure ML as back end, you need to first install azureml.core.contrib package:
 
@@ -62,6 +64,8 @@ with mlflow.start_run():
 In addition to logging metrics, you can log models and artifacts. See [TBD notebooks](tbd) for more examples.
 
 ## Remote runs
+
+Remote runs allow you to to train your models on more powerful compute, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 When you submit a run to a compute target using Azure ML SDK's ```Experiment.submit("train.py")``` method, Azure ML automatically sets the Mlflow tracking URI and directs the logging from Mlflow to your Workspace. 
 
