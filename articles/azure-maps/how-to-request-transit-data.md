@@ -15,6 +15,13 @@ ms.custom: mvc
 
 This articles shows you ways to request public transit data using the Azure Maps Public transit APIs.
 
+In this article you will learn, how to:
+
+* Get metro area ID using the [Get Metro Area API](https://docs.microsoft.com/api/maps/mobility/getmetroareapreview)
+* Request nearby transit stops using [Get Nearby Transit](https://docs.microsoft.com/api/maps/mobility/getnearbytransitpreview) service.
+* Request a transit route for Bus transit, using [Get Transit Routes API](https://docs.microsoft.com/en-us/api/maps/mobility/gettransitroutepreview).
+
+
 ## Prerequisites
 
 To make any calls to the Azure Maps public transit APIs, you need a Maps account and key. For information on creating an account and retrieving a key, see [How to manage your Azure Maps account and keys](how-to-manage-account-keys.md).
@@ -215,7 +222,11 @@ For the purpose of understanding we will use the coordinates from one of the tra
 
 The Azure Maps [Get Transit Routes API](https://docs.microsoft.com/en-us/api/maps/mobility/gettransitroutepreview) allows you to request route options between an origin and destination. 
 
-Lets search for a route from our current location to Space Needle in Seattle. For the purpose of getting location coordinates for Space Needle, lets use the Azure Maps [Fuzzy Search Service](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchfuzzy).
+Lets search for a route from our current location to Space Needle in Seattle. 
+
+### Get location coordinates for destination
+
+For the purpose of getting location coordinates for Space Needle, lets use the Azure Maps [Fuzzy Search Service](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchfuzzy).
 
 To make a request to the Fuzzy search service, follow the steps below:
 
@@ -386,7 +397,9 @@ To make a request to the Fuzzy search service, follow the steps below:
     }
     ``` 
     
- 
+
+### Request route
+
 To make a route request, complete the steps below:
 
 1. In Postman, click **New Request** | **GET request** and name it **Get Route info**.
