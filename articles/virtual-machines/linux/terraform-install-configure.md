@@ -46,7 +46,7 @@ To enable Terraform to provision resources into Azure, create an [Azure AD servi
 If you have multiple Azure subscriptions, first query your account with [az account show](/cli/azure/account#az-account-show) to get a list of subscription ID and tenant ID values:
 
 ```azurecli-interactive
-az account show --query "{subscriptionId:id, tenantId:tenantId}"
+az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
 To use a selected subscription, set the subscription for this session with [az account set](/cli/azure/account#az-account-set). Set the `SUBSCRIPTION_ID` environment variable to hold the value of the returned `id` field from the subscription you want to use:
