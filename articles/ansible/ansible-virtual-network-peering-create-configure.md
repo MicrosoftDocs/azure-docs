@@ -43,6 +43,7 @@ The first two tasks in the sample Ansible playbook create two resource groups.
 ```
 
 ## Create the first virtual network
+
 In this section, create the first virtual network and add a subnet.
 
 ```yml
@@ -60,6 +61,7 @@ In this section, create the first virtual network and add a subnet.
 ```
 
 ## Create the second virtual network
+
 In this section, create the second virtual network and add a subnet.
 
 ```yml
@@ -114,6 +116,7 @@ To delete the virtual network peering, run the following task:
       resource_group: "{{ resource_group }}"
       name: "{{ peering_name }}"
       virtual_network: "{{ vnet_name1 }}"
+      state: absent
 ```
 
 ## Review the complete sample Ansible playbook
@@ -202,6 +205,7 @@ You can also [download the complete playbook](https://github.com/Azure-Samples/a
 ```
 
 ## Configure and run the sample playbook
+
 In this section, you run the playbook to see the results of creating and peering the two virtual networks.
 
 If you downloaded the playbook from the GitHub Azure-Samples repo and are using an Ansible version earlier than 2.8, do the following steps:
