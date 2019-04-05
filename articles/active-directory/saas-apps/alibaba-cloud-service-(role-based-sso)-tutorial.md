@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 	| RoleSessionName | user.mail |
 
 	> [!NOTE]
-	> Please click [here](../../role-based-access-control/role-assignments-portal.md) to know how to configure **Role** in Azure AD
+	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
