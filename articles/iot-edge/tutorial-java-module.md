@@ -1,13 +1,13 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial create custom Java module - Azure IoT Edge | Microsoft Docs 
+title: Custom Java module tutorial - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with Java code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
 manager: philmea
 
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -33,7 +33,7 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can set up an IoT Edge device by following the steps in the quickstarts for [Linux](quickstart-linux.md) or [Windows](quickstart.md).
+* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
 * For IoT Edge on Windows devices, version 1.0.5 does not support Java modules. For more information, see [1.0.5 release notes](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). For steps on how to install a specific version, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 
 Cloud resources:
@@ -48,7 +48,7 @@ Development resources:
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 * [Docker CE](https://docs.docker.com/install/)
-   * If you're developing on a Windows device, make sure Docker is [configured to use Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
+   * If you're developing on a Windows device, make sure Docker is [configured to use Linux or Windows containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers), depending on your IoT Edge device operating system. 
 
 
 ## Create a container registry
@@ -143,8 +143,9 @@ The environment file stores the credentials for your container registry and shar
 7. Replace the execute method of **MessageCallbackMqtt** with the following code. This method is called whenever the module receives an MQTT message from the IoT Edge hub. It filters out messages that report temperatures below the temperature threshold set via the module twin.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -170,6 +171,7 @@ The environment file stores the credentials for your container registry and shar
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Add the following two static inner classes into class **App**. These classes update the tempThreshold variable when the module twin's desired property changes. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
@@ -215,7 +217,7 @@ The environment file stores the credentials for your container registry and shar
 
 11. Save the App.java file.
 
-12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **JavaModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
+12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, and tells the IoT Edge hub how to route messages between them. In this case, the two modules are **tempSensor** and **JavaModule**. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
 
    1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **JavaModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
 
@@ -261,7 +263,7 @@ You can see the full container image address with tag in the VS Code integrated 
 >[!TIP]
 >If you receive an error trying to build and push your module, make the following checks:
 >* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
->* Is your container repository correct? Open **modules** > **cmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/javamodule**. 
+>* Is your container repository correct? Open **modules** > **JavaModule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/javamodule**. 
 >* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
 
 ## Deploy and run the solution
