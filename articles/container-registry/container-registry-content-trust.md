@@ -107,6 +107,8 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 
 The `<service principal ID>` can be the service principal's **appId**, **objectId**, or one of its **servicePrincipalNames**. For more information about working with service principals and Azure Container Registry, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md).
 
+After any role changes, run `az acr login` to refresh the local identity token for the Azure CLI so that the new roles can take effect.
+
 ## Push a trusted image
 
 To push a trusted image tag to your container registry, enable content trust and push the image with `docker push`. The first time you push a signed tag, you're asked to create a passphrase for both a root signing key and a repository signing key. Both the root and repository keys are generated and stored locally on your machine.
@@ -135,7 +137,7 @@ After your first `docker push` with content trust enabled, the Docker client use
 
 ## Pull a trusted image
 
-To pull a trusted image, enable content trust and run the `docker pull` command as normal. Consumers with content trust enabled can pull only images with signed tags. Here's an example of pulling a signed tag:
+To pull a trusted image, enable content trust and run the `docker pull` command as normal. To pull trusted images, the `AcrPull` role is enough for normal users. No additional roles like an `AcrImageSigner` role are required. Consumers with content trust enabled can pull only images with signed tags. Here's an example of pulling a signed tag:
 
 ```console
 $ docker pull myregistry.azurecr.io/myimage:signed
