@@ -71,7 +71,7 @@ Application Gateway processes listeners in the order shown. If basic listener ma
 
 ## Request routing rules
 
-A request routing rule is a key component of an application gateway, because it determines how to route traffic on the listener. The rule binds the listener, the back-end server pool, and the backend HTTP settings.
+A request routing rule is a key component of an application gateway because it determines how to route traffic on the listener. The rule binds the listener, the back-end server pool, and the backend HTTP settings.
 
 When a listener accepts a request, the request routing rule forwards the request to the backend or redirects it elsewhere. If the request is forwarded to the backend, the request routing rule defines which backend server pool to forward it to. Also, the request routing rule also determines if the headers in the request are to be rewritten. One listener can be attached to one rule.
 
@@ -126,7 +126,7 @@ Application Gateway backend pool members aren't tied to an availability set. App
 
 If you use internal IPs as backend pool members, you must use [VNET Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
-An application gateway can also communicate with to on-premises servers when they're connected by ExpressRoute or VPN tunnels, if traffic is allowed.
+An application gateway can also communicate with to on-premises servers when they're connected by ExpressRoute or VPN tunnels if traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 
