@@ -320,6 +320,8 @@
           items:
           - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core without Visual Studio
+          href: app/asp-net-core-no-visualstudio.md            
         - name: Console
           href: app/console.md
         - name: Application dashboard
