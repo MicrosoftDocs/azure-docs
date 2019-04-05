@@ -22,7 +22,7 @@ A container *registry* is a service that stores and distributes container images
 
 ## Repository
 
-Container registries manage *repositories*, collections of container images with the same name, but different tags. For example, the following three images are in the `acr-helloworld` repository:
+Container registries manage *repositories*, collections of container images with the same name, but different tags. For example, the following three images are in the "acr-helloworld" repository:
 
 ```
 acr-helloworld:latest
@@ -50,7 +50,7 @@ An image's *tag* specifies its version. A single image within a repository can b
 
 The repository (or repository and namespace) plus a tag defines an image's name. You can push and pull an image by specifying its name in the push or pull operation.
 
-In a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io* (all lowercase). For example, the full name of the first image in the `marketing` namespace in the previous section would be:
+In a private registry like Azure Container Registry, the image name also includes the fully qualified name of the registry host. The registry host for images in ACR is in the format *acrname.azurecr.io* (all lowercase). For example, the full name of the first image in the "marketing" namespace in the previous section would be:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -112,7 +112,7 @@ Manifests are identified by a unique SHA-256 hash, or *manifest digest*. Each im
 
 You can pull an image from a registry by specifying its digest in the pull operation. Some systems may be configured to pull by digest because it guarantees the image version being pulled, even if an identically tagged image is subsequently pushed to the registry.
 
-For example, pulling an image from the *acr-helloworld* repository by manifest digest:
+For example, pulling an image from the "acr-helloworld" repository by manifest digest:
 
 ```console
 $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
@@ -133,7 +133,7 @@ You can delete image data from your container registry in several ways:
 
 Deleting a repository deletes all of the images in the repository, including all tags, unique layers, and manifests. When you delete a repository, you recover the storage space used by the images that were in that repository.
 
-The following Azure CLI command deletes the `acr-helloworld` repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted.
+The following Azure CLI command deletes the "acr-helloworld" repository and all tags and manifests within the repository. If layers referenced by the deleted manifests are not referenced by any other images in the registry, their layer data is also deleted.
 
 ```azurecli
  az acr repository delete --name myregistry --repository acr-helloworld
@@ -145,7 +145,7 @@ You can delete individual images from a repository by specifying the repository 
 
 To delete by tag, use [az acr repository delete][az-acr-repository-delete] and specify the image name in the `--image` parameter. All layers unique to the image, and any other tags associated with the image are deleted.
 
-For example, delete the `acr-helloworld:latest` image from registry `myregistry`:
+For example, deleting the "acr-helloworld:latest" image from registry "myregistry":
 
 ```azurecli
 $ az acr repository delete --name myregistry --image acr-helloworld:latest
@@ -189,7 +189,7 @@ Next, specify the digest you wish to delete in the [az acr repository delete][az
 az acr repository delete --name <acrName> --image <repositoryName>@<digest>
 ```
 
-For example, to delete the last manifest listed in the preceding output (with the tag `v2`):
+For example, to delete the last manifest listed in the preceding output (with the tag "v2"):
 
 ```console
 $ az acr repository delete --name myregistry --image acr-helloworld@sha256:3168a21b98836dda7eb7a846b3d735286e09a32b0aa2401773da518e7eba3b57
@@ -214,7 +214,7 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 After identifying stale manifest digests, you can run the following Bash script to delete manifest digests older than a specified timestamp. It requires the Azure CLI and **xargs**. By default, the script performs no deletion. Change the `ENABLE_DELETE` value to `true` to enable image deletion.
 
 > [!WARNING]
-> Use the following sample script with caution--deleted image data is UNRECOVERABLE. 
+> Use the following sample script with caution--deleted image data is UNRECOVERABLE. If you have systems that pull images by manifest digest (as opposed to image name), you should not run these scripts. Deleting the manifest digests will prevent those systems from pulling the images from your registry. Instead of pulling by manifest, consider adopting a *unique tagging* scheme, a [recommended best practice][tagging-best-practices]. 
 
 ```bash
 #!/bin/bash
