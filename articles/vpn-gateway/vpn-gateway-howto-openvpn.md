@@ -50,15 +50,11 @@ If you don't already have a functioning point-to-site environment, follow the in
 > [!IMPORTANT]
 > The Basic SKU is not supported for OpenVPN.
 
-## <a name="cmdlets"></a>2. Install PowerShell cmdlets
-
-Install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
-
-## <a name="enable"></a>3. Enable OpenVPN on the gateway
+## <a name="enable"></a>2. Enable OpenVPN on the gateway
 
 Enable OpenVPN on your gateway. Make sure that the gateway is already configured for point-to-site (IKEv2 or SSTP) before running the following commands:
 
-```powershell
+```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -ResourceGroupName $rgname -name $name
 Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVPN
 ```
