@@ -27,7 +27,7 @@ By using the Data Catalog business glossary, an organization can document key bu
 
 ## Glossary availability and privileges
 
-The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog does not include a glossary, and it does not provide capabilities for governed tagging.
+The business glossary is available only in the Standard Edition of Azure Data Catalog. The Free Edition of Data Catalog doesn't include a glossary, and it doesn't provide capabilities for governed tagging.
 
 You can access the business glossary via the **Glossary** option in the Data Catalog portal's navigation menu.  
 
@@ -50,7 +50,7 @@ Data Catalog administrators and glossary administrators can create glossary term
 
 By using the Data Catalog business glossary, an organization can describe its business vocabulary as a hierarchy of terms, and it can create a classification of terms that better represents its business taxonomy.
 
-A term must be unique at a given level of hierarchy. Duplicate names are not allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
+A term must be unique at a given level of hierarchy. Duplicate names aren't allowed. There is no limit to the number of levels in a hierarchy, but a hierarchy is often more easily understood when there are three levels or fewer.
 
 The use of hierarchies in the business glossary is optional. Leaving the parent term field blank for glossary terms creates a flat (non-hierarchical) list of terms in the glossary.  
 

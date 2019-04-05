@@ -7,7 +7,7 @@ ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 04/05/2019
 
-#Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
+# Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
 # Quickstart: Create an Azure Data Catalog
@@ -73,7 +73,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
     ![Azure Data Catalog-Portal Title](media/data-catalog-get-started/data-catalog-portal-title.png)
 
-11. Once you completed the **Settings** page then navigate to the **Publish** page.
+11. Once you complete the **Settings** page, next navigate to the **Publish** page.
 
     ![Azure Data Catalog--created](media/data-catalog-get-started/data-catalog-created.png)
 

@@ -49,7 +49,7 @@ Here are some tips to help you define you vision:
 
 Here is an example vision statement for a Data Catalog adoption plan for the fictitious company called Adventure Works:
 
-**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data she needs and can share her knowledge with the team as a whole.
+**Azure Data Catalog** empowers the Adventure Works Finance team to collaborate on key data sources, so every team member can easily find and use the data they need and can share her knowledge with the team as a whole.
 
 Once you have a crisp vision statement, you should identify a suitable pilot project for Data Catalog. Generally, there are several scenarios for Data Catalog, so the next section provides some tips to identify relevant uses cases.
 
@@ -86,7 +86,7 @@ Your pilot plan should phase in business goals that you want to achieve with Dat
 
 ### Target the right team
 
-When you choose your pilot project, select a team with the most appealing scenarios that solves an existing business problem. For example, a business analyst creates reports from a SQL Server database. The problem is that she became aware of the data source only after talking to several colleagues. Finally, after wasting time trying to find which data sources to use, she found out about an Excel workbook, which contains a description of each data source. Although the Excel workbook adequately describes the tables that she needs, she would have quickly found these data sources if they were registered and annotated in **Azure Data Catalog**.
+When you choose your pilot project, select a team with the most appealing scenarios that solves an existing business problem. For example, a business analyst creates reports from a SQL Server database. The problem is that they became aware of the data source only after talking to several colleagues. Finally, after wasting time trying to find which data sources to use, they found out about an Excel workbook, which contains a description of each data source. Although the Excel workbook adequately describes the tables that they need, they would have quickly found these data sources if they were registered and annotated in **Azure Data Catalog**.
 
 ### Identify data heroes
 
@@ -96,7 +96,7 @@ Your first pilot project should have a few individuals who produce data and cons
 
 **Data Consumers** are people with expertise on the use of the data to solve business problems. For example, Nancy is a business analyst uses Adventure Works SQL Server data sources to analyze data.
 
-One of the business problems that **Azure Data Catalog** solves is to connect **Data Producers** to **Data Consumers**. It does so by serving as a central repository for information about enterprise data sources. Using Data Catalog, David registers Adventure Works and SQL Server data sources. Using crowdsourcing any user who discovers this data source can share her opinions on the data, in addition to using the data she has discovered. For example, Nancy discovers the data sources by searching the catalog, and shares her specialized knowledge about the data.  Now, others in the organization benefit from shared knowledge by searching the data catalog.
+One of the business problems that **Azure Data Catalog** solves is to connect **Data Producers** to **Data Consumers**. It does so by serving as a central repository for information about enterprise data sources. Using Data Catalog, David registers Adventure Works and SQL Server data sources. Using crowdsourcing any user who discovers this data source can share her opinions on the data, in addition to using the data they have discovered. For example, Nancy discovers the data sources by searching the catalog, and shares her specialized knowledge about the data.  Now, others in the organization benefit from shared knowledge by searching the data catalog.
 
 * To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md).
 * To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md).
@@ -111,7 +111,7 @@ The next section describes an example project from the Adventure Works company.
 
 ### An example project
 
-For this example, Nancy the Business Analyst, creates reports for her team, using data from a SQL Server database. The problem is that she became aware of the data source only after talking to several colleagues. She would have quickly found these data sources if they were registered and annotated in a central location such as **Azure Data Catalog**.
+For this example, Nancy the Business Analyst, creates reports for her team, using data from a SQL Server database. The problem is that they became aware of the data source only after talking to several colleagues. They would have quickly found these data sources if they were registered and annotated in a central location such as **Azure Data Catalog**.
 
 To illustrate how easily Nancy and her team can find high-value data, you use the data source registration tool to populate the Catalog with information (metadata) about the data sources. This way the information about the database is available to the team and the enterprise, not just a few individuals. Once data sources are registered in Data Catalog, Nancy and her team can easily use them. The result is a more comprehensive and relevant data catalog for her team and the enterprise. As more teams adopt Data Catalog, business data sources become easier to find and use; thus, enabling a more data-centric culture to achieve more with your data.
 

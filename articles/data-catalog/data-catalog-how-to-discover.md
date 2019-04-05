@@ -12,7 +12,7 @@ ms.date: 04/05/2019
 
 ## Introduction
 
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and discovery for enterprise data sources. In other words, Data Catalog helps people discover, understand, and use data sources, and it helps organizations get more value from their existing data. After a data source is registered with Data Catalog, its metadata is indexed by the service, so that you can easily search to discover the data you need.
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and discovery for enterprise data sources. In other words, Data Catalog helps people discover, understand, and use data sources. It helps organizations get more value from their existing data. After a data source is registered with Data Catalog, its metadata is indexed by the service, so that you can easily search to discover the data you need.
 
 ## Searching and filtering
 
@@ -45,7 +45,7 @@ When you view search results, any displayed properties that match the specified 
 > [!NOTE]
 > To turn off hit highlighting, use the **Highlight** switch in the Data Catalog portal.
 
-When you view search results, it might not always be obvious why a data asset is included, even with hit highlighting enabled. Because all properties are searched by default, a data asset might be returned because of a match on a column-level property. And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata might be displayed in the list of search results.
+When you view search results, it may not always be obvious why a data asset is included, even with hit highlighting enabled. Because all properties are searched by default, a data asset might be returned because of a match on a column-level property. And because multiple users can annotate registered data assets with their own tags and descriptions, not all metadata is displayed in the list of search results.
 
 In the default tile view, each tile displayed in the search results includes a **View search term matches** icon, so that you can quickly view the number of matches and their location, and to jump to them if you want.
 
