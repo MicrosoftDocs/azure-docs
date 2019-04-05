@@ -19,7 +19,8 @@ ms.author: wieastbu
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
 
-This scenario shows you how to configure your Azure API Management instance to protect an API. We'll use the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service, and Azure API management to secure a backend Azure Function. 
+This scenario shows you how to configure your Azure API Management instance to protect an API. 
+We'll use the OAuth 2.0 protocol with AAD B2C, alongside API Management to secure a Functions backend. 
 
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
@@ -222,7 +223,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 ## Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
 2. In the inbound section after <base/>, paste the following xml, but edit the url to match your well known B2C endpoint for the 
-sign in and sign up policy, and edit the claim value to match the valid application ID (or client ID) for the BACKEND API APPLICATION.
+sign in and sign up policy, and edit the claim value to match the valid application ID (also known as a client ID), for the BACKEND API APPLICATION.
 
 ```xml
        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -256,7 +257,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 > The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 
 ## Test the API from the API Management Developer Portal
-1. From the overview blade of the API Management section of the Azure portal, click 'Developer Portal' to be signed into the developer portal as an administrator of the API,
+1. From the overview blade of the API Management portal, click 'Developer Portal' to sign in as an administrator of the API.
 2. Here, you and other selected consumers of your API can test and call them from a console.
 3. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
 4. Unhide the API subscription key, and copy it somewhere safe along with the request url that you'll need later.
@@ -304,7 +305,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 ## Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct AAD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
-3. Scroll down to line 52 and update the details to match your FRONT END application that you registered in AAD B2C, noting that the 'b2cScopes' values are for the associated API backend.
+3. Update the auth details to match your front end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
 4. It should look something like the below code:-  
 
 ```
@@ -341,8 +342,8 @@ string json = "Hello API Management";
 
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
-2. Click “Login” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
-3. Post log in the ‘logged in as’ section of the screen will be populated from your JWT.
+2. Click “Sign In” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
+3. Post sign in the ‘logged in as’ section of the screen will be populated from your JWT.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
 
