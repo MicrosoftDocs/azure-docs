@@ -33,7 +33,7 @@ updated and the frequency and events that trigger an evaluation cycle.
 > Resource Provider is registered and that the user has the appropriate role-based access control
 > (RBAC) permissions as described in [RBAC in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Evaluation triggers
 

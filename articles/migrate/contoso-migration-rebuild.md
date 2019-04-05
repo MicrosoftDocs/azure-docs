@@ -36,6 +36,9 @@ Article 13: Rebuild an app to Azure | Shows how Contoso rebuild their SmartHotel
 
 In this article, Contoso migrates the two-tier Windows. NET SmartHotel360 app running on VMware VMs to Azure. If you'd like to use this app, it's provided as open source and you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360-Backend).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Business drivers
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
@@ -170,7 +173,7 @@ The Contoso admins provision as follows:
 
     ![AKS](./media/contoso-migration-rebuild/aks3.png)
 
-5. In the PowerShell Integrated terminal, they sign into Azure using the Connect-AzureRmAccount command. [Learn more](https://docs.microsoft.com/powershell/azure/get-started-azureps) about getting started with PowerShell.
+5. In the PowerShell Integrated terminal, they sign into Azure using the Connect-AzAccount command. [Learn more](https://docs.microsoft.com/powershell/azure/get-started-azureps) about getting started with PowerShell.
 
     ![AKS](./media/contoso-migration-rebuild/aks4.png)
 
