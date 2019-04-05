@@ -10,7 +10,13 @@
  ms.custom: include file
 ---
 
+This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md) or [Sizes for Linux virtual machines in Azure](../articles/virtual-machines/linux/sizes.md) to choose the VM sizes that will best fit your need.
+
+For more information on resizing a Linux VM, see [Resize a Linux virtual machine using Azure CLI](../articles/virtual-machines/linux/change-vm-size.md). If you're using Windows VMs and prefer to use PowerShell, see [Resize a Windows VM](../articles/virtual-machines/windows/resize-vm.md).
+
 ## Basic A
+
+**Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 Premium Storage:  Not Supported
 
@@ -27,6 +33,8 @@ The basic tier sizes are primarily for development workloads and other applicati
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
 
 ## A-series
+
+**Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 ACU: 50-100
 
@@ -45,11 +53,11 @@ Premium Storage Caching:  Not Supported
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
 
-<br>
-
 <sup>1</sup> The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
 ## A-series - compute-intensive instances
+
+**Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
 ACU: 225
 
@@ -70,6 +78,8 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 ## D-series
 
+**Newer size recommendation**: [Dv3-series](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+
 ACU: 160-250 <sup>1</sup>
 
 Premium Storage:  Not Supported
@@ -85,7 +95,28 @@ Premium Storage Caching:  Not Supported
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
+## D-series - memory optimized
+
+**Newer size recommendation**: [Dv3-series](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+
+ACU: 160-250 <sup>1</sup>
+
+Premium Storage:  Not Supported
+
+Premium Storage Caching:  Not Supported
+
+| Size         | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max data disks / throughput: IOPS | Max NICs / Expected network bandwidth (Mbps) |
+|--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
+| Standard_D11 | 2         | 14          | 100            | 6000 / 93 / 46                                           | 8 / 8x500                         | 2 / 1000                     |
+| Standard_D12 | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16x500                         | 4 / 2000                     |
+| Standard_D13 | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32x500                       | 8 / 4000                     |
+| Standard_D14 | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 8000                |
+
+<sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+
 ## DS-series
+
+**Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -102,7 +133,22 @@ Premium Storage Caching:  Supported
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
+## DS-series - memory optimized
 
-Dv2_promo
+**Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
 
-Dsv2_promo
+ACU: 160-250 <sup>1,2</sup>
+
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
+
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Expected network bandwidth (Mbps) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2 / 1000 |
+| Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4 / 2000 |
+| Standard_DS13 |8 |56 |112 |32 |32,000 / 256 (288) |25,600 / 256 |8 / 4000 |
+| Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
+
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DS series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](../articles/virtual-machines/windows/premium-storage-performance.md).  
+<sup>2</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
