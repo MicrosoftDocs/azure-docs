@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
 
 ---
@@ -368,3 +368,7 @@ In packet captures, Azure customers might see TCP packets with TCP flags (SACK, 
 Also, keep in mind that some retransmission and duplicate ACKs are normal on a network. TCP protocols were built to be reliable. Evidence of these TCP packets in a packet capture doesn't necessarily indicate a systemic network problem, unless they're excessive.
 
 Still, these packet types are indications that TCP throughput isn't achieving its maximum performance, for reasons discussed in other sections of this article.
+
+## Next steps
+
+Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want read more about considerations for [planning virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
