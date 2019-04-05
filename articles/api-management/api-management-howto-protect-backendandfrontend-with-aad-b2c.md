@@ -4,7 +4,7 @@ description: Protect an API with OAuth 2.0 by using AAD B2C, API Management, and
 
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
-author: WillEastbury
+author: wieastbu
 manager: karldb
 editor: ''	
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2019
-ms.author: wieastbu
+ms.author: WillEastbury
 ---
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
