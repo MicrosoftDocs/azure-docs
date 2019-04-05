@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 # Connect to HDInsight (Apache Hadoop) using SSH
 
-Learn how to use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) to securely connect to Apache Hadoop on Azure HDInsight. 
+Learn how to use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) to securely connect to Apache Hadoop on Azure HDInsight. For information on connecting through a virtual network, see [Azure HDInsight virtual network architecture](./hdinsight-virtual-network-architecture.md) and [Extend Azure HDInsight using an Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
 
 The following table contains the address and port information needed when connecting to HDInsight using an SSH client:
 
@@ -42,7 +42,7 @@ Microsoft Windows does not install any SSH clients by default. The `ssh` and `sc
 
 * [OpenSSH Client](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). This is an optional feature introduced in the Windows 10 Fall Creators Update.
 
-* [Bash on Ubuntu on Windows 10](https://msdn.microsoft.com/commandline/wsl/about).
+* [Bash on Ubuntu on Windows 10](https://docs.microsoft.com/windows/wsl/about).
 
 * [Azure Cloud Shell](../cloud-shell/quickstart.md). The Cloud Shell provides a Bash environment in your browser.
 
