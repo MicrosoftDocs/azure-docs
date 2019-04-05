@@ -35,7 +35,7 @@ First, create a stored procedure and set it up to run a logic that compares sequ
 
    ![Create stored procedure](./media/iot-hub-how-to-order-connection-state-events/create-stored-procedure.png)
 
-2. Enter a stored procedure ID and paste the following in the “Stored Procedure body”. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
+2. Enter **LatestDeviceConnectionState** for the stored procedure ID and paste the following in the **Stored Procedure body**. Note that this code should replace any existing code in the stored procedure body. This code maintains one row per device ID and records the latest connection state of that device ID by identifying the highest sequence number.
 
     ```javascript
     // SAMPLE STORED PROCEDURE
@@ -134,20 +134,22 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 ### Create a logic app resource
 
-1. In the [Azure portal](https://portal.azure.com), select **New** > **Integration** > **Logic App**.
+1. In the [Azure portal](https://portal.azure.com), select **+Create a resource**, select **Integration** and then **Logic App**.
 
    ![Create logic app](./media/iot-hub-how-to-order-connection-state-events/select-logic-app.png)
 
 2. Give your logic app a name that's unique in your subscription, then select the same subscription, resource group, and location as your IoT hub.
 
-3. Select **Pin to dashboard**, then choose **Create**.
+   ![New logic app](./media/iot-hub-how-to-order-connection-state-events/new-logic-app.png)
+
+3. Select **Create** to create the logic app.
 
    You've now created an Azure resource for your logic app. After Azure deploys your logic app, the Logic Apps Designer shows you templates for common patterns so you can get started faster.
 
    > [!NOTE]
-   > When you select **Pin to dashboard**, your logic app automatically opens in the Logic Apps Designer. Otherwise, you can manually find and open your logic app.
+   > To find and open your logic app again, select **Resource groups** and select the resource group you are using for this how-to. 
 
-4. In the Logic App Designer under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
+4. In the Logic App Designer, scroll to the right until you see common triggers. Under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
 
 ### Select a trigger
 
@@ -187,6 +189,8 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    }]
    ```
 
+   ![Paste sample JSON payload](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png])
+
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section.
 
 ### Create a condition
@@ -211,11 +215,17 @@ In your logic app workflow, conditions help run specific actions after passing t
 
    ![Search for CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-5. Populate the form for Execute stored procedure by selecting values from your database. Enter the partition key value and parameters as shown below.
+5. Select **Add new parameter**. Check the boxes next to **Partition key** and **Parameters for the stored procedure**, then select Enter.
 
    ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
 
-6. Save your logic app.
+When prompted for the **For each** section, select **Body**. That means the stored procedure will be executed for each document body retrieved.
+
+6. Now enter the partition key value and parameters as shown below. Be sure to put in the brackets and double-quotes as shown. You may have to click **Add dynamic content** to get the valid values you can use here.
+
+   ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
+
+7. Save your logic app.
 
 ### Copy the HTTP URL
 
