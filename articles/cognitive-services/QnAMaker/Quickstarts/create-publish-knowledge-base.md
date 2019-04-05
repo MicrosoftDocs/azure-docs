@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 04/05/2019
 ms.author: diberry
 ---
 

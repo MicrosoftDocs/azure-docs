@@ -1,6 +1,6 @@
 ---
-title: Confidence Score - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Confidence Score - QnA Maker 
+titleSuffix: Azure Cognitive Services
 description: The confidence score indicates the confidence that the answer is the right match for the given user query. 
 services: cognitive-services
 author: tulasim88
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ms.custom: seodec18
 ---
