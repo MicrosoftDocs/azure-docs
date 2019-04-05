@@ -103,7 +103,7 @@ still limited to the top five results.
 If you wish to remove the Resource Graph module from your Azure PowerShell environment, you can do
 so by using the following command:
 
-```powershell
+```azurepowershell-interactive
 # Remove the Resource Graph module from the Azure PowerShell environment
 Remove-Module -Name 'Az.ResourceGraph'
 ```

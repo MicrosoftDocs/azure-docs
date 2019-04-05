@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: tutorial
-ms.date: 03/28/2019
+ms.topic: article
+ms.date: 04/05/2019
 ms.author: tulasim
 ---
 
@@ -99,6 +99,12 @@ In the Azure portal, select **Test in Web Chat** to test the bot.
 ![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Your QnA Bot answers from your knowledge base.
+
+## Related to QnA Maker bots
+
+* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## Clean up resources
 

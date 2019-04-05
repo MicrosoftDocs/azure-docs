@@ -339,7 +339,7 @@ To delete the two connectors - Microsoft.SystemCenter.Advisor.DataConnector and 
 In the future if you plan on reconnecting your management group to a Log Analytics workspace, you need to re-import the `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb` management pack file. Depending on the version of System Center Operations Manager deployed in your environment, you can find this file in the following location:
 
 * On the source media under the `\ManagementPacks` folder for System Center 2016 - Operations Manager and higher.
-* From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## Next steps
 
