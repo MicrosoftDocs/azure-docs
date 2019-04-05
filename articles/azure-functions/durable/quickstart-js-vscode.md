@@ -106,7 +106,9 @@ We've now added all components needed to start off an orchestration and chain to
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
-1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. On a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage account. You create a storage account later in this article.
+1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. 
+
+    For Storage Emulator 5.8 make sure that the **AzureWebJobsSecretStorageType** property of local.settings.json is set to `files`. On     a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage         account. You create a storage account later in this article.
 
 2. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
 
