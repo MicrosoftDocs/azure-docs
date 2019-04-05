@@ -76,7 +76,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 <!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.
+- Improvements to the reliability of capacity expansion during an add node operation when switching the scale unit state from “Expanding storage” to “Running”.
 
 <!--
 1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
@@ -100,9 +100,6 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
     - Check the state of the XRP service fabric nodes and repair them as needed
     - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
-
-<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.    
 
 <!-- 
 1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
