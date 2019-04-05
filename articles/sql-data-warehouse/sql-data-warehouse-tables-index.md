@@ -195,7 +195,7 @@ A high volume of DML operations that update and delete rows can introduce ineffi
 - Inserting a row adds the row to an internal rowstore table called a delta row group. The inserted row is not converted to columnstore until the delta row group is full and is marked as closed. Row groups are closed once they reach the maximum capacity of 1,048,576 rows.
 - Updating a row in columnstore format is processed as a logical delete and then an insert. The inserted row may be stored in the delta store.
 
-Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition-aligned distribution go directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition-aligned distribution is less than 102,400 then the rows go to the delta store andstay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
+Batched update and insert operations that exceed the bulk threshold of 102,400 rows per partition-aligned distribution go directly to the columnstore format. However, assuming an even distribution, you would need to be modifying more than 6.144 million rows in a single operation for this to occur. If the number of rows for a given partition-aligned distribution is less than 102,400 then the rows go to the delta store and stay there until sufficient rows have been inserted or modified to close the row group or the index has been rebuilt.
 
 ### Small or trickle load operations
 
