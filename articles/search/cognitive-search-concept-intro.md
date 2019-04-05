@@ -95,6 +95,8 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
 
+We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 files per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises.
+
 **Step 3: Review the API (REST only)**
 
 Currently, only REST APIs are provided. Use `api-version=2017-11-11-Preview` on all requests. Use the following APIs to build a cognitive search solution. Only two APIs are added or extended for cognitive search. Other APIs have the same syntax as the generally available versions.

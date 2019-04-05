@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -65,7 +65,7 @@ If you aren't combining resources into a single group, or if existing resource g
 
 As an Azure service, Azure Search can be hosted in datacenters around the world. [Prices can differ](https://azure.microsoft.com/pricing/details/search/) by geography.
 
-If you are planning to use cognitive search, choose a [region with feature availability](cognitive-search-quickstart-blob.md#supported-regions).
+If you are indexing data or files located in an Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), create your Azure Search service in the same region as your data to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
 
 ## Select a pricing tier (SKU)
 
