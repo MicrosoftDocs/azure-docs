@@ -104,19 +104,13 @@ These attributes may be required or optional to make single sign-on work properl
 
 Azure AD uses a certificate to sign the SAML tokens that it sends to the application. 
 
-1. To see all the options, click **Show advanced certificate signing options**.
+1. To generate a new certificate, select the **Edit** icon in the upper-right corner of the **SAML Signing Certificate** section.
 
-    ![Configure certificates](media/configure-single-sign-on-portal/config-certificate.png)
+2. In the **SAML Signing Certificate** section, select **New Certificate**.
 
-2. To configure a certificate, click **Create new certificate**.
+3. In the new certifiate row that appears, set the **Expiration Date**. For more information about available configuration options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
 
-3. In the **Create New Certificate** blade, set **expiration date**, and click **Save**.
-
-4. Click **Make new certificate active**.
-
-5. To learn more, see [Advanced certificate signing options](certificate-signing-options.md).
-
-6. To keep the changes you have made so far, be sure to click **Save** at the top of the **Single sign-on** blade. 
+4. To keep the changes you have made, select **Save** at the top of the **SAML Signing Certificate** section. 
 
 ## Assign users to the application
 
@@ -125,12 +119,11 @@ Microsoft recommends testing the single sign-on with several users or groups bef
 To assign a user or group to the application:
 
 1. Open the application in the portal, if it isn't already open.
-2. In the left application blade, click **Users and groups**.
-3. Click **Add user**.
-4. In the **Add Assignment** blade, click **Users and groups**.
-5. To find a specific user, type the user name into the **Select** box, click the checkbox next to the user’s profile photo or logo, and click **Select**. 
-6. Find your current username and select it. You can optionally select more users.
-7. In the **Add Assignment** blade, click **Assign**. When completed, the selected users appear in the **Users and groups** list.
+2. In the left navigation panel for the application, select **Users and groups**.
+3. Select **Add user**.
+4. In the **Add Assignment** section, select **Users and groups**.
+5. To find a specific user, type the user name into the **Select member or invite an external user** box, select the user’s profile photo or logo, and choose **Select**. 
+6. In the **Add Assignment** section, select **Assign**. When completed, the selected users appear in the **Users and groups** list.
 
 ## Configure the application to use Azure AD
 
