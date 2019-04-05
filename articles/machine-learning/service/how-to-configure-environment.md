@@ -21,7 +21,7 @@ The only requirements for your development environment are Python 3, Anaconda (f
 
 This article focuses on the following environments and tools:
 
-* [Notebook workstation](#workstatioin): Your own cloud-based notebook server. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
+* Your own [cloud-based notebook server](#workstation): Use a compute resource in your worksatation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
 
 * [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
@@ -52,15 +52,15 @@ To install the SDK environment for your own [local computer](#local), [Jupyter N
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
 
-## <a id="workstation"></a>Notebook workstation
+## <a id="workstation"></a>Your own cloud-based notebook server
 
-Create a workstation in your Azure Machine Learning workspace for the easiest way to get started with Azure Machine Learning development.
+Create a notebook server in your Azure Machine Learning workspace for the easiest way to get started with Azure Machine Learning development.
 
 * The Azure Machine Learning SDK is already installed.
 * The workstation environment is automatically configured to work with your workspace.
 * The resource is available and can be managed in your workspace
 
-To get started developing with your notebook workstation, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+To get started developing with your cloud-based notebook server, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
