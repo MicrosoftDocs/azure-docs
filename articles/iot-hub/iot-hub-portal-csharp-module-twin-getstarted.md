@@ -3,7 +3,7 @@ title: Get started with Azure IoT Hub module identity and module twin (portal an
 description: Learn how to create module identity and update module twin using the portal and .NET.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
