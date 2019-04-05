@@ -2871,6 +2871,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
       "redirect_document_id": false
@@ -36793,8 +36798,28 @@
     },
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
-	  "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-prerequisites.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-release-notes.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-whats-new.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-what-is-data-catalog.md",
+	    "redirect_url": "/azure/data-catalog/overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/biztalk-services/biztalk-backup-restore.md",
