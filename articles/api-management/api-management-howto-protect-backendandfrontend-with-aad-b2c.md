@@ -4,7 +4,7 @@ description: Protect an API with OAuth 2.0 by using AAD B2C, API Management, and
 
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
-author: wieastbu
+author: WillEastbury
 manager: karldb
 editor: ''	
 
