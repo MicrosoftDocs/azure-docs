@@ -3,15 +3,11 @@
 - name: Overview
   items:
   - name: What is Data Catalog?
-    href: data-catalog-what-is-data-catalog.md
+    href: overview.md
 - name: Quickstart
   items:
   - name: Create an Azure Data Catalog
     href: data-catalog-get-started.md
-- name: Tutorials
-  items:
-  - name: Create a Power BI report
-    href: data-catalog-tutorial-power-bi.md
 - name: Concepts
   items:
   - name: Common scenarios
@@ -20,8 +16,6 @@
     href: data-catalog-dsr.md
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
-  - name: Procedure table
-    href: data-catalog-procedure-table.md
   - name: Prerequisites
     href: data-catalog-prerequisites.md
   - name: FAQ
@@ -76,8 +70,6 @@
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Release notes
-    href: ../active-directory/fundamentals/whats-new.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow

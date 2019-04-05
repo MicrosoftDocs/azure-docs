@@ -1,19 +1,18 @@
 ---
 title: Create an Azure Data Catalog
 description: A quickstart on how to create an Azure Data Catalog.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-manager: kfile
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 04/05/2019
+
 #Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---
 
 # Quickstart: Create an Azure Data Catalog
 
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](data-catalog-what-is-data-catalog.md).
+Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
 
 This quickstart helps you get started with creating an Azure Data Catalog.
 
@@ -100,7 +99,7 @@ You can provision only one data catalog per organization (Azure Active Directory
 
 ## Next Steps
 
-In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now try to build reports with the data in your data catalog.
+In this quickstart, you've learned how to create an Azure Data Catalog for your organization. You can now register data sources in your data catalog.
 
 > [!div class="nextstepaction"]
-> [Create a Power BI report from data in an Azure Data Catalog](data-catalog-tutorial-power-bi.md)
+> [Register data sources in Azure Data Catalog](data-catalog-how-to-register.md)
