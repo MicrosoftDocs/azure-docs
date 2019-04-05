@@ -60,11 +60,14 @@ TransformOutput[] output = new TransformOutput[]
       Preset = new BuiltInStandardEncoderPreset()
       {
          // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset. ContentAwareEncodingExperimental
+         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
       }
    }
 };
 ```
+
+> [!NOTE]
+> The prefix "experimental" is used here to signal that the underlying algorithms are still evolving. There can and will be changes over time to the logic used for generating bitrate ladders, with the goal of converging on an algorithm that is robust, and adapts to a wide variety of input conditions. Encoding jobs using this preset will still be billed based on output minutes, and the output asset can be delivered from our streaming endpoints in protocols such as DASH and HLS.
 
 ## Next steps
 
