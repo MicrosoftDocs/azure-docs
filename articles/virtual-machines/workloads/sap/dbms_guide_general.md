@@ -53,13 +53,13 @@ The paper complements the SAP installation documentation and SAP Notes, which re
 In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead, the specific DBMS systems are handled within this paper, after this document.
 
 ## Definitions upfront
-Throughout the document, the following terms are used:
+Throughout the document, these terms are used:
 
 * **IaaS**: Infrastructure as a service.
 * **PaaS**: Platform as a service.
 * **SaaS**: Software as a service.
 * **SAP component**: An individual SAP application such as ERP Central Component (ECC), Business Warehouse (BW), Solution Manager, or Enterprise Portal (EP). SAP components can be based on traditional ABAP or Java technologies or on a non-NetWeaver-based application such as Business Objects.
-* **SAP environment**: One or more SAP components logically grouped to perform a business function such as development, quality assurance, training, DR, or production.
+* **SAP environment**: One or more SAP components logically grouped to perform a business function such as development, quality assurance, training, disaster recovery, or production.
 * **SAP landscape**: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and nonproduction environments.
 * **SAP system**: The combination of a DBMS layer and an application layer of, for example, an SAP ERP development system, an SAP Business Warehouse test system, or an SAP CRM production system. In Azure deployments, dividing these two layers between on-premises and Azure isn't supported. As a result, an SAP system is either deployed on-premises or it's deployed in Azure. You can deploy the different systems of an SAP landscape in Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but deploy the SAP CRM production system on-premises.
 * **Cross-premises**: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multisite, or Azure ExpressRoute connectivity between the on-premises data centers and Azure. In common Azure documentation, these kinds of deployments are also described as cross-premises scenarios. 
@@ -78,28 +78,28 @@ Some Microsoft documentation describes cross-premises scenarios a bit differentl
 ## Resources
 There are other articles available on SAP workload on Azure. Start with [SAP workload on Azure: Get started](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) and then choose your area of interest.
 
-The following SAP Notes are related to SAP on Azure in regard to the area covered in this document:
+The following SAP Notes are related to SAP on Azure in regard to the area covered in this document.
 
 | Note number | Title |
 | --- | --- |
-| [1928533] |SAP Applications on Azure: Supported Products and Azure VM Types |
-| [2015553] |SAP on Microsoft Azure: Support Prerequisites |
-| [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP |
-| [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
-| [1409604] |Virtualization on Windows: Enhanced Monitoring |
-| [2191498] |SAP on Linux with Azure: Enhanced Monitoring |
-| [2039619] |SAP Applications on Microsoft Azure Using the Oracle Database: Supported Products and Versions |
-| [2233094] |DB6: SAP Applications on Azure Using IBM DB2 for Linux, UNIX, and Windows - Additional Information |
-| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP License Issues |
-| [1984787] |SUSE LINUX Enterprise Server 12: Installation Notes |
-| [2002167] |Red Hat Enterprise Linux 7.x: Installation and Upgrade |
-| [2069760] |Oracle Linux 7.x SAP Installation and Upgrade |
-| [1597355] |Swap-space Recommendation for Linux |
-| [2171857] |Oracle Database 12c: File System Support on Linux |
-| [1114181] |Oracle Database 11g: File System Support on Linux |
+| [1928533] |SAP applications on Azure: Supported products and Azure VM types |
+| [2015553] |SAP on Microsoft Azure: Support prerequisites |
+| [1999351] |Troubleshooting enhanced Azure monitoring for SAP |
+| [2178632] |Key monitoring metrics for SAP on Microsoft Azure |
+| [1409604] |Virtualization on Windows: Enhanced monitoring |
+| [2191498] |SAP on Linux with Azure: Enhanced monitoring |
+| [2039619] |SAP applications on Microsoft Azure using the Oracle database: Supported products and versions |
+| [2233094] |DB6: SAP applications on Azure using IBM DB2 for Linux, UNIX, and Windows: Additional information |
+| [2243692] |Linux on Microsoft Azure (IaaS) VM: SAP license issues |
+| [1984787] |SUSE LINUX Enterprise Server 12: Installation notes |
+| [2002167] |Red Hat Enterprise Linux 7.x: Installation and upgrade |
+| [2069760] |Oracle Linux 7.x SAP installation and upgrade |
+| [1597355] |Swap-space recommendation for Linux |
+| [2171857] |Oracle Database 12c: File system support on Linux |
+| [1114181] |Oracle Database 11g: File system support on Linux |
 
 
-For information on all the SAP Notes for Linux, see [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
+For information on all the SAP Notes for Linux, see the [SAP community wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes).
 
 You need a working knowledge of Microsoft Azure architecture and how Microsoft Azure virtual machines are deployed and operated. For more information, see [Azure documentation](https://docs.microsoft.com/azure/).
 
@@ -118,7 +118,7 @@ In a basic configuration, we usually recommend a deployment structure where the 
 
 The DBMS data and log files are stored in standard storage or premium storage. They're stored in separate disks and attached as logical disks to the original Azure operating system image VM. For Linux deployments, different recommendations are documented, especially for SAP HANA.
 
-When you plan your disk layout, find the best balance between the following items:
+When you plan your disk layout, find the best balance between these items:
 
 * The number of data files.
 * The number of disks that contain the files.
@@ -164,7 +164,7 @@ As already stated, if your IOPS requirement exceeds what a single VHD can provid
 - - -
 
 > [!NOTE]
-> Because Azure Storage keeps three images of the VHDs, it doesn't make sense to configure a redundancy when you stripe. You only need to configure striping so that the I/Os are getting distributed over the different VHDs.
+> Because Azure Storage keeps three images of the VHDs, it doesn't make sense to configure a redundancy when you stripe. You only need to configure striping so that the I/Os are distributed over the different VHDs.
 >
 
 ### Managed or nonmanaged disks
@@ -292,16 +292,16 @@ These best practices are the result of hundreds of customer deployments:
 
 > Other scenarios where network virtual appliances aren't supported are in:
 >
-> * Communication paths between Azure VMs that represent Linux Pacemaker cluster nodes and SBD devices as described in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).
-> * Communication paths between Azure VMs and Windows Server SOFS set up as described in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). 
+> * Communication paths between Azure VMs that represent Linux Pacemaker cluster nodes and SBD devices as described in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).
+> * Communication paths between Azure VMs and Windows Server Scale-Out File Server (SOFS) set up as described in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). 
 
-> Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some customer scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail in cases where communications between the Linux Pacemaker cluster nodes communicate to their SBD device through a network virtual appliance.
+> Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some customer scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail. These are cases where communications between the Linux Pacemaker cluster nodes communicate to their SBD device through a network virtual appliance.
 >
 
 > [!IMPORTANT]
-> Another design that's *not* supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of using different Azure virtual networks. 
+> Another design that's *not* supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of by using different Azure virtual networks. 
 
-> If you decide not to follow the recommendation and instead segregate the two layers into different virtual networks, the two virtual networks need to be [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
+> If you decide not to follow the recommendation and instead segregate the two layers into different virtual networks, the two virtual networks must be [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
 
 > Be aware that network traffic between two [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks.
 
