@@ -1,7 +1,7 @@
 ---
-title: Manage and monitor runs
+title: Manage and monitor runs with the Azure Machine Learning SDK for Python
 titleSuffix: Azure Machine Learning service
-description: Learn how to manage and monitor training runs
+description: This article provides examples for how to start, status, tag and organize training runs. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 3/25/2019
+ms.date: 4/5/2019
 
 ---
 
-# Manage and monitor runs with Azure Machine Learning
+# Manage and monitor runs with the Azure Machine Learning SDK for Python
 
-The Azure Machine Learning service provides various methods to monitor, organize, and manage your runs for training and experimentation.
+The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) provides various methods to monitor, organize, and manage your runs for training and experimentation.
 
 This how-to shows examples of the following tasks:
 
@@ -33,7 +33,7 @@ You'll need the following:
 
 * An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-* The [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) installed (version 1.0.21 or later). To install or update to the latest version of the SDK, go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page. 
+* The Azure Machine Learning SDK for Python installed (version 1.0.21 or later). To install or update to the latest version of the SDK, go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page. 
 
     To check your version of the Azure Machine Learning SDK use the following code.
 
@@ -43,19 +43,15 @@ You'll need the following:
 
 <a name="monitor"></a>
 
-## Start, status, and complete a run 
+## Start and status a run
 
-Before you start a run, import the necessary packages
+Initiate a run with [`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-).
 
 ```Python
 import azureml.core
 from azureml.core import Workspace, Experiment, Run
 from azureml.core import ScriptRunConfig
-```
 
-Initiate a run  with `start_logging()`.
-
-```Python
 ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 notebook_run = exp.start_logging()
@@ -96,7 +92,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## Create child runs
 
-You can use child runs to group together related runs, for example for different hyperparameter tuning iterations.
+Create child runs to group together related runs, like for different hyperparameter tuning iterations with [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-).
 
 This code example uses the `hello_with_children.py` script to create a batch of 5 child runs from within a submitted run.
 
@@ -114,12 +110,12 @@ with exp.start_logging() as parent_run:
             child.log(name="Hello from child run", value=c)
 ```
 
-> [!NOTE] 
-> Child runs complete automatically as they move out of scope
+> [!NOTE]
+> Child runs complete automatically as they move out of scope.
 
-You can also start child runs one by one, but because each creation results in a network call it's less efficient than submitting a batch of runs.
+You can also start child runs one by one, but because each creation results in a network call, it's less efficient than submitting a batch of runs.
 
- Use the `get_children()` method to query the child runs of a specific parent,.
+Use the `get_children()` method to query the child runs of a specific parent.
 
 ```Python
 list(parent_run.get_children())
@@ -127,9 +123,9 @@ list(parent_run.get_children())
 
 <a name="cancel"></a>
 
-## Cancel and Fail runs
+## Cancel and fail runs
 
-You can use the `cancel()` method to stop a run during execution. For example, if there is an iteration of the run that isn't converging.
+ If your run doesn't seem to be converging, use the `cancel()` method to stop the run during execution.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -141,7 +137,7 @@ local_script_run.cancel()
 print("Did the run cancel?",local_script_run.get_status())
 ```
 
-With the `fail()` method, you can mark a run as failed. This is useful in scenarios where the run finishes, but contains an error such as, the incorrect training script was used.
+If your run finishes, but contains an error like, the incorrect training script was used, you can use the `fail()` method to mark it as failed.
 
 ```Python
 local_script_run = exp.submit(run_config)
@@ -158,14 +154,14 @@ In Azure Machine Learning service, you can use properties and tags to help organ
 
 ### Add properties and tags
 
-For example, the following code adds the "author" property to the run:
+The `add_properties()` method allows you to add searchable metadata to your runs. For example, the following code adds the "author" property to the run.
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
 print(local_script_run.get_properties())
 ```
 
-Properties are immutable, which is useful as a permanent record for auditing purposes. The following code will result in an error, since we already assigned "azureml-user" as the "author" property in the preceding code.
+Properties are immutable, which is useful as a permanent record for auditing purposes. The following code example will result in an error, since we already added "azureml-user" as the "author" property in the preceding code.
 
 ```Python
 try:
@@ -174,7 +170,7 @@ except Exception as e:
     print(e)
 ```
 
-Whereas tags are changeable:
+Tags, however are changeable. Use `tag()` to add searchable and meaningful information for consumers of your experiment.
 
 ```Python
 local_script_run.tag("quality", "great run")
@@ -184,7 +180,7 @@ local_script_run.tag("quality", "fantastic run")
 print(local_script_run.get_tags())
 ```
 
-You can also add a simple string tag. It appears in the tag dictionary with value of `None`
+You can also add a simple string tag. It appears in the tag dictionary with value of `None`.
 
 ```Python
 local_script_run.tag("worth another look")
@@ -201,6 +197,8 @@ list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"
 
 ## Next steps
 
-* To learn more about logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb)
+* To learn how to log metrics for your experiments see the [Log metrics during training runs](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiment) article
 
-* For additional information about managing runs, see the [manage runs notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs)
+* To learn more about logging APIs, see the [logging API notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api/logging-api.ipynb).
+
+* For additional information about managing runs with the Azure Machine Learning SDK, see the [manage runs notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/manage-runs).
