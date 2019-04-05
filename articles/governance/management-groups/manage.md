@@ -3,7 +3,7 @@ title: How to change, delete, or manage your management groups - Azure Governanc
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
 ---
@@ -29,6 +29,8 @@ You can change the name of the management group by using the portal, PowerShell,
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to rename.
+
+1. Select **details**.
 
 1. Select the **Rename group** option at the top of the page.
 
@@ -76,6 +78,8 @@ To delete a management group, the following requirements must be met:
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to delete.
+
+1. Select **details**.
 
 1. Select **Delete**
 
