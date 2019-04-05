@@ -39,7 +39,7 @@ The `azure.replication_support` parameter must be set to **REPLICA** on the mast
 
 ## Create a read replica
 
-The `az mysql server replica create` command requires the following parameters:
+The [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) command requires the following parameters:
 
 | Setting | Example value | Description  |
 | --- | --- | --- |
@@ -59,14 +59,14 @@ A replica is created by using the same server configuration as the master. After
 > Before a master server configuration is updated to new values, update the replica configuration to equal or greater values. This action ensures the replica can keep up with any changes made to the master.
 
 ## List replicas
-You can view the list of replicas of a master server.
+You can view the list of replicas of a master server by using [az postgres server replica list](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-list) command.
 
 ```azurecli-interactive
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## Stop replication to a replica server
-You can stop replication between a master server and a read replica.
+You can stop replication between a master server and a read replica by using [az postgres server replica stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) command.
 
 After you stop replication to a master server and a read replica, it can't be undone. The read replica becomes a standalone server that supports both reads and writes. The standalone server can't be made into a replica again.
 
@@ -75,7 +75,7 @@ az postgres server replica stop --name mydemoserver-replica --resource-group myr
 ```
 
 ## Delete a master or replica server
-To delete a master or replica server, you use the same command as to delete a standalone Azure Database for PostgreSQL server. 
+To delete a master or replica server, you use the [az postgres server delete](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-delete) command.
 
 When you delete a master server, replication to all read replicas is stopped. The read replicas become standalone servers that now support both reads and writes.
 
