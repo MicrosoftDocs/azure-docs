@@ -33,7 +33,7 @@ Split large compressed files into smaller compressed files.
 
 For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your data warehouse before the load.
 
-To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, log in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
+To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 ### Example of creating a loading user
 
@@ -53,7 +53,7 @@ Connect to the data warehouse and create a user. The following code assumes you 
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
 
-To run a load with resources for the staticRC20 resource classes, simply log in as LoaderRC20 and run the load.
+To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
 
 Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
