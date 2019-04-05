@@ -52,7 +52,7 @@ When the run finishes, you can view the experiment run in the Azure portal. To p
 print(run.get_portal_url())
 ```
 
-Use the link to view the logged values in the Azure portal in your browser.
+This code returns a link you can use to view the logged values in the Azure portal in your browser.
 
 ![Logged values in the Azure portal](./media/quickstart-run-local-notebook/logged-values.png)
 
