@@ -1,30 +1,31 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Vodeclic | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Vodeclic.
+title: 'Tutorial: Azure Active Directory integration with EduBrite LMS | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and EduBrite LMS.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: d77a0f53-e3a3-445e-ab3e-119cef6e2e1d
+ms.assetid: f071670e-a1bd-45d6-bd71-b3ea6eb92bf9
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 04/03/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Vodeclic
+# Tutorial: Azure Active Directory integration with EduBrite LMS
 
-In this tutorial, you learn how to integrate Vodeclic with Azure Active Directory (Azure AD).
-Integrating Vodeclic with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate EduBrite LMS with Azure Active Directory (Azure AD).
+Integrating EduBrite LMS with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Vodeclic.
-* You can enable your users to be automatically signed-in to Vodeclic (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to EduBrite LMS.
+* You can enable your users to be automatically signed-in to EduBrite LMS (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -32,22 +33,24 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Vodeclic, you need the following items:
+To configure Azure AD integration with EduBrite LMS, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Vodeclic single sign-on enabled subscription
+* EduBrite LMS single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Vodeclic supports **SP** and **IDP** initiated SSO
+* EduBrite LMS supports **SP and IDP** initiated SSO
 
-## Adding Vodeclic from the gallery
+* EduBrite LMS supports **Just In Time** user provisioning
 
-To configure the integration of Vodeclic into Azure AD, you need to add Vodeclic from the gallery to your list of managed SaaS apps.
+## Adding EduBrite LMS from the gallery
 
-**To add Vodeclic from the gallery, perform the following steps:**
+To configure the integration of EduBrite LMS into Azure AD, you need to add EduBrite LMS from the gallery to your list of managed SaaS apps.
+
+**To add EduBrite LMS from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -61,31 +64,31 @@ To configure the integration of Vodeclic into Azure AD, you need to add Vodeclic
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Vodeclic**, select **Vodeclic** from result panel then click **Add** button to add the application.
+4. In the search box, type **EduBrite LMS**, select **EduBrite LMS** from result panel then click **Add** button to add the application.
 
-	 ![Vodeclic in the results list](common/search-new-app.png)
+	![EduBrite LMS in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Vodeclic based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Vodeclic needs to be established.
+In this section, you configure and test Azure AD single sign-on with EduBrite LMS based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in EduBrite LMS needs to be established.
 
-To configure and test Azure AD single sign-on with Vodeclic, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with EduBrite LMS, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Vodeclic Single Sign-On](#configure-vodeclic-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure EduBrite LMS Single Sign-On](#configure-edubrite-lms-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Vodeclic test user](#create-vodeclic-test-user)** - to have a counterpart of Britta Simon in Vodeclic that is linked to the Azure AD representation of user.
+5. **[Create EduBrite LMS test user](#create-edubrite-lms-test-user)** - to have a counterpart of Britta Simon in EduBrite LMS that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Vodeclic, perform the following steps:
+To configure Azure AD single sign-on with EduBrite LMS, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Vodeclic** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **EduBrite LMS** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -99,29 +102,29 @@ To configure Azure AD single sign-on with Vodeclic, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Vodeclic Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![EduBrite LMS Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<companyname>.lms.vodeclic.net/auth/saml`
+    `https://<customer-specific>.edubrite.com`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<companyname>.lms.vodeclic.net/auth/saml/callback`
+    `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Vodeclic Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![EduBrite LMS Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<companyname>.lms.vodeclic.net/auth/saml`
+    `https://<customer-specific>.edubrite.com/oltpublish/site/samlLoginResponse.do`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Vodeclic Client support team](mailto:hotline@vodeclic.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [EduBrite LMS Client support team](mailto:support@edubrite.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![The Certificate download link](common/metadataxml.png)
+	![The Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up Vodeclic** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up EduBrite LMS** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -131,9 +134,9 @@ To configure Azure AD single sign-on with Vodeclic, perform the following steps:
 
 	c. Logout URL
 
-### Configure Vodeclic Single Sign-On
+### Configure EduBrite LMS Single Sign-On
 
-To configure single sign-on on **Vodeclic** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Vodeclic support team](mailto:hotline@vodeclic.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **EduBrite LMS** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [EduBrite LMS support team](mailto:support@edubrite.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -153,7 +156,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -161,15 +164,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Vodeclic.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to EduBrite LMS.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Vodeclic**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **EduBrite LMS**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Vodeclic**.
+2. In the applications list, select **EduBrite LMS**.
 
-	![The Vodeclic link in the Applications list](common/all-applications.png)
+	![The EduBrite LMS link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -185,18 +188,15 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Vodeclic test user
+### Create EduBrite LMS test user
 
-In this section, you create a user called Britta Simon in Vodeclic. Work with [Vodeclic support team](mailto:hotline@vodeclic.com) to add the users in the Vodeclic platform. Users must be created and activated before you use single sign-on.
-
-> [!NOTE]
-> According to application requirements, you might need to get your machine whitelisted. For that to happen, you need to share your public IP address with the [Vodeclic support team](mailto:hotline@vodeclic.com).
+In this section, a user called Britta Simon is created in EduBrite LMS. EduBrite LMS supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in EduBrite LMS, a new one is created after authentication.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Vodeclic tile in the Access Panel, you should be automatically signed in to the Vodeclic for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the EduBrite LMS tile in the Access Panel, you should be automatically signed in to the EduBrite LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
