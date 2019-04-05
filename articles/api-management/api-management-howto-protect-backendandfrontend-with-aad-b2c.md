@@ -55,7 +55,7 @@ Here is a quick overview of the steps:
 14. Configure the Function API to serve as a useful reminder countdown
 15. Test the Client Application
 
-# Create the AAD Calling (Frontend, API Management) and Backend API Applications with scopes and grant API Access
+## Create the AAD B2C configuration
 
 1. Select the **Applications** tab 
 2. Click the 'Add' button and create three applications
@@ -79,7 +79,7 @@ Here is a quick overview of the steps:
 11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope (that you just created) and the default one that was already there ("login as user") 
 12. Generate them a key each (select the *Keys* tab (under General) to generate an auth key) and record those keys somewhere safe too.
 
-# Create a "Signup or signin" policy to allow users to sign in with AAD B2C
+## Create a "Signup or signin" policy to allow users to sign in with AAD B2C
 1. Return to the root of the AAD B2C Blade 
 2. Then select “Sign-up or Sign-in Policies” and click ‘add’
 3. Give the policy a name (and record it for later) and select 'Identity providers', then check User ID sign up and click OK. 
@@ -94,7 +94,8 @@ Here is a quick overview of the steps:
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
 > If you want to you can click 'run now' here to go through the sign up and sign in process and get a feel for what it will do in practice, but the redirection step at the end will fail as we haven't yet configured this.
 
-# [Optional] Configure API Management with the new AAD B2C Client IDs and keys to Enable OAuth 2.0 user authorization in the Developer Console
+## [Optional] Configure Oauth2 for the API Management Developer Console
+
 1. Switch back to your standard AAD tenant in the Azure portal and open the *API management blade*, then open *your instance*.
 2. Note down the *Virtual IP (VIP) address* of the instance, and optionally the *developer portal URL* and record them for later.
 3. Next, Select the Oauth 2.0  blade from the Security Tab, and click 'Add'
@@ -110,7 +111,7 @@ Function API client ID from the AAD B2C App registration
 > [!NOTE]
 > Now we have an API Management instance that knows how to get access tokens from AAD B2C to authorize requests through the developer portal for testing.
 
-# Build the Function API 
+## Build the Function API 
 1. Go to the Function Apps blade of the Azure portal, open the function app and create a new http triggered C# function,
 2. Set it’s name to HttpTriggerC# and it’s auth level to Anonymous (we'll secure this function, but not by using a function key or admin key).
 3. Paste the sample code from below into Run.csx over the existing code that appears.
@@ -145,7 +146,7 @@ Function API client ID from the AAD B2C App registration
 > Now we have a very simplistic backend serverless http API, that is capable of validating tokens and returning a simple payload.
 > Basically all this function does is checks a few claims on the provided access token and returns some static data for the website to render.
 
-# Configure the Function API to enable EasyAuth with the new AAD B2C Client ID’s and Keys and lock down to API Management VIP 
+## Configure and secure the Function API to enable EasyAuth and IP restrictions 
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
 2. Firstly Let's configure Authentication / Authorization, so click on the name of the function app (next to the <Z> icon to show the overview page.
 3. Next Select the 'Platform features' tab and select 'Authentication / Authorization'.
@@ -166,7 +167,7 @@ Function API client ID from the AAD B2C App registration
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
 
-# Import the Function App as an API Definition in API Management
+## Import the Function App Definition into API Management
 1. Open the API Management portal blade and select your API Management instance.
 2. Select the APIs Blade from the API Management section of your instance.
 3. From the 'Add a New API' pane, choose 'Function App', then select 'Full' from the top of the popup.
@@ -233,14 +234,15 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 > forwarding the request on to the Function API.
 
 > The following section does not apply to the **Consumption** tier, which does not support the developer portal.
-# Test the API from the API Management Developer Portal
+
+## Test the API from the API Management Developer Portal
 1. From the overview blade of the API Management section of the Azure portal, click 'Developer Portal'
 2. 
 be automatically signed into the developer portal as an administrator of the API, where you and other selected consumers of your API can test and call them without needing to build client software.
 3. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
 4. Unhide the API subscription key, and copy it somewhere safe along with the request url, you'll need it later when we configure the application, 
 5. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
-6. Click ‘Send’ and if all is well, your Function App should respond back with some Data from AAD B2C claims via API management with a 200 OK message and some JSON.
+6. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
 
 > [!NOTE]
 > Congratulations, you now have AAD B2C, API Management and Azure Functions working together to publish, secure AND consume an API. 
@@ -249,7 +251,7 @@ be automatically signed into the developer portal as an administrator of the API
 > The actual Authorization and Authentication is handled by AAD B2C, and is encapsulated in the JWT, which gets validated twice, once by API Management, and then by App Service.
 > If you have a secure channel for credentials (A JS SPA is *not* considered a secure channel) then in some circumstances just using the API Key to secure server to server communications may be enough, depending on your security requirements.
 
-# Build the calling JavaScript Single Page Application to consume the API
+## Build the calling JavaScript Single Page Application to consume the API
 1. Open the storage accounts blade in the Azure portal
 2. Create a new General Purpose V2 Storage Account
 3. Select the account you created and select the 'Static Website' blade from the Settings section 
@@ -259,7 +261,7 @@ be automatically signed into the developer portal as an administrator of the API
 > [!NOTE]
 > You could use either Azure Blob Storage + CDN rewrite, or Azure App Service - but Blob Storage's Static Website hosting feature gives us a default container to serve static web content / html / js / css from Azure Storage and will infer a default page for us for zero work.
 
-# Upload the JS SPA Sample
+## Upload the JS SPA Sample
 1. Still in the storage account blade, select the 'Blobs' blade from the Blob Service section and click on the $web container that appears in the right-hand pane.
 2. Save the code below to a file as index.html and then upload index.html to the $web container.
 
@@ -277,7 +279,7 @@ be automatically signed into the developer portal as an administrator of the API
 > Congratulations, you just deployed a JavaScript Single Page App to Azure Storage
 > Since we haven’t configured the JS app with your keys for the api or configured the JS app with your AAD B2C details yet – the page will look a little strange when you open it, nothing will be populated yet!
 
-# Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
+## Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct AAD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
 3. Scroll down to line 52 and update the details to match your FRONT END application that you registered in AAD B2C, noting that the 'b2cScopes' values are for the associated backend application that is being called (the API).
@@ -293,7 +295,7 @@ clientID: 'the registered application ID of the CLIENT OR FRONTEND Application i
         };
 ```
 
-# Configure the redirect URIs for the Application Registrations in B2C
+## Configure the redirect URIs for the Application Registrations in B2C
 1. Open the AAD B2C blade and navigate to the application registration for the JavaScript Frontend Application
 2. Set the redirect URL to the one you noted down when you previously set up the static website primary endpoint above
 
@@ -304,7 +306,7 @@ clientID: 'the registered application ID of the CLIENT OR FRONTEND Application i
 > The SPA will render the response in the browser.
 > *Congratulations, you’ve configured Azure Active Directory B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony, only one thing remains.*
 
-# Configure the Function API to serve as a useful reminder countdown
+## Configure the Function API to serve as a useful reminder countdown
 1. Go back to the Function Apps blade in the Azure portal.
 2. Open the Function App by selecting it from the list.
 3. Open the source code for the function HttpTriggerC# in the editor by clicking on the name of the function.
@@ -315,14 +317,15 @@ string json = "Hello API Management";
 > [!NOTE]
 > Now we have a simple app with an API that has a purpose, let's test it.
 
-# Test the Client Application
+## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
 2. Click “Login” in the top-right-hand corner, this will pop-up your B2C sign in / up profile.
 3. Once complete the ‘logged in as’ section of the screen will be populated.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
 
-## And we're done, the steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
+## And we're done 
+The steps above can be adapted and edited to allow many different uses of Azure AD B2C with API Management.
 
 ## Next steps
 * Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
