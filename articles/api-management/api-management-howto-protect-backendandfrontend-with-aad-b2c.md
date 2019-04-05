@@ -1,9 +1,9 @@
 ---
-title: Protect an API and flow custom claims by using OAuth 2.0 with Azure Active Directory and API Management | Microsoft Docs
-description: Protect an API with OAuth 2.0 by using AAD B2C, API Management and Easy Auth in order to call it from a JS SPA
+title: Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth. | Microsoft Docs
+description: Protect an API with OAuth 2.0 by using AAD B2C, API Management and Easy Auth in order to be able to call it from a JS SPA
 
 .
-services: api-management
+services: api-management, aad-b2c, app-service
 documentationcenter: ''
 author: wieastbu
 manager: karldb
@@ -18,7 +18,7 @@ ms.date: 04/05/2019
 ms.author: wieastbu
 ---
 
-# Protect an API with OAuth 2.0 by using AAD B2C, API Management and Easy Auth in order to call it from a JS SPA
+# Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth.
 
 This scenario shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C and Azure API management to be used calling and securing a backend Azure Function. 
 
@@ -36,7 +36,6 @@ To follow the steps in this article, you must have:
 * An Azure AD B2C tenant, linked to a subscription 
 
 ## Overview
-
 Here is a quick overview of the steps:
 
 1. Create the AAD Calling (Frontend, API Management) and API Applications with scopes and grant API Access
@@ -56,7 +55,6 @@ Here is a quick overview of the steps:
 15. Test the Client Application
 
 ## Create the AAD B2C configuration
-
 1. Select the **Applications** tab 
 2. Click the 'Add' button and create three applications
 * The Frontend Client, 
@@ -89,10 +87,10 @@ Here is a quick overview of the steps:
 7. Click on the link at the top for the well-known openid configuration endpoint and record the authorization_endpoint and token_endpoint values from the opened document.
 
 > [!NOTE]
-> B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and log in users in different ways
-> In this case we configured a sign up and sign in endpoint, which exposed a well-known condfiguration endpoint, specifically our created policy was identified in the URL by the p= parameter
+> B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and log in users in different ways. 
+> In this case we configured a sign up and sign in endpoint, which exposed a well-known condfiguration endpoint, specifically our created policy was identified in the URL by the p= parameter.
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
-> If you want to you can click 'run now' here to go through the sign up and sign in process and get a feel for what it will do in practice, but the redirection step at the end will fail as we haven't yet configured this.
+> If you want to you can click 'run now' here (to go through the sign up and sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
 ## [Optional] Configure Oauth2 for the API Management Developer Console
 
@@ -116,35 +114,55 @@ Function API client ID from the AAD B2C App registration
 2. Set it’s name to HttpTriggerC# and it’s auth level to Anonymous (we'll secure this function, but not by using a function key or admin key).
 3. Paste the sample code from below into Run.csx over the existing code that appears.
 
-```
+```c#
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
 
 
-```
+public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
 
-> [!NOTE]
-> The function code you just pasted simply decodes the JWT token validated by both API Management and App Service Authentication / Authorization, extracts our custom attribute from the extension claim and generates a response back to the JS SPA.
-
-4. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’.
-5. Paste the sample code over the existing json that appears to remove the post method and add the custom route to make the API respond on the address {http://fnappname.azurewebsites.net/api/celebration}, then click save.
-
-> [!NOTE]
-> The bindings you just created simply tell Functions to respond on http GET requests to the URI https://<functionappname>.azurewebsites.net/api/celebration 
-
-6. Reselect the HttpTriggerCSharp1 item from the list on the left-hand side, then select the ‘View Files’ tab on the right-hand side.
-7. Click ‘Add’ and name the file project.json, an empty file will be created.
-8. Post the below code into that file and click save.
-
-```
-
+    return (ActionResult)new OkObjectResult($"Hello World");
+}
 
 ```
 
 > [!NOTE]
-> The project.json file you just pasted tells Functions that your project has a dependency on the nuget package "System.IdentityModel.Tokens.Jwt" of version 5.0 or above, and that it should perform a nuget package restore.
+> The c# script function code you just pasted simply logs a line to the console, and returns the text "Hello World".
+
+4. Select “Integrate” from the left-hand blade, then select ‘Advanced Editor’ in the top-right-hand corner of the pane.
+5. Paste the sample code below over the existing json.
+
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get"
+      ],
+      "route": "hello"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    }
+  ]
+}
+```
 
 > [!NOTE]
-> Now we have a very simplistic backend serverless http API, that is capable of validating tokens and returning a simple payload.
-> Basically all this function does is checks a few claims on the provided access token and returns some static data for the website to render.
+> The bindings you just created simply tell Functions to respond on anonymous http GET requests to the URI https://functionappname.azurewebsites.net/api/celebration 
+>
+> Now we have a scalable serverless https API, that is capable of returning a very simple payload.
 
 ## Configure and secure the Function API to enable EasyAuth and IP restrictions 
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
@@ -263,15 +281,18 @@ be automatically signed into the developer portal as an administrator of the API
 
 ## Upload the JS SPA Sample
 1. Still in the storage account blade, select the 'Blobs' blade from the Blob Service section and click on the $web container that appears in the right-hand pane.
-2. Save the code below to a file as index.html and then upload index.html to the $web container.
+2. Save the code below to a file locally on your machine as index.html and then upload the file index.html to the $web container.
 
--- Insert Code Here --
-
-
+```html
 
 
 
 
+
+
+
+
+```
 
 3. Browse to the Static Website Primary Endpoint you stored earlier in the last section.
 
