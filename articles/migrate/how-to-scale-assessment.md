@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
 ---
 
@@ -12,7 +12,10 @@ ms.author: raynew
 
 # Discover and assess a large VMware environment
 
-Azure Migrate has a limit of 1500 machines per project, this article describes how to assess large numbers of on-premises virtual machines (VMs) by using [Azure Migrate](migrate-overview.md).   
+Azure Migrate has a limit of 1500 machines per project, this article describes how to assess large numbers of on-premises virtual machines (VMs) by using [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> We have a preview release available that allows discovery of up to 10,000 VMware VMs in a single project using a single appliance, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
 
 ## Prerequisites
 
