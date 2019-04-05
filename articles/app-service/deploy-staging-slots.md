@@ -80,7 +80,12 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Monitoring and diagnostic settings
 * Public certificates
 * WebJobs content
-* Hybrid connections
+* Hybrid connections *
+* VNet integration *
+* Service Endpoints *
+* Azure CDN *
+
+Features marked with a * are planned to be made sticky to the slot. 
 
 **Settings that aren't swapped**:
 
