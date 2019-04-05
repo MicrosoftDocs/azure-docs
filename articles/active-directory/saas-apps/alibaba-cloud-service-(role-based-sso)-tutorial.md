@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with Alibaba Cloud Service (Role-based SSO)
 	| Name | Source Attribute|
 	| ---------------| --------------- |
 	| Role | user.assignedroles |
-	| Emailaddress | user.mail |
+	| RoleSessionName | user.mail |
 
 	> [!NOTE]
 	> Please click [here](../../role-based-access-control/role-assignments-portal.md) to know how to configure **Role** in Azure AD
