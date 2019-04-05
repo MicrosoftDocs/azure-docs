@@ -124,7 +124,7 @@ This table shows the straight-line distance between two locations, however, in n
 
 A standard value of 200 can be used for speed of propagation -  value is the distance in meters light travels in 1 millisecond.
 
-In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 20). The output of the equation will be in milliseconds.
+In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 200). The output of the equation will be in milliseconds.
 
 As the physical distance between two locations is a fixed reality, if maximum network performance is required, then the most logical option is to select destinations with the smallest distance between them. Secondarily, design decisions within the virtual network can be made to optimize the path of traffic and reduce latency. These virtual network considerations are described in the Network Design Considerations section below.
 
