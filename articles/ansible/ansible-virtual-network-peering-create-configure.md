@@ -18,7 +18,7 @@ ms.date: 04/04/2019
 
 Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual network is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
-Ansible automates the deployment and configuration of resources in your environment. In this article, you use Ansible to create two virtual networks. You then establish virtual network peering between the two virtual networks. Once done, an Ansible playbook is used to delete the peering remove the Azure resources. 
+In this article, you use Ansible to create and peer two virtual networks.
 
 ## Prerequisites
 
@@ -208,7 +208,7 @@ There are two ways to get the complete playbook:
 
 In this section, run the playbook to test various features explained throughout this article.
 
-In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
 To run the playbook, use the **ansible-playbook** command as follows:
 
@@ -288,7 +288,7 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
 Run the playbook using the **ansible-playbook** command:
 

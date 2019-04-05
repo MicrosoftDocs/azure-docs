@@ -16,11 +16,11 @@ ms.date: 04/04/2019
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
 
-This quickstart shows you how use Ansible to create an Azure Cache for Redis, scale it up, reboot, add firewall rule and delete it.
+In this article, you use Ansible to create a cache. Once created, you learn how to scale, reboot, add a firewall rule to, and delete the cache.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a cache
@@ -42,7 +42,7 @@ Create an Azure Cache for Redis within a new resource group.
         size: C1 
 ```
 
-It can take several minutes to provision the necessary resources. The following code tells Ansible wait for Redis to complete the provisioning.
+It can take several minutes to provision a cache. The following code tells Ansible wait for the operation to complete:
 
 ```yaml
   - name: Wait for Redis provisioning to complete
@@ -87,7 +87,7 @@ The following sample code scales the cache to **Standard**:
         size: C1
 ```
 
-Scaling up takes several minutes. The complete sample playbook includes codes to wait for the operation to complete.
+It can take several minutes to scale a cache. The following code tells Ansible wait for the operation to complete:
 
 ```yaml
   - name: Wait for Redis scaling up to complete
@@ -100,11 +100,15 @@ Scaling up takes several minutes. The complete sample playbook includes codes to
     delay: 60
 ```
 
-Similar to the task to provision Azure Cache for Redis, output like **FAILED - RETRYING: Get facts (100 retries left)** is normal.
+Similar to the task to provision Azure Cache for Redis, output like the following is normal:
+
+```Ouput
+**FAILED - RETRYING: Get facts (100 retries left)** is normal.
+```
 
 ## Reboot the cache
 
-The following code reboots cache created in previous sections.
+The following code reboots the cache created in previous sections.
 
 ```yaml
   - name: Reboot Azure Cache for Redis
@@ -117,7 +121,7 @@ The following code reboots cache created in previous sections.
 
 ### Add firewall rule
 
-To add firewall rule, refer to the sample playbook section:
+The following code adds a firewall rule to the cache:
 
 ```yaml
   - name: Add Firewall rule
@@ -129,9 +133,9 @@ To add firewall rule, refer to the sample playbook section:
       end_ip_address: 168.1.1.4
 ```
 
-## Delete Azure Cache for Redis
+## Delete the cache
 
-Finally, you can delete the Azure Cache for Redis:
+The following code deletes the cache:
 
 ```yaml
   - name: Delete Azure Cache for Redis
@@ -225,7 +229,7 @@ There are two ways to get the complete playbook:
 
 In this section, run the playbook to test various features explained throughout this article.
 
-In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
 To run the playbook, use the **ansible-playbook** command as follows:
 
@@ -325,7 +329,7 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
 Run the playbook using the **ansible-playbook** command:
 
