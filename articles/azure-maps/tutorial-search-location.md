@@ -133,8 +133,8 @@ The Map Control API is a convenient client library that allows you to easily int
 5. In the `GetMap` function, after initializing the map, add the following JavaScript code.
 
     ```JavaScript
-    //Wait until the map resources are loaded.
-    map.events.add('load', function() {
+    //Wait until the map resources are ready.
+    map.events.add('ready', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -156,7 +156,7 @@ The Map Control API is a convenient client library that allows you to easily int
     });
     ```
 
-   In this code segment a load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
+   In this code segment a `ready` event is added to the map, which will fire when the map resources have been loaded and the map is ready to be accessed. In the map `ready` event handler, a data source is created to store result data. A symbol layer is created and attached to the data source. This layer specifies how the result data in the data source should be rendered, in this case with a dark blue round pin icon that is centered over the results coordinate and which allows other icons to overlap. The result layer is added to the map layers.
 
 <a id="usesearch"></a>
 
@@ -166,7 +166,7 @@ This section shows how to use the Maps [Search API](https://docs.microsoft.com/r
 
 ### Service Module
 
-1. In the map load event handler, construct the search service URL by adding the following Javascript code.
+1. In the map `ready` event handler, construct the search service URL by adding the following Javascript code.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -224,7 +224,7 @@ At this point, the MapSearch page can display the locations of points of interes
 
 The map that we've made so far only looks at the longitude/latitude data for the search results. If you look at the raw JSON that the Maps Search service returns, however, you see that it contains additional information about each gas station, including the name and street address. You can incorporate that data into the map with interactive popup boxes.
 
-1. Add the following lines of code in the map load event handler after the code to query the fuzzy search service. This will create an instance of a Popup and add a mouseover event to the symbol layer.
+1. Add the following lines of code in the map `ready` event handler after the code to query the fuzzy search service. This will create an instance of a Popup and add a mouseover event to the symbol layer.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

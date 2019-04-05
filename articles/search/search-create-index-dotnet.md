@@ -53,7 +53,7 @@ In appsettings.json, replace the default content with the example below, and the
 
 Once those values are set, you can F5 build the solution to run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
 
-Alternatively, you can refer to [How to use Azure Search from a .NET Application ](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
+Alternatively, you can refer to [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
 
 <a name="CreateSearchServiceClient"></a>
 
