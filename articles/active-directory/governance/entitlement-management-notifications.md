@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -45,6 +45,8 @@ Here is a list of all the email notifications that might be sent by entitlement 
 | 5 |  |  |  |
 | 6 |  |  |  |
 | 7 |  |  |  |
+
+![Entitlement management email process](./media/entitlement-management-notifications/email-notifications.png)
 
 ## Approve request emails
 
