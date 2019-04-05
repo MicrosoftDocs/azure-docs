@@ -196,14 +196,14 @@ The following table provides coverage information for Azure Maps routing.
 | +Aruba                         |        ✓       |                      |             | 
 | +Caribbean Netherlands         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Norway                         |        ✓       |         ✓            |     ✓      | 
 | Poland                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
