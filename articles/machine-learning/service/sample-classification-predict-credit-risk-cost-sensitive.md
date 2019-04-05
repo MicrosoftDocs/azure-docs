@@ -35,7 +35,7 @@ In both approaches, we evaluate the models using the test data set with replicat
 
 ## Related sample
 
-See [[Sample 3 - Classification-Credit Risk Prediction (Basic)](sample-classification-predict-churn.md)] for a basic experiment solving the same problem, without adjusting for misclassification costs.
+See [Sample 3 - Classification-Credit Risk Prediction (Basic)](sample-classification-predict-churn.md)] for a basic experiment solving the same problem, without adjusting for misclassification costs.
 
 ## Data
 

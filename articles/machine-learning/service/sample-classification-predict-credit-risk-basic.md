@@ -37,6 +37,7 @@ The data set contains 1000 samples with 20 features and 1 label. Each sample rep
 
 ## Experiment summary
 
+
 The following steps were used to create the experiment.
 
 1. Drag and drop the German Credit Card UCI Data dataset module into your experiment's canvas.
@@ -46,8 +47,10 @@ The following steps were used to create the experiment.
 1. Add a Train Model module and connect the classifier (step 4) and the training set (left output port of the Split module) to the left and right input ports respectively. This module will perform the training of the classifier.
 1. Add a Score Model module and connect the trained model and the test set (right port of the Split module). This module will make the predictions. You can click on its output port to see the actual predictions and the positive class probabilities.
 1. Add an Evaluate Model module and connect the scored dataset to the left input port. To see the evaluation results, click on the output port of the Evaluate Model module and select Visualize.
-
+    
+The complete experiment graph is shown below.
 ![overall graph of the experiment](media/sample-classification-predict-credit-risk-basic/overall-graph.png)
+
 
 ## Results
 

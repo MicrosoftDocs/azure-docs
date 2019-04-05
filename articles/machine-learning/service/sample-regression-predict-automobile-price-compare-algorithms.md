@@ -41,6 +41,8 @@ The experiment demonstrates four steps:
 1. Train the model
 1. Test and evaluate the model
 
+The complete experiment graph is shown below.
+
 ![experiment graph](media/sample-regression-predict-automobile-price-compare-algorithms/graph.png)
 
 ## Get data
@@ -52,6 +54,7 @@ In this experiment, we used the **Automobile price data (Raw)** which is sourced
 The major data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure ML studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
 We use **Select Columns in Dataset** to exclude normalized-losses that has many missing values. Then we use **Clean Missing Data** to remove the rows with missing values. This helps create a clean set of training data.
+
 
 ![data pre-processing](media/sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 

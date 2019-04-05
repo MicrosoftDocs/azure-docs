@@ -41,6 +41,8 @@ Build the experiment in four steps.
 1. Train the model
 1. Test, evaluate and compare the model
 
+The complete experiment graph is shown below.
+
 ![overall graph of the experiment](media/sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 
