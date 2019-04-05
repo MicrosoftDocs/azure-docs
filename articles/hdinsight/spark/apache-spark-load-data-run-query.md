@@ -94,9 +94,9 @@ You can also select the resource group name to open the resource group page, and
 ## Next steps
 
 In this tutorial, you learned how to:
-
-* Create an Apache Spark dataframe.
-* Run Spark SQL against the dataframe.
+> [!div class="checklist"]
+> * Create an Apache Spark dataframe.
+> * Run Spark SQL against the dataframe.
 
 Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
