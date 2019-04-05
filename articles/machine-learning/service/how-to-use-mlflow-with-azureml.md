@@ -13,13 +13,13 @@ ms.date: 04/02/2019
 ms.custom: seodec18
 ---
 
-# How to use Mlflow with Azure Machine Learning service (Preview)
+# How to use MLflow with Azure Machine Learning service (Preview)
 
-[Mlflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. 
+[MLflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. 
 
-Azure Machine Learning Workspace provides a centralized location to store your metrics and models, as well as manage your compute and deployed model. You can use Mlflow client with Azure Machine Learning service as a back end for storing metrics and artifacts. You can then view and track the metrics in your Azure ML Workspace.
+Azure Machine Learning Workspace provides a centralized location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure Machine Learning service as a back end for storing metrics and artifacts. You can then view and track the metrics in your Azure ML Workspace.
 
-You can use Mlflow logging on local runs, different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
+You can use MLflow logging on local runs, different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
 
 ## Pre-requisites
 
@@ -30,7 +30,7 @@ You can use Mlflow logging on local runs, different Azure ML compute targets, su
 
 You can use MLflow with Azure ML interactively, for example when training models in your local Jupyter Notebook or code editor. 
 
-To switch your Mlflow code to use Azure ML as back end, you need to first install azureml.core.contrib package:
+To switch your MLflow code to use Azure ML as back end, you need to first install azureml.core.contrib package:
 
 ```
 pip install azureml.core.contrib
@@ -51,7 +51,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 >[!NOTE]
 >The tracking URI is valid up to an hour or less. If you restart your script after some idle time, use the get_mlflow_tracking_uri API to get a new URI.
 
-Then, you can set the Mlflow experiment name and start logging metrics:
+Then, you can set the MLflow experiment name and start logging metrics:
 
 ```
 experiment_name = "experiment-with-mlflow"
@@ -67,7 +67,7 @@ In addition to logging metrics, you can log models and artifacts. See [TBD noteb
 
 Remote runs allow you to to train your models on more powerful compute, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
-When you submit a run to a compute target using Azure ML SDK's ```Experiment.submit("train.py")``` method, Azure ML automatically sets the Mlflow tracking URI and directs the logging from Mlflow to your Workspace. 
+When you submit a run to a compute target using Azure ML SDK's ```Experiment.submit("train.py")``` method, Azure ML automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace. 
 
 To enable the logging, include the azureml.core.contrib package to as a pip dependency to your run configuration: 
 
@@ -99,12 +99,12 @@ with mlflow.start_run():
     mlflow.log_metric("example", 1.23)
 ```
 
-Then, in your script you can use Mlflow logging APIs as shown above, but without having to set the tracking URI.
+Then, in your script you can use MLflow logging APIs as shown above, but without having to set the tracking URI.
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from Mlflow logging appear in your Azure ML Workspace. You can simply navigate to your Workspace blade at [Azure Portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
+The metrics and artifacts from MLflow logging appear in your Azure ML Workspace. You can simply navigate to your Workspace blade at [Azure Portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
 
 ## Next steps
 
- * Try out [example notebooks for Mlflow with Azure ML](TBD)
+ * Try out [example notebooks for MLflow with Azure ML](TBD)
