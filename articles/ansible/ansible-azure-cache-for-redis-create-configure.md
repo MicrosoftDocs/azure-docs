@@ -12,7 +12,9 @@ ms.date: 04/04/2019
 
 # Tutorial: Create and manage Azure Cache for Redis using Ansible
 
-[Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
+[Azure Cache for Redis](/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
 
 This quickstart shows you how use Ansible to create an Azure Cache for Redis, scale it up, reboot, add firewall rule and delete it.
 
@@ -21,12 +23,9 @@ This quickstart shows you how use Ansible to create an Azure Cache for Redis, sc
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.8 is required to run the following sample playbooks in this tutorial.
+## Create a cache
 
-## Create resource group and Azure Cache for Redis
-
-The first two tasks in the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) create a resource group and the Azure Cache for Redis.
+Create an Azure Cache for Redis within a new resource group.
 
 ```yaml
   - name: Create resource group
@@ -43,7 +42,7 @@ The first two tasks in the [sample playbook](https://github.com/Azure-Samples/an
         size: C1 
 ```
 
-It takes several minutes to provision the necessary resources because of that, we include codes in the playbook to wait for Redis provisioning to complete.
+It can take several minutes to provision the necessary resources. The following code tells Ansible wait for Redis to complete the provisioning.
 
 ```yaml
   - name: Wait for Redis provisioning to complete
@@ -56,7 +55,7 @@ It takes several minutes to provision the necessary resources because of that, w
     delay: 60
 ```
 
-Do not be alarmed to see output like below during this stage. It took about 25 minutes for us.
+During the lengthy provisioning process, several "error" messages will be displayed. These can safely be ignored. The important message is the last message. In the following example, there are many error messages until the final ("ok") message.
 
 ```Output
 FAILED - RETRYING: Get facts (100 retries left).
@@ -72,9 +71,11 @@ FAILED - RETRYING: Get facts (91 retries left).
 ok: [localhost]
 ```
 
-## Scale up
+## Scale the cache
 
-The previous task creates a C1 Basic Azure Cache for Redis. This next task allows you to scale up to Standard cache:
+Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change. For more information about scaling, see [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
+
+The following sample code scales the cache to **Standard**:
 
 ```yaml
 - name: Scale up Azure Cache for Redis
@@ -101,9 +102,9 @@ Scaling up takes several minutes. The complete sample playbook includes codes to
 
 Similar to the task to provision Azure Cache for Redis, output like **FAILED - RETRYING: Get facts (100 retries left)** is normal.
 
-## Reboot
+## Reboot the cache
 
-The next sample playbook section includes codes to reboot Azure Cache for Redis.
+The following code reboots cache created in previous sections.
 
 ```yaml
   - name: Reboot Azure Cache for Redis
@@ -140,9 +141,11 @@ Finally, you can delete the Azure Cache for Redis:
       state: absent
 ```
 
-## Complete Sample Ansible playbook
+## Get the complete playbook
 
-This is the complete playbook you have built. [Download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) or save below as *rediscache.yml*. Make sure you replace the placeholder **{{ resoruce_group_name }}** in the ```vars``` section with your own resource group name.
+There are two ways to get the complete playbook:
+- [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) and save it to `rediscache.yml`.
+- Create a new file called `rediscache.yml` and copy into it the following contents:
 
 ```yml
 - name: Manage Azure Cache for Redis
@@ -218,13 +221,19 @@ This is the complete playbook you have built. [Download the sample playbook](htt
       state: absent
 ```
 
+## Run the sample playbook
+
+In this section, run the playbook to test various features explained throughout this article.
+
+In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+
 To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook rediscache.yml
 ```
 
-After running the playbook, output similar to the following example shows that the Azure Cache for Redis was successfully created, then scaled out, rebooted, with firewall rule added and finally deleted:
+The output looks similar to the following results:
 
 ```Output
 TASK [create resource group] *****************************************************************************************************************************************************************************
@@ -301,12 +310,14 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626 *********
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myResourceGroup**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
   vars:
-    resource_group: myResourceGroup
+    resource_group: "{{ resource_group_name }}"
   tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
@@ -314,10 +325,12 @@ If you don't need these resources, you can delete them by running the following 
         state: absent
 ```
 
-Save the preceding playbook as *rg_delete.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps

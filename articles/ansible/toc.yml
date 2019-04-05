@@ -46,7 +46,7 @@
       href: ./ansible-manage-azure-dynamic-inventories.md
   - name: Redis cache
     items:
-    - name: Create and configure Azure Cache for Redis
+    - name: Configure Azure Cache for Redis
       href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Virtual network
     items:

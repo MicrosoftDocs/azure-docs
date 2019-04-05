@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) (VNet peering) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
+[Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) (VNet peering) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
 Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual network is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
@@ -119,11 +119,11 @@ To delete the virtual network peering, run the following task:
       state: absent
 ```
 
-## Review the complete sample Ansible playbook
+## Get the complete playbook
 
-This section lists the complete playbook built over the course of this article.
-
-You can also [download the complete playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml).
+There are two ways to get the complete playbook:
+- [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) and save it to `vnet_peering.yml`.
+- Create a new file called `vnet_peering.yml` and copy into it the following contents:
 
 ```yml
 - hosts: localhost
@@ -204,25 +204,19 @@ You can also [download the complete playbook](https://github.com/Azure-Samples/a
       state: absent
 ```
 
-## Configure and run the sample playbook
+## Run the sample playbook
 
-In this section, you run the playbook to see the results of creating and peering the two virtual networks.
+In this section, run the playbook to test various features explained throughout this article.
 
-If you downloaded the playbook from the GitHub Azure-Samples repo and are using an Ansible version earlier than 2.8, do the following steps:
-- Uncomment the role reference.
-- Install the [azure.azure_preview_modules using ansible-galaxy](https://galaxy.ansible.com/Azure/azure_preview_modules).
+In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
-Do the following steps to create your own version of the sample playbook and configure the playbook for your environment:
-- Save the sample playbook as `vnet_peering.yml`.
-- In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
-
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
 ansible-playbook vnet_peering.yml
 ```
 
-The output looks similar to the following where you see that the virtual network peering has been successfully configured and then deleted.
+The output looks similar to the following results:
 
 ```Output
 PLAY [localhost] ***********************************************************************
@@ -271,13 +265,15 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 ## Clean up resources
 
-When no longer needed, delete the resources created in this article by running the following playbook. Remember to replace the **{{ resource_group_name }}** placeholder with your resource group name.
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```bash
 - hosts: localhost
   vars:
     resource_group: "{{ resource_group_name }}"
-    resource_group_secondary: "{{ resource_group_name }}2"
+    resource_group_secondary: "{{ resource_group_name }}"
   tasks:
     - name: Delete a resource group
       azure_rm_resourcegroup:
@@ -292,9 +288,9 @@ When no longer needed, delete the resources created in this article by running t
         state: absent
 ```
 
-Save this playbook as *cleanup.yml*.
+In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook cleanup.yml
