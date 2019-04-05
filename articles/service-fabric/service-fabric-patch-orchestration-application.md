@@ -26,6 +26,12 @@ ms.author: brkhande
 >
 >
 
+
+> 
+> [!IMPORTANT]
+> Application version 1.2.* is going out of support on 30 April 2019. Please upgrade to the latest version.
+
+
 [Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
 
 POA is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
@@ -319,7 +325,7 @@ If your cluster can tolerate running on N-1 number of upgrade domains during pat
 
 Q. **How much time does it take to patch a node?**
 
-A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/en-us/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
  - The size of updates
  - Number of updates, which have to be applied in a patching window
  - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.

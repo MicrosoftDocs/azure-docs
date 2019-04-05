@@ -33,7 +33,7 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 - 1 deployed VM with 3 or 4 vCPUs,
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
+The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers an only portion of the software cost, which is about 77%.
 
 ## Understand SUSE VM usage before you buy
 
