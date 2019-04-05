@@ -23,9 +23,9 @@ Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
 ![World tile bottom left](media/zoom-levels-and-tile-grid/world1b.png)     ![World tile bottom right](media/zoom-levels-and-tile-grid/world1d.png) 
 
-Each subsequent zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
+Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
-The Azure Maps interactive map controls for web and Android support zoom levels 25 zoom levels, numbered 0 through 24. Althogh road data will only be available at the zoom levels in when the tiles are available.
+The Azure Maps interactive map controls for web and Android support zoom levels 25 zoom levels, numbered 0 through 24. Although road data will only be available at the zoom levels in when the tiles are available.
 
 The following table provides the full list values for zoom levels:
 
@@ -59,11 +59,11 @@ The following table provides the full list values for zoom levels:
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
 
-When determining which zoom level to use, remember that each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
+When determining which zoom level to use, remember each location is in a fixed position on its tile. This means that the number of tiles needed to display a given expanse of territory is dependent on the specific placement of zoom grid on the world. For instance, if there are two points 900 meters apart, it *may* only take three tiles to display a route between them at zoom level 17. However, if the western point is on the right of its tile, and the eastern point on the left of its tile, it may take four tiles:
 
 ![Zoom demo scale](media/zoom-levels-and-tile-grid/zoomdemo_scaled.png) 
 
-Once the zoom level is determined, the x and y values can be calculated. The top left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom -1</sup>, y=2<sup>zoom-1</sup>.
+Once the zoom level is determined, the x and y values can be calculated. The top-left tile in each zoom grid is x=0, y=0; the bottom-right tile is at x=2<sup>zoom -1</sup>, y=2<sup>zoom-1</sup>.
 
 Here is the zoom grid for zoom level 1:
 
