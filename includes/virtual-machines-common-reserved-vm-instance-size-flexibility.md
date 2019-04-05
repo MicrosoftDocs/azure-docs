@@ -104,7 +104,7 @@ For more information, see [Previous generations of virtual machine sizes](../art
 |Standard_DS4_v2|8|
 |Standard_DS5_v2|16|
 
-For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv2-series).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## DSv2-series high memory
 
