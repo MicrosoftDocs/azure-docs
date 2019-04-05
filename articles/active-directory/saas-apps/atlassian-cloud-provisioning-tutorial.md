@@ -48,7 +48,7 @@ Before configuring Atlassian Cloud for automatic user provisioning with Azure AD
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Under **Enterprise Applications**, and select **All applications**.
+2. Go to **Enterprise applications**, and then select **All applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
