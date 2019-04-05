@@ -29,26 +29,26 @@ To get started, you're required to follow the quickstart:
 
 ## Add a data source
 
-In this tutorial, you register data assets (tables) from the AdventureWorks2014 sample database for the SQL Server Database Engine, but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+In this tutorial, you register data assets (tables) from an [Azure SQL database sample](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started), but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
-### Install the Adventure Works 2014 OLTP database
+## Find a data catalog in the Azure portal
 
-The Adventure Works database supports standard online transaction-processing scenarios for a fictitious bicycle manufacturer (Adventure Works Cycles), which includes products, sales, and purchasing. In this tutorial, you register information about products into Azure Data Catalog.
+1. On a separate tab in the web browser or in a separate web browser window, go to the [Azure portal](https://portal.azure.com) and sign in with the same account that you used to create the data catalog in the previous step.
 
-To install the Adventure Works sample database:
+2. Select **Browse** and then click **Data Catalog**.
 
-1. Download [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) on CodePlex.
+    ![Azure Data Catalog--browse Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
+   You see the data catalog you created.
 
-2. To restore the database on your machine, follow the instructions in [Restore a Database Backup by using SQL Server Management Studio](/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms), or by following these steps:
-   1. Open SQL Server Management Studio and connect to the SQL Server Database Engine.
-   2. Right-click **Databases** and click **Restore Database**.
-   3. Under **Restore Database**, click the **Device** option for **Source** and click **Browse**.
-   4. Under **Select backup devices**, click **Add**.
-   5. Go to the folder where you have the **AdventureWorks2014.bak** file, select the file, and click **OK** to close the **Locate Backup File** dialog box.
-   6. Click **OK** to close the **Select backup devices** dialog box.
-   7. Click **OK** to close the **Restore Database** dialog box.
+    ![Azure Data Catalog--view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
 
-You can now register data assets from the Adventure Works sample database by using Azure Data Catalog.
+3. Click the catalog that you created. You see the **Data Catalog** blade in the portal.
+
+   ![Azure Data Catalog--blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
+
+4. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
+
+    ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
 ## Register data assets
 

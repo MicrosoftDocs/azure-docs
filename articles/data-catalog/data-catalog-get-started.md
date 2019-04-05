@@ -51,27 +51,10 @@ You can provision only one data catalog per organization (Azure Active Directory
 6. Expand **Catalog Administrators** and click **Add** to add additional administrators for the data catalog. You're automatically added to this group.
     ![Azure Data Catalog--administrators](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 
-7. Click **Create Catalog** to create the data catalog for your organization. You see the home page for the data catalog after it's created.
+7. Click **Create Catalog** to create the data catalog for your organization.
+
+8. Then you you see the home page for the data catalog after it's created.
     ![Azure Data Catalog--created](media/data-catalog-get-started/data-catalog-created.png)
-
-### Find a data catalog in the Azure portal
-
-1. On a separate tab in the web browser or in a separate web browser window, go to the [Azure portal](https://portal.azure.com) and sign in with the same account that you used to create the data catalog in the previous step.
-
-2. Select **Browse** and then click **Data Catalog**.
-
-    ![Azure Data Catalog--browse Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
-   You see the data catalog you created.
-
-    ![Azure Data Catalog--view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
-
-3. Click the catalog that you created. You see the **Data Catalog** blade in the portal.
-
-   ![Azure Data Catalog--blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-
-4. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
-
-    ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
 
 ## Next Steps
 
