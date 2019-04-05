@@ -5,7 +5,7 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/05/2019
 ---
 
 # Create and manage read replicas from the Azure CLI
@@ -62,7 +62,7 @@ A replica is created by using the same server configuration as the master. After
 You can view the list of replicas of a master server.
 
 ```azurecli-interactive
-az postgres server replica stop --server-name mydemoserver --resource-group myresourcegroup 
+az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
 ## Stop replication to a replica server
