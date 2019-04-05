@@ -129,7 +129,7 @@ In the following scenarios, you'll be required to update the target VM encryptio
   - You enabled Site Recovery replication on the VM. Later, you enabled disk encryption on the source VM.
   - You enabled Site Recovery replication on the VM. Later, you changed the disk encryption key or key encryption key on the source VM.
 
-You can use [a script](#copy-ade-keys-to-dr-region-using-powershell-script) to copy the encryption keys to the target region and then update the target encryption settings in **Recovery services vault** > *replicated item* > **Properties** > **Compute and Network**.
+You can use [a script](#copy-ade-keys-to-the-dr-region-by-using-powershell-script) to copy the encryption keys to the target region and then update the target encryption settings in **Recovery services vault** > *replicated item* > **Properties** > **Compute and Network**.
 
 ![update ADE settings dialog window](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
