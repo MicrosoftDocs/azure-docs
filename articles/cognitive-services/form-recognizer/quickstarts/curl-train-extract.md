@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * You must have [cURL](https://curl.haxx.se/windows/).
 * You must have a subscription key for Form Recognizer. To get a subscription key, see Obtaining subscription keys.
-* You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](sample_data.zip) for this quickstart.
+* You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) for this quickstart.
 
 ## Create a training dataset
 
@@ -162,6 +162,3 @@ A successful response is returned in JSON and represents the extracted key-value
 ## Next steps
 
 In this guide, you used the Form Recognizer REST APIs with cURL to train a model and run it in a sample case. Next, explore the Form Recognizer API in more depth.
-
-> [!div class="nextstepaction"]
-> [API reference (REST)](./)
