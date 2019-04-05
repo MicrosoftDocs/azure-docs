@@ -81,7 +81,7 @@ beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportM
 
 #### From cluster head or inside Azure Virtual Network with Apache Spark
 
-When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following is an example of connecting to directly to the head node:
+When connecting directly from the cluster head node, or from a resource inside the same Azure Virtual Network as the HDInsight cluster, port `10002` should be used for Spark Thrift server instead of `10001`. The following example shows how to connect directly to the head node:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
