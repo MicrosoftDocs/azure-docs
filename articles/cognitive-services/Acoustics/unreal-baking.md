@@ -76,7 +76,7 @@ There is further, advanced customization you can make on your navigation areas w
 
 "Include" volumes are useful for creating manual sections of a scene, such as if you want to break up your scene into multiple acoustic zones. For example, if you have a large scene, many kilometers squared, and you have two areas of interest you want to bake acoustics on. You can draw two big "Include" volumes in the scene and produce ACE files for each of them one at a time. Then in game, you can use trigger volumes combined with blueprint calls to load the appropriate ACE file when the player approaches each tile.
 
-**Acoustics Volumes** only restrict the navigation and NOT the geometry. Each probe inside an "Include" **Acoustics Volume** will still pull in all the necessary geometry outside of the volume when performing wave simulations. Therefore, there should not be any discontinuities in occlusion or other acoustics resulting from the player crossing from one section to another.
+**Acoustics Volumes** only restrict the navigation and ***not*** the geometry. Each probe inside an "Include" **Acoustics Volume** will still pull in all the necessary geometry outside of the volume when performing wave simulations. Therefore, there shouldn't be any discontinuities in occlusion or other acoustics resulting from the player crossing from one section to another.
 
 ## Select acoustic materials
 
