@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to compare two regressi
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-1. Select **+ New** at the bottom-left to open the Sample 2 experiment.
+4. Select **+ New** at the bottom-left to open the Sample 2 experiment.
 
     ![Open the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 

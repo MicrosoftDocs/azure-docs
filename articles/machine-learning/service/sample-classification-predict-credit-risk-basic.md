@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-1. Select **+ New** at the bottom-left to open the Sample 3 experiment.
+4. Select **+ New** at the bottom-left to open the Sample 3 experiment.
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
 

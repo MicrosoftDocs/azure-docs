@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to build a regression m
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-1. Select **+ New** at the bottom-left to open the Sample 1 experiment.
+4. Select **+ New** at the bottom-left to open the Sample 1 experiment.
 
     ![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
 

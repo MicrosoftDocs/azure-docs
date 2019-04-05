@@ -29,7 +29,7 @@ In both approaches, we evaluate the models using the test data set with replicat
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-1. Select **+ New** at the bottom-left to open the Sample 4 experiment.
+4. Select **+ New** at the bottom-left to open the Sample 4 experiment.
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
