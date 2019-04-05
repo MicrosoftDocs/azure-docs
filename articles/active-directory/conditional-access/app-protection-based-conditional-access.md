@@ -49,8 +49,8 @@ You can combine app-protection-based conditional access policies with other poli
 Similar to compliance being reported by Intune for iOS and Android for managed device, Intune now reports to Azure AD if app protection policy is applied so that conditional access can use this as an access check. This new conditional access policy **App protection policy** increases security by protects admin errors such as:
 
 - users that do not have an Intune license
-- users that are not targetted to receive an Intune app protection policy
-- Intune app protection policy apps that have not been targetted for a policy
+- users that cannot receive an Intune app protection policy
+- Intune app protection policy apps that have not been configured to receive a policy
 
 
 ## Before you begin
@@ -321,7 +321,7 @@ For the conditional access policy in this step, you need to configure the follow
 
    - **Require device to be marked as compliant**
 
-   - **Require app protetion policy (preview)**
+   - **Require app protection policy (preview)**
 
    - **Require all the selected controls**   
  
@@ -380,7 +380,7 @@ This scenario consists of an app protection-based or approved apps policy for ac
 This scenario assumes that a user:
 
 - Configures either client applications that are either on the list of apps that support the app protection policy requirement or the approved apps requirement.  
-- User uses client applications that meet the app protection policy requirement can recieve an Intune app protection policy
+- User uses client applications that meet the app protection policy requirement can receive an Intune app protection policy
 - User uses client applications that meet the approved apps policy requirement that supports Intune app protection policy
 - Opens the application to access email or documents
 - Opens the Outlook application and signs in with the Azure AD credentials
@@ -389,13 +389,15 @@ This scenario assumes that a user:
 - Is prompted to register a device
 - Is able to receive an Intune app protection policy
 - Is able to access email with Outlook and an Intune app protection policy
-- Is able to access sites/documents with an app not on the app protection policy requirment but listed in the approved app requirement.
+- Is able to access sites/documents with an app not on the app protection policy requirement but listed in the approved app requirement.
 
 Any Intune app protection policies are required before access to the corporate data and may prompt the user to restart the application, use an additional PIN etc. (if configured for the application and platform)
 
 **Remarks**
-- You should use this scenario if you want to migrate to the new policy while still not losing access to other applications while they get updated
-- In this *OR* policy, apps with app protection policy requirement are 
+
+- You can use this scenario if you want to support both app protection-based and app-based conditional access policies.
+
+- In this *OR* policy, apps with **app protection policy** requirement are evaluated for access first before **approved client apps** requirement.
 
 ### Configuration
 

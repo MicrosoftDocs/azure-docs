@@ -233,7 +233,7 @@ This setting applies to the following client apps:
 
 ## App protection policy requirement 
 
-In your conditional access policy, you can require an app protection policy on the client app before an access is available to the selected cloud apps. 
+In your conditional access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
 
 ![Control access with app protection policy](./media/technical-reference/22.png)
 
