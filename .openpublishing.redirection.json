@@ -856,6 +856,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/avere-vfxt/avere-vfxt-controller-role.md",
+      "redirect_url": "/azure/avere-vfxt/avere-vfxt-deploy-plan#vm-access-roles",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
       "redirect_document_id": false
@@ -1251,6 +1256,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-auto-device-config-cli.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-automatic-device-management-cli",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
       "redirect_url": "/azure/iot-hub/iot-hub-create-using-cli",
       "redirect_document_id": true
@@ -1636,6 +1651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/support-for-aml-services.md",
+      "redirect_url": "https://aka.ms/aml-forum-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/preview/model-management-service-deploy.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-service-deploy",
       "redirect_document_id": true
@@ -1951,6 +1971,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/r-developers-guide.md",
+      "redirect_url": "/azure/architecture/data-guide/technology-choices/r-developers-guide",
+      "redirect_document_id": true
+    },
+{
       "source_path": "articles/active-directory/active-directory-application-proxy-publish.md",
       "redirect_url": "/azure/active-directory/application-proxy-publish-azure-portal",
       "redirect_document_id": true
@@ -9225,47 +9250,52 @@
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1802.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1803.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1804.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1805.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1807.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1808.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-stack/azure-stack-update-1809.md",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1710.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1711.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-stack/azure-stack-update-1712.md",
-      "redirect_url": "/azure/azure-stack/azure-stack-update-1902",
+      "redirect_url": "/azure/azure-stack/azure-stack-update-1903",
       "redirect_document_id": false
     },
     {
@@ -27588,8 +27618,13 @@
     },
     {
       "source_path": "articles/active-directory/active-directory-tou.md",
-      "redirect_url": "/azure/active-directory/governance/active-directory-tou",
+      "redirect_url": "/azure/active-directory/conditional-access/terms-of-use",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/governance/active-directory-tou.md",
+      "redirect_url": "/azure/active-directory/conditional-access/terms-of-use",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/troubleshoot-azure-cosmosdb.md",
@@ -36736,8 +36771,6 @@
       "redirect_url": "/azure/hdinsight/hbase/apache-hbase-overview",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "articles/spatial-anchors/concepts/create-locate-anchors-unity.md",
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-unity",
@@ -36753,8 +36786,6 @@
       "redirect_url": "/azure/spatial-anchors/how-tos/create-locate-anchors-cpp-ndk",
       "redirect_document_id": false
     },
-
-
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-review-endoint-utt.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-how-to-review-endpoint-utterances",
@@ -36764,6 +36795,81 @@
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
 	  "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
       "redirect_document_id": false
-    }	
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-backup-restore.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-dashboard-monitor-scale-tabs.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-editions-feature-chart.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-issuer-name-issuer-key.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-migrating-to-edi-guide.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-process-edifact-invoice.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-provision-services.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-release-notes.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-services-administration-and-development-task-list.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-service-state-chart.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-throttling-thresholds.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/biztalk-troubleshoot-using-ops-logs.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/index.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/integration-hybrid-connection-create-manage.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
+      "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    }
   ]
 }
