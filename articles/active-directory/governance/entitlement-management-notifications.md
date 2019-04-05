@@ -30,21 +30,22 @@ ms.collection: M365-identity-device-management
 
 Azure AD entitlement management sends email notifications to key stakeholders for the request and approval process of access packages. These emails might also include links to relevant tasks.
 
-This article describes what these emails look like, when they are sent, and who receives them.
+This article describes what these emails look like, when they are sent, and who they are sent to.
 
 ## Email notifications
 
 Here is a list of all the email notifications that might be sent by entitlement management.
 
-| # | Email subject | When sent | Who receives |
+| # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When requestor submits request | All approvers |
-| 2 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies request | All approvers |
-| 3 | You now have access to *[access package]*  | When the requestor has been granted access to every resource in the access package | Requestor |
-| 4 | Your access to *[access package]* expires in X day(s) | X days before access expires | Requestor |
-| 5 |  |  |  |
-| 6 |  |  |  |
-| 7 |  |  |  |
+| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When a requestor submits a request to an access package | All approvers |
+| 2 |  |  |  |
+| 3 | Access request by *[requestor]* has expired | When the approvers do not approve or deny an access request within the approval time window | Requestor |
+| 4 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies an access request | All approvers |
+| 5 | You have been denied access to *[access package]* | When a requestor has been denied access to the access package | Requestor |
+| 6 | You now have access to *[access package]*  | When a requestor has been granted access to every resource in the access package | Requestor |
+| 7 | Your access to *[access package]* expires in X day(s) | X days before the requestor's access to the access package expires | Requestor |
+| 8 | Your access to *[access package]* has expired | When the requestor's access to an access package expires | Requestor |
 
 ![Entitlement management email process](./media/entitlement-management-notifications/email-notifications.png)
 
