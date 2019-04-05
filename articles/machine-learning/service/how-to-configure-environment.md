@@ -39,9 +39,9 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
 
-A workspace is all you need to get started with a [notebook workstation](#workstation), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
+A workspace is all you need to get started with your own [cloud-based notebook server](#workstation), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
 
-To install the SDK environment for your own [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
+To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
 - Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
