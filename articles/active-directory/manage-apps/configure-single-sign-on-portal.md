@@ -76,11 +76,13 @@ To configure the domain and URLs:
 
 2. To edit the basic SAML configuration options, select the **Edit** icon in the upper-right corner of the **Basic SAML Configuration** section.
 
+     ![Configure certificates](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
+
 3. Enter the information.
 
 4. At the top of the page, select **Save**.
 
-4. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
+5. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
 
 ## Configure user attributes and claims 
 
@@ -92,9 +94,9 @@ These attributes may be required or optional to make single sign-on work properl
 
    The **Name Identifier Value** is set with the default value of *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-2. To modify the **Name Identifier Value**,  select the **Edit** icon for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about customizing claims, see the [Customize claims issued in the SAML token for enterprise applications](../manage-apps/configure-single-sign-on-portal.md) how-to article.
+2. To modify the **Name Identifier Value**, select the **Edit** icon for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about customizing claims, see the [Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md) how-to article.
 
-3. To add a claim, click **Add new claim**. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
+3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
 
 4. Click **Save**. You see the new claim in the table.
  
