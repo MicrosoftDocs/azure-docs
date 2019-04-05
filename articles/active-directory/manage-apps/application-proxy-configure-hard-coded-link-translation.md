@@ -78,7 +78,7 @@ There are two common types of internal links in on-premises applications:
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
 - **Hardcoded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hardcoded internal links, and changes them to point to the external URLs that remote users need to go through.
 
-The complete list of code tags we support link translate for include:
+The complete list of HTML code tags that Application Proxy supports link translation for include:
 * a
 * audio
 * base
@@ -100,6 +100,8 @@ The complete list of code tags we support link translate for include:
 * source
 * track
 * video
+
+Additionally, within CSS the URL attribute is also translated.
 
 ### How do apps link to each other?
 
