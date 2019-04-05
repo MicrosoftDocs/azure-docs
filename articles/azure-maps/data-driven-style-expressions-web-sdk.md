@@ -37,7 +37,7 @@ The Azure Maps Web SDK supports many types of expressions that can be used on th
 | Type of expressions | Description |
 |---------------------|-------------|
 | [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
-| [Color expressions](color-expressions) | Color expressions make it easier to create and manipulate color values. |
+| [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
 | [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
 | [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
@@ -46,7 +46,7 @@ The Azure Maps Web SDK supports many types of expressions that can be used on th
 | [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
 | [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
 | [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
-| [Zoom expressions](#zoom-expressions) | Retrieves the current zoom level of the map at render time. |
+| [Zoom expression](#zoom-expression) | Retrieves the current zoom level of the map at render time. |
 
 All examples in this document will use the following feature to demonstrate different ways in that the different types of expressions can be used. 
 
@@ -417,7 +417,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the image below.
  
-![String operator expression example](media/string-operator-expression.png)
+![String operator expression example](media/how-to-expressions/string-operator-expression.png)
 
 ## Interpolate and Step expressions
 
@@ -437,7 +437,7 @@ Here is an example of what these different types of interpolations look like.
 
 | Linear  | Exponential | Cubic Bezier |
 |---------|-------------|--------------|
-| ![Linear interpolation graph](media/linear-interpolation.png) | ![Exponential interpolation graph](media/exponential-interpolation.png) | ![Cubic Bezier interpolation graph](media/bezier-curve-interpolation.png) |
+| ![Linear interpolation graph](media/how-to-expressions/linear-interpolation.png) | ![Exponential interpolation graph](media/how-to-expressions/exponential-interpolation.png) | ![Cubic Bezier interpolation graph](media/how-to-expressions/bezier-curve-interpolation.png) |
 
 The following pseudocode defines the structure of the `interpolate` expression. 
 
@@ -478,7 +478,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 The following image demonstrates how the colors are chosen for the above expression.
  
-![Interpolate expression example](media/interpolate-expression-example.png)
+![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png)
 
 ### Step expression
 
@@ -523,7 +523,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 The following image demonstrates how the colors are chosen for the above expression.
  
-![Step expression example](media/step-expression-example.png)
+![Step expression example](media/how-to-expressions/step-expression-example.png)
 
 ## Layer specific expressions
 
@@ -657,7 +657,7 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 This layer will render the point feature as shown in the image below:
  
-![Image of Point feature with formatted text field](media/text-field-format-expression.png)
+![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png)
 
 ### Number format expression
 
@@ -703,9 +703,9 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 This layer will render the point feature as shown in the image below:
  
-![Number format expression example](media/number-format-expression.png)
+![Number format expression example](media/how-to-expressions/number-format-expression.png)
 
-### Zoom expression
+## Zoom expression
 
 A `zoom` expression is used to retrieve the current zoom level of the map at render time and is defined as `['zoom']`. This expression returns a number between the minimum and maximum zoom level range of the map. Using this expression allows styles to be modified dynamically as the zoom level of the map is changed. The `zoom` expression may only be used with `interpolate` and `step` expressions.
 
