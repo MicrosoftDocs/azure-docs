@@ -123,7 +123,7 @@ list(parent_run.get_children())
 
 <a name="cancel"></a>
 
-## Cancel and fail runs
+## Cancel or fail runs
 
  If your run doesn't seem to be converging, use the `cancel()` method to stop the run during execution.
 
