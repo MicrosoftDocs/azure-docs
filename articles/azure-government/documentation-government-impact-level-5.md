@@ -82,7 +82,7 @@ Azure HDInsight can be used in Azure Government supporting Impact Level 5 worklo
 
 Azure SQL Warehouse can be used in Azure Government supporting Impact Level 5 workloads in the following configurations:
 
-- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](..\sql-database/transparent-data-encryption-byok-azure-sql.md)).
+- Add Transparent Data Encryption with customer managed keys via Azure Key Vault (additional documentation and guidance found in the documentation for [Azure SQL transparent data encryption](../sql-database/transparent-data-encryption-byok-azure-sql.md)).
 
 > [!NOTE]
 > The instructions to enable this are the same as for Azure SQL database.
