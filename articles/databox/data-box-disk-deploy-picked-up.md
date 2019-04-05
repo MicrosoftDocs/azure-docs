@@ -79,14 +79,14 @@ Take the following steps if returning the device in Europe.
 
 ### Pick up in Asia-Pacific region
 
-This region includes instructions for pick up in Japan and Korea.
+This region includes instructions for pickup in Japan and Korea.
 
 #### Pick up in Japan
 
 1. Make sure to include the return connote of Japan Post Chakubarai.
 2. Write your company name and address information on the connote as your sender information.
-3. Call Japan Post pickup request number 0800-0800-111 (free dial). Dial the 7-digit postal code for pick up address and then forward to your nearest post office.
-    - Available times for pick up request depend on the respective post offices.
+3. Call Japan Post pickup request number 0800-0800-111 (free dial). Dial the 7-digit postal code for pickup address and then forward to your nearest post office.
+    - Available times for pickup request depend on the respective post offices.
     - Inform that the shipment is for Japan Post Chakubarai Yu-Pack.
     - Use the Chakubarai connote which was included.
 4. If Japan Post Chakubarai connote was not included, email Quantium Solutions. Quantium Solutions will request Japan Post to pick up and ask them to bring the connote upon pickup.
