@@ -24,7 +24,7 @@ This scenario shows you how to configure your Azure API Management instance to p
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
 
-The basic premise is that we have an app calling an API, signing in users via AAD B2C, the API is protected with API Management which is validating the JWT in flight. 
+The basic premise is that we have an app that calls an API, signing in users via AAD B2C, the API is protected with API Management, which is validating the JWT in flight. 
 
 For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
@@ -74,17 +74,19 @@ Here is a quick overview of the steps:
 > [!NOTE]
 > AAD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created and assigned application permissions for your calling API.
 
-11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope and the default one that was already there "login as user".
-12. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
+11. Open the other two applications and then look under the *API Access* tab.
+12. Grant them access to the backend API scope and the default one that was already there "login as user".
+13. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
 ## Create a "Sign-up or sign-in" policy to allow users to sign in with AAD B2C
 1. Return to the root of the AAD B2C Blade 
 2. Then select “Sign-up or Sign-in Policies” and click ‘add’
-3. Give the policy a name and record it for later, then select 'Identity providers', then check 'User ID sign up' and click OK. 
-4. Select 'Sign-up attributes' and choose the registration options that you want your customers to enter (At a minimum, choose Email, Display Name and Country/Region), then click OK.
-5. Select 'Application Claims' and choose 'Country/Region', 'Display Name', 'User's Object ID' and 'User is new', then click OK.
-6. Click OK again to return to the main AAD B2C blade, now select the policy that you created in the list (to reopen it), then record the address of the b2clogin.com domain.
-7. Click on the link at the top for the well-known openid configuration endpoint and record the authorization_endpoint and token_endpoint values from the opened document.
+3. Give the policy a name and record it for later.
+4. then select 'Identity providers', then check 'User ID sign up' and click OK. 
+5. Select 'Sign-up attributes' and choose the registration options that you want your customers to enter (At a minimum, choose Email, Display Name and Country/Region), then click OK.
+6. Select 'Application Claims' and choose 'Country/Region', 'Display Name', 'User's Object ID' and 'User is new', then click OK.
+7. Click OK again to return to the main AAD B2C blade, now select the policy that you created in the list (to reopen it), then record the address of the b2clogin.com domain.
+8. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values.
 
 > [!NOTE]
 > B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and log in users in different ways. 
@@ -94,7 +96,7 @@ Here is a quick overview of the steps:
 
 ## [Optional] Configure Oauth2 for the API Management Developer Console
 
-1. Switch back to your standard AAD tenant in the Azure portal and open the *API management blade*, then open *your instance*.
+1. Switch back to your standard AAD tenant in the Azure portal and open the *API Management| blade*, then open *your instance*.
 2. Note down the *Virtual IP (VIP) address* of the instance, and optionally the *developer portal URL* and record them for later.
 3. Next, Select the Oauth 2.0  blade from the Security Tab, and click 'Add'
 4. Give sensible values for *Display Name* and *Description*
@@ -103,8 +105,8 @@ Here is a quick overview of the steps:
 7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
 8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
 Function API client ID from the AAD B2C App registration
-9. Set the Client credentials section upSet the Client ID to the APIM Developer console app's application ID and set the Client Secret to the APIM developer console app's Key) 
-10. Lastly, now record the redirect_uri of the auth code grant from APIM for later use.
+9. Set the Client credentials section upSet the Client ID to the API Management Developer console app's application ID and set the Client Secret to the key you recorded earlier. 
+10. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
 
 > [!NOTE]
 > Now we have an API Management instance that knows how to get access tokens from AAD B2C to authorize requests through the developer portal for testing.
