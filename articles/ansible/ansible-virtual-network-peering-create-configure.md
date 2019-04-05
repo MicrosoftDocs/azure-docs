@@ -16,7 +16,7 @@ ms.date: 04/04/2019
 
 [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) (VNet peering) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
-Similar to how traffic is routed between virtual machines in the same virtual network through private IP addresses, traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
+Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual networks is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article walks you through how to connect virtual networks to each other with Azure virtual network peering using Ansible.
 
@@ -24,9 +24,6 @@ Ansible enables you to automate the deployment and configuration of resources in
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.8 is required to run the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) in this tutorial.
 
 ## Create two resource groups
 
@@ -207,11 +204,11 @@ You can also [download the complete playbook](https://github.com/Azure-Samples/a
 ## Configure and run the sample playbook
 In this section, you run the playbook to see the results of creating and peering the two virtual networks.
 
-If you downloaded the playbook from the GitHub Azure-Samples repo and are using an Ansible version earlier than 2.8, perform the following steps:
+If you downloaded the playbook from the GitHub Azure-Samples repo and are using an Ansible version earlier than 2.8, do the following steps:
 - Uncomment the role reference.
 - Install the [azure.azure_preview_modules using ansible-galaxy](https://galaxy.ansible.com/Azure/azure_preview_modules).
 
-Perform the following steps to create your own version of the sample playbook and configure the playbook for your environment:
+Do the following steps to create your own version of the sample playbook and configure the playbook for your environment:
 - Save the sample playbook as `vnet_peering.yml`.
 - In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
