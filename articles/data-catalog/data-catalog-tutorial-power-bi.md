@@ -31,25 +31,6 @@ To get started, you're required to follow the quickstart:
 
 In this tutorial, you register data assets (tables) from an [Azure SQL database sample](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started), but you can use any supported data source if you would prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
-## Find a data catalog in the Azure portal
-
-1. On a separate tab in the web browser or in a separate web browser window, go to the [Azure portal](https://portal.azure.com) and sign in with the same account that you used to create the data catalog in the previous step.
-
-2. Select **Browse** and then click **Data Catalog**.
-
-    ![Azure Data Catalog--browse Azure](media/data-catalog-get-started/data-catalog-browse-azure-portal.png)
-   You see the data catalog you created.
-
-    ![Azure Data Catalog--view catalog in list](media/data-catalog-get-started/data-catalog-azure-portal-show-catalog.png)
-
-3. Click the catalog that you created. You see the **Data Catalog** blade in the portal.
-
-   ![Azure Data Catalog--blade in portal](media/data-catalog-get-started/data-catalog-blade-azure-portal.png)
-
-4. You can view properties of the data catalog and update them. For example, click **Pricing tier** and change the edition.
-
-    ![Azure Data Catalog--pricing tier](media/data-catalog-get-started/data-catalog-change-pricing-tier.png)
-
 ## Register data assets
 
 In this exercise, you use the registration tool to register data assets from the Adventure Works database with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
