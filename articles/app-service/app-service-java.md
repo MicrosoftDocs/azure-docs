@@ -86,3 +86,5 @@ Another workaround is to write a WebJob that runs on a schedule and copies these
 ## Where do I find the log files for Jetty?
 
 For portal App Setting deployments, the log file is in `D:\home\LogFiles`. Look for `jetty_*YYYY_MM_DD*.stderrout.log`
+
+## [Java runtime statement of support](app-service-jre-support.md)
