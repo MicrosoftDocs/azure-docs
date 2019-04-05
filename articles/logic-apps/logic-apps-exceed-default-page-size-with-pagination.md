@@ -18,12 +18,10 @@ When you get data, items, or records by using a connector action in
 you get result sets so large that the action doesn't return all the 
 results at the same time. With some connector actions, the number of 
 results that you get exceed connector's default page size. In this case, 
-the action returns only the first page of results.
-
-For example, the default page size limit for the SQL Server connector's 
-**Get rows** action is 2048, though this limit can vary based on other 
-settings. In this example, the action returns only the first page of results, 
-or 2048 records. 
+the action returns only the first page of results. For example, the default 
+page size limit for the SQL Server connector's **Get rows** action is 2048, 
+though this limit can vary based on other settings. In this example, 
+the action returns only the first page of results, or 2048 records.
 
 Some actions, such as the SQL Server **Get rows** action, support *pagination* 
 so that the action asks for the remaining results, but returns all those results 
