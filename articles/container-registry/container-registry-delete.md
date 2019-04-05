@@ -237,11 +237,14 @@ TIMESTAMP=2019-04-05
 
 if [ "$ENABLE_DELETE" = true ]
 then
-    az acr repository show-manifests --name $REGISTRY--repository $REPOSITORY \
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
     --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
     | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
 else
-    echo "No data deleted. Set ENABLE_DELETE=true to enable image deletion."
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
 fi
 ```
 
