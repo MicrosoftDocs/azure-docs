@@ -99,6 +99,9 @@ Note - This process, through step 3.1, is a onetime operation.
 
 -   Also, the user can edit the policy, which is functional at the time of import but, contains defaults where no information was specified at import. Ex. no issuer info  
 
+### Formats of Import we support
+
+
 ## Creating a certificate with a CA not partnered with Key Vault  
  This method allows working with other CAs than Key Vault's partnered providers, meaning your organization can work with a CA of its choice.  
 
