@@ -21,7 +21,7 @@ ms.date: 04/05/2019
 >  
 > 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
+Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add data to the collection. You then use a [SQL .NET SDK](sql-api-sdk-dotnet.md) web app to add more data to the collection. 
 
@@ -32,23 +32,19 @@ In this quickstart, you use Data Explorer in the Azure portal to create the data
 Visual Studio 2017 with the Azure development workflow installed
 - You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
-An Azure subscription or free Cosmos DB trial account
+An Azure subscription or free Azure Cosmos DB trial account
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
 
 <a id="create-account"></a>
-## Create a Cosmos DB account
+## Create an Azure Cosmos DB account
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## Work with Data Explorer
-
-You can use the Data Explorer in the Azure portal to create a database and collection, add data to the database, and query the data. 
-
 <a id="create-collection-database"></a>
-### Add a database and a collection 
+## Add a database and a collection 
 
-Use the Data Explorer to create a database and collection. 
+You can use the Data Explorer in the Azure portal to create a database and collection. 
 
 1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
     
@@ -59,7 +55,7 @@ Use the Data Explorer to create a database and collection.
 1.  In the **Add collection** page, enter the settings for the new collection.
     
     |Setting|Suggested value|Description
-    |---|---|---
+    |---|---|---|
     |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
     |**Collection id**|Items|Enter *Items* as the name for your new collection. Collection IDs have the same character requirements as database names.|
     |**Partition key**| /category| The sample described in this article uses */category* as the partition key.|
@@ -72,7 +68,7 @@ Use the Data Explorer to create a database and collection.
     
     ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
-### Add data to your database
+## Add data to your database
 
 Add data to your new database using Data Explorer.
 
@@ -98,13 +94,13 @@ Add data to your new database using Data Explorer.
    
 1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 
-### Query your data
+## Query your data
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)]
 
-## Use the SQL API sample app
+## Use the .NET web app to manage data
 
-To see how easy it is to work with your Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
+To see how easy it is to work with your Azure Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
 
 You could also create the database and collection by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
 
@@ -133,7 +129,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 1. Go back to the Azure portal to copy your connection string information to paste into the *web.config*.
    
-   1. In your Cosmos DB account left navigation, select **Keys**.
+   1. In your Azure Cosmos DB account left navigation, select **Keys**.
       
       ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-dotnet/keys.png)
       
@@ -180,7 +176,7 @@ This step is optional. In this quickstart, you created a database and a collecti
 * This code initializes the `DocumentClient`: 
 
     ```csharp
-    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]):
+    client = new DocumentClient(new Uri(ConfigurationManager.AppSettings["endpoint"]), ConfigurationManager.AppSettings["authKey"]);
     ```
 
 * This code creates the new database by using the `CreateDatabaseAsync` method:
@@ -224,7 +220,7 @@ This step is optional. In this quickstart, you created a database and a collecti
 
 ## Next steps
 
-In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Azure Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
