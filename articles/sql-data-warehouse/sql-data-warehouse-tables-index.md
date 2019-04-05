@@ -17,7 +17,7 @@ ms.custom: seoapril2019
 
 Recommendations and examples for indexing tables in Azure SQL Data Warehouse.
 
-## Index Types
+## Index types
 
 SQL Data Warehouse offers several indexing options including [clustered columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview), [clustered indexes and nonclustered indexes](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described), and a non-index option also known as [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
