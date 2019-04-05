@@ -18,11 +18,14 @@ A better approach is to *scale* a cluster, adding and removing capacity with cha
 This article shows how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale out the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
 ## Steps to configure autoscale
-1. In the Azure portal, go to your Data Explorer cluster resource. Under the **Settings** heading, select **Scale out**. On the  **Configure** tab, select **Enable autoscale**.
+
+In the Azure portal, go to your Data Explorer cluster resource. Under the **Settings** heading, select **Scale out**. On the  **Configure** tab, select **Enable autoscale**.
 
    ![Enable autoscale](media/manage-cluster-scaling/enable-autoscale.png)
 
-1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*. The following graphic shows the flow of the next several steps. More details follow the graphic.
+The following graphic shows the flow of the next several steps. More details follow the graphic.
+
+1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*. 
 
    ![Scale rule](media/manage-cluster-scaling/scale-rule.png)
 
