@@ -148,7 +148,7 @@ To configure Azure AD single sign-on with UserEcho, perform the following steps:
 	
 	b. Paste **Login URL**, which you have copied from the Azure portal into the **SAML SSO URL** textbox.
 	
-	c. Paste **Logout URL**, which you have copied from the Azure portal into the **Remote logoout URL** textbox.
+	c. Paste **Logout URL**, which you have copied from the Azure portal into the **Remote Logout URL** textbox.
 	
 	d. Open your downloaded certificate in Notepad, copy the content, and then paste it into the **X.509 Certificate** textbox.
 	
