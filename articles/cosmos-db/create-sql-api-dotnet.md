@@ -50,14 +50,14 @@ You can use the Data Explorer in the Azure portal to create a database and colle
 
 Use the Data Explorer to create a database and collection. 
 
-1. Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
-   
-   You may need to scroll right to see the **Add Collection** area.
-
+1.  Select **Data Explorer** from the left navigation on your Azure Cosmos DB account page, and then select **New Collection**. 
+    
+    You may need to scroll right to see the **Add Collection** area.
+    
     ![The Azure portal Data Explorer, Add Collection pane](./media/create-sql-api-dotnet/azure-cosmosdb-data-explorer-dotnet.png)
-
-1. In the **Add collection** page, enter the settings for the new collection.
-
+    
+1.  In the **Add collection** page, enter the settings for the new collection.
+    
     |Setting|Suggested value|Description
     |---|---|---
     |**Database id**|ToDoList|Enter *ToDoList* as the name for the new database. Database names must contain from 1 through 255 characters, and they cannot contain `/, \\, #, ?`, or a trailing space.|
@@ -67,9 +67,9 @@ Use the Data Explorer to create a database and collection.
     
     Don't add **Unique keys** for this example. Unique keys let you add a layer of data integrity to the database by ensuring the uniqueness of one or more values per partition key. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
     
-1. Select **OK**. 
-   Data Explorer displays the new database and collection.
-
+1.  Select **OK**. 
+    Data Explorer displays the new database and collection.
+    
     ![The Azure portal Data Explorer, showing the new database and collection](./media/create-sql-api-dotnet/azure-cosmos-db-new-collection.png)
 
 ### Add data to your database
@@ -77,9 +77,9 @@ Use the Data Explorer to create a database and collection.
 Add data to your new database using Data Explorer.
 
 1. In **Data Explorer**, the new database appears in the **Collections** pane. Expand the **ToDoList** database, expand the **Items** collection, select **Documents**, and then select **New Document**. 
-
+   
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
-  
+   
 1. Add the following structure to the document on the right side of the **Documents** pane:
 
      ```json
@@ -93,9 +93,9 @@ Add data to your new database using Data Explorer.
      ```
 
 1. Select **Save**.
-
-    ![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
-
+   
+   ![Copy in json data and select Save in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png)
+   
 1. Select **New Document** again, and create and save another document with a unique `id`, and any other properties and values you want. Your documents can have any structure, because Azure Cosmos DB doesn't impose any schema on your data.
 
 ### Query your data
@@ -228,7 +228,7 @@ This step is optional. In this quickstart, you created a database and a collecti
 
 ## Next steps
 
-In this quickstart, you've learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Cosmos DB account. 
+In this quickstart, you learned how to create an Azure Cosmos DB account, create a database and collection using the Data Explorer, and run a .NET web app to update your data. You can now import additional data to your Cosmos DB account. 
 
 > [!div class="nextstepaction"]
 > [Import data into Azure Cosmos DB](import-data.md)
