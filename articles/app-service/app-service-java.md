@@ -67,5 +67,6 @@ Developers can [open an issue](/azure/azure-supportability/how-to-create-azure-s
 ## Next steps
 
 This topic provides the Java Runtime statement of support for Azure App Service on Windows.
+
 - To learn more about hosting web applications with Azure App Service see [App Service overview](overview.md).
 - For information about Java on Azure development see [Azure for Java Dev Center](https://docs.microsoft.com/java/azure/?view=azure-java-stable).
