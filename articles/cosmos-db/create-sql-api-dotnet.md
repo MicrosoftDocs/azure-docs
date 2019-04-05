@@ -116,7 +116,7 @@ You could also create the database and collection by using the .NET sample code.
 
 First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) from GitHub. 
 
-1. Open a command prompt, create a new directory named *git-samples*, and change to it: 
+1. Open a git terminal window, such as Git Bash, create a new directory named *git-samples*, and change to it: 
    
    ```bash
    mkdir /c/git-samples/
