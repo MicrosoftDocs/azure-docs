@@ -1,6 +1,6 @@
 ---
-title: Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth. | Microsoft Docs
-description: Protect an API with OAuth 2.0 by using AAD B2C, API Management and Easy Auth in order to be able to call it from a JS SPA
+title: Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth. | Microsoft Docs
+description: Protect an API with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth in order to be able to call it from a JS SPA
 
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 04/05/2019
 ms.author: wieastbu
 ---
 
-# Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth.
+# Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
 
 This scenario shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service and Azure API management as a gatekeeper and frontdoor to secure a backend Azure Function. 
 
@@ -26,7 +26,7 @@ The idea of this document is to show how API Management can be used in a real wo
 
 The basic premise is that we have a JavaScript SPA calling through and retrieving data from an API, signing in via AAD B2C and then passing through API Management to secure the API and validate the JWT in flight.
 
-Claims are picked up from the token at sign in and validated in a number of places to show that we can decipher and use the token.
+Claims are picked up from the token at sign in and validated in a number of places to show we can decipher and use the token.
 
 ## Prerequisites
 To follow the steps in this article, you must have:
@@ -39,14 +39,14 @@ To follow the steps in this article, you must have:
 Here is a quick overview of the steps:
 
 1. Create the AAD Calling (Frontend, API Management) and API Applications with scopes and grant API Access
-2. Create the Sign up or sign in policies to allow users to sign in with AAD B2C
+2. Create the Sign-up or sign-in policies to allow users to sign in with AAD B2C
 3. Configure API Management with the new AAD B2C Client IDs and keys to Enable OAuth 2.0 user authorization in the Developer Console
 4. Build the Function API
 5. Configure the Function API to enable EasyAuth with the new AAD B2C Client ID’s and Keys and lock down to APIM VIP 
 6. Build the API Definition in API Management
 7. Set up Oauth2 for the API Management API configuration
-8. Setup the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request
-9. Setup the custom claim data
+8. Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request
+9. Set up the custom claim data
 10. Test the API from the APIM Portal 
 11. Build the calling application to consume the API
 12. Upload the JS SPA Sample
@@ -59,12 +59,12 @@ Here is a quick overview of the steps:
 2. Click the 'Add' button and create three applications
 * The Frontend Client, 
 * The Backend Function API,
-* The API Management developer portal (unless your're running APIM in consumption mode)
+* The API Management developer portal (unless you're running APIM in consumption mode)
 
 3. Use placeholders for the reply urls for now, we’ll update those urls later.
 4. Now set the App ID URI, choose something unique and relevant to the service being created.
 5. Set WebApp/ Web API and Allow Implicit flow to yes
-6. Record the AppID URI, name and Application ID for later use for all three apps.
+6. Record the AppID URI, name, and Application ID for later use for all three apps.
 
 7. Open the Backend API from the list of applications and select the *Keys* tab (under General) to generate an auth key
 8. Record the key somewhere safe for later use
@@ -74,10 +74,10 @@ Here is a quick overview of the steps:
 > [!NOTE]
 > AAD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created and assigned application permissions for your calling API.
 
-11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope (that you just created) and the default one that was already there ("login as user") 
+11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope (that you created) and the default one that was already there ("login as user") 
 12. Generate them a key each (select the *Keys* tab (under General) to generate an auth key) and record those keys somewhere safe too.
 
-## Create a "Sign up or sign in" policy to allow users to sign in with AAD B2C
+## Create a "Sign-up or sign-in" policy to allow users to sign in with AAD B2C
 1. Return to the root of the AAD B2C Blade 
 2. Then select “Sign-up or Sign-in Policies” and click ‘add’
 3. Give the policy a name (and record it for later) and select 'Identity providers', then check User ID sign up and click OK. 
@@ -98,19 +98,19 @@ Here is a quick overview of the steps:
 2. Note down the *Virtual IP (VIP) address* of the instance, and optionally the *developer portal URL* and record them for later.
 3. Next, Select the Oauth 2.0  blade from the Security Tab, and click 'Add'
 4. Give sensible values for *Display Name* and *Description*
-5. You can enter any value in the Client registration page URL, as this won't be used.
+5. You can enter any value in the Client registration page URL, as this value won't be used.
 6. Check the *Authorization code* and *Implicit Auth* Grant types
-7. In the *Authorization* and *Token* endpoint fields enter the values you captured from the well-known configuration xml document earlier.
+7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
 8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
 Function API client ID from the AAD B2C App registration
 9. Set the Client credentials section upSet the Client ID to the APIM Developer console app's application ID and set the Client Secret to the APIM developer console app's Key) 
-10. Lastly, now record the redirect_uri of the auth code grant from APIM under the 'This is what the redirect_uri for authorization code grant looks like' entry for later use.
+10. Lastly, now record the redirect_uri of the auth code grant from APIM for later use.
 
 > [!NOTE]
 > Now we have an API Management instance that knows how to get access tokens from AAD B2C to authorize requests through the developer portal for testing.
 
 ## Build the Function API 
-1. Go to the Function Apps blade of the Azure portal, open the function app and create a new http triggered C# function,
+1. Go to the Function Apps blade of the Azure portal, open the function app, and create a new http triggered C# function,
 2. Set it’s name to HttpTriggerC# and it’s auth level to Anonymous (we'll secure this function, but not by using a function key or admin key).
 3. Paste the sample code from below into Run.csx over the existing code that appears.
 
@@ -180,7 +180,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
 10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP (Found on the API management overview page in the portal) and if you want to interact with the functions portal, you'll need to add your public IP address / range here too.
-11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, note that you have to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32
+11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, but you will have to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32
 
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
@@ -206,7 +206,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 > The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 
-Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token on behalf of the user, before calling the API.
+Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Developer Console obtains an access token for the user, before calling the API.
 
 1. Browse to any operation under the `Echo API` in the developer portal, and select **Try it** to bring you to the Developer Console.
 2. Note a new item in the **Authorization** section, corresponding to the authorization server you just added.
@@ -323,7 +323,7 @@ clientID: 'the registered application ID of the CLIENT OR FRONTEND Application i
 > [!NOTE] 
 > This configuration will result in a client of the frontend application receiving an access token with appropriate claims from AAD B2C 
 > The SPA will be able to add this as a bearer token in the https header in the call to the backend API.
-> API Management will pre-validate the token, and rate-limit calls to the endpoint by the subscriber key, before passing through the request to the receiving Azure Function API.
+> API Management will pre-validate the token, rate-limit calls to the endpoint by the subscriber key, before passing through the request to the receiving Azure Function API.
 > The SPA will render the response in the browser.
 > *Congratulations, you’ve configured Azure Active Directory B2C, Azure API Management, Azure Functions, Azure App Service Authorization to work in perfect harmony, only one thing remains.*
 
@@ -340,7 +340,7 @@ string json = "Hello API Management";
 
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
-2. Click “Login” in the top-right-hand corner, this will pop-up your B2C sign in / up profile.
+2. Click “Login” in the top-right-hand corner, this will pop up your B2C sign in / up profile.
 3. Once complete the ‘logged in as’ section of the screen will be populated.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
@@ -352,7 +352,7 @@ The steps above can be adapted and edited to allow many different uses of Azure 
 * Learn more about [Azure Active Directory and OAuth2.0](../active-directory/develop/authentication-scenarios.md).
 * Check out more [videos](https://azure.microsoft.com/documentation/videos/index/?services=api-management) about API Management.
 * For other ways to secure your back-end service, see [Mutual Certificate authentication](api-management-howto-mutual-certificates.md).
-* Consider using the AAD Graph API to assign custom claims and using an API Management policy to validate they are present in the token.
+* Consider using the AAD Graph API to assign custom claims and using an API Management policy to validate they're present in the token.
 
 * [Create an API Management service instance](get-started-create-service-instance.md).
 
