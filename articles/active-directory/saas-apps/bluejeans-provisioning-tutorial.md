@@ -44,19 +44,19 @@ Before configuring BlueJeans for automatic user provisioning with Azure AD, you 
 
 **To add BlueJeans from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+2. Go to **Enterprise applications**, and then select **All applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, select the **New application** button at the top of the pane.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **BlueJeans**, select **BlueJeans** from result panel then click **Add** button to add the application.
+4. In the search box, enter **BlueJeans**, select **BlueJeans** in the results panel, and then select the **Add** button to add the application.
 
 	![BlueJeans in the results list](common/search-new-app.png)
 
