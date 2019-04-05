@@ -36,15 +36,15 @@ Each HDInsight version is a cloud distribution of a version of Hortonworks Data 
 
 You can also use Apache Ambari UI or Ambari REST API to check the Hadoop components and versions in HDInsight.
 
-Applications or components that were available in on-premises clusters but aren't part of the HDInsight clusters can be added on an Edge Node or on a VM in the same VNet as the HDInsight cluster. A third-party Hadoop application that isn't available on Azure HDInsight can be installed using the "Applications" option in HDInsight cluster. Custom Hadoop applications can be installed on HDInsight cluster using "script actions". The following table lists some of the common applications and their HDInsight integration options:
+Applications or components that were available in on-premises clusters but aren't part of the HDInsight clusters can be added on an edge node or on a VM in the same VNet as the HDInsight cluster. A third-party Hadoop application that isn't available on Azure HDInsight can be installed using the "Applications" option in HDInsight cluster. Custom Hadoop applications can be installed on HDInsight cluster using "script actions". The following table lists some of the common applications and their HDInsight integration options:
 
 |**Application**|**Integration**
 |---|---|
-|Airflow|IaaS or HDInsight Edge node
+|Airflow|IaaS or HDInsight edge node
 |Alluxio|IaaS  
 |Arcadia|IaaS 
 |Atlas|None (Only HDP)
-|Datameer|HDInsight Edge node
+|Datameer|HDInsight edge node
 |Datastax (Cassandra)|IaaS (CosmosDB an alternative on Azure)
 |DataTorrent|IaaS 
 |Drill|IaaS 
@@ -53,15 +53,15 @@ Applications or components that were available in on-premises clusters but aren'
 |Mapador|IaaS 
 |Mongo|IaaS (CosmosDB an alternative on Azure)
 |NiFi|IaaS 
-|Presto|IaaS or HDInsight Edge node
+|Presto|IaaS or HDInsight edge node
 |Python 2|PaaS 
 |Python 3|PaaS 
 |R|PaaS 
 |SAS|IaaS 
 |Vertica|IaaS (SQLDW an alternative on Azure)
 |Tableau|IaaS 
-|Waterline|HDInsight Edge node
-|StreamSets|HDInsight Edge 
+|Waterline|HDInsight edge node
+|StreamSets|HDInsight edge 
 |Palantir|IaaS 
 |Sailpoint|Iaas 
 
