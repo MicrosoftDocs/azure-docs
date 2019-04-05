@@ -72,7 +72,7 @@ Check your **HTTP** and **HTTPS ports**. In most cases, 80 and 443 are correct, 
 However, suppose the URL for the origin file that you tested earlier is http:\//www.contoso.com:8080/file.txt. Note the *:8080* portion at the end of the hostname segment. That number instructs the browser to use port 8080 to connect to the web server at www\.contoso.com, therefore you'll need to enter *8080* in the **HTTP port** field. It's important to note that these port settings affect only what port the endpoint uses to retrieve information from the origin.
 
 > [!NOTE]
-> **Azure CDN Standard from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx).  
+> **Azure CDN Standard from Akamai** endpoints do not allow the full TCP port range for origins.  For a list of origin ports that are not allowed, see [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100)).  
 > 
 > 
 

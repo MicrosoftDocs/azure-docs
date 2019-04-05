@@ -8,10 +8,10 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-
 ---
+
 # Use Apache Ambari Hive View with Apache Hadoop in HDInsight
 
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
@@ -20,22 +20,14 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
 ## Prerequisites
 
-* A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
-
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* A Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * A web browser
 
 ## Run a Hive query
 
-1. Open the [Azure portal](https://portal.azure.com).
+1. From the [Azure portal](https://portal.azure.com/), select your cluster.  See [List and show clusters](../hdinsight-administer-use-portal-linux.md#showClusters) for instructions. The cluster is opened in a new portal blade.
 
-2. Select your HDInsight cluster, and then select **Ambari Views** from the **Quick Links** section.
-
-    ![Quick links section of the portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    When prompted to authenticate, use the cluster login (default `admin`) account name and password that you provided when you created the cluster.
+2. From **Cluster dashboards**, select **Ambari views**. When prompted to authenticate, use the cluster login (default `admin`) account name and password that you provided when you created the cluster.
 
 3. From the list of views, select __Hive View__.
 
@@ -77,30 +69,30 @@ Learn how to run Hive queries by using Apache Ambari Hive View. The Hive View al
 
    * `SELECT`: Selects a count of all rows where column t4 contains the value [ERROR].
 
-     > [!IMPORTANT]  
-     > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
+   > [!IMPORTANT]  
+   > Leave the __Database__ selection at __default__. The examples in this document use the default database included with HDInsight.
 
-5. To start the query, use the **Execute** button below the worksheet. The button turns orange and the text changes to **Stop**.
+5. To start the query, select **Execute** below the worksheet. The button turns orange and the text changes to **Stop**.
 
 6. After the query has finished, the **Results** tab displays the results of the operation. The following text is the result of the query:
 
         loglevel       count
         [ERROR]        3
 
-    You can use the **Logs** tab to view the logging information that the job created.
+    You can use the **LOG** tab to view the logging information that the job created.
 
    > [!TIP]  
-   > Download or save results from the **Save results** drop-down dialog box in the upper left of the **Query Process Results** section.
+   > Download or save results from the **Actions** drop-down dialog box under the  **Results** tab.
 
 ### Visual explain
 
 To display a visualization of the query plan, select the **Visual Explain** tab below the worksheet.
 
-The **Visual Explain** view of the query can be helpful in understanding the flow of complex queries. You can see a textual equivalent of this view by using the **Explain** button in the Query Editor.
+The **Visual Explain** view of the query can be helpful in understanding the flow of complex queries.
 
 ### Tez UI
 
-To display the Tez UI for the query, select the **Tez** tab below the worksheet.
+To display the Tez UI for the query, select the **Tez UI** tab below the worksheet.
 
 > [!IMPORTANT]  
 > Tez is not used to resolve all queries. You can resolve many queries without using Tez. 

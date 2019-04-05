@@ -28,6 +28,9 @@ tasks related to creating, publishing, and assigning a blueprint within your org
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free) before you begin.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Getting started with REST API
 
 If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)
@@ -45,10 +48,10 @@ instructions. Following is a sample header for authenticating with Azure. Genera
 authentication header, sometimes called a **Bearer token**, and provide the REST API URI to connect
 to with any parameters or a **Request Body**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
