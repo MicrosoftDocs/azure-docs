@@ -29,7 +29,7 @@ In this quickstart, you take the following actions:
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## Prerequisite
+## Prerequisites
 
 1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
 
@@ -60,7 +60,7 @@ A notebook workstation gives you a cloud platform for Jupyter notebooks that is 
 
 After your workstation is created, use the Notebook Workstations section to launch the Jupyter web interface.
 
-1.  Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
+* Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
 
     ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
 
@@ -76,7 +76,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk, __*__, next to a cell, the cell is still running. After the code for that cell finishes, a number appears.  
+1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk(__*__) next to a cell, the cell is still running. After the code for that cell finishes, a number appears.  
 
 After you've finished running all of the cells in the notebook, you can view the logged values in your workspace.
 
@@ -102,7 +102,13 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-You created the necessary resources to experiment with and deploy models. You also ran some code in a notebook. And you explored the run history from that code in your workspace in the cloud.
+In this quickstart, you completed the following:
+
+* Create a workstation
+* Start a Jupyter Notebook server on your workstation
+* Open a notebook that contains code to estimate pi and logs errors at each iteration.
+* Run the notebook.
+* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 

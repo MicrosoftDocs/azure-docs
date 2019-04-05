@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
 
 ---
@@ -49,7 +49,7 @@ Resource Manager provides several benefits:
 
 ## Understand management scope
 
-Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. [Management groups](../governance/management-groups/index.md) are in a preview release. The following image shows an example of these layers.
+Azure provides four levels of management scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
