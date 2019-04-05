@@ -119,9 +119,9 @@ To configure Azure AD single sign-on with Certent Equity Management, perform the
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| COMPANY | User.companyname |
+	| COMPANY | user.companyname |
 	| USER | user.userprincipalname |
-	| ROLE | User.assignedroles |
+	| ROLE | user.assignedroles |
 
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
