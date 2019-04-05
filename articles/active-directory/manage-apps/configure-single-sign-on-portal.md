@@ -33,7 +33,7 @@ This tutorial uses the Azure portal to:
 
 1. If the application hasn't been added to your Azure AD tenant, see  [Quickstart: Add an application to your Azure AD tenant](add-application-portal.md).
 
-2. Ask your application vendor for the information described in [Configure basic SAML options](#Configure-basic-SAML-options).
+2. Ask your application vendor for the information described in [Configure basic SAML options](#configure-basic-SAML-options).
 
 3. Use a non-production environment to test the steps in this tutorial. If you don't have an Azure AD non-production environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -82,25 +82,21 @@ To configure the domain and URLs:
 
 4. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
 
-## Configure user attributes
+## Configure user attributes and claims 
 
 User attributes allow you to control what information Azure AD sends to the application in the SAML token each time a user signs on. For example, Azure AD could send the name, email, and employee ID of the user to the application. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
-1. To view all the options, click **View and edit all other user attributes**.
+1. To edit the user attributes and claims, select the **Edit** icon in the upper-right corner of the **User Attributes and Claims** section.
 
-    ![Configure user attributes](media/configure-single-sign-on-portal/config-user-attributes.png)
+   The **Name Identifier Value** is set with the default value of *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-2. Enter **User Identifier**.
+2. To modify the **Name Identifier Value**,  select the **Edit** icon for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about customizing claims, see the [Customize claims issued in the SAML token for enterprise applications](../manage-apps/configure-single-sign-on-portal.md) how-to article.
 
-	The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
+3. To add a claim, click **Add new claim**. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
 
-3. For more SAML token attributes, click **View and edit all other user attributes**.
-
-4. To add an attribute to the **SAML Token Attributes**, click **Add attribute**. Enter the **Name** and select the **Value** from the menu.
-
-5. Click **Save**. You see the new attribute in the table.
+4. Click **Save**. You see the new claim in the table.
  
 ## Create a SAML signing certificate
 
