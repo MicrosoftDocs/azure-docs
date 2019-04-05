@@ -1,5 +1,5 @@
 ---
-title: Data-driven style Expressions (Web SDK) | Microsoft Docs
+title: Data-driven style Expressions in the Azure Maps Web SDK | Microsoft Docs
 description: How to use data-driven style expressions in the Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
@@ -137,7 +137,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['+', number, number, …]` | number | Calculates the sum of the specified numbers. |
 | `['-', number]` | number | Subtracts 0 by the specified number. |
 | `['-', number, number]` | number | Subtracts the first numbers by the second number. |
-| `['\*', number, number, …]` | number | Multiplies the specified numbers together. |
+| `['*', number, number, …]` | number | Multiplies the specified numbers together. |
 | `['/', number, number]` | number | Divides the first number by the second number. |
 | `['%', number, number]` | number | Calculates the remainder when dividing the first number by the second number. |
 | `['^', number, number]` | number | Calculates the value of the first value raised to the power of the second number. |
@@ -170,11 +170,11 @@ When comparing values, the comparison is strictly typed. Values of different typ
 |------------|-------------|-------------|
 | `['! ', boolean]` | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
 | `['!= ', value, value]` | boolean | Returns `true` if the input values are not equal, `false` otherwise. |
-| `['\<', value, value]` | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| `['\<=', value, value]` | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['<', value, value]` | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['<=', value, value]` | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `['==', value, value]` | boolean | Returns `true` if the input values are equal, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| `['\>', value, value]` | boolean | Returns `true` if the first input is strictly greater than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| `['\>=' value, value]` | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['>', value, value]` | boolean | Returns `true` if the first input is strictly greater than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['>=' value, value]` | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
 | `['all', boolean, boolean, …]` | boolean | Returns `true` if all the inputs are `true`, `false` otherwise. |
 | `['any', boolean, boolean, …]` | boolean | Returns `true` if any of the inputs are `true`, `false` otherwise. |
 
