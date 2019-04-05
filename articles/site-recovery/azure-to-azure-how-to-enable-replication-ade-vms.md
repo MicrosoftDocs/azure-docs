@@ -33,7 +33,7 @@ To enable replication of ADE VMs from the Azure portal, the user needs the follo
     - Create
     - Get
 
-- Key vault key permissions (required only if the VMs use Key Encryption Key to encrypt disk encryption keys)
+- Key vault key permissions (required only if the VMs use key encryption key to encrypt disk encryption keys)
     - List
     - Get
     - Create
@@ -66,7 +66,7 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 5. Provide Azure credentials to sign in.
 6. Select the **Azure subscription** of your VMs.
 7. Wait for the resource groups to load, and then select the **Resource group** of your VMs.
-8. Select the VMs from the list that's displayed. Only VMs that are enabled for Disk Encryption are on the list.
+8. Select the VMs from the list that's displayed. Only VMs that are enabled for disk encryption are on the list.
 9. Select the **Target location**.
 
     - **Disk encryption key vaults**
@@ -93,7 +93,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
     - **Target location**: The location where your source virtual machine data will be replicated. Site Recovery provides a list of suitable target regions based on the selected machine's location. We recommend that you use the same location as the Recovery Services vault's location.
     - **Target subscription**: The target subscription that's used for disaster recovery. By default, the target subscription is the same as the source subscription.
     - **Target resource group**: The resource group to which all your replicated virtual machines belong. By default, Site Recovery creates a new resource group in the target region. The name gets the "asr" suffix. If a resource group already exists that was created by Azure Site Recovery, it's reused. You can also choose to customize it, as shown in the following section. The location of the target resource group can be any Azure region except the region where the source virtual machines are hosted.
-    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the "Site Recovery" suffix. It's mapped to your source network and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
+    - **Target virtual network**: By default, Site Recovery creates a new virtual network in the target region. The name gets the "asr" suffix. It's mapped to your source network and used for any future protection. [Learn more](site-recovery-network-mapping-azure-to-azure.md) about network mapping.
     - **Target storage accounts (if your source VM doesn't use managed disks)**: By default, Site Recovery creates a new target storage account by mimicking your source VM storage configuration. If a storage account already exists, it's reused.
     - **Replica managed disks (if your source VM uses managed disks)**: Site Recovery creates new replica managed disks in the target region to mirror the source VM's managed disks of the same storage type (standard or premium) as the source VM's managed disks.
     - **Cache storage accounts**: Site Recovery needs an extra storage account called *cache storage* in the source region. All the changes on the source VMs are tracked and sent to the cache storage account. They're then replicated to the target location.
@@ -126,7 +126,7 @@ Follow these steps to modify the Site Recovery default target settings.
 
 ## Update target VM encryption settings
 In the following scenarios, you'll be required to update the target VM encryption settings:
-  - You enabled Site Recovery replication on the VM. Later, you enabled Disk Encryption on the source VM.
+  - You enabled Site Recovery replication on the VM. Later, you enabled disk encryption on the source VM.
   - You enabled Site Recovery replication on the VM. Later, you changed the disk encryption key or key encryption key on the source VM.
 
 You can use [a script](#copy-ade-keys-to-dr-region-using-powershell-script) to copy the encryption keys to the target region and then update the target encryption settings in **Recovery services vault** > *replicated item* > **Properties** > **Compute and Network**.
