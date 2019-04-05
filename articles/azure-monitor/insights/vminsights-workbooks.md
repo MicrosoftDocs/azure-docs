@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: magoedte
 ---
 
@@ -68,7 +68,7 @@ A workbook is made up of sections consisting of independently editable charts, t
 
     ![Screenshot of workbook gallery](media/vminsights-workbooks/workbook-gallery-01.png)
 
-## Editing, rearranging, cloning, and deleting workbook sections
+## Editing workbook sections
 
 Workbooks have two modes: **editing mode**, and **reading mode**. When the default template workbook is first launched, it opens in **editing mode**. It shows all the content of the workbook, including any steps and parameters that are otherwise hidden. **Reading mode** presents a simplified report style view. Reading mode allows you to abstract away the complexity that went into creating a report while still having the underlying mechanics only a few clicks away when needed for modification.
 
