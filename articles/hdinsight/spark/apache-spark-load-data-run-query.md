@@ -100,5 +100,4 @@ In this tutorial, you learned how to:
 
 Advance to the next article to see how the data you registered in Apache Spark can be pulled into a BI analytics tool such as Power BI. 
 > [!div class="nextstepaction"]
-> [Use VSCode to run Apache Spark queries](../hdinsight-for-vscode.md?toc=%2Fazure%2Fhdinsight%2Fspark%2FTOC.json)
-
+> [Analyze data using BI tools](apache-spark-use-bi-tools.md)
