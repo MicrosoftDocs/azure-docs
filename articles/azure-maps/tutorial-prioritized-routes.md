@@ -288,3 +288,6 @@ The next tutorial demonstrates the process of creating a simple store locator by
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

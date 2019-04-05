@@ -417,8 +417,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ```
 
 The above expression renders a pin on the map with the text "64°F" overlaid on top of it as shown in the image below.
- 
-![String operator expression example](media/how-to-expressions/string-operator-expression.png)
+
+<center>
+
+![String operator expression example](media/how-to-expressions/string-operator-expression.png) </center>
 
 ## Interpolate and Step expressions
 
@@ -479,7 +481,9 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 The following image demonstrates how the colors are chosen for the above expression.
  
-![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png)
+<center>
+
+![Interpolate expression example](media/how-to-expressions/interpolate-expression-example.png) </center>
 
 ### Step expression
 
@@ -524,7 +528,10 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 The following image demonstrates how the colors are chosen for the above expression.
  
+<center>
+
 ![Step expression example](media/how-to-expressions/step-expression-example.png)
+</center>
 
 ## Layer specific expressions
 
@@ -658,7 +665,9 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 
 This layer will render the point feature as shown in the image below:
  
-![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png)
+<center>
+
+![Image of Point feature with formatted text field](media/how-to-expressions/text-field-format-expression.png) </center>
 
 ### Number format expression
 
@@ -703,8 +712,10 @@ var layer = new atlas.layer.SymbolLayer(datasource, null, {
 ```
 
 This layer will render the point feature as shown in the image below:
- 
-![Number format expression example](media/how-to-expressions/number-format-expression.png)
+
+<center>
+
+![Number format expression example](media/how-to-expressions/number-format-expression.png) </center>
 
 ## Zoom expression
 
@@ -732,7 +743,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 [See live example](map-add-heat-map-layer.md#consistent-zoomable-heat-map)
 
-### Variable binding expressions
+## Variable binding expressions
 
 Variable binding expressions store the results of a calculation in a variable so that it can be referenced elsewhere in an expression multiple times without having to recalculate it. This is a useful optimization for expressions that involve many calculations
 

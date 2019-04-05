@@ -91,3 +91,5 @@ For more code examples to add to your maps, see the following articles:
 > [!div class="nextstepaction"]
 > [Add a symbol layer](./map-add-pin.md)
 
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

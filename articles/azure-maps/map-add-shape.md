@@ -176,7 +176,4 @@ A [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
-> [HTML Markers](./map-add-custom-html.md)
-
-> [!div class="nextstepaction"]
-> [Add a heat map layer](./map-add-heat-map-layer.md)
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
