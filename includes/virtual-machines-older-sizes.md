@@ -116,7 +116,7 @@ Premium Storage Caching:  Not Supported
 
 ### DS-series
 
-**Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
+**Newer size recommendation**: [DSv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv3-series-1)
 
 ACU: 160-250 <sup>1</sup>
 
@@ -135,7 +135,7 @@ Premium Storage Caching:  Supported
 
 ### DS-series - memory optimized
 
-**Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
+**Newer size recommendation**: [DSv3-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
 ACU: 160-250 <sup>1,2</sup>
 
