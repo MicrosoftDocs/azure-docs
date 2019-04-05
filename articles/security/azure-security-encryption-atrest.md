@@ -273,20 +273,22 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | StorSimple                       | Yes                | -                  | Yes                |
 | Azure Backup                     | Yes                | -                  | Yes                |
 | Data Box                         | Yes                | -                  | Yes                |
-| **Intelligence and Analytics**   |                    |                    |                    |
-| Azure Data Factory               | Yes                | -                  | -                  |
-| Azure Machine Learning           | -                  | Preview, RSA 2048-bit | -               |
-| Azure Stream Analytics           | Yes                | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | Yes                | -                  | -                  |
-| HDInsight (Data Lake Storage)    | Yes                | -                  | -                  |
-| Apache Kafka for HDInsight       | Yes                | Preview, All RSA Lengths | -            |
-| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
-| Azure Data Catalog               | Yes                | -                  | -                  |
+| **AI and Machine Learning**      |                    |                    |                    |
+| Azure Search                     | Yes                | -                  | -                  |
+| Azure Machine Learning Service   | Yes                | -                  | -               |
+| Azure Machine Learning Studio    | Yes                | Preview, RSA 2048-bit | -               |
 | Power BI                         | Yes                | -                  | -                  |
+| **Analytics**                    |                    |                    |                    |
+| Azure Stream Analytics           | Yes                | -                  | -                  |
+| Event Hubs                       | Yes                | -                  | -                  |
+| Azure Analysis Services          | Yes                | -                  | -                  |
+| Azure Data Catalog               | Yes                | -                  | -                  |
+| HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
+| Azure Data Factory               | Yes                | -                  | -                  |
+| Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **IoT Services**                 |                    |                    |                    |
 | IoT Hub                          | -                  | -                  | Yes                |
 | Service Bus                      | Yes                | -                  | Yes                |
-| Event Hubs                       | Yes                | -                  | -                  |
 | Event Grid                       | Yes                | -                  | -                  |
 
 ## Conclusion
