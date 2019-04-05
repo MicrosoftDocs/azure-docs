@@ -242,16 +242,16 @@ This document describes the criteria that are used to validate that Office Add-i
 |14.17|Apps that depend on external accounts or services must provide a clear and simple sign-in/sign-out and sign-up experience. Microsoft Teams apps that depend on authentication to an external service to allow content sharing in channels must clearly state in their help documentation (or similar location) how a user can disconnect or unshare any shared content (if the same feature is supported on the external service). The ability to unshare this content does not have to be present in the Microsoft Teams app, but the process should be clearly documented, and the documentation should be accessible from within the app.|
 |14.18| To help to ensure the security of your app and users, domains outside of your organization's control (including wildcards) and tunneling services cannot be included in the valid domains in your manifest.
 
-## 15. Add-ins with Excel Custom Functions
+## 15. Add-ins with Excel custom functions
 <a name="bk_15"> </a>
 
 |Policy number|Description|
 |:-----|:-----|
-|15.1| Add-ins that contain custom functions must support add-in commands. This is to ensure users can easily discover your add-in. |
-|15.2| Your custom functions metadata must have the `helpUrl` property set. See an example [here](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json).|
-|15.3| To help to ensure the security of your app and users, your custom functions html, javascript and JSON metadata files must be hosted on the same domain. |
-|15.4| Your add-in must work across all platforms that support custom functions. If your add-in must also define in the Requirements element the following requirement set `<Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>`. |
-|15.5| Once an add-in is approved using the EquivalentAddins tag in the manifest, all future updates to the add-in must include this tag.  This tag ensures your CustomFunctions save in XLL-compatible mode. |
+|15.1| Add-ins that contain custom functions must support add-in commands. This is to ensure that users can easily discover your add-in. |
+|15.2| Your custom functions metadata must have the `helpUrl` property set. For an example, see [Custom functions metdata](https://docs.microsoft.com/en-us/office/dev/add-ins/excel/custom-functions-json).|
+|15.3| To help to ensure the security of your app and users, your custom functions HTML, Javascript, and JSON metadata files must be hosted on the same domain. |
+|15.4| Your add-in must work across all platforms that support custom functions. Your add-in must also define in the `Requirements` element the following requirement set `<Set Name="CustomFunctionsRuntime" MinVersion="1.1"/>`. |
+|15.5| After an add-in is approved using the `EquivalentAddins` tag in the manifest, all future updates to the add-in must include this tag. This tag ensures that your custom functions save in XLL-compatible mode. |
 |15.6| To help ensure an efficient validation process, if your add-in contains custom functions, you must provide test notes to validate them on submission. |
 
 
