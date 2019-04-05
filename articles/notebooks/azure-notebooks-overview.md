@@ -55,6 +55,8 @@ Azure Notebooks is a free service but each project is limited to 4GB memory and 
 
 To release all limits, sign into Azure Notebooks with an account using Azure Active Directory (such as a corporate account). If that account is associated with an Azure subscription, you can connect to any Azure Data Science Virtual Machine instances within that subscription. For more information, see [Manage and configure projects - Compute tier](configure-manage-azure-notebooks-projects.md#compute-tier).
 
+Notebook servers are only guaranteed to exist for at most 8 hours.  In most cases, your container will not be subject to this limit and will continue to run beyond this time, but long-lived sessions may occasionally be shut down for system stability.
+
 ## Available kernels and environments
 
 For each notebook, you select the kernel (that is, the runtime environment) that's used to run any code cells. Azure Notebooks supports the following kernels:
