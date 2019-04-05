@@ -85,12 +85,6 @@
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: platform/metrics-custom-overview.md       
-  - name: Analyze log data
-    items: 
-    - name: Log queries
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
   - name: Data security
     items:
     - name: Log data
@@ -326,6 +320,8 @@
           items:
           - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core without Visual Studio
+          href: app/asp-net-core-no-visualstudio.md            
         - name: Console
           href: app/console.md
         - name: Application dashboard
@@ -681,18 +677,20 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Getting started with Metrics Explorer
-      href: platform/metrics-getting-started.md
-    - name: Advanced features of Metrics Explorer
-      href: platform/metrics-charts.md
-    - name: Examples of metrics charts
-      href: platform/metric-chart-samples.md
-    - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: View service notifications
-      href: platform/service-notifications.md
-    - name: Query log data
+    - name: Metrics
       items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metrics charts
+        href: platform/metric-chart-samples.md
+    - name: Logs
+      items:
+      - name: Log queries
+        href: log-query/log-query-overview.md
+      - name: Log query portals
+        href: log-query/portals.md
       - name: Query language Documentation
         href: log-query/query-language.md
       - name: Language differences
@@ -767,6 +765,10 @@
         href: platform/flow-tutorial.md
       - name: Log Search API
         href: https://dev.loganalytics.io/
+    - name: View events in activity log
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: View service notifications
+      href: platform/service-notifications.md
   - name: Respond to incidents
     items:
     - name: Alerts
