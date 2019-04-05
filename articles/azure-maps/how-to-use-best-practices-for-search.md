@@ -11,7 +11,7 @@ manager: philmea
 
 # Best practices to use Azure Maps Search Service
 
-Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs with various capabilities, for example from address search to searching Point of Interest (POI) data around a specific location. In this article, we will share the best practices to call data via Azure Maps Search Services. You will learn how to:
+Azure Maps [Search Service](https://docs.microsoft.com/rest/api/maps/search) includes APIs with various capabilities, for example, from address search to searching Point of Interest (POI) data around a specific location. In this article, we will share the best practices to call data via Azure Maps Search Services. You will learn how to:
 
 * Build queries to return relevant matches
 * Limit search results
@@ -549,7 +549,7 @@ To retrieve only POI results around a specific location, the [Nearby search API]
 
 ## Understanding the responses
 
-Lets make an Address search request to the Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) for an address in Seattle. If you look carefully at the request URL below, we have set the `countrySet` parameter to **US** to search for the address in the United States of America.
+Let's make an Address search request to the Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) for an address in Seattle. If you look carefully at the request URL below, we have set the `countrySet` parameter to **US** to search for the address in the United States of America.
 
 **Sample query:**
 
@@ -557,7 +557,7 @@ Lets make an Address search request to the Azure Maps [search service](https://d
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
 ```
 
-Further lets have a look at the response structure below. The result types of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are Point Address, Street, and Cross Street. Notice that address search does not return POIs. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
+Further let's have a look at the response structure below. The result types of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are Point Address, Street, and Cross Street. Notice that address search does not return POIs. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
 
 **Supported types of result:**
 
