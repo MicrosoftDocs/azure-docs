@@ -156,7 +156,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
             {
                 "name": "FUNCTIONS_WORKER_RUNTIME",
                 "value": "node"
-            }
+            },
             {
                 "name": "FUNCTIONS_EXTENSION_VERSION",
                 "value": "~2"
@@ -226,7 +226,7 @@ A Consumption plan requires two additional settings in the site configuration: `
                 {
                     "name": "FUNCTIONS_WORKER_RUNTIME",
                     "value": "node"
-                }
+                },
                 {
                     "name": "FUNCTIONS_EXTENSION_VERSION",
                     "value": "~2"
