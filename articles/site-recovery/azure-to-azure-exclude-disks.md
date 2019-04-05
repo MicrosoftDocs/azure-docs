@@ -11,7 +11,7 @@ ms.author: asgang
 ---
 # Exclude disks from Powershell replication of Azure VMs
 
-This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
+This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or the target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
 
 ## Prerequisites
 
@@ -19,21 +19,21 @@ Before you start:
 
 - Make sure that you understand the [disaster-recovery architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
-- Make sure that you have AzureRm PowerShell module version 5.7.0. To install or update PowerShell, see [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-- You created a recovery services vault and protected virtual machines at least once. If you haven't done these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
+- Make sure that you have AzureRm PowerShell "Az" module. To install or update PowerShell, see [Guide to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- You have created a recovery services vault and protected virtual machines at least once. If you haven't done these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 
 ## Why exclude disks from replication
 You might need to exclude disks from replication because:
 
-- Your virtual machine has reached [Azure Site Recovery limits to replicate data change rates](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix)
+- Your virtual machine has reached [Azure Site Recovery limits to replicate data change rates](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix).
 
 - The data that's churned on the excluded disk isn't important or doesn’t need to be replicated.
 
-- You want to save storage and network resources by not replicating this data.
+- You want to save storage and network resources by not replicating the data.
 
 ## How to exclude disks from replication
 
-In our example, we replicate a virtual machine that has one OS and three data disks that's in the East US region to the West US 2 region. The name of the virtual machine is *AzureDemoVM*. We exclude Disk 1 and keep disks 2 and 3.
+In our example, we replicate a virtual machine that has one OS and three data disks that's in the East US region to the West US 2 region. The name of the virtual machine is *AzureDemoVM*. We exclude disk 1 and keep disks 2 and 3.
 
 ## Get details of the virtual machines to replicate
 
@@ -69,9 +69,9 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## Replicate Azure virtual machine
 
-For the following procedure, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md). 
+For the following procedure, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 
-Replicate the Azure virtual machine with **managed disks**.
+### Replicate an Azure virtual machine with managed disks
 
 ```azurepowershell
 
@@ -121,11 +121,11 @@ $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -N
 
 When the start-replication operation succeeds, the VM data is replicated to the recovery region.
 
-You can go to the Azure portal and see the VMs that get replicated and under "replicated items."
+You can go to the Azure portal and see the replicated VMs under "replicated items."
 
 The replication process starts by seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial-replication phase.
 
-After initial replication completes, replication moves on to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine disks to see that if any disk is excluded.
+After initial replication completes, replication moves on to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine to see if any disks are excluded.
 
 ## Next steps
 
