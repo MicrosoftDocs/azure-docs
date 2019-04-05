@@ -1,6 +1,6 @@
 ---
-title: Build a Python app with PostgreSQL on Linux - Azure App Service | Microsoft Docs
-description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database.
+title: Python (Django) with PostgreSQL on Linux - Azure App Service | Microsoft Docs
+description: Learn how to run a data-driven Python app in Azure, with connection to a PostgreSQL database. Django is used in the tutorial.
 services: app-service\web
 documentationcenter: python
 author: cephalin

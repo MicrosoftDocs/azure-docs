@@ -1,6 +1,6 @@
 ---
-title: Build .NET Core app with SQL Database on Linux - Azure App Service | Microsoft Docs 
-description: Learn how to get a .NET Core app working in Azure App Service on Linux, with connection to a SQL Database.
+title: ASP.NET Core with SQL Database on Linux - Azure App Service | Microsoft Docs 
+description: Learn how to get an ASP.NET Core app working in Azure App Service on Linux, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -18,7 +18,7 @@ ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
 ---
-# Build a .NET Core and SQL Database app in Azure App Service on Linux
+# Build an ASP.NET Core and SQL Database app in Azure App Service on Linux
 
 > [!NOTE]
 > This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
