@@ -78,6 +78,7 @@ sections:
     - html: Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
     - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Re-create dropped databases using PowerShell</a> 
     - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
+    - html: (Preview) <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph

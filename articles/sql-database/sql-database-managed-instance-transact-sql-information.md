@@ -466,7 +466,6 @@ The following variables, functions, and views return different results:
 - `@@SERVICENAME` returns NULL, because the concept of service as it exists for SQL Server doesn't apply to a Managed Instance. See [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID` is supported. Returns NULL if Azure AD login is not in sys.syslogins. See [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql).  
 - `SUSER_SID` isn't supported. Returns wrong data (temporary known issue). See [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql).
-- `GETDATE()` and other built-in date/time functions always returns time in UTC time zone. See [GETDATE](https://docs.microsoft.com/sql/t-sql/functions/getdate-transact-sql).
 
 ## <a name="Issues"></a> Known issues and limitations
 
