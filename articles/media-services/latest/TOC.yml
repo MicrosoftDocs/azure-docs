@@ -56,6 +56,8 @@
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md      
+    - name: Preset for content-aware encoding
+      href: cae-experimental.md
   - name: Media analytics 
     items:
     - name: Overview
