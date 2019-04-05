@@ -14,7 +14,7 @@ metadata:
   ms.date: 05/06/2019
   ms.author: erhopf
 abstract:
-  description: Ink Recognizer is a cloud-based lorum ipsum...
+  description: The Ink Recognizer Cognitive Service provides cloud-based REST APIs to analyze and recognize digital ink content. 
 
 sections:
 - items:
@@ -29,7 +29,7 @@ sections:
             src: ../media/index/i_overview.svg
           title: What is Ink Recognizer?
         - href: /azure/cognitive-services/translator/custom-translator/overview
-          html: <p>Learn about Custom Translator</p>
+          html: <p>Learn about the Ink Recognizer API</p>
           image:
             src: ../media/index/i_overview.svg
           title: Lorum ipsum?
