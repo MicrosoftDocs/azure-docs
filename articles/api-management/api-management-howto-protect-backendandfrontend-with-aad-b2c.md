@@ -77,7 +77,7 @@ Here is a quick overview of the steps:
 11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope (that you just created) and the default one that was already there ("login as user") 
 12. Generate them a key each (select the *Keys* tab (under General) to generate an auth key) and record those keys somewhere safe too.
 
-## Create a "Signup or signin" policy to allow users to sign in with AAD B2C
+## Create a "Sign up or sign in" policy to allow users to sign in with AAD B2C
 1. Return to the root of the AAD B2C Blade 
 2. Then select “Sign-up or Sign-in Policies” and click ‘add’
 3. Give the policy a name (and record it for later) and select 'Identity providers', then check User ID sign up and click OK. 
@@ -180,7 +180,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
 10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP (Found on the API management overview page in the portal) and if you want to interact with the functions portal, you'll need to add your public IP address / range here too.
-11. Once theres an allow entry in the list, theres an implicit deny rule to block all other addresses, note that you have to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32
+11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, note that you have to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32
 
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
