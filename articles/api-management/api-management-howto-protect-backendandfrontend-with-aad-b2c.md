@@ -2,7 +2,6 @@
 title: Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth. | Microsoft Docs
 description: Protect an API with OAuth 2.0 by using AAD B2C, API Management and Easy Auth in order to be able to call it from a JS SPA
 
-.
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
 author: wieastbu
