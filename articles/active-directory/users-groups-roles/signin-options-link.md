@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # More sign-in options for Microsoft accounts in Microsoft 365
 
-We're updating the Microsoft 365 sign-in page for Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts, also called "personal accounts."
+In the near future, we're updating the Microsoft 365 sign-in page for Azure Active Directory (Azure AD) to add a new **Sign-in options** link. This link will be added only to sign-in pages that accept Microsoft accounts, also called "personal accounts."
 
 ## Sign-in pages that support Microsoft accounts
 
@@ -36,10 +36,13 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 The **Sign-in options** link will be added only to sign-in pages which support Microsoft accounts. If the sign-in page your organization uses doesn't support Microsoft accounts, this change doesn't affect you.
   
-After this change takes place, your users will see a new link that says "Sign-in options" on the sign-in page. Clicking the link will bring the user to a new screen that will show additional sign-in options that only work for personal Microsoft account users. These options will only work for Microsoft accounts and don't allow users to access their work or school resources by signing in to their Microsoft account.
+After this change takes place, your users will see a new link that says "Sign-in options" on the sign-in page. Clicking the link will bring the user to a new screen that will show additional sign-in options that only work for personal Microsoft accounts. The additional sign-in options can't be used for signing in to work or school account resources.
 
 ![sign-in options opens choices for Microsoft accounts](./media/signin-options-link/options-link.png)
 
+## Deployment schedule
+
+The new options will begin gradually rolling out to Azure AD organizations in early May 2019, and roll out is targeted to be complete worldwide by the middle of May 2019.
 
 ## Next steps
 
