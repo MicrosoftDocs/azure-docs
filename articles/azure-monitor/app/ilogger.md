@@ -203,10 +203,10 @@ While old provider can still be used (it is obsolete now and will be removed onl
 1. Previous provider lacked support of [Scopes](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). In the new provider, properties from scope are automatically added as custom properties to the collected telemetry.
 2. Logs can now be captured much earlier in the application startup pipeline. i.e Logs from Program and Startup classes can now be captured.
 3. With new provider, the filtering is done at the framework level itself. Filtering of logs to Application Insights provider can be done in exact same way as for other providers, including built-in providers like Console, Debug, and so on. It is also possible to apply same filters to multiple providers.
-4. The [recommended](https://github.com/aspnet/Announcements/issues/255) way in Asp.Net Core (2.0 onwards) to enable logging providers is by using extension methods on ILoggingBuilder in `Program.cs` itself.
+4. The [recommended](https://github.com/aspnet/Announcements/issues/255) way in ASP.NET Core (2.0 onwards) to enable logging providers is by using extension methods on ILoggingBuilder in `Program.cs` itself.
 
 > [!Note]
-The new Provider is available for applications targeting `NETSTANDARD2.0` or higher. If your application is targeting older .NET Core versions like .NET Core 1.1 or if targeting .NET Framework, continue to use the old provider.
+> The new Provider is available for applications targeting `NETSTANDARD2.0` or higher. If your application is targeting older .NET Core versions like .NET Core 1.1 or if targeting the .NET Framework, continue to use the old provider.
 
 ## Console application
 
@@ -420,6 +420,50 @@ If you prefer to always send `TraceTelemetry`, then use the snippet ```builder.A
 *5. I don't have SDK installed, and I use Azure Web App Extension to enable Application Insights for my Asp.Net Core applications. How do I use the new provider?*
 
 * Application Insights extension in Azure Web App uses the old provider. Filtering rules can be modified in `appsettings.json` for your application. If you want to take advantage of the new provider, use build-time instrumentation by taking nuget dependency on the SDK. This document will be updated when extension switches to use the new provider.
+
+*6. I am using the standalone package Microsoft.Extensions.Logging.ApplicationInsights, and enabling Application Insights provider by calling builder.AddApplicationInsights("ikey"). Is there an option to get instrumentation key from configuration?*
+
+
+* Modify `Program.cs` and `appsettings.json` as shown below.
+
+```csharp
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateWebHostBuilder(args).Build().Run();
+    }
+
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .ConfigureLogging((hostingContext, logging) =>
+            {
+                // hostingContext.HostingEnvironment can be used to determine environments as well.
+                var appInsightKey = hostingContext.Configuration["myikeyfromconfig"];
+                logging.AddApplicationInsights(appInsightKey);
+            });
+}
+```
+
+Relevant section from `appsettings.json`
+
+```json
+{
+  "myikeyfromconfig": "putrealikeyhere"
+}
+```
+
+The above code is required only when using standalone logging provider. For regular Application Insights monitoring, instrumentation key is loaded automatically from the configuration path `ApplicationInsights:Instrumentationkey` and `appsettings.json` should look like below.
+
+```json
+{
+  "ApplicationInsights":
+    {
+        "Instrumentationkey":"putrealikeyhere"
+    }
+}
+```
 
 ## Next steps
 

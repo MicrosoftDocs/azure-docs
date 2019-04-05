@@ -506,7 +506,7 @@ Finds the position(1 based) of the substring within a string starting a certain 
 <code>log</code>
 ==============================
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calculates log value. An optional base can be supplied else a euler number if used
+Calculates log value. An optional base can be supplied else an euler number if used
 * ``log(100, 10) -> 2``
 *********************************
 <code>log10</code>

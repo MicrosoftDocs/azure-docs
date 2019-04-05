@@ -138,7 +138,7 @@ In this section, we will go through how to set a query based exception alert. Fo
 
 10. Finally add your alert details (alert rule name, description, severity). When you are done, click **Create alert rule** at the bottom.
 
-    ![Under alert detail type your alert rule name, write a description and pick a severity ](./media/alerts/9alertdetails.png)
+    ![Under alert detail type your alert rule name, write a description and pick a severity](./media/alerts/9alertdetails.png)
 
 ## Who receives the (classic) alert notifications?
 
