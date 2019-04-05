@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build scalable, responsive apps by providing fast access to your data. 
+[Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build responsive apps by providing fast access to data. 
 
 In this article, you use Ansible to create a cache. Once created, you learn how to scale, reboot, add a firewall rule to, and delete the cache.
 
