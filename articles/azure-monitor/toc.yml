@@ -610,6 +610,8 @@
           href: insights/vminsights-maps.md
         - name: Monitor performance
           href: insights/vminsights-performance.md
+        - name: Using workbooks
+          href: insights/vminsights-workbooks.md
         - name: Query data with Log Analytics
           href: insights/vminsights-log-search.md
         - name: Disable monitoring
