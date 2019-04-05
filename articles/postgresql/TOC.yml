@@ -190,6 +190,8 @@
     items:
     - name: Manage read replicas Azure portal
       href: howto-read-replicas-portal.md
+    - name: Manage read replicas Azure CLI
+      href: howto-read-replicas-cli.md
 - name: Reference
   items:
   - name: Azure CLI

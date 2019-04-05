@@ -202,6 +202,7 @@
     - name: Examples (simple syntax)
       href: search-query-simple-examples.md
     - name: Examples (full Lucene)
+      href: search-query-lucene-examples.md
   - name: Filter and sort data
     items:
     - name: Filter overview
@@ -212,7 +213,6 @@
       href: search-faceted-navigation.md
     - name: Filter and OrderBy expression syntax and examples
       href: query-odata-filter-orderby-syntax.md
-      href: search-query-lucene-examples.md
   - name: Handle results
     items:
     - name: Page-related features

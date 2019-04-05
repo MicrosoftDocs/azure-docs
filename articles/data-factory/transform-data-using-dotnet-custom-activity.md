@@ -13,6 +13,7 @@ ms.author: abnarain
 manager: craigg
 ---
 # Use custom activities in an Azure Data Factory pipeline
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-use-custom-activities.md)
 > * [Current version](transform-data-using-dotnet-custom-activity.md)
@@ -33,6 +34,7 @@ See following articles if you are new to Azure Batch service:
 * [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) cmdlet to create an Azure Batch pool.
 
 ## Azure Batch linked service
+
 The following JSON defines a sample Azure Batch linked service. For details, see [Compute environments supported by Azure Data Factory](compute-linked-services.md)
 
 ```json
@@ -108,7 +110,7 @@ The following table describes names and descriptions of properties that are spec
 &#42; The properties `resourceLinkedService` and `folderPath` must either both be specified or both be omitted.
 
 > [!NOTE]
-> If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.  
+> If you are passing linked services as referenceObjects in Custom Activity, it is a good security practice to pass an Azure Key Vault enabled linked service (since it does not contain any secure strings) and fetch the credentials using secret name directly from Key Vault from the code. You can find an example [here](https://github.com/nabhishek/customactivity_sample/tree/linkedservice) that references AKV enabled linked service, retrieves the credentials from Key Vault, and then accesses the storage in the code.
 
 ## Custom activity permissions
 
@@ -141,7 +143,6 @@ You can directly execute a command using Custom Activity. The following example 
 ## Passing objects and properties
 
 This sample shows how you can use the referenceObjects and extendedProperties to pass Data Factory objects and user-defined properties to your custom application.
-
 
 ```json
 {
@@ -185,15 +186,15 @@ This sample shows how you can use the referenceObjects and extendedProperties to
 
 When the activity is executed, referenceObjects and extendedProperties are stored in following files that are deployed to the same execution folder of the SampleApp.exe:
 
-- activity.json
+- `activity.json`
 
   Stores extendedProperties and properties of the custom activity.
 
-- linkedServices.json
+- `linkedServices.json`
 
   Stores an array of Linked Services defined in the referenceObjects property.
 
-- datasets.json
+- `datasets.json`
 
   Stores an array of Datasets defined in the referenceObjects property.
 
@@ -226,12 +227,13 @@ namespace SampleApp
 
 You can start a pipeline run using the following PowerShell command:
 
-```.powershell
+```powershell
 $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
 ```
+
 When the pipeline is running, you can check the execution output using the following commands:
 
-```.powershell
+```powershell
 while ($True) {
     $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
@@ -259,7 +261,7 @@ $result.Error -join "`r`n"
 
 The **stdout** and **stderr** of your custom application are saved to the **adfjobs** container in the Azure Storage Linked Service you defined when creating Azure Batch Linked Service with a GUID of the task. You can get the detailed path from Activity Run output as shown in the following snippet:
 
-```shell
+```
 Pipeline ' MyCustomActivity' run finished. Result:
 
 ResourceGroupName : resourcegroupname
@@ -289,11 +291,12 @@ Activity Error section:
 "failureType": ""
 "target": "MyCustomActivity"
 ```
+
 If you would like to consume the content of stdout.txt in downstream activities, you can get the path to the stdout.txt file in expression "\@activity('MyCustomActivity').output.outputs[0]".
 
-  > [!IMPORTANT]
-  > - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" path. If needed, you need to clean them up separately.
-  > - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed.
+> [!IMPORTANT]
+> - The activity.json, linkedServices.json, and datasets.json are stored in the runtime folder of the Batch task. For this example, the activity.json, linkedServices.json, and datasets.json are stored in "https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/" path. If needed, you need to clean them up separately.
+> - For Linked Services that use the Self-Hosted Integration Runtime, the sensitive information like keys or passwords are encrypted by the Self-Hosted Integration Runtime to ensure credential stays in customer defined private network environment. Some sensitive fields could be missing when referenced by your custom application code in this way. Use SecureString in extendedProperties instead of using Linked Service reference if needed.
 
 ## Pass outputs to another activity
 
@@ -305,10 +308,10 @@ Sensitive property values designated as type *SecureString*, as shown in some of
 
 ```json
 "extendedProperties": {
-	"connectionString": {
-		"type": "SecureString",
-		"value": "aSampleSecureString"
-	}
+  "connectionString": {
+    "type": "SecureString",
+    "value": "aSampleSecureString"
+  }
 }
 ```
 
@@ -328,7 +331,6 @@ With the changes introduced in the Data Factory V2 Custom Activity, you can writ
 
 The following table describes the differences between the Data Factory V2 Custom Activity and the Data Factory version 1 (Custom) DotNet Activity:
 
-
 |Differences      | Custom Activity      | version 1 (Custom) DotNet Activity      |
 | ---- | ---- | ---- |
 |How custom logic is defined      |By providing an executable      |By implementing a .NET DLL      |
@@ -339,7 +341,6 @@ The following table describes the differences between the Data Factory V2 Custom
 |Retrieve information in custom logic      |Parses activity.json, linkedServices.json, and datasets.json stored in the same folder of the executable      |Through .NET SDK (.NET Frame 4.5.2)      |
 |Logging      |Writes directly to STDOUT      |Implementing Logger in .NET DLL      |
 
-
 If you have existing .NET code written for a version 1 (Custom) DotNet Activity, you need to modify your code for it to work with the current version of the Custom Activity. Update your code by following these high-level guidelines:
 
   - Change the project from a .NET Class Library to a Console App.
@@ -349,9 +350,10 @@ If you have existing .NET code written for a version 1 (Custom) DotNet Activity,
   - The Microsoft.Azure.Management.DataFactories NuGet package is no longer required.
   - Compile your code, upload the executable and its dependencies to Azure Storage, and define the path in the `folderPath` property.
 
-For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+For a complete sample of how the end-to-end DLL and pipeline sample described in the Data Factory version 1 article [Use custom activities in an Azure Data Factory pipeline](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) can be rewritten as a Data Factory Custom Activity, see [Data Factory Custom Activity sample](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## Auto-scaling of Azure Batch
+
 You can also create an Azure Batch pool with **autoscale** feature. For example, you could create an azure batch pool with 0 dedicated VMs and an autoscale formula based on the number of pending tasks.
 
 The sample formula here achieves the following behavior: When the pool is initially created, it starts with 1 VM. $PendingTasks metric defines the number of tasks in running + active (queued) state. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. So, as new tasks are submitted, pool automatically grows and as tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. startingNumberOfVMs and maxNumberofVMs can be adjusted to your needs.

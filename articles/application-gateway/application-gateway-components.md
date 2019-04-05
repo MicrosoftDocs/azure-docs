@@ -51,7 +51,7 @@ Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket.
 
 ### Custom error pages
 
-Application Gateway lets you create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page. Application Gateway displays a custom error page when a request can't reach the backend. 
+Application Gateway lets you create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page. Application Gateway displays a custom error page when a request can't reach the backend.
 
 For more information, see [Custom error pages for your application gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -124,7 +124,7 @@ A backend pool routes request to backend servers, which serve the request. Backe
 
 Application Gateway backend pool members aren't tied to an availability set. Application Gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there's IP connectivity.
 
-If you use internal IPs as backend pool members, you must use [VNET Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and beneficial for load-balancing traffic in other virtual networks.
+If you use internal IPs as backend pool members, you must use [VNet Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
 An application gateway can also communicate with to on-premises servers when they're connected by ExpressRoute or VPN tunnels if traffic is allowed.
 
@@ -140,7 +140,8 @@ For more information, see [Monitor health of your application gateway](https://d
 
 ## Next steps
 
+Create an application gateway:
 
-* [Create an application gateway in the Azure portal](quick-create-portal.md)
-* [Create an application gateway by using Azure PowerShell](quick-create-powershell.md)
-* [Create an application gateway by using the Azure CLI](quick-create-cli.md)
+* [In the Azure portal](quick-create-portal.md)
+* [By using Azure PowerShell](quick-create-powershell.md)
+* [By using the Azure CLI](quick-create-cli.md)

@@ -249,6 +249,8 @@ The members implemented in this class are:
 
 - **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. Once the function is run, then the log is checked to ensure the expected message is present.
 
+If you want to access application settings in your tests, you can use [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
+
 ### Run tests
 
 To run the tests, navigate to the **Test Explorer** and click **Run all**.

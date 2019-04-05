@@ -1,7 +1,8 @@
 ---
-title: Configure an ASC for IoT agent Preview| Microsoft Docs
-description: Learn how to configure agents for use with ASC for IoT.
-services: ascforiot
+title: Configure Azure Security Center for IoT agent Preview| Microsoft Docs
+description: Learn how to configure agents for use with Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -20,11 +21,11 @@ ms.author: mlottner
 # Tutorial: Configure security agents
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains ASC for IoT security agent, how to change them configure ASC for IoT security agents.
+This article explains Azure Security Center (ASC) for IoT security agent, how to change them configure ASC for IoT security agents.
 
 > [!div class="checklist"]
 > * Configure security agents
@@ -39,7 +40,7 @@ ASC for IoT’s security agent twin configuration object is a .json format objec
 
 These configurations help you customize the agent for each scenario required. For example, automatically excluding some events, or keeping power consumption to a minimal level are possible by configuring these properties.  
 
-Use the ASC for IoT security agent configuration [schema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) to make changes.  
+Use the ASC for IoT security agent configuration [schema](https://aka.ms/iot-security-github-module-schema) to make changes.  
 
 ## Configuration objects 
 
@@ -61,7 +62,7 @@ The agent will not launch if the configuration object does not match the schema.
 
 ## Configuration schema and validation 
 
-Make sure to validate your agent configuration against this [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). An agent will not launch if the configuration object does not match the schema.
+Make sure to validate your agent configuration against this [schema](https://aka.ms/iot-security-github-module-schema). An agent will not launch if the configuration object does not match the schema.
 
  
 If, while the agent is running, the configuration object is changed to a non-valid configuration (the configuration does not match the schema), the agent will ignore the invalid configuration and will continue using the current configuration. 
