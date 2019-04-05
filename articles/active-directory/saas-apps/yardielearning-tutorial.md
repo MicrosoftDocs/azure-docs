@@ -25,7 +25,7 @@ In this tutorial, you learn how to integrate Yardi eLearning with Azure Active D
 Integrating Yardi eLearning with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Yardi eLearning.
-* You can enable your users to be automatically signed-in to Yardi eLearning (Single Sign-On) with their Azure AD accounts.
+* You can enable your users to be automatically signed in to Yardi eLearning (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -75,8 +75,8 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 
 To configure and test Azure AD single sign-on with Yardi eLearning, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Yardi eLearning Single Sign-On](#configure-yardi-elearning-single-sign-on)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Azure AD single sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure Yardi eLearning single sign-On](#configure-yardi-elearning-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Create Yardi eLearning test user](#create-yardi-elearning-test-user)** - to have a counterpart of Britta Simon in Yardi eLearning that is linked to the Azure AD representation of user.
@@ -194,7 +194,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Yardi eLearning tile in the Access Panel, you should be automatically signed in to the Yardi eLearning for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
