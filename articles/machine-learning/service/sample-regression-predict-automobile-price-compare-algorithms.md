@@ -26,7 +26,7 @@ This visual interface sample experiment demonstrates how to compare two regressi
 
 ## Related sample
 
-[Sample 1 - Regression: Predict automobile basic](sample-regression-predict-automobile-price-basic.md) provides a simpler experiment solving the same problem using only one regression model. Please refer to it if you are looking for a basic sample on regression problem. 
+[Sample 1 - Regression: Predict automobile basic](sample-regression-predict-automobile-price-basic.md) provides a simpler experiment solving the same problem using only one regression model. Refer to it if you are looking for a basic sample on regression problem. 
 
 ## Data
 

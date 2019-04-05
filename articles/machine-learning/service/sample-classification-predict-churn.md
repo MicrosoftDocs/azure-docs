@@ -38,7 +38,7 @@ First we perform some simple data processing.
 
 - The raw dataset contains lots of missing values. We use the **Clean Missing Data** module to replace the missing values with 0. 
 
-![cleaned dataset](./media/sample-classification-predict-churn/cleaned-dataset.png)
+    ![cleaned dataset](./media/sample-classification-predict-churn/cleaned-dataset.png)
 
 - The customer features and the corresponding churn, appetency, and up-selling labels are in different datasets. We used the **Add Columns** module to append the label columns to the feature columns. The first column **Col1** is the label column and the rest of the columns **Var1**, **Var2**, ... are the feature columns. 
  
