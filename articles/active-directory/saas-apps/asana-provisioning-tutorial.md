@@ -38,7 +38,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Assign users to Asana
 
-Azure AD uses a concept called "*assignments*" to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users assigned to an application in Azure AD are synchronized.
+Azure AD uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user account provisioning, only the users assigned to an application in Azure AD are synchronized.
 
 Before you configure and enable the provisioning service, you must decide which users in Azure AD need access to your Asana app. Then you can assign these users to your Asana app by following the instructions here:
 
