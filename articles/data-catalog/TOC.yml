@@ -73,6 +73,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-data-catalog
+    href: https://stackoverflow.com/questions/tagged/azure-data-catalog
   - name: Terminology
     href: data-catalog-terminology.md
