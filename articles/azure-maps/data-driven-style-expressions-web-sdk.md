@@ -13,9 +13,9 @@ ms.custom: codepen
 
 # Data-driven Style Expressions (Web SDK)
 
-Expressions enable you to apply business logic to individual styling options that take into consideration the properties defined on each individual shape in a data source. Expressions can also be used to filter data in a data source or layer. Expressions can consist of conditional logic, like if-statements, and can also be used to manipulate data with string, logical and mathematical operators. 
+Expressions enable you to apply business logic to styling options that observe the properties defined in each shape in a data source. Expressions can also be used to filter data in a data source or layer. Expressions can consist of conditional logic, like if-statements, and can also be used to manipulate data with; string, logical and mathematical operators. 
 
-Data-driven styles can reduce the amount of code needed to implement business logic around styling. Additionally, when used with layers, expressions are evaluated at render time on a separate thread that provides much better performance compared to evaluating the business logic on the UI thread.
+Data-driven styles can reduce the amount of code needed to implement business logic around styling. When used with layers, expressions are evaluated at render time on a separate thread that provides increased performance when compared to evaluating business logic on the UI thread.
 
 The following video provides an overview of data-driven styling in the Azure Maps Web SDK.
 
@@ -32,7 +32,7 @@ Expressions are represented as JSON arrays. The first element of an expression i
 ] 
 ```
 
-The Azure Maps Web SDK supports many different types of expressions that can be used on their own or in combination with other expressions.
+The Azure Maps Web SDK supports many types of expressions that can be used on their own or in combination with other expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
@@ -41,9 +41,9 @@ The Azure Maps Web SDK supports many different types of expressions that can be 
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
 | [Data expressions](#data-expressions) | Provides access to the property data in a feature. |
 | [Interpolate and Step expressions](#interpolate-and-step-expressions) | Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. |
-| [Layer specific expressions](#layer-specific-expressions) | These are special expressions that are only applicable to a single layer. |
+| [Layer specific expressions](#layer-specific-expressions) | Special expressions that are only applicable to a single layer. |
 | [Math expressions](#math-expressions) | Provides mathematical operators to perform data-driven calculations within the expression framework. |
-| [String operator expressions](#string-operator-expressions) | String operator expressions functions are used for performing operations on strings such as concatenating and case conversion. |
+| [String operator expressions](#string-operator-expressions) | String operator expressions perform conversion operations on strings such as concatenating and converting the case. |
 | [Type expressions](#type-expressions) | Type expressions provide tools for testing and converting different data types like strings, numbers, and boolean values. |
 | [Variable binding expressions](#variable-binding-expressions) | Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. |
 | [Zoom expressions](#zoom-expressions) | Retrieves the current zoom level of the map at render time. |
@@ -93,7 +93,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-The above example will work fine if all the point features have the `zoneColor` property, but if they don’t, the color will likely fallback to black. To modify the fallback color, a `case` expression can be used in combination with the `has` expression to check if the property exists, and if it doesn’t return a fallback color instead.
+The above example will work fine if all the point features have the `zoneColor` property, but if they don’t, the color will likely fall back to "black". To modify the fallback color, a `case` expression can be used in combination with the `has` expression to check if the property exists, and if it doesn’t return a fallback color instead.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -124,7 +124,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 });
 ```
 
-Similarly, Polygons will also render in line layers which allows rendering an outline of a polygon, but if you want to prevent it, a filter that only allows `LineString` and `MultiLineString` features can be used.  
+Similarly, the outline of Polygons will render in line layers. To disable this behaviour in a line layer, add a filter that only allows `LineString` and `MultiLineString` features.  
 
 ## Math expressions
 
@@ -226,7 +226,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ### Match expression
 
-A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `['get', 'entityType']` that returns a string or a number. Each label must be either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array matches. Each label must be unique. If the input type does not match the type of the labels, the result will be the fallback value.
+A `match` expression is a type of conditional expression that provides switch-statement like logic. The input can be any expression such as `['get', 'entityType']` that returns a string or a number. Each label must be either a single literal value or an array of literal values, whose values must be all strings or all numbers. The input matches if any of the values in the array match. Each label must be unique. If the input type don't match the type of the labels, the result will be the fallback value.
 
 The following pseudocode defines the structure of the `match` expression. 
 
@@ -304,7 +304,7 @@ The following pseudocode defines the structure of the ` coalesce` expression.
 
 **Example**
 
-The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subtitle` property, if it is missing or `null`, it will then fallback to an empty string. 
+The following example uses a `coalesce` expression to set the `textField` option of a symbol layer. If the `title` property is missing from the feature or set to `null`, the expression will then try looking for the `subtitle` property, if its missing or `null`, it will then fall back to an empty string. 
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -331,11 +331,11 @@ Type expressions provide tools for testing and converting different data types l
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['literal', array\]<br/><br/>\['literal', object\] | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression which is necessary when an array or object needs to be returned by an expression. |
-| \['to-boolean', value\] | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise it is `true`. |
+| \['literal', array\]<br/><br/>\['literal', object\] | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
+| \['to-boolean', value\] | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
 | \['to-color', value\]<br/><br/>\['to-color', value1, value2…\] | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| \['to-number', value\]<br/><br/>\['to-number', value1, value2, …\] | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it is converted to a number as specified by the [ToNumber string function](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| \['to-string', value\] | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it is converted to a string as specified by the ["NumberToString" algorithm](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) of the ECMAScript Language Specification. If the input is a color, it is converted to CSS RGBA color string (`"rgba(r,g,b,a)"`). Otherwise, the input is converted to a string in the format specified by the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
+| \['to-number', value\]<br/><br/>\['to-number', value1, value2, …\] | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, its converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| \['to-string', value\] | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, its converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, its converted to CSS RGBA color string (`"rgba(r,g,b,a)"`). Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
 | \['typeof', value\] | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
@@ -366,8 +366,8 @@ Color expressions make it easier to create and manipulate color values.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['rgb', number, number, number\] | color | Creates a color value from red, green, and blue components, which must range between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
-| \['rgba', number, number, number, number\] | color | Creates a color value from red, green, blue components, which must range between `0` and `255`, and an alpha component which must range between `0` and `1`. If any component is out of range, the expression is an error. |
+| \['rgb', number, number, number\] | color | Creates a color value from *red*, *green*, and *blue* components that must range between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
+| \['rgba', number, number, number, number\] | color | Creates a color value from *red*, *green*, *blue* components that must range between `0` and `255`, and an alpha component within a range of `0` and `1`. If any component is out of range, the expression is an error. |
 | \['to-rgba'\] | \[number, number, number, number\] | Returns a four-element array containing the input color's *red*, *green*, *blue*, and *alpha* components, in that order. |
 
 **Example**
@@ -390,7 +390,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 ## String operator expressions
 
-String operator expressions functions for performing operations on strings such as concatenating and converting the case. 
+String operator expressions perform conversion operations on strings such as concatenating and converting the case. 
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
@@ -421,11 +421,11 @@ The above expression renders a pin on the map with the text "64°F" overlaid on 
 
 ## Interpolate and Step expressions
 
-Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. These expressions take in an expression that returns a numeric value as their input, for example `['get',  'temperature']`. The input value is then evaluated against pairs of input and output values ("stops") to determine the value that best fits the interpolated curve or step function. The input values for each stop must be a number and be in ascending order. The output values must be a number, and array of numbers, or a color.
+Interpolate and step expressions can be used to calculate values along an interpolated curve or step function. These expressions take in an expression that returns a numeric value as their input, for example `['get',  'temperature']`. The input value is evaluated against pairs of input and output values, called "stops", to determine the value that best fits the interpolated curve or step function. The input values for each stop must be a number and be in ascending order. The output values must be a number, and array of numbers, or a color.
 
 ### Interpolate expression
 
-An `interpolate` expression can be used to calculate a continuous, smooth set of values by interpolating between stop values. An interpolate expression that returns color values would produce a color gradient in which result values would be extracted from.
+An `interpolate` expression can be used to calculate a continuous, smooth set of values by interpolating between stop values. An `interpolate` expression that returns color values produces a color gradient in which result values are selected from.
 
 There are three types of interpolation methods that can be used in an `interpolate` expression:
  
@@ -490,16 +490,16 @@ The following pseudocode defines the structure of the `step` expression.
 [
 	'step',
 	input: number,
-	stopOutput0: value0,
-	stopInput1: number, 
-	stopOutput1: value1,
-	stopInput2: number, 
-	stopOutput2: value2, 
+	output0: value0,
+	stop1: number, 
+	output1: value1,
+	stop2: number, 
+	output2: value2, 
 	...
 ]
 ```
 
-Step expressions return the output value of the stop just less than the input, or the first input if the input is less than the first stop. 
+Step expressions return the output value of the stop just before the input value, or the first input value if the input is less than the first stop. 
 
 **Example**
 
@@ -525,9 +525,9 @@ The following image demonstrates how the colors are chosen for the above express
  
 ![Step expression example](media/step-expression-example.png)
 
-## Layer Specific Expressions
+## Layer specific expressions
 
-These are special expressions that only apply to specific layers.
+Special expressions that only apply to specific layers.
 
 ### Heat map density expression
 
@@ -554,7 +554,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-In addition to using a smooth gradient to colorize a heat map, colors specified by a step expression can also be done. Using a step expression for colorizing the heat map breaks the density up visually into ranges that more so resembles a contour or radar style map.  
+In addition to using a smooth gradient to colorize a heat map, colors can be specified within a set of ranges by using a `step` expression. Using a `step` expression for colorizing the heat map breaks up the density visually into ranges that more so resembles a contour or radar style map.  
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -571,7 +571,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 });
 ```
 
-For additional information, see the [Add a heat map layer](map-add-heat-map-layer.md) documentation.
+For more information, see the [Add a heat map layer](map-add-heat-map-layer.md) documentation.
 
 ### Line progress expression
 
@@ -630,7 +630,7 @@ The following pseudocode defines the structure of the text field format expressi
 
 **Example**
 
-The following example formats the text field of a Point feature in a symbol layer by bolding and scaling up the font size of the title property of the feature, and adding the subtitle property of the feature on a newline, with a scaled down font size.
+The following example formats the text field by adding a bold font and scaling up the font size of the `title` property of the feature. This example also adds the `subtitle` property of the feature on a newline, with a scaled down font size.
 
 ```javascript
 var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -711,7 +711,7 @@ A `zoom` expression is used to retrieve the current zoom level of the map at ren
 
 **Example**
 
-By default, the radiis of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level, as such, scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` with a `base 2 exponential interpolation` expression as shown below. 
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` expression with a `base 2 exponential interpolation` expression as shown below. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -733,7 +733,7 @@ var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 
 ### Variable binding expressions
 
-Variable binding expressions let the results of a calculation be stored in a variable and referenced elsewhere in an expression multiple times without having to recalculate the stored value. This is a useful optimization for expressions that involve a lot of calculations
+Variable binding expressions store the results of a calculation in a variable so that it can be referenced elsewhere in an expression multiple times without having to recalculate it. This is a useful optimization for expressions that involve many calculations
 
 | Expression | Return type | Description |
 |--------------|---------------|--------------|
@@ -753,11 +753,11 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         [
             'case',
 
-            //Check to see if the ratio is less than 100, return 'red' if it is.
+            //Check to see if the ratio is less than 100, return 'red'.
             ['<', ['var', 'ratio'], 100],
             'red',
 
-            //Check to see if the ratio is less than 200, return 'green' if it is.
+            //Check to see if the ratio is less than 200, return 'green'.
             ['<', ['var', 'ratio'], 200],
             'green',
 
