@@ -136,7 +136,11 @@ You can use 200 for the speed of propagation. This is the distance, in meters, t
 
 Let's take New York to San Francisco as an example. The straight-line distance is 4,148 km. Plugging that value into the equation, we get the following:
 
+<<<<<<< HEAD
 `Minimum RTT = 2 * (4,148 / 200)`
+=======
+`Minimum RTT = 2 * (4,148 / 20)`
+>>>>>>> 665177390e574b994d52c1a4246c1a2df1b537ae
 
 The output of the equation is in milliseconds.
 
@@ -371,4 +375,8 @@ Still, these packet types are indications that TCP throughput isn't achieving it
 
 ## Next steps
 
+<<<<<<< HEAD
 Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want to read about other considerations for [planning virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
+=======
+Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want read more about considerations for [planning virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
+>>>>>>> 665177390e574b994d52c1a4246c1a2df1b537ae
