@@ -23,7 +23,7 @@ ms.custom: seodec18
 
 # Open-source technologies FAQs for Web Apps in Azure
 
-This article has answers to frequently asked questions (FAQs) about issues with open-source technologies for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/).
+This article has answers to frequently asked questions (FAQs) about issues with open-source technologies for the [Web Apps feature of Azure App Service](https://azure.microsoft.com/services/app-service/web/). For information on Java, see the [Java Developer Guide for Windows](app-service-java.md).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -107,76 +107,6 @@ Some packages might not install by using pip in Azure. The package might not be 
 ## How do I deploy a Django app to App Service by using Git and the new version of Python?
 
 For information about installing Django, see [Deploying a Django app to App Service](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
-
-## Where are the Tomcat log files located?
-
-For Azure Marketplace and custom deployments:
-
-* Folder location: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
-* Files of interest:
-    * catalina.*yyyy-mm-dd*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
-
-
-For portal **App settings** deployments:
-
-* Folder location: D:\home\LogFiles
-* Files of interest:
-    * catalina.*yyyy-mm-dd*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
-
-## How do I troubleshoot JDBC driver connection errors?
-
-You might see the following message in your Tomcat logs:
-
-```
-The web application[ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak,the JDBC Driver has been forcibly unregistered
-```
-
-To resolve the error:
-
-1. Remove the sqljdbc*.jar file from your app/lib folder.
-2. If you are using the custom Tomcat or Azure Marketplace Tomcat web server, copy this .jar file to the Tomcat lib folder.
-3. If you are enabling Java from the Azure portal (select **Java 1.8** > **Tomcat server**), copy the sqljdbc.* jar file in the folder that's parallel to your app. Then, add the following classpath setting to the web.config file:
-
-    ```xml
-    <httpPlatform>
-    <environmentVariables>
-    <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true
-    -Xms128M -classpath %CLASSPATH%;[Path to the sqljdbc*.jarfile]" />
-    </environmentVariables>
-    </httpPlatform>
-    ```
-
-## Why do I see errors when I attempt to copy live log files?
-
-If you try to copy live log files for a Java app (for example, Tomcat), you might see this FTP error:
-
-```
-Error transferring file [filename] Copying files from remote side failed.
-    
-The process cannot access the file because it is being used by another process.
-```
-
-The error message might vary, depending on the FTP client.
-
-All Java apps have this locking issue. Only Kudu supports downloading this file while the app is running.
-
-Stopping the app allows FTP access to these files.
-
-Another workaround is to write a WebJob that runs on a schedule and copies these files to a different directory. For a sample project, see the [CopyLogsJob](https://github.com/kamilsykora/CopyLogsJob) project.
-
-## Where do I find the log files for Jetty?
-
-For Marketplace and custom deployments, the log file is in the D:\home\site\wwwroot\bin\jetty-distribution-9.1.2.v20140210\logs folder. Note that the folder location depends on the version of Jetty you are using. For example, the path provided here is for Jetty 9.1.2. Look for jetty_*YYYY_MM_DD*.stderrout.log.
-
-For portal App Setting deployments, the log file is in D:\home\LogFiles. Look for jetty_*YYYY_MM_DD*.stderrout.log
 
 ## Can I send email from my Azure web app?
 
