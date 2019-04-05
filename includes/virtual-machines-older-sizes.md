@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md) or [Sizes for Linux virtual machines in Azure](../articles/virtual-machines/linux/sizes.md) to choose the VM sizes that will best fit your need.
+This section provides information on older generations of virtual machine sizes. These sizes are still supported but will not receive additional capacity. There are newer or alternative sizes that are generally available. Please refer to [Sizes for Windows virtual machines in Azure](../articles/virtual-machines/windows/sizes.md) or [Sizes for Linux virtual machines in Azure](../articles/virtual-machines/linux/sizes.md) to choose the VM sizes that will best fit your need.  
 
-For more information on resizing a Linux VM, see [Resize a Linux virtual machine using Azure CLI](../articles/virtual-machines/linux/change-vm-size.md). If you're using Windows VMs and prefer to use PowerShell, see [Resize a Windows VM](../articles/virtual-machines/windows/resize-vm.md).
+For more information on resizing a Linux VM, see [Resize a Linux virtual machine using Azure CLI](../articles/virtual-machines/linux/change-vm-size.md). If you're using Windows VMs and prefer to use PowerShell, see [Resize a Windows VM](../articles/virtual-machines/windows/resize-vm.md).  
 
-## Basic A
+### Basic A
 
 **Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
@@ -32,7 +32,7 @@ The basic tier sizes are primarily for development workloads and other applicati
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8x300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16x300|
 
-## A-series
+### A-series
 
 **Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
@@ -55,7 +55,7 @@ Premium Storage Caching:  Not Supported
 
 <sup>1</sup> The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.
 
-## A-series - compute-intensive instances
+### A-series - compute-intensive instances
 
 **Newer size recommendation**: [Av2-series](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
@@ -76,7 +76,7 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 <sup>1</sup>For MPI applications, dedicated RDMA backend network is enabled by FDR InfiniBand network, which delivers ultra-low-latency and high bandwidth.  
 
-## D-series
+### D-series
 
 **Newer size recommendation**: [Dv3-series](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
@@ -95,7 +95,7 @@ Premium Storage Caching:  Not Supported
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
-## D-series - memory optimized
+### D-series - memory optimized
 
 **Newer size recommendation**: [Dv3-series](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
@@ -114,7 +114,7 @@ Premium Storage Caching:  Not Supported
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
-## DS-series
+### DS-series
 
 **Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
 
@@ -133,7 +133,7 @@ Premium Storage Caching:  Supported
 
 <sup>1</sup> VM Family can run on one of the following CPU's: 2.2 GHz Intel Xeon® E5-2660 v2,  2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) or 2.3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
 
-## DS-series - memory optimized
+### DS-series - memory optimized
 
 **Newer size recommendation**: [DSv3-series](../articles/virtual-machines/windows/sizes-general.md#dvs3-series-1)
 

@@ -23,11 +23,11 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-sizes-general](../../../includes/virtual-machines-common-sizes-previous-gen.md)]
 
-### Older generations of virtual machine sizes
+[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
+
+## Older generations of virtual machine sizes
 
 [!INCLUDE [virtual-machines-older-sizes](../../../includes/virtual-machines-older-sizes.md) ]
-
-[!INCLUDE [virtual-machines-common-sizes-table-defs](../../../includes/virtual-machines-common-sizes-table-defs.md)]
 
 ## Other sizes
 
