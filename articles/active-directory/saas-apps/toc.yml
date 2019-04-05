@@ -135,6 +135,8 @@
         href: bcinthecloud-tutorial.md
       - name: BeeLine
         href: beeline-tutorial.md
+      - name: Benchling
+        href: benchling-tutorial.md
       - name: BenefitHub
         href: benefithub-tutorial.md
       - name: Benefitsolver
@@ -229,6 +231,8 @@
         href: cisco-umbrella-tutorial.md    
       - name: Cisco Webex Meetings
         href: cisco-webex-tutorial.md
+      - name: Citrix Netscaler
+        href: citrix-netscaler-tutorial.md
       - name: Citrix ShareFile
         href: sharefile-tutorial.md
       - name: Clarizen
@@ -265,6 +269,8 @@
         href: concur-tutorial.md
       - name: Condeco
         href: condeco-tutorial.md
+      - name: Confirmit Horizons
+        href: confirmit-horizons-tutorial.md
       - name: Confluence SAML SSO by Microsoft
         href: confluencemicrosoft-tutorial.md
       - name: Consent2Go
@@ -349,6 +355,8 @@
         href: elium-tutorial.md
       - name: eLuminate
         href: eluminate-tutorial.md
+      - name: Empactis
+        href: empactis-tutorial.md
       - name: EmpCenter
         href: empcenter-tutorial.md
       - name: Encompass
@@ -425,6 +433,8 @@
         href: freshservice-tutorial.md
       - name: Front
         href: front-tutorial.md
+      - name: Fulcrum
+        href: fulcrum-tutorial.md
       - name: Fuse
         href: fuse-tutorial.md
       - name: Fuze
@@ -485,6 +495,8 @@
         href: hpesaas-tutorial.md
       - name: HR2day by Merces
         href: hr2day-tutorial.md
+      - name: HRworks Single Sign-On
+        href: hrworks-single-sign-on-tutorial.md
       - name: HubSpot SAML
         href: hubspot-tutorial.md
       - name: Huddle
@@ -557,6 +569,8 @@
         href: iqnavigatorvms-tutorial.md
       - name: iQualify LMS
         href: iqualify-tutorial.md
+      - name: Iris Intranet
+        href: iris-intranet-tutorial.md
       - name: IriusRisk
         href: iriusrisk-tutorial.md
       - name: ITRP
@@ -709,6 +723,8 @@
         href: mixpanel-tutorial.md
       - name: MOBI
         href: mobi-tutorial.md
+      - name: MobiControl
+        href: mobicontrol-tutorial.md
       - name: Mobile Xpense
         href: mobilexpense-tutorial.md
       - name: MobileIron
@@ -823,6 +839,8 @@
         href: peoplecart-tutorial.md
       - name: Perception United States (Non-UltiPro)
         href: perceptionunitedstates-tutorial.md
+      - name: Percolate
+        href: percolate-tutorial.md
       - name: PerformanceCentre
         href: performancecentre-tutorial.md
       - name: Periscope Data
@@ -843,6 +861,8 @@
         href: policystat-tutorial.md
       - name: PostBeyond
         href: postbeyond-tutorial.md
+      - name: Powerschool Performance Matters
+        href: powerschool-performance-matters-tutorial.md
       - name: Predictix Assortment Planning
         href: predictix-assortment-planning-tutorial.md
       - name: Predictix Ordering
@@ -995,6 +1015,8 @@
         href: settlingmusic-tutorial.md
       - name: SharePoint on-premises
         href: sharepoint-on-premises-tutorial.md
+      - name: Shibumi
+        href: shibumi-tutorial.md
       - name: Shmoop For Schools
         href: shmoopforschools-tutorial.md
       - name: Showpad
@@ -1031,6 +1053,8 @@
         href: slack-tutorial.md
       - name: Small Improvements
         href: smallimprovements-tutorial.md
+      - name: SmartDraw
+        href: smartdraw-tutorial.md
       - name: SmarterU
         href: smarteru-tutorial.md
       - name: SmartFile
@@ -1101,6 +1125,8 @@
         href: tangoe-tutorial.md
       - name: TargetProcess
         href: target-process-tutorial.md
+      - name: TAS
+        href: tas-tutorial.md
       - name: Teamphoria
         href: teamphoria-tutorial.md
       - name: TeamSeer
@@ -1356,4 +1382,4 @@
         href: zscaler-three-provisioning-tutorial.md
       - name: Zscaler ZSCloud
         href: zscaler-zscloud-provisioning-tutorial.md
-      
+
