@@ -48,13 +48,12 @@ Both internet-facing and internal-application gateways route requests to backend
 - An internal application gateway uses only private IP addresses. The DNS name of an internal application gateway is resolvable to its private IP address. As a result, internal load-balancers can only route requests from clients with access to the VNet for the application gateway.
 
     >[!NOTE]
-    >Both internet-facing and internal application gateways route requests to backend servers by using private IP addresses. This action happens when your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address.
+    >Both internet-facing and internal application gateways route requests to backend servers by using private IP addresses. This action happens when your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address. If the backend pool:
+  > - **Is a public endpoint**. Application Gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
 
-  - If the backend pool is a public endpoint, Application Gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+  > - **Contains an internally resolvable FQDN or a private IP address**. Application Gateway routes the request to the backend server by using its instance private IP addresses.
 
-  - If the backend pool contains an internally resolvable FQDN or a private IP address, Application Gateway routes the request to the backend server by using its instance private IP addresses.
-
-  - If the backend pool contains an external endpoint or an externally resolvable FQDN, Application Gateway routes the request to the backend server by using its frontend public IP address. The DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+  > - **Contains an external endpoint or an externally resolvable FQDN**. Application Gateway routes the request to the backend server by using its frontend public IP address. The DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
 
 ### Modifications to the request
 
