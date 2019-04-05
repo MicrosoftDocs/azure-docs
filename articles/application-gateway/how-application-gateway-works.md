@@ -1,6 +1,6 @@
 ---
 title: How Azure Application Gateway works
-description: This article provides information on how to the Application Gateway Works
+description: This article provides information about how Application Gateway works
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
