@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ---
 # Quickstart: Build a .NET web app using SQL API with an Azure Cosmos DB account
 
@@ -25,7 +25,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add data to the collection. You then use a [SQL .NET SDK](sql-api-sdk-dotnet.md) web app to add more data to the collection. 
 
-In this quickstart, you use Data Explorer in the Azure portal to create the database and collection. You can also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the-code). 
+In this quickstart, you use Data Explorer in the Azure portal to create the database and collection. You can also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the--net-code). 
 
 ## Prerequisites
 
@@ -80,7 +80,7 @@ Add data to your new database using Data Explorer.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png)
   
-1. Add the following structure to the document on the right side of the **Document** pane:
+1. Add the following structure to the document on the right side of the **Documents** pane:
 
      ```json
      {
@@ -182,7 +182,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
 
 You can go back to Data Explorer in the Azure portal to see, query, modify, and work with your new data. 
 
-### Review the code
+## Review the .NET code
 
 This step is optional. In this quickstart, you created a database and a collection in the Azure portal and added sample data by using the .NET sample. However, you can also create the database and the collection by using the .NET sample. Review the following snippets if you're interested in how database resources are created in the code. The snippets are all taken from the *DocumentDBRepository.cs* file in the **todo** project.
 
