@@ -54,7 +54,7 @@ Once the health reporting design is clear, health reports can be sent easily. Yo
 The health reports are sent to the health store through a health client, which lives inside the fabric client. The health client can be configured with the following settings:
 
 * **HealthReportSendInterval**: The delay between the time the report is added to the client and the time it is sent to the health store. Used to batch reports into a single message, rather than sending one message for each report. The batching improves performance. Default: 30 seconds.
-* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds.
+* **HealthReportRetrySendInterval**: The interval at which the health client resends accumulated health reports to the health store. Default: 30 seconds, minimum: 1 second.
 * **HealthOperationTimeout**: The timeout period for a report message sent to the health store. If a message times out, the health client retries it until the health store confirms that the report has been processed. Default: two minutes.
 
 > [!NOTE]
