@@ -30,7 +30,7 @@ To alert for high CPU or memory utilization on cluster nodes, use the queries th
 If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../platform/alerts-unified-log.md). For more about metric alerts, see [Metric alerts in Azure Monitor](../platform/alerts-metric-overview.md).
 
 ## Resource utilization log search queries
-The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-alert-rule) section of this article.
+The queries in this section support each alerting scenario. They're used in step 7 of the [create alert](#create-an-alert-rule) section of this article.
 
 The following query calculates average CPU utilization as an average of member nodes' CPU utilization every minute.  
 
