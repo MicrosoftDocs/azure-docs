@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
 # Set up a user profile share for a host pool

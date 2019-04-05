@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
 # Tutorial: Create a host pool with Azure Marketplace
