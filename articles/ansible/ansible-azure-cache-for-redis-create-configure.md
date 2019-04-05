@@ -73,7 +73,7 @@ ok: [localhost]
 
 ## Scale the cache
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. If your app requirements change after the cache is created, you can scale the cache as needed. For more information about scaling, see [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
+Azure Cache for Redis has different cache offerings depending on your app's needs. These cache options provide flexibility in the choice of cache size and features. If your app requirements change after the cache is created, you can scale the cache as needed. For more information about scaling, see [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
 
 The following sample code scales the cache to **Standard**:
 
