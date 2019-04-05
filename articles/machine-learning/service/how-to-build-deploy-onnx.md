@@ -26,7 +26,7 @@ Microsoft supports ONNX across its products including Azure and Windows to help 
 ## Why choose ONNX?
 The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
-You can create ONNX models from many frameworks, including PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, and more.
+You can create ONNX models from many frameworks, including PyTorch, Chainer,  MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, Microsoft Cognitive Toolkit,and more.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
@@ -49,11 +49,11 @@ You can convert existing models to ONNX or save them as ONNX at the end of your 
 |Framework for model|Conversion example or tool|
 |-----|-------|
 |PyTorch|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 |TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn, CoreML<br/>XGBoost, and libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
 
