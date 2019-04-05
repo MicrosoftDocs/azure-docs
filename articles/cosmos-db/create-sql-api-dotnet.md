@@ -25,7 +25,7 @@ Azure Cosmos DB is Microsoft’s globally distributed multi-model database servi
 
 This quickstart demonstrates how to use the Azure portal to create an Azure Cosmos DB [SQL API](sql-api-introduction.md) account, create a document database and collection, and add data to the collection. You then use a [SQL .NET SDK](sql-api-sdk-dotnet.md) web app to add more data to the collection. 
 
-In this quickstart, you use Data Explorer in the Azure portal to create the database and collection. You can also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the--net-code). 
+In this quickstart, you use Data Explorer in the Azure portal to create the database and collection. You can also create the database and collection by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code). 
 
 ## Prerequisites
 
@@ -108,31 +108,26 @@ Add data to your new database using Data Explorer.
 
 ## Use the SQL API sample app
 
-To see how easy it is to work with your Cosmos DB data programmatically, you can clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
+To see how easy it is to work with your Cosmos DB data programmatically, clone the sample SQL API .NET web app from GitHub, update the connection string, and run the app to update your data. 
 
-You could also create the database and collection by using the .NET sample code. To learn more, see [Review the code](#review-the-code).
+You could also create the database and collection by using the .NET sample code. To learn more, see [Review the .NET code](#review-the-net-code).
 
 ### Clone the sample app
 
 First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotnet-todo-app) from GitHub. 
 
-1. Open a command prompt, create a new folder named *git-samples*, and close the command prompt. 
-
-    ```cmd
-    md "C:\git-samples"
-    ```
-
-1. Open a git terminal window, such as git bash, and change to the new folder:
-
-    ```bash
-    cd "C:\git-samples"
-    ```
-
+1. Open a command prompt, create a new directory named *git-samples*, and change to it: 
+   
+   ```bash
+   mkdir /c/git-samples/
+   cd /c/git-samples/
+   ```
+   
 1. Run the following command to clone the sample repository and create a copy of the sample app on your computer:
-
-    ```bash
-    git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
-    ```
+   
+   ```bash
+   git clone https://github.com/Azure-Samples/documentdb-dotnet-todo-app.git
+   ```
 
 ### Update the connection string 
 
@@ -162,7 +157,7 @@ First, clone a C# [SQL API app](https://github.com/Azure-Samples/documentdb-dotn
    <add key="collection" value="Items"/>
    ```
  
-1. Save the *web.config.* You've now updated your app with all the information it needs to communicate with Azure Cosmos DB. 
+1. Save the *web.config.* You've now updated your app with all the information it needs to communicate with Azure Cosmos DB.
 
 ### Run the web app
 
