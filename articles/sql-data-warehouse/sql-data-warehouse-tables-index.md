@@ -9,7 +9,8 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 03/18/2019
 ms.author: rortloff
-ms.reviewer: igorstan
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
 ---
 
 # Indexing tables in SQL Data Warehouse
