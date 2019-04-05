@@ -62,7 +62,7 @@ dotnet build
 
 ### Get your connection string
 
-The client library uses a connection string to establish your connection. Your connection string is available in the **Settings** section of your Storage Account in the Azure portal.
+The client library uses a connection string to establish your connection. Your connection string is available in the **Settings** section of your storage account in the Azure portal.
 
 1. In your browser, sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -98,7 +98,7 @@ Add the connection string into the app so it can access the storage account.
 
 3. In the **Program** class, add a `private const string connectionString = ` member to hold the connection string.
 
-4. After the equal sign, paste the string value that you copied earlier in your Azure portal in order to initialize **connectionString**.
+4. After the equal sign, paste the string value that you copied earlier in your Azure portal. This will initialize **connectionString**.
 
 Your code should look similar to this. The **connectionString** value will be unique to your account.
 
@@ -137,7 +137,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Queue;
 ```
 
-3. Add the following method to your **Program** class to get a reference to a **CloudQueue**, which we're calling **mystoragequeue**. Getting a queue reference is a common task. This method will be called for both Send and Receive operations.
+3. Add the following method to your **Program** class to get a reference to a **CloudQueue**, which we're calling **mystoragequeue**. Getting a queue reference is a common task. This method will be called for both send and receive operations.
 
 ```csharp
 static CloudQueue GetQueue()
@@ -150,7 +150,7 @@ static CloudQueue GetQueue()
 
 ## Insert messages into the queue
 
-Create a new method to asynchronously send a message into a queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it does not already exist.
+Create a new method to asynchronously send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it does not already exist by calling [**CreateIfNotExistsAsync**](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Then it adds the message to the queue by calling [**AddMessageAsync**](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
 ```csharp
 static async Task SendMessageAsync(string newMessage)
@@ -170,7 +170,7 @@ static async Task SendMessageAsync(string newMessage)
 
 ## Dequeue messages
 
-Create a new method to asynchronously receive a messages from the queue. Once we've successfully received the message, it is safe to delete it so we don't process it more than once. After the message is received, delete it from the queue.
+Create a new method to asynchronously receive a message from the queue by calling [**GetMessageAsync**](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once we've successfully received the message, it is safe to delete it so we don't process it more than once. After the message is received, delete it from the queue by calling [**DeleteMessageAsync**](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
 
 Add the following method to your **Program** class.
 
@@ -196,9 +196,9 @@ static async Task<string> ReceiveMessageAsync()
 
 ## Update Main
 
-Now we'll update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string. We then add  this string to our message queue by calling the **SendArticleAsync** method we added earlier.
+Now we'll update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string. Then, add this string to our message queue by calling the **SendMessageAsync** method we added earlier.
 
-If there are no command line arguments, the app will instead retrieve the last message from the queue and delete it by calling the **ReceiveActicleAsync** method.
+If there are no command line arguments, the app will instead retrieve the last message from the queue and delete it by calling the **ReceiveMessageAsync** method.
 
 Update **Main** to look like this:
 
@@ -334,13 +334,15 @@ dotnet run First queue message
 
 You should see output similar to this:
 
-![First app run](media/storage-tutorial-queues/first-app-run.png)
+```console
+dotnet run First queue message
+```
 
 ### Verify that the message was added to the queue
 
 Now that our app has run and told us that it sent a message to the queue, we can verify that it worked by opening the contents of our queue in the Storage Explorer utility.
 
-1. In Azure portal, navigate to the **Overview** page your storage account.
+1. In Azure portal, navigate to the **Overview** page in your storage account.
 
 ![Overview menu item](media/storage-tutorial-queues/select-overview.png)
 
@@ -350,7 +352,7 @@ Now that our app has run and told us that it sent a message to the queue, we can
 
 If you don't yet have Storage Explorer installed, you can follow the link to download your free copy of the utility.
 
-3. In **Storage Explorer**, navigate to our **mystoragequeue** and see the message we added.
+3. In **Storage Explorer**, navigate to **mystoragequeue** and see the message we added.
 
 ![Queue message](media/storage-tutorial-queues/queue-message.png)
 
@@ -366,13 +368,36 @@ If you don't yet have Storage Explorer installed, you can follow the link to dow
 dotnet run
 ```
 
-7. In **Storage Explorer**, select **Refresh** to see the that the last message was removed.
+7. In **Storage Explorer**, select **Refresh** to see the that the first message was removed.
 
 ![Message removed](media/storage-tutorial-queues/message-removed.png)
 
 8. If you continue to run the app until all the messages are removed, then run it one more time, you will get a message that the queue is empty.
 
-![App run](media/storage-tutorial-queues/run-app.png)
+```console
+C:\Tutorials\QueueApp>dotnet run First queue message
+Sent: First queue message
+
+ C:\Tutorials\QueueApp>dotnet run Second queue message
+Sent: Second queue message
+
+ C:\Tutorials\QueueApp>dotnet run Third queue message
+Sent: Third queue message
+
+ C:\Tutorials\QueueApp>dotnet run
+Received First queue message
+
+ C:\Tutorials\QueueApp>dotnet run
+Received Second queue message
+
+ C:\Tutorials\QueueApp>dotnet run
+Received Third queue message
+
+ C:\Tutorials\QueueApp>dotnet run
+Received <queue empty or not created>
+
+ C:\Tutorials\QueueApp>_
+```
 
 ## Clean up resources
 
