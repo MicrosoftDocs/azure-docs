@@ -12,7 +12,7 @@ ms.author: cherylmc
 ---
 # Configure OpenVPN for Azure point-to-site VPN Gateway (Preview)
 
-This article helps you set up OpenVPN on Azure VPN Gateway. The article assumes that you already have a working point-to-site environment. If you do not, use the instructions in step 1 to create a point-to-site VPN.
+This article helps you set up **OpenVPN® Protocol** on Azure VPN Gateway. The article assumes that you already have a working point-to-site environment. If you do not, use the instructions in step 1 to create a point-to-site VPN.
 
 > [!IMPORTANT]
 > This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -66,3 +66,5 @@ Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientProtocol OpenVP
 ## Next steps
 
 To configure clients for OpenVPN, see [Configure OpenVPN clients](vpn-gateway-howto-openvpn-clients.md).
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**
