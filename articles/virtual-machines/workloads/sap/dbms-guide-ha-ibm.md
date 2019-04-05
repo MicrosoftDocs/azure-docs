@@ -86,13 +86,13 @@ Read the following SAP notes and documentation first before approaching an insta
 ## Overview
 To achieve high availability, IBM Db2 LUW with HADR is installed on at least two Azure virtual machines, which are deployed in an [Azure availability set](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) or across [Azure Availability Zones](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). The graphics below shows a setup of two database server Azure VMs. Both database server Azure VMs have their own storage attached and are up and running. In HADR, one database instance in one of the Azure VMs has the role of the primary instance. All clients are connected to this primary instance. All changes in database transactions are persisted locally in the Db2 transaction log. As the transaction log records are persisted locally, the records are transferred via TCP/IP to the database instance on the second database server, the standby server, or standby instance. The standby instance updates the local database by rolling forward the transferred transaction log records. So the standby server is kept in sync with the primary server.
 
-HADR is only a replication functionality. It has no failure detection and no automatic takeover or failover facilities. A takeover or transfer to the standby must be initiated manually by database administrator. To achieve automatic takeover and failure detection, you can use Linux Pacemaker clustering feature. Pacemaker monitors the two database servers/instances. When the primary database server crashes, Pacemaker initiates **automatic** HADR takeover by the standby server and also ensures that the virtual IP address is assigned to the new primary server.
+HADR is only a replication functionality. It has no failure detection and no automatic takeover or failover facilities. A takeover or transfer to the standby must be initiated manually by a database administrator. To achieve an automatic takeover and failure detection, you can use Linux Pacemaker clustering feature. Pacemaker monitors the two database servers/instances. When the primary database server/instance crashes, Pacemaker initiates an **automatic** HADR takeover by the standby server and also ensures that the virtual IP address is assigned to the new primary server.
 
 ![IBM Db2 High availability overview](./media/dbms-guide-ha-ibm/ha-db2-hadr-lb.png)
 
-For SAP application servers to connect to primary database we need a virtual hostname and a virtual IP address. In event of a failover, The SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure Load Balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way required for HADR of IBM Db2. 
+For SAP application servers to connect to primary database you need a virtual hostname and a virtual IP address. In event of a failover, the SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure Load Balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way required for HADR of IBM Db2. 
 
-To fully understand, how IBM Db2 LUW with HADR and Pacemaker fits into Highly available SAP system setup, the following picture presents an overview of a full highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2 and references to other articles how to set up other components of SAP system.
+To fully understand, how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following picture presents an overview of an highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2 and references to other articles how to set up other components of SAP system.
 
 ![IBM DB2 HA Full environment overview](.//media/dbms-guide-ha-ibm/End2End_HA.png)
 
@@ -106,7 +106,7 @@ In order to deploy an IBM Db2 configuration, these steps need to be covered:
   + Install & configure Pacemaker
   + Install [Highly available NFS][nfs-ha]
   + Install [ASCS/ERS on separate cluster][ascs-ha] 
-  + Install IBM Db2 database with Distributed / High Availability option (SWPM)
+  + Install IBM Db2 database with Distributed/High Availability option (SWPM)
   + Install/create secondary database node and instance and configure HADR
   + Confirm that HADR is working
   + Apply Pacemaker configuration to control IBM Db2
@@ -117,20 +117,20 @@ In order to deploy an IBM Db2 configuration, these steps need to be covered:
 
 
 
-## Planning Azure Infrastructure for hosting IBM Db2 LUW with HADR
+## Planning Azure infrastructure for hosting IBM Db2 LUW with HADR
 
-Go through the planing before you execute the deployment. It will build the foundation for deploying a configuration of Db2 with HADR in Azure. Key elements that need to be part of planning for IMB Db2 LUW (database part of SAP environment).
+Go through the planing before you execute the deployment. It is building the foundation for deploying a configuration of Db2 with HADR in Azure. Key elements that need to be part of planning for IMB Db2 LUW (database part of SAP environment).
 
 | Topic | Short description |
 | --- | --- |
-| Define Azure resource group(s) | Resource group(s) where you will deploy VM, VNet, Azure Load Balancer, and other resources. Can be existing or new |
-| Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer will be deployed. Can be existing or newly created |
+| Define Azure resource group(s) | Resource group(s) where you deploy VM, VNet, Azure Load Balancer, and other resources. Can be existing or new |
+| Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer is getting to be deployed. Can be existing or newly created |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address |
-| Virtual hostname & virtual IP for IBM Db2 database| Virtual IP/hostname that will be used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip** |
-| Azure fencing | Azure fencing or SBD fencing (highly recommended). How split brain situations will be prevented |
+| Virtual hostname & virtual IP for IBM Db2 database| Virtual IP/hostname that is used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip** |
+| Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations is prevented |
 | SBD VM | SBD Virtual machine size, storage, network |
 | Azure Load Balancer | Usage of Basic or Standard (recommended), probe port for Db2 database (our recommendation 62500) **probe-port** |
-| Name resolution| How name resolution will work in the environment. DNS service is highly recommended. Local hosts file can be used |
+| Name resolution| How name resolution works in the environment. DNS service is highly recommended. Local hosts file can be used |
 	
 More details on the usage of Linux Pacemaker in Azure can be found in these articles:
 
@@ -138,9 +138,9 @@ More details on the usage of Linux Pacemaker in Azure can be found in these arti
 - [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 
 
 
-## Deploy for SUSE Linux:
+## Deployment on SUSE Linux
 
-The resource agent for IBM Db2 LUW is included in SUSE Linux Enterprise Server for SAP Applications. For the setup described in this document, tt is mandatory that you use the SUSE Linux Server for SAP Applications. The Azure Marketplace contains an image for SUSE Enterprise Server for SAP Applications 12 that you can use to deploy new Azure virtual machines. Be aware of the different support/service models offered by SUSE through the Azure galleries when choosing the VM image in the Azure VM gallery. 
+The resource agent for IBM Db2 LUW is included in SUSE Linux Enterprise Server for SAP Applications. For the setup described in this document, it is mandatory that you use the SUSE Linux Server for SAP Applications. The Azure Marketplace contains an image for SUSE Enterprise Server for SAP Applications 12 that you can use to deploy new Azure virtual machines. Be aware of the different support/service models offered by SUSE through the Azure galleries when choosing the VM image in the Azure VM gallery. 
 
 ### Hosts - DNS updates
 Make a list of all hostnames including virtual hostnames and update your DNS servers to enable proper IP address to hostname resolution. In the case, a DNS server does not exist or you are not able to update and create DNS entries, you need to leverage the local hosts files of the individual VMs that are participating in this scenario. In the case of using host files entries, you need to make sure that the entries are applied to all VMs in SAP system environment. Though, recommendation is to use your DNS that is ideally extended into Azure
@@ -148,48 +148,48 @@ Make a list of all hostnames including virtual hostnames and update your DNS ser
 
 ### Manual Deployment
 
-Make sure that selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP Note [1928533]. The list of OS releases by individual Db2 releases is available in the SAP Product Availability Matrix. We highly recommend a minimum of SLES 12 SP3 due to Azure related performance improvements in this or later SUSE Linux versions.
+Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list of supported OS versions for Azure VMs and Db2 releases is available in SAP Note [1928533]. The list of OS releases by individual Db2 releases is available in the SAP Product Availability Matrix. We highly recommend a minimum of SLES 12 SP3 due to Azure related performance improvements in this or later SUSE Linux versions.
 
 1. Create/Select a resource group
 2. Create/Select a virtual network & subnet
-3. Create availability set or deploy in Availability Zone
+3. Create Azure availability set or deploy in Availability Zone
     + Availability set - set max update domains to two
 4. Create Virtual Machine 1.
     + Use SLES for SAP image in Azure gallery
-    + Select availability set in created in step 3 or select Availability Zone
+    + Select Azure availability set in created in step 3 or select Availability Zone
 5.  Create Virtual Machine 2.
     + Use SLES for SAP image in Azure gallery
-    + Select availability set in created in step 3. or select Availability Zone - not the same Zone as in step 3.
-6. Add data disks to VMs - check recommendation of filesystem setup - [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2]
+    + Select Azure availability set in created in step 3. or select Availability Zone - not the same Zone as in step 3.
+6. Add data disks to the VMs - check recommendation of filesystem setup in the article [IBM Db2 Azure Virtual Machines DBMS deployment for SAP workload][dbms-db2]
 
-## Create a Pacemaker cluster
+## Create the Pacemaker cluster
 	
 Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker] to create a basic Pacemaker cluster for this IBM Db2 server. 
 
 ## Install IBM Db2 LUW and SAP environment.
 
-Before you start installation of SAP environment based on IBM Db2 LUW review (links provided at beginning of the article):
+Before you start the installation of a SAP environment based on IBM Db2 LUW, review (links provided at beginning of the article):
 
 + Azure documentation
 + SAP Documentation
 + IBM documentation
 
-Check the installation manual(s) from SAP on how to install NetWeaver based application on IBM Db2 LUW
+Check the installation manual(s) from SAP on how to install NetWeaver based applications on IBM Db2 LUW.
 
-You can find guide on SAP Help portal using [SAP Installation Guide Finder][sap-instfind]
+You can find the guides on SAP Help portal using the [SAP Installation Guide Finder][sap-instfind]
 
 You can filter the search to reduce number of guides available with setting the filters:
 
 + I want to: "Install a new system"
 + My Database: "IBM Db2 for Linux, Unix, and Windows"
-+ Additional filters for SAP Netweaver versions, stack configuration, My Operating System.
++ Additional filters for SAP Netweaver versions, stack configuration, or operating system.
 
 ### Installation hints for setting up IBM Db2 LUW with HADR
 
-Set up primary IBM Db2 LUW database:
+Set up the primary IBM Db2 LUW database instance:
 
 - Use High availability or distributed option
-- Install ASCS/ERS and Database instance
+- Install SAP ASCS/ERS and Database instance
 - Take a backup of newly installed database
 
 
