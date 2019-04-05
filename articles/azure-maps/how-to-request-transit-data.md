@@ -3,7 +3,7 @@ title: How to request transit data in Azure Maps | Microsoft Docs
 description: Request transit data in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -68,24 +68,9 @@ To request details for a metro area, complete the following steps:
                                 -121.95725,
                                 47.18314
                             ],
-                            [
-                                -121.76122,
-                                47.47491
-                            ],
-                            [
-                                -121.75761,
-                                47.48229
-                            ],
-                            [
-                                -121.75614,
-                                47.49037
-                            ],
-                            [
-                                -121.75586,
-                                47.49707
-                            ],
-                            ...
-                            ...
+                            ...,
+                            ...,
+                            ...,
                             ...,
                             [
                                 -122.18711,
@@ -230,16 +215,188 @@ For the purpose of understanding we will use the coordinates from one of the tra
 
 The Azure Maps [Get Transit Routes API](https://docs.microsoft.com/en-us/api/maps/mobility/gettransitroutepreview) allows you to request route options between an origin and destination. 
 
+Lets search for a route from our current location to Space Needle in Seattle. For the purpose of getting location coordinates for Space Needle, lets use the Azure Maps [Fuzzy Search Service](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchfuzzy).
+
+To make a request to the Fuzzy search service, follow the steps below:
+
+1. In Postman, click **New Request** | **GET request** and name it **Get location coordinates**.
+
+2.  On the Builder tab, select the **GET** HTTP method, enter the following request URL and click **Send**.
+ 
+    ```HTTP
+    https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
+    ```
+    
+3. If you look at the response carefully, it contains multiple locations in the results for Space Needle and also contains the location coordinates information for each of them under **position**. Copy the `lat` and `lon` from position for the first result.
+    
+   ```JSON
+   {
+        "summary": {
+            "query": "space needle",
+            "queryType": "NON_NEAR",
+            "queryTime": 61,
+            "numResults": 8,
+            "offset": 0,
+            "totalResults": 24,
+            "fuzzyLevel": 1
+        },
+        "results": [
+            {
+                "type": "POI",
+                "id": "US/POI/p0/8309323",
+                "score": 4.674,
+                "info": "search:ta:840539000511573-US",
+                "poi": {
+                    "name": "Space Needle",
+                    "phone": "+(1)-(206)-9052100",
+                    "url": "www.spaceneedle.com",
+                    "categories": [
+                        "important tourist attraction",
+                        "monument"
+                    ],
+                    "classifications": [
+                        {
+                            "code": "IMPORTANT_TOURIST_ATTRACTION",
+                            "names": [
+                                {
+                                    "nameLocale": "en-US",
+                                    "name": "important tourist attraction"
+                                },
+                                {
+                                    "nameLocale": "en-US",
+                                    "name": "monument"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "address": {
+                    "streetNumber": "400",
+                    "streetName": "Broad St",
+                    "municipalitySubdivision": "South Lake Union, Seattle, Lower Queen Anne",
+                    "municipality": "Seattle",
+                    "countrySecondarySubdivision": "King",
+                    "countryTertiarySubdivision": "Seattle",
+                    "countrySubdivision": "WA",
+                    "postalCode": "98109",
+                    "countryCode": "US",
+                    "country": "United States Of America",
+                    "countryCodeISO3": "USA",
+                    "freeformAddress": "400 Broad St, Seattle, WA 98109",
+                    "countrySubdivisionName": "Washington"
+                },
+                "position": {
+                    "lat": 47.62039,
+                    "lon": -122.34928
+                },
+                "viewport": {
+                    "topLeftPoint": {
+                        "lat": 47.62129,
+                        "lon": -122.35061
+                    },
+                    "btmRightPoint": {
+                        "lat": 47.61949,
+                        "lon": -122.34795
+                    }
+                },
+                "entryPoints": [
+                    {
+                        "type": "main",
+                        "position": {
+                            "lat": 47.61982,
+                            "lon": -122.34886
+                        }
+                    }
+                ]
+            },
+            {
+                "type": "POI",
+                "id": "US/POI/p0/2818448",
+                "score": 4.409,
+                "info": "search:ta:840539000293076-US",
+                "poi": {
+                    "name": "Space Needle",
+                    "phone": "+(1)-(206)-9052200",
+                    "url": "www.spaceneedle.com",
+                    "categories": [
+                        "banquet rooms",
+                        "restaurant"
+                    ],
+                    "classifications": [
+                        {
+                            "code": "RESTAURANT",
+                            "names": [
+                                {
+                                    "nameLocale": "en-US",
+                                    "name": "banquet rooms"
+                                },
+                                {
+                                    "nameLocale": "en-US",
+                                    "name": "restaurant"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "address": {
+                    "streetNumber": "203",
+                    "streetName": "6th Ave N",
+                    "municipalitySubdivision": "South Lake Union, Seattle",
+                    "municipality": "Seattle",
+                    "countrySecondarySubdivision": "King",
+                    "countryTertiarySubdivision": "Seattle",
+                    "countrySubdivision": "WA",
+                    "postalCode": "98109",
+                    "extendedPostalCode": "981095004",
+                    "countryCode": "US",
+                    "country": "United States Of America",
+                    "countryCodeISO3": "USA",
+                    "freeformAddress": "203 6th Ave N, Seattle, WA 98109",
+                    "countrySubdivisionName": "Washington"
+                },
+                "position": {
+                    "lat": 47.61999,
+                    "lon": -122.34505
+                },
+                "viewport": {
+                    "topLeftPoint": {
+                        "lat": 47.62089,
+                        "lon": -122.34638
+                    },
+                    "btmRightPoint": {
+                        "lat": 47.61909,
+                        "lon": -122.34372
+                    }
+                },
+                "entryPoints": [
+                    {
+                        "type": "main",
+                        "position": {
+                            "lat": 47.61999,
+                            "lon": -122.34499
+                        }
+                    }
+                ]
+            },
+            ...,
+            ...,
+            ...
+            
+        ]
+    }
+    ``` 
+    
+ 
 To make a route request, complete the steps below:
 
 1. In Postman, click **New Request** | **GET request** and name it **Get Route info**.
 
 2. On the Builder tab, select the **GET** HTTP method, enter the following request URL for your API endpoint and click **Send**.
 
-    We will request a public transit route for bus by specifying the `modeTypes` and `transitTypes` parameters. See the [list of URI parameters](https://docs.microsoft.com/rest-staging/api/maps/mobility/gettransitroutepreview#uri-parameters) you can use in your request to the [Get Transit Routes API](https://docs.microsoft.com/api/maps/mobility/gettransitroutepreview).
-
+    We will request a public transit route for bus by specifying the `modeTypes` and `transitTypes` parameters. See the [list of URI parameters](https://docs.microsoft.com/rest-staging/api/maps/mobility/gettransitroutepreview#uri-parameters) you can use in your request to the [Get Transit Routes API](https://docs.microsoft.com/api/maps/mobility/gettransitroutepreview). The request URL contains the location used in the previous sections as origin and coordinates for Space Needle as destination.
+  
     ```HTTP
-    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&origin=47.63096,-122.126&destination=47.6205,-122.3493&originType=coordinates&destinationType=coordinates&modeTypes=publicTransit&transitTypes=bus
+    https://atlas.microsoft.com/mobility/transit/route/json?subscription-key={subscription-key}&api-version=1.0&metroId=522&origin=47.63096,-122.126&destination=47.62039,-122.34928&originType=coordinates&destinationType=coordinates&modeTypes=publicTransit&transitTypes=bus
     ```
 
 3. Upon a successful request, the response structure should look like the one below:
@@ -323,82 +480,7 @@ To make a route request, complete the steps below:
                     }
                 ]
             },
-            {
-                "itineraryId": "302c38dd-6585-4fa1-bf78-44ebbc183e0c---2019040384C30774B4B94F178E7748644A476596:1---522",
-                "departureTime": "2019-04-03T14:20:03-07:00",
-                "arrivalTime": "2019-04-03T15:15:53-07:00",
-                "travelTimeInSeconds": 3350,
-                "legs": 10,
-                "itinerarySummary": [
-                    {
-                        "legType": "Walk",
-                        "legStartTime": "2019-04-03T14:20:03-07:00",
-                        "legEndTime": "2019-04-03T14:28:37-07:00",
-                        "caption": "Northeast 24th Street",
-                        "lengthInMeters": 635
-                    },
-                    {
-                        "legType": "Wait",
-                        "legStartTime": "2019-04-03T14:28:37-07:00",
-                        "legEndTime": "2019-04-03T14:29:38-07:00",
-                        "caption": "B LINE"
-                    },
-                    {
-                        "legType": "Bus",
-                        "legStartTime": "2019-04-03T14:29:38-07:00",
-                        "legEndTime": "2019-04-03T14:35:00-07:00",
-                        "caption": "B LINE",
-                        "lengthInMeters": 1607
-                    },
-                    {
-                        "legType": "Walk",
-                        "legStartTime": "2019-04-03T14:35:01-07:00",
-                        "legEndTime": "2019-04-03T14:36:07-07:00",
-                        "caption": "156th Avenue Northeast",
-                        "lengthInMeters": 63
-                    },
-                    {
-                        "legType": "Wait",
-                        "legStartTime": "2019-04-03T14:36:07-07:00",
-                        "legEndTime": "2019-04-03T14:38:00-07:00",
-                        "caption": "545"
-                    },
-                    {
-                        "legType": "Bus",
-                        "legStartTime": "2019-04-03T14:38:00-07:00",
-                        "legEndTime": "2019-04-03T14:59:47-07:00",
-                        "caption": "545",
-                        "lengthInMeters": 16441
-                    },
-                    {
-                        "legType": "Walk",
-                        "legStartTime": "2019-04-03T14:59:48-07:00",
-                        "legEndTime": "2019-04-03T15:03:53-07:00",
-                        "caption": "Denny Way",
-                        "lengthInMeters": 308
-                    },
-                    {
-                        "legType": "Wait",
-                        "legStartTime": "2019-04-03T15:03:53-07:00",
-                        "legEndTime": "2019-04-03T15:07:26-07:00",
-                        "caption": "8"
-                    },
-                    {
-                        "legType": "Bus",
-                        "legStartTime": "2019-04-03T15:07:26-07:00",
-                        "legEndTime": "2019-04-03T15:12:12-07:00",
-                        "caption": "8",
-                        "lengthInMeters": 1057
-                    },
-                    {
-                        "legType": "Walk",
-                        "legStartTime": "2019-04-03T15:12:13-07:00",
-                        "legEndTime": "2019-04-03T15:15:53-07:00",
-                        "caption": "47.6205,-122.3493",
-                        "lengthInMeters": 268
-                    }
-                ]
-            },
+            ...,
             {
                 "itineraryId": "302c38dd-6585-4fa1-bf78-44ebbc183e0c---2019040384C30774B4B94F178E7748644A476596:2---522",
                 "departureTime": "2019-04-03T14:21:34-07:00",
@@ -479,4 +561,4 @@ To make a route request, complete the steps below:
     }
     ```
 
-    If you observe carefully, there are three different **bus** routes in the response.
+    If you observe carefully, there are multiple **bus** routes in the response.
