@@ -1,5 +1,5 @@
 ---
-title: Evaluate your Gremlin queries with the Execution Profile function
+title: Evaluate your queries with the Execution Profile function for Azure Cosmos DB Gremlin API
 description: Learn how to troubleshoot and improve your Gremlin queries using the execution profile step.
 services: cosmos-db
 author: luisbosquez
@@ -32,7 +32,7 @@ For example:
 After calling the `executionProfile()` step, the response will be a JSON object that includes the executed Gremlin step, the total time it took, and an array of the Cosmos DB runtime operators that the statement resulted in.
 
 > [!NOTE]
-> This implementation for Execution Profile isn't defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB Gremlin API's implementation.
+> This implementation for Execution Profile is not defined in the Apache Tinkerpop specification. It is specific to Azure Cosmos DB Gremlin API's implementation.
 
 
 ## Response Example
@@ -210,8 +210,8 @@ Assume the following execution profile response from a **partitioned graph**:
 
 The following conclusions can be made from it:
 - The query is a single ID lookup, since the Gremlin statement follows the pattern `g.V('id')`.
-- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](https://docs.microsoft.com/en-us/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
-- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](https://docs.microsoft.com/en-us/azure/cosmos-db/partition-data) were accessed by this operation.
+- Judging from the `time` metric, the latency of this query seems to be high since it's [more than 10ms for a single point-read operation](https://docs.microsoft.com/azure/cosmos-db/introduction#guaranteed-low-latency-at-99th-percentile-worldwide).
+- If we look into the `storeOps` object, we can see that the `fanoutFactor` is `5`, which means that [5 partitions](https://docs.microsoft.com/azure/cosmos-db/partition-data) were accessed by this operation.
 
 As a conclusion of this analysis, we can determine that the first query is accessing more partitions than necessary. This can be addressed by specifying the partitioning key in the query as a predicate. This will lead to less latency and less cost per query. Learn more about [graph partitioning](graph-partitioning.md). A more optimal query would be `g.V('tt0093640').has('partitionKey', 't1001')`.
 
