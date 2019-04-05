@@ -16,7 +16,7 @@ ms.custom: codepen
 This article shows you how you can render point data from a data source as a Bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
 
 > [!TIP]
-> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
+> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a bubble layer
 

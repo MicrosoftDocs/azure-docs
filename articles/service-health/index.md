@@ -5,18 +5,19 @@ author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/27/2018
+ms.date: 03/4/2019
 ms.author: stbaron
 
 ---
 # Azure Service Health Documentation
 
-Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
+Azure offers a suite of experiences to keep you informed about the health of your cloud resources including current and upcoming issues such as service impacting events, planned maintenance, and other changes that may affect your availability.
 
-Azure Service Health is composed of:
- 1. **Azure status** - A global view of the health of Azure services
- 2. **Service Health** - A personalized view of the health of your Azure services
- 3. **Resource Health** - A deeper view of the health of the individual resources provisioned to you by your Azure services
+You may be familiar with the **[Azure Status page](https://status.azure.com)**, a global view of the health of all Azure services across all Azure regions. The status page is a good reference for incidents with widespread impact, but we strongly recommend that current Azure users leverage **Azure Service Health** to stay informed about Azure incidents and maintenance.
+
+**[Azure Service Health](service-health-overview.md)** provides a personalized view of the health of the Azure services and regions you're using. This is the best place to look for service impacting communications about outages, planned maintenance activities, and other health advisories because the authenticated Azure Service Health experience knows which services and resources you currently use. The best way to use Service Health is to set up Service Health alerts to notify you via your preferred communication channels when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
+
+**[Azure Resource Health](resource-health-overview.md)** provides information about the health of your individual cloud resources such as a specific virtual machine instance. Using Azure Monitor, you can also configure alerts to notify you of availability changes to your cloud resources. Azure Resource Health along with Azure Monitor notifications will help you stay better informed about the availability of your resources minute by minute and quickly assess whether an issue is due to a problem on your side or related to an Azure platform event.
 
 Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
