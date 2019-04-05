@@ -36870,6 +36870,11 @@
       "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
       "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
     }
   ]
 }
