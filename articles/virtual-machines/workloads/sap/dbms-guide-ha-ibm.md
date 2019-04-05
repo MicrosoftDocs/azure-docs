@@ -51,7 +51,7 @@ ms.author: juergent
 
 IBM Db2 LUW (Linux, Unix, and Windows) in [HADR configuration](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_10.5.0/com.ibm.db2.luw.admin.ha.doc/doc/c0011267.html) consist of one node that runs a primary database instance and at least one node that runs a secondary database instance. Changes to the primary database instance are getting replicated to secondary database instance synchronously or asynchronously, dependent on your configuration. 
 
-This article describes how to deploy and configure the virtual machines, install the cluster framework, and install and configure IBM Db2 LUW in HADR configuration. The article will not explain how to install and configure IBM Db2 LUW in HADR or SAP software installation. References to SAP and IBM installation manuals are provided to achieve this. Focus is on parts that are specific to Azure environment. 
+This article describes how to deploy and configure the virtual machines, install the cluster framework, and install and configure IBM Db2 LUW in HADR configuration. The article will not explain how to install and configure IBM Db2 LUW in HADR or SAP software installation. References to SAP and IBM installation manuals are provided to achieve these tasks. Focus is on parts that are specific to Azure environment. 
 
 Supported IBM Db2 versions are 10.5 and higher as documented in SAP note#[1928533].
 
@@ -92,7 +92,7 @@ HADR is only a replication functionality. It has no failure detection and no aut
 
 For SAP application servers to connect to primary database you need a virtual hostname and a virtual IP address. In event of a failover, the SAP application servers will connect to new primary database instance. In an Azure environment, an [Azure Load Balancer](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) is required to use a virtual IP address in the way required for HADR of IBM Db2. 
 
-To fully understand, how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following picture presents an overview of an highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2 and references to other articles how to set up other components of SAP system.
+To fully understand, how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following picture presents an overview of a highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2 and references to other articles how to set up other components of SAP system.
 
 ![IBM DB2 HA Full environment overview](.//media/dbms-guide-ha-ibm/End2End_HA.png)
 
@@ -124,7 +124,7 @@ Go through the planing before you execute the deployment. It is building the fou
 | Topic | Short description |
 | --- | --- |
 | Define Azure resource group(s) | Resource group(s) where you deploy VM, VNet, Azure Load Balancer, and other resources. Can be existing or new |
-| Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer is getting to be deployed. Can be existing or newly created |
+| Virtual network / Subnet definition | Where VMs for IBM Db2 and Azure Load Balancer are getting to be deployed. Can be existing or newly created |
 | Virtual machines hosting IBM Db2 LUW | VM size, storage, networking, IP address |
 | Virtual hostname & virtual IP for IBM Db2 database| Virtual IP/hostname that is used for connection of SAP application servers. **db-virt-hostname**, **db-virt-ip** |
 | Azure fencing | Azure fencing or SBD fencing (highly recommended). Method to avoid split brain situations is prevented |
@@ -168,7 +168,7 @@ Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Az
 
 ## Install IBM Db2 LUW and SAP environment.
 
-Before you start the installation of a SAP environment based on IBM Db2 LUW, review (links provided at beginning of the article):
+Before you start the installation of an SAP environment based on IBM Db2 LUW, review (links provided at beginning of the article):
 
 + Azure documentation
 + SAP Documentation
@@ -194,13 +194,13 @@ Set up the primary IBM Db2 LUW database instance:
 
 
 > [!IMPORTANT] 
-> Write down "Database Communication port" set during installation. It must be the same for both database servers/instances
+> Write down the "Database Communication port" set during installation. It must be the same port number for both database instances
 
 For setting up the Standby database server using SAP's homogeneous system copy procedure, execute these steps:
 
   - Use System copy option - Target systems - Distributed - Database instance.
-  - For copy method, choose Homogeneous System Copy so that you can use backup to restore a backup on standby server/instance
-  - When you reach the exit step to restore the database for homogeneous system copy, exit the installer. Restore database from the primary host. All subsequent installation phases have already been executed on the primary database server
+  - As copy method, choose Homogeneous System Copy so that you can use backup to restore a backup on standby server/instance
+  - When you reach the exit step to restore the database for homogeneous system copy, exit the installer. Restore the database from a backup of the primary host. All subsequent installation phases have already been executed on the primary database server
 - Set up HADR for IBM Db2
 
 > [!NOTE]
@@ -210,8 +210,7 @@ For setting up the Standby database server using SAP's homogeneous system copy p
 >+ Do not select "Generate cluster configration files"
 
 > [!NOTE]
->When setting up the HADR for Azure environment, set Db2 HADR parameters
->Using an SBD device for fencing:
+>When using a SBD device for Linux Pacemaker, set the Db2 HADR parameters
 >+ HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 300  
 >+ HADR timeout value (HADR_TIMEOUT) = 60
 
@@ -220,7 +219,7 @@ For setting up the Standby database server using SAP's homogeneous system copy p
 >+ HADR peer window duration (seconds) (HADR_PEER_WINDOW) = 900  
 >+ HADR timeout value (HADR_TIMEOUT) = 60
 
-Parameters are recommended based on initial failover/takeover testing. It is mandatory to test proper function of takeover and failover with these parameter settings since individual configurations might vary. 
+Parameters are recommended based on initial failover/takeover testing. It is mandatory to test proper functionality of takeover and failover with these parameter settings. Since individual configurations might vary, these parameters might require adjustment. 
 
 > [!IMPORTANT]
 > Specific for IBM Db2 in HADR configuration with normal startup - The secondary/standby database instance must be up and running before you are able to start primary database instance.
@@ -344,7 +343,7 @@ The following items are prefixed with either:
 **[A]** Prerequisites for Pacemaker configuration:
 1. Shut down both database server with user db2\<sid> with db2stop
 2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool
-3. Update resource agent:
+3. Update the resource agent:
 	<pre><code>sudo curl -so https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/db2 /usr/lib/ocf/resource.d/heartbeat/db2	</code></pre>
 
 ### Pacemaker configuration:
@@ -355,7 +354,7 @@ sudo crm configure property maintenance-mode=true
 </code></pre>
 
 **[1]** Create IBM Db2 resources
-<pre><code># Replace bold string with your instance name db2sid, database SID and virtual IP address/Azure Load Balancer
+<pre><code># Replace **bold strings** with your instance name db2sid, database SID and virtual IP address/Azure Load Balancer
 
 sudo crm configure primitive rsc_Db2_db2ptr_<b>PTR</b> db2 \
         params instance="<b>db2ptr</b>" dblist="<b>PTR</b>" \
@@ -413,7 +412,7 @@ sudo crm configure property maintenance-mode=false</pre></code>
 </pre>
 
 > [!IMPORTANT]
-> Managing Db2 instance must be done via Pacemaker tool. Using db2 commands (like db2stop) will be detected by Pacemaker as failure of resource. In case maintenance, you can put node or resource to maintenance mode and Pacemaker will suspend  monitoring resources and normal db2 commands can be used.
+> Managing Pacemaker clustered Db2 instance must be done via Pacemaker tools. Using db2 commands (like db2stop) will be detected by Pacemaker as failure of resource. In case of maintenance, you can put  the nodes or resources to maintenance mode and Pacemaker will suspend  monitoring resources and normal db2 administration commands can be used.
 
 
 ### Configure Azure Load Balancer
@@ -427,7 +426,7 @@ It is recommended to use the [Azure Standard Load Balancer SKU](https://docs.mic
    4. Select **OK**.
    5. After the new front-end IP pool is created, note the pool IP address.
 
-2. Next, create a back-end pool:
+2. Next step is to create a back-end pool:
 
    1. In Azure portal, open the Azure Load Balancer, select **backend pools**, and select **Add**.
    2. Enter the name of the new back-end pool (for example, **Db2-backend**).
@@ -436,7 +435,7 @@ It is recommended to use the [Azure Standard Load Balancer SKU](https://docs.mic
    5. Select the virtual machines of the IBM Db2 cluster.
    6. Select **OK**.
 
-3. Next, create a health probe:
+3. Third step is to create a health probe:
 
    1. In Azure portal, open the Azure Load Balancer, select **health probes**, and select **Add**.
    2. Enter the name of the new health probe (for example, **Db2-hp**).
@@ -476,8 +475,7 @@ In case you performed the installation before creating the Db2 HADR configuratio
 
 ### ABAP+Java or Java stack systems JDBC URL check
 
-Use the J2EE Config tool to check or update the JDBC URL:
-> The J2EE Config tool is graphical tool, as a result you need **X server** installed.
+Use the J2EE Config tool to check or update the JDBC URL. The the J2EE Config tool is graphical tool, as a result you need **X server** installed:
  
 1. Log on to primary application server of J2EE instance and execute:
 	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
@@ -495,7 +493,7 @@ To configure the Db2 log archiving for HADR setup, we recommend that you configu
 
 The log archiving is only performed by the primary database. If you change the HADR roles of the database servers or if a failure occurs, the new primary database is responsible for log archiving. If you have set up different log archive locations, your logs might be archived twice and, in the case of local or remote catch-up, you might have to manually copy the archived logs from the old primary server to the active log location of the new primary server.
 
-We recommend to configure common NFS share where logs are written from both nodes. NFS has to be highly available. 
+We recommend configuring common NFS share where logs are written from both nodes. NFS has to be highly available. 
 
 You can use existing highly available NFS used for transports, profile directory. Read:
 
@@ -710,7 +708,7 @@ Failed Actions:
 * rsc_Db2_db2ptr_PTR_monitor_30000 on azibmdb02 'not running' (7): call=144, status=complete, exitreason='',
 last-rc-change='Tue Feb 12 14:36:59 2019', queued=0ms, exec=0ms</code></pre>
 
-The Db2 instance get's restated into its secondary role it had before
+The Db2 instance get's restarted into the secondary role it had assigned before
 
 <pre><code>2 nodes configured
 5 resources configured
