@@ -21,7 +21,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-account) for a walkthrough.
 
-* When you create your Cosmos DB, use the partition key as "/id". **NOT SURE WHERE TO PUT THIS**
+* When you create your Cosmos DB, use the partition key as "/id".
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough.
 
