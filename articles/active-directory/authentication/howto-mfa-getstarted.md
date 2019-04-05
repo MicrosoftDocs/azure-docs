@@ -57,8 +57,14 @@ Azure Multi-factor Authentication is deployed by enforcing policies with conditi
 * Compliant device
 * Hybrid Azure AD joined device
 * Approved client application
+ 
+
+Use the customizable posters and email templates in [multi-factor authentication rollout materials] to roll out multi-factor authentication to your organization. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## Enable Multi-Factor Authentication with Conditional Access
 
 Conditional access policies enforce registration, requiring unregistered users to complete registration at first sign-in, an important security consideration.
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contributes both a registration policy for and automated risk detection and remediation policies to the Azure Multi-Factor Authentication story. Policies can be created to force password changes when there is a threat of compromised identity or require MFA when a sign-in is deemed risky by the following [events](../reports-monitoring/concept-risk-events.md):
 
