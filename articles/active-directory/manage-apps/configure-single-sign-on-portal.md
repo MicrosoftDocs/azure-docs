@@ -125,41 +125,31 @@ To assign a user or group to the application:
 5. To find a specific user, type the user name into the **Select member or invite an external user** box, select the user’s profile photo or logo, and choose **Select**. 
 6. In the **Add Assignment** section, select **Assign**. When completed, the selected users appear in the **Users and groups** list.
 
-## Configure the application to use Azure AD
+## Set up the application to use Azure AD
 
-You're almost done.  As a final step, you need to configure the application to use Azure AD as a SAML identity provider. 
+You're almost done.  As a final step, you need to set up the application to use Azure AD as a SAML identity provider. 
 
-1. Scroll down to the end of the **Single sign-on** blade for your application. 
+1. Scroll down to the **Set up <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
+2. Copy the value from each row and past the value in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section.
+3. When you've pasted all the values into the appropriate fields, select **Save**.
 
-    ![Configure application](media/configure-single-sign-on-portal/configure-app.png)
+## Validate single sign-on
 
-2. Click **Configure application** in the portal, and follow the instructions.
-3. Manually create user accounts in the application to test single sign-on. Create the user accounts you assigned to the application in the [previous section](#assign-users-to-the-application). 
-
-## Test single sign-on
-
-You are ready to test your settings.  
+You're ready to test your settings.  
 
 1. Open the single sign-on settings for your application. 
-2. Scroll to the **Configure domain and URLs** section.
-2. Click **Test SAML Settings**. The testing options appear.
-
-    ![Test single sign-on options](media/configure-single-sign-on-portal/test-single-sign-on.png) 
-
-3. Click **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
-4. If there's an error, an error message appears. Copy and paste the specifics into the **What does the error look like?** box.
+2. Scroll to the **Validate single sign-on with <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**.
+3. Select **Validate**. The testing options appear.
+4. Select **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
+5. If there's an error, an error message appears. Copy and paste the specifics into the **What does the error look like?** box.
 
     ![Get resolution guidance](media/configure-single-sign-on-portal/error-guidance.png)
 
-5. Click **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
+6. Click **Get resolution guidance**. The root cause and resolution guidance appear.  In this example, the user wasn't assigned to the application.
 
-    ![Fix error](media/configure-single-sign-on-portal/fix-error.png)
+7. Read the resolution guidance and then, if possible, fix the issue.
 
-6. Read the resolution guidance and then, if appropriate, click **Fix it**.
-
-7. Run the test again until it completes successfully.
-
-
+8. Run the test again until it completes successfully.
 
 ## Next steps
 In this tutorial, you configured the single sign-on settings for an application. After finishing the configuration, you assigned a user to the application, and configured the application to use SAML-based single sign-on. When all of this work was finished, you verified the SAML sign-on is working properly.
