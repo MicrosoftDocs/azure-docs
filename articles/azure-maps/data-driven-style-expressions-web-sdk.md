@@ -83,7 +83,7 @@ Data expressions provide access to the property data in a feature.
 | \['has', string\] | boolean | Determines if the properties of a feature have the specified property. |
 | \['has', string, object\] | boolean | Determines if the properties of the object have the specified property. |
 | \['id'\] | value | Gets the feature's ID if it has one. |
-| \['length', string \| array\] | number | Gets the length of a string or array. |
+| `['length', string \| array]` | number | Gets the length of a string or array. |
 
 **Examples**
 
@@ -340,7 +340,7 @@ Type expressions provide tools for testing and converting different data types l
 | \['typeof', value\] | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
-> If an error message similar `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
+> If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
