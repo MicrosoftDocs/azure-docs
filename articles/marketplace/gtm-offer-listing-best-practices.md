@@ -54,7 +54,7 @@ When you link from the AppSource or Azure Marketplace badge on your site to your
 The following example URL contains both of the preceding query parameters:
 `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 
-By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Cloud Partner portal](http://cloudpartner.azure.com/#insights).
+By adding the parameters to your AppSource URL, you can review the effectiveness of your campaign in the analytics dashboard in [Cloud Partner portal](https://cloudpartner.azure.com/#insights).
 
 ## Next steps
 

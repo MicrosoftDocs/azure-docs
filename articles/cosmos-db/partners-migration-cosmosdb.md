@@ -17,7 +17,7 @@ From NoSQL migration to application development, you can choose from a variety o
 |**Partner**  |**Capabilities & experience**  |**Supported countries**  |**Contact**  |
 |---------|---------|---------|---------|
 |![ImanisData][1]   | [Data migration](https://www.imanisdata.com/wp-content/uploads/2018/02/Imanis_DS_MongoDB_Azure_FINAL.pdf) from MongoDB to Azure Cosmos DB. <br/> Imanis Data enables global enterprises to quickly and easily migrate their on-premises or cloud MongoDB databases to Azure Cosmos DB. Imanis Data provides an agentless, incremental-forever cloud migration approach for MongoDB data stores that simplifies migration and significantly reduces downtime.|  USA  |   [Website](http://www.imanisdata.com/)      |
-|![Striim][2]    |  [Move real-time data to Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) from a wide variety of data sources. <br/> Striim simplifies the real-time collection and movement of data from a wide variety of on-premise sources, including enterprise document and relational databases, sensors, and log files into Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
+|![Striim][2]    |  [Move real-time data to Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) from a wide variety of data sources. <br/> Striim simplifies the real-time collection and movement of data from a wide variety of on-premises sources, including enterprise document and relational databases, sensors, and log files into Azure Cosmos DB. |   USA   |  [Website](https://www.striim.com/)       |
 
 ## Systems Integrator partners
 
@@ -27,10 +27,10 @@ From NoSQL migration to application development, you can choose from a variety o
 |![Altoros Development LLC][3]    |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development |   US, Norway, Finland, Belarus, Argentina |  [Website](https://www.altoros.com/)     |
 |![Attunix Redapt][4]     |   NoSQL migration, <br/> App innovation (existing apps), <br/> New app development      |    USA     |  [Website](https://www.attunix.com/)       |
 | ![Avanade][26] | New app development, <br/> App innovation (existing apps) | Austria, Germany, Switzerland, Italy, Norway, Spain, UK | [Website](https://www.avanade.com/)
-|![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](http://www.bluemetal.com/)       |
+|![Bluemetal Architects][5]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    North America, Asia-Pacific     |  [Website](https://www.bluemetal.com/)       |
 |![Capax Global LLC][6]     |  NoSQL migration, <br/> App innovation (existing apps), <br/> New app development       |    USA     |  [Website](https://www.capaxglobal.com/)       |
 | ![Capgemini][14] | NoSQL migration; App innovation (existing apps); New app development | US, France, UK, Netherlands, Finland  | [Website](https://www.capgemini.com/) | 
-|![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](http://www.coeo.com/)       |
+|![Coeo][7]     |   App innovation (existing apps), <br/> New app development |    UK     |  [Website](https://www.coeo.com/)       |
 | ![Cognizant][15] | NoSQL migration |US, Canada, UK, Denmark, Netherlands, Switzerland, Australia, Japan | [Website](https://www.cognizant.com/)|
 |![Infosys][8]     |  NoSQL migration       |    Global     |  [Website](https://www.infosys.com/)       |
 | ![Lagash][16] | NoSQL migration, <br/> New app development | Argentina, Chile, Colombia, Mexico| [Website](https://www.lagash.com/)|

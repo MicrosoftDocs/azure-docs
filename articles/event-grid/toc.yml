@@ -130,7 +130,7 @@
   - name: Azure CLI
     href: /cli/azure/eventgrid
   - name: PowerShell
-    href: /powershell/module/azurerm.eventgrid
+    href: /powershell/module/az.eventgrid
   - name: REST
     href: /rest/api/eventgrid
   - name: Subscription schema

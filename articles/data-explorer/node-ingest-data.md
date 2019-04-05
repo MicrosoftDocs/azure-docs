@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Ingest data using the Azure Data Explorer Node library'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Node.js.'
-services: data-explorer
+description: In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Node.js.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
 
-#Customer intent: As a Node.js developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
+# Customer intent: As a Node.js developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
 # Quickstart: Ingest data using the Azure Data Explorer Node library

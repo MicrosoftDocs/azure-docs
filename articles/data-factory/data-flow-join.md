@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ---
 
-# Azure Data Factory Data Flow Join Transformation
+# Mapping Data Flow Join Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -19,11 +19,11 @@ Use Join to combine data from two tables in your Data Flow. Click on the transfo
 
 ## Join types
 
-Selecting Join Type is required for the Join transformation
+Selecting Join Type is required for the Join transformation.
 
 ### Inner Join
 
-Inner join will pass through only rows that match the column conditions from both tables
+Inner join will pass through only rows that match the column conditions from both tables.
 
 ### Left Outer
 
@@ -35,7 +35,7 @@ All rows from the right stream not meeting the join condition are passed through
 
 ### Full Outer
 
-Full Outer produces all columns and rows from both sides with NULL values for columns that are not present in the other table
+Full Outer produces all columns and rows from both sides with NULL values for columns that are not present in the other table.
 
 ### Cross Join
 
@@ -62,6 +62,10 @@ You can achieve self-join conditions in ADF Data Flow by using the Select transf
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 In the above diagram, the Select transform is at the top. All it's doing is aliasing the original stream to "OrigSourceBatting". In the highlighted Join transform below it you can see that we use this Select alias stream as the right-hand join, allowing us to reference the same key in both the Left & Right side of the Inner Join.
+
+## Composite and custom keys
+
+You can build custom and composite keys on the fly inside the Join transformation. Add rows for additional join columns with the plus sign (+) next to each relationship row. Or compute a new key value in the Expression Builder for an on-the-fly join value.
 
 ## Next steps
 

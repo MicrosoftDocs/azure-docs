@@ -38,14 +38,14 @@ The marketplace storefronts are aligned with audiences and Microsoft cloud produ
 
 Service offers that are based on Microsoft Dynamics 365, Office 365, and Power BI are eligible to be listed on AppSource. For more information, see [Microsoft AppSource consulting services listing guidelines](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
->[!Note]
->Consulting services in Azure Marketplace should leverage offerings geared towards a **technical audience with focuses on *Azure technical solutions and services.* **
->Consulting services in AppSource should leverage offerings geared towards their expertise in delivering quality solutions for Dynamics 365, Power BI,
-or PowerApps to list their consulting services offerings on AppSource
-
-
->[!TIP]
->To publish to the Azure Marketplace storefront, you will make this selection by choosing "Azure" from the "Primary Product" drop-down menu in the Cloud Partner Portal. To publish to AppSource, you will make this selection by choosing "Dynamics 365," "Power BI," or "Power Apps" from the "Primary Product" drop-down menu in the Cloud Partner Portal.
+> [!Note]
+> Consulting services in Azure Marketplace should leverage offerings geared towards a **technical audience with focuses on *Azure technical solutions and services.* **
+> Consulting services in AppSource should leverage offerings geared towards their expertise in delivering quality solutions for Dynamics 365, Power BI,
+> or PowerApps to list their consulting services offerings on AppSource
+> 
+> 
+> [!TIP]
+> To publish to the Azure Marketplace storefront, you will make this selection by choosing "Azure" from the "Primary Product" drop-down menu in the Cloud Partner Portal. To publish to AppSource, you will make this selection by choosing "Dynamics 365," "Power BI," or "Power Apps" from the "Primary Product" drop-down menu in the Cloud Partner Portal.
 
 ## Eligible Partners and Supported Countries
 

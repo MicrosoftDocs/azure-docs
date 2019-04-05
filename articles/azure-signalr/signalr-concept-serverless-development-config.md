@@ -20,7 +20,7 @@ Azure SignalR Service can be configured in different modes. When used with Azure
 
 In the Azure portal, locate the *Settings* page of your SignalR Service resource. Set the *Service mode* to *Serverless*.
 
-![SignalR Service Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
+![SignalR Service Mode](media/signalr-concept-azure-functions/signalr-service-mode.png)
 
 ## Azure Functions development
 

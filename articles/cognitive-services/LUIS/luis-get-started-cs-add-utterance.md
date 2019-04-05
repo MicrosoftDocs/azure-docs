@@ -33,7 +33,7 @@ ms.author: diberry
 
 ## Create quickstart code 
 
-In Visual Studio, create a new **Windows Classic Desktop Console** app using the .Net Framework. 
+In Visual Studio, create a new **Windows Classic Desktop Console** app using the .NET Framework. 
 
 ![Visual Studio project type](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 

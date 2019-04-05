@@ -70,11 +70,11 @@ The app showcases venues that host events.  The venues are the tenants of the ap
 
 1. Open the events page for each of the three tenants in separate browser tabs:
 
-    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
-    (In each URL, replace &lt;user&gt; with your deployment's user value.)
+     (In each URL, replace &lt;user&gt; with your deployment's user value.)
 
    ![Events](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -90,7 +90,7 @@ In a production environment, typically you create a CNAME DNS record to [*point 
 
 Let’s look at some of the resources that were deployed:
 
-1. In the [Azure portal](http://portal.azure.com), browse to the list of resource groups.
+1. In the [Azure portal](https://portal.azure.com), browse to the list of resource groups.
 2. You should see the three tenant resource groups.
 3. Open the **wingtip-sa-fabrikam-&lt;user&gt;** resource group, which contains the resources for the Fabrikam Jazz Club deployment.  The **fabrikamjazzclub-&lt;user&gt;** server contains the **fabrikamjazzclub** database.
 

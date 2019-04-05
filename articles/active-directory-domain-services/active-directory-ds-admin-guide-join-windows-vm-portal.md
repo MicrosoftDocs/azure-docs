@@ -103,7 +103,7 @@ To join the Windows Server virtual machine to the Azure AD DS-managed domain, co
 
 7. You can specify credentials in either of the following ways:
 
-   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN format**: (Recommended) Specify the user principal name (UPN) suffix for the user account, as configured in Azure AD. In this example, the UPN suffix of the user *bob* is *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **SAMAccountName format**: You can specify the account name in the SAMAccountName format. In this example, the user *bob* would need to enter *CONTOSO100\bob*.
 
@@ -142,7 +142,7 @@ If you're having trouble with credentials and are unable to join the domain, try
 
 * Check that you have [enabled password synchronization](active-directory-ds-getting-started-password-sync.md) to your managed domain.
 
-* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob@domainservicespreview.onmicrosoft.com*) to sign in.
+* Check that you've used the UPN of the user as configured in Azure AD (for example, *bob\@domainservicespreview.onmicrosoft.com*) to sign in.
 
 * Wait long enough for password synchronization to be completed, as specified in the getting started guide.
 

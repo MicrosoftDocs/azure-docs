@@ -57,24 +57,24 @@ Before a client can access a web API exposed by a resource application (such as 
    ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. You are taken to the application's main registration page, which contains the **Settings** page for the application. To add a credential for your web application:
-  1. Select the **Keys** section on the **Settings** page.
-  2. To add a certificate:
-    - Select **Upload Public Key**.
-    - Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
-  - To add a password:
-    - Add a description for your key.
-    - Select a duration.
-    - Select **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
+   1. Select the **Keys** section on the **Settings** page.
+   1. To add a certificate:
+      - Select **Upload Public Key**.
+      - Select the file you'd like to upload. It must be one of the following file types: .cer, .pem, .crt.
+   1. To add a password:
+      - Add a description for your key.
+      - Select a duration.
+      - Select **Save**. The right-most column will contain the key value, after you save the configuration changes. **Be sure to copy the key** for use in your client application code, as it is not accessible once you leave this page.
 
 5. To add permission(s) to access resource APIs from your client
-  1. Select the **Required permissions** section on the **Settings** page, and then select **Add**.
-  1. Select **Select an API** to select the type of resources you want to pick from.
-  1. Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Select the resource you are interested in, then click **Select**.
-  1. In the **Enable Access** page, select the application permissions and/or delegated permissions that your application needs when accessing the API.
+   1. Select the **Required permissions** section on the **Settings** page, and then select **Add**.
+   1. Select **Select an API** to select the type of resources you want to pick from.
+   1. Browse through the list of available APIs or use the search box to select from the available resource applications in your directory that expose a web API. Select the resource you are interested in, then click **Select**.
+   1. In the **Enable Access** page, select the application permissions and/or delegated permissions that your application needs when accessing the API.
    
-  ![Update an application's registration - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Update an application's registration - permissions api](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Update an application's registration - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Update an application's registration - permissions perms](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. When finished, select the **Select** button on **Enable Access** page, then the  **Done** button on the **Add API access** page. You are returned to the **Required permissions** page, where the new resource is added to the list of APIs.
 
@@ -95,8 +95,8 @@ The following section shows you how to expose access scopes, by modifying the re
 4. You are taken to the application's main registration page, which opens up the **Settings** page for the application. Switch to the **Edit manifest** page by clicking **Manifest** from the application's registration page. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Optionally, you can click **Download** and edit locally, then use **Upload** to reapply it to your application.
 5. In this example, we will expose a new scope called `Employees.Read.All` on our resource/API, by adding the following JSON element to the `oauth2Permissions` collection. The existing `user_impersonation` scope is provided by default during registration. `user_impersonation` allows a client application to request permission to access the resource, under the identity of the signed-in user. Be sure to add the comma after the existing `user_impersonation` scope element, and change the property values to suit your resource's needs. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -105,17 +105,17 @@ The following section shows you how to expose access scopes, by modifying the re
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > The `id` value must be generated programmatically or using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
-  >
-  > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime, by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
+   > [!NOTE]
+   > The `id` value must be generated programmatically or using a GUID generation tool such as [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). The `id` represents a unique identifier for the scope as exposed by the web API. Once a client is appropriately configured with permissions to access your web API, it is issued an OAuth2.0 access token by Azure AD. When the client calls the web API, it presents the access token that has the scope (scp) claim set to the permissions requested in its application registration.
+   >
+   > You can expose additional scopes later as necessary. Consider that your web API might expose multiple scopes associated with a variety of different functions. Your resource can control access to the web API at runtime, by evaluating the scope (`scp`) claim(s) in the received OAuth 2.0 access token.
 
 6. When finished, click **Save**. Now your web API is configured for use by other applications in your directory.
 
-  ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Update an application's registration](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### Verify the web API is exposed to other applications in your tenant
 
@@ -127,7 +127,7 @@ The following section shows you how to expose access scopes, by modifying the re
 
 3. On the **Enable Access** page you should see the new scope, available for client permission requests.
 
-  ![New permissions are shown](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![New permissions are shown](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### More on the application manifest
 
@@ -208,9 +208,9 @@ By default, OAuth 2.0 implicit Grant is disabled for applications. You can enabl
 3. In the left-hand navigation pane, click the **Azure Active Directory** service, click **App registrations**, then find/click the application you want to configure. You are taken to the application's main registration page, which opens up the **Settings** page for the application.
 4. Switch to the **Edit manifest** page, by clicking **Manifest** from the application's registration page. A web-based manifest editor opens, allowing you to **Edit** the manifest within the portal. Locate and set the "oauth2AllowImplicitFlow" value to "true." By default, it is set to "false."
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Save the updated manifest. Once saved, your web API is now configured to use OAuth 2.0 Implicit Grant to authenticate users.
 
 ## Next steps

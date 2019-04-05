@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
 ---
@@ -40,6 +40,7 @@ For full details on the capabilities of each source as well as related articles,
 * Service Bus
 * Storage Blob
 * Storage General-purpose v2 (GPv2)
+* Azure Maps
 
 ## Event handlers
 

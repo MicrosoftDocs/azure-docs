@@ -1,6 +1,6 @@
 ---
 title: Webhook actions for log alerts in Azure Alerts
-description: This article describes how to an log alert rule using log analytics or application insights, will push data as HTTP webhook and details of the different customizations possible.
+description: This article describes how to an log alert rule using log analytics workspace or application insights, will push data as HTTP webhook and details of the different customizations possible.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -49,7 +49,7 @@ Webhooks include a URL and a payload formatted in JSON that is the data sent to 
 | Subscription ID |#subscriptionid |ID of your Azure Subscription used with Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approximately 2000 characters and will *not* open link provided in alerts, if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](https://dev.loganalytics.io/reference) to retrieve results programmatically 
+> LinkToSearchResults passes parameters like SearchQuery, Search Interval StartTime & Search Interval End time in the URL to Azure portal for viewing in Analytics section. Azure portal has URI size limit of approximately 2000 characters and will *not* open link provided in alerts, if parameters values exceed the said limit. Users can manually input details to view results in Analytics portal or use the [Application Insights Analytics REST API](https://dev.applicationinsights.io/documentation/Using-the-API) or [Log Analytics REST API](/rest/api/loganalytics/) to retrieve results programmatically 
 
 For example, you might specify the following custom payload that includes a single parameter called *text*.  The service that this webhook calls would be expecting this parameter.
 
@@ -197,5 +197,5 @@ Following is a sample payload for a custom webhook action for any log alert.
 - Understand [managing log alerts in Azure](alerts-log.md)
 - Create and manage [action groups in Azure](action-groups.md)
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-- Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+- Learn more about [log queries](../log-query/log-query-overview.md). 
 

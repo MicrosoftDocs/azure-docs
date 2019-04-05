@@ -44,7 +44,7 @@ This article lists the new features and improvements in the SQL Database service
 |Managed instance support for route tables improved| For more information, see [Network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).|
 |Database rename supported in managed instance | For more details, see the [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) and [sp_rename](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-rename-transact-sql) syntax.|
 |SQL Database as a source of reference data for Stream Analytics. | For more information, see [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/).|
-|Data Migration Assistance adds support for managed instance. |For more information, see [What's new in DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew?view=sql-server-2017).|
+|Data Migration Assistance adds support for managed instance. |For more information, see [What's new in DMA](https://docs.microsoft.com/sql/dma/dma-whatsnew).|
 |SQL Server Migration Assistant adds support for target readiness assessment for managed instance. | For more information, see [SQL Server Migration Assistant](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant).
 |Data migration service supports migrating from Amazon RDS to managed instance | For more information, see [Tutorial: Migrate RDS SQL Server to Azure SQL Database or an Azure SQL Database managed instance online using DMS](../dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md).|
 | &nbsp; |
@@ -54,7 +54,7 @@ This article lists the new features and improvements in the SQL Database service
 | Documentation improvements | Details |
 | --- | --- |
 |Adding managed instance deployment option clarifications|Updated many articles to clarify applicability to single database, elastic pool, and managed instance deployment options. |
-|Updated tempdb sizes for DTU-based purchasing model | For more information, see [Tempdb database in SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).|
+|Updated tempdb sizes for DTU-based purchasing model | For more information, see [Tempdb database in SQL Database](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).|
 |Updated import and export with bacpac file for managed instance support| For more information, see [Import from BACPAC](sql-database-import.md) and [Export to BACPAC](sql-database-export.md). |
 | &nbsp; |
 
@@ -91,4 +91,4 @@ The Azure SQL documentation set is open source. Working in the open provides sev
 - Open source repos review in the open to publish the most helpful content on our first release.
 - Open source repos update in the open to make it easier to continuously improve the content.
 
-To contribute to Azure SQL Database documentation content, see the [Microsoft Docs contributor guide overview](https://docs.microsoft.com/en-us/contribute/). The user experience on [docs.microsoft.com](https://docs.microsoft.com/) integrates [GitHub](https://github.com/) workflows directly to make it even easier. Start by [editing the document you are viewing](https://docs.microsoft.com/en-us/contribute/#quick-edits-to-existing-documents). Or, help by [reviewing new topics](https://docs.microsoft.com/en-us/contribute/#review-open-prs), or [create quality issues](https://docs.microsoft.com/en-us/contribute/#create-quality-issues).
+To contribute to Azure SQL Database documentation content, see the [Microsoft Docs contributor guide overview](https://docs.microsoft.com/contribute/). The user experience on [docs.microsoft.com](https://docs.microsoft.com/) integrates [GitHub](https://github.com/) workflows directly to make it even easier. Start by [editing the document you are viewing](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents). Or, help by [reviewing new topics](https://docs.microsoft.com/contribute/#review-open-prs), or [create quality issues](https://docs.microsoft.com/contribute/#create-quality-issues).

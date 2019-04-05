@@ -8,4 +8,4 @@
  ms.lastreviewed: 11/26/2018
 ---
 
-In the [Azure portal](https://portal.azure.com/), go to your storage account. Under **Settings**, select **Shared access signature**.
+In the [Azure portal](https://portal.azure.com/), navigate to your storage account. Under **Settings**, select **Shared access signature**.

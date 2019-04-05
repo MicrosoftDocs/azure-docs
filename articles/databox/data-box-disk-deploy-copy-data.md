@@ -164,8 +164,8 @@ Perform the following steps to connect and copy data from your computer to the D
     To optimize the performance, use the following robocopy parameters when copying the data.
 
     |    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-    |    Data Box Disk        |    4 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |  |
+    |----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+    |    Data Box Disk        |    4 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |    2 Robocopy sessions* <br> 16 threads per sessions    |
     
     **Each Robocopy session can have a maximum of 7,000 directories and 150 million files.*
     
@@ -204,10 +204,10 @@ This optional procedure may be used when you are using multiple disks and have a
  
 5. Modify the `SampleConfig.json` file.
  
-    - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
-    - Supply a source path making note of the path format in the `SampleConfigFile.json`. 
-    - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
-    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
+   - Provide a job name. This creates a folder in the Data Box Disk and eventually becomes the container in the Azure storage account associated with these disks. The job name must follow the Azure container naming conventions. 
+   - Supply a source path making note of the path format in the `SampleConfigFile.json`. 
+   - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
+   - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
      ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 

@@ -33,7 +33,7 @@ The following table describes the Storefront Details that you can provide for th
 |  **Offer fields**   |  **Description**  |
 |  ---------------   |  ---------------  |
 |      Offer summary              |        Summary of your offer's value proposition. It will appear on your offer's search page. It should be a maximum of 100 characters.           |
-|      Offer description              |      The description that will appear on your application’s detail page. Maximum allowed is 1300 characters. You can use basic HTML markup tags to format content. For example, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, and &lt;li&gt;. To see how the formatted description will look, use an online real-time HTML tool like http://htmledit.squarefree.com             |
+|      Offer description              |      The description that will appear on your application’s detail page. Maximum allowed is 1300 characters. You can use basic HTML markup tags to format content. For example, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt;, and &lt;li&gt;. To see how the formatted description will look, use an online real-time HTML tool like https://htmledit.squarefree.com             |
 |          Industries          |        Select the industries that your Offer is best aligned to. If your app relates to multiple industries, you can select a maximum of two.           |
 |          Suggested Categories (Max 3)         |        Select the categories that your Offer is best aligned to. You can select a maximum of three categories.           |
 |           App version         |        Enter the version number of your application.           |

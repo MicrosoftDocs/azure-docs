@@ -18,7 +18,7 @@ Azure Monitor provides unified user interfaces for monitoring across different A
 
 ## Access metrics
 
-Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .Net) and analysis solutions such as Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Azure Monitor provides multiple ways to access metrics. You can access them from the [Azure portal](https://portal.azure.com), the Azure Monitor APIs (REST, and .NET) and analysis solutions such as Event Hubs. For more information, see  [Azure Monitor Metrics](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Metrics are enabled by default, and you can access the past 93 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md) in Azure Monitor.
 
@@ -129,13 +129,13 @@ The following response contains metric values in JSON format:
 
 ```
 
-### Access metrics with the .Net SDK
+### Access metrics with the .NET SDK
 
-Azure Monitor provides [.Net SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .Net SDK. For more information, please read Understanding resource ID for services in Storage.
+Azure Monitor provides [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or later version for storage metrics. Resource ID is used in .NET SDK. For more information, please read Understanding resource ID for services in Storage.
 
-The following example shows how to use Azure Monitor .Net SDK to read storage metrics.
+The following example shows how to use Azure Monitor .NET SDK to read storage metrics.
 
-#### List account level metric definition with the .Net SDK
+#### List account level metric definition with the .NET SDK
 
 The following example shows how to list metric definition at account level:
 
@@ -172,7 +172,7 @@ The following example shows how to list metric definition at account level:
 
 If you want to list the metric definitions for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
-#### Read metric values with the .Net SDK
+#### Read metric values with the .NET SDK
 
 The following example shows how to read `UsedCapacity` data at account level:
 
@@ -222,7 +222,7 @@ The following example shows how to read `UsedCapacity` data at account level:
 
 In above example, if you want to read metric values for blob, table, file, or queue, you must specify different resource IDs for each service with the API.
 
-#### Read multi-dimensional metric values with the .Net SDK
+#### Read multi-dimensional metric values with the .NET SDK
 
 For multi-dimensional metrics, you need to define meta data filter if you want to read metric data on specific dimension value.
 
@@ -279,9 +279,9 @@ The following example shows how to read metric data on the metric supporting mul
 
 Resource ID is a unique identifier of a resource in Azure. When you use the Azure Monitor REST API to read metrics definitions or values, you must use resource ID for the resource on which you intend to operate. The resource ID template follows this format:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 Storage provides metrics at both the storage account level and the service level with Azure Monitor. For example, you can retrieve metrics for just Blob storage. Each level has its own resource ID, which is used to retrieve the metrics for just that level.
 
@@ -289,38 +289,38 @@ Storage provides metrics at both the storage account level and the service level
 
 The following shows the format for specifying the Resource ID for a storage account.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### Resource ID for the storage services
 
 The following shows the format for specifying the Resource ID for each of the storage services.
 
 * Blob service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
+```
 * Table service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
+```
 * Queue service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
+```
 * File service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### Resource ID in Azure Monitor REST API
 
 The following shows the pattern used when calling the Azure Monitor REST API.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## Capacity metrics
 Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).

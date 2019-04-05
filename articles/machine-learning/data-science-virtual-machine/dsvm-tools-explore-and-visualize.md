@@ -41,7 +41,7 @@ A key step in data science is to understand the data. Visualization and data exp
 | Supported DSVM Editions     | Windows, Linux     |
 | Typical Uses      | General ML Tool     |
 | How to use / run it?      | On Windows, search for Weka in the Start Menu. On Linux, log in with X2Go, then navigate to Applications -> Development -> Weka. |
-| Links to Samples      | [Weka samples](http://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
+| Links to Samples      | [Weka samples](https://www.cs.waikato.ac.nz/ml/weka/documentation.html) |
 | Related Tools on the DSVM      |LightGBM, Rattle, Xgboost   |
 
 ## Rattle

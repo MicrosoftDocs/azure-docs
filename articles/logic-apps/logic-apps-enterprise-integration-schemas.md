@@ -122,7 +122,7 @@ steps for uploading a schema that's either
 
 To add larger schemas, you can upload your schema to 
 an Azure blob container in your Azure storage account. 
-Your steps for adding maps differ based whether your 
+Your steps for adding schemas differ based whether your 
 blob container has public read access. So first, check 
 whether or not your blob container has public read 
 access by following these steps: 

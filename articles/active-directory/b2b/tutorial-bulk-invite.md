@@ -120,7 +120,7 @@ To verify that the invited users were added to Azure AD, run the following comma
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 

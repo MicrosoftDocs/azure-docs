@@ -39,15 +39,15 @@ To view the status of a scale unit:
 3. In the results, select the scale unit.
 4. On the left, under **General**, select **Nodes**.
 
-  View the following information:
+   View the following information:
 
-  - The list of individual nodes
-  - Operational Status (see list below)
-  - Power Status (running or stopped)
-  - Server model
-  - IP address of the baseboard management controller (BMC)
-  - Total number of cores
-  - Total amount of memory
+   - The list of individual nodes
+   - Operational Status (see list below)
+   - Power Status (running or stopped)
+   - Server model
+   - IP address of the baseboard management controller (BMC)
+   - Total number of cores
+   - Total amount of memory
 
 ![status of a scale unit](media/azure-stack-node-actions/multinodeactions.png)
 
@@ -82,7 +82,7 @@ This action is typically used when a node is in a hung state and no longer respo
 
 To run the stop action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -96,7 +96,7 @@ The **start** action turns on the node. It's the same as if you press the power 
  
 To run the start action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -115,7 +115,7 @@ This action is typically used during field replacement of parts, such as the rep
 
 To run the drain action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -127,7 +127,7 @@ The **resume** action resumes a disabled node and marks it active for workload p
 
 To run the resume action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -146,7 +146,7 @@ When you run the repair action, you need to specify the BMC IP address.
 
 To run the repair action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -160,7 +160,7 @@ If the shutdown operation fails, attempt the [drain](#drain) operation followed 
 
 To run the shutdown action, open an elevated PowerShell prompt, and run the following cmdlet:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

@@ -57,6 +57,7 @@ Perform the following steps in the Azure portal to order a device.
 3. Click **Create**.
 
 4. Check if Data Box service is available in your region. Enter or select the following information and click **Apply**. 
+
     |Setting  |Value  |
     |---------|---------|
     |Subscription     | Select an EA, CSP, or Azure sponsorship subscription for Data Box service. <br> The subscription is linked to your billing account.       |

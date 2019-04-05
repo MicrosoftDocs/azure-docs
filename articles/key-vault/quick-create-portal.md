@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
 #Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
@@ -39,7 +39,6 @@ Sign in to the Azure portal at https://portal.azure.com.
     - **Subscription**: Choose a subscription.
     - Under **Resource Group** choose **Create new** and enter a resource group name.
     - In the **Location** pull-down menu, choose a location.
-    - Check the **Pin to dashboard** checkbox.
     - Leave the other options to their defaults.
 6. After providing the information above, select **Create**.
 
@@ -66,7 +65,11 @@ To add a secret to the vault, you just need to take a couple of additional steps
 
 Once that you receive the message that the secret has been successfully created, you may click on it on the list. You can then see some of the properties. If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](./media/quick-create-portal/version.png)
+![Secret properties](./media/quick-create-portal/current-version-hidden.png)
+
+By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
+
+![Secret value appeared](./media/quick-create-portal/current-version-shown.png)
 
 ## Clean up resources
 
