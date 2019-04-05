@@ -136,11 +136,7 @@ You can use 200 for the speed of propagation. This is the distance, in meters, t
 
 Let's take New York to San Francisco as an example. The straight-line distance is 4,148 km. Plugging that value into the equation, we get the following:
 
-<<<<<<< HEAD
-`Minimum RTT = 2 * (4,148 / 20)`
-=======
-In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 200). The output of the equation will be in milliseconds.
->>>>>>> 642776e1cc87e00719951fd91430422aee8b66f0
+`Minimum RTT = 2 * (4,148 / 200)`
 
 The output of the equation is in milliseconds.
 
@@ -371,12 +367,8 @@ In packet captures, Azure customers might see TCP packets with TCP flags (SACK, 
 
 Also, keep in mind that some retransmission and duplicate ACKs are normal on a network. TCP protocols were built to be reliable. Evidence of these TCP packets in a packet capture doesn't necessarily indicate a systemic network problem, unless they're excessive.
 
-<<<<<<< HEAD
 Still, these packet types are indications that TCP throughput isn't achieving its maximum performance, for reasons discussed in other sections of this article.
-=======
-However, it should be stated clearly that these packet types are indications that TCP throughput is not achieving its maximum performance – for reasons discussed in other sections.
 
-## Next Steps
+## Next steps
 
-Now that we've discussed TCP/IP performance tuning for Azure VMs, next steps include [planning other Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) considerations or [learn more about connecting and configuring Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
->>>>>>> 642776e1cc87e00719951fd91430422aee8b66f0
+Now that you've learned about TCP/IP performance tuning for Azure VMs, you might want to read about other considerations for [planning virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) or [learn more about connecting and configuring virtual networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
