@@ -46,9 +46,7 @@ Build the experiment in four steps.
 
 ## Get data
 
-The input data is  available as a sample dataset, **Automobile price data(Raw)**.
-
-![dataset](media/sample-regression-predict-automobile-price-basic/dataset.png)
+In this experiment, we used the **Automobile price data (Raw)** which is sourced from the UCI Machine Learning repository. This dataset contains 26 columns which includes information about automobiles by make, model, price, vehicle features like the number of cylinders, MPG, as well as an insurance risk score. Here the goal is to predict the price of the car.
 
 ## Data pre-precessing
 
