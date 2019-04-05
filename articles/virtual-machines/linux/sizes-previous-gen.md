@@ -27,7 +27,7 @@ ms.author: jonbeck
 
 ## Older generations of virtual machine sizes
 
-[!INCLUDE [virtual-machines-older-sizes](../../../includes/virtual-machines-older-sizes.md) ]
+[!INCLUDE [virtual-machines-older-sizes](../../../includes/virtual-machines-older-sizes.md)]
 
 ## Other sizes
 
