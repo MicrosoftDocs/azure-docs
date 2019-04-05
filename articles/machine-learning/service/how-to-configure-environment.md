@@ -21,7 +21,7 @@ The only requirements for your development environment are Python 3, Anaconda (f
 
 This article focuses on the following environments and tools:
 
-* Your own [cloud-based notebook server](#workstation): Use a compute resource in your worksatation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
+* Your own [cloud-based notebook server](#workstation): Use a compute resource in your workstation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
 
 * [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
