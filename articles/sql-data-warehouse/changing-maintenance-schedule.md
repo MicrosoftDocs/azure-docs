@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/03/2019
 ms.author: anvang
-ms.reviewer: igorstan
+ms.reviewer: jrasnick
 ---
 
 # Change a maintenance schedule 
