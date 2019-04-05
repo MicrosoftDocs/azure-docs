@@ -19,13 +19,14 @@ ms.author: wieastbu
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management and Easy Auth.
 
-This scenario shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C and Azure API management to be used calling and securing a backend Azure Function. 
+This scenario shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service and Azure API management as a gatekeeper and frontdoor to secure a backend Azure Function. 
 
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
 
 The basic premise is that we have a JavaScript SPA calling through and retrieving data from an API, signing in via AAD B2C and then passing through API Management to secure the API and validate the JWT in flight.
-The ‘Signed in as’ is picked up from the client-side token at sign in to show that we can decipher and use the token.
+
+Claims are picked up from the token at sign in and validated in a number of places to show that we can decipher and use the token.
 
 ## Prerequisites
 To follow the steps in this article, you must have:
