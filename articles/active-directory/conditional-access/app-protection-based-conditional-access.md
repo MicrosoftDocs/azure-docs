@@ -315,7 +315,7 @@ For the conditional access policy in this step, you need to configure the follow
 
     b. As **Client apps (preview)**, select **Mobile apps and desktop apps** and **Modern authentication clients**.
 
-    ![Conditional access](./media/app-protectoin-based-conditional-access/91.png)
+    ![Conditional access](./media/app-protection-based-conditional-access/91.png)
 
 5. As **Access controls**, you need to have the following selected:
 
