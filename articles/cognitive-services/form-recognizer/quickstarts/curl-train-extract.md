@@ -1,33 +1,35 @@
 ---
 title: "Quickstart: Train a model and extract form data using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: Use the Form Recognizer REST API with cURL to train a model and extract data from forms.
+description: In this quickstart, you will use the Form Recognizer REST API with cURL to train a model and extract data from forms.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: quickstart
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: pafarley
+#Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
 
-# Quickstart: Train a form understanding model and extract form data using cURL
+# Quickstart: Train a Form Recognizer model and extract form data using cURL
 
-In this quickstart, you will train and score forms to extract key-value pairs and tables using Form Understanding's REST API with cURL.
+In this quickstart, you will train and score forms to extract key-value pairs and tables using Form Recognizer's REST API with cURL.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
 * You must have [cURL](https://curl.haxx.se/windows/).
-* You must have a subscription key for Form Understanding. To get a subscription key, see Obtaining Subscription Keys.
-* You must install and configure the Form Understanding private preview container. To do so, see [Use containers](form-understanding-how-to-install.md)
+* You must have a subscription key for Form Recognizer. To get a subscription key, see Obtaining subscription keys.
 * You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](sample_data.zip) for this quickstart.
 
 ## Create a training dataset
 
-First, you will create a new dataset process request. The training dataset should consist of a minimum of five forms (PDF documents and/or images) of the same type (structure) or an empty form (the empty form's filename must include the word empty).
+First, you will send a request to process your training dataset. The dataset should consist of a minimum of five forms (PDF documents and/or images) of the same type/structure or an empty form (the empty form's filename must include the word "empty").
 
-A dataset is created by pointing to a mount location to the `Forms` REST API via the `dataRef` parameter and giving a unique name. When executed the API returns a `202` http response and a response json that contains the identifier for the new dataset that is being processed.
+You create a dataset by calling the **Dataset** API and assigning to a mount location to the `dataRef` parameter.
 To run the sample command, do the following steps:
 
 1. Copy the following command into a text editor
@@ -36,24 +38,26 @@ To run the sample command, do the following steps:
     curl -X POST "http://localhost:5000/forms/v1.0/dataset" --data "{\"name\": \"<dataset name>\",\"dataRef\": \"/input/<dataset path>\"}" -H "Content-Type: application/json"
     ```
 
-1. Make the following changes to the command:
+1. Make the following changes:
 
    * Replace `<dataset name>` with a name for the dataset
    * Replace `<dataset path>` with the path to your training dataset
 
-   **NOTE:** The `dataRef` parameter is always relative to the input mount root path, which is **/input** by default. Therefore, all `dataRef` attribute values are relative to this path. For example, if the value is `/input/dataset`, it's expected that the **/dataset** folder is present under the path that was mapped to **/input**.
+   > [!NOTE]
+   > The `dataRef` parameter is always relative to the input mount root path, which is **/input** by default. Therefore, all `dataRef` attribute values are relative to this path. For example, if the value is `/input/dataset`, it's expected that the **/dataset** folder is present under the path that was mapped to **/input**.
+
 1. Open a command prompt window, paste the command from the text editor, and run the command.
 1. You should receive a `202 (Accepted)` response with the following JSON output:
 
-    ```json
-    {"purpose":"train","state":"created","id":1,"name":"<dataset name>","dataRef":"/input/<dataset path>"}
-    ```
+   ```json
+   {"purpose":"train","state":"created","id":1,"name":"<dataset name>","dataRef":"/input/<dataset path>"}
+   ```
 
-1. Take note of the `"id"` value; you will need it for the following steps.
+1. Copy the `"id"` value; you will need it for the following steps.
 
-## Train a Form understanding model
+## Train a Form Recognizer model
 
-To train a new Form understanding model using the documents in the dataset, execute the following cURL command. Replace `<id>` with your dataset ID:
+To train a new Form Recognizer model using the documents in your dataset, call the **Train** API by executing the following cURL command. Replace `<id>` with your dataset ID:
 
 ```bash
 curl -X POST --data "" "http://localhost:5000/forms/v1.0/dataset/<id>/train"
@@ -157,4 +161,7 @@ A successful response is returned in JSON and represents the extracted key-value
 
 ## Next steps
 
-Try Form Understanding on your data and explore the Form Understanding API.
+In this guide, you used the Form Recognizer REST APIs with cURL to train a model and run it in a sample case. Next, explore the Form Recognizer API in more depth.
+
+> [!div class="nextstepaction"]
+> [API reference (REST)](./)
