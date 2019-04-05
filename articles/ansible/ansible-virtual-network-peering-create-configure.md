@@ -1,20 +1,20 @@
 ---
-title: Connect virtual networks with virtual network peering using Ansible
-description: Learn how to use Ansible to connect virtual networks with virtual network peering using Ansible
-ms.service: azure
+title: Tutorial - Create and configure Azure virtual network peering using Ansible | Microsoft Docs
+description: Learn how to use Ansible to connect virtual networks with virtual network peering.
+ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, peering
-author: tomarchermsft
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Manage Azure Virtual Network Peering using Ansible
+# Tutorial: Create and configure Azure virtual network peering using Ansible
 
-[!INCLUDE [Ansible 2.8 note](../../includes/ansible-28-note.md)]
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
+[Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) (VNet) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
 Similar to how traffic is routed between virtual machines in the same virtual network through private IP addresses, traffic between virtual machines in the peered virtual networks is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
@@ -22,7 +22,7 @@ Ansible enables you to automate the deployment and configuration of resources in
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
@@ -45,9 +45,8 @@ The first two tasks in the sample Ansible playbook create two resource groups.
       location: "{{ location }}"
 ```
 
-## Create first virtual network and add a subnet in first resource group
-
-The next tasks create virtual network 1 in the first resource group and add a subnet
+## Create the first sample virtual network
+In this section, create virtual network 1 in the first resource group and add a subnet.
 
 ```yml
   - name: Create first virtual network
@@ -63,9 +62,8 @@ The next tasks create virtual network 1 in the first resource group and add a su
       virtual_network: "{{ vnet_name1 }}"
 ```
 
-## Create second virtual network and add a subnet in the second resource group
-
-We need to do the same for the second resource group. The next tasks create the virtual network 2 and add a subnet:
+## Create the second virtual network
+In this section, create the second virtual network and add a subnet.
 
 ```yml
   - name: Ceate second virtual network
@@ -81,7 +79,7 @@ We need to do the same for the second resource group. The next tasks create the 
       virtual_network: "{{ vnet_name2 }}"
 ```
 
-## Peer these two virtual networks
+## Peer the two sample virtual networks
 
 The next tasks establish peering between these two virtual network IDs.
 
@@ -109,9 +107,9 @@ The next tasks establish peering between these two virtual network IDs.
       allow_forwarded_traffic: true
 ```
 
-## Delete the VNet peering
+## Delete the virtual network peering
 
-To delete the Virtual Network peering, run the task:
+To delete the virtual network peering, run the following task:
 
 ```yaml
   - name: Delete vnet peering
@@ -121,9 +119,11 @@ To delete the Virtual Network peering, run the task:
       virtual_network: "{{ vnet_name1 }}"
 ```
 
-## Complete sample Ansible playbook
+## Review the complete sample Ansible playbook
 
-Here is the complete playbook you have built over the course of this article.
+This section lists the complete playbook built over the course of this article.
+
+You can also [download the complete playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml).
 
 ```yml
 - hosts: localhost
@@ -204,14 +204,16 @@ Here is the complete playbook you have built over the course of this article.
       state: absent
 ```
 
-You can also get the complete playbook from [here](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml).
+## Configure and run the sample playbook
+In this section, you run the playbook to see the results of 
 
-> [!Tip]
-> If get the playbook from GitHub and are using Ansible version < 2.8, you need to un-comment the role reference and install the role azure.azure_preview_modules using ansible-galaxy. For more information, refer to [this](https://galaxy.ansible.com/Azure/azure_preview_modules).  
+If downloaded the playbook from the GitHub Azure-Samples repo and are using an Ansible version earlier than 2.8, you need to perform the following steps:
+- Uncomment the role reference.
+- Install the [azure.azure_preview_modules using ansible-galaxy](https://galaxy.ansible.com/Azure/azure_preview_modules).
 
-Make sure you replace **{{ resource_group_name }}** in the ```vars``` section with the name of your resource group.
-
-Save this playbook as *vnet_peering.yml*.
+Before you run the sample playbook, perform the following steps:
+- Save the sample playbook as `vnet_peering.yml`.
+- In the **vars**** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 
 To run the Ansible playbook, use the **ansible-playbook** command as follows:
 
@@ -219,7 +221,7 @@ To run the Ansible playbook, use the **ansible-playbook** command as follows:
 ansible-playbook vnet_peering.yml
 ```
 
-The output looks similar to the following where you see the VNet peering has been successfully set up and then deleted.
+The output looks similar to the following where you see that the virtual network peering has been successfully configured and then deleted.
 
 ```Output
 PLAY [localhost] ***********************************************************************
@@ -268,7 +270,7 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following playbook. Replace the placeholder **{{ resource_group_name }}** with your resource group name.
+When no longer needed, delete the resources created in this article by running the following playbook. Remember to replace the **{{ resource_group_name }}** placeholder with your resource group name.
 
 ```bash
 - hosts: localhost

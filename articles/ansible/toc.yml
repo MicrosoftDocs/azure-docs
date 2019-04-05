@@ -44,10 +44,16 @@
     items:
     - name: Manage dynamic inventories
       href: ./ansible-manage-azure-dynamic-inventories.md
+  - name: Redis cache
+    items:
+    - name: Create and configure Azure Cache for Redis
+      href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Virtual network
     items:
     - name: Create and configure route tables
       href: ./ansible-create-configure-route-table.md
+    - name: Create and configure Azure virtual network peering
+      href: ./ansible-virtual-network-peering-create-configure.md
   - name: VMSS
     items:
     - name: Create and configure VMSS

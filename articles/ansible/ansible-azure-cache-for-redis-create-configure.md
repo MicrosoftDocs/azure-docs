@@ -1,15 +1,16 @@
 ---
-title: Create, scale and reboot Azure Cache for Redis using Ansible
-description: Learn how to use Ansible to create, scale and reboot Azure Cache for Redis
-ms.service: azure
+title: Tutorial - Create and configure Azure Cache for Redis using Ansible | Microsoft Docs
+description: Learn how to use Ansible to create, scale and, reboot Azure Cache for Redis
+ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, cache, redis
-author: tomarchermsft
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Create, scale and reboot Azure Cache for Redis using Ansible
+# Tutorial: Create and manage Azure Cache for Redis using Ansible
 
 [Azure Cache for Redis](https://docs.microsoft.com/en-us/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
 
