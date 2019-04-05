@@ -17,21 +17,24 @@ A better approach is to *scale* a cluster, adding and removing capacity with cha
 
 This article shows how to manage cluster scale-out, also known as autoscale. Autoscaling allows you to scale out the instance count automatically based on predefined rules and schedules. Specify your autoscale settings for your cluster in the Azure portal, as described in this article.
 
-Go to your cluster. Under **Settings**, select **Scale out**. Under **Configure**, select **Enable autoscale**.
+## Steps to configure autoscale
+1. In the Azure portal, go to your Data Explorer cluster resource. 
 
-![Enable autoscale](media/manage-cluster-scaling/enable-autoscale.png)
+2. Under **Settings** heading, select **Scale out**.
 
-The following graphic shows the flow of the next several steps. More details are below the graphic.
+3. Under **Configure**, select **Enable autoscale**.
 
-![Scale rule](media/manage-cluster-scaling/scale-rule.png)
+   ![Enable autoscale](media/manage-cluster-scaling/enable-autoscale.png)
 
-1. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*.
+4. In the **Autoscale setting name** box, provide a name, such as *Scale-out: cache utilization*. The following graphic shows the flow of the next several steps. More details follow the graphic.
 
-1. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling. You can also select **Scale to a specific instance count**.
+   ![Scale rule](media/manage-cluster-scaling/scale-rule.png)
 
-1. Select **+ Add a rule**.
+5. For **Scale mode**, select **Scale based on a metric**. This mode provides dynamic scaling. You can also select **Scale to a specific instance count**.
 
-1. In the **Scale rule** section on the right, provide values for each setting.
+6. Select **+ Add a rule**.
+
+7. In the **Scale rule** section on the right, provide values for each setting.
 
     **Criteria**
 
@@ -54,9 +57,9 @@ The following graphic shows the flow of the next several steps. More details are
     | **Cool down (minutes)** | Choose an appropriate time interval to wait between scale operations. Start with the default of five minutes. |
     |  |  |
 
-1. Select **Add**.
+8. Select **Add**.
 
-1. In the **Instance limits** section on the left, provide values for each setting.
+9. In the **Instance limits** section on the left, provide values for each setting.
 
     | Setting | Description and value |
     | --- | --- |
@@ -65,10 +68,14 @@ The following graphic shows the flow of the next several steps. More details are
     | **Default** | The default number of instances. This setting is used if there are problems with reading the resource metrics. |
     |  |  |
 
-1. Select **Save**.
+10. Select **Save**.
 
 You've now configured a scale-out operation for your Azure Data Explorer cluster. Add another rule for a scale-in operation. This configuration allows your cluster to scale dynamically based on metrics that you specify.
 
 You can also [manage cluster scale-up](manage-cluster-scale-up.md) for appropriate sizing of a cluster.
 
 If you need assistance with cluster-scaling issues, [open a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) in the Azure portal.
+
+## Next steps
+
+[Monitor Azure Data Explorer performance, health, and usage with metrics](using-metrics.md)
