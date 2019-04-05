@@ -36,7 +36,7 @@ You must register each app that uses the Microsoft identity platform endpoint in
 * A **Redirect URI** that you can use to direct responses back to your app
 * A few other scenario-specific values such as supported account types
 
-For details, learn how to [register an app](quickstart-register-an-app.md).
+For details, learn how to [register an app](quickstart-register-app.md).
 
 After the app is registered, the app communicates with Microsoft identity platform by sending requests to the endpoint. We provide open-source frameworks and libraries that handle the details of these requests. You also have the option to implement the authentication logic yourself by creating requests to these endpoints:
 
