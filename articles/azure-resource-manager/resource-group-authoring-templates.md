@@ -20,6 +20,9 @@ This article describes the structure of an Azure Resource Manager template. It p
 
 This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure and syntax of the template. If you want an introduction to creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Template format
 
 In its simplest structure, a template has the following elements:
