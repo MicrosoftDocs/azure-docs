@@ -19,6 +19,8 @@ Data-driven styles can reduce the amount of code needed to implement business lo
 
 The following video provides an overview of data-driven styling in the Azure Maps Web SDK.
 
+<br/>
+
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Data-Driven-Styling-with-Azure-Maps/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 Expressions are represented as JSON arrays. The first element of an expression in the array is a string that specifies the name of the expression operator. For example, "+" or "case". The next elements (if any) are the arguments to the expression. Each argument is either a literal value (a string, number, boolean, or `null`), or another expression array. The following pseudocode defines the basic structure an expression. 
@@ -145,16 +147,16 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | \['atan', number\] | number | Calculates the arctangent of the specified number. |
 | \['ceil', number\] | number | Rounds the number up to the next whole integer. |
 | \['cos', number\] | number | Calculates the cos of the specified number. |
-| \['e'\] | number | Returns the mathematical constant e. |
+| \['e'\] | number | Returns the mathematical constant `e`. |
 | \['floor', number\] | number | Rounds the number down to the previous whole integer. |
 | \['ln', number\] | number | Calculates the natural logarithm of the specified number. |
-| \['ln2'\] | number | Returns the mathematical constant ln(2). |
+| \['ln2'\] | number | Returns the mathematical constant `ln(2)`. |
 | \['log10', number\] | number | Calculates the base-ten logarithm of the specified number. |
 | \['log2', number\] | number | Calculates the base-two logarithm of the specified number. |
 | \['max', number, number, …\] | number | Calculates the maximum number in the specified set of numbers. |
 | \['min', number, number, …\] | number | Calculates the minimum number in the specified set of numbers. |
-| \['pi'\] | number | Returns the mathematical constant PI. |
-| \['round', number\] | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `\['round', -1.5\]` evaluates to -2. |
+| \['pi'\] | number | Returns the mathematical constant `PI`. |
+| \['round', number\] | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to -2. |
 | \['sin', number\] | number | Calculates the sine of the specified number. |
 | \['sqrt', number\] | number | Calculates the square root of the specified number. |
 | \['tan', number\] | number | Calculates the tangent of the specified number. |
@@ -278,7 +280,6 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
         //List the values to match and the result to return for each match.
         ['restaurant', 'grocery_store'], 'red',
 
-
         'park', 'green',
 
         //Specify a default value to return if no match is found.
@@ -335,11 +336,11 @@ Type expressions provide tools for testing and converting different data types l
 | \['to-boolean', value\] | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
 | \['to-color', value\]<br/><br/>\['to-color', value1, value2…\] | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
 | \['to-number', value\]<br/><br/>\['to-number', value1, value2, …\] | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, its converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| \['to-string', value\] | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, its converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, its converted to CSS RGBA color string (`"rgba(r,g,b,a)"`). Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
+| \['to-string', value\] | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, its converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, its converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
 | \['typeof', value\] | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
-> If an error message similar to the following appears in the browser console `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
+> If an error message similar `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -372,7 +373,7 @@ Color expressions make it easier to create and manipulate color values.
 
 **Example**
 
-The following example creates and RGB color value that has a *red* value of `255`, and *green* and *blue* values that are calculated by multiplying `2.5` by the value of the `temperature` property. As the temperature changes the color will change to different shades of red.
+The following example creates and RGB color value that has a *red* value of `255`, and *green* and *blue* values that are calculated by multiplying `2.5` by the value of the `temperature` property. As the temperature changes the color will change to different shades of *red*.
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -531,7 +532,7 @@ Special expressions that only apply to specific layers.
 
 ### Heat map density expression
 
-A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between 0 and 1 and is used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) of the heat map layer.
+A heat map density expression retrieves the heat map density value for each pixel in a heat map layer and is defined as `['heatmap-density']`. This value is a number between `0` and `1` and is used in combination with a `interpolation` or `step` expression to define the color gradient used to colorize the heat map. This expression can only be used in the [color option](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) of the heat map layer.
 
 > [!TIP]
 > The color at index 0 in an interpolation expression or the default color of a step color, defines the color of the area where there's no data and can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black. 
@@ -606,8 +607,8 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 The text field format expression can be used with the `textField` option of the symbol layers `textOptions` property to provide mixed text formatting. This expression allows a set of input strings and formatting options to be specified. The following options can be specified for each input string in this expression.
 
- * `font-scale` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
- * `text-font` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
+ * `'font-scale'` - Specifies the scaling factor for the font size. If specified, this value will override the `size` property of the `textOptions` for the individual string.
+ * `'text-font'` - Specifies one or more font families that should be used for this string. If specified, this value will override the `font` property of the `textOptions` for the individual string.
 
 The following pseudocode defines the structure of the text field format expression. 
 
@@ -665,8 +666,8 @@ The `number-format` expression can only be used with the `textField` option of a
 
  * `locale` - Specify this option for converting numbers to strings in a way that aligns with the specified language. Pass a [BCP 47 language tag](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) into this option.
  * `currency` - To convert the number into a string representing a currency. Possible values are the [ISO 4217 currency codes](https://en.wikipedia.org/wiki/ISO_4217), such as "USD" for the US dollar, "EUR" for the euro, or "CNY" for the Chinese RMB.
- * `min-fraction-digits` - Specifies the minimum number of decimal places to include in the string version of the number.
- * `max-fraction-digits` - Specifies the maximum number of decimal places to include in the string version of the number.
+ * `'min-fraction-digits'` - Specifies the minimum number of decimal places to include in the string version of the number.
+ * `'max-fraction-digits'` - Specifies the maximum number of decimal places to include in the string version of the number.
 
 The following pseudocode defines the structure of the text field format expression. 
 
@@ -675,8 +676,8 @@ The following pseudocode defines the structure of the text field format expressi
 	'number-format', 
 	input: number, 
 	options: {
-		'locale': string, 
-		'currency’: string, 
+		locale: string, 
+		currency: string, 
 		'min-fraction-digits': number, 
 		'max-fraction-digits': number
 	}
@@ -796,7 +797,7 @@ Learn more about the layer options that support expressions:
 > [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/ javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"] 
 > [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest) 
