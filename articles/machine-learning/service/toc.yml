@@ -16,11 +16,6 @@
     href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Visual interface
-    items:
-    - name: Create an experiment
-      displayName: visualize drag-and-drop
-      href: quickstart-ui-run-experiment.md
   - name: Python SDK
     items:
     - name: Experiment with a cloud notebook
@@ -29,6 +24,11 @@
     - name: Experiment with a local notebook
       displayName: workspace install sdk
       href: quickstart-run-local-notebook.md
+  - name: Visual interface
+    items:
+    - name: Create an experiment
+      displayName: visualize drag-and-drop
+      href: quickstart-ui-run-experiment.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
@@ -47,8 +47,27 @@
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: Samples
-  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
-  href: samples-notebooks.md
+  items:
+  - name: Notebooks
+    displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+    href: samples-notebooks.md
+  - name: Visual interface experiments
+    items:
+    - name: "Predict price"
+      displayName: Sample 1, training, regression
+      href:  sample-regression-predict-automobile-price-basic.md
+    - name: "Predict price (advanced)"
+      displayName: Sample 2, training, regression
+      href: sample-regression-predict-automobile-price-compare-algorithms.md
+    - name: "Predict credit risk"
+      displayName: Sample 3, training, classification
+      href: sample-classification-predict-credit-risk-basic.md
+    - name: "Predict credit risk (advanced)"
+      displayName: Sample 4, training, classification
+      href: sample-classification-predict-credit-risk-cost-sensitive.md
+    - name: "Predict churn"
+      displayName: Sample 5, training, CRM, classification
+      href: sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works

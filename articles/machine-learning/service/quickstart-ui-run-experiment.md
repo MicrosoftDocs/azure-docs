@@ -30,15 +30,13 @@ After you complete this quickstart, you can use this experiment to [train a mode
 
 If you're brand new to machine learning, the video series [Data Science for Beginners](https://docs.microsoft.com/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers) is a great introduction to machine learning using everyday language and concepts.
 
-## Prerequisite
+## Prerequisites
 
-1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see [how to find your workspace](how-to-manage-workspace.md#view).
 
 ## Create your first experiment
 
-1. In your workspace, click on some section whose name I do not yet know.  Then click on some button whose name I also do not know.  This will open up some page whose title I do not know.  When I do know these things they will be added here, along with a screenshot.
 
 1. Select  **Add New**  in the left bottom corner.
 ![Add new experiment](./media/quickstart-ui-run-experiment/add-new.png)
@@ -220,7 +218,7 @@ Since you made changes to the modules in your experiment, the status has changed
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+[!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
 
 ## Next steps
 
