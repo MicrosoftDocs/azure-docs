@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 3/30/2019
+ms.date: 04/02/2019
 ms.author: [rimayber, dgoddard, stegag, steveesp, minale, btalb, prachank]
 
 ---
@@ -124,7 +124,7 @@ This table shows the straight-line distance between two locations, however, in n
 
 A standard value of 200 can be used for speed of propagation -  value is the distance in meters light travels in 1 millisecond.
 
-In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 20). The output of the equation will be in milliseconds.
+In the example New York to San Francisco, it is 4,148-km straight-line distance. Minimum RTT = 2 * (4,148 / 200). The output of the equation will be in milliseconds.
 
 As the physical distance between two locations is a fixed reality, if maximum network performance is required, then the most logical option is to select destinations with the smallest distance between them. Secondarily, design decisions within the virtual network can be made to optimize the path of traffic and reduce latency. These virtual network considerations are described in the Network Design Considerations section below.
 
@@ -334,3 +334,7 @@ Additional information can be found below:
 Azure customers may see TCP packets with TCP Flags (SACK, DUP ACK, RETRANSMIT, and FAST RETRANSMIT) in packet captures that may indicate network performance issues. These packets specifically indicate network inefficiencies as a result of packet loss. However, packet loss is not necessarily due to Azure performance issues. Performance issues could be the result of application, operating system, or other issues that might not be directly related to the Azure platform. It’s also important to note that some retransmission or duplicate ACKs on a network is normal – TCP protocols were built to be reliable. And, evidence of these TCP packets in a packet capture does not necessarily indicate a systemic network problem unless they are excessive.
 
 However, it should be stated clearly that these packet types are indications that TCP throughput is not achieving its maximum performance – for reasons discussed in other sections.
+
+## Next Steps
+
+Now that we've discussed TCP/IP performance tuning for Azure VMs, next steps include [planning other Virtual Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-vnet-plan-design-arm) considerations or [learn more about connecting and configuring Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/).
