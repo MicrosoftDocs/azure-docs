@@ -20,9 +20,9 @@ This visual interface sample experiment shows binary classifier prediction of ch
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-Select **+ New** at the bottom-left to open the Sample 5 experiment.
+1. Select **+ New** at the bottom-left to open the Sample 5 experiment.
 
-![Open the experiment](media/sample-classification-predict-churn/open-sample5.png)
+    ![Open the experiment](media/sample-classification-predict-churn/open-sample5.png)
 
 ## Data
 

@@ -20,11 +20,11 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-Select **+ New** at the bottom-left to open the Sample 3 experiment.
+1. Select **+ New** at the bottom-left to open the Sample 3 experiment.
 
-![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
 
-## Related Sample
+## Related sample
 
 [Sample 4 - Classification: Credit risk prediction (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
 provides an advanced experiment solving the same problem. It demonstrates how to perform _cost sensitive_ classification using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiment.

@@ -20,9 +20,9 @@ This visual interface sample experiment demonstrates how to build a regression m
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
 
-Select **+ New** at the bottom-left to open the Sample 1 experiment.
+1. Select **+ New** at the bottom-left to open the Sample 1 experiment.
 
-![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Related sample
 
@@ -48,7 +48,7 @@ Build the experiment in four steps.
 
 In this experiment, we used the **Automobile price data (Raw)** which is sourced from the UCI Machine Learning repository. This dataset contains 26 columns which includes information about automobiles by make, model, price, vehicle features like the number of cylinders, MPG, as well as an insurance risk score. Here the goal is to predict the price of the car.
 
-## Data pre-precessing
+## Data pre-processing
 
 The major data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure ML studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 

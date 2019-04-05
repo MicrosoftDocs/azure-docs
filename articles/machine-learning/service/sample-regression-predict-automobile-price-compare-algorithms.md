@@ -1,7 +1,7 @@
 ---
 title: "Regression: predict price and compare algorithms"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to compare two regression models' performance on predict the automobile's price. The process includes training, testing and evaluating the model on the Auto Imports dataset.
+description: This visual interface sample experiment demonstrates how to compare two regression models' performance to predict the automobile's price. The process includes training, testing and evaluating the model on the Auto Imports dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,11 +14,15 @@ ms.date: 05/06/2019
  
 # Sample 2 - Regression: predict price and compare algorithms
 
-This visual interface sample experiment demonstrates how to compare two regression models' performance on predict the automobile's price. The process includes training, testing and evaluating the model on the **Automobile price data (Raw)** dataset.
+This visual interface sample experiment demonstrates how to compare two regression models' performance to predict the automobile's price. The process includes training, testing and evaluating the model on the **Automobile price data (Raw)** dataset.
 
 ## Prerequisites
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
+
+1. Select **+ New** at the bottom-left to open the Sample 2 experiment.
+
+    ![Open the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
 ## Related sample
 
@@ -43,7 +47,7 @@ The experiment demonstrates four steps:
 
 In this experiment, we used the **Automobile price data (Raw)** which is sourced from the UCI Machine Learning repository. This dataset contains 26 columns which includes information about automobiles by make, model, price, vehicle features like the number of cylinders, MPG, as well as an insurance risk score. Here the goal is to predict the price of the car.
 
-## Data pre-precessing
+## Data pre-processing
 
 The major data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure ML studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
