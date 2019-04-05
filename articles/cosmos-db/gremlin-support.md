@@ -10,11 +10,11 @@ ms.author: lbosq
 ---
 
 # Azure Cosmos DB Gremlin graph support
-Azure Cosmos DB supports [Apache Tinkerpop's](https://tinkerpop.apache.org) graph traversal language, [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), which is a Gremlin API for creating graph entities, and performing graph query operations. You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
+Azure Cosmos DB supports [Apache Tinkerpop's](https://tinkerpop.apache.org) graph traversal language, known as [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). You can use the Gremlin language to create graph entities (vertices and edges), modify properties within those entities, perform queries and traversals, and delete entities. 
 
-Azure Cosmos DB brings enterprise-ready features to graph databases. This includes global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, SLAs, read availability for database accounts spanning two or more Azure regions. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another graph database without having to make code changes. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](https://spark.apache.org/graphx/). 
+Azure Cosmos DB brings enterprise-ready features to graph databases. These features include global distribution, independent scaling of storage and throughput, predictable single-digit millisecond latencies, automatic indexing, SLAs, read availability for database accounts spanning two or more Azure regions. Because Azure Cosmos DB supports TinkerPop/Gremlin, you can easily migrate applications written using another compatible graph database. Additionally, by virtue of Gremlin support, Azure Cosmos DB seamlessly integrates with TinkerPop-enabled analytics frameworks like [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
-In this article, we provide a quick walkthrough of Gremlin, and enumerate the Gremlin features and steps that are supported by the Gremlin API.
+In this article, we provide a quick walkthrough of Gremlin and enumerate the Gremlin features that are supported by the Gremlin API.
 
 ## Gremlin by example
 Let's use a sample graph to understand how queries can be expressed in Gremlin. The following figure shows a business application that manages data about users, interests, and devices in the form of a graph.  
@@ -54,7 +54,7 @@ The following query returns the "person" vertices in descending order of their f
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-Where graphs shine is when you need to answer questions like "What operating systems do friends of Thomas use?". You can run this simple Gremlin traversal to get that information from the graph:
+Where graphs shine is when you need to answer questions like "What operating systems do friends of Thomas use?". You can run this Gremlin traversal to get that information from the graph:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -118,31 +118,31 @@ For example, the following snippet shows a GraphSON representation of a vertex *
   }
 ```
 
-The properties used by GraphSON for vertices are the following:
+The properties used by GraphSON for vertices are described below:
 
-| Property | Description |
-| --- | --- |
-| id | The ID for the vertex. Must be unique (in combination with the value of _partition if applicable) |
-| label | The label of the vertex. This is optional, and used to describe the entity type. |
-| type | Used to distinguish vertices from non-graph documents |
-| properties | Bag of user-defined properties associated with the vertex. Each property can have multiple values. |
-| _partition (configurable) | The partition key of the vertex. Can be used to scale out graphs to multiple servers |
-| outE | This contains a list of out edges from a vertex. Storing the adjacency information with vertex allows for fast execution of traversals. Edges are grouped based on their labels. |
+| Property | Description | 
+| --- | --- | --- |
+| `id` | The ID for the vertex. Must be unique (in combination with the value of `_partition` if applicable). If no value is provided, it will be automatically supplied with a GUID | 
+| `label` | The label of the vertex. This is used to describe the entity type. |
+| `type` | Used to distinguish vertices from non-graph documents |
+| `properties` | Bag of user-defined properties associated with the vertex. Each property can have multiple values. |
+| `_partition` | The partition key of the vertex. Used for [graph partitioning](graph-partitioning.md). |
+| `outE` | This property contains a list of out edges from a vertex. Storing the adjacency information with vertex allows for fast execution of traversals. Edges are grouped based on their labels. |
 
 And the edge contains the following information to help with navigation to other parts of the graph.
 
 | Property | Description |
 | --- | --- |
-| id | The ID for the edge. Must be unique (in combination with the value of _partition if applicable) |
-| label | The label of the edge. This property is optional, and used to describe the relationship type. |
-| inV | This contains a list of in vertices for an edge. Storing the adjacency information with the edge allows for fast execution of traversals. Vertices are grouped based on their labels. |
-| properties | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
+| `id` | The ID for the edge. Must be unique (in combination with the value of `_partition` if applicable) |
+| `label` | The label of the edge. This property is optional, and used to describe the relationship type. |
+| `inV` | This property contains a list of in vertices for an edge. Storing the adjacency information with the edge allows for fast execution of traversals. Vertices are grouped based on their labels. |
+| `properties` | Bag of user-defined properties associated with the edge. Each property can have multiple values. |
 
 Each property can store multiple values within an array. 
 
 | Property | Description |
 | --- | --- |
-| value | The value of the property
+| `value` | The value of the property
 
 ## Gremlin steps
 Now let's look at the Gremlin steps supported by Azure Cosmos DB. For a complete reference on Gremlin, see [TinkerPop reference](https://tinkerpop.apache.org/docs/current/reference).
