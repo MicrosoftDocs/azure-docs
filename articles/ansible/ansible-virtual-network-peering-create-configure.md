@@ -16,9 +16,9 @@ ms.date: 04/04/2019
 
 [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) (VNet peering) allows you to seamlessly connect two Azure virtual networks. Once peered, the two virtual networks appear as one for connectivity purposes. 
 
-Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual networks is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
+Traffic is routed between VMs in the same virtual network through private IP addresses. Similarly, traffic between VMs in a peered virtual network is routed through the Microsoft backbone infrastructure. As a result, VMs in different virtual networks can communicate with each other.
 
-Ansible enables you to automate the deployment and configuration of resources in your environment. This article walks you through how to connect virtual networks to each other with Azure virtual network peering using Ansible.
+Ansible automates the deployment and configuration of resources in your environment. In this article, you use Ansible to create two virtual networks. You then establish virtual network peering between the two virtual networks. Once done, an Ansible playbook is used to delete the peering remove the Azure resources. 
 
 ## Prerequisites
 
