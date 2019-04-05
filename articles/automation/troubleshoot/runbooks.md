@@ -132,7 +132,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 #### Issue
 
-You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
+You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains and object:
 
 ```error
 Object reference not set to an instance of an object
