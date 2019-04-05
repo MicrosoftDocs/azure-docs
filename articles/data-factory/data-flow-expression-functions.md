@@ -42,7 +42,7 @@ This expression adds a pair of strings or numbers. It adds a date to a number of
 * ``toDate('2012-12-12') + 3 -> 2012-12-15 (date value)``
 * ``[10, 20] + [30, 40] => [10, 20, 30, 40]``
 
-The `add` operator is the same as the + operator.
+The **add** operator is the same as the **+** operator.
 *********************************
 <code>addDays</code>
 ==============================
@@ -50,7 +50,7 @@ The `add` operator is the same as the + operator.
 This expression adds days to a date or timestamp. 
 * ``addDays(toDate('2016-08-08'), 1) -> 2016-08-09``
 
-The `addDays` operator is the same as the + operator for dates.
+The **addDays** operator is the same as the **+** operator for dates.
 *********************************
 <code>addMonths</code>
 ==============================
@@ -62,7 +62,7 @@ This expression adds months to a date or timestamp.
 <code>and</code>
 ==============================
 <code><b>and(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-This is a logical AND operator. The `and` operator is the same as the && operator.
+This is a logical **and** operator. This is the same as the **&&** operator.
 * ``and(true, false) -> false``
 * ``true && false -> false``
 *********************************
@@ -121,7 +121,7 @@ This expression returns the smallest integer that's not smaller than the number.
 <code>concat</code>
 ==============================
 <code><b>concat(<i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
-This expression concatenates a variable number of strings. The `concat` operator is the same as the + operator with strings.
+This expression concatenates a variable number of strings. The **concat** operator is the same as the **+** operator with strings.
 * ``concat('Awesome', 'Cool', 'Product') -> 'AwesomeCoolProduct'``
 * ``'Awesome' + 'Cool' + 'Product' -> 'AwesomeCoolProduct'``
 * ``concat(addrLine1, ' ', addrLine2, ' ', city, ' ', state, ' ', zip)``
@@ -195,7 +195,7 @@ Based on a criterion, this expression gets the sample covariance of two columns.
 <code>crc32</code>
 ==============================
 <code><b>crc32(<i>&lt;value1&gt;</i> : any, ...) => long</b></code><br/><br/>
-This expression calculates the CRC32 hash of a set of columns of varying primitive data types, given a bit length whose values can be only 0(256), 224, 256, 384, 512. You can use the `crc32` operator to calculate a fingerprint for a row.
+This expression calculates the CRC32 hash of a set of columns of varying primitive data types, given a bit length whose values can be only 0(256), 224, 256, 384, 512. You can use the **crc32** operator to calculate a fingerprint for a row.
 * ``crc32(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 3630253689``
 *********************************
 <code>cumeDist</code>
@@ -264,12 +264,12 @@ This expression converts radians to degrees.
 This expression computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values won't produce gaps in the sequence. 
 * ``denseRank(salesQtr, salesAmt) -> 1``
 
-The `denseRank` operator works even when data isn't sorted. It looks for a change in values.
+The **denseRank** operator works even when data isn't sorted. It looks for a change in values.
 *********************************
 <code>divide</code>
 ==============================
 <code><b>divide(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-This expression divides pair of numbers. The `divide` operator is the same as the / operator.
+This expression divides pair of numbers. The **divide** operator is the same as the **/** operator.
 * ``divide(20, 10) -> 2``
 * ``20 / 10 -> 2``
 *********************************
@@ -282,7 +282,7 @@ This expression checks whether the string ends with the supplied string.
 <code>equals</code>
 ==============================
 <code><b>equals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `equals` operator is a comparison equals operator. The `equals` operator is the same as the == operator.
+The EQUALS operator is a comparison equals operator. The EQUALS operator is the same as the == operator.
 * ``equals(12, 24) -> false``
 * ``12==24 -> false``
 * ``'abc'=='abc' -> true``
@@ -290,7 +290,7 @@ The `equals` operator is a comparison equals operator. The `equals` operator is 
 <code>equalsIgnoreCase</code>
 ==============================
 <code><b>equalsIgnoreCase(<i>&lt;value1&gt;</i> : string, <i>&lt;value2&gt;</i> : string) => boolean</b></code><br/><br/>
-The `equalsIgnoreCase` operator is a comparison equals operator that ignores case. It's the same as the <=> operator.
+The **equalsIgnoreCase** operator is a comparison equals operator that ignores case. It's the same as the **<=>** operator.
 * ``'abc'=='abc' -> true``
 * ``equalsIgnoreCase('abc', 'Abc') -> true``
 *********************************
@@ -325,14 +325,14 @@ This expression returns the largest integer that's not greater than the number.
 <code>greater</code>
 ==============================
 <code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `greater` operator is a comparison greater operator. It's the same as the > operator.
+The GREATER operator is a comparison greater operator. It's the same as the > operator.
 * ``greater(12, 24) -> false``
 * ``'abcd' > 'abc' -> true``
 *********************************
 <code>greaterOrEqual</code>
 ==============================
 <code><b>greaterOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `greaterOrEqual` operator is a comparison greater-than-or-equal operator. The `greaterorEqual` operator is the same as the >= operator.
+The **greaterOrEqual** operator is a comparison greater-than-or-equal operator. This operator is the same as the **>=** operator.
 * ``greaterOrEqual(12, 12) -> false``
 * ``'abcd' >= 'abc' -> true``
 *********************************
@@ -484,14 +484,14 @@ This expression gets the value of the first parameter evaluated *n* rows after t
 <code>least</code>
 ==============================
 <code><b>least(<i>&lt;value1&gt;</i> : any, ...) => any</b></code><br/><br/>
-The `least` operator is a comparison lesser-than-or-equal operator. It's the same as the <= operator.
+The **least** operator is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
 * ``least(10, 30, 15, 20) -> 10``
 * ``least(toDate('12/12/2010'), toDate('12/12/2011'), toDate('12/12/2000')) -> '12/12/2000'``
 *********************************
 <code>left</code>
 ==============================
 <code><b>left(<i>&lt;string to subset&gt;</i> : string, <i>&lt;number of characters&gt;</i> : integral) => string</b></code><br/><br/>
-This expression extracts a substring start at index 1 and uses the number of characters. The `left` operator is the same as SUBSTRING(str, 1, n).
+This expression extracts a substring start at index 1 and uses the number of characters. The **left** operator is the same as **SUBSTRING(str, 1, n)**.
 * ``left('bojjus', 2) -> 'bo'``
 * ``left('bojjus', 20) -> 'bojjus'``
 *********************************
@@ -504,14 +504,14 @@ This expression returns the length of the string.
 <code>lesser</code>
 ==============================
 <code><b>lesser(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `lesser` operator is a comparison lesser-than operator. It's the same as the < operator.
+The **lesser** operator is a comparison lesser-than operator. It's the same as the **<** operator.
 * ``lesser(12 < 24) -> true``
 * ``'abcd' < 'abc' -> false``
 *********************************
 <code>lesserOrEqual</code>
 ==============================
 <code><b>lesserOrEqual(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `lesserOrEqual` operator is a comparison lesser-than-or-equal operator. It's the same as the <= operator.
+The **lesserOrEqual** operator is a comparison lesser-than-or-equal operator. It's the same as the **<=** operator.
 * ``lesserOrEqual(12, 12) -> true``
 * ``'abcd' <= 'abc' -> false``
 *********************************
@@ -590,18 +590,18 @@ Based on a criterion, this expression gets the maximum value of a column.
 This expression calculates the MD5 digest of a set of columns of varying primitive data types. It returns a 32-character hexadecimal string. 
 * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'c1527622a922c83665e49835e46350fe'``
 
-You can use the `md5` operator to calculate a fingerprint for a row.
+You can use the **md5** operator to calculate a fingerprint for a row.
 *********************************
 <code>mean</code>
 ==============================
 <code><b>mean(<i>&lt;value1&gt;</i> : number) => number</b></code><br/><br/>
-This expression gets the mean of values of a column. The `mean` operator is the same as AVG.
+This expression gets the mean of values of a column. The **mean** operator is the same as AVG.
 * ``mean(sales) -> 7523420.234``
 *********************************
 <code>meanIf</code>
 ==============================
 <code><b>meanIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
-Based on a criterion, this expression gets the mean of values of a column. The `meanIf` operator is the same as avgIf.
+Based on a criterion, this expression gets the mean of values of a column. The **meanIf** operator is the same as **avgIf**.
 * ``meanIf(region == 'West', sales) -> 7523420.234``
 *********************************
 <code>min</code>
@@ -620,7 +620,7 @@ Based on a criterion, this expression gets the minimum value of a column.
 <code>minus</code>
 ==============================
 <code><b>minus(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-This expression subtracts numbers. For example, it can subtract a number of days from a date. The `minus` operator is the same as the - operator.
+This expression subtracts numbers. For example, it can subtract a number of days from a date. The **minus** operator is the same as the **-** operator.
 * ``minus(20, 10) -> 10``
 * ``20 - 10 -> 10``
 * ``minus(toDate('2012-12-15'), 3) -> 2012-12-12 (date value)``
@@ -638,7 +638,7 @@ You can pass an optional time zone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'A
 <code>mod</code>
 ==============================
 <code><b>mod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-The `mod` operator marks a modulus pair of numbers. This is the same as the % operator.
+The **mod** operator marks a modulus pair of numbers. This is the same as the **%** operator.
 * ``mod(20, 8) -> 4``
 * ``20 % 8 -> 4``
 *********************************
@@ -659,19 +659,19 @@ You can pass an optional time zone in the form of `'GMT'`, `'PST'`, `'UTC'`, `'A
 <code>multiply</code>
 ==============================
 <code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-This expression multiplies a pair of numbers. The `multiply` operator is the same as the * operator.
+This expression multiplies a pair of numbers. The **multiply** operator is the same as the ***** operator.
 * ``multiply(20, 10) -> 200``
 * ``20 * 10 -> 200``
 *********************************
 <code>nTile</code>
 ==============================
 <code><b>nTile([<i>&lt;value1&gt;</i> : integer]) => integer</b></code><br/><br/>
-The `nTile` function divides the rows for each window partition into *n* buckets, which range from 1 to at most *n*. Bucket values differ by at most 1. If the number of rows in the partition doesn't divide evenly into the number of buckets, each remaining value is distributed into a bucket, starting with the first bucket. 
+The **nTile** function divides the rows for each window partition into *n* buckets, which range from 1 to at most *n*. Bucket values differ by at most 1. If the number of rows in the partition doesn't divide evenly into the number of buckets, each remaining value is distributed into a bucket, starting with the first bucket. 
 
 * ``nTile() -> 1``
 * ``nTile(numOfBuckets) -> 1``
 
-The `nTile` function is useful when you need to calculate tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization. One extra row is added to a regular bucket. Both variables are based on the size of the current partition. 
+The **nTile** function is useful when you need to calculate tertiles, quartiles, deciles, and other common summary statistics. The function calculates two variables during initialization. One extra row is added to a regular bucket. Both variables are based on the size of the current partition. 
 
 During the calculation, the function keeps track of the current row number, the current bucket number, and the row number at which the bucket will change (bucketThreshold). When the row number reaches the bucket threshold, the bucket value increases by one. The threshold increases by the bucket size, plus one extra if the current bucket is padded.
 *********************************
@@ -690,14 +690,14 @@ This expression returns the next unique sequence. The number is consecutive only
 <code>not</code>
 ==============================
 <code><b>not(<i>&lt;value1&gt;</i> : boolean) => boolean</b></code><br/><br/>
-The `not` operator is a logical negation operator.
+The **not** operator is a logical negation operator.
 * ``not(true) -> false``
 * ``not(premium)``
 *********************************
 <code>notEquals</code>
 ==============================
 <code><b>notEquals(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
-The `notEquals` operator is a comparison not-equals operator. It's the same as the != operator.
+The **notEquals** operator is a comparison not-equals operator. It's the same as the **!=** operator.
 * ``12!=24 -> true``
 * ``'abc'!='abc' -> false``
 *********************************
@@ -711,19 +711,19 @@ This expression returns a NULL value.
 * ``10 * NULL -> NULL'``
 * ``NULL == '' -> NULL'``
 
-Use the function `syntax(null())` if a column is named *null*. Any operation that uses the `null` operator results in NULL.
+Use the function **syntax(null())** if a column is named *null*. Any operation that uses the NULL operator results in NULL.
 *********************************
 <code>or</code>
 ==============================
 <code><b>or(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-The `or` operator is a logical OR operator. It's the same as the || operator.
+The **or** operator is a logical **OR** operator. It's the same as the **||** operator.
 * ``or(true, false) -> true``
 * ``true || false -> true``
 *********************************
 <code>pMod</code>
 ==============================
 <code><b>pMod(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
-The `pMod` operator marks the positive modulus of a pair of numbers.
+The **pMod** operator marks the positive modulus of a pair of numbers.
 * ``pmod(-20, 8) -> 4``
 *********************************
 <code>power</code>
@@ -738,7 +738,7 @@ This expression raises one number to the power of another.
 This expression computes the rank of a value in a group of values. The result is one plus the number of rows preceding or equal to the current row in the ordering of the partition. The values produce gaps in the sequence. 
 * ``rank(salesQtr, salesAmt) -> 1``
 
-The `rank` operator works even when data isn't sorted. It looks for changes in values.
+The **rank** operator works even when data isn't sorted. It looks for changes in values.
 *********************************
 <code>regexExtract</code>
 ==============================
@@ -796,7 +796,7 @@ This expression extracts a substring with number of characters from the right.
 * ``right('bojjus', 2) -> 'us'``
 * ``right('bojjus', 20) -> 'bojjus'``
 
-The `right` function is the same as SUBSTRING(str, LENGTH(str) - n, n).
+The **right** function is the same as SUBSTRING(str, LENGTH(str) - n, n).
 *********************************
 <code>rlike</code>
 ==============================
@@ -974,7 +974,7 @@ Based on a criterion, this expression gets the sample standard deviation of a co
 <code><b>subDays(<i>&lt;date/timestamp&gt;</i> : datetime, <i>&lt;days to subtract&gt;</i> : integral) => datetime</b></code><br/><br/>
 This expression subtracts months from a date. 
 * ``subDays(toDate('2016-08-08'), 1) -> 2016-08-09``
-The `subDays` operator is the same as the - operator for date.
+The **subDays** operator is the same as the **-** operator for date.
 *********************************
 <code>subMonths</code>
 ==============================
@@ -1073,7 +1073,7 @@ This expression converts any numeric or string to a float value. You can use an 
 * ``toFloat('123.45') -> 123.45``
 * ``toFloat('$123.45', '$###.00') -> 123.45``
 
-The `toFloat` function truncates any double.
+The **toFloat** function truncates any double.
 *********************************
 <code>toInteger</code>
 ==============================
@@ -1083,7 +1083,7 @@ This expression converts any numeric or string to an integer value. You can use 
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``
 
-The `toInteger` function truncates any long, float, or double.
+The **toInteger** function truncates any long, float, or double.
 *********************************
 <code>toLong</code>
 ==============================
@@ -1093,7 +1093,7 @@ This expression converts any numeric or string to a long value. You can use an o
 * ``toLong('123') -> 123``
 * ``toLong('$123', '$###') -> 123``
 
-The `toLong` function truncates any float or doubles.
+The **toLong** function truncates any float or doubles.
 *********************************
 <code>toShort</code>
 ==============================
@@ -1103,7 +1103,7 @@ This expression converts any numeric or string to a short value. You can use an 
 * ``toShort('123') -> 123``
 * ``toShort('$123', '$###') -> 123``
 
-The `toShort` function truncates any integer, long, float, or double.
+The **toShort** function truncates any integer, long, float, or double.
 *********************************
 <code>toString</code>
 ==============================
@@ -1161,7 +1161,7 @@ This expression always returns a `true` value.
 * ``isDiscounted == true()``
 * ``isDiscounted() == true``
 
-If column is named *true*, use the function `syntax(true())`.
+If column is named *true*, use the function **syntax(true())**.
 *********************************
 <code>typeMatch</code>
 ==============================
@@ -1223,7 +1223,7 @@ Given a date, this expression gets the week of the year.
 <code>xor</code>
 ==============================
 <code><b>xor(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : boolean) => boolean</b></code><br/><br/>
-This expression uses the logical XOR operator. This operator is the same as the ^ operator.
+This expression uses the logical **xor** operator. This operator is the same as the **^** operator.
 * ``xor(true, false) -> true``
 * ``xor(true, true) -> false``
 * ``true ^ false -> true``
