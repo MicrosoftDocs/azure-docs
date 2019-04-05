@@ -20,7 +20,7 @@ ms.author: wieastbu
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
 
 This scenario shows you how to configure your Azure API Management instance to protect an API. 
-We'll use the OAuth 2.0 protocol with AAD B2C, alongside API Management to secure a Functions backend. 
+We'll use the OpenID Connect protocol with AAD B2C, alongside the power of API Management to secure our Functions backend. 
 
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
@@ -41,7 +41,7 @@ Here is a quick overview of the steps:
 
 1. Create the AAD Calling (Frontend, API Management) and API Applications with scopes and grant API Access
 2. Create the Sign-up or sign-in policies to allow users to sign in with AAD B2C
-3. Configure API Management with the new AAD B2C Client IDs and keys to Enable OAuth 2.0 user authorization in the Developer Console
+3. Configure API Management with the new AAD B2C Client IDs and keys to Enable OAuth2 user authorization in the Developer Console
 4. Build the Function API
 5. Configure the Function API to enable EasyAuth with the new AAD B2C Client ID’s and Keys and lock down to APIM VIP 
 6. Build the API Definition in API Management
@@ -305,7 +305,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 ## Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct AAD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
-3. Update the auth details to match your front end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
+3. Update the auth details to match your front-end application you registered in B2C earlier, noting that the 'b2cScopes' values are for the API backend.
 4. It should look something like the below code:-  
 
 ```
