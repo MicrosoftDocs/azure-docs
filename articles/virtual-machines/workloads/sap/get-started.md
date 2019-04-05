@@ -1,6 +1,6 @@
 ---
 title: Get started with SAP on Azure VMs | Microsoft Docs
-description: Learn about SAP solutions running on virtual machines (VMs) in Microsoft Azure
+description: Learn about SAP solutions that run on virtual machines (VMs) in Microsoft Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: msjuergent
@@ -22,21 +22,23 @@ ms.custom: H1Hack27Feb2017
 ---
 
 
-# Use Azure for hosting and running SAP workload scenarios
+# Use Azure to host and run SAP workload scenarios
 
-When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. Get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL, we've got you covered.
+When you use Microsoft Azure, you can reliably run your mission-critical SAP workloads and scenarios on a scalable, compliant, and enterprise-proven platform. You get the scalability, flexibility, and cost savings of Azure. With the expanded partnership between Microsoft and SAP, you can run SAP applications across development and test and production scenarios in Azure and be fully supported. From SAP NetWeaver to SAP S/4HANA, SAP BI on Linux to Windows, and SAP HANA to SQL, we've got you covered.
 
 Besides hosting SAP NetWeaver scenarios with the different DBMS on Azure, you can host other SAP workload scenarios, like SAP BI on Azure. 
 
-The uniqueness of Azure for SAP HANA is an offer that sets Azure apart. To enable hosting more memory and CPU resource-demanding SAP scenarios that involve SAP HANA, Azure offers the use of customer-dedicated bare-metal hardware. Use this solution to run SAP HANA deployments that require up to 24 TB (120-TB scale-out) of memory for S/4HANA or other SAP HANA workload. You can use this unique Azure solution of SAP HANA on Azure (Large Instances) to run SAP HANA on the dedicated bare-metal hardware with the SAP application layer or workload middle-ware layer hosted in native Azure virtual machines. This solution is documented in several articles listed in the section "SAP HANA on Azure (Large Instances)." 
+The uniqueness of Azure for SAP HANA is an offer that sets Azure apart. To enable hosting more memory and CPU resource-demanding SAP scenarios that involve SAP HANA, Azure offers the use of customer-dedicated bare-metal hardware. Use this solution to run SAP HANA deployments that require up to 24 TB (120-TB scale-out) of memory for S/4HANA or other SAP HANA workload. 
 
-Hosting SAP workload scenarios in Azure also can create identity integration and single sign-on requirements by using Azure Active Directory (Azure AD) for different SAP components and SAP SaaS or PaaS offers. A list of integration and single sign-on scenarios with Azure AD and SAP entities is in "Azure AD SAP identity integration and single-sign-on."
+You can use this unique Azure solution of SAP HANA on Azure (Large Instances) to run SAP HANA on the dedicated bare-metal hardware with the SAP application layer or workload middle-ware layer hosted in native Azure virtual machines. This solution is documented in several articles listed in the section "SAP HANA on Azure (Large Instances)." 
+
+Hosting SAP workload scenarios in Azure also can create identity integration and single sign-on requirements. This situation can occur if you use Azure Active Directory (Azure AD) for different SAP components. It can also occur with SAP software as a service (SaaS) or platform as a service (PaaS) offers. A list of integration and single sign-on scenarios with Azure AD and SAP entities is in "Azure AD SAP identity integration and single-sign-on."
 
 ## Latest changes
 
 - Release of [Azure HANA Large Instances control through the Azure portal](hana-li-portal.md)
 
-- Release of [high availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP applications](high-availability-guide-suse-netapp-files.md)
+- Release of [high availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server with Azure NetApp Files for SAP Applications](high-availability-guide-suse-netapp-files.md)
 
 - Clarification on **Linux OS parameter net.ipv4.tcp_timestamps** settings in conjunction with an Azure load balancer
 
@@ -100,7 +102,7 @@ For information on non-HANA databases under an SAP workload on Azure, see:
 - [Oracle Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_oracle)
 - [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_ibm)
 - [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase)
-- [SAP MaxDB, liveCache, and Content Server deployment on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
+- [SAP MaxDB, Live Cache, and Content Server deployment on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_maxdb)
 
 For information on SAP HANA databases on Azure, see the section "SAP HANA on Azure virtual machines."
 
