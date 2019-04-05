@@ -13,7 +13,7 @@ ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ---
 
-# Table Statistics in Azure SQL Data Warehouse
+# Table statistics in Azure SQL Data Warehouse
 
 Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 
@@ -79,10 +79,10 @@ One of the first questions to ask when you're troubleshooting a query is, **"Are
 
 This question is not one that can be answered by the age of the data. An up-to-date statistics object might be old if there's been no material change to the underlying data. When the number of rows has changed substantially, or there is a material change in the distribution of values for a column, *then* it's time to update statistics.
 
-There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture.  You can use the following query to determine the last time your statistics were updated on each table.  
+There is no dynamic management view to determine if data within the table has changed since the last time statistics were updated. Knowing the age of your statistics can provide you with part of the picture. You can use the following query to determine the last time your statistics were updated on each table.
 
 > [!NOTE]
-> If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.  
+> If there is a material change in the distribution of values for a column, you should update statistics regardless of the last time they were updated.
 
 ```sql
 SELECT
@@ -111,7 +111,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date.  Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
+**Date columns** in a data warehouse, for example, usually need frequent statistics updates. Each time new rows are loaded into the data warehouse, new load dates or transaction dates are added. These change the data distribution and make the statistics out of date. Conversely, statistics on a gender column in a customer table might never need to be updated. Assuming the distribution is constant between customers, adding new rows to the table variation isn't going to change the data distribution. However, if your data warehouse contains only one gender and a new requirement results in multiple genders, then you need to update statistics on the gender column.
 
 For more information, see general guidance for [Statistics](/sql/relational-databases/statistics/statistics).
 
@@ -327,7 +327,7 @@ END
 DROP TABLE #stats_ddl;
 ```
 
-To create statistics on all columns in the table using the defaults, execute the stored  procedure.
+To create statistics on all columns in the table using the defaults, execute the stored procedure.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 1, NULL;
@@ -339,7 +339,7 @@ To create statistics on all columns in the table using a fullscan, call this pro
 EXEC [dbo].[prc_sqldw_create_stats] 2, NULL;
 ```
 
-To create sampled statistics on all columns in the table, enter 3, and the sample percent.  This procedures uses a 20 percent sample rate.
+To create sampled statistics on all columns in the table, enter 3, and the sample percent. This procedures uses a 20 percent sample rate.
 
 ```sql
 EXEC [dbo].[prc_sqldw_create_stats] 3, 20;
