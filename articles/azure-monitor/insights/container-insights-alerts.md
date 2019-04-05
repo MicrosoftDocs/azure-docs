@@ -250,7 +250,7 @@ let endDateTime = now();
 >[!NOTE]
 >To alert on certain pod phases, such as *Pending*, *Failed*, or *Unknown*, modify the last line of the query. For example, to alert on *FailedCount* use: <br/>`| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`
 
-## Create a alert rule
+## Create an alert rule
 Follow these steps to create a log alert in Azure Monitor by using one of the log search rules that was provided earlier.  
 
 >[!NOTE]
