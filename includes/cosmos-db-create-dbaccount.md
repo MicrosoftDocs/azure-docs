@@ -33,6 +33,6 @@
 
     ![The Azure portal Notifications pane](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created.png)
 
-1. Select **Go to resource** to go to the Cosmos DB account page. 
+1. Select **Go to resource** to go to the Azure Cosmos DB account page. 
 
-    ![The Cosmos DB account page](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png)
+    ![The Azure Cosmos DB account page](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png)
