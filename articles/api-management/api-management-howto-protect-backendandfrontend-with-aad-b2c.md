@@ -89,8 +89,8 @@ Here is a quick overview of the steps:
 8. Click on the link at the top to open the 'well-known openid configuration endpoint', and record the authorization_endpoint and token_endpoint values.
 
 > [!NOTE]
-> B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and log in users in different ways. 
-> In this case we configured a sign up and sign in endpoint, which exposed a well-known condfiguration endpoint, specifically our created policy was identified in the URL by the p= parameter.
+> B2C Policies allow you to expose the AAD B2C login endpoints to be able to capture different data components and sign in users in different ways. 
+> In this case we configured a sign up and sign in endpoint, which exposed a well-known configuration endpoint, specifically our created policy was identified in the URL by the p= parameter.
 > Once this is done – you now have a functional Business to Consumer identity platform that will sign users into multiple applications. 
 > If you want to you can click 'run now' here (to go through the sign up and sign in process) and get a feel for what it will do in practice, but the redirection step at the end will fail as the app has not yet been deployed.
 
@@ -105,7 +105,7 @@ Here is a quick overview of the steps:
 7. Move to the *Authorization* and *Token* endpoint fields, and enter the values you captured from the well-known configuration xml document earlier.
 8. Scroll down and populate an *Additional body parameter* called 'resource' with the 
 Function API client ID from the AAD B2C App registration
-9. Set the Client credentials section upSet the Client ID to the API Management Developer console app's application ID and set the Client Secret to the key you recorded earlier. 
+9. Select the Client credentials section, set the Client ID to the API Management Developer console app's application ID, and set the Client Secret to the key you recorded earlier. 
 10. Lastly, now record the redirect_uri of the auth code grant from API Management for later use.
 
 > [!NOTE]
@@ -181,7 +181,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
-10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP (Found on the API management overview page in the portal) and if you want to interact with the functions portal, you can add your public IP address or CIDR range here too.
+10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP that is found on the API management overview page in the portal, and if you want to interact with the functions portal, you can add your public IP address or CIDR range here too.
 11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, but you'll need to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32.
 
 > [!NOTE]
@@ -259,7 +259,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 1. From the overview blade of the API Management section of the Azure portal, click 'Developer Portal' to be signed into the developer portal as an administrator of the API,
 2. Here, you and other selected consumers of your API can test and call them from a console.
 3. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
-4. Unhide the API subscription key, and copy it somewhere safe along with the request url that you will need later.
+4. Unhide the API subscription key, and copy it somewhere safe along with the request url that you'll need later.
 5. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
 6. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
 
@@ -304,7 +304,7 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 ## Configure the Sample JS Client App with the new AAD B2C Client ID’s and keys 
 1. Now we know where everything is: we can configure the SPA with the appropriate API Management API address and the correct AAD B2C application / client IDs
 2. Go back to the Azure portal storage blade and click on index.html, then choose ‘Edit Blob’ 
-3. Scroll down to line 52 and update the details to match your FRONT END application that you registered in AAD B2C, noting that the 'b2cScopes' values are for the associated backend application that is being called (the API).
+3. Scroll down to line 52 and update the details to match your FRONT END application that you registered in AAD B2C, noting that the 'b2cScopes' values are for the associated API backend.
 4. It should look something like the below code:-  
 
 ```
