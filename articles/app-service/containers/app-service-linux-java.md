@@ -254,7 +254,7 @@ Next, determine if the data source should be available to one application or to 
 #### Finally, place the driver JARs in the Tomcat classpath and restart your App Service
 
 1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. (Create this directory if it does not already exist.) To upload these files to your App Service instance, perform the following steps:  
-   1. Install the Azure App Service webpp extension:
+   1. Install the Azure App Service webapp extension:
 
       ```azurecli-interactive
       az extension add –name webapp
