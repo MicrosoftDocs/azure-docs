@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Cache for Redis](/azure/azure-cache-for-redis/) is a fully managed, open source-compatible service that allows you to build highly scalable and responsible applications by providing you super-fast access to your data. 
+[Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build scalable, responsive apps by providing fast access to your data. 
 
 In this article, you use Ansible to create a cache. Once created, you learn how to scale, reboot, add a firewall rule to, and delete the cache.
 
@@ -55,7 +55,7 @@ It can take several minutes to provision a cache. The following code tells Ansib
     delay: 60
 ```
 
-During the lengthy provisioning process, several "error" messages will be displayed. These can safely be ignored. The important message is the last message. In the following example, there are many error messages until the final ("ok") message.
+During the lengthy provisioning process, several "error" messages will be displayed. These messages can safely be ignored. The important message is the last message. In the following example, there are many error messages until the final ("ok") message.
 
 ```Output
 FAILED - RETRYING: Get facts (100 retries left).
@@ -73,7 +73,7 @@ ok: [localhost]
 
 ## Scale the cache
 
-Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. After a cache is created, you can scale the size and the pricing tier of the cache if the requirements of your application change. For more information about scaling, see [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
+Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features. If your app requirements change after the cache is created, you can scale the cache as needed. For more information about scaling, see [How to Scale Azure Cache for Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
 
 The following sample code scales the cache to **Standard**:
 
@@ -100,7 +100,7 @@ It can take several minutes to scale a cache. The following code tells Ansible w
     delay: 60
 ```
 
-Similar to the task to provision Azure Cache for Redis, output like the following is normal:
+Similar to the task to provision Azure Cache for Redis, output like the following message is normal:
 
 ```Ouput
 **FAILED - RETRYING: Get facts (100 retries left)** is normal.
