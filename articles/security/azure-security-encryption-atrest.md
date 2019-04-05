@@ -286,10 +286,11 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
-| **IoT Services**                 |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | Yes                |
+| **Integration**                 |                    |                    |                    |
 | Service Bus                      | Yes                | -                  | Yes                |
 | Event Grid                       | Yes                | -                  | -                  |
+| **IoT Services**                 |                    |                    |                    |
+| IoT Hub                          | -                  | -                  | Yes                |
 
 ## Conclusion
 
