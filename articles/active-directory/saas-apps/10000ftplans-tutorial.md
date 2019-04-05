@@ -75,10 +75,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with 10,000ft Plans, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure 10,000ft Plans Single Sign-On](#configure-10000ft-plans-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure 10000ft Plans Single Sign-On](#configure-10000ft-plans-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create 10,000ft Plans test user](#create-10000ft-plans-test-user)** - to have a counterpart of Britta Simon in 10,000ft Plans that is linked to the Azure AD representation of user.
+5. **[Create 10000ft Plans test user](#create-10000ft-plans-test-user)** - to have a counterpart of Britta Simon in 10,000ft Plans that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with 10,000ft Plans, perform the following 
 
 	c. Logout URL
 
-### Configure 10,000ft Plans Single Sign-On
+### Configure 10000ft Plans Single Sign-On
 
 To configure single sign-on on **10,000ft Plans** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [10,000ft Plans support team](https://www.10000ft.com/plans/support). They set this setting to have the SAML SSO connection set properly on both sides.
 
@@ -180,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Create 10,000ft Plans test user
+### Create 10000ft Plans test user
 
 In this section, a user called Britta Simon is created in 10,000ft Plans. 10,000ft Plans supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in 10,000ft Plans, a new one is created after authentication.
 
