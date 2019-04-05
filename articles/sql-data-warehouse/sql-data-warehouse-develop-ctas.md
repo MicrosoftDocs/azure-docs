@@ -55,7 +55,7 @@ FROM    [dbo].[FactInternetSales]
 
 ## Using CTAS to copy a table
 
-Perhaps one of the most common uses of `CTAS` is creating a copy of a table in order to  change the DDL. If, for example, you originally created your table as `ROUND_ROBIN` and now want to change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
+Perhaps one of the most common uses of `CTAS` is creating a copy of a table in order to change the DDL. If, for example, you originally created your table as `ROUND_ROBIN` and now want to change it to a table distributed on a column, `CTAS` is how you would change the distribution column. `CTAS` can also be used to change partitioning, indexing, or column types.
 
 Let's say you created this table using the default distribution type of `ROUND_ROBIN` by not specifying a distribution column in the `CREATE TABLE`.
 
@@ -323,7 +323,7 @@ The value stored for result is different. As the persisted value in the result c
 
 This is important for data migrations. Even though the second query is arguably more accurate there's a problem. The data would be different compared to the source system and that leads to questions of integrity in the migration. This is one of those rare cases where the "wrong" answer is actually the right one!
 
-The reason we see a disparity between the two results is due to implicit type casting. In the first example, the table defines the column definition. When the row is inserted, an implicit type conversion occurs. In the second example, there is no implicit type conversion as the expression defines data type of the column. Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not. When the table was created in the first example, column nullability was explicitly defined. In the second example, it was left to the expression and by default, would result in a NULL definition.  
+The reason we see a disparity between the two results is due to implicit type casting. In the first example, the table defines the column definition. When the row is inserted, an implicit type conversion occurs. In the second example, there is no implicit type conversion as the expression defines data type of the column. Notice also that the column in the second example has been defined as a NULLable column whereas in the first example it has not. When the table was created in the first example, column nullability was explicitly defined. In the second example, it was left to the expression and by default, would result in a NULL definition.
 
 To resolve these issues, you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You can't set these properties in the create table part.
 
@@ -372,7 +372,7 @@ WITH
 ;
 ```
 
-However, the amount field is a calculated expression it isn't part of the source data.
+However, the amount field is a calculated expression; it isn't part of the source data.
 
 To create your partitioned dataset, you might want to use the following code:
 
