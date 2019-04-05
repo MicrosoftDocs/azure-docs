@@ -7,13 +7,14 @@ author: zchia
 writer: zchia
 manager: beatrizd-msft
 
-ms.assetid: na
+ms.assetid: a752be80-d3ef-45d1-ac8f-4fb814c07b07
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
 ---
 
@@ -30,39 +31,34 @@ The objective of this tutorial is to demonstrate the steps to be performed in Zs
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-*   An Azure AD tenant
-*   A Zscaler ZSCloud tenant
-*   A user account in Zscaler ZSCloud with Admin permissions
+* An Azure AD tenant
+* A Zscaler ZSCloud tenant
+* A user account in Zscaler ZSCloud with Admin permissions
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the Zscaler ZSCloud SCIM API, which is available to Zscaler ZSCloud developers for accounts with the Enterprise package.
 
 ## Adding Zscaler ZSCloud from the gallery
+
 Before configuring Zscaler ZSCloud for automatic user provisioning with Azure AD, you need to add Zscaler ZSCloud from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Zscaler ZSCloud from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications** > **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications Section][2]
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add Zscaler ZSCloud, click the **New application** button on the top of the dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Zscaler ZSCloud**.
+4. In the search box, type **Zscaler ZSCloud**, select **Zscaler ZSCloud** from result panel then click **Add** button to add the application.
 
-	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/appsearch.png)
-
-5. In the results panel, select **Zscaler ZSCloud**, and then click the **Add** button to add Zscaler ZSCloud to your list of SaaS applications.
-
-	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/appsearchresults.png)
-
-	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/appcreation.png)
+	![Zscaler ZSCloud in the results list](common/search-new-app.png)
 
 ## Assigning users to Zscaler ZSCloud
 
@@ -70,13 +66,13 @@ Azure Active Directory uses a concept called "assignments" to determine which us
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler ZSCloud. Once decided, you can assign these users and/or groups to Zscaler ZSCloud by following the instructions here:
 
-*   [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### Important tips for assigning users to Zscaler ZSCloud
 
-*	It is recommended that a single Azure AD user is assigned to Zscaler ZSCloud to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It is recommended that a single Azure AD user is assigned to Zscaler ZSCloud to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
-*	When assigning a user to Zscaler ZSCloud, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When assigning a user to Zscaler ZSCloud, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
 ## Configuring automatic user provisioning to Zscaler ZSCloud
 
@@ -87,11 +83,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Zscaler ZSCloud in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Zscaler ZSCloud**.
 
-2. Select Zscaler ZSCloud from your list of SaaS applications.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/appinstancesearch.png)
+2. In the applications list, select **Zscaler ZSCloud**.
+
+	![The Zscaler ZSCloud link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 
@@ -103,20 +101,20 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, input the **Tenant URL** and **Secret Token** of your Zscaler ZSCloud account as described in Step 6.
 
-6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler ZSCloud portal user interface and click on **SAML** under **Authentication Type**. 
+6. To obtain the **Tenant URL** and **Secret Token**, navigate to **Administration > Authentication Settings** in the Zscaler ZSCloud portal user interface and click on **SAML** under **Authentication Type**.
 
 	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
-	Click on **Configure SAML** to open **Configuration SAML** options. 
+	Click on **Configure SAML** to open **Configuration SAML** options.
 
 	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
-	
+
 	Select **Enable SCIM-Based Provisioning** to retrieve **Base URL** and **Bearer Token**, then save the settings. Copy the **Base URL** to **Tenant URL** and **Bearer Token**  to **Secret Token** in the Azure portal.
 
 7. Upon populating the fields shown in Step 5, click **Test Connection** to ensure Azure AD can connect to Zscaler ZSCloud. If the connection fails, ensure your Zscaler ZSCloud account has Admin permissions and try again.
 
 	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/testconnection.png)
-	
+
 8. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox **Send an email notification when a failure occurs**.
 
 	![Zscaler ZSCloud Provisioning](./media/zscaler-zscloud-provisioning-tutorial/Notification.png)

@@ -153,6 +153,9 @@ The following are post-installation known issues for this build version.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to sign in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
+- Azure Stack now supports Windows Azure Linux agents greater than version 2.2.20. This support was a part of 1901 and 1902 hotfix and allows customers to maintain consistent linux images between Azure and Azure Stack.
+
+
 - If you do not have a Hardware Lifecycle Host (HLH): before build 1902, you had to set group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you won't be able to establish a PowerShell remote session and you will see an **Access is denied** error:
 
    ```shell
