@@ -42,8 +42,8 @@ To configure Azure AD integration with 10,000ft Plans, you need the following it
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* 10,000ft Plans supports **SP** initiated SSO
-* 10,000ft Plans supports **Just In Time** user provisioning
+* 10,000ft Plans support **SP** initiated SSO
+* 10,000ft Plans support **Just In Time** user provisioning
 
 ## Adding 10,000ft Plans from the gallery
 
@@ -75,10 +75,10 @@ For single sign-on to work, a link relationship between an Azure AD user and the
 To configure and test Azure AD single sign-on with 10,000ft Plans, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure 10,000ft Plans Single Sign-On](#configure-10,000ft-plans-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure 10,000ft Plans Single Sign-On](#configure-10000ft-plans-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create 10,000ft Plans test user](#create-10,000ft-plans-test-user)** - to have a counterpart of Britta Simon in 10,000ft Plans that is linked to the Azure AD representation of user.
+5. **[Create 10,000ft Plans test user](#create-10000ft-plans-test-user)** - to have a counterpart of Britta Simon in 10,000ft Plans that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -146,9 +146,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
+    b. In the **User name** field, type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -174,11 +174,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+7. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create 10,000ft Plans test user
 
