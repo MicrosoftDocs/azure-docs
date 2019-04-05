@@ -19,12 +19,14 @@ ms.author: wieastbu
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
 
-This scenario shows you how to configure your Azure API Management instance to protect an API. We will use the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service, and Azure API management to secure a backend Azure Function. 
+This scenario shows you how to configure your Azure API Management instance to protect an API. We'll use the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service, and Azure API management to secure a backend Azure Function. 
 
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
 
-The basic premise is that we have an app retrieving data from an API, signing in via AAD B2C and then protected with API Management which is validating the JWT in flight. For defense in depth we then use EasyAuth to validate the token again inside the back-end API.
+The basic premise is that we have an app calling an API, signing in users via AAD B2C, the API is protected with API Management which is validating the JWT in flight. 
+
+For defense in depth, we then use EasyAuth to validate the token again inside the back-end API.
 
 ## Prerequisites
 To follow the steps in this article, you must have:
@@ -166,7 +168,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 1. Two extra areas in the function app need to be configured (Auth and Network Restrictions).
 2. Firstly Let's configure Authentication / Authorization, so click on the name of the function app (next to the <Z> icon to show the overview page.
 3. Next Select the 'Platform features' tab and select 'Authentication / Authorization'.
-4. Turn on the App Service Authentication feature, but leave anonymous requests allowed (We’ll block them, but don’t want random redirects interfering with debugging at the moment)
+4. Turn on the App Service Authentication feature.
 5. Under 'Authentication Providers' choose ‘Azure Active Directory’, and choose ‘Advanced’ from the Management Mode switch.
 6. Paste the BACKEND API's application ID (from AAD B2C into the ‘Client ID’ box)
 7. Paste the Well-known open-id configuration from the signup/signin policy into the Issuer URL box (we recorded this configuration earlier).
@@ -177,8 +179,8 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 
 8. Close the 'Authentication / Authorization' blade 
 9. Select 'Networking' and then select 'IP Restrictions'
-10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP (Found on the API management overview page in the portal) and if you want to interact with the functions portal, you'll need to add your public IP address / range here too.
-11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, but you will have to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32
+10. We need to lock down the IP ranges of the allowed callers to the function app to be the IP Address of the API Management instance VIP (Found on the API management overview page in the portal) and if you want to interact with the functions portal, you can add your public IP address or CIDR range here too.
+11. Once there’s an allow entry in the list, Azure adds an implicit deny rule to block all other addresses, but you'll need to add CIDR blocks of addresses to the IP restrictions panel, so if you need to add a single address (such as the API Management VIP), you need to add it in the format xx.xx.xx.xx/32.
 
 > [!NOTE]
 > Now your Function API should not be callable from anywhere other than via API management, or your address.
@@ -217,8 +219,8 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 
 # Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
-2. In the inbound section after <base/>, paste the following (but edit the url to match your well known B2C endpoint for the 
-sign in and sign up policy, and edit the claim value to match the valid application ID (or client ID) for the BACKEND API APPLICATION).
+2. In the inbound section after <base/>, paste the following xml, but edit the url to match your well known B2C endpoint for the 
+sign in and sign up policy, and edit the claim value to match the valid application ID (or client ID) for the BACKEND API APPLICATION.
 
 ```xml
        <validate-jwt header-name="Authorization" failed-validation-httpcode="401" failed-validation-error-message="Unauthorized. Access token is missing or invalid.">
@@ -252,11 +254,10 @@ sign in and sign up policy, and edit the claim value to match the valid applicat
 > The following section does not apply to the **Consumption** tier, which does not support the developer portal.
 
 ## Test the API from the API Management Developer Portal
-1. From the overview blade of the API Management section of the Azure portal, click 'Developer Portal'
-2. 
-be automatically signed into the developer portal as an administrator of the API, where you and other selected consumers of your API can test and call them without needing to build client software.
+1. From the overview blade of the API Management section of the Azure portal, click 'Developer Portal' to be signed into the developer portal as an administrator of the API,
+2. Here, you and other selected consumers of your API can test and call them from a console.
 3. Select ‘Products’, then choose ‘Unlimited’, then choose the API we created earlier and click ‘TRY IT’
-4. Unhide the API subscription key, and copy it somewhere safe along with the request url, you'll need it later when we configure the application, 
+4. Unhide the API subscription key, and copy it somewhere safe along with the request url that you will need later.
 5. Also select Implicit, from the oauth auth dropdown and you may have to authenticate here with a popup.
 6. Click ‘Send’ and if all is well, your Function App should respond back with a hello message via API management with a 200 OK message and some JSON.
 
@@ -339,7 +340,7 @@ string json = "Hello API Management";
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
 2. Click “Login” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
-3. Post login the ‘logged in as’ section of the screen will be populated based on values returned in your token.
+3. Post log in the ‘logged in as’ section of the screen will be populated based on values returned in your token.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
 
