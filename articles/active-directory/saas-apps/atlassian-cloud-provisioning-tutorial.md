@@ -38,31 +38,31 @@ The scenario outlined in this tutorial assumes that you already have the followi
 > [!NOTE]
 > The Azure AD provisioning integration relies on the **Atlassian Cloud SCIM API**, which is available to Atlassian Cloud teams.
 
-## Adding Atlassian Cloud from the gallery
+## Add Atlassian Cloud from the gallery
 
 Before configuring Atlassian Cloud for automatic user provisioning with Azure AD, you need to add Atlassian Cloud from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Atlassian Cloud from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, in the left navigation panel, select **Azure Active Directory**.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+2. Under **Enterprise Applications**, and select **All applications**.
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, select the **New application** button at the top of the pane.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Atlassian Cloud**, select **Atlassian Cloud** from result panel then click **Add** button to add the application.
+4. In the search box, enter **Atlassian Cloud**, select **Atlassian Cloud** in the results panel, and then click the **Add** button to add the application.
 
 	![Atlassian Cloud in the results list](common/search-new-app.png)
 
 ## Assigning users to Atlassian Cloud
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
+Azure Active Directory uses a concept called *assignments* to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Atlassian Cloud. Once decided, you can assign these users and/or groups to Atlassian Cloud by following the instructions here:
 
