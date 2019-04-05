@@ -178,10 +178,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Innotas test user
 
-There is no action item for you to configure user provisioning to Innotas. When an assigned user tries to sign in to Innotas using the access panel, Innotas checks whether the user exists.  
-
-> [!NOTE]
-> If there is no user account available yet, it is automatically created by Innotas.
+There is no action item for you to configure user provisioning to Innotas. When an assigned user tries to sign in to Innotas using the access panel, Innotas checks whether the user exists. If there is no user account available yet, it is automatically created by Innotas.
 
 ### Test single sign-on
 
