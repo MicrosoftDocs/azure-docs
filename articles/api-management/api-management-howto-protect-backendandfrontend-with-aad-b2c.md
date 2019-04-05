@@ -4,7 +4,7 @@ description: Protect an API with OAuth 2.0 by using AAD B2C, API Management, and
 
 services: api-management, aad-b2c, app-service
 documentationcenter: ''
-author: wieastbu
+author: WillEastbury
 manager: karldb
 editor: ''	
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2019
-ms.author: WillEastbury
+ms.author: wieastbu
 ---
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
@@ -195,14 +195,14 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 5. Give the api a sensible set of names and descriptions and add it to the ‘unlimited’ Product.
 6. Make sure you record the base URL for later use and then click create.
 
-# Set up Oauth2 for the API Management API configuration
+## Set up Oauth2 for the API Management API configuration
 1. Your API will appear on the left-hand side of the portal under the 'All APIs' section, open your API by clicking on it.
 2. Select the 'Settings' Tab.
 3. Update your settings by selecting “Oauth 2.0” from the user authorization radio button.
 4. Select the OAuth server that you defined earlier.
 5. Check the ‘Override scope’ checkbox and enter the scope you recorded for the BACKEND API call earlier on.
 
-# Configure the redirect URIs for the Application Registrations in B2C
+## Configure the redirect URIs for the Application Registrations in B2C
 1. Open the AAD B2C blade and navigate to the application registration for the Developer Portal
 2. Set the 'Reply URL' entry to the one you noted down when you configured the redirect_uri of the auth code grant in API Management earlier.
 
@@ -219,7 +219,7 @@ Now that the OAuth 2.0 user authorization is enabled on the `Echo API`, the Deve
 > [!NOTE]
 > Now API management is able to acquire tokens for the developer portal to test your API and is able to understand it's definition and render the appropriate test page in the dev portal.
 
-# Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request.
+## Set up the **CORS** policy and add the **validate-jwt** policy to validate the OAuth token for every incoming request.
 1. Switch back to the design tab and choose “All Operations”, then click the code view button to show the policy editor.
 2. In the inbound section after <base/>, paste the following xml, but edit the url to match your well known B2C endpoint for the 
 sign in and sign up policy, and edit the claim value to match the valid application ID (or client ID) for the BACKEND API APPLICATION.
