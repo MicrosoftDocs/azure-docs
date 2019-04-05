@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs
+title: Azure SQL Database-Managed Instance T-SQL Differences | Microsoft Docs
 description: This article discusses the T-SQL differences between a Managed Instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
@@ -16,11 +16,7 @@ ms.date: 03/13/2019
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
-
-![migration](./media/sql-database-managed-instance/migration.png)
-
-Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
+This article summarizes and explains the differences in syntax and behavior between Azure SQL Database Managed Instance and on-premises SQL Server Database Engine. <a name="Differences"></a>
 
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
 - [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
@@ -28,6 +24,10 @@ Since there are still some differences in syntax and behavior, this article summ
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instances](#Changes)
 - [Temporary limitations and known issues](#Issues)
+
+The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
+
+![migration](./media/sql-database-managed-instance/migration.png)
 
 ## Availability
 
