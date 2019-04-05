@@ -156,7 +156,7 @@ Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryptio
 
 -  **Encrypt a running virtual machine scale set**
     ```azurecli-interactive
-    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault" --volume-type DATA
+    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault"
     ```
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**
