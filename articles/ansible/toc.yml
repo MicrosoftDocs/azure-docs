@@ -36,6 +36,10 @@
     items:
     - name: Create and configure Azure Application Gateway
       href: ./ansible-create-configure-application-gateway.md
+  - name: Azure Cache for Redis
+    items:
+    - name: Create and configure an Azure cache
+      href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Databases
     items:
     - name: Create and configure Azure DB for MySQL
@@ -44,10 +48,6 @@
     items:
     - name: Manage dynamic inventories
       href: ./ansible-manage-azure-dynamic-inventories.md
-  - name: Redis cache
-    items:
-    - name: Configure Azure Cache for Redis
-      href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Virtual network
     items:
     - name: Create and configure route tables
