@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create an Azure virtual network peering using Ansible | Microsoft Docs
+title: Tutorial - Configure Azure virtual network peering using Ansible | Microsoft Docs
 description: Learn how to use Ansible to connect virtual networks with virtual network peering.
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, networking, peering
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Create an Azure virtual network peering using Ansible
+# Tutorial: Configure Azure virtual network peering using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
