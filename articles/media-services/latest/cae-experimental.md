@@ -16,7 +16,7 @@ ms.custom: ''
 
 ---
 
-# An experimental preset for content-aware encoding
+# Experimental preset for content-aware encoding
 
 In order to prepare content for delivery by [adaptive bitrate streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), video needs to be encoded at multiple bit-rates (high to low). In order to ensure graceful degradation of quality, as the bitrate is lowered so is the resolution of the video. This results in a so-called encoding ladder – a table of resolutions and bitrates, as you can see in some of our fixed encoding presets, such as [H264MultipleBitrate1080p](../previous/media-services-mes-preset-h264-multiple-bitrate-1080p.md).
 
@@ -66,6 +66,6 @@ TransformOutput[] output = new TransformOutput[]
 };
 ```
 
-# Next steps
+## Next steps
 
 Now that you have learned about this new option of optimizing your videos, we invite you to try it out. You can send us feedback using the links at the end of this article, or engage us more directly at <amsved@microsoft.com>.
