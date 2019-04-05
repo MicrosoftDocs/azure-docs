@@ -287,7 +287,7 @@ For more information, see the reference documentation:
 
 #### PersistedFace
 
-PersistedFace is a data structure in Face API. PersistedFace comes with a [PersistedFace ID](#Persisted-Face-ID), as well as other attributes such as Name, and User Data.
+PersistedFace is a data structure in Face API. PersistedFace comes with a [PersistedFace ID](#persisted-face-id), as well as other attributes such as Name, and User Data.
 
 For more information, see the reference documentation:
 [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3),

@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Ingest diagnostic and activity log data in Azure Data Explorer without one line of code'
 description: In this tutorial, you learn how to ingest data to Azure Data Explorer without one line of code and query that data.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
+ms.date: 03/14/2019
 
-#Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
+# Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
 ---
 
 # Tutorial: Ingest data in Azure Data Explorer without one line of code
