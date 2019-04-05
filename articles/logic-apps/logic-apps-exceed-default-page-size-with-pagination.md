@@ -14,23 +14,21 @@ ms.date: 04/04/2019
 # Get bulk data, items, or records with pagination in Azure Logic Apps
 
 When you get data, items, or records by using a connector action in 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md), sometimes 
-you get result sets so large that the action doesn't return all the 
-results at the same time. With some connector actions, the number of 
-results that you get exceed connector's default page size. In this case, 
-the action returns only the first page of results. For example, the default 
-page size limit for the SQL Server connector's **Get rows** action is 2048, 
-though this limit can vary based on other settings. In this example, 
-the action returns only the first page of results, or 2048 records.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md), you might get 
+result sets so large that the action doesn't return all the results at 
+the same time. With some actions, the number of results might exceed the 
+connector's default page size. In this case, the action returns only the 
+first page of results. For example, the default page size for the SQL Server 
+connector's **Get rows** action is 2048, but might vary based on other settings.
 
 Some actions, such as the SQL Server **Get rows** action, support *pagination* 
-so that the action asks for the remaining results, but returns all those results 
-as a single message when the action finishes. When you use pagination, you also 
-specify a limit that sets the *minimum* number of results that the action returns. 
-The action retrieves results until the action gets *at least* the specified minimum 
-or the maximum number of results, whichever number is smaller. This behavior means 
-that you might sometimes get more than the minimum number of results that you specified. 
-For example, using the SQL Server **Get rows** action:
+so that your logic app can ask for the remaining results, but return all those 
+results as a single message when the action finishes. When you use pagination, 
+you also specify a limit for the *minimum number* of results that the action 
+returns. The action retrieves results until the action gets *at least* the 
+specified minimum or the maximum number of results, whichever number is smaller. 
+This behavior means that you might sometimes get more than the minimum number of 
+results that you specified. For example, using the SQL Server **Get rows** action:
 
 * The action's default page size limit is 2048 records per page.
 * Suppose you have 10,000 records and specify 5000 records as the minimum.
