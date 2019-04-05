@@ -1,6 +1,6 @@
 ---
-title: Advanced features of Metrics Explorer
-description: Learn about advanced features of Azure Monitor metrics explorer
+title: Advanced features of Azure Metrics Explorer
+description: Learn about advanced features of Azure Monitor Metrics Explorer
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -12,7 +12,7 @@ ms.subservice: metrics
 
 # Advanced features of Azure Metrics Explorer
 
-Metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
+Azure Monitor metrics explorer is a component of the Microsoft Azure portal that allows plotting charts, visually correlating trends, and investigating spikes and dips in metrics' values. Metrics explorer is an essential starting point for investigating various performance and availability issues with your applications and infrastructure hosted in Azure or monitored by Azure Monitor services.
 
 ## Metrics in Azure
 
