@@ -342,7 +342,7 @@ string json = "Hello API Management";
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
 2. Click “Login” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
-3. Post log in the ‘logged in as’ section of the screen will be populated based on values returned in your token.
+3. Post log in the ‘logged in as’ section of the screen will be populated from your JWT.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
 
