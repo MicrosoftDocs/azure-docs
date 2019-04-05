@@ -199,7 +199,7 @@ for the resource you want to call.
    In the **URI** box, enter the endpoint URL for that Azure service. 
    So, if you're using Azure Resource Manager, enter this value in the **URI** property:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. In the HTTP action, choose **Show advanced options**.
 
