@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Infinite Campus, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Infinite Campus single sign-on enabled subscription
 * At minimum, you need to be an Azure Active Directory administrator, and have a Campus Product Security Role of "Student Information System (SIS)" to complete the configuration.
 
