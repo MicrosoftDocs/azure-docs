@@ -38,7 +38,7 @@
       href: ./ansible-create-configure-application-gateway.md
   - name: Azure Cache for Redis
     items:
-    - name: Create and configure an Azure cache
+    - name: Create and configure a cache
       href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Databases
     items:
