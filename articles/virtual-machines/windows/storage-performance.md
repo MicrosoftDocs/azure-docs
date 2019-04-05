@@ -85,17 +85,16 @@ At this time, they are available only in four regions (East US, East US 2, West 
 3.	Will a single NVMe disk failure cause all VMs on the host to fail?
 Today, if a disk failure is detected on the hardware node, the hardware is in a failed state.  When this occurs, all VMs on the node are automatically deallocated and moved to a healthy node.  In the case of Lsv2, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node.  As noted, before when Live Migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
 
-On Linux
 
-7.	Do I need to make any tweaks to rq_affinity for perf?
-The rq_affinity setting is a minor tweak when going for the absolute maximum IOPS.  Get everything else working well first, and then see if setting rq_affinity to 0 makes a difference.
 
-8.	Do I need to change the blk_mq settings?
-RHEL/CentOS 7.x automatically uses blk-mq for the NVMe devices.  No configuration changes or settings are necessary.  The scsi_mod.use_blk_mq setting is for SCSI only and was used during Lv2 Preview because the NVMe devices were visible in the guest VMs as SCSI devices.  But for Lv2 GA, the NVMe devices are visible as NVMe devices, so the SCSI blk-mq setting is irrelevant.
 
-9.	Do I need to change “fio”?
-To get maximum IOPS with a performance measuring tool like ‘fio’ in the L64v2 and L80v2 VM sizes, we recommend setting “rq_affinity” to 0 on each NVMe device.  For example, this command line will set “rq_affinity” to zero for all 10 NVMe devices in an L80v2 VM:
+On Windows
+4.	Do I need to make Polling adjustments in Windows in WS2012 or WS2016?
+NVMe Polling is only available on WS2019 on Azure.  
 
-# for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
-  
-Also note that the best performance is obtained when I/O is done directly to each of the raw NVMe devices with no partitioning, no file systems, no RAID 0 config, etc.   Before starting a testing session, ensure the configuration is in a known fresh/clean state by running blkdiscard on each of the NVMe devices.
+5.	Can I switch back to a traditional ISR model?
+Lsv2 has been optimized for NVMe Polling and updates will continue to be added throughout 2019 to continue to boost performance.
+
+6.	Can I tweak the Polling settings in WS2019?
+The polling settings are not user adjustable.
+
