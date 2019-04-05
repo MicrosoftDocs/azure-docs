@@ -76,14 +76,14 @@ Data expressions provide access to the property data in a feature.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['at', number, array\] | object | Retrieves an item from an array. |
-| \['geometry-type'\] | string | Gets the feature's geometry type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| \['get', string\] | value | Gets the property value from the current feature's properties. Returns null if the requested property is missing. |
-| \['get', string, object\] | value | Gets the property value from the properties of the provided object. Returns null if the requested property is missing. |
-| \['has', string\] | boolean | Determines if the properties of a feature have the specified property. |
-| \['has', string, object\] | boolean | Determines if the properties of the object have the specified property. |
-| \['id'\] | value | Gets the feature's ID if it has one. |
-| `['length', string \| array]` | number | Gets the length of a string or array. |
+| `['at', number, array]` | object | Retrieves an item from an array. |
+| `['geometry-type']` | string | Gets the feature's geometry type: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
+| `['get', string]` | value | Gets the property value from the current feature's properties. Returns null if the requested property is missing. |
+| `['get', string, object]` | value | Gets the property value from the properties of the provided object. Returns null if the requested property is missing. |
+| `['has', string]` | boolean | Determines if the properties of a feature have the specified property. |
+| `['has', string, object]` | boolean | Determines if the properties of the object have the specified property. |
+| `['id']` | value | Gets the feature's ID if it has one. |
+| `['length', string | array]` | number | Gets the length of a string or array. |
 
 **Examples**
 
@@ -134,33 +134,32 @@ Math expressions provide mathematical operators to perform data-driven calculati
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['+', number, number, …\] | number | Calculates the sum of the specified numbers. |
-| \['-', number\] | number | Subtracts 0 by the specified number. |
-| \['-', number, number\] | number | Subtracts the first numbers by the second number. |
-| \['\*', number, number, …\] | number | Multiplies the specified numbers together. |
-| \['/', number, number\] | number | Divides the first number by the second number. |
-| \['%', number, number\] | number | Calculates the remainder when dividing the first number by the second number. |
-| \['^', number, number\] | number | Calculates the value of the first value raised to the power of the second number. |
-| \['abs', number\] | number | Calculates the absolute value of the specified number. |
-| \['acos', number\] | number | Calculates the arccosine of the specified number. |
-| \['asin', number\] | number | Calculates the arcsine of the specified number. |
-| \['atan', number\] | number | Calculates the arctangent of the specified number. |
-| \['ceil', number\] | number | Rounds the number up to the next whole integer. |
-| \['cos', number\] | number | Calculates the cos of the specified number. |
-| \['e'\] | number | Returns the mathematical constant `e`. |
-| \['floor', number\] | number | Rounds the number down to the previous whole integer. |
-| \['ln', number\] | number | Calculates the natural logarithm of the specified number. |
-| \['ln2'\] | number | Returns the mathematical constant `ln(2)`. |
-| \['log10', number\] | number | Calculates the base-ten logarithm of the specified number. |
-| \['log2', number\] | number | Calculates the base-two logarithm of the specified number. |
-| \['max', number, number, …\] | number | Calculates the maximum number in the specified set of numbers. |
-| \['min', number, number, …\] | number | Calculates the minimum number in the specified set of numbers. |
-| \['pi'\] | number | Returns the mathematical constant `PI`. |
-| \['round', number\] | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to -2. |
-| \['sin', number\] | number | Calculates the sine of the specified number. |
-| \['sqrt', number\] | number | Calculates the square root of the specified number. |
-| \['tan', number\] | number | Calculates the tangent of the specified number. |
-
+| `['+', number, number, …]` | number | Calculates the sum of the specified numbers. |
+| `['-', number]` | number | Subtracts 0 by the specified number. |
+| `['-', number, number]` | number | Subtracts the first numbers by the second number. |
+| `['\*', number, number, …]` | number | Multiplies the specified numbers together. |
+| `['/', number, number]` | number | Divides the first number by the second number. |
+| `['%', number, number]` | number | Calculates the remainder when dividing the first number by the second number. |
+| `['^', number, number]` | number | Calculates the value of the first value raised to the power of the second number. |
+| `['abs', number]` | number | Calculates the absolute value of the specified number. |
+| `['acos', number]` | number | Calculates the arccosine of the specified number. |
+| `['asin', number]` | number | Calculates the arcsine of the specified number. |
+| `['atan', number]` | number | Calculates the arctangent of the specified number. |
+| `['ceil', number]` | number | Rounds the number up to the next whole integer. |
+| `['cos', number]` | number | Calculates the cos of the specified number. |
+| `['e']` | number | Returns the mathematical constant `e`. |
+| `['floor', number]` | number | Rounds the number down to the previous whole integer. |
+| `['ln', number]` | number | Calculates the natural logarithm of the specified number. |
+| `['ln2']` | number | Returns the mathematical constant `ln(2)`. |
+| `['log10', number]` | number | Calculates the base-ten logarithm of the specified number. |
+| `['log2', number]` | number | Calculates the base-two logarithm of the specified number. |
+| `['max', number, number, …]` | number | Calculates the maximum number in the specified set of numbers. |
+| `['min', number, number, …]` | number | Calculates the minimum number in the specified set of numbers. |
+| `['pi']` | number | Returns the mathematical constant `PI`. |
+| `['round', number]` | number | Rounds the number to the nearest integer. Halfway values are rounded away from zero. For example, `['round', -1.5]` evaluates to -2. |
+| `['sin', number]` | number | Calculates the sine of the specified number. |
+| `['sqrt', number]` | number | Calculates the square root of the specified number. |
+| `['tan', number]` | number | Calculates the tangent of the specified number. |
 ## Boolean expressions
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
@@ -169,15 +168,15 @@ When comparing values, the comparison is strictly typed. Values of different typ
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['! ', boolean\] | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
-| \['!= ', value, value\] | boolean | Returns `true` if the input values are not equal, `false` otherwise. |
-| \['\<', value, value\] | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| \['\<=', value, value\] | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| \['==', value, value\] | boolean | Returns `true` if the input values are equal, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| \['\>', value, value\] | boolean | Returns `true` if the first input is strictly greater than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| \['\>=' value, value\] | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
-| \['all', boolean, boolean, …\] | boolean | Returns `true` if all the inputs are `true`, `false` otherwise. |
-| \['any', boolean, boolean, …\] | boolean | Returns `true` if any of the inputs are `true`, `false` otherwise. |
+| `['! ', boolean]` | boolean | Logical negation. Returns `true` if the input is `false`, and `false` if the input is `true`. |
+| `['!= ', value, value]` | boolean | Returns `true` if the input values are not equal, `false` otherwise. |
+| `['\<', value, value]` | boolean | Returns `true` if the first input is strictly less than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['\<=', value, value]` | boolean | Returns `true` if the first input is less than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['==', value, value]` | boolean | Returns `true` if the input values are equal, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['\>', value, value]` | boolean | Returns `true` if the first input is strictly greater than the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['\>=' value, value]` | boolean | Returns `true` if the first input is greater than or equal to the second, `false` otherwise. The arguments are required to be either both strings or both numbers. |
+| `['all', boolean, boolean, …]` | boolean | Returns `true` if all the inputs are `true`, `false` otherwise. |
+| `['any', boolean, boolean, …]` | boolean | Returns `true` if any of the inputs are `true`, `false` otherwise. |
 
 ## Conditional expressions
 
@@ -236,7 +235,7 @@ The following pseudocode defines the structure of the `match` expression.
 [
     'match',
     input: number | string,
-	label1: number | string | (number | string)[], 
+    label1: number | string | (number | string)[], 
     output1: value,
     label2: number | string | (number | string)[], 
     output2: value,
@@ -332,12 +331,12 @@ Type expressions provide tools for testing and converting different data types l
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['literal', array\]<br/><br/>\['literal', object\] | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
-| \['to-boolean', value\] | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
-| \['to-color', value\]<br/><br/>\['to-color', value1, value2…\] | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| \['to-number', value\]<br/><br/>\['to-number', value1, value2, …\] | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
-| \['to-string', value\] | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it's converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, it's converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
-| \['typeof', value\] | string | Returns a string describing the type of the given value. |
+| `['literal', array]`<br/><br/>`['literal', object]` | array \| object | Returns a literal array or object value. Use this expression to prevent an array or object from being evaluated as an expression. This is necessary when an array or object needs to be returned by an expression. |
+| `['to-boolean', value]` | boolean | Converts the input value to a boolean. The result is `false` when the input is an empty string, `0`, `false`, `null`, or `NaN`; otherwise its `true`. |
+| `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converts the input value to a color. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Converts the input value to a number, if possible. If the input is `null` or `false`, the result is 0. If the input is `true`, the result is 1. If the input is a string, it's converted to a number using the [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) string function of the ECMAScript Language Specification. If multiple values are provided, each one is evaluated in order until the first successful conversion is obtained. If none of the inputs can be converted, the expression is an error. |
+| `['to-string', value]` | string | Converts the input value to a string. If the input is `null`, the result is `""`. If the input is a boolean, the result is `"true"` or `"false"`. If the input is a number, it's converted to a string using the [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) number function of the ECMAScript Language Specification. If the input is a color, it's converted to CSS RGBA color string `"rgba(r,g,b,a)"`. Otherwise, the input is converted to a string using the [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) function of the ECMAScript Language Specification. |
+| `['typeof', value]` | string | Returns a string describing the type of the given value. |
 
 > [!TIP]
 > If an error message similar to `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` appears in the browser console it means that there is an expression somewhere in your code that has an array that doesn’t have a string for its first value. If you want the expression to return an array, wrap the array with the `literal` expression. The following example sets the icon `offset` option of a symbol layer, which needs to be an array containing two numbers, by using a `match` expression to choose between two offset values based on the value of the  `entityType` property of the point feature.
@@ -367,9 +366,9 @@ Color expressions make it easier to create and manipulate color values.
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['rgb', number, number, number\] | color | Creates a color value from *red*, *green*, and *blue* components that must range between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
-| \['rgba', number, number, number, number\] | color | Creates a color value from *red*, *green*, *blue* components that must range between `0` and `255`, and an alpha component within a range of `0` and `1`. If any component is out of range, the expression is an error. |
-| \['to-rgba'\] | \[number, number, number, number\] | Returns a four-element array containing the input color's *red*, *green*, *blue*, and *alpha* components, in that order. |
+| `['rgb', number, number, number]` | color | Creates a color value from *red*, *green*, and *blue* components that must range between `0` and `255`, and an alpha component of `1`. If any component is out of range, the expression is an error. |
+| `['rgba', number, number, number, number]` | color | Creates a color value from *red*, *green*, *blue* components that must range between `0` and `255`, and an alpha component within a range of `0` and `1`. If any component is out of range, the expression is an error. |
+| `['to-rgba']` | \[number, number, number, number\] | Returns a four-element array containing the input color's *red*, *green*, *blue*, and *alpha* components, in that order. |
 
 **Example**
 
@@ -395,9 +394,9 @@ String operator expressions perform conversion operations on strings such as con
 
 | Expression | Return type | Description |
 |------------|-------------|-------------|
-| \['concat', string, string, …\] | string | Concatenates multiple strings together. Each value must be a string. Use the `to-string` type expression to convert other value types to string if needed. |
-| \['downcase', string\] | string | Converts the specified string to lowercase. |
-| \['upcase', string\] | string | Converts the specified string to uppercase. |
+| `['concat', string, string, …]` | string | Concatenates multiple strings together. Each value must be a string. Use the `to-string` type expression to convert other value types to string if needed. |
+| `['downcase', string]` | string | Converts the specified string to lowercase. |
+| `['upcase', string]` | string | Converts the specified string to uppercase. |
 
 **Example**
 
@@ -750,7 +749,7 @@ Variable binding expressions store the results of a calculation in a variable so
 | Expression | Return type | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Stores one or more values as variables for use by the `var` expression in the child expression that returns the result. |
-| \['var', name: string\] | any | References a variable that was created using the `let` expression. |
+| `['var', name: string]` | any | References a variable that was created using the `let` expression. |
 
 **Example**
 
