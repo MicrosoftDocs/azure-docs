@@ -147,14 +147,14 @@ The PowerShell snippets in this section are built with the following assumptions
 
 The subscription admin assigns the `key vault Contributor` and `User Access Administrator` roles to the security team. These roles allow the security team to manage access to other resources and key vaults, both of which in the **ContosoAppRG** resource group.
 
-```PowerShell
+```powershell
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "key vault Contributor" -ResourceGroupName ContosoAppRG
 New-AzRoleAssignment -ObjectId (Get-AzADGroup -SearchString 'Contoso Security Team')[0].Id -RoleDefinitionName "User Access Administrator" -ResourceGroupName ContosoAppRG
 ```
 
 The security team creates a key vault and sets up logging and access permissions. For details about Key Vault access policy permissions, see [About Azure Key Vault keys, secrets, and certificates](about-keys-secrets-and-certificates.md).
 
-```PowerShell
+```powershell
 # Create a key vault and enable logging
 $sa = Get-AzStorageAccount -ResourceGroup ContosoAppRG -Name contosologstorage
 $kv = New-AzKeyVault -Name ContosoKeyVault -ResourceGroup ContosoAppRG -SKU premium -Location 'westus' -EnabledForDeployment

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -72,10 +72,10 @@ To use application permissions in your app, follow the steps discussed in the ne
 
 #### Request the permissions in the app registration portal
 
-1. Register and create an app through the [Application Registration portal](quickstart-v2-register-an-app.md) or the new [App registrations (Preview) experience](quickstart-register-app.md).
-1. Go to your application in the portal that you used to register or create your app. You'll need to use at least one application secret when you create your app.
-1. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
-1. **Save** the app registration.
+1. Register and create an app through the new [App registrations (Preview) experience](quickstart-register-app.md).
+2. Go to your application in the App registrations (Preview) experience. Navigate to the **Certificates & secrets** section, and add a **new client secret**, because you'll need to use at least one client secret to request a token.
+3. Locate the **API permissions** section, and then add the **application permissions** that your app requires.
+4. **Save** the app registration.
 
 #### Recommended: Sign the user in to your app
 
@@ -168,7 +168,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Required | The directory tenant the application plans to operate against, in GUID or domain-name format. |
 | `client_id` | Required | The application ID that's assigned to your app. You can find this information in the portal where you registered your app. |
 | `scope` | Required | The value passed for the `scope` parameter in this request should be the resource identifier (application ID URI) of the resource you want, affixed with the `.default` suffix. For the Microsoft Graph example, the value is `https://graph.microsoft.com/.default`. </br>This value tells the v2.0 endpoint that of all the direct application permissions you have configured for your app, the endpoint should issue a token for the ones associated with the resource you want to use. To learn more about the `/.default` scope, see the [consent documentation](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Required | The application secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
+| `client_secret` | Required | The client secret that you generated for your app in the app registration portal. The client secret must be URL-encoded before being sent. |
 | `grant_type` | Required | Must be set to `client_credentials`. |
 
 ### Second case: Access token request with a certificate

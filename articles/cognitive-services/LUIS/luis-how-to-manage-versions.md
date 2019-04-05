@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/29/2019
 ms.author: diberry
 ---
 
@@ -51,6 +51,10 @@ Select a version from the list, then select **Make Active** from the toolbar.
     ![Manage section, versions page, importing new version](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
     Once you import a version, the new version becomes the active version.
+
+### Import errors
+
+* Tokenizer errors: If you get a **tokenizer error** when importing, you are trying to import a version that uses a different [tokenizer](luis-language-support.md#custom-tokenizer-versions) than the app currently uses. To fix this, see [Migrating between tokenizer versions](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 

@@ -165,7 +165,6 @@ If you chose to write audit logs to an Azure storage account, there are several 
   - After downloading several files or a subfolder that contains log files, you can merge them locally as described in the SSMS Merge Audit Files instructions described previously.
   - View blob auditing logs programmatically:
 
-    - Use the [Extended Events Reader](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/) C# library.
     - [Query Extended Events Files](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) by using PowerShell.
 
 ## <a id="subheading-5"></a>Production practices
@@ -253,8 +252,11 @@ Extended policy with WHERE clause support for additional filtering:
 You can manage Azure SQL database auditing using [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) templates, as shown in these examples:
 
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure Blob storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Azure Monitor logs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
 - [Deploy an Azure SQL Server with Auditing enabled to write audit logs to Event Hubs](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+
+> [!NOTE]
+> The linked samples are on an external public repository and are provided 'as is', without warranty, and are not supported under any Microsoft support program/service.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

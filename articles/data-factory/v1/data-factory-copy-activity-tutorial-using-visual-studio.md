@@ -333,19 +333,19 @@ Note the following points:
   
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
 
-	```PowerShell    
+	```powershell    
 	Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 	You can run the following command to confirm that the Data Factory provider is registered. 
     
-	```PowerShell
+	```powershell
 	Get-AzResourceProvider
     ```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 * The name of the data factory may be registered as a DNS name in the future and hence become publicly visible.
 
 > [!IMPORTANT]
-> To create Data Factory instances, you need to be a admin/co-admin of the Azure subscription
+> To create Data Factory instances, you need to be an admin/co-admin of the Azure subscription
 
 ## Monitor pipeline
 Navigate to the home page for your data factory:

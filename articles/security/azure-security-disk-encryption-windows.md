@@ -148,7 +148,7 @@ The following table lists the Resource Manager template parameters for existing 
 
 ### Encrypt virtual machine scale sets with Azure PowerShell
 
-Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, VM, and key vault should have already been created as prerequisites.
+Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-azvmssdiskencryptionextension) cmdlet to enable encryption on a Windows virtual machine scale set. The resource group, virtual machine scale set, and key vault should have already been created as prerequisites.
 
 -  **Encrypt a running virtual machine scale set**:
     ```azurepowershell
@@ -159,7 +159,7 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
      $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
-     Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGame -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
 
 
 -  **Encrypt a running virtual machine scale set using KEK to wrap the key**:
@@ -174,7 +174,7 @@ Use the [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-az
      $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
      $KeyVaultResourceId = $KeyVault.ResourceId;
      $KeyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-     Set-AzRmVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGame -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+     Set-AzRmVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
     ```
 
    >[!NOTE]
@@ -197,7 +197,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ### Encrypt virtual machine scale sets with Azure CLI
 
-Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) to enable encryption on a Windows virtual machine scale set. If you set the upgrade policy on the scale set to manual, start the encryption with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The resource group, VM, and key vault should have already been created as prerequisites.
+Use the [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-enable) to enable encryption on a Windows virtual machine scale set. If you set the upgrade policy on the scale set to manual, start the encryption with [az vmss update-instances](/cli/azure/vmss#az-vmss-update-instances). The resource group, virtual machine scale set, and key vault should have already been created as prerequisites.
 
 -  **Encrypt a running virtual machine scale set**
     ```azurecli-interactive

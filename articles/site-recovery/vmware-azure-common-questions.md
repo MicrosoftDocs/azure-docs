@@ -13,7 +13,6 @@ ms.author: raynew
 
 This article provides answers to common questions we see when deploying disaster recovery of on-premises VMware VMs to Azure. If you have questions after reading this article, post them on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
-
 ## General
 ### How is Site Recovery priced?
 Review [Azure Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
@@ -51,12 +50,12 @@ Managed disks are charged slightly different than storage accounts. Please see e
 
 * Standard storage account Vs. Standard HDD Managed Disk
 
-    - **Provisioned storage disk by ASR**: S10
+    - **Provisioned storage disk by Azure Site Recovery**: S10
     - **Standard storage account charged on consumed volume**: $5 per month
     - **Standard managed disk charged on provisioned volume**: $5.89 per month
 
 * Premium storage account Vs. Premium SSD Managed Disk 
-    - **Provisioned storage disk by ASR**: P10
+    - **Provisioned storage disk by Azure Site Recovery**: P10
     - **Premium storage account charged on provisioned volume**: $17.92 per month
     - **Premium managed disk charged on provisioned volume**: $17.92 per month
 
@@ -198,7 +197,7 @@ Yes, you can add new VMs to an existing replication group when you enable replic
 For VMware replication to Azure you can modify disk size. If you want to add new disks you need to add the disk and reenable protection for the VM.
 
 ### Can I migrate on premises machines to a new Vcenter without impacting ongoing replication?
-No, change of Vcenter or migration will impact ongoing replication. You need to set up ASR with the new Vcenter and enable replication for machines.
+No, change of Vcenter or migration will impact ongoing replication. You need to set up Azure Site Recovery with the new Vcenter and enable replication for machines.
 
 ### Can I replicate to cache/target storage account which has a Vnet (with Azure storage firewalls) configured on it?
 No, Azure Site Recovery does not support replication to Storage on Vnet.
@@ -270,7 +269,7 @@ In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure*
 The installers are held in the **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** folder on the configuration server.
 
 ## How do I install the Mobility service?
-You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md), or [manual installation](vmware-physical-mobility-service-install-manual.md) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+You install on each VM you want to replicate, using a [push installation](vmware-physical-mobility-service-overview.md#push-installation), or [manual installation](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
@@ -318,7 +317,7 @@ After failover, you can access Azure VMs over a secure Internet connection, over
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/az.recoveryservices) to trigger a failover.
 
 ### Can I fail back to a different location?
 Yes, if you failed over to Azure, you can fail back to a different location if the original one isn't available. [Learn more](concepts-types-of-failback.md#alternate-location-recovery-alr).

@@ -33,7 +33,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 Before you start, it's helpful to review the [VMware](vmware-azure-architecture.md) or [Hyper-V](hyper-v-azure-architecture.md) architectures for disaster recovery.
 
 > [!TIP]
-> Looking for an agentless way to migrate VMware VMs to Azure? [Click here](https://aka.ms/migrateVMs-signup)
+> Want to participate in our new agentless experience for migrating VMware VMs to Azure? [Find out more](https://aka.ms/migrateVMs-signup).
 
 ## Prerequisites
 
@@ -125,7 +125,7 @@ In some scenarios, failover requires additional processing that takes around eig
 
 After machines are migrated to Azure, there are a number of steps you should complete.
 
-Some steps can be automated as part of the migration process using the in-built automation scripts capability in [recovery plans]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+Some steps can be automated as part of the migration process using the in-built automation scripts capability in [recovery plans](site-recovery-runbook-automation.md)   
 
 
 ### Post-migration steps in Azure
@@ -136,7 +136,7 @@ Some steps can be automated as part of the migration process using the in-built 
     - If you're migrating VMware machines and physical servers, the Mobility Service installer installs available Azure VM agent on Windows machines. On Linux VMs, we recommend that you install the agent after failover.
     - If you’re migrating Azure VMs to a secondary region, the Azure VM agent must be provisioned on the VM before the migration.
     - If you’re migrating Hyper-V VMs to Azure, install the Azure VM agent on the Azure VM after the migration.
-- Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, [uninstall the Mobility service][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] from the Azure VM.
+- Manually remove any Site Recovery provider/agent from the VM. If you migrate VMware VMs or physical servers, uninstall the Mobility service from the VM.
 - For increased resilience:
     - Keep data secure by backing up Azure VMs using the Azure Backup service. [Learn more]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal).
     - Keep workloads running and continuously available by replicating Azure VMs to a secondary region with Site Recovery. [Learn more](azure-to-azure-quickstart.md).

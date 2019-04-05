@@ -3317,7 +3317,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="/powershell/azure/get-started-azureps">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/powershell/azure/azurerm/install-azurerm-ps">Download PowerShell</a>
+                                                    <a href="/powershell/azure/install-Az-ps">Download Azure PowerShell</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>

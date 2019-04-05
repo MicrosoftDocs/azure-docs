@@ -387,7 +387,6 @@ void Page_Init (object sender, EventArgs e) {
 ```
 
 ## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
@@ -395,7 +394,7 @@ void Page_Init (object sender, EventArgs e) {
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
-| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **References**              | [Forms element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
 | **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
