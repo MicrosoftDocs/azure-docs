@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with Certent Equity Management, perform the
     `https://<SUBDOMAIN>.certent.com/sys/sso/saml/acs.aspx`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact Certent Equity Management Customer Success Manager to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact Certent Integration Analyst assigned by Customer Success Manager to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. Certent Equity Management application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
@@ -119,10 +119,12 @@ To configure Azure AD single sign-on with Certent Equity Management, perform the
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| role | User.assignedroles |
+	| COMPANY | User.companyname |
+	| USER | user.userprincipalname |
+	| ROLE | User.assignedroles |
 
 	> [!NOTE]
-	> Please click [here](../../role-based-access-control/role-assignments-portal.md) to know how to configure **Role** in Azure AD
+	> Please click [here](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) to know how to configure **Role** in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -156,7 +158,7 @@ To configure Azure AD single sign-on with Certent Equity Management, perform the
 
 ### Configure Certent Equity Management Single Sign-On
 
-To configure single sign-on on **Certent Equity Management** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to Certent Equity Management Customer Success Manager. They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Certent Equity Management** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to Certent Integration Analyst assigned by Customer Success Manager. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -210,7 +212,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Certent Equity Management test user
 
-In this section, you create a user called Britta Simon in Certent Equity Management. Work with Certent Equity Management Customer Success Manager to add the users in the Certent Equity Management platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Certent Equity Management. Work with Certent Integration Analyst assigned by Customer Success Manager to add the users in the Certent Equity Management platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
