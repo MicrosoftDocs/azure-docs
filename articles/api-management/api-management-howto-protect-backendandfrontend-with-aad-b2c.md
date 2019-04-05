@@ -19,14 +19,12 @@ ms.author: wieastbu
 
 # Protect a Single Page App backend with OAuth 2.0 by using AAD B2C, API Management, and Easy Auth.
 
-This scenario shows you how to configure your Azure API Management instance to protect an API, by using the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service and Azure API management as a gatekeeper and frontdoor to secure a backend Azure Function. 
+This scenario shows you how to configure your Azure API Management instance to protect an API. We will use the OAuth 2.0 protocol with Azure Active Directory (Azure AD) B2C as a token service, and Azure API management to secure a backend Azure Function. 
 
 ## Aims
 The idea of this document is to show how API Management can be used in a real world scenario with the Azure Functions and AAD B2C services.
 
-The basic premise is that we have a JavaScript SPA calling through and retrieving data from an API, signing in via AAD B2C and then passing through API Management to secure the API and validate the JWT in flight.
-
-Claims are picked up from the token at sign in and validated in a number of places to show we can decipher and use the token.
+The basic premise is that we have an app retrieving data from an API, signing in via AAD B2C and then protected with API Management which is validating the JWT in flight. For defense in depth we then use EasyAuth to validate the token again inside the back-end API.
 
 ## Prerequisites
 To follow the steps in this article, you must have:
@@ -74,13 +72,13 @@ Here is a quick overview of the steps:
 > [!NOTE]
 > AAD B2C scopes are effectively permissions within your API that other applications can request access to via the API access blade from their applications, effectively you just created and assigned application permissions for your calling API.
 
-11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope (that you created) and the default one that was already there ("login as user") 
-12. Generate them a key each (select the *Keys* tab (under General) to generate an auth key) and record those keys somewhere safe too.
+11. Open the other two applications and then look under the *API Access* tab, grant them access to the backend API scope and the default one that was already there "login as user".
+12. Generate them a key each by selecting the *Keys* tab under 'General' to generate an auth key and record those keys somewhere safe for later.
 
 ## Create a "Sign-up or sign-in" policy to allow users to sign in with AAD B2C
 1. Return to the root of the AAD B2C Blade 
 2. Then select “Sign-up or Sign-in Policies” and click ‘add’
-3. Give the policy a name (and record it for later) and select 'Identity providers', then check User ID sign up and click OK. 
+3. Give the policy a name and record it for later, then select 'Identity providers', then check 'User ID sign up' and click OK. 
 4. Select 'Sign-up attributes' and choose the registration options that you want your customers to enter (At a minimum, choose Email, Display Name and Country/Region), then click OK.
 5. Select 'Application Claims' and choose 'Country/Region', 'Display Name', 'User's Object ID' and 'User is new', then click OK.
 6. Click OK again to return to the main AAD B2C blade, now select the policy that you created in the list (to reopen it), then record the address of the b2clogin.com domain.
@@ -340,8 +338,8 @@ string json = "Hello API Management";
 
 ## Test the Client Application
 1. Open the sample app URL that you noted down from the storage account you created earlier
-2. Click “Login” in the top-right-hand corner, this will pop up your B2C sign in / up profile.
-3. Once complete the ‘logged in as’ section of the screen will be populated.
+2. Click “Login” in the top-right-hand corner, this click will pop up your B2C sign in / up profile.
+3. Post login the ‘logged in as’ section of the screen will be populated based on values returned in your token.
 4. Now Click ‘Call Web Api’, and you should get a popup alert with the address of your API in it.
 5. OK that and the screen should update with  a rolling countdown to your event
 
