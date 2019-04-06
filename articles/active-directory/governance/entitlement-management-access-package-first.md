@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/05/2019
+ms.date: 04/06/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -51,7 +51,7 @@ In this tutorial, you'll learn how to:
 
 ## Step 1: Set up users and group
 
-A resource directory has one or more resources to share. In this step, you create a group named **Engineering Group** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal user.
+A resource directory has one or more resources to share. In this step, you create a group named **Engineering Group** in the Woodgrove Bank directory that is the target resource for entitlement management. You also set up an internal requestor.
 
 **Prerequisite role:** Global administrator or User administrator
 
@@ -66,7 +66,7 @@ A resource directory has one or more resources to share. In this step, you creat
     | Name | Directory role | Description |
     | --- | --- | --- |
     | **Admin1** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | Administrator and approver |
-    | **User1** | User | Internal user |
+    | **Requestor1** | User | Internal requestor |
 
     For this tutorial, the administrator and approver are the same person, but you typically designate one or more people to be approvers.
 
@@ -82,11 +82,11 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
-
-    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
+1. In the Azure portal, open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
 
 1. In the left menu, click **Access packages**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
 
 1. Click **New access package**.
 
@@ -109,8 +109,6 @@ An *access package* is a bundle of all the resources a user needs to work on a p
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles-select-groups.png)
 
 1. Click **Select** to add the group to the list.
-
-    The Engineering Group group also gets added to the Default Catalog.
 
 1. In the **Role** drop-down list, select **Member**.
 
@@ -138,29 +136,27 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ## Step 3: Create a policy
 
-A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows a specific user in the resource directory to request the access package. You also require that requests to be approved and you specify who will be the approver.
+A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows a specific user in the resource directory to request the access package. You also specify that requests must be approved and who will be the approver.
 
 ![Create an access package policy](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
-1. In the Web project access package, in the left menu, click **Policies**.
+1. In the **Web project access package**, in the left menu, click **Policies**.
 
     ![Access package policies list](./media/entitlement-management-access-package-first/access-package-policies-list.png)
 
 1. Click **Add policy** to open Create policy.
 
-    Type the name **Internal user policy** and description **Allows users in this directory to request access to web project resources**.
+    Type the name **Internal requestor policy** and description **Allows users in this directory to request access to web project resources**.
 
 1. In the **Users who can request access** section, click **For users in your directory**.
-
-    Additional options appear.
 
     ![Create policy](./media/entitlement-management-access-package-first/policy-create.png)
 
 1. Scroll down to the **Select users and groups** section and click **Add users and groups**.
 
-1. In the Select groups pane, select the **User1** user you created earlier and then click **Select**.
+1. In the Select groups pane, select the **Requestor1** user you created earlier and then click **Select**.
 
 1. In the **Select approvers** section, click **Add approvers**.
 
@@ -176,7 +172,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
     ![Create policy settings](./media/entitlement-management-access-package-first/policy-create-settings.png)
 
-1. Click **Create** to create the **Internal user policy**.
+1. Click **Create** to create the **Internal requestor policy**.
 
 1. In left menu of the Web project access package, click **Overview**.
 
@@ -188,17 +184,19 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 ## Step 4: Request access
 
-In this step, you perform the steps as the **internal user** and request access to the access package.
+In this step, you perform the steps as the **internal requestor** and request access to the access package.
 
-**Prerequisite role:** Internal user
+**Prerequisite role:** Internal requestor
 
 1. Sign out of the Azure portal.
 
 1. In a new browser window, navigate to the My Access portal link you copied in the previous step.
 
-1. Sign in to the My Access portal as **User1**.
+1. Sign in to the My Access portal as **Requestor1**.
 
-    You should see the **Web project access package**. If necessary, in the **Details** column, click the chevron to view details about the access package.
+    You should see the **Web project access package**.
+
+1. If necessary, in the **Description** column, click the chevron to view details about the access package.
 
     ![My Access portal - Access packages](./media/entitlement-management-access-package-first/my-access-access-packages.png)
 
@@ -220,7 +218,7 @@ In this step, you perform the steps as the **internal user** and request access 
 
 ## Step 5: Approve access request
 
-In this step, you sign in as the **approver** user and approve the access request for an internal user.
+In this step, you sign in as the **approver** user and approve the access request for an internal requestor.
 
 **Prerequisite role:** Approver
 
@@ -230,9 +228,9 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the left menu, click **Approvals**.
 
-1. On the **Pending** tab, find the **User1**.
+1. On the **Pending** tab, find **Requestor1**.
 
-1. In the **Details** column, click **View** to open the Access request pane.
+1. On the right of the user, click the **View** link to open the Access request pane.
 
 1. Click **Approve**.
 
@@ -241,6 +239,8 @@ In this step, you sign in as the **approver** user and approve the access reques
     ![My Access portal - Access request](./media/entitlement-management-access-package-first/my-access-approve-request.png)
 
 1. Click **Submit**.
+
+    You should see a message that it was successfully approved.
 
 ## Step 6: Validate that access has been assigned
 
@@ -258,7 +258,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the left menu, click **Requests**.
 
-    You should see User1 and the Internal user policy with a status of **Fulfilled**.
+    You should see Requestor1 and the Internal requestor policy with a status of **Fulfilled**.
 
 1. Click the request to see the request details.
 
@@ -270,7 +270,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Click **Members**.
 
-    You should see **User1** listed as a member.
+    You should see **Requestor1** listed as a member.
 
     ![Engineering group members](./media/entitlement-management-access-package-first/group-members.png)
 
@@ -278,27 +278,27 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 **Prerequisite role:**  Global administrator or User administrator
 
-1. In the Azure portal, open **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
+1. In the Azure portal, open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. Open **Default Catalog** and then open **Web project access package**.
+1. Open **Web project access package**.
 
 1. Click **Assignments**.
 
-1. For **User1**, click the ellipsis (**...**) and then click **Remove access**.
+1. For **Requestor1**, click the ellipsis (**...**) and then click **Remove access**.
 
 1. Click **Policies**.
 
-1. For **Internal user policy**, click the ellipsis (**...**) and then click **Delete**.
+1. For **Internal requestor policy**, click the ellipsis (**...**) and then click **Delete**.
 
 1. Click **Resource roles** and remove the resource roles.
 
 1. For **Engineering Group**, click the ellipsis (**...**) and then click **Remove resource role**.
 
-1. Open **Default Catalog**.
+1. Open the list of access packages.
 
 1. For **Web project access project**, click the ellipsis (**...**) and then click **Delete**.
 
-1. In Azure Active Directory, delete any users you added such as **User1** and **Admin1**.
+1. In Azure Active Directory, delete any users you created such as **Requestor1** and **Admin1**.
 
 1. Delete the **Engineering Group** group.
 
