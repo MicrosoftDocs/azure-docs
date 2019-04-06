@@ -170,7 +170,7 @@ For a walkthrough of configuring a Power BI output and dashboard, see the [Azure
 >
 
 ### Create a schema
-Azure Stream Analytics creates a Power BI dataset and table on behalf of the user if they don't already exist. In all other cases, the table is updated with new values. Currently, only one table can exist within a dataset. 
+Azure Stream Analytics creates a Power BI dataset and table for the user if they don't already exist. In all other cases, the table is updated with new values. Currently, only one table can exist within a dataset. 
 
 Power BI uses the first-in, first-out (FIFO) retention policy. Data will collect in a table until it hits 200,000 rows.
 
