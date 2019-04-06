@@ -47,7 +47,7 @@ To build the environment:
 > [!NOTE]
 > The region specified in the PowerShell script must match the region specified in the network configuration XML file.
 
-Once the script runs successfully, take the following steps:
+After the script runs successfully, take the following steps:
 
 1. Set up the firewall rules. See the [firewall rules](#firewall-rules) section.
 1. Optionally, use the two scripts in the references section to set up a web application on the web server and app server to allow testing of this DMZ configuration.
@@ -93,7 +93,7 @@ This example uses two routing tables, one each for the front-end and back-end su
 2. Virtual network traffic with a next hop defined as firewall. This route overrides the default rule that allows local virtual network traffic to route directly.
 3. All remaining traffic (0/0) with a next hop defined as the firewall.
 
-Once the routing tables are created, they are bound to their subnets. The front-end subnet routing table should look like:
+After the routing tables are created, they are bound to their subnets. The front-end subnet routing table should look like:
 
     Effective routes :
      Address Prefix    Next hop type       Next hop IP address  Status   Source
@@ -112,7 +112,7 @@ This example uses the following commands to build the route table, add a user-de
        -Label "Route table for $BESubnet subnet"
    ```
 
-1. Once you've created the route table, you can add specific user-defined routes. The following code snippet specifies that all traffic (0.0.0.0/0) is routed through the virtual appliance. A variable `$VMIP[0]` is used to pass in the IP address assigned when the virtual appliance was created earlier in the script. The full script also creates a corresponding rule in the front-end table.
+1. After you've created the route table, you can add specific user-defined routes. The following code snippet specifies that all traffic (0.0.0.0/0) is routed through the virtual appliance. A variable `$VMIP[0]` is used to pass in the IP address assigned when the virtual appliance was created earlier in the script. The full script also creates a corresponding rule in the front-end table.
 
    ```powershell
    Get-AzureRouteTable $BERouteTableName | `
@@ -157,10 +157,10 @@ For example, if traffic from AppVM01 makes a request to the DNS01 server, UDR ro
 
 IP forwarding can be enabled with a single command at VM creation time. You call the VM instance that is your firewall virtual appliance and enable IP forwarding. Keep in mind that items in red that begin with `$`, like `$VMName[0]`, are user-defined variables from the script in the reference section of this document. The zero in brackets, `[0]`, represents the first VM in the array of VMs. For the example script to work without modification, the first VM (VM 0) must be the firewall. In full script, the relevant code snippet is grouped with the UDR commands near the end.
 
-    ```powershell
-    Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
-        Set-AzureIPForwarding -Enable
-    ```
+```powershell
+Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
+    Set-AzureIPForwarding -Enable
+```
 
 ## Network security groups
 
