@@ -1,7 +1,6 @@
 ---
 title: Understand how to audit the contents of a virtual machine
 description: Learn how Azure Policy uses Guest Configuration to audit settings inside an Azure virtual machine. 
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/18/2019
