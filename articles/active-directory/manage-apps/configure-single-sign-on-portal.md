@@ -84,7 +84,7 @@ To configure the domain and URLs:
 
 4. At the top of the page, select **Save**.
 
-5. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#test-single-sign-on) section.
+5. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#validate-single-sign-on) section.
 
 ## Configure user attributes and claims 
 
