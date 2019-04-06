@@ -69,11 +69,11 @@ You can provision only one data catalog per organization (Azure Active Directory
 
     ![Azure Data Catalog--administrators](media/data-catalog-get-started/data-catalog-add-catalog-admins.png)
 
-10. Expand **Portal Title** and add additional text that will be displayed in the portal title.
+10. Expand **Portal Title** (optional) and add additional text that will be displayed in the portal title.
 
     ![Azure Data Catalog-Portal Title](media/data-catalog-get-started/data-catalog-portal-title.png)
 
-11. Once you complete the **Settings** page, next navigate to the **Publish** page.
+11. Once you complete the **Settings** page, navigate to the **Publish** page.
 
     ![Azure Data Catalog--created](media/data-catalog-get-started/data-catalog-created.png)
 
