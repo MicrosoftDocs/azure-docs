@@ -7,7 +7,7 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/205/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -50,7 +50,7 @@ The following table lists the available tiers. Other sources of tier information
 |Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
 
 > [!NOTE] 
-> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers.  The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## How billing works

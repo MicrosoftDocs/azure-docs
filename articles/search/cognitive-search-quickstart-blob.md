@@ -24,10 +24,10 @@ In this quickstart, create your first enrichment pipeline in the [Azure portal](
 > * Run the wizard (an entity skill detects people, location, and organizations)
 > * Use [**Search explorer**](search-explorer.md) to query the enriched data
 
-This quickstart runs on the Free service, but the number of free transactions is limited to 20 files per day. If you want to run this quickstart more than once in the same day, use a smaller file set so that you can fit in more runs.
+This quickstart runs on the Free service, but the number of free transactions is limited to 20 documents per day. If you want to run this quickstart more than once in the same day, use a smaller file set so that you can fit in more runs.
 
 > [!NOTE]
-> As you expand scope by increasing the frequency of processing, adding more files, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
 . Image extraction pricing is charged at preview pricing, as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
@@ -47,8 +47,6 @@ Azure services are required to provide the inputs to the indexing pipeline. You 
 1. [Download sample data](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) consisting of a small file set of different types. 
 
 1. [Sign up for Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), create a storage account, open the Blob services pages, and create a container.  Create the storage account in the same region as Azure Search.
-
-1. When creating the container, set the public access level to **Container (anonymous read access for containers and blobs)**. For more information, see ["Create a container" section](../storage/blobs/storage-unstructured-search.md#create-a-container) in the *Search unstructured data* tutorial.
 
 1. In the container you created, click **Upload** to upload the sample files you downloaded in a previous step.
 
