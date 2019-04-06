@@ -81,6 +81,13 @@ If a log profile already exists, you first need to remove the existing log profi
    Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
    ```
 
+    | Property | Required | Description |
+    | --- | --- | --- |
+    | StorageAccountId |Yes |Resource ID of the Storage Account to which Activity Logs should be saved. |
+    | Locations |Yes |Comma-separated list of regions for which you would like to collect Activity Log events. You can view a list of all regions for your subscription using `(Get-AzLocation).Location`. |
+    | RetentionInDays |No |Number of days for which events should be retained, between 1 and 365. A value of zero stores the logs indefinitely (forever). |
+    | Categories |No |Comma-separated list of event categories that should be collected. Possible values are Write, Delete, and Action.  If not provided, then all possible values are assumed |
+
 ### Via Azure CLI
 If a log profile already exists, you first need to remove the existing log profile and then create a new log profile.
 

@@ -82,9 +82,9 @@
     - name: Diagnostic logs
       href: platform/diagnostic-logs-overview.md 
     - name: Log data ingestion time
-      href: platform/data-ingestion-time.md  
-    - name: Custom metrics to metric store
-      href: platform/metrics-custom-overview.md       
+      href: platform/data-ingestion-time.md   
+    - name: Forward to Event Hub
+      href: platform/stream-monitoring-data-event-hubs.md   
   - name: Data security
     items:
     - name: Log data
@@ -185,6 +185,49 @@
         href: platform/service-providers.md
   - name: Collect data
     items:
+    - name: Azure resources
+      items:
+      - name: Activity log
+        items:
+        - name: Analytics
+          href: platform/collect-activity-logs.md
+        - name: Collect across tenants
+          href: platform/collect-activity-logs-subscriptions.md
+        - name: Export 
+          href: platform/activity-log-export.md
+      - name: Diagnostic logs
+        items: 
+        - name: Collect in Logs
+          href: platform/diagnostic-logs-stream-log-store.md
+        - name: Archive to storage
+          href: platform/archive-diagnostic-logs.md
+        - name: Forward to Event Hub
+          href: platform/diagnostic-logs-stream-event-hubs.md
+      - name: Service logs and metrics
+        href: platform/collect-azure-metrics-logs.md
+      - name: Diagnostic or log data from Azure storage
+        href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS resources
+        href: platform/collect-azurepass-posh.md
+      - name: Correlate custom data sources
+        href: app/custom-data-correlation.md
+    - name: Route data
+      items:
+      - name: Application data to Log Analytics
+        href: platform/app-insights-connector.md
+      - name: Export application data
+        items:
+        - name: Continuous export
+          href: app/export-telemetry.md
+          items:
+          - name: Code samples
+            items:
+            - name: Export to SQL using Stream Analytics
+              href: app/code-sample-export-sql-stream-analytics.md
+            - name: Export to Stream Analytics
+              href: app/export-stream-analytics.md
+        - name: Export data model
+          href: app/export-data-model.md
     - name: Install and configure agents
       items:
       - name: Monitoring agents overview
@@ -425,24 +468,10 @@
           href: app/java-troubleshoot.md
         - name: Usage analytics
           href: app/usage-troubleshoot.md
-    - name: Azure resources
-      items:
-      - name: Azure activity logs
-        items:
-        - name: Analytics
-          href: platform/collect-activity-logs.md
-        - name: Collect across subscriptions
-          href: platform/collect-activity-logs-subscriptions.md
-      - name: Service logs and metrics
-        href: platform/collect-azure-metrics-logs.md
-      - name: Diagnostic or log data from Azure storage
-        href: platform/azure-storage-iis-table.md
-      - name: Azure PaaS resources
-        href: platform/collect-azurepass-posh.md
-      - name: Correlate custom data sources
-        href: app/custom-data-correlation.md
     - name: Collect custom data 
       items:
+      - name: Custom metrics
+        href: platform/metrics-custom-overview.md   
       - name: Log Analytics Data collector API 
         href: platform/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
@@ -457,35 +486,6 @@
         href: platform/collect-sccm.md
       - name: Application Performance Monitoring using SCOM
         href: app/scom.md
-    - name: Route data
-      items:
-      - name: Archive activity log
-        href: platform/archive-activity-log.md
-      - name: Archive diagnostic logs
-        href: platform/archive-diagnostic-logs.md
-      - name: Store diagnostic logs
-        href: platform/diagnostic-logs-stream-log-store.md
-      - name: Stream activity log to Event Hubs
-        href: platform/activity-logs-stream-event-hubs.md
-      - name: Logs and metrics to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
-      - name: Diagnostic logs to Event Hub
-        href: platform/diagnostic-logs-stream-event-hubs.md
-      - name: Application data to Log Analytics
-        href: platform/app-insights-connector.md
-      - name: Export application data
-        items:
-        - name: Continuous export
-          href: app/export-telemetry.md
-          items:
-          - name: Code samples
-            items:
-            - name: Export to SQL using Stream Analytics
-              href: app/code-sample-export-sql-stream-analytics.md
-            - name: Export to Stream Analytics
-              href: app/export-stream-analytics.md
-        - name: Export data model
-          href: app/export-data-model.md
   - name: Gain insights
     items:
     - name: Monitor applications
