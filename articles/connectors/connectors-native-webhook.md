@@ -25,7 +25,7 @@ Learn more about [how to create custom APIs that support a webhook](../logic-app
 
 ## Use the webhook trigger
 
-A [*trigger*](connectors-overview.md) is an event that starts a logic app workflow. 
+A [*trigger*](../connectors/apis-list.md) is an event that starts a logic app workflow. 
 The webhook trigger is event-based, which doesn't depend on polling for new items. 
 When you save your logic app with a webhook trigger, or when you change your logic 
 app from disabled to enabled, the webhook trigger *subscribes* to the specified 
@@ -57,7 +57,7 @@ the logic app fires, and includes any data passed into the request.
 
 ## Use the webhook action
 
-An [*action*](connectors-overview.md) is an operation 
+An [*action*](../connectors/apis-list.md) is an operation 
 that's defined and run by your logic app's workflow. 
 When a logic app runs a webhook action, that action 
 *subscribes* to the specified service or endpoint by 

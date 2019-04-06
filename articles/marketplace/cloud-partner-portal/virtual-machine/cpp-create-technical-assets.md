@@ -33,6 +33,7 @@ You must configure the VM OS, the VM size, ports to open, and up to 15 attached 
 > [!IMPORTANT]
 > *Do not change disk count in a new image version.* If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through Azure Resource Manager templates and other scenarios.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Fundamental technical knowledge
 

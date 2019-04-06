@@ -1,15 +1,14 @@
 ---
 title: Overview of Azure Resource Graph
-description: Azure Resource Graph is a service in Azure that enables complex querying of resources at scale.
-services: resource-graph
+description: Understand how the Azure Resource Graph service enables complex querying of resources at scale.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/06/2019
+ms.date: 03/29/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
 ---
-# What is Azure Resource Graph
+# Overview of the Azure Resource Graph service
 
 Azure Resource Graph is a service in Azure that is designed to extend Azure Resource Management by
 providing efficient and performant resource exploration with the ability to query at scale across
@@ -23,7 +22,7 @@ queries provide the following features:
 In this documentation, you'll go over each feature in detail.
 
 > [!NOTE]
-> Azure Resource Graph is used by Azure portal's new browse 'All resources' experience. It is
+> Azure Resource Graph is used by Azure portal's new browse 'All resources' experience. It's
 > designed to help customers with a need to manage large-scale environments.
 
 ## How does Resource Graph complement Azure Resource Manager
@@ -34,7 +33,9 @@ Location. Previously, working with various resource properties required calls to
 resource provider and request property details for each resource.
 
 With Azure Resource Graph, you can access these properties the resource providers return without
-needing to make individual calls to each resource provider.
+needing to make individual calls to each resource provider. For a list of supported resource types,
+look for a **Yes** in the [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md)
+table.
 
 ## The query language
 
@@ -53,6 +54,11 @@ To use Resource Graph, you must have appropriate rights in [Role-based access
 control](../../role-based-access-control/overview.md) (RBAC) with at least read access to the
 resources you want to query. Without at least `read` permissions to the Azure object or object
 group, results won't be returned.
+
+> [!NOTE]
+> Resource Graph uses the subscriptions available to a principal during login. To see resources of a
+> new subscription added during an active session, the principal must refresh the context. This
+> action happens automatically when logging out and back in.
 
 ## Throttling
 

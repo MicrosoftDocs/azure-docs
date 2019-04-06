@@ -1,6 +1,6 @@
 ---
-title: Collect Azure Activity Logs into Log Analytics across subscriptions | Microsoft Docs
-description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to an Azure Log Analytics workspace in a different tenant.
+title: Collect Azure Activity Logs into a Log Analytics workspace across subscriptions | Microsoft Docs
+description: Use Event Hubs and Logic Apps to collect data from the Azure Activity Log and send it to a Log Analytics workspace in Azure Monitor in a different tenant.
 services: log-analytics, logic-apps, event-hubs
 documentationcenter: ''
 author: mgoedtel
@@ -13,9 +13,9 @@ ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: magoedte
 ---
-# Collect Azure Activity Logs into Log Analytics across subscriptions in different Azure Active Directory tenants
+# Collect Azure Activity Logs into a Log Analytics workspace across subscriptions in different Azure Active Directory tenants
 
-This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory tenant. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
+This article steps through a method to collect Azure Activity Logs into a Log Analytics workspace in Azure Monitor using the Azure Log Analytics Data Collector connector for Logic Apps. Use the process in this article when you need to send logs to a workspace in a different Azure Active Directory tenant. For example, if you are a managed service provider, you may want to collect activity logs from a customer's subscription and store them in a Log Analytics workspace in your own subscription.
 
 If the Log Analytics workspace is in the same Azure subscription, or in a different subscription but in the same Azure Active Directory, use the steps in the [Azure activity log solution](collect-activity-logs.md) to collect Azure activity logs.
 
@@ -23,23 +23,23 @@ If the Log Analytics workspace is in the same Azure subscription, or in a differ
 
 The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../../event-hubs/event-hubs-about.md) where a [Logic App](../../logic-apps/logic-apps-overview.md) sends them to your Log Analytics workspace. 
 
-![image of data flow from activity log to log analytics](media/collect-activity-logs-subscriptions/data-flow-overview.png)
+![image of data flow from activity log to Log Analytics workspace](media/collect-activity-logs-subscriptions/data-flow-overview.png)
 
 Advantages of this approach include:
-- Low latency since the Azure Activity Log is streamed into the Event Hub.  The Logic App is then triggered and posts the data to Log Analytics. 
+- Low latency since the Azure Activity Log is streamed into the Event Hub.  The Logic App is then triggered and posts the data to the workspace. 
 - Minimal code is required, and there is no server infrastructure to deploy.
 
 This article steps you through how to:
 1. Create an Event Hub. 
 2. Export activity logs to an Event Hub using Azure Activity Log export profile.
-3. Create a Logic App to read from the Event Hub and send events to Log Analytics.
+3. Create a Logic App to read from the Event Hub and send events to Log Analytics workspace.
 
 ## Requirements
 Following are the requirements for the Azure resources used in this scenario.
 
 - The Event Hub namespace does not have to be in the same subscription as the subscription emitting logs. The user who configures the setting must have appropriate access permissions to both subscriptions. If you have multiple subscriptions in the same Azure Active directory, you can send the activity logs for all subscriptions to a single event hub.
 - The Logic App can be in a different subscription from the event hub and does not need to be in the same Azure Active Directory. The Logic App reads from the Event Hub using the Event Hub's shared access key.
-- The Log Analytics workspace can be in a different subscription and Azure Active Directory from the Logic App, but for simplicity we recommend that they are in the same subscription. The Logic App sends to Log Analytics using the Log Analytics workspace ID and key.
+- The Log Analytics workspace can be in a different subscription and Azure Active Directory from the Logic App, but for simplicity we recommend that they are in the same subscription. The Logic App sends to the workspace using the Log Analytics workspace ID and key.
 
 
 
@@ -90,13 +90,13 @@ You can use an event hub namespace that is not in the same subscription as the s
 
 ## Step 3 - Create Logic App
 
-Once the activity logs are writing to the event hub, you create a Logic App to collect the logs from the event hub and write them to Log Analytics.
+Once the activity logs are writing to the event hub, you create a Logic App to collect the logs from the event hub and write them to the Log Analytics workspace.
 
 The Logic App includes the following:
 - An [Event Hub connector](https://docs.microsoft.com/connectors/eventhubs/) trigger to read from the Event Hub.
 - A [Parse JSON action](../../logic-apps/logic-apps-content-type.md) to extract the JSON events.
 - A [Compose action](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-action) to convert the JSON to an object.
-- A [Log Analytics send data connector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) to post the data to Log Analytics.
+- A [Log Analytics send data connector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) to post the data to the Log Analytics workspace.
 
    ![image of adding event hub trigger in logic apps](media/collect-activity-logs-subscriptions/log-analytics-logic-apps-activity-log-overview.png)
 
@@ -126,7 +126,7 @@ To get the event Hub name and connection string, follow the steps in [Check Even
    | Subscription   | Select the Azure subscription that will contain the logic app. |
    | Resource Group | Select an existing Azure resource group or create a new one for the logic app. |
    | Location       | Select the datacenter region for deploying your logic app. |
-   | Log Analytics  | Select if you want to log the status of each run of your logic app in Log Analytics.  |
+   | Log Analytics  | Select if you want to log the status of each run of your logic app in a Log Analytics workspace.  |
 
     
 3. Select **Create**. When **Deployment Succeeded** notification displays, click on **Go to resource** to open your Logic App.
@@ -157,7 +157,7 @@ The Logic Apps Designer now shows you available connectors and their triggers, w
 
 ### Add Parse JSON action
 
-The output from the Event Hub contains a JSON payload with an array of records. The [Parse JSON](../../logic-apps/logic-apps-content-type.md) action is used to extract just the array of records for sending to Log Analytics.
+The output from the Event Hub contains a JSON payload with an array of records. The [Parse JSON](../../logic-apps/logic-apps-content-type.md) action is used to extract just the array of records for sending to Log Analytics workspace.
 
 1. Click **New step** > **Add an action**
 2. In the search box, type *parse json* for your filter. Select the action **Data Operations - Parse JSON**.
@@ -280,7 +280,7 @@ The [Compose](../../logic-apps/logic-apps-workflow-actions-triggers.md#compose-a
 
 
 ### Add Log Analytics Send Data action
-The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) action takes the object from the Compose action and sends it to Log Analytics.
+The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/azureloganalyticsdatacollector/) action takes the object from the Compose action and sends it to a Log Analytics workspace.
 
 1. Click **New step** > **Add an action**
 2. Type *log analytics* for your filter and then select the action **Azure Log Analytics Data Collector - Send Data**.
@@ -298,7 +298,7 @@ The [Azure Log Analytics Data Collector](https://docs.microsoft.com/connectors/a
    |Setting        | Value           | Description  |
    |---------------|---------------------------|--------------|
    |JSON Request body  | **Output** from the **Compose** action | Retrieves the records from the body of the Compose action. |
-   | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics to hold the imported data. |
+   | Custom Log Name | AzureActivity | Name of the custom log table to create in Log Analytics workspace to hold the imported data. |
    | Time-generated-field | time | Don't select the JSON field for **time** - just type the word time. If you select the JSON field the designer puts the **Send Data** action into a *For Each* loop, which is not what you want. |
 
 
@@ -323,7 +323,7 @@ The final step is to check the Log Analytics workspace to make sure that data is
 3.  Click the **Log Search** tile and on the Log Search pane, in the query field type `AzureActivity_CL` and then hit enter or click the search button to the right of the query field. If you didn't name your custom log *AzureActivity*, type the name you chose and append `_CL`.
 
 >[!NOTE]
-> The first time a new custom log is sent to Log Analytics it may take up to an hour for the custom log to be searchable.
+> The first time a new custom log is sent to the Log Analytics workspace it may take up to an hour for the custom log to be searchable.
 
 >[!NOTE]
 > The activity logs are written to a custom table and do not appear in the [Activity Log solution](./collect-activity-logs.md).
@@ -333,7 +333,7 @@ The final step is to check the Log Analytics workspace to make sure that data is
 
 ## Next steps
 
-In this article, you’ve created a logic app to read Azure Activity Logs from an Event Hub and send them to Log Analytics for analysis. To learn more about visualizing data in Log Analytics, including creating dashboards, review the tutorial for Visualize data.
+In this article, you’ve created a logic app to read Azure Activity Logs from an Event Hub and send them to the Log Analytics workspace for analysis. To learn more about visualizing data in a workspace, including creating dashboards, review the tutorial for Visualize data.
 
 > [!div class="nextstepaction"]
 > [Visualize Log Search data tutorial](./../../azure-monitor/learn/tutorial-logs-dashboards.md)

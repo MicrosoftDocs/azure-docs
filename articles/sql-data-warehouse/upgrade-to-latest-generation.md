@@ -29,8 +29,8 @@ This upgrade applies to Compute Optimized Gen1 tier data warehouses in [supporte
 ## Before you begin
 
 1. Check if your [region](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) is supported for GEN1 to GEN2 migration. Note the automatic migration dates. To avoid conflicts with the automated process, plan your manual migration prior to the automated process start date.
-2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) to a supported region.
-3. If your region is supported, [upgrade through the Azure portal](#Upgrade-in-a-supported-region-using-the-Azure-portal)
+2. If you are in a region that is not yet supported, continue to check for your region to be added or [upgrade using restore](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) to a supported region.
+3. If your region is supported, [upgrade through the Azure portal](#upgrade-in-a-supported-region-using-the-azure-portal)
 4. **Select the suggested performance level** for the data warehouse based on your current performance level on Compute Optimized Gen1 tier by using the mapping below:
 
    | Compute Optimized Gen1 tier | Compute Optimized Gen2 tier |
@@ -212,7 +212,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-To recover a database, use the [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
+To recover a database, use the [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase) cmdlet.
 
 > [!NOTE]
 > You can perform a geo-restore to Gen2! To do so, specify an Gen2 ServiceObjectiveName (e.g. DW1000**c**) as an optional parameter.
@@ -225,15 +225,15 @@ To recover a database, use the [Restore-AzureRmSqlDatabase](/powershell/module/a
 6. Verify the status of the geo-restored database.
 
 ```Powershell
-Connect-AzureRmAccount
-Get-AzureRmSubscription
-Select-AzureRmSubscription -SubscriptionName "<Subscription_name>"
+Connect-AzAccount
+Get-AzSubscription
+Select-AzSubscription -SubscriptionName "<Subscription_name>"
 
 # Get the database you want to recover
-$GeoBackup = Get-AzureRmSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
+$GeoBackup = Get-AzSqlDatabaseGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourServerName>" -DatabaseName "<YourDatabaseName>"
 
 # Recover database
-$GeoRestoredDatabase = Restore-AzureRmSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
+$GeoRestoredDatabase = Restore-AzSqlDatabase –FromGeoBackup -ResourceGroupName "<YourResourceGroupName>" -ServerName "<YourTargetServer>" -TargetDatabaseName "<NewDatabaseName>" –ResourceId $GeoBackup.ResourceID -ServiceObjectiveName "<YourTargetServiceLevel>" -RequestedServiceObjectiveName "DW300c"
 
 # Verify that the geo-restored database is online
 $GeoRestoredDatabase.status

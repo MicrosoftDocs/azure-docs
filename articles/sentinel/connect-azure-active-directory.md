@@ -39,7 +39,7 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 
 2. Next to the logs you want to stream into Azure Sentinel, click **Connect**.
 
-
+6. To use the relevant schema in Log Analytics for the Azure AD alerts, search for **SigninLogs** and **AuditLogs**.
 
 
 
