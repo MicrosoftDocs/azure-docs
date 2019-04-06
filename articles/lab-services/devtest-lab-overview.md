@@ -22,7 +22,7 @@ Azure DevTest Labs enables developers on teams to efficiently self-manage virtua
 
 The labs created by using DevTest Labs consist of preconfigured bases or Azure Resource Manager templates. These have all the necessary tools and software that you can use to create environments. As a result, you can create environments in a few minutes, as opposed to hours or days.
 
-By using DevTest Labs, you can test the latest versions of your applications by performing the following tasks:
+By using DevTest Labs, you can test the latest versions of your applications by doing the following tasks:
 
 - Quickly provision Windows and Linux environments by using reusable templates and artifacts.
 - Easily integrate your deployment pipeline with DevTest Labs to provision on-demand environments.
@@ -38,21 +38,21 @@ DevTest Labs provides the following capabilities to developers working with VMs:
 - Create VMs quickly by following fewer than five simple steps.
 - Choose from a curated list of VM bases that are configured, approved, and authorized by the team lead or central IT.
 - Create VMs from precreated custom images that have all the software and tools already installed. 
-- Create VMs from formulas that are essentially custom images combined with the latest builds of the software installed upon the VMs' creation.
+- Create VMs from custom images that are combined with the latest builds of the software that's installed upon the VMs' creation.
 - Install artifacts that are extensions deployed on VMs after they're provisioned.
-- Set auto-shutdown and auto-start schedules on VMs.
-- Simply claim a precreated VM without needing to go through the creation process.
+- Set autoshutdown and autostart schedules on VMs.
+- Claim a precreated VM without going through the creation process.
 
 DevTest Labs provides the following capabilities to developers working with PaaS environments:
 
 - Use Resource Manager to quickly create PaaS environments by following fewer than three simple steps.
-- Choose from a curated list of Resource Manager templates, which are configured, approved, and authorized by the team lead or central IT.
+- Choose from a curated list of Resource Manager templates, which are configured and authorized by the team lead or central IT.
 - Spin up an empty resource group (sandbox) using a Resource Manager template to explore Azure within the context of a lab.
 
-Apart from a self-service model for developers on a team, DevTest Labs enables central IT to control wastefulness, optimize costs on resources, and stay within budgets by performing the following tasks: 
+DevTest Labs also enables central IT to control wastefulness, optimize costs on resources, and stay within budgets by doing the following tasks: 
 
-- Setting auto-shutdown and auto-start schedules on VMs.
-- Setting policies on the number of VMs users can create.
+- Setting autoshutdown and autostart schedules on VMs.
+- Setting policies on the number of VMs that users can create.
 - Setting policies on VMs' sizes and gallery images that users choose from.
 - Tracking costs and setting targets on labs.
 - Getting notified on high projected costs for labs so you can take necessary actions.
@@ -60,7 +60,7 @@ Apart from a self-service model for developers on a team, DevTest Labs enables c
 DevTest Labs provides the following benefits in creating, configuring, and managing environments in the cloud:
 
 ## Cost control and governance
-DevTest Labs makes it easier to control costs by allowing you to perform the following tasks:
+DevTest Labs makes it easier to control costs by allowing you to do the following tasks:
 
 - Set policies on your labs, such as number of VMs per user or per lab. 
 - Create policies to automatically shut down and start VMs.
@@ -68,7 +68,7 @@ DevTest Labs makes it easier to control costs by allowing you to perform the fol
 - Stay within the context of your labs so you don't spin up resources outside of them.
 
 ## Quickly get to ready-to-test
-DevTest Labs enables you to create preprovisioned environments equipped with everything your team needs to develop and test applications. Simply claim the environments where the last good build of your application is installed and start working right away. Or use containers for even faster and leaner environment creation.
+DevTest Labs lets you create preprovisioned environments equipped with everything your team needs to develop and test applications. Just claim the environments where the last good build of your application is installed and start working. Or use containers for even faster, leaner environment creation.
 
 ## Create once, use everywhere
 Capture and share PaaS environment templates and artifacts within your team or organization—all in source control—to easily create developer and test environments.
@@ -77,7 +77,7 @@ Capture and share PaaS environment templates and artifacts within your team or o
 You can easily create IaaS VMs and PaaS resources by using a set of preconfigured resources.
 
 ## Use IaaS and PaaS resources 
-Dvelopers can also spin up PaaS resources—such as Microsoft Azure Service Fabric clusters, the Web Apps feature of Microsoft Azure App Service, and SharePoint farms—by using Resource Manager templates. To get started on Paas in labs, use the templates from our public environment repository or connect the lab to your own Git repository. You can also track costs on these resources to stay within your budget.
+Developers can also spin up PaaS resources—such as Microsoft Azure Service Fabric clusters, the Web Apps feature of Microsoft Azure App Service, and SharePoint farms—by using Resource Manager templates. To get started on PaaS in labs, use the templates from our public environment repository or connect the lab to your own Git repository. You can also track costs on these resources to stay within your budget.
 
 ## Integrate with your existing toolchain
 Use premade plug-ins or our API to provision developmental testing environments directly from your preferred continuous integration tool, integrated development environment, or automated release pipeline. You can also use our comprehensive command-line tool.
