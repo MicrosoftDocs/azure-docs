@@ -274,7 +274,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. Therefore, if you get an exception during the post-trigger execution, for example, if you are unable to update the metadata item, the whole transaction will fail and it is rolled back. So the Azure Cosmos DB item is created and an exception is returned.
+One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. If you get an exception during the post-trigger execution, the whole transaction will fail with anything committed rolled back and an exception returned.
 
 For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) articles. 
 
