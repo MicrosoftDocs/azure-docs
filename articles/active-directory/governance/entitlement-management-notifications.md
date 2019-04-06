@@ -34,11 +34,11 @@ This article describes what these emails look like, when they are sent, and who 
 
 ## Email notifications
 
-Here is a list of all the email notifications sent by entitlement management.
+If you are an approver, you'll be sent email notifications when you need to approve an access request and when an access request has been completed. It's also helpful to know what emails will be sent to requestors. Here's a list of all the email notifications sent by entitlement management.
 
 | # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When a requestor submits a request to an access package | All approvers |
+| 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When a requestor submits a request for an access package | All approvers |
 | 2 |  |  |  |
 | 3 | Status notification: *[requestor]*'s access request to *[access package]* has expired | When the approvers do not approve or deny an access request within the request duration | Requestor |
 | 4 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies an access request | All approvers |
