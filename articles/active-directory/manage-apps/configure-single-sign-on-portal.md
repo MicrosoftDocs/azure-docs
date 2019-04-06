@@ -78,7 +78,7 @@ To configure the domain and URLs:
 
      ![Configure certificates](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
-3. Enter the information.
+3. Enter the information into the fields based on the information provided by the application vendor in step 1.
 
 4. At the top of the page, select **Save**.
 
@@ -108,13 +108,17 @@ Azure AD uses a certificate to sign the SAML tokens that it sends to the applica
 
 2. In the **SAML Signing Certificate** section, select **New Certificate**.
 
-3. In the new certifiate row that appears, set the **Expiration Date**. For more information about available configuration options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
+3. In the new certificate row that appears, set the **Expiration Date**. For more information about available configuration options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
 
 4. To keep the changes you have made, select **Save** at the top of the **SAML Signing Certificate** section. 
 
 ## Assign users to the application
 
 Microsoft recommends testing the single sign-on with several users or groups before rolling out the application to your organization.
+
+> [!NOTE]
+>
+> These steps take you out of the **Single Sign-On** configuration section in the portal. When you finish, you'll need to navigate back to this section to complete the tutorial.
 
 To assign a user or group to the application:
 
