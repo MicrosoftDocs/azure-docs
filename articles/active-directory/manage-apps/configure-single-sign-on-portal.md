@@ -47,13 +47,15 @@ To open the single sign-on settings:
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**. 
 
-2. Under **Management**, select **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
+2. Under **Manage** in the **Azure Active Directory** navigation panel that appears, select **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
 
 3. In the **Application Type** menu, select **All applications**, and then select **Apply**.
 
 4. Enter the name of the application for which you want to configure single sign-on. For example, you can enter **GitHub-test** to configure the application you added in the [add application](add-application-portal.md) quickstart.  
 
-5. Choose the application.
+     ![Screenshot that shows the application search bar.](media/configure-single-sign-on-portal/azure-portal-application-search.png)
+
+5. Choose the application for which you want to configure single sign-on.
 
 6. Under the **Manage** section, select **Single sign-on**. **Default** is the default option. 
 
