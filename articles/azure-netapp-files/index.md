@@ -59,7 +59,7 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
     </li> 
     --> 
     <li>
-        <a href="/azure/azure-netapp-files/azure-netapp-files-create-netapp-account">
+        <a href="/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -69,7 +69,7 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure NetApp Files using Azure portal</h3>
+                        <h3>5-minute quickstarts: Set up Azure NetApp Files and create a volume</h3>
                     </div>
                 </div>
             </div>
