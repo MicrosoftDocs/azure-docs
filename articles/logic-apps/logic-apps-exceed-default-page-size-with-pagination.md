@@ -24,9 +24,13 @@ connector's **Get rows** action is 2048, but might vary based on other settings.
 Some actions, such as the SQL Server **Get rows** action, support *pagination* 
 so that your logic app can ask for the remaining results, but return all those 
 results as a single message when the action finishes. When you use pagination, 
-you also specify a limit for the *minimum number* of results that the action returns. The action retrieves results until you get *at least* the specified minimum or 
-the maximum number of results, whichever number is smaller. This behavior means 
-that you sometimes get more than the minimum because the setting gets pages of results. For example, using the SQL Server **Get rows** action:
+you also specify the *minimum number* of results per page that the action returns. 
+The action retrieves results until you get *at least* the specified minimum number 
+of results. If your total number of results is less than the specified minimum, 
+the action returns all the results.
+
+Sometimes, you might get more than the minimum because the pagination setting 
+gets pages of results. For example, if you use the SQL Server **Get rows** action:
 
 * The action's default page size limit is 2048 records per page.
 * Suppose you have 10,000 records and specify 5000 records as the minimum.
