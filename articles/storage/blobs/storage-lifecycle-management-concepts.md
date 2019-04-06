@@ -104,16 +104,16 @@ A policy is a collection of rules:
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
-| rules          | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy.|
+| `rules`        | An array of rule objects | At least one rule is required in a policy. You can define up to 100 rules in a policy.|
 
 Each rule within the policy has several parameters:
 
 | Parameter name | Parameter type | Notes | Required |
 |----------------|----------------|-------|----------|
-| name           | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
-| enabled | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it is not set. | False | 
-| type           | An enum value | The current valid type is `Lifecycle`. | True |
-| definition     | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
+| `name`         | String |A rule name can include up to 256 alphanumeric characters. Rule name is case-sensitive.  It must be unique within a policy. | True |
+| `enabled`      | Boolean | An optional boolean to allow a rule to be temporary disabled. Default value is true if it is not set. | False | 
+| `type`         | An enum value | The current valid type is `Lifecycle`. | True |
+| `definition`   | An object that defines the lifecycle rule | Each definition is made up of a filter set and an action set. | True |
 
 ## Rules
 
