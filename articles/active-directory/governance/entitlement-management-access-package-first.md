@@ -138,7 +138,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ## Step 3: Create a policy
 
-A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows users who are already in the resource directory to request access.
+A *policy* defines the rules or guardrails to access an access package. In this step, you create a policy that allows a specific user in the resource directory to request the access package. You also require that requests to be approved and you specify who will be the approver.
 
 ![Create an access package policy](./media/entitlement-management-access-package-first/elm-access-package-policy.png)
 
