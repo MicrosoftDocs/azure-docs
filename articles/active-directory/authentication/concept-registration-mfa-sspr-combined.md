@@ -67,7 +67,7 @@ As we continue to add more authentication methods to Azure AD, those methods wil
 
 There are two modes of combined registration: interrupt and manage.
 
-- **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign in.
+- **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
 
 - **Manage mode** is part of the user profile and allows users to manage their security info.
 
@@ -75,14 +75,14 @@ For both modes, users who have previously registered a method that can be used f
 
 ### Interrupt mode
 
-Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign in and which methods are available for registration.
+Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration.
 
 Here are several scenarios in which users might be prompted to register or refresh their security info:
 
-* Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-* Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+* Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+* Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
 * Multi-Factor Authentication registration enforced through conditional access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
-* SSPR registration enforced: Users are asked to register during sign in. They register only SSPR methods.
+* SSPR registration enforced: Users are asked to register during sign-in. They register only SSPR methods.
 * SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
 When registration is enforced, users are shown the minimum number of methods needed to be compliant with both Multi-Factor Authentication and SSPR policies, from most to least secure.
@@ -94,13 +94,13 @@ For example:
       * The user is shown authenticator app and phone by default.
       * The user can choose to register email instead of authenticator app or phone.
 
-This flowchart describes which methods are shown to a user when interrupted to register during sign in:
+This flowchart describes which methods are shown to a user when interrupted to register during sign-in:
 
 ![Combined security info flowchart](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
 
-If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
 
 ### Manage mode
 
@@ -108,7 +108,7 @@ Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https:/
 
 ## Key usage scenarios
 
-### Set up security info during sign in
+### Set up security info during sign-in
 
 An admin has enforced registration.
 
