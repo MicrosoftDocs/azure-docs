@@ -253,20 +253,21 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. Create the event subscription with the following values:
+4. Fill in **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
 
-   * **Event Type**: Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
+5. Fill in the **Event Type** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
 
-   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+   ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/sst-event-types.png)
+
+6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
        ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
-   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
-   The form looks similar to the following example:
+7. The form should now look similar to the following example:
 
        ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-5. Select **Create** to save the event subscription.
+     Select **Create** to save the event subscription.
 
 ## Observe events
 
@@ -276,7 +277,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 1. From your IoT hub, select **IoT Devices**.
 
-2. Select **Add**.
+2. Select **+Add**.
 
 3. For **Device ID**, enter `Demo-Device-1`.
 
@@ -284,11 +285,11 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 5. You can add multiple devices with different device IDs.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
+   ![Devices added to hub](./media/iot-hub-how-to-order-connection-state-events/AddIoTDevice.png)
 
-6. Copy the **Connection string -- primary key** for later use.
+6. Click on the device again; now the connection strings and keys will be filled in. Copy the **Connection string -- primary key** for later use.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+   ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
 
 ### Start Raspberry Pi simulator
 
@@ -300,15 +301,15 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 This will trigger a device connected event.
 
-1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string.
+1. In the coding area, replace the placeholder in Line 15 with your Azure IoT Hub device connection string that you saved at the end of the previous section.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
+   ![Paste in device connection string](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
 2. Run the application by clicking on **Run**.
 
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
-   ![How to outcome](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
+   ![Running the application](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
    Click **Stop** to stop the simulator and trigger a **Device Disconnected** event.
 
