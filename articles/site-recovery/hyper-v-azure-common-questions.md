@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 12/27/2018
+ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
 
@@ -13,7 +13,6 @@ ms.author: raynew
 # Common questions - Hyper-V to Azure disaster recovery
 
 This article provides answers to common questions we see when replicating on-premises Hyper-V VMs to Azure. 
-
 
 ## General
 
@@ -183,7 +182,7 @@ After failover, you can access Azure VMs over a secure Internet connection, over
 Azure is designed for resilience. Site Recovery is engineered for failover to a secondary Azure datacenter, in accordance with the Azure SLA. When failover occurs, we make sure your metadata and vaults remain within the same geographic region that you chose for your vault.
 
 ### Is failover automatic?
-[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/azurerm.siterecovery) to trigger a failover.
+[Failover](site-recovery-failover.md) isn't automatic. You initiate failovers with single click in the portal, or you can use [PowerShell](/powershell/module/az.siterecovery) to trigger a failover.
 
 ### How do I fail back?
 

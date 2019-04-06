@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Database data discovery & classification | Microsoft Docs
-description: Azure SQL Database data discovery & classification
+title: Azure SQL Database and SQL Data Warehouse data discovery & classification | Microsoft Docs
+description: Azure SQL Database and  data discovery & classification
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,9 +11,9 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/22/2019
 ---
-# Azure SQL Database data discovery & classification
+# Azure SQL Database and SQL Data Warehouse data discovery & classification
 
 Data discovery & classification (currently in preview) provides advanced capabilities built into Azure SQL Database for **discovering**, **classifying**, **labeling** & **protecting** the sensitive data in your databases.
 Discovering and classifying your most sensitive data (business, financial, healthcare, personally identifiable data (PII), and so on.) can play a pivotal role in your organizational information protection stature. It can serve as infrastructure for:
@@ -22,10 +22,10 @@ Discovering and classifying your most sensitive data (business, financial, healt
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases containing highly sensitive data.
 
-Data discovery & classification is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. data discovery & classification can be accessed and managed via the central SQL ADS portal.
+Data discovery & classification is part of the [Advanced Data Security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. data discovery & classification can be accessed and managed via the central SQL ADS portal.
 
 > [!NOTE]
-> This document relates to Azure SQL Database only. For SQL Server (on premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
+> This document relates to Azure SQL Database and Azure SQL Data Warehouse. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse. For SQL Server (on premises), see [SQL Data Discovery and Classification](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>What is data discovery & classification
 
@@ -139,6 +139,13 @@ You can also use REST APIs to programmatically manage classifications. The publi
 - [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Gets the sensitivity label of a given column
 - [List Current By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) - Gets the current sensitivity labels of a given database
 - [List Recommended By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) - Gets the recommended sensitivity labels of a given database
+
+## Permissions
+The following built-in roles can read the data classification of an Azure SQL database: `Owner`, `Reader`, `Contributor`, `SQL Security Manager` and `User Access Administrator`.
+
+The following built-in roles can modify the data classification of an Azure SQL database: `Owner`, `Contributor`, `SQL Security Manager`.
+
+Learn more about [RBAC for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
 ## <a id="subheading-5"></a>Next steps
 

@@ -58,7 +58,7 @@ For steps on how to set up these endpoints and routing, see [Configure the geogr
 
 ### Layer 7 application routing with Azure Front Door
 
-Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
+Azure Traffic Manager uses DNS (layer 3) to shape traffic. [Azure Front Door (currently in preview)](https://docs.microsoft.com/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (layer 7) routing option. Additional features of Front Door include SSL termination, custom domain, Web Application Firewall, URL Rewrite, and Session Affinity.
 
 Review the needs of your application traffic to understand which solution is the most suitable.
 

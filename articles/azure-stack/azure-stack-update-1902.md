@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 04/05/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/13/2019
+ms.lastreviewed: 04/05/2019
 ---
 
 # Azure Stack 1902 update
@@ -47,19 +47,21 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: No current hotfix available.
-- **1902**: No current hotfix available.
+- **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
+- **1902**: [KB 4494719 – Azure Stack hotfix 1.1902.2.73](https://support.microsoft.com/help/4494719)
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1901 (if any) before updating to 1902.
+> You can install 1902 directly from either the [1.1901.0.95 or 1.1901.0.99](azure-stack-update-1901.md#build-reference) release, without first installing any 1901 hotfix. However, if you have installed the older **1901.2.103** hotfix, you must install the newer [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) before proceeding to 1902.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
+
+  If the `AzsControlPlane` parameter is included when **Test-AzureStack** is executed, you will see the following failure in the **Test-AzureStack** output: **FAIL Azure Stack Control Plane Websites Summary**. You can safely ignore this specific error.
 
 - When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1902.
 
@@ -72,6 +74,9 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 ## Improvements
 
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
+
+<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
+- Improvements to the reliability of capacity expansion during an add node operation when switching the scale unit state from “Expanding storage” to “Running”.
 
 <!--
 1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
@@ -95,9 +100,6 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
     - Check the state of the XRP service fabric nodes and repair them as needed
     - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
-
-<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.    
 
 <!-- 
 1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
@@ -156,7 +158,6 @@ This update installs the following security updates:
 - [CVE-2019-0662](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0662)
 - [CVE-2019-0663](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0663)
 
-
 For more information about these vulnerabilities, click on the preceding links, or see Microsoft Knowledge Base articles [4487006](https://support.microsoft.com/en-us/help/4487006).
 
 ## Known issues with the update process
@@ -214,19 +215,6 @@ The following are post-installation known issues for this build version.
    - If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory might fail with an internal error message. To resolve the error, follow these steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to log in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
-
-- If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise, you won't be able to establish a PowerShell remote session and you'll receive an *Access is denied* error:
-
-   ```PowerShell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### Networking  
 

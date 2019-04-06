@@ -38,7 +38,7 @@ There are a few pre-requisites to account for before you configure multi-tenancy
  - Make sure you've [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-admin.md) PowerShell for Azure Stack.
  - [Download the Azure Stack Tools](azure-stack-powershell-download.md), and import the Connect and Identity modules:
 
-    ```PowerShell  
+    ```powershell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
@@ -51,7 +51,7 @@ Onboard the Guest Directory Tenant (Fabrikam) to Azure Stack by configuring Azur
 
 The Service Administrator of contoso.onmicrosoft.com runs the following commands.
 
-```PowerShell  
+```powershell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -82,7 +82,7 @@ Once the Azure Stack Administrator / operator has enabled the Fabrikam directory
 
 Mary the Directory Administrator of Fabrikam runs the following commands in the guest directory fabrikam.onmicrosoft.com.
 
-```PowerShell
+```powershell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     

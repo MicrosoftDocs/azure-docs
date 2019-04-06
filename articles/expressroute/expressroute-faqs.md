@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -140,7 +140,7 @@ If your service provider offers ExpressRoute at both sites, you can work with yo
 
 ### Can I have multiple ExpressRoute circuits in the same metro? Can I link them to the same virtual network?
 
-Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can’t link them to the same virtual network. Each location name in Azure portal or in PowerShell/CLI API represents one peering location. For example, you can select the peering locations "Singapore" and "Singapore2" and connect circuits from each to the same virtual network. 
+Yes. You can have multiple ExpressRoute circuits with the same or different service providers. If the metro has multiple ExpressRoute peering locations and the circuits are created at different peering locations, you can link them to the same virtual network. If the circuits are created at the same peering location, you can still link them to the same virtual network, but only upto 4 ExpressRoute circuits at each peering location. For example, you can select the peering locations "Singapore" and "Singapore2" and connect circuits from each to the same virtual network. 
 
 ### How do I connect my virtual networks to an ExpressRoute circuit
 
@@ -339,10 +339,10 @@ Your existing circuit will continue advertising the prefixes for Office 365 and 
 
 * Microsoft peering of ExpressRoute circuits that are configured on or after August 1, 2017 will not have any prefixes advertised until a route filter is attached to the circuit. You will see no prefixes by default.
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct (Preview)
+## <a name="expressRouteDirect"></a>ExpressRoute Direct
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 
-## <a name="globalreach"></a>Global Reach (Preview)
+## <a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]

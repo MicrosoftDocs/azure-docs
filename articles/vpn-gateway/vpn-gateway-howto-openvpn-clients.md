@@ -12,7 +12,7 @@ ms.author: cherylmc
 ---
 # Configure OpenVPN clients for Azure VPN Gateway (Preview)
 
-This article helps you configure OpenVPN clients.
+This article helps you configure **OpenVPN ® Protocol** clients.
 
 > [!IMPORTANT]
 > This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -45,7 +45,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
+8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 9. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key".
 
    ```
@@ -105,7 +105,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
+8. Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 
 9. Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key".
 
@@ -134,4 +134,6 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another VNet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+
+**"OpenVPN" is a trademark of OpenVPN Inc.**

@@ -4,7 +4,7 @@ description: Introduction to events for Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: aa01b0f7-8f88-403a-bfe1-5aba00312c24

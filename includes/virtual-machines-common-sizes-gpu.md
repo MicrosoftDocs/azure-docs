@@ -32,10 +32,10 @@ NC-series VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/conte
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | GPU | GPU memory: GiB | Max data disks | Max NICs |
 | --- | --- | --- | --- | --- | --- | --- | ---- |
-| Standard_NC6 |6 |56 | 340 | 1 | 8 | 24 | 1 |
-| Standard_NC12 |12 |112 | 680 | 2 | 16 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1440 | 4 | 32 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1440 | 4 | 32 | 64 | 4 |
+| Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
+| Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 48 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 48 | 64 | 4 |
 
 1 GPU = one-half K80 card.
 
@@ -47,7 +47,7 @@ Premium Storage:  Supported
 
 Premium Storage Caching:  Supported
 
-NCv2-series VMs are powered by [NVIDIA Tesla P100](https://www.nvidia.com/data-center/tesla-p100/) GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+NCv2-series VMs are powered by [NVIDIA Tesla P100](https://www.nvidia.com/en-us/data-center/tesla-p100/) GPUs. These GPUs can provide more than 2x the computational performance of the NC-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v2 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!IMPORTANT]
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).
@@ -70,7 +70,7 @@ Premium Storage:  Supported
 
 Premium Storage Caching:  Supported
 
-NCv3-series VMs are powered by [NVIDIA Tesla V100](http://www.nvidia.com/content/PDF/Volta-Datasheet.pdf) GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
+NCv3-series VMs are powered by [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) GPUs. These GPUs can provide 1.5x the computational performance of the NCv2-series. Customers can take advantage of these updated GPUs for traditional HPC workloads such as reservoir modeling, DNA sequencing, protein analysis, Monte Carlo simulations, and others. The NC24rs v3 configuration provides a low latency, high-throughput network interface optimized for tightly coupled parallel computing workloads.
 
 > [!IMPORTANT]
 > For this size family, the vCPU (core) quota in your subscription is initially set to 0 in each region. [Request a vCPU quota increase](../articles/azure-supportability/resource-manager-core-quotas-request.md) for this family in an [available region](https://azure.microsoft.com/regions/services/).

@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 03/27/2019
 ms.author: magoedte
 ---
 
@@ -26,9 +26,12 @@ Azure Monitor for containers gives you performance visibility by collecting memo
 Azure Monitor for containers includes several pre-defined views that show the residing container workloads and what affects the performance health of the monitored Kubernetes cluster so that you can:  
 
 * Identify AKS containers that are running on the node and their average processor and memory utilization. This knowledge can help you identify resource bottlenecks.
-* Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.  * Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance.
+* Identify processor and memory utilization of container groups and their containers hosted in Azure Container Instances.  
+* Identify where the container resides in a controller or a pod. This knowledge can help you view the controller's or pod's overall performance.
 * Review the resource utilization of workloads running on the host that are unrelated to the standard processes that support the pod.
 * Understand the behavior of the cluster under average and heaviest loads. This knowledge can help you identify capacity needs and determine the maximum load that the cluster can sustain. 
+
+You can also configure alerts to proactively notify you or record it when CPU and memory utilization on nodes or containers exceed your thresholds.  
 
 ## How do I access this feature?
 You can access Azure Monitor for containers two ways, from Azure Monitor or directly from the selected AKS cluster. From Azure Monitor you have a global perspective of all the containers deployed, which are monitored and which are not, allowing you to search and filter across your subscriptions and resource groups, and then drill into Azure Monitor for containers from the selected container.  Otherwise, you can simply access the feature directly from a selected AKS container from the AKS page.  

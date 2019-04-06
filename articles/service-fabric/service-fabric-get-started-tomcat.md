@@ -4,7 +4,7 @@ description: Create Linux container to expose an application running on Apache T
 services: service-fabric
 documentationcenter: .net
 author: JimacoMS2
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -150,12 +150,12 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 
    ```xml
    <Resources>
-     <Endpoints>
-       <!-- This endpoint is used by the communication listener to obtain the port on which to 
-        listen. Please note that if your service is partitioned, this port is shared with 
-        replicas of different partitions that are placed in your code. -->
-       <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
-     </Endpoints>
+    <Endpoints>
+      <!-- This endpoint is used by the communication listener to obtain the port on which to 
+       listen. Please note that if your service is partitioned, this port is shared with 
+       replicas of different partitions that are placed in your code. -->
+      <Endpoint Name="endpointTest" Port="8080" Protocol="tcp"/>
+    </Endpoints>
    </Resources>
    ```
 
@@ -163,10 +163,10 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 
    ```xml
    <Policies>
-     <ContainerHostPolicies CodePackageRef="Code">
-       <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
-       <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
-     </ContainerHostPolicies>
+    <ContainerHostPolicies CodePackageRef="Code">
+      <PortBinding ContainerPort="8080" EndpointRef="endpointTest"/>
+      <RepositoryCredentials AccountName="myregistry" Password="=P==/==/=8=/=+u4lyOB=+=nWzEeRfF=" PasswordEncrypted="false"/>
+    </ContainerHostPolicies>
    </Policies>
    ```
 
@@ -180,31 +180,31 @@ Now that you've pushed the Tomcat image to a container registry, you can build a
 
    * To connect to the local Service Fabric cluster, run:
 
-      ```bash
-      sfctl cluster select --endpoint http://localhost:19080
-      ```
+     ```bash
+     sfctl cluster select --endpoint http://localhost:19080
+     ```
     
    * To connect to a secure Azure cluster, make sure the client certificate is present as a .pem file in the *ServiceFabricTomcat* directory, and run: 
 
-      ```bash
-      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
-      ```
-      In the preceding command, replace `your-certificate.pem` with the name of your client certificate file. In development and test environments, the cluster certificate is often used as the client certificate. If your certificate is not self-signed, omit the `-no-verify` parameter. 
+     ```bash
+     sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
+     ```
+     In the preceding command, replace `your-certificate.pem` with the name of your client certificate file. In development and test environments, the cluster certificate is often used as the client certificate. If your certificate is not self-signed, omit the `-no-verify` parameter. 
        
-      Cluster certificates are typically downloaded locally as .pfx files. If you don't already have your certificate in PEM format, you can run the following command to create a .pem file from a .pfx file:
+     Cluster certificates are typically downloaded locally as .pfx files. If you don't already have your certificate in PEM format, you can run the following command to create a .pem file from a .pfx file:
 
-      ```bash
-      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
-      ```
+     ```bash
+     openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
+     ```
 
-      If your .pfx file is not password protected, use `-passin pass:` for the last parameter.
+     If your .pfx file is not password protected, use `-passin pass:` for the last parameter.
 
 
 13. Run the install script provided in the template to deploy the application to your cluster. The script copies the application package to the cluster's image store, registers the application type, and creates an instance of the application.
 
-      ```bash
-      ./install.sh
-      ```
+     ```bash
+     ./install.sh
+     ```
 
    After you have run the install script, open a browser and navigate to Service Fabric Explorer:
     
