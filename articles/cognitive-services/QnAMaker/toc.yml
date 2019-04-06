@@ -8,8 +8,6 @@
   items:
   - name: Create a new knowledge base
     href: How-To/create-knowledge-base.md
-  - name: Publish a knowledge base
-    href: How-To/publish-knowledge-base.md
   - name: Get answer from knowledge base
     items:
     - name: Using Postman
@@ -86,6 +84,7 @@
     items:
     - name: Create and publish a knowledge base
       href: Quickstarts/create-publish-knowledge-base.md
+      displayName: create bot, bot, publish to bot, test, edit
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrate a knowledge base
