@@ -9,7 +9,7 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/04/2019
 ms.author: glenga
 # Customer intent: As a developer, I want to be able to monitor my functions so that I can know if they are running correctly.
 ---
@@ -20,7 +20,9 @@ ms.author: glenga
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions also has built-in monitoring that doesn't use Application Insights. We recommend Application Insights because it offers more data and better ways to analyze the data.
+We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development.
+
+Because the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
 
 ## Application Insights pricing and limits
 
@@ -28,45 +30,32 @@ You can try out Application Insights integration with Function Apps for free. Th
 
 ## Enable Application Insights integration
 
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
+For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**. When developing our functions locally, make sure to also have this setting in your local.settings.json project file.
 
-You can set up this connection in the [Azure portal](https://portal.azure.com):
+### New function app in the portal
 
-* [Automatically connect a new function app](#new-function-app)
-* [Manually connect an Application Insights resource](#manually-connect-an-app-insights-resource)
+When you create your function app in the [Azure portal](https://portal.azure.com), it's easy to enable Application Insights integration. 
 
-### New function app
-<!-- Add a transitional sentence to introduce the procedure. -->
-
-1. Go to the function app **Create** page.
-
-1. Set the **Application Insights** switch **On**.
-
-1. Select an **Application Insights Location**. Choose the region that's closest to your function app's region and in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
+When you [create a function app](functions-create-function-app-portal.md), make sure to set **Application Insights** to **On** and select an **Application Insights Location**. Choose the region that's closest to your function app's region and in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. 
 
    ![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
 
-1. Enter the other required information and select **Create**.
+When you choose a function app *Location* that supports Application Insights, integration with your function app is enabled by default.
 
-The next step is to [disable built-in logging](#disable-built-in-logging).
+An Application Insights resource is created with your function app, and the **APPINSIGHTS_INSTRUMENTATIONKEY** value is set in your function app settings. Everything is ready to go.
 
 <a id="manually-connect-an-app-insights-resource"></a>
-### Application Insights resource 
-<!-- Add a transitional sentence to introduce the procedure. -->
+### Add to an existing function app 
 
-If you have an existing function app, you must create the Application Insights resource and then add an app setting to your function app. This is also what you must do when you create your function app outside of the portal, such as by using the Azure CLI or by using Visual Studio or Visual Studio Code tooling.
+When you create a function app using the [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), or [Visual Studio Code](functions-create-first-function-vs-code.md), you must create the Application Insights resource and then add an application setting to your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
-## Disable built-in logging
-
-When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
-
-To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, make sure no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
+Early versions of Functions used built-in monitoring, which is no longer recommended. When enabling Application Insights integration for such a function app, you must [disable built-in logging](#disable-built-in-logging).  
 
 ## View telemetry in Monitor tab
 
-After you set up Application Insights integration as shown in the previous sections, you can view telemetry data in the **Monitor** tab.
+With [Application Insights integration enabled](#enable-application-insights-integration), you can view telemetry data in the **Monitor** tab.
 
 1. In the function app page, select a function that has run at least once after Application Insights was configured. Then select the **Monitor** tab.
 
@@ -623,23 +612,7 @@ Dependencies that the function has to other services don't show up automatically
 
 To report an issue with Application Insights integration in Functions, or to make a suggestion or request, [create an issue in GitHub](https://github.com/Azure/Azure-Functions/issues/new).
 
-## Monitor without Application Insights
-
-We recommend Application Insights for monitoring functions. It offers more data and better ways to analyze the data. But if you prefer the built-in logging system that uses Azure Storage, you can continue to use that method.
-
-### Azure Storage account for logging
-
-Built-in logging uses the storage account specified by the connection string in the `AzureWebJobsDashboard` app setting. In a function app page, select a function and then select the **Monitor** tab, and choose to keep it in **classic view**.
-
-![Switch to classic view](media/functions-monitoring/switch-to-classic-view.png)
-
-You get a list of function executions. Select a function execution to review the duration, input data, errors, and associated log files.
-
-If you enabled Application Insights, you can return to using built-in logging. Disable Application Insights manually and then select the **Monitor** tab. To disable Application Insights integration, delete the `APPINSIGHTS_INSTRUMENTATIONKEY` app setting.
-
-Even if the **Monitor** tab shows Application Insights data, you can see log data in the file system if you haven't [disabled built-in logging](#disable-built-in-logging). In the Storage resource, go to **Files**, and select the file service for the function. Then go to **LogFiles** > **Application** > **Functions** > **Function** > **your_function** to see the log file.
-
-### Real-time monitoring
+## Streaming Logs
 
 You can stream log files to a command-line session on a local workstation. Use the [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/overview).  
 
@@ -662,6 +635,12 @@ Get-AzWebSiteLog -Name <function app name> -Tail
 ```
 
 For more information, see [How to stream logs](../app-service/troubleshoot-diagnostic-logs.md#streamlogs).
+
+## Disable built-in logging
+
+When you enable Application Insights, disable the built-in logging that uses Azure Storage. The built-in logging is useful for testing with light workloads, but isn't intended for high-load production use. For production monitoring, we recommend Application Insights. If built-in logging is used in production, the logging record might be incomplete because of throttling on Azure Storage.
+
+To disable built-in logging, delete the `AzureWebJobsDashboard` app setting. For information about how to delete app settings in the Azure portal, see the **Application settings** section of [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings). Before you delete the app setting, make sure no existing functions in the same function app use the setting for Azure Storage triggers or bindings.
 
 ## Next steps
 
