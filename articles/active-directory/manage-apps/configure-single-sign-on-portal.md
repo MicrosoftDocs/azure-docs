@@ -80,19 +80,17 @@ To configure the domain and URLs:
 
      ![Configure certificates](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
-3. In the fields on the page, enter the information provided by the application vendor in step 1.
+3. In the appropriate fields on the page, enter the information provided by the application vendor in step 1.
 
 4. At the top of the page, select **Save**.
 
-5. There's a **Validate** button on this page. Run this test later in the tutorial in the [Test single sign-on](#validate-single-sign-on) section.
-
 ## Configure user attributes and claims 
 
-With user attributes, you can control what information Azure AD sends to the application in the SAML token when a user signs on. For example, Azure AD could send the user's name, email, and employee ID to the application. 
+You can control what information Azure AD sends to the application in the SAML token when a user signs in by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
-1. To edit the user attributes and claims, select the **Edit** icon in the upper-right corner of the **User Attributes and Claims** section.
+1. To edit user attributes and claims, select the **Edit** icon in the upper-right corner of the **User Attributes and Claims** section.
 
    The **Name Identifier Value** is set with the default value of *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
@@ -101,8 +99,10 @@ These attributes may be required or optional to make single sign-on work properl
 3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
 
 4. Click **Save**. You see the new claim in the table.
+
+5. Exit the **User Attributes and Claims** page to continue this tutorial. 
  
-## Create a SAML signing certificate
+## Generate a SAML signing certificate
 
 Azure AD uses a certificate to sign the SAML tokens that it sends to the application. 
 
