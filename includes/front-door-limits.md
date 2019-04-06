@@ -36,4 +36,4 @@
 |  | With chunked transfer encoding (CTE) | Without HTTP chunking |
 | ---- | ------- | ------- |
 | **Download** | There's no limit on the download size. | There's no limit on the download size. |
-| **Upload** |	There's no limit as long as each CTE upload is less than 28.6 MB. | The size can't be larger than 28.6. MB. |
+| **Upload** |	There's no limit as long as each CTE upload is less than 2 GB. | The size can't be larger than 2 GB. |

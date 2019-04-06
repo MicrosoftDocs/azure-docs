@@ -42,11 +42,13 @@ The workspace keeps a list of compute targets that you can use to train your mod
 
 You register models with the workspace. You use a registered model and scoring scripts to create an image. You can then deploy the image to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module.
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning the following roles to users:
+You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
 
 * Owner
 * Contributor
 * Reader
+
+For more information on these roles, see the [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
@@ -74,7 +76,7 @@ At its simplest, a model is a piece of code that takes an input and produces out
 
 A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
+Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
 For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 

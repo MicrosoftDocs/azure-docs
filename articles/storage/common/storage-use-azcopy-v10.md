@@ -2,11 +2,11 @@
 title: Copy or move data to Azure Storage by using AzCopy v10 (Preview) | Microsoft Docs
 description: Use the AzCopy v10 (Preview) command-line utility to move or copy data to or from blob, data lake, and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
 ---
 # Transfer data with AzCopy v10 (Preview)
@@ -169,7 +169,7 @@ The sync command synchronizes contents of a source directory to a directory in t
 
 > [!NOTE] 
 > Use the `--delete-destination` flag with caution. Enable the [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) feature before you enable delete behavior in sync to prevent accidental deletions in your account. 
-
+>
 > When `--delete-destination` is set to true, AzCopy will delete files that do not exist in the source from destination without any prompt to the user. If you want to be prompted for confirmation, use `--delete-destination=prompt`.
 
 To sync your local file system to a storage account, use the following command:
@@ -271,14 +271,15 @@ To filter the transfers by status, use the following command:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token. It isn't persistent for security reasons:
+Use the following command to resume a failed/canceled job. This command uses its identifier along with the SAS token as it isn't persistent for security reasons:
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## Next steps
 
-If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy.).
+If you have questions, issues, or general feedback, submit them [on GitHub](https://github.com/Azure/azure-storage-azcopy).
 
 

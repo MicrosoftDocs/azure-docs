@@ -47,7 +47,7 @@ When using a service principal for resource management operations with the [Az.A
 
 In the following example, appID and a password are used to perform a model database refresh operation:
 
-```PowerShell
+```powershell
 Param (
 
         [Parameter(Mandatory=$true)] [String] $AppId,

@@ -16,9 +16,12 @@ ms.author: banders
 ---
 # Manage Reservations for Azure resources
 
-After you buy an Azure Reservation, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
+After you buy an reservation for Azure, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
 
 If you bought Azure Reserved Virtual Machine Instances, you can change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Change the scope for a reservation
 
@@ -64,25 +67,25 @@ To delegate access management for a reservation:
 
     ```powershell
     # Get the reservation orders you have access to
-    Get-AzureRmReservationOrder
+    Get-AzReservationOrder
     ```
 
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
 ## Cancellations and exchanges
@@ -117,12 +120,20 @@ If you have questions or need help,  [create a support request](https://go.micro
 
 To learn more about Azure Reservations, see the following articles:
 
-- [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+
+Buy a service plan:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Buy a software plan:
+- [Prepay for Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Understand discount and usage:
 - [Understand how the VM reservation discount is applied](billing-understand-vm-reservation-charges.md)
+- [Understand how the Red Hat Enterprise Linux software plan discount is applied](../billing/billing-understand-rhel-reservation-charges.md)
 - [Understand how the SUSE Linux Enterprise software plan discount is applied](../billing/billing-understand-suse-reservation-charges.md)
 - [Understand how other reservation discounts are applied](billing-understand-reservation-charges.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)

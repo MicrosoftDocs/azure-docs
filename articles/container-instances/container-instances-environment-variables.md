@@ -21,6 +21,8 @@ For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container i
 
 If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Azure CLI example
 
 To see the default output of the [aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
@@ -250,6 +252,6 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com
