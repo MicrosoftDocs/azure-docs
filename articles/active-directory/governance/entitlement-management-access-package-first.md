@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 03/26/2019
+ms.date: 04/05/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -61,11 +61,11 @@ A resource directory has one or more resources to share. In this step, you creat
 
 1. In the left navigation, click **Azure Active Directory**.
 
-1. Create or configure the following two users. You can use these names or different names.
+1. Create or configure the following two users. You can use these names or different names. **Admin1** can be the user you are currently signed in as.
 
     | Name | Directory role | Description |
     | --- | --- | --- |
-    | **Admin1** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | Administrator and approver<br/>This user might be the user you are already signed in as. |
+    | **Admin1** | Global administrator<br/>-or-<br/>Limited administrator (User administrator) | Administrator and approver |
     | **User1** | User | Internal user |
 
     For this tutorial, the administrator and approver are the same person, but you typically designate one or more people to be approvers.
@@ -76,7 +76,7 @@ A resource directory has one or more resources to share. In this step, you creat
 
 ## Step 2: Create an access package
 
-An *access package* is a bundle of all the resources a user needs to work on a project or perform their job. Access packages are defined in containers called *catalogs*. In this step, you create a **Web project access package** in the Default catalog.
+An *access package* is a bundle of all the resources a user needs to work on a project or perform their job. Access packages are defined in containers called *catalogs*. In this step, you create a **Web project access package** in the **Default Catalog**.
 
 **Prerequisite role:** Global administrator, User administrator, or Catalog owner
 
@@ -84,7 +84,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/elm-catalogs.png)
+    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
 
 1. In the left menu, click **Access packages**.
 
@@ -92,7 +92,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. On the **Basics** tab, type the name **Web project access package** and description **Access package for the Engineering web project**.
 
-1. Leave the **Do you want to have someone else manage this access package?** option set to **No**.
+1. Leave the **Catalog** drop-down list set to **Default Catalog**.
 
     ![New access package - Basics tab](./media/entitlement-management-access-package-first/access-package-basics.png)
 
@@ -102,17 +102,15 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. Click **Groups**.
 
-1. In the Select groups pane, add a checkmark next to the **See AadGroup(s) not yet in the DefaultCatalog catalog**.
+1. In the Select groups pane, find and select the **Engineering Group** group you created earlier.
 
-    Checking this box enables you to see groups outside the Default catalog.
-
-1. Find and select the **Engineering Group** group you created earlier.
+    By default, you see groups inside and outside the **Default Catalog**. When you select a group outside of the **Default Catalog**, it will be added to the **Default Catalog**.
 
     ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles-select-groups.png)
 
 1. Click **Select** to add the group to the list.
 
-    The Engineering Group group also gets added to the Default catalog.
+    The Engineering Group group also gets added to the Default Catalog.
 
 1. In the **Role** drop-down list, select **Member**.
 
@@ -120,9 +118,9 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. Click **Next** to open the **Policy** tab.
 
-1. In the **Create first policy** section, leave the option set to **Will create later**.
+1. Set the **Create first policy** toggle to **Later**.
 
-    You will create policy in the next section.
+    You will create the policy in the next section.
 
     ![New access package - Policy tab](./media/entitlement-management-access-package-first/access-package-policy.png)
 
@@ -130,7 +128,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 1. Review the access package settings and then click **Create**.
 
-    You see a message that the access package will not be visible to users because the catalog is not yet published.
+    You might see a message that the access package will not be visible to users because the catalog is not yet enabled.
 
     ![New access package - Not visible message](./media/entitlement-management-access-package-first/access-package-not-visible.png)
 
@@ -148,6 +146,8 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. In the Web project access package, in the left menu, click **Policies**.
 
+    ![Access package policies list](./media/entitlement-management-access-package-first/access-package-policies-list.png)
+
 1. Click **Add policy** to open Create policy.
 
     Type the name **Internal user policy** and description **Allows users in this directory to request access to web project resources**.
@@ -158,11 +158,11 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
     ![Create policy](./media/entitlement-management-access-package-first/policy-create.png)
 
-1. Scroll down and to the **Select users and groups** section, click **Add users and groups**.
+1. Scroll down to the **Select users and groups** section and click **Add users and groups**.
 
-1. In the Select groups pane, select the **User1** you created earlier and then click **Select**.
+1. In the Select groups pane, select the **User1** user you created earlier and then click **Select**.
 
-1. In the **Select approvers** section and click **Add approvers**.
+1. In the **Select approvers** section, click **Add approvers**.
 
 1. In the Select approvers pane, select the **Admin1** you created earlier and then click **Select**.
 
@@ -178,7 +178,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. Click **Create** to create the **Internal user policy**.
 
-1. In left menu, click **Overview**.
+1. In left menu of the Web project access package, click **Overview**.
 
 1. Copy the **MyAccess portal link**.
 
@@ -280,7 +280,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the Azure portal, open **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. Open **Default catalog** and then open **Web project access package**.
+1. Open **Default Catalog** and then open **Web project access package**.
 
 1. Click **Assignments**.
 
@@ -294,7 +294,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. For **Engineering Group**, click the ellipsis (**...**) and then click **Remove resource role**.
 
-1. Open **Default catalog**.
+1. Open **Default Catalog**.
 
 1. For **Web project access project**, click the ellipsis (**...**) and then click **Delete**.
 
