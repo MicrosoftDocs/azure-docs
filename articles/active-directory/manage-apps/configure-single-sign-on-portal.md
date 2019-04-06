@@ -80,7 +80,7 @@ To configure the domain and URLs:
 
      ![Configure certificates](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
-3. Enter the information into the fields based on the information provided by the application vendor in step 1.
+3. In the fields on the page, enter the information provided by the application vendor in step 1.
 
 4. At the top of the page, select **Save**.
 
@@ -128,7 +128,7 @@ To assign a user or group to the application:
 2. In the left navigation panel for the application, select **Users and groups**.
 3. Select **Add user**.
 4. In the **Add Assignment** section, select **Users and groups**.
-5. To find a specific user, type the user name into the **Select member or invite an external user** box, select the user’s profile photo or logo, and choose **Select**. 
+5. To find a specific user, type the user name into the **Select member or invite an external user** box. Then, select the user’s profile photo or logo, and choose **Select**. 
 6. In the **Add Assignment** section, select **Assign**. When completed, the selected users appear in the **Users and groups** list.
 
 ## Set up the application to use Azure AD
@@ -136,7 +136,7 @@ To assign a user or group to the application:
 You're almost done.  As a final step, you need to set up the application to use Azure AD as a SAML identity provider. 
 
 1. Scroll down to the **Set up <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
-2. Copy the value from each row and past the value in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section.
+2. Copy the value from each row. Then, paste the value in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section.
 3. When you've pasted all the values into the appropriate fields, select **Save**.
 
 ## Validate single sign-on
