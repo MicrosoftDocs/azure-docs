@@ -86,7 +86,7 @@ To configure the domain and URLs:
 
 ## Configure user attributes and claims 
 
-You can control what information Azure AD sends to the application in the SAML token when a user signs in by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
+You can control what information Azure AD sends to the application in the SAML token when a user signs in. You control this information by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
@@ -136,7 +136,7 @@ To assign a user or group to the application:
 You're almost done.  As a final step, you need to set up the application to use Azure AD as a SAML identity provider. 
 
 1. Scroll down to the **Set up <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
-2. Copy and paste the value from each row in this section in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section, and so on.
+2. Copy the value from each row in this section. Then, paste each value into the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section, and so on.
 3. When you've pasted all the values into the appropriate fields, select **Save**.
 
 ## Test single sign-on
