@@ -76,7 +76,7 @@ To configure the domain and URLs:
     | Logout URL | Optional | Optional | Used to send the SAML Logout responses back to the application.
 
 
-2. To edit the basic SAML configuration options, select the **Edit** icon in the upper-right corner of the **Basic SAML Configuration** section.
+2. To edit the basic SAML configuration options, select the **Edit** icon (a pencil) in the upper-right corner of the **Basic SAML Configuration** section.
 
      ![Configure certificates](media/configure-single-sign-on-portal/basic-saml-configuration-edit-icon.png)
 
@@ -90,11 +90,11 @@ You can control what information Azure AD sends to the application in the SAML t
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
-1. To edit user attributes and claims, select the **Edit** icon in the upper-right corner of the **User Attributes and Claims** section.
+1. To edit user attributes and claims, select the **Edit** icon (a pencil) in the upper-right corner of the **User Attributes and Claims** section.
 
    The **Name Identifier Value** is set with the default value of *user.principalname*. The user identifier uniquely identifies each user within the application. For example, if the email address is both the username and the unique identifier, set the value to *user.mail*.
 
-2. To modify the **Name Identifier Value**, select the **Edit** icon for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about customizing claims, see the [Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md) how-to article.
+2. To modify the **Name Identifier Value**, select the **Edit** icon (a pencil) for the **Name Identifier Value** field. Make the appropriate changes to the identifier format and source, as needed. Save the changes when you're done. For more information about customizing claims, see the [Customize claims issued in the SAML token for enterprise applications](../develop/active-directory-saml-claims-customization.md) how-to article.
 
 3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
 
@@ -106,7 +106,7 @@ These attributes may be required or optional to make single sign-on work properl
 
 Azure AD uses a certificate to sign the SAML tokens that it sends to the application. 
 
-1. To generate a new certificate, select the **Edit** icon in the upper-right corner of the **SAML Signing Certificate** section.
+1. To generate a new certificate, select the **Edit** icon (a pencil) in the upper-right corner of the **SAML Signing Certificate** section.
 
 2. In the **SAML Signing Certificate** section, select **New Certificate**.
 
