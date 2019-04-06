@@ -57,7 +57,7 @@ To open the single sign-on settings:
 
 5. Choose the application for which you want to configure single sign-on.
 
-6. Under the **Manage** section, select **Single sign-on**. **Default** is the default option. 
+6. Under the **Manage** section, select **Single sign-on**. 
 
 7. Select **SAML** to configure single sign-on. The **Set up Single Sign-On with SAML - Preview** page appears.
 
