@@ -86,7 +86,7 @@ To configure the domain and URLs:
 
 ## Configure user attributes and claims 
 
-You can control what information Azure AD sends to the application in the SAML token when a user signs in. Yo control this information by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
+You can control what information Azure AD sends to the application in the SAML token when a user signs in. You control this information by configuring user attributes. For example, you can configure Azure AD to send the user's name, email, and employee ID to the application when a user signs in. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
