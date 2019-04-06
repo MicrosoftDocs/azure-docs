@@ -71,7 +71,7 @@ To configure the domain and URLs:
     |:--|:--|:--|:--|
     | Identifier (Entity ID) | Required for some apps | Required for some apps | Uniquely identifies the application for which single sign-on is being configured. Azure AD sends the identifier to the application as the Audience parameter of the SAML token. The application is expected to validate it. This value also appears as the Entity ID in any SAML metadata provided by the application.|
     | Reply URL | Optional | Required | Specifies where the application expects to receive the SAML token. The reply URL is also referred to as the Assertion Consumer Service (ACS) URL. |
-    | Sign-on URL | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD relies on the identity provider to initiate single sign-on when a user launches the application.|
+    | Sign-on URL | Required | Don't specify | When a user opens this URL, the service provider redirects to Azure AD to authenticate and sign on the user. Azure AD uses the URL to start the application from Office 365 or the Azure AD Access Panel. When blank, Azure AD relies on the identity provider to start single sign-on when a user launches the application.|
     | Relay State | Optional | Optional | Specifies to the application where to redirect the user after authentication is completed. Typically the value is a valid URL for the application, however some applications use this field differently. For more information, ask the application vendor.
     | Logout URL | Optional | Optional | Used to send the SAML Logout responses back to the application.
 
@@ -88,7 +88,7 @@ To configure the domain and URLs:
 
 ## Configure user attributes and claims 
 
-User attributes allow you to control what information Azure AD sends to the application in the SAML token each time a user signs on. For example, Azure AD could send the name, email, and employee ID of the user to the application. 
+With user attributes, you can control what information Azure AD sends to the application in the SAML token when a user signs on. For example, Azure AD could send the user's name, email, and employee ID to the application. 
 
 These attributes may be required or optional to make single sign-on work properly. For more information, see the [application-specific tutorial](../saas-apps/tutorial-list.md), or ask the application vendor.
 
