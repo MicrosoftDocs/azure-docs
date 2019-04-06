@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: Create an Azure Data Catalog
-    href: data-catalog-get-started.md
+    href: create-a-power-bi-report-tutorial.md
 - name: Concepts
   items:
   - name: Common scenarios
