@@ -98,9 +98,9 @@ These attributes may be required or optional to make single sign-on work properl
 
 3. To add a claim, select **Add new claim** at the top of the page. Enter the **Name** and select the appropriate source. If you select the **Attribute** source, you'll need to choose the **Source attribute** you want to use. If you select the **Translation** source, you'll need to choose the **Transformation** and **Parameter 1** you want to use.
 
-4. Click **Save**. You see the new claim in the table.
+4. Click **Save**. The new claim appears in the table.
 
-5. Exit the **User Attributes and Claims** page to continue this tutorial. 
+5. Select the **X** to close the **User Attributes and Claims** page and continue this tutorial. 
  
 ## Generate a SAML signing certificate
 
@@ -112,7 +112,7 @@ Azure AD uses a certificate to sign the SAML tokens that it sends to the applica
 
 3. In the new certificate row that appears, set the **Expiration Date**. For more information about available configuration options, see the [Advanced certificate signing options](certificate-signing-options.md) article.
 
-4. To keep the changes you have made, select **Save** at the top of the **SAML Signing Certificate** section. 
+4. To keep the changes you have made, select **Save** at the top of the **SAML Signing Certificate** section. Otherwise, select the **X** to close the page without saving your changes.
 
 ## Assign users to the application
 
@@ -120,7 +120,7 @@ Microsoft recommends testing the single sign-on with several users or groups bef
 
 > [!NOTE]
 >
-> These steps take you out of the **Single Sign-On** configuration section in the portal. When you finish, you'll need to navigate back to this section to complete the tutorial.
+> These steps take you to the **Users and groups** configuration section in the portal. When you finish, you'll need to navigate back to the **Single sign-on** section to complete the tutorial.
 
 To assign a user or group to the application:
 
@@ -128,24 +128,24 @@ To assign a user or group to the application:
 2. In the left navigation panel for the application, select **Users and groups**.
 3. Select **Add user**.
 4. In the **Add Assignment** section, select **Users and groups**.
-5. To find a specific user, type the user name into the **Select member or invite an external user** box. Then, select the user’s profile photo or logo, and choose **Select**. 
-6. In the **Add Assignment** section, select **Assign**. When completed, the selected users appear in the **Users and groups** list.
+5. To find a specific user, type the user name into the **Select member or invite an external user** box. Then, select the user’s profile photo or logo, and then choose **Select**. 
+6. In the **Add Assignment** section, select **Assign**. When finished, the selected users appear in the **Users and groups** list.
 
 ## Set up the application to use Azure AD
 
 You're almost done.  As a final step, you need to set up the application to use Azure AD as a SAML identity provider. 
 
 1. Scroll down to the **Set up <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**. 
-2. Copy the value from each row. Then, paste the value in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section.
+2. Copy and paste the value from each row in this section in the appropriate row in the **Basic SAML Configuration** section. For example, copy the **Login URL** value from the **Set up GitHub-test** section and paste it into the **Sign On URL** field in the **Basic SAML Configuration** section, and so on.
 3. When you've pasted all the values into the appropriate fields, select **Save**.
 
-## Validate single sign-on
+## Test single sign-on
 
 You're ready to test your settings.  
 
 1. Open the single sign-on settings for your application. 
 2. Scroll to the **Validate single sign-on with <applicationName>** section. For this tutorial, this section is called **Set up GitHub-test**.
-3. Select **Validate**. The testing options appear.
+3. Select **Test**. The testing options appear.
 4. Select **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
 5. If there's an error, an error message appears. Copy and paste the specifics into the **What does the error look like?** box.
 
