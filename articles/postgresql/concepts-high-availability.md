@@ -25,6 +25,15 @@ Similar to the HA model, when an Azure Database for PostgreSQL is scaled up or d
 
 During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance. 
 
+The duration of failover or scaling is greatly relied on the size of transaction log that needed to be recovered. We normally suggest the transaction log size is smaller than max_wal_size of your server. Please try below steps to monitor the metrics:
+a.	Run the query 
+[show max_wal_size;] 
+first to check the size based your current tier ( should be 1G for Basic tier, 5G for both General Purpose and Memory Optimized) . 
+b.	And then compare the transaction log size with the value max_wal_size. You can use 
+[select sum(size/1024.0/1024.0/1024.0) as xlog_size_gb from pg_ls_waldir();] 
+to check the size of transaction log.
+c.	If max_wal_size is larger, the time used for recovery from a failover or scaling should be within 1 minutes, or longer unavailability  is possible.
+
 ## Next steps
 - Learn about [handling transient connectivity errors](concepts-connectivity.md)
 - Learn how to [replicate your data with read replicas](howto-read-replicas-portal.md)
