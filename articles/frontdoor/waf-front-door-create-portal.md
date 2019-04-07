@@ -46,8 +46,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
     | Frontend host           | Select the name of your front door host, then select **Add**.|
     
     > [!NOTE]
-    > You can only associate a WAF policy to a front door host that does not have any WAF policy associated with it.
-
+    > If the frontend host is associated to a WAF policy, it is shown as grayed out. You must first remove the frontend host from the associated policy, and then re-associate the frontend host to a new WAF policy.
 1. Select **Review + create**, then select **Create**.
 
 ## Configure WAF rules (optional)
