@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/07/2019
 ---
 
 # Write queries for Azure Data Explorer

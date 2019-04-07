@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 04/07/2019
 ---
 
 # Time series analysis in Azure Data Explorer
