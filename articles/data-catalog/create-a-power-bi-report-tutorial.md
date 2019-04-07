@@ -17,7 +17,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> Create a Power BI report using Azure Data Catalog.
+> * Create a Power BI report using Azure Data Catalog.
 
 ## Prerequisites
 

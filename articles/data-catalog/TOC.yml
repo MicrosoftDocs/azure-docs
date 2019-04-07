@@ -10,7 +10,7 @@
     href: data-catalog-get-started.md
 - name: Tutorials
   items:
-  - name: Create an Azure Data Catalog
+  - name: Create a Power BI report from Azure Data Catalog
     href: create-a-power-bi-report-tutorial.md
 - name: Concepts
   items:
