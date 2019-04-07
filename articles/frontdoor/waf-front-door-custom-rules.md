@@ -7,59 +7,67 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 04/07/2019
 ms.author: kumud;tyao
 
 ---
 
 #  Custom rules for web application firewall with Azure Front Door
-Azure WAF with Front Door service allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, a rule type, match conditions, and an action. There are two types of custom rules - match rules and rate limit rules. A match rule controls access based on matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. 
-This article discusses match rules that are based on http parameters. 
+Azure web application firewall (WAF) with Front Door service allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, a rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. This article discusses match rules that are based on http parameters.
 
 ## Priority, match conditions, and action types
+You can control access with a custom WAf rule that defines a priority number, a rule type, match conditions, and an action. 
 
-**Priority** is an Integer that describes the order  of the rule. Rules with a lower value will be evaluated before rules with a higher value.
+- **Priority:** is an unique integer that describes the order of evaluation of WAF rules. Rules with lower values are evaluated before rules with higher values
 
-**Action** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
+- **Action:** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
 
-- *Allow* - WAF forwards the quest to the back-end and logs an entry in WAF logs
-- *Block* - request is blocked, WAF sends response to client without forwarding the request to the back-end. WAF logs an entry in WAF logs
-- *Monitor* - WAF forwards the request to the back-end and logs an entry in WAF logs
-- *Redirect* - WAF redirects request to a specified Url
+    - *Allow* - WAF forwards the quest to the back-end, logs an entry in WAF logs and exits.
+    - *Block* - Request is blocked, WAF sends response to client without forwarding the request to the back-end. WAF logs an entry in WAF logs.
+    - *Monitor* - WAF forwards the request to the back-end and logs an entry in WAF logs.
+    - *Log* - WAF logs an entry in WAF logs and continues evaluate the next rule.
+    - *Redirect* - WAF redirects request to a specified URI, logs an entry in WAF logs, and exits.
 
-**Match condition** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on the below *match variables*: 
+- **Match condition:** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on the below *match variables*:
+    - RemoteAddr (client IP)
+    - RequestMethod
+    - QueryString
+    - PostArgs
+    - RequestUri
+    - RequestHeader
+    - RequestBody
 
-```
-# http match variables
-RemoteAddr: client IP
-RequestMethod
-QueryString
-PostArgs
-RequestUri
-RequestHeader
-RequestBody
-```
+- **Operator:** list includes the following:
+    - Any: is often used to define default action if no rules are matched. Any is a match all operator.
+    - IPMatch: define IP restriction for RemoteAddr variable
+    - GeoMatch: define geo filtering for RemoteAddr variable
+    - Equal
+    - Contains
+    - LessThan: size constraint
+    - GreaterThan: size constraint
+    - LessThanOrEqual: size constraint
+    - GreaterThanOrEqual: size constraint
+    - BeginsWith
+     - EndsWith
 
-The *Operator* list includes the following:
-
-```
-# http operators
-Any: is often used to define default action. Any is a match all operator
-IPMatch: define IP restriction for RemoteAddr variable
-GeoMatch: define geo filtering for RemoteAddr variable
-Equal
-Contains
-LessThan: size constraint
-GreaterThan: size constraint
-LessThanOrEqual: size constraint
-GreaterThanOrEqual: size constraint
-BeginsWith
-EndsWith
-```
-
-You can set *negate* condition to be true if the result of this condition should be negated.
+You can set *negate* condition to be true if the result of a condition should be negated.
 
 *Match value* defines the list of possible match values.
+ Supported HTTP request method values include:
+- GET
+- POST
+- PUT
+- HEAD
+- DELETE
+- LOCK
+- UNLOCK
+- PROFILE
+- OPTIONS
+- PROPFIND
+- PROPPATCH
+- MKCOL
+- COPY
+- MOVE
 
 ## Examples
 
@@ -94,32 +102,6 @@ Here is an example that shows the configuration of a custom rule with two match 
 },
 
 ```
-
-### WAF custom rules based on Http request methods
-
-You can configure a custom rule using *RequestMethod* to block requests using request methods that are not supported for your web applications.
-
-The *Http request methods* list includes the following:
-
-```
-# http request methods
-GET
-POST
-PUT
-HEAD
-DELETE
-LOCK
-UNLOCK
-PROFILE
-OPTIONS
-PROPFIND
-PROPPATCH
-MKCOL
-COPY
-MOVE
-
-```
-
 An example configuration for blocking "PUT" method is shown as below:
 
 ``` 
@@ -149,7 +131,7 @@ You may build a custom rule that specifies size constraint on part of an incomin
 
 ```
 # http parameters size constraint
-"name": "URLOver50",
+"name": "URLOver100",
 "priority": 5,
 "ruleType": "MatchRule",
 "matchConditions": [
@@ -169,5 +151,6 @@ You may build a custom rule that specifies size constraint on part of an incomin
 ```
 
 ## Next steps
+- Learn about [web application firewall](waf-overview.md)
 - Learn how to [create a Front Door](quickstart-create-front-door.md).
 
