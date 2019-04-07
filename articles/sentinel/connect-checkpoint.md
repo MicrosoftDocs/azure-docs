@@ -1,6 +1,6 @@
 ---
-title: Collect Check Point data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Check Point data in Azure Sentinel.
+title: Connect Check Point data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Check Point data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -27,7 +27,7 @@ ms.author: rkarlin
 You can connect Azure Sentinel to any Check Point appliance by saving the log files as Syslog CEF. The integration with Azure Sentinel enables you to easily run analytics and queries across the log file data from Check Point. For more information on how Azure Sentinel ingests CEF data, see [Connect CEF appliances](connect-common-event-format.md).
 
 > [!NOTE]
-> - Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
+> Data will be stored in the geographic location of the workspace on which you are running Azure Sentinel.
 
 ## Step 1: Connect your Check Point appliance using an agent
 
@@ -39,7 +39,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 
 ### Deploy the agent in Azure
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
    - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace. The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.

@@ -1,6 +1,6 @@
 ---
-title: Collecting Microsoft web application firewall data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Microsoft web application firewall data in Azure Sentinel.
+title: Connecting Microsoft web application firewall data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Microsoft web application firewall data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Microsoft web application firewall
+# Colnnect data from Microsoft web application firewall
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.

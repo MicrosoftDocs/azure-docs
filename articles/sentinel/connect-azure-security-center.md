@@ -1,6 +1,6 @@
 ---
-title: Collecting Azure Security Center data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Azure Security Center data in Azure Sentinel.
+title: Connecting Azure Security Center data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Azure Security Center data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Azure Security Center
+# Connect data from Azure Security Center
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -26,7 +26,7 @@ ms.author: rkarlin
 
 
 
-Azure Sentinel enables you to collect alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
+Azure Sentinel enables you to connect alerts from [Azure Security Center](../security-center/security-center-intro.md) and stream them into Azure Sentinel. 
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Azure Sentinel enables you to collect alerts from [Azure Security Center](../sec
 
 ## Connect to Azure Security Center
 
-1. In Azure Sentinel, select **Data collection** and then click the **Azure Security Center** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Azure Security Center** tile.
 1. In the right, click **Connect** next to each subscription whose alerts you want to stream into Azure Sentinel. Make sure to upgrade each subscription to Azure Security Center Standard tier to stream alerts to Azure Sentinel.
 
 3. Click **Connect**.
