@@ -23,11 +23,15 @@ This article walks you through the process of creating [an Azure Search index](s
 
 ## Prerequisites
 
+The following services and tools are used in this quickstart. 
+
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
 
-Get the URL endpoint and admin api-key of your search service. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+## Get the api-key and endpoint
+
+Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
   1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 

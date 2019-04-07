@@ -1,6 +1,6 @@
 ---
-title: Explore REST APIs in Postman or Fiddler - Azure Search
-description: How to use Postman or Fiddler to issue HTTP requests and REST API calls to Azure Search.
+title: 'Quickstart: Explore REST APIs in Postman' - Azure Search
+description: How to use Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -12,9 +12,9 @@ ms.author: heidist
 ms.custom: seodec2018
 ---
 
-# Quickstart: Explore Azure Search REST APIs using Postman or Fiddler
+# Quickstart: Explore Azure Search REST APIs using Postman
 
-One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Postman or Fiddler to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
+One of the easiest ways to explore the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice) is using Postman or another web testing tool to formulate HTTP requests and inspect the responses. With the right tools and these instructions, you can send requests and view responses before writing any code.
 
 > [!div class="checklist"]
 > * Download a web api test tool
@@ -52,7 +52,7 @@ In this section, use your web tool of choice to set up connections to Azure Sear
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. A full URL looks similar to the following:
 
-    https://my-app.search.windows.net/indexes?api-version=2017-11-11
+    https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
 
 Notice the HTTPS prefix, the name of the service, the name of an object (in this case, indexes), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as "?api-version=2017-11-11" for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
@@ -61,7 +61,7 @@ Request header composition includes two elements, content type, plus the api-key
     api-key: <placeholder-api-key-for-your-service>
     Content-Type: application/json
 
-In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Search and returns HTTP status code 200 on a successful connection.
+In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Search, reads the indexes collection, and returns HTTP status code 200 on a successful connection. If your service has indexes already, the response will also include index definitions.
 
 ![Postman request header][6]
 
@@ -74,7 +74,7 @@ The URL is extended to include the `hotel` index name.
 To do this in Postman:
 
 1. Change the verb to **PUT**
-2. Copy in this URL `https://my-app.search.windows.net/indexes/hotel?api-version=2017-11-11`
+2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`
 3. Provide the index definition (shown below) in the body of the request
 4. Click **Send**
 
@@ -117,7 +117,7 @@ The URL is extended to include the `docs` collections and `index` operation.
 To do this in Postman:
 
 1. Change the verb to **POST**
-2. Copy in this URL `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+2. Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
 3. Provide the JSON documents (shown below) in the body of the request
 4. Click **Send**
 
@@ -207,7 +207,7 @@ The URL is extended to include a query string, specified using the search operat
 To do this in Postman:
 
 + Change the verb to **GET**
-+ Copy in this URL `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Click **Send**
 
 
