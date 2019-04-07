@@ -1,6 +1,6 @@
 ---
-title: Tutorial for searching JSON in Azure Blob storage - Azure Search
-description: In this tutorial, learn how to search semi-structured Azure blob data using Azure Search.
+title: Tutorial for indexing and searching JSON blobs - Azure Search
+description: In this tutorial, learn how to index and search semi-structured Azure JSON blobs using Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -12,7 +12,7 @@ ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Search.
 ---
 
-# Tutorial: Search semi-structured data in Azure cloud storage
+# Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
 
 Azure Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
@@ -29,11 +29,28 @@ In this tutorial, use the [Azure Search REST APIs](https://docs.microsoft.com/re
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
+The following services, tools, and data are used in this quickstart. 
+
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
 [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) to contain sample data.
 
-[Use Postman](https://www.getpostman.com/) or another REST client to send your requests. Instructions for setting up an HTTP request in Postman are provided in the next section.
+[Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
+
+[Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
+
+## Get the api-key and endpoint
+
+REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
+
+1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+
+2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+
+![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+
+All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
+
 
 ## Set up Postman
 
@@ -43,17 +60,14 @@ The request method for every call in this tutorial is "POST." The header keys ar
 
   ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
 
-For the REST calls covered in this tutorial, your search api-key is required. You can find your api-key under **Keys** inside your search service. This api-key must be in the header of every API call (replace "admin key" in the preceding screenshot with it) this tutorial directs you to make. Retain the key since you need it for each call.
-
-  ![Semi-structured search](media/search-semi-structured-data/keys.png)
 
 ## Prepare sample data
 
-1. **Download [clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)** and unzip it to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
+1. Locate the sample data you downloaded to your system.
 
-2. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, open the **data** container, and click **Upload**.
+1. Sign in to the [Azure portal](https://portal.azure.com), navigate to your Azure storage account, open the **data** container, and click **Upload**.
 
-3. Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
+1. Click **Advanced**, enter "clinical-trials-json", and then upload all of the JSON files you downloaded.
 
   ![Semi-structured search](media/search-semi-structured-data/clinicalupload.png)
 
