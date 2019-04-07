@@ -78,11 +78,7 @@ The following diagram shows the high-level process to create a policy for an exi
 
 1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. In the left menu, click **Access packages**.
-
-    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
-
-1. Open the access package.
+1. In the left menu, click **Access packages** and then open the access package.
 
 1. Click **Policies** and then **Add policy**.
 
