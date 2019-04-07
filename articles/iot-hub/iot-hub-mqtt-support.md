@@ -310,7 +310,7 @@ As for property updates, `null` values means that the JSON object member is bein
 > [!IMPORTANT]
 > IoT Hub generates change notifications only when devices are connected. Make sure to implement the [device reconnection flow](iot-hub-devguide-device-twins.md#device-reconnection-flow) to keep the desired properties synchronized between IoT Hub and the device app.
 
-For more information, see [Device twins developer's guide]((iot-hub-devguide-device-twins.md)).
+For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
 ### Respond to a direct method
 

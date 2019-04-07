@@ -11,7 +11,7 @@ ms.author: xshi
 
 # Use Cloud Explorer for Visual Studio for Azure IoT Hub device management
 
-![End-to-end diagram](media/iot-hug-device-management-visual-studio/iot_e-to-e_simple.png)
+![End-to-end diagram](media/iot-hub-device-management-visual-studio/iot_e-to-e_simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. It comes with management options that you can use to perform various tasks.
 

@@ -14,7 +14,7 @@ ms.author: rangv
 
 # IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
 
-![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-lgoic-apps/iot-hub-e2e-logic-apps.png)
+![End-to-end diagram](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
