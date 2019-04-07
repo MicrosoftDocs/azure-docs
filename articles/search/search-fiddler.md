@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Explore REST APIs in Postman' - Azure Search
+title: 'Quickstart: Explore REST APIs in Postman - Azure Search'
 description: How to use Postman to issue HTTP requests and REST API calls to Azure Search.
 author: HeidiSteen
 manager: cgronlun
@@ -92,6 +92,7 @@ Attributes on the field determine allowed action. The REST APIs allow many actio
            {"name": "hotelId", "type": "Edm.String", "key":true, "searchable": false},
            {"name": "baseRate", "type": "Edm.Double"},
            {"name": "description", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false},
+           "name": "description_fr", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "analyzer": "fr.lucene"},
            {"name": "hotelName", "type": "Edm.String"},
            {"name": "category", "type": "Edm.String"},
            {"name": "tags", "type": "Collection(Edm.String)"},
@@ -134,7 +135,7 @@ The Request Body contains four documents to be added to the hotels index.
              "hotelId": "1",
              "baseRate": 199.0,
              "description": "Best hotel in town",
-             "description_fr": "Meilleur hôtel en ville"
+             "description_fr": "Meilleur hôtel en ville",
              "hotelName": "Fancy Stay",
              "category": "Luxury",
              "tags": ["pool", "view", "wifi", "concierge"],
