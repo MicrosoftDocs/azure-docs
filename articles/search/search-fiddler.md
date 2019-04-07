@@ -30,15 +30,15 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following services and tools are used in this quickstart. 
 
-[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. Other prerequisites include the following items.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
-[Postman desktop app](https://www.getpostman.com/) or [Telerik Fiddler](https://www.telerik.com/fiddler) for sending requests to Azure Search.
+[Postman desktop app](https://www.getpostman.com/) or [Telerik Fiddler](https://www.telerik.com/fiddler) is used for sending requests to Azure Search.
 
 ## Get the api-key and endpoint
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://my-service-name.search.windows.net`.
+1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
 2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
@@ -48,36 +48,43 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Connect to Azure Search
 
-In this section, use your web tool of choice to set up connections to Azure Search. Each tool persists request header information for the session, which means you only have to enter the URL endpoint, api-version, api-key, and content-type once.
+In this section, use your web tool of choice to set up connections to Azure Search. Each tool persists request header information for the session, which means you only have to enter the api-key and content-type once.
 
-For either tool, you need to choose the command (GET, POST, PUT, and so forth), provide a URL endpoint, set the headers, and for some tasks, provide JSON in the body of the request. A full URL looks similar to the following:
+For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. A full URL looks similar to the following:
 
- `https://my-app.search.windows.net/indexes?api-version=2017-11-11`
+    https://my-app.search.windows.net/indexes?api-version=2017-11-11
 
 Notice the HTTPS prefix, the name of the service, the name of an object (in this case, indexes), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as "?api-version=2017-11-11" for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
-Request header composition includes two elements, content type plus the api-key used to authenticate to Azure Search:
+Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Search:
 
     api-key: <placeholder-api-key-for-your-service>
     Content-Type: application/json
 
-In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb. 
+In Postman, formulate a request that looks like the following screenshot. Choose **GET** as the verb, provide the URL, and click **Send**. This command connects to Azure Search and returns HTTP status code 200 on a successful connection.
 
 ![Postman request header][6]
 
 ## 1 - Create an index
 
-In Azure Search, you usually create the index before loading it with data. The [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API is used for this task.
+In Azure Search, you usually create the index before loading it with data. The [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) REST API is used for this task. 
 
-To do this in Postman, use the **PUT** verb and provide the index definition in the body of the request.
+The URL is extended to include the `hotel` index name.
+
+To do this in Postman:
+
+1. Change the verb to **PUT**
+2. Copy in this URL `https://my-app.search.windows.net/indexes/hotel?api-version=2017-11-11`
+3. Provide the index definition (shown below) in the body of the request
+4. Click **Send**
 
 ![Postman request body][8]
 
 ### Index definition
 
-The fields collection defines document structure. Each document must have these field, and each field has a data type. String fields are used in full text search, so you might want to cast numeric data as strings if you need that content to be searchable.
+The fields collection defines document structure. Each document must have these fields, and each field must have a data type. String fields are used in full text search, so you might want to cast numeric data as strings if you need that content to be searchable.
 
-Attributes on the field determine allowed action. The REST APIs allow many actions by default. For example, all strings are searchable, retrievable, filterable, and facetable by default. Often, you only have to set attributes when you need to turn a behavior off.
+Attributes on the field determine allowed action. The REST APIs allow many actions by default. For example, all strings are searchable, retrievable, filterable, and facetable by default. Often, you only have to set attributes when you need to turn off a behavior.
 
           {
          "name": "hotels",  
@@ -103,11 +110,16 @@ When you submit this request, you should get an HTTP 201 response, indicating th
 
 ## 2 - Load documents
 
-Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. The [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API is used for this task.
+Creating the index and populating the index are separate steps. In Azure Search, the index contains all searchable data, which you can provide as JSON documents. The [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) REST API is used for this task. 
 
-+ Change the verb to **POST** for this step.
-+ Change the endpoint to include `/docs/index`. The full URL should look like `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
-+ Keep the request headers as-is. 
+The URL is extended to include the `docs` collections and `index` operation.
+
+To do this in Postman:
+
+1. Change the verb to **POST**
+2. Copy in this URL `https://my-app.search.windows.net/indexes/hotels/docs/index?api-version=2017-11-11`
+3. Provide the JSON documents (shown below) in the body of the request
+4. Click **Send**
 
 ![Postman request payload][10]
 
@@ -190,9 +202,14 @@ If you get a 207, at least one document failed to upload. If you get a 404, you 
 
 Now that an index and documents are loaded, you can issue queries against them using [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents) REST API.
 
-+ Change the verb to **GET** for this step.
-+ Change the endpoint to include query parameters, including search strings. A query URL might look like `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
-+ Keep the request headers as-is
+The URL is extended to include a query string, specified using the search operator.
+
+To do this in Postman:
+
++ Change the verb to **GET**
++ Copy in this URL `https://my-app.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
++ Click **Send**
+
 
 This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
 
@@ -200,20 +217,20 @@ This query searches on the term "motel" and returns a count of the documents in 
 
 
 ## Get index properties
-You can also query system information to get document counts and storage consumption: `https://my-app.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
+You can also query system information to get document counts and storage consumption: `https://mydemo.search.windows.net/indexes/hotels/stats?api-version=2017-11-11`
 
 In Postman, your request should look similar to the following, and the response includes a document count and space used in bytes.
 
  ![Postman system query][12]
 
-Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The ? separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
+Notice that the api-version syntax differs. For this request, use `?` to append the api-version. The `?` separates the URL path from the query string, while & separates each 'name=value' pair in the query string. For this query, api-version is the first and only item in the query string.
 
 For more information about this API, see [Get Index Statistics (REST)](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics).
 
 
 ## Use Fiddler
 
-This section is equivalent to previous sections, only with Fiddler screenshots and instructions instead.
+This section is equivalent to previous sections, only with Fiddler screenshots and instructions
 
 ### Connect to Azure Search
 
