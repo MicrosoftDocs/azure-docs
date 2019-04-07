@@ -1,6 +1,6 @@
 ---
-title: Back up Azure VMs in a Recovery Services vault with Azure Backup
-description: Describes how to back up Azure VMs in a Recovery Services vault with Azure Backup
+title: Back up Azure VMs in a Recovery Services vault by using Azure Backup
+description: Describes how to back up Azure VMs in a Recovery Services vault by using Azure Backup
 services: backup
 author: rayne-wiselman
 manager: carmonm
@@ -11,12 +11,11 @@ ms.author: raynew
 ---
 # Back up Azure VMs in a Recovery Services vault
 
-This article describes how to back up Azure VMs in Recovery Services vaults with the [Azure Backup](backup-overview.md) service. 
+This article describes how to back up Azure VMs in a Recovery Services vault by using the [Azure Backup](backup-overview.md) service. 
 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Verify support and prerequisites for backup before you start.
 > * Prepare Azure VMs. Install the Azure VM agent if needed, and verify outbound access for VMs.
 > * Create a vault.
 > * Discover VMs and configure a backup policy.
@@ -24,12 +23,12 @@ In this article, you learn how to:
 
 
 > [!NOTE]
-   > This article describes how to set up a vault and select VMs to back up. It's useful if you want to back up multiple VMs. Alternatively you can [back up a single Azure VM](backup-azure-vms-first-look-arm.md) directly from the VM settings.
+> This article describes how to set up a vault and select VMs to back up. It's useful if you want to back up multiple VMs. Alternatively, you can [back up a single Azure VM](backup-azure-vms-first-look-arm.md) directly from the VM settings.
 
 ## Before you start
 
 
-- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM backup architecture.
+- [Review](backup-architecture.md#architecture-direct-backup-of-azure-vms) the Azure VM backup architecture.
 - [Learn about](backup-azure-vms-introduction.md) Azure VM backup, and the backup extension.
 - [Review the support matrix](backup-support-matrix-iaas.md) before you configure backup.
 
@@ -37,7 +36,6 @@ In addition, there are a couple of things that you might need to do in some circ
 
 - **Install the VM agent on the VM**: Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to [install the agent manually](#install-the-vm-agent).
 - **Explicitly allow outbound access**: Generally, you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup. However, some VMs might experience connection issues, showing the **ExtensionSnapshotFailedNoNetwork** error when attempting to connect. If this happens, you should [explicitly allow outbound access](#explicitly-allow-outbound-access), so the Azure Backup extension can communicate with Azure public IP addresses for backup traffic.
-
 
 
 ## Create a vault
@@ -154,16 +152,16 @@ The initial backup will run in accordance with the schedule, but you can run it 
 
 ## Install the VM agent
 
-Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the table.
+Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent running on the machine. If your VM was created from an Azure Marketplace image, the agent is installed and running. If you create a custom VM, or you migrate an on-premises machine, you might need to install the agent manually, as summarized in the table.
 
 **VM** | **Details**
 --- | ---
-**Windows VMs** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click the WaAppAgent.exe > **Properties**, > **Details** tab. **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux VMs** | Install using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux Agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
+**Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file.<br/><br/> 2. Install with admin permissions on the machine.<br/><br/> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher.<br/><br/> If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there.<br/><br/> If you're updating the agent, make sure no backup operations are running, and update the binaries.
 
 ## Explicitly allow outbound access
 
-The Backup extension running on the VM needs outbound access to Azure public IP addresses.
+The backup extension running on the VM needs outbound access to Azure public IP addresses.
 
 - Generally you don't need to explicitly allow outbound network access for an Azure VM in order for it to communicate with Azure Backup.
 - If you do run into difficulties with VMs connecting, or if you see the error **ExtensionSnapshotFailedNoNetwork** when attempting to connect, you should explicitly allow access so the backup extension can communicate to Azure public IP addresses for backup traffic. Access methods are summarized in the following table.
@@ -174,6 +172,10 @@ The Backup extension running on the VM needs outbound access to Azure public IP 
 **Set up NSG rules** | Allow the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). | Instead of allowing and managing every address range, you can add a rule that allows access to the Azure Backup service using a [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). [Learn more](../virtual-network/security-overview.md#service-tags).<br/><br/> No additional costs.<br/><br/> Simple to manage with service tags.
 **Deploy a proxy** | Deploy an HTTP proxy server for routing traffic. | Provides access to the whole of Azure, and not just storage.<br/><br/> Granular control over the storage URLs is allowed.<br/><br/> Single point of internet access for VMs.<br/><br/> Additional costs for proxy.
 **Set up Azure Firewall** | Allow traffic through the Azure Firewall on the VM, using an FQDN tag for the Azure Backup service. |  Simple to use if you have Azure Firewall set up in a VNet subnet<br/><br/> You can't create your own FQDN tags, or modify FQDNs in a tag.<br/><br/> If your Azure VMs have managed disks, you might need an additional port open (8443) on the firewalls.
+=======
+Generally, you don't need to explicitly allow outbound network access for an Azure VM so it can communicate with Azure Backup.
+If your VMs can't connect, and if you see the error **ExtensionSnapshotFailedNoNetwork**, you should explicitly allow access. The backup extension can then communicate with Azure public IP addresses for backup traffic.
+
 
 ### Establish network connectivity
 
@@ -181,22 +183,22 @@ Establish connectivity with NSG, by proxy, or through the firewall
 
 #### Set up an NSG rule to allow outbound access to Azure
 
-If the VM access is managed by an NSG, allow outbound access for the backup storage, to the required ranges and ports.
+If an NSG manages the VM access, allow outbound access for the backup storage to the required ranges and ports.
 
-1. In the VM properties > **Networking**, click **Add outbound port rule**.
-2. In **Add outbound security rule**, click **Advanced**.
+1. In the VM properties > **Networking**, select **Add outbound port rule**.
+2. In **Add outbound security rule**, select **Advanced**.
 3. In **Source**, select **VirtualNetwork**.
-4. In **Source port ranges**, type in an asterisk (*) to allow outbound access from any port.
-5. In **Destination**, select **Service Tag**. From the list, select **Storage.region**. The region is the region in which the vault, and the VMs you want to back up, are located.
+4. In **Source port ranges**, enter an asterisk (*) to allow outbound access from any port.
+5. In **Destination**, select **Service Tag**. From the list, select **Storage.region**. The region is where the vault, and the VMs that you want to back up, are located.
 6. In **Destination port ranges**, select the port.
     - Unmanaged VM with unencrypted storage account: 80
     - Unmanaged VM with encrypted storage account: 443 (default setting)
     - Managed VM: 8443.
 7. In **Protocol**, select **TCP**.
 8. In **Priority**, specify a priority value less than any higher deny rules.
-   - If you have a rule denying access, the new allow rule must be higher.
-   - For example, if you have a **Deny_All** rule set at priority 1000, your new rule must be set to less than 1000.
-9. Provide a name and description for the rule, and click **OK**.
+   
+   If you have a rule that denies access, the new allow rule must be higher. For example, if you have a **Deny_All** rule set at priority 1000, your new rule must be set to less than 1000.
+9. Provide a name and description for the rule, and select **OK**.
 
 You can apply the NSG rule to multiple VMs to allow outbound access. This video walks you through the process.
 
@@ -208,7 +210,7 @@ You can apply the NSG rule to multiple VMs to allow outbound access. This video 
 You can route backup traffic through a proxy, and then give the proxy access to the required Azure ranges. Configure the proxy VM to allow the following:
 
 - The Azure VM should route all HTTP traffic bound for the public internet through the proxy.
-- The proxy should allow incoming traffic from VMs in the applicable virtual network (VNet).
+- The proxy should allow incoming traffic from VMs in the applicable virtual network.
 - The NSG **NSF-lockdown** needs a rule that allows outbound internet traffic from the proxy VM.
 
 ##### Set up the proxy
@@ -217,7 +219,7 @@ If you don't have a system account proxy, set one up as follows:
 
 1. Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
 2. Run **PsExec.exe -i -s cmd.exe** to run the command prompt under a system account.
-3. Run the browser in system context. For example: **%PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
+3. Run the browser in system context. For example, use **%PROGRAMFILES%\Internet Explorer\iexplore.exe** for Internet Explorer.  
 4. Define the proxy settings.
    - On Linux machines:
      - Add this line to the **/etc/environment** file:
@@ -240,13 +242,13 @@ If you don't have a system account proxy, set one up as follows:
 
 Allow incoming connections in the proxy settings.
 
-1, In Windows Firewall, open **Windows Firewall with Advanced Security**.
+1. In Windows Firewall, open **Windows Firewall with Advanced Security**.
 2. Right-click **Inbound Rules** > **New Rule**.
-3. In **Rule Type** select **Custom** > **Next**.
+3. In **Rule Type**, select **Custom** > **Next**.
 4. In **Program**, select **All Programs** > **Next**.
 5. In **Protocols and Ports**:
-   - Set the type to **TCP**
-   - Set **Local Ports** to **Specific Ports**
+   - Set the type to **TCP**.
+   - Set **Local Ports** to **Specific Ports**.
    - Set **Remote port** to **All Ports**.
   
 6. Finish the wizard and specify a name for the rule.
@@ -255,17 +257,17 @@ Allow incoming connections in the proxy settings.
 
 On the NSG **NSF-lockdown**, allow traffic from any port on 10.0.0.5 to any internet address on port 80 (HTTP) or 443 (HTTPS).
 
-- The following PowerShell script provides an example for allowing traffic.
-- Instead of allowing outbound to all public internet addresses, you can specify an IP address range (-DestinationPortRange), or use the storage.region service tag.   
+The following PowerShell script provides an example for allowing traffic.
+Instead of allowing outbound to all public internet addresses, you can specify an IP address range (`-DestinationPortRange`), or use the storage.region service tag.   
 
-    ```powershell
-    Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
-    Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
-    ```
+```powershell
+Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
+Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
+```
 
 #### Allow firewall access with an FQDN tag
 
-You can set up the Azure Firewall to allow outbound access for network traffic to Azure Backup.
+You can set up Azure Firewall to allow outbound access for network traffic to Azure Backup.
 
 - [Learn about](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) deploying Azure Firewall.
 - [Read about](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN tags.
