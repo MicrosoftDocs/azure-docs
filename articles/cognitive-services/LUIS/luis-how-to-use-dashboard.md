@@ -122,9 +122,11 @@ Hover over each intent's bar to get information about the intent.
 
 ![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterances-per-intent-with-details-of-errors.png)
 
+Use the **Sort by** feature to arrange the intents by issue type so you can focus on the most problematic intents with that issue. 
+
 ## Intents with errors
 
-This card allows you to review issues for a specific intent. The card is filtered to the most problematic intents, by default, so you know where to focus your efforts.
+This card allows you to review issues for a specific intent. The default view of this card is the most problematic intents so you know where to focus your efforts.
 
 ![The Intents with errors card allows you to review issues for a specific intent. The card is filtered to the most problematic intents, by default, so you know where to focus your efforts.](./media/luis-how-to-use-dashboard/most-problematic-intents-with-errors.png)
 
@@ -143,3 +145,4 @@ The filter allows you to find intents with specific issue:
 
 ## Next steps
 
+* [Manage your Azure resources](luis-how-to-azure-subscription.md)

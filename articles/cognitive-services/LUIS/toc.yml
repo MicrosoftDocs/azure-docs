@@ -232,11 +232,11 @@
       displayName: import
   - name: Publish
     href: luis-how-to-publish-app.md
+  - name: Analyze app to improve app
+    displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
+    href: luis-how-to-use-dashboard.md    
   - name: Manage app
     items:
-    - name: Using the summary dashboard to improve app
-      displayName: dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage
-      href: luis-how-to-use-dashboard.md
     - name: Using subscription keys with your LUIS app
       displayName: azure portal, resource, assign key, add key, out of quota, 403, 429, luis portal, key assignment, subscription
       href: luis-how-to-azure-subscription.md
