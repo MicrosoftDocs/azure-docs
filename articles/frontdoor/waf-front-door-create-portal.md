@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Create a web application firewall policy for Azure Front Door by using the Azure portal'
+title: 'Create a web application firewall policy for Azure Front Door by using the Azure portal'
 titlesuffix: Azure web application firewall
-description: This how to guide shows how to create a web application firewall (WAF) policy by using the Azure portal.
+description: Learn how to create a web application firewall (WAF) policy by using the Azure portal.
 services: frontdoor
 documentationcenter: na
 author: KumudD
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/7/2019
-ms.author: kumud, tyao
+ms.author: kumu;tyao
 ---
 
 # Create a WAF policy for Azure Front Door by using the Azure portal
@@ -36,7 +36,7 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
     | Resource group          |Select your Front Door resource group name.|
     | Policy name             |Enter a unique name for your WAF policy.|
 
-   ![Create a WAF policy](.\media\waf-front-door-create-portal\basic.png)
+   ![Create a WAF policy](./media/waf-front-door-create-portal/basic.png)
 
 3. In the **Association** tab of the **Create a WAF policy** page, select **Add frontend host**, enter the following settings, and then select **Add**:
 
@@ -56,13 +56,13 @@ First, create a basic WAF policy with managed Default Rule Set (DRS) by using th
 When you create a WAF policy, by the default WAF policy is in **Detection** mode. In **Detection** mode, WAF does not block any requests, instead, requests matching the WAF rules are logged at WAF logs.
 To see WAF in action, you can change the mode settings from **Detection** to **Prevention**. In **Prevention** mode, requests that match rules that are defined in Default Rule Set (DRS) are blocked and logged at WAF logs.
 
- ![Change WAF policy mode](.\media\waf-front-door-create-portal\policy.png)
+ ![Change WAF policy mode](./media/waf-front-door-create-portal/policy.png)
 
 ### Default Rule Set (DRS)
 
 Azure-managed Default Rule Set is enabled by default. To disable an individual rule within a rule group, expand the rules within that rule group,  select the **check box** in front of the rule number, and select **Disable** on the tab above. To change actions types for individual rules within the rule set, select the check box in front of the rule number, and then select the **Change action** tab above.
 
- ![Change WAF Rule Set](.\media\waf-front-door-create-portal\\managed.png)
+ ![Change WAF Rule Set](./media/waf-front-door-create-portal/managed.png)
 
 ## Next steps
 
