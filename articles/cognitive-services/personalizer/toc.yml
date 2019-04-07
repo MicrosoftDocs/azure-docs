@@ -9,3 +9,60 @@
   items:
   - name: Create and use feedback loop
     href: csharp-quickstart-commandline-feedback-loop.md
+- name: Tutorials
+  items: 
+  - name: Personalizing Chatbot Behaviors
+- name: Concepts
+  items:
+  - name: Overview
+    href: overview-concept.md
+  - name: How Personalizer works
+    href: how-personalizer-works-concept.md
+  - name: Use of Personalizer
+    items: 
+    - name: Ethics and responsible use 
+      href: ethics-and-responsible-use.md
+  - name: Fundamental Concepts
+    items:
+    - name: Actions
+      href: action-concept.md
+    - name: Context
+      href: context-concept.md
+    - name: Features
+      href: feature-concept.md
+    - name: Rewards
+      href: reward-concept.md
+      displayName: score, wait time, cookie
+    - name: Exploration and exploitation
+      href: exploration-concept.md
+      displayName: explore, exploit
+  - name: Improving and analyzing
+    items: 
+    - name: Learning policy
+      href: learning-policy-concept.md
+    - name: Offline evaluation
+      href: offline-evaluation-concept.md
+- name: How to
+  items: 
+  - name: Manage
+    items: 
+    - name: Azure resource
+      href: how-to-manage-azure-resource-management.md
+    - name: Learning policy
+      href: how-to-manage-learning-policy-management.md
+  - name: Configure
+    items: 
+    - name: How to configure Personalizer
+      href: how-to-configure-personalizer.md
+  - name: Analyze
+    items: 
+    - name: Offline evaluation
+      href: how-to-analyze-with-offline-evaluation.md
+    - name: Optimize learning policy
+      href: how-to-optimize-learning-policy.md
+  - name: Use Containers
+    items: 
+    - name: Install and run Containers
+      href: how-to-install-and-run-containers.md
+    - name: Configure Containers
+      href: how-to-configure-containers.md
