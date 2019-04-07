@@ -56,6 +56,10 @@
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
+  - name: WAF
+    items:
+    - name: Configure WAF policy - portal
+      href: waf-front-door-create-portal.md
 - name: FAQ
   items:
   - name: Front Door FAQ
