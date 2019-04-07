@@ -30,6 +30,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub develo
 At the end of this tutorial, you run two Node.js console apps:
 
 * **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub](quickstart-send-telemetry-node.md), which connects to your IoT hub and receives cloud-to-device messages.
+
 * **SendCloudToDeviceMessage**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
