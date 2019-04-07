@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: rangv
-<!-- I think this is out of date. I changed 'click' to select. --RobinShahan -->
+#I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
 
 # IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
