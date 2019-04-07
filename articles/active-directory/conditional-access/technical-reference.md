@@ -231,6 +231,23 @@ This setting applies to the following client apps:
 - The **Require approved client app** requirement:
    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
 
+## App protection policy requirement 
+
+In your conditional access policy, you can require an app protection policy be present on the client app before access is available to the selected cloud apps. 
+
+![Control access with app protection policy](./media/technical-reference/22.png)
+
+This setting applies to the following client apps:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Remarks**
+
+- Apps for app protection policy support the Intune mobile application management feature with policy protection.
+- The **Require app protection policy** requirements:
+    - Only supports the iOS and Android for [device platform condition](#device-platform-condition).
+
 ## Next steps
 
 - For an overview of conditional access, see [What is conditional access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
