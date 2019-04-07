@@ -1,10 +1,9 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs
+title: Azure SQL Database-Managed Instance T-SQL Differences | Microsoft Docs
 description: This article discusses the T-SQL differences between a Managed Instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,15 +11,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
 ms.date: 03/13/2019
+ms.custom: seoapril2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
-
-![migration](./media/sql-database-managed-instance/migration.png)
-
-Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
+This article summarizes and explains the differences in syntax and behavior between Azure SQL Database Managed Instance and on-premises SQL Server Database Engine. <a name="Differences"></a>
 
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
 - [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
@@ -28,6 +24,10 @@ Since there are still some differences in syntax and behavior, this article summ
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instances](#Changes)
 - [Temporary limitations and known issues](#Issues)
+
+The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
+
+![migration](./media/sql-database-managed-instance/migration.png)
 
 ## Availability
 
@@ -468,7 +468,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-Max file size of `tempdb` cannot be greather than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
+Max file size of `tempdb` cannot be greater than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
 
 ### Cannot restore contained database
 
@@ -489,7 +489,7 @@ This illustrates that under certain circumstance, due to a specific distribution
 
 In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
 
-You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or shitch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### Incorrect configuration of SAS key during database restore
 
