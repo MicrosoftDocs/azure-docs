@@ -7,7 +7,7 @@ author: shizn
 manager: philmea
 
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: "mvc, seodec18"
@@ -34,8 +34,10 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 An Azure IoT Edge device:
 
-* You can use your development machine or a virtual machine as an Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
-* C modules for Azure IoT Edge don't support Windows containers. If your IoT Edge device is a Windows machine, make sure it's configured to use Linux containers. For information about the installation differences between Windows and Linux containers, see [Install the IoT Edge runtime on Windows](how-to-install-iot-edge-windows.md).
+* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
+
+   >[!TIP]
+   >This tutorial uses Visual Studio Code to develop a C module using Linux containers. If you want to develop in C for Windows containers, you need to use Visual Studio 2017. For more information, see [Use Visual Studio 2017 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 Cloud resources:
 
@@ -98,7 +100,7 @@ Create a C solution template that you can customize with your own code.
  
    ![Provide Docker image repository](./media/tutorial-c-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the C code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
+The VS Code window loads your IoT Edge solution workspace with five top-level components. The **modules** folder contains the C code for your module and Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. And **deployment.debug.template.json** file containers the debug version of modules. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file.
 
@@ -116,7 +118,7 @@ The environment file stores the credentials for your container registry and shar
 
 ### Update the module with custom code
 
-Add code to your C module that allows it to read in data from the sensor, check whether the reported machine temperature has exceeded a safe threshold, and pass that information on to IoT Hub.
+Add code to your C module that allows it to check whether the reported machine temperature has exceeded a safe threshold. If the temperature is too high, the module adds an alert parameter to the message before sending the data to IoT Hub. 
 
 1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
 
@@ -317,9 +319,9 @@ Add code to your C module that allows it to read in data from the sensor, check 
 
 ## Build and push your solution
 
-In the previous section you created an IoT Edge solution and added code to the CModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry.
+In the previous section, you created an IoT Edge solution and added code to the CModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Open the VS Code integrated terminal by selecting **View** > **Integrated terminal**.
+1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
 
 1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal. You need to sign in with your Azure Container Registry credentials so that you can push your module image to the registry.
      
@@ -366,7 +368,7 @@ Once you apply the deployment manifest to your IoT Edge device, the IoT Edge run
 
 You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules.
 
-On the IoT Edge device itself you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially.
+On the IoT Edge device itself, you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially.
 
 To view the messages being generated by any module, use the command `iotedge logs <module name>`.
 
