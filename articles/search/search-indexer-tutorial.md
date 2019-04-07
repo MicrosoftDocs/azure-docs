@@ -37,11 +37,11 @@ The following services, tools, and data are used in this quickstart.
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial.
 
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stores the external data source used by an indexer. The sample solution provides a SQL data file to create the table.
+[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) stores the external data source used by an indexer. The sample solution provides a SQL data file to create the table. Steps for creating the service and database are provided in this tutorial.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition, can be used to run the sample solution. Sample code and instructions were tested on the free Community edition.
 
-[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) provides the sample solution, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute.
+[Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started) provides the sample solution, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files.
 
 > [!Note]
 > If you are using the free Azure Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
@@ -131,7 +131,7 @@ The following exercise assumes no existing server or database, and instructs you
     }
     ```
 
-## Understand index and indexer code
+## Understand the code
 
 Your code is now ready to build and run. Before doing that, take a minute to study the index and indexer definitions for this sample. The relevant code is in two files:
 
