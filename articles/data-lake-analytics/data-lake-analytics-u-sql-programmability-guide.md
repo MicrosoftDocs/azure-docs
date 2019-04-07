@@ -1878,7 +1878,7 @@ Input rowsets are passed as **left** and **right** `IRowset` type of interface. 
 
 For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
 
-See [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) for more information about LINQ queries, and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.
+See [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) for more information about LINQ queries, and [IEnumerable\<T\> Interface](/dotnet/api/system.collections.generic.ienumerable-1) for more information about IEnumerable\<T\> interface.
 
 To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.
 
