@@ -113,6 +113,8 @@ The [configuration](#trigger---configuration) section explains these properties.
 Here's C# script code that binds to `HttpRequest`:
 
 ```cs
+#r "Newtonsoft.Json"
+
 using System.Net;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
