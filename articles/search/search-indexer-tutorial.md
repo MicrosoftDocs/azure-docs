@@ -52,7 +52,7 @@ REST calls require the service URL and an access key on every request. A search 
 
 1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1.. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -61,7 +61,9 @@ All requests require an api-key on every request sent to your service. Having a 
 ## Set up connections
 Connection information to required services is specified in the **appsettings.json** file in the solution. 
 
-In Solution Explorer, open **appsettings.json** so that you can populate each setting.  
+1. In Visual Studio, open the **DotNetHowToIndexers.sln** file.
+
+1. In Solution Explorer, open **appsettings.json** so that you can populate each setting.  
 
 The first two entries you can fill in right now, using the URL and admin keys for your Azure Search service. Given an endpoint of `https://mydemo.search.windows.net`, the service name to provide is `mydemo`.
 
@@ -72,6 +74,8 @@ The first two entries you can fill in right now, using the URL and admin keys fo
   "AzureSqlConnectionString": "Put your Azure SQL database connection string here",
 }
 ```
+
+The last entry requires an existing database. You'll create it in the next step.
 
 ## Prepare sample data
 
