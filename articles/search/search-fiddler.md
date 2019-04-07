@@ -38,9 +38,9 @@ The following services and tools are used in this quickstart.
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
-1. In the Azure portal, in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
+1. [Sign in to the Azure portal](https://portal.azure.com/), and in your search service **Overview** page, get the URL. An example endpoint might look like `https://mydemo.search.windows.net`.
 
-2. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
+1. In **Settings** > **Keys**, get an admin key for full rights on the service. There are two interchangeable admin keys, provided for business continuity in case you need to roll one over. You can use either the primary or secondary key on requests for adding, modifying, and deleting objects.
 
 ![Get an HTTP endpoint and access key](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
@@ -48,13 +48,13 @@ All requests require an api-key on every request sent to your service. Having a 
 
 ## Connect to Azure Search
 
-In this section, use your web tool of choice to set up connections to Azure Search. Each tool persists request header information for the session, which means you only have to enter the api-key and content-type once.
+In this section, use your web tool of choice to set up connections to Azure Search. Each tool persists request header information for the session, which means you only have to enter the api-key and Content-Type once.
 
 For either tool, you need to choose a command (GET, POST, PUT, and so forth), provide a URL endpoint, and for some tasks, provide JSON in the body of the request. A full URL looks similar to the following:
 
     https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11
 
-Notice the HTTPS prefix, the name of the service, the name of an object (in this case, indexes), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as "?api-version=2017-11-11" for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
+Notice the HTTPS prefix, the name of the service, the name of an object (in this case, the indexes collection), and the [api-version](search-api-versions.md). The api-version is a required, lowercase string specified as "?api-version=2017-11-11" for the current version. API versions are updated regularly. Including the api-version on each request gives you full control over which one is used.  
 
 Request header composition includes two elements, content type, plus the api-key used to authenticate to Azure Search:
 
@@ -211,7 +211,6 @@ To do this in Postman:
 + Copy in this URL `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotels/docs?search=motel&$count=true&api-version=2017-11-11`
 + Click **Send**
 
-
 This query searches on the term "motel" and returns a count of the documents in the search results. The request and response should look similar to the following screenshot for Postman after you click **Send**. The status code should be 200.
 
  ![Postman query response][11]
@@ -237,6 +236,8 @@ This section is equivalent to previous sections, only with Fiddler screenshots a
 
 Formulate a request that looks like the following screenshot. Choose **GET** as the verb. Fiddler adds `User-Agent=Fiddler`. You can paste the two additional request headers on new lines below it. Include the content type and api-key for your service, using the admin access key for your service.
 
+For the target, copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes?api-version=2017-11-11`
+
 ![Fiddler request header][1]
 
 > [!Tip]
@@ -244,7 +245,7 @@ Formulate a request that looks like the following screenshot. Choose **GET** as 
 
 ### 1 - Create an index
 
-Copy the index definition to the request body, similar to the following screenshot, and then click **Execute** on the top right to send the completed request.
+Change the verb to **PUT**. Copy in a modified version of this URL: `https://<placeholder-for-your-service-name>.search.windows.net/indexes/hotel?api-version=2017-11-11`. Copy the index definition provided above to the request body. Your page should look similar to the following screenshot. Click **Execute** on the top right to send the completed request.
 
 ![Fiddler request body][7]
 
