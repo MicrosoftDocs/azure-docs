@@ -28,17 +28,19 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. The access package manager can change the resources without worrying about provisioning the user's access to the new resources, or removing their access from the previous resources. Policies can also be updated at any time, however, the policy changes only affect new accesses.
+An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. This article describes how to create a new access package.
 
 ## Overview
 
-All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the Default catalog. Currently, you can't move an existing access package to a different catalog.
+All access packages must be put in a container called a catalog. A catalog defines what resources you can add to your access package. If you don't specify a catalog, your access package will be put into the Default Catalog. Currently, you can't move an existing access package to a different catalog.
 
-All access packages must have at least one policy. Policies specify who can request the access package and also approval and expiration settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, or you can choose to create the policy later.
+All access packages must have at least one policy. Policies specify who can request the access package and also approval and expiration settings. When you create a new access package, you can create an initial policy for users in your directory, for users not in your directory, for administrator direct assignments only, or you can choose to create the policy later.
 
 The following diagram shows the high-level process to create a new access package.
 
 ![Create an access package process](./media/entitlement-management-access-package-create/access-package-process.png)
+
+## Start new access package
 
 **Prerequisite role:** User administrator or Catalog owner
 
@@ -48,7 +50,7 @@ The following diagram shows the high-level process to create a new access packag
 
 1. In the left menu, click **Access packages**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-create/elm-access-packages.png)
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
 
 1. Click **New access package**.
 
@@ -62,7 +64,7 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
     You will only see catalogs you have permission to create access packages in. To create access package in an existing catalog, you must be at least a User administrator, Catalog owner, or Access package manager.
 
-    ![Access package - Basics](./media/entitlement-management-access-package-create/access-package-basics.png)
+    ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
     If you would like to create your access package in a new catalog, click **Create new**. Enter the Catalog name and description and then click **Create**.
 
@@ -80,9 +82,9 @@ On the **Resource roles** tab, you select the resources to include in the access
 
 1. In the Select pane that appears, select one or more resources from the list.
 
-    ![Access package - Resource roles](./media/entitlement-management-access-package-create/access-package-resource-roles.png)
+    ![Access package - Resource roles](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you are creating the access package in the Default catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
+    If you are creating the access package in the Default Catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
@@ -90,7 +92,7 @@ On the **Resource roles** tab, you select the resources to include in the access
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 
-    ![Access package - Resource roles role selection](./media/entitlement-management-access-package-create/access-package-resource-roles-role.png)
+    ![Access package - Resource roles role selection](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
 1. Click **Next**.
 
@@ -100,15 +102,15 @@ On the **Policy** tab, you create the first policy to specify who can request th
 
 1. Set the **Create first policy** toggle to **Now** or **Later**.
 
-    ![Access package - Policy](./media/entitlement-management-access-package-create/access-package-policy.png)
+    ![Access package - Policy](./media/entitlement-management-access-package-create/policy.png)
 
-1. If you select **Later**, skip down to the "Review + create" section to create your access package.
+1. If you select **Later**, skip down to the [Review + create](#review--create) section to create your access package.
 
-1. If you select **Now**, perform the steps in one of the following sections.
+1. If you select **Now**, perform the steps in one of the following policy sections.
 
 ### Policy: For users in your directory
 
-Follow these steps if you want your first policy to be for users and groups in your directory that can request this access package.
+Follow these steps if you want your policy to be for users and groups in your directory that can request this access package.
 
 1. In the **Users who can request access** section, select **For users in your directory**.
 
@@ -116,15 +118,15 @@ Follow these steps if you want your first policy to be for users and groups in y
 
 1. In the Select users and groups pane, select the users and groups you want to add.
 
-    ![Access package - Policy- Select users and groups](./media/entitlement-management-access-package-create/access-package-policy-users-groups.png)
+    ![Access package - Policy- Select users and groups](./media/entitlement-management-shared/policy-select-users-groups.png)
 
 1. Click **Select** to add the users and groups.
 
-1. Skip to the "Policy: Request" section.
+1. Skip down to the [Policy: Request](#policy-request) section.
 
 ### Policy: For users not in your directory
 
-Follow these steps if you want your first policy to be for users not in your directory that can request this access package.
+Follow these steps if you want your policy to be for users not in your directory that can request this access package. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
 
 1. In the **Users who can request access** section, select **For users not in your directory**.
 
@@ -137,7 +139,7 @@ Follow these steps if you want your first policy to be for users not in your dir
     > [!NOTE]
     > All users from the directory will be able to request this access package. This includes users from all subdomains associated with the directory, not just the domain used in the search.
 
-    ![Access package - Policy- Select directories](./media/entitlement-management-access-package-create/access-package-policy-directories.png)
+    ![Access package - Policy- Select directories](./media/entitlement-management-shared/policy-select-directories.png)
 
 1. Click **Add** to add the directory.
 
@@ -145,17 +147,17 @@ Follow these steps if you want your first policy to be for users not in your dir
 
 1. Once you have added all directories you'd like to include in the policy, click **Select**.
 
-1. Skip to the "Policy: Request" section.
+1. Skip down to the [Policy: Request](#policy-request) section.
 
 ### Policy: None (administrator direct assignments only)
 
-Follow these steps if you want your first policy to allow administrators to directly assign specific users to an access package. Users won't have to request the access package.
+Follow these steps if you want your policy to bypass access requests and allow administrators to directly assign specific users to the access package. Users won't have to request the access package. You can still set expiration settings, but there are no request settings.
 
 1. In the **Users who can request access** section, select **None (administrator direct assignments only**.
 
     After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory.
 
-1. Skip to the "Policy: Expiration" section.
+1. Skip down to the [Policy: Expiration](#policy-expiration) section.
 
 ### Policy: Request
 
@@ -169,13 +171,13 @@ In the Request section, you specify approval settings when users request the acc
 
     Only one of the selected approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
 
-    ![Access package - Policy- Select directories](./media/entitlement-management-access-package-create/access-package-policy-approvers.png)
+    ![Access package - Policy- Select approvers](./media/entitlement-management-shared/policy-select-approvers.png)
 
 1. Click **Select** to add the approvers.
 
 1. Click **Show advanced request settings** to show additional settings.
 
-    ![Access package - Policy- Select directories](./media/entitlement-management-access-package-create/access-package-policy-advanced-request.png)
+    ![Access package - Policy- Select directories](./media/entitlement-management-shared/policy-advanced-request.png)
 
 1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
@@ -201,7 +203,7 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
     If extensions are allowed, the user will receive an email 14 and 1 days before their access package assignment is set to expire prompting them to extend the assignment.
 
-    ![Access package - Policy- Expiration settings](./media/entitlement-management-access-package-create/access-package-policy-expiration.png)
+    ![Access package - Policy- Expiration settings](./media/entitlement-management-shared/policy-expiration.png)
 
 ### Policy: Enable policy
 
@@ -209,7 +211,7 @@ In the Expiration section, you specify when a user's assignment to the access pa
 
     You can always enable it in the future after you have finished creating the access package.
 
-    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/access-package-policy-enable.png)
+    ![Access package - Policy- Enable policy setting](./media/entitlement-management-shared/policy-enable.png)
 
 1. Click **Next**.
 
@@ -219,7 +221,7 @@ On the **Review + create** tab, you can review your settings and check for any v
 
 1. Review the access package's settings
 
-    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/access-package-review-create.png)
+    ![Access package - Policy- Enable policy setting](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Click **Create** to create the access package.
 

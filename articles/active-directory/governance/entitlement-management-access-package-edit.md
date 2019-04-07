@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/30/2019
+ms.date: 04/06/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -28,6 +28,43 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+An access package enables you to do a one-time setup of resources and policies that automatically administers access for the life of the access package. As an access package manager, you can change the resources in an access package at any time without worrying about provisioning the user's access to the new resources, or removing their access from the previous resources. Policies can also be updated at any time, however, the policy changes only affect new accesses.
+
+This article describes how to edit and manage existing access packages.
+
+## Add resource roles
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Resource roles**.
+
+1. Click **Add resource roles**.
+
+1. Select the resources you want to add.
+
+1. Select the role.
+
+1. Click **Add**.
+
+Any users with existing assignments to the access package will automatically be given access to this resource role when it is added.
+
+## Remove resource roles
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Resource roles**.
+
+1. Click the ellipsis (**...**) and then click **Remove resource role**.
+
+Any users with existing assignments to the access package will automatically have their access revoked to this resource role when it is removed.
 
 ## Create a policy
 
@@ -41,53 +78,126 @@ The following diagram shows the high-level process to create a policy for an exi
 
 1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
-1. In the left menu, click **Access packages** and then open the access package.
+1. In the left menu, click **Access packages**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-shared/elm-access-packages.png)
+
+1. Open the access package.
 
 1. Click **Policies** and then **Add policy**.
 
-1. Select the type of users you would like to be able to request your access package. You can also choose to directly assign users to the access package with this policy.
+1. Type the a name and a description for the policy.
 
-    - **For users in your directory**
+    ![Create policy with name and description](./media/entitlement-management-access-package-edit/policy-name-description.png)
 
-        Select one or more users and/or groups you would like to be able to request the access package.
+1. Based on your selection for **Users who can request access**, perform the steps in one of the following policy sections.
 
-    - **For users not in your directory**
+### Policy: For users in your directory
 
-        Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
+Follow these steps if you want your policy to be for users and groups in your directory that can request this access package.
 
-1. Select one or more external Azure AD directories whose users you would like to be able to request the access package. All users from the directory will be able to request.
+1. In the **Users who can request access** section, select **For users in your directory**.
 
-1. Search for an external Azure AD directory by domain. Verify it is the correct directory by the provided directory name and initial domain. Click **Add**. Repeat this step to add any more directories.
+1. In the **Select users and groups** section, click **Add users and groups**.
 
-    Users from all domain associated with the directory, not just the domain used in the search, will be able to request the access package.
+1. In the Select users and groups pane, select the users and groups you want to add.
+
+    ![Access package - Policy- Select users and groups](./media/entitlement-management-shared/policy-select-users-groups.png)
+
+1. Click **Select** to add the users and groups.
+
+1. Skip down to the [Policy: Request](#policy-request) section.
+
+### Policy: For users not in your directory
+
+Follow these steps if you want your policy to be for users not in your directory that can request this access package. Directories must be configured to be allowed in the **Organizational relationships collaboration restrictions** settings.
+
+1. In the **Users who can request access** section, select **For users not in your directory**.
+
+1. In the **Select external Azure AD directory** section, click **Add directories**.
+
+1. Enter a domain name and search for an external Azure AD directory.
+
+1. Verify it is the correct directory by the provided directory name and initial domain.
+
+    > [!NOTE]
+    > All users from the directory will be able to request this access package. This includes users from all subdomains associated with the directory, not just the domain used in the search.
+
+    ![Access package - Policy- Select directories](./media/entitlement-management-shared/policy-select-directories.png)
+
+1. Click **Add** to add the directory.
+
+1. Repeat this step to add any more directories.
 
 1. Once you have added all directories you'd like to include in the policy, click **Select**.
 
-1. Choose the **No one (admin directly assigns)** option if you want to bypass requests and directly assign users to the access package. You can still set expiration settings, but there are no request settings.
+1. Skip down to the [Policy: Request](#policy-request) section.
 
-1. In request settings, to require approval on requests from the selected users, click **Yes** and select one or more users and/or groups to be approvers for requests from the users in this specific policy.
+### Policy: None (administrator direct assignments only)
+
+Follow these steps if you want your policy to bypass access requests and allow administrators to directly assign specific users to the access package. Users won't have to request the access package. You can still set expiration settings, but there are no request settings.
+
+1. In the **Users who can request access** section, select **None (administrator direct assignments only**.
+
+    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory.
+
+1. Skip down to the [Policy: Expiration](#policy-expiration) section.
+
+### Policy: Request
+
+In the Request section, you specify approval settings when users request the access package.
+
+1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. To have requests automatically approved, set the toggle to **No**.
+
+1. If you require approval, in the **Select approvers** section, click **Add approvers**.
+
+1. In the Select approvers pane, select one or more users and/or groups to be approvers.
 
     Only one of the selected approvers needs to approve a request. Approval from all approvers is not required. The approval decision is based on whichever approver reviews the request first.
 
-    To have requests automatically approved, click **No**.
+    ![Access package - Policy- Select approvers](./media/entitlement-management-shared/policy-select-approvers.png)
 
-1. In advanced request settings, specify whether to require users to provide a justification to request the access package.
+1. Click **Select** to add the approvers.
 
-1. Specify whether to require the approver to provide a justification to approve a request for the access package.
+1. Click **Show advanced request settings** to show additional settings.
 
-1. Select the amount of time the approvers have to review a request. If no  approvers review it in this amount of days, the request will be cancelled and the user will have to re-request the access package.
+    ![Access package - Policy- Select directories](./media/entitlement-management-shared/policy-advanced-request.png)
 
-1. In expiration settings, specify whether to expire a user's assignment to the access package on a certain date, a certain number of days after they are approved, or never.
+1. To require users to provide a justification to request the access package, set **Require justification** to **Yes**.
 
-1. In advanced expiration settings, specify whether to allow users to extend their assignments. If extensions are allowed, the user will receive an email 14 and 1 days before their access package assignment is set to expire prompting them to extend the assignment.
+1. To require the approver to provide a justification to approve a request for the access package, set **Require approver justification** to **Yes**.
 
-1. If you want to require approval for extensions, click **Yes**.
+1. In the **Approval request timeout (days)** box, specify the amount of time the approvers have to review a request. If no  approvers review it in this amount of days, the request will be cancelled and the user will have to request the access package again.
 
-    Any extensions will require approval from one of the assigned approvers in the policy.
+### Policy: Expiration
+
+In the Expiration section, you specify when a user's assignment to the access package expires.
+
+1. In the **Expiration** section, set **Access package expires** to **On date**, **Number of days**, or **Never**.
+
+    For **On date**, select an expiration date in the future.
+
+    For **Number of days**, specify a number between 0 and 3660 days.
+
+    Based on your selection, a user's assignment to the access package expires on a certain date, a certain number of days after they are approved, or never.
+
+1. Click **Show advanced expiration settings** to show additional settings.
+
+1. To allow user to extend their assignments, set **Allow users to extend access** to **Yes**.
+
+    If extensions are allowed, the user will receive an email 14 and 1 days before their access package assignment is set to expire prompting them to extend the assignment.
+
+    ![Access package - Policy- Expiration settings](./media/entitlement-management-shared/policy-expiration.png)
+
+### Policy: Enable policy
 
 1. If you want the access package to be made immediately available to the users in the policy, click **Yes** to enable the policy.
 
     You can always enable it in the future after you have finished creating the access package.
+
+    ![Access package - Policy- Enable policy setting](./media/entitlement-management-shared/policy-enable.png)
+
+1. Click **Create** to create the policy.
 
 ## Directly assign a user
 
@@ -180,40 +290,6 @@ You can only cancel a pending request that has not yet been fulfilled.
 1. Click the request you want to cancel
 
 1. In the request details pane, click **Cancel request**.
-
-## Add resource roles
-
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
-
-1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
-
-1. In the left menu, click **Access packages** and then open the access package.
-
-1. Click **Resource roles**.
-
-1. Click **Add resource roles**.
-
-1. Select the resources you want to add.
-
-1. Select the role.
-
-1. Click **Add**.
-
-Any users with existing assignments to the access package will automatically be given access to this resource role when it is added.
-
-## Remove resource roles
-
-**Prerequisite role:** User administrator, Catalog owner, or Access package manager
-
-1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
-
-1. In the left menu, click **Access packages** and then open the access package.
-
-1. Click **Resource roles**.
-
-1. Click the ellipsis (**...**) and then click **Remove resource role**.
-
-Any users with existing assignments to the access package will automatically have their access revoked to this resource role when it is removed.
 
 ## Change the Hidden setting
 

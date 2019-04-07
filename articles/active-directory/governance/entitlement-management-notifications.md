@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/05/2019
+ms.date: 04/06/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure AD entitlement management sends email notifications to key stakeholders for the request and approval process of access packages. These emails might also include links to relevant tasks.
+Azure AD entitlement management sends email notifications to approvers and requestors when key events occur. These emails might also include links to relevant tasks.
 
 This article describes what these emails look like, when they are sent, and who they are sent to.
 

@@ -82,19 +82,19 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
 ![Create an access package](./media/entitlement-management-access-package-first/elm-access-package.png)
 
-1. In the Azure portal, open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
 1. In the left menu, click **Access packages**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
-
 1. Click **New access package**.
+
+    ![Entitlement management in the Azure portal](./media/entitlement-management-access-package-first/access-packages-list.png)
 
 1. On the **Basics** tab, type the name **Web project access package** and description **Access package for the Engineering web project**.
 
 1. Leave the **Catalog** drop-down list set to **Default Catalog**.
 
-    ![New access package - Basics tab](./media/entitlement-management-access-package-first/access-package-basics.png)
+    ![New access package - Basics tab](./media/entitlement-management-access-package-first/basics.png)
 
 1. Click **Next** to open the **Resource roles** tab.
 
@@ -106,13 +106,13 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     By default, you see groups inside and outside the **Default Catalog**. When you select a group outside of the **Default Catalog**, it will be added to the **Default Catalog**.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles-select-groups.png)
+    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles-select-groups.png)
 
 1. Click **Select** to add the group to the list.
 
 1. In the **Role** drop-down list, select **Member**.
 
-    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/access-package-resource-roles.png)
+    ![New access package - Resource roles tab](./media/entitlement-management-access-package-first/resource-roles.png)
 
 1. Click **Next** to open the **Policy** tab.
 
@@ -120,7 +120,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     You will create the policy in the next section.
 
-    ![New access package - Policy tab](./media/entitlement-management-access-package-first/access-package-policy.png)
+    ![New access package - Policy tab](./media/entitlement-management-access-package-first/policy.png)
 
 1. Click **Next** to open the **Review + create** tab.
 
@@ -128,7 +128,7 @@ An *access package* is a bundle of all the resources a user needs to work on a p
 
     You might see a message that the access package will not be visible to users because the catalog is not yet enabled.
 
-    ![New access package - Not visible message](./media/entitlement-management-access-package-first/access-package-not-visible.png)
+    ![New access package - Not visible message](./media/entitlement-management-access-package-first/not-visible.png)
 
 1. Click **OK**.
 
@@ -144,11 +144,11 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. In the **Web project access package**, in the left menu, click **Policies**.
 
-    ![Access package policies list](./media/entitlement-management-access-package-first/access-package-policies-list.png)
+    ![Access package policies list](./media/entitlement-management-access-package-first/policies-list.png)
 
 1. Click **Add policy** to open Create policy.
 
-    Type the name **Internal requestor policy** and description **Allows users in this directory to request access to web project resources**.
+1. Type the name **Internal requestor policy** and description **Allows users in this directory to request access to web project resources**.
 
 1. In the **Users who can request access** section, click **For users in your directory**.
 
@@ -180,7 +180,7 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
     You'll use this link for the next step.
 
-    ![Access package overview](./media/entitlement-management-access-package-first/access-package-overview.png)
+    ![Access package overview](./media/entitlement-management-access-package-first/overview.png)
 
 ## Step 4: Request access
 
@@ -250,7 +250,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as the **Admin1**.
 
-1. Open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
+1. Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
 1. In the left menu, click **Access packages**.
 
@@ -262,7 +262,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. Click the request to see the request details.
 
-    ![Access package - Request details](./media/entitlement-management-access-package-first/access-package-request-details.png)
+    ![Access package - Request details](./media/entitlement-management-access-package-first/request-details.png)
 
 1. In the left navigation, click **Azure Active Directory**.
 
@@ -278,7 +278,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 **Prerequisite role:**  Global administrator or User administrator
 
-1. In the Azure portal, open the **Entitlement management** preview page at [https://aka.ms/elm](https://aka.ms/elm).
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
 
 1. Open **Web project access package**.
 
