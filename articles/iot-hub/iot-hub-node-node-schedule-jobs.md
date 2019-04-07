@@ -39,9 +39,9 @@ This tutorial shows you how to:
 
 At the end of this tutorial, you have two Node.js apps:
 
-**simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
+* **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**scheduleJobService.js**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
+* **scheduleJobService.js**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -279,8 +279,6 @@ You are now ready to run the applications.
 
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
-To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
-
-[Tutorial: How to do a firmware update](tutorial-firmware-update.md)
+To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see [Tutorial: How to do a firmware update](tutorial-firmware-update.md).
 
 To continue getting started with IoT Hub, see [Getting started with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md).
