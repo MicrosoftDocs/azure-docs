@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Create  your first data science experiment without writing code"
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning service
 description: Create a machine learning experiment to prepare and visualize your data with a drag-and-drop user interface.
 services: machine-learning
 ms.service: machine-learning
