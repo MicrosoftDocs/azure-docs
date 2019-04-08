@@ -95,7 +95,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
     python -m pip install --upgrade pip
     ```
 
-3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) is a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
     ```powershell
     pip install certifi
@@ -135,7 +135,7 @@ You should see the version of Azure CLI and other dependent libraries that are i
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
+3. Install the **certifi** module. [Certifi](https://pypi.org/project/certifi/) is a module and a collection of Root Certificates for validating the trustworthiness of SSL certificates while verifying the identity of TLS hosts. Open a cmd prompt or an elevated PowerShell prompt, and type the following command:
 
     ```bash
     pip3 install certifi

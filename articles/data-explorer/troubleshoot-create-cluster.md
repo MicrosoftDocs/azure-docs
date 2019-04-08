@@ -1,16 +1,15 @@
 ---
-title: Failure to create a cluster in Azure Data Explorer
+title: Troubleshoot a failure of Azure Data Explorer cluster creation
 description: This article describes troubleshooting steps for creating a cluster in Azure Data Explorer.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Troubleshoot: Failure to create a cluster in Azure Data Explorer
+# Troubleshoot: Failed cluster creation of Azure Data Explorer
 
 In the unlikely event that cluster creation fails in Azure Data Explorer, follow these steps.
 
