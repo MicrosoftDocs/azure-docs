@@ -54,7 +54,7 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-For examples that use the insights token, see [C#](#use-c#) | [Java](#use-java) | [Node.js](#use-nodejs) | [Python](#use-python).
+For examples that use the insights token, see [C#](#use-with-c#) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
 
 ## Use with C#
 
