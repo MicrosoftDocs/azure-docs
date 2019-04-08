@@ -235,14 +235,20 @@ https://atlas.microsoft.com/search/address/json?subscription-key={subscription-k
 
 ### URI encoding to handle special characters 
 
-To find cross street addresses, that is, 1st Avenue & Union Street, Seattle, special character '&' needs to be encoded before sending the request. We recommend encoding character data in a URI, where all characters are encoded using a '%' character and a two-character hex value corresponding to their UTF-8 character.
+To find cross street addresses, that is, "1st Avenue & Union Street, Seattle", special character '&' needs to be encoded before sending the request. We recommend encoding character data in a URI, where all characters are encoded using a '%' character and a two-character hex value corresponding to their UTF-8 character.
 
 **Usage Examples**:
 
 Get Search Address:
 
 ```
-query=1st Avenue & E 111th St, New York shall be encoded as query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York 
+query=1st Avenue & E 111th St, New York
+```
+
+ shall be encoded as:
+
+```
+query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -557,21 +563,21 @@ Let's make an Address search request to the Azure Maps [search service](https://
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
 ```
 
-Further let's have a look at the response structure below. The result types of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are Point Address, Street, and Cross Street. Notice that address search does not return POIs. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
+Further let's have a look at the response structure below. The result types of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are "Point Address", "Street", and "Cross Street". Notice that address search does not return POIs. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
 
 **Supported types of result:**
 
-**Point Address:** Points on a map with specific address with a street name and number. The highest level of accuracy available for addresses. 
+* **Point Address:** Points on a map with specific address with a street name and number. The highest level of accuracy available for addresses. 
 
-**Address Range:**  For some streets, there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges. 
+* **Address Range:**  For some streets, there are address points that are interpolated from the beginning and end of the street; those points are represented as address ranges. 
 
-**Geography:** Areas on a map that represent administrative division of a land, that is, country, state, city. 
+* **Geography:** Areas on a map that represent administrative division of a land, that is, country, state, city. 
 
-**POI - (Points of Interest):** Points on a map that are worth attention and may be interesting.
+* **POI - (Points of Interest):** Points on a map that are worth attention and may be interesting.
 
-**Street:** Representation of streets on the map. Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed. 
+* **Street:** Representation of streets on the map. Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed. 
 
-**Cross Street:** Intersections. Representations of junctions; places where two streets intersect.
+* **Cross Street:** Intersections. Representations of junctions; places where two streets intersect.
 
 **Response:**
 
