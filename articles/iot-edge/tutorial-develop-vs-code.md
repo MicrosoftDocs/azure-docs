@@ -38,7 +38,7 @@ Use **Visual Studio 2017** if you...
 * Want to develop using C or C#
 * Are developing primarily for Windows IoT devices (although you can develop for Linux devices, too)
 * Are developing for AMD64 devices
-* Or, see [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
+* Or, see [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for the full list of supported features
 
 Use **Visual Studio Code** if you...
 * Want to develop in Java, Node.js, or Python (although you can use C or C#, too)
@@ -225,7 +225,7 @@ Each module can have multiple *input* and *output* queues declared in their code
 
    One of the functions of the IoT Edge hub module is to route messages between all the modules in a deployment. Review the values in the **routes** parameter. The first route, SampleModuleToIoTHub, uses a wildcard character, **\***, to indicate any messages coming from any output queues in the SampleModule module. These messages go into *$upstream*, which is a reserved name that indicates IoT Hub. The second route, sensorToSampleModule, takes messages coming from the tempSensor module and routes them to the *input1* input queue that you saw initialized in the SampleModule code. 
 
-   ![Review routes in deployment.template.json](./media/tutorial-deployment-setup/edgeHub-routes.png)
+   ![Review routes in deployment.template.json](./media/tutorial-develop-vs-code/edgeHub-routes.png)
 
 ## Build and push your solution
 
@@ -319,3 +319,16 @@ The SampleModule code receives messages through its input queue and passes them 
 
    ![View incoming device to cloud messages](./media/tutorial-develop-vs-code/view-d2c-messages.png)
 
+
+
+
+## Next steps
+
+In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
+
+> [!div class="nextstepaction"] 
+> [C](tutorial-c-module.md)
+> [C#](tutorial-csharp-module.md)
+> [Java](tutorial-java-module.md)
+> [Node.js](tutorial-node-module.md)
+> [Python](tutorial-python-module.md)

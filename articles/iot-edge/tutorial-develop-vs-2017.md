@@ -37,7 +37,7 @@ Use **Visual Studio 2017** if you...
 * Want to develop using C or C#
 * Are developing primarily for Windows IoT devices (although you can develop for Linux devices, too)
 * Are developing for AMD64 devices
-* Or, see [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools)
+* Or, see [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for the full list of supported features
 
 Use **Visual Studio Code** if you...
 * Want to develop in Java, Node.js, or Python (although you can use C or C#, too)
@@ -142,3 +142,10 @@ You verified that the built container images are stored in your container regist
 
 The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from tempSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT tools for Visual Studio Code allow you to see messages as they arrive at IoT Hub from your individual devices. 
 
+## Next steps
+
+In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
+
+> [!div class="nextstepaction"] 
+> [C](tutorial-c-module.md)
+> [C#](tutorial-csharp-module.md)
