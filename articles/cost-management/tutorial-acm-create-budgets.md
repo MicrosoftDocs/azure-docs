@@ -58,7 +58,9 @@ Click **Add**.
 
 ![Cost Management budgets shown in the Azure portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
+In the **Create budget** window, enter a budget name and budget amount. Then, choose either a monthly, quarterly, or annual duration period<sup>1</sup>. Next, select an end date. Budgets require at least one cost threshold (% of budget) and a corresponding email address. You can optionally include up to five thresholds and five email addresses in a single budget. When a budget threshold is met, email notifications are normally received in less than eight hours. For more information about notifications, see [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md).
+
+<sup>1</sup> If you are a Pay-As-You-Go, MSDN, or Visual Studio customer your invoice billing period for a subscription may not align to the calendar month. For subscriptions and resource groups that fall into this bucket, you can create a budget that is aligned to your invoice or to calendar months. To create a budget aligned to your invoice, select a reset period of Billing month, Billing quarter or Billing year at creation time. To create a budget aligned to the calendar month, select a reset period of  Monthly, Quarterly or Annually at creation time.
 
 Here's an example of creating a monthly budget for $4,500. An email alert gets generated when 90% of the budget is reached.
 
