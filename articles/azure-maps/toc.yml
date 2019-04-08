@@ -90,6 +90,8 @@
         href: map-add-heat-map-layer.md   
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
+      - name: Use data-driven style expressions
+        href: data-driven-style-expressions-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers
