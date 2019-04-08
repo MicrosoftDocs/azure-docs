@@ -14,7 +14,7 @@ ms.author: kumud;tyao
 ---
 
 # Configure a web application firewall policy using Azure PowerShell
-Azure web application firewall (WAF) policy defines inspections requried when a request arrives at Front Door.
+Azure web application firewall (WAF) policy defines inspections required when a request arrives at Front Door.
 This article shows how to configure a WAF policy consists of some custom rules and with Azure managed Default Ruse Set enabled.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -40,54 +40,53 @@ Install-Module PowerShellGet -Force -AllowClobber
 #### Install Az.FrontDoor module 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 ### Create a Front Door profile
-Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md)
+Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md)
 
-## Define url match conditions
-Define a URL match condition (URL contains /promo) using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject).
-The following example matches */promo* as the value of the *RequestUri* variable:
+## Custom rule based on http parameters
 
-```powershell-interactive
-   $promoMatchCondition = New-AzFrontDoorMatchConditionObject `
-     -MatchVariable RequestUri `
-     -OperatorProperty Contains `
-     -MatchValue "/promo"
-```
-## Create a custom rate limit rule
-Set a rate limit using [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject). 
-In the following example, the limit is set to 1000. Requests from any client to the promo page exceeding 1000 during one minute are blocked until the next minute starts.
+Below powershell example shows how to configure a custom rule with two match conditions using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Requests are from a specified site as defined by referrer, and query string does not contain "password". 
 
 ```powershell-interactive
-   $promoRateLimitRule = New-AzFrontDoorCustomRuleObject `
-     -Name "rateLimitRule" `
-     -RuleType RateLimitRule `
-     -MatchCondition $promoMatchCondition `
-     -RateLimitThreshold 1000 `
-     -Action Block -Priority 1
+$referer = New-AzFrontDoorMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
+$password = New-AzFrontDoorMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
+$AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
+## Custom rule based on http request method
+Create a rule blocking "PUT" method using [New-AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) as follows:
 
+```powershell-interactive
+$put = New-AzFrontDoorMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
+$BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
+```
+
+## Create a custom rule based on size constraint
+
+The following example creates a rule blocking requests with Url that is longer than 100 characters using Azure PowerShell:
+```powershell-interactive
+$url = New-AzFrontDoorMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
+$URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
+```
+## Add managed Default Rule Set
+
+The following example creates a managed Default Rule Set using Azure PowerShell:
+```powershell-interactive
+$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+```
 ## Configure a security policy
 
-Find the name of the resource group that contains the Front Door profile using `Get-AzureRmResourceGroup`. Next, configure a security policy with a custom rate limit rule using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile.
-
-The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.
-
- using [New-AzFrontDoorFireWallPolicy](/powershell/module/Az.FrontDoor/New-AzFrontDoorFireWallPolicy).
+Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, configure a security policy with created rules in the previous steps using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile.
 
 ```powershell-interactive
-   $ratePolicy = New-AzFrontDoorFireWallPolicy `
-     -Name "RateLimitPolicyExamplePS" `
-     -resourceGroupName myResourceGroupFD1 `
-     -Customrule $promoRateLimitRule `
-     -Mode Prevention `
-     -EnabledState Enabled
+$myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
+
 ## Link policy to a Front Door front-end host
 Link the security policy object to an existing Front Door front-end host and update Front Door properties. First retrieve the Front Door object using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) command.
-Next, set the front-end *WebApplicationFirewallPolicyLink* property to the *resourceId* of the "$ratePolicy" created in the previous step using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command. 
+Next, set the front-end *WebApplicationFirewallPolicyLink* property to the *resourceId* of the "$myWAFPolicy$" created in the previous step using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command. 
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article. Also, in the below example, replace $frontDoorName with the name of your Front Door profile. 
 
@@ -95,7 +94,7 @@ The below example uses the Resource Group name *myResourceGroupFD1* with the ass
    $FrontDoorObjectExample = Get-AzFrontDoor `
      -ResourceGroupName myResourceGroupFD1 `
      -Name $frontDoorName
-   $FrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $ratePolicy.Id
+   $FrontDoorObjectExample[0].FrontendEndpoints[0].WebApplicationFirewallPolicyLink = $myWAFPolicy.Id
    Set-AzFrontDoor -InputObject $FrontDoorObjectExample[0]
  ```
 
