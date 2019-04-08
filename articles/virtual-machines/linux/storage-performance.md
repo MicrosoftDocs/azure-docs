@@ -80,26 +80,26 @@ Tips for Maximizing Performance on Lsv2-Series VMs:
 
 ## Frequently asked questions
 
-1. How do I start deploying Lsv2-series VMs?
-    Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
+1. **How do I start deploying Lsv2-series VMs?**  
+   Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
 
-1. Are Lsv2-series VMs available globally?
-    At this time, Lsv2-series VMs available only in four regions (East US, East US 2, West Europe, and SE Asia).
+1. **Are Lsv2-series VMs available globally?**  
+   At this time, Lsv2-series VMs available only in four regions (East US, East US 2, West Europe, and SE Asia).
 
-1. Will a single NVMe disk failure cause all VMs on the host to fail?
-    If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
+1. **Will a single NVMe disk failure cause all VMs on the host to fail?**  
+   If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
 
-1. Do I need to make any adjustments to rq_affinity for perf?
-    The rq_affinity setting is a minor adjustment when using the absolute maximum input/output operations per second (IOPS). Once everything else is working well, then try to set rq_affinity to 0 to see if it makes a difference.
+1. **Do I need to make any adjustments to rq_affinity for performance?**  
+   The rq_affinity setting is a minor adjustment when using the absolute maximum input/output operations per second (IOPS). Once everything else is working well, then try to set rq_affinity to 0 to see if it makes a difference.
 
-1. Do I need to change the blk_mq settings?
-    RHEL/CentOS 7.x automatically uses blk-mq for the NVMe devices. No configuration changes or settings are necessary. The scsi_mod.use_blk_mq setting is for SCSI only and was used during Lv2 Preview because the NVMe devices were visible in the guest VMs as SCSI devices. Currently, the NVMe devices are visible as NVMe devices, so the SCSI blk-mq setting is irrelevant.
+1. **Do I need to change the blk_mq settings?**  
+   RHEL/CentOS 7.x automatically uses blk-mq for the NVMe devices. No configuration changes or settings are necessary. The scsi_mod.use_blk_mq setting is for SCSI only and was used during Lv2 Preview because the NVMe devices were visible in the guest VMs as SCSI devices. Currently, the NVMe devices are visible as NVMe devices, so the SCSI blk-mq setting is irrelevant.
 
-1. Do I need to change “fio”?
-    To get maximum IOPS with a performance measuring tool like ‘fio’ in the L64v2 and L80v2 VM sizes, set “rq_affinity” to 0 on each NVMe device.  For example, this command line will set “rq_affinity” to zero for all 10 NVMe devices in an L80v2 VM:
+1. **Do I need to change “fio”?**  
+   To get maximum IOPS with a performance measuring tool like ‘fio’ in the L64v2 and L80v2 VM sizes, set “rq_affinity” to 0 on each NVMe device.  For example, this command line will set “rq_affinity” to zero for all 10 NVMe devices in an L80v2 VM:
 
-    ```console
-    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
-    ```
+   ```console
+   for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
+   ```
 
-    Also note that the best performance is obtained when I/O is done directly to each of the raw NVMe devices with no partitioning, no file systems, no RAID 0 config, etc. Before starting a testing session, ensure the configuration is in a known fresh/clean state by running `blkdiscard` on each of the NVMe devices.
+   Also note that the best performance is obtained when I/O is done directly to each of the raw NVMe devices with no partitioning, no file systems, no RAID 0 config, etc. Before starting a testing session, ensure the configuration is in a known fresh/clean state by running `blkdiscard` on each of the NVMe devices.

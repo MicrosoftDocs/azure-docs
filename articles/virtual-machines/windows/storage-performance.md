@@ -80,20 +80,20 @@ Tips for Maximizing Performance on Lsv2-Series VMs:
 
 ## Frequently asked questions
 
-1. How do I start deploying Lsv2-series VMs?
-    Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
+1. **How do I start deploying Lsv2-series VMs?**  
+   Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
 
-1. Are Lsv2-series VMs available globally?
-    At this time, Lsv2-series VMs available only in four regions (East US, East US 2, West Europe, and SE Asia).
+1. **Are Lsv2-series VMs available globally?**  
+   At this time, Lsv2-series VMs available only in four regions (East US, East US 2, West Europe, and SE Asia).
 
-1. Will a single NVMe disk failure cause all VMs on the host to fail?
-    If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
+1. **Will a single NVMe disk failure cause all VMs on the host to fail?**  
+   If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
 
-1. Do I need to make polling adjustments in Windows in Windows Server 2012 or Windows Server 2016?
-    NVMe polling is only available on Windows Server 2019 on Azure.  
+1. **Do I need to make polling adjustments in Windows in Windows Server 2012 or Windows Server 2016?**  
+   NVMe polling is only available on Windows Server 2019 on Azure.  
 
-1. Can I switch back to a traditional interrupt service routine (ISR) model?
-    Lsv2-series VMs are optimized for NVMe polling. Updates are continuously provided to improve polling performance.
+1. **Can I switch back to a traditional interrupt service routine (ISR) model?**  
+   Lsv2-series VMs are optimized for NVMe polling. Updates are continuously provided to improve polling performance.
 
-1. Can I adjust the polling settings in Windows Server 2019?
-    The polling settings are not user adjustable.
+1. **Can I adjust the polling settings in Windows Server 2019?**  
+   The polling settings are not user adjustable.
