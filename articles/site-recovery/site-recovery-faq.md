@@ -63,7 +63,7 @@ You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to e
 For detailed estimate on costs, run the deployment planner tool for [VMware](https://aka.ms/siterecovery_deployment_planner) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](https://aka.ms/asr_DP_costreport).
 
 
-### Managed disks are now use to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?
+### Managed disks are now used to replicate VMware VMs and physical servers. Do I incur additional charges for the cache storage account with managed disks?
 
 No, there are no additional charges for cache. When you replicate to standard storage account, this cache storage is part of the same target storage account.
 
@@ -140,11 +140,11 @@ Azure Site Recovery replicates data to an Azure storage account or managed disks
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage. Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
 
 ### Can I use Riverbed SteelHeads for replication?
 
-Our partner, Riverbed, provides a detailed guidance on working with Azure Site Recovery. Please refer their [solution guide](https://community.riverbed.com/s/article/DOC-4627).
+Our partner, Riverbed, provides detailed guidance on working with Azure Site Recovery. Review their [solution guide](https://community.riverbed.com/s/article/DOC-4627).
 
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
 Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
