@@ -49,11 +49,9 @@ Both internet-facing and internal-application gateways route requests to backend
 
     >[!NOTE]
     >Both internet-facing and internal application gateways route requests to backend servers by using private IP addresses. This action happens when your backend pool resource contains a private IP address, VM NIC configuration, or an internally resolvable address. If the backend pool:
-  > - **Is a public endpoint**. Application Gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
-
-  > - **Contains an internally resolvable FQDN or a private IP address**. Application Gateway routes the request to the backend server by using its instance private IP addresses.
-
-  > - **Contains an external endpoint or an externally resolvable FQDN**. Application Gateway routes the request to the backend server by using its frontend public IP address. The DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+  > - **Is a public endpoint**, Application Gateway uses its frontend public IP to reach the server. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
+  > - **Contains an internally resolvable FQDN or a private IP address**, Application Gateway routes the request to the backend server by using its instance private IP addresses.
+  > - **Contains an external endpoint or an externally resolvable FQDN**, Application Gateway routes the request to the backend server by using its frontend public IP address. The DNS resolution is based on a private DNS zone or custom DNS server, if configured, or it uses the default Azure-provided DNS. If there isn't a frontend public IP address, one is assigned for the outbound external connectivity.
 
 ### Modifications to the request
 
@@ -61,7 +59,7 @@ Application Gateway inserts four additional headers to all requests before it fo
 
 The valid values for x-forwarded-proto are HTTP or HTTPS. X-forwarded-port specifies the port where the request reached the application gateway. X-original-host header contains the original host header with which the request arrived. This header is useful in Azure website integration, where the incoming host header is modified before traffic is routed to the backend. If session affinity is enabled as an option, then it adds a gateway-managed affinity cookie.
 
-Configure application gateway to modify headers by using [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) or to modify the URI path by using a path override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
+You can configure application gateway to modify headers by using [Rewrite HTTP headers](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) or to modify the URI path by using a path override setting. However, unless configured to do so, all incoming requests are proxied to the backend.
 
 ## Next steps
 

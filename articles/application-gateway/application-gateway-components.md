@@ -61,9 +61,9 @@ There are two types of listeners:
 
 - **Basic**. This type of listener listens to a single domain site, where it has a single DNS mapping to the IP address of the application gateway. This listener configuration is required when you host a single site behind an application gateway.
 
-- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool.
+- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
 
-    For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three listeners of the type *multi-site* and configure each listener for the respective port and protocol setting. For more information, see [Multiple site hosting](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    For more information, see [Multiple site hosting](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
 
 After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend.
 
@@ -79,7 +79,7 @@ There are two types of request routing rules:
 
 - **Basic.** All requests on the associated listener (for example, blog.contoso.com/*) are forwarded to the associated backend pool by using the associated HTTP setting.
 
-- **Path based.** This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
+- **Path-based.** This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
 
 For more information, see [URL-based routing](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
@@ -93,7 +93,9 @@ For more information, see [Redirect traffic on your application gateway](https:/
 
 ### Rewrite HTTP headers
 
-By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers while the request and response packets move between the client and backend pools via the application gateway. The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
+By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers while the request and response packets move between the client and backend pools via the application gateway. 
+
+The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 
 For more information, see [Rewrite HTTP headers on your application gateway](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
