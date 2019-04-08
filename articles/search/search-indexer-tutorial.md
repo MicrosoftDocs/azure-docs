@@ -46,7 +46,7 @@ The following services, tools, and data are used in this quickstart.
 > [!Note]
 > If you are using the free Azure Search service, you are limited to three indexes, three indexers, and three data sources. This tutorial creates one of each. Make sure you have room on your service to accept the new resources.
 
-## Get the api-key and endpoint
+## Get a key and URL
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
