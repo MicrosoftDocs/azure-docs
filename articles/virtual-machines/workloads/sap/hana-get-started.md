@@ -35,7 +35,7 @@ This guide also assumes that you're familiar with:
 * SAP HANA and SAP NetWeaver and how to install them on-premises.
 * How to install and operate SAP HANA and SAP application instances on Azure.
 * The following concepts and procedures:
-   * Planning for SAP deployment on Azure, which includes Azure Virtual Network planning and Azure Storage usage. See [SAP NetWeaver on Azure Virtual Machines (VMs) - Planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
+   * Planning for SAP deployment on Azure, which includes Azure Virtual Network planning and Azure Storage usage. See [SAP NetWeaver on Azure Virtual Machines - Planning and implementation guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
    * Deployment principles and ways to deploy VMs in Azure. See [Azure Virtual Machines deployment for SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide).
    * High availability for SAP NetWeaver ABAP SAP Central Services (ASCS), SAP Central Services (SCS), and  Enqueue Replication Server (ERS) on Azure. See [High availability for SAP NetWeaver on Azure VMs](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide).
    * Details on how to improve efficiency in a multi-SID installation of ASCS/SCS on Azure. See [Create a SAP NetWeaver multi-SID configuration](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
@@ -249,7 +249,7 @@ The following screenshot shows how the kernel settings were changed in the confi
 
 ![Kernel settings changed in the configuration file and compiled by using grub2-mkconfig](./media/hana-get-started/image006.jpg)
 
-Another option is to change the settings by using YaST and the **Boot Loader** > **Kernel Parameters** settings.
+Another option is to change the settings by using YaST and the **Boot Loader** > **Kernel Parameters** settings:
 
 ![The Kernel Parameters settings tab in YaST Boot Loader](./media/hana-get-started/image007.jpg)
 
@@ -299,23 +299,23 @@ If you have a Windows background, you can easily use a graphical desktop directl
 
    `zypper in -t pattern gnome-basic`
 
-2. Install xrdp to allow a connection to the VM through RDP.
+2. Install xrdp to allow a connection to the VM through RDP:
 
    `zypper in xrdp`
 
-3. Edit /etc/sysconfig/windowmanager, and set the default window manager to GNOME.
+3. Edit /etc/sysconfig/windowmanager, and set the default window manager to GNOME:
 
    `DEFAULT_WM="gnome"`
 
-4. Run **chkconfig** to make sure that xrdp starts automatically after a reboot.
+4. Run **chkconfig** to make sure that xrdp starts automatically after a reboot:
 
    `chkconfig -level 3 xrdp on`
 
-5. If you have an issue with the RDP connection, try to restart, for example, from a PuTTY window.
+5. If you have an issue with the RDP connection, try to restart, for example, from a PuTTY window:
 
    `/etc/xrdp/xrdp.sh restart`
 
-6. If an xrdp restart mentioned in the previous step doesn't work, check for a .pid file.
+6. If an xrdp restart mentioned in the previous step doesn't work, check for a .pid file:
 
    `check /var/run` 
 
@@ -336,7 +336,7 @@ One way to solve the problem is to install the missing plug-in by using YaST, as
 
 ![Using YaST to install missing plug-in](./media/hana-get-started/image014.jpg)
 
-When you reenter the SAP Management Console URL, you're asked to activate the plug-in.
+When you reenter the SAP Management Console URL, you're asked to activate the plug-in:
 
 ![Dialog box requesting plug-in activation](./media/hana-get-started/image015.jpg)
 
@@ -360,23 +360,23 @@ On the app server VM, the /sapmnt directory is shared via NFS by using the **rw*
 
 ![Sharing the /sapmnt directory via NFS by using the rw and no_root_squash options](./media/hana-get-started/image017b.jpg)
 
-As the next screenshot shows, the /sapmnt share from the app server VM must be configured on the SAP HANA DB server VM by using **NFS Client** and YaST.
+As the next screenshot shows, the /sapmnt share from the app server VM must be configured on the SAP HANA DB server VM by using **NFS Client** and YaST:
 
 ![The /sapmnt share configured by using NFS client](./media/hana-get-started/image018b.jpg)
 
-To perform a distributed NetWeaver 7.5 installation, that is, a **Database Instance**, sign in to the SAP HANA DB server VM and start SWPM.
+To perform a distributed NetWeaver 7.5 installation, that is, a **Database Instance**, sign in to the SAP HANA DB server VM and start SWPM:
 
 ![Installing a database instance by signing in to the SAP HANA DB server VM and starting SWPM](./media/hana-get-started/image019.jpg)
 
-After you select **typical** installation and the path to the installation media, enter a DB SID, the host name, the instance number, and the DB system administrator password.
+After you select **typical** installation and the path to the installation media, enter a DB SID, the host name, the instance number, and the DB system administrator password:
 
 ![The SAP HANA database system administrator sign-in page](./media/hana-get-started/image035b.jpg)
 
-Enter the password for the DBACOCKPIT schema.
+Enter the password for the DBACOCKPIT schema:
 
 ![The password-entry box for the DBACOCKPIT schema](./media/hana-get-started/image036b.jpg)
 
-Enter a question for the SAPABAP1 schema password.
+Enter a question for the SAPABAP1 schema password:
 
 ![Enter a question for the SAPABAP1 schema password](./media/hana-get-started/image037b.jpg)
 
@@ -396,11 +396,11 @@ This screenshot shows the file structure of the /usr/sap directory:
 
 ![The /usr/sap directory file structure](./media/hana-get-started/image026.jpg)
 
-The last step of the distributed ABAP installation is to install the primary application server instance.
+The last step of the distributed ABAP installation is to install the primary application server instance:
 
 ![ABAP installation showing primary application server instance as the final step](./media/hana-get-started/image027b.jpg)
 
-After the primary application server instance and SAP GUI are installed, use the **DBA Cockpit** transaction to confirm that the SAP HANA installation finished correctly.
+After the primary application server instance and SAP GUI are installed, use the **DBA Cockpit** transaction to confirm that the SAP HANA installation finished correctly:
 
 ![DBA Cockpit window confirming successful installation](./media/hana-get-started/image028b.jpg)
 
@@ -417,11 +417,11 @@ For more information about the HANA HDBLCM tool, see:
 * [SAP HANA lifecycle management tools](https://www.tutorialspoint.com/sap_hana_administration/sap_hana_administration_lifecycle_management.htm).
 * [SAP HANA server installation and update guide](https://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf).
 
-You want to avoid problems with a default group ID setting for the `\<HANA SID\>adm user`, which is created by the HDBLCM tool. Before you install SAP HANA via HDBLCM, define a new group called `sapsys` by using group ID `1001`.
+You want to avoid problems with a default group ID setting for the `\<HANA SID\>adm user`, which is created by the HDBLCM tool. Before you install SAP HANA via HDBLCM, define a new group called `sapsys` by using group ID `1001`:
 
 ![New group "sapsys" defined by using group ID 1001](./media/hana-get-started/image030.jpg)
 
-When you start HDBLCM for the first time, a simple start menu displays. Select item 1, **Install new system**.
+When you start HDBLCM for the first time, a simple start menu displays. Select item 1, **Install new system**:
 
 !["Install new system" option in the HDBLCM start window](./media/hana-get-started/image031.jpg)
 
@@ -450,15 +450,15 @@ The following screenshot shows the SWPM installation step where you enter data a
 
 ![The SWPM installation step where DBACOCKPIT schema data is entered](./media/hana-get-started/image036b.jpg)
 
-Enter data about the SAPABAP1 schema.
+Enter data about the SAPABAP1 schema:
 
 ![Entering data about the SAPABAP1 schema](./media/hana-get-started/image037b.jpg)
 
-After the SWPM database instance installation is finished, you can see the SAPABAP1 schema in SAP HANA Studio.
+After the SWPM database instance installation is finished, you can see the SAPABAP1 schema in SAP HANA Studio:
 
 ![The SAPABAP1 schema in SAP HANA Studio](./media/hana-get-started/image038b.jpg)
 
-Finally, after the SAP app server and SAP GUI installations are finished, verify the HANA DB instance by using the **DBA Cockpit** transaction.
+Finally, after the SAP app server and SAP GUI installations are finished, verify the HANA DB instance by using the **DBA Cockpit** transaction:
 
 ![The HANA DB instance verified with the DBA Cockpit transaction](./media/hana-get-started/image039b.jpg)
 
@@ -466,11 +466,11 @@ Finally, after the SAP app server and SAP GUI installations are finished, verify
 ## SAP software downloads
 You can download software from the SAP Service Marketplace, as shown in the following screenshots.
 
-Download NetWeaver 7.5 for Linux/HANA.
+Download NetWeaver 7.5 for Linux/HANA:
 
  ![SAP service installation and upgrade window for downloading NetWeaver 7.5](./media/hana-get-started/image001.jpg)
 
-Download HANA SP12 Platform Edition.
+Download HANA SP12 Platform Edition:
 
  ![SAP service installation and upgrade window for downloading HANA SP12 Platform Edition](./media/hana-get-started/image002.jpg)
 
