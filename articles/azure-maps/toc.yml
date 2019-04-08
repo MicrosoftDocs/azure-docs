@@ -62,6 +62,8 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
+    - name: Best practices for search
+      href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
   - name: Develop with the Web SDK
@@ -88,6 +90,8 @@
         href: map-add-heat-map-layer.md   
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
+      - name: Use data-driven style expressions
+        href: data-driven-style-expressions-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers

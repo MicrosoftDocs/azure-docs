@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 
 ---
@@ -370,7 +370,7 @@ To copy data to Azure SQL Database, set the **type** property in the Copy Activi
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the Copy Activity sink must be set to **SqlSink**. | Yes |
-| writeBatchSize | Inserts data into the SQL table when the buffer size reaches **writeBatchSize**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
+| writeBatchSize | Number of rows to inserts into the SQL table **per batch**.<br/> The allowed value is **integer** (number of rows). | No. The default is 10000. |
 | writeBatchTimeout | The wait time for the batch insert operation to finish before it times out.<br/> The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
 | preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Database. It's only invoked once per copy run. Use this property to clean up the preloaded data. | No |
 | sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. An example is to do upserts or transform by using your own business logic. <br/><br/>This stored procedure is **invoked per batch**. For operations that only run once and have nothing to do with source data, use the `preCopyScript` property. Example operations are delete and truncate. | No |
@@ -532,7 +532,7 @@ You can use a stored procedure when built-in copy mechanisms don't serve the pur
 
 The following sample shows how to use a stored procedure to do an upsert into a table in Azure SQL Database. Assume that input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
 
-#### Output dataset
+**Output dataset:** the "tableName" should be the same table type parameter name in your stored procedure (see below stored procedure script).
 
 ```json
 {
@@ -551,7 +551,7 @@ The following sample shows how to use a stored procedure to do an upsert into a 
 }
 ```
 
-Define the **SqlSink** section in Copy Activity:
+Define the **SQL sink** section in copy activity as follows.
 
 ```json
 "sink": {
