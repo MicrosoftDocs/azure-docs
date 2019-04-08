@@ -139,7 +139,7 @@ The following command uploads all files under the folder `C:\local\path` recursi
 The following command uploads all files under the folder `C:\local\path` (without recursing into the subdirectories) to the container `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"  --put-md5
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 To find more examples, use the following command:
@@ -162,12 +162,9 @@ To copy a Blob container to another Blob container, use the following command:
 .\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> This command will enumerate all blob containers and copy them to the destination account. At this time, AzCopy v10 supports copying only blobs between two storage accounts. 
-
 ## Copy a VHD image to a storage account
 
-AzCopy v10 by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob].
+AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
 
 ```azcopy
 .\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
@@ -213,7 +210,7 @@ export AWS_ACCESS_KEY_ID=<your AWS access key>
 export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
 ```
 
-To copy a an AWS S3 bucket to a Blob container, issue the following command:
+To copy the bucket to a Blob container, issue the following command:
 
 ```
 .\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
