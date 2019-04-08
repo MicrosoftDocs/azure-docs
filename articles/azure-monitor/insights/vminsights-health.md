@@ -304,5 +304,9 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
     ```
 
+    The output should resemble the following:
+    
+    ![Example output of Get notificationSettings](./media/vminsights-health/get-notification-config-status.png)
+
 ## Next steps
 To identify bottlenecks and overall utilization with your VMs performance, see [View Azure VM Performance](vminsights-performance.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
