@@ -112,7 +112,7 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 
 1. select **Home** in the Azure Data Catalog portal. If you've closed the web browser, go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com).
 
-2. In the search box, enter `cycles` and press **ENTER**.
+2. In the search box, enter `product` and press **ENTER**.
 
     ![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 
@@ -121,6 +121,7 @@ Basic search helps you search a catalog by using one or more search terms. Resul
     ![Azure Data Catalog--basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
 
     The **Searches** panel is on the left and the **Properties** panel is on the right. On the **Searches** panel, you can change search criteria and filter results. The **Properties** panel displays properties of a selected object in the grid or list.
+
 4. select **Product** in the search results. select the **Preview**, **Columns**, **Data Profile**, and **Documentation** tabs, or select the arrow to expand the bottom pane.  
 
     ![Azure Data Catalog--bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
@@ -130,19 +131,15 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 
 6. select the **Data Profile** tab to see the profiling of data (for example: number of rows, size of data, or minimum value in a column) in the data asset.
 
-7. Filter the results by using **Filters** on the left. For example, select **Table** for **Object Type**, and you see only the four tables, not the database.
-
-    ![Azure Data Catalog--filter search results](media/data-catalog-get-started/data-catalog-filter-search-results.png)
-
 ### Discover data assets with property scoping
 
 Property scoping helps you discover data assets where the search term is matched with the specified property.
 
 1. Clear the **Table** filter under **Object Type** in **Filters**.  
 
-2. In the search box, enter `tags:cycles` and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
+2. In the search box, enter `tags:product` and press **ENTER**. See [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for all the properties you can use for searching the data catalog.
 
-3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results.  
+3. Confirm that you see the tables and the database in the results.  
 
     ![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
 
@@ -151,32 +148,20 @@ Property scoping helps you discover data assets where the search term is matched
 1. In the **Searches** pane in the **Current Search** section, enter a name for the search and select **Save**.
 
     ![Azure Data Catalog--save search](media/data-catalog-get-started/data-catalog-save-search.png)
+
 2. Confirm that the saved search shows up under **Saved Searches**.
 
-    ![Azure Data Catalog--saved searches](media/data-catalog-get-started/data-catalog-saved-search.png)
 3. Select one of the actions you can take on the saved search (**Rename**, **Delete**, **Save As Default** search).
-
-    ![Azure Data Catalog--saved search options](media/data-catalog-get-started/data-catalog-saved-search-options.png)
-
-### Boolean operators
-
-You can broaden or narrow your search with Boolean operators.
-
-1. In the search box, enter `tags:cycles AND objectType:table`, and press **ENTER**.
-
-2. Confirm that you see only tables (not the database) in the results.  
-
-    ![Azure Data Catalog--Boolean operator in search](media/data-catalog-get-started/data-catalog-search-boolean-operator.png)
 
 ### Grouping with parentheses
 
 By grouping with parentheses, you can group parts of the query to achieve logical isolation, especially along with Boolean operators.
 
-1. In the search box, enter `name:product AND (tags:cycles AND objectType:table)` and press **ENTER**.
+1. In the search box, enter `name:product AND (tags:product AND objectType:table)` and press **ENTER**.
 
 2. Confirm that you see only the **Product** table in the search results.
 
-    ![Azure Data Catalog--grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)   
+    ![Azure Data Catalog--grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)
 
 ### Comparison operators
 
@@ -188,7 +173,7 @@ With comparison operators, you can use comparisons other than equality for prope
 
 3. Press **ENTER**.
 
-4. Confirm that you see the **Product**, **ProductCategory**, **ProductDescription**, and **ProductPhoto** tables and the AdventureWorks2014 database you registered in search results.
+4. Confirm that you see the **Product**, **ProductCategory**, and **ProductDescription** tables and the Azure SQL database you registered in search results.
 
     ![Azure Data Catalog--comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
 
