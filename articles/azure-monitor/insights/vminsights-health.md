@@ -255,23 +255,36 @@ Alert state can also be changed for one or multiple alerts by selecting them and
 ### Configure alerts
 Certain alert management tasks cannot be managed from the Azure portal and have to be performed using the Azure Monitor REST API. Specifically:
 
-- Enabling or disabling an alert on a health criterion. 
-- Associate alert rules from health criterion with an Action group for a specific VM 
+- Enabling or disabling an alert for health criteria 
+- Setup notifications for health criteria alerts 
 
 The approach used in each example is using [ARMClient](https://github.com/projectkudu/armclient) on your Windows machine. If you are not familiar with this method, see [Using ARMClient](../platform/rest-api-walkthrough.md#use-armclient).  
+
+#### Enable or disable alert rule
 
 To enable or disable an alert rule for a specific health criteria, the health criteria property *alertGeneration* needs to be modified with a value of either **Disabled** or **Enabled**. To identify the *monitorId* of a particular health criteria, the following example will show how to query for that value for the criteria **LogicalDisk\Avg Disk Seconds Per Transfer**.
 
 1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
-2. Type `armclient GET "subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Compute/virtualMachines/<VM_Name>/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”` to retrieve all the health criterion active on a specific virtual machine and identify the value for *monitorId* property. 
+
+2. Type `armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”` to retrieve all the health criterion active on a specific virtual machine and identify the value for *monitorId* property. 
 
     The following example shows the output of that command. Take note of the value of *MonitorId* highlighted in red. This value is required for the next step where we need to specify the Id of the health criteria and modify its property to create an alert.
 
     ![Example retrieving monitor Id for health criteria](./media/vminsights-health/get-monitor-identifier-01.png)
 
-3. Type `armclient patch subscriptions/<Subscription_Id>/resourceGroups/<Resource_Group_Name>/providers/Microsoft.Compute/virtualMachines/<VM_Name>/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"`. To verify the property was modified, run the GET command in step 2 and verify the value is **Disabled**.  
+3. Type `armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"`. To verify the property was modified, run the GET command in step 2 and verify the value is **Disabled**.  
 
+#### Associate Action group with health criteria
 
+Azure Monitor for VMs Health supports SMS and email notifications when alerts are generated when health criteria becomes unhealthy. To configure notifications, you need to note the name of the Action group that is configured to send SMS or email notifications. 
 
+>[!NOTE]
+>This action needs to be performed against each VM monitored that you want to receive a notification for.
+
+1. In a terminal window, type **armclient.exe login**. Doing so prompts you to sign in to Azure.
+
+2. Type `$payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload`
+
+3. 
 ## Next steps
 To identify bottlenecks and overall utilization with your VMs performance, see [View Azure VM Performance](vminsights-performance.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
