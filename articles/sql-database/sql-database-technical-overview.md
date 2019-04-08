@@ -151,7 +151,7 @@ We are also adding the [adaptive query processing](/sql/relational-databases/per
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements.
 
 > [!IMPORTANT]
-> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/complianceofferings) where you can find the most current list of SQL Database compliance certifications.
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ### Advance Threat Protection
 
@@ -181,7 +181,7 @@ SQL Database enables you to centrally manage identities of database user and oth
 
 ### Compliance certification
 
-SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/complianceofferings) where you can find the most current list of SQL Database compliance certifications.
+SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Easy-to-use tools
 
