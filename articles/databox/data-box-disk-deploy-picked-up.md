@@ -86,7 +86,7 @@ This region includes instructions for pickup in Japan, Korea, and Australia.
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
 1. Email adbops@microsoft.com to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
-2. The email subject should be - Request for reverse shipping label with TAU code. Make sure to include the following details in the email: 
+2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
 
     - Order name
     - Address
