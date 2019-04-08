@@ -167,7 +167,7 @@ devices/{deviceId}
 
 Event Grid also allows for filtering on attributes of each event, including the data content. This allows you to choose what events are delivered based contents of the telemetry message. Please see [advanced filtering](../event-grid/event-filtering.md#advanced-filtering) to see examples. 
 
-For non-telemetry events like deviceConnected, deviceDisconnected, deviceCreated and deviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body. See [LINK DOC/TUTORIAL SHOWING HOW TO QUERY USING ROUTES]. 
+For non-telemetry events like deviceConnected, deviceDisconnected, deviceCreated and deviceDeleted, the Event Grid filtering can be used when creating the subscription. For telemetry events, in addition to the filtering in Event Grid, users can also filter on device twins, message properties and body. See [LINK DOC/TUTORIAL SHOWING HOW TO QUERY USING ROUTES].
 
 
 ## Limitations for device connected and device disconnected events
@@ -184,7 +184,7 @@ Applications that handle IoT Hub events should follow these suggested practices:
 
 * Don't assume that all events you receive are the types that you expect. Always check the eventType before processing the message.
 
-* Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date.
+* Messages can arrive out of order or after a delay. Use the etag field to understand if your information about objects is up-to-date for device created or device deleted events.
 
 ## Next steps
 

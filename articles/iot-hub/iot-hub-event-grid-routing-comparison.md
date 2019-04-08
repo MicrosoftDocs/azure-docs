@@ -65,7 +65,7 @@ IoT Hub message routing and the IoT Hub integration with Event Grid perform diff
 
    IoT Hub message routing maintains the order in which messages are sent, so that they arrive in the same way.
 
-   Event Grid does not guarantee that endpoints will receive events in the same order that they occurred. However, the event schema does include a timestamp that can be used to identify the order after the events arrive at the endpoint. 
+   Event Grid does not guarantee that endpoints will receive events in the same order that they occurred. For those cases in which absolute order of messages is significant and/or in which a consumer needs a trustworthy unique identifier for messages, we recommend using message routing. 
 
 ## Next steps
 
