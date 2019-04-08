@@ -60,7 +60,7 @@ Specify timezoneId property in your [Resource Manager template](https://aka.ms/s
 
 ```
 
-List of supported values for timezoneId property can be found at the end of this article. 
+List of supported values for timezoneId property can be found at the end of this article.
 
 If not specified, time zone will be set to UTC.
 
@@ -91,7 +91,7 @@ Using the same time zone across primary and secondary instance in failover group
 - Managed Instance’s native [New-AzSqlInstance](https://docs.microsoft.com/en-us/powershell/module/az.sql/new-azsqlinstance) PowerShell cmdlet does not support passing time zone parameter yet. Use PowerShell wrapper with [Resource Manager template](https://aka.ms/sql-mi-create-arm-posh) instead.
 - CLI command [az sql mi create](https://docs.microsoft.com/en-us/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-create) does not support time zone parameter yet.
 
-## List of supported time zones
+## List of Supported Time Zones
 
 | **Time Zone ID** | **Time Zone Display Name** |
 | --- | --- |
