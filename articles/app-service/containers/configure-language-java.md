@@ -1,5 +1,5 @@
 ---
-title: Configure Java apps - Azure App Service | Microsoft Docs
+title: Configure Linux Java apps - Azure App Service | Microsoft Docs
 description: Learn how to configure Java apps running in Azure App Service on Linux.
 keywords: azure app service, web app, linux, oss, java
 services: app-service
@@ -256,7 +256,7 @@ Next, determine if the data source should be available to one application or to 
 Finally, place the driver JARs in the Tomcat classpath and restart your App Service.
 
 1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. (Create this directory if it does not already exist.) To upload these files to your App Service instance, perform the following steps:
-    1. Install the Azure App Service webpp extension:
+    1. In the [Cloud Shell](https://shell.azure.com), install the webapp extension:
 
       ```azurecli-interactive
       az extension add -–name webapp
@@ -372,7 +372,7 @@ To use the Azure-supported Zulu JDK in your containers, make sure to pull and us
 App Service for Linux supports two runtimes for managed hosting of Java web applications:
 
 - The [Tomcat servlet container](https://tomcat.apache.org/) for running applications packaged as web archive (WAR) files. Supported versions are 8.5 and 9.0.
-- Java SE runtime environment for running applications packaged as Java archive (JAR) files. The only supported major version is Java 8.
+- Java SE runtime environment for running applications packaged as Java archive (JAR) files. Supported versions are Java 8 and 11.
 
 ### JDK versions and maintenance
 

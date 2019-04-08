@@ -98,7 +98,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 For more information, see [Serve static assets](#serve-static-assets).
 
-## Customize app startup
+## Customize start-up
 
 By default, the Ruby container starts the Rails server in the following sequence (for more information, see the [start-up script](https://github.com/Azure-App-Service/ruby/blob/master/2.3.8/startup.sh)):
 
