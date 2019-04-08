@@ -96,7 +96,7 @@ Commit all your changes and deploy your code again. Composer should now be runni
 
 In App Service, you can [set app settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#app-settings) outside of your app code. Then you can access them using the standard [getenv()](https://secure.php.net/manual/function.getenv.php) pattern. For example, to access an app setting called `DB_HOST`, use the following code:
 
-```javascript
+```php
 getenv("DB_HOST")
 ```
 
@@ -138,26 +138,27 @@ If you need to make changes to your PHP installation, you can change any of the 
 
 ### Customize non-PHP_INI_SYSTEM directives
 
-To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), add a [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) to the root directory of your app.
+To customize PHP_INI_USER, PHP_INI_PERDIR, and PHP_INI_ALL directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), add an *.htaccess* file to the root directory of your app.
 
-Then, add the directives you want to configure to *.user.ini*. Use the same syntax you would use in a *php.ini* file. For example:
+In the *.htaccess* file, add the directives using the `php_value <directive-name> <value>` syntax. For example:
 
 ```
-; Example Settings
-display_errors=On
-upload_max_filesize=10M
-
-; OPTIONAL: Turn this on to write errors to d:\home\LogFiles\php_errors.log
-; log_errors=On
+php_value upload_max_filesize 1000M
+php_value post_max_size 2000M
+php_value memory_limit 3000M
+php_value max_execution_time 180
+php_value max_input_time 180
+php_value display_errors On
+php_value upload_max_filesize 10M
 ```
 
-Redeploy your app and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), it's automatically restarted after deployment.
+Redeploy your app with the changes and restart it. If you deploy it with Kudu (for example, using [Git](../deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)), it's automatically restarted after deployment.
 
-As an alternative to using *.user.ini*, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
+As an alternative to using *.htaccess*, you can use [ini_set()](http://www.php.net/manual/function.ini-set.php) in your app to customize these non-PHP_INI_SYSTEM directives.
 
 ### Customize PHP_INI_SYSTEM directives
 
-To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), you can't use the [*.user.ini*](http://www.php.net/manual/en/configuration.file.per-user.php) approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
+To customize PHP_INI_SYSTEM directives (see [php.ini directives](http://www.php.net/manual/ini.list.php)), you can't use the *.htaccess* approach. App Service provides a separate mechanism using the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command in the [Cloud Shell](https://shell.azure.com) to add an app setting called `PHP_INI_SCAN_DIR`:
 
@@ -171,38 +172,42 @@ Navigate to the web SSH session with your Linux container (`https://cephalin-con
 
 Create a directory in `/home/site` called `ini`, then create an *.ini* file in the `/home/site/ini` directory (for example, *settings.ini)* with the directives you want to customize. Use the same syntax you would use in a *php.ini* file. 
 
+> [!TIP]
+> In the built-in Linux containers in App Service, */home* is used as persisted shared storage. 
+>
+
 For example, to change the value of [expose_php](http://php.net/manual/ini.core.php#ini.expose-php) run the following commands:
 
 ```bash
 cd /home/site
 mkdir ini
-echo “expose_php = Off” >> ini/setting.ini
+echo "expose_php = Off" >> ini/setting.ini
 ```
 
-> [!TIP]
-> You can edit the *.ini* file with [vi](https://wikipedia.org/wiki/Vi) or [vim](https://www.vim.org/).
->
+For the changes to take effect, restart the app.
 
 ## Enable PHP extensions
 
-The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives). You can also do it without using an *.ini* file by following the steps here.
+The built-in PHP installations contain the most commonly used extensions. You can enable additional extensions in the same way that you [customize php.ini directives](#customize-php_ini_system-directives).
 
 > [!NOTE]
 > The best way to see the PHP version and the current *php.ini* configuration is to call [phpinfo()](https://php.net/manual/function.phpinfo.php) in your app.
 >
- To enable additional extensions, by following these steps:
 
-Add a `bin` directory to the root directory of your app and put the `.dll` extension files in it (for example, `php_xdebug.dll`). Make sure that the extensions are compatible with default version of PHP and are VC9 and non-thread-safe (nts) compatible.
+To enable additional extensions, by following these steps:
+
+Add a `bin` directory to the root directory of your app and put the `.so` extension files in it (for example, *mongodb.so*). Make sure that the extensions are compatible with the PHP version in Azure and are VC9 and non-thread-safe (nts) compatible.
 
 Deploy your changes.
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to add the relative paths to the *.dll* files using the `PHP_EXTENSIONS` and/or `PHP_ZENDEXTENSIONS` (for Zend extensions) app settings:
+Follow the steps in [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives), add the extensions into the custom *.ini* file with the [extension](https://www.php.net/manual/ini.core.php#ini.extension) or [zend_extension](https://www.php.net/manual/ini.core.php#ini.zend-extension) directives.
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PHP_EXTENSIONS="bin/php_mongo.dll,bin/php_xdebug.dll" PHP_ZENDEXTENSIONS="bin/ZendLoader.dll"
+```ini
+extension=/home/site/wwwroot/bin/mongodb.so
+zend_extension=/home/site/wwwroot/bin/xdebug.so
 ```
 
-Separate multiple extensions with the comma.
+For the changes to take effect, restart the app.
 
 ## Access diagnostic logs
 

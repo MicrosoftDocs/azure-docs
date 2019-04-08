@@ -47,25 +47,17 @@ https://<app-name>.scm.azurewebsites.net/api/diagnostics/runtime
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
 
 ```azurecli-interactive
-az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings WEBSITE_NODE_DEFAULT_VERSION=<x.y.z>
+az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "NODE|10.14"
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
-
-You can also set a Node.js version in the *package.json* file in your repository. It takes precedence over the `WEBSITE_NODE_DEFAULT_VERSION` app setting. For example:
-
-```json
-"engines": {
-  "node": "10.14.x"
-},
-```
 
 ## Configure Node.js server
 
 The Node.js containers come with [PM2](http://pm2.keymetrics.io/), a production process manager. You can configure your app to start with PM2, or with NPM, or with a custom command.
 
 - [Run custom command](#run-custom-command)
-- [Run `npm start`](#run-npm-start)
+- [Run npm start](#run-npm-start)
 - [Run with PM2](#run-with-pm2)
 
 ### Run custom command
@@ -76,7 +68,7 @@ App Service can start your app using a custom command, such as an executable lik
 az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "npm run start:prod"
 ```
 
-### Run `npm start`
+### Run npm start
 
 To start your app using `npm start`, just make sure a `start` script is in the *package.json* file. For example:
 
