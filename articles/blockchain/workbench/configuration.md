@@ -67,17 +67,17 @@ Supported data types.
 
 | Type | Description |
 |-------|-------------|
-| address  | Blockchain address type, such as *contracts* or *users*. |
-| array    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. Use **ElementType** to specify the datatype of the elements within the array. See [example configuration](#example-configuration-of-type-array). |
-| bool     | Boolean data type. |
-| contract | Address of type contract. |
-| enum     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). See [example configuration and use in Solidity](#example-configuration-of-type-enum). |
-| int      | Integer data type. |
-| money    | Money data type. |
-| state    | Workflow state. |
-| string  | String data type. 4000 character maximum. See [example configuration](#example-configuration-of-type-string). |
-| user     | Address of type user. |
-| time     | Time data type. |
+| `address`  | Blockchain address type, such as *contracts* or *users*. |
+| `array`    | Single level array of type integer, bool, money, or time. Arrays can be static or dynamic. Use **ElementType** to specify the datatype of the elements within the array. See [example configuration](#example-configuration-of-type-array). |
+| `bool`     | Boolean data type. |
+| `contract` | Address of type contract. |
+| `enum`     | Enumerated set of named values. When using the enum type, you also specify a list of EnumValues. Each value is limited to 255 characters. Valid value characters include upper and lower case letters (A-Z, a-z) and numbers (0-9). See [example configuration and use in Solidity](#example-configuration-of-type-enum). |
+| `int`      | Integer data type. |
+| `money`    | Money data type. |
+| `state`    | Workflow state. |
+| `string`  | String data type. 4000 character maximum. See [example configuration](#example-configuration-of-type-string). |
+| `user`     | Address of type user. |
+| `time`     | Time data type. |
 |`[ Application Role Name ]`| Any name specified in application role. Limits users to be of that role type. |
 
 ### Example configuration of type array
@@ -320,12 +320,12 @@ Available actions to the next state. One or more user roles may perform an actio
 
 | Field | Description | Required |
 |-------|-------------|:--------:|
-| AllowedRoles | List of applications roles allowed to initiate the transition. All users of the specified role may be able to perform the action. | No |
-| AllowedInstanceRoles | List of user roles participating or specified in the smart contract allowed to initiate the transition. Instance roles are defined in **Properties** within workflows. AllowedInstanceRoles represent a user participating in an instance of a smart contract. AllowedInstanceRoles give you the ability to restrict taking an action to a user role in a contract instance.  For example, you may only want to allow the user who created the contract (InstanceOwner) to be able to terminate rather than all users in role type (Owner) if you specified the role in AllowedRoles. | No |
-| DisplayName | Friendly display name of the transition. | Yes |
-| Description | Description of the transition. | No |
-| Function | The name of the function to initiate the transition. | Yes |
-| NextStates | A collection of potential next states after a successful transition. | Yes |
+| `AllowedRoles` | List of applications roles allowed to initiate the transition. All users of the specified role may be able to perform the action. | No |
+| `AllowedInstanceRoles` | List of user roles participating or specified in the smart contract allowed to initiate the transition. Instance roles are defined in **Properties** within workflows. AllowedInstanceRoles represent a user participating in an instance of a smart contract. AllowedInstanceRoles give you the ability to restrict taking an action to a user role in a contract instance.  For example, you may only want to allow the user who created the contract (InstanceOwner) to be able to terminate rather than all users in role type (Owner) if you specified the role in AllowedRoles. | No |
+| `DisplayName` | Friendly display name of the transition. | Yes |
+| `Description` | Description of the transition. | No |
+| `Function` | The name of the function to initiate the transition. | Yes |
+| `NextStates` | A collection of potential next states after a successful transition. | Yes |
 
 ### Transitions example
 
