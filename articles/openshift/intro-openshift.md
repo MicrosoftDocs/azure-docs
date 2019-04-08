@@ -7,7 +7,7 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 005/06/2019
+ms.date: 05/06/2019
 ms.custom: mvc
 ---
 
