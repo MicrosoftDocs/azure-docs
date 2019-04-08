@@ -107,8 +107,8 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 Run this using node add.js. It will give you a connection string for your device identity and another one for your module identity.
 
-    > [!NOTE]
-    > The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
+> [!NOTE]
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the IoT hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your application needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 
 ## Update the module twin using Node.js device SDK
 
