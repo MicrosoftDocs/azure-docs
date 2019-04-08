@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Verify the VMware VM properties to check conform with Azure requirements
 > * Run a failover to Azure
 
->[!NOTE]
+
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. If you want to learn about failover in detail, [review this article](site-recovery-failover.md).
 
@@ -97,11 +97,12 @@ In some scenarios, failover requires additional processing that takes around eig
 5. After commit, all the other available recovery points are deleted. This completes failover.
 
 >[!TIP]
-> 
-If you encounter any connectivity issues after failover, follow this [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
+> If you encounter any connectivity issues after failover, follow this [troubleshooting guide](site-recovery-failover-to-azure-troubleshoot.md).
 
 ## Next steps
 
+After failover, reprotect the Azure VMs to on-premises. Then, after the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
+
 > [!div class="nextstepaction"]
-> After failover, [follow the steps](vmware-azure-reprotect.md) in this article to reprotect the Azure VM to your on-premises site.
-> After Azure VMs are reprotected and replicating to the on-premises site, [follow these steps](vmware-azure-failback.md) to fail back to the on-premises site when you're ready.
+> [Reprotect Azure VMs](vmware-azure-reprotect.md)
+> [Fail back from Azure](vmware-azure-failback.md) 
