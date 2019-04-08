@@ -1,5 +1,5 @@
 ---
-title: 'Create an index in C# - Azure Search'
+title: 'Quickstart: Create an index in C# - Azure Search'
 description: Learn how to create a full text searchable index in C# using the Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -9,7 +9,7 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
