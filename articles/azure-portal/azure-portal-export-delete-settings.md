@@ -1,6 +1,6 @@
 ---
 title: Export or delete Azure portal settings | Microsoft Docs 
-description: Learn how you can export or delete your user settings, private dashboards, and customizations in the Azure portal.  
+description: Learn how you can export or delete your user settings, private dashboards, and custom settings in the Azure portal.  
 services: azure-portal
 keywords: 
 author: santhoshsomayajula
@@ -43,7 +43,7 @@ It's a good idea to export and review your settings before you delete them. Rebu
       | **Delete all settings and private dashboards** | Deletes all links to private dashboards and other custom settings you've made to the portal. |
 
 > [!NOTE]
-> The export and delete options for user settings are provided to help you comply with GDPR.  Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the .json file.
+> Due to the dynamic nature of user settings and risk of data corruption, you can't import settings from the .json file.
 >
 >
 
