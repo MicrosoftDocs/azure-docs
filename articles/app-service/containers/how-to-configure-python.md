@@ -109,7 +109,13 @@ If the App Service doesn't find a custom command, a Django app, or a Flask app, 
 
 ## Customize startup command
 
-You can control the container's startup behavior by providing a custom Gunicorn startup command. For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then the command is as follows:
+You can control the container's startup behavior by providing a custom Gunicorn startup command. To do this, running the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
+```
+
+For example, if you have a Flask app whose main module is *hello.py* and the Flask app object in that file is named `myapp`, then *\<custom-command>* is as follows:
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -121,23 +127,13 @@ If your main module is in a subfolder, such as `website`, specify that folder wi
 gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
-You can also add any additional arguments for Gunicorn to the command, such as `--workers=4`. For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
+You can also add any additional arguments for Gunicorn to *\<custom-command>*, such as `--workers=4`. For more information, see [Running Gunicorn](https://docs.gunicorn.org/en/stable/run.html) (docs.gunicorn.org).
 
-To use a non-Gunicorn server, such as [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), you can run:
+To use a non-Gunicorn server, such as [aiohttp](https://aiohttp.readthedocs.io/en/stable/web_quickstart.html), you can replace *\<custom-command>* with something like this:
 
 ```bash
 python3.7 -m aiohttp.web -H localhost -P 8080 package.module:init_func
 ```
-
-To provide a custom command, do the following steps:
-
-1. Navigate to the [Application settings](../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) page on the Azure portal.
- 
-1. In the **Runtime** settings, set the **Stack** option to **Python 3.7**, and enter the command directly in the **Startup File** field.
-
-    Or, you can save the command in a text file in your project root, using a name like *startup.txt* (or any name you want). Then deploy that file to App Service, and specify the filename in the **Startup File** field instead. This option allows you to manage the command within your source code repository rather than through the Azure portal.
-
-1. Select **Save**. The App Service restarts automatically, and after a few seconds you should see the custom startup command applied.
 
 > [!Note]
 > App Service ignores any errors that occur when processing a custom command file, then continues its startup process by looking for Django and Flask apps. If you don't see the behavior you expect, check that your startup file is deployed to App Service and that it doesn't contain any errors.
