@@ -58,8 +58,8 @@
     href: https://azure.microsoft.com/resources/samples/?service=key-vault
 - name: Concepts
   items:
-    - name: Security
-      items: 
+  - name: Security
+    items: 
       - name: Security overview
         href: overview-security.md
       - name: Common security attributes
