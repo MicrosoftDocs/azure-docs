@@ -1,10 +1,10 @@
 ---
-title: Azure Isolation Guidelines for Impact Level 5 | Microsoft Docs
+title: Azure Government Isolation Guidelines for Impact Level 5 | Microsoft Docs
 description: 'This article provides guidance for Azure Government Cloud configurations required to implement Impact Level 5 workloads for the DoD'
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: dumartin
+author: dumartinmsft
 manager: zakramer
 
 ms.service: azure-government
@@ -133,7 +133,7 @@ Azure Service Fabric can be used in Azure Government supporting Impact Level 5 w
 
 Microsoft Azure Virtual Machines can be used through multiple deployment mediums. This includes single Virtual Machines as well as Virtual Machines deployed using Azure's virtual machine scale sets feature.
 
-All Virtual Machines should use **Disk Encryption for Virtual Machines,**** Disk Encryption for virtual machine scale sets,** or place Virtual Machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
+All Virtual Machines should use Disk Encryption for Virtual Machines, Disk Encryption for virtual machine scale sets, or place Virtual Machine disks in a storage account that can hold Impact Level 5 data as described in the [Azure Storage section](#storage-encryption-with-key-vault-managed-keys).
 
 | **Service** | **USGov VA** | **USGov IA** | **USGov TX** | **USGov AZ** | **USDoD East** | **USDoD Cent** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -151,7 +151,7 @@ Each of the above VM types can be deployed leveraging virtual machine scale sets
 
 Current VM SKUs that offer necessary compute isolation include specific offerings from our VM families:
 
-| VM Family\*\* | VM SKU |
+| **VM Family** | **VM SKU** |
 | --- | --- |
 | D-Series - General Purpose | Standard\_DS15\_v2Standard\_D15\_v2 |
 | Memory Optimized | Standard\_E64is\_v3Standard\_E64i\_v3 |
