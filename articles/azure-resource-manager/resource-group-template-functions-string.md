@@ -31,6 +31,7 @@ Resource Manager provides the following functions for working with strings:
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
+* [format](#format)
 * [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
@@ -710,9 +711,66 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
+## format
+
+`format(formatString, arg1, arg2, ...)`
+
+Creates a formatted string from input values.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| formatString | Yes | string | The composite format string. |
+| arg1 | Yes | string, integer, or boolean | The value to include in the formatted string. |
+| additional arguments | No | string, integer, or boolean | Additional values to include in the formatted string. |
+
+### Remarks
+
+Use this function to format a string in your template. It uses the same formatting options as the [System.String.Format](/dotnet/api/system.string.format) method in .NET.
+
+### Examples
+
+The following example template shows how to use the format function.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| formatTest | String | Hello, User. Formatted number: 8,175,133 |
+
 ## guid
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Creates a value in the format of a globally unique identifier based on the values provided as parameters.
 
