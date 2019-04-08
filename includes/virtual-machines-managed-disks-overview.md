@@ -42,7 +42,7 @@ You can use [Azure role-based access control (RBAC)](../articles/role-based-acce
 
 There are three main disk roles in Azure: the data disk, the OS disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
 
-![Disk roles in action](media/virtual-machines-managed-disks-overview/disktypes.png)
+![Disk roles in action](media/virtual-machines-managed-disks-overview/disk-types.png)
 
 ### Data disk
 
