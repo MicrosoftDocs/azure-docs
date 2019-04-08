@@ -96,7 +96,7 @@ Install the agent on each Hyper-V host containing VMs you want to replicate.
 
 1. Click **Prepare infrastructure** > **Target**.
 2. Select the subscription and the resource group (**ContosoRG**) in which the Azure VMs will be created after failover.
-3. Select the **Resource Manager"** deployment model.
+3. Select the **Resource Manager** deployment model.
 
 Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
@@ -134,7 +134,7 @@ Site Recovery checks that you have one or more compatible Azure storage accounts
    You can track progress of the **Enable Protection** action in **Jobs** > **Site Recovery jobs**. After the **Finalize Protection** job completes, the initial replication is complete, and the VM is ready for failover.
 
 
-## Next steps
+
 ## Next steps
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](tutorial-dr-drill-azure.md)
