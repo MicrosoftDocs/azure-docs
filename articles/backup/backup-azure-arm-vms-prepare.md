@@ -110,6 +110,7 @@ Configure a backup policy for the vault.
      !["Select virtual machines" pane](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
 5. In **Backup**, click **Enable backup**. This deploys the policy to the vault and to the VMs, and installs the backup extension on the VM agent running on the Azure VM.
+     
      !["Enable backup" button](./media/backup-azure-arm-vms-prepare/vm-validated-click-enable.png)
 
 After enabling backup:
@@ -147,7 +148,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 2. In **Backup Items** click **Azure Virtual Machine**.
 3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained >  **OK**.
+5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
 ## Optional steps (install agent/allow outbound)
