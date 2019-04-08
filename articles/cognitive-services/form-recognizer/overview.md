@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/08/2019
 ms.author: pafarley
 #Customer intent: As the developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use its features.
 ---
@@ -19,12 +19,13 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 ## What it does
 
-When you submit your input data the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present in the forms, and learns to associate values to keys and entries to tables. Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
+When you submit your input data, the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present, and learns to associate values to keys and entries to tables. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
+
+Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 ## What it includes
 
-Form Recognizer is available as a REST API. You can create, train and score a model by invoking this API, and you can optionally run the model in a local Docker container.
-
+Form Recognizer is available as a REST API. You can create, train and score a model by invoking the API, and you can optionally run the model in a local Docker container.
 ## Input requirements
 
 Form Recognizer works on input documents that meet the following requirements:
@@ -38,6 +39,8 @@ Form Recognizer works on input documents that meet the following requirements:
 * Must contain keys and values
 * Keys must appear on the top or the left of the document
 * If scanned from paper documents, forms should be high-quality scans
+
+Pre-trained machine learning models work best with standardized content. If you have input material that deviates from traditional formats, like industry-specific forms, then the data extraction may be less accurate.
 
 ## Data privacy and security
 
