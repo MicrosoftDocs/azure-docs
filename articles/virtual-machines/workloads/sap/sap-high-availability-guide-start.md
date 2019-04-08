@@ -225,7 +225,7 @@ The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_L
 
 * ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up GlusterFS on RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up Pacemaker on RHEL ][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up Pacemaker on RHEL][high-availability-guide-rhel-pacemaker]
 
 ## Installation of an SAP NetWeaver high availability system in Azure
 
