@@ -11,7 +11,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
-ms.author: rohinkoul
+ms.author: rohink
 ---
 
 # Name resolution for resources in Azure virtual networks
