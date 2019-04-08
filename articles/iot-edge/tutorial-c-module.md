@@ -34,59 +34,22 @@ This tutorial demonstrates how to develop a module in C using **Visual Studio 20
 
 |   | Visual Studio Code | Visual Studio 2017 | 
 | - | ------------------ | ------------------ |
-| Windows AMD64 |  | [Use VS 2017 for C modules on Windows AMD64](./media/tutorial-c-module/green-check.png) |
-| Linux AMD64 | [Use VS Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
-| Linux ARM32 | [Use VS Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
+| **Windows AMD64** |  | ![Use VS 2017 for C modules on Windows AMD64](./media/tutorial-c-module/green-check.png) |
+| **Linux AMD64** | ![Use VS Code for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Use VS 2017 for C modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |
+| **Linux ARM32** | ![Use VS Code for C modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## Prerequisites
 
-An Azure IoT Edge device:
-
-* You can use an Azure virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md). 
-
-   >[!TIP]
-   >This tutorial uses Visual Studio Code to develop a C module using Linux containers. If you want to develop in C for Windows containers, you need to use Visual Studio 2017. For more information, see [Use Visual Studio 2017 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
-
-Cloud resources:
-
+Before beginning this tutorial, you should have gone through one of the previous tutorials that walk through setting up your development environment, either to [develop an IoT Edge module in Visual Studio Code](tutorial-develop-vs-code.md) or to [develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md). By completing either of those tutorials, you should have the following prerequisites already in place: 
+* An Azure IoT Edge device
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
-
-Development resources:
-
-* [Visual Studio Code](https://code.visualstudio.com/).
-* [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for Visual Studio Code.
-* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
+* A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
+* [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017).
+* [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code, or [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for Visual Studio 2017.
 * [Docker CE](https://docs.docker.com/install/).
 
-## Create a container registry
-
-In this tutorial, you use the Azure IoT Tools for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.
-
-You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry.
-
-If you don't already have a container registry, follow these steps to create a new one in Azure:
-
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
-
-2. Provide the following values to create your container registry:
-
-   | Field | Value |
-   | ----- | ----- |
-   | Registry name | Provide a unique name. |
-   | Subscription | Select a subscription from the drop-down list. |
-   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
-   | Location | Choose a location close to you. |
-   | Admin user | Set to **Enable**. |
-   | SKU | Select **Basic**. |
-
-5. Select **Create**.
-
-6. After your container registry is created, browse to it, and then select **Access keys**.
-
-7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry.
-
-## Create an IoT Edge module project
-The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Tools.
+To develop an IoT Edge module in C, install the following additional prerequisites on your development machine: 
+* [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) for Visual Studio Code, or the **Desktop development with C++** workload for Visual Studio 2017.
 
 ### Create a new solution
 
@@ -401,7 +364,7 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [Develop a C module with Azure IoT Edge for Visual Studio Code](how-to-develop-c-module.md). You can continue on to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. You can continue on to the next tutorials to learn about deploying Azure services to your devices for business insights at the edge.
 
 > [!div class="nextstepaction"]
 > [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)

@@ -28,6 +28,15 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+## Solution scope
+
+This tutorial demonstrates how to develop a module in C using **Visual Studio 2017**, and how to deploy it to a **Windows AMD64 device**. The sample code included here can work in other tools and for other devices, as well. Use the following table to understand your options for developing and deploying C modules: 
+
+|   | Visual Studio Code | Visual Studio 2017 | 
+| - | ------------------ | ------------------ |
+| **Windows AMD64** | ![Use VS Code for Java modules on Windows AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux AMD64** | ![Use VS Code for Java modules on Linux AMD64](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32** | ![Use VS Code for Java modules on Linux ARM32](./media/tutorial-c-module/green-check.png) |  |
 
 ## Prerequisites
 
