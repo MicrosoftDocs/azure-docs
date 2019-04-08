@@ -77,7 +77,7 @@ Neural networks can be extensively customized. This section describes how to cre
 11. For **Random number seed**, you can optionally type a value to use as the seed. Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.
   
   
-13. Connect a training dataset and one of the [training modules](machine-learning-train.md): 
+13. Connect a training dataset and one of the [training modules](module-reference.md): 
   
     -   If you set **Create trainer mode** to **Single Parameter**, use [Train Model](./train-model.md).  
   

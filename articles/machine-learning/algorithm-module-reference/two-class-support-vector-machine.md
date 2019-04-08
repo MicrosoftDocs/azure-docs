@@ -64,7 +64,7 @@ For this model type, it is recommended that you normalize the dataset before usi
 7.  In **Random number seed**, type an integer value to use as a seed if you want to ensure reproducibility across runs.  Otherwise, a system clock value is used as a seed, which can result in slightly different results across runs.
   
   
-9. Connect a labeled dataset, and one of the [training modules](machine-learning-train.md):
+9. Connect a labeled dataset, and one of the [training modules](module-reference.md):
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.
   

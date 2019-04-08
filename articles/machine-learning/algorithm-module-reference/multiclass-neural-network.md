@@ -81,7 +81,7 @@ To compute the output of the network for a particular input, a value is calculat
 
 
 
-14. Connect a training dataset and one of the [training modules](machine-learning-train.md): 
+14. Connect a training dataset and one of the [training modules](module-reference.md): 
 
     - If you set **Create trainer mode** to **Single Parameter**, use [Train Model](train-model.md).  
   

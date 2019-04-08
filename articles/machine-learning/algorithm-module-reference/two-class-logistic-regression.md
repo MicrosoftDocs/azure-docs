@@ -71,7 +71,7 @@ For example, the label column might be [Voted] with possible values of "Yes" or 
 6.  For **Random number seed**, type an integer value. Defining a seed value is important if you want the results to be reproducible over multiple runs of the same experiment.  
   
   
-8. Add a tagged dataset to the experiment, and connect one of the [training modules](machine-learning-train.md).  
+8. Add a tagged dataset to the experiment, and connect one of the [training modules](module-reference.md).  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](./train-model.md) module.  
   

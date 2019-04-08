@@ -77,7 +77,7 @@ To compute the output of the network for a particular input, a value is calculat
      Specifying a seed value is useful when you want to ensure repeatability across runs of the same experiment.  Otherwise, a system clock value is used as the seed, which can cause slightly  different results each time you run the experiment.
   
   
-13. Add a tagged dataset to the experiment, and connect one of the [training modules](machine-learning-train.md).  
+13. Add a tagged dataset to the experiment, and connect one of the [training modules](module-reference.md).  
   
     -   If you set **Create trainer mode** to **Single Parameter**, use the [Train Model](train-model.md) module.  
   
