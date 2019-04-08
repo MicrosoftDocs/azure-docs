@@ -15,11 +15,11 @@ ms.custom: seodec18
 
 # How to use MLflow with Azure Machine Learning service (Preview)
 
-[MLflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. 
+[MLflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. It provides [a tracking API](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) with functionality to log metrics and artifacts from your Python training code.
 
-Azure Machine Learning Workspace provides a centralized location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure Machine Learning service as a back end for storing metrics and artifacts. You can then view and track the metrics in your Azure ML Workspace.
+Azure Machine Learning (Azure ML) Workspace provides a centralized location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure ML service as a back end by setting the MLflow tracking URI to point to your Azure ML Workspace. You can then view and track the metrics and artifacts in your Azure ML Workspace.
 
-You can use MLflow logging on local runs, different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
+You can use MLflow logging on interactive runs on your local computer, as well as on different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
 
 ## Pre-requisites
 
