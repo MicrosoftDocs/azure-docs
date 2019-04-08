@@ -62,7 +62,7 @@
       items: 
       - name: Security overview
         href: overview-security.md
-        name: Common security attributes
+      - name: Common security attributes
         href: key-vault-security-attributes
   - name: What is Key Vault?
     href: key-vault-whatis.md
