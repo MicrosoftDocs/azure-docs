@@ -63,6 +63,8 @@
   - name: WAF
     items:
     - name: Configure WAF policy - portal
+      href: waf-front-door-create-portal.md
+    - name: Configure custom rules
       href: waf-front-door-custom-rules-powershell.md
 - name: FAQ
   items:

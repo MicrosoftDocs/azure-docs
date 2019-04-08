@@ -76,51 +76,55 @@ Here is an example that shows the configuration of a custom rule with two match 
 
 ```
 # http rules example
-"name": “AllowFromTrustedSites",
-"priority": 1,
-"ruleType": "MatchRule",
-"matchConditions": [
 {
-"matchVariable": "RequestHeader",
-"selector": “Referer",
-"operator": “Equal",
-"negateCondition": false,
-"matchValue": [
-“www.mytrustedsites.com/referpage.html"
-]
-},
-{
- "matchVariable": "QueryString",
-  "operator": "Contains",
-  "matchValue": ["password"],
-  "negateCondition":true
+  "name": "AllowFromTrustedSites",
+  "priority": 1,
+  "ruleType": "MatchRule",
+  "matchConditions": [
+    {
+      "matchVariable": "RequestHeader",
+      "selector": "Referer",
+      "operator": "Equal",
+      "negateCondition": false,
+      "matchValue": [
+        "www.mytrustedsites.com/referpage.html"
+      ]
+    },
+    {
+      "matchVariable": "QueryString",
+      "operator": "Contains",
+      "matchValue": [
+        "password"
+      ],
+      "negateCondition": true
+    }
+  ],
+  "action": "Allow",
+  "transforms": []
 }
-],
-"action": “Allow",
-"transforms": []
-},
 
 ```
 An example configuration for blocking "PUT" method is shown as below:
 
 ``` 
 # http Request Method custom rules
-"name": "BlockPUT",
-"priority": 2,
-"ruleType": "MatchRule",
-"matchConditions": [
 {
-"matchVariable": "RequestMethod",
-"selector": null,
-"operator": "Equal",
-"negateCondition": false,
-"matchValue": [
-"PUT"
-]
-}
-],
-"action": "Block",
-"transforms": []
+  "name": "BlockPUT",
+  "priority": 2,
+  "ruleType": "MatchRule",
+  "matchConditions": [
+    {
+      "matchVariable": "RequestMethod",
+      "selector": null,
+      "operator": "Equal",
+      "negateCondition": false,
+      "matchValue": [
+        "PUT"
+      ]
+    }
+  ],
+  "action": "Block",
+  "transforms": []
 }
 ```
 
@@ -130,22 +134,23 @@ You may build a custom rule that specifies size constraint on part of an incomin
 
 ```
 # http parameters size constraint
-"name": "URLOver100",
-"priority": 5,
-"ruleType": "MatchRule",
-"matchConditions": [
 {
-"matchVariable": "RequestUri",
-"selector": null,
-"operator": "GreaterThanOrEqual",
-"negateCondition": false,
-"matchValue": [
-"100"
-]
-}
-],
-"action": "Block",
-"transforms": []
+  "name": "URLOver100",
+  "priority": 5,
+  "ruleType": "MatchRule",
+  "matchConditions": [
+    {
+      "matchVariable": "RequestUri",
+      "selector": null,
+      "operator": "GreaterThanOrEqual",
+      "negateCondition": false,
+      "matchValue": [
+        "100"
+      ]
+    }
+  ],
+  "action": "Block",
+  "transforms": []
 }
 ```
 

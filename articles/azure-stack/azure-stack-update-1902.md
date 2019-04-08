@@ -253,6 +253,10 @@ The following are post-installation known issues for this build version.
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
+### Syslog 
+- The syslog configuration is not persisted through an update cycle, resulting in the syslog client to lose its configuration and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809).
+The workaround is to reconfigure the syslog client after applying an Azure Stack update.
+
 ## Download the update
 
 You can download the Azure Stack 1902 update package from [here](https://aka.ms/azurestackupdatedownload). 
