@@ -80,7 +80,7 @@
     displayName: lock, errors
     href: ./how-to/update-existing-assignments.md
   - name: Manage Blueprints as Code (community)
-    href: https://github.com/Azure/azure-blueprints/README.md
+    href: https://github.com/Azure/azure-blueprints/blob/master/README.md
 - name: Troubleshoot
   displayName: errors, violation
   href: ./troubleshoot/general.md
