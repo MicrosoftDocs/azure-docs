@@ -73,13 +73,13 @@ Managed disks are charged slightly different than storage accounts. Here's an ex
 - The example is specific to the differential cost of storage.
 - The cost does not include the cost for snapshots, cache storage and transactions.
 
-* Standard storage account Vs. Standard HDD Managed Disk
+* Standard storage account v standard HDD managed disk
 
     - **Provisioned storage disk by Azure Site Recovery**: S10
     - **Standard storage account charged on consumed volume**: $5 per month
     - **Standard managed disk charged on provisioned volume**: $5.89 per month
 
-* Premium storage account Vs. Premium SSD Managed Disk 
+* Premium storage account v premium SSD managed disk 
     - **Provisioned storage disk by Azure Site Recovery**: P10
     - **Premium storage account charged on provisioned volume**: $17.92 per month
     - **Premium managed disk charged on provisioned volume**: $17.92 per month
@@ -102,7 +102,7 @@ You install on each VM you want to replicate, using a number of methods:
 ### Where does Site Recovery replicate data to?
 
 Site Recovery replicates on-premises VMware VMs and physical servers to managed disks in Azure.
-- The Site Recovery process server writes replication logs to a a cache storage account in the target region.
+- The Site Recovery process server writes replication logs to a cache storage account in the target region.
 - These logs are used to create recovery points on the managed disks.
 - When failover occurs, the recovery point you select is used to create the target managed disk.
 - VMs that were previously replicated to a storage account (prior to March 2019) aren't affected.
@@ -171,7 +171,7 @@ No, Site Recovery doesn't support replication to Storage on Vnet.
 
 ## Component upgrade
 
-### My version of the Mobility services agent or configuration sever is old and my upgrade failed. What do I do?  
+### My version of the Mobility services agent or configuration server is old and my upgrade failed. What do I do?  
 
 Site Recovery follows the N-4 support model. [Learn more](https://aka.ms/asr_support_statement) about how to upgrade from very old versions.
 
@@ -194,7 +194,7 @@ Though recommended, it is not mandatory for each upgrade. [Learn more](https://a
 
 The configuration server runs the on-premises Site Recovery components, including:
 - The configuration server itself that coordinates communications between on-premises and Azure and manages data replication.
-- The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage.,The process server also does a push install of the Mobility Service on VMs, and performs automatic discovery of on-premises VMware VMs.
+- The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage. The process server also does a push install of the Mobility Service on VMs, and performs automatic discovery of on-premises VMware VMs.
 - The master target server that handles replication data during failback from Azure.
 
 [Learn more](vmware-azure-architecture.md) about the configuration server components and processes.
@@ -207,7 +207,7 @@ You need a single highly available on-premises VMware VM for the configuration s
 Review the [prerequisites](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### Can I manually set up the configuration server instead of using a template?
-We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) with thelatest version of the OVF template. If for some reason you can't, for example you don't have access to the VMware server, you can [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
+We recommend that you [create the configuration server VM](vmware-azure-deploy-configuration-server.md) with the latest version of the OVF template. If for some reason you can't, for example you don't have access to the VMware server, you can [download](physical-azure-set-up-source.md) the setup file from the portal and set up the configuration server.
 
 ### Can a configuration server replicate to more than one region?
 No. To do this, you need a configuration server in each region.
@@ -240,13 +240,13 @@ Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folde
 No, you should only use the VM for the configuration server. 
 
 ### Can I clone a configuration server and use it for orchestration?
-No, you should setup a fresh configuration server to avoid registration issues.
+No, you should set up a fresh configuration server to avoid registration issues.
 
 ### Can I change the vault in which the configuration server is registered?
 No. After a vault is associated with the configuration server, it can't be changed. Review [this article](vmware-azure-manage-configuration-server.md#register-a-configuration-server-with-a-different-vault) to learn about re-registering.
 
 ### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers
-Yes, but note that physical machine can be only be failed back to a VMware VM.
+Yes, but note that physical machine can only be failed back to a VMware VM.
 
 ### Where can I download the passphrase for the configuration server?
 [Learn how to](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) download the passphrase.
@@ -269,7 +269,7 @@ We strongly recommended creating a process server in Azure for failback purposes
 Yes, you can retain the IP address on failover. Ensure that you specify target IP address in 'Compute and Network' settings for the VM before failover. Also, shut down machines at the time of failover to avoid IP address conflicts during failback.
 
 ### Can I change the target VM size or VM type before failover?
-Yes, you can change the type or size of the VM any time before failover on the Compute and Network settings of the replicated Vm,  in the portal.
+Yes, you can change the type or size of the VM anytime before failover on the Compute and Network settings of the replicated Vm,  in the portal.
 
 ### How far back can I recover?
 For VMware to Azure the oldest recovery point you can use is 72 hours.
