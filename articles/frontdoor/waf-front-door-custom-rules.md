@@ -24,7 +24,6 @@ You can control access with a custom WAf rule that defines a priority number, a 
 
     - *Allow* - WAF forwards the quest to the back-end, logs an entry in WAF logs and exits.
     - *Block* - Request is blocked, WAF sends response to client without forwarding the request to the back-end. WAF logs an entry in WAF logs.
-    - *Monitor* - WAF forwards the request to the back-end and logs an entry in WAF logs.
     - *Log* - WAF logs an entry in WAF logs and continues evaluate the next rule.
     - *Redirect* - WAF redirects request to a specified URI, logs an entry in WAF logs, and exits.
 
