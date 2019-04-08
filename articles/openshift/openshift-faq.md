@@ -28,7 +28,7 @@ Currently, no modifications are permitted to the `Microsoft.ContainerService/ope
 
 ## What virtual machine sizes can I use with my Azure Red Hat OpenShift cluster?
 
-See [Azure Red Hat OpenShift virtual machine sizes](supported-resources.md#azure-red-hat-open-shift-virtual-machine-sizes) for a list of permitted virtual machine sizes.
+See [Azure Red Hat OpenShift virtual machine sizes](supported-resources.md#azure-red-hat-openshift-virtual-machine-sizes) for a list of permitted virtual machine sizes.
 
 ## Is data on my Azure Red Hat OpenShift cluster encrypted?
 
