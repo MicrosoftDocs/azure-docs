@@ -1,10 +1,10 @@
 ---
-title: Java developer's guide for App Service on Windows - Azure | Microsoft Docs
-description: Learn how to configure Java apps running in Azure App Service on Windows.
+title: Configure Windows Java apps - Azure App Service | Microsoft Docs
+description: Learn how to configure Java apps to run on the default Windows instances in Azure App Service.
 keywords: azure app service, web app, windows, oss, java
 services: app-service
-author: jasonfreeberg
-manager: ccompy
+author: jasonfreeberg;cephalin
+manager: jeconnock
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.custom: seodec18
 
 ---
 
-# Java developer's guide for App Service on Windows
+# Configure a Windows Java app for Azure App Service
 
-Azure App Service on Windows lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Windows-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
+Azure App Service lets Java developers to quickly build, deploy, and scale their Tomcat or Java Standard Edition (SE) packaged web applications on a fully managed Windows-based service. Deploy applications with Maven plugins from the command line or in editors like IntelliJ, Eclipse, or Visual Studio Code.
 
-This guide provides key concepts and instructions for Java developers using in App Service for Windows. If you've never used Azure App Service for Windows, you should read through the [Java quickstart](app-service-web-get-started-java.md) first. General questions about using App Service for Windows that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
+This guide provides key concepts and instructions for Java developers using in App Service. If you've never used Azure App Service, you should read through the [Java quickstart](app-service-web-get-started-java.md) first. General questions about using App Service that aren't specific to the Java development are answered in the [App Service Windows FAQ](faq-configuration-and-management.md).
 
 > [!NOTE]
-> Can't find what you're looking for? Please see the [Java Developer guide for Linux](containers/app-service-linux-java.md) or the [Windows OSS FAQ](faq-configuration-and-management.md)
+> Can't find what you're looking for? Please see the [Windows OSS FAQ](faq-configuration-and-management.md) or the [Java Linux configuration guide](containers/app-service-linux-java.md) for information on deploying and securing your Java app.
 
 ## Configuring Tomcat
 
