@@ -92,6 +92,11 @@ There are three areas in the web simulator.
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub
 ![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
+## Read the messages received by your hub
+
+One way to monitor messages received by your IoT hub from the simulated device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+For more ways to process data sent by your device, continue on to the next section.
 
 ## Next steps
 

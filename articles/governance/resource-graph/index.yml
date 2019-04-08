@@ -1,10 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Resource Graph Documentation
+title: Documentation for the Azure Resource Graph service
 metadata:
   title: Azure Resource Graph Documentation - Tutorials, API Reference
   description: Azure Resource Graph is a service in Azure that enables complex querying of resources at scale.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph

@@ -28,6 +28,7 @@ This ZIP file deployment uses the same Kudu service that powers continuous integ
 - Option to turn on the default build process, which includes package restore.
 - [Deployment customization](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), including running deployment scripts.  
 - Deployment logs. 
+- A file size limit of 512 MB.
 
 For more information, see [Kudu documentation](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 

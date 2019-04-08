@@ -64,7 +64,7 @@ To register a large number of devices with your IoT Central application, use a C
 To retrieve the connection information for the imported devices, [export a CSV file from your IoT Central application](howto-manage-devices.md#export-devices).
 
 > [!NOTE]
-> To learn how you can connect devices without first registering them in IoT Central, see Connect without first registering devices.
+> To learn how you can connect devices without first registering them in IoT Central, see [Connect without first registering devices](#connect-without-registering-devices).
 
 ### Set up your devices
 

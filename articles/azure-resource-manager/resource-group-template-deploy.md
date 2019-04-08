@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy resources with PowerShell and template | Microsoft Docs
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 services: azure-resource-manager
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
 
 ---
@@ -43,7 +43,7 @@ The examples in this article use resource group deployments. For more informatio
 
 You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
 
-Unless you use the [Azure Cloud shell](#deploy-templates-from-azure-cloud-shell) to deploy templates, you need to install Azure PowerShell and connect to Azure:
+Unless you use the Azure Cloud shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
 
 - **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
@@ -99,7 +99,12 @@ To paste the code into the shell, right-click inside the shell and then select *
 
 ## Redeploy when deployment fails
 
-When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use either the `-RollbackToLastDeployment` or `-RollBackDeploymentName` parameter in the deployment command.
+This feature is also known as *Rollback on error*. When a deployment fails, you can automatically redeploy an earlier, successful deployment from your deployment history. To specify redeployment, use either the `-RollbackToLastDeployment` or `-RollBackDeploymentName` parameter in the deployment command. This functionality is useful if you have got a known good state for your infrastructure deployment and want this to be reverted to. There are a number of caveats and restrictions:
+
+- The redeployment is run exactly as it was run previously with the same parameters. You can not change the parameters.
+- The previous deployment is run using the [complete mode](./deployment-modes.md#complete-mode). Any resources not included in the previous deployment are deleted, and any resource configurations are set to their previous state. Make sure you fully understand the [deployment modes](./deployment-modes.md).
+- The redeployment only affects the resources, any data changes are not affected.
+- This feature is only supported on Resource Group deployments, not subscription level deployments. For more information about subscription level deployment, see [Create resource groups and resources at the subscription level](./deploy-to-subscription.md).
 
 To use this option, your deployments must have unique names so they can be identified in the history. If you don't have unique names, the current failed deployment might overwrite the previously successful deployment in the history. You can only use this option with root level deployments. Deployments from a nested template aren't available for redeployment.
 

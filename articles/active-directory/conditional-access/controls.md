@@ -4,7 +4,7 @@ description: Learn how access controls in Azure Active Directory conditional acc
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/23/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
 #Customer intent: As an IT admin, I need to understand the controls in conditional access so that I can set them according to my business needs
@@ -57,7 +57,7 @@ With grant controls, you can either block access altogether or allow access with
 - All selected controls to be fulfilled (*AND*)
 - One selected control to be fulfilled (*OR*)
 
-![Control](./media/controls/17.png)
+![Control](./media/controls/18.png)
 
 ### Multi-factor authentication
 
@@ -93,6 +93,18 @@ Because your employees use mobile devices for both personal and work tasks, you 
 You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data independent of any mobile-device management (MDM) solution.
 
 With approved client apps, you can require a client app that attempts to access your cloud apps to support [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app. A conditional access policy that requires approved client apps is  also known as [app-based conditional access policy](app-based-conditional-access.md). For a list of supported approved client apps, see [approved client app requirement](technical-reference.md#approved-client-app-requirement).
+
+### App protection policy (preview)
+
+Because your employees use mobile devices for both personal and work tasks, you might want to have the ability to protect company data accessed using devices even in the case where they are not managed by you.
+You can use [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy) to help protect your company’s data independent of any mobile-device management (MDM) solution.
+
+With app protection policy, you can limit access to client applications that have reported to Azure AD has having received [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app that has an Intune app protection policy. A conditional access policy that requires app protection policy is also known as [app protection-based conditional access policy](app-protection-based-conditional-access.md). 
+
+Your device must be registered to Azure AD before an application can be marked as policy protected.
+
+For a list of supported policy protected client apps, see [app protection policy requirement](technical-reference.md#app-protection-policy-requirement).
+
 
 ### Terms of Use
 
