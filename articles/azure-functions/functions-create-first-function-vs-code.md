@@ -113,8 +113,6 @@ After you've verified that the function runs correctly on your local computer, i
 
 You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. You may also want to learn more about [local testing and debugging from the Terminal or command prompt](functions-run-local.md) using the Azure Functions Core Tools.
 
-Next 
-
 > [!div class="nextstepaction"]
 > [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
