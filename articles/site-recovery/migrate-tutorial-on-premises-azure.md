@@ -58,7 +58,7 @@ Select what you want to replicate, and where you want to replicate to.
 --- | --- 
 VMware | Set up the [source environment](vmware-azure-set-up-source.md), and set up the [configuration server](vmware-azure-deploy-configuration-server.md).
 Physical machine | [Set up](physical-azure-set-up-source.md) the source environment and configuration server.
-Hyper-V | Set up the [source environment](hyper-v-azure-tutorial#set-up-the-source-environment)<br/><br/> Set up the [source environment](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) for Hyper-V deployed with System Center VMM.
+Hyper-V | Set up the [source environment](hyper-v-azure-tutoriallmd#set-up-the-source-environment)<br/><br/> Set up the [source environment](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) for Hyper-V deployed with System Center VMM.
 
 ## Set up the target environment
 
