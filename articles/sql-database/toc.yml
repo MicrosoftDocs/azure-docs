@@ -168,7 +168,7 @@
         href: sql-database-dtu-resource-limits-elastic-pools.md  
       - name: Scale resources
         href: sql-database-elastic-pool-scale.md
-    - name: Create and manage
+    - name: Manage pool resources
       href: sql-database-elastic-pool-manage.md
   - name: Managed instances
     items:
