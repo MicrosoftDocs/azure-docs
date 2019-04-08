@@ -5,8 +5,8 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
+ms.date: 4/9/2019
+ms.author: ramamill
 ---
 
 # Scale for failback with additional process servers
