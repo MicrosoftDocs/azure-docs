@@ -36,7 +36,7 @@ You must meet the following prerequisites before using Speech containers:
 
 You must first complete and submit the [Cognitive Services Speech Containers Request form](https://aka.ms/SpeechContainersForm) to request access to the container. 
 
-[!INCLUDE [Request access to the container registry](../../includes/cognitive-services-containers-access-registry-only.md)]
+[!INCLUDE [Request access to the container registry](../../includes/cognitive-services-containers-request-access-only.md)]
 
 [!INCLUDE [Log in to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
