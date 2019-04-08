@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 03/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -94,6 +94,8 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
+
+We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises.
 
 **Step 3: Review the API (REST only)**
 
