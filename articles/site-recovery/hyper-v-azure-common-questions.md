@@ -63,7 +63,7 @@ No, Site Recovery doesn't intercept replicated data, and doesn't have any inform
 
 Site Recovery is ISO 27001:2013, 27018, HIPAA, DPA certified, and is in the process of SOC2 and FedRAMP JAB assessments.
 
-### Can we keep on-premises metadata within a geographic regions?
+### Can we keep on-premises metadata within a geographic region?
 Yes. When you create a vault in a region, we ensure that all metadata used by Site Recovery remains within that region's geographic boundary.
 
 ### Does Site Recovery encrypt replication?
@@ -95,7 +95,7 @@ Yes, Site Recovery supports clustered Hyper-V hosts. Note that:
 - All nodes of the cluster should be registered to the same vault.
 - If you're not using VMM, all Hyper-V hosts in the cluster should be added to the same Hyper-V site.
 - You install the Azure Site Recovery Provider and Recovery Services agent on each Hyper-V host in the cluster, and add each host to a Hyper-V site.
-- No specific steps needs to be done on the cluster.
+- No specific steps need to be done on the cluster.
 - If you run the Deployment Planner tool for Hyper-V, the tool collects the profile data from the node which is running and where the VM is running. The tool can't collect any data from a node that's turned off, but it will track that node. After the node is up and running, the tool starts collecting the VM profile data from it (if the VM is part of the profile VM list and is running on the node).
 - If a VM on a Hyper-V host in a Site Recovery vault migrates to a different Hyper-V host in the same cluster, or to a standalone host, replication for the VM isn't impacted. The Hyper-V host must meet [prerequisites](hyper-v-azure-support-matrix.md#on-premises-servers), and be configured in a Site Recovery vault. 
 
@@ -147,7 +147,7 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 
 ### Why can't I replicate over VPN?
 
-When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
+When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account. Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work. 
 
 ### What are the replicated VM requirements?
 
@@ -219,7 +219,7 @@ After your on-premises infrastructure is up and running again, you can fail back
     - Full download: With this option data is synchronized during failover. This option downloads the entire disk. It's faster because no checksums are calculated, but there's more downtime. Use this option if you've been running the replica Azure VMs for some time, or if the on-premises VM was deleted.
 
 2. You can select to fail back to the same VM or to an alternate VM. You can specify that Site Recovery should create the VM if it doesn't already exist.
-3. After initial synchronization finishes, you select to complete the failover. After it completes, you can log onto the on-premises VM to check everything's working as expected. In the Azure portal, you can see that the Azure VMs have been stopped.
+3. After initial synchronization finishes, you select to complete the failover. After it completes, you can sign in to the on-premises VM to check everything's working as expected. In the Azure portal, you can see that the Azure VMs have been stopped.
 4. You commit the failover to finish up, and start accessing the workload from the on-premises VM again.
 5. After workloads have failed back, you enable reverse replication, so that the on-premises VMs replicate to Azure again.
 
