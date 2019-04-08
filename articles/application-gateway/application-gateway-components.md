@@ -61,9 +61,9 @@ There are two types of listeners:
 
 - **Basic**. This type of listener listens to a single domain site, where it has a single DNS mapping to the IP address of the application gateway. This listener configuration is required when you host a single site behind an application gateway.
 
-- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+- **Multi-site**. This listener configuration is required when you configure more than one web application on the same application gateway instance. It allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. For example, three subdomains, abc.contoso.com, xyz.contoso.com, and pqr.contoso.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting.
 
-    For more information, see [Multiple site hosting](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+    For more information, see [Multiple-site hosting](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
 
 After you create a listener, you associate it with a request routing rule. This rule determines how the request received on the listener should be routed to the backend.
 
@@ -138,7 +138,7 @@ By default, Application Gateway monitors the health of all resources in its back
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. Best practice is to configure custom probes to monitor the health of each backend pool.
 
-For more information, see [Monitor health of your application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+For more information, see [Monitor the health of your application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## Next steps
 
