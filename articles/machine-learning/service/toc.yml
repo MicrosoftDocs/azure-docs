@@ -210,6 +210,13 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
+  - name: Algorithm & modules for visual interface (Preview)
+    displayName: module reference
+    items:
+    - name: Reference overview
+      href: ../algorithm-module-reference/module-reference.md
+    - name: Error messages & codes
+      href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
   items:
   - name: Release notes
