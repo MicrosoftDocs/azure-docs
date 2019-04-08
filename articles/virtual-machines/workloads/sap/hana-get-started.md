@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Manual installation of single-instance SAP HANA on Azure virtual machines | Microsoft Docs'
-description: Quickstart guide for manual installation of single-instance SAP HANA on Azure virtual machines
+title: 'Quickstart: Manual installation of single-instance SAP HANA on Azure Virtual Machines | Microsoft Docs'
+description: Quickstart guide for manual installation of single-instance SAP HANA on Azure Virtual Machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -19,16 +19,16 @@ ms.date: 09/06/2018
 ms.author: hermannd
 
 ---
-# Quickstart: Manual installation of single-instance SAP HANA on Azure VMs
+# Quickstart: Manual installation of single-instance SAP HANA on Azure Virtual Machines
 ## Introduction
-This guide helps you set up a single-instance SAP HANA on Azure virtual machines (VMs) when you install SAP NetWeaver 7.5 and SAP HANA 1.0 SP12 manually. The focus of this guide is on how to deploy SAP HANA on Azure. It doesn't replace SAP documentation. 
+This guide helps you set up a single-instance SAP HANA on Azure Virtual Machines when you install SAP NetWeaver 7.5 and SAP HANA 1.0 SP12 manually. The focus of this guide is on how to deploy SAP HANA on Azure. It doesn't replace SAP documentation. 
 
 > [!NOTE]
-> This guide describes deployments of SAP HANA into Azure VMs. For information on how to deploy SAP HANA into HANA large instances, see [Use SAP on Azure virtual machines (VMs)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
+> This guide describes deployments of SAP HANA into Azure VMs. For information on how to deploy SAP HANA into HANA large instances, see [Use SAP on Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started).
  
 ## Prerequisites
 This guide assumes that you're familiar with such infrastructure as a service (IaaS) basics as:
- * How to deploy virtual machines or virtual networks via the Azure portal or PowerShell.
+ * How to deploy virtual machines (VMs) or virtual networks via the Azure portal or PowerShell.
  * The Azure cross-platform command-line interface (CLI), which includes the option to use JavaScript Object Notation (JSON) templates.
 
 This guide also assumes that you're familiar with:
@@ -43,7 +43,7 @@ This guide also assumes that you're familiar with:
 
 The Azure VM types that can be used for production scenarios are listed in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). For nonproduction scenarios, a wider variety of native Azure VM types is available.
 For more information on VM configuration and operations, see [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
-For SAP HANA high availability, see [SAP HANA high availability for Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
+For SAP HANA high availability, see [SAP HANA high availability for Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
 If you want to get an SAP HANA instance or S/4HANA or BW/4HANA system deployed quickly, consider using [SAP Cloud Appliance Library](https://cal.sap.com). You can find documentation about how to deploy an S/4HANA system through SAP Cloud Appliance Library on Azure, for example, in [this guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). All you need is an Azure subscription and an SAP user who can be registered with SAP Cloud Appliance Library.
 
