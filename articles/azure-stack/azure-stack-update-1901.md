@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
@@ -313,9 +313,9 @@ The following are post-installation known issues for this build version.
 <!-- #### Identity -->
 <!-- #### Marketplace -->
 
-### Syslog 
-- The syslog configuration is not persisted through an update cycle, resulting in the syslog client to lose its configuration and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809).
-The workaround is to reconfigure the syslog client after applying an Azure Stack update.
+### Syslog
+
+- The syslog configuration is not persisted through an update cycle, causing the syslog client to lose its configuration, and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809). To work around this issue, reconfigure the syslog client after applying an Azure Stack update.
 
 ## Download the update
 
