@@ -2,11 +2,11 @@
 title: Azure storage table design patterns | Microsoft Docs
 description: Use patterns for Azure table service solutions.
 services: storage
-author: MarkMcGeeAtAquent
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/23/2018
-ms.author: sngun
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: tables
 ---
 # Table design patterns

@@ -46,7 +46,7 @@ You can combine app-protection-based conditional access policies with other poli
 
 ## Benefits of app protection-based conditional access requirement
 
-Similar to compliance being reported by Intune for iOS and Android for managed device, Intune now reports to Azure AD if app protection policy is applied so that conditional access can use this as an access check. This new conditional access policy **App protection policy** increases security by protects admin errors such as:
+Similar to compliance being reported by Intune for iOS and Android for managed device, Intune now reports to Azure AD if app protection policy is applied so that conditional access can use this as an access check. This new conditional access policy **App protection policy** increases security by protecting against admin errors such as:
 
 - users that do not have an Intune license
 - users that cannot receive an Intune app protection policy
