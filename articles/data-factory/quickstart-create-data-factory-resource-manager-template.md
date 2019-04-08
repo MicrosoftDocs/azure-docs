@@ -3,17 +3,14 @@ title: Create an Azure data factory using Resource Manager template | Microsoft 
 description: In this tutorial, you create a sample Azure Data Factory pipeline using an Azure Resource Manager template.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-editor: 
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: quickstart
 ms.date: 02/20/2019
-ms.author: douglasl
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 # Tutorial: Create an Azure data factory using Azure Resource Manager template
 
@@ -325,7 +322,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
 
 In PowerShell, run the following command to deploy Data Factory entities using the Resource Manager template you created earlier in this quickstart.
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
@@ -644,7 +641,7 @@ In the tutorial, you created a template for defining Data Factory entities and a
 
 Example:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json

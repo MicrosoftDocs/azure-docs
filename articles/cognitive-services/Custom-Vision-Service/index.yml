@@ -87,8 +87,8 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Training</a></p>
-            <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Prediction</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=865446">Training</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=865445">Prediction</a></p>
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable">Java</a></p>

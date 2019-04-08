@@ -62,9 +62,9 @@ We'll create a single Action for Version 1.
 
 Now we'll tag this as "Version 1" of the Model.
 
-4. In the left panel click on “settings”, then click on the ![](../media/tutorial18_version_tags.PNG)"Version Tags" icon to reveal the `New Tag` button which you should click.
+1. In the left panel click on “settings”, then click on the ![](../media/tutorial18_version_tags.PNG)"Version Tags" icon to reveal the `New Tag` button which you should click.
 	- Name it “Version 1”
-4. In the "Live Tag" drop down select “Version 1”.  
+1. In the "Live Tag" drop down select “Version 1”.  
 	- Now channels using this Bot will use “Version 1” of our Model.
 	- The Entities, Actions, and Train Dialogs of this Version 1 Model can no longer be changed.
 	- If you select "Version 1" as the "Editing Tag" you will ONLY be able to view the Model and not edit it.

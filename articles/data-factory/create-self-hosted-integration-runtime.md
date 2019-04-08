@@ -3,18 +3,14 @@ title: Create a self-hosted integration runtime in Azure Data Factory | Microsof
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory, which allows data factories to access data stores in a private network.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
-
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 01/15/2019
+author: nabhishek
 ms.author: abnarain
-
+manager: craigg
 ---
 # Create and configure a self-hosted integration runtime
 The integration runtime (IR) is the compute infrastructure that Azure Data Factory uses to provide data-integration capabilities across different network environments. For details about IR, see [Integration runtime overview](concepts-integration-runtime.md).
@@ -51,7 +47,7 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 ![High-level overview](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. The data developer creates a self-hosted integration runtime within an Azure data factory by using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
-2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, the data developer uses the Credential Manager application (currently not supported) for setting authentication types and credentials. The Credential Manager application communicates with the data store to test the connection and the self-hosted integration runtime to save credentials.
+2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores.
 3. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.    
 4. The Data Factory service communicates with the self-hosted integration runtime for scheduling and management of jobs via a *control channel* that uses a shared Azure Service Bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). The self-hosted integration runtime kicks off the job after polling the queue.
 5. The self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob storage over a secure (HTTPS) channel.
@@ -59,7 +55,7 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 ## Considerations for using a self-hosted IR
 
 - A single self-hosted integration runtime can be used for multiple on-premises data sources. A single self-hosted integration runtime  can be shared with another data factory within the same Azure Active Directory tenant. For more information, see [Sharing a self-hosted integration runtime](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories).
-- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, you need to install the self-hosted integration runtime on two on-premises computers. In other words, a self-hosted integration runtime is tied to a specific data factory.
+- You can have only one instance of a self-hosted integration runtime installed on a single machine. If you have two data factories that need to access on-premises data sources, you need to install the self-hosted integration runtime on two on-premises computers each from both the data factories or use the [self-hosted IR sharing feature](#sharing-the-self-hosted-integration-runtime-with-multiple-data-factories) to share a self-hosted integration runtime with another Data Factory.  
 - The self-hosted integration runtime does not need to be on the same machine as the data source. However, having the self-hosted integration runtime closer to the data source reduces the time for the self-hosted integration runtime to connect to the data source. We recommend that you install the self-hosted integration runtime on a machine that is different from the one that hosts on-premises data source. When the self-hosted integration runtime and data source are on different machines, the self-hosted integration runtime does not compete for resources with the data source.
 - You can have multiple self-hosted integration runtimes on different machines that connect to the same on-premises data source. For example, you might have two self-hosted integration runtimes that serve two data factories, but the same on-premises data source is registered with both the data factories.
 - If you already have a gateway installed on your computer to serve a Power BI scenario, install a separate self-hosted integration runtime for Azure Data Factory on another machine.
@@ -143,7 +139,7 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 - Certificates that use CNG keys are not supported.  
 
 > [!NOTE]
-> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
+> This certificate is used to encrypt ports on self-hosted IR node, used for **node-to-node communication** (for state synchronization which includes linked services' credentials synchronization across nodes) and while **using PowerShell cmdlet for linked service credential setting** from within local network. We suggest using this certificate if your private network environment is not secure or if you would like to secure the communication between nodes within your private network as well. 
 > Data movement in transit from self-hosted IR to other data stores always happens using encrypted channel, irrespective of this certificate set or not. 
 
 ## Sharing the self-hosted integration runtime with multiple data factories
@@ -328,8 +324,8 @@ If you encounter errors similar to the following ones, it's likely due to improp
 	```
 
 ### Enabling remote access from an intranet  
-If you use PowerShell or the Credential Manager application to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
-If you run PowerShell or the Credential Manager application to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
+If you use PowerShell to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
+If you run PowerShell to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
 
 You should enable **Remote Access from Intranet** before you add another node for high availability and scalability.  
 
@@ -339,9 +335,7 @@ If you're using a third-party firewall, you can manually open port 8060 (or the 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> The Credential Manager application is not yet available for encrypting credentials in Azure Data Factory V2.  
+``` 
 
 If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 

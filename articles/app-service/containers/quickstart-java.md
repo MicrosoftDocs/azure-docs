@@ -107,3 +107,5 @@ In this quickstart, you used Maven to create a Java app, configured the [Maven P
 - [Configure a Tomcat data source](app-service-linux-java.md#tomcat)
 - [CI/CD with Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Set up application performance monitoring tools](how-to-java-apm-monitoring.md)
+- [Java developer's guide for App Service on Linux](app-service-linux-java.md)
+

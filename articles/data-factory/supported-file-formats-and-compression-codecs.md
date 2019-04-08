@@ -571,6 +571,15 @@ The **compression** section has two properties:
 > [!NOTE]
 > Compression settings are not supported for data in the **AvroFormat**, **OrcFormat**, or **ParquetFormat**. When reading files in these formats, Data Factory detects and uses the compression codec in the metadata. When writing to files in these formats, Data Factory chooses the default compression codec for that format. For example, ZLIB for OrcFormat and SNAPPY for ParquetFormat.
 
+## Unsupported file types and compression formats
+
+You can use the extensibility features of Azure Data Factory to transform files that aren't supported. 
+Two options include Azure Functions and custom tasks by using Azure Batch.
+
+You can see a sample that uses an Azure function to [extract the contents of a tar file](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV2/UntarAzureFilesWithAzureFunction). For more information, see [Azure Functions activity](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity).
+
+You can also build this functionality using a custom dotnet activity. Further information is available [here](https://docs.microsoft.com/en-us/azure/data-factory/transform-data-using-dotnet-custom-activity)
+
 ## Next steps
 
 See the following articles for file-based data stores supported by Azure Data Factory:

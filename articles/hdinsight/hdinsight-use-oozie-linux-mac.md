@@ -36,7 +36,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
 
 ## Storage configuration
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in the article will produce output to at least `/mapreducestaging`.  A default hadoop configuration will contain `/mapreducestaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which is not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/mapreducestaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in the article will produce output to at least `/mapreducestaging`.  A default hadoop configuration will contain `/mapreducestaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which is not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/mapreducestaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > The storage account used in this article has [secure transfer](../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` rather than `wasb` is used throughout the article.
@@ -124,11 +124,11 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     There are two variables used in the script:
 
-    * `${hiveTableName}`: Contains the name of the table to be created.
+   * `${hiveTableName}`: Contains the name of the table to be created.
 
-    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
+   * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
-    The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
+     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
 
 4. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
 
@@ -301,7 +301,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
     |Placeholder value| Replaced value|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Value received from step 1.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
     |serverName| Azure SQL database server name.|
     |sqlLogin| Azure SQL database server login.|
@@ -711,7 +711,6 @@ For example, for the job in this document, you would use the following steps:
 
 In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
-* [Use the time-based Apache Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
 * [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
 * [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
@@ -720,7 +719,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
@@ -750,8 +748,8 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: 
 ms.devlang:
-ms.topic: howto
+ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: genemi

@@ -17,6 +17,13 @@ ms.date: 02/08/2019
 
 Transactional replication is a feature of Azure SQL Database and SQL Server that enables you to replicate data from a table in Azure SQL Database or a SQL Server to the tables placed on remote databases. This feature allows you to synchronize multiple tables in different databases.
 
+## When to use Transactional replication
+
+Transactional replication is useful in the following scenarios:
+- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
+- Keep several distributed databases in synchronized state.
+- Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
+
 ## Overview
 
 The key components in transactional replication are shown in the following picture:  
@@ -48,7 +55,7 @@ The **Subscriber** is an instance or server that is receiving the changes made o
   >[!NOTE]
   > A pull subscription is not supported when the distributor is an Instance database and the subscriber is not. 
 
-There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+There are different [types of replication](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replication | Single and pooled databases | Instance  databases|
@@ -64,7 +71,7 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > - Attempting to configure replication using an older version can result in error number MSSQL_REPL20084 (The process could not connect to Subscriber.) and MSSQ_REPL40532 (Cannot open server \<name> requested by the login. The login failed.)
-  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - To use all the features of Azure SQL Database, you must be using the latest versions of [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) and [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
   
   ### Supportabilty matrix for Instance Databases and On-premises systems
   The replication supportability matrix for instance databases is the same as the one for SQL Server on-premises. 
@@ -87,14 +94,6 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
   >[!NOTE]
   > You may encounter error 53 when connecting to an Azure Storage File if the outbound network security group (NSG) port 445 is blocked when the distributor is an instance database and the subscriber is on-premises. [Update the vNet NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) to resolve this issue. 
-
-## When to use Transactional replication
-
-Transactional replication is useful in the following scenarios:
-
-- Publish changes made in one or more tables in a database and distribute them to one or many SQL Server or Azure SQL databases that subscribed for the changes.
-- Keep several distributed databases in synchronized state.
-- Migrate databases from one SQL Server or Managed Instance to another database by continuously publishing the changes.
 
 ### Compare Data Sync with Transactional Replication
 

@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -108,6 +108,7 @@ To configure Azure AD single sign-on with Coupa, perform the following steps:
 	> The Sign-on URL value is not real. Update this value with the actual Sign-On URL. Contact [Coupa Client support team](https://success.coupa.com/Support/Contact_Us?) to get this value.
 
     b. In the **Identifier** box, type a URL:
+
     | Environment  | URL |
     |:-------------|----|
     | Sandbox | `devsso35.coupahost.com`|
@@ -115,6 +116,7 @@ To configure Azure AD single sign-on with Coupa, perform the following steps:
     | | |
 
     c. In the **Reply URL** text box, type a URL:
+
     | Environment | URL |
     |------------- |----|
     | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
@@ -171,7 +173,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

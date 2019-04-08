@@ -17,7 +17,7 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
-  - name: Set and retrieve a secret - template
+  - name: Set and retrieve a secret - Resource Manager Template
     displayName: resource manager, resource manager template, arm
     href: quick-create-template.md
 - name: Tutorials
@@ -123,6 +123,8 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Best Practices
+    href: key-vault-best-practices.md
   - name: Resource Manager template
     href: /azure/templates/microsoft.keyvault/allversions
   - name: Authentication, requests and responses

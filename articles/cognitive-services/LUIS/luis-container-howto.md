@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/22/2019
 ms.author: diberry
 ---
 
@@ -35,21 +35,20 @@ In order to run the LUIS container, you must have the following:
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### Container requirements and recommendations
 
 This container supports minimum and recommended values for the settings:
 
-|Setting| Minimum | Recommended |
-|-----------|---------|-------------|
-|Cores<BR>`--cpus`|1 core|1 core|
-|Memory<BR>`--memory`|2 GB|4 GB|
-|Transactions per second<BR>(TPS)|20 TPS|40 TPS|
+|Container| Minimum | Recommended | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|LUIS|1 core, 2 GB memory|1 core, 4 GB memory|20,40|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
-The `--cpus` and `--memory` settings are used as part of the `docker run` command.
+Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
 
 ## Get the container image with `docker pull`
 
@@ -77,7 +76,7 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 1. [Run the container](##run-the-container-with-docker-run), with the required _input mount_ and billing settings. More [examples](luis-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Querying the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 1. When you are done with the container, [import the endpoint logs](#import-the-endpoint-logs-for-active-learning) from the output mount in the LUIS portal and [stop](#stop-the-container) the container.
-1. Use LUIS portal's [active learning](luis-how-to-review-endoint-utt.md) on the **Review endpoint utterances** page to improve the app.
+1. Use LUIS portal's [active learning](luis-how-to-review-endpoint-utterances.md) on the **Review endpoint utterances** page to improve the app.
 
 The app running in the container can't be altered. In order the change the app in the container, you need to change the app in the LUIS service using the [LUIS](https://www.luis.ai) portal or use the LUIS [authoring APIs](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f). Then train and/or publish, then download a new package and run the container again.
 
@@ -265,7 +264,7 @@ The query parameters configure how and what is returned in the query response:
 |`timezoneOffset`|number|The timezoneOffset allows you to [change the timezone](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) used by the prebuilt entity datetimeV2.|
 |`verbose`|boolean|Returns all intents and their scores when set to true. Default is false, which returns only the top intent.|
 |`staging`|boolean|Returns query from staging environment results if set to true. |
-|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endoint-utt.md). Default is true.|
+|`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endpoint-utterances.md). Default is true.|
 
 ### Query published app
 
@@ -296,15 +295,20 @@ The version name has a maximum of 10 characters and contains only characters all
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
 The following location shows the nested directory structure for the container's log files.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 From the LUIS portal, select your app, then select **Import endpoint logs** to upload these logs. 
 
 ![Import container's log files for active learning](./media/luis-container-how-to/upload-endpoint-log-files.png)
 
 After the log is uploaded, [review the endpoint](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) utterances in the LUIS portal.
+
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
@@ -313,10 +317,6 @@ To shut down the container, in the command-line environment where the container 
 ## Troubleshooting
 
 If you run the container with an output [mount](luis-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
-
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

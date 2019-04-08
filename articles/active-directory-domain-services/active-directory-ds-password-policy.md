@@ -85,28 +85,28 @@ To create a custom FGPP on your managed domain:
 7. On the **Tasks** panel in the right, click **New** and click **Password Settings**.
 8. In the **Create Password Settings** dialog, specify the custom password settings to apply as part of the custom FGPP. Remember to set the precedence appropriately to override the default FGPP.
 
-  ![Create custom FGPP](./media/how-to/custom-fgpp.png)
+   ![Create custom FGPP](./media/how-to/custom-fgpp.png)
 
-  > [!TIP]
-  > **Remember to uncheck the Protect from accidental deletion option.** If this option is selected, the FGPP cannot be saved.
-  >
-  >
+   > [!TIP]
+   > **Remember to uncheck the Protect from accidental deletion option.** If this option is selected, the FGPP cannot be saved.
+   >
+   >
 
 9. In **Directly Applies To**, click the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
 
-  ![Select users and groups](./media/how-to/fgpp-applies-to.png)
+   ![Select users and groups](./media/how-to/fgpp-applies-to.png)
 
 10. In the **Locations** dialog, expand the domain name and click **AADDC Users**. You can now select a group from the built-in users OU, to which to apply the FGPP.
 
-  ![Select the OU that group belongs to](./media/how-to/fgpp-container.png)
+    ![Select the OU that group belongs to](./media/how-to/fgpp-container.png)
 
 11. Type the name of the group and click the **Check Names** button to validate the group exists.
 
-  ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
+    ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
 
 12. The name of the group is displayed in **Directly Applies To** section. Click the **OK** button to save these changes.
 
-  ![FGPP applied](./media/how-to/fgpp-applied.png)
+    ![FGPP applied](./media/how-to/fgpp-applied.png)
 
 > [!TIP]
 > **To apply custom password policies for user accounts in a custom OU:**

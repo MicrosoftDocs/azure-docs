@@ -112,13 +112,13 @@ In multi-region write mode, you can add or remove any region if you have at leas
 
 ```bash
 # Given an account created with 1 region like so
-az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0'
+az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
 
 # Add a new region by adding another region to the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=0 westus=1'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
 
 # Remove a region by removing a region from the list
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
 ```
 
 ## Configure multiple write-regions
@@ -211,9 +211,9 @@ The following JSON code is an example of an Azure Resource Manager template. You
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: 'eastus=0 westus=1'
+# Given your account currently has regions with priority like so: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
-az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
+az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
 ```
 
 ## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos DB account
@@ -270,7 +270,8 @@ You can't modify the write region on this menu. To change the write region manua
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 
 ```bash
-az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies 'eastus=0 westus=2 southcentralus=1'
+# Assume region order is initially eastus=0 westus=1 automatic failover on account creation
+az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resource-group <Resource Group name> --failover-policies westus=0 eastus=1
 ```
 
 ## Next steps

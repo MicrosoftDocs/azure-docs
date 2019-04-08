@@ -23,7 +23,7 @@ Starting on November 15, 2017, outbound email messages that are sent directly to
 This change in behavior applies only to new subscriptions and new deployments since November 15, 2017.
 
 ## Recommended method of sending email
-We recommend you use authenticated SMTP relay services (that typically connect through TCP port 587 or 443 but support other ports, too) to send email from Azure VMs or from Azure App Services. These services are used to maintain IP or domain reputation to minimize the possibility that third-party email providers will reject the message. Such SMTP relay services include but aren't limited to [SendGrid](http://sendgrid.com/partners/azure/). It's also possible you have a secure SMTP relay service that's running on-premises that you can use.
+We recommend you use authenticated SMTP relay services (that typically connect through TCP port 587 or 443 but support other ports, too) to send email from Azure VMs or from Azure App Services. These services are used to maintain IP or domain reputation to minimize the possibility that third-party email providers will reject the message. Such SMTP relay services include but aren't limited to [SendGrid](https://sendgrid.com/partners/azure/). It's also possible you have a secure SMTP relay service that's running on-premises that you can use.
 
 Using these email delivery services isn't restricted in Azure, regardless of the subscription type.
 

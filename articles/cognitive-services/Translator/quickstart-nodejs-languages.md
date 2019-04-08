@@ -84,6 +84,8 @@ If you'd like to compare your code against ours, the complete sample is availabl
 
 ## Sample response
 
+Find the country abbreviation in this [list of languages](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+
 This sample has been truncated to show a snippet of the result:
 
 ```json

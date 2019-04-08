@@ -6,7 +6,6 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
@@ -169,18 +168,21 @@ Defines the query context that Bing used for the request.
 |originalQuery|The query string as specified in the request.|String|  
 
 ### Identifiable
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|A resource identifier|String|
  
 ### RankingGroup
 Defines a search results group, such as mainline.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |items|A list of search results to display in the group.|RankingItem|
 
 ### RankingItem
 Defines a search result item to display.
+
 |Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|A zero-based index of the item in the answer to display. If the item does not include this field, display all items in the answer. For example, display all news articles in the News answer.|Integer|

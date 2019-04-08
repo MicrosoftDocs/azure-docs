@@ -26,7 +26,7 @@ Before connecting, make sure that the SSH public/private key pair that you used 
 
 If using a Linux-based client, use an SSH tunneling command with this form: 
 
-ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*@*controller_public_IP*
+ssh -L *local_port*:*cluster_mgmt_ip*:443 *controller_username*\@*controller_public_IP*
 
 This command connects to the cluster's management IP address through the cluster controller's IP address.
 
@@ -42,7 +42,7 @@ Authentication is automatic if you used your SSH public key to create the cluste
 
 This example uses the common Windows-based terminal utility, PuTTY.
 
-Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*@*controller_public_IP*.
+Fill in the PuTTY **hostname** field with the cluster controller username and its IP address: *your_username*\@*controller_public_IP*.
 
 Example: ``azureuser@203.0.113.51``
 
@@ -64,7 +64,7 @@ Authentication is automatic if you used your SSH public key to create the cluste
 
 This step uses a web browser to connect to the configuration utility running on the vFXT cluster.
 
-* For an SSH tunnel connection, open your web browser and navigate to https://127.0.0.1:8443. 
+* For an SSH tunnel connection, open your web browser and navigate to `https://127.0.0.1:8443`. 
 
   You connected to the cluster IP address when you created the tunnel, so you just need to use the localhost IP address in the browser. If you used a local port other than 8443, use your port number instead.
 

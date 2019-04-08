@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
@@ -26,13 +25,12 @@ Learn how to take the following actions:
 > [!div class="checklist"]
 > * Set up your development environment.
 > * Access and examine the data.
-> * Train a simple logistic regression locally by using the popular scikit-learn machine learning library. 
-> * Train multiple models on a remote cluster.
+> * Train a simple logistic regression model on a remote cluster.
 > * Review training results and register the best model.
 
 You learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md). 
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 1.0.8.
@@ -64,9 +62,11 @@ After you complete the steps below, run the **tutorials/img-classification-part1
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
+Use these steps to create a local Jupyter Notebook server on your computer. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 ## <a name="start"></a>Set up your development environment
 

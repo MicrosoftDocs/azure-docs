@@ -85,7 +85,7 @@ Press the enter key to delete the sample files, example container, and exit the 
 When you press the key to continue, the sample program deletes the storage container and the files. 
 
 > [!TIP]
-> You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+> You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 >
 
 ## Understand the sample code

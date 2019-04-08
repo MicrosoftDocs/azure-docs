@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
@@ -52,6 +52,7 @@ t.head(5)
 ```
 
 Example output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	None | NO |	NO | ENRS | NaN	| NaN |	NaN |	
@@ -76,6 +77,7 @@ written_files.head(5)
 ```
 
 Example output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	ERROR | NO | NO | ENRS | NaN	| NaN |	NaN |	
@@ -98,6 +100,7 @@ written_files.head(5)
 ```
 
 The preceding code produces this output:
+
 | | Column1 | Column2 | Column3 | Column4 | Column5	| Column6 |	Column7	| Column8 |	Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |
 |0| 10000.0 | 99999.0 |	BadData | NO | NO | ENRS | NaN	| NaN |	NaN |	
@@ -125,6 +128,7 @@ written_parquet_files.head(5)
 ```
 
 The preceding code produces this output:
+
 |   | Column1 | Column2 | Column3 | Column4 | Column5 | Column6 | Column7 | Column8 | Column9 |
 | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- | -------- |-------- |
 |0| 10000.0 | 99999.0 | MiscreantData | NO | NO | ENRS | MiscreantData | MiscreantData | MiscreantData |
@@ -143,9 +147,9 @@ The following code example illustrates how to convert your dataflow to a Pandas 
 from azureml.train.automl import AutoMLConfig
 from sklearn.model_selection import train_test_split
 
-dataflow = dprep.auto_read_file(path="")
-X_dflow = dataflow.keep_columns([feature_1,feature_2, feature_3])
-y_dflow = dataflow.keep_columns("target")
+dflow = dprep.auto_read_file(path="")
+X_dflow = dflow.keep_columns([feature_1,feature_2, feature_3])
+y_dflow = dflow.keep_columns("target")
 
 X_df = X_dflow.to_pandas_dataframe()
 y_df = y_dflow.to_pandas_dataframe()

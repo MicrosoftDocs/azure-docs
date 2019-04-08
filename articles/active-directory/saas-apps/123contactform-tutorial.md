@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with 123ContactForm, perform the following 
 
 	![Configure Single Sign-On](./media/123contactform-tutorial/submit.png) 
 
-	a. In the **Email** textbox, type the email of the user like **BrittaSimon@Contoso.com**.
+	a. In the **Email** textbox, type the email of the user like **BrittaSimon\@Contoso.com**.
 
 	b. Click **Upload** and browse the downloaded Metadata XML file, which you have downloaded from Azure portal.
 
@@ -172,7 +172,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

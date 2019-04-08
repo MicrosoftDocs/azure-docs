@@ -259,9 +259,9 @@ For Azure Active Directory users to be able to sign in, they must be provisioned
 	
 	c. In the **Alias** textbox, type the **name** of the user **BrittaS**.
     
-    d. In the **Email** textbox, type the **email address** of user **Brittasimon@contoso.com**.
+    d. In the **Email** textbox, type the **email address** of user **Brittasimon\@contoso.com**.
     
-    e. In the **User Name** textbox, type a user name of user like **Brittasimon@contoso.com**.
+    e. In the **User Name** textbox, type a user name of user like **Brittasimon\@contoso.com**.
     
     f. In the **Nick Name** textbox, type a **nick name** of user **Simon**.
     

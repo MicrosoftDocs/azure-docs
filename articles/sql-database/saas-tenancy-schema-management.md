@@ -22,7 +22,7 @@ This tutorial explores two scenarios - deploying reference data updates for all 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job agent
 > * Cause T-SQL jobs to be run on all tenant databases
 > * Update reference data in all tenant databases
@@ -116,7 +116,7 @@ Observe the following elements in the _OnlineReindex.sql_ script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job agent to run across T-SQL jobs multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases

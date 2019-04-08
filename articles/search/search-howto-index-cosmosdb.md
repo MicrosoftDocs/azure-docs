@@ -18,7 +18,7 @@ This article shows you how to configure an Azure Cosmos DB [indexer](search-inde
 
 Because terminology can be confusing, it's worth noting that [Azure Cosmos DB indexing](https://docs.microsoft.com/azure/cosmos-db/index-overview) and [Azure Search indexing](search-what-is-an-index.md) are distinct operations, unique to each service. Before you start Azure Search indexing, your Azure Cosmos DB database must already exist and contain data.
 
-You can use the [portal](#cosmos-indexer-portal), [REST APIs](#cosmos-indexer-rest), or [.NET SDK](#cosmos-indexer-dotnet) to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
+You can use the [portal](#cosmos-indexer-portal), REST APIs, or .NET SDK to index Cosmos content. The Cosmos DB indexer in Azure Search can crawl [Azure Cosmos items](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) accessed through these protocols:
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [MongoDB API](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (Azure Search support for this API is in public preview)  
@@ -57,7 +57,7 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Name** is the name of the data source object. Once created, you can choose it for other workloads.
 
-+ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEdpointPoint` and an `AccountKey`. The account determines whether data is cast as SQL API or Mongo DB API
++ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEndpoint` and an `AccountKey`. The account determines whether data is cast as SQL API or Mongo DB API
 
 + **Database** is an existing database from the account. 
 

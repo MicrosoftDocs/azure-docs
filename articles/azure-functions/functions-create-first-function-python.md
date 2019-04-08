@@ -7,7 +7,7 @@ author: ggailey777
 ms.author: glenga
 ms.date: 08/29/2018
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: jeconnoc

@@ -45,8 +45,8 @@ Before you upgrade, note the following:-
     - Ensure that you the new SCVMMs that you add to the cluster has the same names as was before. 
 
 - If you are replicating between two of your sites managed by SCVMMs on both sides, ensure that you upgrade your recovery side first before you upgrade the primary side.
-> [!WARNING]
-> While upgrading the SCVMM 2012 R2, under Distributed Key Management, select to **store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selection, encrypted data such as passwords in templates might not be available after the upgrade, and can potentially affect replication with Azure Site Recovery
+  > [!WARNING]
+  > While upgrading the SCVMM 2012 R2, under Distributed Key Management, select to **store encryption keys in Active Directory**. Choose the settings for the service account and distributed key management carefully. Based on your selection, encrypted data such as passwords in templates might not be available after the upgrade, and can potentially affect replication with Azure Site Recovery
 
 > [!IMPORTANT]
 > Please refer to the detailed SCVMM documentation of [prerequisites](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#requirements-and-limitations)
@@ -74,8 +74,8 @@ Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SC
 
 4. [Install VMM 2016](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#install-vmm-2016)
 5. Launch SCVMM  and check status of each hosts under **Fabrics** tab. Click **Refresh** to get the most recent status. You should see status as “Needs Attention”. 
-17.	Install the latest [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra) on the SCVMM.
-16.	Install the latest [Microsoft Azure Recovery Service (MARS) agent](http://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure SCVMM is able to successfully query the hosts.
+17.	Install the latest [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) on the SCVMM.
+16.	Install the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure SCVMM is able to successfully query the hosts.
 
 **Upgrade Windows Server 2012 R2 hosts to Windows Server 2016**
 
@@ -92,8 +92,8 @@ Before you upgrade your Windows Sever 2012 R2 hosts,  you need to upgrade the SC
 1.  Uninstall ASR provider by navigating to Control Panel -> Programs -> Programs and Features ->Microsoft Azure Site Recovery , and click on Uninstall
 2. Follow the steps mentioned [here](https://docs.microsoft.com/system-center/vmm/upgrade-vmm?view=sc-vmm-2016#upgrade-a-standalone-vmm-server) based on the mode of upgrade you wish to execute.
 3. Launch SCVMM console and check status of each hosts under **Fabrics** tab. Click **Refresh** to get the most recent status. You should see status as “Needs Attention”.
-4. Install the latest [Microsoft Azure Site Recovery Provider](http://aka.ms/downloaddra) on the SCVMM.
-5. Update the latest [Microsoft Azure Recovery Service (MARS) agent](http://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure SC VMM is able to successfully query the hosts.
+4. Install the latest [Microsoft Azure Site Recovery Provider](https://aka.ms/downloaddra) on the SCVMM.
+5. Update the latest [Microsoft Azure Recovery Service (MARS) agent](https://aka.ms/latestmarsagent) on each host of the cluster. Refresh to ensure SC VMM is able to successfully query the hosts.
 
 
 **Upgrade Windows Server 2012 R2 hosts to Windows Server 2016**

@@ -31,6 +31,7 @@ Within an Azure Database for MySQL server, you can create one or multiple databa
 ## How do I connect and authenticate to an Azure Database for MySQL server?
 
 The following elements help ensure safe access to your database.
+
 |     |     |
 | :-- | :-- |
 | **Authentication and authorization** | Azure Database for MySQL server supports native MySQL authentication. You can connect and authenticate to a server with the server's admin login. |

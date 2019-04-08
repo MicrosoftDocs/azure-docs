@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: e9da692e-4a65-4231-8ab3-bc9a87b10bca
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
     ![Workday Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://impl.workday.com/<tenant>/login-saml2.flex`
+    `https:\//impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.workday.com`
@@ -111,11 +111,11 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
     ![Workday Domain and URLs single sign-on information](./media/workday-tutorial/reply.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://impl.workday.com/<tenant>/login-saml.htmld`
+    `https:\//impl.workday.com/<tenant>/login-saml.htmld`
 
 	> [!NOTE]
 	> These values are not the real. Update these values with the actual Sign-on URL and Reply URL. Your reply URL must have a subdomain for example: www, wd2, wd3, wd3-impl, wd5, wd5-impl).
-    > Using something like "*http://www.myworkday.com*" works but "*http://myworkday.com*" does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+    > Using something like `http://www.myworkday.com` works but `http://myworkday.com` does not. Contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. Your Workday application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Workday application expects **nameidentifier** to be mapped with **user.mail**, **UPN** etc, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
@@ -158,10 +158,10 @@ To configure Azure AD single sign-on with Workday, perform the following steps:
 
     d. In **Used for Environments** textbox, select the environment name.  
 
-    >[!NOTE]
-    > The value of the Environment attribute is tied to the value of the tenant URL:  
-    >-If the domain name of the Workday tenant URL starts with impl for example: *https://impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
-    >-If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
+   > [!NOTE]
+   > The value of the Environment attribute is tied to the value of the tenant URL:  
+   > -If the domain name of the Workday tenant URL starts with impl for example: *https:\//impl.workday.com/\<tenant\>/login-saml2.flex*), the **Environment** attribute must be set to Implementation.  
+   > -If the domain name starts with something else, you need to contact [Workday Client support team](https://www.workday.com/en-us/partners-services/services/support.html) to get the matching **Environment** value.
 
 4. In the **SAML Setup** section, perform the following steps:
 
@@ -253,7 +253,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

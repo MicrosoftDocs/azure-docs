@@ -12,21 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
 
 ---
 # Live Events and Live Outputs
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article:
-
-* [Live Events](#live-events)
-* Live Event types
-* Live Event types comparison
-* [Live Event creation options](#live-event-creation-options)
-* [Live Event ingest URLs](#live-event-ingest-urls)
-* [Live Event preview URL](#live-event-preview-url)
-* [Live Outputs](#live-outputs).
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. To configure your live streaming events in Media Services v3, you need to understand concepts discussed in this article. <br/>The list of sections is listed on the right of the page.
 
 ## Live Events
 
@@ -129,6 +121,10 @@ Once the **Live Event** starts receiving the contribution feed, you can use its 
 > [!IMPORTANT]
 > Make sure that the video is flowing to the preview URL before continuing!
 
+## Live Event long-running operations
+
+For details, see [long-running operations](entities-overview.md#long-running-operations)
+
 ## Live Outputs
 
 Once you have the stream flowing into the Live Event, you can begin the streaming event by creating an [Asset](https://docs.microsoft.com/rest/api/media/assets), [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs), and [Streaming Locator](https://docs.microsoft.com/rest/api/media/streaminglocators). Live Output will archive the stream and make it available to viewers through the [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).  
@@ -146,5 +142,4 @@ For more information, see [Using a cloud DVR](live-event-cloud-dvr.md).
 
 ## Next steps
 
-- [Streaming live events](live-streaming-overview.md)
-- [Live streaming tutorial](stream-live-tutorial-with-api.md)
+[Live streaming tutorial](stream-live-tutorial-with-api.md)

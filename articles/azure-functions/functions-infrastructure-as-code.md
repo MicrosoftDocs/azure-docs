@@ -8,12 +8,12 @@ manager: jeconnoc
 keywords: azure functions, functions, serverless architecture, infrastructure as code, azure resource manager
 
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
+ms.service: azure-functions
 ms.server: functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: glenga
-
 ---
 
 # Automate resource deployment for your function app in Azure Functions
