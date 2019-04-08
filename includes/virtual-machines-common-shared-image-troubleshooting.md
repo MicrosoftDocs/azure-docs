@@ -58,20 +58,7 @@ Check if the source image exists and is in the same region as the image version.
 
 Make sure the provisioning state of the source managed image is **Succeeded**.
 
-*The source region is not supported yet.*
-
-Use the table below to see if the intended source region is supported:
-<br>
-
-| Create gallery in or “source region”   | Replicate version to or “target region” |
-|----------------------------------------|-------------------------------------------|
-| West Central US                        | All Azure Public Cloud regions            |
-| South Central US                       |                                           |
-| East US 2                              |                                           |
-| Southeast Asia                         |                                           |
-| West Europe                            |                                           |
-
-<br>
+*The target region list does not include the source region.*
 
 The target region list must include the source region of the image version. Make sure you have included the source region in the list of target regions where you want Azure to replicate your image version to.
 
