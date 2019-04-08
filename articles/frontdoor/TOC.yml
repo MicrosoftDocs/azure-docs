@@ -52,6 +52,8 @@
       href: waf-overview.md
     - name: Custom rules
       href: waf-front-door-custom-rules.md
+    - name : Monitoring and logging
+      href: waf-front-door-monitor.md
 - name: How-to guides
   items:
   - name: Troubleshoot
