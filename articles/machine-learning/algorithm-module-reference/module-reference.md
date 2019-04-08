@@ -12,82 +12,87 @@ ms.author: amlstudiodocs
 ms.date: 04/22/2019
 ROBOTS: NOINDEX
 ---
-# Module Reference
+# Algorithm & Module reference overview
 
-This article lists the modules provided in the visual interface organized into categories:
+Each *module* in Machine Learning visual interface represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
 
-## Data input and output
+Modules are organized by functionality:
 
-[Import Data](import-data.md)
++ Data input and output modules  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
 
-[Export Data](export-data.md)
+  + [Import Data](import-data.md)
 
-[Enter Data Manually](enter-data-manually.md)
+  + [Export Data](export-data.md)
 
-## Data transformation
-
-[Select Columns in Dataset](select-columns-in-dataset.md)
-
-[Edit Metadata](edit-metadata.md)
-
-[Clean Missing Data](clean-missing-data.md)
-
-[Add Columns](add-columns.md)
-
-[Add Rows](add-rows.md)
-
-[Remove Duplicate Rows](remove-duplicate-rows.md)
-
-[Split Data](split-data.md)
-
-[Normalize Data](normalize-data.md)
-
-[Partition and Sample](partition-and-sample.md)
+  + [Enter Data Manually](enter-data-manually.md)
 
 
++ Data transformation modules support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
+
+  + [Select Columns in Dataset](select-columns-in-dataset.md)
+
+  + [Edit Metadata](edit-metadata.md)
+
+  + [Clean Missing Data](clean-missing-data.md)
+
+  + [Add Columns](add-columns.md)
+
+  + [Add Rows](add-rows.md)
+
+  + [Remove Duplicate Rows](remove-duplicate-rows.md)
+
+  + [Split Data](split-data.md)
+
+  + [Normalize Data](normalize-data.md)
+
+  + [Partition and Sample](partition-and-sample.md)
 
 
-## Data Format Conversions
++ Machine learning algorithms such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
+  + [Score Model](score-model.md)
 
-[Convert to CSV ](convert-to-csv.md)
+  + [Train Model](train-model.md)
 
-## Machine Learning Modules
+  + [Evaluate Model](evaluate-model.md)
 
-[Score Model](score-model.md)
+  + [Apply Transformation](apply-transformation.md)
 
-[Train Model](train-model.md)
+  + [Linear Regression](linear-regression.md)
 
-[Evaluate Model](evaluate-model.md)
+  + [Neural Network Regression](neural-network-regression.md)
 
-[Apply Transformation](apply-transformation.md)
+  + [Decision Forest Regression](decision-forest-regression.md)
 
-[Linear Regression](linear-regression.md)
+  + [Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
 
-[Neural Network Regression](neural-network-regression.md)
+  + [Two-class Boosted Decision Tree](two-class-boosted-decision-tree.md)
 
-[Decision Forest Regression](decision-forest-regression.md)
+  + [Two-Class Logistic Regression](two-class-logistic-regression.md)
 
-[Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
+  + [Multiclass Logistic Regression](multiclass-logistic-regression.md)
 
+  + [Multiclass Neural Network](multiclass-neural-network.md)
 
-[Two-class Boosted Decision Tree](two-class-boosted-decision-tree.md)
+  + [Multiclass Decision Forest](multiclass-decision-forest.md)
 
-[Two-Class Logistic Regression](two-class-logistic-regression.md)
+  + [Two-Class Averaged Perceptron](two-class-averaged-perceptron.md)
 
-[Multiclass Logistic Regression](multiclass-logistic-regression.md)
+  + [Two-Class Decision Forest](two-class-decision-forest.md)
 
-[Multiclass Neural Network](multiclass-neural-network.md)
+  + [Two-Class Neural Network](two-class-neural-network.md)
 
-[Multiclass Decision Forest](multiclass-decision-forest.md)
-
-[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md)
-
-[Two-Class Decision Forest](two-class-decision-forest.md)
-
-[Two-Class Neural Network](two-class-neural-network.md)
+  + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
 
 
-[Two-Class Support Vector Machine](two-class-support-vector-machine.md)
++ Python module makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
+  + [Execute Python Script](execute-python-script.md)
 
-## Python Language Module
-[Execute Python Script](execute-python-script.md)
++ Data Format Conversions
+
+  + [Convert to CSV ](convert-to-csv.md)
+
+  
+In this reference section, you'll find technical background on the machine learning algorithms,  implementation details if available, and links to sample experiments that demonstrate how the module is used. 
+
+ > [!TIP]
+ > If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
