@@ -32,7 +32,7 @@ In this article, you learn how to:
 
 ## Before you start
 
-1. Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
+Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Prepare an account for automatic discovery
 
@@ -120,6 +120,7 @@ If you plan to fail back to your on-premises site, there are a number of [prereq
 
 ## Next steps
 
+Set up disaster recovery. If you're replicating multiple VMs, plan capacity.
 > [!div class="nextstepaction"]
 > [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)
-> If you're replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
+> [Perform capacity planning](site-recovery-deployment-planner.md).
