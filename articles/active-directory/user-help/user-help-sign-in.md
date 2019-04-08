@@ -21,7 +21,7 @@ After you set up two-step verification or security info, you'll be able to sign 
 
 > [!Note]
 > If you're still using the two-step verification experience, you'll need to set up your authentication methods by following the instructions in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
->
+> 
 > If your administrator has turned on the security info experience, you'll need to set your authentication methods using these step-by-step articles:<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md)</li></ul>
 
 ## Sign in using an authenticator app notification on your mobile device
@@ -57,7 +57,7 @@ If for some reason you're unable to use your primary sign-in method, you can use
 
     >[!Note]
     >If you don't see the **Sign in another way** link, it means that you haven't set up any other verification methods and that you'll have to contact your administrator for help signing into your account. After your administrator helps you to sign in, make sure you add additional verification methods. For more info about adding verification methods, see the [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md) article.
-    >
+    > 
     >If you see the **Sign in another way** link, but still don't see any other verification methods, you'll have to contact your administrator for help signing in to your account.
 
 2. Choose your alternative verification method, and continue with the two-step verification process.
