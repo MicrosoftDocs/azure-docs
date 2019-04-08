@@ -342,7 +342,7 @@ The following items are prefixed with either:
 
 **[A]** Prerequisites for Pacemaker configuration:
 1. Shut down both database server with user db2\<sid> with db2stop
-2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool [//]: <> Yast is a fixed term in Linux and not a spelling error
+2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool [//]: <> (Yast is a fixed term in Linux and not a spelling error)
 3. Update the resource agent:
 	<pre><code>sudo curl -so https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/db2 /usr/lib/ocf/resource.d/heartbeat/db2	</code></pre>
 
@@ -477,8 +477,7 @@ In case you performed the installation before creating the Db2 HADR configuratio
 
 Use the J2EE Config tool to check or update the JDBC URL. The the J2EE Config tool is graphical tool, as a result you need **X server** installed:
  
-1. Sign in to primar
-2. y application server of J2EE instance and execute:
+1. Sign in to primary application server of J2EE instance and execute:
 	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
 2. In the left frame, choose security store.
 2. In the right frame, choose the key jdbc/pool/<SAPSID>/url.
@@ -881,7 +880,9 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
 Consult this documentation:
 
 - [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
+- [Setting up Pacemaker on SUSE Linux Enter
+- pri
+- se Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 
      
 
