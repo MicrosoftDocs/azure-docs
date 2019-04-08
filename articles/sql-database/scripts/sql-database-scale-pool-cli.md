@@ -29,7 +29,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove  the resource group and all resources associated with it.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
