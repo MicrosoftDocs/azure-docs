@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: Blackmist
-ms.date: 03/25/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
 ---
 
@@ -20,7 +20,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 ## 2019-04-08
 
-### Azure Machine Learning SDK for Python v1.0.21
+### Azure Machine Learning SDK for Python v1.0.23
 
 + **New features**
   + The Azure Machine Learning SDK now supports Python 3.7.
