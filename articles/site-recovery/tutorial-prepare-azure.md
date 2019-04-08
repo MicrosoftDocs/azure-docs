@@ -63,7 +63,7 @@ To complete these tasks your account should be assigned the Virtual Machine Cont
 
 ## Set up an Azure network
 
-On-premises machines are replicated to Azure managed disks. When failover occurs,  Azure VMs are created from these managed disks , and joined to the Azure network you specify in this procedure.
+On-premises machines are replicated to Azure managed disks. When failover occurs,  Azure VMs are created from these managed disks, and joined to the Azure network you specify in this procedure.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**.
 2. Leave **Resource Manager** selected as the deployment model.
