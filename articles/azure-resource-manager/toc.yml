@@ -20,8 +20,6 @@
   - name: Create multiple instances
     displayName: iteration,copy
     href: resource-manager-tutorial-create-multiple-instances.md
-  - name: Move resources
-    href: resource-manager-tutorial-move-resources.md
   - name: Set resource deployment order
     displayName: dependent resources, dependency
     href: resource-manager-tutorial-create-templates-with-dependent-resources.md

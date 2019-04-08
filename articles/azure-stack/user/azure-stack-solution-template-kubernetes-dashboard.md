@@ -43,7 +43,7 @@ Kubernetes includes a web dashboard that you can use for basic management operat
 ## Overview of steps to enable dashboard
 
 1.  Export the Kubernetes certificates from the master node in the cluster. 
-2.  Import the certificates to Azure Stack your management machine.
+2.  Import the certificates to your Azure Stack management machine.
 2.  Open the Kubernetes web dashboard. 
 
 ## Export certificate from the master 
