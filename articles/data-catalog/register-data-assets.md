@@ -9,58 +9,52 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ---
 
-# Tutorial: Register a data source
+# Tutorial: Register data assets
 
-Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this tutorial, you use the registration tool to register data assets from the Azure SQL database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-> * Create a Power BI report using Azure Data Catalog.
+> * Add data to Azure Data Catalog.
 
 ## Prerequisites
 
-To get started, you must complete the [quickstart](data-catalog-get-started.md).
+To get started, you must complete the [quickstart](register-data-assets.md).
 
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
 * You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
 To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
-## Register a data source
+## Register data assets
 
-In this tutorial, you register data assets (tables) from an [Azure SQL database sample](../sql-database/sql-database-single-database-get-started.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+### Register a data source
+
+You register data assets (tables) from an [Azure SQL database sample](../sql-database/sql-database-single-database-get-started.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
 
 The Azure SQL database name we're using in this tutorial is *RLSTest*.
 
 You can now register data assets from the Azure SQL database sample by using Azure Data Catalog.
 
-## Register data assets
-
-In this exercise, you use the registration tool to register data assets from the Azure SQL sample database with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
-
-## Register a data source
-
 1. Go to the [Azure Data Catalog home page](http://azuredatacatalog.com) and select **Publish Data**.
 
-   ![Azure Data Catalog--Publish Data button](media/data-catalog-get-started/data-catalog-publish-data.png)
+   ![Azure Data Catalog--Publish Data button](media/register-data-assets/data-catalog-publish-data.png)
 
 2. select **Launch Application** to download, install, and run the registration tool on your computer.
 
-   ![Azure Data Catalog--Launch button](media/data-catalog-get-started/data-catalog-launch-application.png)
+   ![Azure Data Catalog--Launch button](media/register-data-assets/data-catalog-launch-application.png)
 
 3. On the **Welcome** page, select **Sign in** and enter your credentials.
 
-    ![Azure Data Catalog--Welcome page](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
+    ![Azure Data Catalog--Welcome page](media/register-data-assets/data-catalog-welcome-dialog.png)
 
 4. On the **Microsoft Azure Data Catalog** page, select **SQL Server** and **Next**.
 
-    ![Azure Data Catalog--data sources](media/data-catalog-get-started/data-catalog-data-sources.png)
+    ![Azure Data Catalog--data sources](media/register-data-assets/data-catalog-data-sources.png)
 
 5. Enter the SQL Server connection properties for your Azure SQL database sample and select **CONNECT**.
 
-   ![Azure Data Catalog--SQL Server connection settings](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
+   ![Azure Data Catalog--SQL Server connection settings](media/register-data-assets/data-catalog-sql-server-connection.png)
 
 6. Register the metadata of your data asset. In this example, you register **Product** objects from the Azure SQL database sample namespace:
 
@@ -70,7 +64,7 @@ In this exercise, you use the registration tool to register data assets from the
 
     3. select the **move-selected arrow** (**>**). This action moves all selected objects into the **Objects to be registered** list.
 
-          ![Azure Data Catalog tutorial--browse and select objects](media/data-catalog-get-started/data-catalog-server-hierarchy.png)
+          ![Azure Data Catalog tutorial--browse and select objects](media/register-data-assets/data-catalog-server-hierarchy.png)
 
     4. Select **Include a Preview** to include a snapshot preview of the data. The snapshot includes up to 20 records from each table, and it's copied into the catalog.
 
@@ -80,15 +74,15 @@ In this exercise, you use the registration tool to register data assets from the
 
     7. Specify the name of an **expert** on this data (optional).
 
-          ![Azure Data Catalog tutorial--objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
+          ![Azure Data Catalog tutorial--objects to be registered](media/register-data-assets/data-catalog-objects-register.png)
 
     8. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your Azure SQL database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays, and it remains under the control of the administrators and policies of the current system.
 
-          ![Azure Data Catalog--registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
+          ![Azure Data Catalog--registered objects](media/register-data-assets/data-catalog-registered-objects.png)
 
     9. To see your registered data source objects, select **View Portal**. In the Azure Data Catalog portal, confirm that you see all four tables and the database in the grid view (verify that the search bar is clear).
 
-        ![Objects in the Azure Data Catalog portal](media/data-catalog-get-started/data-catalog-view-portal.png)
+        ![Objects in the Azure Data Catalog portal](media/register-data-assets/data-catalog-view-portal.png)
 
 In this exercise, you registered objects from the Azure SQL database sample so that they can be easily discovered by users across your organization.
 
@@ -116,17 +110,17 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 
 2. In the search box, enter `product` and press **ENTER**.
 
-    ![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
+    ![Azure Data Catalog--basic text search](media/register-data-assets/data-catalog-basic-text-search.png)
 
 3. Confirm that you see all four tables and the database in the results. You can switch between **grid view** and **list view** by selecting buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
 
-    ![Azure Data Catalog--basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
+    ![Azure Data Catalog--basic text search results](media/register-data-assets/data-catalog-basic-text-search-results.png)
 
     The **Searches** panel is on the left and the **Properties** panel is on the right. On the **Searches** panel, you can change search criteria and filter results. The **Properties** panel displays properties of a selected object in the grid or list.
 
 4. select **Product** in the search results. select the **Preview**, **Columns**, **Data Profile**, and **Documentation** tabs, or select the arrow to expand the bottom pane.  
 
-    ![Azure Data Catalog--bottom pane](media/data-catalog-get-started/data-catalog-data-asset-preview.png)
+    ![Azure Data Catalog--bottom pane](media/register-data-assets/data-catalog-data-asset-preview.png)
 
     On the **Preview** tab, you see a preview of the data in the **Product** table.  
 5. select the **Columns** tab to find details about columns (such as **name** and **data type**) in the data asset.
@@ -143,13 +137,13 @@ Property scoping helps you discover data assets where the search term is matched
 
 3. Confirm that you see the tables and the database in the results.  
 
-    ![Data Catalog--property scoping search results](media/data-catalog-get-started/data-catalog-property-scoping-results.png)
+    ![Data Catalog--property scoping search results](media/register-data-assets/data-catalog-property-scoping-results.png)
 
 ### Save the search
 
 1. In the **Searches** pane in the **Current Search** section, enter a name for the search and select **Save**.
 
-    ![Azure Data Catalog--save search](media/data-catalog-get-started/data-catalog-save-search.png)
+    ![Azure Data Catalog--save search](media/register-data-assets/data-catalog-save-search.png)
 
 2. Confirm that the saved search shows up under **Saved Searches**.
 
@@ -163,7 +157,7 @@ By grouping with parentheses, you can group parts of the query to achieve logica
 
 2. Confirm that you see only the **Product** table in the search results.
 
-    ![Azure Data Catalog--grouping search](media/data-catalog-get-started/data-catalog-grouping-search.png)
+    ![Azure Data Catalog--grouping search](media/register-data-assets/data-catalog-grouping-search.png)
 
 ### Comparison operators
 
@@ -177,7 +171,7 @@ With comparison operators, you can use comparisons other than equality for prope
 
 4. Confirm that you see the **Product**, **ProductCategory**, and **ProductDescription** tables and the Azure SQL database you registered in search results.
 
-    ![Azure Data Catalog--comparison search results](media/data-catalog-get-started/data-catalog-comparison-operator-results.png)
+    ![Azure Data Catalog--comparison search results](media/register-data-assets/data-catalog-comparison-operator-results.png)
 
 See [How to discover data assets](data-catalog-how-to-discover.md) for detailed information about discovering data assets and [Data Catalog Search syntax reference](https://msdn.microsoft.com/library/azure/mt267594.aspx) for search syntax.
 
@@ -193,7 +187,7 @@ In this exercise, you annotate a single data asset (ProductPhoto). You add a fri
 
 3. Enter **Product images** for **Friendly Name** and **Product photos for marketing materials** for the **Description**.
 
-    ![Azure Data Catalog--ProductPhoto description](media/data-catalog-get-started/data-catalog-productmodel-description.png)
+    ![Azure Data Catalog--ProductPhoto description](media/register-data-assets/data-catalog-productmodel-description.png)
 
     The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
@@ -213,7 +207,7 @@ You can also do the following steps on this page:
   
 You can also add an annotation to multiple data assets. For example, you can select all the data assets you registered and specify an expert for them.
 
-![Azure Data Catalog--annotate multiple data assets](media/data-catalog-get-started/data-catalog-multi-select-annotate.png)
+![Azure Data Catalog--annotate multiple data assets](media/register-data-assets/data-catalog-multi-select-annotate.png)
 
 Azure Data Catalog supports a crowd-sourcing approach to annotations. Any Data Catalog user can add tags (user or glossary), descriptions, and other metadata, so that any user with a perspective on a data asset and its use can have that perspective captured and available to other users.
 
@@ -230,21 +224,21 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 
 1. Select **Product** from search results. select **Open In** on the toolbar and select **Excel**.
 
-    ![Azure Data Catalog--connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)
+    ![Azure Data Catalog--connect to data asset](media/register-data-assets/data-catalog-connect1.png)
 
 2. Select **Open** in the download pop-up window. This experience may vary depending on the browser.
 
 3. In the **Microsoft Excel Security Notice** window, select **Enable**.
 
-    ![Azure Data Catalog--Excel security popup](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
+    ![Azure Data Catalog--Excel security popup](media/register-data-assets/data-catalog-excel-security-popup.png)
 
 4. Keep the defaults in the **Import Data** dialog box and select **OK**.
 
-    ![Azure Data Catalog--Excel import data](media/data-catalog-get-started/data-catalog-excel-import-data.png)
+    ![Azure Data Catalog--Excel import data](media/register-data-assets/data-catalog-excel-import-data.png)
 
 5. View the data source in Excel.
 
-    ![Azure Data Catalog--product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
+    ![Azure Data Catalog--product table in Excel](media/register-data-assets/data-catalog-connect2.png)
 
 In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to the Azure SQL database to access the data in the data assets registered in this tutorial.
 
@@ -254,7 +248,7 @@ In this exercise, you connected to data assets discovered by using Azure Data Ca
 
 3. Use appropriate authentication and credentials to access the data asset. If you don't have access, use information in the **Request Access** field to get it.
 
-    ![Azure Data Catalog--request access](media/data-catalog-get-started/data-catalog-request-access.png)
+    ![Azure Data Catalog--request access](media/register-data-assets/data-catalog-request-access.png)
 
 Select **View Connection Strings** to view and copy ADF.NET, ODBC, and OLEDB connection strings to the clipboard for use in your application.
 
@@ -276,11 +270,11 @@ You can use Data Catalog to discover data sources and to view the metadata relat
 
 3. In the **Management** section of the **Properties** panel, select **Take Ownership**.
 
-    ![Azure Data Catalog--take ownership](media/data-catalog-get-started/data-catalog-take-ownership.png)
+    ![Azure Data Catalog--take ownership](media/register-data-assets/data-catalog-take-ownership.png)
 
 4. To restrict visibility, choose **Owners & These Users** in the **Visibility** section and select **Add**. Enter user email addresses in the text box and press **ENTER**.
 
-    ![Azure Data Catalog--restrict access](media/data-catalog-get-started/data-catalog-ownership.png)
+    ![Azure Data Catalog--restrict access](media/register-data-assets/data-catalog-ownership.png)
 
 ## Remove data assets
 
@@ -294,15 +288,15 @@ In Azure Data Catalog, you can delete an individual asset or delete multiple ass
 
 3. Select an item in the result list and select **Delete** on the toolbar as shown in the following image:
 
-    ![Azure Data Catalog--delete grid item](media/data-catalog-get-started/data-catalog-delete-grid-item.png)
+    ![Azure Data Catalog--delete grid item](media/register-data-assets/data-catalog-delete-grid-item.png)
 
     If you're using the list view, the check box is to the left of the item as shown in the following image:
 
-    ![Azure Data Catalog--delete list item](media/data-catalog-get-started/data-catalog-delete-list-item.png)
+    ![Azure Data Catalog--delete list item](media/register-data-assets/data-catalog-delete-list-item.png)
 
     You can also select multiple data assets and delete them as shown in the following image:
 
-    ![Azure Data Catalog--delete multiple data assets](media/data-catalog-get-started/data-catalog-delete-assets.png)
+    ![Azure Data Catalog--delete multiple data assets](media/register-data-assets/data-catalog-delete-assets.png)
 
 > [!NOTE]
 > The default behavior of the catalog is to allow any user to register any data source, and to allow any user to delete any data asset that has been registered. The management capabilities included in the Standard Edition of Azure Data Catalog provide additional options for taking ownership of assets, restricting who can discover assets, and restricting who can delete assets.
