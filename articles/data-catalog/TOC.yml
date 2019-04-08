@@ -1,17 +1,19 @@
 - name: Data Catalog Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Data Catalog?
-    href: data-catalog-what-is-data-catalog.md
+    href: overview.md
+- name: Quickstart
+  items:
+  - name: Create an Azure Data Catalog
+    href: data-catalog-get-started.md
+- name: Concepts
+  items:
   - name: Common scenarios
     href: data-catalog-common-scenarios.md
   - name: Supported data sources
     href: data-catalog-dsr.md
-- name: Get Started
-  items:
-  - name: Get started with Azure Data Catalog
-    href: data-catalog-get-started.md
   - name: Adopting Azure Data Catalog
     href: data-catalog-adopting-data-catalog.md
   - name: Prerequisites
@@ -68,8 +70,6 @@
     href: https://azure.microsoft.com/pricing/details/data-catalog/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Release notes
-    href: ../active-directory/fundamentals/whats-new.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=data-catalog
   - name: Stack Overflow
