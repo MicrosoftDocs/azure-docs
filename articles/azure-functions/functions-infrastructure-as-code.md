@@ -175,7 +175,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 ## Deploy a function app on the Consumption plan
 
-The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions Scale and Hosting](functions-scale.md).
+The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](functions-scale.md#consumption-plan).
 
 For a sample Azure Resource Manager template, see [Function app on Consumption plan].
 
