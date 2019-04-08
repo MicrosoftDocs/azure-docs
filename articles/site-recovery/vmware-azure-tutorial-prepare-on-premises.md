@@ -14,23 +14,25 @@ ms.custom: MVC
 ---
 # Prepare on-premises VMware servers for disaster recovery to Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contributes to your business continuity and disaster recovery (BCDR) strategy by keeping your business apps up and running during planned and unplanned outages. Site Recovery manages and orchestrates disaster recovery of on-premises machines and Azure virtual machines (VMs), including replication, failover, and recovery.
+This article describes how to prepare on-premises VMware servers for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) services. 
 
-- This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for VMware disaster recovery.
 
 
-> [!NOTE]
-> Tutorials are designed to show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions , refer to **How To's** section for the corresponding scenario.
-
-In this article, we show you how to prepare your on-premises VMware environment when you want to replicate VMware VMs to Azure using Azure Site Recovery. You learn how to:
+In this article, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery
-> * Prepare an account for automatic installation of the Mobility service on VMware VMs
-> * Review VMware server and VM requirements
-> * Prepare to connect to Azure VMs after failover
+> * Prepare an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
+> * Prepare an account for automatic installation of the Mobility service on VMware VMs.
+> * Review VMware server and VM requirements and support.
+> * Prepare to connect to Azure VMs after failover.
 
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
 
+## Before you start
+
+1. Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Prepare an account for automatic discovery
 
@@ -112,13 +114,12 @@ To connect to Linux VMs using SSH after failover, do the following:
 
 
 ## Failback requirements
-If you plan to fail back to your on-premises, you also need to ensure that certain [prerequisites are met](vmware-azure-reprotect.md##before-you-begin). These are however **not required to get started with enabling disaster recovery** for your VMs, and can be done after failover to Azure as well.
+If you plan to fail back to your on-premises site, there are a number of [prerequisites for failback](vmware-azure-reprotect.md##before-you-begin). You can prepare these now, but you don't need to. You can prepare after you fail over to Azure.
 
-## Useful links
 
-If you're replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Set up disaster recovery to Azure for VMware VMs](vmware-azure-tutorial.md)
+> If you're replicating multiple VMs, you should plan capacity and deployment before you start. [Learn more](site-recovery-deployment-planner.md).

@@ -5,7 +5,7 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ---
@@ -13,18 +13,25 @@ ms.custom: MVC
 
 # Prepare on-premises Hyper-V servers for disaster recovery to Azure
 
-This tutorial shows you how to prepare your on-premises Hyper-V infrastructure when you want to replicate Hyper-V VMs to Azure, for the purposes of disaster recovery. Hyper-V hosts can be managed by System Center Virtual Machine Manager (VMM), but it's not required.  In this tutorial you learn how to:
+This article describes how to prepare your on-premises Hyper-V infrastructure when you want to set up disaster recovery of Hyper-VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
+
+
+This is the second tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises Hyper-V VMs. In the first tutorial, we [set up the Azure components](tutorial-prepare-azure.md) needed for Hyper-V disaster recovery.
+
+In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Review Hyper-V requirements, and VMM requirements if applicable.
-> * Prepare VMM if applicable
-> * Verify internet access to Azure locations
-> * Prepare VMs so that you can access them after failover to Azure
+> * Review Hyper-V requirements, and VMM requirements if your Hyper-V hosts are managed by System Center VMM.
+> * Prepare VMM if applicable.
+> * Verify internet access to Azure locations.
+> * Prepare VMs so that you can access them after failover to Azure.
 
-This is the second tutorial in the series. Make sure that you have
-[set up the Azure components](tutorial-prepare-azure.md) as described in the previous tutorial.
+> [!NOTE]
+> Tutorials show you the simplest deployment path for a scenario. They use default options where possible, and don't show all possible settings and paths. For detailed instructions, review the article in the How To section of the Site Recovery Table of Contents.
 
+## Before you start
 
+Make sure you've prepared Azure as described in the [first tutorial in this series](tutorial-prepare-azure.md).
 
 ## Review requirements and prerequisites
 
