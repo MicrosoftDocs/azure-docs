@@ -24,7 +24,7 @@ Reduce the time-consuming process of accessing factory floor machines with Azure
 
 > [!NOTE]
 > For more information about
-Azure Industrial IoT services, see the GitHub [repository ](https://github.com/Azure/azure-iiot-services).
+Azure Industrial IoT services, see the GitHub [repository](https://github.com/Azure/azure-iiot-services).
 > If you're unfamiliar with how Azure IoT Edge modules work, begin with the following articles:
 - [About Azure IoT Edge](../iot-edge/about-iot-edge.md)
 - [Azure IoT Edge modules](../iot-edge/iot-edge-modules.md)
