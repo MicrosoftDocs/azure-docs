@@ -3,8 +3,8 @@ title: Upload large amounts of data into Azure Data Lake Storage Gen1 by using o
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Use the Azure Import/Export service for offline copy of data to Azure Data Lake Storage Gen1

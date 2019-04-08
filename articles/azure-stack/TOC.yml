@@ -10,14 +10,14 @@
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md
+    - name: 1903 update
+      href: azure-stack-update-1903.md
     - name: 1902 update
       href: azure-stack-update-1902.md      
     - name: 1901 update 
       href: azure-stack-update-1901.md      
     - name: 1811 update 
       href: azure-stack-update-1811.md
-    - name: 1809 update 
-      href: azure-stack-update-1809.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -403,4 +403,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
-    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+    href: azure-stack-train-and-cert.md

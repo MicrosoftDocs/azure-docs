@@ -155,7 +155,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Time in seconds, default is 2 |Dynamic|Specify timespan in seconds. Connection timeout interval for each time client tries to open a connection to the gateway.|
 |HealthOperationTimeout |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The timeout for a report message sent to Health Manager. |
-|HealthReportRetrySendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component re-sends accumulated health reports to Health Manager. |
+|HealthReportRetrySendInterval |Time in seconds, default is 30, minimum is 1 |Dynamic|Specify timespan in seconds. The interval at which the reporting component resends accumulated health reports to Health Manager. |
 |HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |

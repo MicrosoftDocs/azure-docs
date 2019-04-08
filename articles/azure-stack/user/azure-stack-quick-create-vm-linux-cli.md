@@ -62,7 +62,6 @@ az vm create \
   --image "UbuntuLTS" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 
