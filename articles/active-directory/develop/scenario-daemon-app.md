@@ -78,7 +78,7 @@ Alternatively, you can register your application with Azure AD using command-lin
 
 A daemon application can only request application permissions to APIs (not delegated permissions). In the **API Permission** page for the application registration, after you have selected **Add a permission** and chosen the API family, you'll need to choose **Application permissions** and then select your permissions
 
-![App permissions and admin consent](media/scenarios-daemon-app/app-permissions-and-admin-consent.png)
+![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
 
@@ -136,6 +136,10 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
+# [Other](#tab/other)
+
+Rest API calls use the client ID and client secret directly. See below
+
 ___
 
 ## MSAL libraries: Token acquisition
@@ -168,6 +172,10 @@ In MSAL.Python, the configuration file would look like this:
     "scope": ["https://graph.microsoft.com/.default"]
 }
 ```
+
+# [Other](#tab/other)
+
+The scope used for client credentials should always be resourceId+"/.default"
 
 ___
 
@@ -246,8 +254,8 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 ```
 
 ### Learn more
-For more details see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
 
+For more details see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
 
 ___
 
@@ -269,15 +277,15 @@ To learn more:
 - Other samples / tutorials:
   - [microsoft-identity-platform-console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) features a simple .NET Core 2.1 console application that displays the users of a tenant querying the Microsoft Graph using the identity of the application, instead of on behalf of a user. 
 
-    ![topology](media/scenarios-daemon-app/daemon-app-sample.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample.svg)
 
     The same sample also illustrates the variation with certificates.
 
-    ![topology](media/scenarios-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
   - [microsoft-identity-platform-aspnet-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) features an ASP.NET MVC web application that sync's data from the Microsoft Graph using the identity of the application, instead of on behalf of a user. Also illustrates the admin consent process.
 
-    ![topology](media/scenarios-daemon-app/damon-app-sample-web.svg)
+    ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 # [Python](#tab/python)
 
