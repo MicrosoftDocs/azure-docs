@@ -33,7 +33,7 @@ If your source data changes, you can refresh the dataset and add new data by rer
 
 ### Data sources
 
-The [Import Data](./import-data.md) module supports the following data sources. Click the links for detailed instructions and examples of using each data source. 
+The Import Data module supports the following data sources. Click the links for detailed instructions and examples of using each data source. 
  
 If you are not sure how or where you should store your data, see this guide to common data scenarios in the data science process:  [Scenarios for advanced analytics in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-plan-sample-scenarios). 
 
@@ -44,8 +44,6 @@ update the table
 |-----------|-----------|  
 |[Web URL via HTTP](./import-from-web-url-via-http.md)|Get data that is hosted on a web URL that uses HTTP and that has been provided in the CSV, TSV, ARFF, or SvmLight formats|  
 |[Import from Azure Blob Storage](./import-from-azure-blob-storage.md) |Get data that is stored in the Azure blob service|  
-
-
 
 ## How to use Import Data
  
@@ -59,8 +57,6 @@ update the table
 
     Additional settings depend on the type of storage you choose, and whether the storage is secured or not. You might need to provide the account name, file type, or credentials. Some sources do not require authentication; for others, you might need to know the account name, a key, or container name.
 
-    For details, see the list of [Data sources](#DataSources). 
-
 4. Select the **Use cached results** option if you want to cache the dataset for reuse on successive runs.
 
     Assuming there have been no other changes to module parameters, the experiment loads the data only the first time the module is run, and thereafter uses a cached version of the dataset.
@@ -69,7 +65,7 @@ update the table
 
 5. Run the experiment.
 
-    When [Import Data](./import-data.md) loads the data into the interface, it infers the data type of each column based on the values it contains, either numerical or categorical.
+    When Import Data loads the data into the interface, it infers the data type of each column based on the values it contains, either numerical or categorical.
 
     - If a header is present, the header is used to name the columns of the output dataset.
 

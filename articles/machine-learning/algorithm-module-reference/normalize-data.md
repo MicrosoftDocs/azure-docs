@@ -62,7 +62,7 @@ You can apply only one normalization method at a time using this module. Therefo
     
       The values in the column are transformed using the following formula:  
   
-      ![normalization using z&#45;scores](../media/module/aml-normalization-z-score.png)
+      ![normalization using z&#45;scores](media/module/aml-normalization-z-score.png)
   
       Mean and standard deviation are computed for each column separately. Population standard deviation is used.
   
@@ -72,17 +72,17 @@ You can apply only one normalization method at a time using this module. Therefo
       
       The values in the column are transformed using the following formula:  
   
-      ![normalization using the min&#45;max function](../media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalization using the min&#45;max function](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
   
     - **Logistic**: The values in the column are transformed using the following formula:
 
-      ![formula for normalization by logistic function](../media/module/aml-normalization-logistic.png "AML_normalization-logistic")  
+      ![formula for normalization by logistic function](media/module/aml-normalization-logistic.png "AML_normalization-logistic")  
   
     - **LogNormal**: This option converts all values to a lognormal scale.
   
       The values in the column are transformed using the following formula:
   
-      ![formula log&#45;normal distribution](../media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
+      ![formula log&#45;normal distribution](media/module/aml-normalization-lognormal.png "AML_normalization-lognormal")
     
       Here μ and σ are the parameters of the distribution, computed empirically from the data as maximum likelihood estimates, for each column separately.  
   
@@ -90,7 +90,7 @@ You can apply only one normalization method at a time using this module. Therefo
     
       The values in the column are transformed using the following formula:
     
-      ![normalization using the tanh function](../media/module/aml-normalization-tanh.png "AML_normalization-tanh")
+      ![normalization using the tanh function](media/module/aml-normalization-tanh.png "AML_normalization-tanh")
 
 6. Run the experiment, or double-click the **Normalize Data** module and select **Run Selected**. 
 

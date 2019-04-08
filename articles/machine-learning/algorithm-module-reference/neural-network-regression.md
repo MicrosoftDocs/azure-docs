@@ -37,11 +37,11 @@ Neural networks can be extensively customized. This section describes how to cre
 
     Start here if you are new to neural networks. The module supports many customizations, as well as model tuning, without deep knowledge of neural networks. 
 
-+ [Define a custom architecture for a neural network](#bkmk_CustomArchitecture)  
++ Define a custom architecture for a neural network 
 
     Use this option if you want to add extra hidden layers, or fully customize the network architecture, its connections, and activation functions.
     
-    This option is best if you are already somewhat familiar with neural networks. You use the [Net# language](#bkmk_Customizing) to define the network architecture.  
+    This option is best if you are already somewhat familiar with neural networks. You use the Net# language to define the network architecture.  
 
 ###  <a name="bkmk_DefaultArchitecture"></a> Create a neural network model using the default architecture
   
