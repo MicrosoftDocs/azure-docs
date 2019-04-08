@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: Create a Power BI report from Azure Data Catalog
-    href: create-a-power-bi-report-tutorial.md
+    href: register-data-source.md
 - name: Concepts
   items:
   - name: Common scenarios

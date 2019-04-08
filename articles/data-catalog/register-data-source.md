@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ---
 
-# Tutorial: Create a Power BI report from data in Azure Data Catalog
+# Tutorial: Register a data source
 
 Azure Data Catalog is a fully managed cloud service that serves as a system of registration and system of discovery for enterprise data assets. For a detailed overview, see [What is Azure Data Catalog](overview.md).
 
