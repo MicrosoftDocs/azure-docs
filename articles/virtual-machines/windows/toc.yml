@@ -244,9 +244,11 @@
       items: 
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using PowerShell
+      - name: PowerShell
         href: shared-images.md
-      - name: Create shared images using CLI
+      - name: Portal
+        href: shared-images-portal.md
+      - name: CLI
         href: ../linux/shared-images.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md

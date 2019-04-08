@@ -35,16 +35,16 @@ az sig image-definition list -g myGalleryRG -r myGallery -o table
 List the shared image versions in a gallery, using [az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list).
 
 ```azurecli-interactive
-az sig image-version list -g myGalleryRG -r myGallery -i myGalleryImage -o table
+az sig image-version list -g myGalleryRG -r myGallery -i myImageDefinition -o table
 ```
 
 Get the ID of an image version using [az sig image-version show](/cli/azure/sig/image-version#az-sig-image-version-show).
 
-```
+```azurecli-interactive
 az sig image-version show \
 -g myGalleryRG \     
 -r myGallery \     
--i myGalleryImage \     
+-i myImageDefinition \     
 --gallery-image-version-name 1.0.0 \     
 --query "id"
 ```

@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 09/13/2018
+ ms.date: 03/27/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -20,24 +20,12 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 To complete the example in this article, you must have an existing managed image of a generalized VM. For more information, see [Tutorial: Create a custom image of an Azure VM with the Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). 
 
-## Preview: Register the feature
-
-Shared Image Galleries is in preview, but you need to register the feature before you can use it. To register the Shared Image Galleries feature:
-
-```azurecli-interactive
-az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
-```
-
-It might take a few minutes to register the feature. You can check the progress using:
-
-```azurecli-interactive
-az provider show -n Microsoft.Compute
-```
 
 ## Create an image gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names must be unique within your subscription. Create an image gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a gallery named *myGallery* in *myGalleryRG*.
+An image gallery is the primary resource used for enabling image sharing. Gallery names can use uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Gallery names must be unique within your subscription. 
+
+Create an image gallery using [az sig create](/cli/azure/sig#az-sig-create). The following example creates a gallery named *myGallery* in *myGalleryRG*.
 
 ```azurecli-interactive
 az group create --name myGalleryRG --location WestCentralUS
@@ -45,6 +33,8 @@ az sig create -g myGalleryRG --gallery-name myGallery
 ```
 
 ## Create an image definition
+
+Image definitions create a logical grouping for images. They are used to keep manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -59,9 +49,15 @@ az sig image-definition create \
    --os-type Linux 
 ```
 
+
 ## Create an image version 
- 
-Create versions of the image as needed using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US* and East US 2* regions.
+
+
+Create versions of the image as needed using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
+
+Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
+
+In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US* and East US 2* regions. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 ```azurecli-interactive 
 az sig image-version create \
