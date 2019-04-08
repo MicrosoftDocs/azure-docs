@@ -1,19 +1,21 @@
 ---
-title: Quickstart - Run an application in Azure Container Instances - Portal
-description: In this quickstart, you use the Azure portal to deploy a Docker container application to run in an isolated container in Azure Container Instances
+title: Quickstart - Deploy Docker container to Azure Container Instances - Portal
+description: In this quickstart, you use the Azure portal to quickly deploy a containerized web app that runs in an isolated Azure container instance
 services: container-instances
 author: dlepow
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
 
-# Quickstart: Run a container application in Azure Container Instances in the Azure portal
+# Quickstart: Deploy a container instance in Azure using the Azure portal
 
-Use Azure Container Instances to run Docker containers in Azure with simplicity and speed. You don't need to deploy virtual machines or use a full container orchestration platform like Kubernetes. In this quickstart, you use the Azure portal to create a container in Azure and make its application available with a fully qualified domain name (FQDN). After configuring a few settings and deploying the container, you can browse to the running application:
+Use Azure Container Instances to run serverless Docker containers in Azure with simplicity and speed. Deploy an application to a container instance on-demand when you don't need a full container orchestration platform like Azure Kubernetes Service.
+
+In this quickstart, you use the Azure portal to deploy an isolated Docker container and make its application available with a fully qualified domain name (FQDN). After configuring a few settings and deploying the container, you can browse to the running application:
 
 ![App deployed to Azure Container Instances viewed in browser][aci-portal-07]
 
@@ -32,14 +34,14 @@ Select the **Create a resource** > **Containers** > **Container Instances**.
 Enter the following values in the **Container name**, **Container image**, and **Resource group** text boxes. Leave the other values at their defaults, then select **OK**.
 
 * Container name: `mycontainer`
-* Container image: `microsoft/aci-helloworld`
+* Container image: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Resource group: **Create new** > `myResourceGroup`
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-For this quickstart, leave the default setting of **Public** to deploy the `microsoft/aci-helloworld` image from the public Docker Hub registry. This image packages a small web app written in Node.js that serves a static HTML page.
+For this quickstart, leave the default setting of **Public** to deploy the public Microsoft `aci-helloworld` image. This image packages a small web app written in Node.js that serves a static HTML page.
 
-Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`.
+Under **Configuration**, specify a **DNS name label** for your container. The name must be unique within the Azure region where you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
 Leave the other settings in **Configuration** at their defaults, then select **OK** to validate the configuration.
 
@@ -83,7 +85,7 @@ Select **Yes** when the confirmation dialog appears.
 
 ## Next steps
 
-In this quickstart, you created an Azure container instance from an image in the public Docker Hub registry. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
+In this quickstart, you created an Azure container instance from a public Microsoft image. If you'd like to build a container image and deploy it from a private Azure container registry, continue to the Azure Container Instances tutorial.
 
 > [!div class="nextstepaction"]
 > [Azure Container Instances tutorial](./container-instances-tutorial-prepare-app.md)

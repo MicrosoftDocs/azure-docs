@@ -11,7 +11,7 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
@@ -37,9 +37,10 @@ This article summarizes the known Azure Stack Storage differences from Azure Sto
 |Premium storage|Fully supported|Can be provisioned, but no performance limit or guarantee.
 |Managed disks|Premium and standard supported|Supported when you use version 1808 or later.
 |Blob name|1,024 characters (2,048 bytes)|880 characters (1,760 bytes)
-|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|4.75 TB (100 MB x 50,000 blocks) for the 1802 update or newer version. 50,000 X 4 MB (approx. 195 GB) for previous versions.
+|Block blob max size|4.75 TB (100 MB X 50,000 blocks)|4.75 TB (100 MB x 50,000 blocks) for the 1802 update or newer version. 50,000 X 4 MB (approximately 195 GB) for previous versions.
 |Page blob snapshot copy|Backup Azure unmanaged VM disks attached to a running VM supported|Not yet supported.
 |Page blob incremental snapshot copy|Premium and standard Azure page blobs supported|Not yet supported.
+|Page blob billing|Charges are incurred for unique pages, whether they are in the blob or in the snapshot. Would not incur additional charges for snapshots associated with a blob until base blob being updated.|Charges are incurred for base blob and assiociated snapshots. Would incur additional charges for each individual snapshot.
 |Storage tiers for blob storage|Hot, cool, and archive storage tiers.|Not yet supported.
 |Soft delete for blob storage|General available|Not yet supported.
 |Page blob max size|8 TB|1 TB

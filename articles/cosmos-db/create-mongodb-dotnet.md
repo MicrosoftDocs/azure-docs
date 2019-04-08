@@ -11,7 +11,7 @@ ms.date: 12/26/2018
 ms.author: rimman
 ---
 
-# Quickstart: Build a .Net web app using Azure Cosmos DB's API for MongoDB 
+# Quickstart: Build a .NET web app using Azure Cosmos DB's API for MongoDB 
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

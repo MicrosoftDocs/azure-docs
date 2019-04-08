@@ -18,7 +18,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Prerequisites
 
-* [PHP 5.6.x](http://php.net/downloads.php)
+* [PHP 5.6.x](https://php.net/downloads.php)
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
@@ -65,7 +65,7 @@ $headers = "Content-type: application/x-www-form-urlencoded\r\n" .
 	"Ocp-Apim-Subscription-Key: $key\r\n";
 
 // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-// http://php.net/manual/en/function.stream-context-create.php
+// https://php.net/manual/en/function.stream-context-create.php
 $options = array (
     'http' => array (
         'header' => $headers,

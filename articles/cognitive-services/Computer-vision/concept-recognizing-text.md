@@ -22,7 +22,7 @@ Computer Vision provides a number of services that detect and extract printed or
 
 The Read API detects text content in an image using our latest recognition models and converts the identified text into a machine-readable character stream. It is optimized for text-heavy images (such as documents that have been digitally scanned) and for images with a lot of visual noise. It executes asynchronously because larger documents can take several minutes to return a result.
 
-The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.api.cognitive.microosft.com/vision/v2.0/read/core/asyncBatchAnalyze) to learn more.
+The Read operation maintains the original line groupings of recognized words in its output. Each line comes with bounding box coordinates, and each word within the line also has its own coordinates. If a word was recognized with low confidence, that information is conveyed as well. See the [Read API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) to learn more.
 
 > [!NOTE]
 > This feature is currently in preview and is only available for English text.

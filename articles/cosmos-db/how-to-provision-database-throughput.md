@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Provision throughput for a database in Azure Cosmos DB
 
-This article explains how to provision throughput for a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
+This article explains how to provision throughput for a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. To learn when to use container-level and database-level throughput, see the [Use cases for provisioning throughput on containers and databases](set-throughput.md) article. You can provision database level throughput by using the Azure portal or Azure Cosmos DB SDKs.
 
 ## Provision throughput by using Azure portal
 
@@ -18,7 +18,7 @@ This article explains how to provision throughput for a database in Azure Cosmos
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 

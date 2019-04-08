@@ -179,7 +179,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
-2. Start replication
+1. Start replication
 
    Call the `mysql.az_replication_start` stored procedure to initiate replication.
 
@@ -187,7 +187,7 @@ The following steps prepare and configure the MySQL server hosted on-premises, i
    CALL mysql.az_replication_start;
    ```
 
-3. Check replication status
+1. Check replication status
 
    Call the [`show slave status`](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) command on the replica server to view the replication status.
 	

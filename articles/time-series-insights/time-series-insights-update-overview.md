@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Azure Time Series Insights Preview overview
 
-Azure Time Series Insights Preview is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad-hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
+Azure Time Series Insights Preview is an end-to-end platform-as-a-service offering. It's used to ingest, process, store, and query highly contextualized, time-series-optimized IoT-scale data. Time Series Insights is ideal for ad hoc data exploration and operational analysis. Time Series Insights is a uniquely extensible and customized service offering that meets the broad needs of industrial IoT deployments.
 
 ## Video
 
@@ -39,7 +39,7 @@ A typical IoT data flow is shown in the following image.
 
 ## Azure Time Series Insights for industrial IoT
 
-The current IoT landscape is diverse. Customers span the manufacturing, automotive, energy, utilities, smart buildings, and consulting industries. Scenarios include ad-hoc data exploration where the shape of the data is unknown. Scenarios also include operational analysis over schematized, or explicitly modeled, data to drive operational efficiency. These scenarios typically exist side by side and support different use cases. Platform capabilities that are key to the success of industrial IoT enterprises and their digital revolution include:
+The current IoT landscape is diverse. Customers span the manufacturing, automotive, energy, utilities, smart buildings, and consulting industries. Scenarios include ad hoc data exploration where the shape of the data is unknown. Scenarios also include operational analysis over schematized, or explicitly modeled, data to drive operational efficiency. These scenarios typically exist side by side and support different use cases. Platform capabilities that are key to the success of industrial IoT enterprises and their digital revolution include:
 
 - Multilayered storage, both warm and cold. 
 - The ability to store decades' worth of time series data. 
@@ -47,13 +47,13 @@ The current IoT landscape is diverse. Customers span the manufacturing, automoti
 
 Time Series Insights is a comprehensive, end-to-end platform-as-a-service offering for IoT data exploration and operational insights. Time Series Insights offers a fully managed cloud service for analyzing IoT-scale time series data.
 
-You can store raw data in a schema-less, in-memory store. You can then carry out interactive ad-hoc queries through a distributed query engine and API. Make use of the rich user experience to visualize billions of events in seconds. Learn more about the [data exploration capabilities](./time-series-insights-overview.md).
+You can store raw data in a schema-less, in-memory store. You can then carry out interactive ad hoc queries through a distributed query engine and API. Make use of the rich user experience to visualize billions of events in seconds. Learn more about the [data exploration capabilities](./time-series-insights-overview.md).
 
 Time Series Insights also offers operational insights capabilities currently in preview. Together with interactive data exploration and operational intelligence, you can use Time Series Insights to derive more value out of data collected from IoT assets. The preview offering supports:
 
 * A scalable, performance, and cost-optimized time series data store. This cloud-based IoT solution can trend years’ worth of time series data in seconds.
 * Semantic model support that describes the domain and metadata associated with the derived and non-derived signals from assets and devices.
-* An enhanced user experience that combines asset-based data insights with rich, ad-hoc data analytics. This combination drives business and operational intelligence.
+* An enhanced user experience that combines asset-based data insights with rich, ad hoc data analytics. This combination drives business and operational intelligence.
 * Integration with advanced machine learning and analytics tools. Tools include Azure Databricks, Apache Spark, Azure Machine Learning, Jupyter notebooks, and Power BI. These tools help you tackle time series data challenges and drive operational efficiency.
 
 Together, operational insights and data exploration are offered with a simple pay-as-you-go pricing model for data processing, storage, and query. This billing model is suited to your changing business needs.

@@ -3,7 +3,7 @@ title: Use managed identities for Azure resources in Azure Cloud Shell | Microso
 description: Authenticate code with MSI in Azure Cloud Shell
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Use managed identities for Azure resources in Azure Cloud Shell

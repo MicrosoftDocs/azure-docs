@@ -230,7 +230,7 @@ In the case of RFPIO, provisioning is a manual task.
 
 	a. Enter **Email address** in the **Enter one email per line** field.
 
-	b. Plese select **Role** according your requirements.
+	b. Please select **Role** according your requirements.
 
 	c. Click **ADD MEMBERS**.
 		

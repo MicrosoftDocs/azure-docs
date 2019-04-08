@@ -24,7 +24,7 @@ sections:
     className: cardsM
     columns: 3
     items:
-      - href: /azure/cognitive-services/bing-autosuggest/overview
+      - href: /azure/cognitive-services/bing-autosuggest/get-suggested-search-terms
         html: <p>Learn about the Bing Autosuggest API</p>
         image:
           src: ../media/index/i_overview.svg

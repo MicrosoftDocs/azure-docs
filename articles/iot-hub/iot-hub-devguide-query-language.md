@@ -29,12 +29,12 @@ Assume, for instance, that your IoT hub device twins have the following structur
     "deviceId": "myDeviceId",
     "etag": "AAAAAAAAAAc=",
     "status": "enabled",
-    "statusUpdateTime": "0001-01-01T00:00:00",    
-    "connectionState": "Disconnected",    
+    "statusUpdateTime": "0001-01-01T00:00:00",
+    "connectionState": "Disconnected",
     "lastActivityTime": "0001-01-01T00:00:00",
     "cloudToDeviceMessageCount": 0,
-    "authenticationType": "sas",    
-    "x509Thumbprint": {    
+    "authenticationType": "sas",
+    "x509Thumbprint": {
         "primaryThumbprint": null,
         "secondaryThumbprint": null
     },
@@ -169,8 +169,8 @@ SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 This query will return all module twins with the scanning status, but only on the specified subset of devices:
 
 ```sql
-SELECT * FROM devices.modules 
-  WHERE properties.reported.status = 'scanning' 
+SELECT * FROM devices.modules
+  WHERE properties.reported.status = 'scanning'
   AND deviceId IN ['device1', 'device2']
 ```
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
 ---
 
@@ -112,7 +112,7 @@ To learn more about templates, see [Push Templates](notification-hubs-templates-
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -186,7 +186,21 @@ To learn more about templates, see [Push Templates](notification-hubs-templates-
     }
     ```
 
-## Send localized notifications from your back-end
+
+
+## Run the UWP application
+
+1. Run the Universal Windows Platform application. Wait until you see the **Registration successful** message.
+
+    ![Mobile application and registration](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. Select the **categories** and **locale**, and click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub.
+
+    ![Mobile application](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. You see a **confirmation** message about the **subscriptions**.
+
+    ![Subscription message](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## Update console app to send localized notifications
 
 When you send template notifications you only need to provide a set of properties, in this tutorial, the backend application sends the set of properties containing the localized version of the current news, for instance:
 
@@ -239,20 +253,10 @@ private static async void SendTemplateNotificationAsync()
 
 This simple call delivers the localized piece of news to **all** devices, irrespective of the platform, as your Notification Hub builds and delivers the correct native payload to all the devices subscribed to a specific tag.
 
-## Test the app
+## Run console app to send localized notification
+Run the **console app** to send notifications for each category and in each supported language. Verify that you only receive a notification for the categories you have subscribed to and the message is for the locale you selected.
 
-1. Run the Universal Windows Store application. Wait until you see the **Registration successful** message.
-
-    ![Mobile application and registration](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. Select the **categories** and **locale**, and click **Subscribe**. The app converts the selected categories into tags and requests a new device registration for the selected tags from the notification hub.
-
-    ![Mobile application](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. You see a **confirmation** message about the **subscriptions**.
-
-    ![Subscription message](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. After receiving a confirmation, run the **console app** to send notifications for each category and in each supported language. Verify that you only receive a notification for the categories you have subscribed to and the message is for the locale you selected.
-
-    ![Notification messages](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![Notification messages](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## Next steps
 
@@ -275,9 +279,9 @@ In this tutorial, you learned how to push localized notifications to specific de
 [Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service
 [Get started with data]: /develop/mobile/tutorials/get-started-with-data-dotnet
 [Get started with authentication]: /develop/mobile/tutorials/get-started-with-users-dotnet
@@ -285,7 +289,7 @@ In this tutorial, you learned how to push localized notifications to specific de
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-app-users-dotnet
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-dotnet
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for iOS]: http://msdn.microsoft.com/library/jj927168.aspx
-[Notification Hubs How-To for Windows Store]: http://msdn.microsoft.com/library/jj927172.aspx
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
+[Notification Hubs How-To for Windows Store]: https://msdn.microsoft.com/library/jj927172.aspx

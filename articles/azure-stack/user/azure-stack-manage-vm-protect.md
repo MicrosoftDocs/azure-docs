@@ -12,23 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 12/10/2018
+ms.lastreviewed: 3/19/2018
 ---
 
 # Protect virtual machines deployed on Azure Stack
 
 Use this article as a guide to developing a plan for protecting virtual machines (VMs) that your users deploy on Azure Stack.
 
-To protect against data loss and unplanned downtime, you need to implement a backup-recovery or disaster-recovery plan for user applications and their data. This plan might be unique for each application but follows a framework established by your organization's comprehensive business continuity and disaster recovery (BC/DR) strategy. A good starting point is [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency), which provides general patterns and practices for application availability and resiliency.
-
->[!IMPORTANT]
-> Test your backup-recovery and disaster-recovery plans on an ongoing basis. You must to this to ensure that:
-> * The plans work
-> * The plans still meet the needs they were designed for.
+To protect against data loss and unplanned downtime, you need to implement a backup-recovery or disaster-recovery plan for user applications and their data. This plan might be unique for each application but follows a framework established by your organization's comprehensive business continuity and disaster recovery (BC/DR) strategy. A good starting point is [Azure Stack: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## Azure Stack infrastructure recovery
 
@@ -43,6 +38,9 @@ If the Azure Stack cloud is offline for an extended time or permanently unrecove
 * Enables applications to keep servicing user requests
 
 The operator of the Azure Stack cloud is responsible for creating a recovery plan for the underlying Azure Stack infrastructure and services. To learn more, read the article [Recover from catastrophic data loss](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
+
+## Considerations for IaaS VMs
+The operating system installed in the IaaS VM will limit which products you can use to protect the data it contains. For Windows based IaaS VMs, you can use Microsoft and partner products to protect data. For Linux based IaaS VMs, the only option is to use partner products. Refer to [this datasheet for all the BC/DR partners with validated products for Azure Stack](https://aka.ms/azurestackbcdrpartners).
 
 ## Source/target combinations
 

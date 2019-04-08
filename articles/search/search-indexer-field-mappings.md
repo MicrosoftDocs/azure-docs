@@ -2,7 +2,7 @@
 title: Field mappings for automated indexing using indexers - Azure Search
 description: Configure Azure Search indexer field mappings to account for differences in field names and data representations.
 
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei

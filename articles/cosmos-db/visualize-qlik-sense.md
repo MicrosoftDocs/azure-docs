@@ -37,9 +37,9 @@ Before following the instructions in this article, ensure that you have the foll
 
 * Download the [video game data](https://www.kaggle.com/gregorut/videogamesales), this sample data is in CSV format. You will store this data in a Cosmos DB account and visualize it in Qlik Sense.
 
-* Create an Azure Cosmos DB SQL API account by using the steps described in [create an account](create-sql-api-dotnet.md#create-a-database-account) section of the quickstart article.
+* Create an Azure Cosmos DB SQL API account by using the steps described in [create an account](create-sql-api-dotnet.md#create-account) section of the quickstart article.
 
-* [Create a database and a collection](create-sql-api-dotnet.md#add-a-collection) – You can use set the collection throughput value to 1000 RU/s. 
+* [Create a database and a collection](create-sql-api-dotnet.md#create-collection-database) – You can use set the collection throughput value to 1000 RU/s. 
 
 * Load the sample video game sales data to your Cosmos DB account. You can import the data by using Azure Cosmos DB data migration tool, you can do a [sequential](import-data.md#SQLSeqTarget) or a [bulk import](import-data.md#SQLBulkTarget) of data. It takes around 3-5 minutes for the data to import to the Cosmos DB account.
 

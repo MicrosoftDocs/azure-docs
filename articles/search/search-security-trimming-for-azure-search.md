@@ -147,7 +147,7 @@ You should get the documents back where `group_ids` contains either "group_id1" 
 ```
 ## Conclusion
 
-This is how you can filter results based on user identity and Azure Search `search.in()` function. You can use this function to pass in principal identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
+This is how you can filter results based on user identity and Azure Search `search.in()` function. You can use this function to pass in principle identifiers for the requesting user to match against principal identifiers associated with each target document. When a search request is handled, the `search.in` function filters out search results for which none of the user's principals have read access. The principal identifiers can represent things like security groups, roles, or even the user's own identity.
  
 ## See also
 

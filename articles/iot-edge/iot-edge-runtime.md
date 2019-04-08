@@ -4,7 +4,7 @@ description: Learn how the modules, security, communication, and reporting on yo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/13/2018
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -17,17 +17,17 @@ The IoT Edge runtime is a collection of programs that need to be installed on a 
 
 The IoT Edge runtime performs the following functions on IoT Edge devices:
 
-* Installs and updates workloads on the device.
-* Maintains Azure IoT Edge security standards on the device.
-* Ensures that [IoT Edge modules](iot-edge-modules.md) are always running.
-* Reports module health to the cloud for remote monitoring.
-* Facilitates communication between downstream leaf devices and IoT Edge devices.
-* Facilitates communication between modules on the IoT Edge device.
-* Facilitates communication between the IoT Edge device and the cloud.
+* Install and update workloads on the device.
+* Maintain Azure IoT Edge security standards on the device.
+* Ensure that [IoT Edge modules](iot-edge-modules.md) are always running.
+* Report module health to the cloud for remote monitoring.
+* Facilitate communication between downstream leaf devices and IoT Edge devices.
+* Facilitate communication between modules on the IoT Edge device.
+* Facilitate communication between the IoT Edge device and the cloud.
 
 ![Runtime communicates insights and module health to IoT Hub](./media/iot-edge-runtime/Pipeline.png)
 
-The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The IoT Edge hub is responsible for communication, while the IoT Edge agent manages deploying and monitoring the modules. 
+The responsibilities of the IoT Edge runtime fall into two categories: communication and module management. These two roles are performed by two components that make up the IoT Edge runtime. The *IoT Edge hub* is responsible for communication, while the *IoT Edge agent* deploys and monitors the modules. 
 
 Both the IoT Edge hub and the IoT Edge agent are modules, just like any other module running on an IoT Edge device. 
 
@@ -47,11 +47,11 @@ To reduce the bandwidth your IoT Edge solution uses, the IoT Edge hub optimizes 
 
 ![IoT Edge hub is a gateway between physical devices and IoT Hub](./media/iot-edge-runtime/Gateway.png)
 
- IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub’s module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. 
+IoT Edge hub can determine whether it's connected to IoT Hub. If the connection is lost, IoT Edge hub saves messages or twin updates locally. Once a connection is reestablished, it syncs all the data. The location used for this temporary cache is determined by a property of the IoT Edge hub’s module twin. The size of the cache is not capped and will grow as long as the device has storage capacity. 
 
 ### Module communication
 
- IoT Edge hub facilitates module to module communication. Using IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer then stitches these inputs and outputs together so that the modules process data in the order specific to that solution. 
+IoT Edge hub facilitates module to module communication. Using IoT Edge hub as a message broker keeps modules independent from each other. Modules only need to specify the inputs on which they accept messages and the outputs to which they write messages. A solution developer then stitches these inputs and outputs together so that the modules process data in the order specific to that solution. 
 
 ![IoT Edge Hub facilitates module-to-module communication](./media/iot-edge-runtime/module-endpoints.png)
 

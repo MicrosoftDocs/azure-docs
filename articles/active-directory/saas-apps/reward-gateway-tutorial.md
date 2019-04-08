@@ -111,6 +111,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/reward-gateway-tutorial/tutorial_rewardgateway_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<companyname>.rewardgateway.com` |
@@ -119,6 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<companyname>.rewardgateway.com.au/` |
 
 	b. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	|  `https://<companyname>.rewardgateway.com/Authentication/EndLogin?idp=<Unique Id>` |

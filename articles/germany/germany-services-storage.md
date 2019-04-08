@@ -35,7 +35,7 @@ Storage Service Encryption safeguards data at rest within Azure storage accounts
 ### Storage service availability by Azure Germany region
 
 | Service | Germany Central | Germany Northeast |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | [Blob storage](../storage/common/storage-introduction.md#blob-storage) |GA |GA |
 | [Azure Files](../storage/common/storage-introduction.md#azure-files) | GA | GA |
 | [Table storage](../storage/common/storage-introduction.md#table-storage) |GA  |GA |

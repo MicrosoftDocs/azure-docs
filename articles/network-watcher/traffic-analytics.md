@@ -25,6 +25,9 @@ Traffic Analytics is a cloud-based solution that provides visibility into user a
 - Understand traffic flow patterns across Azure regions and the internet to optimize your network deployment for performance and capacity.
 - Pinpoint network misconfigurations leading to failed connections in your network.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Why traffic analytics?
 
 It is vital to monitor, manage, and know your own network for uncompromised security, compliance, and performance. Knowing your own environment is of paramount importance to protect and optimize it. You often need to know the current state of the network, who is connecting, where they're connecting from, which ports are open to the internet, expected network behavior, irregular network behavior, and sudden rises in traffic.
@@ -60,6 +63,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 * Central US
 * West US
 * West US 2
+* France Central
 * West Europe
 * North Europe
 * Brazil South
@@ -67,21 +71,29 @@ You can use traffic analytics for NSGs in any of the following supported regions
 * UK South
 * Australia East
 * Australia Southeast
+* East Asia
 * Southeast Asia
+* Korea Central
 * Central India
 * South India
 * Japan East 
+* Japan West
+* US Gov Virginia
 
 The Log Analytics workspace must exist in the following regions:
 * Canada Central
 * West Central US
+* West US 2
 * East US
+* France Central
 * West Europe
 * UK South
 * Australia Southeast
 * Southeast Asia
+* Korea Central
 * Central India
 * Japan East
+* US Gov Virginia
 
 ## Prerequisites
 
@@ -120,7 +132,7 @@ To analyze traffic, you need to have an existing network watcher, or [enable a n
 Before you can use traffic analytics, you must re-register your network resource provider. Click **Try It** in the following code box to open the Azure Cloud Shell. The Cloud Shell automatically logs you into to your Azure subscription. Once the Cloud Shell is open, enter the following command to re-register the network resource provider:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### Select a network security group
@@ -140,13 +152,13 @@ Before enabling flow log settings, you must complete the following tasks:
 Register the Azure Insights provider, if it's not already registered for your subscription:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 If you don't already have an Azure Storage account to store NSG flow logs in, you must create a storage account. You can create a storage account with the command that follows. Before running the command, replace `<replace-with-your-unique-storage-account-name>` with a name that is unique across all Azure locations, between 3-24 characters in length, using only numbers and lower-case letters. You can also change the resource group name, if necessary.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -169,7 +181,7 @@ Select the following options, as shown in the picture:
 
 Repeat the previous steps for any other NSGs for which you wish to enable traffic analytics for. Data from flow logs is sent to the workspace, so ensure that the local laws and regulations in your country permit data storage in the region where the workspace exists.
 
-You can also configure traffic analytics using the [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) PowerShell cmdlet in AzureRm PowerShell module version 6.2.1 or later. Run `Get-Module -ListAvailable AzureRM` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
+You can also configure traffic analytics using the [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet in Azure PowerShell. Run `Get-Module -ListAvailable Az` to find your installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ## View traffic analytics
 
@@ -195,7 +207,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - Statistics of blocked traffic.
     - Why is a host blocking a significant volume of benign traffic? This behavior requires further investigation and probably optimization of configuration
 - Statistics of malicious allowed/blocked traffic
-    - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
+  - Why is a host receiving malicious traffic and why flows from malicious source is allowed? This behavior requires further investigation and probably optimization of configuration.
 
     Select **See all**, under **Host**, as shown in the following picture:
 
@@ -254,8 +266,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 **Look for**
 
 - Traffic distribution per data center such as top sources of traffic to a datacenter, top rogue networks conversing with the data center, and top conversing application protocols.
-    - If you observe more load on a data center, you can plan for efficient traffic distribution.
-    - If rogue networks are conversing in the data center, then correct NSG rules to block them.
+  - If you observe more load on a data center, you can plan for efficient traffic distribution.
+  - If rogue networks are conversing in the data center, then correct NSG rules to block them.
 
     Select **View map** under **Your environment**, as shown in the following picture:
 
@@ -276,8 +288,8 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 **Look for**
 
 - Traffic distribution per virtual network, topology, top sources of traffic to the virtual network, top rogue networks conversing to the virtual network, and top conversing application protocols.
-    - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
-    - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
+  - Knowing which virtual network is conversing to which virtual network. If the conversation is not expected, it can be corrected.
+  - If rogue networks are conversing with a virtual network, you can correct NSG rules to block the rogue networks.
  
     Select **View VNets** under **Your environment**, as shown in the following picture:
 
@@ -285,7 +297,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network’s (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
-Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
+  Flow Type (InterVNet, IntraVNET etc), Flow Direction (Inbound, Outbound), Flow Status ( Allowed, Blocked) VNETs (Targeted and Connected) , Connection Type (Peering or Gateway - P2S and S2S) and NSG. Use these filters to focus on VNets that you want to examine in detail.
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regards to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Virtual network topology showcasing traffic distribution and flow details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -318,7 +330,7 @@ Traffic distribution per Application gateway & Load Balancer, topology, top sour
 **Look for**
 
 - Which open ports are conversing over the internet?
-    - If unexpected ports are found open, you can correct your configuration:
+  - If unexpected ports are found open, you can correct your configuration:
 
     ![Dashboard showcasing ports receiving and sending traffic to the internet](./media/traffic-analytics/dashboard-showcasing-ports-receiving-and-sending-traffic-to-the-internet.png)
 
@@ -342,9 +354,9 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 - The following pictures show time trending for hits of NSG rules and source-destination flow details for a network security group:
 
-    - Quickly detect which NSGs and NSG rules are traversing malicious flows and which are the top malicious IP addresses accessing your cloud environment
-    - Identify which NSG/NSG rules are allowing/blocking significant network traffic
-    - Select top filters for granular inspection of an NSG or NSG rules
+  - Quickly detect which NSGs and NSG rules are traversing malicious flows and which are the top malicious IP addresses accessing your cloud environment
+  - Identify which NSG/NSG rules are allowing/blocking significant network traffic
+  - Select top filters for granular inspection of an NSG or NSG rules
 
     ![Showcasing time trending for NSG rule hits and top NSG rules](./media/traffic-analytics/showcasing-time-trending-for-nsg-rule-hits-and-top-nsg-rules.png)
 

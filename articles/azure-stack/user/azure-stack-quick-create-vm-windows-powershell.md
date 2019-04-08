@@ -29,8 +29,8 @@ You can create a Windows Server 2016 virtual machine by using Azure Stack PowerS
 * Install the IIS web server and view the default home page.
 * Clean up your resources.
 
->[!NOTE]
- You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
+> [!NOTE]
+>  You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
 
 ## Prerequisites
 
@@ -74,11 +74,6 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
-$containerName = 'osdisks'
-$container = New-AzureStorageContainer `
-  -Name $containerName `
-  -Permission Blob
 ```
 
 ## Create networking resources
@@ -190,19 +185,14 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-$osDiskName = "OsDisk"
-$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
-  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
-  $vmName.ToLower(), `
-  $osDiskName
-
 # Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
-  -Name $osDiskName `
-  -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
+  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 
 # Create the virtual machine.
 New-AzureRmVM `

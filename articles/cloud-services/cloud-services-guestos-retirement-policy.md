@@ -51,7 +51,9 @@ Guest OS Versions are released every month. Because of the rate of regular relea
 
 At 60 days into the lifespan, a version is "*disabled*". "Disabled" means that the version is removed from the portal. The version can no longer be set from the CSCFG configuration file. Existing deployments are left running. But new deployments and code and configuration updates to existing deployments will not be allowed.
 
-Some time after becoming "disabled", the Guest OS version "*expires*" and any installations still running that version are force upgraded and set to automatically update the Guest OS in the future. Expiration is done in batches so the period of time from disablement to expiration can vary.
+Sometime after becoming "disabled", the Guest OS version "expires" and any installations still running that expired version are exposed to security and vulnerability issues. Generally, expiration is done in batches, so the period from disablement to expiration can vary.
+
+Customers who configure their services to update the Guest OS manually, should ensure that their services are running on a supported Guest OS. If a service is configured to update the Guest OS automatically, the underlying platform will ensure compliance and will upgrade to the latest Guest OS.
 
 These periods may be made longer at Microsoft's discretion to ease customer transitions. Any changes will be communicated on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
