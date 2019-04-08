@@ -32,7 +32,7 @@ Generally, when properly configured, boosted decision trees are the easiest meth
 
 This module creates an untrained classification model. Because classification is a supervised learning method, to train the model, you need a *tagged dataset* that includes a label column with a value for all rows.
 
-You can train this type of model by using either the [Train Model](././train-model.md) or [Tune Model Hyperparameters](tune-model-hyperparameters.md) modules. 
+You can train this type of model using [Train Model](././train-model.md). 
 
 1.  In Azure Machine Learning, add the **Boosted Decision Tree** module to your experiment.
   
@@ -69,7 +69,7 @@ You can train this type of model by using either the [Train Model](././train-mod
    
 ### Results
 
-After model training is complete, right-click the output of [Train Model](./train-model.md) or [Tune Model Hyperparameters](tune-model-hyperparameters.md) to view the results:
+After model training is complete, right-click the output of [Train Model](./train-model.md) to view the results:
 
 + To see the tree that was created on each iteration, select **Visualize**. 
 + To drill down into the splits and see the rules for each node, click each tree.

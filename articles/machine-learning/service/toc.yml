@@ -212,7 +212,11 @@
     href: https://aka.ms/aml-monitoring-sdk
   - name: Algorithm & modules for visual interface
     displayName: module reference
-    href: ../algorithm-module-reference/module-reference.md
+    items:
+    - name: Reference overview
+      href: ../algorithm-module-reference/module-reference.md
+    - name: Error messages & codes
+      href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
   items:
   - name: Release notes
