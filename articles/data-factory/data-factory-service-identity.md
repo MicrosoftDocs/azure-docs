@@ -155,9 +155,9 @@ You can retrieve the managed identity from Azure portal or programmatically. The
 
 You can find the managed identity information from Azure portal -> your data factory -> Properties:
 
-- Service Identity Object ID
-- Service Identity Tenant
-- **Service Identity Application ID** > copy this value
+- Managed Identity Object ID
+- Managed Identity Tenant
+- **Managed Identity Application ID** > copy this value
 
 ![Retrieve managed identity](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
