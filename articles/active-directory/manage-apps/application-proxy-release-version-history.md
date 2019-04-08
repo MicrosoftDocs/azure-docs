@@ -33,7 +33,7 @@ Azure AD Application Proxy Connector Download |  [Download the latest connector]
 
 ### Release status
 
-9/20/2018: Released for download
+September 20, 2018: Released for download
 
 ### New features and improvements
 
@@ -51,7 +51,7 @@ Azure AD Application Proxy Connector Download |  [Download the latest connector]
 
 ### Release status
 
-1/19/2018: Released for download
+January 19, 2018: Released for download
 
 ### Fixed issues
 
@@ -59,17 +59,29 @@ Azure AD Application Proxy Connector Download |  [Download the latest connector]
 
 ## 1.5.132.0
 
+### Release status 
+
+May 25, 2017: Released for download 
+
+### New features and improvements 
+
+Improved control over connectors' outbound connection limits. 
+
+## 1.5.36.0
+
 ### Release status
 
-5/25/2017: Released for download
+April 15, 2017: Released for download
+
 ### New features and improvements
 
 - Simplified onboarding and management with fewer required ports. Application Proxy now requires opening only two standard outbound ports: 443 and 80. Application Proxy continues to use only outbound connections, so you still don't need any components in a DMZ. For details, see our [configuration documentation](application-proxy-add-on-premises-application.md).  
 - If supported by your external proxy or firewall, you can now open your network by DNS instead of IP range. Application Proxy services require connections to *.msappproxy.net and *.servicebus.windows.net only.
 
+
 ## Earlier versions
 
-If you're using Azure AD Application Proxy version 1.5.36.0 or earlier, update to the latest version to ensure you have the latest fully supported features.
+If you're using versions of Azure AD Application Proxy earlier than version 1.5.36.0, update to the latest version to ensure you have the latest fully supported features.
 
 ## Next steps
 - Learn more about [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
