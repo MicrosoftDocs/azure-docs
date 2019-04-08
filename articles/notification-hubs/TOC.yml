@@ -139,7 +139,7 @@
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
-  - name: Service REST API
+  - name: Notification Hubs service REST API
     href: https://docs.microsoft.com/previous-versions/azure/reference/dn223264(v%3dazure.100)
   - name: Management REST API
     href: /rest/api/notificationhubs/
