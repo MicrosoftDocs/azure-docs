@@ -93,13 +93,14 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
   ```  
   
 - To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
-    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
-    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
-    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
-    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
-    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
-    - Check the state of the XRP service fabric nodes and repair them as needed
-    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
+
+  - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed.
+  - Check for SQL service issues as part of the control plan and attempt to repair them as-needed.
+  - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed.
+  - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+  - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed.
+  - Check the state of the infrastructure role and repair as needed.
+  - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed.
 
 <!-- 
 1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
