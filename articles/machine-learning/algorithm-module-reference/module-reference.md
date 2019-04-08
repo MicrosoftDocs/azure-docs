@@ -18,76 +18,76 @@ This article lists the modules provided in the visual interface organized into c
 
 ## Data input and output
 
-[Import Data](./module-reference/import-data.md)
+[Import Data](import-data.md)
 
-[Export Data](./module-reference/export-data.md)
+[Export Data](export-data.md)
 
-[Enter Data Manually](./module-reference/enter-data-manually.md)
+[Enter Data Manually](enter-data-manually.md)
 
 ## Data transformation
 
-[Select Columns in Dataset](./module-reference/select-columns-in-dataset.md)
+[Select Columns in Dataset](select-columns-in-dataset.md)
 
-[Edit Metadata](./module-reference/edit-metadata.md)
+[Edit Metadata](edit-metadata.md)
 
-[Clean Missing Data](./module-reference/clean-missing-data.md)
+[Clean Missing Data](clean-missing-data.md)
 
-[Add Columns](./module-reference/add-columns.md)
+[Add Columns](add-columns.md)
 
-[Add Rows](./module-reference/add-rows.md)
+[Add Rows](add-rows.md)
 
-[Remove Duplicate Rows](./module-reference/remove-duplicate-rows.md)
+[Remove Duplicate Rows](remove-duplicate-rows.md)
 
-[Split Data](./module-reference/split-data.md)
+[Split Data](split-data.md)
 
-[Normalize Data](./module-reference/normalize-data.md)
+[Normalize Data](normalize-data.md)
 
-[Partition and Sample](./module-reference/partition-and-sample.md)
+[Partition and Sample](partition-and-sample.md)
 
 
 
 
 ## Data Format Conversions
 
-[Convert to CSV ](./module-reference/convert-to-csv.md)
+[Convert to CSV ](convert-to-csv.md)
 
 ## Machine Learning Modules
 
-[Score Model](./module-reference/score-model.md)
+[Score Model](score-model.md)
 
-[Train Model](./module-reference/train-model.md)
+[Train Model](train-model.md)
 
-[Evaluate Model](./module-reference/evaluate-model.md)
+[Evaluate Model](evaluate-model.md)
 
-[Apply Transformation](./module-reference/apply-transformation.md)
+[Apply Transformation](apply-transformation.md)
 
-[Linear Regression](./module-reference/linear-regression.md)
+[Linear Regression](linear-regression.md)
 
-[Neural Network Regression](./module-reference/neural-network-regression.md)
+[Neural Network Regression](neural-network-regression.md)
 
-[Decision Forest Regression](./module-reference/decision-forest-regression.md)
+[Decision Forest Regression](decision-forest-regression.md)
 
-[Boosted Decision Tree Regression](./module-reference/boosted-decision-tree-regression.md)
-
-
-[Two-class Boosted Decision Tree](./module-reference/two-class-boosted-decision-tree.md)
-
-[Two-Class Logistic Regression](./module-reference/two-class-logistic-regression.md)
-
-[Multiclass Logistic Regression](./module-reference/multiclass-logistic-regression.md)
-
-[Multiclass Neural Network](./module-reference/multiclass-neural-network.md)
-
-[Multiclass Decision Forest](./module-reference/multiclass-decision-forest.md)
-
-[Two-Class Averaged Perceptron](./module-reference/two-class-averaged-perceptron.md)
-
-[Two-Class Decision Forest](./module-reference/two-class-decision-forest.md)
-
-[Two-Class Neural Network](./module-reference/two-class-neural-network.md)
+[Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
 
 
-[Two-Class Support Vector Machine](./module-reference/two-class-support-vector-machine.md)
+[Two-class Boosted Decision Tree](two-class-boosted-decision-tree.md)
+
+[Two-Class Logistic Regression](two-class-logistic-regression.md)
+
+[Multiclass Logistic Regression](multiclass-logistic-regression.md)
+
+[Multiclass Neural Network](multiclass-neural-network.md)
+
+[Multiclass Decision Forest](multiclass-decision-forest.md)
+
+[Two-Class Averaged Perceptron](two-class-averaged-perceptron.md)
+
+[Two-Class Decision Forest](two-class-decision-forest.md)
+
+[Two-Class Neural Network](two-class-neural-network.md)
+
+
+[Two-Class Support Vector Machine](two-class-support-vector-machine.md)
 
 ## Python Language Module
-[Execute Python Script](./module-reference/execute-python-script.md)
+[Execute Python Script](execute-python-script.md)
