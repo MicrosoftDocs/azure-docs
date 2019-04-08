@@ -218,7 +218,7 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 ### <a name="fuzzy-search"></a> Try fuzzy search
 
-By default, misspelled query terms, like *samamish* for the Samammish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
+By default, misspelled query terms, like *samamish* for the Sammamish plateau in the Seattle area, fail to return matches in typical search. The following example returns no results.
 
 #### Example (misspelled term, unhandled): `search=samamish`
 
