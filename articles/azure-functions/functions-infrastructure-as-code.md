@@ -26,6 +26,9 @@ For sample templates, see:
 - [Function app on Consumption plan]
 - [Function app on Azure App Service plan]
 
+> [!NOTE]
+> The Premium plan for Azure Functions hosting is currently in preview. For more information, see [Azure Functions Premium plan](functions-premium-plan.md).
+
 ## Required resources
 
 An Azure Functions deployment typically consists of these resources:
@@ -373,7 +376,7 @@ A function app on a Premium plan must have the `serverFarmId` property set to th
 
 <a name="app-service-plan"></a> 
 
-## Deploy a function app on the App Service plan
+## Deploy on App Service plan
 
 In the App Service plan, your function app runs on dedicated VMs on Basic, Standard, and Premium SKUs, similar to web apps. For details about how the App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/overview-hosting-plans.md).
 
