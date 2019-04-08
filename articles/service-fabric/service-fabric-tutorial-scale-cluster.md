@@ -810,7 +810,7 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## Remove a node type from the cluster
-After creating a Service Fabric cluster, you can scale a cluster horizontally by removing a node type (virtual machine scale set) and all of it's nodes. You can scale the cluster at any time, even when workloads are running on the cluster. As the cluster scales, your applications automatically scale as well.
+After creating a Service Fabric cluster, you can scale a cluster horizontally by removing a node type (virtual machine scale set) and all of its nodes. You can scale the cluster at any time, even when workloads are running on the cluster. As the cluster scales, your applications automatically scale as well.
 
 > [!WARNING]
 > Using Remove-AzServiceFabricNodeType to remove a node type from a production cluster is
