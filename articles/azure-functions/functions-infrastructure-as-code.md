@@ -113,7 +113,10 @@ In addition, the instrumentation key needs to be provided to the function app us
 
 ### Hosting plan
 
-The definition of the hosting plan varies, depending on whether you use a Consumption plan, Premium plan, or App Service plan. You do not need to explicitly define a Consumption plan, as one will be created automatically if no plan is specified. See [Deploy a function app on the Consumption plan](#consumption), [Deploy a function app on the Premium plan (Preview)](#premium), and [Deploy a function app on the App Service plan](#app-service-plan).
+The definition of the hosting plan varies, and can be one of the following:
+* [Consumption plan](#consumption) (default)
+* [Premium plan](#premium) (in preview)
+* [App Service plan](#app-service-plan)
 
 ### Function app
 
@@ -173,7 +176,7 @@ These properties are specified in the `appSettings` collection in the `siteConfi
 
 <a name="consumption"></a>
 
-## Deploy a function app on the Consumption plan
+## Deploy on Consumption plan
 
 The Consumption plan automatically allocates compute power when your code is running, scales out as necessary to handle load, and then scales down when code is not running. You don't have to pay for idle VMs, and you don't have to reserve capacity in advance. To learn more, see [Azure Functions scale and hosting](functions-scale.md#consumption-plan).
 
@@ -297,7 +300,7 @@ On Linux, the function app must have its `kind` set to `functionapp,linux`, and 
 
 <a name="premium"></a>
 
-## Deploy a function app on the Premium plan (Preview)
+## Deploy on Premium plan
 
 The Premium plan offers the same scaling as the consumption plan but includes dedicated resources and additional capabilities. To learn more, see [Azure Functions Premium Plan (Preview)](./functions-premium-plan.md).
 
