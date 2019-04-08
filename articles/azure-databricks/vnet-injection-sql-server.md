@@ -57,14 +57,14 @@ In this tutorial, you learn how to:
 
 7. Add a rule to open port 22 for SSH. Use the following settings:
     
-    |Setting|Suggested Value|Description|
+    |Setting|Suggested value|Description|
     |-------|---------------|-----------|
     |Source|IP Addresses|IP Addresses specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
     |Source IP addresses|<your public ip\>|Enter the your public IP address. You can find your  public IP address by visiting [bing.com](https://www.bing.com/) and searching for **"my IP"**.|
     |Source port ranges|*|Allow traffic from any port.|
     |Destination|IP Addresses|IP Addresses specifies that outgoing traffic for a specific source IP Address will be allowed or denied by this rule.|
     |Destination IP addresses|<your vm public ip\>|Enter your virtual machine's public IP address. You can find this on the **Overview** page of your virtual machine.|
-    |Destination port ranges|22|Opn port 22 for SSH.|
+    |Destination port ranges|22|Open port 22 for SSH.|
     |Priority|290|Give the rule a priority.|
     |Name|ssh-databricks-tutorial-vm|Give the rule a name.|
 
@@ -73,14 +73,14 @@ In this tutorial, you learn how to:
 
 8. Add a rule to open port 1433 for SQL with the following settings:
 
-    |Setting|Suggested Value|Description|
+    |Setting|Suggested value|Description|
     |-------|---------------|-----------|
     |Source|IP Addresses|IP Addresses specifies that incoming traffic from a specific source IP Address will be allowed or denied by this rule.|
     |Source IP addresses|10.179.0.0/16|Enter the address range for your virtual network.|
     |Source port ranges|*|Allow traffic from any port.|
     |Destination|IP Addresses|IP Addresses specifies that outgoing traffic for a specific source IP Address will be allowed or denied by this rule.|
     |Destination IP addresses|<your vm public ip\>|Enter your virtual machine's public IP address. You can find this on the **Overview** page of your virtual machine.|
-    |Destination port ranges|1433|Opn port 22 for SQL Server.|
+    |Destination port ranges|1433|Open port 22 for SQL Server.|
     |Priority|300|Give the rule a priority.|
     |Name|sql-databricks-tutorial-vm|Give the rule a name.|
 
