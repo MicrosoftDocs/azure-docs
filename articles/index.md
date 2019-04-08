@@ -241,7 +241,7 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">
+                                                        <a class="barLink" href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
                                                             <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="">
                                                             Azure mobile app
                                                         </a>
@@ -1785,7 +1785,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">
+                                            <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">
                                                 <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="" />
                                                 <p>Azure mobile app</p>
                                             </a>
@@ -6192,7 +6192,7 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure mobile app</h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/features/azure-portal/mobile-app/">Get started</a>
                                                 </p>
                                             </div>
                                         </div>
