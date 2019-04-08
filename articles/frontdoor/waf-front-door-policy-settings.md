@@ -2,14 +2,14 @@
 title: Policy settings for web application firewall with Azure Front Door
 description: Learn web application firewall (WAF).
 services: frontdoor
-author: teresayao
+author: KumudD
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/07/2019
-ms.author: tyao
+ms.date: 04/08/2019
+ms.author: tyao;kumud
 
 ---
 
@@ -27,7 +27,7 @@ A WAF policy for Front Door can be in one of the following two states:
 
 WAF policy can be configured to run in the following two modes:
 
-- **Detection mode** When run in detection mode, WAF does not take any other actions other than monitors and logs the request and its matched WAF rule to WAF logs. Turn on logging diagnostics for Front Door (when using portal, this can be achieved by going to the **Diagnostics** section in the Azure portal).
+- **Detection mode** When run in detection mode, WAF does not take any actions other than monitor and log the request and its matched WAF rule to WAF logs. Turn on logging diagnostics for Front Door (when using portal, this can be achieved by going to the **Diagnostics** section in the Azure portal).
 
 - **Prevention mode** When configured to run in prevention mode, WAF takes the specified action if a request matches a rule. Any matched requests are also logged in the WAF logs.
 
@@ -35,10 +35,7 @@ WAF policy can be configured to run in the following two modes:
 
 By default, when WAF blocks a request because of a matched rule, it returns a 403 status code with - **The request is blocked** message. A reference string is also returned for logging.
 
-A default blocked request response is shown as below:
-
-You can define a custom response status code and response message when a request is blocked by WAF.
-The following custom status codes are supported:
+You can define a custom response status code and response message when a request is blocked by WAF. The following custom status codes are supported:
 
 - 200    OK
 - 403    Forbidden
