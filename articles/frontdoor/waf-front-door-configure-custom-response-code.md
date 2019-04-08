@@ -1,5 +1,5 @@
 ---
-title: Configure a custom response for Azure web application firewall at Azure Front Door
+title: Configure a custom response for web application firewall at Azure Front Door
 description: Learn how to configure a custom response code and message when web application firewall (WAF) blocks a request.
 services: frontdoor
 author: KumudD
