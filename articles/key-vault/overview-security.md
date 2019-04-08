@@ -16,9 +16,9 @@ ms.author: barclayn
 # Customer intent: As a key vault administrator, I want to secure my vaults and know that I can monitor access activity.
 ---
 
-# Secure access to Azure Key vaults
+# Secure your Azure Key vaults
 
-You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
+You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
 
 ## Authentication and Authorization
 
@@ -44,7 +44,7 @@ The model of a single mechanism for authentication to both planes has several be
 
 ### Managing administrative access to Key Vault
 
-When you create a key vault in a resource group you manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You can grant access at a specific scope level by assigning appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
+When you create a key vault in a resource group, you manage access by using Azure AD. You grant users or groups the ability to manage the key vaults in a resource group. You can grant access at a specific scope level by assigning the appropriate RBAC roles. To grant access to a user to manage key vaults, you assign a predefined `key vault Contributor` role to the user at a specific scope. The following scopes levels can be assigned to an RBAC role:
 
 - **Subscription**: An RBAC role assigned at the subscription level applies to all resource groups and resources within that subscription.
 - **Resource group**: An RBAC role assigned at the resource group level applies to all resources in that resource group.
@@ -58,11 +58,7 @@ There are several predefined roles. If a predefined role doesn't fit your needs,
 <a id="data-plane-access-control"></a>
 ### Controlling access to Key Vault data
 
-You grant data plane access by setting Key Vault access policies for a key vault. To set these access policies, a user, group, or application must have `Contributor` permissions for the management plane for that key vault.
-
-You grant a user, group, or application access to execute specific operations for keys or secrets in a key vault. Key Vault supports up to 1,024 access policy entries for a key vault. To grant data plane access to several users, create an Azure AD security group and add users to that group.
-
-Key Vault access policies grant permissions separately to keys, secrets, and certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are at the vault level. 
+Key Vault access policies grant permissions separately to keys, secrets, or certificate. You can grant a user access only to keys and not to secrets. Access permissions for keys, secrets, and certificates are managed at the vault level.
 
 > [!IMPORTANT]
 > Key Vault access policies don't support granular, object-level permissions like a specific key, secret, or certificate. When a user is granted permission to create and delete keys, they can perform those operations on all keys in that key vault.
