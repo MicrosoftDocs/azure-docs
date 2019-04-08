@@ -60,7 +60,7 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 
 1. Use one of these methods to find the **.cloudapp.net** domain name assigned to your cloud service.
 
-   * Login to the [Azure portal], select your cloud service, look at the **Essentials** section and then find the **Site URL** entry.
+   * Login to the [Azure portal], select your cloud service, look at the **Overview** section and then find the **Site URL** entry.
 
        ![quick glance section showing the site URL][csurl]
 
@@ -95,7 +95,7 @@ To create an A record, you must first find the virtual IP address of your cloud 
 
 1. Use one of the following methods to get the IP address of your cloud service.
 
-   * Login to the [Azure portal], select your cloud service, look at the **Essentials** section and then find the **Public IP addresses** entry.
+   * Login to the [Azure portal], select your cloud service, look at the **Overview** section and then find the **Public IP addresses** entry.
 
        ![quick glance section showing the VIP][vip]
 

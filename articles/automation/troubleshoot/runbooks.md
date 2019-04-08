@@ -132,7 +132,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 #### Issue
 
-You receive the following error when invoking a childrunbook with the `-Wait` switch and the output stream contains and object:
+You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains and object:
 
 ```error
 Object reference not set to an instance of an object
@@ -478,6 +478,29 @@ There are two ways to resolve this error:
 
 * Edit the runbook, and reduce the number of job streams that it emits​.
 * Reduce the number of streams to be retrieved when running the cmdlet. To follow this behavior, you can specify the `-Stream Output` parameter to the `Get-AzureRmAutomationJobOutput` cmdlet to retrieve only output streams. ​
+
+### <a name="cannot-invoke-method"></a>Scenario: PowerShell job fails with error: Cannot invoke method
+
+#### Issue
+
+You receive the following error message when starting a PowerShell Job in a runbook running in Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### Cause
+
+This error may occur when you start a PowerShell job in a runbook ran in Azure. This behavior may occur because runbooks ran in an Azure sandbox may not run in the [Full language mode](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### Resolution
+
+There are two ways to resolve this error:
+
+* Instead of using `Start-Job`, use `Start-AzureRmAutomationRunbook` to start a runbook
+* If your runbook has this error message, run it on a Hybrid Runbook Worker
+
+To learn more about this behavior and other behaviors of Azure Automation Runbooks, see [Runbook behavior](../automation-runbook-execution.md#runbook-behavior).
 
 ## Next steps
 

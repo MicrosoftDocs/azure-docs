@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
 ---
 
@@ -43,7 +43,7 @@ If you find your data factory doesn't have a managed identity associated followi
 
 - [Generate managed identity using PowerShell](#generate-managed-identity-using-powershell)
 - [Generate managed identity using REST API](#generate-managed-identity-using-rest-api)
-- Generate managed identity using an Azure Resource Manager template
+- [Generate managed identity using an Azure Resource Manager template](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generate managed identity using SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
