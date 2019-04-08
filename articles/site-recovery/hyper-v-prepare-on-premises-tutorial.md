@@ -88,7 +88,7 @@ To connect to Windows VMs using RDP after failover, allow access as follows:
    the **Windows Firewall** -> **Allowed apps and features** for **Domain and Private** networks.
    Check that the operating system's SAN policy is set to **OnlineAll**. [Learn
    more](https://support.microsoft.com/kb/3031135). There should be no Windows updates pending on
-   the VM when you trigger a failover. If there are, you won't be able to log in to the virtual
+   the VM when you trigger a failover. If there are, you won't be able to sign in to the virtual
    machine until the update completes.
 3. On the Windows Azure VM after failover, check **Boot diagnostics** to view a screenshot of the
    VM. If you can't connect, check that the VM is running and review these
