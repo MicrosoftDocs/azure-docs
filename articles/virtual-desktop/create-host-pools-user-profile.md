@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/03/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
 # Set up a user profile share for a host pool
@@ -35,12 +35,12 @@ After creating the virtual machine, join it to the domain by doing the following
 
 The following are general instructions about how to prepare a virtual machine to act as a file share for user profiles:
 
-1. Add the session host virtual machines to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the session hosts virtual machines to the file share virtual machine you just created.
+1. Add the Windows Virtual Desktop Active Directory users to an [Active Directory security group](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). This security group will be used to authenticate the Windows Virtual Desktop users to the file share virtual machine you just created.
 2. [Connect to the file share virtual machine](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. On the file share virtual machine, create a folder on the **C drive** that will be used as the profile share.
 4. Right-click the new folder, select **Properties**, select **Sharing**, then select **Advanced sharing...**.
 5. Select **Share this folder**, select **Permissions...**, then select **Add...**.
-6. Search for the security group to which you added the session host virtual machines, then make sure that group has **Full Control**.
+6. Search for the security group to which you added the Windows Virtual Desktop users, then make sure that group has **Full Control**.
 7. After adding the security group, right-click the folder, select **Properties**, select **Sharing**, then copy down the **Network Path** to use for later.
 
 For more information about permissions, see the [FSLogix documentation](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -61,3 +61,6 @@ To configure the virtual machines with the FSLogix software, do the following on
 |---------------------|--------------------|-----------------------------------|
 | Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Multi-String Value | "Network path for file share"     |
+
+>[!IMPORTANT]
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

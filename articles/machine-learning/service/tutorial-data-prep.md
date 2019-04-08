@@ -55,7 +55,7 @@ After you complete the steps below, run the **tutorials/regression-part1-data-pr
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
 1. Install the Data Prep SDK in your environment using `pip install azureml-dataprep`.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 

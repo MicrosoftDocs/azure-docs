@@ -60,13 +60,13 @@ Azure Stack supports secret rotation with external certificates from a new Certi
 
 |Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
 |-----|-----|-----|-----|
-|From Self-Signed|To Enterprise|Not Supported||
+|From Self-Signed|To Enterprise|Supported|1903 & Later|
 |From Self-Signed|To Self-Signed|Not Supported||
 |From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Enterprise|To Enterprise|Supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Enterprise|Supported. From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
 |From Enterprise|To Self-Signed|Not Supported||
 |From Enterprise|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Public<sup>*</sup>|To Enterprise|Not Supported|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|Supported|1903 & Later|
 |From Public<sup>*</sup>|To Self-Signed|Not Supported||
 |From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
 
