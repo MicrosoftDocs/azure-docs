@@ -13,6 +13,12 @@ ms.date: 04/08/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+>*
 
 This article walks you through the process of creating [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). This is the first lesson in a 3-part exercise for creating, loading, and query an index. Index creation is accomplished by performing these tasks:
 
@@ -31,7 +37,7 @@ The following services, tools, and data are used in this quickstart.
 
 [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
 
-## Get the api-key and endpoint
+## Get a key and URL
 
 Calls to the service require a URL endpoint and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
@@ -43,19 +49,21 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 1 - Configure and build the solution
+## 1 - Configure and build
 
 1. Open the **DotNetHowTo.sln** file in Visual Studio.
 
-1. In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
+1. In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. 
 
 
    ```json
    {
-       "SearchServiceName": "Put your search service name here",
+       "SearchServiceName": "Put your search service name here (not the full URL)",
        "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-          }
+    }
    ```
+
+  For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
 1. Press F5 to build the solution and run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
 
