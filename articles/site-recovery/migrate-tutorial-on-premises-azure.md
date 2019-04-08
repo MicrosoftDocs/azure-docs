@@ -150,7 +150,7 @@ Some steps can be automated as part of the migration process using the in-built 
 - Update any internal documentation to show the new location and IP address of the Azure VMs.
 
 
-## Next steps
+
 
 ## Next steps
 
