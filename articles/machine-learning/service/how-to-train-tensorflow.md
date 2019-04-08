@@ -181,6 +181,10 @@ Once you've finished writing your training script and creating the TensorFlow ob
 run = exp.submit(tf_est)
 ```
 
+## Export to ONNX
+
+To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you can convert your trained TensorFlow model to the ONNX format. See the [example](https://github.com/onnx/tensorflow-onnx/blob/master/examples/call_coverter_via_python.py).
+
 ## Examples
 
 Explore various [notebooks on distributed deep learning on Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
