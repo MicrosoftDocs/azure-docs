@@ -28,7 +28,7 @@
     items:
     - name: Create an experiment
       displayName: visualize drag-and-drop
-      href: quickstart-ui-run-experiment.md
+      href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
