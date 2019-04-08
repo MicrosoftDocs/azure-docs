@@ -21,9 +21,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-account) for a walkthrough.
 
-* When you create your Cosmos DB, use the partition key as "/id".
-
-* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough.
+* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough. When you create your collection, use `id` for the partition key.
 
 * An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
 
@@ -155,7 +153,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
 
 A trigger is a specific event that starts your logic app. For this tutorial, the trigger that sets off the workflow is receiving a request over HTTP.
 
-1. In the connectors and triggers search bar, type **HTTP**.
+1. In the connectors and triggers search bar, type **HTTP** and hit Enter.
 
 2. Select **Request - When an HTTP request is received** as the trigger.
 
@@ -197,35 +195,43 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database.
 
-1. Select **New step** then **Built-ins** and **Condition**.
+1. Select **+ New step** then **Built-in**, then find and select **Condition**. A box will pop up showing the Dynamic content -- the fields that can be selected. Fill in the fields as shown below to only execute this for Device Connected and Device Disconnected events:
 
-2. Fill the condition as shown below to only execute this for Device Connected and Device Disconnected events:
-
-   * Choose a value: **eventType**
-   * Change "is equal to" to **ends with**
-   * Choose a value: **nected**
+   * Choose a value: **eventType** -- select this from the fields in the dynamic content that appear when you click on this field.
+   * Change "is equal to" to **ends with**.
+   * Choose a value: **nected**.
 
      ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-3. If the condition is true, click on **Add an action**.
+2. If the condition is true, click on **Add an action**.
   
    ![Add action if true](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
-4. Search for Cosmos DB and click on **Azure Cosmos DB - Execute stored procedure**
+3. Search for Cosmos DB and select **Azure Cosmos DB - Execute stored procedure**
 
    ![Search for CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-5. Select **Add new parameter**. Check the boxes next to **Partition key** and **Parameters for the stored procedure**, then select Enter.
+4. Enter the values for the fields:
+
+   **Database ID**: ToDoList
+
+   **Collection ID**: Items
+
+   ** Sproc ID**: LatestDeviceConnectionState
+
+5. Select **Add new parameter**. In the dropdown that appears, check the boxes next to **Partition key** and **Parameters for the stored procedure**, then click anywhere else on the screen; it adds a field for partition key value and a field for parameters for the stored procedure.
 
    ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure.png)
-
-When prompted for the **For each** section, select **Body**. That means the stored procedure will be executed for each document body retrieved.
 
 6. Now enter the partition key value and parameters as shown below. Be sure to put in the brackets and double-quotes as shown. You may have to click **Add dynamic content** to get the valid values you can use here.
 
    ![populate logic app action](./media/iot-hub-how-to-order-connection-state-events/logicapp-stored-procedure-2.png)
 
-7. Save your logic app.
+7. At the top of the pane where it says **For Each**, under **Select an output from previous steps**, make sure it  **Body** is selected.
+
+   ![populate logic app for-each](./media/iot-hub-how-to-order-connection-state-events/logicapp-foreach-body.png)
+
+8. Save your logic app.
 
 ### Copy the HTTP URL
 
@@ -257,17 +263,17 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 5. Fill in the **Event Type** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
 
-   ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/sst-event-types.png)
+   ![Set event types to look for](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
 6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-       ![select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
 
 7. The form should now look similar to the following example:
 
-       ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
+   ![Sample event subscription form](./media/iot-hub-how-to-order-connection-state-events/subscription-form.png)
 
-     Select **Create** to save the event subscription.
+   Select **Create** to save the event subscription.
 
 ## Observe events
 
