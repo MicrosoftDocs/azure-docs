@@ -69,7 +69,7 @@ There are multiple tabs for configuring a SQL Server virtual machine. For the pu
 | **Basics** |[Configure basic settings](#1-configure-basic-settings) |
 | **Optional Features** |[Configure optional features](#2-configure-optional-features) |
 | **SQL Server settings** |[Configure SQL server settings](#3-configure-sql-server-settings) |
-| **Review + create** | [Review the summary](#5-review--create) |
+| **Review + create** | [Review the summary](#4-review--create) |
 
 ## 1. Configure basic settings
 
