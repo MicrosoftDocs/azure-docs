@@ -1,6 +1,6 @@
 ---
-title: Supported resources for Microsoft Azure Red Hat OpenShift (ARO)
-description: Provides answers about which regions and virtual machine sizes are supported by Microsoft Azure Red Hat OpenShift (ARO).
+title: Supported resources for Microsoft Azure Red Hat OpenShift
+description: Provides answers about which regions and virtual machine sizes are supported by Microsoft Azure Red Hat OpenShift.
 services: container-service
 author: tylermsft
 ms.author: twhitney
@@ -12,11 +12,11 @@ ms.date: 05/06/2019
 
 # Microsoft Red Hat OpenShift on Azure resources
 
-This topic lists the Azure regions and virtual machine sizes supported by Microsoft Red Hat OpenShift on Azure (ARO).
+This topic lists the Azure regions and virtual machine sizes supported by Microsoft Red Hat OpenShift on Azure.
 
 ## Azure regions
 
-You can deploy ARO clusters to the following Azure regions around the globe:
+You can deploy Azure Red Hat OpenShift clusters to the following Azure regions around the globe:
 
 |Region|CLI code|
 |-|-|
@@ -28,16 +28,16 @@ You can deploy ARO clusters to the following Azure regions around the globe:
 |🇪🇺 West Europe|`westeurope`|
 |🇪🇺 North Europe|`northeurope`|
 
-## ARO virtual machine sizes
+## Azure Red Hat OpenShift virtual machine sizes
 
-The following is a list of supported virtual machine sizes you can specify for the compute nodes in your ARO cluster.
+The following is a list of supported virtual machine sizes you can specify for the compute nodes in your Azure Red Hat OpenShift cluster.
 
 > [!Important]
 > Each VM has a different number of drives that can be attached. This may not be as immediately clear as memory or CPU size.
 > Not all VM sizes are available in all regions. If the API support the size you specify, you will get an error if the size is not available in the region you specify.
 > See [Current list of supported VM sizes per region](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) for more information.
 
-## Compute node sizes supported by the ARO REST API
+## Compute node sizes supported by the Azure Red Hat OpenShift REST API
 
 |Size|vCPU|RAM|
 |-|-|-|
@@ -55,7 +55,7 @@ The following is a list of supported virtual machine sizes you can specify for t
 |Standard F16s v2|16|32G|
 |Standard F32s v2|32|64G|
 
-## Valid infra/master nodes supported by the ARO REST API
+## Valid infra/master nodes supported by the Azure Red Hat OpenShift REST API
 
 |Size|vCPU|RAM|
 |-|-|-|
@@ -66,4 +66,4 @@ The following is a list of supported virtual machine sizes you can specify for t
 
 ## Next steps
 
-Try the [Create an Azure Red Hat Openshift cluster](tutorial-create-cluster.md) tutorial.
+Try the [Create a Microsoft Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.

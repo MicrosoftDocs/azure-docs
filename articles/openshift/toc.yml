@@ -1,34 +1,34 @@
-- name: Azure Red Hat OpenShift (ARO)
+- name: Azure Red Hat OpenShift
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Red Hat Openshift?
+  - name: What is Azure Red Hat OpenShift?
     href: intro-openshift.md
 - name: Tutorials
   items:
   - name: Create and manage an Azure Red Hat OpenShift cluster
     items:
-    - name: 1 - Create an ARO cluster
+    - name: 1 - Create an Azure Red Hat OpenShift cluster
       href: tutorial-create-cluster.md
-    - name: 2 - Scale an ARO cluster
+    - name: 2 - Scale an Azure Red Hat OpenShift cluster
       href: tutorial-scale-cluster.md
-    - name: 3 - Delete an ARO cluster
+    - name: 3 - Delete an Azure Red Hat OpenShift cluster
       href: tutorial-delete-cluster.md
 
 - name: How-to guides
   items:
-  - name: Set up your ARO dev environment
+  - name: Set up your Azure Red Hat OpenShift dev environment
     href: howto-setup-environment.md
-  - name: Create a tenant for your ARO cluster
+  - name: Create a tenant for your Azure Red Hat OpenShift cluster
     href: howto-create-tenant.md
-  - name: Create an AAD app object and user
+  - name: Create an Azure AD app object and user
     href: howto-aad-app-configuration.md
 
 - name: Reference
   items:
-  - name: Azure Red Hat Open Shift CLI
+  - name: Azure Red Hat OpenShift CLI
     href: https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create, 
-  - name: Azure Red Hat Open Shift REST APIs
+  - name: Azure Red Hat OpenShift REST APIs
     href: https://docs.microsoft.com/rest/api/azure/
 
 - name: Resources

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Microsoft Azure Red Hat OpenShift Service (AOS)
+title: Microsoft Azure Red Hat OpenShift Service
 metadata:
   document_id:
-  title: Microsoft Azure Red Hat OpenShift Service (AOS) Documentation - Tutorials, API Reference | Microsoft Docs
-  meta.description: AOS allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use AOS with these tutorials and how-to guides.
+  title: Microsoft Azure Red Hat OpenShift Service Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Azure Red Hat OpenShift allows you to quickly deploy a production ready Red Hat OpenShift cluster in Azure. Learn how to use Azure Red Hat OpenShift with these tutorials and how-to guides.
   services: container-service
   author: tylermsft
   manager: jeconnoc
@@ -15,18 +15,18 @@ metadata:
   ms.date: 05-06-2019
   ms.author: twhitney
 abstract:
-  description: 'Microsoft Azure Red Hat OpenShift Service (AOS) provides a self-service deployment of fully managed OpenShift clusters that allows you to maintain regulatory compliance while focusing on your application development.'
+  description: 'Azure Red Hat OpenShift provides fully managed OpenShift clusters that allow you to focus on app development while providing regulatory compliance .'
 sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to create and manage an AOS cluster.'
+    text: 'Learn how to create and manage an Azure Red Hat OpenShift cluster.'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an ARO cluster</a>
-    - html: <a href="/azure/openshift/tutorial-scale-cluster">Scale an ARO cluster</a>
-    - html: <a href="/azure/openshift/tutorial-delete-cluster">Delete an ARO cluster</a>
+    - html: <a href="/azure/openshift/tutorial-create-cluster">Create an Azure Red Hat OpenShift cluster</a>
+    - html: <a href="/azure/openshift/tutorial-scale-cluster">Scale an Azure Red Hat OpenShift cluster</a>
+    - html: <a href="/azure/openshift/tutorial-delete-cluster">Delete an Azure Red Hat OpenShift cluster</a>
 
 - title: Reference
   items:
@@ -39,4 +39,4 @@ sections:
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>
     - title: Red Hat OpenShift dedicated documentation
-      html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/)"
+      html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/)"</a></p>

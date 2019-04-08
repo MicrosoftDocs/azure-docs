@@ -6,8 +6,8 @@ author: tylermsft
 ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: copenshift
-ms.date: 5/6/2019
+ms.service: openshift
+ms.date: 05/06/2019
 #Customer intent: As a developer, I want learn how to create a Microsoft Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -30,7 +30,7 @@ In this tutorial series you learn how to:
 
 Before you begin this tutorial:
 
-* Create a cluster by following the [Create an ARO cluster](tutorial-create-cluster.md) tutorial.
+* Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
 ## Step 1: Sign in to Azure
 
@@ -53,11 +53,11 @@ After `az openshift create` has completed, open your browser and navigate to htt
 
 To sign in to the cluster, click on `Azure AD`.
 
-![](./media/aro-auth.png)
+![Screenshot of the OpenShift sign in screen](./media/aro-auth.png)
 
 The cluster console appears:
 
-![](./media/aro-console.png)
+![Screenshot of the OpenShift console](./media/aro-console.png)
 
 ## Step 3: Use the oc CLI
 
@@ -86,8 +86,8 @@ All being well, after a few minutes `az openshift create` will complete successf
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Scale an Azure Redhat OpenShift cluster
+> * Scale an Azure Red Hat OpenShift cluster
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Delete an Azure Redhat OpenShift cluster](tutorial-delete-cluster.md)
+> [Delete an Azure Red Hat OpenShift cluster](tutorial-delete-cluster.md)

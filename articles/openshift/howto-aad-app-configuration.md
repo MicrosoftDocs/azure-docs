@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Application for your Azure Red Hat Open Shift cluster | Microsoft Docs
-description: Shows you how to create an Azure application object so that you can use Open Shift on Azure
+title: Create an Azure Application for your Azure Red Hat OpenShift cluster | Microsoft Docs
+description: Shows you how to create an Azure application object so that you can use OpenShift on Azure
 documentationcenter: .net
 author: tylermsft
 ms.author: twhitney
@@ -10,23 +10,23 @@ editor: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 ---
 
 # How to create a new app registration and new Azure Active Directory user
 
-Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster in Azure. If your organization doesn't already have an Azure Active Directory (AD) app registration you can use as the service principal in Azure Active Directory, follow these instructions to create one.
+Microsoft Azure Red Hat OpenShift needs permissions to perform tasks on behalf of your cluster in Azure. If your organization doesn't already have an Azure Active Directory (Azure AD) app registration you can use as the service principal in Azure Active Directory, follow these instructions to create one.
 
-This topic concludes with instructions for creating a new AD user that you'll need to access apps running on your ARO cluster.
+This topic concludes with instructions for creating a new Azure AD user that you'll need to access apps running on your Azure Red Hat OpenShift cluster.
 
 ## Create a new app registration
 
 An application that wants to use the capabilities of Azure AD must first be registered in an Azure AD tenant. This registration process involves giving Azure AD details about your application such as the URL where the app is  located, the URL to send replies after a user is authenticated, the URI that identifies the app, and so on.
 
 1. In the [Azure portal](https://portal.azure.com), ensure that your tenant appears under your user name in the top right of the portal:
-![Tenant display][tenantcallout]
+![Screenshot of portal with tenant listed in top right][tenantcallout]
 If the wrong tenant is displayed, click on your user name in the top right, then click **Switch Directory**, and select the directory created above from the **All Directories** list.
-2. Click on the following link to go to the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)
+2. Go to the [App registrations blade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps)
 3. The **App registrations** blade appears. Click **+New application registration**.
 4. In the **Create** pane, enter a friendly name (can be any name) for your application.
 5. Ensure that **Application type** is set to **Web app/API**.
@@ -42,10 +42,10 @@ Refer to [Register an app with the Azure Active Directory v1.0 endpoint](https:/
 Next, generate a client secret.
 
 1. While still in the portal on the **Registered App** page from the previous step, copy the **Application ID** and save it where you can refer to it later. We will refer to this value as `APPID` in the tutorials.
-![App id][appidimage]
+![Screenshot of the application id textbox][appidimage]
 2. Click on **Settings** to open the settings for your registered app.
 3. On the **Settings** pane that appears, click **Keys**.  The Keys pane appears.
-![Create key][createkeyimage]
+![Screenshot of the create key page in the portal][createkeyimage]
 4. Provide a **Key description**.
 5. Set the expiration duration to **In 2 years**
 6. Click **Save** and the key value will appear.
@@ -61,7 +61,7 @@ Azure Active Directory uses the app object reply URL to specify the callback to 
 
 ## Create a new Active Directory user
 
-Create a new user in Active Directory that you'll use to sign in to the app running on your ARO cluster.
+Create a new user in Active Directory that you'll use to sign in to the app running on your Azure Red Hat OpenShift cluster.
 
 1. Click this [link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) to go to the **Users - All users** pane.
 2. Click **+ New user**. The **User** pane appears.
@@ -82,4 +82,4 @@ Create a new user in Active Directory that you'll use to sign in to the app runn
 
 ## Next steps
 
-Try the [Create an Azure Red Hat Openshift cluster](tutorial-create-cluster.md) tutorial.
+Try the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.

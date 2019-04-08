@@ -7,7 +7,7 @@ ms.author: twhitney
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: openshift
-ms.date: 5/6/2019
+ms.date: 05/06/2019
 #Customer intent: As a developer, I want learn how to create a Microsoft Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -124,7 +124,7 @@ When the **Permissions requested** dialog appears, select **Consent on behalf of
 
 You should now be logged into the cluster console.
 
-![](./media/aro-console.png)
+[Screenshot of the OpenShift cluster console](./media/aro-console.png)
 
 You now have an Azure Red Hat OpenShift cluster in your tenant.
 
@@ -145,8 +145,8 @@ Alternatively your token is available here: `https://myuniqueclustername.eastus.
 In this part of the tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create an Azure Redhat OpenShift cluster
+> * Create an Azure Red Hat OpenShift cluster
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]
-> [Scale an Azure Redhat OpenShift cluster](tutorial-scale-cluster.md)
+> [Scale an Azure Red Hat OpenShift cluster](tutorial-scale-cluster.md)
