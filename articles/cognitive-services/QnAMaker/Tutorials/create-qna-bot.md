@@ -1,7 +1,7 @@
 ---
 title: QnA bot - Azure Bot Service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: This tutorial walks you through building a QnA bot with Azure Bot service v4 on the Azure portal.
+description: Create a QnA chat bot from the Publish page for an existing knowledge base. This bot uses the Bot Framework SDK v4. You do not need to write any code to build the bot, all the code is provided for you.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
