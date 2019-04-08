@@ -914,11 +914,11 @@ The second option is to use the **DynamicTableEntity** type (a property bag) ins
 string filter =
     TableQuery.CombineFilters(
         TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales"),
-    TableOperators.And,
-    TableQuery.CombineFilters(
-        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThanOrEqual, "B"),
         TableOperators.And,
-        TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "F")));
+        TableQuery.CombineFilters(
+            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.GreaterThanOrEqual, "B"),
+            TableOperators.And,
+            TableQuery.GenerateFilterCondition("RowKey", QueryComparisons.LessThan, "F")));
         
 TableQuery<DynamicTableEntity> entityQuery =
     new TableQuery<DynamicTableEntity>().Where(filter);
