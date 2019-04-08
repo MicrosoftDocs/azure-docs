@@ -46,7 +46,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     Datasets stored in Azure Machine Learning are automatically converted to **pandas** data.frames when loaded with this module.
 
-    ![Execute Python input map](../media/module/python-module.png)
+    ![Execute Python input map](media/module/python-module.png)
 
 4. To include new Python packages or code, add the zipped file containing these custom resources  on **Script bundle**. The input to **Script bundle** must be a zipped file already uploaded to your workspace. 
 

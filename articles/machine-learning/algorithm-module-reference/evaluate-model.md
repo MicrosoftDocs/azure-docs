@@ -76,7 +76,7 @@ The model or data attached to the left port is presented first in the report, fo
 
 For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
 
-![AML&#95;Comparing2Models](../media/module/aml-comparing2models.png "AML_Comparing2Models")  
+![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
 Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
