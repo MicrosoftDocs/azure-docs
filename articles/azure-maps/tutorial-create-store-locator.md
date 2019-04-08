@@ -965,3 +965,6 @@ To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
