@@ -41,12 +41,13 @@ An Installation is an enhanced registration that includes a bag of push related 
 The following are some key advantages to using installations:
 
 - Creating or updating an installation is fully idempotent. So you can retry it without any concerns about duplicate registrations.
-- The installation model makes it easy to do individual pushes - targeting specific device. A system tag **"$InstallationId:[installationId]"** is automatically added with each installation based registration. So you can call a send to this tag to target a specific device without having to do any additional coding.
+- The installation model supports a special tag format (`$InstallationId:{INSTALLATION_ID}`) that enables sending a notification directly to the specific device. The SDK automatically adds the tag with each installation based registration using the developer-supplied value for `{INSTALLATION_ID}`. For example, if the app's code sets an installation ID of `joe93developer` for this particular device, a developer can target this device when sending a notification to the `$InstallationId:{joe93developer}` tag. This enables you to target a specific device without having to do any additional coding.
 - Using installations also enables you to do partial registration updates. The partial update of an installation is requested with a PATCH method using the [JSON-Patch standard](https://tools.ietf.org/html/rfc6902). This is useful when you want to update tags on the registration. You don't have to pull down the entire registration and then resend all the previous tags again.
 
 An installation can contain the following properties. For a complete listing of the installation properties, see [Create or Overwrite an Installation with REST API](https://msdn.microsoft.com/library/azure/mt621153.aspx) or [Installation Properties](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
 ```javascript
+
 // Example installation format to show some supported properties
 {
     installationId: "",
