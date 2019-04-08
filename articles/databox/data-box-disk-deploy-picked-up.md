@@ -85,7 +85,7 @@ This region includes instructions for pickup in Japan, Korea, and Australia.
 
 Azure datacenters in Australia have an additional security notification. All the inbound shipments must have an advanced notification. Take the following steps for pickup in Australia.
 
-1. Email adbops@microsoft.com to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
+1. Email **adbops@microsoft.com** to request shipment label with unique inbound ID or the TAU code. Place the request at least 3 days in advance of the planned ship date to get the label in time.
 2. The email subject should be - *Request for reverse shipping label with TAU code*. Make sure to include the following details in the email: 
 
     - Order name
@@ -100,7 +100,7 @@ Azure datacenters in Australia have an additional security notification. All the
     - Available times for pickup request depend on the respective post offices.
     - Inform that the shipment is for Japan Post Chakubarai Yu-Pack.
     - Use the Chakubarai connote which was included.
-4. If Japan Post Chakubarai connote was not included, email *Quantium Solutions*. *Quantium Solutions* will request Japan Post to pick up and ask them to bring the connote upon pickup.
+4. If Japan Post Chakubarai connote was not included, email *Quantium Solutions* at **Customerservice.JP@quantiumsolutions.com**. *Quantium Solutions* will request Japan Post to pick up and ask them to bring the connote upon pickup.
     - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
     - Enter the delivery address as shown below:   
         ```
@@ -129,7 +129,7 @@ Body:
 1. Make sure to include the return connote.
 2. To request pickup:
     1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
-    2. If the hotline is busy, email microsoft@rocketparcel.com, with the email subject *Microsoft Pickup* and the connote number as reference.
+    2. If the hotline is busy, email **microsoft@rocketparcel.com**, with the email subject *Microsoft Pickup* and the connote number as reference.
     3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
 
 ## Verify data upload to Azure
