@@ -237,7 +237,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 
 **Q.** Can I share image versions across Azure AD tenants? 
 
- A. Yes, see "Share gallery images across Azure tenants" using [PowerShell](../articles/virutal-machines/windows/cross-tenant-image-sharing.md) or [CLI](../articles/virutal-machines/linux/cross-tenant-image-sharing.md).
+ A. Yes, see "Share gallery images across Azure tenants" using [PowerShell](../articles/virtual-machines/windows/cross-tenant-image-sharing.md) or [CLI](../articles/virtual-machines/linux/cross-tenant-image-sharing.md).
 
 
 **Q.** How long does it take to replicate image versions across the target regions?
