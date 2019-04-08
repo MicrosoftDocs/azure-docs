@@ -2,13 +2,13 @@
 title: Use GPUs on Azure Kubernetes Service (AKS)
 description: Learn how to use GPUs for high performance compute or graphics-intensive workloads on Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: zr-msft
 manager: jeconnoc
 
 ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.author: iainfou
+ms.author: zarhoads
 
 #Customer intent: As a cluster administrator or developer, I want to create an AKS cluster that can use high-performance GPU-based VMs for compute-intensive workloads.
 ---
@@ -44,7 +44,7 @@ az aks create \
     --name myAKSCluster \
     --node-vm-size Standard_NC6 \
     --node-count 1 \
-    --kubernetes-version 1.11.7
+    --kubernetes-version 1.11.8
 ```
 
 Get the credentials for your AKS cluster using the [az aks get-credentials][az-aks-get-credentials] command:

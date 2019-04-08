@@ -131,7 +131,7 @@ There are several methods you can use to view blob auditing logs:
 
 * Use Power BI. You can view and analyze audit log data in Power BI. Learn more about [Power BI, and access a downloadable template](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](http://storageexplorer.com/).
+* Download log files from your Azure Storage blob container via the portal or by using a tool such as [Azure Storage Explorer](https://storageexplorer.com/).
     * After you have downloaded a log file locally, you can double-click the file to open, view, and analyze the logs in SSMS.
     * You can also download multiple files simultaneously via Azure Storage Explorer. Right-click a specific subfolder and select **Save as** to save in a local folder.
 
@@ -146,8 +146,9 @@ There are several methods you can use to view blob auditing logs:
 
 
 <br>
+
 ### Database-level policy audit logs
-Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](http://azurestorageexplorer.codeplex.com).
+Database-level audit logs are aggregated in a collection of Store Tables with a **SQLDBAuditLogs** prefix in the Azure storage account you chose during setup. You can view log files using a tool such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com).
 
 A preconfigured dashboard report template is available as a [downloadable Excel spreadsheet](https://go.microsoft.com/fwlink/?LinkId=403540) to help you quickly analyze log data. To use the template on your audit logs, you need Excel 2013 or later and Power Query, which you can [download here](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -172,14 +173,19 @@ You can also configure auditing in Azure SQL Data Warehouse by using the followi
 
 * **PowerShell cmdlets**:
 
+<!-- None of the following links exist anymore 3-12-2019
    * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
    * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
    * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
    * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
    * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
    * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
-   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## Downlevel clients support for auditing and dynamic data masking
 Auditing works with SQL clients that support TDS redirection.

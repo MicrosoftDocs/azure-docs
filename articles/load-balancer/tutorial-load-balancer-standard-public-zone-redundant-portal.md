@@ -38,7 +38,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create a Standard Load Balancer
 
@@ -103,7 +103,7 @@ In this section, you create network security group rules to allow inbound connec
     - *Allow HTTP* - for description of the load balancer rule.
 4. Click **OK**.
  
- ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
+   ![Create a virtual network](./media/load-balancer-standard-public-availability-zones-portal/8-load-balancer-nsg-rules.png)
 5. Repeat steps 2 to 4 to create another rule named *myRDPRule* to allow for an inbound RDP connection using port 3389 with the following values:
     - *Service Tag* - for **Source**.
     - *Internet* - for **Source service tag**
@@ -132,7 +132,7 @@ Create virtual machines in different zones (zone 1, zone 2, and zone 3) for the 
 5. Click **Disabled** to disable boot diagnostics.
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
   
- ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
+   ![Create a virtual machine](./media/load-balancer-standard-public-availability-zones-portal/create-vm-standard-ip.png)
 
 7. Create a second VM, named, *VM2* in Zone 2, and third VM in Zone 3, and with *myVnet* as the virtual network, *myBackendSubnet* as the subnet, and **myNetworkSecurityGroup* as the network security group using steps 1-6.
 

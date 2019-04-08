@@ -82,14 +82,14 @@ For this procedure, use a computer in your datacenter network that can communica
 
 1. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for **CloudAdmin** to authenticate.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Now that you're connected to the privileged endpoint, run the following command: 
 
-   ```PowerShell  
+   ```powershell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
    ```
 
@@ -118,7 +118,7 @@ The following information is required as input for the automation parameters:
 |Parameter|Description|Example|
 |---------|---------|---------|
 |CustomAdfsName|Name of the claims provider.<br>It appears that way on the AD FS landing page.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link|https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml|
+|CustomAD<br>FSFederationMetadataEndpointUri|Federation metadata link| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### Trigger automation to configure claims provider trust in Azure Stack
@@ -127,20 +127,20 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
 
-   ```PowerShell  
+   ```powershell  
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataEndpointUri https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml
    ```
 
 3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -165,7 +165,7 @@ For the following procedure, you must use a computer that has network connectivi
 
 1. Open an elevated Windows PowerShell session, and run the following command, using the parameters appropriate for your environment:
 
-   ```PowerShell  
+   ```powershell  
     $url = "https://win-SQOOJN70SGL.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml"
     $webclient = New-Object System.Net.WebClient
     $webclient.Encoding = [System.Text.Encoding]::UTF8
@@ -181,7 +181,7 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 1. Open an elevated Windows PowerShell session, and connect to the privileged endpoint.
 
-   ```PowerShell  
+   ```powershell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
@@ -189,13 +189,13 @@ For this procedure, use a computer that can communicate with the privileged endp
 
 2. Now that you're connected to the privileged endpoint, run the following command using the parameters appropriate for your environment:
 
-    ```PowerShell
+    ```powershell
     Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
     ```
 
 3. Run the following command to update the owner of the default provider subscription, using the parameters appropriate for your environment:
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
@@ -245,7 +245,7 @@ If you decide to manually run the commands, follow these steps:
 
 2. Validate that Windows Forms-based authentication for extranet and intranet is enabled. First validate if its already enabled by running the following cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
 
@@ -256,13 +256,13 @@ If you decide to manually run the commands, follow these steps:
 
    **For AD FS 2016**
 
-   ```PowerShell  
+   ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **For AD FS 2012/2012 R2**
 
-   ```PowerShell  
+   ```powershell  
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
@@ -274,7 +274,7 @@ If you decide to manually run the commands, follow these steps:
    > [!note]  
    > This step is not applicable when using Windows Server 2012 or 2012 R2 AD FS. It is safe to skip this command and continue with the integration.
 
-   ```PowerShell  
+   ```powershell  
    Set-AdfsProperties -IgnoreTokenBinding $true
    ```
 
@@ -302,14 +302,14 @@ If an error occurs that leaves the environment in a state where you can no longe
 
 1. Open an elevated Windows PowerShell session and run the following commands:
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Then run the following cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    Reset-DatacenterIntegrationConfiguration
    ```
 
@@ -318,7 +318,7 @@ If an error occurs that leaves the environment in a state where you can no longe
    > [!IMPORTANT]
    > You must configure the original owner of the default provider subscription
 
-   ```PowerShell  
+   ```powershell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "azurestackadmin@[Internal Domain]"
    ```
 
@@ -328,14 +328,14 @@ If any of the cmdlets fail, you can collect additional logs by using the `Get-Az
 
 1. Open an elevated Windows PowerShell session, and run the following commands:
 
-   ```PowerShell  
+   ```powershell  
    $creds = Get-Credential
    Enter-pssession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
 2. Then, run the following cmdlet:
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureStackLog -OutputPath \\myworstation\AzureStackLogs -FilterByRole ECE
    ```
 

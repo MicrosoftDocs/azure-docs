@@ -54,6 +54,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Clear all other fields.
 
 3. Select **Download**. You get a .zip file with the data fields you selected.

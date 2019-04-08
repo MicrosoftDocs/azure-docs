@@ -2,7 +2,7 @@
 title: Create a Kubernetes cluster with Application Gateway as ingress controller with Azure Kubernetes Service (AKS)
 description: Tutorial illustrating how to create a Kubernetes Cluster with Azure Kubernetes Service with Application Gateway as ingress controller
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, azure, kubernetes, ingress, application gateway
 author: tomarcher
 manager: jeconnoc
@@ -31,16 +31,16 @@ In this tutorial, you learn how to perform the following tasks in creating a [Ku
 - **Configure Terraform**: Follow the directions in the article, [Terraform and configure access to Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the appId, displayName, and password.
-    - Note the Object ID of the Service Principal by running the following command
+  - Note the Object ID of the Service Principal by running the following command
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## Create the directory structure
 The first step is to create the directory that holds your Terraform configuration files for the exercise.
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 
@@ -94,8 +94,8 @@ Create the Terraform configuration file that declares the Azure provider.
     ```bash
     :wq
     ```
-## Define input variables
-Create the Terraform configuration file that lists all the variables required for this deployment
+   ## Define input variables
+   Create the Terraform configuration file that lists all the variables required for this deployment
 1. In Cloud Shell, create a file named `variables.tf`
     ```bash
     vi variables.tf

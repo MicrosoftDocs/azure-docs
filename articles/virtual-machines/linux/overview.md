@@ -55,7 +55,7 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by Red Hat do not currently have cloud-init installed.  To use cloud-init on a Red Hat family OS, you must create a custom image with cloud-init installed.
+Azure is rolling out support for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by Red Hat do not currently have cloud-init installed.  To use cloud-init on a Red Hat family OS, you must create a custom image with cloud-init installed.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 

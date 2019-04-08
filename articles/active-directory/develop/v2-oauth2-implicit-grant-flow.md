@@ -51,7 +51,7 @@ The following diagram shows what the entire implicit sign-in flow looks like and
 To initially sign the user into your app, you can send an [OpenID Connect](v2-protocols-oidc.md) authorization request and get an `id_token` from the v2.0 endpoint.
 
 > [!IMPORTANT]
-> To successfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **Allow Implicit Flow** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
+> To successfully request an ID token, the app registration in the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page must have the implicit grant flow enabled correctly, by selecting **Access tokens** and **ID tokens** under the **Implicit grant** section. If it is not enabled, an `unsupported_response` error will be returned: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'**
 
 ```
 // Line breaks for legibility only
@@ -73,7 +73,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parameter |  | Description |
 | --- | --- | --- |
 | `tenant` | required |The `{tenant}` value in the path of the request can be used to control who can sign into the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more detail, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | required |The Application Id that the registration portal ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) assigned your app. |
+| `client_id` | required |The Application (client) ID that the [Azure portal - App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page assigned to your app. |
 | `response_type` | required |Must include `id_token` for OpenID Connect sign-in. It may also include the response_type `token`. Using `token` here will allow your app to receive an access token immediately from the authorize endpoint without having to make a second request to the authorize endpoint. If you use the `token` response_type, the `scope` parameter must contain a scope indicating which resource to issue the token for. |
 | `redirect_uri` | recommended |The redirect_uri of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect_uris you registered in the portal, except it must be url encoded. |
 | `scope` | required |A space-separated list of [scopes](v2-permissions-and-consent.md). For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. Optionally you may also want to include the `email` or `profile` scopes for gaining access to additional user data. You may also include other scopes in this request for requesting consent to various resources. |
@@ -130,7 +130,7 @@ error=access_denied
 
 Just receiving an id_token is not sufficient to authenticate the user; you must also validate the id_token's signature and verify the claims in the token based on your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-an-idtoken) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
+You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-an-id_token) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
 

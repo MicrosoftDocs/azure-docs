@@ -1,18 +1,18 @@
 ---
 title: Service Map integration with System Center Operations Manager | Microsoft Docs
 description: Service Map is a solution in Azure that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article discusses using Service Map to automatically create distributed application diagrams in Operations Manager.
-services: monitoring
+services: azure-monitor
 documentationcenter: ''
-author: daveirwin1
-manager: jwhit
+author: mgoedtel
+manager: carmonm
 editor: tysonn
 ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
-ms.service: monitoring
+ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2017
-ms.author: bwren
+ms.author: magoedte
 ---
 
 # Service Map integration with System Center Operations Manager
@@ -62,11 +62,11 @@ To configure Service Map integration, do the following:
 
     For the integration to build a distributed application diagram for a server, the server must be:
 
-    * Managed by Operations Manager
-    * Managed by Service Map
-    * Listed in the Service Map Servers Group
+   * Managed by Operations Manager
+   * Managed by Service Map
+   * Listed in the Service Map Servers Group
 
-    ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
+     ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
 
 6. Optional: Select the Management Server resource pool to communicate with Log Analytics, and then click **Add Workspace**.
 

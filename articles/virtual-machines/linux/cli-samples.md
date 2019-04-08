@@ -34,7 +34,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 | [Create a VM from a managed OS disk](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine by attaching an existing Managed Disk as OS disk. |
 | [Create a VM from a snapshot](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine from a snapshot by first creating a managed disk from snapshot and then attaching the new managed disk as OS disk. |
 |**Manage storage**||
-| [Create managed disk from a VHD](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a managed disk from a specialized VHD as a OS disk or from a data VHD as data disk.  |
+| [Create managed disk from a VHD](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a managed disk from a specialized VHD as an OS disk or from a data VHD as data disk.  |
 | [Create a managed disk from a snapshot](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a managed disk from a snapshot. |
 | [Copy managed disk to same or different subscription](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Copies managed disk to same or different subscription but in the same region as the parent managed disk. 
 | [Export a snapshot as VHD to a storage account](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Exports a managed snapshot as VHD to a storage account in different region. |
@@ -45,7 +45,7 @@ The following table includes links to bash scripts built using the Azure CLI.
 |**Secure virtual machines**||
 | [Encrypt a VM and data disks](./../scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates an Azure Key Vault, encryption key, and service principal, then encrypts a VM. |
 |**Monitor virtual machines**||
-| [Monitor a VM with Azure Log Analytics](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in an Log Analytics workspace.  |
+| [Monitor a VM with Azure Monitor logs](./../scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a virtual machine, installs the Log Analytics agent, and enrolls the VM in an Log Analytics workspace.  |
 |**Troubleshoot virtual machines**||
 | [Troubleshoot a VMs operating system disk](./../scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Mounts the operating system disk from one VM as a data disk on a second VM. |
 | | |

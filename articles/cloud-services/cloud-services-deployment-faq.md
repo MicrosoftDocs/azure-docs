@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deployment issues for Microsoft Azure Cloud Services FAQ| Microsoft Docs
 description: This article lists the frequently asked questions about deployment for Microsoft Azure Cloud Services.
 services: cloud-services
@@ -49,7 +49,7 @@ For help mitigating such allocation failures, see [Cloud Service allocation fail
 To check the sizes available in your region, see [Microsoft Azure: Products available by region](https://azure.microsoft.com/regions/services).
 
 ## Why does deploying a cloud service sometime fail due to limits/quotas/constraints on my subscription or service?
-Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. For more information, see [Cloud Services limits](../azure-subscription-service-limits.md#cloud-services-limits).
+Deployment of a cloud service may fail if the resources that are required to be allocated exceed the default or maximum quota allowed for your service at the region/datacenter level. For more information, see [Cloud Services limits](../azure-subscription-service-limits.md#azure-cloud-services-limits).
 
 You could also track the current usage/quota for your subscription at the portal: Azure portal => Subscriptions => \<appropriate subscription> => “Usage + quota”.
 
@@ -63,11 +63,11 @@ For more information, see [How to update a cloud service](cloud-services-update-
 ## Why am I not able to deploy Cloud Services through Service Management APIs or PowerShell when using Azure Resource Manager Storage account? 
 
 Since the Cloud Service is a Classic resource which is not directly compatible with the Azure Resource Manager model, you can't associate it with the Azure Resource Manager Storage accounts. Here are few options: 
- 
+ 
 - Deploying through REST API.
 
-    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](https://msdn.microsoft.com/library/azure/ee460813.aspx).
-  
+    When you deploy through Service Management REST API, you could get around the limitation by specifying a SAS URL to the blob storage, which will work with both Classic and Azure Resource Manager Storage account. Read more about the 'PackageUrl' property [here](/previous-versions/azure/reference/ee460813(v=azure.100)).
+  
 - Deploying through [Azure portal](https://portal.azure.com).
 
     This will work from the [Azure portal](https://portal.azure.com) as the call goes through a proxy/shim which allows communication between Azure Resource Manager and Classic resources. 

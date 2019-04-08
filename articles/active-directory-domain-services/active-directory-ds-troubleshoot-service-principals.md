@@ -37,7 +37,7 @@ Use the following steps to determine which service principals need to be recreat
 3. Using the following table, search for each application ID by pasting the ID into the search box and pressing enter. If the search results are empty, you must recreate the service principal by following the steps in the "resolution" column.
 
 | Application ID | Resolution |
-| :--- | :--- | :--- |
+| :--- | :--- |
 | 2565bd9d-da50-47d4-8b85-4c97f669dc36 | [Recreate a missing service principal with PowerShell](#recreate-a-missing-service-principal-with-powershell) |
 | 443155a6-77f3-45e3-882b-22b3a8d431fb | [Re-register to the Microsoft.AAD namespace](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |
 | abba844e-bc0e-44b0-947a-dc74e5d09022  | [Re-register to the Microsoft.AAD namespace](#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal) |

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/20/2019
 ms.author: juliako;johndeu;anilmur
 
 ---
@@ -34,8 +34,6 @@ This tool can also be used to modify any of our [published workflows](media-serv
 
 > [!NOTE]
 > To get your copy of the Workflow Designer tool, please contact mepd@microsoft.com.
-> 
-> 
 
 Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files. For information on how to encode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 

@@ -67,7 +67,7 @@ The following data collection methods are supported by Azure Sentinel:
     
 ## Agent connection options<a name="agent-options"></a>
 
-To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploly the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
+To connect your external appliance to Azure Sentinel, the agent must be deployed on a dedicated machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM you are creating in Azure. 
 
 
 ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)

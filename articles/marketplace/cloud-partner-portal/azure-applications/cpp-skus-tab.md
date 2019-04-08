@@ -21,8 +21,8 @@ ms.author: pbutlerm
 
 This article describes how to use the SKUs tab to create SKUs for your Azure application. 
 
->[!IMPORTANT] 
-The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
+> [!IMPORTANT]
+> The steps for configuring a SKU are different for a Managed application offer and a Solution template offer. These differences are documented in this article. 
 
 ## Configure Azure application SKUs
 
@@ -131,7 +131,7 @@ For a managed application you must configure Authorization and Policy Settings.
 
 #### Authorization
 
-Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be a Owner, Contributor or any custom role.
+Add the Azure Active Directory Identifier of user, group or application to which you want to grant the permission to the managed resource group. The permission that is granted is indicated by the role definition Id. It could be an Owner, Contributor or any custom role.
 
 #### Policy Settings
 

@@ -58,12 +58,12 @@ To complete this project, you'll need:
 We add a minimal UI to our scene, consisting of a button to trigger speech recognition and a text field to display the result.
 
 * In the [Hierarchy Window](https://docs.unity3d.com/Manual/Hierarchy.html) (by default on the left), a sample scene is shown that Unity created with the new project.
-* Click the **Create** button at the top of the Hierachy Window, and select **UI** > **Button**.
+* Click the **Create** button at the top of the Hierarchy Window, and select **UI** > **Button**.
 * This creates three game objects that you can see in the Hierarchy Window: a **Button** object nested within a **Canvas** object, and an **EventSystem** object.
-* [Navigate the Scene View](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you a good view of the canvas and the button in the [Scene View](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
+* [Navigate the Scene View](https://docs.unity3d.com/Manual/SceneViewNavigation.html) so you have a good view of the canvas and the button in the [Scene View](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Click the **Button** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0**, so the button is centered in the middle of the canvas.
-* Click the **Create** button at the top of the Hierachy Window again, and select **UI** > **Text** to create a text field.
+* Click the **Create** button at the top of the Hierarchy Window again, and select **UI** > **Text** to create a text field.
 * Click the **Text** object in the Hierarchy Window to display its settings in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
 * Set the **Pos X** and **Pos Y** properties to **0** and **120**, and set the **Width** and **Height** properties to **240** and **120** to ensure that the text field and the button do not overlap.
 
@@ -77,14 +77,14 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Edit the script by double-clicking it.
 
-  > [!NOTE]
-  > You can configure which code editor will be launched under **Edit** > **Preferences**, see the [Unity User Manual](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > You can configure which code editor will be launched under **Edit** > **Preferences**, see the [Unity User Manual](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Replace all code with the following:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech Service subscription key.
+1. Locate and replace the string `YourSubscriptionKey` with your Speech Services subscription key.
 
 1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
@@ -92,21 +92,21 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Back in the Unity Editor, the script needs to be added as a component to one of your game objects.
 
-  * Click on the **Canvas** object in the Hierarchy Window. This opens up its setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-  * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
-  * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
-    To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
+   * Click on the **Canvas** object in the Hierarchy Window. This opens up the setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+   * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
+   * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
+     To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
 
-    > [!NOTE]
-    > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
-    > rename one of the text objects using the Name field in the Inspector
-    > Window to avoid that confusion).
+     > [!NOTE]
+     > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
+     > rename one of the text objects using the Name field in the Inspector
+     > Window to avoid that confusion).
 
 ## Run the application in the Unity Editor
 
 * Press the **Play** button in the Unity Editor toolbar (below the menu bar).
 
-* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
+* After the app launches, click the button and speak an English phrase or sentence into your computer's microphone. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the window.
 
   [![Screenshot of the running quickstart in the Unity Game Window](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

@@ -60,7 +60,7 @@ The following JSON shows the schema for the Application Health extension. The ex
 ### Property values
 
 | Name | Value / Example | Data Type
-| ---- | ---- | ---- | ----
+| ---- | ---- | ---- 
 | apiVersion | `2018-10-01` | date |
 | publisher | `Microsoft.ManagedServices` | string |
 | type | `ApplicationHealthLinux` (Linux), `ApplicationHealthWindows` (Windows) | string |

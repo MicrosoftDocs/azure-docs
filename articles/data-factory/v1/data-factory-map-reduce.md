@@ -107,8 +107,8 @@ In the JSON definition for the HDInsight Activity:
             "end": "2017-01-04T00:00:00Z"
         }
     }
-	```
-You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
+    ```
+   You can use the HDInsight MapReduce Activity to run any MapReduce jar file on an HDInsight cluster. In the following sample JSON definition of a pipeline, the HDInsight Activity is configured to run a Mahout JAR file.
 
 ## Sample on GitHub
 You can download a sample for using the HDInsight MapReduce Activity from: [Data Factory Samples on GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/JSON/MapReduce_Activity_Sample).  
@@ -234,15 +234,15 @@ The pipeline in this example has only one activity that is of type: HDInsightMap
 ## Run Spark programs
 You can use MapReduce activity to run Spark programs on your HDInsight Spark cluster. See [Invoke Spark programs from Azure Data Factory](data-factory-spark.md) for details.  
 
-[developer-reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[cmdlet-reference]: http://go.microsoft.com/fwlink/?LinkId=517456
+[developer-reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[cmdlet-reference]: https://go.microsoft.com/fwlink/?LinkId=517456
 
 
 [adfgetstarted]: data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
 [adfgetstartedmonitoring]:data-factory-copy-data-from-azure-blob-storage-to-sql-database.md#monitor-pipelines 
 
-[Developer Reference]: http://go.microsoft.com/fwlink/?LinkId=516908
-[Azure Portal]: http://portal.azure.com
+[Developer Reference]: https://go.microsoft.com/fwlink/?LinkId=516908
+[Azure Portal]: https://portal.azure.com
 
 ## See Also
 * [Hive Activity](data-factory-hive-activity.md)

@@ -24,7 +24,7 @@ Azure Marketplace SEO Publisher Guide
 ### General explanation of algorithm
 
 The marketplace utilizes Azure Search for powering the site's search
-capabilities. The algorithm is based on term frequency–inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). The standard [Lucene Analyzer](http://lucene.apache.org/core/) is used.
+capabilities. The algorithm is based on term frequency–inverse document frequency ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). The standard [Lucene Analyzer](https://lucene.apache.org/core/) is used.
 
 In general, all text fields, categories, and industries and included
 into the weightage of the relevance. Specialized terms that are used

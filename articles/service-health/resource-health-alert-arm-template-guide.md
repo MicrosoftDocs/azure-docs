@@ -15,30 +15,35 @@ This article will show you how to create Resource Health Activity Log Alerts pro
 
 Azure Resource Health keeps you informed about the current and historical health status of your Azure resources. Azure Resource Health alerts can notify you in near real-time when these resources have a change in their health status. Creating Resource Health alerts programmatically allow for users to create and customize alerts in bulk.
 
+> [!NOTE]
+> Resource Health alerts are currently in preview.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To follow the instructions on this page, you'll need to set up a few things in advance:
 
-1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. You need to install the [Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. You need to [create or reuse an Action Group](../azure-monitor/platform/action-groups.md) configured to notify you
 
 ## Instructions
 1. Using PowerShell, log in to Azure using your account, and select the subscription you want to interact with
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > You can use `Get-AzureRmSubscription` to list the subscriptions you have access to.
+    > You can use `Get-AzSubscription` to list the subscriptions you have access to.
 
 2. Find and save the full Azure Resource Manager ID for your Action Group
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Create and save a Resource Manager template for Resource Health alerts as `resourcehealthalert.json` ([see details below](#resource-manager-template-for-resource-health-alerts))
 
 4. Create a new Azure Resource Manager deployment using this template
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. You'll be prompted to type in the Alert Name and Action Group Resource ID you copied earlier:
 

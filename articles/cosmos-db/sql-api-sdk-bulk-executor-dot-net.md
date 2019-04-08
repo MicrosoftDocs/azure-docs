@@ -32,7 +32,7 @@ ms.author: ramkris
 | **Description**| The Bulk Executor library allows client applications to perform bulk operations on Azure Cosmos DB accounts. Bulk Executor library provides BulkImport, BulkUpdate, and BulkDelete namespaces. The BulkImport module can bulk ingest documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent. The BulkUpdate module can bulk update existing data in Azure Cosmos DB containers as patches. The BulkDelete module can bulk delete documents in an optimized way such that the throughput provisioned for a collection is consumed to its maximum extent.|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **BulkExecutor library in GitHub**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
-|**API documentation**|[.Net API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
+|**API documentation**|[.NET API reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
 |**Get started**|[Get started with the Bulk Executor library .NET SDK](bulk-executor-dot-net.md)|
 | **Current supported framework**| Microsoft .NET Framework 4.5.2, 4.6.1 and .NET Standard 2.0 |
 

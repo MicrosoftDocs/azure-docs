@@ -12,8 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: 
-ms.date: 02/22/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
+ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
 
 # Intent: As a cloud operator, I want to understand where to find information about operation status of storage resources and resolve issues in order to maintain continuity of service for the users that I support.
@@ -31,7 +32,7 @@ This article describes the health and operational status of Azure Stack storage 
 
 ### Drives
 
-Azure Stack powered by Windows Server software defined storage capabilities, with a combination of Storage Spaces Direct (S2D) and Windows Server Failover Clustering, to provide a performant, scalable and resilient storage service.
+Powered by Windows Server software, Azure Stack defines storage capabilities with a combination of Storage Spaces Direct (S2D) and Windows Server Failover Clustering to provide a performant, scalable, and resilient storage service.
 
 Azure Stack integrated system partners offer numerous solution variations, including a wide range of storage flexibility. You currently can select a combination of three drive types: NVMe (Non-Volatile Memory Express), SATA/SAS SSD (Solid-State Drive), HDD (Hard Disk Drive).
 

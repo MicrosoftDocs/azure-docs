@@ -83,12 +83,12 @@ gem install 'azure_sdk'
 In order to use the Ruby Azure SDK with Azure Stack, you must supply the following values, and then set the values with environment variables. See the instructions after the table for your operating system on setting the environmental variables.
 
 | Value | Environment variables | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | Tenant ID | AZURE_TENANT_ID | The value of your Azure Stack [tenant ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-identity-overview). |
 | Client ID | AZURE_CLIENT_ID | The service principal application ID saved when service principal was created on the previous section of this document.  |
 | Subscription ID | AZURE_SUBSCRIPTION_ID | The [subscription ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) is how you access offers in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | The service principal application Secret saved when service principal was created. |
-| Resource Manager Endpoint | ARM_ENDPOINT | See [The Azure Stack resource manager endpoint](#The-azure-stack-resource-manager-endpoint).  |
+| Resource Manager Endpoint | ARM_ENDPOINT | See [The Azure Stack resource manager endpoint](#the-azure-stack-resource-manager-endpoint).  |
 
 ### The Azure Stack resource manager endpoint
 

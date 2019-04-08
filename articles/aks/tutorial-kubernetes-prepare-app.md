@@ -87,7 +87,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-To see the running application, enter http://localhost:8080 in a local web browser. The sample application loads, as shown in the following example:
+To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

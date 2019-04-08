@@ -1,14 +1,14 @@
 ---
-title: What is Azure SignalR
-description: An overview of the Azure SignalR service.
+title: What is Azure SignalR Service?
+description: An overview of the Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-ms.date: 09/13/2018
+ms.date: 03/01/2019
 ms.author: zhshang
 ---
 
-# What is Azure SignalR Service
+# What is Azure SignalR Service?
 
 Azure SignalR Service simplifies the process of adding real-time web functionality to applications over HTTP. This real-time functionality allows the service to push content updates to connected clients, such as a single page web or mobile application. As a result, clients are updated without the need to poll the server, or submit new HTTP requests for updates.
 
@@ -31,6 +31,6 @@ In addition, SignalR provides a programming model for real-time applications tha
 
 Currently there are three ways to use Azure SignalR Service:
 
-- **[Scale an ASP.NET Core SignalR App](signalr-overview-scale-aspnet-core.md)** - Integrate Azure SignalR Service with an ASP.NET Core SignalR application to scale out to hundreds of thousands of connections.
-- **[Build serverless real-time apps](signalr-overview-azure-functions.md)** - Use Azure Functions' integration with Azure SignalR Service to build serverless real-time applications in languages such as JavaScript, C#, and Java.
+- **[Scale an ASP.NET Core SignalR App](signalr-concept-scale-aspnet-core.md)** - Integrate Azure SignalR Service with an ASP.NET Core SignalR application to scale out to hundreds of thousands of connections.
+- **[Build serverless real-time apps](signalr-concept-azure-functions.md)** - Use Azure Functions' integration with Azure SignalR Service to build serverless real-time applications in languages such as JavaScript, C#, and Java.
 - **[Send messages from server to clients via REST API](https://github.com/Azure/azure-signalr/blob/dev/docs/rest-api.md)** - Azure SignalR Service provides REST API to enable applications to post messages to clients connected with SignalR Service, in any REST capable programming languages.

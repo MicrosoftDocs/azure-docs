@@ -68,7 +68,7 @@ This second section is divided in three subsections: **Logos**, **Screenshot**, 
 
 ### Logo guidelines
 
-<!-- TD: It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- TD: It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 All the logos uploaded to the Cloud Partner Portal should follow the guidelines:

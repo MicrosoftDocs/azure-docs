@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 	> [!NOTE]
 	> This Identifier value is not real. Update this value with the actual Identifier. If you have Service Provider Metadata, upload it in the **Basic SAML Configuration** section then the **Identifier (Entity ID)** value gets auto populated automatically.
 
-5. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
+5. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
 	![image](common/edit-attribute.png)
 
@@ -190,7 +190,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -243,7 +243,7 @@ In this section, you create a user called Britta Simon in Cisco Webex. In this s
 
 	b. In the **Last Name** textbox, type last name of user like **Simon**.
 
-	c. In the **Email address** textbox, type email address of user like **britta.simon@contoso.com**.
+	c. In the **Email address** textbox, type email address of user like **britta.simon\@contoso.com**.
 
 5. Click the plus sign to add Britta Simon. Then, click **Next**.
 
@@ -257,9 +257,9 @@ When you click the Cisco Webex tile in the Access Panel, you should be automatic
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

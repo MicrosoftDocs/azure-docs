@@ -42,6 +42,16 @@ In the FTP dashboard, click **Copy** to copy the FTPS endpoint and app credentia
 
 It's recommended that you use **App Credentials** to deploy to your app because it's unique to each app. However, if you click **User Credentials**, you can set user-level credentials that you can use for FTP/S login to all App Service apps in your subscription.
 
+> [!NOTE]
+> Authenticating to an FTP/FTPS endpoint using user-level credentials requirers
+> a username in the following format: 
+>
+>`<app-name>\<user-name>`
+>
+> Since user-level credentials are linked to the user and not a specific resource,
+> the username must be in this format to direct the sign-in action to the right app endpoint.
+>
+
 ## Deploy files to Azure
 
 1. From your FTP client (for example, [Visual Studio](https://www.visualstudio.com/vs/community/), [Cyberduck](https://cyberduck.io/), or [WinSCP](https://winscp.net/index.php)), use the connection information you gathered to connect to your app.
@@ -56,7 +66,6 @@ It's recommended that you use **App Credentials** to deploy to your app because 
 > - generation of web.config (here is a [Node.js example](https://github.com/projectkudu/kudu/wiki/Using-a-custom-web.config-for-Node-apps))
 > 
 > Generate these necessary files manually on your local machine, and then deploy them together with your app.
->
 >
 
 ## Enforce FTPS

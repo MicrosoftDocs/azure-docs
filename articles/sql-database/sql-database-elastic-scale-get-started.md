@@ -22,7 +22,7 @@ This document introduces you to the developer experience for the [elastic databa
 ### Prerequisites
 
 * A Java Developer Kit (JDK), version 1.8 or later
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * A SQL Database server in Azure or a local SQL Server instance
 
 ### Download and run the sample app
@@ -68,7 +68,7 @@ To add the client library to your own Maven project, add the following dependenc
 ### Prerequisites
 
 * Visual Studio 2012 or later with C#. Download a free version at [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 or later. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
+* NuGet 2.7 or later. To get the latest version, see [Installing NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### Download and run the sample app
 
@@ -126,7 +126,7 @@ For more information about Elastic Database Tools, see the following articles:
   * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)
-* Channel 9: [Elastic Scale overview video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Channel 9: [Elastic Scale overview video](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
 

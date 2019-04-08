@@ -1,32 +1,33 @@
 ---
-title: Azure SQL Database Managed Instance T-SQL Differences | Microsoft Docs
+title: Azure SQL Database-Managed Instance T-SQL Differences | Microsoft Docs
 description: This article discusses the T-SQL differences between a Managed Instance in Azure SQL Database and SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 02/20/2019
+ms.date: 03/13/2019
+ms.custom: seoapril2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
 
-The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
+This article summarizes and explains the differences in syntax and behavior between Azure SQL Database Managed Instance and on-premises SQL Server Database Engine. <a name="Differences"></a>
 
-![migration](./media/sql-database-managed-instance/migration.png)
-
-Since there are still some differences in syntax and behavior, this article summarizes and explains these differences. <a name="Differences"></a>
 - [Availability](#availability) including the differences in [Always-On](#always-on-availability) and [Backups](#backup),
 - [Security](#security) including the differences in [Auditing](#auditing), [Certificates](#certificates), [Credentials](#credential), [Cryptographic providers](#cryptographic-providers), [Logins / users](#logins--users), [Service key and service master key](#service-key-and-service-master-key),
 - [Configuration](#configuration) including the differences in [Buffer pool extension](#buffer-pool-extension), [Collation](#collation), [Compatibility levels](#compatibility-levels),[Database mirroring](#database-mirroring), [Database options](#database-options), [SQL Server Agent](#sql-server-agent), [Table options](#tables),
 - [Functionalities](#functionalities) including [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Distributed transactions](#distributed-transactions), [Extended events](#extended-events), [External libraries](#external-libraries), [Filestream and Filetable](#filestream-and-filetable), [Full-text Semantic Search](#full-text-semantic-search), [Linked servers](#linked-servers), [Polybase](#polybase), [Replication](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Stored procedures, functions, and triggers](#stored-procedures-functions-triggers),
 - [Features that have different behavior in Managed Instances](#Changes)
 - [Temporary limitations and known issues](#Issues)
+
+The Managed Instance deployment option provides high compatibility with on-premises SQL Server Database Engine. Most of the SQL Server database engine features are supported in a Managed Instance.
+
+![migration](./media/sql-database-managed-instance/migration.png)
 
 ## Availability
 
@@ -56,10 +57,16 @@ Managed instances have automatic backups, and enable users to create full databa
 Limitations:  
 
 - With a Managed Instance, you can back up an instance database to a backup with up to 32 stripes, which is enough for the databases up to 4 TB if backup compression is used.
-- Max backup stripe size is 195 GB (maximum blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
+- Max backup stripe size using the `BACKUP` command in a managed instance is 195 GB (maximum blob size). Increase the number of stripes in the backup command to reduce individual stripe size and stay within this limit.
 
-> [!TIP]
-> To work around this limitation on-premises, backup to `DISK` instead of backup to `URL`, upload backup file to blob, then restore. Restore supports bigger files because a different blob type is used.  
+    > [!TIP]
+    > To work around this limitation when backing up a database from either SQL Server in an on-premises environment or in a virtual machine, you can do the following:
+    >
+    > - Backup to `DISK` instead of backup to `URL`
+    > - Upload the backup files to Blob storage
+    > - Restore into the managed instance
+    >
+    > The `Restore` command in a managed instances supports bigger blob sizes in the backup files because a different blob type is used for storage of the uploaded backup files.
 
 For information about backups using T-SQL, see [BACKUP](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -120,44 +127,51 @@ A Managed Instance can't access files so cryptographic providers can't be create
 
 - SQL logins created `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD) server principals (logins) created with [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (**public preview**). These are logins created at the server level.
-    - Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This is also known as Azure AD contained database users.
+
+    Managed Instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This is also known as Azure AD contained database users.
+
 - Windows logins created with `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
 - Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
 - Non-administrator Azure Active Directory (Azure AD) database-level users can be created using `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. See [CREATE USER ... FROM EXTERNAL PROVIDER](sql-database-manage-logins.md#non-administrator-users).
 - Azure AD server principals (logins) support SQL features within one MI instance only. Features that require cross-instance interaction, regardless if within the same Azure AD tenant or different tenant are not supported for Azure AD users. Examples of such features are:
-    - SQL Transactional Replication and
-    - Link Server
+
+  - SQL Transactional Replication and
+  - Link Server
+
 - Setting an Azure AD login mapped to an Azure AD group as the database owner isn't supported.
 - Impersonation of Azure AD server-level principals using other Azure AD principals is supported, such as the [EXECUTE AS](/sql/t-sql/statements/execute-as-transact-sql) clause. EXECUTE AS Limitation:
-    - EXECUTE AS USER isn't supported for Azure AD users when the name differs from login name. For example, when the user is created through the syntax CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], and impersonation is attempted through EXEC AS USER = _myAadUser_. When creating a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
-    - Only the SQL server-level principals (logins) that are part of the `sysadmin` role can execute the following operations targeting Azure AD principals: 
-        - EXECUTE AS USER
-        - EXECUTE AS LOGIN
+
+  - EXECUTE AS USER isn't supported for Azure AD users when the name differs from login name. For example, when the user is created through the syntax CREATE USER [myAadUser] FROM LOGIN [john@contoso.com], and impersonation is attempted through EXEC AS USER = _myAadUser_. When creating a **USER** from an Azure AD server principal (login), specify the user_name as the same login_name from **LOGIN**.
+  - Only the SQL server-level principals (logins) that are part of the `sysadmin` role can execute the following operations targeting Azure AD principals:
+
+    - EXECUTE AS USER
+    - EXECUTE AS LOGIN
+
 - **Public preview** limitations for Azure AD server principals (logins):
-    - Active Directory Admin limitations for Managed Instance:
-        - The Azure AD admin used to set up the Managed Instance can't be used to create an Azure AD server principal (login) within the Managed Instance. You must create the first Azure AD server principal (login) using a SQL Server account that is a `sysadmin`. This is a temporary limitation that will be removed once Azure AD server principals (logins) become GA. You'll see the following error if you try to use an Azure AD admin account to create the login: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-        - Currently, the first Azure AD login created in master DB must be created by the standard SQL Server account (non Azure AD) that is a `sysadmin` using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Post GA, this limitation will be removed and an initial Azure AD login can be created by the Active Directory Admin for Managed Instance.
+
+  - Active Directory Admin limitations for Managed Instance:
+
+    - The Azure AD admin used to set up the Managed Instance can't be used to create an Azure AD server principal (login) within the Managed Instance. You must create the first Azure AD server principal (login) using a SQL Server account that is a `sysadmin`. This is a temporary limitation that will be removed once Azure AD server principals (logins) become GA. You'll see the following error if you try to use an Azure AD admin account to create the login: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - Currently, the first Azure AD login created in master DB must be created by the standard SQL Server account (non Azure AD) that is a `sysadmin` using the [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) FROM EXTERNAL PROVIDER. Post GA, this limitation will be removed and an initial Azure AD login can be created by the Active Directory Admin for Managed Instance.
     - DacFx (export/Import) used with SQL Server Management Studio (SSMS) or SqlPackage isn't supported for Azure AD logins. This limitation will be removed once Azure AD server principals (logins) become GA.
     - Using Azure AD server principals (logins) with SSMS
-        - Scripting Azure AD logins (using any authenticated login) isn't supported.
-        - Intellisense doesn't recognize the **CREATE LOGIN FROM EXTERNAL PROVIDER** statement and will show a red underline.
+
+      - Scripting Azure AD logins (using any authenticated login) isn't supported.
+      - Intellisense doesn't recognize the **CREATE LOGIN FROM EXTERNAL PROVIDER** statement and will show a red underline.
+
 - Only the server-level principal login (created by the Managed Instance provisioning process), members of the server roles (`securityadmin` or `sysadmin`), or other logins with ALTER ANY LOGIN permission at the server level can create Azure AD server principals (logins) in the master database for Managed Instance.
 - If the login is a SQL Principal, only logins that are part of the `sysadmin` role can use the create command to create logins for an Azure AD account.
 - Azure AD login must be a member of an Azure AD within the same directory used for Azure SQL Managed Instance.
 - Azure AD server principals (logins) are visible in object explorer staring with SSMS 18.0 preview 5.
 - Overlapping Azure AD server principals (logins) with an Azure AD admin account is allowed. Azure AD server principals (logins) take precedence over Azure AD admin when resolving the principal and applying permissions to the Managed Instance.
 - During authentication, following sequence is applied to resolve the authenticating principal:
+
     1. If the Azure AD account exists as directly mapped to the Azure AD server principal (login) (present in sys.server_principals as type ‘E’), grant access and apply permissions of the Azure AD server principal (login).
     2. If the Azure AD account is a member of an Azure AD group that is mapped to the Azure AD server principal (login) (present in sys.server_principals as type ‘X’), grant access and apply permissions of the Azure AD group login.
     3. If the Azure AD account is a special portal-configured Azure AD admin for Managed Instance (does not exist in Managed Instance system views), apply special fixed permissions of the Azure AD admin for Managed Instance (legacy mode).
     4. If the Azure AD account exists as directly mapped to an Azure AD user in a database (in sys.database_principals as type ‘E’), grant access and apply permissions of the Azure AD database user.
     5. If the Azure AD account is member of an Azure AD group that is mapped to an Azure AD user in a database (in sys.database_principals as type ‘X’), grant access and apply permissions of the Azure AD group login.
     6. If there is an Azure AD login mapped to either an Azure AD user account or an Azure AD group account, resolving to the user authenticating, all permissions from this Azure AD login will be applied.
-
-
-
-
-
 
 ### Service key and service master key
 
@@ -198,7 +212,7 @@ For more information, see [ALTER DATABASE SET PARTNER and SET WITNESS](https://d
 
 - Multiple log files aren't supported.
 - In-memory objects aren't supported in the General Purpose service tier.  
-- There's a limit of 280 files per instance implying max 280 files per database. Both data and log files are counted toward this limit.  
+- There's a limit of 280 files per General Purpose instance implying max 280 files per database. Both data and log files in General Purpose tier are counted toward this limit. [Business Critical tier supports 32,767 files per database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - Database can't contain filegroups containing filestream data.  Restore will fail if .bak contains `FILESTREAM` data.  
 - Every file is placed in Azure Blob storage. IO and throughput per file depend on the size of each individual file.  
 
@@ -269,10 +283,9 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
     - Queue Reader isn't supported.  
     - Command shell is not yet supported.
   - Managed Instances can't access external resources (for example, network shares via robocopy).  
-  - PowerShell is not yet supported.
   - Analysis Services aren't supported.
 - Notifications are partially supported.
-- Email notification is supported, requires configuring a Database Mail profile. There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile` in public preview (temporary limitation).  
+- Email notification is supported, requires configuring a Database Mail profile. SQL Agent can use only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.  
   - Pager isn't supported.  
   - NetSend isn't supported.
   - Alerts are not yet supported.
@@ -313,9 +326,8 @@ A Managed Instance can't access file shares and Windows folders, so the files mu
 A Managed Instance can't access file shares and Windows folders, so the following constraints apply:
 
 - Only `CREATE ASSEMBLY FROM BINARY` is supported. See [CREATE ASSEMBLY FROM BINARY](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).  
-- `CREATE ASSEMBLY FROM FILE` is't supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `CREATE ASSEMBLY FROM FILE` isn't supported. See [CREATE ASSEMBLY FROM FILE](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY` can't reference files. See [ALTER ASSEMBLY](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
-
 
 ### DBCC
 
@@ -414,10 +426,7 @@ Limitations:
 - `.BAK` files containing multiple backup sets can't be restored.
 - `.BAK` files containing multiple log files can't be restored.
 - Restore will fail if .bak contains `FILESTREAM` data.
-- Backups containing databases that have active In-memory objects currently can't be restored.  
-- Backups containing databases where at some point In-Memory objects existed currently can't be restored.
-- Backups containing databases in read-only mode currently can't be restored. This limitation will be removed soon.
-
+- Backups containing databases that have active In-memory objects can't be restored on General Purpose instance.  
 For information about Restore statements, see [RESTORE Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### Service broker
@@ -459,13 +468,19 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-`tempdb` is split into 12 files each with max size 14 GB per file. This maximum size per file can't be changed and new files can be added to `tempdb`. This limitation will be removed soon. Some queries might return an error if  they need more than 168 GB in `tempdb`.
+Max file size of `tempdb` cannot be greater than 24GB/core on General Purpose tier. Max `tempdb` size on Business Critical tier is limited with the instance storage size. `tempdb` is always split into 12 data files. This maximum size per file can't be changed and new files can be added to `tempdb`. Some queries might return an error if  they need more than 24GB / core in `tempdb`.
+
+### Cannot restore contained database
+
+Managed Instance cannot restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases don't work on Managed Instance. This issue will be removed soon and in the meantime we recommend to remove containment option from your databases that are placed on Managed Instance, and do not use containment option for the production databases.
 
 ### Exceeding storage space with small database files
 
-Each Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, and `RESTORE DATABASE` statements might fail because the instance can reach the Azure Storage limit.
 
-For example, a Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
+Each General Purpose Managed Instance has up to 35 TB storage reserved for Azure Premium Disk space, and each database file is placed on a separate physical disk. Disk sizes can be 128 GB, 256 GB, 512 GB, 1 TB, or 4 TB. Unused space on disk is not charged, but the total sum of Azure Premium Disk sizes cannot exceed 35 TB. In some cases, a Managed Instance that does not need 8 TB in total might exceed the 35 TB Azure limit on storage size, due to internal fragmentation.
+
+For example, a General Purpose Managed Instance could have one file 1.2 TB in size that is placed on a 4 TB disk, and 248 files (each 1 GB in size) that are placed on separate 128 GB disks. In this example:
 
 - The total allocated disk storage size is 1 x 4 TB + 248 x 128 GB = 35 TB.
 - The total reserved space for databases on the instance is 1 x 1.2 TB + 248 x 1 GB = 1.4 TB.
@@ -473,6 +488,8 @@ For example, a Managed Instance could have one file 1.2 TB in size that is place
 This illustrates that under certain circumstance, due to a specific distribution of files, a Managed Instance might reach the 35 TB reserved for attached Azure Premium Disk when you might not expect it to.
 
 In this example, existing databases will continue to work and can grow without any problem as long as new files are not added. However new databases could not be created or restored because there is not enough space for new disk drives, even if the total size of all databases does not reach the instance size limit. The error that is returned in that case is not clear.
+
+You can [identify number of remaining files](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) using system views. If you are reaching this limit try to [empty and delete some of the smaller files using DBCC SHRINKFILE statement](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) or switch to [Business Critical tier that don't has this limit](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### Incorrect configuration of SAS key during database restore
 
@@ -490,9 +507,13 @@ SQL Server Management Studio (SSMS) and SQL Server Data Tools (SSDT) might have 
 
 Several system views, performance counters, error messages, XEvents, and error log entries display GUID database identifiers instead of the actual database names. Do not rely on these GUID identifiers because they would be replaced with actual database names in the future.
 
+### Database mail
+
+`@query` parameter in [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedure don't work.
+
 ### Database mail profile
 
-There can be only one database mail profile and it must be called `AzureManagedInstance_dbmail_profile`.
+The database mail profile used by SQL Agent must be called `AzureManagedInstance_dbmail_profile`. There are no restriction regarding other database mail profile names.
 
 ### Error logs are not-persisted
 
@@ -506,7 +527,7 @@ A Managed Instance places verbose information in error logs and many of them are
 
 ### Transaction Scope on two databases within the same instance isn't supported
 
-`TransactionScope` class in .Net doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
+`TransactionScope` class in .NET doesn't work if two queries are sent to the two databases within the same instance under the same transaction scope:
 
 ```C#
 using (var scope = new TransactionScope())
