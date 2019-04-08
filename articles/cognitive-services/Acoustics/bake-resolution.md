@@ -15,9 +15,9 @@ ms.author: KyleStorck
 # Project Acoustics Bake Resolution
 This conceptual overview describes the difference between coarse and fine resolutions while baking acoustics. You choose this setting during the Probes step of the baking workflow.
 
-[Bake Acoustics with Unity](unity-quickstart.md)
+[Bake Acoustics with Unity](unity-baking.md)
 
-[Bake Acoustics with Unreal/Wwise](unreal-quickstart.md)
+[Bake Acoustics with Unreal/Wwise](unreal-baking.md)
 
 # <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs fine resolution
 
