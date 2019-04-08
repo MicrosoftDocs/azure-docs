@@ -23,7 +23,7 @@ Applications acquiring a token for their own identities:
 
 ### Specifics
 
-> [!NOTE]
+> [!IMPORTANT]
 > it’s important to understand that:
 >
 > - user interaction is not possible with a daemon application, which requires the application to have its own identity. This type of application requests an access token by using its application identity and presenting its  Application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform endpoint, which is then used to call the web API (and is refreshed as needed)
@@ -155,9 +155,6 @@ The scope to request for a client credential flow is the name of the resource fo
 ```CSharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
-
-var result = app.AcquireTokenForClient(scopes)
-                .ExecuteAsync();
 ```
 
 # [Python](#tab/python)
@@ -179,7 +176,7 @@ The scope used for client credentials should always be resourceId+"/.default"
 
 ___
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. 
 > Therefore if, like Azure SQL (**https://database.windows.net**) the resource expects an audience ending with a slash (for Azure SQL: `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default` (note the double slash). See also MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure.
 
@@ -264,6 +261,10 @@ For more details see the protocol documentation: [Azure Active Directory v2.0 an
 ___
 
 ## Troubleshooting
+
+### Did you use the resource/.default scope?
+
+If you get an error message telling you that you used an invalid scope this is probably because you did not use the resource/.default scope.
 
 ### Did you forget to provide admin consent? This is needed for daemon apps
 
