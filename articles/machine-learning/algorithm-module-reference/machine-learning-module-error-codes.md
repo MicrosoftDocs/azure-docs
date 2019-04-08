@@ -12,7 +12,7 @@ ms.author: amlstudiodocs
 ms.date: 04/22/2019
 ROBOTS: NOINDEX
 ---
-# Troubleshoot module exceptions in Azure Machine Learning using error codes
+# Exceptions and error codes for Algorithm & Module Reference
 
 Learn about the error messages and exception codes you might encounter using  modules in Azure Machine Learning Studio. 
 
