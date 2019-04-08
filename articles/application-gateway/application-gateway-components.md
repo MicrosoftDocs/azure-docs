@@ -1,6 +1,6 @@
 ---
-title: Learn about Azure Application Gateway components
-description: This article provides information about Application Gateway components
+title: Application gateway components
+description: This article provides information about the various application gateway components
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: absha
 ---
 
-# Learn about Azure Application Gateway components
+# Application gateway components
 
- An Azure application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools. These include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
+ An application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools, which include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
 
-![application-gateway-components](./media/application-gateway-components/application-gateway-components.png)
+![The components used in an application gateway](./media/application-gateway-components/application-gateway-components.png)
 
 ## Frontend IP addresses
 
@@ -21,7 +21,7 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 ### Static versus dynamic public IP address
 
-Application Gateway V2 SKU supports both static internal and static public IP addresses, while the V1 SKU supports only static internal IP addresses. The VIP can change if an application gateway is stopped and started.
+The Application Gateway v2 SKU supports both static internal and static public IP addresses, although the v1 SKU supports only static internal IP addresses. The virtual IP (VIP) address can change if an application gateway is stopped and started.
 
 The DNS name associated with an application gateway doesn't change over the lifecycle of the gateway. As a result, you should use a CNAME alias and point it to the DNS address of the application gateway.
 
@@ -33,17 +33,17 @@ Before you use an application gateway, you must add at least one listener. There
 
 After a listener detects incoming requests from clients, the application gateway routes these requests to members in the backend pool. The application gateway uses the request routing rules defined for the listener that received the incoming request.
 
-Listeners support the following ports and protocols:
+Listeners support the following ports and protocols.
 
 ### Ports
 
-A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for V1 SKU and 1 to 65199 for V2 SKU.
+A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for v1 SKU and 1 to 65199 for v2 SKU.
 
 ### Protocols
 
-Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket.
+Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
 
-- Specify between the HTTP and HTTPS protocols in the listener configuration. 
+- Specify between the HTTP and HTTPS protocols in the listener configuration.
 - Support for [WebSockets and HTTP/2 protocols](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) is provided natively, and [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 - HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
@@ -55,7 +55,7 @@ Application Gateway lets you create custom error pages instead of displaying def
 
 For more information, see [Custom error pages for your application gateway](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
-### Listener types
+### Types of listeners
 
 There are two types of listeners:
 
@@ -93,7 +93,7 @@ For more information, see [Redirect traffic on your application gateway](https:/
 
 ### Rewrite HTTP headers
 
-By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers while the request and response packets move between the client and backend pools via the application gateway. 
+By using the request routing rules, you can add, remove, or update HTTP(S) request and response headers as the request and response packets move between the client and backend pools via the application gateway.
 
 The headers can be set to static values or to other headers and server variables. This helps with important use cases, such as extracting client IP addresses, removing sensitive information about the backend, adding more security, and so on.
 
@@ -115,7 +115,7 @@ This component is also used to:
 
 ## Backend pools
 
-A backend pool routes request to backend servers, which serve the request. Backend pools can be composed of:
+A backend pool routes request to backend servers, which serve the request. Backend pools can contain:
 
 - NICs
 - Virtual machine scale sets
@@ -126,17 +126,17 @@ A backend pool routes request to backend servers, which serve the request. Backe
 
 Application Gateway backend pool members aren't tied to an availability set. Application Gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there's IP connectivity.
 
-If you use internal IPs as backend pool members, you must use [VNet Peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). VNet peering is supported and beneficial for load-balancing traffic in other virtual networks.
+If you use internal IPs as backend pool members, you must use [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
-An application gateway can also communicate with to on-premises servers when they're connected by ExpressRoute or VPN tunnels if traffic is allowed.
+An application gateway can also communicate with to on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
 
 ## Health probes
 
-By default, Application Gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool once they become available and respond to health probes.
+By default, Application Gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
-In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. Best practice is to configure custom probes to monitor the health of each backend pool.
+In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. We recommend that you configure custom probes to monitor the health of each backend pool.
 
 For more information, see [Monitor the health of your application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
