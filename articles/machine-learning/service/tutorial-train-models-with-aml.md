@@ -42,31 +42,29 @@ Skip to [Set up your development environment](#start) to read through the notebo
 * A Python 3.6 notebook server with the following installed:
     * The Azure Machine Learning SDK for Python
     * `matplotlib` and `scikit-learn`
-* The tutorial notebook and the file utils.py
-* A machine learning workspace 
-* The configuration file for the workspace in the same directory as the notebook 
+* The tutorial notebook and the file **utils.py**
+* A machine learning workspace
+* The configuration file for the workspace in the same directory as the notebook
 
 Get all these prerequisites from either of the sections below.
  
-* Use [Azure Notebooks](#azure) 
+* Use a [cloud notebook server in your workspace](#azure) 
 * Use [your own notebook server](#server)
 
-### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+### <a name="azure"></a>Use a cloud notebook server in your workspace
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-
-After you complete the steps below, run the **tutorials/img-classification-part1-training.ipynb** notebook in your **Getting Started** project.
+It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* After you launch the notebook webpage, open the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer. 
-
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
- After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
+ After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook from your cloned directory.
 
 ## <a name="start"></a>Set up your development environment
 
