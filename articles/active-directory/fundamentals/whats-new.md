@@ -51,7 +51,7 @@ App protection-based conditional access is now available by using the **Require 
 
 - Users gaining access to apps without a configured Microsoft Intune app protection policy.
 
-For more information, see [How to Require app protection policy for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
+For more information, see [How to Require app protection policy for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-protection-based-conditional-access).
 
 ---
 
