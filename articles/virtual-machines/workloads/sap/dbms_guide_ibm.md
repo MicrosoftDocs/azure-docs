@@ -396,6 +396,7 @@ As long as the current IOPS quota per disk is sufficient, it is possible to stor
 
 Alternatively, if the IOPS or I/O throughput of a single Azure VHD is not sufficient, you can use LVM (Logical Volume Manager) or MDADM as described in the document [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_general.md) to create one large logical device over multiple disks.
 For the disks containing the Db2 storage paths for your sapdata and saptmp directories, you must specify a physical disk sector size of 512 KB.
+[comment]: <> (sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors)
 
 
 ### Other
