@@ -47,7 +47,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 1. In **Deployment planning**, if you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
 2. For the purposes of this tutorial, we don't need the deployment planner. In **Have you completed deployment planning?** select **I will do it later**. Then click **OK**.
 
-![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
+    ![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
 ## Set up the source environment
 
