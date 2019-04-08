@@ -75,20 +75,21 @@ The following tables show data that's included or isn't in Cost Management. All 
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>1</sup> | Reservation purchases – For more information, see [APIs for Azure reservation automation](../billing/billing-reservation-apis.md). |
-| Marketplace offering usage | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace offering usage<sup>2</sup> | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Azure service usage is based on reservation and negotiated prices.
+<sup>2</sup> Marketplace offering usage is not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.
 
 **Metadata**
 
 | **Included** | **Not included** |
 | --- | --- |
-| Resource tags<sup>2</sup> | Resource group tags |
+| Resource tags<sup>3</sup> | Resource group tags |
 
-<sup>2</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
+<sup>3</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
 
 ## Rated usage data refresh schedule
 
