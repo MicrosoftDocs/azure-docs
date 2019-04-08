@@ -1,5 +1,5 @@
 ---
-title: How to tell if a sign-in page accepts Microsoft accounts - Microsoft 365 | Microsoft Docs
+title: How to know if an Azure AD sign-in page accepts Microsoft accounts  | Microsoft Docs
 description: How on-screen messaging reflects username lookup during sign-in 
 services: active-directory
 author: curtand
@@ -17,9 +17,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Sign-in options for Microsoft accounts in Microsoft 365
+# Sign-in options for Microsoft accounts in Azure Active Directory
 
-The Microsoft 365 sign-in page supports one or both of work or school accounts and Microsoft accounts, depending on the situation, to support:
+The Microsoft 365 sign-in page for Azure Active Directory (Azure AD) supports one or both of work or school accounts and Microsoft accounts, depending on the situation, to support:
 
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
@@ -28,7 +28,7 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 ![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
 
-Additional sign-in options that only work for personal Microsoft accounts are being rolled out. The additional sign-in options can't be used for signing in to work or school account resources.
+Additional sign-in options work only for personal Microsoft accounts but can't be used for signing in to work or school account resources.
 
 ![sign-in options opens choices for Microsoft accounts](./media/signin-account-support/options-link.png)
 
