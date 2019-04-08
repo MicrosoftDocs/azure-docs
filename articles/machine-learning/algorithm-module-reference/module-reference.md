@@ -12,13 +12,13 @@ ms.author: amlstudiodocs
 ms.date: 04/22/2019
 ROBOTS: NOINDEX
 ---
-# Module Reference
+# Algorithm & Module reference overview
 
 Each *module* in Machine Learning visual interface represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
 
 Modules are organized by functionality:
 
-+ [Data input and output modules](data-input-and-output.md) do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
++ Data input and output modules  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
 
   + [Import Data](import-data.md)
 
@@ -27,7 +27,7 @@ Modules are organized by functionality:
   + [Enter Data Manually](enter-data-manually.md)
 
 
-+ [Data transformation modules](data-transformation.md) support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
++ Data transformation modules support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
 
   + [Select Columns in Dataset](select-columns-in-dataset.md)
 
@@ -48,10 +48,7 @@ Modules are organized by functionality:
   + [Partition and Sample](partition-and-sample.md)
 
 
-+ [Machine learning algorithms](machine-learning-modules.md), such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters. For classification tasks, you can choose from binary or multiclass algorithms. After you've configured the model, use a [training module](machine-learning-train.md) to run data through the algorithm, and measure the accuracy of the trained model by using one of the [evaluation modules](machine-learning-evaluate.md). To get predictions from the model you've just trained, use one of the [scoring modules](machine-learning-score.md).  
-
-+ Machine Learning modules
-
++ Machine learning algorithms such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
   + [Score Model](score-model.md)
 
   + [Train Model](train-model.md)
@@ -87,7 +84,7 @@ Modules are organized by functionality:
   + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
 
 
-+ [Python](python-language-modules.md) module makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
++ Python module makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
 
 + Data Format Conversions
