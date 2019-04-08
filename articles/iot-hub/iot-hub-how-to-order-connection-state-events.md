@@ -187,7 +187,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
    }]
    ```
 
-   ![Paste sample JSON payload](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png])
+   ![Paste sample JSON payload](./media/iot-hub-how-to-order-connection-state-events/paste-sample-payload.png)
 
 5. You may receive a pop-up notification that says, **Remember to include a Content-Type header set to application/json in your request.** You can safely ignore this suggestion, and move on to the next section.
 
