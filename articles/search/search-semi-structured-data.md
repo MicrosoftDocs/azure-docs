@@ -1,6 +1,6 @@
 ---
-title: Tutorial for indexing and searching JSON blobs - Azure Search
-description: In this tutorial, learn how to index and search semi-structured Azure JSON blobs using Azure Search.
+title: 'Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search and Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search

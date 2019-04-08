@@ -1,6 +1,6 @@
 ---
-title: Tutorial for indexing Azure SQL databases in Azure portal - Azure Search
-description: In this tutorial, connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
+title: 'Tutorial: Index data from Azure SQL databases in a C# example code - Azure Search'
+description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -13,7 +13,7 @@ ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure SQL data for Azure Search.
 ---
 
-# Tutorial: Crawl an Azure SQL database using Azure Search indexers
+# Tutorial in C#: Crawl an Azure SQL database using Azure Search indexers
 
 Learn how to configure an indexer for extracting searchable data from a sample Azure SQL database. [Indexers](search-indexer-overview.md) are a component of Azure Search that crawl external data sources, populating a [search index](search-what-is-an-index.md) with content. Of all indexers, the indexer for Azure SQL Database is the most widely used. 
 
