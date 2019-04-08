@@ -271,6 +271,7 @@ You are now ready to run the applications.
 
     ```shell
     python SimulatedDevice.py
+    ```
 
     ![Run the simulated device app](./media/iot-hub-python-python-c2d/simulated-device.png)
 
@@ -283,7 +284,8 @@ You are now ready to run the applications.
 4. At a command prompt, run the following command to send a cloud-to-device message and wait for the message feedback:
 
     ```shell
-    python SendCloudToDeviceMessage.py 
+    python SendCloudToDeviceMessage.py
+    ```
 
     ![Run the app to send the cloud-to-device command](./media/iot-hub-python-python-c2d/send-command.png)
 
