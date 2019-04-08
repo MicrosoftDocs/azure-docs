@@ -35,14 +35,18 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 1. Open the Windows PowerShell app as an administrator.
 2. Uninstall any previous version of AzureADPreview.
   
-   ```
+
+   ```powershell
    Uninstall-Module AzureADPreview
    ```
+
 3. Install the latest version of AzureADPreview.
   
-   ```
+
+   ```powershell
    Install-Module AzureADPreview
    ```
+
    If you are prompted about accessing an untrusted repository, type **Y**. It might take few minutes for the new module to install.
 
 ## Set up naming policy
@@ -53,10 +57,12 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 2. Run the following commands to prepare to run the cmdlets.
   
-   ```
+
+   ```powershell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    In the **Sign in to your Account** screen that opens, enter your admin account and password to connect you to your service, and select **Sign in**.
 
 3. Follow the steps in [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) to create group settings for this tenant.
@@ -65,35 +71,46 @@ Be sure to uninstall any older version of the Azure Active Directory PowerShell 
 
 1. View the current naming policy settings.
   
+
+   ```powershell
+   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
-   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-   ```
+
   
 2. Display the current group settings.
   
-   ```
+
+   ```powershell
    $Setting.Values
    ```
+
   
+
 ### Step 3: Set the naming policy and any custom blocked words
 
 1. Set the group name prefixes and suffixes in Azure AD PowerShell. For the feature to work properly, [GroupName] must be included in the setting.
   
-   ```
+
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
+
   
 2. Set the custom blocked words that you want to restrict. The following example illustrates how you can add your own custom words.
   
-   ```
+
+   ```powershell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
+
   
 3. Save the settings for the new policy to be effective, such as in the following example.
   
+
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-   ```
+
   
 That's it. You've set your naming policy and added your custom blocked words.
 
@@ -101,20 +118,25 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 1. Empty the group name prefixes and suffixes in Azure AD PowerShell.
   
-   ```
+
+   ```powershell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
+
   
 2. Empty the custom blocked words.
   
-   ```
+
+   ```powershell
    $Setting["CustomBlockedWordsList"]=""
    ```
+
   
 3. Save the settings.
   
-   ```
-   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
+
+   ```powershell
+   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | Where-Object -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
 ## Next steps

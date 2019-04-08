@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 ---
 
@@ -18,7 +18,7 @@ ms.author: tulasim
 This tutorial walks you through building a QnA bot with Azure Bot service v3 in the [Azure portal](https://portal.azure.com) without writing any code. Connecting a published knowledge base (KB) to a bot is as simple as changing bot application settings. 
 
 > [!Note] 
-> This topic is for version 3 of the Bot SDK. You can find version 4 [here](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+> This topic is for version 3 of the Bot SDK. For v4 of the Bot SDK, after you **Publish** your knowledge base, you can create a bot from the **Publish** page with the **Create bot** button. Learn more in the [bot tutorial](create-publish-query-in-portal.md#create-a-knowledge-base-bot).
 
 **In this tutorial, you learn how to:**
 
@@ -99,6 +99,12 @@ In the Azure portal, select **Test in Web Chat** to test the bot.
 ![QnA Maker bot](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
 
 Your QnA Bot answers from your knowledge base.
+
+## Related to QnA Maker bots
+
+* The QnA Maker help bot, used in the QnA Maker portal, is available as a [bot sample](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot icon is red robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Healthcare bots](https://docs.microsoft.com/HealthBot/qna_model_howto) use QnA Maker as one of their [language models](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 ## Clean up resources
 

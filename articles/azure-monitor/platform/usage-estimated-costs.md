@@ -10,11 +10,11 @@ ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ""
 ---
-# Monitoring usage and estimated costs
+# Monitoring usage and estimated costs in Azure Monitor
 
 > [!NOTE]
 > This article describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models.  Refer to the following articles for related information.
-> - [Manage cost by controlling data volume and retention in Log Analytics](../../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period.
+> - [Manage cost by controlling data volume and retention in Log Analytics](manage-cost-storage.md) describes how to control your costs by changing your data retention period.
 > - [Analyze data usage in Log Analytics](../../azure-monitor/platform/data-usage.md) describes how to analyze and alert on your data usage.
 > - [Manage pricing and data volume in Application Insights](../../azure-monitor/app/pricing.md) describes how to analyze data usage in Application Insights.
 
@@ -178,7 +178,7 @@ If you then rerun the previous script that has ``-Action listmigrationdate``, yo
 If you have multiple subscriptions, that you wish to migrate which are hosted under the same tenant you could create your own variant using pieces of the following scripts:
 
 ```powershell
-#Query tenant and create an array comprised of all of your tenants subscription ids
+#Query tenant and create an array comprised of all of your tenants subscription IDs
 $TenantId = <Your-tenant-id>
 $Tenant =Get-AzSubscription -TenantId $TenantId
 $Subscriptions = $Tenant.Id
@@ -198,7 +198,7 @@ Invoke-AzResourceAction `
 }
 ```
 
-The script could be refined further by creating a script that generates three arrays. One array will consist of all subscription id's that have ```isGrandFatherableSubscription``` set to True and optedInDate does not currently have a value. A second array of any subscriptions currently on the new pricing model. And a third array populated only with subscription ids in your tenant that are not eligible for the new pricing model:
+The script could be refined further by creating a script that generates three arrays. One array will consist of all subscription IDs that have ```isGrandFatherableSubscription``` set to True and optedInDate does not currently have a value. A second array of any subscriptions currently on the new pricing model. And a third array populated only with subscription IDs in your tenant that are not eligible for the new pricing model:
 
 ```powershell
 [System.Collections.ArrayList]$Eligible= @{}

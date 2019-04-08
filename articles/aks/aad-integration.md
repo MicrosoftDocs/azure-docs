@@ -145,7 +145,15 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. This example gives the account full access to all namespaces of the cluster. Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. Update the user name with one from your Azure AD tenant:
+Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. This example gives the account full access to all namespaces of the cluster. 
+
+Get the *objectId* of the required user account using the [az ad user show][az-ad-user-show] command. Provide the user principal name (UPN) of the required account:
+
+```azurecli-interactive
+az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+```
+
+Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. Update the user name with the object ID of your user account from Azure AD obtained in the previous step :
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -159,7 +167,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "user@contoso.com"
+  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
 ```
 
 Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:
@@ -238,3 +246,4 @@ Learn more about securing Kubernetes clusters with RBAC with the [Using RBAC Aut
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [open-id-connect]:../active-directory/develop/v1-protocols-openid-connect-code.md
+[az-ad-user-show]: /cli/azure/ad/user#az-ad-user-show

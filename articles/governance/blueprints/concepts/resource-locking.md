@@ -1,7 +1,6 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options to protect resources when assigning a blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
@@ -66,6 +65,8 @@ applied to artifact resources during assignment of a blueprint if the assignment
 blueprint assignment and can only be removed from the artifact resources by the same managed
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Blueprints.
+
+![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
