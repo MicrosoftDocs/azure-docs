@@ -137,7 +137,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>Resource Manager template
 
-The following JSON code is an example of an [Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) template. You can use it to deploy an Azure Cosmos account with [bounded staleness consistency level](consistency-levels.md). The maximum staleness interval is set to 5 seconds. The maximum number of stale requests that is tolerated is set to 100. To learn about the Resource Manager template format and syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+The following JSON code is an example of an [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) template. You can use it to deploy an Azure Cosmos account with [bounded staleness consistency level](consistency-levels.md). The maximum staleness interval is set to 5 seconds. The maximum number of stale requests that is tolerated is set to 100. To learn about the Resource Manager template format and syntax, see [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
