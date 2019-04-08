@@ -276,11 +276,13 @@ To enable or disable an alert rule for a specific health criteria, the health cr
 
     ![Example retrieving monitor Id for health criteria](./media/vminsights-health/get-monitor-identifier-01.png)
 
-3. Type the following command to verify the property was modified, run the GET command in step 2 and verify the value is **Disabled**.
+3. Type the following command to modify the *alertGeneration* property.
 
     ```
     armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
     ```   
+
+4. Type the GET command used in step 2 to verify the value of the property is set to **Disabled**.  
 
 #### Associate Action group with health criteria
 
