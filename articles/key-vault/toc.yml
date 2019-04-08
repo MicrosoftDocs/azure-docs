@@ -63,7 +63,7 @@
       - name: Security overview
         href: overview-security.md
       - name: Common security attributes
-        href: key-vault-security-attributes
+        href: key-vault-security-attributes.md
   - name: What is Key Vault?
     href: key-vault-whatis.md
   - name: Secure your key vault
