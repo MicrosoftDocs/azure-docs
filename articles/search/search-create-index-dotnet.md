@@ -13,6 +13,12 @@ ms.date: 04/08/2019
 
 ---
 # Quickstart: 1 - Create an Azure Search index in C#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [Postman](search-fiddler.md)
+>*
 
 This article walks you through the process of creating [an Azure Search index](search-what-is-an-index.md) using C# and the [.NET SDK](https://aka.ms/search-sdk). This is the first lesson in a 3-part exercise for creating, loading, and query an index. Index creation is accomplished by performing these tasks:
 
