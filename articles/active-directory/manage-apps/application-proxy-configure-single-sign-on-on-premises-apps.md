@@ -38,7 +38,7 @@ Keep the following in mind when you're going through the tutorial:
 )).
 * Copy the **External URL** for the application.
 * As a best practice, use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
-* Add at least one user to the application and make sure the test account has access to the on-premises application. Using the test account test if you can reach the application by visiting the **External URL** to validate Application Proxy is setup correctly. See [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md#end-user-errors) for additional guidance.
+* Add at least one user to the application and make sure the test account has access to the on-premises application. Using the test account test if you can reach the application by visiting the **External URL** to validate Application Proxy is setup correctly. See [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md) for additional guidance.
 
 ## Set up SAML SSO
 
