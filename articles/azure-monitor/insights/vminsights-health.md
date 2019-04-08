@@ -300,7 +300,7 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
     armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
     ```
 
-3. To verify the configuration setting was successfully applied, type the following command.
+3. To verify the value of the property **actionGroupResourceIds** was successfully updated, type the following command.
 
     ```
     armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
