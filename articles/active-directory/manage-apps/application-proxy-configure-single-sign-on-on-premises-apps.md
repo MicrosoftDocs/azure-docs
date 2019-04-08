@@ -38,7 +38,7 @@ Keep the following in mind when you're going through the tutorial:
 )).
 * Copy the **External URL** for the application.
 * As a best practice, use custom domains whenever possible for an optimized user experience. Learn more about [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
-* Add at least one user to the application and make sure the test account has access to the on-premises application.
+* Add at least one user to the application and make sure the test account has access to the on-premises application. Using the test account test if you can reach the application by visiting the **External URL** to validate Application Proxy is setup correctly. See [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md#end-user-errors) for additional guidance.
 
 ## Set up SAML SSO
 
@@ -47,7 +47,8 @@ Keep the following in mind when you're going through the tutorial:
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
 
-   * Make sure the **Reply URL** root matches or is a path under the **External URL** for the on-premises application that you added for remote access through Application Proxy in Azure AD.
+   * Make sure the first **Reply URL** in the list is the **External URL** for the on-premises application that you published through Application Proxy. If your application requires a different **Reply URL** for the SAML configuration, add this as a **second** URL in the list. This typically is a path underneath the **External URL**.
+   * Ensure that the application also specifies the correct **Reply URL** or Assertion Consumer Service URL to use for receiving the authentication token.
 
      ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
@@ -59,7 +60,7 @@ Keep the following in mind when you're going through the tutorial:
 When you've completed all these steps, your app should be up and running. To test the app:
 
 1. Open a browser and navigate to the external URL that you created when you published the app. 
-1. Sign in with the test account that you assigned to the app.
+1. Sign in with the test account that you assigned to the app. You should be able to load the application and have SSO into the application.
 
 ## Next steps
 
