@@ -82,8 +82,8 @@ The JSON syntax for the earlier example is:
       }
     ],
 
-## Functions IP Restrictions
+## Function App IP Restrictions
 
 IP restrictions are available for both Function Apps with the same functionality as App Service plans. Note that enabling IP restrictions will disable the portal code editor for any disallowed IPs.
 
-[Learn more here](../azure-functions/functions-networking-options#inbound-ip-restrictions)
+[Learn more here](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
