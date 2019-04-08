@@ -179,6 +179,10 @@ The scope used for client credentials should always be resourceId+"/.default"
 
 ___
 
+> [!IMPORTANT] 
+> For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token, Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. 
+> Therefore if, like Azure SQL (**https://database.windows.net**) the resource expects an audience ending with a slash (for Azure SQL: `https://database.windows.net/`), you'll need to request a scope of `https://database.windows.net//.default` (note the double slash). See also MSAL.NET issue [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure.
+
 ### AcquireTokenForClient API
 
 # [.NET](#tab/dotnet)
@@ -224,7 +228,7 @@ if not result:
 
 # [Other](#tab/other)
 
-Using the protocol directly
+Using the protocol directly:
 
 ### First case: Access token request with a shared secret
 
@@ -290,5 +294,9 @@ To learn more:
 # [Python](#tab/python)
 
 See https://github.com/AzureAD/azure-activedirectory-library-for-python
+
+# [Other](#tab/other)
+
+No sample use the protocol directly
 
 ___
