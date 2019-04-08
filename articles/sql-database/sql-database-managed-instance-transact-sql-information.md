@@ -559,9 +559,9 @@ CLR modules placed in a Managed Instance and linked servers/distributed queries 
 
 **Workaround**: Use context connections in CLR module if possible.
 
-### TDE encrypted databases don't support user initiated backups
+### TDE encrypted databases with service-managed key don't support user-initiated backups
 
-You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with Transparent Data Encryption (TDE). TDE forces backups to be encrypted with internal TDE keys, and the key can't be exported, so you won't be able to restore the backup.
+You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that is encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with internal TDE key, and the key can't be exported, so you won't be able to restore the backup. You can use [customer-managed (BYOK) TDE](https://docs.microsoft.com/en-us/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) instead.
 
 **Workaround**: Use automatic backups and point-in-time restore, or disable encryption on database.
 
