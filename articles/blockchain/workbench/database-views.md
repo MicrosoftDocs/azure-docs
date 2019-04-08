@@ -33,7 +33,7 @@ This view provides details on **Applications** that have been uploaded to Azure 
 | ApplicationName                  | nvarchar(50)  | No          | The name of the application |
 | ApplicationDescription           | nvarchar(255) | Yes         | A description of the application |
 | ApplicationDisplayName           | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled               | bit           | No          | Identifies if the application is currently enabled<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled               | `bit`         | No          | Identifies if the application is currently enabled<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | UploadedDtTm                     | datetime2(7)  | No          | The date and time a contract was uploaded |
 | UploadedByUserId                 | int           | No          | The ID of the user who uploaded the application |
 | UploadedByUserExternalId         | nvarchar(255) | No          | The external identifier for the user who uploaded the application. By default, this ID is the user from the Azure Active Directory for the consortium.                                                                                                |
@@ -123,7 +123,7 @@ This view provides details about deployed contracts. For each contract, this vie
 | ApplicationId                            | int            | No          | A unique identifier for the application |
 | ApplicationName                          | nvarchar (50)  | No          | The name of the application |
 | ApplicationDisplayName                   | nvarchar (255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                       | bit            | No          | Identifies if the application is currently enabled.<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.  |
+| ApplicationEnabled                       | `bit`          | No          | Identifies if the application is currently enabled.<br /> **Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.  |
 | WorkflowId                               | int            | No          | A unique identifier for the workflow associated with a contract |
 | WorkflowName                             | nvarchar(50)   | No          | The name of the workflow associated with a contract |
 | WorkflowDisplayName                      | nvarchar(255)  | No          | The name of the workflow associated with the contract displayed in the user interface |
@@ -158,7 +158,7 @@ This view represents the majority of information related to actions taken on con
 | ApplicationId                            | int           | No          | A unique identifier for the application |
 | ApplicationName                          | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName                   | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                       | bit           | No          | This field identifies if the application is currently enabled. Note â€“ Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                                                  |
+| ApplicationEnabled                       | `bit`         | No          | This field identifies if the application is currently enabled. Note â€“ Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                                                  |
 | WorkflowId                               | int           | No          | A unique identifier for a workflow |
 | WorkflowName                             | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                      | nvarchar(255) | No          | The name of the workflow to display in a user interface |
@@ -197,7 +197,7 @@ This view represents the majority of information related to actions taken on con
 | TransactionFrom                          | nvarchar(255) | Yes         | The party that originated the transaction |
 | TransactionTo                            | nvarchar(255) | Yes         | The party that was transacted with |
 | TransactionHash                          | nvarchar(255) | Yes         | The hash of a transaction |
-| TransactionIsWorkbenchTransaction        | bit           | Yes         | A bit that identifies if the transaction is an Azure Blockchain Workbench transaction |
+| TransactionIsWorkbenchTransaction        | `bit`         | Yes         | A bit that identifies if the transaction is an Azure Blockchain Workbench transaction |
 | TransactionProvisioningStatus            | int           | Yes         | Identifies the current status of the provisioning process for the transaction. Possible values are: <br />0 â€“ The transaction has been created by the API in the database<br />1 â€“ The transaction has been sent to the ledger<br />2 â€“ The transaction has been successfully deployed to the ledger                 |
 | TransactionValue                         | decimal(32,2) | Yes         | The value of the transaction |
 
@@ -217,7 +217,7 @@ This view represents the majority of information related to properties associate
 | ApplicationId                      | int           | No          | A unique identifier for the application |
 | ApplicationName                    | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName             | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                      |
+| ApplicationEnabled                 | `bit`         | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database.                      |
 | WorkflowId                         | int           | No          | The unique identifier for the workflow |
 | WorkflowName                       | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                | nvarchar(255) | No          | The name of the workflow displayed in the user interface |
@@ -257,7 +257,7 @@ This view represents the majority of information related to the state of a speci
 | ApplicationId                      | int           | No          | A unique identifier for the application |
 | ApplicationName                    | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName             | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                 | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled                 | `bit`         | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                         | int           | No          | A unique identifier for the workflow |
 | WorkflowName                       | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                | nvarchar(255) | No          | The name displayed in the user interface |
@@ -309,7 +309,7 @@ This view represents the details core workflow metadata as well as the workflowâ
 | ApplicationId                     | int           | No          | A unique identifier for the application |
 | ApplicationName                   | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName            | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                | bit           | No          | Identifies if the application is enabled |
+| ApplicationEnabled                | `bit`         | No          | Identifies if the application is enabled |
 | WorkflowId                        | int           | Yes         | A unique identifier for a workflow |
 | WorkflowName                      | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName               | nvarchar(255) | No          | The name displayed in the user interface |
@@ -336,7 +336,7 @@ This view represents the details core workflow metadata as well as the workflowâ
 | ApplicationId                        | int           | No          | A unique identifier for the application |
 | ApplicationName                      | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName               | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled                   | bit           | No          | Identifies if the application is enabled |
+| ApplicationEnabled                   | `bit`         | No          | Identifies if the application is enabled |
 | WorkflowId                           | int           | No          | A unique identifier for a workflow |
 | WorkflowName                         | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName                  | nvarchar(255) | No          | The name of the workflow displayed in the user interface |
@@ -345,7 +345,7 @@ This view represents the details core workflow metadata as well as the workflowâ
 | WorkflowFunctionName                 | nvarchar(50)  | Yes         | The name of the function |
 | WorkflowFunctionDisplayName          | nvarchar(255) | No          | The name of a function to be displayed in the user interface |
 | WorkflowFunctionDescription          | nvarchar(255) | Yes         | The description of the workflow function |
-| WorkflowFunctionIsConstructor        | bit           | No          | Identifies if the workflow function is the constructor for the workflow |
+| WorkflowFunctionIsConstructor        | `bit`         | No          | Identifies if the workflow function is the constructor for the workflow |
 | WorkflowFunctionParameterId          | int           | No          | A unique identifier for a parameter of a function |
 | WorkflowFunctionParameterName        | nvarchar(50)  | No          | The name of a parameter of the function |
 | WorkflowFunctionParameterDisplayName | nvarchar(255) | No          | The name of a function parameter to be displayed in the user interface |
@@ -365,7 +365,7 @@ This view represents the properties defined for a workflow. For each property, t
 | ApplicationId                | int           | No          | A unique identifier for the application |
 | ApplicationName              | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName       | nvarchar(255) | No          | The name to be displayed in a user interface |
-| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled           | `bit`         | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                   | int           | No          | A unique identifier for the workflow |
 | WorkflowName                 | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName          | nvarchar(255) | No          | The name to be displayed for the workflow in a user interface |
@@ -377,7 +377,7 @@ This view represents the properties defined for a workflow. For each property, t
 | WorkflowPropertyWorkflowId   | int           | No          | The ID of the workflow to which this property is associated |
 | WorkflowPropertyDataTypeId   | int           | No          | The ID of the data type defined for the property |
 | WorkflowPropertyDataTypeName | nvarchar(50)  | No          | The name of the data type defined for the property |
-| WorkflowPropertyIsState      | bit           | No          | This field identifies if this workflow property contains the state of the workflow |
+| WorkflowPropertyIsState      | `bit`         | No          | This field identifies if this workflow property contains the state of the workflow |
 
 ## vwWorkflowState
 
@@ -392,7 +392,7 @@ This view represents the properties associated with a workflow. For each contrac
 | ApplicationId                | int           | No          | A unique identifier for the application |
 | ApplicationName              | nvarchar(50)  | No          | The name of the application |
 | ApplicationDisplayName       | nvarchar(255) | No          | A description of the application |
-| ApplicationEnabled           | bit           | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
+| ApplicationEnabled           | `bit`         | No          | Identifies if the application is currently enabled.<br />**Note:** Even though an application can be reflected as disabled in the database, associated contracts remain on the blockchain and data about those contracts remain in the database. |
 | WorkflowId                   | int           | No          | The unique identifier for the workflow |
 | WorkflowName                 | nvarchar(50)  | No          | The name of the workflow |
 | WorkflowDisplayName          | nvarchar(255) | No          | The name displayed in the user interface for the workflow |
