@@ -1,7 +1,7 @@
 ---
-title: "Classification: predict credit risk"
+title: "Classification: Predict credit risk"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information given on a credit application.
+description: This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,22 +12,22 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 3 - Classification: predict credit risk
+# Sample 3 - Classification: Predict credit risk
 
-This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information given on a credit application. It shows how you can perform basic classification including data processing operations, split the dataset into training and test sets, train the model, score the test dataset, and evaluate the predictions.
+This visual interface sample experiment demonstrates how to perform binary classification to predict credit risk based on information provided in a credit application. It shows how you can perform basic classification, including data processing operations, split the dataset into training and test sets, train the model, score the test dataset, and evaluate the predictions.
 
 ## Prerequisites
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select **+ New** at the bottom-left to open the Sample 3 experiment.
+4. Select **Open** on the right side of the screen to open the Sample 3 experiment.
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## Related sample
 
 [Sample 4 - Classification: Credit risk prediction (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced experiment solving the same problem. It demonstrates how to perform _cost sensitive_ classification using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiment.
+provides an advanced experiment that solves the same problem as this experiment. It demonstrates how to perform _cost sensitive_ classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiment.
 
 ## Data
 
