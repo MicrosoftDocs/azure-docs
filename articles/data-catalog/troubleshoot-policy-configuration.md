@@ -1,10 +1,8 @@
 ---
 title: How to configure the Azure Active Directory policy for Azure Data Catalog
 description: You may encounter a situation where you can sign in to the Azure Data Catalog portal, but when you attempt to sign in to the data source registration tool, you encounter an error message.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.author: kfile
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
@@ -23,3 +21,7 @@ With the global authentication policy, you can enable authentication separately 
  ![Azure Active Directory global authentication policy](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 
 For more information, see [Configuring authentication policies](https://technet.microsoft.com/library/dn486781.aspx).
+
+## Next steps
+
+* [Create an Azure Data Catalog](data-catalog-get-started.md)
