@@ -26,11 +26,11 @@ The Microsoft 365 sign-in page supports one or both of work or school accounts a
 
 You can tell if the sign-in page your organization uses supports Microsoft accounts by looking at the hint text in the username field. If the hint text says "Email, phone, or Skype", the sign-in page supports Microsoft accounts.
 
-![Difference between account sign-in pages](./media/signin-options-link/ui-prompt.png)
+![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
 
 Additional sign-in options that only work for personal Microsoft accounts are being rolled out. The additional sign-in options can't be used for signing in to work or school account resources.
 
-![sign-in options opens choices for Microsoft accounts](./media/signin-options-link/options-link.png)
+![sign-in options opens choices for Microsoft accounts](./media/signin-account-support/options-link.png)
 
 ## Next steps
 
