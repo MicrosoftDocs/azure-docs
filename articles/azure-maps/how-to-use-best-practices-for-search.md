@@ -2,7 +2,7 @@
 title: How to search efficiently using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to use best practices for search using the Azure Maps Search service
 ms.author: v-musehg
-ms.date: 04/05/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
