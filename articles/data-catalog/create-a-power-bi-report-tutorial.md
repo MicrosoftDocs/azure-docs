@@ -185,29 +185,30 @@ In this exercise, you use the Azure Data Catalog portal to annotate (add informa
 
 In this exercise, you annotate a single data asset (ProductPhoto). You add a friendly name and description to the ProductPhoto data asset.  
 
-1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and search with `tags:cycles` to find the data assets you've registered.
+1. Go to the [Azure Data Catalog home page](https://www.azuredatacatalog.com) and search with `tags:product` to find the data assets you've registered.
 
-2. select **ProductPhoto** in search results.  
+2. select **ProductModel** in search results.  
 
 3. Enter **Product images** for **Friendly Name** and **Product photos for marketing materials** for the **Description**.
 
-    ![Azure Data Catalog--ProductPhoto description](media/data-catalog-get-started/data-catalog-productphoto-description.png)
+    ![Azure Data Catalog--ProductPhoto description](media/data-catalog-get-started/data-catalog-productmodel-description.png)
 
     The **Description** helps others discover and understand why and how to use the selected data asset. You can also add more tags and view columns. Now you can try searching and filtering to discover data assets by using the descriptive metadata you’ve added to the catalog.
 
 You can also do the following steps on this page:
 
 * Add experts for the data asset. select **Add** in the **Experts** area.
+
 * Add tags at the dataset level. select **Add** in the **Tags** area. A tag can be a user tag or a glossary tag. The Standard Edition of Data Catalog includes a business glossary that helps catalog administrators define a central business taxonomy. Catalog users can then annotate data assets with glossary terms. For more information, see [How to set up the Business Glossary for Governed Tagging](data-catalog-how-to-business-glossary.md)
+
 * Add tags at the column level. select **Add** under **Tags** for the column you want to annotate.
+
 * Add description at the column level. Enter **Description** for a column. You can also view the description metadata extracted from the data source.
+
 * Add **Request access** information that shows users how to request access to the data asset.
   
-    ![Azure Data Catalog--add tags, descriptions](media/data-catalog-get-started/data-catalog-add-tags-experts-descriptions.png)
 * Choose the **Documentation** tab and provide documentation for the data asset. With Azure Data Catalog documentation, you can use your data catalog as a content repository to create a complete narrative of your data assets.
   
-    ![Azure Data Catalog--Documentation tab](media/data-catalog-get-started/data-catalog-documentation.png)
-
 You can also add an annotation to multiple data assets. For example, you can select all the data assets you registered and specify an expert for them.
 
 ![Azure Data Catalog--annotate multiple data assets](media/data-catalog-get-started/data-catalog-multi-select-annotate.png)
@@ -228,15 +229,17 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 1. Select **Product** from search results. select **Open In** on the toolbar and select **Excel**.
 
     ![Azure Data Catalog--connect to data asset](media/data-catalog-get-started/data-catalog-connect1.png)
-2. select **Open** in the download pop-up window. This experience may vary depending on the browser.
 
-    ![Azure Data Catalog--downloaded Excel connection file](media/data-catalog-get-started/data-catalog-download-open.png)
+2. Select **Open** in the download pop-up window. This experience may vary depending on the browser.
+
 3. In the **Microsoft Excel Security Notice** window, select **Enable**.
 
     ![Azure Data Catalog--Excel security popup](media/data-catalog-get-started/data-catalog-excel-security-popup.png)
+
 4. Keep the defaults in the **Import Data** dialog box and select **OK**.
 
     ![Azure Data Catalog--Excel import data](media/data-catalog-get-started/data-catalog-excel-import-data.png)
+
 5. View the data source in Excel.
 
     ![Azure Data Catalog--product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
@@ -251,7 +254,7 @@ In this exercise, you connected to data assets discovered by using Azure Data Ca
 
     ![Azure Data Catalog--request access](media/data-catalog-get-started/data-catalog-request-access.png)
 
-select **View Connection Strings** to view and copy ADF.NET, ODBC, and OLEDB connection strings to the clipboard for use in your application.
+Select **View Connection Strings** to view and copy ADF.NET, ODBC, and OLEDB connection strings to the clipboard for use in your application.
 
 ## Manage data assets
 
@@ -308,4 +311,5 @@ In this tutorial, you explored essential capabilities of Azure Data Catalog, inc
 
 ## Next Steps
 
-* Supported data sources, see [Supported data sources](data-catalog-dsr.md).
+> [!div class="nextstepaction"]
+> [Supported data sources](data-catalog-dsr.md)
