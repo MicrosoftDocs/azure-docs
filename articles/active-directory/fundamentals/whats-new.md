@@ -45,9 +45,11 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 App protection-based conditional access is now available by using the **Require app protection** policy. This new policy helps to increase your organization's security by helping to prevent:
 
-- Administrator errors while setting up policies in conditional access and Microsoft Intune. For example, while setting up licensing and user and app targeting.
+- Users gaining access to apps without a Microsoft Intune license.
 
-- User access to cloud resources from apps, without having a Microsoft Intune protection policy.
+- Users being unable to get a Microsoft Intune app protection policy.
+
+- Users gaining access to apps without a configured Microsoft Intune app protection policy.
 
 For more information, see [How to Require app protection policy for cloud app access with conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-conditional-access).
 
