@@ -203,6 +203,8 @@
           href: platform/archive-diagnostic-logs.md
         - name: Forward to Event Hub
           href: platform/diagnostic-logs-stream-event-hubs.md
+        - name: Enable diagnostic settings with Resource Manager templates
+          href: platform/diagnostic-logs-stream-template.md
       - name: Service logs and metrics
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
@@ -260,8 +262,6 @@
           href: platform/diagnostics-extension-stream-event-hubs.md
         - name: Troubleshooting
           href: platform/diagnostics-extension-troubleshooting.md
-        - name: Enable diagnostic settings with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
         - name: Prepare for JSON Lines diagnostic logs format
           href: platform/diagnostic-logs-append-blobs.md
         - name: VM guest to metrics store
