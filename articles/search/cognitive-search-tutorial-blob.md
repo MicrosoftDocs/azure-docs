@@ -1,13 +1,13 @@
 ---
-title: 'Tutorial for calling Cognitive Services APIs in an indexing pipeline - Azure Search'
-description: In this tutorial, step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation. 
+title: 'Tutorial: Call Cognitive Services APIs in an indexing pipeline - Azure Search'
+description: Step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation over JSON blobs. 
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction to the core APIs.
