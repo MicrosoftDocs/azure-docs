@@ -157,13 +157,13 @@
         items:
         - name: Configure role claims
           href: active-directory-enterprise-app-role-management.md
-        - name: Customize claims
+        - name: Customize claims - Portal
           href: active-directory-saml-claims-customization.md
-        - name: Customize claims (Preview)
+        - name: Customize claims - PowerShell
           href: active-directory-claims-mapping.md
-        - name: Configure optional claims (Preview)
+        - name: Configure optional claims
           href: active-directory-optional-claims.md
-        - name: Configure token lifetimes (Preview)
+        - name: Configure token lifetimes
           href: active-directory-configurable-token-lifetimes.md
       - name: ADAL error handling best practices
         href: active-directory-devhowto-adal-error-handling.md      
@@ -370,13 +370,13 @@
       items:
       - name: Configure role claims
         href: active-directory-enterprise-app-role-management.md
-      - name: Customize claims
+      - name: Customize claims - Portal
         href: active-directory-saml-claims-customization.md
-      - name: Customize claims (Preview)
+      - name: Customize claims - PowerShell
         href: active-directory-claims-mapping.md
-      - name: Configure optional claims (Preview)
+      - name: Configure optional claims
         href: active-directory-optional-claims.md
-      - name: Configure token lifetimes (Preview)
+      - name: Configure token lifetimes
         href: active-directory-configurable-token-lifetimes.md
     - name: Application configuration
       items:
