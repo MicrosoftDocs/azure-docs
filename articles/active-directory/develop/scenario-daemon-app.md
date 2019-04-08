@@ -137,6 +137,21 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
+# [Java](#tab/java)
+
+```Java
+PrivateKey key = getPrivateKey();
+X509Certificate publicCertificate = getPublicCertificate();
+
+// create clientCredential with public and private key
+IClientCredential credential = ClientCredentialFactory.create(key, publicCertificate);
+
+ConfidentialClientApplication cca = ConfidentialClientApplication
+  .builder(CLIENT_ID, credential)
+	.authority(AUTHORITY_MICROSOFT)
+	.build();
+```
+
 # [Other](#tab/other)
 
 Rest API calls use the client ID and client secret directly. See below
@@ -170,6 +185,10 @@ In MSAL.Python, the configuration file would look like this:
     "scope": ["https://graph.microsoft.com/.default"]
 }
 ```
+
+# [Java](#tab/java)
+
+
 
 # [Other](#tab/other)
 
@@ -222,6 +241,19 @@ result = app.acquire_token_silent(config["scope"], account=None)
 if not result:
     logging.info("No suitable token exists in cache. Let's get a new one from AAD.")
     result = app.acquire_token_for_client(scopes=config["scope"])
+```
+
+# [Java](#tab/java)
+
+```Java
+ClientCredentialParameters parameters = ClientCredentialParameters
+        .builder(Collections.singleton(KEYVAULT_DEFAULT_SCOPE))
+        .build();
+
+CompletableFuture<AuthenticationResult> future = cca.acquireToken(parameters);
+
+// You can complete the future in many different ways. Here we use .get() for simplicity
+AuthenticationResult result = future.get();
 ```
 
 # [Other](#tab/other)
@@ -316,7 +348,11 @@ To learn more:
 
 # [Python](#tab/python)
 
-See https://github.com/AzureAD/azure-activedirectory-library-for-python
+See [MSAL Python client credentials in-repository sample](https://github.com/AzureAD/azure-activedirectory-library-for-python/blob/dev/sample/client_credentials_sample.py)
+
+# [Java](#tab/java)
+
+See [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedirectory-library-for-java/tree/dev/src/samples)
 
 # [Other](#tab/other)
 
