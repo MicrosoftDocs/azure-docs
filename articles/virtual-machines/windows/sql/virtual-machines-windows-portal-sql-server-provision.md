@@ -268,7 +268,7 @@ For more information, see [Automated Backup for SQL Server in Azure Virtual Mach
 You have the option to enable [SQL Server R Services (Advanced Analytics)](/sql/advanced-analytics/r/sql-server-r-services/). This option enables you to use advanced analytics with SQL Server 2017. Click **Enable** on the **SQL Server Settings** window.
 
 
-## 5. Review + create
+## 4. Review + create
 
 On the **Review + create** tab, review the summary, and select  **Create** to create SQL Server, resource group, and resources specified for this VM.
 
@@ -302,6 +302,6 @@ The following sections show how to connect over the internet to your SQL Server 
   > This example uses the common port 1433. However, this value will need to be modified if a different port (such as 1401) was specified during the deployment of the SQL Server VM. 
 
 
-## Next Steps
+## Next steps
 
 For other information about using SQL Server in Azure, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md) and the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
