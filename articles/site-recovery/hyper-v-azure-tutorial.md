@@ -35,7 +35,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 
 1. In **Recovery Services vaults**, select the vault. We prepared the vault **ContosoVMVault** in the previous tutorial.
 2. In **Getting Started**, click **Site Recovery**. Then click **Prepare Infrastructure**
-3. In **Protection goal** > **Where are your machines located?**, select **On-premises**.
+3. In **Protection goal** > **Where are your machines located?** select **On-premises**.
 4. In **Where do you want to replicate your machines?**, select **To Azure**.
 5. In **Are your machines virtualized?** select **Yes, with Hyper-V**.
 6. In **Are you using System Center VMM to manage your Hyper-V hosts**, select **No**. Then click **OK**.
@@ -45,7 +45,7 @@ This is the third tutorial in a series. This tutorial assumes that you have alre
 ## Confirm deployment planning
 
 1. In **Deployment planning**, if you're planning a large deployment, download the Deployment Planner for Hyper-V from the link on the page. [Learn more](hyper-v-deployment-planner-overview.md) about Hyper-V deployment planning.
-2. For the purposes of this tutorial, we don't need the deployment planner. In **Have you completed deployment planning?**, select **I will do it later**. Then click **OK**.
+2. For the purposes of this tutorial, we don't need the deployment planner. In **Have you completed deployment planning?** select **I will do it later**. Then click **OK**.
 
 ![Deployment planning](./media/hyper-v-azure-tutorial/deployment-planning.png)
 
@@ -55,7 +55,7 @@ To set up the source environment, you create a Hyper-V site, and add Hyper-V hos
 
 1. Under **Prepare Infrastructure**, click **Source**.
 2. In **Prepare source**, click **+Hyper-V Site**.
-3. In **Create Hyper- V site**, and specify site name. We're using **ContosoHyperVSite**.
+3. In **Create Hyper-V site**, and specify site name. We're using **ContosoHyperVSite**.
 
     ![Hyper-V site](./media/hyper-v-azure-tutorial/hyperv-site.png)
 
