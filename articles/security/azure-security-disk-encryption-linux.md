@@ -234,8 +234,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 To encrypt or decrypt Linux virtual machine scale sets, use the Azure Resource Manager templates and instructions below:
 
 - [Enable encryption on a Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Deploy a VM scale set of Linux VMs with a jumpbox and enable encryption on the Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Disable encryption on a Linux VM scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Disable encryption on a Linux virtual machine scale set](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Click **Deploy to Azure**.
      2. Fill in the required fields then agree to the terms and conditions.
