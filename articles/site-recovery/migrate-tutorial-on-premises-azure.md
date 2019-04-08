@@ -85,7 +85,7 @@ Hyper-V | Set up a [replication policy](hyper-v-azure-tutorial.md#set-up-a-repli
 --- | --- 
 VMware | [Enable replication](vmware-azure-enable-replication.md) for VMware VMs.
 Physical machine | [Enable replication](physical-azure-disaster-recovery.md#enable-replication) for physical machines.
-Hyper-V | [Eeplication policy](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Enable replication](hyper-v-vmm-azure-tutorial.md#enable-replication) for Hyper-V deployed with System Center VMM.
+Hyper-V | [Enable replication](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Enable replication](hyper-v-vmm-azure-tutorial.md#enable-replication) for Hyper-V deployed with System Center VMM.
 
 
 ## Run a test migration
