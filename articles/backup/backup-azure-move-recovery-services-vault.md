@@ -6,13 +6,18 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups (Limited Public Preview)
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
+
+> [!NOTE]
+> To move a Recovery Services vault and its associated resources to different resource group, you should first [register the source subscription](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Prerequisites for moving a vault
 
@@ -32,7 +37,7 @@ This article explains how to move a Recovery Services vault configured for Azure
 -   If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>
 
 > [!NOTE]
-> 
+>
 > Recovery Services vaults configured to use with **Azure Site Recovery** can’t move, yet. If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using the **Azure Site Recovery**, the move operation will be blocked. The resource move feature for Site Recovery service is not yet available.
 
 ## Register the source subscription to Move your Recovery Services vault
@@ -42,24 +47,24 @@ To register the source subscription to **Move** your Recovery Services vault, ru
 1. Sign in to your Azure account
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Select the subscription that you want to register
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Register this subscription
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Run the command
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Wait for 30 minutes for the subscription to be whitelisted before you start with the move operation using the Azure portal or PowerShell.
@@ -129,18 +134,18 @@ You can move a Recovery Services vault and its associated resources to a differe
 
 ## Use PowerShell to move a vault
 
-To move a Recovery Services vault to another resource group, use the `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` requires the resource name and type of resource. You can get both from the `Get-AzureRmRecoveryServicesVault` cmdlet.
+To move a Recovery Services vault to another resource group, use the `Move-AzResource` cmdlet. `Move-AzResource` requires the resource name and type of resource. You can get both from the `Get-AzRecoveryServicesVault` cmdlet.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 To move the resources to different subscription, include the `-DestinationSubscriptionId` parameter.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 After executing the above cmdlets, you will be asked to confirm that you want to move the specified resources. Type **Y** to confirm. After a successful validation, the resource moves.

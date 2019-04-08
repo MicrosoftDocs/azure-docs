@@ -291,7 +291,7 @@ ms.topic: hub-page
                         <h3>Vision API</h3>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/content-moderator/">Content Moderator</a></p>
-                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/"><span>Custom Vision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
                         <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
                     </div>
@@ -366,20 +366,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Labs</h3>
-                        <p><a href="https://docs.microsoft.com/gestures/">Project Gesture</a></p>
-                        <p><a href="/azure/cognitive-services/project-personality-chat/overview">Project Personality Chat</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Cuzco/documentation/overview">Project Event Tracking</a></p>
-                        <p><a href="/azure/cognitive-services/academic-knowledge/home">Project Academic Knowledge</a></p>
-                        <p><a href="https://labs.cognitive.microsoft.com/en-us/Project-Wollongong/documentation">Project Local Insights</a></p>
-                        <p><a href="/azure/cognitive-services/kes/overview">Project Knowledge Exploration Service</a></p>
-                        <p><a href="/azure/cognitive-services/entitylinking/home">Project Entity Linking</a></p>
-                        <p><a href="/azure/cognitive-services/labs/url-preview/overview">Project URL Preview</a></p>
-                        <p><a href="/azure/cognitive-services/labs/answer-search/overview">Project Answer Search</a></p>
-                        <p><a href="/azure/cognitive-services/labs/anomaly-finder/overview">Project Anomaly Finder</a></p>
-                        <p><a href="/azure/cognitive-services/labs/conversation-learner/overview">Project Conversation Learner</a></p>
-                        <p><a href="/azure/cognitive-services/acoustics/what-is-acoustics">Project Acoustics</a></p>
-                        <p><a href="/azure/cognitive-services/custom-decision-service/"><span>Custom Decision Service&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+                        <h3>Anomaly Detection</h3>
+                        <p><a href="/azure/cognitive-services/anomaly-detector/"><span>Anomaly Detector&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>               
                     </div>
                 </div>
             </div>

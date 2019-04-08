@@ -7,9 +7,9 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/14/2018
+ms.date: 04/03/2019
 ms.author: anvang
-ms.reviewer: igorstan
+ms.reviewer: jrasnick
 ---
 
 # Change a maintenance schedule 

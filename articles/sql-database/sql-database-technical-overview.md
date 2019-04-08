@@ -12,7 +12,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 04/08/2019
 ---
 
 # What is Azure SQL Database service?
@@ -150,6 +150,9 @@ We are also adding the [adaptive query processing](/sql/relational-databases/per
 
 SQL Database provides a range of [built-in security and compliance features](sql-database-security-overview.md) to help your application meet various security and compliance requirements.
 
+> [!IMPORTANT]
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) where you can find the most current list of SQL Database compliance certifications.
+
 ### Advance Threat Protection
 
 Advanced data security is a unified package for advanced SQL security capabilities. It includes functionality for discovering and classifying sensitive data, managing your database vulnerabilities, and detecting anomalous activities that could indicate a threat to your database. It provides a single go-to location for enabling and managing these capabilities.
@@ -178,7 +181,7 @@ SQL Database enables you to centrally manage identities of database user and oth
 
 ### Compliance certification
 
-SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
+SQL Database participates in regular audits and has been certified against several compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) where you can find the most current list of SQL Database compliance certifications.
 
 ## Easy-to-use tools
 

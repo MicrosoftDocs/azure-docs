@@ -153,7 +153,7 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http://http://40.121.222.19.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//40.121.222.19.
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

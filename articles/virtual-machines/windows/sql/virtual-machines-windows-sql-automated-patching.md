@@ -99,11 +99,11 @@ If you are enabling Automated Patching for the first time, Azure configures the 
 ## Configuration with PowerShell
 After provisioning your SQL VM, use PowerShell to configure Automated Patching.
 
-In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM. The **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig** command configures a new maintenance window for automatic updates.
+In the following example, PowerShell is used to configure Automated Patching on an existing SQL Server VM. The **New-AzVMSqlServerAutoPatchingConfig** command configures a new maintenance window for automatic updates.
 
     $vmname = "vmname"
     $resourcegroupname = "resourcegroupname"
-    $aps = AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
+    $aps = New-AzVMSqlServerAutoPatchingConfig -Enable -DayOfWeek "Thursday" -MaintenanceWindowStartingHour 11 -MaintenanceWindowDuration 120  -PatchCategory "Important"
 
     Set-AzVMSqlServerExtension -AutoPatchingSettings $aps -VMName $vmname -ResourceGroupName $resourcegroupname
 
@@ -121,7 +121,7 @@ Based on this example, the following table describes the practical effect on the
 
 It could take several minutes to install and configure the SQL Server IaaS Agent.
 
-To disable Automated Patching, run the same script without the **-Enable** parameter to the **AzureRM.Compute\New-AzVMSqlServerAutoPatchingConfig**. The absence of the **-Enable** parameter signals the command to disable the feature.
+To disable Automated Patching, run the same script without the **-Enable** parameter to the **New-AzVMSqlServerAutoPatchingConfig**. The absence of the **-Enable** parameter signals the command to disable the feature.
 
 ## Next steps
 For information about other available automation tasks, see [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).

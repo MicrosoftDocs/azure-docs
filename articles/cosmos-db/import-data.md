@@ -206,7 +206,7 @@ Note the aliases such as DomainInfo.Domain_Name and RedirectInfo.Redirecting. By
 *{
   "DomainInfo": {
     "Domain_Name": "ACUS.GOV",
-    "Domain_Name_Address": "<https://www.ACUS.GOV>"
+    "Domain_Name_Address": "https:\//www.ACUS.GOV"
   },
   "Federal Agency": "Administrative Conference of the United States",
   "RedirectInfo": {

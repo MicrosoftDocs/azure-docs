@@ -17,8 +17,11 @@
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database
+    - name: Single database - portal
       href: sql-database-single-database-get-started.md
+    - name: Single database - template
+      displayName: Azure Resource Manager template, ARM
+      href: sql-database-single-database-get-started-template.md
     - name: Managed instance
       href: sql-database-managed-instance-get-started.md
   - name: Configure
@@ -99,6 +102,7 @@
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
   - name: Azure Resource Manager
+    displayName: ARM template
     href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
@@ -164,7 +168,7 @@
         href: sql-database-dtu-resource-limits-elastic-pools.md  
       - name: Scale resources
         href: sql-database-elastic-pool-scale.md
-    - name: Create and manage
+    - name: Manage pool resources
       href: sql-database-elastic-pool-manage.md
   - name: Managed instances
     items:
@@ -192,7 +196,7 @@
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       href: sql-database-long-term-retention.md
-    - name: Planned manintenance events
+    - name: Planned maintenance events
       href: sql-database-planned-maintenance.md  
     - name: Failover groups and geo-replication
       items: 
@@ -220,6 +224,7 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
+      displayName: compliance, fedramp      
     - name: Advanced data security
       items:
       - name: Advanced data security
@@ -228,7 +233,7 @@
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
-      - name: Threat detection
+      - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
     - name: Server-level IP firewall rules
       items:
@@ -532,10 +537,16 @@
       href: sql-database-develop-overview.md
     - name: Working with JSON data
       href: sql-database-json-features.md
+    - name: Use ASP.NET App Service
+      href: /azure/app-service/app-service-web-tutorial-dotnet-sqldatabase?toc=/azure/sql-database/toc.json
     - name: Use Azure Functions
       href: ../azure-functions/functions-scenario-database-table-cleanup.md?toc=/azure/sql-database/toc.json
+    - name: Use Azure Logic Apps
+      href: /azure/connectors/connectors-create-api-sqlazure?toc=/azure/sql-database/toc.json
     - name: Use Spark Connector
       href: sql-database-spark-connector.md
+    - name: Index with Azure Search
+      href: /azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers?toc=/azure/sql-database/toc.json
     - name: Authenticate app 
       href: sql-database-client-id-keys.md
     - name: Error messages
@@ -653,6 +664,7 @@
   - name: REST
     href: /rest/api/sql/
   - name: Resource Manager templates for SQL
+    displayName: ARM
     href: /azure/templates/microsoft.sql/allversions
   - name: SQL Server tools
     href: /sql/tools/overview-sql-tools
