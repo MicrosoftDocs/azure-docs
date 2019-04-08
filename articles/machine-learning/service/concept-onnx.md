@@ -22,7 +22,7 @@ Microsoft has partnered with a community of partners to create [Open Neural Netw
 
 [ONNX Runtime](https://github.com/Microsoft/onnxruntime) is a high-performance inference engine for deploying ONNX models to production. It is optimized for both cloud and edge and works on Linux, Windows, and Mac. Written in C++, it also has C, Python, and C# APIs. ONNX Runtime provides support for all of the ONNX-ML specification and also integrates with the best accelerators on different hardware such as TensorRT on NVidia GPUs.
 
-ONNX Runtime is not only open sourced, it's also used extensively in high scale Microsoft services such as Bing, Office, and Cognitive Services. ONNX Runtime is also used as part of Windows ML on hundreds of millions of devices. By using ONNX Runtime, you can benefit from the extensive production grade optimization, testing, and ongoing improvements.
+ONNX Runtime is not only open sourced, it's also used in high scale Microsoft services such as Bing, Office, and Cognitive Services where they have seen an average 2x performance gain. ONNX Runtime is also used as part of Windows ML on hundreds of millions of devices. By using ONNX Runtime, you can benefit from the extensive production-grade optimizations, testing, and ongoing improvements.
 
 [![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
 
