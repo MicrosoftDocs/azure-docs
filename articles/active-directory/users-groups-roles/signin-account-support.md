@@ -24,6 +24,7 @@ The Microsoft 365 sign-in page for Azure Active Directory (Azure AD) supports on
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
 
+## Identification
 You can tell if the sign-in page your organization uses supports Microsoft accounts by looking at the hint text in the username field. If the hint text says "Email, phone, or Skype", the sign-in page supports Microsoft accounts.
 
 ![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
