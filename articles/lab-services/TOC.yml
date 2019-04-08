@@ -52,6 +52,8 @@
       href: devtest-lab-concepts.md    
     - name: Scenarios
       items:
+      - name: Popular scenarios for using DevTest Labs
+        href: devtest-lab-guidance-get-started.md
       - name: Use labs for developers
         href: devtest-lab-developer-lab.md
       - name: Use labs for test environments
@@ -108,8 +110,6 @@
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Get started with using DevTest Labs
-        href: devtest-lab-guidance-get-started.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
