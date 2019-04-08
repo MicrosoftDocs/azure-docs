@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 04/05/2019
+ms.date: 04/07/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
@@ -91,35 +91,36 @@ This region includes instructions for pickup in Japan and Korea.
     - Use the Chakubarai connote which was included.
 4. If Japan Post Chakubarai connote was not included, email Quantium Solutions. Quantium Solutions will request Japan Post to pick up and ask them to bring the connote upon pickup.
     - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
-    - Enter the delivery address as shown below:
-    
-        *3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001*
-        *Microsoft Service Center c/o Quantium Solutions Japan*
-        *TEL: 03-5755-0150*
+    - Enter the delivery address as shown below:   
+        ```
+        3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001
+        Microsoft Service Center c/o Quantium Solutions Japan
+        TEL: 03-5755-0150
+        ```
 
 If the Chakubarai connote is missing, you can request the pickup via email. Use the following email template to request pickup.
 
-        ```
-        To: Customerservice.JP@quantiumsolutions.com
-        Subject: Pickup request for Azure Data Box Disk｜Job Name： 
-        Body: 
-        - Azure Data Box Disk job name：
-        - Reference number:  
-        - Requested pickup date：mmdd (Select a requested time slot from below).
-          a. 08：00-13：00 
-          b. 13：00-15：00 
-          c. 15：00-17：00 
-          d. 17：00-19：00 
-        ```
-
+```
+To: Customerservice.JP@quantiumsolutions.com
+Subject: Pickup request for Azure Data Box Disk｜Job Name： 
+Body: 
+- Azure Data Box Disk job name：
+- Reference number:  
+- Requested pickup date：mmdd (Select a requested time slot from below).
+    a. 08：00-13：00 
+    b. 13：00-15：00 
+    c. 15：00-17：00 
+    d. 17：00-19：00 
+```
 
 #### Pick up in Korea
 
 1. Make sure to include the return connote.
 2. To request pickup:
-    1. Call Quantium Solutions International hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
-    2. If the hotline is busy, email *microsoft@rocketparcel.com*, with the email subject *Microsoft Pickup* and the connote number as reference.
-    3. If the courier does not arrive for collection, call Quantium Solutions International hotline for alternate arrangements. 
+    1. Call *Quantium Solutions International* hotline at 070-8231-1418 during office hours (10 AM to 5 PM, Monday to Friday). Quote *Microsoft pickup* and the connote number to arrange for a collection.  
+    2. If the hotline is busy, email microsoft@rocketparcel.com\, with the email subject *Microsoft Pickup* and the connote number as reference.
+    3. If the courier does not arrive for collection, call *Quantium Solutions International* hotline for alternate arrangements. 
+
 ## Verify data upload to Azure
 
 Once the disks are picked up by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
