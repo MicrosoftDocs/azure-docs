@@ -20,8 +20,6 @@ ms.author: barclayn
 
 You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Authentication and Authorization
 
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. Anyone trying to manage or retrieve content from a vault must be authenticated by Azure AD.
