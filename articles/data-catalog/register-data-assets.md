@@ -1,12 +1,14 @@
 ---
-title: Create a Power BI report from data in an Azure Data Catalog
-description: Creating a Power BI desktop report using data from an Azure Data Catalog.
+title: Register data assets for Azure data Catalog
+description: How to register data assets for Azure Data Catalog
 services: data-catalog
 author: markingmyname
 ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
+
+#Customer intent: As an Azure Active Directory owner, I want to store my data in a centralized place so that I can search my data all in one place.
 ---
 
 # Tutorial: Register data assets
