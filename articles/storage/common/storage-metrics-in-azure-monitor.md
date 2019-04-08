@@ -279,9 +279,9 @@ The following example shows how to read metric data on the metric supporting mul
 
 Resource ID is a unique identifier of a resource in Azure. When you use the Azure Monitor REST API to read metrics definitions or values, you must use resource ID for the resource on which you intend to operate. The resource ID template follows this format:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 Storage provides metrics at both the storage account level and the service level with Azure Monitor. For example, you can retrieve metrics for just Blob storage. Each level has its own resource ID, which is used to retrieve the metrics for just that level.
 
@@ -289,38 +289,38 @@ Storage provides metrics at both the storage account level and the service level
 
 The following shows the format for specifying the Resource ID for a storage account.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### Resource ID for the storage services
 
 The following shows the format for specifying the Resource ID for each of the storage services.
 
 * Blob service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
+```
 * Table service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
+```
 * Queue service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
+```
 * File service resource ID
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### Resource ID in Azure Monitor REST API
 
 The following shows the pattern used when calling the Azure Monitor REST API.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## Capacity metrics
 Capacity metrics values are sent to Azure Monitor every hour. The values are refreshed daily. The time grain defines the time interval for which metrics values are presented. The supported time grain for all capacity metrics is one hour (PT1H).

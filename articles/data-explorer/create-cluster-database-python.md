@@ -1,15 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Python'
-description: Learn how to create an Azure Data Explorer cluster and database by using the Python
-services: data-explorer
+description: Learn how to create an Azure Data Explorer cluster and database by using Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 03/25/2019
 ---
-
 
 # Create an Azure Data Explorer cluster and database by using Python
 
@@ -21,15 +19,15 @@ ms.date: 03/17/2019
 > * [Python](create-cluster-database-python.md)
 >  
 
-This quickstart describes how to create an Azure Data Explorer cluster and database by using Python.
+Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from applications, websites, IoT devices, and more. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database by using Python.
 
 ## Prerequisites
 
-To complete this quickstart, you need an Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Install Python package
 
-To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path, and then run this command:
+To install the Python package for Azure Data Explorer (Kusto), open a command prompt that has Python in its path. Run this command:
 
 ```
 pip install azure-mgmt-kusto
@@ -39,7 +37,26 @@ pip install azure-mgmt-kusto
 
 1. Create your cluster by using the following command:
 
+    ```Python
+    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto.models import Cluster, AzureSku
+
+    credentials = xxxxxxxxxxxxxxx
     
+    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    location = 'Central US'
+    sku = 'D13_v2'
+    capacity = 5
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    
+    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
+    
+    cluster_operations = kustoManagementClient.clusters
+    
+    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    ```
 
    |**Setting** | **Suggested value** | **Field description**|
    |---|---|---|
@@ -49,9 +66,9 @@ pip install azure-mgmt-kusto
 
     There are additional optional parameters that you can use, such as the capacity of the cluster.
 	
-	Set the 'credentials' to your credentials (for more information see https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python )
+1. Set [*your credentials*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Run the following command to check whether your cluster was successfully created:
+1. Run the following command to check whether your cluster was successfully created:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -87,7 +104,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
    | soft_delete_period | *3650 days, 0:00:00* | The amount of time that data will be kept available to query. |
    | hot_cache_period | *3650 days, 0:00:00* | The amount of time that data will be kept in cache. |
 
-2. Run the following command to see the database that you created:
+1. Run the following command to see the database that you created:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

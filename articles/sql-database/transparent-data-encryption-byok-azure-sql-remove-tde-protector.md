@@ -81,7 +81,7 @@ This how-to guide goes over two approaches depending on the desired result after
    -OutputFile <DesiredBackupFilePath>
    ```
  
-5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/azurerm.keyvault/remove-azurekeyvaultkey) cmdlet. 
+5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet. 
 
    ```powershell
    Remove-AzKeyVaultKey `

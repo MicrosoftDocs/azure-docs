@@ -4,7 +4,7 @@ description: Service Fabric CLI Script Sample - List the applications provisione
 services: service-fabric
 documentationcenter: 
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: 
 tags: 
 

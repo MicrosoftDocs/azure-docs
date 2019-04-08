@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 03/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -33,7 +33,7 @@ Natural language and image processing is applied during the data ingestion phase
 
 ## Components of cognitive search
 
-Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md), supported in [these regions](#where-do-i-start). 
+Cognitive search is a preview feature of [Azure Search](search-what-is-azure-search.md).
 
 The cognitive search pipeline is based on [Azure Search *indexers*](search-indexer-overview.md) that crawl data sources and provide end-to-end index processing. Skills are now attached to indexers, intercepting and enriching documents according to the skillset you define. Once indexed, you can access content via search requests through all [query types supported by Azure Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
 
@@ -94,6 +94,8 @@ Indexes are generated from an index schema that defines the fields, attributes, 
 + [Quickstart (portal)](cognitive-search-quickstart-blob.md)
 + [Tutorial (HTTP requests)](cognitive-search-tutorial-blob.md)
 + [Example custom skills (C#)](cognitive-search-create-custom-skill-example.md)
+
+We recommend the Free service for learning purposes, but be aware that the number of free transactions is limited to 20 documents per day. To run both the quickstart and tutorial in one day, use a smaller file set (10 documents) so that you can fit in both exercises.
 
 **Step 3: Review the API (REST only)**
 

@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
 
 ---
@@ -45,7 +45,7 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 ## Services that can be moved
 
-The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For greater detail, see [Move operation support for resources](move-support-resources.md).
+The following list provides a general summary of Azure services that can be moved to a new resource group and subscription. For a list of which resource types support move, see [Move operation support for resources](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -100,6 +100,7 @@ The following list provides a general summary of Azure services that can be move
 * Power BI - both Power BI Embedded and Power BI Workspace Collection
 * Public IP - Basic SKU Public IP can be moved. Standard SKU Public IP can't be moved.
 * Recovery Services vault - enroll in a [preview](#recovery-services-limitations).
+* SAP HANA on Azure
 * Scheduler
 * Search - You can't move several Search resources in different regions in one operation. Instead, move them in separate operations.
 * Service Bus
@@ -128,6 +129,7 @@ The following list provides a general summary of Azure services that can't be mo
 * Azure Database Migration
 * Azure Databricks
 * Azure Firewall
+* Azure Kubernetes Service (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificates - App Service Certificates can be moved, but uploaded certificates have [limitations](#app-service-limitations).
@@ -138,11 +140,9 @@ The following list provides a general summary of Azure services that can't be mo
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
-* Lab Services - move to new resource group in same subscription is enabled, but cross subscription move isn't enabled.
+* Lab Services - Classroom Labs can't be moved to a new resource group or subscription. DevTest Labs can be moved to a new resource group in the same subscription, but not across subscriptions.
 * Managed Applications
 * Microsoft Genomics
-* SAP HANA on Azure
 * Security
 * Site Recovery
 * StorSimple Device Manager

@@ -9,15 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ---
 
 # Configure Face Docker containers
 
 The **Face** container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The container-specific settings are the billing settings. 
-
-Container settings are [hierarchical](#hierarchical-settings) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](#command-line-argument-settings).
 
 ## Configuration settings
 
@@ -122,10 +120,6 @@ The exact syntax of the host mount location varies depending on the host operati
 |Not allowed| `Input` | String | Face containers do not use this.|
 |Optional| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## Hierarchical settings
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## Example docker run commands 
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](face-how-to-install-containers.md#stop-the-container) it.
@@ -158,23 +152,13 @@ The following Docker examples are for the face container.
   ApiKey={BILLING_KEY} 
   ```
 
-### Logging example with command-line arguments
+### Logging example 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### Logging example with environment variable
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 containerpreview.azurecr.io/microsoft/cognitive-services-face \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## Next steps
