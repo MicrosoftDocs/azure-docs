@@ -110,7 +110,7 @@ After assigning the materials, switch to the **Probes** tab.
 
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
-3. Use this to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Coarse vs fine resolution](#Coarse-vs-Fine-Resolution) below for details.
+3. Use this to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
 4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. For more information about data files, see [Data Files](#Data-Files) below.
 5. The data files for this scene will be named using the prefix provided here. The default is "[Level Name]_AcousticsData".
 6. Click the **Calculate** button to voxelize the scene and calculate the probe point locations. This is done locally on your machine, and must be done prior to doing a bake. After the probes have been calculated, the controls above will be disabled, and this button will change to say **Clear**. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.

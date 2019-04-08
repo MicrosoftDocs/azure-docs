@@ -132,7 +132,7 @@ The scene name is used to connect the scene to files storing the probe point pla
 
 1. The **Probes** tab button used to bring up this page
 2. A brief description of what you need to do using this page
-3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Choosing coarse vs fine resolution](#Coarse-vs-Fine-Resolution) below for details.
+3. Use these to choose a coarse or fine simulation resolution. Coarse is faster, but has certain tradeoffs. See [Bake Resolution](bake-resolution.md) below for details.
 4. Choose the location where the acoustics data files should be placed using this field. Click the button with "..." to use a folder picker. The default is **Assets/AcousticsData**. An **Editor** subfolder will also be created under this location. For more information about data files, see [Data Files](#Data-Files) below.
 5. The data files for this scene will be named using the prefix provided here. The default is "Acoustics_[Scene Name]".
 6. After the probes have been calculated, the controls above will be disabled. Click the **Clear** button to erase the calculations and enable the controls so that you can recalculate using new settings.
