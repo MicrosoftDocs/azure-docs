@@ -100,7 +100,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
    
    ![Specify Azure Data Lake Storage Gen2 account](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**: 
+9. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**. ADF will create the corresponding ADLS Gen2 file system and sub-folders during copy if it doesn't exist.
 
     ![Specify output folder](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
