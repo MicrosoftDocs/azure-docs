@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/02/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -26,6 +26,8 @@ The following information shows the currently supported [Microsoft Azure offers]
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
 | **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
 | **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan for Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | MS-AZR-0148G |
 | **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
 | **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
 | **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
@@ -73,20 +75,21 @@ The following tables show data that's included or isn't in Cost Management. All 
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>1</sup> | Reservation purchases – For more information, see [APIs for Azure reservation automation](../billing/billing-reservation-apis.md). |
-| Marketplace offering usage | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace offering usage<sup>2</sup> | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Azure service usage is based on reservation and negotiated prices.
+<sup>2</sup> Marketplace offering usage is not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.
 
 **Metadata**
 
 | **Included** | **Not included** |
 | --- | --- |
-| Resource tags<sup>2</sup> | Resource group tags |
+| Resource tags<sup>3</sup> | Resource group tags |
 
-<sup>2</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
+<sup>3</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
 
 ## Rated usage data refresh schedule
 
