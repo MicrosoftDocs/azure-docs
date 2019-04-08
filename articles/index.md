@@ -220,7 +220,7 @@ featureFlags:
                                     <div class="cardPadding">
                                         <div class="card">
                                             <div class="cardText">
-                                                <h3>Command-line tools</h3>
+                                                <h3>Management tools</h3>
                                                 <ul class="noBullet">
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
@@ -6112,7 +6112,7 @@ featureFlags:
                             </li>
                             <li>
                                 <div class="container">
-                                    <h2>Command-Line Interface (CLI)</h2>
+                                    <h2>Management tools</h2>
                                 </div>
                             </li>
                             <li>
@@ -6129,7 +6129,7 @@ featureFlags:
                                                     Azure CLI
                                                 </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Get Started</a>
+                                                    <a href="/cli/azure">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/reference-index">Reference</a>
@@ -6151,7 +6151,7 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">Get Started</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Reference</a>
@@ -6173,7 +6173,7 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure portal</h3>
                                                 <p>
-                                                    <a href="/azure/azure-portal/">Get Started</a>
+                                                    <a href="/azure/azure-portal/">Get started</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6192,7 +6192,7 @@ featureFlags:
                                             <div class="cardText">
                                                 <h3>Azure mobile app</h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">Get Started</a>
+                                                    <a href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">Get started</a>
                                                 </p>
                                             </div>
                                         </div>
