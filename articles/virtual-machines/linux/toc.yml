@@ -81,8 +81,8 @@
     - name: Storage optimized
       href: sizes-storage.md
       items:
-      - name:
-        href:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       href: sizes-gpu.md
       items:
