@@ -238,7 +238,7 @@ The last part of the workflow is to trigger an email when the sentiment is score
 | **Subject** | Negative tweet sentiment detected  | The subject line of the email notification.  |
 | **Body** | Tweet text, Location | Click the **Tweet text** and **Location** parameters. |
 
-5.  Click **Save**.
+1. Click **Save**.
 
 Now that the workflow is complete, you can enable the logic app and see the function at work.
 

@@ -61,7 +61,7 @@ Before you start this tutorial, make sure you can meet the following requirement
   - A Windows Server 2016 image
   - A Windows Server 2016 with a Microsoft SQL Server image
   - The appropriate plans and offers
- - A domain name for your web application. If you don’t have a domain name you can buy one from a domain provider such as GoDaddy, Bluehost, and InMotion.
+  - A domain name for your web application. If you don’t have a domain name you can buy one from a domain provider such as GoDaddy, Bluehost, and InMotion.
 - An SSL certificate for your domain from a trusted certificate authority such as LetsEncrypt.
 - A web application that communicates with a SQL Server database, and supports Application Insights. You can download the [dotnetcore-sqldb-tutorial](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial) sample app from GitHub.
 - A hybrid network between an Azure virtual network and Azure Stack virtual network. For detailed instructions, see [Configure hybrid cloud connectivity with Azure and Azure Stack](azure-stack-solution-hybrid-connectivity.md).
@@ -90,19 +90,19 @@ Before you start this tutorial, make sure you can meet the following requirement
 
 7. Under **Settings>Configure optional features**, configure the following settings:
 
-    - **Storage account**. Create a new account if you need one.
-    - **Virtual network**
+   - **Storage account**. Create a new account if you need one.
+   - **Virtual network**
 
-      > [!Important]  
-      > Make sure your SQL Server VM is deployed on the same  virtual network as the VPN gateways.
+     > [!Important]  
+     > Make sure your SQL Server VM is deployed on the same  virtual network as the VPN gateways.
 
-    - **Public IP address**. You can use the default settings.
-    - **Network security group** (NSG). Create a new NSG.
-    - **Extensions and Monitoring**. Keep the default settings.
-    - **Diagnostics storage account**. Create a new account if you need one.
-    - Select **OK** to save your configuration.
+   - **Public IP address**. You can use the default settings.
+   - **Network security group** (NSG). Create a new NSG.
+   - **Extensions and Monitoring**. Keep the default settings.
+   - **Diagnostics storage account**. Create a new account if you need one.
+   - Select **OK** to save your configuration.
 
-    ![Configure optional features](media/azure-stack-solution-hybrid-cloud/image4.png)
+     ![Configure optional features](media/azure-stack-solution-hybrid-cloud/image4.png)
 
 1. Under **SQL Server settings**, configure the following settings:
    - For **SQL connectivity**, select to **Public (Internet)**.
@@ -114,7 +114,7 @@ Before you start this tutorial, make sure you can meet the following requirement
 
    - For the rest of the settings, keep the defaults. Select **OK**.
 
-    ![Configure SQL Server settings](media/azure-stack-solution-hybrid-cloud/image5.png)
+     ![Configure SQL Server settings](media/azure-stack-solution-hybrid-cloud/image5.png)
 
 9. On **Summary**, review the virtual machine configuration, and then select **OK** to start the deployment.
 
@@ -387,7 +387,7 @@ You'll create a Traffic Manager profile in Azure and then configure endpoints to
 
     ![Create Traffic Manager profile](media/azure-stack-solution-hybrid-cloud/image19.png)
 
- When the global deployment of your Traffic Manager profile is complete, it is shown in the list of resources for the resource group you created it under.
+   When the global deployment of your Traffic Manager profile is complete, it is shown in the list of resources for the resource group you created it under.
 
 ### Add Traffic Manager endpoints
 

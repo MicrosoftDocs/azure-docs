@@ -6,12 +6,12 @@ ms.author: zhongc
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2018
+ms.date: 03/05/2018
 ---
 
 # Understand time handling in Azure Stream Analytics
 
-In this article, we discuss how you can make design choices to solve practical time handling problems in the Azure Stream Analytics service. Time handling design decisions are closely related to event ordering factors. For more information, see this related article: [Azure Stream Analytics event order considerations](stream-analytics-out-of-order-and-late-events.md).
+In this article, we discuss how you can make design choices to solve practical time handling problems in the Azure Stream Analytics service. Time handling design decisions are closely related to event ordering factors.
 
 ## Background time concepts
 

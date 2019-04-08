@@ -32,7 +32,7 @@ Before you begin, make sure that:
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-limits.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview.md). 
+    - [Introduction to Azure managed disks](/azure/virtual-machines/windows/managed-disks-overview). 
 
 ## Connect to Data Box
 
@@ -41,7 +41,7 @@ Based on the resource groups specified, Data Box creates one share for each asso
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Within each share, the following four folders are created which correspond to containers in your storage account.
+Within each share, the following three folders are created which correspond to containers in your storage account.
 
 - Premium SSD
 - Standard HDD

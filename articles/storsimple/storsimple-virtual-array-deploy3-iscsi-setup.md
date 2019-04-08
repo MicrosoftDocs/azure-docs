@@ -93,7 +93,7 @@ Use the following step-by-step instructions to set up and configure your StorSim
    
     On the **Web proxy** page:
    
-   1. Supply the **Web proxy URL** in this format: *http://host-IP address* or *FQDN:Port number*. Note that HTTPS URLs are not supported.
+   1. Supply the **Web proxy URL** in this format: *http:\//host-IP address* or *FQDN:Port number*. Note that HTTPS URLs are not supported.
    2. Specify **Authentication** as **Basic** or **None**.
    3. If you are using authentication, you will also need to provide a **Username** and **Password**.
    4. Click **Apply**. This will validate and apply the configured web proxy settings.

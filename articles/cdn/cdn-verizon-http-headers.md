@@ -50,6 +50,7 @@ The terms used in the syntax are defined as follows:
 - Protocol: Indicates the version of the protocol (for example, HTTP/1.1) used to proxy the request. 
 
 - Platform: Indicates the platform on which the content was requested. The following codes are valid for this field: 
+
     Code | Platform
     -----|---------
     ECAcc | HTTP Large

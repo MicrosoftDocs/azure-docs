@@ -3,7 +3,7 @@ title: Upload images to your Azure IoT Central application | Microsoft Docs
 description: As a builder, learn how to prepare and upload images to your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/31/2018
+ms.date: 02/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -25,7 +25,7 @@ To complete the steps in this article, you need the following:
 
 You can add custom images to the following locations in an Azure IoT Central application:
 
-* The **Application Manager** page
+* The **My applications** page
 
     ![Image on application manager page](media/howto-prepare-images/applicationmanager.png)
 
@@ -65,7 +65,7 @@ The following sections describe how to upload the images in the different locati
 
 ### Application manager
 
-To upload an image on the **Application Manager**, navigate to the **Application Settings** page in the **Administration** section. You must be an administrator to complete this task:
+To upload an image to use on the **My applications** page, navigate to the **Application Settings** page in the **Administration** section. You must be an administrator to complete this task:
 
 ![Upload application image](media/howto-prepare-images/uploadapplicationmanager.png)
 
@@ -73,9 +73,9 @@ Select the Application Image tile to upload your prepared image (268x160 px) fro
 
 ### Application dashboard
 
-To upload an image on the application dashboard, navigate to the **Dashboard** of your application and select **Edit**. You must be a builder to complete this task:
+To upload an image on the application dashboard, navigate to the **Dashboard** page of your application and select **Edit**. You must be a builder to complete this task:
 
-![Upload application dashboard image](media/howto-prepare-images/uploadhomepage.png)
+![Upload dashboard image](media/howto-prepare-images/uploadhomepage.png)
 
 Under Configure Image, select the Image tile to upload your prepared image from your local machine. The smallest sized tile is 200x200 px, larger tiles can be either square or rectangular multiples of small tiles. For example 200x400 px, 400x200 px, or 400x400 px.
 
@@ -83,15 +83,15 @@ Under Configure Image, select the Image tile to upload your prepared image from 
 
 ### Device template
 
-To upload an image on a device template, navigate to **Device Explorer**, choose the device template and then a device. You must be a builder to complete this task:
+To upload an image on a device template, navigate to **Device Templates** and choose the device template. You must be a builder to complete this task:
 
 ![Upload device template image](media/howto-prepare-images/uploaddevicetemplate.png)
 
-Select the image tile to upload your prepared image (64x64 px) from your local machine. 
+Select the image tile to upload your prepared image (64x64 px) from your local machine.
 
 ### Device dashboard
 
-To upload an image on a device dashboard, navigate to **Device Explorer**, choose the device template, and then a device. Then choose the **Dashboard** page and select **Edit Template**. You must be a builder to complete this task:
+To upload an image on a device dashboard, navigate to **Device Templates** and choose the device template. Then choose the **Dashboard** tab. You must be a builder to complete this task:
 
 ![Upload device dashboard image](media/howto-prepare-images/uploaddevicedashboard.png)
 

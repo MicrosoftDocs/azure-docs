@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     ![SuccessFactors Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -110,6 +111,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     | `https://<companyname>.sapsf.eu`|
 
     b. In the **Identifier** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -123,6 +125,7 @@ To configure Azure AD single sign-on with SuccessFactors, perform the following 
     | `https://www.successfactors.cn/<companyname>`|
 
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -238,7 +241,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

@@ -66,12 +66,11 @@ you need to delete the following modules:
 
 Select each module and press the Delete key, or right-click the module and select **Delete**. 
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Highlights which modules to delete to remove the Support Vector Machine model](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Our model should now look something like this:
 
-![Removed the SVM model](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Resulting experiment when the Support Vector Machine model is deleted](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -167,7 +166,7 @@ When the web service is accessed, the user's data enters through the **Web servi
 The results are returned to the user from the web service through the **Web service output** module.
 
 > [!TIP]
-> The way you have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. But you can return something different if you want - for example, you could return just the credit risk value. To do this, insert a [Project Columns][project-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
+> The way you have the predictive experiment configured, the entire results from the [Score Model][score-model] module are returned. This includes all the input data plus the credit risk value and the scoring probability. But you can return something different if you want - for example, you could return just the credit risk value. To do this, insert a [Select Columns][select-columns] module between [Score Model][score-model] and the **Web service output** to eliminate columns you don't want the web service to return. 
 > 
 > 
 
@@ -263,4 +262,4 @@ You can also develop a custom application to access the web service using starte
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

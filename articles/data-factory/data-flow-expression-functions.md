@@ -65,13 +65,13 @@ Logical AND operator. Same as &&
 <code>asin</code>
 ==============================
 <code><b>asin(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse sine value
+Calculates an inverse sine value
 * ``asin(0) -> 0.0``
 *********************************
 <code>atan</code>
 ==============================
 <code><b>atan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
-Calculates a inverse tangent value
+Calculates an inverse tangent value
 * ``atan(0) -> 0.0``
 *********************************
 <code>atan2</code>
@@ -126,7 +126,7 @@ Concatenates a variable number of strings together. Same as the + operator with 
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatenates a variable number of strings together with a separator. The first parameter is the separator
 * ``concatWS(' ', 'Awesome', 'Cool', 'Product') -> 'Awesome Cool Product'``
-* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) -> ``
+* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) ->``
 * ``concatWS(',' , toString(order_total), toString(order_discount))``
 *********************************
 <code>cos</code>
@@ -506,7 +506,7 @@ Finds the position(1 based) of the substring within a string starting a certain 
 <code>log</code>
 ==============================
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calculates log value. An optional base can be supplied else a euler number if used
+Calculates log value. An optional base can be supplied else an euler number if used
 * ``log(100, 10) -> 2``
 *********************************
 <code>log10</code>
@@ -937,14 +937,14 @@ Gets the aggregate sum of distinct values of a numeric column
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumDistinctIf(true, sales) -> SUM(sales) ``
+* ``sumDistinctIf(true, sales) -> SUM(sales)``
 *********************************
 <code>sumIf</code>
 ==============================
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumIf(true, sales) -> SUM(sales) ``
+* ``sumIf(true, sales) -> SUM(sales)``
 *********************************
 <code>tan</code>
 ==============================
@@ -1000,7 +1000,7 @@ Converts any numeric or string to a float value. An optional Java decimal format
 <code>toInteger</code>
 ==============================
 <code><b>toInteger(<i>&lt;value&gt;</i> : any, [<i>&lt;format&gt;</i> : string]) => integer</b></code><br/><br/>
-Converts any numeric or string to a integer value. An optional Java decimal format can be used for the conversion.Truncates any long, float, double
+Converts any numeric or string to an integer value. An optional Java decimal format can be used for the conversion.Truncates any long, float, double
 * ``toInteger(123) -> 123``
 * ``toInteger('123') -> 123``
 * ``toInteger('$123', '$###') -> 123``

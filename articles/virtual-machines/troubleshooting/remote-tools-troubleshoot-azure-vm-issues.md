@@ -36,7 +36,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* The command must be run on a computer that’s in the same VNET.
->* DIP or HostName can be used to replace <computer>.
+>* DIP or HostName can be used to replace \<computer>.
 >* The -s parameter makes sure that the command is invoked by using System Account (administrator permission).
 >* PsExec uses TCP ports 135 and 445. Therefore, the two ports have to be open on the Firewall.
 
@@ -169,14 +169,14 @@ Run the following command, depending on the client computer location:
 
 * Outside the VNET or deployment
 
-    * For a classic VM, run the following command:
+  * For a classic VM, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
+  * For an ARM VM, first add a DNS name to the public IP address. For detailed steps, see [Create a fully qualified domain name in the Azure portal for a Windows VM](../windows/portal-create-fqdn.md). Then, run the following command:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck

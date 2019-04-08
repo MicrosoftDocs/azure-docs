@@ -47,5 +47,5 @@ Azure Search can be added to blobs directly from the Blob storage portal page.
 
 Click **Add Azure Search** to launch a flow where you can select an existing Azure Search service or create a new service. If you create a new service, you are navigated out of your Storage account's portal experience. You can navigate back to the Storage portal page and re-select the **Add Azure Search** option, where you can select the existing service.
 
-### Next Steps
+## Next Steps
 Learn more about the Azure Search Blob Indexer in the full [documentation](https://aka.ms/azsblobindexer).

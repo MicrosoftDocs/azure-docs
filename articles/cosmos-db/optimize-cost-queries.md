@@ -28,7 +28,7 @@ Queries that read data from one or more partitions incur higher latency and cons
 
 Once you have stored some data in your Azure Cosmos containers, you can use the Data Explorer in the Azure portal to construct and run your queries. You can also get the cost of the queries by using the data explorer. This method will give you a sense of the actual charges involved with typical queries and operations that your system supports.
 
-You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .Net or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
+You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .NET or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -54,7 +54,7 @@ In some cases you may see a sequence of 200 and 429 responses, and variable requ
 
 ## Metrics for troubleshooting
 
-The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .Net SDK, here are sample query metrics returned by the SDK:
+The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .NET SDK, here are sample query metrics returned by the SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

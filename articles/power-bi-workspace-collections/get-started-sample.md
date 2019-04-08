@@ -1,16 +1,15 @@
 ---
 title: Get started with a sample
 description: In this article, we'll introduce you to the Power BI Workspace Collections get started sample.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: d8a9ef78-ad4e-4bc7-9711-89172dc5c548
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
-ms.author: maghan
 ---
+
 # Get started with Power BI Workspace Collections sample
 
 With **Microsoft Power BI Workspace Collections**, you can integrate Power BI reports right into your web or mobile applications. In this article, we introduce you to the **Power BI Workspace Collections** get started sample.
@@ -87,7 +86,7 @@ After you click a report, the **EmbedSample** web application should look someth
 
 ## Explore the sample code
 
-The **Microsoft Power BI Workspace Collections** sample is an example web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](http://www.asp.net/mvc).
+The **Microsoft Power BI Workspace Collections** sample is an example web app that shows you how to integrate **Power BI** reports into your app. It uses a Model-View-Controller (MVC) design pattern to demonstrate best practices. This section highlights parts of the sample code that you can explore within the **PowerBI-embedded** web app solution. The Model-View-Controller (MVC) pattern separates the modeling of the domain, the presentation, and the actions based on user input into three separate classes: Model, View, and Control. To learn more about MVC, see [Learn About ASP.NET](https://www.asp.net/mvc).
 
 The **Microsoft Power BI Workspace Collections** sample code is separated as follows. Each section includes the file name in the PowerBI-embedded.sln solution so that you can easily find the code in the sample.
 
@@ -264,4 +263,4 @@ $filter={tableName/fieldName}%20eq%20'{fieldValue}'
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

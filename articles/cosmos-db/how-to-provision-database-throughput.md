@@ -18,7 +18,7 @@ This article explains how to provision throughput for a database in Azure Cosmos
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account), or select an existing account.
+1. [Create a new Azure Cosmos DB account](create-sql-api-dotnet.md#create-account), or select an existing account.
 
 1. Open the **Data Explorer** pane, and select **New Database**. Provide the following details:
 

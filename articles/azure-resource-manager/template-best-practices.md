@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 03/05/2019
 ms.author: tomfitz
 ---
 # Azure Resource Manager template best practices
@@ -20,7 +20,25 @@ For recommendations about how to govern your Azure subscriptions, see [Azure ent
 
 For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## Template limits
+
+Limit the size of your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+
+You're also limited to:
+
+* 256 parameters
+* 256 variables
+* 800 resources (including copy count)
+* 64 output values
+* 24,576 characters in a template expression
+
+You can exceed some template limits by using a nested template. For more information, see [Using linked templates when deploying Azure resources](resource-group-linked-templates.md). To reduce the number of parameters, variables, or outputs, you can combine several values into an object. For more information, see [Objects as parameters](resource-manager-objects-as-parameters.md).
+
+## Resource group
+
+When you deploy resources to a resource group, the resource group stores metadata about the resources. The metadata is stored in the location of the resource group.
+
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. To minimize risk, locate your resource group and resources in the same region.
 
 ## Parameters
 The information in this section can be helpful when you work with [parameters](resource-group-authoring-templates.md#parameters).

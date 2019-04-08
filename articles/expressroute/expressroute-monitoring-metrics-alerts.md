@@ -39,18 +39,18 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 
 1. In order to configure alerts, navigate to **Azure Monitor**, then click **Alerts**.
 
-  ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
+   ![alerts](./media/expressroute-monitoring-metrics-alerts/eralertshowto.jpg)
 
 2. Click **+Select Target** and select the ExpressRoute gateway connection resource.
 
-  ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
+   ![target]( ./media/expressroute-monitoring-metrics-alerts/alerthowto2.jpg)
 3. Define the alert details.
 
-  ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
+   ![action group](./media/expressroute-monitoring-metrics-alerts/alerthowto3.jpg)
 
 4. Define and add the action group.
 
-  ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
+   ![add action group](./media/expressroute-monitoring-metrics-alerts/actiongroup.png)
 
 ## Alerts based on each peering
 

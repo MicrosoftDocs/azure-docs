@@ -37,7 +37,7 @@ Twitter allows you to retrieve the data for each tweet as a JavaScript Object No
    |:--- |:--- |
    | Name |MyHDInsightApp |
    | Description |MyHDInsightApp |
-   | Website |https://www.myhdinsightapp.com |
+   | Website |https:\//www.myhdinsightapp.com |
 
 4. Check **Yes, I agree**, and then click **Create your Twitter application**.
 

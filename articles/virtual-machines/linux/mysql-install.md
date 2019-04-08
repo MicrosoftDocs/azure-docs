@@ -91,7 +91,7 @@ We will use Linux VM with CentOS or Oracle Linux here.
   
     Download and install the MySQL release package:
   
-            #[root@mysqlnode ~]# wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
+            #[root@mysqlnode ~]# wget https://repo.mysql.com/mysql-community-release-el6-5.noarch.rpm
             #[root@mysqlnode ~]# yum localinstall -y mysql-community-release-el6-5.noarch.rpm
 * Step 2: Edit below file to enable the MySQL repository for downloading the MySQL5.6 package.
   

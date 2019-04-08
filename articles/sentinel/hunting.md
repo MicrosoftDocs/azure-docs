@@ -125,19 +125,19 @@ Create a new hunting query:
 1. Click **New query** and select **Save**.
 2. Fill in all the blank fields and select **Save**.
 
- ![New query](./media/tutorial-hunting/new-query.png)
+   ![New query](./media/tutorial-hunting/new-query.png)
 
 Clone and modify an existing hunting query:
 
 1. Select the hunting query in the table you want to modify.
 2. Select the ellipsis (...) in the line of the query you want to modify, and select **Clone query**.
 
- ![clone query](./media/tutorial-hunting/clone-query.png)
+   ![clone query](./media/tutorial-hunting/clone-query.png)
  
 
-3.	Modify the query and select **Create**.
+3. Modify the query and select **Create**.
 
- ![custom query](./media/tutorial-hunting/custom-query.png)
+   ![custom query](./media/tutorial-hunting/custom-query.png)
 
 ## Next steps
 In this article, you learned how to run a hunting investigation with Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
