@@ -13,7 +13,7 @@ metadata:
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
+  description: Azure Maps provides developers from all industries, powerful geospatial capabilities, packed with the freshest mapping data available to provide geographic context to web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs for Maps, Search, Routing, Traffic, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations accompanied by both Web and Android SDKs to make development easy, flexible, and portable across multiple platforms.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -24,7 +24,7 @@ sections:
     items: 
     - image: 
         src: /media/logos/logo_js.svg
-      text: Create Web app
+      text: Create web app
       href: /azure/azure-maps/quick-demo-map-app
 - title: Step-by-Step Tutorials
   items:
