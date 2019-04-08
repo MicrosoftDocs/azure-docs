@@ -72,7 +72,7 @@ There is further, advanced customization you can make on your navigation areas w
 
 "Exclude" volumes are mainly meant to give fine-grained control on where not to place probes for tightening resource usage.
 
-![Screen of Exclude Acoustics Volume in Unreal](media/unreal-acoustics-volume-exclude.png)
+![Screenshot of Exclude Acoustics Volume in Unreal](media/unreal-acoustics-volume-exclude.png)
 
 "Include" volumes are useful for creating manual sections of a scene, such as if you want to break up your scene into multiple acoustic zones. For example, if you have a large scene, many kilometers squared, and you have two areas of interest you want to bake acoustics on. You can draw two big "Include" volumes in the scene and produce ACE files for each of them one at a time. Then in game, you can use trigger volumes combined with blueprint calls to load the appropriate ACE file when the player approaches each tile.
 
