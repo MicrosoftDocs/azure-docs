@@ -24,7 +24,7 @@ Azure Backup supports backup of Azure VMs that have their OS/data disks encrypte
 
 Azure Backup can back up and restore Azure VMs using ADE with and without the Azure AD app, as summarized in the following table.
 
-**VM disk type** | **ADE**<br/><br/>(BEK/dm-crypt) | **ADE and KEK**
+**VM disk type** | **ADE (BEK/dm-crypt)** | **ADE and KEK**
 --- | --- | --- 
 **Unmanaged** | Yes | Yes
 **Managed**  | Yes | Yes
@@ -52,7 +52,7 @@ Before you start, do the following:
 1. Make sure you have one or more [Windows](../security/azure-security-disk-encryption-windows.md) or [Linux](../security/azure-security-disk-encryption-linux.md) VMs with ADE enabled.
 2. [Review the support matrix](backup-support-matrix-iaas.md) for Azure VM backup
 3. [Create](backup-azure-arm-vms-prepare.md#create-a-vault) a Recovery Services Backup vault if you don't have one.
-4. If you enable encryption for VMs that are already enabled for backup, you simply need to provide Backup with permissions to access the Key Vault so that backups can continue without disruption. [Learn more]() about assigning these permissions.
+4. If you enable encryption for VMs that are already enabled for backup, you simply need to provide Backup with permissions to access the Key Vault so that backups can continue without disruption. [Learn more](#provide-permissions) about assigning these permissions.
 
 In addition, there are a couple of things that you might need to do in some circumstances:
 
@@ -87,10 +87,13 @@ In addition, there are a couple of things that you might need to do in some circ
       ![Select encrypted VMs](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
 8. If you're using Azure Key Vault, on the vault page, you see a message that Azure Backup needs read-only access to the keys and secrets in the Key Vault.
+
     - If you receive this message, no action is required.
+    
         ![Access OK](./media/backup-azure-vms-encryption/access-ok.png)
         
     - If you receive this message, you need to set permissions as described in the [procedure below](#provide-permissions).
+    
         ![Access warning](./media/backup-azure-vms-encryption/access-warning.png)
 
 9. Click **Enable Backup** to deploy the backup policy in the vault, and enable backup for the selected VMs. 
@@ -104,7 +107,7 @@ The initial backup will run in accordance with the schedule, but you can run it 
 2. In **Backup Items** click **Azure Virtual Machine**.
 3. In the **Backup Items** list, click the ellipses (...).
 4. Click **Backup now**.
-5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained >  **OK**.
+5. In **Backup Now**, use the calendar control to select the last day that the recovery point should be retained. Then click **OK**.
 6. Monitor the portal notifications. You can monitor the job progress in the vault dashboard > **Backup Jobs** > **In progress**. Depending on the size of your VM, creating the initial backup may take a while.
 
 
