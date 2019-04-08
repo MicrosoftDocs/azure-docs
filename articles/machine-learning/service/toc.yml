@@ -118,7 +118,8 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Manage and monitor training runs
+  - name: Track and monitor experiments
+    - name: Start, monitor & cancel runs
       displayName: cancel, fail, status, child run
       href: how-to-manage-and-monitor-runs.md
     - name: Log metrics for training runs
