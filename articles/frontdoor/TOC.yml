@@ -22,13 +22,10 @@
     href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
-  - name: WAF
-    items:
-      name: Overview
-      href: waf-overview.md
-      name: Policy settings
-      href: waf-front-door-policy-settings.md
+  - name: WAF Overview
     href: waf-overview.md
+  - name: WAF policy settings
+    href: waf-front-door-policy-settings.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
