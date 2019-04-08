@@ -23,6 +23,11 @@
 - name: Concepts
   items:
   - name: WAF
+    items:
+      name: Overview
+      href: waf-overview.md
+      name: Policy settings
+      href: waf-front-door-policy-settings.md
     href: waf-overview.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
@@ -50,6 +55,8 @@
     href: front-door-url-rewrite.md
 - name: How-to guides
   items:
+  - name: Configure custom response code for WAF
+    href: waf-front-door-configure-custom-response-code.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot routing issues
