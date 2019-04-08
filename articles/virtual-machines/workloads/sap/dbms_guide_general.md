@@ -305,7 +305,7 @@ These best practices are the result of hundreds of customer deployments:
 
 > Be aware that network traffic between two [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks.
 
-Use two VMs for your production DBMS deployment within an Azure availability set. Also use separate routing for the SAP application layer and the management and operations traffic to the two DBMS VMs. See the following diagram.
+Use two VMs for your production DBMS deployment within an Azure availability set. Also use separate routing for the SAP application layer and the management and operations traffic to the two DBMS VMs. See the following image:
 
 ![Diagram of two VMs in two subnets](./media/virtual-machines-shared-sap-deployment-guide/general_two_dbms_two_subnets.PNG)
 
