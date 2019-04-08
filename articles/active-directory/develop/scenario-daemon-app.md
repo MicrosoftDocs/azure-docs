@@ -188,7 +188,9 @@ In MSAL.Python, the configuration file would look like this:
 
 # [Java](#tab/java)
 
-
+```Java
+public final static String KEYVAULT_DEFAULT_SCOPE = "https://vault.azure.net/.default";
+```
 
 # [Other](#tab/other)
 
