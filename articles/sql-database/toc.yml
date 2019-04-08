@@ -224,6 +224,7 @@
       href: sql-database-security-index.yml
     - name: Security capabilities
       href: sql-database-security-overview.md
+      displayName: compliance, fedramp      
     - name: Advanced data security
       items:
       - name: Advanced data security
