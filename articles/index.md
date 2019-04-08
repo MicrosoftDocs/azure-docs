@@ -241,7 +241,7 @@ featureFlags:
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg">
+                                                        <a class="barLink" href="https://azure.microsoft.com/en-us/features/azure-portal/mobile-app/">
                                                             <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="">
                                                             Azure mobile app
                                                         </a>
