@@ -14,7 +14,7 @@ manager: craigg
 ms.date: 02/26/2019
 ---
 
-# Connectivity architecture for a managed instance in Azure SQL Database 
+# Connectivity architecture for a managed instance in Azure SQL Database
 
 This article explains communication in an Azure SQL Database managed instance. It also describes connectivity architecture and how the components direct traffic to the managed instance.  
 
@@ -112,7 +112,6 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 
 > [!IMPORTANT]
 > Although required inbound security rules allow traffic from _any_ source on ports 9000, 9003, 1438, 1440, and 1452, these ports are protected by a built-in firewall. For more information, see [Determine the management endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > If you use transactional replication in a managed instance, and if you use any instance database as a publisher or a distributor, open port 445 (TCP outbound) in the subnet's security rules. This port will allow access to the Azure file share.
 

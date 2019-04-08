@@ -27,7 +27,6 @@ Now do another `nslookup` for highlighted name removing the `.vnet.` segment. Yo
 
 ![Resolving public IP address](./media/sql-database-managed-instance-management-endpoint/02_find_public_ip.png)
 
-
 ## Next steps
 
 For more information about Managed Instances and connectivity, see [Azure SQL Database Managed Instance Connectivity Architecture](sql-database-managed-instance-connectivity-architecture.md).
