@@ -54,8 +54,10 @@ For more information on the concepts involved in the deployment workflow, see [M
 
     > [!NOTE]
     > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in Python pickle format.
-    >
-    > For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
+
+## <a id="convertonnxmodel"></a> Convert model to ONNX for optimized inferencing
+
+This step is optional. To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you will need to convert your trained model to the ONNX format if your training script did not already output an ONNX model. Most popular frameworks are supported including TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet, MATLAB, and more. See the [ONNX tutorials](https://github.com/onnx/tutorials) for examples of how to convert your model into ONNX format.
 
 ## <a id="registermodel"></a> Register a trained model
 
