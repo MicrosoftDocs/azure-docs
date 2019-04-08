@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create an index in C# - Azure Search'
+title: 'Quickstart: Create an index in a C# console application - Azure Search'
 description: Learn how to create a full text searchable index in C# using the Azure Search .NET SDK.
 author: heidisteen
 manager: cgronlun
@@ -23,11 +23,13 @@ This article walks you through the process of creating [an Azure Search index](s
 
 ## Prerequisites
 
-The following services and tools are used in this quickstart. 
+The following services, tools, and data are used in this quickstart. 
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
+
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) provides the sample solution, a .NET Core console application written in C#, located in the Azure samples GitHub repository. Download and extract the solution. By default, solutions are read-only. Right-click the solution and clear the read-only attribute so that you can modify files. Data is included in the solution.
 
 ## Get the api-key and endpoint
 
@@ -41,21 +43,21 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
-## 1 - Open the project
+## 1 - Configure and build the solution
 
-Download the sample code [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) from GitHub. 
+1. Open the **DotNetHowTo.sln** file in Visual Studio.
 
-In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
+1. In appsettings.json, replace the default content with the example below, and then provide the service name and admin api-key for your service. For the service name, you just need the name itself. For example, if your URL is https://mydemo.search.windows.net, add `mydemo` to the JSON file.
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+          }
+   ```
 
-Once those values are set, you can F5 build the solution to run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
+1. Press F5 to build the solution and run the console app. The remaining steps in this exercise and those that follow are an exploration of how this code works. 
 
 Alternatively, you can refer to [How to use Azure Search from a .NET Application](search-howto-dotnet-sdk.md) for more detailed coverage of the SDK behaviors. 
 
