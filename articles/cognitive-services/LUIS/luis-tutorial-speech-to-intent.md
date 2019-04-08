@@ -9,10 +9,10 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
 #Customer intent: Use speech service and get LUIS prediction information -- without calling LUIS directly.
-#dfb - verified this tutorial works on 6/26 using logitech wireless headset
+#dfb - verified this tutorial works on 04/08/2019 using Jabra wired headset
 ---
 
 # Integrate Speech service with your Language Understanding app
