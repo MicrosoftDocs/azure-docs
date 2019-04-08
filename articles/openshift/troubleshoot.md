@@ -7,7 +7,7 @@ ms.author: twhitney
 manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 005/06/2019
+ms.date: 05/06/2019
 ---
 
 # Azure Red Hat OpenShift troubleshooting
