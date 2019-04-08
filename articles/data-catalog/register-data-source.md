@@ -26,11 +26,13 @@ To get started, you must complete the [quickstart](data-catalog-get-started.md).
 * A [Microsoft Azure](https://azure.microsoft.com/) subscription.
 * You need to have your own [Azure Active Directory tenant](../active-directory/fundamentals/active-directory-access-create-new-tenant.md).
 
-To set up Data Catalog, you must be the owner or coowner of an Azure subscription.
+To set up Data Catalog, you must be the owner or co-owner of an Azure subscription.
 
 ## Register a data source
 
 In this tutorial, you register data assets (tables) from an [Azure SQL database sample](../sql-database/sql-database-single-database-get-started.md), but you can use any supported data source if you prefer to work with data that is familiar and relevant to your role. For a list of supported data sources, see [Supported data sources](data-catalog-dsr.md).
+
+The Azure SQL database name we're using in this tutorial is *RLSTest*.
 
 You can now register data assets from the Azure SQL database sample by using Azure Data Catalog.
 
@@ -48,7 +50,7 @@ In this exercise, you use the registration tool to register data assets from the
 
    ![Azure Data Catalog--Launch button](media/data-catalog-get-started/data-catalog-launch-application.png)
 
-3. On the **Welcome** page, select **Sign in** and enter your credentials.     
+3. On the **Welcome** page, select **Sign in** and enter your credentials.
 
     ![Azure Data Catalog--Welcome page](media/data-catalog-get-started/data-catalog-welcome-dialog.png)
 
@@ -60,7 +62,7 @@ In this exercise, you use the registration tool to register data assets from the
 
    ![Azure Data Catalog--SQL Server connection settings](media/data-catalog-get-started/data-catalog-sql-server-connection.png)
 
-6. Register the metadata of your data asset. In this example, you register **Production/Product** objects from the AdventureWorks Production namespace:
+6. Register the metadata of your data asset. In this example, you register **Product** objects from the Azure SQL database sample namespace:
 
     1. In the **Server Hierarchy** tree, expand your Azure SQL database sample and select **SalesLT**.
 
@@ -80,7 +82,7 @@ In this exercise, you use the registration tool to register data assets from the
 
           ![Azure Data Catalog tutorial--objects to be registered](media/data-catalog-get-started/data-catalog-objects-register.png)
 
-    8. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your Azure SQL database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently resides, and it remains under the control of the administrators and policies of the current system.
+    8. Select **REGISTER**. Azure Data Catalog registers your selected objects. In this exercise, the selected objects from your Azure SQL database sample are registered. The registration tool extracts metadata from the data asset and copies that data into the Azure Data Catalog service. The data remains where it currently stays, and it remains under the control of the administrators and policies of the current system.
 
           ![Azure Data Catalog--registered objects](media/data-catalog-get-started/data-catalog-registered-objects.png)
 
@@ -116,7 +118,7 @@ Basic search helps you search a catalog by using one or more search terms. Resul
 
     ![Azure Data Catalog--basic text search](media/data-catalog-get-started/data-catalog-basic-text-search.png)
 
-3. Confirm that you see all four tables and the database (AdventureWorks2014) in the results. You can switch between **grid view** and **list view** by selecting buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
+3. Confirm that you see all four tables and the database in the results. You can switch between **grid view** and **list view** by selecting buttons on the toolbar as shown in the following image. Notice that the search keyword is highlighted in the search results because the **Highlight** option is **ON**. You can also specify the number of **results per page** in search results.
 
     ![Azure Data Catalog--basic text search results](media/data-catalog-get-started/data-catalog-basic-text-search-results.png)
 
@@ -244,7 +246,7 @@ In this exercise, you open data assets in an integrated client tool (Excel) and 
 
     ![Azure Data Catalog--product table in Excel](media/data-catalog-get-started/data-catalog-connect2.png)
 
-In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to the AdventureWorks2014 database to access the data in the data assets registered in this tutorial.
+In this exercise, you connected to data assets discovered by using Azure Data Catalog. With the Azure Data Catalog portal, you can connect directly by using the client applications integrated into the **Open in** menu. You can also connect with any application you choose by using the connection location information included in the asset metadata. For example, you can use SQL Server Management Studio to connect to the Azure SQL database to access the data in the data assets registered in this tutorial.
 
 1. Open **SQL Server Management Studio**.
 
