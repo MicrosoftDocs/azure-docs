@@ -87,6 +87,10 @@ If you sign the user in to your app, you can identify the organization to which 
 
 When you're ready to request permissions from the organization's admin, you can redirect the user to the v2.0 *admin consent endpoint*.
 
+> [!TIP]
+> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
 ```
 // Line breaks are for legibility only.
 
@@ -145,6 +149,12 @@ After you've received a successful response from the app provisioning endpoint, 
 ## Get a token
 
 After you've acquired the necessary authorization for your application, proceed with acquiring access tokens for APIs. To get a token by using the client credentials grant, send a POST request to the `/token` v2.0 endpoint:
+
+
+> [!TIP]
+> Try executing this request in Postman! (Use your own app ID for best results - the tutorial application won't request useful permissions.)
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
 
 ### First case: Access token request with a shared secret
 
