@@ -26,7 +26,7 @@ Create a QnA chat bot from the **Publish** page for an existing knowledge base. 
 
 ## Prerequisites
 
-You need to have a published knowledge base for this tutorial. If you do not have one, follow the steps in [Create a knowledge base](create-publish-query-in-portal.md) to create a QnA Maker service with questions and answers.
+You need to have a published knowledge base for this tutorial. If you do not have one, follow the steps in [Create and answer from KB](create-publish-query-in-portal.md) tutorial to create a QnA Maker knowledge base with questions and answers.
 
 <a name="create-a-knowledge-base-bot"></a>
 
@@ -69,7 +69,7 @@ Create a bot as a client application for the knowledge base.
 
     ![In the Azure portal, open the new bot resource from the notification.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-1. From **Bot management**, select **Test in Web Chat** and enter the same query as you entered for testing with the Curl command: `How large can my KB be?`. The bot will respond with the same answer: 
+1. From **Bot management**, select **Test in Web Chat** and enter: `How large can my KB be?`. The bot will respond with: 
 
 
     `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
