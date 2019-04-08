@@ -11,7 +11,7 @@
 - name: Tutorials
   items:
   - name: Register data assets
-    href: register-data-assets.md
+    href: register-data-assets-tutorial.md
 - name: Concepts
   items:
   - name: Common scenarios
