@@ -39,7 +39,7 @@ If you're brand new to machine learning, the video series [Data Science for Begi
 
 
 1. Select  **Add New**  in the left bottom corner.
-![Add new experiment](./media/quickstart-ui-run-experiment/add-new.png)
+![Add new experiment](./media/ui-quickstart-run-experiment/add-new.png)
 
 1. Select **Blank Experiment**.
 
@@ -47,7 +47,7 @@ If you're brand new to machine learning, the video series [Data Science for Begi
 
 1. The **Mini Map** at the bottom of the screen is useful for viewing large experiments.  You won't need it in this quickstart so click on the arrow at the top to close it.  
 
-![Rename experiment](./media/quickstart-ui-run-experiment/rename.png)
+![Rename experiment](./media/ui-quickstart-run-experiment/rename.png)
 
 ## Add data
 
@@ -57,7 +57,7 @@ The first thing you need for machine learning is data. There are several sample 
 
 1. Select the third dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
-   ![Drag data to canvas](./media/quickstart-ui-run-experiment/drag-data.png)
+   ![Drag data to canvas](./media/ui-quickstart-run-experiment/drag-data.png)
 
  > [!TIP]
  > If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
@@ -75,14 +75,14 @@ Select which columns of data to work with.  For now, view all the available colu
 
 1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
-    ![Connect modules](./media/quickstart-ui-run-experiment/connect-modules.gif) 
+    ![Connect modules](./media/ui-quickstart-run-experiment/connect-modules.gif) 
 
     > [!TIP]
     > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
 
     The experiment should now look something like this:
 
-    ![select-column](./media/quickstart-ui-run-experiment/select-columns.png)
+    ![select-column](./media/ui-quickstart-run-experiment/select-columns.png)
 
     The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
    
@@ -92,7 +92,7 @@ Select which columns of data to work with.  For now, view all the available colu
 
     In the Select columns dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
-     ![column-selector](./media/quickstart-ui-run-experiment/select-all.PNG)
+     ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
 
 1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
 
@@ -104,7 +104,7 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
 1. Select **Run** at the bottom to run the experiment.
 
-     ![Run experiment](./media/quickstart-ui-run-experiment/run-experiment.png)
+     ![Run experiment](./media/ui-quickstart-run-experiment/run-experiment.png)
 
 1. In the **Setup Compute Targets** dialog, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
 
@@ -112,7 +112,7 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
 1. Select **Run**.
 
-    ![Setup compute target](./media/quickstart-ui-run-experiment/set-compute.png)
+    ![Setup compute target](./media/ui-quickstart-run-experiment/set-compute.png)
 
     Your compute resource will now be created. View the status in the top-right corner of the experiment. 
 
@@ -121,7 +121,7 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
-    ![View status](./media/quickstart-ui-run-experiment/status1.png)
+    ![View status](./media/ui-quickstart-run-experiment/status1.png)
 
 ## Visualize the data
 
@@ -135,7 +135,7 @@ Now that you have run your initial experiment, you can visualize the data to und
 
 1. Click on **make**.  This column is a String Feature, with 22 unique value and no missing values. The histogram shows the distribution of **make** in the dataset. 
 
-     ![visualization-result](./media/quickstart-ui-run-experiment/make.png)
+     ![visualization-result](./media/ui-quickstart-run-experiment/make.png)
 
 1. Click on each column to understand more about your dataset.
 
@@ -160,13 +160,13 @@ First,  remove the **normalized-losses** column completely.
 
     * Select the check mark (OK) button to close the column selector (on the lower-right).
 
-    ![Exclude a column](./media/quickstart-ui-run-experiment/exclude-column.png)
+    ![Exclude a column](./media/ui-quickstart-run-experiment/exclude-column.png)
         
     Now the properties pane for Select Columns in Dataset indicates that it will pass through all columns from the dataset except **normalized-losses**.
         
     The properties pane shows that the **normalized-losses** column is excluded.
         
-    ![Property pane](./media/quickstart-ui-run-experiment/property-pane.png)
+    ![Property pane](./media/ui-quickstart-run-experiment/property-pane.png)
         
     You can add a comment to a module by double-clicking the module and entering text. This can help you see at a glance what the module is doing in your experiment. 
 
@@ -178,7 +178,7 @@ First,  remove the **normalized-losses** column completely.
 
     The module now shows an up-arrow to hide the comment.
         
-    ![Comments](./media/quickstart-ui-run-experiment/comments.png)
+    ![Comments](./media/ui-quickstart-run-experiment/comments.png)
 
 ### Clean missing data
 
@@ -194,11 +194,11 @@ Now add another module that removes any remaining row that has missing data.
 
 1. Double-click the module and type the comment "Remove missing value rows."
  
-    ![Remove rows](./media/quickstart-ui-run-experiment/remove-rows.png)
+    ![Remove rows](./media/ui-quickstart-run-experiment/remove-rows.png)
 
     Your experiment should now look something like this:
     
-    ![select-column](./media/quickstart-ui-run-experiment/experiment-clean.png)
+    ![select-column](./media/ui-quickstart-run-experiment/experiment-clean.png)
 
 ## Visualize the results
 
@@ -210,11 +210,11 @@ Since you made changes to the modules in your experiment, the status has changed
 
 1. Select **Run** in the dialog.
 
-   ![Run experiment](./media/quickstart-ui-run-experiment/select-compute.png)
+   ![Run experiment](./media/ui-quickstart-run-experiment/select-compute.png)
 
 1. When the run completes, right-click on the **Clean Missing Data** module to visualize the new clean data.  
 
-    ![Visualize clean data](./media/quickstart-ui-run-experiment/visualize-cleaned.png)
+    ![Visualize clean data](./media/ui-quickstart-run-experiment/visualize-cleaned.png)
 
 ## Clean up resources
 
