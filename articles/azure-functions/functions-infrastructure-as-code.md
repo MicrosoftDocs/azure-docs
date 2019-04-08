@@ -502,7 +502,7 @@ Linux apps should also include a `linuxFxVersion` property under `siteConfig`. I
 }
 ```
 
-If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](/azure/app-service/containers). In addition, you should set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, as your app content should be provided in the container itself:
+If you are [deploying a custom container image](./functions-create-function-linux-custom-image.md), you must specify it with `linuxFxVersion` and include configuration that allows your image to be pulled, as in [Web App for Containers](/azure/app-service/containers). Also, set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `false`, since your app content is provided in the container itself:
 
 ```json
 {
