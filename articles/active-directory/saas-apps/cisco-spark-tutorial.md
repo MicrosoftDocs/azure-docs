@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with Cisco Webex, perform the following ste
 	> [!NOTE]
 	> This Identifier value is not real. Update this value with the actual Identifier. If you have Service Provider Metadata, upload it in the **Basic SAML Configuration** section then the **Identifier (Entity ID)** value gets auto populated automatically.
 
-5. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
+5. Cisco Webex application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
 	![image](common/edit-attribute.png)
 
