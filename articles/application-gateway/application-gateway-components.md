@@ -1,5 +1,5 @@
 ---
-title: Azure Application Gateway components
+title: Learn about Azure Application Gateway components
 description: This article provides information about Application Gateway components
 services: application-gateway
 author: abshamsft
@@ -9,15 +9,15 @@ ms.date: 02/20/2019
 ms.author: absha
 ---
 
-# Azure Application Gateway components
+# Learn about Azure Application Gateway components
 
- An Azure application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools. These include Azure VMs, virtual machine scale sets, App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
+ An Azure application gateway serves as the single point of contact for clients. It distributes incoming application traffic across multiple backend pools. These include Azure VMs, virtual machine scale sets, Azure App Service, and on-premises/external servers. To distribute traffic, an application gateway uses several components described in this article.
 
 ![application-gateway-components](./media/application-gateway-components/application-gateway-components.png)
 
 ## Frontend IP addresses
 
-A frontend IP address is the IP address associated with an application gateway. You can configure an application gateway to have a public IP address, a private IP address, or both. An application gateway supports one public or one private IP address. Your virtual network and public IP address must be in the same location as your application gateway. After it's created, a frontend IP address is associated to a listener.
+A frontend IP address is the IP address associated with an application gateway. You can configure an application gateway to have a public IP address, a private IP address, or both. An application gateway supports one public or one private IP address. Your virtual network and public IP address must be in the same location as your application gateway. After it's created, a frontend IP address is associated with a listener.
 
 ### Static versus dynamic public IP address
 
