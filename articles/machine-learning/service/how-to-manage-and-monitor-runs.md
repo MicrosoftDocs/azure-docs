@@ -76,7 +76,7 @@ To get additional details about the run use [`get_details()`](https://docs.micro
 notebook_run.get_details()
 ```
 
-When your run finishes successfully, use the [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) method to mark it as complete.
+When your run finishes successfully, use the [`complete()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#complete--set-status-true-) method to mark it as completed.
 
 ```Python
 notebook_run.complete()
@@ -97,7 +97,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## Cancel or fail runs
 
- If your run doesn't seem to be converging, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes.
+ If your run doesn't seem to be converging, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
