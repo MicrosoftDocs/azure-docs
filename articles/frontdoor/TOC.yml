@@ -52,8 +52,6 @@
     href: front-door-url-rewrite.md
 - name: How-to guides
   items:
-  - name: Configure custom response code for WAF
-    href: waf-front-door-configure-custom-response-code.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot routing issues
@@ -64,6 +62,8 @@
     items:
     - name: Configure WAF policy - portal
       href: waf-front-door-create-portal.md
+    - name: Configure custom response code
+      href: waf-front-door-configure-custom-response-code.md
 - name: FAQ
   items:
   - name: Front Door FAQ
