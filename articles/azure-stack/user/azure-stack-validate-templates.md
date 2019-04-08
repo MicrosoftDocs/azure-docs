@@ -72,7 +72,7 @@ Use these steps to validate templates by using the **AzureRM.TemplateValidator**
     -Verbose
     ```
 
-Template validation warnings or errors are displayed in the PowerShell console and written to an HTML file in the source directory. The following screen shot is an example of a validation report:
+Template validation warnings or errors are displayed in the PowerShell console and written to an HTML file in the source directory. The following screenshot is an example of a validation report:
 
 ![Template validation report](./media/azure-stack-validate-templates/image1.png)
 
