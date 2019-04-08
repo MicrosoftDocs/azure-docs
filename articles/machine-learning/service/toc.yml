@@ -119,6 +119,7 @@
       displayName: parameter
       href: how-to-tune-hyperparameters.md
   - name: Track and monitor experiments
+    items:
     - name: Start, monitor & cancel runs
       displayName: cancel, fail, status, child run
       href: how-to-manage-and-monitor-runs.md
