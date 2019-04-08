@@ -134,7 +134,7 @@ image_config.base_image_registry.password = "password"
 
 For more information on uploading images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
 
-If your model is trained using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
+If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
 
 ```python
 # Use an image built during training with SDK 1.0.22 or greater
