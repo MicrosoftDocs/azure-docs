@@ -316,7 +316,7 @@ Let's make a [POI Category Search](https://docs.microsoft.com/rest/api/maps/sear
 **Sample query:**
 
 ```HTTP
-https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas station&limit=3&lat=47.6413362&lon=-122.1327968
+https://atlas.microsoft.com/search/poi/json?subscription-key={subscription-key}&api-version=1.0&query=gas%20station&limit=3&lat=47.6413362&lon=-122.1327968
 ```
 
 **Response:**
@@ -560,7 +560,7 @@ Let's make an Address search request to the Azure Maps [search service](https://
 **Sample query:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400BroadSt,Seattle,WA&countrySet=US
+https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
 Further let's have a look at the response structure below. The result types of the result objects in the response are different. If you observe carefully you can see we have three different types of result objects, that are "Point Address", "Street", and "Cross Street". Notice that address search does not return POIs. The `Score` parameter for each response object indicates the relative matching score to scores of other objects in the same response. See [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) to know more about response object parameters.
@@ -584,7 +584,7 @@ Further let's have a look at the response structure below. The result types of t
 ```JSON
 {
     "summary": {
-        "query": "400 broad st seattle wa",
+        "query": "400 broad street seattle wa",
         "queryType": "NON_NEAR",
         "queryTime": 129,
         "numResults": 6,
