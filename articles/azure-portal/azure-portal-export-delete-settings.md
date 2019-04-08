@@ -50,5 +50,5 @@ It's a good idea to export and review your settings before you delete them. Rebu
 
 ## Next steps
 
-* - [Create and share Azure dashboards](azure-portal-dashboard-share-access.md)
-- [Add, remove, and sort favorites](../azure-portal-add-remove-sort-favorites.md)
+* [Create and share Azure dashboards](azure-portal-dashboard-share-access.md)
+* [Add, remove, and sort favorites](azure-portal-add-remove-sort-favorites.md)
