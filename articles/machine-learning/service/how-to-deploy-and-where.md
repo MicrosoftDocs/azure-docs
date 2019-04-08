@@ -105,7 +105,7 @@ The important parameters in this example described in the following table:
 | ----- | ----- |
 | `execution_script` | Specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. For more information, see the [Execution script](#script) section. |
 | `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
-| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
+| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). If you will be optimizing your inference with ONNX Runtime, be sure to add "onnxruntime" or "onnxruntime-gpu" as one of the dependencies for the conda environment. |
 
 For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
