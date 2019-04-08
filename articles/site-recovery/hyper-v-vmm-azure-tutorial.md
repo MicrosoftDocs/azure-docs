@@ -11,7 +11,7 @@ ms.custom: MVC
 ---
 # Set up disaster recovery of on-premises Hyper-V VMs in VMM clouds to Azure
 
-This article describes how to enable replication for on-premises Hyper-V VMs managed by System Center Virtual Machine Manager (VMM), for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service. If you aren't using VMM, then [follow this tutorial](hyper-v-azure-tutorial).
+This article describes how to enable replication for on-premises Hyper-V VMs managed by System Center Virtual Machine Manager (VMM), for disaster recovery to Azure using the [Azure Site Recovery](site-recovery-overview.md) service. If you aren't using VMM, then [follow this tutorial](hyper-v-azure-tutorial.md).
 
 This is the third tutorial in a series that shows you how to set up disaster recovery to Azure for on-premises VMware VMs. In the previous tutorial, we [prepared the on-premises Hyper-V environment](hyper-v-prepare-on-premises-tutorial.md) for disaster recovery to Azure. 
 
