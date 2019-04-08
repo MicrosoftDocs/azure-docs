@@ -78,7 +78,7 @@ When performing a reverse geocode search with [Search Address Reverse API](https
 **Sample request:**
 
 ```HTTP
-https://atlas.microsoft.com/search/address/json?api-version=1.0&subscription-key={subscription-key}&query=MicrosoftWay&entityType=Municipality
+https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscription-key={subscription-key}&query=47.6394532,-122.1304551&language=en-US&entityType=Municipality
 ```
 
 **Response:**
