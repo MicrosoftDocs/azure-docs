@@ -15,7 +15,7 @@ metadata:
   ms.date: 05-06-2019
   ms.author: twhitney
 abstract:
-  description: 'Azure Red Hat OpenShift provides fully managed OpenShift clusters that allow you to focus on app development while providing regulatory compliance .'
+  description: 'Azure Red Hat OpenShift provides fully managed OpenShift clusters that allow you to focus on app development.'
 sections:
 - title: Step-by-Step Tutorials
   items:
@@ -38,5 +38,5 @@ sections:
       html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
     - title: REST
       html: <p><a href="/rest/api/aks">REST API</a></p>
-    - title: Red Hat OpenShift dedicated documentation
-      html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/)"</a></p>
+    - title: Red Hat OpenShift documentation
+      html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Red Hat OpenShift docs</a></p>
