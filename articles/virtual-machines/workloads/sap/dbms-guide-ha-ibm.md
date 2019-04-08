@@ -94,7 +94,7 @@ For SAP application servers to connect to primary database you need a virtual ho
 
 To fully understand, how IBM Db2 LUW with HADR and Pacemaker fits into a highly available SAP system setup, the following picture presents an overview of a highly available setup of an SAP system based on IBM Db2 database. This article covers only IBM Db2 and references to other articles how to set up other components of SAP system.
 
-![IBM DB2 HA Full environment overview](.//media/dbms-guide-ha-ibm/End2End_HA.png)
+![IBM DB2 HA Full environment overview](.//media/dbms-guide-ha-ibm/end-2-end-ha.png)
 
 
 ### High-level overview of steps needed
@@ -166,7 +166,7 @@ Make sure that the selected OS is supported by IBM/SAP for IBM Db2 LUW. The list
 	
 Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker] to create a basic Pacemaker cluster for this IBM Db2 server. 
 
-## Install IBM Db2 LUW and SAP environment.
+## Install IBM Db2 LUW and SAP environment
 
 Before you start the installation of an SAP environment based on IBM Db2 LUW, review (links provided at beginning of the article):
 
@@ -342,7 +342,7 @@ The following items are prefixed with either:
 
 **[A]** Prerequisites for Pacemaker configuration:
 1. Shut down both database server with user db2\<sid> with db2stop
-2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool
+2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool [//]: <> Yast is a fixed term in Linux and not a spelling error
 3. Update the resource agent:
 	<pre><code>sudo curl -so https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/db2 /usr/lib/ocf/resource.d/heartbeat/db2	</code></pre>
 
@@ -467,7 +467,7 @@ j2ee/dbhost = db-virt-hostname
 
 
 
-## Install Primary and Dialog application Servers.
+## Install primary and dialog application Servers
 
 When installing primary and dialog application servers against an Db2 HADR configuration, you should use virtual hostname you picked for the configuration. 
 
@@ -477,7 +477,8 @@ In case you performed the installation before creating the Db2 HADR configuratio
 
 Use the J2EE Config tool to check or update the JDBC URL. The the J2EE Config tool is graphical tool, as a result you need **X server** installed:
  
-1. Log on to primary application server of J2EE instance and execute:
+1. Sign in to primar
+2. y application server of J2EE instance and execute:
 	<pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
 2. In the left frame, choose security store.
 2. In the right frame, choose the key jdbc/pool/<SAPSID>/url.
@@ -488,7 +489,7 @@ Use the J2EE Config tool to check or update the JDBC URL. The the J2EE Config to
 5. Close the configuration tool.
 5. Restart the Java instance.
 
-## Configuration of Log Archiving for HADR Setup
+## Configuration of log archiving for HADR Setup
 To configure the Db2 log archiving for HADR setup, we recommend that you configure both the primary and the standby database to have automatic log retrieval capability from all log archive locations. Both the primary and the standby database must be able to retrieve log archive files from all the log archive locations to which either one of the database instances might archive log files. 
 
 The log archiving is only performed by the primary database. If you change the HADR roles of the database servers or if a failure occurs, the new primary database is responsible for log archiving. If you have set up different log archive locations, your logs might be archived twice and, in the case of local or remote catch-up, you might have to manually copy the archived logs from the old primary server to the active log location of the new primary server.
@@ -876,7 +877,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb02 ]
      Slaves: [ azibmdb01 ]</code></pre>
 
-## Next Steps
+## Next steps
 Consult this documentation:
 
 - [High-availability architecture and scenarios for SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
