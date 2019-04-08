@@ -140,4 +140,4 @@ For more information on the new features of Azure Maps:
 Try out a sample app showcasing the Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create web app](quick-demo-map-app.md)
+> [Quickstart: Create a web app](quick-demo-map-app.md)

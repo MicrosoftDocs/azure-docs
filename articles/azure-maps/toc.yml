@@ -6,7 +6,7 @@
     href: about-azure-maps.md
 - name: Quickstarts
   items:
-  - name: Create web app
+  - name: Create a web app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:

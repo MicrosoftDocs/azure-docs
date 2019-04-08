@@ -24,7 +24,7 @@ sections:
     items: 
     - image: 
         src: /media/logos/logo_js.svg
-      text: Create web app
+      text: Create a web app
       href: /azure/azure-maps/quick-demo-map-app
 - title: Step-by-Step Tutorials
   items:
