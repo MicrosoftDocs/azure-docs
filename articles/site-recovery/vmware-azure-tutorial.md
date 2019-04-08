@@ -189,6 +189,6 @@ Enable replication for VMs as follows:
 1. To monitor VMs you add, check the last discovered time for VMs in **Configuration Servers** > **Last Contact At**. To add VMs without waiting for the scheduled discovery, highlight the configuration server (don't select it) and select **Refresh**.
 
 ## Next steps
-
+After enabling replication, run a drill to make sure everything's working as expected.
 > [!div class="nextstepaction"]
-> After enabling replication, [run a disaster recovery drill](site-recovery-test-failover-to-azure.md) to make sure that everything's working as expected.
+> [Run a disaster recovery drill](site-recovery-test-failover-to-azure.md)
