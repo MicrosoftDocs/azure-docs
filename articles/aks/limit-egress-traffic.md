@@ -37,8 +37,8 @@ In AKS, there are two sets of ports and addresses:
 
 The following outbound ports / network rules are required for an AKS cluster:
 
-* *443*
-* *22* (being replaced with *9000*)
+* TCP port *443*
+* TCP port *22* (being replaced with TCP port *9000*)
 
 The following FQDN / application rules are required. This list only applies to non-GPU clusters. For AKS clusters that include GPU-based nodes, see the [additional list of required ports and address](#additional-required-addresses-for-gpu-based-clusters)
 
@@ -70,8 +70,8 @@ If you use GPU-based nodes, some additional FQDNs are required for egress traffi
 
 The following outbound ports / network rules aren't required for AKS clusters to function correctly, but are recommended:
 
-* *123* for time sync
-* *53* (DNS) to correctly resolve Ubuntu patches
+* TCP port *123* for time sync
+* TCP port *53* (DNS) to correctly resolve Ubuntu patches
 
 The following FQDN / application rules are recommended for AKS clusters to function correctly:
 
