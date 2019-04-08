@@ -1,4 +1,4 @@
-# Scenario - Acquiring a token for the application (daemon apps)
+# Scenario - Daemon application calling an API on behalf of itself
 
 ## Scenario
 
@@ -269,6 +269,8 @@ ___
 
 If you get an error when calling the API Insufficient privileges to complete the operation., this is because the tenant administrator has not granted permissions to the application. See step 6 of Register the client app above.
 You will typically see and error like the following:
+
+```JSon
 Failed to call the Web Api: Forbidden
 Content: {
   "error": {
@@ -280,6 +282,7 @@ Content: {
     }
   }
 }
+```
 
 ## Next steps
 
