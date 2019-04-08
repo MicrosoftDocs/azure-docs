@@ -16,7 +16,7 @@ Web Apps calling Web APIs:
 ### Specifics
 
 > [!NOTE]
-> - Adding sign-in to a Web App does not use the MSAL libraries as this is about protecting the Web App. Protecting libraries is achieved by libraries named Middleware
+> - Adding sign-in to a Web App does not use the MSAL libraries as this is about protecting the Web App. Protecting libraries is achieved by libraries named Middleware. This was the object of the previous scenario [Sign-in users to a Web App](scenario-webapp-signs-in-users.md)
 >
 > - Calling Web APIs from a Web App can be done by the MSAL libraries.
 
@@ -27,7 +27,7 @@ The end to end experience of developers for this scenario has, therefore, specif
 
 ## Libraries supporting Web App scenarios
 
-The libraries supporting the authorization code flow are:
+The libraries supporting the authorization code flow for Web Apps are:
 
   MSAL library | Description
   ------------ | ----------
