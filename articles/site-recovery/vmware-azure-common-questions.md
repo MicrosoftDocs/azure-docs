@@ -68,23 +68,7 @@ For detailed estimate on costs, run the deployment planner tool for [VMware](htt
 
 ### Is there any difference in cost between replicating to storage or directly to managed disks?
 
-Managed disks are charged slightly different than storage accounts. Here's an example for a source disk of size 100 GB.
-
-- The example is specific to the differential cost of storage.
-- The cost does not include the cost for snapshots, cache storage and transactions.
-
-* Standard storage account v standard HDD managed disk
-
-    - **Provisioned storage disk by Azure Site Recovery**: S10
-    - **Standard storage account charged on consumed volume**: $5 per month
-    - **Standard managed disk charged on provisioned volume**: $5.89 per month
-
-* Premium storage account v premium SSD managed disk 
-    - **Provisioned storage disk by Azure Site Recovery**: P10
-    - **Premium storage account charged on provisioned volume**: $17.92 per month
-    - **Premium managed disk charged on provisioned volume**: $17.92 per month
-
-Review [more details](https://azure.microsoft.com/pricing/details/managed-disks/) on managed disk pricing.
+Managed disks are charged slightly different than storage accounts. [Learn more](https://azure.microsoft.com/pricing/details/managed-disks/) about managed disk pricing.
 
 ## Mobility service
 
