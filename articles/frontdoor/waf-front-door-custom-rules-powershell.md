@@ -1,5 +1,5 @@
 ---
-title: Configure a WAF policy with custom rules and Default Ruse Set for Front Door - Azure PowerShell
+title: Configure a web application firewall (WAF) policy with custom rules and Default Ruse Set for Front Door - Azure PowerShell
 description: Learn how to configure a WAF policy consist of both custom and managed rules for an existing Front Door endpoint.
 services: frontdoor
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.author: kumud;tyao
 
 # Configure a web application firewall policy using Azure PowerShell
 Azure web application firewall (WAF) policy defines inspections required when a request arrives at Front Door.
-This article shows how to configure a WAF policy consists of some custom rules and with Azure managed Default Ruse Set enabled.
+This article shows how to configure a WAF policy that consists of some custom rules and with Azure-managed Default Ruse Set enabled.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -26,7 +26,7 @@ Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager]
 
 You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
 
-#### Connect to Azure with an interactive dialog for sign-in
+#### Sign in to Azure
 ```
 Connect-AzAccount
 
@@ -47,7 +47,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 
 ## Custom rule based on http parameters
 
-Below powershell example shows how to configure a custom rule with two match conditions using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Requests are from a specified site as defined by referrer, and query string does not contain "password". 
+The following example shows how to configure a custom rule with two match conditions using [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Requests are from a specified site as defined by referrer, and query string does not contain "password". 
 
 ```powershell-interactive
 $referer = New-AzFrontDoorMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
@@ -85,8 +85,8 @@ $myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName 
 ```
 
 ## Link policy to a Front Door front-end host
-Link the security policy object to an existing Front Door front-end host and update Front Door properties. First retrieve the Front Door object using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) command.
-Next, set the front-end *WebApplicationFirewallPolicyLink* property to the *resourceId* of the "$myWAFPolicy$" created in the previous step using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command. 
+Link the security policy object to an existing Front Door front-end host and update Front Door properties. First, retrieve the Front Door object using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor).
+Next, set the front-end *WebApplicationFirewallPolicyLink* property to the *resourceId* of the "$myWAFPolicy$" created in the previous step using [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor). 
 
 The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article. Also, in the below example, replace $frontDoorName with the name of your Front Door profile. 
 
