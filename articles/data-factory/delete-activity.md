@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 02/25/2019
 ---
 
 # Delete Activity in Azure Data Factory
 
-You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premise storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
+You can use the Delete Activity in Azure Data Factory to delete files or folders from on-premises storage stores or cloud storage stores. Use this activity to clean up or archive files when they are no longer needed.
 
 > [!WARNING]
 > Deleted files or folders cannot be restored. Be cautious when using the Delete activity to delete files or folders.
@@ -32,13 +32,16 @@ Here are some recommendations for using the Delete activity:
 
 -   Make sure you are not deleting files that are being written at the same time. 
 
--   If you want to delete files or folder from an on-premise system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
+-   If you want to delete files or folder from an on-premises system, make sure you are using a self-hosted integration runtime with a version greater than 3.14.
 
 ## Supported data stores
 
 -   [Azure Blob storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+
+### File system data stores
+
 -   [File System](connector-file-system.md)
 -   [FTP](connector-ftp.md)
 -   [SFTP](connector-sftp.md)

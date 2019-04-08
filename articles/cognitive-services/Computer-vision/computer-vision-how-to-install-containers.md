@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -38,21 +38,21 @@ You must meet the following prerequisites before using Recognize Text containers
 
 ### The host computer
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### Container requirements and recommendations
 
 The following table describes the minimum and recommended CPU cores and memory to allocate for each Recognize Text container.
 
-| Container | Minimum | Recommended |
-|-----------|---------|-------------|
-|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|
+| Container | Minimum | Recommended |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Recognize Text|1 core, 8 GB memory, 0.5 TPS|2 cores, 8 GB memory, 1 TPS|0.5, 1|
 
-Each core must be at least 2.6 gigahertz (GHz) or faster.
+* Each core must be at least 2.6 gigahertz (GHz) or faster.
+* TPS - transactions per second
 
 Core and memory correspond to the `--cpus` and `--memory` settings, which are used as part of the `docker run` command.
-
 
 ## Get the container image with `docker pull`
 
@@ -68,7 +68,7 @@ Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pul
 ### Docker pull for the Recognize Text container
 
 ```
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
 ```
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
@@ -111,11 +111,14 @@ More [examples](./computer-vision-resource-container-config.md#example-docker-ru
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## Query the container's prediction endpoint
 
 The container provides REST-based query prediction endpoint APIs. 
 
-Use the host, https://localhost:5000, for container APIs.
+Use the host, `https://localhost:5000`, for container APIs.
 
 ### Asynchronous text recognition
 
@@ -125,6 +128,11 @@ You can use the `POST /vision/v2.0/recognizeText` and `GET /vision/v2.0/textOper
 
 You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronously recognize printed text in an image. Because this operation is synchronous, the request body for this operation is the same as that for the `POST /vision/v2.0/recognizeText` operation, but the response body for this operation is the same as that returned by the `GET /vision/v2.0/textOperations/*{id}*` operation.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## Stop the container
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -133,9 +141,6 @@ You can use the `POST /vision/v2.0/recognizeTextDirect` operation to synchronous
 
 If you run the container with an output [mount](./computer-vision-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
-## Container's API documentation
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Billing
 

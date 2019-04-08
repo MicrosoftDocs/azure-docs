@@ -17,7 +17,7 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -49,7 +49,7 @@ If you've never used **Azure Machine Learning Studio** before, you might want to
 
 To use Machine Learning Studio, you need to have a Microsoft Azure Machine Learning Studio workspace. This workspace contains the tools you need to create, manage, and publish experiments.  
 
-To create a workspace, see [Create and share an Azure Machine Learning workspace](create-workspace.md).
+To create a workspace, see [Create and share an Azure Machine Learning Studio workspace](create-workspace.md).
 
 After your workspace is created, open Machine Learning Studio ([https://studio.azureml.net/Home](https://studio.azureml.net/Home)). If you have more than one workspace, you can select the workspace in the toolbar in the upper-right corner of the window.
 
@@ -64,7 +64,7 @@ After your workspace is created, open Machine Learning Studio ([https://studio.a
 ## <a name="upload"></a>Upload existing data
 
 To develop a predictive model for credit risk, you need data that you can use to train and then test the model. For this tutorial, You'll use the "UCI Statlog (German Credit Data) Data Set" from the UC Irvine Machine Learning repository. You can find it here:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 You'll use the file named **german.data**. Download this file to your local hard drive.  
 
@@ -207,18 +207,18 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 
 1. Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  The Properties pane looks like this:
+   The Properties pane looks like this:
 
-  ![Properties for Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Properties for Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
-  > 
-  > 
+   > [!TIP]
+   > If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+   > 
+   > 
 
 ### Create training and test datasets
 

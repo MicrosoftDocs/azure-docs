@@ -24,6 +24,8 @@ You can configure Azure Cosmos DB accounts to allow access from only a specific 
 
 The following sections describe how to configure a virtual network service endpoint for an Azure Cosmos DB account.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a id="configure-using-portal"></a>Configure a service endpoint by using the Azure portal
 
 ### Configure a service endpoint for an existing Azure virtual network and subnet
@@ -45,8 +47,11 @@ The following sections describe how to configure a virtual network service endpo
 
 > [!NOTE]
 > To enable virtual network service endpoints, you need the following subscription permissions:
-  * Subscription with virtual network: Network contributor
-  * Subscription with Azure Cosmos DB account: DocumentDB account contributor
+>   * Subscription with virtual network: Network contributor
+>   * Subscription with Azure Cosmos DB account: DocumentDB account contributor
+>   * If your virtual network and Azure Cosmos DB account are in different subscriptions, make sure that the subscription that has virtual network also has `Microsoft.DocumentDB` resource provider registered. To register a resource provider, see [Azure resource providers and types](../azure-resource-manager/resource-manager-supported-services.md) article. 
+
+Here are the directions for registering subscription with resource provider.
 
 ### Configure a service endpoint for a new Azure virtual network and subnet
 
@@ -83,7 +88,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
-1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
+1. Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps) and [sign in](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
 1. Enable the service endpoint for an existing subnet of a virtual network.  
 
@@ -93,18 +98,18 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
    $sname = "<Subnet name>"
    $subnetPrefix = "<Subnet address range>"
 
-   Get-AzureRmVirtualNetwork `
+   Get-AzVirtualNetwork `
     -ResourceGroupName $rgname `
-    -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+    -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
     -Name $sname  `
     -AddressPrefix $subnetPrefix `
-    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+    -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
    ```
 
 1. Get virtual network information.
 
    ```powershell
-   $vnProp = Get-AzureRmVirtualNetwork `
+   $vnProp = Get-AzVirtualNetwork `
      -Name $vnName `
      -ResourceGroupName $rgName
    ```
@@ -115,7 +120,7 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -155,7 +160,7 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -166,7 +171,7 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
 1. Run the following command to verify that your Azure Cosmos DB account is updated with the virtual network service endpoint that you configured in the previous step:
 
    ```powershell
-   $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
+   $UpdatedcosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -218,7 +223,7 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource `
+   $cosmosDBConfiguration = Get-AzResource `
      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
@@ -261,7 +266,7 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
       isVirtualNetworkFilterEnabled = $True;
    }
 
-   Set-AzureRmResource `
+   Set-AzResource `
       -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
       -ApiVersion $apiVersion `
       -ResourceGroupName $rgName `
@@ -281,12 +286,12 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
     $sname = "<Subnet name>"
     $subnetPrefix = "<Subnet address range>"
 
-    Get-AzureRmVirtualNetwork `
+    Get-AzVirtualNetwork `
        -ResourceGroupName $rgname `
-       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $vnName | Set-AzVirtualNetworkSubnetConfig `
        -Name $sname `
        -AddressPrefix $subnetPrefix `
-       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzVirtualNetwork
     ```
 
 1. Remove the IP firewall rule for the subnet.

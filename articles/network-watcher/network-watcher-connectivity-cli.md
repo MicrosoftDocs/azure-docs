@@ -181,7 +181,7 @@ The following example checks the connectivity to a website.
 ### Example
 
 ```azurecli
-az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address http://bing.com --dest-port 80
+az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
 ```
 
 ### Response

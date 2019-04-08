@@ -6,7 +6,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
 
@@ -24,7 +24,6 @@ This article shows you how to prepare Azure components when you want to replicat
 
 > [!div class="checklist"]
 > * Verify that your Azure account has replication permissions.
-> * Create an Azure storage account. Images of replicated machines are stored in it.
 > * Create a Recovery Services vault. A vault holds metadata and configuration information for VMs, and other replication components.
 > * Set up an Azure network. When Azure VMs are created after failover, they're joined to this Azure network.
 
@@ -32,7 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the [Azure portal](http://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Verify account permissions
 
@@ -40,27 +39,11 @@ If you just created your free Azure account, you're the administrator of your su
 
 - Create a VM in the selected resource group.
 - Create a VM in the selected virtual network.
-- Write to the selected storage account.
+- Write to storage account.
+- Write to managed disk.
 
 To complete these tasks your account should be assigned the Virtual Machine Contributor built-in role. In addition, to manage Site Recovery operations in a vault, your account should be assigned the Site Recovery Contributor build-in role.
 
-## Create a storage account
-
-Images of replicated machines are held in Azure storage. Azure VMs are created from the storage when you fail over from on-premises to Azure. The storage account must be in the same region as the Recovery Services vault. We're using West Europe in this tutorial.
-
-1. On the [Azure portal](https://portal.azure.com) menu, select **Create a resource** > **Storage** > **Storage account - blob, file, table, queue**.
-2. On **Create storage account**, enter a name for the account. For these tutorials, we're using **contosovmsacct1910171607**. The name you select must be unique within Azure and be between 3 and 24 characters, with numbers and lowercase letters only.
-3. In **Deployment model**, select **Resource Manager**.
-4. In **Account kind**, select **Storage (general purpose v1)**. Don't select blob storage.
-5. In **Replication**, select the default **Read-access geo-redundant storage** for storage redundancy. We're leaving **Secure transfer required** as **Disabled**.
-6. In **Performance**, select **Standard** and in **Access tier** choose the default option of **Hot**.
-7. In **Subscription**, select the subscription in which you want to create the new storage account.
-8. In **Resource group**, enter a new resource group. An Azure resource group is a logical container into which Azure resources are deployed and managed. For these tutorials, we're using **ContosoRG**.
-9. In **Location**, select the geographic location for your storage account. 
-
-   ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Select **Create** to create the storage account.
 
 ## Create a Recovery Services vault
 
@@ -77,7 +60,7 @@ Images of replicated machines are held in Azure storage. Azure VMs are created f
 
 ## Set up an Azure network
 
-When Azure VMs are created from storage after failover, they're joined to this network.
+When Azure VMs are created from managed disks after failover, they're joined to this network.
 
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**.
 2. We're leaving **Resource Manager** selected as the deployment model.
@@ -96,8 +79,7 @@ When Azure VMs are created from storage after failover, they're joined to this n
 ## Useful links
 
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) Azure networks.
-- [Learn about](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) types of Azure storage.
-- [Learn more](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) about storage redundancy, and [secure transfer](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) for storage.
+- [Learn about](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) managed disks.
 
 
 

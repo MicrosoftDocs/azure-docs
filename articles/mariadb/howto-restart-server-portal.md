@@ -17,7 +17,7 @@ The time required to complete a restart depends on the MariaDB recovery process.
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for MariaDB server and database](./quickstart-create-mariadb-server-database-using-azure-portal.md)
+- An [Azure Database for MariaDB server](./quickstart-create-mariadb-server-database-using-azure-portal.md)
 
 ## Perform server restart
 
@@ -31,15 +31,15 @@ The following steps restart the MariaDB server:
 
 3. Click **Yes** to confirm restarting the server.
 
-   ![Azure Database for MariaDB - Restart confirm ](./media/howto-restart-server-portal/3-restart-confirm.png)
+   ![Azure Database for MariaDB - Restart confirm](./media/howto-restart-server-portal/3-restart-confirm.png)
 
 4. Observe that the server status changes to "Restarting".
 
-   ![Azure Database for MariaDB - Restart status ](./media/howto-restart-server-portal/4-restarting-status.png)
+   ![Azure Database for MariaDB - Restart status](./media/howto-restart-server-portal/4-restarting-status.png)
 
 5. Confirm server restart is successful.
 
-   ![Azure Database for MariaDB - Restart success ](./media/howto-restart-server-portal/5-restart-success.png)
+   ![Azure Database for MariaDB - Restart success](./media/howto-restart-server-portal/5-restart-success.png)
 
 ## Next steps
 

@@ -3,16 +3,14 @@ title: Overview of templates for Azure Data Factory | Microsoft Docs
 description:  Learn how to use a pre-defined template to get started quickly with Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.author: douglasl
-ms.reviewer: douglasl
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 # Templates
 
@@ -36,7 +34,7 @@ You can get started creating a Data Factory pipeline from a template in the foll
 
 ### Out of the box Data Factory templates
 
-Data Factory uses Azure Resource Manager templates for saving data factory pipeline templates. You can see all the Resource Manager templates, along with the manifest file used for out of the box Data Factory templates, in the [official Azure Data Factory Github repo](https://github.com/Azure/Azure-DataFactory/tree/master/templates). The predefined templates provided by Microsoft include but are not limited to the following items:
+Data Factory uses Azure Resource Manager templates for saving data factory pipeline templates. You can see all the Resource Manager templates, along with the manifest file used for out of the box Data Factory templates, in the [official Azure Data Factory GitHub repo](https://github.com/Azure/Azure-DataFactory/tree/master/templates). The predefined templates provided by Microsoft include but are not limited to the following items:
 
 -   Copy templates:
 

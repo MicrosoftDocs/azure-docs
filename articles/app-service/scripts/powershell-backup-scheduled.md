@@ -47,8 +47,8 @@ This script uses the following commands. Each command in the table links to comm
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Creates a Storage account. |
-| [New-AzStorageContainer](/powershell/module/azure.storage/new-AzStoragecontainer) | Creates an Azure storage container. |
-| [New-AzStorageContainerSASToken](/powershell/module/azure.storage/new-AzStoragecontainersastoken) | Generates an SAS token for an Azure storage container. |
+| [New-AzStorageContainer](/powershell/module/az.storage/new-AzStoragecontainer) | Creates an Azure storage container. |
+| [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-AzStoragecontainersastoken) | Generates an SAS token for an Azure storage container. |
 | [New-AzAppServicePlan](/powershell/module/az.websites/new-azappserviceplan) | Creates an App Service plan. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app. |
 | [Edit-AzWebAppBackupConfiguration](/powershell/module/az.websites/edit-azwebappbackupconfiguration) | Edits the backup configuration for web app. |

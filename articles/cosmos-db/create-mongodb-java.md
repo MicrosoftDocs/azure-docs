@@ -10,7 +10,7 @@ ms.date: 12/26/2017
 ms.author: rimman
 
 ---
-# Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
+# Quickstart: Build a web app using Azure Cosmos DB's API for MongoDB and Java SDK
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)

@@ -21,7 +21,7 @@ A client application would access a FHIR API through a [REST API](https://www.hl
 
 ## FHIR server and authentication details
 
-In order to use Postman, you will need to know the following details:
+In order to use Postman, the following details are needed:
 
 - Your FHIR server URL, for example, `https://MYFHIRSERVICE.azurewebsites.net` or `https://MYACCOUNT.azurehealthcareapis.com`
 - The identity provider `Authority` for your FHIR server, for example, `https://login.microsoftonline.com/{TENANT-ID}`
@@ -54,6 +54,7 @@ Hit "Get New Access Token" and a dialog appears:
 ![Request New Access Token](media/tutorial-postman/postman-request-token.png)
 
 You will need to some details:
+
 | Field                 | Example Value                                                                                                   | Comment                    |
 |-----------------------|-----------------------------------------------------------------------------------------------------------------|----------------------------|
 | Token Name            | MYTOKEN                                                                                                         | A name you choose          |
@@ -101,6 +102,8 @@ If you inspect the access token with a tool like [https://jwt.ms](https://jwt.ms
 ```
 
 In troubleshooting situations, validating that you have the correct audience (`aud` claim) is a good place to start. The managed Azure API for FHIR uses [identity object IDs](find-identity-object-ids.md) to restrict access to the service. Make sure that `oid` claim of the token contains an object ID from the list of allowed object IDs.
+
+It is also possible to [get a token for the Azure API for FHIR using the Azure CLI](get-healthcare-apis-access-token-cli.md).
 
 ## Inserting a patient
 

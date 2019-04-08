@@ -22,7 +22,6 @@ This script creates an Event Grid subscription to the events for a Blob storage 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-
 ## Sample script
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.sh "Subscribe to Blob storage")]

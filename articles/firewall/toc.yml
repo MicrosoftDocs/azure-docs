@@ -19,7 +19,7 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Log Analytics
+  - name: Azure Monitor logs
     href: log-analytics-samples.md
 - name: Concepts
   items:
@@ -29,8 +29,12 @@
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Threat intelligence
+      href: threat-intel.md
     - name: Rule processing logic
       href: rule-processing.md
+    - name: Service tags
+      href: service-tags.md
 - name: How-to guides
   items:
     - name: Deploy using a template

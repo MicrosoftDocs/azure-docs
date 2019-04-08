@@ -43,30 +43,34 @@ To complete this quickstart:
 2. [Install Git](https://git-scm.com/)
 3. [Install the Microsoft Azure Service Fabric SDK](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-CoreSDK)
 4. Run the following command to enable Visual Studio to deploy to the local Service Fabric cluster:
-    ```powershell
-    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
-    ```
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
+   ```
 	
 ## Build a cluster
 
 After you install the runtime, SDKs, Visual Studio tools, Docker, and have Docker running, create a five-node local development cluster.
 
-> [!IMPORTANT]
-> Docker **must** be running before you can build a cluster.
+> [!Note]
+> The reason to have Docker running when you create the cluster is so that
+> the cluster is created with container features enabled. If Docker is not running,
+> you will have to recreate the cluster to enable container features.
+> Although unnecessary for this particular quickstart, the instruction to have
+> Docker running when you create the cluster is included as a best-practice.
 > Test that Docker is running by opening a terminal window and running `docker ps` to see if an error occurs. If the response does not indicate an error, Docker is running and you're ready to build a cluster.
-
 
 1. Open a new, elevated PowerShell window as an administrator.
 2. Run the following PowerShell command to create a development cluster:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\DevClusterSetup.ps1"
+   ```
 3. Run the following command to start the local cluster manager tool:
 
-    ```powershell
-    . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
-    ```
+   ```powershell
+   . "C:\Program Files\Microsoft SDKs\Service Fabric\Tools\ServiceFabricLocalClusterManager\ServiceFabricLocalClusterManager.exe"
+   ```
 
 >[!NOTE]
 > The sample application in this quickstart uses features that are not available on Windows 7.
@@ -127,23 +131,23 @@ To look at what happens in the code, complete the following steps:
 2. Open the **/VotingData/Controllers/VoteDataController.cs** file and set a breakpoint in this web API's **Put** method (line 54).
 
 3. Go back to the browser and click a voting option or add a new voting option. You hit the first breakpoint in the web front end's api controller.
-    * This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
+   * This is where the JavaScript in the browser sends a request to the web API controller in the front-end service.
 
-    ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
+     ![Add Vote Front-End Service](./media/service-fabric-quickstart-dotnet/addvote-frontend.png)
 
-    * First, construct the URL to the ReverseProxy for our back-end service **(1)**.
-    * Then, send the HTTP PUT Request to the ReverseProxy **(2)**.
-    * Finally, return the response from the back-end service to the client **(3)**.
+   * First, construct the URL to the ReverseProxy for our back-end service **(1)**.
+   * Then, send the HTTP PUT Request to the ReverseProxy **(2)**.
+   * Finally, return the response from the back-end service to the client **(3)**.
 
 4. Press **F5** to continue
-    - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
-    - You are now at the break point in the back-end service.
+   - If prompted by the browser, grant ServiceFabricAllowedUsers group read and execute permissions for Debug Mode.
+   - You are now at the break point in the back-end service.
 
-    ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
+     ![Add Vote Back-End Service](./media/service-fabric-quickstart-dotnet/addvote-backend.png)
 
-    * In the first line in the method **(1)** the `StateManager` gets or adds a reliable dictionary called `counts`.
-    * All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
-    * In the transaction, update the value of the relevant key for the voting option and commit the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
+   - In the first line in the method **(1)** the `StateManager` gets or adds a reliable dictionary called `counts`.
+   - All interactions with values in a reliable dictionary require a transaction, this using statement **(2)** creates that transaction.
+   - In the transaction, update the value of the relevant key for the voting option and commit the operation **(3)**. Once the commit method returns, the data is updated in the dictionary and replicated to other nodes in the cluster. The data is now safely stored in the cluster, and the back-end service can fail over to other nodes, still having the data available.
 5. Press **F5** to continue
 
 To stop the debugging session, press **Shift+F5**.

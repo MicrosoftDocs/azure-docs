@@ -23,7 +23,7 @@ ms.author: anavin
 
 A public IP address prefix is a reserved range of IP addresses for your public endpoints in Azure. Azure allocates a contiguous range of addresses to your subscription based on how many you specify. If you're not familiar with public addresses, see [Public IP addresses.](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses)
 
-Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=41653) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
+Public IP addresses are assigned from a pool of addresses in each Azure region. You can [download](https://www.microsoft.com/download/details.aspx?id=56519) the list of ranges Azure uses for each region. For example, 40.121.0.0/16 is one of over 100 ranges Azure uses in the East US region. The range includes the usable addresses of 40.121.0.1 - 40.121.255.254.
 
 You create a public IP address prefix in an Azure region and subscription by specifying a name, and how many addresses you want the prefix to include. For example, If you create a public IP address prefix of /28, Azure allocates 16 addresses from one of its ranges for you. You don't know which range Azure will assign until you create the range, but the addresses are contiguous. Public IP address prefixes have a fee. For details, see [public IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses).
 

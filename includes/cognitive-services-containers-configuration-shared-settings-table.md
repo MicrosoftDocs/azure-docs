@@ -1,10 +1,10 @@
---- 
+---
 author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/22/2019
---- 
+---
 
 This container has the following configuration settings:
 

@@ -108,6 +108,8 @@
     items:
     - name: Create a WPF app for Translator Text
       href: tutorial-wpf-translation-csharp.md
+    - name: Create a Flask translation app
+      href: tutorial-build-flask-app-translation-synthesis.md
   - name: Concepts
     items:
     - name: Customize and improve text translation
@@ -229,7 +231,7 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization
     - name: Glossary
       href: custom-translator/glossary.md
     - name: FAQ

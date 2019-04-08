@@ -24,7 +24,7 @@ Host Jenkins in Azure to centralize your build automation and scale your deploym
 - [Azure virtual machines](/azure/virtual-machines/linux/overview). See our [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) to create a Jenkins instance on a VM.
 - On a Kubernetes cluster running in [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), see our [how-to](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Monitor and manage your Azure Jenkins deployment using [Log Analytics](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
+Monitor and manage your Azure Jenkins deployment using [Azure Monitor logs](/azure/log-analytics/log-analytics-overview) and the [Azure CLI](/cli/azure).
 
 ## Scale your build automation on demand
 

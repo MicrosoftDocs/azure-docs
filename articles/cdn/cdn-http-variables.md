@@ -51,10 +51,10 @@ The following table describes the supported HTTP variables. A blank value is ret
 | Query String Parameter Found | %{is_amp} | The value for this variable varies according to whether the request contains at least one query string parameter.<br /><br />- Parameter Found: &<br />- No Parameters: NULL | & |
 | Query String Parameter Value | %{arg_&lt;parameter&gt;} | Returns the value corresponding to the query string parameter identified by the &lt;parameter&gt; term. | Sample Usage: <br />%{arg_language}<br /><br />Sample Query String Parameter: <br />?language=en<br /><br />Sample Value: en |
 | Query String Value | %{query_string} | Indicates the entire query string value defined in the request URL. |key1=val1&key2=val2&key3=val3 |
-| Referrer Domain | %{referring_domain} | Indicates the domain defined in the Referer request header. | www.google.com |
+| Referrer Domain | %{referring_domain} | Indicates the domain defined in the Referrer request header. | <www.google.com> |
 | Region (Requester) | %{geo_region} | Indicates the requester's region (for example, state or province) through its alphanumeric abbreviation. | CA |
 | Request Header Value | %{http_RequestHeader} | Returns the value corresponding to the request header identified by the RequestHeader term. <br /><br />If the name of the request header contains a dash (for example, User-Agent), replace it with an underscore (for example, User_Agent).| Sample Usage: %{http_Connection}<br /><br />Sample Value: Keep-Alive | 
-| Request Host | %{host} | Indicates the host defined in the request URL. | www.mydomain.com |
+| Request Host | %{host} | Indicates the host defined in the request URL. | <www.mydomain.com> |
 | Request Protocol | %{request_protocol} | Indicates the request protocol. | HTTP/1.1 |
 | Request Scheme | %{scheme} | Indicates the request scheme. |http |
 | Request URI (Relative) | %{request_uri} | Indicates the relative path, including the query string, defined in the request URI. | /marketing/foo.js?loggedin=true |
@@ -184,8 +184,8 @@ In this sample scenario, the *request_uri* variable is set to:
 
 The following table demonstrates how this syntax works.
 
-| Sample syntax | Results |
-| ------------- | ------- |
+| Sample syntax | Results | |
+| ------------- | ------- | --- |
 | %{request_uri#/800001}/customerorigin | /customerorigin/myorigin/marketing/product.html?language=en-US | Because the variable starts with the pattern, it was replaced. |
 | %{request_uri%html}htm | /800001/myorigin/marketing/product.html?language=en-US | Because the variable doesn't end with the pattern, there was no change.|
 

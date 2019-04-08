@@ -19,17 +19,17 @@ ms.custom: seodec2018
 
 Below is an example of a moreLikeThis query. The query finds documents whose description fields are most similar to the field of the source document as specified by the `moreLikeThis` parameter.
 
-```  
+```
 Get /indexes/hotels/docs?moreLikeThis=1002&searchFields=description&api-version=2016-09-01-Preview
-```  
+```
 
-```  
+```
 POST /indexes/hotels/docs/search?api-version=2016-09-01-Preview
-    {  
-      "moreLikeThis": "1002",  
-      "searchFields": "description"  
-    }  
-```  
+    {
+      "moreLikeThis": "1002",
+      "searchFields": "description"
+    }
+```
 
 ## Feature availability
 

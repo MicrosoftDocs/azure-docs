@@ -45,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [Add-AzAccount](/powershell/module/az.profile/add-azaccount) | Adds an authenticated account to use for Azure Resource Manager cmdlet requests.  |
+| [Add-AzAccount](/powershell/module/az.accounts/connect-azaccount) | Adds an authenticated account to use for Azure Resource Manager cmdlet requests.  |
 | [Get-AzWebAppBackupList](/powershell/module/az.websites/get-azwebappbackuplist) | Gets a list of backups for a web app. |
 | [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) | Creates a web app |
 | [Restore-AzWebAppBackup](/powershell/module/az.websites/restore-azwebappbackup) | Restores a web app from a previously completed backup. |

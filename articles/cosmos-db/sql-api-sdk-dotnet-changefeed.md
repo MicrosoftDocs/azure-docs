@@ -39,8 +39,8 @@ ms.author: maquaran
 ### <a name="2.2.6"/>2.2.6
 * Improved handling of Observer exceptions.
 * Richer information on Observer errors:
- * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
- * Added traces to identify errors within user code in an Observer.
+  * When an Observer is closed due to an exception thrown by Observer's ProcessChangesAsync, the CloseAsync will now receive the reason parameter set to ChangeFeedObserverCloseReason.ObserverError.
+  * Added traces to identify errors within user code in an Observer.
 
 ### <a name="2.2.5"/>2.2.5
 * Added support for handling split in collections that use shared database throughput.
@@ -125,7 +125,7 @@ ms.author: maquaran
 
 ### <a name="1.3.1"/>1.3.1
 * Stability improvements.
-  * Fix for handling cancelled tasks issue that might lead to stopped observers on some partitions.
+  * Fix for handling canceled tasks issue that might lead to stopped observers on some partitions.
 * Support for manual checkpointing.
 * Compatible with [SQL .NET SDK](sql-api-sdk-dotnet.md) versions 1.21 and above.
 

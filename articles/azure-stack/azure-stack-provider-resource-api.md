@@ -12,13 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
 ms.lastreviewed: 01/25/2018
 
 ---
 # Provider resource usage API
+
 The term *provider* applies to the service administrator and to any delegated providers. Azure Stack operators and delegated providers can use the provider usage API to view the usage of their direct tenants. For example, as shown in the diagram, P0 can call the provider API to get usage information on P1's and P2's direct usage, and P1 can call for usage information on P3 and P4.
 
 ![Conceptual model of the provider hierarchy](media/azure-stack-provider-resource-api/image1.png)
@@ -34,6 +35,7 @@ This usage API is a provider API, so the caller must be assigned an Owner, Contr
 | GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&subscriberId={sub1.1}&api-version=2015-06-01-preview&continuationToken={token-value} |
 
 ### Arguments
+
 | **Argument** | **Description** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of the Azure Resource Manager endpoint is in the format `https://adminmanagement.{domain-name}`. For example, for the development kit, if the domain name is *local.azurestack.external*, then the Resource Manager endpoint is `https://adminmanagement.local.azurestack.external`. |
@@ -76,6 +78,7 @@ meterID1",
 ```
 
 ### Response details
+
 | **Argument** | **Description** |
 | --- | --- |
 | *id* |Unique ID of the usage aggregate. |
@@ -98,9 +101,10 @@ To generate the usage data, you should have resources that are running and activ
 1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
 2. [Configure the Azure Stack user's](user/azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 
 3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
-```powershell
-Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
-```
+   ```powershell
+   Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
+   ```
+
 ### REST API
 
 You can collect usage information for deleted subscriptions by calling the  Microsoft.Commerce.Admin service. 

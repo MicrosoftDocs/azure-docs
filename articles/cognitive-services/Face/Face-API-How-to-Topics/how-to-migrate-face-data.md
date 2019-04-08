@@ -7,7 +7,7 @@ author: lewlu
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 
 ## Retrieve the Snapshot ID
 
-The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve an operation ID. You can obtain it by parsing the `OperationLocation` field. 
+The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be canceled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve an operation ID. You can obtain it by parsing the `OperationLocation` field. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

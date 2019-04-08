@@ -3,8 +3,8 @@ title: Azure Service Fabric Event Aggregation with EventFlow | Microsoft Docs
 description: Learn about aggregating and collecting events using EventFlow for monitoring and diagnostics of Azure Service Fabric clusters.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
-manager: timlt
+author: srrengar
+manager: chackdan
 editor: ''
 
 ms.assetid:
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/15/2017
-ms.author: dekapur
+ms.date: 2/25/2019
+ms.author: srrengar
 
 ---
 
@@ -154,5 +154,5 @@ Start your service and observe the Debug output window in Visual Studio. After t
 ## Next steps
 
 * [Event Analysis and Visualization with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [Event Analysis and Visualization with Log Analytics](service-fabric-diagnostics-event-analysis-oms.md)
+* [Event Analysis and Visualization with Azure Monitor logs](service-fabric-diagnostics-event-analysis-oms.md)
 * [EventFlow documentation](https://github.com/Azure/diagnostics-eventflow)

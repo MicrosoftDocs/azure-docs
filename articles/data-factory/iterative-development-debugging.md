@@ -1,18 +1,16 @@
 ---
 title: Iterative development and debugging in Azure Data Factory | Microsoft Docs
 description: Learn how to develop and debug Data Factory pipelines iteratively in the Azure portal.
-author: douglaslMS
-ms.author: douglasl
-manager: craigg
 ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
-
 services: data-factory
 documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
+author: gauravmalhot
+ms.author: gamal
+manager: craigg
 ---
 # Iterative development and debugging with Azure Data Factory
 

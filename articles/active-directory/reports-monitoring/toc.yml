@@ -32,8 +32,6 @@
     items:
     - name: Access Reporting API with certificates
       href: tutorial-access-api-with-certificates.md
-    - name: Generate a script to download sign-in logs 
-      href: tutorial-signin-logs-download-script.md
 
   - name: Monitoring
     items:
@@ -82,11 +80,11 @@
 
   - name: Monitoring
     items:
-    - name: Integrate activity logs with Log Analytics
+    - name: Integrate activity logs with Azure Monitor logs
       href: howto-integrate-activity-logs-with-log-analytics.md    
-    - name: Analyze activity logs in Log Analytics
+    - name: Analyze activity logs in Azure Monitor logs
       href: howto-analyze-activity-logs-log-analytics.md
-    - name: Install and use the Log Analytics views for Azure AD
+    - name: Install and use the log analytics views for Azure AD
       href: howto-install-use-log-analytics-views.md
     - name: Integrate activity logs with SumoLogic
       href: howto-integrate-activity-logs-with-sumologic.md

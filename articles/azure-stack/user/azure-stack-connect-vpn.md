@@ -12,8 +12,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 10/24/2018
+ms.topic: conceptual
+ms.date: 03/21/2019
 ms.author: sethm
 ms.reviewer: scottnap
 ms.lastreviewed: 10/24/2018
@@ -30,7 +30,7 @@ This article shows you how to create a site-to-site VPN to connect a virtual net
 To complete the connection configuration, make sure you have the following items before you begin:
 
 * An Azure Stack integrated systems (multi-node) deployment that is directly connected to the internet. Your external public IP address range must be directly reachable from the public internet.
-* A valid Azure subscription. If you don’t have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
+* A valid Azure subscription. If you don't have an Azure subscription, you can create a [free Azure account here](https://azure.microsoft.com/free/?b=17.06).
 
 ### VPN connection diagram
 
@@ -52,7 +52,7 @@ The network configuration examples table shows the values that are used for exam
 
 ## Create the network resources in Azure
 
-First, you create the network resources for Azure. The following instructions show how to create the resources by using the [Azure portal](https://portal.azure.com/).
+First, create the network resources for Azure. The following instructions show how to create the resources by using the [Azure portal](https://portal.azure.com/).
 
 ### Create the virtual network and virtual machine (VM) subnet
 
@@ -66,11 +66,11 @@ First, you create the network resources for Azure. The following instructions sh
 8. Select **Pin to dashboard**.
 9. Select **Create**.
 
-### Create the Gateway Subnet
+### Create the Gateway subnet
 
 1. Open the virtual network resource you created (**AzureVNet**) from the dashboard.
 2. On the **Settings** section, select **Subnets**.
-3. Select  **Gateway subnet** to add a gateway subnet to the virtual network.
+3. Select **Gateway subnet** to add a gateway subnet to the virtual network.
 4. The name of the subnet is set to **GatewaySubnet** by default.
 
    >[!IMPORTANT]
@@ -88,8 +88,7 @@ First, you create the network resources for Azure. The following instructions sh
 5. To choose a virtual network, select **Virtual network**. Then select **AzureVnet** from the list.
 6. Select **Public IP address**. When the **Choose public IP address** section opens, select **Create new**.
 7. In **Name**, type **Azure-GW-PiP**, and then select **OK**.
-8. By default, for **VPN type**, **Route-based** is selected. Keep the **Route-based** VPN type.
-9. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
+8. Verify that **Subscription** and **Location** are correct. You can pin the resource to the dashboard. Select **Create**.
 
 ### Create the local network gateway resource
 
@@ -303,4 +302,4 @@ went through the VPN connection.
 
 ## Next steps
 
-[Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)
+* [Deploy apps to Azure and Azure Stack](azure-stack-solution-pipeline.md)

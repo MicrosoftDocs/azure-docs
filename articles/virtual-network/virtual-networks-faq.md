@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 02/12/2019
 ms.author: jdial
 
 ---
@@ -50,7 +50,7 @@ You can use the following tools to create or configure a VNet:
 * A network configuration file (netcfg - for classic VNets only). See the [Configure a VNet using a network configuration file](virtual-networks-using-network-configuration-file.md) article.
 
 ### What address ranges can I use in my VNets?
-Any IP address range defined in [RFC 1918](http://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
+Any IP address range defined in [RFC 1918](https://tools.ietf.org/html/rfc1918). For example, 10.0.0.0/16. 
 You cannot add the following address ranges:
 * 224.0.0.0/4 (Multicast)
 * 255.255.255.255/32 (Broadcast)
@@ -220,7 +220,7 @@ Yes. You can use REST APIs for VNets in the [Azure Resource Manager](/rest/api/v
 ### Is there tooling support for VNets?
 Yes. Learn more about using:
 - The Azure portal to deploy VNets through the [Azure Resource Manager](manage-virtual-network.md#create-a-virtual-network) and [classic](virtual-networks-create-vnet-classic-pportal.md) deployment models.
-- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/azurerm.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
+- PowerShell to manage VNets deployed through the [Resource Manager](/powershell/module/az.network) and [classic](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) deployment models.
 - The Azure command-line interface (CLI) to deploy and manage VNets deployed through the [Resource Manager](/cli/azure/network/vnet) and [classic](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) deployment models.  
 
 ## VNet peering
@@ -230,6 +230,26 @@ VNet peering (or virtual network peering) enables you to connect virtual network
 
 ### Can I create a peering connection to a VNet in a different region?
 Yes. Global VNet peering enables you to peer VNets in different regions. Global VNet peering is available in all Azure public regions and China cloud regions. You cannot globally peer from Azure public regions to National cloud regions. Global peering is not currently available in Government cloud.
+
+### What are the constraints related to Global VNet Peering and Load Balancers?
+If the two virtual networks are in different region (Global VNet Peering), you cannot connect to resources that use Basic Load Balancer. You can connect to resources that use Standard Load Balancer.
+The following resources use Basic Load Balancers which means you cannot communicate to them across Global VNet Peering:
+- VMs behind Basic Load Balancers
+- VM Scale Sets with Basic Load Balancers 
+- Redis Cache 
+- Application Gateway (v1) SKU
+- Service Fabric
+- SQL Always-on
+- SQL MI
+- API Managemenet
+- ADDS
+- Logic Apps
+- HD Insight
+-	Azure Batch
+- AKS
+- App Service Environment
+
+You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ### Can I enable VNet Peering if my virtual networks belong to subscriptions within different Azure Active Directory tenants?
 Yes. It is possible to establish VNet Peering (whether local or global) if your subscriptions belong to different Azure Active Directory tenants. You can do this via PowerShell or CLI. Portal is not yet supported.
@@ -264,7 +284,7 @@ No. VNet peering, whether local or global, does not impose any bandwidth restric
 ## Virtual network TAP
 
 ### Which Azure regions are available for virtual network TAP?
-During developer preview, the capability is available in the West Central US region. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
+Virtual network TAP  preview is available in all Azure regions. The monitored network interfaces, the virtual network TAP resource, and the collector or analytics solution must be deployed in the same region.
 
 ### Does Virtual Network TAP support any filtering capabilities on the mirrored packets?
 Filtering capabilities are not supported with the virtual network TAP preview. When a TAP configuration is added to a network interface a deep copy of all the ingress and egress traffic on the network interface is streamed to the TAP destination.
@@ -277,7 +297,7 @@ Yes. The same virtual network TAP resource can be used to aggregate mirrored tra
 
 ### Are there any performance considerations on production traffic if I enable a virtual network TAP configuration on a network interface?
 
-Virtual network TAP is in developer preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
+Virtual network TAP is in preview. During preview, there is no service level agreement. The capability should not be used for production workloads. When a virtual machine network interface is enabled with a TAP configuration, the same resources on the azure host allocated to the virtual machine to send the production traffic is used to perform the mirroring function and send the mirrored packets. Select the correct [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Windows](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine size to ensure that sufficient resources are available for the virtual machine to send the production traffic and the mirrored traffic.
 
 ### Is accelerated networking for [Linux](create-vm-accelerated-networking-cli.md) or [Windows](create-vm-accelerated-networking-powershell.md) supported with virtual network TAP?
 
@@ -349,7 +369,7 @@ The deletion of Azure service account is an independent operation and is support
 When virtual network service endpoints are enabled, the source IP addresses of the resources in your virtual network's subnet switches from using public IPV4 addresses to the Azure virtual network's private IP addresses for traffic to Azure service. Note that this can cause specific IP firewall that are set to public IPV4 address earlier on the Azure services to fail. 
 
 ### Does service endpoint route always take precedence?
-Service endpoints add a system route which takes precedence over BGP routes and provide optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing] (virtual-networks-udr-overview.md).
+Service endpoints add a system route which takes precedence over BGP routes and provide optimum routing for the service endpoint traffic. Service endpoints always take service traffic directly from your virtual network to the service on the Microsoft Azure backbone network. For more information about how Azure selects a route, see [Azure Virtual network traffic routing](virtual-networks-udr-overview.md).
  
 ### How does NSG on a subnet work with service endpoints?
 To reach the Azure service, NSGs need to allow outbound connectivity. If your NSGs are opened to all Internet outbound traffic, then the service endpoint traffic should work. You can also limit the outbound traffic to service IPs only using the Service tags.  

@@ -1,14 +1,14 @@
 ---
- title: include file
- description: include file
- services: virtual-machines
- author: shants123
- ms.service: virtual-machines
- ms.topic: include
- ms.date: 07/02/2018
- ms.author: shants
- ms.custom: include file
---- 
+title: include file
+description: include file
+services: virtual-machines
+author: shants123
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 07/02/2018
+ms.author: shants
+ms.custom: include file
+---
 
 ## View VMs scheduled for maintenance in the portal
 

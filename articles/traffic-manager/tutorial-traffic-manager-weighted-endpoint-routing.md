@@ -55,6 +55,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
     |Resource group| Select **New** and then enter **myResourceGroupTM1**.|
     |Location| Select **East US**.|
     |||
+
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, and then select **OK**:
     
@@ -64,6 +65,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
     |Network Security Group|Select **Basic**. In the **Select public inbound ports** drop-down list, select **HTTP** and **RDP**. |
     |Boot diagnostics|Select **Disabled**.|
     |||
+
 6. Under **Create**, in **Summary**, select **Create** to start the VM deployment.
 
 7. Complete steps 1-6 again, with the following changes:
@@ -75,6 +77,7 @@ In this section, you create two VMs (*myIISVMEastUS* and *myIISVMWEurope*) in th
     |VM Name | Enter **myIISVMWEurope**.|
     |Virtual network | Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet2**. For **Subnet**, enter **mySubnet**.|
     |||
+
 8. The VMs take a few minutes to create. Don't continue with other steps until both VMs are created.
 
 ![Create a VM](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -132,6 +135,7 @@ In this section, you create the VM *mVMEastUS*. You'll use this VM to test how T
 
 4. Select a VM size under **Choose a size**.
 5. Select the following values for **Settings**, and then select **OK**:
+
     |Setting|Value|
     |---|---|
     |Virtual network| Select **Virtual network**. In **Create virtual network**, for **Name**, enter **myVNet3**. For subnet, enter **mySubnet**.|

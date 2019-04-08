@@ -1,13 +1,13 @@
 ---
 title: Understand Azure IoT Hub endpoints | Microsoft Docs
 description: Developer guide - reference information about IoT Hub device-facing and service-facing endpoints.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dobett
 ---
 
 # Reference - IoT Hub endpoints
@@ -17,8 +17,6 @@ ms.author: dobett
 ## IoT Hub names
 
 You can find the hostname of the IoT hub that hosts your endpoints in the portal on your hub's  **Overview** page. By default, the DNS name of an IoT hub looks like: `{your iot hub name}.azure-devices.net`.
-
-You can use Azure DNS to create a custom DNS name for your IoT hub. For more information, see [Use Azure DNS to provide custom domain settings for an Azure service](../dns/dns-custom-domain.md).
 
 ## List of built-in IoT Hub endpoints
 
@@ -48,7 +46,7 @@ The following list describes the endpoints:
 
   * *Receive direct method requests*. A device uses this endpoint to listen for [direct method](iot-hub-devguide-direct-methods.md)'s requests.
 
-    These endpoints are exposed using [MQTT v3.1.1](http://mqtt.org/), HTTPS 1.1, and [AMQP 1.0](https://www.amqp.org/) protocols. AMQP is also available over [WebSockets](https://tools.ietf.org/html/rfc6455) on port 443.
+    These endpoints are exposed using [MQTT v3.1.1](https://mqtt.org/), HTTPS 1.1, and [AMQP 1.0](https://www.amqp.org/) protocols. AMQP is also available over [WebSockets](https://tools.ietf.org/html/rfc6455) on port 443.
 
 * **Service endpoints**. Each IoT hub exposes a set of endpoints  for your solution back end to communicate with your devices. With one exception, these endpoints are only exposed using the [AMQP](https://www.amqp.org/) protocol. The method invocation endpoint is exposed over the HTTPS protocol.
   
@@ -78,6 +76,15 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 * Service Bus Topics
 
 For the limits on the number of endpoints you can add, see [Quotas and throttling](iot-hub-devguide-quotas-throttling.md).
+
+You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/de-de/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub metrics](iot-hub-metrics.md) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy.
+
+|Health Status|Description|
+|---|---|
+|healthy|The endpoint is accepting messages as expected.|
+|unhealthy|The endpoint is not accepting messages as expected and IoT Hub is retrying to send data to this endpoint. The status of an unhealthy endpoint will be updated to healthy when IoT Hub has established an eventually consistent state of health.|
+|unknown|IoT Hub has not established a connection with the endpoint. No messages have been delivered to or rejected from this endpoint.|
+|dead|The endpoint is not accepting messages, after IoT Hub retried sending messages for the retrial period.|
 
 ## Field gateways
 

@@ -4,7 +4,7 @@ description: Learn about security scenarios for an Azure Service Fabric cluster,
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 26b58724-6a43-4f20-b965-2da3f086cf8a
@@ -69,7 +69,12 @@ A Service Fabric cluster offers several entry points to its management functiona
 For clusters running on Azure, you also can secure access to management endpoints by using Azure Active Directory (Azure AD). To learn how to create the required Azure AD artifacts and how to populate them when you create the cluster, see [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md).
 
 ## Security recommendations
-For Azure clusters, for node-to-node security, we recommend that you use Azure AD security to authenticate clients and certificates.
+For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for client-to-node mutual authentication is:
+*	Use Azure Active Directory for client identity
+*	A certificate for server identity and SSL encryption of http communication
+
+For Service Fabric clusters deployed in a public network hosted on Azure, the recommendation for node-to-node security is to use a Cluster certificate to authenticate nodes. 
+
 
 For standalone Windows Server clusters, if you have Windows Server 2012 R2 and Windows Active Directory, we recommend that you use Windows security with group Managed Service Accounts. Otherwise, use Windows security with Windows accounts.
 
@@ -103,7 +108,7 @@ The certificate must meet the following requirements:
 
 Some other things to consider:
 
-* The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www.contoso.com**. 
+* The **Subject** field can have multiple values. Each value is prefixed with an initialization to indicate the value type. Usually, the initialization is **CN** (for *common name*); for example, **CN = www\.contoso.com**. 
 * The **Subject** field can be blank. 
 * If the optional **Subject Alternative Name** field is populated, it must have both the common name of the certificate and one entry per SAN. These are entered as **DNS Name** values. To learn how to generate certificates that have SANs, see [How to add a Subject Alternative Name to a secure LDAP certificate](https://support.microsoft.com/kb/931351).
 * The value of the **Intended Purposes** field of the certificate should include an appropriate value, such as **Server Authentication** or **Client Authentication**.

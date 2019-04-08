@@ -37,12 +37,18 @@
     href: ./concepts/work-with-data.md
 - name: Reference
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.resourcegraph/
   - name: Azure CLI
     href: /cli/azure/ext/resource-graph/graph
-  - name: REST API
+  - name: Azure PowerShell
+    href: /powershell/module/az.resourcegraph/
+  - name: Azure SDK for .NET
+    href: /dotnet/api/Microsoft.Azure.Management.ResourceGraph
+  - name: Azure SDK for Python
+    href: /python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph
+  - name: REST
     href: /rest/api/azureresourcegraph/resources/resources
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview
 - name: Resources
   items:
   - name: Azure roadmap

@@ -18,7 +18,7 @@ In this tutorial, you take an extended look at the process of developing a predi
 
 Suppose you need to predict an individual's credit risk based on the information they gave on a credit application.  
 
-Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
+Credit risk assessment is a complex problem, but this tutorial will simplify it a bit. You'll use it as an example of how you can create a predictive analytics solution using Microsoft Azure Machine Learning Studio. You'll use Azure Machine Learning Studio and a Machine Learning web service for this solution.  
 
 In this three-part tutorial, you start with publicly available credit risk data.  You then develop and train a predictive model.  Finally you deploy the model as a web service.
 
@@ -187,9 +187,9 @@ To the right of the graph, click **Scored dataset** or **Scored dataset to compa
 By examining these values, you can decide which model is closest to giving you the results you're looking for. You can go back and iterate on your experiment by changing parameter values in the different models. 
 
 The science and art of interpreting these results and tuning the model performance is outside the scope of this tutorial. For additional help, you might read the following articles:
-- [How to evaluate model performance in Azure Machine Learning](evaluate-model-performance.md)
-- [Choose parameters to optimize your algorithms in Azure Machine Learning](algorithm-parameters-optimize.md)
-- [Interpret model results in Azure Machine Learning](interpret-model-results.md)
+- [How to evaluate model performance in Azure Machine Learning Studio](evaluate-model-performance.md)
+- [Choose parameters to optimize your algorithms in Azure Machine Learning Studio](algorithm-parameters-optimize.md)
+- [Interpret model results in Azure Machine Learning Studio](interpret-model-results.md)
 
 > [!TIP]
 > Each time you run the experiment a record of that iteration is kept in the Run History. You can view these iterations, and return to any of them, by clicking **VIEW RUN HISTORY** below the canvas. You can also click **Prior Run** in the **Properties** pane to return to the iteration immediately preceding the one you have open.

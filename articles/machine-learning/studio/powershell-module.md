@@ -5,11 +5,10 @@ description: Use PowerShell to create and manage Azure Machine Learning Studio w
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: previous-ms.author=haining, previous-author=hning86
 ms.date: 01/25/2019
 ---
 # PowerShell modules for Azure Machine Learning Studio
@@ -53,7 +52,7 @@ To get started with PowerShell classic, download the [release package](https://g
 ## <a name="support-table"></a> PowerShell support table
 
  **Studio workspaces** | **Az** |  **AzureRM** | **PowerShell classic** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Create/Delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Manage workspace users |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |

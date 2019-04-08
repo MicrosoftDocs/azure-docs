@@ -1,5 +1,5 @@
 ---
-title: Potential reasons for the "You can't get there from here" error message in Azure Active Directory| Microsoft Docs
+title: Troubleshoot the "You can't get there from here" error - Azure Active Directory| Microsoft Docs
 description: Troubleshoot the potential reasons you're getting the "You can't get there from here" error message.
 services: active-directory
 author: eross-msft 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-
+ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 # Potential reasons for the "You can't get there from here" error message

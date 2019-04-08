@@ -6,12 +6,9 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 02/26/2019
 ---
 # Create and manage Azure Database for MariaDB VNet service endpoints using Azure CLI
-
-> [!IMPORTANT]
-> The VNet service endpoints feature is in Public Preview.
 
 Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MariaDB server. Using convenient Azure Command Line Interface (CLI) commands, you can create, update, delete, list, and show VNet service endpoints and rules to manage your server. For an overview of Azure Database for MariaDB VNet service endpoints, including limitations, see [Azure Database for MariaDB Server VNet service endpoints](concepts-data-access-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MariaDB.
 

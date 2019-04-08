@@ -1,10 +1,9 @@
 ---
 title: Work with large data sets
-description: Understand how to get large data sets back from Azure Resource Graph.
-services: resource-graph
+description: Understand how to get and control large data sets while working with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/31/2019
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
@@ -23,6 +22,10 @@ sets. This event most often happens as a customer is experimenting with queries 
 resources in the way that suits their particular needs. This control is different than using the
 [top](/azure/kusto/query/topoperator) or [limit](/azure/kusto/query/limitoperator) Azure Data
 Explorer language operators to limit the results.
+
+> [!NOTE]
+> When using **First**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
 
 The default limit can be overridden through all methods of interacting with Resource Graph. The
 following examples show how to change the data set size limit to _200_:
@@ -54,6 +57,10 @@ somewhere in the middle of the result set. If the results needed are at the end 
 data set, it's more efficient to use a different sort configuration and retrieve the results from
 the top of the data set instead.
 
+> [!NOTE]
+> When using **Skip**, it's recommended to order the results by at least one column with `asc` or
+> `desc`. Without sorting, the results returned are random and not repeatable.
+
 The following examples show how to skip the first _10_ records a query would result in, instead
 starting the returned result set with the 11th record:
 
@@ -71,7 +78,7 @@ part of **QueryRequestOptions**.
 ## Paging results
 
 When it's necessary to break a result set into smaller sets of records for processing or because a
-result set would exceed the maximum allowed value of _5000_ returned records, use paging. The [REST
+result set would exceed the maximum allowed value of _1000_ returned records, use paging. The [REST
 API](/rest/api/azureresourcegraph/resources/resources) **QueryResponse** provides values to
 indicate of a results set has been broken up: **resultTruncated** and **$skipToken**.
 **resultTruncated** is a boolean value that informs the consumer if there are additional records
@@ -85,7 +92,7 @@ matched the query.
 
 > [!IMPORTANT]
 > The query must **project** the **id** field in order for pagination to work. If it is missing from
-> the query, the REST API response will not include the **$skipToken**.
+> the query, the REST API response won't include the **$skipToken**.
 
 For an example, see [Next page query](/rest/api/azureresourcegraph/resources/resources#next_page_query)
 in the REST API docs.

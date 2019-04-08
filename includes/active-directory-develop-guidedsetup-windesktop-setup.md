@@ -4,7 +4,7 @@ description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -39,7 +39,7 @@ To create your application, do the following:
 2. In the Package Manager Console window, paste the following Azure PowerShell command:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client
     ```
 
     > [!NOTE] 
@@ -55,7 +55,7 @@ In this step, you create a class to handle interaction with MSAL, such as handli
     ```csharp
     using Microsoft.Identity.Client;
     ```
-<!-- Workaround for Docs conversion bug -->
+   <!-- Workaround for Docs conversion bug -->
 
 2. Update the app class to the following:
 

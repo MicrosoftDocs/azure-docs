@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 02/19/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -46,8 +46,7 @@ One of the common Media Services workflows is to upload, encode, and stream a fi
 4. Use Media Services v3 APIs to create a Transform and a Job to process your "input" Asset. For more information, see [Transforms and Jobs](transform-concept.md).
 5. Stream the content from the "output" asset.
 
-> [!TIP]
-> For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
+For a full .NET example that shows how to: create the Asset, get a writable SAS URL to the Asset’s container in storage, upload the file into the container in storage using the SAS URL, see [Create a job input from a local file](job-input-from-local-file-how-to.md).
 
 ### Create a new asset
 

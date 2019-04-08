@@ -4,7 +4,7 @@ description: Describes how to assess large numbers of on-premises machines by us
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
 ---
 
@@ -12,7 +12,10 @@ ms.author: raynew
 
 # Discover and assess a large VMware environment
 
-Azure Migrate has a limit of 1500 machines per project, this article describes how to assess large numbers of on-premises virtual machines (VMs) by using [Azure Migrate](migrate-overview.md).   
+Azure Migrate has a limit of 1500 machines per project, this article describes how to assess large numbers of on-premises virtual machines (VMs) by using [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> We have a preview release available that allows discovery of up to 10,000 VMware VMs in a single project using a single appliance, if you are interested in trying it out, please sign up [here.](https://aka.ms/migratefuture)
 
 ## Prerequisites
 
@@ -35,7 +38,7 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 
 If you're deploying in a tenant environment, here's one way to set this up:
 
-1.  Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
+1. Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
 2. You set up RBAC for different tenant users as described in the following example for User #1 and User #2:
 
     - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in

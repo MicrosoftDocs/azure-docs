@@ -9,7 +9,7 @@ ms.assetid:
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 8/13/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 

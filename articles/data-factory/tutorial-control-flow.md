@@ -12,10 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: shlo
 ---
 # Branching and chaining activities in a Data Factory pipeline
+
 In this tutorial, you create a Data Factory pipeline that showcases some of the control flow features. This pipeline does a simple copy from a container in Azure Blob Storage to another container in the same storage account. If the copy activity succeeds, you want to send details of the successful copy operation (such as the amount of data written) in a success email. If the copy activity fails, you want to send details of copy failure (such as the error message) in a failure email. Throughout the tutorial, you see how to pass parameters.
 
 A high-level overview of the scenario:
@@ -53,7 +54,8 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     John|Doe
     Jane|Doe
 	```
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2branch** container, and to upload the **input.txt** file to the container.
+
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2branch** container, and to upload the **input.txt** file to the container.
 
 ## Create Visual Studio project
 
@@ -68,11 +70,11 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 ## Install NuGet packages
 
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages:
+2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
-    ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    ```powershell
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
@@ -136,6 +138,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     ```
 
 ## Create a data factory
+
 Create a “CreateOrUpdateDataFactory” function in your Program.cs file:
 
 ```csharp
@@ -170,6 +173,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## Create an Azure Storage linked service
+
 Create a “StorageLinkedServiceDefinition” function in your Program.cs file:
 
 ```csharp
@@ -185,6 +189,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 Add the following code to the **Main** method that creates an **Azure Storage linked service**. Learn more from [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) on supported properties and details.
 
 ```csharp
@@ -196,6 +201,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 In this section, you create two datasets: one for the source and the other for the sink. 
 
 ### Create a dataset for source Azure Blob
+
 Add the following code to the **Main** method that creates an **Azure blob dataset**. Learn more from [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) on supported properties and details.
 
 You define a dataset that represents the source data in Azure Blob. This Blob dataset refers to the Azure Storage linked service you create in the previous step, and describes:
@@ -255,6 +261,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## Create a C# class: EmailRequest
+
 In your C# project, create a class named **EmailRequest**. This defines what properties the pipeline sends in the body request when sending an email. In this tutorial, the pipeline sends four properties from the pipeline to the email:
 
 - **Message**: body of the email. In the case of a successful copy, this property contains details of the run (number of data written). In the case of a failed copy, this property contains details of the error.
@@ -286,10 +293,13 @@ In your C# project, create a class named **EmailRequest**. This defines what pro
         }
     }
 ```
+
 ## Create email workflow endpoints
+
 To trigger sending an email, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### Success email workflow 
+
 Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
 
 ![Success email workflow](media/tutorial-control-flow/success-email-workflow.png)
@@ -315,6 +325,7 @@ For your request trigger, fill in the `Request Body JSON Schema` with the follow
     "type": "object"
 }
 ```
+
 This aligns with the **EmailRequest** class you created in the previous section. 
 
 Your Request should look like this in the Logic App Designer:
@@ -333,6 +344,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## Fail email workflow 
+
 Clone your **CopySuccessEmail** and create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Simply change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
 ![Logic App designer - fail email workflow](media/tutorial-control-flow/fail-email-workflow.png)
@@ -353,7 +365,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## Create a pipeline
+
 Add the following code to the Main method that creates a pipeline with a copy activity and dependsOn property. In this tutorial, the pipeline contains one activity: copy activity, which takes in the Blob dataset as a source and another Blob dataset as a sink. Upon the copy activity succeeding and failing, it calls different email tasks.
 
 In this pipeline, you use the following features:
@@ -437,12 +451,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 Add the following code to the **Main** method that creates the pipeline:
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### Parameters
+
 The first section of our pipeline defines parameters. 
 
 - sourceBlobContainer - parameter in the pipeline consumed by the source blob dataset.
@@ -458,7 +475,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### Web Activity
+
 The Web Activity allows a call to any REST endpoint. For more information about the activity, see [Web Activity](control-flow-web-activity.md). This pipeline uses a Web Activity to call the Logic Apps email workflow. You create two web activities: one that calls to the **CopySuccessEmail** workflow and one that calls the **CopyFailWorkFlow**.
 
 ```csharp
@@ -478,6 +497,7 @@ The Web Activity allows a call to any REST endpoint. For more information about 
             }
         }
 ```
+
 In the “Url” property, paste the Request URL endpoints from your Logic Apps workflow accordingly. In the “Body” property, pass an instance of the “EmailRequest” class. The email request contains the following properties:
 
 - Message – Passing value of `@{activity('CopyBlobtoBlob').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
@@ -488,6 +508,7 @@ In the “Url” property, paste the Request URL endpoints from your Logic Apps 
 This code creates a new Activity Dependency, depending on the previous copy activity that it succeeds.
 
 ## Create a pipeline run
+
 Add the following code to the **Main** method that **triggers a pipeline run**.
 
 ```csharp
@@ -505,6 +526,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## Main class 
+
 Your final Main method should look like this. Build and run your program to trigger a pipeline run!
 
 ```csharp
@@ -536,6 +558,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## Monitor a pipeline run
+
 1. Add the following code to the **Main** method to continuously check the status of the pipeline run until it finishes copying the data.
 
     ```csharp
@@ -575,6 +598,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## Run the code
+
 Build and start the application, then verify the pipeline execution.
 The console prints the progress of creating data factory, linked service, datasets, pipeline, and pipeline run. It then checks the pipeline run status. Wait until you see the copy activity run details with data read/written size. Then, use tools such as Azure Storage explorer to check the blob(s) is copied to "outputBlobPath" from "inputBlobPath" as you specified in variables.
 
@@ -731,6 +755,7 @@ Press any key to exit...
 ```
 
 ## Next steps
+
 You performed the following steps in this tutorial: 
 
 > [!div class="checklist"]

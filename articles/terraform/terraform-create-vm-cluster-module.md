@@ -2,7 +2,7 @@
 title: Use Terraform modules to create a VM cluster on Azure
 description: Learn how to use Terraform modules to create a Windows virtual machine cluster in Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, virtual machine, network, modules
 author: tomarchermsft
 manager: jeconnoc

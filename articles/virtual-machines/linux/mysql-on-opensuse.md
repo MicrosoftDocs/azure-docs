@@ -20,7 +20,7 @@ ms.author: za-rhoads
 ---
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL](http://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
+[MySQL](https://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -159,7 +159,7 @@ quit
 
 
 ## Next steps
-For details about MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc).
+For details about MySQL, see the [MySQL Documentation](https://dev.mysql.com/doc).
 
 
 

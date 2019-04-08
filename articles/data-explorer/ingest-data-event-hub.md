@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Ingest data from Event Hub into Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Event Hub.'
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 02/02/2018
 
-#Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
+# Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from an event hub, so I can analyze streaming data.
 ---
 
 # Quickstart: Ingest data from Event Hub into Azure Data Explorer
@@ -100,11 +99,7 @@ Now you connect to the event hub from Azure Data Explorer. When this connection 
 
     ![Select test database](media/ingest-data-event-hub/select-test-database.png)
 
-1. Select **Data ingestion** then **Add data connection**.
-
-    ![Data ingestion](media/ingest-data-event-hub/data-ingestion-create.png)
-
-1. Fill out the form with the following information, then select **Create**.
+1. Select **Data ingestion** and **Add data connection**. Then fill out the form with the following information. Select **Create** when you are finished.
 
     ![Event hub connection](media/ingest-data-event-hub/event-hub-connection.png)
 

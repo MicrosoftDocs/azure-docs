@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 01/16/2019
 ms.author: celested
 ms.reviewer: japere
@@ -38,13 +38,11 @@ To set the cookie settings using the Azure portal:
 5. Under **Additional Settings**, set the cookie setting to **Yes** or **No**.
 6. Click **Save** to apply your changes. 
 
-<!---
-
 ## View current cookie settings - PowerShell
 
 To see the current cookie settings for the application, use this PowerShell command:  
 
-```PowerShell
+```powershell
 Get-AzureADApplicationProxyApplication -ObjectId <ObjectId> | fl * 
 ```
 
@@ -54,23 +52,21 @@ In the following PowerShell commands, ```<ObjectId>``` is the ObjectId of the ap
 
 **Http-Only Cookie** 
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsHttpOnlyCookieEnabled $false 
 ```
 
 **Secure Cookie**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsSecureCookieEnabled $false 
 ```
 
 **Persistent Cookies**
 
-```PowerShell
+```powershell
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $true 
 Set-AzureADApplicationProxyApplication -ObjectId <ObjectId> -IsPersistentCookieEnabled $false 
 ```
-
--->

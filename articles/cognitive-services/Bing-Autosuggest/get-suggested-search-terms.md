@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: overview
-ms.date: 09/12/2017
+ms.date: 02/20/2019
 ms.author: scottwhi
 ---
 # What is Bing Autosuggest?

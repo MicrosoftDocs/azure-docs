@@ -10,7 +10,7 @@ ms.date: 02/04/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: B2C
+ms.subservice: B2C
 ---
 
 # Add a native client application to your Azure Active Directory B2C tenant

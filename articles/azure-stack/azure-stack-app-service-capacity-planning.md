@@ -3,7 +3,7 @@ title: Capacity planning for Azure App Service server roles in Azure Stack | Mic
 description: Capacity planning for Azure App Service server roles in Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: sethmanheim
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,10 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
-ms.author: sethm
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
+ms.lastreviewed: 03/13/2019
 
 ---
 # Capacity planning for Azure App Service server roles in Azure Stack
@@ -48,7 +48,7 @@ The Azure App Service controller typically experiences low consumption of CPU, m
 
 **Recommended minimum**: Two instances of A1 Standard
 
-The front end routes requests to web workers depending on web worker availability. For high availability, you should have more than one front end, and you can have more than two. For capacity planning purposes, consider that each core can handle approximately 100 requests per second.
+The front-end routes requests to web workers depending on web worker availability. For high availability, you should have more than one front end, and you can have more than two. For capacity planning purposes, consider that each core can handle approximately 100 requests per second.
 
 ## Management role
 
@@ -89,9 +89,17 @@ When deciding on the number of shared web worker roles to use, review these cons
 
    For information about adding more worker instances, see [Adding more worker roles](azure-stack-app-service-add-worker-roles.md).
 
+### Additional considerations for dedicated workers during upgrade and maintenance
+
+During upgrade and maintenance of workers, Azure App Service on Azure Stack will perform maintenance on 20% of each worker tier at any one time.  Therefore cloud administrators must always maintain a 20% pool of unallocated workers per worker tier to ensure their tenants do not experience any loss of service during upgrade and maintenance.  For example, if you have 10 workers in a worker tier you should ensure that 2 are unallocated to allow upgrade and maintenance, if the full 10 workers become allocated you should scale the worker tier up to maintain a pool of unallocated workers. During upgrade and maintenance Azure App Service will move workloads to unallocated workers to ensure the workloads will continue to operate however if there are no unallocated workers available during upgrade then there will be the potential for tenant workload downtime.  With regards to shared workers, customers do not need to provision additional workers as the service will allocate tenant applications within available workers automatically, for high availability however there is a minimum requirement for two workers in this tier.
+
+Cloud admins can monitor their worker tier allocation in the App Service Administration area in the Azure Stack administration portal.  Navigate to App Service and then select Worker Tiers in the left-hand pane.  The Worker Tiers table shows worker tier name, size, image used, number of available workers (unallocated), total number of workers in each tier and the overall state of the worker tier.
+
+![App Service Administration - Worker Tiers][1]
+
 ## File server role
 
-For the file server role, you can use a standalone file server for development and testing; for example, when deploying Azure App Service on the Azure Stack Development Kit (ASDK) you can use this template: https://aka.ms/appsvconmasdkfstemplate. For production purposes, you should use a pre-configured Windows file server, or a pre-configured non-Windows file server.
+For the file server role, you can use a standalone file server for development and testing; for example, when deploying Azure App Service on the Azure Stack Development Kit (ASDK) you can use this [template](https://aka.ms/appsvconmasdkfstemplate).  For production purposes, you should use a pre-configured Windows file server, or a pre-configured non-Windows file server.
 
 In production environments, the file server role experiences intensive disk I/O. Because it houses all of the content and application files for user web sites, you should pre-configure one of the following resources for this role:
 
@@ -101,10 +109,13 @@ In production environments, the file server role experiences intensive disk I/O.
 - Non-Windows file server cluster
 - NAS (Network Attached Storage) device
 
-For more information, see [Provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+See the following article for more information, [Provision a file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## Next steps
 
 See the following article for more information:
 
 [Before you get started with App Service on Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png
