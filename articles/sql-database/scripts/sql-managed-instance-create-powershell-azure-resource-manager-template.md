@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 03/12/2019
 ---

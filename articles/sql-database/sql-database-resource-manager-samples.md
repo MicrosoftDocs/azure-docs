@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer:
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
 ---
