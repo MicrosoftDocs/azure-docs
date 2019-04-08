@@ -54,8 +54,10 @@ For more information on the concepts involved in the deployment workflow, see [M
 
     > [!NOTE]
     > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in Python pickle format.
-    >
-    > For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
+
+## <a id="convertonnxmodel"></a> Convert model to ONNX for optimized inferencing
+
+This step is optional. To get optimized inferencing with the [ONNX Runtime](concept-onnx.md), you will need to convert your trained model to the ONNX format if your training script did not already output an ONNX model. Most popular frameworks are supported including TensorFlow, PyTorch, SciKit-Learn, Keras, Chainer, MXNet, MATLAB, and more. See the [ONNX tutorials](https://github.com/onnx/tutorials) for examples of how to convert your model into ONNX format.
 
 ## <a id="registermodel"></a> Register a trained model
 
@@ -103,7 +105,7 @@ The important parameters in this example described in the following table:
 | ----- | ----- |
 | `execution_script` | Specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. For more information, see the [Execution script](#script) section. |
 | `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
-| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
+| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). If you will be optimizing your inference with ONNX Runtime, be sure to add "onnxruntime" or "onnxruntime-gpu" as one of the dependencies for the conda environment. |
 
 For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
@@ -147,6 +149,40 @@ def run(raw_data):
     y_hat = model.predict(data)
     return json.dumps(y_hat.tolist())
 ```
+
+An example Python scoring script for an ONNX model is shown below:
+```python	
+import onnxruntime	
+import json	
+import numpy as np	
+import sys	
+from azureml.core.model import Model	
+   
+def init():	
+    global session	
+    model = Model.get_model_path(model_name = 'MyONNXModel')	
+    session = onnxruntime.InferenceSession(model)	
+
+def preprocess(input_data_json):	
+    # convert the JSON data into the tensor input	
+    return np.array(json.loads(input_data_json)['data']).astype('float32')	
+    
+def postprocess(result):	
+    return np.array(result).tolist()	
+    
+def run(input_data_json):	
+    try:	
+        start = time.time()   # start timer	
+        input_data = preprocess(input_data_json)	
+        input_name = session.get_inputs()[0].name  # get the id of the first input of the model   	
+        result = session.run([], {input_name: input_data})	
+        end = time.time()     # stop timer	
+        return {"result": postprocess(result),	
+                "time": end - start}	
+    except Exception as e:	
+        result = str(e)	
+        return {"error": result}	
+```	
 
 #### Working with Binary data
 
