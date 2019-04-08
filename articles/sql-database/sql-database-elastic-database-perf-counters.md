@@ -13,7 +13,7 @@ ms.reviewer:
 manager: craigg
 ms.date: 02/07/2019
 ---
-# Create performance counters to track performance of Shard Map Manager
+# Create performance counters to track performance of shard map manager
 
 Performance counters are used to track the performance of [data dependent routing](sql-database-elastic-scale-data-dependent-routing.md) operations. These counters are accessible in the Performance Monitor, under the "Elastic Database: Shard Management" category.
 
