@@ -30,8 +30,6 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 [Additional sign-in options work only for personal Microsoft accounts](index.yml) but can't be used for signing in to work or school account resources.
 
-![sign-in options opens choices for Microsoft accounts](./media/signin-account-support/options-link.png)
-
 ## Next steps
 
 [Customize your sign-in branding](../fundamentals/add-custom-domain.md)
