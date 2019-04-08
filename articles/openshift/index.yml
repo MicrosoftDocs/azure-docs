@@ -15,7 +15,7 @@ metadata:
   ms.date: 05-06-2019
   ms.author: twhitney
 abstract:
-  description: 'Azure Red Hat OpenShift provides fully managed OpenShift clusters that allow you to focus on app development.'
+  description: 'Azure Red Hat OpenShift provides single-tenant, high-availability Kubernetes clusters, supported by Red Hat and Microsoft on Azure.'
 sections:
 - title: Step-by-Step Tutorials
   items:
@@ -35,8 +35,8 @@ sections:
     className: cardsD
     items:
     - title: Command line
-      html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create>Azure CLI</a></p>
     - title: REST
-      html: <p><a href="/rest/api/aks">REST API</a></p>
+      html: <p><a href="https://docs.microsoft.com/en-us/rest/api/?view=Azure">REST API</a></p>
     - title: Red Hat OpenShift documentation
       html: <p><a href="https://access.redhat.com/documentation/openshift_dedicated/3/">Red Hat OpenShift docs</a></p>
