@@ -30,12 +30,17 @@ Switching between the two license models incurs **no downtime**, does not restar
 
 ## Remarks
 
- - The ability to convert the licensing model is currently only available when starting with a pay-as-you-go SQL Server VM image. If you start with a bring-your-own-license image from the portal, you will not be able to convert that image to pay-as-you-go.
  - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
- - Currently this ability is only enabled for Public Cloud installations.
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
+ 
+## Limitations
+
+ - The ability to convert the licensing model is currently only available when starting with a pay-as-you-go SQL Server VM image. If you start with a bring-your-own-license image from the portal, you will not be able to convert that image to pay-as-you-go.
+  - Currently, changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
+   - Currently changing the licensing model is only enabled for Public Cloud installations.
 
 ## Prerequisites
+
 The use of the SQL VM resource provider requires the SQL IaaS extension. As such, to proceed with utilizing the SQL VM resource provider, you need the following:
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - [Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 

@@ -3,7 +3,7 @@ title: Copy on-premises data by using the Azure Copy Data tool | Microsoft Docs
 description: Create an Azure data factory and then use the Copy Data tool to copy data from an on-premises SQL Server database to Azure Blob storage.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 
@@ -11,7 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: jingwang
+ms.author: abnarain
 
 ---
 # Copy data from an on-premises SQL Server database to Azure Blob storage by using the Copy Data tool

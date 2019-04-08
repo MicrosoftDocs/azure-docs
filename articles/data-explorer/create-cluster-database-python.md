@@ -1,7 +1,6 @@
 ---
 title: 'Quickstart: Create an Azure Data Explorer cluster and database by using Python'
-description: Learn how to create an Azure Data Explorer cluster and database by using Python
-services: data-explorer
+description: Learn how to create an Azure Data Explorer cluster and database by using Python.
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
@@ -9,7 +8,6 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
 ---
-
 
 # Create an Azure Data Explorer cluster and database by using Python
 
