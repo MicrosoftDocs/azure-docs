@@ -1,16 +1,16 @@
 ---
-title: Troubleshoot Studio module errors in Azure Machine Learning
-titleSuffix: "Azure Machine Learning Studio"
+title: Troubleshoot module errors in Azure Machine Learning
+titleSuffix: "Azure Machine Learning service"
 description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
-ms.date: 04/10/2019
-ms.service: "machine-learning"
-ms.subservice: "studio"
-ms.topic: "reference"
-ms.custom: seoapril2019
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-manager: cgronlun
+ms.date: 04/22/2019
+ROBOTS: NOINDEX
 ---
 # Troubleshoot module exceptions in Azure Machine Learning using error codes
 
@@ -135,7 +135,7 @@ If the error message text is not helpful, send us information about the context 
  + Open the module in question and review any numeric property settings.
  + Ensure that any parameter values fall within the supported range of values for that property.
  + If the module takes multiple inputs, ensure that inputs are of the same size.
- + If the module has multiple properties that can be set, ensure that related properties have appropriate values. For example, when using [Group Data into Bins](../group-data-into-bins.md), if you use the option to specify custom bin edges, the number of bins must match the number of values you provide as bin boundaries.
+<!-- + If the module has multiple properties that can be set, ensure that related properties have appropriate values. For example, when using [Group Data into Bins](group-data-into-bins.md), if you use the option to specify custom bin edges, the number of bins must match the number of values you provide as bin boundaries.-->
  + Check whether the dataset or data source has changed. Sometimes a value that worked with a previous version of the data will fail after the number of columns, the column data types, or the size of the data has changed.  
   
 |Exception messages|  
@@ -150,7 +150,7 @@ If the error message text is not helpful, send us information about the context 
   
  You will receive this error in Azure Machine Learning if the parameter in the message is outside the bounds required for the module to process the data.  
   
- For example, this error is displayed if you try to use [Add Rows](../add-rows.md) to combine two datasets that have a different number of columns.  
+ For example, this error is displayed if you try to use [Add Rows](add-rows.md) to combine two datasets that have a different number of columns.  
   
 **Resolution:**
  Revisit the module throwing the exception and modify the parameter to be within the specified range.  
@@ -167,7 +167,7 @@ If the error message text is not helpful, send us information about the context 
   
 This error occurs in Azure Machine Learning Studio when you specify parameters for an Azure storage account, but the name or password cannot be resolved. Errors on passwords or account names can happen for many reasons:
  
- + The account is the wrong type. Some new account types are not supported for use with Machine Learning Studio. See [Import Data](../import-data.md) for details.
+ + The account is the wrong type. Some new account types are not supported for use with Machine Learning Studio. See [Import Data](import-data.md) for details.
  + You entered the incorrect account name
  + The account no longer exists
  + The password for the storage account is wrong or has changed
@@ -176,7 +176,7 @@ This error occurs in Azure Machine Learning Studio when you specify parameters f
    
 **Resolution:**
 
-Such problems often occur when you try to manually enter the account name, password, or container path. We recommend that you use the new wizard for the [Import Data](../import-data.md) module, which helps you look up and check names.
+Such problems often occur when you try to manually enter the account name, password, or container path. We recommend that you use the new wizard for the [Import Data](import-data.md) module, which helps you look up and check names.
 
 Also check whether the account, container, or blob has been deleted. Use another Azure storage utility to verify that the account name and password have been entered correctly, and that the container exists. 
 
@@ -185,22 +185,6 @@ Some newer account types are not supported by Azure Machine Learning. For exampl
 If the complete path to a blob was specified, verify that the path is specified as **container/blobname**, and that both the container and the blob exist in the account.  
   
  The path should not contain a leading slash. For example **/container/blob** is incorrect and should be entered as **container/blob**.  
-
-### Resources
-
-See this article for an explanation of the different storage options that are supported: [Import data into Azure Machine Learning Studio from various online data sources with the Import Data module](https://docs.microsoft.com/azure/machine-learning/machine-learning-import-data-from-online-sources)
-
-### Sample experiments
-
-See these experiments in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/) for examples of how to connect to different data sources:
-
-+ Input data from various sources:  This lab provides a visual guide to using many of the Azure ML data sources: [AzureML experiments and data interaction](https://gallery.cortanaintelligence.com/Tutorial/3-AzureML-Experiments-and-Data-Interaction-1)
-
-+ Azure Cosmos DB: [Reading data from Azure Cosmos DB in Azure Machine Learning](https://gallery.cortanaintelligence.com/Experiment/Reading-data-from-Azure-DocumentDB-in-Azure-Machine-Learning-1)
-
-+ Azure blob storage and Azure SQL Database: [Twitter Stream Analysis with Azure Machine Learning](https://gallery.cortanaintelligence.com/Tutorial/Twitter-Stream-Analysis-with-Azure-Machine-Learning)
-
-+ Import otherwise unreadable data using Python: [Load non-text file from Azure Blob storage](https://gallery.cortanaintelligence.com/Experiment/Load-non-text-file-from-Azure-Blob-Storage-1)
 
   
 |Exception Messages|  
@@ -215,7 +199,7 @@ See these experiments in the [Cortana Intelligence Gallery](https://gallery.cort
  You will receive this error in Azure Machine Learning if the column index in the message has different column names in the two input datasets.  
   
 **Resolution:**
- Use [Edit Metadata](../edit-metadata.md) or modify the original dataset to have the same column name for the specified column index.  
+ Use [Edit Metadata](edit-metadata.md) or modify the original dataset to have the same column name for the specified column index.  
   
 |Exception Messages|  
 |------------------------|  
@@ -258,7 +242,7 @@ See these experiments in the [Cortana Intelligence Gallery](https://gallery.cort
 ## Error 0013  
  Exception occurs if the learner passed to the module is an invalid type.  
   
- This error occurs whenever a trained model is incompatible with the connected scoring module. For example, connecting the output of [Train Matchbox Recommender](../train-matchbox-recommender.md) to [Score Model](../score-model.md) (instead of [Score Matchbox Recommender](../score-matchbox-recommender.md)) will generate this error when the experiment is run.  
+ This error occurs whenever a trained model is incompatible with the connected scoring module. <!--For example, connecting the output of [Train Matchbox Recommender](train-matchbox-recommender.md) to [Score Model](score-model.md) (instead of [Score Matchbox Recommender](score-matchbox-recommender.md)) will generate this error when the experiment is run.  -->
   
 **Resolution:**
 
@@ -269,17 +253,17 @@ If the model was trained using any of the specialized training modules, connect 
 
 |Model type|Training module| Scoring module|
 |----|----|----|
-|any classifier|[Train Model](../train-model.md) |[Score Model](../score-model.md)|
-|any regression model|[Train Model](../train-model.md) |[Score Model](../score-model.md)|
-| clustering models| [Train Clustering Model](../train-clustering-model.md) or [Sweep Clustering](../sweep-clustering.md)| [Assign Data to Clusters](../assign-data-to-clusters.md)|
-| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](../train-anomaly-detection-model.md) |[Score Model](../score-model.md)|
-| anomaly detection - PCA |[Train Model](../train-model.md) |[Score Model](../score-model.md) </br> Some additional steps are required to evaluate the model. |
-| anomaly detection - time series|  [Time Series Anomaly Detection](../time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
-| recommendation model| [Train Matchbox Recommender](../train-matchbox-recommender.md) | [Score Matchbox Recommender](../score-matchbox-recommender.md) |
-| image classification | [Pretrained Cascade Image Classification](../pretrained-cascade-image-classification.md) | [Score Model](../score-model.md) |
-|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](../train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](../score-vowpal-wabbit-version-7-4-model.md) |   
-|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](../train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](../score-vowpal-wabbit-version-7-10-model.md) |
-|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](../score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](../score-vowpal-wabbit-version-8-model.md) |
+|any classifier|[Train Model](train-model.md) |[Score Model](score-model.md)|
+|any regression model|[Train Model](train-model.md) |[Score Model](score-model.md)|
+<!--| clustering models| [Train Clustering Model](train-clustering-model.md) or [Sweep Clustering](sweep-clustering.md)| [Assign Data to Clusters](assign-data-to-clusters.md)|
+| anomaly detection - One-Class SVM | [Train Anomaly Detection Model](train-anomaly-detection-model.md) |[Score Model](score-model.md)|
+| anomaly detection - PCA |[Train Model](train-model.md) |[Score Model](score-model.md) </br> Some additional steps are required to evaluate the model. |
+| anomaly detection - time series|  [Time Series Anomaly Detection](time-series-anomaly-detection.md) |Model trains from data and generates scores. The module does not create a trained learner and no additional scoring is required. |
+| recommendation model| [Train Matchbox Recommender](train-matchbox-recommender.md) | [Score Matchbox Recommender](score-matchbox-recommender.md) |
+| image classification | [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md) | [Score Model](score-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) | [Score Vowpal Wabbit Version 7-4 Model](score-vowpal-wabbit-version-7-4-model.md) |   
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 7-10 Model](train-vowpal-wabbit-version-7-10-model.md) | [Score Vowpal Wabbit Version 7-10 Model](score-vowpal-wabbit-version-7-10-model.md) |
+|Vowpal Wabbit models| [Train Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) | [Score Vowpal Wabbit Version 8 Model](score-vowpal-wabbit-version-8-model.md) |-->
   
 |Exception Messages|  
 |------------------------|  
@@ -297,10 +281,10 @@ If the model was trained using any of the specialized training modules, connect 
 Open the module that generated the error, and identify the columns used as inputs. For some modules, you can right-click the dataset input and select **Visualize** to get statistics on individual columns, including the number of unique values and their distribution.
 
 For columns that you intend to use for grouping or categorization, take steps to reduce the number of unique values in columns. You can reduce in different ways, depending on the data type of the column. 
-
-+ For text data, you might be able to use [Preprocess Text](../preprocess-text.md) to collapse similar entries. 
-+ For numeric data, you can create a smaller number of bins using [Group Data into Bins](../group-data-into-bins.md), remove or truncate values using [Clip Values](../clip-values.md), or use machine learning methods such as [Principal Component Analysis](../principal-component-analysis.md) or [Learning with Counts](../data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
-
+<!--
++ For text data, you might be able to use [Preprocess Text](preprocess-text.md) to collapse similar entries. 
++ For numeric data, you can create a smaller number of bins using [Group Data into Bins](group-data-into-bins.md), remove or truncate values using [Clip Values](clip-values.md), or use machine learning methods such as [Principal Component Analysis](principal-component-analysis.md) or [Learning with Counts](data-transformation-learning-with-counts.md) to reduce the dimensionality of the data.  
+-->
 > [!TIP]
 > Unable to find a resolution that matches your scenario? You can provide feedback on this topic that includes the name of the module that generated the error, and the data type and cardinality of the column. We will use the information to provide more targeted troubleshooting steps for common scenarios.   
   
@@ -331,7 +315,7 @@ For columns that you intend to use for grouping or categorization, take steps to
  You will receive this error in Azure Machine Learning if the types of the columns passed in two or more datasets are not compatible with each other.  
   
 **Resolution:**
- Use [Edit Metadata](../edit-metadata.md), modify the original input dataset, or use [Convert to Dataset](../convert-to-dataset.md) to ensure that the types of the columns are compatible.  
+ Use [Edit Metadata](edit-metadata.md) or modify the original input dataset<!--, or use [Convert to Dataset](convert-to-dataset.md)--> to ensure that the types of the columns are compatible.  
   
 |Exception Messages|  
 |------------------------|  
@@ -349,10 +333,10 @@ For columns that you intend to use for grouping or categorization, take steps to
  1. Identify the column that is the problem.
  2. Review the requirements of the module.
  3. Modify the column to make it conform to requirements. You might need to use several of the following modules to make changes, depending on the column and the conversion you are attempting:
-    + Use [Edit Metadata](../edit-metadata.md) to change the data type of columns, or to change the column usage from feature to numeric, categorical to non-categorical, and so forth.
-    + Use [Convert to Dataset](../convert-to-dataset.md) to ensure that all included columns use data types that are supported by Azure Machine Learning.  If you cannot convert the columns, consider removing them from the input dataset.
-    + Use the [Apply SQL Transformation](../apply-sql-transformation.md) or [Execute R Script](../execute-r-script.md) modules to cast or convert any columns that cannot be modified using [Edit Metadata](../edit-metadata.md). These modules provide more flexibility for working with datetime data types.
-    + For numeric data types, you can use the [Apply Math Operation](../apply-math-operation.md) module to round or truncate values, or use the [Clip Values](../clip-values.md) module to remove out of range values.  
+    + Use [Edit Metadata](edit-metadata.md) to change the data type of columns, or to change the column usage from feature to numeric, categorical to non-categorical, and so forth.
+<!--    + Use [Convert to Dataset](convert-to-dataset.md) to ensure that all included columns use data types that are supported by Azure Machine Learning.  If you cannot convert the columns, consider removing them from the input dataset.
+    + Use the [Apply SQL Transformation](apply-sql-transformation.md) or [Execute R Script](execute-r-script.md) modules to cast or convert any columns that cannot be modified using [Edit Metadata](edit-metadata.md). These modules provide more flexibility for working with datetime data types.
+    + For numeric data types, you can use the [Apply Math Operation](apply-math-operation.md) module to round or truncate values, or use the [Clip Values](clip-values.md) module to remove out of range values.  -->
  4. As a last resort, you might need to modify the original input dataset.
 
 > [!TIP]
@@ -376,7 +360,7 @@ For columns that you intend to use for grouping or categorization, take steps to
   
 -   The module requires that data be categorical but your data is numeric.  
   
--   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](../train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  
+<!---   The module requires a specific data type. For example, ratings provided to [Train Matchbox Recommender](train-matchbox-recommender.md) can be either numeric or categorical, but cannot be floating point numbers.  -->
   
 -   The data is in the wrong format.  
   
@@ -385,7 +369,7 @@ For columns that you intend to use for grouping or categorization, take steps to
   
  To determine the requirements and how your data might, review the help topic for the module that will be consuming the dataset as input.  
   
- We also recommend that you use [Summarize Data](../summarize-data.md) or [Compute Elementary Statistics](../compute-elementary-statistics.md) to profile your data, and use these modules to fix metadata and clean values: [Edit Metadata](../edit-metadata.md), [Clean Missing Data](../clean-missing-data.md), [Clip Values](../clip-values.md).  
+ <!--We also recommend that you use [Summarize Data](summarize-data.md) or [Compute Elementary Statistics](compute-elementary-statistics.md) to profile your data, and use these modules to fix metadata and clean values: [Edit Metadata](edit-metadata.md) and [Clean Missing Data](clean-missing-data.md), [Clip Values](clip-values.md)-->.  
   
 |Exception Messages|  
 |------------------------|  
@@ -455,11 +439,11 @@ For columns that you intend to use for grouping or categorization, take steps to
   
  If you used one of the column selection options that can select multiple columns (column indices, all features, all numeric, etc.), validate the exact number of columns returned by the selection.  
   
- If you are trying to specify a comma-separated list of datasets as inputs to [Unpack Zipped Datasets](../unpack-zipped-datasets.md), unpack only one dataset at a time. Multiple inputs are not supported.  
+ <!--If you are trying to specify a comma-separated list of datasets as inputs to [Unpack Zipped Datasets](unpack-zipped-datasets.md), unpack only one dataset at a time. Multiple inputs are not supported.  -->
   
  Verify that the number or type of upstream columns has not changed.  
   
- If you are using a recommendation dataset to train a model, remember that the recommender expects a limited number of columns, corresponding to user-item pairs or user-item-rankings. Remove additional columns before training the model or splitting recommendation datasets. For more information, see [Split Data](../split-data.md).  
+ If you are using a recommendation dataset to train a model, remember that the recommender expects a limited number of columns, corresponding to user-item pairs or user-item-rankings. Remove additional columns before training the model or splitting recommendation datasets. For more information, see [Split Data](split-data.md).  
   
 |Exception Messages|  
 |------------------------|  
@@ -496,7 +480,7 @@ It can also happen that a label column is present in the dataset, but not detect
 
 + Open the module that generated the error, and determine if a label column is present. The name or data type of the column doesn't matter, as long as the column contains a single outcome (or dependent variable) that you are trying to predict. If you are not sure which column has the label, look for a generic name such as  *Class* or *Target*. 
 +  If the dataset does not include a label column, it is possible that the label column was explicitly or accidentally removed upstream. It could also be that the dataset is not the output of an upstream scoring module.
-+ To explicitly mark the column as the label column, add the [Edit Metadata](../edit-metadata.md) module and connect the dataset. Select only the label column, and select **Label** from the **Fields** dropdown list. 
++ To explicitly mark the column as the label column, add the [Edit Metadata](edit-metadata.md) module and connect the dataset. Select only the label column, and select **Label** from the **Fields** dropdown list. 
 + If the wrong column is chosen as the label, you can select **Clear label** from the **Fields** to fix the metadata on the column. 
   
 |Exception Messages|  
@@ -526,7 +510,7 @@ It can also happen that a label column is present in the dataset, but not detect
  This error in Azure Machine Learning occurs if multiple columns have the same name. One way you may receive this error is if the dataset does not have a header row and column names are automatically assigned: Col0, Col1, etc.  
   
 **Resolution:**
- If columns have same name, insert a [Edit Metadata](../edit-metadata.md) module between the input dataset and the module. Use the column selector in [Edit Metadata](../edit-metadata.md) to select columns to rename, typing the new names into the **New column names** textbox.  
+ If columns have same name, insert a [Edit Metadata](edit-metadata.md) module between the input dataset and the module. Use the column selector in [Edit Metadata](edit-metadata.md) to select columns to rename, typing the new names into the **New column names** textbox.  
   
 |Exception Messages|  
 |------------------------|  
@@ -560,7 +544,7 @@ It can also happen that a label column is present in the dataset, but not detect
  This error in Azure Machine Learning occurs when column names are duplicated; that is, not unique.  
   
 **Resolution:**
- If any columns have same name, add an instance of [Edit Metadata](../edit-metadata.md) between the input dataset and the module raising the error. Use the Column Selector in [Edit Metadata](../edit-metadata.md) to select columns to rename, and type the new columns names into the **New column names** textbox. If you are renaming multiple columns, ensure that the values you type in the **New column names** are unique.  
+ If any columns have same name, add an instance of [Edit Metadata](edit-metadata.md) between the input dataset and the module raising the error. Use the Column Selector in [Edit Metadata](edit-metadata.md) to select columns to rename, and type the new columns names into the **New column names** textbox. If you are renaming multiple columns, ensure that the values you type in the **New column names** are unique.  
   
 |Exception Messages|  
 |------------------------|  
@@ -674,9 +658,9 @@ The Matchbox recommender has certain requirements that must be met when using ei
  
  If you do not have any features for these users, consider feature engineering to generate appropriate features.  For example, if you do not have individual user age or income values, you might generate approximate values to use for a group of users. 
  
-When you are scoring from a recommendation mode, you can use item or user features only if you previously used item or user features during training. For more information, see [Score Matchbox Recommender](../score-matchbox-recommender.md).
+<!--When you are scoring from a recommendation mode, you can use item or user features only if you previously used item or user features during training. For more information, see [Score Matchbox Recommender](score-matchbox-recommender.md).
  
-For general information about how the Matchbox recommendation algorithm works, and how to prepare a dataset of item features or user features, see [Train Matchbox Recommender](../train-matchbox-recommender.md).  
+For general information about how the Matchbox recommendation algorithm works, and how to prepare a dataset of item features or user features, see [Train Matchbox Recommender](train-matchbox-recommender.md).  -->
   
  > [!TIP]
  > Resolution not applicable to your case? You are welcome to send feedback on this article and provide information about the scenario, including the module and the number of rows in the column. We will use this information to provide more detailed troubleshooting steps in the future.
@@ -793,13 +777,13 @@ Another reason you might get this error if you try to use a column containing fl
     + Look for text strings or NA values in a number column. 
     + Boolean values can be converted to an appropriate representation depending on the required data type.
     + Examine text columns for non-unicode characters, tab characters, or control characters
-    + Datetime data should be consistent to avoid modeling errors, but cleanup can be complex owing to the many formats. Consider using the [Execute R Script](../execute-r-script.md) or [Execute Python Script](../execute-python-script.md) modules to perform cleanup.  
+    + Datetime data should be consistent to avoid modeling errors, but cleanup can be complex owing to the many formats. Consider using <!--the [Execute R Script](execute-r-script.md) or -->[Execute Python Script](execute-python-script.md) modules to perform cleanup.  
 + If necessary, modify the values in the input dataset so that the column can be converted successfully. Modification might include binning, truncation or rounding operations, elimination of outliers, or imputation of missing values. See the following articles for some common data transformation scenarios in machine learning:
-    + [Clip Values](../clip-values.md) 
-    + [Clean Missing Data](../clean-missing-data.md)
-    + [Normalize Data](../normalize-data.md)
-    + [Group Data Into Bins](../group-data-into-bins.md)
-  
+    + [Clean Missing Data](clean-missing-data.md)
+    + [Normalize Data](normalize-data.md)
+<!--+ [Clip Values](clip-values.md) 
+    + [Group Data Into Bins](group-data-into-bins.md)
+  -->
  
 > [!TIP]
 > Resolution unclear, or not applicable to your case? You are welcome to send feedback on this article and provide information about the scenario, including the module and the data type of the column. We will use this information to provide more detailed troubleshooting steps in the future.  
@@ -902,7 +886,7 @@ Another reason you might get this error if you try to use a column containing fl
   
  Use the Azure classic portal or an Azure storage tool to verify that you have permission to access the file.  
   
- If you are trying to read an image file, make sure that it meets the requirements for image files in terms of size, number of pixels, and so forth. For more information, see [Import Images](../import-images.md).  
+  <!--If you are trying to read an image file, make sure that it meets the requirements for image files in terms of size, number of pixels, and so forth. For more information, see [Import Images](import-images.md).  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -913,7 +897,7 @@ Another reason you might get this error if you try to use a column containing fl
 ## Error 0049  
  Exception occurs in the case when it is not possible to parse a file.  
   
- This error in Azure Machine Learning occurs when it is not possible to parse a file. You will receive this error if the file format selected in the [Import Data](../import-data.md) module does not match the actual format of the file, or if the file contains an unrecognizable character.  
+ This error in Azure Machine Learning occurs when it is not possible to parse a file. You will receive this error if the file format selected in the [Import Data](import-data.md) module does not match the actual format of the file, or if the file contains an unrecognizable character.  
   
 **Resolution:**
  Revisit the module and correct the file format selection if it does not match the format of the file. If possible, inspect the file to confirm that it does not contain any illegal characters.  
@@ -972,13 +956,6 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|  
 |------------------------|  
 |User features or/and items are required but not provided.|  
-  
- > [!TIP]
- >  Need more help or troubleshooting tips for Azure Machine Learning? Try these resources:  
- >  
- >  -  [Troubleshooting guide: Create and connect to an Machine Learning workspace](https://azure.microsoft.com/documentation/articles/machine-learning-troubleshooting-creating-ml-workspace/)  
- >  -  [Azure Machine Learning Frequently Asked Questions (FAQ)](https://azure.microsoft.com/documentation/articles/machine-learning/studio/faq/)  
-  
 
 ## Error 0054  
  Exception occurs if there is too few distinct values in the column to complete operation.  
@@ -994,9 +971,7 @@ Another reason you might get this error if you try to use a column containing fl
   
 
 ## Error 0055  
- Exception occurs when calling a deprecated module.  
-  
- This error in Azure Machine Learning appears if you try to call a module that has been deprecated. For a list of all deprecated modules and newer modules that you can use instead, see [Deprecated Modules and Features](../deprecated-modules-and-features.md).  
+ Exception occurs when calling a deprecated module.  This error in Azure Machine Learning appears if you try to call a module that has been deprecated.
   
 **Resolution:**
   
@@ -1012,7 +987,7 @@ Another reason you might get this error if you try to use a column containing fl
  
  This error can also happen if the column is the correct data type, but the module you are using requires that the column also be marked as a feature, label, or categorical column.  
   
- For example, the [Convert to Indicator Values](../convert-to-indicator-values.md) module requires that columns be categorical, and will raise this error if you select a feature column or label column.  
+  <!--For example, the [Convert to Indicator Values](convert-to-indicator-values.md) module requires that columns be categorical, and will raise this error if you select a feature column or label column.  -->
   
 **Resolution:**
   
@@ -1022,7 +997,7 @@ Another reason you might get this error if you try to use a column containing fl
   
 3.  Review the help topic for the module in which you made the column selection, to determine if there are specific requirements for data type or column usage.  
   
-3.  Use [Edit Metadata](../edit-metadata.md) to change the column type for the duration of this operation. Be sure to change the column type back to its original value, using another instance of [Edit Metadata](../edit-metadata.md), if you need it for downstream operations.  
+3.  Use [Edit Metadata](edit-metadata.md) to change the column type for the duration of this operation. Be sure to change the column type back to its original value, using another instance of [Edit Metadata](edit-metadata.md), if you need it for downstream operations.  
   
 |Exception Messages|  
 |------------------------|  
@@ -1033,7 +1008,7 @@ Another reason you might get this error if you try to use a column containing fl
 ## Error 0057  
  Exception occurs when attempting to create a file or blob that already exists.  
   
- This exception occurs when you are using the [Export Data](../export-data.md) module or other module to save  results of an experiment in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
+ This exception occurs when you are using the [Export Data](export-data.md) module or other module to save  results of an experiment in Azure Machine Learning to Azure blob storage, but you attempt to create a file or blob that already exists.   
   
 **Resolution:**
  
@@ -1060,7 +1035,7 @@ Another reason you might get this error if you try to use a column containing fl
   
  Check inputs for missing values and eliminate or replace them if necessary.  
   
- If necessary, add the [Edit Metadata](../edit-metadata.md) module and ensure that the label column is marked as a label.  
+ If necessary, add the [Edit Metadata](edit-metadata.md) module and ensure that the label column is marked as a label.  
   
 |Exception Messages|  
 |------------------------|  
@@ -1123,10 +1098,10 @@ Another reason you might get this error if you try to use a column containing fl
 |All models must have the same learner type.|  
   
 
-## Error 0063  
+ <!--## Error 0063  
  This exception is raised when R script evaluation fails with an error.  
   
- This error occurs when you have provided an R script in one of the [R language modules](../r-language-modules.md) in Azure Machine Learning, and the R code contains internal syntax errors. The exception can also occur if you provide the wrong inputs to the R script. 
+ This error occurs when you have provided an R script in one of the [R language modules](r-language-modules.md) in Azure Machine Learning, and the R code contains internal syntax errors. The exception can also occur if you provide the wrong inputs to the R script. 
  
  The error can also occur if the script is too large to execute in the workspace. The maximum script size for the **Execute R Script** module is 1,000 lines or 32 KB of work space, whichever is lesser.
   
@@ -1145,12 +1120,12 @@ Another reason you might get this error if you try to use a column containing fl
     + Make sure that any dataset that you want to output is converted to a data frame.  
 4.  Resubmit the experiment.
 
-
+ <!--
 > [!NOTE]
 > These topics contains examples of R code that you can use, as well as links to experiments in the [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com) that use R script.
-> + [Execute R Script](../execute-r-script.md)
-> + [Create R Model](../create-r-model.md)
-  
+> + [Execute R Script](execute-r-script.md)
+> + [Create R Model](create-r-model.md)
+-->  
 |Exception Messages|  
 |------------------------|  
 |Error during evaluation of R script.|  
@@ -1180,9 +1155,9 @@ Another reason you might get this error if you try to use a column containing fl
   
 -   The blob cannot be found in the specified container.  
   
--   The fully qualified name of the blob specified for output in one of the [Learning with Counts](../data-transformation-learning-with-counts.md) modules is greater than 512 characters.  
+ <!---   The fully qualified name of the blob specified for output in one of the [Learning with Counts](data-transformation-learning-with-counts.md) modules is greater than 512 characters.  -->
   
--   Only the container was specified as the source in a [Import Data](../import-data.md) request when the format was Excel or CSV with encoding; concatenation of the contents of all blobs within a container is not allowed with these formats.  
+-   Only the container was specified as the source in a [Import Data](import-data.md) request when the format was Excel or CSV with encoding; concatenation of the contents of all blobs within a container is not allowed with these formats.  
   
 -   A SAS URI does not contain the name of a valid blob.  
   
@@ -1198,7 +1173,7 @@ Another reason you might get this error if you try to use a column containing fl
 ## Error 0066  
  Exception occurs if a resource could not be uploaded to an Azure Blob.  
   
- This error in Azure Machine Learning occurs if a resource could not be uploaded to an Azure Blob. You will receive this message if [Train Vowpal Wabbit 7-4 Model](../train-vowpal-wabbit-version-7-4-model.md) encounters an error attempting to save either the model or the hash created when training the model. Both are saved to the same Azure storage account as the account containing the input file.  
+ This error in Azure Machine Learning occurs if a resource could not be uploaded to an Azure Blob.  <!--You will receive this message if [Train Vowpal Wabbit 7-4 Model](train-vowpal-wabbit-version-7-4-model.md) encounters an error attempting to save either the model or the hash created when training the model.--> Both are saved to the same Azure storage account as the account containing the input file.  
   
 **Resolution:**
  Revisit the module. Verify that the Azure account name, storage key, and container are correct and that the account has permission to write to the container.  
@@ -1345,12 +1320,12 @@ See the following articles for help with Hive queries for machine learning:
   
 
 ## Error 0074  
- Exception occurs when the [Edit Metadata](../edit-metadata.md) tries to convert a sparse column to categorical.  
+ Exception occurs when the [Edit Metadata](edit-metadata.md) tries to convert a sparse column to categorical.  
   
- This error in Azure Machine Learning occurs when the [Edit Metadata](../edit-metadata.md) tries to convert a sparse column to categorical.  You will receive this error when trying to convert sparse columns to categorical with the **Make categorical** option.  Azure machine Learning does not support sparse categorical arrays, so the module will fail.  
+ This error in Azure Machine Learning occurs when the [Edit Metadata](edit-metadata.md) tries to convert a sparse column to categorical.  You will receive this error when trying to convert sparse columns to categorical with the **Make categorical** option.  Azure machine Learning does not support sparse categorical arrays, so the module will fail.  
   
-**Resolution:**
- Make the column dense by using [Convert to Dataset](../convert-to-dataset.md) first or do not convert the column to categorical.  
+ <!--**Resolution:**
+ Make the column dense by using [Convert to Dataset](convert-to-dataset.md) first or do not convert the column to categorical.  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -1366,7 +1341,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
-If you get this error when using the [Group Data into Bins](../group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -1388,9 +1363,9 @@ If you get this error when using the [Group Data into Bins](../group-data-into-b
   
 
 ## Error 0078  
- Exception occurs when the HTTP option for [Import Data](../import-data.md) receives a 3xx status code indicating redirection.  
+ Exception occurs when the HTTP option for [Import Data](import-data.md) receives a 3xx status code indicating redirection.  
   
- This error in Azure Machine Learning occurs when the HTTP option for [Import Data](../import-data.md) receives a 3xx (301, 302, 304, etc.) status code indicating redirection. You will receive this error if you attempt to connect to an HTTP source that redirects the browser to another page. For security reasons, redirecting websites are not allowed as data sources for Azure Machine Learning.  
+ This error in Azure Machine Learning occurs when the HTTP option for [Import Data](import-data.md) receives a 3xx (301, 302, 304, etc.) status code indicating redirection. You will receive this error if you attempt to connect to an HTTP source that redirects the browser to another page. For security reasons, redirecting websites are not allowed as data sources for Azure Machine Learning.  
   
 **Resolution:**
  If the website is a trusted website, enter the redirected URL directly.  
@@ -1406,7 +1381,7 @@ If you get this error when using the [Group Data into Bins](../group-data-into-b
  This error in Azure Machine Learning occurs if the Azure storage container name is specified incorrectly. You will receive this error if you have not specified both the container and the blob (file) name using **the Path to blob beginning with container** option when writing to Azure Blob Storage.  
   
 **Resolution:**
- Revisit the [Export Data](../export-data.md) module and verify that the specified path to the blob contains both the container and the file name, in the format **container/filename**.  
+ Revisit the [Export Data](export-data.md) module and verify that the specified path to the blob contains both the container and the file name, in the format **container/filename**.  
   
 |Exception Messages|  
 |------------------------|  
@@ -1434,7 +1409,7 @@ If you get this error when using the [Group Data into Bins](../group-data-into-b
  This error in Azure Machine Learning is produced if the following conditions are met: (a) the input dataset has at least one sparse column and (b) the final number of dimensions requested is the same as the number of input dimensions.  
   
 **Resolution:**
- Consider reducing the number of dimensions in the output to be fewer than the number of dimensions in the input. This is typical in applications of PCA.  For more information, see [Principal Component Analysis](../principal-component-analysis.md).  
+ Consider reducing the number of dimensions in the output to be fewer than the number of dimensions in the input. This is typical in applications of PCA.   <!--For more information, see [Principal Component Analysis](principal-component-analysis.md).  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -1505,14 +1480,14 @@ If you get this error when using the [Group Data into Bins](../group-data-into-b
   
 In general, a count-based transform can only be applied to datasets that have the same schema as the dataset on which the transform was originally created.  
   
- For general information, see [Learning with Counts](../data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
+ <!-- For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
   
--   [Merge Count Transform](../merge-count-transform.md)  
+-   [Merge Count Transform](merge-count-transform.md)  
   
--   [Import Count Table](../import-count-table.md)  
+-   [Import Count Table](import-count-table.md)  
   
--   [Modify Count Table Parameters](../modify-count-table-parameters.md)  
-  
+-   [Modify Count Table Parameters](modify-count-table-parameters.md)  
+  -->
 |Exception Messages|  
 |------------------------|  
 |Invalid counting transform specified.|  
@@ -1530,7 +1505,7 @@ In general, a count-based transform can only be applied to datasets that have th
   
  Generally, a count-based transform can only be applied to datasets that have the same schema as the dataset on which the transform was originally created.  
   
- For general information, see [Learning with Counts](../data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
+  <!--For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). -->
   
 
 ## Error 0088  
@@ -1541,14 +1516,14 @@ In general, a count-based transform can only be applied to datasets that have th
 **Resolution:**
  In general, counting methods are chosen from a dropdown list, so you should not see this error.  
   
- For general information, see [Learning with Counts](../data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
+  <!--For general information, see [Learning with Counts](data-transformation-learning-with-counts.md). For requirements specific to creating and merging count-based features, see these topics:  
   
--   [Merge Count Transform](../merge-count-transform.md)  
+-   [Merge Count Transform](merge-count-transform.md)  
   
--   [Import Count Table](../import-count-table.md)  
+-   [Import Count Table](import-count-table.md)  
   
--   [Modify Count Table Parameters](../modify-count-table-parameters.md)  
-  
+-   [Modify Count Table Parameters](modify-count-table-parameters.md)  
+  -->
 |Exception Messages|  
 |------------------------|  
 |Invalid counting type is specified.|  
@@ -1576,7 +1551,7 @@ In general, a count-based transform can only be applied to datasets that have th
 ## Error 0090  
  Exception occurs when Hive table creation fails.  
   
- This error in Azure Machine Learning occurs when you are using [Export Data](../export-data.md) or another option to save data to an HDInsight cluster and the specified Hive table cannot be created.  
+ This error in Azure Machine Learning occurs when you are using [Export Data](export-data.md) or another option to save data to an HDInsight cluster and the specified Hive table cannot be created.  
   
 **Resolution:**
  Check the Azure storage account name associated with the cluster and verify that you are using the same account in the module properties.  
@@ -1625,7 +1600,7 @@ In general, a count-based transform can only be applied to datasets that have th
 **Resolution:**
  Make sure the selected file is a valid .zip file, and that it was compressed by using one of the supported compression algorithms.  
   
- If you get this error when importing datasets in compressed format, verify that all contained files use one of the supported file formats, and are in Unicode format. For more information, see [Unpack Zipped Datasets](../unpack-zipped-datasets.md).  
+ If you get this error when importing datasets in compressed format, verify that all contained files use one of the supported file formats, and are in Unicode format.  <!--For more information, see [Unpack Zipped Datasets](unpack-zipped-datasets.md).  -->
   
  Try readding the desired files to a new compressed zipped folder and try to add the custom module again.  
   
@@ -1819,10 +1794,10 @@ In general, a count-based transform can only be applied to datasets that have th
 ## Error 0121  
  Thrown when SQL writes fails because the table is unwriteable  
   
- This error in Azure Machine Learning is produced when you are using the [Export Data](../export-data.md) module to save results to a table in a SQL database, and the table cannot be written to. Typically, you will see this error if the [Export Data](../export-data.md) module successfully establishes a connection with the SQL Server instance, but is then unable to write the contents of the Azure ML dataset to the table.  
+ This error in Azure Machine Learning is produced when you are using the [Export Data](export-data.md) module to save results to a table in a SQL database, and the table cannot be written to. Typically, you will see this error if the [Export Data](export-data.md) module successfully establishes a connection with the SQL Server instance, but is then unable to write the contents of the Azure ML dataset to the table.  
   
 **Resolution:**
- - Open the Properties pane of the [Export Data](../export-data.md) module and verify that the database and table names are entered correctly. 
+ - Open the Properties pane of the [Export Data](export-data.md) module and verify that the database and table names are entered correctly. 
  - Review the schema of the dataset you are exporting, and make sure that the data is compatible with the destination table.
  - Verify that the SQL sign in associated with the user name and password has permissions to write to the table. 
  - If the exception contains additional error information from SQL Server, use that information to make corrections.  
@@ -1905,12 +1880,12 @@ In general, a count-based transform can only be applied to datasets that have th
   
  This error occurs if you are reading images from an image dataset for classification and the images are larger than the model can handle.  
   
-**Resolution:**
+ <!--**Resolution:**
  For more information about the image size and other requirements, see these topics:  
   
--   [Import Images](../import-images.md)  
+-   [Import Images](import-images.md)  
   
--   [Pretrained Cascade Image Classification](../pretrained-cascade-image-classification.md)  
+-   [Pretrained Cascade Image Classification](pretrained-cascade-image-classification.md)  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -1946,7 +1921,7 @@ In general, a count-based transform can only be applied to datasets that have th
  This occurs when some column in the training dataset is empty.  
   
 **Resolution:**
- Use the [Clean Missing Data](../clean-missing-data.md) module to remove columns with all missing values.  
+ Use the [Clean Missing Data](clean-missing-data.md) module to remove columns with all missing values.  
   
 |Exception Messages|  
 |------------------------|  
@@ -2005,9 +1980,9 @@ This error can also occur when a previous operation changes the dataset such tha
 
 Resolution: 
 
- If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](../edit-metadata.md) module to mark it as a label column.
+ If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
   
- Use the [Summarize Data](../summarize-data.md) module to generate a report that shows how many values are missing in each column. Then, you can use the [Clean Missing Data](../clean-missing-data.md) module to remove rows with missing values in the label column. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
 
  Check your input datasets to make sure that they contain valid data, and enough rows to satisfy the requirements of the operation. Many algorithms will generate an error message if they require some minimum number rows of data, but the data contains only a few rows, or only a header.
   
@@ -2023,7 +1998,7 @@ Resolution:
 **Resolution:**
  You might encounter this error message if you have attempted to evaluate a clustering model that is based on a custom clustering algorithm that does not use centroids to initialize the cluster.  
   
- You can use [Evaluate Model](../evaluate-model.md) to evaluate clustering models that are based on the  [K-Means Clustering](../k-means-clustering.md) module. For custom algorithms, use the [Execute R Script](../execute-r-script.md) module to create a custom evaluation script.  
+  <!--You can use [Evaluate Model](evaluate-model.md) to evaluate clustering models that are based on the  [K-Means Clustering](k-means-clustering.md) module. For custom algorithms, use the [Execute R Script](execute-r-script.md) module to create a custom evaluation script.  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -2058,11 +2033,11 @@ Resolution:
 **Resolution:**
  If you are trying to read a large dataset and the operation cannot be completed, downsampling the dataset might help.  
   
- If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](../summarize-data.md). You can also use the [Apply SQL Transformation](../apply-sql-transformation.md) to check for the number of unique values in each column.  
+  <!--If you use the visualizations on datasets to check the cardinality of columns, only some rows are sampled. To get a full report, use [Summarize Data](summarize-data.md). You can also use the [Apply SQL Transformation](apply-sql-transformation.md) to check for the number of unique values in each column.  
   
- Sometimes transient loads can lead to this error. Machine support also changes over time. See the [Azure Machine Learning FAQ](https://azure.microsoft.com/documentation/articles/machine-learning/studio/faq/) for  a description of supported data size.  
+ Sometimes transient loads can lead to this error. Machine support also changes over time. 
   
- Try using [Principal Component Analysis](../principal-component-analysis.md) or one of the provided feature selection methods to reduce your dataset to a smaller set of more feature-rich columns: [Feature Selection](../feature-selection-modules.md)  
+ Try using [Principal Component Analysis](principal-component-analysis.md) or one of the provided feature selection methods to reduce your dataset to a smaller set of more feature-rich columns: [Feature Selection](feature-selection-modules.md)  -->
   
 |Exception Messages|  
 |------------------------|  
@@ -2078,14 +2053,15 @@ Resolution:
   
 **Resolution:**
 
-1. Review your input data and determine the exact data type of the column that you want to use, and the data type of the column that is producing the error. Sometimes you might think the data type is correct, but find that an upstream operation has modified the data type or usage of a column. Use the [Edit Metadata](../edit-metadata.md) module to reset column metadata to its original state. 
+1. Review your input data and determine the exact data type of the column that you want to use, and the data type of the column that is producing the error. Sometimes you might think the data type is correct, but find that an upstream operation has modified the data type or usage of a column. Use the [Edit Metadata](edit-metadata.md) module to reset column metadata to its original state. 
 2. Look at the module help page to verify the requirements for the specified operation. Determine which data types are supported by the current module, and what range of values is supported. 
-3. If values need to be truncated, rounded, or outliers removed, use the [Apply Math Operation](../apply-math-operation.md) or [Clip Values](../clip-values.md) modules to make corrections.
+ <!--3. If values need to be truncated, rounded, or outliers removed, use the [Apply Math Operation](apply-math-operation.md) or [Clip Values](clip-values.md) modules to make corrections.-->
 4. Consider whether it is possible to convert or cast the column to a different data type. The following modules all provide considerable flexibility and power for modifying data: 
-  
-   + [Apply SQL Transformation](../apply-sql-transformation.md)
-   + [Execute R Script](../execute-r-script.md)
-   + [Execute Python Script](../execute-python-script.md).  
+ <!--
+   + [Apply SQL Transformation](apply-sql-transformation.md)
+   + [Execute R Script](execute-r-script.md)
+-->   
+   + [Execute Python Script](execute-python-script.md).  
 
 > [!NOTE]
 > Still not working? Consider providing additional feedback on the problem, to help us develop better troubleshooting guidance. Just submit feedback on this page and provide the name of the module that generated the error, and the data type conversion that failed.
@@ -2313,12 +2289,3 @@ To get more help, we recommend that you post the detailed message that accompani
 |Library exception.|  
 |Library exception: {0}|  
 |{0} library exception: {1}|  
-  
-
-## More help  
-[Module error codes](machine-learning-module-error-codes.md)
-
-Need more help or troubleshooting tips for Azure Machine Learning? Try these resources:  
-+ [Troubleshooting guide: Create and connect to an Machine Learning workspace](https://azure.microsoft.com/documentation/articles/machine-learning-troubleshooting-creating-ml-workspace/)  
-+ [Azure Machine Learning Frequently Asked Questions (FAQ)](https://azure.microsoft.com/documentation/articles/machine-learning/studio/faq/)  
- 
