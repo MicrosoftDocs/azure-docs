@@ -120,9 +120,9 @@
       href: how-to-tune-hyperparameters.md
   - name: Track and monitor experiments
     items:
-    - name: Start, monitor & cancel runs
+    - name: Start, monitor or cancel runs
       displayName: cancel, fail, status, child run
-      href: how-to-manage-and-monitor-runs.md
+      href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
