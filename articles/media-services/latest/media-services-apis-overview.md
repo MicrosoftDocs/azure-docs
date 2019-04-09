@@ -33,13 +33,7 @@ For more information about Azure Resource Manager naming, see: [Naming requireme
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
 
-Examples of operations that return secret include:
-
-* Not returning ContentKey values in the Get of the StreamingLocator.
-* Not returning the restriction keys in the Get of the ContentKeyPolicy.
-* Not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
-
-For information, see:
+For more information, see:
 
 - [Built-in role definitions](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
 - [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
