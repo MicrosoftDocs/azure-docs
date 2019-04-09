@@ -85,5 +85,5 @@ public class Function1
     {
         this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
     }
-
+}
 ```
