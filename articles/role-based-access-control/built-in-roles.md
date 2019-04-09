@@ -117,7 +117,6 @@ The following table provides a brief description of each built-in role. Click th
 | [Spatial Anchors Account Owner](#spatial-anchors-account-owner) | Lets you manage spatial anchors in your account, including deleting them |
 | [Spatial Anchors Account Reader](#spatial-anchors-account-reader) | Lets you locate and read properties of spatial anchors in your account |
 | [SQL DB Contributor](#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. |
-| [SQL Managed Instance Contributor](#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances, but can’t give access to others. |
 | [SQL Security Manager](#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. |
 | [SQL Server Contributor](#sql-server-contributor) | Lets you manage SQL servers and databases, but not access to them, and not their security -related policies. |
 | [Storage Account Contributor](#storage-account-contributor) | Lets you manage storage accounts, but not access to them. |
@@ -2225,31 +2224,6 @@ The following table provides a brief description of each built-in role. Click th
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *none* |  |
-> | **NotDataActions** |  |
-> | *none* |  |
-
-## SQL Managed Instance Contributor
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **Description** | Lets you manage SQL Managed Instances, but can’t give access to others. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Actions** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | Microsoft.Resources/deployments/* | Create and manage resource group deployments |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Gets or lists resource groups. |
-> | Microsoft.Network/networkSecurityGroups/write | Creates a network security group or updates an existing network security group |
-> | Microsoft.Network/routeTables/write | Creates a route table or Updates an existing route table |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Create and manage support tickets |
-> | Microsoft.Network/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
-> | Microsoft.Authorization/*/read | Read roles and role assignments |
-> | **NotActions** |  |
-> | *none* |  |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |

@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2.0 OAuth Authorization Code Flow | Microsoft Docs
-description: Building web applications using Azure AD's implementation of the OAuth 2.0 authentication protocol.
+title: Microsoft identity platform and OAuth Authorization Code Flow | Azure
+description: Building web applications using the Microsoft identity platform's implementation of the OAuth 2.0 authentication protocol.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,15 +13,15 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/24/2019
+ms.topic: conceptual
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# v2.0 Protocols - OAuth 2.0 authorization code flow
+# Microsoft identity platform and OAuth 2.0 authorization code flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -30,7 +30,7 @@ The OAuth 2.0 authorization code grant can be used in apps that are installed on
 > [!NOTE]
 > Not all Azure Active Directory scenarios & features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
 
-The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including [web apps](v2-app-types.md#web-apps) and [natively installed  apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the v2.0 endpoint. 
+The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). It is used to perform authentication and authorization in the majority of app types, including [web apps](v2-app-types.md#web-apps) and [natively installed  apps](v2-app-types.md#mobile-and-native-apps). The flow enables apps to securely acquire access_tokens that can be used to access resources secured by the v2.0 endpoint.
 
 ## Protocol diagram
 

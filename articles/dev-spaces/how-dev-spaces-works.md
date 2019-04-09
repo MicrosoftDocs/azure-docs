@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "03/04/2019"
+ms.date: 03/04/2019
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces and how they are configured in the azds.yaml configuration file"
 keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"

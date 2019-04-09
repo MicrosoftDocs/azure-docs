@@ -7,9 +7,9 @@ ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
 ---
@@ -44,11 +44,11 @@ The compute cost reflects the total compute capacity that is provisioned for the
 
 ## Storage costs
 
-Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance. 
+Different types of storage are billed differently. For data storage, you are charged for the provisioned storage based upon the maximum database or pool size you select. The cost does not change unless you reduce or increase that maximum. Backup storage is associated with automated backups of your instance and is allocated dynamically. Increasing your backup retention period increases the backup storage that’s consumed by your instance.
 
 7 days of automated backups of your databases are copied to RA-GRS Standard blob storage by default. The storage is used by weekly full backups, daily differential backups, and transaction log backups copied every 5 minutes. The size of the transaction log depends on the rate of change of the database. A minimum storage amount equal to 100% of database size is provided at no extra charge. Additional consumption of backup storage will be charged in GB/month.
 
-For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page. 
+For more information about storage prices, see the [pricing](https://azure.microsoft.com/pricing/details/sql-database/single/) page.
 
 ## vCore-based purchasing model
 
@@ -65,7 +65,7 @@ The vCore-based purchasing model enables you to independently choose compute and
 > **Region limitations:** For the current list of supported regions, see [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). If you want to create a Managed Instance in the region that is currently not supported, you can [send support request via Azure portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based purchasing model may reduce your cost. If you decide to convert, you can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required and is not done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size using the following rules of thumb: 
+If your single database or elastic pool consumes more than 300 DTUs, converting to the vCore-based purchasing model may reduce your cost. If you decide to convert, you can convert using your API of choice or using the Azure portal, with no downtime. However, conversion is not required and is not done automatically. If the DTU-based purchasing model meets your performance and business requirements, you should continue using it. If you decide to convert from the DTU-based purchasing model to the vCore-based purchasing model, select the compute size using the following rules of thumb:
 
 - Each 100 DTU in Standard tier requires at least 1 vCore in General Purpose tier
 - Each 125 DTU in Premium tier requires at least 1 vCore in Business Critical tier

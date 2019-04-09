@@ -152,8 +152,8 @@ Back up VMs consistency | Unsupported. <br/><br/>Azure Backup doesn't support mu
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or less data disks.
-Data disk size | Individual disk can be up to 4095 GB.<br/><br/> If your vaults are running the latest version of Azure Backup (known as Instant Restore), disk sizes up to 4 TB are supported. [Learn more](backup-instant-restore-capability.md).
+Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.
+Data disk size | Individual disk can be up to 4095 GB.<br/><br/> If your vaults are running the latest version of Azure Backup (known as Instant Restore), disk sizes up to 4 TB are supported. [Learn more](backup-instant-restore-capability.md).  
 Storage type | Standard HDD, standard SSD, premium SSD. <br/><br/> Standard SSD is supported if your vaults are upgraded to the latest version of Azure VM backup (known as Instant Restore). [Learn more](backup-instant-restore-capability.md).
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
@@ -163,8 +163,11 @@ Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
 Shared storage| Backing up VMs using CSV or Scale-Out File Server is not recommended. CSV writers are likely to fail.
 
-## VM network support
+> [!NOTE]
+> Azure Backup does not support striped disks. Resizing of disk is not recommended by Azure Backup.
 
+
+## VM network support
 
 **Component** | **Support**
 --- | ---

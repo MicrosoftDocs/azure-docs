@@ -2266,8 +2266,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for eventSubscriptions |
-> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
-> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update a eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
@@ -2761,8 +2761,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes a Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads a Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Lists database principals. |

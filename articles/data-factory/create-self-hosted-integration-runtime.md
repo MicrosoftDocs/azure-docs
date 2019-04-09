@@ -33,7 +33,9 @@ This document describes how you can create and configure a self-hosted IR.
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
 	```
 
 ## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
@@ -104,7 +106,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 
 ## High availability and scalability
-A self-hosted integration runtime can be associated with multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
+A self-hosted integration runtime can be associated with multiple on-premises machines or Virtual Machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
