@@ -20,7 +20,7 @@ The **Speech** container runtime environment is configured using the `docker run
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](how-to-install-and-run-container.md#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](speech-container-howto.md#billing).
 
 ## ApiKey configuration setting
 
@@ -61,7 +61,7 @@ This setting can be found in the following place:
 
 ## Example docker run commands 
 
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](how-to-install-and-run-container.md#stop-the-container) it.
+The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](speech-container-howto.md#stop-the-container) it.
 
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
@@ -125,4 +125,4 @@ ApiKey={BILLING_KEY}
 
 ## Next steps
 
-* Review [How to install and run containers](how-to-install-and-run-container.md)
+* Review [How to install and run containers](speech-container-howto.md)
