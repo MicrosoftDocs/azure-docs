@@ -4,8 +4,8 @@ description: Create and query a single database in Azure SQL Database using the 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
@@ -29,50 +29,34 @@ To create a single database containing the AdventureWorksLT sample data:
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
 2. Select **Databases** and then select **SQL Database**.
-3. In the **Create SQL Database** form, type or select the following values:
 
-   - **Database name**: Enter *mySampleDatabase*.
-   - **Subscription**: Drop down and select the correct subscription, if it doesn't appear.
-   - **Resource group**: Select **Create new**, type *myResourceGroup*, and select **OK**.
-   - **Select source**: Drop down and select **Sample (AdventureWorksLT)**.
-
-     > [!IMPORTANT]
-     > Make sure to select the **Sample (AdventureWorksLT)** data so you can follow easily this and other Azure SQL Database quickstarts that use this data.
-  
    ![Create single database](./media/sql-database-get-started-portal/create-database-1.png)
 
-4. Under **Server**, select **Create new**.
-5. In the **New server** form, type or select the following values:
+3. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name.
 
-   - **Server name**: Enter *mysqlserver*.
-   - **Server admin login**: Type *azureuser*.
-   - **Password**: Enter *Azure1234567*.
-   - **Confirm Password**: Retype the password.
-   - **Location**: Drop down and select any valid location.  
+   ![Create single database](./media/sql-database-get-started-portal/create-database-2.png)
 
-   > [!IMPORTANT]
-   > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
+4. Under **Database details**, enter *mySampleDatabase* for **Database name** and select **Create new** under **Server**. In the **New server** form, enter these following settings then click **Select**.
+    - **Server name**: Enter *mysqlserver* plus a few random numbers at the end for uniqueness.
+    - **Server admin login**: Type *azureuser*.
+    - **Password**: Enter *Azure1234567*.
+    - **Confirm Password**: Retype the password.
+    - **Location**: Drop down and select any valid location.
 
-    ![Create server](./media/sql-database-get-started-portal/create-database-server.png)
+    ![Create single database](./media/sql-database-get-started-portal/create-database-3.png)
 
-6. Choose **Select**.
-7. On the **SQL Database** form, select **Pricing tier**. Explore the amount of DTUs and storage available for each service tier.
+    ![Create single database](./media/sql-database-get-started-portal/create-database-4.png)
 
-   > [!NOTE]
-   > This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
-   > [!IMPORTANT]
-   > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+5. You can leave **Compute + Storage** at the default. If you would like to explore the configuration options available, click on **Configure database**.
 
-8. For this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage.
-9. Select **Apply**.  
+6. At the top of the form, click the **Additional settings** tab. Under **Select source**, select *Sample*. This selection is important as it give us sample data to query in this database later on.
 
-   ![Select pricing](./media/sql-database-get-started-portal/create-database-s1.png)
+    ![Create single database](./media/sql-database-get-started-portal/create-database-5.png)
 
-10. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
+7. Select **Review + create**. Review the pricing details and the list of settings. Click **Create**.
 
-    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
+8. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
-    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Query the database
 
