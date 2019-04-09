@@ -194,6 +194,9 @@ The following are post-installation known issues for this build version.
 <!-- 1663805 - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- 4377800 - IS ASDK --> 
+In the user portal, when you navigate to a blob within a storage account and try to open Access Policy from the navigation tree, the subsequent window fails to load.
+
 <!-- ### Health and monitoring -->
 
 ### Compute
