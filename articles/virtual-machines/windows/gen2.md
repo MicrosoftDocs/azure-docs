@@ -24,11 +24,11 @@ ms.author: lahugh
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Support for generation 2 vitrual machines (VMs) is now available in public preview on Azure. Now, you can upload a generation 2 Windows virtual machines (VM) from on-premises to Azure.
+Support for generation 2 virtual machines (VMs) is now available in public preview on Azure. Now, you can upload a generation 2 Windows virtual machines (VM) from on-premises to Azure.
 
 Generation 2 VMs support key features like: increased memory, Intel® Software Guard Extensions (SGX), and virtual persistent memory (vPMEM), which are not supported on generation 1 VMs. Compared to generation 1 VMs, generation 2 VMs may have improved boot and installation times.
 
-For public preview, custom image generation 2 VMs cannot be created in the Azure Portal. Instead, create a custom image generation 2 VM using [PowerShell](quick-create-powershell.md). The Portal can be used to create a generation 2 VM from an Azure Marketplace image. See the [capabilities](#generation-1-vs-generation-2-vm-capabilities) section for a list of supported marketplace images.
+For public preview, custom image generation 2 VMs cannot be created in the Azure portal. Instead, create a custom image generation 2 VM using [PowerShell](quick-create-powershell.md). The Portal can be used to create a generation 2 VM from an Azure Marketplace image. See the [capabilities](#generation-1-vs-generation-2-vm-capabilities) section for a list of supported marketplace images.
 
 All VM sizes in Azure currently support Generation 1 VMs. Azure now offers Generation 2 support for the following selected VM series in public preview:
 
@@ -54,14 +54,14 @@ But, Azure does not currently support some of the features that on-premises Hype
 
 ## Generation 1 vs Generation 2 VM capabilities
 
-| Feature                    | Generation 1               | Generation 2                        |
-|----------------------------|----------------------------|-------------------------------------|
-| O.S Disk > 2TB             | N                          | Y                                   |
-| Custom Disk/Image/Swap O.S | Y                          | Y                                   |
-| VMSS Support               | Y                          | Y                                   |
-| VM Sizes                   | Available on all VM sizes. | Premium Storage supported VMs only. |
-| ASR/Backup                 | Y                          | N                                   |
-| Shared Image Gallery       | Y                          | N                                   |
+| Feature                           | Generation 1               | Generation 2                        |
+|-----------------------------------|----------------------------|-------------------------------------|
+| O.S Disk > 2 TB                   | N                          | Y                                   |
+| Custom Disk/Image/Swap O.S        | Y                          | Y                                   |
+| Virtual Machine Scale Set Support | Y                          | Y                                   |
+| VM Sizes                          | Available on all VM sizes. | Premium Storage supported VMs only. |
+| ASR/Backup                        | Y                          | N                                   |
+| Shared Image Gallery              | Y                          | N                                   |
 
 Generation 2 VMs support the following Azure Marketplace images:
 
@@ -71,12 +71,12 @@ Generation 2 VMs support the following Azure Marketplace images:
 * Windows server 2012 Datacenter
 * Ubuntu
 * SUSE
-* 3rd Party publishers including SQL and others
+* Third Party publishers including SQL and others
 
 ## Frequently asked questions
 
 * **Do Gen2 VMs support Accelerated Networking?**  
-    Yes, Gen2 VMs support [Accelerated Netowrking](../virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes, Gen2 VMs support [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Is .vhdx supported on Gen2?**
     No, only .vhd is supported on Gen2 VMs.
