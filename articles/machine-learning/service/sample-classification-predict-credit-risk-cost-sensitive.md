@@ -1,7 +1,7 @@
 ---
-title: "Classification: predict credit risk (cost sensitive)"
+title: "Classification: Predict credit risk (cost sensitive)"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. It predicts credit risk based on information given on a credit application.
+description: This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. It predicts credit risk based on information provided in a credit application.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,46 +12,46 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 4 - Classification: predict credit risk (cost sensitive)
+# Sample 4 - Classification: Predict credit risk (cost sensitive)
 
 This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
 
-This sample predicts credit risk based on information given on a credit application, taking into account the misclassification costs.
+This sample predicts credit risk based on information provided in a credit application, taking into account the misclassification costs.
 
 In this experiment, we compare two different approaches for generating models to solve this problem:
 
-- Training using the original data set
-- Training using a replicated data set
+- Training with the original dataset.
+- Training with a replicated dataset.
 
-In both approaches, we evaluate the models using the test data set with replication, to ensure that results are aligned with the cost function. We test two classifiers in both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
+With both approaches, we evaluate the models by using the test dataset with replication to ensure that results are aligned with the cost function. We test two classifiers with both approaches: **Two-Class Support Vector Machine** and **Two-Class Boosted Decision Tree**.
 
 ## Prerequisites
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select **+ New** at the bottom-left to open the Sample 4 experiment.
+4. Select **Open** on the lower-left side of the screen to open the Sample 4 experiment.
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## Related sample
 
-See [Sample 3 - Classification-Credit Risk Prediction (Basic)](sample-classification-predict-churn.md)] for a basic experiment solving the same problem, without adjusting for misclassification costs.
+See [Sample 3 - Classification: Credit Risk Prediction (Basic)](sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
 
 ## Data
 
-We use the German Credit Card data set from the UC Irvine repository. This data set contains 1000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include both numerical and categorical features. Check [UCI Site] (https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for more detail about the dataset. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
+We'll use the German Credit Card dataset from the UC Irvine repository. This dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The 20 features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for more information about the dataset. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
 
-The cost of misclassifying a low risk example as high is 1, while the cost of misclassifying a high risk example as low is 5. An **Execute Python Script** module is used to account for this misclassification cost.
+The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We'll use an **Execute Python Script** module to account for this misclassification cost.
 
-![experiment-graph](media/sample-classification-predict-credit-risk-cost-sensitive/graph.png)
+![Graph of the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/graph.png)
 
 ## Data processing
 
-We started by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the data set description on the UCI site. The new column names are provided as comma-separated values in the **New column** name field of the **Metadata Editor**.
+We'll start by using the **Metadata Editor** module to add column names to replace the default column names with more meaningful names, obtained from the dataset description on the UCI site. The new column names are provided as comma-separated values in the **New column** name field of the **Metadata Editor**.
 
-Next, we generated training and test sets used for developing the risk prediction model. We split the original data set into training and test sets of the same size using the Split module. To create sets of equal size, we set the option, Fraction of rows in the first output, to 0.5.
+Next, we generated training and test sets used for developing the risk prediction model. We split the original dataset into training and test sets of the same size using the Split module. To create sets of equal size, we set the option, Fraction of rows in the first output, to 0.5.
 
 ### Generate the new dataset
 
@@ -60,7 +60,7 @@ Because the cost of underestimating risk is high in the real world, we set the c
 - For high risk cases misclassified as low risk: 5
 - For low risk cases misclassified as high risk: 1
 
-To reflect this cost function, we generate a new data set, in which each high risk example is replicated five times, while the number of low risk examples are kept as is. We split the data into training and test data sets before replication to prevent the same row from being in both the training and test sets.
+To reflect this cost function, we generate a new dataset, in which each high risk example is replicated five times, while the number of low risk examples are kept as is. We split the data into training and test datasets before replication to prevent the same row from being in both the training and test sets.
 
 To replicate the high risk data, we put the following Python code into an **Execute Python Script** module:
 
@@ -76,7 +76,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
     return result,
 ```
 
-Both the training and test data sets are replicated using the **Execute Python Script** module.
+Both the training and test datasets are replicated using the **Execute Python Script** module.
 
 ### Feature engineering
 
@@ -108,7 +108,7 @@ In the evaluation stage of the experiment, we computed the accuracy of each of t
 
 The **Evaluate Model** module can compute the performance metrics for up to two scored models. Therefore, we used one instance of **Evaluate Model** to evaluate the two SVM models, and another instance of **Evaluate Model** to evaluate the two boosted decision tree models.
 
-Notice that the replicated test data set is used as the input for **Score Model**. In other words, the final accuracy scores include the cost for getting the labels wrong.
+Notice that the replicated test dataset is used as the input for **Score Model**. In other words, the final accuracy scores include the cost for getting the labels wrong.
 
 ## Combine multiple results
 
@@ -143,7 +143,7 @@ The first column lists the machine learning algorithm used to generate a model.
 The second column indicates the type of the training set.
 The third column contains the cost-sensitive accuracy value.
 
-From these results, you can see that the best accuracy is provided by the model that was created using **Two-Class Support Vector Machine** and trained on the replicated training data set.
+From these results, you can see that the best accuracy is provided by the model that was created using **Two-Class Support Vector Machine** and trained on the replicated training dataset.
 
 ## Clean up resources
 
