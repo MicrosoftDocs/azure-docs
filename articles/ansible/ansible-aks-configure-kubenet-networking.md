@@ -64,7 +64,7 @@ Here are some key notes to consider when working with the sample playbook:
 - The `network_profile` defines the properties for the kubenet network plugin.
 
 - The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
-- The `dns_service_ip` address should be the .10 address of your service IP address range.
+- The `dns_service_ip` address should be the ".10" address of your service IP address range.
 - The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
 - The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
 - As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
