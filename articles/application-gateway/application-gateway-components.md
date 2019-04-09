@@ -124,7 +124,7 @@ A backend pool routes request to backend servers, which serve the request. Backe
 - FQDN
 - Multitenant backends (such as App Service)
 
-Application Gateway backend pool members aren't tied to an availability set. Application Gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there's IP connectivity.
+Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there's IP connectivity.
 
 If you use internal IPs as backend pool members, you must use [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
@@ -134,7 +134,7 @@ You can create different backend pools for different types of requests. For exam
 
 ## Health probes
 
-By default, Application Gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
+By default, an application gateway monitors the health of all resources in its backend pool and automatically removes unhealthy ones. It then monitors unhealthy instances and adds them back to the healthy backend pool when they become available and respond to health probes.
 
 In addition to using default health probe monitoring, you can also customize the health probe to suit your application's requirements. Custom probes allow more granular control over the health monitoring. When using custom probes, you can configure the probe interval, the URL and path to test, and how many failed responses to accept before the backend pool instance is marked as unhealthy. We recommend that you configure custom probes to monitor the health of each backend pool.
 
