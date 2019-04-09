@@ -66,7 +66,7 @@ If not specified, time zone will be set to UTC.
 
 ## Checking the time zone of instance
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) function returns a display name of the time zone of the instance.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) function returns a display name of the time zone of the instance.
 
 ## Cross-feature considerations
 
