@@ -625,7 +625,7 @@ You can enable streaming logs by using the [Azure Command Line Interface (CLI)](
 az login
 az account list
 az account set --subscription <subscriptionNameOrId>
-az webapp log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
 ### Azure PowerShell
