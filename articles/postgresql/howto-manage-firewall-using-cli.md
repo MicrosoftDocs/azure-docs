@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ---
 # Create and manage Azure Database for PostgreSQL firewall rules using Azure CLI
-Server-level firewall rules enable administrators to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).
+Server-level firewall rules can be used to manage access to an Azure Database for PostgreSQL Server from a specific IP address or range of IP addresses. Using convenient Azure CLI commands, you can create, update, delete, list, and show firewall rules to manage your server. For an overview of Azure Database for PostgreSQL firewall rules, see [Azure Database for PostgreSQL Server firewall rules](concepts-firewall-rules.md).
 
 Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md).
 
