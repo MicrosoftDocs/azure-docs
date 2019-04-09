@@ -20,16 +20,13 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# How to: Provide optional claims to your Azure AD app (Preview)
+# How to: Provide optional claims to your Azure AD app
 
 This feature is used by application developers to specify which claims they want in tokens sent to their application. You can use optional claims to:
 
 - Select additional claims to include in tokens for your application.
 - Change the behavior of certain claims that Azure AD returns in tokens.
 - Add and access custom claims for your application.
-
-> [!NOTE]
-> This capability currently is in public preview. Be prepared to revert or remove any changes. The feature is available in any Azure AD subscription during public preview. However, when the feature becomes generally available, some aspects of the feature might require an Azure AD premium subscription.
 
 For the lists of standard claims, see the [access token](access-tokens.md) and [id_token](id-tokens.md) claims documentation. 
 
@@ -75,7 +72,7 @@ The set of optional claims available by default for applications to use are list
 
 ### v2.0 optional claims
 
-These claims are always included in v1.0 AAD tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for JWTs (ID tokens and Access Tokens). 
+These claims are always included in v1.0 Azure AD tokens, but not included in v2.0 tokens unless requested. These claims are only applicable for JWTs (ID tokens and Access Tokens). 
 
 **Table 3: V2.0-only optional claims**
 
@@ -182,14 +179,14 @@ If supported by a specific claim, you can also modify the behavior of the Option
 | `source`               | Edm.String              | The source (directory object) of the claim. There are predefined claims and user-defined claims from extension properties. If the source value is null, the claim is a predefined optional claim. If the source value is user, the value in the name property is the extension property from the user object. |
 | `essential`            | Edm.Boolean             | If the value is true, the claim specified by the client is necessary to ensure a smooth authorization experience for the specific task requested by the end user. The default value is false.                                                                                                             |
 | `additionalProperties` | Collection (Edm.String) | Additional properties of the claim. If a property exists in this collection, it modifies the behavior of the optional claim specified in the name property.                                                                                                                                               |
-## Configuring custom claims via directory extensions
+## Configuring directory extension optional claims
 
 In addition to the standard optional claims set, you can also configure tokens to include directory schema extensions. For more info, see [Directory schema extensions](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions). This feature is useful for attaching additional user information that your app can use – for example, an additional identifier or important configuration option that the user has set. 
 
 > [!Note]
 > Directory schema extensions are an AAD-only feature, so if your application manifest requests a custom extension and an MSA user logs into your app, these extensions will not be returned. 
 
-### Values for configuring additional optional claims
+### Directory extension formatting
 
 For extension attributes, use the full name of the extension (in the format: `extension_<appid>_<attributename>`) in the application manifest. The `<appid>` must match the id of the application requesting the claim. 
 
@@ -212,7 +209,7 @@ In the example below, you will modify an application’s manifest to add claims 
 1. Select **App Registrations** from the left hand side.
 1. Find the application you want to configure optional claims for in the list and click on it.
 1. From the application page, click **Manifest** to open the inline manifest editor. 
-1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
+1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 
