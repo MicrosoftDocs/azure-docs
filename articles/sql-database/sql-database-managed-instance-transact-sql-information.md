@@ -11,7 +11,7 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova 
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ---
 
 # Azure SQL Database Managed Instance T-SQL differences from SQL Server
