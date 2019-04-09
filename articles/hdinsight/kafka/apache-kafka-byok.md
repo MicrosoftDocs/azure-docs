@@ -24,7 +24,7 @@ You can use the Azure portal or Azure CLI to safely rotate the keys in the key v
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## How to get started with BYOK
+## Get started with BYOK
 To create a BYOK enabled Kafka cluster, we will go through the following steps:
 1. Create managed identities for Azure resources
 2. Setup Azure Key Vault and keys
