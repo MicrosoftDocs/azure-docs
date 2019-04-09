@@ -191,7 +191,7 @@ As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 G
 Install and configure Docker on the PC that will process the simulation -
 1. Install the [Docker toolset](https://www.docker.com/products/docker-desktop).
 2. Launch Docker settings, navigate to the "Advanced" options and configure resources to have at least 8GB RAM. The more CPUs you can allocate to Docker, the faster the bake will complete. ![Screenshot of example Docker settings](media/docker-settings.png)
-3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![Screnshot of Docker shared drive options](media/docker-shared-drives.png)
+3. Navigate to "Shared Drives" and turn on sharing for the drive used for processing.![Screenshot of Docker shared drive options](media/docker-shared-drives.png)
 
 ### Run local bake
 1. Click on "Prepare Local Bake" button on the **Bake** tab and select a folder where the input files and execution scripts will be saved. You can then run the bake on any machine as long as it meets the minimum hardware requirements and has Docker installed by copying the folder to that machine.
