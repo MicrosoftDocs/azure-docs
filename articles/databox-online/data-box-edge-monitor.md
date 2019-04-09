@@ -21,8 +21,6 @@ In this article, you learn how to:
 > * View hardware status
 > * View alerts
 
-
-
 ## View device events
 
 Take the following steps in the Azure portal to view a device event.
@@ -43,7 +41,7 @@ Take the following steps in the local web UI to view the hardware status of your
 
 ## View alerts
 
-Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Alerts overview](/azure/azure-monitor/platform/alerts-overview.md).
+Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
 
 ## Next steps
