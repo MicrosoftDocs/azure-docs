@@ -15,11 +15,7 @@ ms.author: KyleStorck
 # Project Acoustics Bake Resolution
 This conceptual overview describes the difference between coarse and fine resolutions while baking acoustics. You choose this setting during the Probes step of the baking workflow.
 
-[Bake Acoustics with Unity](unity-baking.md)
-
-[Bake Acoustics with Unreal/Wwise](unreal-baking.md)
-
-# <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs fine resolution
+## <a name="Coarse-vs-Fine-Resolution"></a>Coarse vs fine resolution
 
 The only difference between the coarse and fine resolution settings is the frequency at which the simulation is performed. Fine uses a frequency twice as high as coarse. This has a number of implications on the acoustic simulation:
 
@@ -33,3 +29,7 @@ The only difference between the coarse and fine resolution settings is the frequ
 ![Screenshot of coarse voxels filling a doorway in Unreal](media/unreal-coarse-bake.png)
 
 ![Screenshot of fine voxels in a doorway in Unreal](media/unreal-fine-bake.png)
+
+## Next steps
+
+Try out the coarse and fine resolution settings yourself using our [Unreal](unreal-baking.md) or [Unity](unity-baking.md) plugins.
