@@ -32,23 +32,23 @@ see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-res
 
 | Cmdlet | Description |
 |--------|-------------|
-| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azschedulerjobcollection) |Disables a job collection. |
-| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azschedulerjobcollection) |Enables a job collection. |
-| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azschedulerjob) |Gets Scheduler jobs. |
-| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azschedulerjobcollection) |Gets job collections. |
-| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azschedulerjobhistory) |Gets job history. |
-| [New-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azschedulerhttpjob) |Creates an HTTP job. |
-| [New-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azschedulerjobcollection) |Creates a job collection. |
-| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebusqueuejob) | Creates a Service Bus queue job. |
-| [New-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azschedulerservicebustopicjob) |Creates a Service Bus topic job. |
-| [New-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azschedulerstoragequeuejob) |Creates a Storage queue job. |
-| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azschedulerjob) |Removes a Scheduler job. |
-| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azschedulerjobcollection) |Removes a job collection. |
-| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azschedulerhttpjob) |Modifies a Scheduler HTTP job. |
-| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azschedulerjobcollection) |Modifies a job collection. |
-| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebusqueuejob) |Modifies a Service Bus queue job. |
-| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azschedulerservicebustopicjob) |Modifies a Service Bus topic job. |
-| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azschedulerstoragequeuejob) |Modifies a Storage queue job. |
+| [Disable-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/disable-azrmschedulerjobcollection) |Disables a job collection. |
+| [Enable-AzureRmSchedulerJobCollection](/powershell/module/azurerm.scheduler/enable-azrmschedulerjobcollection) |Enables a job collection. |
+| [Get-AzSchedulerJob](/powershell/module/azurerm.scheduler/get-azrmschedulerjob) |Gets Scheduler jobs. |
+| [Get-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/get-azrmschedulerjobcollection) |Gets job collections. |
+| [Get-AzSchedulerJobHistory](/powershell/module/azurerm.scheduler/get-azrmschedulerjobhistory) |Gets job history. |
+| [New-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/new-azrmschedulerhttpjob) |Creates an HTTP job. |
+| [New-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/new-azrmschedulerjobcollection) |Creates a job collection. |
+| [New-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/new-azrmschedulerservicebusqueuejob) | Creates a Service Bus queue job. |
+| [New-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/new-azrmschedulerservicebustopicjob) |Creates a Service Bus topic job. |
+| [New-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/new-azrmschedulerstoragequeuejob) |Creates a Storage queue job. |
+| [Remove-AzSchedulerJob](/powershell/module/azurerm.scheduler/remove-azrmschedulerjob) |Removes a Scheduler job. |
+| [Remove-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/remove-azrmschedulerjobcollection) |Removes a job collection. |
+| [Set-AzSchedulerHttpJob](/powershell/module/azurerm.scheduler/set-azrmschedulerhttpjob) |Modifies a Scheduler HTTP job. |
+| [Set-AzSchedulerJobCollection](/powershell/module/azurerm.scheduler/set-azrmschedulerjobcollection) |Modifies a job collection. |
+| [Set-AzSchedulerServiceBusQueueJob](/powershell/module/azurerm.scheduler/set-azrmschedulerservicebusqueuejob) |Modifies a Service Bus queue job. |
+| [Set-AzSchedulerServiceBusTopicJob](/powershell/module/azurerm.scheduler/set-azrmschedulerservicebustopicjob) |Modifies a Service Bus topic job. |
+| [Set-AzSchedulerStorageQueueJob](/powershell/module/azurerm.scheduler/set-azrmschedulerstoragequeuejob) |Modifies a Storage queue job. |
 ||| 
 
 For more details, you can run any of these cmdlets: 
