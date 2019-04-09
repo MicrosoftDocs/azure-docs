@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 04/07/2019
 
 # Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
 ---
@@ -206,12 +206,12 @@ To map the activity logs' data to the table, use the following query:
 
 #### Activity log data update policy
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of activity log records so that each value in the collection receives a separate row. Use the [`mvexpand`](/azure/kusto/query/mvexpandoperator) operator:
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of activity log records so that each value in the collection receives a separate row. Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -235,11 +235,11 @@ To map the activity logs' data to the table, use the following query:
 
 #### Diagnostic log data update policy
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic log records so that each value in the collection receives a separate row. Use the [`mvexpand`](/azure/kusto/query/mvexpandoperator) operator:
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic log records so that each value in the collection receives a separate row. Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
