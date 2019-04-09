@@ -87,7 +87,7 @@
       - name: Pod security
         href: developer-best-practices-pod-security.md
   - name: Quotas and regional limits
-    href: container-service-quotas.md
+    href: quotas-skus-regions.md
   - name: Migrate from ACS to AKS
     href: acs-aks-migration.md
   - name: Supported Kubernetes version
