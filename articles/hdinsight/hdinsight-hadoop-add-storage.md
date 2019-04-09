@@ -6,7 +6,7 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/08/2019
 ms.author: hrasheed
 ---
 
@@ -101,6 +101,10 @@ az hdinsight script-action execute ^
 See [Apply a script action to a running cluster](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## Known issues
+
+### Storage firewall
+
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account.
 
 ### Storage accounts not displayed in Azure portal or tools
 

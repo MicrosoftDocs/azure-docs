@@ -8,7 +8,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, bonova 
+ms.reviewer: sstein, carlrab, bonova 
 manager: craigg
 ms.date: 03/13/2019
 ms.custom: seoapril2019

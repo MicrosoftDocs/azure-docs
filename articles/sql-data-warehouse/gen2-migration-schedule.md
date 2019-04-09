@@ -28,7 +28,7 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 |:--- |:--- |:--- |
 | Australia East |Available |June 1, 2019 |
 | Australia Southeast |April 15, 2019 |May 1, 2019 |
-| Brazil South |May 15, 2019 |\* |
+| Brazil South |May 15, 2019 |June 1, 2019 |
 | Canada Central |Available |June 1, 2019 |
 | Canada East |\* |\* |
 | Central US |Available |June 1, 2019 |
@@ -38,8 +38,8 @@ The following table summarizes by region when the Lower Gen2 compute tier will b
 | China North 2 |\* |\* |
 | East Asia |Available |June 1, 2019 |
 | East US |Available |June 1, 2019 |
-| East US 2 |Available |June 1. 2019 |
-| France Central |\* |\* |
+| East US 2 |Available |June 1, 2019 |
+| France Central |\* |June 1, 2019 |
 | Germany Central |\* |\* |
 | Germany West Central |September 1, 2019|January 2, 2020 |
 | India Central |Available |June 1, 2019 |
