@@ -155,16 +155,8 @@ You should see output similar to the following example:
 
 ## Known issues
 
-### The Enable action in the Profiler Configuration pane doesn't work
-
-> [!NOTE]
-> If you host your app by using App Service on Linux, you don't need to re-enable the Profiler in the **Performance** pane in the Application Insights portal. You can include the NuGet package in your project and set the Application Insights **iKey** value in your web app settings to enable the Profiler.
-
-If you follow the enablement workflow for [Application Insights Profiler for Windows](./profiler.md) and select **Enable** in the **Configure Profiler** pane, you receive an error. The enable action tries to install the Windows version of the Profiler agent on the Linux environment.
-
-We're working on a resolution for this issue.
-
-![Don't try to re-enable the Profiler in the Performance pane](./media/profiler-aspnetcore-linux/issue-enable-profiler.png)
+### Profile Now button doesn't work for Linux Profiler
+The Linux version of the App Insights profiler does not yet support on demand profiling using the profile now button.
 
 
 ## Next steps
