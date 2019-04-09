@@ -20,7 +20,7 @@ ms.date: 04/08/2019
 [Managed instance](sql-database-managed-instance.md) auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
-- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) where you can find the most current list of SQL Database compliance certifications.
+- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Set up auditing for your server to Azure storage
 
@@ -236,7 +236,7 @@ The key differences in the `CREATE AUDIT` syntax for auditing to Azure Blob stor
 ## Next steps
 
 - For a full list of audit log consumption methods, refer to the [Get started with SQL database auditing](sql-database-auditing.md).
-- For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) where you can find the most current list of SQL Database compliance certifications.
+- For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 <!--Image references-->
 
