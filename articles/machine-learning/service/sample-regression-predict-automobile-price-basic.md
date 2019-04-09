@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to build a regression m
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 1 experiment.
+4. Select the **Open** button for the Sample 1 experiment:
 
     ![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
 
@@ -54,11 +54,11 @@ We use the **Select Columns in Dataset** module to exclude normalized-losses tha
 ![Data pre-processing](./media/sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
-Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the actual use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
+Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
 Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.
 
-We use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and testing dataset contains 30% of the original data.
+We use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
 ## Test, evaluate, and compare
 
