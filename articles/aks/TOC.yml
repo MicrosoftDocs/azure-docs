@@ -310,6 +310,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback
@@ -320,7 +322,3 @@
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: FAQ
     href: faq.md
-- name: Support Policies
-  items:
-  - name: AKS Support Policies
-    href: support-policies.md
