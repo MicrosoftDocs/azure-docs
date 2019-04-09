@@ -98,7 +98,7 @@ You can use the left/right arrow keys to cycle through each data point on the ch
 Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
 
 ## View container metrics in metrics explorer
-In metrics explorer, you can view node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
+In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
 |Namespace | Metric |
 |----------|--------|
