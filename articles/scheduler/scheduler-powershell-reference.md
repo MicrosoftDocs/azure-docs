@@ -23,7 +23,7 @@ ms.date: 08/18/2016
 To author scripts for creating and 
 managing Scheduler jobs and job collections, 
 you can use PowerShell cmdlets. This article lists 
-the major [PowerShell cmdlets for Azure Scheduler](/powershell/module/azurerm.scheduler) 
+the major PowerShell cmdlets for Azure Scheduler 
 with links to their reference articles. 
 To install Azure PowerShell for your Azure subscription, 
 see [How to install and configure Azure PowerShell](/powershell/azure/overview). 
