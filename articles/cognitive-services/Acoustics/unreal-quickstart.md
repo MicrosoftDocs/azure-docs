@@ -17,8 +17,8 @@ ms.author: kegodin
 In this quickstart, you'll experiment with Project Acoustics design controls using provided sample content for the Unreal Engine and Wwise.
 
 Software requirements:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## Download the sample package
 Download the [Project Acoustics Unreal + Wwise sample package](https://www.microsoft.com/download/details.aspx?id=58090). The sample package contains an Unreal Engine project, the Wwise project for that Unreal project, and the Project Acoustics Wwise plugin.
