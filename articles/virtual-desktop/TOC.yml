@@ -48,3 +48,5 @@
   items:
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
+  - name: Support
+    href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
