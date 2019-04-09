@@ -123,6 +123,5 @@ node index.js
 ## Next steps
 
 - [Media Services concepts](concepts-overview.md)
-- [Quickstart]()
 - [Node.js reference](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)<br>
