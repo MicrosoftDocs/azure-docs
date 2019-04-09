@@ -168,7 +168,9 @@ that fires when a new RSS feed item appears. Every logic app must start with a t
 which fires when specific criteria is met. Each time the trigger fires, 
 the Logic Apps engine creates a logic app instance that runs your workflow.
 
-1. In Logic App Designer, enter "rss" in the search box. 
+1. In Logic App Designer, under the search box, choose **All**.
+
+1. In the search box, enter "rss" in the search box. 
 Select this trigger: **When a feed item is published**
 
    ![Build your logic app by adding a trigger and actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
