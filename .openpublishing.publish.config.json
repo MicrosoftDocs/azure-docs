@@ -22,7 +22,7 @@
     }
   ],
   "notification_subscribers": [
-    "tysonn@microsoft.com"
+    "azure-docs-publish@microsoft.com"
   ],
   "sync_notification_subscribers": [
     "tysonn@microsoft.com"
