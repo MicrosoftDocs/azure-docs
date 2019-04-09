@@ -40,6 +40,9 @@ The available View Designer tile types are described in the following table:
 
 The next sections describe the tile types and their properties in detail.
 
+> [!NOTE]
+> Parts in views are based on [log queries](../log-query/log-query-overview.md) in your Log Analytics workspace. They do not currently support [cross resource queries](../log-query/cross-workspace-query.md) to retrieve data from Application Insights.
+
 ## List of queries part
 The list of queries part displays a list of log queries. You can select each query to display its results. The view includes a single query by default, and you can select **+ Query** to add additional queries.
 

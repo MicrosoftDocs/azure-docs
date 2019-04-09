@@ -657,8 +657,9 @@
   - name: Visualize data
     items:
     - name: Views
-      href: platform/view-designer.md
       items:
+      - name: View Designer
+        href: platform/view-designer.md
       - name: Tile reference
         href: platform/view-designer-tiles.md
       - name: Visualization part reference
