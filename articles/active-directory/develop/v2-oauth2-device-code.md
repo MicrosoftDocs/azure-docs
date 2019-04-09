@@ -85,7 +85,7 @@ A successful response will be a JSON object containing the required information 
 
 ## Authenticating the user
 
-After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to log in using their mobile phone or PC browser.  Additionally, the client can use a QR code or similar mechanism to display the `verfication_uri_complete`, which will take the step of entering the `user_code` for the user.
+After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to sign in using their mobile phone or PC browser.  Additionally, the client can use a QR code or similar mechanism to display the `verfication_uri_complete`, which will take the step of entering the `user_code` for the user.
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 

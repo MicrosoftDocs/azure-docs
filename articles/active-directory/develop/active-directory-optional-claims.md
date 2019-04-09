@@ -188,7 +188,7 @@ In addition to the standard optional claims set, you can also configure tokens t
 
 ### Directory extension formatting
 
-For extension attributes, use the full name of the extension (in the format: `extension_<appid>_<attributename>`) in the application manifest. The `<appid>` must match the id of the application requesting the claim. 
+For extension attributes, use the full name of the extension (in the format: `extension_<appid>_<attributename>`) in the application manifest. The `<appid>` must match the ID of the application requesting the claim. 
 
 Within the JWT, these claims will be emitted with the following name format:  `extn.<attributename>`.
 
@@ -209,7 +209,7 @@ In the example below, you will modify an application’s manifest to add claims 
 1. Select **App Registrations** from the left hand side.
 1. Find the application you want to configure optional claims for in the list and click on it.
 1. From the application page, click **Manifest** to open the inline manifest editor. 
-1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://docs.microsoft.com/en-us/azure/active-directory/develop/reference-app-manifest), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
+1. You can directly edit the manifest using this editor. The manifest follows the schema for the [Application entity](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest), and auto-formats the manifest once saved. New elements will be added to the `OptionalClaims` property.
 
       ```json
       "optionalClaims": 
