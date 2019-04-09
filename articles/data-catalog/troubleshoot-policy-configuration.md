@@ -20,7 +20,7 @@ With the global authentication policy, you can enable authentication separately 
 
  ![Azure Active Directory global authentication policy](./media/troubleshoot-policy-configuration/global-auth-policy.png)
 
-For more information, see [Configuring authentication policies](https://technet.microsoft.com/library/dn486781.aspx).
+For more information, see [Configuring authentication policies](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn486781(v=ws.11)).
 
 ## Next steps
 
