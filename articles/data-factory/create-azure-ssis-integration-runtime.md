@@ -78,7 +78,7 @@ In this section, you use Azure portal, specifically ADF User Interface (UI)/app,
 ### Create a data factory
 
 1. Launch **Microsoft Edge** or **Google Chrome** web browser. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-1. Log in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Click **New** on the left menu, click **Data + Analytics**, and click **Data Factory**.
 
    ![New->DataFactory](./media/tutorial-create-azure-ssis-runtime-portal/new-data-factory-menu.png)
@@ -258,9 +258,9 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 ```
 
-### Log in and select subscription
+### Sign in and select subscription
 
-Add the following code the script to log in and select your Azure subscription:
+Add the following code the script to sign in and select your Azure subscription:
 
 ```powershell
 Connect-AzAccount
