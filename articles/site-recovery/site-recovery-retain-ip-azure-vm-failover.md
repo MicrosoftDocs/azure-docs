@@ -44,7 +44,7 @@ Here's the architecture before failover.
         - Southeast Asia has a recovery VNet (**Recovery VNet**) identical to **Source VNet**.
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.2.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.2.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
     - **Source VNet** and **Azure VNet** are connected with a VPN site-to-site connection.
     - **Recovery VNet** is not connected with any other virtual network.
     - **Company A** assigns/verifies target IP addresses for replicated items. The target IP is the same as source IP for each VM.
@@ -89,7 +89,7 @@ Before failover, the architecture is as follows:
         - **Recovery VNet 1** and **Recovery VNet 2** each have two subnets that match the subnets in **Source VNet 1** and **Source VNet 2**
         - Southeast Asia has an additional VNet (**Azure VNet**) with address space 10.3.0.0/16.
         - **Azure VNet** contains a subnet (**Subnet 4**) with address space 10.3.4.0/24.
-        - Replica nodes for SQL Server Always On, domain controller etc are located in **Subnet 4**.
+        - Replica nodes for SQL Server Always On, domain controller etc. are located in **Subnet 4**.
 - There are a number of site-to-site VPN connections: 
     - **Source VNet 1** and **Azure VNet**
     - **Source VNet 2** and **Azure VNet**

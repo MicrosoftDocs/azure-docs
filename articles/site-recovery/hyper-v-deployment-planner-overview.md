@@ -127,8 +127,8 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest ASR Deployment Planner tool version is 2.3.
-Refer to [ASR Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
+The latest Azure Site Recovery Deployment Planner tool version is 2.3.
+Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 
 ## Next steps
