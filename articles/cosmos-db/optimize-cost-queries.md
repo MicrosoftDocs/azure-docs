@@ -28,7 +28,7 @@ Queries that read data from one or more partitions incur higher latency and cons
 
 Once you have stored some data in your Azure Cosmos containers, you can use the Data Explorer in the Azure portal to construct and run your queries. You can also get the cost of the queries by using the data explorer. This method will give you a sense of the actual charges involved with typical queries and operations that your system supports.
 
-You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .Net or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
+You can also get the cost of queries programmatically by using the SDKs. To measure the overhead of any operation such as create, update, or delete inspect the `x-ms-request-charge` header when using REST API. If you are using the .NET or the Java SDK, the `RequestCharge` property is the equivalent property to get the request charge and this property is present within the ResourceResponse or FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -48,13 +48,13 @@ while (queryable.HasMoreResults)
 
 ## Factors influencing request unit charge for a query
 
-Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
+Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc. details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
 
 In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution break into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.  
 
 ## Metrics for troubleshooting
 
-The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .Net SDK, here are sample query metrics returned by the SDK:
+The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .NET SDK, here are sample query metrics returned by the SDK:
 
 ```bash
 Retrieved Document Count                 :               1              

@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/foreseecxsuite-tutorial/urlupload.png)
 
-1. If you dont have **Service Provider metadata file**, perform the following steps:
+1. If you don't have **Service Provider metadata file**, perform the following steps:
 
 	![ForeSee CX Suite Domain and URLs single sign-on information](./media/foreseecxsuite-tutorial/tutorial_foreseecxsuite_url.png)
 

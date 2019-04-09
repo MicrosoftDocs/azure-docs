@@ -76,7 +76,7 @@ Before you can submit scripts to HDInsight clusters from Visual Studio Code, you
 
         ![Sign in instructions for other environment](./media/hdinsight-for-vscode/hdi-azure-hdinsight-hdinsight-signin.png)
 
- After you're connected, your Azure account name is shown on the status bar at the bottom left of the Visual Studio Code window.  
+   After you're connected, your Azure account name is shown on the status bar at the bottom left of the Visual Studio Code window.  
   
 
 <h2 id="linkcluster">Create link: Azure HDInsight</h2>

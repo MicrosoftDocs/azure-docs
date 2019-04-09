@@ -4,7 +4,7 @@ description: Learn how to collect Azure Security Center data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: d28c2264-2dce-42e1-b096-b5a234ff858a

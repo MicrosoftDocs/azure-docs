@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
 
 ---
@@ -120,8 +120,8 @@ You can modify the default target settings used by Site Recovery.
 
 
 2. Click **Customize:** next to 'Encryption settings' to modify the below default settings:
-	- In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
-  - In **Target key encryption key vault**, select the target key encryption key vault from the list of all the key vaults in the target location of the subscription.
+   - In **Target disk encryption key vault**, select the target disk encryption key vault from the list of all the key vaults in the target location of the subscription.
+     - In **Target key encryption key vault**, select the target key encryption key vault from the list of all the key vaults in the target location of the subscription.
 
 3. Click **Create target resource** > **Enable Replication**.
 4. After the VMs are enabled for replication, you can check the status of VM health under **Replicated items**
@@ -145,7 +145,7 @@ You can use [the script](#copy-ade-keys-to-dr-region-using-powershell-script) to
 If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the Key vault has require permissions as mentioned above.</br>
 *For example*: A user try to replicate a VM, which has a key vault on source region say "ContososourceKeyvault".
 User has all the permission on the source region key vault but during protection he  selects an already created key vault "ContosotargetKeyvault", which doesn't has permission then protection will throws an error.</br>
-**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above. 
+**How to fix:** Got to "Home> Keyvaults> ContososourceKeyvault> Access policies" and add permissions as shown above.
 
 **Cause 2:** You may have selected an already created Keyvault from the Target region which  doesn't have decry pt-encrypt permissions.
 If you are selecting an already created Keyvault in the target region rather than let Azure Site Recovery create it. Make sure  the user has decrypt-encrypt permissions in case you are encrypting the key too on the source region.</br>

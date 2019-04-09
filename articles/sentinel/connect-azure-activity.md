@@ -4,7 +4,7 @@ description: Learn how to collect Azure Activity data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511

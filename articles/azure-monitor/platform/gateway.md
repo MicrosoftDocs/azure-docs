@@ -11,36 +11,36 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/06/2019
+ms.date: 03/04/2019
 ms.author: magoedte
 ---
 
-# Connect computers without internet access by using the Log Analytics gateway
+# Connect computers without internet access by using the Log Analytics gateway in Azure Monitor
 
 >[!NOTE]
 >As Microsoft Operations Management Suite (OMS) transitions to Microsoft Azure Monitor, terminology is changing. This article refers to OMS Gateway as the Azure Log Analytics gateway. 
 >
 
-This article describes how to configure communication with Azure Automation and Log Analytics by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
+This article describes how to configure communication with Azure Automation and Azure Monitor by using the Log Analytics gateway when computers that are directly connected or that are monitored by Operations Manager have no internet access. 
 
-The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway can collect data and send it to Azure Automation and Log Analytics on behalf of the computers that are not connected to the internet.  
+The Log Analytics gateway is an HTTP forward proxy that supports HTTP tunneling using the HTTP CONNECT command. This gateway can collect data and send it to Azure Automation and a Log Analytics workspace in Azure Monitor on behalf of the computers that are not connected to the internet.  
 
 The Log Analytics gateway supports:
 
 * Reporting up to the same four Log Analytics workspace agents that are behind it and that are configured with Azure Automation Hybrid Runbook Workers.  
-* Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace.
-* Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace.  
+* Windows computers on which the Microsoft Monitoring Agent is directly connected to a Log Analytics workspace in Azure Monitor.
+* Linux computers on which a Log Analytics agent for Linux is directly connected to a Log Analytics workspace in Azure Monitor.  
 * System Center Operations Manager 2012 SP1 with UR7, Operations Manager 2012 R2 with UR3, or a management group in Operations Manager 2016 or later that is integrated with Log Analytics.  
 
-Some IT security policies don't allow internet connection for network computers. These unconnected computers could be point of sale (POS) devices or servers supporting IT services, for example. To connect these devices to Azure Automation or Log Analytics so you can manage and monitor them, configure them to communicate directly with the Log Analytics gateway. The Log Analytics gateway can receive configuration information and forward data on their behalf. If the computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, the computers instead communicate with the Log Analytics gateway.  
+Some IT security policies don't allow internet connection for network computers. These unconnected computers could be point of sale (POS) devices or servers supporting IT services, for example. To connect these devices to Azure Automation or a Log Analytics workspace so you can manage and monitor them, configure them to communicate directly with the Log Analytics gateway. The Log Analytics gateway can receive configuration information and forward data on their behalf. If the computers are configured with the Log Analytics agent to directly connect to a Log Analytics workspace, the computers instead communicate with the Log Analytics gateway.  
 
 The Log Analytics gateway transfers data from the agents to the service directly. It doesn't analyze any of the data in transit.
 
 When an Operations Manager management group is integrated with Log Analytics, the management servers can be configured to connect to the Log Analytics gateway to receive configuration information and send collected data, depending on the solution you have enabled.  Operations Manager agents send some data to the management server. For example, agents might send Operations Manager alerts, configuration assessment data, instance space data, and capacity data. Other high-volume data, such as Internet Information Services (IIS) logs, performance data, and security events, is sent directly to the Log Analytics gateway. 
 
-If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect data for Log Analytics, even if the setting is empty.    
+If one or more Operations Manager Gateway servers are deployed to monitor untrusted systems in a perimeter network or an isolated network, those servers can't communicate with a Log Analytics gateway.  Operations Manager Gateway servers can report only to a management server.  When an Operations Manager management group is configured to communicate with the Log Analytics gateway, the proxy configuration information is automatically distributed to every agent-managed computer that is configured to collect log data for Azure Monitor, even if the setting is empty.    
 
-To provide high availability for directly connected or Operations Management groups that communicate with Log Analytics through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
+To provide high availability for directly connected or Operations Management groups that communicate with a Log Analytics workspace through the gateway, use network load balancing (NLB) to redirect and distribute traffic across multiple gateway servers. That way, if one gateway server goes down, the traffic is redirected to another available node.  
 
 The computer that runs the Log Analytics gateway requires the Log Analytics Windows agent to identify the service endpoints that the gateway needs to communicate with. The agent also needs to direct the gateway to report to the same workspaces that the agents or Operations Manager management group behind the gateway are configured with. This configuration allows the gateway and the agent to communicate with their assigned workspace.
 
@@ -149,29 +149,39 @@ To install a gateway, follow these steps.  (If you installed a previous version 
 
 
 ## Configure network load balancing 
-Configure the gateway for high availability by using network load balancing (NLB). Use either Microsoft Azure Load Balancer or hardware-based load balancers.  The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one gateway server goes down, the traffic is redirected to other nodes.
+You can configure the gateway for high availability using network load balancing (NLB) using either Microsoft [Network Load Balancing (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), or hardware-based load balancers. The load balancer manages traffic by redirecting the requested connections from the Log Analytics agents or Operations Manager management servers across its nodes. If one Gateway server goes down, the traffic gets redirected to other nodes.
+
+### Microsoft Network Load Balancing
+To learn how to design and deploy a Windows Server 2016 network load balancing cluster, see [Network load balancing](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). The following steps describe how to configure a Microsoft network load balancing cluster.  
+
+1. Sign onto the Windows server that is a member of the NLB cluster with an administrative account.  
+2. Open Network Load Balancing Manager in Server Manager, click **Tools**, and then click **Network Load Balancing Manager**.
+3. To connect an Log Analytics gateway server with the Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**. 
+
+    ![Network Load Balancing Manager – Add Host To Cluster](./media/gateway/nlb02.png)
+ 
+4. Enter the IP address of the gateway server that you want to connect. 
+
+    ![Network Load Balancing Manager – Add Host To Cluster: Connect](./media/gateway/nlb03.png) 
+
+### Azure Load Balancer
+To learn how to design and deploy an Azure Load Balancer, see [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). To deploy a basic load balancer, follow the steps outlined in this [quickstart](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) excluding the steps outlined in the section **Create back-end servers**.   
+
+> [!NOTE]
+> Configuring the Azure Load Balancer using the **Basic SKU**, requires that Azure virtual machines belong to an Availability Set. To learn more about availability sets, see [Manage the availability of Windows virtual machines in Azure](../../virtual-machines/windows/manage-availability.md). To add existing virtual machines to an availability set, refer to [Set Azure Resource Manager VM Availability Set](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
+> 
+
+After the load balancer is created, a backend pool needs to be created, which distributes traffic to one or more gateway servers. Follow the steps described in the quickstart article section [Create resources for the load balancer](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
 
 >[!NOTE]
->To learn how to design and deploy a Windows Server 2016 NLB cluster, see [Network load balancing](https://technet.microsoft.com/windows-server-docs/networking/technologies/network-load-balancing). 
+>When configuring the health probe it should be configured to use the TCP port of the gateway server. The health probe dynamically adds or removes the gateway servers from the load balancer rotation based on their response to health checks. 
 >
 
-Follow these steps to configure a Microsoft Load Balancer cluster:  
-
-1. Use an administrator account to sign in to the Windows Server that is a member of the Load Balancer cluster.
-1. In Server Manager, open **Network Load Balancing Manager**, select **Tools**, and then select **Network Load Balancing Manager**.
-1. To connect a Log Analytics gateway server that has Microsoft Monitoring Agent installed, right-click the cluster's IP address, and then click **Add Host to Cluster**.
-
-   ![Screenshot of Network Load Balancing Manager, with Add Host To Cluster selected](./media/gateway/nlb02.png)
-
-1. Enter the IP address of the gateway server that you want to connect.
-
-   ![Screenshot of Network Load Balancing Manager, showing the page Add Host To Cluster: Connect](./media/gateway/nlb03.png)
-    
 ## Configure the Log Analytics agent and Operations Manager management group
 In this section, you'll see how to configure directly connected Log Analytics agents, an Operations Manager management group, or Azure Automation Hybrid Runbook Workers with the Log Analytics gateway to communicate with Azure Automation or Log Analytics.  
 
 ### Configure a standalone Log Analytics agent
-When configuring the Log Analytics agent, replace the proxy server value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind an NLB, the Log Analytics agent proxy configuration is the virtual IP address of the NLB.  
+When configuring the Log Analytics agent, replace the proxy server value with the IP address of the Log Analytics gateway server and its port number. If you have deployed multiple gateway servers behind a load balancer, the Log Analytics agent proxy configuration is the virtual IP address of the load balancer.  
 
 >[!NOTE]
 >To install the Log Analytics agent on the gateway and Windows computers that directly connect to Log Analytics, see [Connect Windows computers to the Log Analytics service in Azure](agent-windows.md). To connect Linux computers, see [Configure a Log Analytics agent for Linux computers in a hybrid environment](../../azure-monitor/learn/quick-collect-linux-computer.md). 
@@ -195,7 +205,7 @@ To use OMS Gateway to support Operations Manager, you must have:
 > If you specify no value for the gateway, blank values are pushed to all agents.
 >
 
-If your Operations Manager management group is registering with a Log Analytics workspace for the first time, you won't see the option to specify the proxy configuration for the management group in the Operations console.  This option is available only if the management group has been registered with the service.  
+If your Operations Manager management group is registering with a Log Analytics workspace for the first time, you won't see the option to specify the proxy configuration for the management group in the Operations console. This option is available only if the management group has been registered with the service.  
 
 To configure integration, update the system proxy configuration by using Netsh on the system where you're running the Operations console and on all management servers in the management group. Follow these steps:
 
@@ -215,7 +225,7 @@ After completing the integration with Log Analytics, remove the change by runnin
 
    ![Screenshot of Operations Manager, showing the selection Configure Proxy Server](./media/gateway/scom01.png)
 
-1. Select **Use a proxy server to access the Operations Management Suite** and then enter the IP address of the Log Analytics gateway server or virtual IP address of the NLB. Be careful to start with the prefix `http://`.
+1. Select **Use a proxy server to access the Operations Management Suite** and then enter the IP address of the Log Analytics gateway server or virtual IP address of the load balancer. Be careful to start with the prefix `http://`.
 
    ![Screenshot of Operations Manager, showing the proxy server address](./media/gateway/scom02.png)
 

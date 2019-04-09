@@ -22,8 +22,8 @@
     href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
-  - name: Application layer security
-    href: front-door-application-security.md
+  - name: WAF
+    href: waf-overview.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
@@ -56,12 +56,22 @@
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
+  - name: WAF
+    items:
+    - name: Configure WAF policy - portal
+      href: waf-front-door-create-portal.md
+- name: FAQ
+  items:
+  - name: Front Door FAQ
+    href: front-door-faq.md
+  - name: WAF FAQ
+    href: waf-faq.md
 - name: Reference
   items:
   - name: Azure CLI
     href: /cli/azure/ext/front-door/
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.frontdoor
+    href: /powershell/module/az.frontdoor
   - name: REST API
     href: /rest/api/frontdoor
 - name: Resources

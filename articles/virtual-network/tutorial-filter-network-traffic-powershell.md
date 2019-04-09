@@ -273,7 +273,7 @@ Use the following command to install Microsoft IIS on the *myVmWeb* VM from Powe
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-After the IIS installation is complete, disconnect from the *myVmWeb* VM, which leaves you in the *myVmMgmt* VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http://myVmWeb.
+After the IIS installation is complete, disconnect from the *myVmWeb* VM, which leaves you in the *myVmMgmt* VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http:\//myVmWeb.
 
 Disconnect from the *myVmMgmt* VM.
 

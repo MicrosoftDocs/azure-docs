@@ -52,7 +52,7 @@
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
     - name: MFA for Office 365
-      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: MFA FAQ
       href: multi-factor-authentication-faq.md
   - name: Azure AD password protection

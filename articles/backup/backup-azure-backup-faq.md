@@ -35,7 +35,7 @@ No. A Recovery Services vault can only change storage options before any backups
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premise VMs backed up by Azure backup Server or System Center DPM.
+- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
 ## Azure Backup agent
@@ -88,7 +88,7 @@ Yes.
 ### What operating systems are supported for backup?
 Azure Backup supports these operating systems for backing up files and folders, and apps protected by Azure Backup Server and DPM.
 
-**OS**| **SKU** |**Details**
+**OS** | **SKU** | **Details**
 --- | --- | ---
 Workstation | |
 Windows 10 64 bit | Enterprise, Pro, Home | Machines should be running the latest services packs and updates.
@@ -96,7 +96,8 @@ Windows 8.1 64 bit | Enterprise, Pro | Machines should be running the latest ser
 Windows 8 64 bit | Enterprise, Pro | Machines should be running the latest services packs and updates.
 Windows 7 64 bit | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Machines should be running the latest services packs and updates.
 Server | |
-Windows Server 2016 64 bit | Standard, Datacenter, Essentials | Wit the latest service packs/updates.
+Windows Server 2019 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
+Windows Server 2016 64 bit | Standard, Datacenter, Essentials | With the latest service packs/updates.
 Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | With the latest service packs/updates.
 Windows Server 2012 64 bit | Datacenter, Foundation, Standard | With the latest service packs/updates.
 Windows Storage Server 2016 64 bit | Standard, Workgroup | With the latest service packs/updates.
@@ -112,7 +113,7 @@ For Azure VM Linux backups, Azure Backup supports [the list of distributions end
 Sizes limits are as follows:
 
 OS/machine | Size limit of data source
---- | --- | ---
+--- | --- 
 Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB

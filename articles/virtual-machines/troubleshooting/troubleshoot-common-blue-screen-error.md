@@ -4,7 +4,7 @@ title: Blue screen errors when booting an Azure VM| Microsoft Docs
 description: Learn how to troubleshoot the issue that the blue screen error is received when booting| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genlin
+author: genlin
 manager: cshepard
 editor: ''
 

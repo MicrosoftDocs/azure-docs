@@ -9,7 +9,7 @@ ms.assetid: 0BCD936E-D4C0-472D-AE40-F4B2AB6912D5
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: article
-ms.date: 04/15/2017
+ms.date: 03/04/2019
 ms.author: scottwhi
 ---
 
@@ -369,7 +369,7 @@ The response shows one recognized entity.
 
 ## Finding visually similar products  
 
-To find images that contain products that are visually similar to the products found in the original image, set the [modueles](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) query parameter to SimilarProducts.  
+To find images that contain products that are visually similar to the products found in the original image, set the [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) query parameter to SimilarProducts.  
 
 The following request shows how to get images of visually similar products. The request uses the [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) query parameter to identify the original image that was returned in a previous request. To improve relevance, you should include the user's query string.  
 

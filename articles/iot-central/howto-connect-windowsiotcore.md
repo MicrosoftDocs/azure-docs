@@ -68,10 +68,10 @@ To deploy the client application from the previous step to your Windows 10 IoT d
 Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
 
 From there and, as shown in the if below, you'll want to:
-1. Expand the "Apps" node on the left.
-2. Click "Quick-run samples".
-3. Click "Azure IoT Hub Client".
-4. Click "Deploy and run".
+1. Expand the **Apps** node on the left.
+2. Select **Quick-run samples**.
+3. Select **Azure IoT Hub Client**.
+4. Select **Deploy and run**.
 
 ![Gif of Azure IoT Hub Client on Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
 

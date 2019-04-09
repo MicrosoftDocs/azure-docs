@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -217,7 +217,7 @@ In this section, you create a test user in the Azure portal named Britta Simon.
 
     a. In the **Name** box, enter a name like **BrittaSimon**.
   
-    b. In the **User name** box, enter *yourname@yourcompanydomain.extension*. 
+    b. In the **User name** box, enter *yourname\@yourcompanydomain.extension*. 
     An example is BrittaSimon@contoso.com.
 
     c. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
@@ -262,14 +262,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. Select **Add**.
 
-6. In the **Username** box, enter *brittasimon@yourcompanydomain.extension*. 
+6. In the **Username** box, enter *brittasimon\@yourcompanydomain.extension*. 
     An example is BrittaSimon@contoso.com.
 
 7. In the **Full name** box, enter a full name like **BrittaSimon**.
 
 8. Select the **No password (use single sign-on)** option.
 
-9. In the **E-mail address** box, enter *yourname@yourcompanydomain.extension*. 
+9. In the **E-mail address** box, enter *yourname\@yourcompanydomain.extension*. 
    An example is BrittaSimon@contoso.com.
 
 10. Scroll down to the end of the page, and select **Finish**.

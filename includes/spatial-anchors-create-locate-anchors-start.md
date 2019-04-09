@@ -7,6 +7,6 @@ ms.author: rgarcia
 ---
 ![Cross Platform](./media/spatial-anchors-azure-concepts/place-anchor.gif)
 
-## Initializing the session
+## Initialize the session
 
-The main entry point for the library is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.
+The main entry point for the SDK is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.

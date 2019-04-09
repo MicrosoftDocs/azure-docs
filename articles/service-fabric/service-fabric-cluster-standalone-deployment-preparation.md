@@ -4,7 +4,7 @@ description: Documentation related to preparing the environment and creating the
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.service: service-fabric

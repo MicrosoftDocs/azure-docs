@@ -20,6 +20,9 @@ ms.author: jdial
 
 This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## What are the prerequisites to use traffic analytics?
 
 Traffic Analytics requires the following prerequisites:
@@ -47,12 +50,12 @@ Your account must meet one of the following to enable traffic analytics:
         
 To check roles assigned to a user for a subscription:
 
-1. Sign in to Azure by using **Login-AzureRmAccount**. 
+1. Sign in to Azure by using **Login-AzAccount**. 
 
-2. Select the required subscription by using **Select-AzureRmSubscription**. 
+2. Select the required subscription by using **Select-AzSubscription**. 
 
 3. To list all the roles that are assigned to a specified user, use
-    **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
+    **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -69,6 +72,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Central US
 - West US
 - West US 2
+- France Central
 - West Europe
 - North Europe
 - Brazil South
@@ -76,21 +80,29 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - UK South
 - Australia East
 - Australia Southeast 
+- East Asia
 - Southeast Asia
+- Korea Central
 - Central India
 - South India
 - Japan East
+- Japan West
+- US Gov Virginia
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US 2
 - East US
+- France Central
 - West Europe
 - UK South
 - Australia Southeast
 - Southeast Asia 
+- Korea Central
 - Central India
 - Japan East
+- US Gov Virginia
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -116,13 +128,19 @@ No. You can store raw logs in any storage account where an NSG is enabled for fl
 
 Select a supported region. If you select a non-supported region, you receive a "Not found" error. The supported regions are listed earlier in this article.
 
+## Why am I getting the error "Failed to update flow logs settings for ... InternalServerError..." when enabling NSG's in US Gov Virginia?
+
+This is due to a bug where ‘Microsoft.Network’ resource provider is not re-registered for a subscription in US Gov Virginia. The team is working on the fix for this. As a workaround, you would need to [manually re-register ‘Microsoft.Network’ RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
+
+Please contact support if the problem persists. 
+
 ## What if I am getting the status, “Failed to load,” under the NSG flow logs page?
 
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?
@@ -152,7 +170,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 

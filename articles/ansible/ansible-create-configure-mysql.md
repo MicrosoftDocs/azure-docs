@@ -1,7 +1,7 @@
 ---
 title: Create and configure an Azure Database for MySQL server by using Ansible
 description: Learn how to use Ansible to create and configure an Azure Database for MySQL server
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 author: tomarchermsft
 manager: jeconnoc
@@ -129,14 +129,14 @@ You can [download MySQL](https://dev.mysql.com/downloads/) and install it on you
 Enter the next commands: 
 
 1. Connect to the server by using the **mysql** command-line tool:
-```azurecli-interactive
- mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-```
+   ```azurecli-interactive
+   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+   ```
 
 2. View the server status:
-```sql
- mysql> status
-```
+   ```sql
+   mysql> status
+   ```
 
 If everything goes well, the command-line tool should output the following text:
 

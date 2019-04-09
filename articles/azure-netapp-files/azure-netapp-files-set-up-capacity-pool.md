@@ -12,7 +12,7 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
 ---
@@ -36,19 +36,19 @@ You must have already created a NetApp account.
     The New Capacity Pool window appears.
 
 3. Provide the following information for the new capacity pool:  
-  * **Name**  
-    Specify the name for the capacity pool.  
-    The capacity pool name must be unique for each NetApp account.
+   * **Name**  
+     Specify the name for the capacity pool.  
+     The capacity pool name must be unique for each NetApp account.
 
-  * **Service level**   
-    This field shows the target performance for the capacity pool.  
-    Specify the service level for the capacity pool: [**Premium**](azure-netapp-files-service-levels.md#Premium) or [**Standard**](azure-netapp-files-service-levels.md#Standard).
+   * **Service level**   
+     This field shows the target performance for the capacity pool.  
+     Specify the service level for the capacity pool: [**Premium**](azure-netapp-files-service-levels.md#Premium) or [**Standard**](azure-netapp-files-service-levels.md#Standard).
 
-  * **Size**     
-    Specify the size of the capacity pool that you are purchasing.        
-    The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
+   * **Size**     
+     Specify the size of the capacity pool that you are purchasing.        
+     The minimum capacity pool size is 4 TiB. You can create a pool with a size that is multiples of 4 TiB.   
       
-    ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
+     ![New capacity pool](../media/azure-netapp-files/azure-netapp-files-new-capacity-pool.png)
 
 4. Click **OK**.
 
