@@ -81,7 +81,30 @@ Error code: ExtensionConfigParsingFailure<br/>
 Error message: Failure in parsing the config for the backup extension.
 
 This error happens because of changed permissions on the **MachineKeys** directory:
- **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br> Run the following command and verify that permissions on the **MachineKeys** directory are default ones:<br>**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. <br><br>Default permissions are as follows: <ul><li>Everyone: (R,W) <li>BUILTIN\Administrators: (F)</ul> If you see permissions in the **MachineKeys** directory that are different than the defaults, follow these steps to correct permissions, delete the certificate, and trigger the backup: <ol><li>Fix permissions on the **MachineKeys** directory. By using Explorer security properties and advanced security settings in the directory, reset permissions back to the default values. Remove all user objects except the defaults from the directory and make sure the **Everyone** permission has special access as follows: <ul><li>List folder/read data <li>Read attributes <li>Read extended attributes <li>Create files/write data <li>Create folders/append data<li>Write attributes<li>Write extended attributes<li>Read permissions </ul><li>Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:<ol><li>[Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).<li>Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.</ol> <li>Trigger a VM backup job. </ol>
+ **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. Run the following command and verify that permissions on the **MachineKeys** directory are default ones:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+
+ Default permissions are as follows:
+
+	* Everyone: (R,W)
+	* BUILTIN\Administrators: (F)
+
+If you see permissions in the **MachineKeys** directory that are different than the defaults, follow these steps to correct permissions, delete the certificate, and trigger the backup:
+
+1. Fix permissions on the **MachineKeys** directory. By using Explorer security properties and advanced security settings in the directory, reset permissions back to the default values. Remove all user objects except the defaults from the directory and make sure the **Everyone** permission has special access as follows:
+
+		* List folder/read data 
+		* Read attributes
+		* Read extended attributes
+		* Create files/write data
+		* Create folders/append data
+		* Write attributes
+		* Write extended attributes
+		* Read permissions
+2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
+
+		* [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+		* Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
+3. Trigger a VM backup job.
 
 ### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
 
