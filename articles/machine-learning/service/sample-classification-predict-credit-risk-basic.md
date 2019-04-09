@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select **Open** on the right side of the screen to open the Sample 3 experiment.
+4. Select the **Open** button for the Sample 3 experiment.
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
 
@@ -31,20 +31,20 @@ provides an advanced experiment that solves the same problem as this experiment.
 
 ## Data
 
-We'll use the German Credit Card dataset from the UC Irvine repository.
+We use the German Credit Card dataset from the UC Irvine repository.
 The dataset contains 1,000 samples with 20 features and 1 label. Each sample represents a person. The features include numerical and categorical features. See the [UCI website](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29) for the meaning of the categorical features. The last column is the label, which denotes the credit risk and has only two possible values: high credit risk = 2, and low credit risk = 1.
 
 ## Experiment summary
 
 
-Perform these steps to create the experiment:
+We follow these steps to create the experiment:
 
-1. Drag the German Credit Card UCI Data dataset module into your experiment's canvas.
-1. Add an **Edit Metadata** module so you can add meaningful names for each column.
-1. Add a **Split Data** module so you can create the testing and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port and the rest to the right port of the module. We'll use the left dataset for training and the right one for testing.
+1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
+1. Add an **Edit Metadata** module so we can add meaningful names for each column.
+1. Add a **Split Data** module so we can create the testing and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port and the rest to the right port of the module. We use the left dataset for training and the right one for testing.
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
-1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model** module. Add the training set (the left output port of the **Split Data** module) right input port of the **Train Model** module. The **Train Model** module will perform the training of the classifier.
-1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data** module) to the **Score Model** module. The **Score Model** module will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
+1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will perform the training of the classifier.
+1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data**) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
     
 Here's the complete experiment graph:
@@ -55,7 +55,7 @@ Here's the complete experiment graph:
 
 ![Evaluate the results](media/sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
-In the evaluation results, we can see that the AUC of the model is 0.757. At threshold 0.5, the precision is 0.7, the recall is 0.393, and the F1 score is 0.503. 
+In the evaluation results, you can see that the AUC of the model is 0.757. At threshold 0.5, the precision is 0.7, the recall is 0.393, and the F1 score is 0.503.
 
 ## Clean up resources
 

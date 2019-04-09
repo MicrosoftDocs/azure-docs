@@ -20,13 +20,13 @@ This visual interface sample experiment shows binary classifier prediction of ch
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select **Open** on the lower-left side of the screen to open the Sample 5 experiment.
+4. Select the **Open** button for the Sample 5 experiment.
 
     ![Open the experiment](media/sample-classification-predict-churn/open-sample5.png)
 
 ## Data
 
-The data you'll use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. Refer to the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) for further details about the data and the task.
+The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. Refer to the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) for further details about the data and the task.
 
 ## Experiment summary
 
@@ -34,20 +34,20 @@ Here's the complete experiment graph:
 
 ![Experiment graph](./media/sample-classification-predict-churn/experiment-graph.png)
 
-First, we'll do some simple data processing.
+First, we do some simple data processing.
 
-- The raw dataset contains lots of missing values. Use the **Clean Missing Data** module to replace the missing values with 0.
+- The raw dataset contains lots of missing values. We use the **Clean Missing Data** module to replace the missing values with 0.
 
     ![Clean the dataset](./media/sample-classification-predict-churn/cleaned-dataset.png)
 
-- The features and the corresponding churn, appetency, and up-selling labels are in different datasets. Use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
+- The features and the corresponding churn, appetency, and up-selling labels are in different datasets. We use the **Add Columns** module to append the label columns to the feature columns. The first column, **Col1**, is the label column. The rest of the columns, **Var1**, **Var2**, and so on, are the feature columns.
  
     ![Add the column dataset](./media/sample-classification-predict-churn/added-column1.png)
 
-- Use the **Split** module split the dataset into train and test sets.
+- We use the **Split** module split the dataset into train and test sets.
 
 
-    Then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
+    We then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
 
 ## Results
 
