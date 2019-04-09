@@ -33,7 +33,7 @@
   items:
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Index Azure blobs
+  - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
   - name: Index with AI (Cognitive Services)
     href: cognitive-search-tutorial-blob.md
