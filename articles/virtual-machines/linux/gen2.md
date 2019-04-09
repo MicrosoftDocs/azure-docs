@@ -47,21 +47,21 @@ But, Azure does not currently support some of the features that on-premises Hype
 
 | Generation 2 feature                | On-premises Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Secure Boot                         | Y                   | N     |
-| Shielded VM                         | Y                   | N     |
-| vTPM                                | Y                   | N     |
-| Virtualization Based Security (VBS) | Y                   | N     |
+| Secure Boot                         | :heavy_check_mark:  | :x:   |
+| Shielded VM                         | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | :x:   |
+| Virtualization Based Security (VBS) | :heavy_check_mark:  | :x:   |
 
 ## Generation 1 vs Generation 2 VM capabilities
 
 | Feature                           | Generation 1               | Generation 2                        |
 |-----------------------------------|----------------------------|-------------------------------------|
-| O.S Disk > 2 TB                   | N                          | Y                                   |
-| Custom Disk/Image/Swap O.S        | Y                          | Y                                   |
-| Virtual Machine Scale Set Support | Y                          | Y                                   |
+| O.S Disk > 2 TB                   | :x:                        | :heavy_check_mark:                  |
+| Custom Disk/Image/Swap O.S        | :heavy_check_mark:         | :heavy_check_mark:                  |
+| Virtual Machine Scale Set Support | :heavy_check_mark:         | :heavy_check_mark:                  |
 | VM Sizes                          | Available on all VM sizes. | Premium Storage supported VMs only. |
-| ASR/Backup                        | Y                          | N                                   |
-| Shared Image Gallery              | Y                          | N                                   |
+| ASR/Backup                        | :heavy_check_mark:         | :x:                                 |
+| Shared Image Gallery              | :heavy_check_mark:         | :x:                                 |
 
 Generation 2 VMs support the following Azure Marketplace images:
 
@@ -76,7 +76,7 @@ Generation 2 VMs support the following Azure Marketplace images:
 ## Frequently asked questions
 
 * **Do Gen2 VMs support Accelerated Networking?**  
-    Yes, Gen2 VMs support [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes, Gen2 VMs support [Accelerated Networking](../articles/virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Is .vhdx supported on Gen2?**
     No, only .vhd is supported on Gen2 VMs.
