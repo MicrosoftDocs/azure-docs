@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article 
-ms.date: 05/06/2019
+ms.date: 05/07/2019
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -39,12 +39,12 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service | Container| Description |
 |---------|----------|-------------|
-|[Anomaly detector](Anomaly-Detector/) |**Anomaly-Detector** ([image](https://go.microsoft.com/fwlink/?linkid=))|The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.|
+|[Anomaly detector](Anomaly-Detector/anomaly-detector-container-howto.md) |**Anomaly-Detector** ([image](https://go.microsoft.com/fwlink/?linkid=2083827))|The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Form recognizer](form-recognizer/form-recognizer-container-howto.md) |**Form Recognizer** |Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms.<br>[Request access](form-recognizer/form-recognizer-container-howto.md#request-access-to-the-container-registry)|
 |[LUIS](LUIS/luis-container-howto.md) |**LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204))|Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy.|
-|[Personalizer](personalizer/) |**Personalization** ([image](https://go.microsoft.com/fwlink/?linkid=))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](personalizer/) |**Personalization** ([image](https://go.microsoft.com/fwlink/?linkid=2083928))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 |[Speech](Speech-Service/how-to-install-and-run-container.md) |**Speech-to-text** |Transcribes continuous real-time speech into text.<br>[Request access](Speech-Service/how-to-install-and-run-container.md#request-access-to-the-container-registry)|
 |[Speech](Speech-Service/how-to-install-and-run-container.md) |**Text-to-speech** |Converts text to natural-sounding speech.<br>[Request access](Speech-Service/how-to-install-and-run-container.md#request-access-to-the-container-registry)|
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
