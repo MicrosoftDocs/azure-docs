@@ -6,20 +6,24 @@
     href: about-azure-maps.md
 - name: Quickstarts
   items:
-  - name: Create a map app
+  - name: Create a web app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:
-  - name: 1 - Search for point of interest
-    href: tutorial-search-location.md
-  - name: 2 - Route to a destination
-    href: tutorial-route-location.md
-  - name: 3 - Multiple routes by mode of travel
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Create a store locator
-    href: tutorial-create-store-locator.md
-  - name: 5 - Set up a geofence
-    href: tutorial-geofence.md
+  - name: Web SDK Tutorials
+    items:
+    - name: Search for point of interest
+      href: tutorial-search-location.md
+    - name: Route to a destination
+      href: tutorial-route-location.md
+    - name: Multiple routes by mode of travel
+      href: tutorial-prioritized-routes.md
+    - name: Create a store locator
+      href: tutorial-create-store-locator.md
+  - name: REST API Tutorials
+    items:
+    - name: Set up a geofence
+      href: tutorial-geofence.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
