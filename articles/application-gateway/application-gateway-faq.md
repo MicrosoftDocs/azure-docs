@@ -142,7 +142,7 @@ As long as you have IP connectivity, Application Gateway can communicate with in
 
 No. But you can deploy other application gateways in the subnet.
 
-### Does the application gateway subnet support network security groups?
+### Are network security groups supported on the application gateway subnet?
 
 See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
 
