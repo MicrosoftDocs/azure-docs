@@ -244,7 +244,6 @@ In this tutorial, you learned how to:
 > [!div class="checklist"]
 > * Create a secure Linux cluster in Azure
 > * Create resources necessary for monitoring with ELK
-> * Optional: How to use party clusters to try out Service Fabric
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

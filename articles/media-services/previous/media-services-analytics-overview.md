@@ -4,7 +4,7 @@ description: Overview of public preview of Media Analytics, a collection of spee
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: c56e3781-8510-4f7f-b5ff-a218c1bb6f4c
@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 
 ---
-# Media Analytics on the Media Services platform
+# Media Analytics on the Media Services platform 
+
 ## Overview
 More organizations are using video as the preferred medium to train their employees, engage their customers, and document business functions. Cloud computing provides a way to store, stream, and access these large media files. But as a company's library of video content grows, it needs an equally effective means of extracting insights from the content. 
 
@@ -35,8 +36,6 @@ Media Analytics media processors produce MP4 files or JSON files. If a media pro
 
 ### Indexer
 With Azure Media Indexer, you can make content searchable and generate closed-captioning tracks. Compared to the previous version, Azure Media Indexer 2 Preview has faster indexing and broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese, and Arabic. For detailed information and examples, see [Process videos with Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
-### Hyperlapse
-Microsoft Hyperlapse combines video stabilization and time-lapse capability to create quick, consumable videos from your long-form content. Besides creating time-lapse video, you can use Hyperlapse to create stable videos from shaky videos captured via cell phones and camcorders. For detailed information and examples, see [Hyperlapse media files with Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### Motion Detector
 You can use Motion Detector to detect motion in a video with stationary backgrounds. This makes it possible to check for false positives on motion events detected by surveillance cameras. For detailed information and examples, see [Motion detection for Azure Media Analytics](media-services-motion-detection.md).
 ### Face Detector
@@ -121,7 +120,7 @@ Response:
     }
 
 ## Demos
-See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+See [Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

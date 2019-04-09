@@ -6,15 +6,15 @@ metadata:
   title: Azure Active Directory Conditional Access Documentation - Tutorials, quickstarts, concepts, references | Microsoft Docs
   description: Learn how to configure and test Azure Active Directory conditional access.
   services: active-directory
-  ms.component: authentication
-  author: MarkusVi
-  manager: mtillman
+  ms.subservice: conditional-access
+  author: MicrosoftGuyJFlo
+  manager: daveba
   ms.service: active-directory
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/14/2018
-  ms.author: markvi
+  ms.author: joflore
 abstract:
   description: "Learn how to master the balance between security and productivity by configuring Azure AD conditional access.
 With conditional access policies, you can factor how your cloud apps are accessed into your access decisions.

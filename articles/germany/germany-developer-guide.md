@@ -48,7 +48,7 @@ To learn about mapping global Azure and Azure SQL Database endpoints to Azure Ge
 | --- | --- |
 | ActiveDirectoryServiceEndpointResourceId | https://management.core.cloudapi.de/ |
 | GalleryUrl                               | https://gallery.cloudapi.de/ |
-| ManagementPortalUrl                      | http://portal.microsoftazure.de/ |
+| ManagementPortalUrl                      | https://portal.microsoftazure.de/ |
 | ServiceManagementUrl                     | https://management.core.cloudapi.de/ |
 | PublishSettingsFileUrl                   | https://manage.microsoftazure.de/publishsettings/index |
 | ResourceManagerUrl                       | https://management.microsoftazure.de/ |
@@ -69,6 +69,6 @@ For more information about Azure Germany, see the following resources:
 * [Acquiring Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 * [Sign-in page](https://portal.microsoftazure.de/) if you already have an Azure Germany account
 * [Azure Germany overview](./germany-welcome.md)
-* [Azure Germany blog](http://blogs.msdn.microsoft.com/azuregermany/)
+* [Azure Germany blog](https://blogs.msdn.microsoft.com/azuregermany/)
 * [Azure compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)
 

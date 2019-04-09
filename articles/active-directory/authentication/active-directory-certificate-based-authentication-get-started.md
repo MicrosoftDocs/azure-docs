@@ -1,18 +1,19 @@
 ---
-title: Get started with Azure Active Directory certificate-based authentication
+title: Get started with certificate-based authentication - Azure Active Directory
 description: Learn how to configure certificate-based authentication in your environment
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Get started with certificate-based authentication in Azure Active Directory
 
@@ -112,7 +113,7 @@ To create a trusted certificate authority, use the [New-AzureADTrustedCertificat
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
+    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 ### Remove

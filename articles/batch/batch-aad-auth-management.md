@@ -3,7 +3,7 @@ title: Use Azure Active Directory to authenticate Batch Management solutions | M
 description: Applications built with Azure resource manager and the Batch resource provider authenticate with Azure AD.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Authenticate Batch Management solutions with Active Directory
@@ -24,7 +24,7 @@ Applications that call the Azure Batch Management service authenticate with [Azu
 
 The Batch Management .NET library exposes types for working with Batch accounts, account keys, applications, and application packages. The Batch Management .NET library is an Azure resource provider client, and is used together with [Azure Resource Manager][resman_overview] to manage these resources programmatically. Azure AD is required to authenticate requests made through any Azure resource provider client, including the Batch Management .NET library, and through [Azure Resource Manager][resman_overview].
 
-In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library. We show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagment][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library.
+In this article, we explore using Azure AD to authenticate from applications that use the Batch Management .NET library. We show how to use Azure AD to authenticate a subscription administrator or co-administrator, using integrated authentication. We use the [AccountManagement][acct_mgmt_sample] sample project, available on GitHub, to walk through using Azure AD with the Batch Management .NET library.
 
 To learn more about using the Batch Management .NET library and the AccountManagement sample, see [Manage Batch accounts and quotas with the Batch Management client library for .NET](batch-management-dotnet.md).
 
@@ -133,5 +133,5 @@ To authenticate Batch service applications using Azure AD, see [Authenticate Bat
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

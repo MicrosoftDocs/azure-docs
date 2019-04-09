@@ -4,21 +4,22 @@ description: Learn how baseline protection ensures that you have at least the ba
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/08/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: nigu
 
+ms.collection: M365-identity-device-management
 ---
 # What is baseline protection (preview)?  
 
@@ -47,7 +48,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 
@@ -82,7 +83,7 @@ While managing custom conditional access policies requires an Azure AD Premium l
 
 The directory roles that are included in the baseline policy are the most privileged Azure AD roles. 
 
-If you have privileged accounts that are used in your scripts, you should replace them with [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../../azure-resource-manager/resource-group-authenticate-service-principal.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
+If you have privileged accounts that are used in your scripts, you should replace them with [managed identities for Azure resources](../managed-identities-azure-resources/overview.md) or [service principals with certificates](../develop/howto-authenticate-service-principal-powershell.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy. 
 
 Baseline policies apply to legacy authentication flows like POP, IMAP, older Office desktop client. 
 

@@ -1,5 +1,5 @@
 ---
-title: Manage an App Service plan in Azure | Microsoft Docs
+title: Manage App Service plan - Azure | Microsoft Docs
 description: Learn how to perform different tasks to manage an App Service plan.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 services: app-service
@@ -16,11 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Manage an App Service plan in Azure
 
-An [Azure App Service plan](azure-web-sites-web-hosting-plans-in-depth-overview.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
+An [Azure App Service plan](overview-hosting-plans.md) provides the resources that an App Service app needs to run. This guide shows how to manage an App Service plan.
 
 ## Create an App Service plan
 
@@ -31,7 +32,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 1. In the [Azure portal](https://portal.azure.com), select **New** > **Web + mobile**, and then select **Web App** or another kind of App Service app.
 
-1. Select an existing App Service plan or create a plan for the new app.
+2. Select an existing App Service plan or create a plan for the new app.
 
    ![Create an app in the Azure portal.][createWebApp]
 

@@ -1,18 +1,19 @@
 ---
-title: Test your LUIS app inside the LUIS portal
-titleSuffix: Azure Cognitive Services
+title: Test app in LUIS portal
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to continuously work on your application to refine it and improve its language understanding.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ---
 
-# Test your LUIS app
+# Test your LUIS app in the LUIS portal
 <a name="train-your-app"></a>
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
@@ -20,6 +21,7 @@ ms.author: diberry
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## Test an utterance
 
 1. Access your app by selecting its name on the **My Apps** page. 
@@ -34,22 +36,17 @@ ms.author: diberry
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## Clear test panel
-To clear all the entered test utterances and their results from the test console, select **Start over** at the upper-left corner of the **Test panel**. 
-
-## Close test panel
-To close the **Test** panel, select the **Test** button again.
-
 ## Inspect score
+
 You inspect details of the test result in the **Inspect** panel. 
  
 1. With the **Test** slide-out panel open, select **Inspect** for an utterance you want to compare. 
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect.png)
+    ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
 2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
-    ![Inspect button](./media/luis-how-to-interactive-test/inspect-panel.png)
+    ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
 ## Correct top scoring intent
 
@@ -66,9 +63,11 @@ If **Sentiment analysis** is configured on the **[Publish](luis-how-to-publish-a
 ![Image of Test pane with sentiment analysis](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## Correct matched pattern's intent
+
 If you are using [Patterns](luis-concept-patterns.md) and the utterance matched a pattern, but the wrong intent was predicted, select the **Edit** link by the pattern, then select the correct intent.
 
 ## Compare with published version
+
 You can test the active version of your app with the published [endpoint](luis-glossary.md#endpoint) version. In the **Inspect** panel, select **Compare with published**. Any testing against the published model is deducted from your Azure subscription quota balance. 
 
 ![Compare with published](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -82,12 +81,14 @@ You can view the endpoint JSON returned for the comparison by selecting the **Sh
 ## Additional settings in test panel
 
 ### LUIS endpoint
+
 If you have several LUIS endpoints, use the **Additional Settings** link on the Test's Published pane to change the endpoint used for testing. If you are not sure which endpoint to use, select the default **Starter_Key**. 
 
 ![Test panel with Additional Settings link highlighted](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### View Bing Spell Check corrections in test panel
+
 Requirements to view the spelling corrections: 
 
 * Published app
@@ -118,6 +119,7 @@ Use the following procedure to include the [Bing Spell Check v7](https://azure.m
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## Batch testing
 See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis-how-to-batch-test.md) test a batch of utterances.
 
@@ -125,5 +127,5 @@ See batch testing [concepts](luis-concept-batch-test.md) and learn [how to](luis
 
 If testing indicates that your LUIS app doesn't recognize the correct intents and entities, you can work to improve your LUIS app's accuracy by labeling more utterances or adding features. 
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) 
 * [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) 

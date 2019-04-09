@@ -1,7 +1,7 @@
 ---
 author: CelesteDG
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.topic: include
 ms.date: 08/06/2018
 ms.author: celested

@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
-ms.reviewer: billgib
+ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 12/18/2018
 ms.topic: conceptual
 ---
 # Video indexed and annotated for multi-tenant SaaS app using Azure SQL Database
@@ -58,8 +58,8 @@ The following titles are links to their corresponding annotated sections later i
 - [17. Canonical hybrid multi-tenant SaaS app, 0:47:33](#anchor-image-wtip-min04733)
 - [18. Wingtip SaaS sample app, 0:48:10](#anchor-image-wtip-min04810)
 - [19. Scenarios and patterns explored in the tutorials, 0:49:10](#anchor-image-wtip-min04910)
-- [20. Demo of tutorials and Github repository, 0:50:18](#anchor-image-wtip-min05018)
-- [21. Github repo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
+- [20. Demo of tutorials and GitHub repository, 0:50:18](#anchor-image-wtip-min05018)
+- [21. GitHub repo Microsoft/WingtipSaaS, 0:50:38](#anchor-image-wtip-min05038)
 - [22. Exploring the patterns, 0:56:20](#anchor-image-wtip-min05620)
 - [23. Provisioning tenants and onboarding, 0:57:44](#anchor-image-wtip-min05744)
 - [24. Provisioning tenants and application connection, 0:58:58](#anchor-image-wtip-min05858)
@@ -214,14 +214,14 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 &nbsp;
 <a name="anchor-image-wtip-min05018"/>
-#### 20. Demo of tutorials and Github repository, 0:50:12
-[![Demo tutorials and Github repo][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
+#### 20. Demo of tutorials and GitHub repository, 0:50:12
+[![Demo tutorials and GitHub repo][image-wtip-min05018-demo-tutorials-github]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3012)
 
 
 &nbsp;
 <a name="anchor-image-wtip-min05038"/>
-#### 21. Github repo Microsoft/WingtipSaaS, 0:50:32
-[![Github repo Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
+#### 21. GitHub repo Microsoft/WingtipSaaS, 0:50:32
+[![GitHub repo Microsoft/WingtipSaaS][image-wtip-min05038-github-wingtipsaas]](https://www.youtube.com/watch?v=jjNmcKBVjrc&t=3032)
 
 
 &nbsp;
@@ -331,10 +331,10 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 - *Tutorials:* [The Wingtip Tickets SaaS application][saas-how-welcome-wingtip-app-679t]
 
-- Github repositories for flavors of the Wingtip Tickets SaaS tenancy application:
-    - [Github repo for - Standalone application model][github-wingtip-standaloneapp].
-    - [Github repo for - DB Per Tenant model][github-wingtip-dbpertenant].
-    - [Github repo for - Multi-Tenant DB model][github-wingtip-multitenantdb].
+- GitHub repositories for flavors of the Wingtip Tickets SaaS tenancy application:
+    - [GitHub repo for - Standalone application model][github-wingtip-standaloneapp].
+    - [GitHub repo for - DB Per Tenant model][github-wingtip-dbpertenant].
+    - [GitHub repo for - Multi-Tenant DB model][github-wingtip-multitenantdb].
 
 
 
@@ -387,9 +387,9 @@ Clicking any screenshot image takes you to the exact time location in the video.
 
 [image-wtip-min04910-scenarios-tutorials]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min04910-scenarios-patterns-explored-tutorials.png "Scenarios and patterns explored in the tutorials"
 
-[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo of tutorials and Github repo"
+[image-wtip-min05018-demo-tutorials-github]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05018-demo-saas-tutorials-github-repo.png "Demo of tutorials and GitHub repo"
 
-[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "Github repo Microsoft/WingtipSaaS"
+[image-wtip-min05038-github-wingtipsaas]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05038-github-repo-wingtipsaas.png "GitHub repo Microsoft/WingtipSaaS"
 
 [image-wtip-min05620-exploring-patterns]: media/saas-tenancy-video-index-wingtip-brk3120-20171011/wingtip-20171011-min05620-exploring-patterns-tutorials.png "Exploring the patterns"
 

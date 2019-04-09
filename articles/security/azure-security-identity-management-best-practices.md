@@ -4,7 +4,7 @@ description: This article provides a set of best practices for identity manageme
 services: security
 documentationcenter: na
 author: barclayn
-manager: mbaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 07d8e8a8-47e8-447c-9c06-3a88d2713bc1
@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Azure Identity Management and access control security best practices
 
-Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
+Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
 
 In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
@@ -47,7 +47,7 @@ Azure identity management and access control security best practices discussed i
 
 ## Treat identity as the primary security perimeter
 
-Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
+Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Azure AD.
@@ -112,7 +112,7 @@ Following are options and benefits for enabling two-step verification:
 **Option 1**: [Enable Multi-Factor Authentication by changing user state](../active-directory/authentication/howto-mfa-userstates.md).   
 **Benefit**: This is the traditional method for requiring two-step verification. It works with both [Azure Multi-Factor Authentication in the cloud and Azure Multi-Factor Authentication Server](../active-directory/authentication/concept-mfa-whichversion.md). Using this method requires users to perform two-step verification every time they sign in and overrides conditional access policies.
 
-**Option 2**: [Enable Multi-Factor Authentication with conditional access policy](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Option 2**: [Enable Multi-Factor Authentication with conditional access policy](../active-directory/authentication/howto-mfa-getstarted.md).
 **Benefit**: This option allows you to prompt for two-step verification under specific conditions by using [conditional access](../active-directory/active-directory-conditional-access-azure-portal.md). Specific conditions can be user sign-in from different locations, untrusted devices, or applications that you consider risky. Defining specific conditions where you require two-step verification enables you to avoid constant prompting for your users, which can be an unpleasant user experience.
 
 This is the most flexible way to enable two-step verification for your users. Enabling a conditional access policy works only for Azure Multi-Factor Authentication in the cloud and is a premium feature of Azure AD. You can find more information on this method in [Deploy cloud-based Azure Multi-Factor Authentication](../active-directory/authentication/howto-mfa-getstarted.md).

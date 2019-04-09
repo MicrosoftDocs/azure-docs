@@ -18,9 +18,9 @@ Azure Container Instances (ACI) provide a hosted environment for running contain
 When using the Virtual Kubelet provider for Azure Container Instances, both Linux and Windows containers can be scheduled on a container instance as if it is a standard Kubernetes node. This configuration allows you to take advantage of both the capabilities of Kubernetes and the management value and cost benefit of container instances.
 
 > [!NOTE]
+> AKS now has built-in support for scheduling containers on ACI, called *virtual nodes*. These virtual nodes currently support Linux container instances. If you need to schedule Windows container instances, you can continue using Virtual Kubelet. Otherwise, you should use virtual nodes instead of the manual Virtual Kubelet instructions noted in this article. You can get started with virtual nodes using the [Azure CLI][virtual-nodes-cli] or [Azure portal][virtual-nodes-portal].
+>
 > Virtual Kubelet is an experimental open source project and should be used as such. To contribute, file issues, and read more about virtual kubelet, see the [Virtual Kubelet GitHub project][vk-github].
-
-This document details configuring the Virtual Kubelet for container instances on an AKS.
 
 ## Prerequisite
 
@@ -111,7 +111,7 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 
 ## Run Linux container
 
-Create a file named `virtual-kubelet-linux.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Linux Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
+Create a file named `virtual-kubelet-linux.yaml` and copy in the following YAML. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
 apiVersion: apps/v1
@@ -134,7 +134,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-linux
+        beta.kubernetes.io/os: linux
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -159,7 +161,7 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 
 ## Run Windows container
 
-Create a file named `virtual-kubelet-windows.yaml` and copy in the following YAML. Replace the `kubernetes.io/hostname` value with the name of the Windows Virtual Kubelet node. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
+Create a file named `virtual-kubelet-windows.yaml` and copy in the following YAML. Take note that a [nodeSelector][node-selector] and [toleration][toleration] are being used to schedule the container on the node.
 
 ```yaml
 apiVersion: apps/v1
@@ -170,7 +172,7 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: aci-helloworld
+      app: nanoserver-iis
   template:
     metadata:
       labels:
@@ -182,7 +184,9 @@ spec:
         ports:
         - containerPort: 80
       nodeSelector:
-        kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
+        beta.kubernetes.io/os: windows
+        kubernetes.io/role: agent
+        type: virtual-kubelet
       tolerations:
       - key: virtual-kubelet.io/provider
         operator: Equal
@@ -220,17 +224,19 @@ az aks remove-connector --resource-group myAKSCluster --name myAKSCluster --conn
 
 For possible issues with the Virtual Kubelet, see the [Known quirks and workarounds][vk-troubleshooting]. To report problems with the Virtual Kubelet, [open a GitHub issue][vk-issues].
 
-Read more about Virtual Kubelet at the [Virtual Kubelet Github project][vk-github].
+Read more about Virtual Kubelet at the [Virtual Kubelet GitHub project][vk-github].
 
 <!-- LINKS - internal -->
 [aks-quick-start]: ./kubernetes-walkthrough.md
 [aks-remove-connector]: /cli/azure/aks#az-aks-remove-connector
 [az-container-list]: /cli/azure/aks#az-aks-list
 [aks-install-connector]: /cli/azure/aks#az-aks-install-connector
+[virtual-nodes-cli]: virtual-nodes-cli.md
+[virtual-nodes-portal]: virtual-nodes-portal.md
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
-[kubectl-get]: https://kubernetes.io/docs/user-guide/kubectl/v1.8/#get
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [vk-github]: https://github.com/virtual-kubelet/virtual-kubelet

@@ -31,7 +31,7 @@ ms.custom: H1Hack27Feb2017
 [kb4025334]:https://support.microsoft.com/help/4025334/windows-10-update-kb4025334
 
 [dv2-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dv2-series
-[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#ds-series
+[ds-series]:https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -42,7 +42,7 @@ ms.custom: H1Hack27Feb2017
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -320,7 +320,7 @@ To use a scale-out file share, your system must meet the following requirements:
 
 > [!IMPORTANT]
 > You cannot rename the SAPMNT file share, which points to \<SAP global host\>. SAP supports only the share name "sapmnt."
-
+>
 > For more information, see [SAP Note 2492395 - Can the share name sapmnt be changed?][2492395]
 
 ### Configure SAP ASCS/SCS instances and a scale-out file share in two clusters

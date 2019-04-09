@@ -10,9 +10,9 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 
 ---
@@ -24,6 +24,12 @@ ms.author: jingwang
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from an HTTP endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
 
+The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
+
+- **REST connector** specifically support copying data from RESTful APIs; 
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **Web table connector** extracts table content from an HTML webpage.
+
 ## Supported capabilities
 
 You can copy data from an HTTP source to any supported sink data store. For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -33,8 +39,6 @@ You can use this HTTP connector to:
 - Retrieve data from an HTTP/S endpoint by using the HTTP **GET** or **POST** methods.
 - Retrieve data by using one of the following authentications: **Anonymous**, **Basic**, **Digest**, **Windows**, or **ClientCertificate**.
 - Copy the HTTP response as-is or parse it by using [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
-
-The difference between this connector and the [Web table connector](connector-web-table.md) is that the Web table connector extracts table content from an HTML webpage.
 
 > [!TIP]
 > To test an HTTP request for data retrieval before you configure the HTTP connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.

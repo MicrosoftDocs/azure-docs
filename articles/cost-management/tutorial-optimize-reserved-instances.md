@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: seodec18
+manager: benshy
 ---
 
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
@@ -107,7 +107,7 @@ For example, if you purchase a reservation for a VM of type DS1\_v2 in East US a
 
 However, if it runs only 50% of the time, the break-even point will be at 10 months and the saving will be only $49.74 annually. You might not benefit by purchasing the reservation for that instance type in this example. See the following image:
 
-![Break-even point in Azure](./media/tutorial-optimize-reserved-instances/azure04.png)
+![Example of the break-even point for Azure VMs](./media/tutorial-optimize-reserved-instances/azure04.png)
 
 ## View RI costs
 
@@ -122,11 +122,11 @@ The Actual Cost Analysis and Analysis Over Time reports show the full amount tha
 
 Navigate to **Costs** > **Cost Analysis** > in the Cloudyn portal and then select either **Actual Cost Analysis** or **Actual Cost Over Time**. Set the filters next. For example, filter just Azure/VM service and group by Resource Type and Price Model. See the following image:
 
-![Actual cost of reserved instance](./media/tutorial-optimize-reserved-instances/azure05.png)
+![Example of the actual cost of reserved instances](./media/tutorial-optimize-reserved-instances/azure05.png)
 
 You can filter by a service, **Azure/VM** in this example, and group by **Price Model** and **Resource Type** as shown in the following image:
 
-![Actual Cost report groups and filters](./media/tutorial-optimize-reserved-instances/azure06.png)
+![Example of actual cost report groups and filters grouped by price model and resource type](./media/tutorial-optimize-reserved-instances/azure06.png)
 
 You can also analyze the type of payments you've made such as one-time fees, usage fees, and license fees.
 
@@ -140,7 +140,7 @@ In the Actual Cost report, you saw a spike for an RI purchase on November 16 of 
 
 To view it, navigate to **Costs** > **Cost Analysis** > and then select **Amortized Cost Analysis** or **Amortized Cost Over Time**.
 
-![Amortized reserved instance cost](./media/tutorial-optimize-reserved-instances/azure07.png)
+![Example report showing amortized reserved instance cost](./media/tutorial-optimize-reserved-instances/azure07.png)
 
 ## Optimize AWS RI costs
 
@@ -161,25 +161,25 @@ On the reports menu at the top of the portal, click **Optimizer** > **Pricing Op
 
 The following image shows buying recommendations from the report.
 
-![Buying recommendations](./media/tutorial-optimize-reserved-instances/aws01.png)
+![Example showing buying recommendations in the EC2 Buying Recommendations report](./media/tutorial-optimize-reserved-instances/aws01.png)
 
 In this example, the Cloudyn\_A account has 32 reserve instance buying recommendations. If you follow all the buying recommendations, you could potentially save $137,770 annually. Keep in mind that the purchase recommendations provided by Cloudyn assume that usage for your running workloads will remain consistent.
 
 To view details explaining why each purchase is recommended, click the plus symbol ( **+** ) under **Justifications** . Here's an example for the first recommendation in the list.
 
-![Purchase justifications](./media/tutorial-optimize-reserved-instances/aws02.png)
+![Example showing purchase justification details](./media/tutorial-optimize-reserved-instances/aws02.png)
 
 The preceding example shows that running the workload on-demand would cost $90,456 annually. However, if you purchase the reservation in advance, the same workload would cost $56,592 and save you $33,864 annually.
 
 Click the plus symbol next to **EC2 RI Purchase Impact** to view your break-even point over a year to see approximately when your purchase investment is realized. About eight months after making the purchase the on-demand accumulated cost starts to exceed the RI accumulated cost in the following example:
 
-![Purchase impact](./media/tutorial-optimize-reserved-instances/aws03.png)
+![Example showing purchase impact details](./media/tutorial-optimize-reserved-instances/aws03.png)
 
 You start saving money at that point.
 
 You can review **Instances over Time** to verify the accuracy of the suggested buying recommendation. In this example, you can see that six instances were used on average for the workload over the last 30-day period.
 
-![Instances over time](./media/tutorial-optimize-reserved-instances/aws04.png)
+![Example showing historical usage of instances over time](./media/tutorial-optimize-reserved-instances/aws04.png)
 
 ## Modify unused reservations
 
@@ -191,23 +191,23 @@ On the reports menu at the top of the portal, click **Optimizer** > **Inefficien
 
 The following images show the report with unused reserved instances.
 
-![Unused reservations](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
+![Example showing summarized information about unused reservations](./media/tutorial-optimize-reserved-instances/unused-ri01.png)
 
 Click the plus symbol under **Details** to view reservation details for a specific reservation.
 
-![Unused reservations details](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
+![Example showing unused reservations details](./media/tutorial-optimize-reserved-instances/unused-ri02.png)
 
 In the preceding example, there are 77 unused reservations total in various availability zones. The first reservation has 51 unused instances. Looking lower in the list, there are potential reservation instance modifications that you can make using the **m3.2xlarge** instance type in the **us-east-1c** availability zone.
 
 Click **Modify** for the first reservation in the list to open the **Modify RI** page that shows data about the reservation.
 
-![Modify RI](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
+![Example showing reservations that you can modify](./media/tutorial-optimize-reserved-instances/unused-ri03.png)
 
 Reserve instances that you can modify are listed. In the following example image, there are 51 unused reservations that you can modify but there is a need for 54 between the two reservations. If you modify your unused reservations to use them all, four instances will continue to run on demand. For this example, split your unused reservations where the first reservation will use 30 and the second reservation will use 21.
 
 Click the plus symbol for the first reservation entry and set the **Reservation quantity** to **30**. For the second entry, set the reservation quantity to **21** and then click **Apply**.
 
-![Change reservation quantity](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
+![Example showing changes to the reservation quantity](./media/tutorial-optimize-reserved-instances/unused-ri04.png)
 
 All your unused instances for the reservation are fully utilized and 51 instances are no longer running on-demand. In this example, you save your organization money by significantly reducing on-demand use and using reservations that are already paid for.
 

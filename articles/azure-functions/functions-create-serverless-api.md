@@ -49,7 +49,7 @@ By default, your HTTP-triggered function is configured to accept any HTTP method
 
 1. Click **Save**.
 
-You can learn more about customizing HTTP functions in [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#customizing-the-http-endpoint).
+You can learn more about customizing HTTP functions in [Azure Functions HTTP bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook).
 
 ### Test your API
 
@@ -67,7 +67,7 @@ In the next section, you will surface your API through a proxy. Azure Functions 
 
 A proxy can point to any HTTP resource, such as:
 - Azure Functions 
-- API apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+- API apps in [Azure App Service](https://docs.microsoft.com/azure/app-service/overview)
 - Docker containers in [App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Any other hosted API
 
@@ -100,7 +100,7 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
     | Field | Sample value | Description |
     |---|---|---|
     | Name | HelloProxy | A friendly name used only for management |
-    | Route template | /api/hello | Determines what route is used to invoke this proxy |
+    | Route template | /api/remotehello | Determines what route is used to invoke this proxy |
     | Backend URL | https://%HELLO_HOST%/api/hello | Specifies the endpoint to which the request should be proxied |
     
 1. Note that Proxies does not provide the `/api` base path prefix, and this must be included in the route template.
@@ -108,9 +108,9 @@ Repeat the steps to [Create a function app](https://docs.microsoft.com/azure/azu
 1. Click **Create**.
 1. You can try out your new proxy by copying the Proxy URL and testing it in the browser or with your favorite HTTP client.
     1. For an anonymous function use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?name="Proxies"`
     1. For a function with authorization use:
-        1. `https://YOURPROXYAPP.azurewebsites.net/api/hello?code=YOURCODE&name="Proxies"`
+        1. `https://YOURPROXYAPP.azurewebsites.net/api/remotehello?code=YOURCODE&name="Proxies"`
 
 ## Create a mock API
 
@@ -128,7 +128,7 @@ If you've followed along so far, your proxies.json should look like the followin
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         }
@@ -144,7 +144,7 @@ Next you'll add your mock API. Replace your proxies.json file with the following
     "proxies": {
         "HelloProxy": {
             "matchCondition": {
-                "route": "/api/hello"
+                "route": "/api/remotehello"
             },
             "backendUri": "https://%HELLO_HOST%/api/hello"
         },
@@ -172,7 +172,7 @@ Next you'll add your mock API. Replace your proxies.json file with the following
 }
 ```
 
-This adds a new proxy, "GetUserByName", without the backendUri property. Instead of calling another resource, it modifies the default response from Proxies using a response override. Request and response overrides can also be used in conjunction with a backend URL. This is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, etc. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies#a-namemodify-requests-responsesamodifying-requests-and-responses).
+This adds a new proxy, "GetUserByName", without the backendUri property. Instead of calling another resource, it modifies the default response from Proxies using a response override. Request and response overrides can also be used in conjunction with a backend URL. This is particularly useful when proxying to a legacy system, where you might need to modify headers, query parameters, etc. To learn more about request and response overrides, see [Modifying requests and responses in Proxies](https://docs.microsoft.com/azure/azure-functions/functions-proxies).
 
 Test your mock API by calling the `<YourProxyApp>.azurewebsites.net/api/users/{username}` endpoint using a browser or your favorite REST client. Be sure to replace _{username}_ with a string value representing a username.
 

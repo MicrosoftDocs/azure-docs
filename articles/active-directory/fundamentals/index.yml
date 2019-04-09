@@ -6,9 +6,9 @@ metadata:
   title: Azure Active Directory fundamentals documentation
   description: Learn about the basic concepts and processes available while using Azure Active Directory.
   services: active-directory
-  ms.component: fundamentals
+  ms.subservice: fundamentals
   author: eross-msft
-  manager: mtillman
+  manager: daveba
 
   ms.service: active-directory
   ms.topic: landing-page

@@ -53,6 +53,7 @@ Now that you have a desktop environment installed, configure a remote desktop se
 
 ```bash
 sudo apt-get install xrdp
+sudo systemctl enable xrdp
 ```
 
 Tell xrdp what desktop environment to use when you start your session. Configure xrdp to use xfce as your desktop environment as follows:
@@ -98,7 +99,7 @@ After authenticating, the xfce desktop environment will load and look similar to
 
 ![xfce desktop environment through xrdp](./media/use-remote-desktop/xfce-desktop-environment.png)
 
-If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](http://www.freerdp.com).
+If your local RDP client uses network level authentication (NLA), you may need to disable that connection setting. XRDP does not currently support NLA. You can also look at alternative RDP solutions that do support NLA, such as [FreeRDP](https://www.freerdp.com).
 
 
 ## Troubleshoot

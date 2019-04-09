@@ -86,7 +86,7 @@ This topic describes and walks you through the deployment and configuration of a
 
 In order to use HTTPS on the VM, you need a trusted SSL certificate. Depending on your scenario, you can use one of the following two methods:
 
-* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](http://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](http://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
+* A valid SSL certificate issued by a Certification Authority (CA) and trusted by Microsoft. The CA root certificates are required to be distributed via the Microsoft Root Certificate Program. For more information about this program, see [Windows and Windows Phone 8 SSL Root Certificate Program (Member CAs)](https://social.technet.microsoft.com/wiki/contents/articles/14215.windows-and-windows-phone-8-ssl-root-certificate-program-member-cas.aspx) and [Introduction to The Microsoft Root Certificate Program](https://social.technet.microsoft.com/wiki/contents/articles/3281.introduction-to-the-microsoft-root-certificate-program.aspx).
 * A self-signed certificate. Self-signed certificates are not recommended for production environments.
 
 ### To use a certificate created by a trusted Certificate Authority (CA)
@@ -120,13 +120,13 @@ A self-signed certificate was created on the VM when the VM was provisioned. The
       
        For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
       
-       ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+       ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
    2. Run mmc.exe. For more information, see [How to: View Certificates with the MMC Snap-in](https://msdn.microsoft.com/library/ms788967.aspx).
    3. In the console application **File** menu, add the **Certificates** snap-in, select **Computer Account** when prompted, and then click **Next**.
    4. Select **Local Computer** to manage and then click **Finish**.
    5. Click **Ok** and then expand the **Certificates -Personal** nodes and then click **Certificates**. The certificate is named after the DNS name of the VM and ends with **cloudapp.net**. Right-click the certificate name and click **Copy**.
    6. Expand the **Trusted Root Certification Authorities** node and then right-click **Certificates** and then click **Paste**.
-   7. To validate, double click on the certificate name under **Trusted Root Certification Authorities** and verify that there are no errors and you see your certificate. If you want to use the HTTPS script included with this topic, to configure the report server, the value of the certificates **Thumbprint** is required as a parameter of the script. **To get the thumbprint value**, complete the following. There is also a PowerShell sample to retrieve the thumbprint in section [Use script to configure the report server and HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. To validate, double click on the certificate name under **Trusted Root Certification Authorities** and verify that there are no errors and you see your certificate. If you want to use the HTTPS script included with this topic, to configure the report server, the value of the certificates **Thumbprint** is required as a parameter of the script. **To get the thumbprint value**, complete the following. There is also a PowerShell sample to retrieve the thumbprint in section [Use script to configure the report server and HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Double-click the name of the certificate, for example ssrsnativecloud.cloudapp.net.
       2. Click the **Details** tab.
@@ -156,7 +156,7 @@ To use the Windows PowerShell script to configure the report server, complete th
    
     For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
    
-    ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 3. In Windows PowerShell ISE, click the **View** menu and then click **Show Script Pane**.
 4. Copy the following script, and paste the script into the Windows PowerShell ISE script pane.
@@ -290,7 +290,7 @@ To use Windows PowerShell to configure the report server, complete the following
    
     For example, in the following image, the VM name is **ssrsnativecloud** and the user name is **testuser**.
    
-    ![login inlcudes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
+    ![login includes vm name](./media/virtual-machines-windows-classic-ps-sql-report/IC764111.png)
 2. On the VM, open **Windows PowerShell ISE** with administrative privileges. The PowerShell ISE is installed by default on Windows server 2012. It is recommended you use the ISE instead of a standard Windows PowerShell window so that you can paste the script into the ISE, modify the script, and then run the script.
 3. To enable running scripts, run the following Windows PowerShell command:
    
@@ -479,7 +479,7 @@ To use Windows PowerShell to configure the report server, complete the following
 9. The script is currently configured for  Reporting Services. If you want to run the script for  Reporting Services, modify the version portion of the path to the namespace to “v11”, on the Get-WmiObject statement.
 10. Run the script.
 
-**Validation**: To verify that the basic report server functionality is working, see the [Verify the configuration](#verify-the-connection) section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
+**Validation**: To verify that the basic report server functionality is working, see the Verify the configuration section later in this topic. To verify the certificate binding open a command prompt with administrative privileges, and then run the following command:
 
     netsh http show sslcert
 

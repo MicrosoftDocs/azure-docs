@@ -3,20 +3,21 @@ title: Wildcard applications in the Azure Active Directory application proxy | M
 description: Learn how to use Wildcard applications in the Azure Active Directory application proxy.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: barbkess
+ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # Wildcard applications in the Azure Active Directory application proxy 
@@ -47,7 +48,7 @@ While the internal and external URLs can use different domains, as a best practi
 
 If you have additional applications with different configuration settings, you must publish these exceptions as separate applications to overwrite the defaults set for the wildcard. Applications without a wildcard do always take precedence over wildcard applications. From the configuration perspective, these are "just" regular applications.
 
-Creating a wildcard application is based on the same [application publishing flow](application-proxy-publish-azure-portal.md) that is available for all other applications. The only difference is that you include a wildcard in the URLs and potentially the SSO configuration.
+Creating a wildcard application is based on the same [application publishing flow](application-proxy-add-on-premises-application.md) that is available for all other applications. The only difference is that you include a wildcard in the URLs and potentially the SSO configuration.
 
 
 ## Prerequisites
@@ -135,7 +136,7 @@ All three applications:
 - Have the same properties
 
 
-You can publish the wildcard application using the steps outlined in [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md). This scenario assumes:
+You can publish the wildcard application using the steps outlined in [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md). This scenario assumes:
 
 - A tenant with the following ID: `000aa000-11b1-2ccc-d333-4444eee4444e` 
 
@@ -143,7 +144,7 @@ You can publish the wildcard application using the steps outlined in [Publish ap
 
 - A **CNAME** entry that points `*.adventure-works.com` to `000aa000-11b1-2ccc-d333-4444eee4444e.tenant.runtime.msappproxy.net` has been created.
 
-Following the [documented steps](application-proxy-publish-azure-portal.md), you create a new application proxy application in your tenant. In this example, the wildcard is in the following fields:
+Following the [documented steps](application-proxy-add-on-premises-application.md), you create a new application proxy application in your tenant. In this example, the wildcard is in the following fields:
 
 - Internal URL:
 
@@ -182,7 +183,7 @@ In this scenario, you have in addition to the three general applications another
 
 You need to make sure that a CNAME records exist that points `finance.adventure-works.com` to the application specific endpoint, specified on the Application Proxy page for the application. For this scenario, `finance.adventure-works.com` points to `https://finance-awcycles.msappproxy.net/`. 
 
-Following the [documented steps](application-proxy-publish-azure-portal.md), this scenario requires the following settings:
+Following the [documented steps](application-proxy-add-on-premises-application.md), this scenario requires the following settings:
 
 
 - In the **Internal URL**, you set **finance** instead of a wildcard. 
@@ -213,6 +214,6 @@ For more information about:
 
 - **Custom domains**, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
 
-- **Publishing applications**, see [Publish applications using Azure AD Application Proxy](application-proxy-publish-azure-portal.md)
+- **Publishing applications**, see [Publish applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md)
 
 

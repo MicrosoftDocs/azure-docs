@@ -1,5 +1,5 @@
 ---
-title: Scale up an app in Azure | Microsoft Docs
+title: Scale up features and capacities - Azure App Service | Microsoft Docs
 description: Learn how to scale up an app in Azure App Service to add capacity and features.
 services: app-service
 documentationcenter: ''
@@ -15,6 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2016
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
 # Scale up an app in Azure
@@ -34,7 +35,7 @@ This article shows you how to scale your app in Azure App Service. There are two
   [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md). There, you find out how
   to use autoscaling, which is to scale instance count automatically based on predefined rules and schedules.
 
-The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+The scale settings take only seconds to apply and affect all apps in your [App Service plan](../app-service/overview-hosting-plans.md).
 They don't require you to change your code or redeploy your application.
 
 For information about the pricing and features of individual App Service plans, see [App Service Pricing Details](https://azure.microsoft.com/pricing/details/web-sites/).  
@@ -109,7 +110,7 @@ For a table of service limits, quotas, and constraints, and supported features i
 
 <!-- LINKS -->
 [vmsizes]:https://azure.microsoft.com/pricing/details/app-service/
-[SQLaccountsbilling]:http://go.microsoft.com/fwlink/?LinkId=234930
+[SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930
 [azuresubscriptions]:https://account.windowsazure.com/subscriptions
 [portal]: https://portal.azure.com/
 

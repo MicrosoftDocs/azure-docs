@@ -1,14 +1,15 @@
 ---
-title: Phrase lists to enhance entity detection
-titleSuffix: Azure Cognitive Services
+title: Phrase lists
+titleSuffix: Language Understanding - Azure Cognitive Services
 description: Use Language Understanding (LUIS) to add app features that can improve the detection or prediction of intents and entities that categories and patterns
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/16/2019
 ms.author: diberry
 ---
 
@@ -16,7 +17,13 @@ ms.author: diberry
 
 You can add features to your LUIS app to improve its accuracy. Features help LUIS by providing hints that certain words and phrases are part of an app domain vocabulary. 
 
+A [phrase list](luis-concept-feature.md) includes a group of values (words or phrases) that belong to the same class and must be treated similarly (for example, names of cities or products). What LUIS learns about one of them is automatically applied to the others as well. This list is not a closed list entity (exact text matches) of matched words.
+
+A phrase list adds to the vocabulary of the app domain as a second signal to LUIS about those words.
+
 ## Add phrase list
+
+LUIS allows up to 10 phrase lists per app. 
 
 1. Open your app by clicking its name on **My Apps** page, and then click **Build**, then click **Phrase lists** in your app's left panel. 
 
@@ -28,11 +35,11 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 
 4. LUIS can propose related values to add to your phrase list. Click **Recommend** to get a group of proposed values that are semantically related to the added value(s). You can click any of the proposed values, or click **Add All** to add them all.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/related-values.png)
+    ![Phrase List Proposed Values - add all](./media/luis-add-features/related-values.png)
 
 5. Click **These values are interchangeable** if the added phrase list values are alternatives that can be used interchangeably.
 
-    ![Phrase List Proposed Values](./media/luis-add-features/interchangeable.png)
+    ![Phrase List Proposed Values - select interchangeable box](./media/luis-add-features/interchangeable.png)
 
 6. Click **Save**. The "Cities" phrase list is added to the **Phrase lists** page.
 
@@ -42,9 +49,6 @@ You can add features to your LUIS app to improve its accuracy. Features help LUI
 
 > [!Note]
 > You can delete, or deactivate a phrase list from the contextual toolbar on the **Phrase lists** page.
-
-## Pattern (regular expression) feature 
-**This feature is deprecated**. New pattern features cannot be added to LUIS. Any existing pattern features are supported until May 2018. Contribute to standard LUIS regular expression matching with a PR to the [Recognizers-Text Github repository](https://github.com/Microsoft/Recognizers-Text). 
 
 ## Next steps
 

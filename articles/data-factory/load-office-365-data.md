@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/22/2018
 ms.author: jingwang
 
 ---
@@ -18,15 +18,12 @@ ms.author: jingwang
 
 This article shows you how to use the Data Factory _load data from Office 365 into Azure Blob storage_. You can follow similar steps to copy data to Azure Data Lake Gen1 or Gen2. Refer to [Office 365 connector article](connector-office-365.md) on copying data from Office 365 in general.
 
-For a nine-minute introduction and demonstration about connecting Data Factory to Office 365 data, watch the following video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
-
 ## Create a data factory
 
-1. On the left menu, select **New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![Create a new data factory](./media/load-office-365-data/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. In the **New data factory** page, provide values for the fields that are shown in the following image:
       
    ![New data factory page](./media/load-office-365-data/new-azure-data-factory.png)

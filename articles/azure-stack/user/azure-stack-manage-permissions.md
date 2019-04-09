@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 03/11/2019
 ms.author: patricka
-ms.reviewer: 
+ms.reviewer: fiseraci
+ms.lastreviewed: 03/11/2019
 
 ---
 
@@ -47,28 +48,6 @@ Azure Stack has the following resource hierarchy:
 
 Access that you grant at a parent scope is inherited at child scopes. For example:
 
-* You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
-* You assign the Contributor role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
-
-### Assigning roles
-
-You can assign more than one role to a user and each role can be associated with a different scope. For example:
-
-* You assign TestUser-A the Reader role to Subscription-1.
-* You assign TestUser-A the Owner role to TestVM-1.
-
-The Azure [role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
-
-### Resource hierarchy and inheritance
-
-Azure Stack has the following resource hierarchy:
-
-* Each subscription belongs to one directory.
-* Each resource group belongs to one subscription.
-* Each resource belongs to one resource group.
-
-Access that you grant at a parent scope is inherited at child scopes. For example:
-
 * You assign the **Reader** role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
 * You assign the **Contributor** role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
 
@@ -88,9 +67,9 @@ The following steps describe how to configure permissions for a user.
 1. Sign in with an account that has owner permissions to the resource you want to manage.
 2. In the left navigation pane, choose **Resource groups**.
 3. Choose the name of the resource group that you want to set permissions on.
-4. In the resource group navigation pane, choose **Access control (IAM)**. The **Access control** view lists the Items that have access to the resource group. You can filter these results, and use a menu bar to Add or Remove permissions.
-5. On the **Access control** menu bar, choose **+ Add**.
-6. On **Add permissions**:
+4. In the resource group navigation pane, choose **Access control (IAM)**. The **Role Assignments** view lists the items that have access to the resource group. You can filter and group the results.
+5. On the **Access control** menu bar, choose **Add**.
+6. On **Add permissions** pane:
 
    * Choose the role you want to assign from the **Role** drop-down list.
    * Choose the resource you want to assign from the **Assign access to** drop-down list.

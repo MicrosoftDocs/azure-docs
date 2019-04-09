@@ -2,13 +2,14 @@
 title: Count states for tasks and nodes - Azure Batch | Microsoft Docs
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
 ms.date: 09/07/2018
-ms.author: danlep
+ms.author: lahugh
+ms.custom: seodec18
 
 ---
 # Monitor Batch solutions by counting tasks and nodes by state
@@ -39,7 +40,7 @@ The Get Task Counts operation counts tasks by the following states:
 The following .NET code sample shows how to retrieve task counts by state: 
 
 ```csharp
-var taskCounts = await batchClient.JobOperations.GetTaskCountsAsync("job-1");
+var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
 
 Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
 Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);
@@ -125,6 +126,6 @@ You can use a similar pattern for REST and other supported languages to get node
 [rest_get_node_counts]: /rest/api/batchservice/account/listpoolnodecounts
 [rest_get_task]: /rest/api/batchservice/task/get
 [rest_list_tasks]: /rest/api/batchservice/task/list
-[rest_get_exec_info]: /rest/api/batchservice/task/get#executionInfo
+[rest_get_exec_info]: /rest/api/batchservice/task/get
 [rest_start_task]: /rest/api/batchservice/pool/add#starttask
 

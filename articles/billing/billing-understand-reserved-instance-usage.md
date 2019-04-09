@@ -1,5 +1,5 @@
 ---
-title: Understand Azure Reservations usage for Pay-As-You-Go subscription | Microsoft Docs
+title: Understand Azure reservations usage for Pay-As-You-Go subscription | Microsoft Docs
 description: Learn how to read your usage to understand how the Azure reservation for your Pay-As-You-Go subscription is applied.
 services: 'billing'
 documentationcenter: ''
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
-ms.author: cwatson
+ms.date: 03/13/2019
+ms.author: banders
 
 ---
 # Understand Azure reservation usage for your Pay-As-You-Go subscription
@@ -60,7 +60,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 
 ## Usage for SQL Database & Cosmos DB reserved capacity reservations
 
-The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well. 
+The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 
 Assume that you are running a SQL Database Gen 4 in the east US region and your reservation information looks like the following table:
 
@@ -89,6 +89,10 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
 3. The **Meter Id** is the reservation meter. The cost of this meter is $0. Any SQL Database resources that qualify for the reservation discount shows this meter ID in the CSV file.
 
+## Need help? Contact us.
+
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about Azure Reservations, see the following articles:
@@ -100,9 +104,3 @@ To learn more about Azure Reservations, see the following articles:
 - [Understand how the reservation discount is applied](billing-understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Windows software costs not included with Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## Need help? Contact support
-
-If you still have further questions, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-
-

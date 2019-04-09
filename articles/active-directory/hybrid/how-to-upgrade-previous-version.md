@@ -4,22 +4,26 @@ description: Explains the different methods to upgrade to the latest release of 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
-ms.component: hybrid
+ms.date: 04/08/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect: Upgrade from a previous version to the latest
 This topic describes the different methods that you can use to upgrade your Azure Active Directory (Azure AD) Connect installation to the latest release. We recommend that you keep yourself current with the releases of Azure AD Connect. You also use the steps in the [Swing migration](#swing-migration) section when you make a substantial configuration change.
+
+>[!NOTE]
+> It is currently supported to upgrade from any version of Azure AD Connect to the current version. In-place upgrades of DirSync or ADSync are not supported and a swing migration is required.  If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) or the [Swing migration](#swing-migration) section.  </br>In practice, customers on extremely old versions may encounter problems not directly related to Azure AD Connect. Servers that have been in production for several years, typically have had several patches applied to them and not all of these can be accounted for.  Generally, customers who have not upgraded in 12-18 months should consider a swing upgrade instead as this is the most conservative and least risky option.
 
 If you want to upgrade from DirSync, see [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md) instead.
 
@@ -57,7 +61,7 @@ The two servers can use different versions. For example, the active server that 
 ![Staging server](./media/how-to-upgrade-previous-version/stagingserver1.png)
 
 > [!NOTE]
-> Some customers prefer to have three or four servers for this scenario. When the staging server is upgraded, you don't have a backup server for [disaster recovery](how-to-connect-sync-operations.md#disaster-recovery). With three or four servers, you can prepare one set of primary/standby servers with the new version, which ensures that there is always a staging server that's ready to take over.
+> Some customers prefer to have three or four servers for this scenario. When the staging server is upgraded, you don't have a backup server for [disaster recovery](how-to-connect-sync-staging-server.md#disaster-recovery). With three or four servers, you can prepare one set of primary/standby servers with the new version, which ensures that there is always a staging server that's ready to take over.
 
 These steps also work to move from Azure AD Sync or a solution with FIM + Azure AD Connector. These steps don't work for DirSync, but the same swing migration method (also called parallel deployment) with steps for DirSync is in [Upgrade Azure Active Directory sync (DirSync)](how-to-dirsync-upgrade-get-started.md).
 
@@ -66,8 +70,8 @@ These steps also work to move from Azure AD Sync or a solution with FIM + Azure 
 2. If you've made a custom configuration and your staging server doesn't have it, follow the steps under [Move a custom configuration from the active server to the staging server](#move-a-custom-configuration-from-the-active-server-to-the-staging-server).
 3. If you're upgrading from an earlier release of Azure AD Connect, upgrade the staging server to the latest version. If you're moving from Azure AD Sync, then install Azure AD Connect on your staging server.
 4. Let the sync engine run full import and full synchronization on your staging server.
-5. Verify that the new configuration didn't cause any unexpected changes by using the steps under "Verify" in [Verify the configuration of a server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server). If something isn't as expected, correct it, run the import and sync, and verify the data until it looks good, by following the steps.
-6. Switch the staging server to be the active server. This is the final step "Switch active server" in [Verify the configuration of a server](how-to-connect-sync-operations.md#verify-the-configuration-of-a-server).
+5. Verify that the new configuration didn't cause any unexpected changes by using the steps under "Verify" in [Verify the configuration of a server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server). If something isn't as expected, correct it, run the import and sync, and verify the data until it looks good, by following the steps.
+6. Switch the staging server to be the active server. This is the final step "Switch active server" in [Verify the configuration of a server](how-to-connect-sync-staging-server.md#verify-the-configuration-of-a-server).
 7. If you're upgrading Azure AD Connect, upgrade the server that's now in staging mode to the latest release. Follow the same steps as before to get the data and configuration upgraded. If you upgraded from Azure AD Sync, you can now turn off and decommission your old server.
 
 ### Move a custom configuration from the active server to the staging server

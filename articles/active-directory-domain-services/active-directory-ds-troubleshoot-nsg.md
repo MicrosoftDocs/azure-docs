@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Active Directory Domain Services: Troubleshooting Network Security Group configuration | Microsoft Docs'
 description: Troubleshooting NSG configuration for Azure AD Domain Services
 services: active-directory-ds
@@ -9,7 +9,7 @@ editor:
 
 ms.assetid: 95f970a7-5867-4108-a87e-471fa0910b8c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -33,12 +33,12 @@ Invalid NSG configurations are the most common cause of network errors for Azure
 2. From the table, choose the NSG associated with the subnet in which your managed domain is enabled.
 3. Under **Settings** in the left-hand panel, click **Inbound security rules**
 4. Review the rules in place and identify which rules are blocking access to [these ports](active-directory-ds-networking.md#ports-required-for-azure-ad-domain-services)
-5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or [create a new, compliant NSG](#create-a-nsg-for-azure-ad-domain-services-using-powershell) are below
+5. Edit the NSG to ensure compliance by either deleting the rule, adding a rule, or creating a new NSG entirely. Steps to [add a rule](#add-a-rule-to-a-network-security-group-using-the-azure-portal) or create a new, compliant NSG are below
 
 ## Sample NSG
 The following table depicts a sample NSG that would keep your managed domain secure while allowing Microsoft to monitor, manage, and update information.
 
-![sample NSG](.\media\active-directory-domain-services-alerts\default-nsg.png)
+![sample NSG](./media/active-directory-domain-services-alerts/default-nsg.png)
 
 >[!NOTE]
 > Azure AD Domain Services requires unrestricted outbound access from the virtual network. We recommend not to create any additional NSG rule that restricts outbound access for the virtual network.

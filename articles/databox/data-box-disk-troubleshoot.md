@@ -5,24 +5,21 @@ services: databox
 author: alkohli
 
 ms.service: databox
-ms.topic: overview
-ms.date: 10/09/2018
+ms.subservice: disk
+ms.topic: article
+ms.date: 02/06/2019
 ms.author: alkohli
 ---
-# Troubleshoot issues in Azure Data Box Disk (Preview)
+# Troubleshoot issues in Azure Data Box Disk
 
-This article applies to Microsoft Azure Data Box running Preview release. This article describes some of the complex workflows and management tasks that can be performed on the Data Box and Data Box Disk. 
+This article applies to Microsoft Azure Data Box Disk and describes the workflows used to troubleshoot any issues you see when you deploy this solution. 
 
-You can manage the Data Box Disk via the Azure portal. This article focuses on the tasks that you can perform using the Azure portal. Use the Azure portal to manage orders, manage devices, and track the status of the order as it proceeds to completion.
-
-This article includes the following tutorials:
+This article includes the following sections:
 
 - Download diagnostic logs
 - Query activity logs
-
-
-> [!IMPORTANT]
-> Data Box is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
+- Data Box Disk Unlock tool errors
+- Data Box Disk Split Copy tool errors
 
 ## Download diagnostic logs
 
@@ -66,12 +63,12 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 
 | Error message/Tool behavior      | Recommendations                                                                                               |
 |-------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
-| None<br><br>Data Box Disk unlock tool crashes.                                                                            | Bitlocker not installed. Ensure that the host computer that is running the Data Box Disk unlock tool has BitLocker installed.                                                                            |
+| None<br><br>Data Box Disk unlock tool crashes.                                                                            | BitLocker not installed. Ensure that the host computer that is running the Data Box Disk unlock tool has BitLocker installed.                                                                            |
 | The current .NET Framework is not supported. The supported versions are 4.5 and later.<br><br>Tool exits with a message.  | .NET 4.5 is not installed. Install .NET 4.5 or later on the host computer that runs the Data Box Disk unlock tool.                                                                            |
 | Could not unlock or verify any volumes. Contact Microsoft Support.  <br><br>The tool fails to unlock or verify any locked drive. | The tool could not unlock any of the locked drives with the supplied passkey. Contact Microsoft Support for next steps.                                                |
 | Following volumes are unlocked and verified. <br>Volume drive letters: E:<br>Could not unlock any volumes with the following passkeys: werwerqomnf, qwerwerqwdfda <br><br>The tool unlocks some drives and lists the successful and failed drive letters.| Partially succeeded. Could not unlock some of the drives with the supplied passkey. Contact Microsoft Support for next steps. |
 | Could not find locked volumes. Verify disk received from Microsoft is connected properly and is in locked state.          | The tool fails to find any locked drives. Either the drives are already unlocked or not detected. Ensure that the drives are connected and are locked.                                                           |
-| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameteres are /SystemCheck, /PassKey, and /Help.                                                                            |
+| Fatal error: Invalid parameter<br>Parameter name: invalid_arg<br>USAGE:<br>DataBoxDiskUnlock /PassKeys:<passkey_list_separated_by_semicolon><br><br>Example: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Example: DataBoxDiskUnlock /SystemCheck<br>Example: DataBoxDiskUnlock /Help<br><br>/PassKeys:       Get this passkey from Azure DataBox Disk order. The passkey unlocks your disks.<br>/Help:           This option provides help on cmdlet usage and examples.<br>/SystemCheck:    This option checks if your system meets the requirements to run the tool.<br><br>Press any key to exit. | Invalid parameter entered. The only allowed parameters are /SystemCheck, /PassKey, and /Help.                                                                            |
 
 ## Data Box Disk Split Copy tool errors
 
@@ -84,7 +81,75 @@ Activity logs are retained for 90 days. You can query for any range of dates, as
 |[Info] Destination file or directory name exceeds the NTFS length limit. |This message is reported when the destination file was renamed because of long file path.<br> Modify the disposition option in `config.json` file to control this behavior.|
 |[Error] Exception thrown: Bad JSON escape sequence. |This message is reported when the config.json has format that is not valid. <br> Validate your `config.json` using [JSONlint](https://jsonlint.com/) before you save the file.|
 
+## Deployment issues for Linux
 
+This section details some of the top issues faced during deployment of Data Box Disk when using a Linux client for data copy.
+
+### Issue: Drive getting mounted as read-only
+ 
+**Cause** 
+
+This could be due to an unclean file system. 
+
+Remounting a drive as read-write does not work with Data Box Disks. This scenario is not supported with drives decrypted by dislocker. You may have successfully remounted the device using the following command: 
+
+    `# mount -o remount, rw /mnt/DataBoxDisk/mountVol1`
+
+Though the remounting was successful, the data will not persist.
+
+**Resolution**
+
+If you see the above error, you could try one of the following resolutions:
+
+- Install [`ntfsfix`](https://linux.die.net/man/8/ntfsfix) (available in `ntfsprogs` package) and run it against the relevant partition.
+
+- If you have access to a Windows system
+
+    - Load the drive into the Windows system.
+    - Open a command prompt with administrative privileges. Run `chkdsk` on the volume.
+    - Safely remove the volume and try again.
+ 
+### Issue: Error with data not persisting after copy
+ 
+**Cause** 
+
+If you see that your drive does not have data after it was unmounted (though data was copied to it), then it is possible that you remounted a drive as read-write after the drive was mounted as read-only.
+
+**Resolution**
+ 
+If that is the case, see the resolution for [drives getting mounted as read-only](#issue-drive-getting-mounted-as-read-only).
+
+If that was not the case, copy the logs from the folder that has the Data Box Disk Unlock tool and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+
+## Deployment issues for Windows
+
+This section details some of the top issues faced during deployment of Data Box Disk when using a Windows client for data copy
+
+### Issue: Could not unlock drive from BitLocker
+ 
+**Cause** 
+
+You have used the password in the BitLocker dialog and trying to unlock the disk via the BitLocker unlock drives dialog. This would not work. 
+
+**Resolution**
+
+To unlock the Data Box Disks, you need to use the Data Box Disk Unlock tool and provide the password from the Azure portal. For more information, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md#connect-to-disks-and-get-the-passkey).
+ 
+### Issue: Could not unlock or verify some volumes. Contact Microsoft Support.
+ 
+**Cause** 
+
+You may see the following error in the error log and are not able to unlock or verify some volumes.
+
+`Exception System.IO.FileNotFoundException: Could not load file or assembly 'Microsoft.Management.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' or one of its dependencies. The system cannot find the file specified.`
+ 
+This indicates that you are likely missing the appropriate version of Windows PowerShell on your Windows client.
+
+**Resolution**
+
+You can install [Windows PowerShell v 5.0](https://www.microsoft.com/download/details.aspx?id=54616) and retry the operation.
+ 
+If you are still not able to unlock the volumes, copy the logs from the folder that has the Data Box Disk Unlock tool and [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
 
 ## Next steps
 

@@ -1,19 +1,15 @@
 ---
 title: Query Store usage scenarios in Azure Database for PostgreSQL
 description: This article describes some scenarios for the Query Store in Azure Database for PostgreSQL.
-services: postgresql
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 03/26/2018
 ---
 # Usage scenarios for Query Store
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
-
-> [!IMPORTANT]
-> The Query Store feature is in Public Preview.
 
 You can use Query Store in a wide variety of scenarios in which tracking and maintaining predictable workload performance is critical. Consider the following examples: 
 - Identifying and tuning top expensive queries 

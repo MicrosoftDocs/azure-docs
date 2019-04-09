@@ -1,5 +1,5 @@
 ---
-title: Build a .NET Core and SQL Database web app in Azure App Service on Linux | Microsoft Docs 
+title: Build .NET Core app with SQL Database on Linux - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service on Linux, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -13,17 +13,18 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2018
+ms.date: 01/31/2019
 ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Build a .NET Core and SQL Database web app in Azure App Service on Linux
+# Build a .NET Core and SQL Database app in Azure App Service on Linux
 
 > [!NOTE]
-> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database web app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
+> This article deploys an app to App Service on Linux. To deploy to App Service on _Windows_, see [Build a .NET Core and SQL Database app in Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
 >
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core web app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a .NET Core app and connect it to a SQL Database. When you're done, you'll have a .NET Core MVC app running in App Service on Linux.
 
 ![app running in App Service on Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
@@ -174,7 +175,7 @@ az webapp config connection-string set --resource-group myResourceGroup --name <
 
 Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
 
-The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure web app. Replace the *\<app_name>* placeholder.
+The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure app. Replace the *\<app_name>* placeholder.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
@@ -245,9 +246,9 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
  * [new branch]      master -> master
 ```
 
-### Browse to the Azure web app
+### Browse to the Azure app
 
-Browse to the deployed web app using your web browser.
+Browse to the deployed app using your web browser.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -325,7 +326,7 @@ Find the `<td>` element that contains the `asp-action` tag helpers. Just above t
 
 ```csharp
 <td>
-    @Html.DisplayFor(modelItem => item.CreatedDate)
+    @Html.DisplayFor(modelItem => item.Done)
 </td>
 ```
 
@@ -349,21 +350,50 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to your Azure web app and try out the new functionality.
+Once the `git push` is complete, navigate to your Azure app and try out the new functionality.
 
-![Azure web app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
+![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
 All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database is not lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
 
-## Manage your Azure web app
+## Stream diagnostic logs
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#logging-in-azure) with two configuration changes:
 
-From the left menu, click **App Services**, then click the name of your Azure web app.
+- Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
 
-![Portal navigation to Azure web app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+> [!NOTE]
+> The project's log level is set to `Information` in *appsettings.json*.
+> 
 
-By default, the portal shows your web app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
+In App Service on Linux, apps are run inside a container from a default Docker image. You can access the console logs generated from within the container. To get the logs, first turn on container logging by running the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
+```
+
+Once container logging is turned on, watch the log stream by running the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
+
+```azurecli-interactive
+az webapp log tail --name <app_name> --resource-group myResourceGroup
+```
+
+Once log streaming has started, refresh the Azure app in the browser to get some web traffic. You can now see console logs piped to the terminal. If you don't see console logs immediately, check again in 30 seconds.
+
+To stop log streaming at anytime, type `Ctrl`+`C`.
+
+For more information on customizing the ASP.NET Core logs, see [Logging in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
+
+## Manage your Azure app
+
+Go to the [Azure portal](https://portal.azure.com) to see the app you created.
+
+From the left menu, click **App Services**, then click the name of your Azure app.
+
+![Portal navigation to Azure app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
+
+By default, the portal shows your app's **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform basic management tasks like browse, stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
 
 ![App Service page in Azure portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 
@@ -382,7 +412,7 @@ What you learned:
 > * Stream logs from Azure to your terminal
 > * Manage the app in the Azure portal
 
-Advance to the next tutorial to learn how to map a custom DNS name to your web app.
+Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 > [!div class="nextstepaction"]
-> [Map an existing custom DNS name to Azure Web Apps](../app-service-web-tutorial-custom-domain.md)
+> [Map an existing custom DNS name to Azure App Service](../app-service-web-tutorial-custom-domain.md)

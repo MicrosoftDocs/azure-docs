@@ -1,6 +1,6 @@
 ---
 title: Query on Azure IoT Hub message routing | Microsoft Docs
-description: Developer guide - Query synxtax for message routing on Azure IoT Hub.
+description: Developer guide - Query syntax for message routing on Azure IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -20,7 +20,7 @@ Message routing allows you to query on the message properties and message body a
 
 ## Message routing query based on message properties 
 
-The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperatbility across protocols. IoT Hub message assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names as IoT Hub device-to-cloud messaging is not case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
+The IoT Hub defines a [common format](iot-hub-devguide-messages-construct.md) for all device-to-cloud messaging for interoperability across protocols. IoT Hub message assumes the following JSON representation of the message. System properties are added for all users and identify content of the message. Users can selectively add application properties to the message. We recommend using unique property names as IoT Hub device-to-cloud messaging is not case-sensitive. For example, if you have multiple properties with the same name, IoT Hub will only send one of the properties.  
 
 ```json
 { 
@@ -50,7 +50,7 @@ System properties help identify contents and source of the messages.
 | -------- | ---- | ----------- |
 | contentType | string | The user specifies the content type of the message. To allow query on the message body, this value should be set application/JSON. |
 | contentEncoding | string | The user specifies the encoding type of the message. Allowed values are UTF-8, UTF-16, UTF-32 if the contentType is set to application/JSON. |
-| connectionDeviceId | string | This value is set by IoT Hub and identifies the source of the messages. This could be device telemetry messages, device twin change notifications, or device lifecycle events. This cannot be queried. |
+| iothub-connection-device-id | string | This value is set by IoT Hub and identifies the ID of the device. To query, use `$connectionDeviceId`. |
 | iothub-enqueuedtime | string | This value is set by IoT Hub and represents the actual time of enqueuing the message in UTC. To query, use `enqueuedTime`. |
 
 As described in the [IoT Hub Messages](iot-hub-devguide-messages-construct.md), there are additional system properties in a message. In addition to **contentType**, **contentEncoding**, and **enqueuedTime**, the **connectionDeviceId** and **connectionModuleId** can also be queried.

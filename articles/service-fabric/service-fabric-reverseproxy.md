@@ -4,7 +4,7 @@ description: Use Service Fabric's reverse proxy for communication to microservic
 services: service-fabric
 documentationcenter: .net
 author: BharatNarasimman
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
@@ -53,7 +53,7 @@ Instead of configuring the port of an individual service in Load Balancer, you c
 ![External communication][0]
 
 > [!WARNING]
-> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potenially presents serious vulnerabilities that can be exploited; for example:
+> When you configure the reverse proxy's port in Load Balancer, all microservices in the cluster that expose an HTTP endpoint are addressable from outside the cluster. This means that microservices meant to be internal may be discoverable by a determined malicious user. This potentially presents serious vulnerabilities that can be exploited; for example:
 >
 > * A malicious user may launch a denial of service attack by repeatedly calling an internal service that does not have a sufficiently hardened attack surface.
 > * A malicious user may deliver malformed packets to an internal service resulting in unintended behavior.
@@ -157,7 +157,7 @@ Service Fabric services that run within Docker Compose containers require a spec
 ## Next steps
 * [Set up and configure reverse proxy on a cluster](service-fabric-reverseproxy-setup.md).
 * [Set up forwarding to secure HTTP service with the reverse proxy](service-fabric-reverseproxy-configure-secure-communication.md)
-* [Diagose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
+* [Diagnose reverse proxy events](service-fabric-reverse-proxy-diagnostics.md)
 * See an example of HTTP communication between services in a [sample project on GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started).
 * [Remote procedure calls with Reliable Services remoting](service-fabric-reliable-services-communication-remoting.md)
 * [Web API that uses OWIN in Reliable Services](service-fabric-reliable-services-communication-webapi.md)

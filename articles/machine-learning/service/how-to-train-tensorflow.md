@@ -1,24 +1,26 @@
 ---
-title: Train TensorFlow models with Azure Machine Learning
-description: Learn how to run single-node and distributed training of TensorFlow models with the TensorFlow estimator
+title: Train models with TensorFlow & Keras
+titleSuffix: Azure Machine Learning service
+description: Learn how to run single-node and distributed training of TensorFlow and Keras models with the TensorFlow and Keras estimators
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 02/21/2019
+ms.custom: seodec18
 ---
 
-# How to train TensorFlow models
+# Train TensorFlow and Keras models with Azure Machine Learning service
 
-For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's `TensorFlow` estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
+For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 
 ## Single-node training
 Training with the `TensorFlow` estimator is similar to using the [base `Estimator`](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
   
-To run a TensorFlow job, instantiate a `TensorFlow` object. You should have already created your [compute target](how-to-set-up-training-targets.md#batch) object `compute_target`.
+To run a TensorFlow job, instantiate a `TensorFlow` object. You should have already created your [compute target](how-to-set-up-training-targets.md#amlcompute) object `compute_target`.
 
 ```Python
 from azureml.train.dnn import TensorFlow
@@ -32,7 +34,7 @@ tf_est = TensorFlow(source_directory='./my-tf-proj',
                     script_params=script_params,
                     compute_target=compute_target,
                     entry_script='train.py',
-                    conda_packages=['scikit-learn'],
+                    conda_packages=['scikit-learn'], # in case you need scikit-learn in train.py
                     use_gpu=True)
 ```
 
@@ -42,7 +44,7 @@ Parameter | Description
 --|--
 `source_directory` | Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
 `script_params` | Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
-`compute_target` | Remote compute that your training script will run on, in this case a [Batch AI](how-to-set-up-training-targets.md#batch) cluster
+`compute_target` | Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` | Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages` | List of Python packages to be installed via conda needed by your training script. In this case training script uses `sklearn` for loading the data, so specify this package to be installed.  The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
 `use_gpu` | Set this flag to `True` to leverage the GPU for training. Defaults to `False`.
@@ -53,6 +55,21 @@ Then, submit the TensorFlow job:
 ```Python
 run = exp.submit(tf_est)
 ```
+
+## Keras support
+[Keras](https://keras.io/) is a popular high-level DNN Python API that supports TensorFlow, CNTK, or Theano as backends. If you use TensorFlow as backend, you can easily use the TensFlow estimator to train a Keras model. Here is an example of a TensorFlow estimator with Keras added to it:
+
+```Python
+from azureml.train.dnn import TensorFlow
+
+keras_est = TensorFlow(source_directory='./my-keras-proj',
+                       script_params=script_params,
+                       compute_target=compute_target,
+                       entry_script='keras_train.py',
+                       pip_packages=['keras'], # just add keras through pip
+                       use_gpu=True)
+```
+The above TensorFlow estimator constructor instructs Azure Machine Learning service to install Keras through pip to the execution environment. And your `keras_train.py` can then import Keras API to train a Keras model. For a complete example, explore [this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## Distributed training
 The TensorFlow Estimator also enables you to train your models at scale across CPU and GPU clusters of Azure VMs. You can easily run distributed TensorFlow training with a few API calls, while Azure Machine Learning will manage behind the scenes all the infrastructure and orchestration needed to carry out these workloads.
@@ -85,11 +102,11 @@ Parameter | Description | Default
 --|--|--
 `node_count` | Number of nodes to use for your training job. | `1`
 `process_count_per_node` | Number of processes (or "workers") to run on each node.|`1`
-`distributed_backend` | Backend for launching distributed training, which the Estimator offers via MPI. If you want to carry out parallel or distributed training (e.g. `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/). | `None`
+`distributed_backend` | Backend for launching distributed training, which the Estimator offers via MPI. If you want to carry out parallel or distributed training (for example, `node_count`>1 or `process_count_per_node`>1 or both) with MPI (and Horovod), set `distributed_backend='mpi'`. The MPI implementation used by Azure Machine Learning is [Open MPI](https://www.open-mpi.org/). | `None`
 
 The above example will run distributed training with two workers, one worker per node.
 
-Horovod and its dependencies will be installed for you, so you can simply import it in your training script `train.py` as follows:
+Horovod and its dependencies will be installed for you, so you can import it in your training script `train.py` as follows:
 
 ```Python
 import tensorflow as tf
@@ -143,7 +160,7 @@ TF_CONFIG='{
 }'
 ```
 
-If you are using TensorFlow's high-level [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow will parse this `TF_CONFIG` variable and build the cluster spec for you. 
+If you are using TensorFlow's high level [`tf.estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator) API, TensorFlow will parse this `TF_CONFIG` variable and build the cluster spec for you. 
 
 If you are instead using TensorFlow's lower-level core APIs for training, you need to parse the `TF_CONFIG` variable and build the `tf.train.ClusterSpec` yourself in your training code. In [this example](https://aka.ms/aml-notebook-tf-ps), you would do so in **your training script** as follows:
 
@@ -165,16 +182,8 @@ run = exp.submit(tf_est)
 ```
 
 ## Examples
-For a tutorial on single-node TensorFlow training, see:
-* [training/03.train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb)
 
-For a tutorial on distributed TensorFlow with Horovod, see:
-* [training/04.distributed-tensorflow-with-horovod](https://github.com/Azure/MachineLearningNotebooks/tree/master/training/04.distributed-tensorflow-with-horovod)
-
-For a tutorial on native distributed TensorFlow, see:
-* [training/05.distributed-tensorflow-with-parameter-server](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/05.distributed-tensorflow-with-parameter-server)
-
-Get these notebooks:
+Explore various [notebooks on distributed deep learning on Github](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

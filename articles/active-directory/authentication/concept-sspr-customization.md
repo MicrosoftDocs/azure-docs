@@ -1,18 +1,19 @@
 ---
-title: Customizing Azure AD self-service password reset
+title: Customizing Azure AD self-service password reset - Azure Active Directory
 description: Customization options for Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Customize the Azure AD functionality for self-service password reset
 
@@ -22,12 +23,12 @@ IT professionals who want to deploy self-service password reset (SSPR) in Azure 
 
 Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it either:
 
-   * Emails your administrators and asks them for assistance in changing the user's password.
-   * Sends your users to a URL that you specify for assistance.
+* Emails your administrators and asks them for assistance in changing the user's password.
+* Sends your users to a URL that you specify for assistance.
 
 We recommend that you set this contact to something like an email address or website that your users already use for support questions.
 
-![Contact][Contact]
+![Sample request to reset email sent to Administrator][Contact]
 
 The contact email is sent to the following recipients in the following order:
 
@@ -64,8 +65,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the `whr` parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
-    * By passing the `username` parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
+   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
+   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 

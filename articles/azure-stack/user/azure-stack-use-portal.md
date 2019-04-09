@@ -11,9 +11,10 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 02/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
+ms.lastreviewed: 01/25/2019
 
 ---
 # Use the Azure Stack portal
@@ -28,12 +29,17 @@ Your Azure Stack operator (either a service provider or an administrator in your
 
 - For an integrated system, the URL varies based on your operator's region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
 - If you're using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
-
-![Screen capture of the Azure Stack user portal](media/azure-stack-use-portal/UserPortal.png)
+- The default time zone for all Azure Stack deployments is set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
 
 ## Customize the dashboard
 
 The dashboard contains a default set of tiles. You can select **Edit dashboard** to modify the default dashboard, or select **New dashboard** to create a custom dashboard. You can easily customize a dashboard by adding or removing tiles. For example, to add a Compute tile, select **+ Create a resource**. Right-click **Compute**, and then select **Pin to dashboard**.
+
+![Screen capture of the Azure Stack user portal](media/azure-stack-use-portal/userportal.png)
+
+To restore the dashboard to the original settings:
+1.  Select **Edit Dashboard**. 
+2.  Right-click and select **Reset to default state**.
 
 ## Create subscription and browse available resources
 

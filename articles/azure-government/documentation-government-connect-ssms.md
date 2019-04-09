@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/10/2018
+ms.date: 02/07/2019
 ms.author: yujhong
 ---
 
@@ -33,7 +33,7 @@ If you don't have an Azure Government subscription, create a [free account](http
 
 Before you connect to Azure Government from SSMS, you must set up an Azure SQL Server firewall rule to allow your local IP address to access your computer that's running SQL Server. 
 
-Follow these steps to [Manage firewall rules by using the Azure portal](../sql-database/sql-database-firewall-configure.md#manage-firewall-rules-using-the-azure-portal). 
+Follow these steps to [Manage firewall rules by using the Azure portal](../sql-database/sql-database-firewall-configure.md#manage-server-level-ip-firewall-rules-using-the-azure-portal). 
 
 ## Specify Azure Government as the environment to connect
 

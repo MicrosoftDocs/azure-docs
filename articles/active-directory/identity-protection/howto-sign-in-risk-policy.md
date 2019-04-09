@@ -4,20 +4,21 @@ description: Learn how to configure the Azure AD Identity Protection sign-in ris
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.date: 03/14/2019
+ms.author: joflore
+ms.reviewer: sahandle
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Configure the sign-in risk policy
@@ -74,7 +75,7 @@ However, for security reasons, this setting only works for users that have alrea
 
 If you want to require MFA for risky sign-ins, you should:
 
-1. Enable the [multi-factor authentication registration policy](#multi-factor-authentication-registration-policy) for the affected users.
+1. Enable the [multi-factor authentication registration policy](howto-mfa-policy.md) for the affected users.
 
 2. Require the affected users to sign in to a non-risky session to perform an MFA registration.
 

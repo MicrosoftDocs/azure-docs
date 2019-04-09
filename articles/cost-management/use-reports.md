@@ -1,18 +1,18 @@
 ---
 title: Use Cloudyn reports in Azure | Microsoft Docs
-description: This article describes how to use various reports in the Cloudyn portal.
+description: This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal to help you effectively use them.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
-ms.custom:
+manager: benshy
+ms.custom: seodec18
 ---
 
-# Use Cloudyn reports
+# Reports available in the Cloudyn portal
 
 This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
 
@@ -24,7 +24,7 @@ There are three types of Cloudyn reports:
 
 - Over-time reports. For example, the Cost Over Time report. Over-time reports show a time series of data over a selected interval with a predefined resolution and show a weekly resolution for last two months. You can use grouping and filtering to zoom in to various data points.
   - Over-time reports can help you view trends and detect spikes or anomalies.
-- Analysis reports. For example, the Cost Analysis repot. These reports show aggregated data over a period that you define and allow grouping and filtering on the data.
+- Analysis reports. For example, the Cost Analysis report. These reports show aggregated data over a period that you define and allow grouping and filtering on the data.
   - Analysis reports can help you view spikes and determine anomaly root-causes and to show you a granular break-down of your data.
 - Tabular reports. You can view any report as a table, but some reports are viewed only as a table. These reports provide you detailed lists of items.
   - Recommendations are tabular reports—there are no visualizations for recommendations. However, you can visualize recommendation results. For example, savings over time.
@@ -54,11 +54,11 @@ Dashboards in Cloudy provide a high-level view of reports. Dashboards are made u
 
 ## Budget information in reports
 
-Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget settings](#budget-settings).
+Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget Management settings](#budget-management-settings).
 
 ## Reports and reporting features
 
-Clouydn includes the following reports and reporting features.
+Cloudyn includes the following reports and reporting features.
 
 ### Cost Navigator report
 

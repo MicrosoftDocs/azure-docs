@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -35,8 +35,10 @@ Server administrators must be a valid user or security group in the Azure Active
 
 ## PowerShell
 
-Use [New-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
-Use [Set-AzureRmAnalysisServicesServer](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Use [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver) cmdlet to specify the Administrator parameter when creating a new server. <br>
+Use [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) cmdlet to modify the Administrator parameter for an existing server.
 
 ## REST API
 

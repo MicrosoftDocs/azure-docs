@@ -1,5 +1,5 @@
 ---
-title: Manage Web App for Containers using Azure CLI | Microsoft Docs
+title: Manage Web App for Containers using Azure CLI - Azure App Service | Microsoft Docs
 description: Manage Web App for Containers using Azure CLI.
 keywords: azure app service, web app, cli, linux, oss
 services: app-service
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
+ms.custom: seodec18
 
 ---
 # Manage Web App for Containers using Azure CLI
@@ -103,5 +104,5 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 * [What is Azure App Service on Linux?](app-service-linux-intro.md)
 * [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (Preview)](../../cloud-shell/overview.md)
-* [Set up staging environments in Azure App Service](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+* [Set up staging environments in Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Continuous Deployment with Web App for Containers](app-service-linux-ci-cd.md)

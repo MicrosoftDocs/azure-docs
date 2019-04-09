@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with The Cloud Security Fabric | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and The Cloud Security Fabric.
 services: active-directory
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with The Cloud Security Fabric
 
@@ -105,12 +106,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![The Cloud Security Fabric Domain and URLs single sign-on information](./media/ciscocloudlock-tutorial/tutorial_ciscocloudlock_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL:
+
 	| |
 	|--|
 	| `https://platform.cloudlock.com` |
 	| `https://app.cloudlock.com` |
 
 	b. In the **Identifier** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://platform.cloudlock.com/gate/saml/sso/<subdomain>` |

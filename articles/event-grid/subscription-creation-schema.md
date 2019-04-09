@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: reference
-ms.date: 05/02/2018
+ms.date: 01/02/2019
 ms.author: babanisa
 ---
 
@@ -25,7 +25,7 @@ For example, to create an event subscription for a storage account named `exampl
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-The article describes the properties and schema for the body of the request.
+The Event Subscription name must be 3-64 characters in length and can only contain a-z, A-Z, 0-9, and "-". The article describes the properties and schema for the body of the request.
  
 ## Event subscription properties
 

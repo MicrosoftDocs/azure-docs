@@ -1,19 +1,20 @@
 ---
-title: Publish your LUIS app to the prediction endpoint
-titleSuffix: Azure Cognitive Services 
+title: Publish app
+titleSuffix: Language Understanding - Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
+ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 01/08/2019
 ms.author: diberry
 ---
 
-# Publish your trained app
+# Publish your active, trained app to a staging or production endpoint
 
 When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
 
@@ -33,7 +34,7 @@ The app is published to all regions associated with the LUIS resources added in 
 
 When your app is successfully published, a green success notification appears at the top of the browser. The green notification bar also includes a link to the endpoints. 
 
-![Publishing pop-up window](./media/luis-how-to-publish-app/publish-success.png)
+![Publishing pop-up window with link to endpoint](./media/luis-how-to-publish-app/publish-success.png)
 
 If you need the endpoint URL, select the link. You can also get to the endpoint URLs by selecting **Manage** in the top menu, then select **Keys and Endpoints** in the left menu. 
 
@@ -51,14 +52,12 @@ Sentiment analysis allows LUIS to integrate with [Text Analytics](https://azure.
 
 You do not have to provide a Text Analytics key and there is no billing charge for this service to your Azure account. Once you check this setting, it is persistent. 
 
-Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data.
+Sentiment data is a score between 1 and 0 indicating the positive (closer to 1) or negative (closer to 0) sentiment of the data. The sentiment label of `positive`, `neutral`, and `negative` is per supported culture. Currently, only English supports sentiment labels. 
 
 For more information about the JSON endpoint response with sentiment analysis, see [Sentiment analysis](luis-concept-data-extraction.md#sentiment-analysis)
 
-
-
 ## Next steps
 
-* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
+* See [Manage keys](./luis-how-to-azure-subscription.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
 * See [Train and test your app](luis-interactive-test.md) for instructions on how to test your published app in the test console.
 

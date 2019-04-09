@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 06/11/2018
+ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
 
@@ -63,7 +63,7 @@ To set up a security policy for an entire subscription:
 
 1. On the Security Center dashboard, select **Security policy** and then select your subscription.
 2. On the **Security policy** blade, select **Security policy**. 
-3. On the ** Security policy - Security policy ** blade, turn on or turn off policy items that you want to apply to the subscription.
+3. On the **Security policy - Security policy** blade, turn on or turn off policy items that you want to apply to the subscription.
 4. When you're finished selecting your settings, select **Save** at the top of the blade. 
 
 
@@ -105,7 +105,7 @@ As recommendations are remediated, they are marked as resolved.
 
 In addition to resource configuration recommendations, Security Center displays threat detection alerts. The security alerts feature aggregates data collected from each VM, Azure networking logs, and connected partner solutions to detect security threats against Azure resources. For in-depth information about Security Center threat detection capabilities, see [Azure Security Center detection capabilities](../../security-center/security-center-detection-capabilities.md).
 
-The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A 60-day **free trial** is available when you move to this higher pricing tier. 
+The security alerts feature requires the Security Center pricing tier to be increased from *Free* to *Standard*. A **free trial** is available when you move to this higher pricing tier. 
 
 To change the pricing tier:  
 
@@ -131,7 +131,7 @@ In this tutorial, you set up Azure Security Center, and then reviewed VMs in Sec
 > * View and fix configuration health issues
 > * Review detected threats
 
-Advance to the next tutorial to learn how to create a CI/CD pipeline with Azure DevOps Services and a Windows VM running IIS.
+Advance to the next tutorial to learn how to install a SQL&#92;IIS&#92;.NET stack on a pair of Windows VMs.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [SQL&#92;IIS&#92;.NET stack](tutorial-iis-sql.md)

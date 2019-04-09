@@ -3,9 +3,9 @@ title: Azure Service Bus messages, payloads, and serialization | Microsoft Docs
 description: Overview of Service Bus message payloads
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2018
-ms.author: spelluru
+ms.author: aschhab
 
 ---
 
@@ -25,7 +25,7 @@ The object model of the official Service Bus clients for .NET and Java reflect t
  
 A Service Bus message consists of a binary payload section that Service Bus never handles in any form on the service-side, and two sets of properties. The *broker properties* are predefined by the system. These predefined properties either control message-level functionality inside the broker, or they map to common and standardized metadata items. The *user properties* are a collection of key-value pairs that can be defined and set by the application.
  
-The predefined broker properties are listed in the following table. The names are used with all official client APIs and also in the [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Properties_) JSON object of the HTTP protocol mapping.
+The predefined broker properties are listed in the following table. The names are used with all official client APIs and also in the [BrokerProperties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) JSON object of the HTTP protocol mapping.
  
 The equivalent names used at the AMQP protocol level are listed in parentheses. 
 

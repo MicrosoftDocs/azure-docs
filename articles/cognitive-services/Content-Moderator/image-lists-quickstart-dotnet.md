@@ -4,10 +4,10 @@ titlesuffix: Azure Cognitive Services
 description: How to moderate images with custom image lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/10/2018
 ms.author: sajagtap

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,6 +17,7 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Tenancy in Azure Active Directory
@@ -25,7 +26,7 @@ Azure Active Directory (Azure AD) organizes objects like users and apps into gro
 
 ## Who can sign in to your app?
 
-When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration in the [Azure portal](http://portal.azure.com).
+When it comes to developing apps, developers can choose to configure their app to be either single-tenant or multi-tenant during app registration in the [Azure portal](https://portal.azure.com).
 * Single-tenant apps are only available in the tenant they were registered in, also known as their home tenant.
 * Multi-tenant apps are available to users in both their home tenant and other tenants.
 

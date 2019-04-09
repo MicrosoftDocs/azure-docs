@@ -19,6 +19,8 @@ This article describes how to manage Azure Data Lake Analytics accounts, data so
 
 ## Prerequisites
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 To use PowerShell with Data Lake Analytics, collect the following pieces of information: 
 
 * **Subscription ID**: The ID of the Azure subscription that contains your Data Lake Analytics account.
@@ -45,22 +47,22 @@ Log in using a subscription ID or by subscription name
 
 ```powershell
 # Using subscription id
-Connect-AzureRmAccount -SubscriptionId $subId
+Connect-AzAccount -SubscriptionId $subId
 
 # Using subscription name
-Connect-AzureRmAccount -SubscriptionName $subname 
+Connect-AzAccount -SubscriptionName $subname 
 ```
 
 ## Saving authentication context
 
-The `Connect-AzureRmAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
+The `Connect-AzAccount` cmdlet always prompts for credentials. You can avoid being prompted by using the following cmdlets:
 
 ```powershell
 # Save login session information
-Save-AzureRmProfile -Path D:\profile.json  
+Save-AzAccounts -Path D:\profile.json  
 
 # Load login session information
-Select-AzureRmProfile -Path D:\profile.json 
+Select-AzAccounts -Path D:\profile.json 
 ```
 
 ### Log in using a Service Principal Identity (SPI)
@@ -72,7 +74,7 @@ $spi_appid = "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 $spi_secret = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" 
 
 $pscredential = New-Object System.Management.Automation.PSCredential ($spi_appid, (ConvertTo-SecureString $spi_secret -AsPlainText -Force))
-Login-AzureRmAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
+Login-AzAccount -ServicePrincipal -TenantId $tenantid -Credential $pscredential -Subscription $subid
 ```
 
 ## Manage accounts
@@ -332,7 +334,7 @@ $policies = Get-AdlAnalyticsComputePolicy -Account $adla
 The `New-AdlAnalyticsComputePolicy` cmdlet creates a new compute policy for a Data Lake Analytics account. This example sets the maximum AUs available to the specified user to 50, and the minimum job priority to 250.
 
 ```powershell
-$userObjectId = (Get-AzureRmAdUser -SearchString "garymcdaniel@contoso.com").Id
+$userObjectId = (Get-AzAdUser -SearchString "garymcdaniel@contoso.com").Id
 
 New-AdlAnalyticsComputePolicy -Account $adla -Name "GaryMcDaniel" -ObjectId $objectId -ObjectType User -MaxDegreeOfParallelismPerJob 50 -MinPriorityPerJob 250
 ```
@@ -477,10 +479,10 @@ Set-AdlAnalyticsAccount -Name $adla -FirewallState Disabled
 
 ## Working with Azure
 
-### Get details of AzureRm errors
+### Get error details
 
 ```powershell
-Resolve-AzureRmError -Last
+Resolve-AzError -Last
 ```
 
 ### Verify if you are running as an Administrator on your Windows machine
@@ -499,26 +501,26 @@ function Test-Administrator
 From a subscription name:
 
 ```powershell
-function Get-TenantIdFromSubcriptionName( [string] $subname )
+function Get-TenantIdFromSubscriptionName( [string] $subname )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionName $subname)
+    $sub = (Get-AzSubscription -SubscriptionName $subname)
     $sub.TenantId
 }
 
-Get-TenantIdFromSubcriptionName "ADLTrainingMS"
+Get-TenantIdFromSubscriptionName "ADLTrainingMS"
 ```
 
 From a subscription ID:
 
 ```powershell
-function Get-TenantIdFromSubcriptionId( [string] $subid )
+function Get-TenantIdFromSubscriptionId( [string] $subid )
 {
-    $sub = (Get-AzureRmSubscription -SubscriptionId $subid)
+    $sub = (Get-AzSubscription -SubscriptionId $subid)
     $sub.TenantId
 }
 
 $subid = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-Get-TenantIdFromSubcriptionId $subid
+Get-TenantIdFromSubscriptionId $subid
 ```
 
 From a domain address such as "contoso.com"
@@ -537,7 +539,7 @@ Get-TenantIdFromDomain $domain
 ### List all your subscriptions and tenant IDs
 
 ```powershell
-$subs = Get-AzureRmSubscription
+$subs = Get-AzSubscription
 foreach ($sub in $subs)
 {
     Write-Host $sub.Name "("  $sub.Id ")"

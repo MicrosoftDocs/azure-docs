@@ -4,18 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: Learn how to page through search results from the Bing Web Search API.
 services: cognitive-services
 author: swhite-msft
-manager: cgronlun
+manager: nitinme
 ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # How to page through results from the Bing Web Search API
 
-When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) field.  
+When you call the Web Search API, Bing returns a list of results. The list is a subset of the total number of results that may be relevant to the query. To get the estimated total number of available results, access the answer object's [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) field.  
 
 The following example shows the `totalEstimatedMatches` field that a Web answer includes.  
 
@@ -56,4 +56,7 @@ Host: api.cognitive.microsoft.com
 
 The Web Search API returns results that include webpages and may include images, videos, and news. When you page the search results, you are paging the [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) answer and not the other answers such as images or news. For example, if you set `count` to 50, you get back 50 webpage results, but the response may include results for the other answers as well. For example, the response may include 15 images and 4 news articles. It is also possible that the results may include news on the first page but not the second page, or vice versa.   
 
-If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters.  
+If you specify the `responseFilter` query parameter and do not include Webpages in the filter list, don't use the `count` and `offset` parameters. 
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

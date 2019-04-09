@@ -4,7 +4,7 @@ description: Lists the different virtual machine sizes (and IDs) for Azure cloud
 services: cloud-services
 documentationcenter: ''
 author: jpconnock
-manager: timlt
+manager: jpconnock
 editor: ''
 
 ms.assetid: 1127c23e-106a-47c1-a2e9-40e6dda640f6
@@ -191,7 +191,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 ## Configure sizes for Cloud Services
 You can specify the Virtual Machine size of a role instance as part of the service model described by the [service definition file](cloud-services-model-and-package.md#csdef). The size of the role determines the number of CPU cores, the memory capacity, and the local file system size that is allocated to a running instance. Choose the role size based on your application's resource requirement.
 
-Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
+Here is an example for setting the role size to be Standard_D2 for a Web Role instance:
 
 ```xml
 <WorkerRole name="Worker1" vmsize="Standard_D2">
@@ -201,7 +201,7 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 
 ## Changing the size of an existing role
 
-As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it. It is not possible to change VM sizes directly from the portal or PowerShell.
+As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it.
 
 >[!TIP]
 > You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?](cloud-services-model-and-package.md)
@@ -209,7 +209,7 @@ As the nature of your workload changes or new VM sizes become available, you may
 >
 
 ## Get a list of sizes
-You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](https://msdn.microsoft.com/library/azure/dn469422.aspx). The following code is a PowerShell command that will list all the sizes avaialble for Cloud Services. 
+You can use PowerShell or the REST API to get a list of sizes. The REST API is documented [here](/previous-versions/azure/reference/dn469422(v=azure.100)). The following code is a PowerShell command that will list all the sizes available for Cloud Services. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

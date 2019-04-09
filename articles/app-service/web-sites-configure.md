@@ -1,6 +1,6 @@
 ---
-title: Configure web apps in Azure App Service
-description: How to configure a web app in Azure App Services
+title: Configure apps - Azure App Service
+description: How to configure an app in Azure App Service
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -15,17 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
+ms.custom: seodec18
 
 ---
-# Configure web apps in Azure App Service
+# Configure apps in Azure App Service
 
-This topic explains how to configure a web app using the [Azure Portal].
-
-[!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
+This topic explains how to configure a web app, mobile back end, or API app using the [Azure Portal].
 
 ## Application settings
-1. In the [Azure Portal], open the blade for the web app.
-3. Click **Application settings**.
+1. In the [Azure Portal], open the blade for the app.
+2. Click **Application settings**.
 
 ![Application Settings][configure01]
 
@@ -42,14 +41,14 @@ The **Application settings** blade has settings grouped under several categories
 For technical reasons, enabling Java for your app disables the .NET, PHP, and Python options.
 
 <a name="platform"></a>
-**Platform**. Selects whether your web app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard tier. Free and Shared tier always run in a 32-bit environment.
+**Platform**. Selects whether your app runs in a 32-bit or 64-bit environment. The 64-bit environment requires Basic or Standard tier. Free and Shared tier always run in a 32-bit environment.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-**Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your web app uses [ASP.NET SignalR] or [socket.io](https://socket.io/).
+**Web Sockets**. Set **ON** to enable the WebSocket protocol; for example, if your app uses [ASP.NET SignalR] or [socket.io](https://socket.io/).
 
 <a name="alwayson"></a>
-**Always On**. By default, web apps are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable **Always On** to keep the app loaded all the time. If your app runs continuous WebJobs or runs WebJobs triggered using a CRON expression, you should enable **Always On**, or the web jobs may not run reliably.
+**Always On**. By default, apps are unloaded if they are idle for some period of time. This lets the system conserve resources. In Basic or Standard mode, you can enable **Always On** to keep the app loaded all the time. If your app runs continuous WebJobs or runs WebJobs triggered using a CRON expression, you should enable **Always On**, or the web jobs may not run reliably.
 
 **Managed Pipeline Version**. Sets the IIS [pipeline mode]. Leave this set to Integrated (the default) unless you have a legacy app that requires an older version of IIS.
 
@@ -60,19 +59,21 @@ For technical reasons, enabling Java for your app disables the .NET, PHP, and Py
 
 **ARR Affinity**. In an app that's scaled out to multiple VM instances, ARR Affinity cookies guarantee that the client is routed to the same instance for the life of the session. To improve the performance of stateless applications, set this option to **Off**.   
 
-**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the web app into production when you push an update to that slot. For more information, see [Deploy to staging slots for web apps in Azure App Service](web-sites-staged-publishing.md).
+**Auto Swap**. If you enable Auto Swap for a deployment slot, App Service will automatically swap the app into production when you push an update to that slot. For more information, see [Deploy to staging slots for apps in Azure App Service](deploy-staging-slots.md).
 
 ### Debugging
-**Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your web app. Remote debugging will remain enabled for 48 hours. 
+**Remote Debugging**. Enables remote debugging. When enabled, you can use the remote debugger in Visual Studio to connect directly to your app. Remote debugging will remain enabled for 48 hours. 
 
 ### App settings
-This section contains name/value pairs that your web app will load on start up. 
+This section contains name/value pairs that your app will load on start up. 
 
 * For .NET apps, these settings are injected into your .NET configuration `AppSettings` at runtime, overriding existing settings. 
 * For App Service on Linux or Web App for Containers, if you have nested json key structure in your name like `ApplicationInsights:InstrumentationKey` you will need to have `ApplicationInsights__InstrumentationKey` as key name. So notice that any `:` should be replaced by `__` (i.e. double underscore).
 * PHP, Python, Java and Node applications can access these settings as environment variables at runtime. For each app setting, two environment variables are created; one with the name specified by the app setting entry, and another with a prefix of APPSETTING_. Both contain the same value.
 
 App settings are always encrypted when stored (encrypted-at-rest).
+
+App settings can be resolved from Key Vault using [Key Vault references](app-service-key-vault-references.md).
 
 ### Connection strings
 Connection strings for linked resources. 
@@ -90,10 +91,12 @@ For example, if a MySql connection string were named `connectionstring1`, it wou
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
+Connection strings can be resolved from Key Vault using [Key Vault references](app-service-key-vault-references.md).
+
 ### Default documents
 The default document is the web page that is displayed at the root URL for a website.  The first matching file in the list is used. 
 
-Web apps might use modules that route based on URL, rather than serving static content, in which case there is no default document as such.    
+Apps might use modules that route based on URL, rather than serving static content, in which case there is no default document as such.    
 
 ### Handler mappings
 Use this area to add custom script processors to handle requests for specific file extensions. 
@@ -108,7 +111,7 @@ To configure virtual applications and directories, specify each virtual director
 ## Enabling diagnostic logs
 To enable diagnostic logs:
 
-1. In the blade for your web app, click **All settings**.
+1. In the blade for your app, click **All settings**.
 2. Click **Diagnostic logs**. 
 
 Options for writing diagnostic logs from a web application that supports logging: 
@@ -125,31 +128,31 @@ Options for writing diagnostic logs from a web application that supports logging
 
 To view the log files, you must create FTP credentials, as follows:
 
-1. In the blade for your web app, click **All settings**.
+1. In the blade for your app, click **All settings**.
 2. Click **Deployment credentials**.
 3. Enter a user name and password.
 4. Click **Save**.
 
 ![Set deployment credentials][configure03]
 
-The full FTP user name is “app\username” where *app* is the name of your web app. The username is listed in the web app blade, under **Essentials**.
+The full FTP user name is “app\username” where *app* is the name of your app. The username is listed in the app blade, under **Essentials**.
 
 ![FTP deployment credentials][configure02]
 
 ## Other configuration tasks
 ### SSL
-In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for a web app](app-service-web-tutorial-custom-ssl.md). 
+In Basic or Standard mode, you can upload SSL certificates for a custom domain. For more information, see [Enable HTTPS for an app](app-service-web-tutorial-custom-ssl.md). 
 
 To view your uploaded certificates, click **All Settings** > **Custom domains and SSL**.
 
 ### Domain names
-Add custom domain names for your web app. For more information, see [Configure a custom domain name for a web app in Azure App Service](app-service-web-tutorial-custom-domain.md).
+Add custom domain names for your app. For more information, see [Configure a custom domain name for an app in Azure App Service](app-service-web-tutorial-custom-domain.md).
 
 To view your domain names, click **All Settings** > **Custom domains and SSL**.
 
 ### Deployments
-* Set up continuous deployment. See [Using Git to deploy Web Apps in Azure App Service](app-service-deploy-local-git.md).
-* Deployment slots. See [Deploy to Staging Environments for Web Apps in Azure App Service].
+* Set up continuous deployment. See [Using Git to deploy apps in Azure App Service](deploy-local-git.md).
+* Deployment slots. See [Deploy to Staging Environments for Azure App Service].
 
 To view your deployment slots, click **All Settings** > **Deployment slots**.
 
@@ -158,29 +161,24 @@ In Basic or Standard mode, you can  test the availability of HTTP or HTTPS endpo
 
 For more information, see [How to: Monitor web endpoint status].
 
-> [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service], where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
-> 
-> 
-
 ## Next steps
 * [Configure a custom domain name in Azure App Service]
 * [Enable HTTPS for an app in Azure App Service]
-* [Scale a web app in Azure App Service]
-* [Monitoring basics for Web Apps in Azure App Service]
+* [Scale an app in Azure App Service]
+* [Monitoring basics in Azure App Service]
+* [Change applicationHost.config settings with applicationHost.xdt](https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples)
 
 <!-- URL List -->
 
-[ASP.NET SignalR]: http://www.asp.net/signalr
+[ASP.NET SignalR]: https://www.asp.net/signalr
 [Azure Portal]: https://portal.azure.com/
 [Configure a custom domain name in Azure App Service]: ./app-service-web-tutorial-custom-domain.md
-[Deploy to Staging Environments for Web Apps in Azure App Service]: ./web-sites-staged-publishing.md
+[Deploy to Staging Environments for Azure App Service]: ./deploy-staging-slots.md
 [Enable HTTPS for an app in Azure App Service]: ./app-service-web-tutorial-custom-ssl.md
-[How to: Monitor web endpoint status]: http://go.microsoft.com/fwLink/?LinkID=279906
-[Monitoring basics for Web Apps in Azure App Service]: ./web-sites-monitor.md
-[pipeline mode]: http://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[Scale a web app in Azure App Service]: ./web-sites-scale.md
-[Try App Service]: https://azure.microsoft.com/try/app-service/
+[How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
+[Monitoring basics in Azure App Service]: ./web-sites-monitor.md
+[pipeline mode]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
+[Scale an app in Azure App Service]: ./web-sites-scale.md
 
 <!-- IMG List -->
 

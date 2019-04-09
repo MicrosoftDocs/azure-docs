@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Automate container image builds on base image update with Azure Container Registry Tasks
-description: In this tutorial, you learn how to configure a task to automatically trigger container image builds in the cloud when a base image is updated.
+title: Tutorial - Automate container image builds on base image update - Azure Container Registry Tasks
+description: In this tutorial, you learn how to configure an Azure Container Registry Task to automatically trigger container image builds in the cloud when a base image is updated.
 services: container-registry
 author: dlepow
 
@@ -8,13 +8,13 @@ ms.service: container-registry
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
-ms.custom: mvc
+ms.custom: "seodec18, mvc"
 # Customer intent: As a developer or devops engineer, I want container
 # images to be built automatically when the base image of a container is
 # updated in the registry.
 ---
 
-# Tutorial: Automate image builds on base image update with Azure Container Registry Tasks
+# Tutorial: Automate container image builds when a base image is updated in an Azure container registry 
 
 ACR Tasks supports automated build execution when a container's base image is updated, such as when you patch the OS or application framework in one of your base images. In this tutorial, you learn how to create a task in ACR Tasks that triggers a build in the cloud when a container's base image has been pushed to your registry.
 
@@ -77,6 +77,8 @@ This tutorial walks you through a base image update scenario. The [code sample][
 [Dockerfile-base][dockerfile-base]: The image that `Dockerfile-app` specifies as its base. It is itself based on a [Node][base-node] image, and includes the `NODE_VERSION` environment variable.
 
 In the following sections, you create a task, update the `NODE_VERSION` value in the base image Dockerfile, then use ACR Tasks to build the base image. When the ACR task pushes the new base image to your registry, it automatically triggers a build of the application image. Optionally, you run the application container image locally to see the different version strings in the built images.
+
+In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 ## Build the base image
 
@@ -143,7 +145,7 @@ Now, run the container locally with `docker run`. Replace **\<run-id\>** with th
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
+Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
 ![Screenshot of sample application rendered in browser][base-update-01]
 
@@ -255,11 +257,11 @@ In this tutorial, you learned how to use a task to automatically trigger contain
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli
 [az-acr-build]: /cli/azure/acr#az-acr-build-run
-[az-acr-task-create]: /cli/azure/acr#az-acr-task-create
-[az-acr-task-run]: /cli/azure/acr#az-acr-task-run
+[az-acr-task-create]: /cli/azure/acr
+[az-acr-task-run]: /cli/azure/acr#az-acr-run
 [az-acr-login]: /cli/azure/acr#az-acr-login
-[az-acr-task-list-runs]: /cli/azure/acr#az-acr-task-list-runs
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-task-list-runs]: /cli/azure/acr
+[az-acr-task]: /cli/azure/acr
 
 <!-- IMAGES -->
 [base-update-01]: ./media/container-registry-tutorial-base-image-update/base-update-01.png

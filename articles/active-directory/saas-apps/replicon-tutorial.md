@@ -9,7 +9,7 @@ ms.reviewer: joflore
 
 ms.assetid: 02a62f15-917c-417c-8d80-fe685e3fd601
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,6 +17,7 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Replicon
 
@@ -193,7 +194,7 @@ The objective of this section is to create a user called Britta Simon in Replico
 
     ![User profile](./media/replicon-tutorial/ic777808.png "User profile")
 
-	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon@contoso.com**.
+	a. In the **Login Name** textbox, type the Azure AD email address of the Azure AD user you want to provision like **BrittaSimon\@contoso.com**.
 
 	b. As **Authentication Type**, select **SSO**.
 

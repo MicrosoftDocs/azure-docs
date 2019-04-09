@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 
 ms.assetid: d2bc549d-d286-4679-854e-bb67c62b0475
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Cerner Central
 
@@ -115,6 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| `https://<instancename>.sandboxcernercentral.com/session-api/protocol/saml2/metadata` |
 	
     b. In the **Reply URL** textbox, type a URL using the following patterns:
+	
 	| |
 	|--|
 	| `https://<instancename>.cernercentral.com/session-api/protocol/saml2/sso` |

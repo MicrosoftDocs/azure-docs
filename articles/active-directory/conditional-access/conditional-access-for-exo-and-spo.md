@@ -3,21 +3,22 @@ title: Set up SharePoint Online and Exchange Online for Azure Active Directory c
 description: Learn how to set up SharePoint Online and Exchange Online for Azure Active Directory conditional access.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: mtillman
+author: MicrosoftGuyJFlo
+manager: daveba
 editor: ''
 
 ms.assetid: 62349fba-3cc0-4ab5-babe-372b3389eff6
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/15/2018
-ms.author: markvi
+ms.date: 02/27/2019
+ms.author: joflore
 ms.reviewer: calebb
 
+ms.collection: M365-identity-device-management
 ---
 
 # How To: Set up SharePoint Online and Exchange Online for Azure Active Directory conditional access 
@@ -73,7 +74,7 @@ When you set up conditional access policies for Exchange Online, you need to rev
 
 While Exchange Active Sync supports modern authentication, there are some limitations regarding the support for conditional access scenarios:
 
-- You can only configure the device platforms condition  
+- When selecting **Exchange Active Sync clients** in your policy, you can't configure other conditions.  
 
     ![Device platforms](./media/conditional-access-for-exo-and-spo/05.png)
 
@@ -89,7 +90,7 @@ To effectively protect access to Exchange Online from Exchange ActiveSync, you c
 
     ![Conditional access](./media/conditional-access-for-exo-and-spo/04.png)
 
-    b. Select **Exchange Active Sync** as **client app**, and then select **Apply policy only to supported platforms**.  
+    b. Select **Exchange Active Sync** as **client app**.  
 
     ![Device platforms](./media/conditional-access-for-exo-and-spo/03.png)
 

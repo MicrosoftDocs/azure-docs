@@ -3,8 +3,8 @@ title: Manage user data found in an Azure Security Center investigation | Micros
 description: " Learn how to manage user data found in Azure Security Center's investigation feature. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
-manager: MBaldwin
+author: rkarlin
+manager: barbkess
 editor: ''
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/23/2018
-ms.author: terrylan
+ms.date: 11/20/2018
+ms.author: rkarlin
 
 ---
 
 # Manage user data found in an Azure Security Center investigation
-This article provides information on how to manage the user data found in Azure Security Center's investigation feature. Investigation data is stored in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) and exposed in Security Center. Managing user data includes the ability to delete or export data.
+This article provides information on how to manage the user data found in Azure Security Center's investigation feature. Investigation data is stored in [Azure Monitor logs](../log-analytics/log-analytics-overview.md) and exposed in Security Center. Managing user data includes the ability to delete or export data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
@@ -55,3 +55,4 @@ A Security Center user assigned the role of Owner, Contributor, or Account Admin
 
 ## Next steps
 For more information about managing user data, see [Manage user data in Azure Security Center](security-center-privacy.md).
+To learn more about deleting private data in Azure Monitor logs, see [How to export and delete private data](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).

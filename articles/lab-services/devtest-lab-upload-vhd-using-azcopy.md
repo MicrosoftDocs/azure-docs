@@ -23,7 +23,7 @@ ms.author: spelluru
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
-The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [About disks and VHDs for virtual machines](../virtual-machines/linux/about-disks-and-vhds.md)
+The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file. For more information about disks and VHDs in Azure, see [Introduction to managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 > [!NOTE] 
 >  
@@ -31,11 +31,11 @@ The following steps walk you through using the AzCopy command-line utility to up
 
 ## Step-by-step instructions
 
-The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](http://aka.ms/downloadazcopy). 
+The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](https://aka.ms/downloadazcopy). 
 
 1. Get the name of the lab's storage account using the Azure portal:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 
@@ -64,7 +64,7 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 
 1. Upload the VHD file using AzCopy:
  
-1. [Download and install the latest version of AzCopy](http://aka.ms/downloadazcopy).
+1. [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy).
 
 1. Open a command window and navigate to the AzCopy installation directory. Optionally, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to the following directory:
 

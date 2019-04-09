@@ -5,11 +5,11 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: seodec18
+manager: benshy
 ---
 
 # Tutorial: Forecast future spending
@@ -32,11 +32,11 @@ Cloudyn includes cost projection reports to help you forecast spending based on 
 
 The Current Month Projected Cost report shows the costs of your services. It uses costs from the beginning of the month and the previous month to show the projected cost. On the reports menu at the top of the portal, click **Costs** > **Projection and Budget** > **Current Month Projected Cost**. The following image shows an example.
 
-![Current month projected cost](./media/tutorial-forecast-spending/project-month01.png)
+![Example information shown in the Current month projected cost report](./media/tutorial-forecast-spending/project-month01.png)
 
 In the example, you can see which services spent the most. Azure costs were lower than AWS costs. If you want to see cost projection details for Azure VMs, in the **Filter** list, select **Azure/VM**.
 
-![Azure VM current month projected cost](./media/tutorial-forecast-spending/project-month02.png)
+![Example showing the Azure VM current month projected cost](./media/tutorial-forecast-spending/project-month02.png)
 
 Follow the same basic preceding steps to look at monthly cost projections for other services you're interested in.
 
@@ -44,11 +44,11 @@ The Annual Projected Cost report shows the extrapolated cost of your services ov
 
 On the reports menu at the top of the portal, click **Costs** > **Projection and Budget** > **Annual Projected Cost**. The following image shows an example.
 
-![Annual projected cost report](./media/tutorial-forecast-spending/project-annual01.png)
+![Example showing the Annual projected cost report](./media/tutorial-forecast-spending/project-annual01.png)
 
 In the example, you can see which services spent the most. Like the monthly example, Azure costs were lower than AWS costs. If you want to see cost projection details for Azure VMs, in the **Filter** list, select **Azure/VM**.
 
-![Annual projected cost of VMs](./media/tutorial-forecast-spending/project-annual02.png)
+![Example showing the Annual projected cost of VMs](./media/tutorial-forecast-spending/project-annual02.png)
 
 In the image above, the annual projected cost of Azure VMs is $28,374.
 

@@ -58,7 +58,7 @@ In this section, you create a blob container named **adftutorial** in Azure Blob
    ![Enter container name](media/data-factory-quickstart-prerequisites/new-container-dialog.png)
 4. Select **adftutorial** in the list of containers. 
 
-   ![Select the container](media/data-factory-quickstart-prerequisites/seelct-adftutorial-container.png)
+   ![Select the container](media/data-factory-quickstart-prerequisites/select-adftutorial-container.png)
 5. On the **Container** page, select **Upload** on the toolbar.  
 
    ![Upload button](media/data-factory-quickstart-prerequisites/upload-toolbar-button.png)

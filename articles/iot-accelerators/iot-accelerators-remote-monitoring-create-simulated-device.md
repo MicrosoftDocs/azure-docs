@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/28/2018
+ms.date: 03/08/2019
 ms.topic: conceptual
 
 # As a developer, I want to know how to create and test a new simulated device before I deploy it to the cloud.
@@ -15,6 +15,9 @@ ms.topic: conceptual
 # Create and test a new simulated device
 
 The Remote Monitoring solution accelerator lets you define your own simulated devices. This article shows you how to define a new simulated lightbulb device and then test it locally. The solution accelerator includes simulated devices such as chillers and trucks. However, you can define your own simulated devices to test your IoT solutions before you deploy real devices.
+
+> [!NOTE]
+> This article describes how to use simulated devices hosted in the device simulation service. If you want to create a real device, see [Connect your device to the Remote Monitoring solution accelerator](iot-accelerators-connecting-devices.md).
 
 This how-to guide shows you how to customize the device simulation microservice. This microservice is part of the Remote Monitoring solution accelerator. To show the device simulation capabilities, this how-to guide uses two scenarios in the Contoso IoT application:
 

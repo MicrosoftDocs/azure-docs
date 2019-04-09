@@ -3,8 +3,6 @@ title: 'Tutorial: Design an Azure Database for MariaDB by using the Azure portal
 description: This tutorial explains how to create and manage an Azure Database for MariaDB server and database by using the Azure portal.
 author: ajlam
 ms.author: andrela
-editor: jasonwhowell
-services: mariadb
 ms.service: mariadb
 ms.topic: tutorial
 ms.date: 09/24/2018
@@ -25,6 +23,8 @@ In this tutorial, you use the Azure portal to learn how to:
 > * Query data
 > * Update data
 > * Restore data
+
+If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign in to the Azure portal
 
@@ -85,7 +85,7 @@ Get values for **Server name** (fully qualified) and **Server admin login name**
 
    ![Server properties](./media/tutorial-design-database-using-portal/2-server-properties.png)
 
-In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin@mydemoserver**.
+In our example, the server name is **mydemoserver.mariadb.database.azure.com** and the server admin login name is **myadmin\@mydemoserver**.
 
 ## Connect to the server by using mysql
 

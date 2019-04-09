@@ -3,8 +3,8 @@ title: Reliable Collection object serialization in Azure Service Fabric | Micros
 description: Azure Service Fabric Reliable Collections object serialization
 services: service-fabric
 documentationcenter: .net
-author: mcoskun
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: masnider,rajak
 
 ms.assetid: 9d35374c-2d75-4856-b776-e59284641956
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/8/2017
-ms.author: mcoskun
+ms.author: aljo
 
 ---
 # Reliable Collection object serialization in Azure Service Fabric
