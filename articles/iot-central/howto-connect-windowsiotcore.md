@@ -3,7 +3,7 @@ title: Connect a Windows IoT Core device to your Azure IoT Central application |
 description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
 author: miriambrus
 ms.author: miriamb
-ms.date: 04/09/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -19,42 +19,29 @@ This article describes how, as a device developer, to connect a Windows IoT Core
 To complete the steps in this article, you need the following:
 
 1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-2. A device running the Windows 10 IoT Core operating system. For this walkthrough, we will use a Raspberry Pi.
-
+2. A device running the Windows 10 IoT Core operating system. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
 ## **Sample Devkits** application
 
-An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics: 
+An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature** and **Pressure**. 
-- Settings showing **Fan Speed**.
-- Properties containing device property **die number** and **location** cloud property.
+- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, and **Pressure**.
+- Settings controlling **Fan Speed**.
+- Properties including the device property **Die number** and the cloud property **Location**.
 
-
-For full details on the configuration of the device template refer to [Windows IoT Core Device template details](howto-connect-windowsiotcore.md#windows-iot-core-device-template-details)
+For full details on the configuration of the device template, see [Windows IoT Core Device template details](#windows-iot-core-device-template-details).
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
-
-### Prepare the Windows IoT Core device
-
-To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
-
-### Add a real device
-
-In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
-
- > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial.
+In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
 ## Prepare the Windows 10 IoT Core device
 
 ### What you'll need
 
-To set up a real Windows 10 IoT Core device, you will need to first have a device running Windows 10 IoT Core. Learn how to set up a Windows 10 IoT Core device [here](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+To set up a real Windows 10 IoT Core device, you need a device running Windows 10 IoT Core. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
 
-You will also need a client application that can communicate with Azure IoT Central. You can either build your own custom application using the Azure SDK and deploy it to your device using Visual Studio, or you can download a [pre-built sample](https://developer.microsoft.com/windows/iot/samples) and simply deploy and run it on the device. 
+You also need a client application that can communicate with Azure IoT Central. You can either build your own custom application using the Azure SDK and deploy it to your device using Visual Studio, or you can download a [pre-built sample](https://developer.microsoft.com/windows/iot/samples) and to deploy and run on the device.
 
 ### Deploying the sample client application
 
