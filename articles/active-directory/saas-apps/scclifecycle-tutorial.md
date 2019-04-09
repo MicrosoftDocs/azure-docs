@@ -105,8 +105,9 @@ To configure Azure AD single sign-on with SCC LifeCycle, perform the following s
     `https://<sub-domain>.scc.com/ic7/welcome/customer/PICTtest.aspx`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+	
 	| |
-	|--|--|
+	|--|
 	| `https://bs1.scc.com/<entity>`|
 	| `https://lifecycle.scc.com/<entity>`|
 
