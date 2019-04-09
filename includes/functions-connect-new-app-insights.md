@@ -29,8 +29,4 @@ Functions makes it simple to add Application Insights integration to a function 
 
 1. Back in your function app, select **Application settings**, and scroll down to **Application settings**. When you see a setting named `APPINSIGHTS_INSTRUMENTATIONKEY`, it means that Application Insights integration is enabled for your function app running in Azure.
 
-1. Select **Show values** and copy the **Value** of `APPINSIGHTS_INSTRUMENTATIONKEY`.
-
-1. In your local project, open the local.settings.json file and in `Values` add a new `APPINSIGHTS_INSTRUMENTATIONKEY` setting with the value you copied from the portal. Now, when you run your function app project locally, data is sent to your Application Insights resource.
-
 [Azure Portal]: https://portal.azure.com

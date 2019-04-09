@@ -18,9 +18,9 @@ ms.author: glenga
 
 [Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated log files to Application Insights.
 
-We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. The service is designed to help you continuously improve performance and usability. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-Because the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
+The required Application Insights instrumentation is built into Azure Functions. This integration means that all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
 
 ## Application Insights pricing and limits
 
@@ -28,22 +28,22 @@ You can try out Application Insights integration with Function Apps for free. Th
 
 ## Enable Application Insights integration
 
-For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**. When developing your functions locally, make sure to also have this setting in your local.settings.json project file.
+For a function app to send data to Application Insights, it needs to know the instrumentation key of an Application Insights resource. The key must be in an app setting named **APPINSIGHTS_INSTRUMENTATIONKEY**.
 
 ### New function app in the portal
 
-When you [create your function app in the Azure portal](functions-create-first-azure-function.md), it's easy to enable Application Insights integration. When you choose a *Location* for your function app that supports Application Insights, integration with your function app is enabled by default.
+When you [create your function app in the Azure portal](functions-create-first-azure-function.md), Application Insights integration is enabled by default. The Application Insights resource has the same name as your function app, and it's created either in the same region or in nearest region.
 
-If you see that **Application Insights** doesn't have a name, select it to expand the Application Insights window and type a **New resource name**. Choose a **Location** in a region that's closest to your function app's region and in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. You can also choose an existing resource.
+To review the Application Insights resource being created, select it to expand the **Application Insights** window. You can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data.
 
-   ![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
+![Enable Application Insights while creating a function app](media/functions-monitoring/enable-ai-new-function-app.png)
 
 When you choose **Create**, an Application Insights resource is created with your function app, which has the `APPINSIGHTS_INSTRUMENTATIONKEY` set in application settings. Everything is ready to go.
 
 <a id="manually-connect-an-app-insights-resource"></a>
 ### Add to an existing function app 
 
-When you create a function app using the [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), or [Visual Studio Code](functions-create-first-function-vs-code.md), you must create the Application Insights resource and then add an application setting to your function app.
+When you create a function app using the [Azure CLI](functions-create-first-azure-function-azure-cli.md), [Visual Studio](functions-create-your-first-function-visual-studio.md), or [Visual Studio Code](functions-create-first-function-vs-code.md), you must create the Application Insights resource. You can then add the instrumentation key from that resource as an application setting in your function app.
 
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
@@ -71,13 +71,13 @@ With [Application Insights integration enabled](#enable-application-insights-int
 
    ![Invocation details](media/functions-monitoring/invocation-details-ai.png)
 
-Both pages (invocation list and invocation details) link to the Application Insights Analytics query that retrieves the data:
+You can see that both pages have a **Run in Application Insights** link to the Application Insights Analytics query that retrieves the data.
 
 ![Run in Application Insights](media/functions-monitoring/run-in-ai.png)
 
-![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
+The following query is displayed. You can see that the invocation list is limited to the last 30 days. The list shows no more than 20 rows (`where timestamp > ago(30d) | take 20`). The invocation details list is for the last 30 days with no limit.
 
-From these queries, you can see that the invocation list is limited to the last 30 days. The list shows no more than 20 rows (`where timestamp > ago(30d) | take 20`). The invocation details list is for the last 30 days with no limit.
+![Application Insights Analytics invocation list](media/functions-monitoring/ai-analytics-invocation-list.png)
 
 For more information, see [Query telemetry data](#query-telemetry-data) later in this article.
 
