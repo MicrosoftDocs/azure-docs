@@ -1,16 +1,15 @@
 ---
-title: Register data assets for Azure Data Catalog
-description: How to register data assets for Azure Data Catalog
+title: Register data assets in Azure Data Catalog
+description: How to register data assets in your Azure Data Catalog
 author: markingmyname
 ms.author: maghan
 ms.service: data-catalog
 ms.topic: tutorial
-ms.date: 04/06/2019
-
-#Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
+ms.date: 04/08/2019
+# Customer intent: As an Azure Active Directory owner, I want to store my data in Azure Data Catalog so that I can search my data all from one centralized place.
 ---
 
-# Tutorial: Register data assets
+# Tutorial: Register data assets in Azure Data Catalog
 
 In this tutorial, you use the registration tool to register data assets from the Azure SQL database sample with the catalog. Registration is the process of extracting key structural metadata such as names, types, and locations from the data source and the assets it contains, and copying that metadata to the catalog. The data source and data assets remain where they are, but the metadata is used by the catalog to make them more easily discoverable and understandable.
 
