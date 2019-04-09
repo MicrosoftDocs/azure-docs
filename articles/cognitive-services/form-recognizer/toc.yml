@@ -4,3 +4,13 @@
   items:
   - name: What is Form Recognizer?
     href: overview.md
+- name: How-to guides
+  items:
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      href: form-recognizer-container-howto.md
+    - name: Configure containers
+      href: form-recognizer-container-configuration.md    
+      displayName: docker, container, run, billing, apikey, logging
