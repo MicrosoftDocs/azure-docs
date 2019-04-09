@@ -35,6 +35,8 @@
   items:
   - name : Connect devices
     items:
+      - name: Generate a device connection string
+        href: howto-generate-connection-string.md
       - name: Prepare and connect a Node.js (generic) application 
         href: howto-connect-nodejs.md
       - name: Prepare and connect an MXChip IoT DevKit
