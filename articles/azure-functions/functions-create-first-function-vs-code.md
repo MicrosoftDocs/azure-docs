@@ -111,12 +111,10 @@ After you've verified that the function runs correctly on your local computer, i
 
 ## Next steps
 
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. To learn more about developing functions in a specific language, see the language reference guides for [JavaScript](functions-reference-node.md), [.NET](functions-dotnet-class-library.md), or [Java](functions-reference-java.md).
-
-Next you may want to learn more about local testing and debugging from the Terminal or command prompt using the Azure Functions Core Tools.
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. You may also want to learn more about [local testing and debugging from the Terminal or command prompt](functions-run-local.md) using the Azure Functions Core Tools.
 
 > [!div class="nextstepaction"]
-> [Code and test locally](functions-run-local.md)
+> [Enable Application Insights integration](functions-monitoring.md#manually-connect-an-app-insights-resource)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
