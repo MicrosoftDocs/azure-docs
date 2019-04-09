@@ -156,36 +156,36 @@
     items:
     - name: Create HDInsight clusters
       href: ../hdinsight-hadoop-provision-linux-clusters.md
+      maintainContext: true
+      items:
+      - name: Use the Azure portal
+        href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
-        items:
-        - name: Use the Azure portal
-          href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-          maintainContext: true
-        - name: Use Azure Resource Manager templates
-          displayName: resource manager template, arm template, resource manager group
-          href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-          maintainContext: true
-        - name: Use .NET SDK
-          href: ../hdinsight-sdk-dotnet-samples.md
-          maintainContext: true
-        - name: Use Java SDK
-          href: ../hdinsight-sdk-java-samples.md
-          maintainContext: true
-        - name: Use Python SDK
-          href: ../hdinsight-sdk-python-samples.md
-          maintainContext: true
-        - name: Use Azure PowerShell
-          href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-          maintainContext: true
-        - name: Use cURL and the Azure REST API
-          href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-          maintainContext: true      
-        - name: Use the Azure Classic CLI
-          href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-          maintainContext: true
-        - name: Create on-demand clusters
-          href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-          maintainContext: true
+      - name: Use Azure Resource Manager templates
+        displayName: resource manager template, arm template, resource manager group
+        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
+        maintainContext: true
+      - name: Use .NET SDK
+        href: ../hdinsight-sdk-dotnet-samples.md
+        maintainContext: true
+      - name: Use Java SDK
+        href: ../hdinsight-sdk-java-samples.md
+        maintainContext: true
+      - name: Use Python SDK
+        href: ../hdinsight-sdk-python-samples.md
+        maintainContext: true
+      - name: Use Azure PowerShell
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
+        maintainContext: true
+      - name: Use cURL and the Azure REST API
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
+        maintainContext: true      
+      - name: Use the Azure Classic CLI
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
+        maintainContext: true
+      - name: Create on-demand clusters
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+        maintainContext: true
     - name: Create on-demand clusters
       href: ../hdinsight-hadoop-create-linux-clusters-adf.md
       maintainContext: true
