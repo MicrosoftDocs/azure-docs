@@ -17,9 +17,11 @@ ms.custom: seodec18
 
 [MLflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. It provides [a tracking API](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) with functionality to log metrics and artifacts from your Python training code.
 
-Azure Machine Learning (Azure ML) Workspace provides a centralized location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure ML service as a back end by setting the MLflow tracking URI to point to your Azure ML Workspace. You can then view and track the metrics and artifacts in your Azure ML Workspace.
+Azure Machine Learning service Workspace provides a centralized, secure, scalable location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure Machine Learning service as a back end by setting the MLflow tracking URI to point to your wWorkspace. You can then view and track the metrics and artifacts in your workspace.
 
 You can use MLflow logging on interactive runs on your local computer, as well as on different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
+
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow-with-azureml/mlflow_diagram.PNG)
 
 ## Pre-requisites
 
@@ -28,15 +30,15 @@ You can use MLflow logging on interactive runs on your local computer, as well a
 
 ## Interactive runs
 
-You can use MLflow with Azure ML interactively, for example when training models in your local Jupyter Notebook or code editor. 
+You can use MLflow with Azure Machine Learning service interactively, for example when training models in your local Jupyter Notebook or code editor. 
 
-To switch your MLflow code to use Azure ML as back end, you need to first install azureml.core.contrib package:
+To switch your MLflow code to use Azure Machine Learning service as back end, you need to first install azureml.core.contrib package:
 
 ```
 pip install azureml.core.contrib
 ```
 
-In your Python code, import necessary packages and set the tracking URI to point to your Azure ML Workspace
+In your Python code, import necessary packages and set the tracking URI to point to your workspace
 
 ```
 import mlflow
@@ -103,7 +105,7 @@ Then, in your script you can use MLflow logging APIs as shown above, but without
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging appear in your Azure ML Workspace. You can simply navigate to your Workspace blade at [Azure Portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
+The metrics and artifacts from MLflow logging appear in your workspace. You can simply navigate to your Workspace blade at [Azure Portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
 
 ## Next steps
 
