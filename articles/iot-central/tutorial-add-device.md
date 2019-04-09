@@ -89,6 +89,8 @@ The articles listed in the [Next Steps](#next-steps) section include more comple
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
+### Get the device connection information
+
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
    On the device screen for your real connected air conditioner, choose **Connect**.
@@ -99,7 +101,11 @@ The following steps show how to prepare the [Node.js](https://nodejs.org/) sampl
 
    ![Connection details](media/tutorial-add-device/device-connect.png)
 
+### Generate the connection string
+
 [!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
+
+### Prepare the Node.js project
 
 1. Create a folder called `connectedairconditioner` on your development machine.
 
