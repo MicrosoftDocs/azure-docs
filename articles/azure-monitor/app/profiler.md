@@ -25,18 +25,31 @@ To enable Profiler for an app, follow the instructions below. If you are running
 
 Application Insights Profiler is pre-installed as part of the App Services runtime, but you need to turn it on to get profiles for your App Service app. Once you have deployed an app, even if you have included the App Insights SDK in the source code, follow the steps below to enable the profiler.
 
+1. Enable "Always On" setting for you app service. You can update this in the Configuration page of your App Service under General Settings.
 1. Go to the **App Services** pane in the Azure portal.
-2. Navigate to **Settings > Application Insights** pane.
+1. Navigate to **Settings > Application Insights** pane.
 
    ![Enable App Insights on App Services portal](./media/profiler/AppInsights-AppServices.png)
 
-3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your app. Also make sure the Profiler is **On**.
+3. Either follow the instructions on the pane to create a new resource or select an existing App Insights resource to monitor your app. Also make sure the Profiler is **On**. If your Application Insights resource is in a different subscription from your App Service, you can't use this page to configure Application Insights. You can still do it manually though by creating necessary app settings manually. [Please refer to the next section for instructions.](../../azure-monitor/app/profiler.md#Enable-Profiler-manually-or-with-Azure-Resource-Manager)
 
    ![Add App Insights site extension][Enablement UI]
 
 4. Profiler is now enabled using an App Services App Setting.
 
     ![App Setting for Profiler][profiler-app-setting]
+
+## Enable Profiler manually or with Azure Resource Manager
+Application Insights Profiler can be enabled by creating app settings for your Azure App Service. The page with the options shown above creates these app settings for you, but if you want to automate this using a template or other means, you can create the settings yourself. This will also work if your Application Insights resource is in a different subscription from your Azure App Service.
+Here are the settings needed to enable the profiler:
+|App Setting    | Value    |
+|---------------|----------|
+|APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for you Application Insights resource    |
+|APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
+|DiagnosticServices_EXTENSION_VERSION | ~3 |
+
+You can set these values using [Azure Resource Manager Templates](../../azure-monitor/app/azure-web-apps#app-service-application-settings-with-azure-resource-manager), [Azure Powershell](https://docs.microsoft.com/en-us/powershell/module/az.websites/set-azwebapp),  [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/webapp/config/appsettings?view=azure-cli-latest).
+
 
 ## Disable Profiler
 
