@@ -501,7 +501,6 @@
     - name: Event Delivery Guarantees
       href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
       maintainContext: true
-  maintainContext: true       
 - name: Reference
   items:
   - name: Azure PowerShell
