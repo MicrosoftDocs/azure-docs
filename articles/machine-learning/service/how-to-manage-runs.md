@@ -1,7 +1,7 @@
 ---
 title: Start, monitor, and cancel training runs in Python
 titleSuffix: Azure Machine Learning service
-description: Learn how to start, status, tag, and organize your machine learning experiments. 
+description: Learn how to start, set the status of, tag, and organize your machine learning experiments. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,7 +10,7 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/5/2019
+ms.date: 04/05/2019
 
 ---
 
@@ -43,7 +43,7 @@ You'll need the following:
 
 <a name="monitor"></a>
 
-## Start and status a run
+## Start a run and set its status
 
 Set up your experiment by importing the [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), and [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classes from the [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) package.
 
@@ -97,7 +97,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## Cancel or fail runs
 
- If you notice a mistake or your run seems to be taking long to finish, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
+ If you notice a mistake or your run seems to take a while to finish, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')

@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/09/2019
+ms.lastreviewed: 04/10/2019
 ---
 
 # Azure Stack 1903 update
@@ -93,7 +93,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
-- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title **Error – Template for FaultType UserAccounts. New is missing.** You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
+<!-- 2468613 - IS -->
+- During installation of this update, you might see alerts with the title **Error – Template for FaultType UserAccounts. New is missing.** You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
 
 ## Post-update steps
 
@@ -121,16 +122,17 @@ The following are post-installation known issues for this build version.
 <!-- 3557860 - IS ASDK -->
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete the user subscriptions.
 
-<!-- 1663805 - IS ASDK -->
-- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/get-azurermroleassignment).
+<!-- 1663805 - IS ASDK --> 
+- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load. To work around this issue, you can use the following PowerShell cmdlets for creating, retrieving, setting, and deleting access policies, respectively:
+- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load. To work around this issue, the following PowerShell cmdlets enable creating, retrieving, setting and deleting access policies, respectively:
 
-  - `New-AzureStorageContainerStoredAccessPolicy`
-  - `Get-AzureStorageContainerStoredAccessPolicy`
-  - `Set-AzureStorageContainerStoredAccessPolicy`
-  - `Remove-AzureStorageContainerStoredAccessPolicy`
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
   
 <!-- Daniel 3/28 -->
 - In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message. To work around this issue, upload the blob using the **SAS** option.
