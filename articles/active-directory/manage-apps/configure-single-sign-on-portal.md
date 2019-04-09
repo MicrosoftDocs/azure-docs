@@ -146,7 +146,7 @@ You're ready to test your settings.
 3. Select **Test**. The testing options appear.
 4. Select **Sign in as current user**. This test lets you first see if single sign-on works for you, the admin.
 
-If there's an error, an error message appears. Do the following:
+If there's an error, an error message appears. Complete the following steps:
 
 1. Copy and paste the specifics into the **What does the error look like?** box.
 
