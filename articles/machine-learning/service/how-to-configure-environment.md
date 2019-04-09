@@ -1,7 +1,7 @@
 ---
 title: Set up a Python development environment
 titleSuffix: Azure Machine Learning service
-description: description: Learn how to configure a development environment when you work with the Azure Machine Learning service. In this article, you learn how to use Conda environments, create configuration files, and configure Jupyter Notebooks, Azure Notebooks, Azure Databricks, IDEs, code editors, and the Data Science Virtual Machine.
+description: Learn how to configure a development environment when you work with the Azure Machine Learning service. In this article, you learn how to use Conda environments, create configuration files, and configure Jupyter Notebooks, Azure Notebooks, Azure Databricks, IDEs, code editors, and the Data Science Virtual Machine.
 services: machine-learning
 author: rastala
 ms.author: roastala
