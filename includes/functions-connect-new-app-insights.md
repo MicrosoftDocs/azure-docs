@@ -12,7 +12,7 @@ ms.custom: include file
 
 Functions makes it simple to add Application Insights integration to a function app from the [Azure portal].
 
-1. In the [portal][Azure Portal], select **All services > Function Apps**, select your function app, and then choose the Application Insights banner at the top of the window
+1. In the [portal][Azure Portal], select **All services > Function Apps**, select your function app, and then choose the **Application Insights** banner at the top of the window
 
     ![Enable Application Insights from the portal](media/functions-connect-new-app-insights/enable-application-insights.png)
 

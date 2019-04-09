@@ -21,7 +21,7 @@ The number of available connections is limited partly because a function app run
 
 This limit is per instance.  When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-and-premium-plans-work) to handle more requests, each instance has an independent connection limit. That means there's no global connection limit, and you can have much more than 600 active connections across all active instances.
 
-When troubleshooting, make sure that you have enabled Application Insights for your function app. Application Insights let you view metrics for your function apps, including Connections. For more information, see [View telemetry in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
+When troubleshooting, make sure that you have enabled Application Insights for your function app. Application Insights lets you view metrics for your function apps like executions. For more information, see [View telemetry in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 
 ## Static clients
 
