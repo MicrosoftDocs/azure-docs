@@ -17,7 +17,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Home realm discovery for Azure Active directory sign-in pages
+# Home realm discovery for Azure Active Directory sign-in pages
 
 We are changing our Azure Active Directory (Azure AD) sign-in behavior to make room for new authentication methods and improve usability. During sign-in, Azure AD determines where a user needs to authenticate. Azure AD makes intelligent decisions by reading organization and user settings for the username entered on the sign-in page. This is a step towards a password-free future that enables additional credentials like FIDO 2.0.
 
@@ -50,7 +50,7 @@ An additional benefit of this work is improved error messaging. Here are some ex
 >
 > If you or your organization have practices that depend on the old behavior, it is important for organization administrators to update employee sign-in and authentication documentation and to train employees to use their Azure Active Directory username to sign in.
   
-If you have concerns with the new behavior, please leave your remarks in the **Feedback** section of this article.  
+If you have concerns with the new behavior, leave your remarks in the **Feedback** section of this article.  
 
 ## Next steps
 
