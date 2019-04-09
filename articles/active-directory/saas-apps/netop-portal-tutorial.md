@@ -124,7 +124,7 @@ To configure Azure AD single sign-on with Netop Portal, perform the following st
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. In the **Namespace** textbox, type https://secure.netop.com.
+	c. In the **Namespace** textbox, type https:\//secure.netop.com.
 
 	d. Select Source as **Attribute**.
 
@@ -215,8 +215,8 @@ When you click the Netop Portal tile in the Access Panel, you should be automati
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

@@ -21,8 +21,8 @@ For limits on the number of array items that "Foreach" loops can process, see
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
 
 To repeat actions until a condition gets met or a state changes, 
-you can create an ["Until" loop](#until-loop). Your logic app runs all 
-the actions inside the loop, and then checks the condition or state. 
+you can create an ["Until" loop](#until-loop). Your logic app first runs 
+all the actions inside the loop, and then checks the condition or state. 
 If the condition is met, the loop stops. Otherwise, the loop repeats. 
 For limits on the number of "Until" loops in a logic app run, see 
 [Limits and configuration](../logic-apps/logic-apps-limits-and-config.md). 
@@ -196,9 +196,12 @@ you can use the `Sequential` option by adding the
 
 ## "Until" loop
   
-To repeat actions until a condition gets met or a state changes, 
-put those actions in an "Until" loop. Here are some common 
-scenarios where you can use an "Until" loop:
+To run and repeat actions until a condition gets met or a state changes, 
+put those actions in an "Until" loop. Your logic app first runs any and 
+all actions inside the loop, and then checks the condition or state. 
+If the condition is met, the loop stops. Otherwise, the loop repeats.
+
+Here are some common scenarios where you can use an "Until" loop:
 
 * Call an endpoint until you get the response you want.
 
