@@ -38,93 +38,82 @@ So, the idea is quite simple
 At this stage there should be no problem. Simply upload your images, tag them and launch the training. Important: before starting your project be sure to make it ‘exportable’, i.e. select compact option.
 ![alt text](https://static.wixstatic.com/media/749f52_3a10d568cd2343dcbd28ce0836bae0fd~mv2.png/v1/fill/w_469,h_1024,al_c,lg_1,q_90/749f52_3a10d568cd2343dcbd28ce0836bae0fd~mv2.webp)
 
-### Train image classifier
-The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
+This will download 2 files on your computer: model.pb which is the trained model itself and labels.txt that is the list of your classes.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
+### Use TensorBoard 
+It’s high time to start coding! Create a python script and add the following code:
 
-### Create tags in the project
+```python
+# coding: utf-8
+import cv2
+import os
+import tensorflow as tf
+import numpy as np
+from PIL import Image
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
+def resize_to_227_square(image):
+    return cv2.resize(image, (227, 227), interpolation = cv2.INTER_LINEAR)
 
-### Upload and tag images
-
-The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
-
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
-
-### Train the classifier and publish
-
-This code creates the first iteration in the project and then publishes that iteration to the prediction endpoint. The name given to the published iteration can be used to send prediction requests. An iteration is not available in the prediction endpoint until it is published.
-
-```csharp
-// The returned iteration will be in progress, and can be queried periodically to see when it has completed
-while (iteration.Status == "Training")
-{
-        Thread.Sleep(1000);
-
-        // Re-query the iteration to get it's updated status
-        iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-}
-
-// The iteration is now trained. Publish it to the prediction end point.
-var publishedModelName = "treeClassModel";
-var predictionResourceId = "<target prediction resource ID>";
-trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
-Console.WriteLine("Done!\n");
+# graph of operations to upload trained model
+graph_def = tf.GraphDef()
+# list of classes
+labels = []
+# N.B. Azure Custom vision allows export trained model in the form of 2 files
+# model.pb: a tensor flow graph and labels.txt: a list of classes
+# import tensor flow graph, r+b mode is open the binary file in read or write mode
+with tf.gfile.FastGFile(name='model.pb', mode='rb') as f:
+    graph_def.ParseFromString(f.read())
+    tf.import_graph_def(graph_def=graph_def, name='')
+# read labels, add to labels array and create a folder for each class
+# it refers to the text mode. There is no difference between r and rt or w and wt since text mode is the default.
+with open(file='labels.txt', mode='rt') as labels_file:
+    for label in labels_file:
+        label = label.strip()
+        # append to the labels array (trimmed)
+        labels.append(label)
+# These names are part of the model and cannot be changed.
+output_layer = 'loss:0'
+input_node = 'Placeholder:0'
+# read test image
+image = cv2.imread('1.png')
+# get the largest center square
+#  The compact models have a network size of 227x227, the model requires this size.
+augmented_image = resize_to_227_square(image)
+predicted_tag = 'Predicted Tag'
+with tf.Session() as sess:
+    # difine a directory where the FileWriter serialized its data
+    writer = tf.summary.FileWriter('log')
+    writer.add_graph(sess.graph)
+    prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+    predictions = sess.run(prob_tensor, {input_node: [augmented_image]})
+    # get the highest probability label
+    highest_probability_index = np.argmax(predictions)
+    predicted_tag = labels[highest_probability_index]
+    print(predicted_tag)
+    writer.close()
 ```
-
-### Set the prediction endpoint
-
-The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
-
-```csharp
-// Create a prediction endpoint, passing in obtained prediction key
-CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
-{
-        ApiKey = predictionKey,
-        Endpoint = SouthCentralUsEndpoint
-};
+What is crucial to understand is the fact that we used File Writer object. Quote from TensorBoard’s page:
+>The FileWriter class provides a mechanism to create an event file in a given directory and add summaries and events to it. The class updates the file contents asynchronously. This allows a training program to call methods to add data to the file directly from the training loop, without slowing down training.
+>When constructed with a tf.Session parameter, a FileWriter instead forms a compatibility layer over new graph-based summaries (tf.contrib.summary) to facilitate the use of new summary writing with pre-existing code that expects a FileWriter instance.
+So we have obtained our graph info using `sess.graph` and serialized it with the help of `FileWriter` and saved it to the newly created ‘log’ directory.  
+And here we go, the most important part of our manipulation, graph visualization. If you have installed tensor flow using pip then tensor board is already installed on your machine. If not just run 
 ```
-
-### Submit an image to the default prediction endpoint
-
-In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
-
-```csharp
-// Make a prediction against the new project
-Console.WriteLine("Making a prediction:");
-var result = endpoint.ClassifyImage(project.Id, publishedModelName, testImage);
-
-// Loop over each prediction and write out the results
-foreach (var c in result.Predictions)
-{
-        Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
-}
+pip install tensorboard
 ```
-
-## Run the application
-
-As the application runs, it should open a console window and write the following output:
-
+Once you have tensorboard installed go the directory where you have your python script, open command prompt and run the following command:
 ```
-Creating new project:
-        Uploading images
-        Training
-Done!
-
-Making a prediction:
-        Hemlock: 95.0%
-        Japanese Cherry: 0.0%
+tensorboard --logdir=log
 ```
+where log = name of the log directory.
 
-You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
-
-[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
+If everything is alright you will see the following message.
+```
+TensorBoard 1.11.0 at http://<computer_name>:6006 (Press CTRL+C to quit)
+```
+Right now you should open your browser and go to localhost:6006
+![alt text](https://static.wixstatic.com/media/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.png/v1/fill/w_937,h_886,al_c,q_90/749f52_1c77f3d50ed04de2bd8a5121d85a7feb~mv2.webp)
+Voilà! We have our graph visualized. It’s now up to you to navigate and analyze all the nodes of your model. You can even download your graph to png to share it with your teammates. 
 
 ## Next steps
 
-Now you have seen how every step of the image classification process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate.
-
-> [!div class="nextstepaction"]
-> [Test and retrain a model](test-your-model.md)
+Now you have seen how to visualize your model created with Custom Vision Service. This sample just exports a graph in png but often you may need to analyse it directly via browser.
