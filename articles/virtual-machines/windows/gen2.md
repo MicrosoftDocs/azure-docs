@@ -17,7 +17,7 @@ ms.date: 04/08/2019
 ms.author: lahugh
 ---
 
-# Generation 2 VMs (preview) in Azure
+# Generation 2 VMs (preview) on Azure
 
 > [!IMPORTANT]
 > Generation 2 VMs are currently in public preview.
