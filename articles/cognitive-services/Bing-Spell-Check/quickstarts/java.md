@@ -9,8 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
-ms.author: aahi
+ms.date: 04/02/2019
+ms.author: aahill
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and Java
 
@@ -18,18 +18,20 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Prerequisites
 
-The Java Development Kit(JDK) 7 or later.
+* The Java Development Kit(JDK) 7 or later.
 
-[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+* Import the [gson-2.2.2.jar](http://www.java2s.com/Code/Jar/g/Downloadgson222jar.htm) (add to Java folder of the main class for command line execution).
 
+* [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## Create and initialize an application
 
-1. Create a new Java Project in your favorite IDE or editor, and import the following packages.
+1. Create a new Java Project in your favorite IDE or editor with a class name of your choosing, and then import the following packages.
 
     ```java
     import java.io.*;
     import java.net.*;
+    import com.google.gson.*;
     import javax.net.ssl.HttpsURLConnection;
     ```
 
@@ -39,7 +41,7 @@ The Java Development Kit(JDK) 7 or later.
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    static String key = "ENTER YOUR KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
@@ -53,21 +55,20 @@ The Java Development Kit(JDK) 7 or later.
    ```java
    public static void check () throws Exception {
 	   String params = "?mkt=" + mkt + "&mode=" + mode;
-   //...
+      // add the rest of the code snippets here (except prettify() and main())...
    }
    ```
 
-2. Create a URL by combining the endpoint host, path and parameters string. Create a new `HttpsURLConnection` obejct.
+2. Create a URL by combining the endpoint host, path and parameters string. Create a new `HttpsURLConnection` object.
 
     ```java
     URL url = new URL(host + path + params);
-    HttpsURLConnection connection = (HttpsURLConnection) 
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Open a connection to the URL. Set the request method to `POST`. Add your request parameters. Make sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+3. Open a connection to the URL. Set the request method to `POST`. Add your request parameters. Make sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
-    url.openConnection();
 	connection.setRequestMethod("POST");
 	connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -83,7 +84,7 @@ The Java Development Kit(JDK) 7 or later.
         wr.close();
     ```
 
-## Read the response
+## Read the response and format it, then call
 
 1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
@@ -92,12 +93,23 @@ The Java Development Kit(JDK) 7 or later.
 	new InputStreamReader(connection.getInputStream()));
 	String line;
 	while ((line = in.readLine()) != null) {
-		System.out.println(line);
+		System.out.println(prettify(line);
 	}
 	in.close();
     ```
+1. Add this method to your class. It formats the JSON for a more readable output.
 
-2. In the main function of your application, call the function created above. 
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
+    ```
+
+1. In the main function of your application, call your check() method created above.
 
     ```java
     public static void main(String[] args) {
@@ -109,7 +121,23 @@ The Java Development Kit(JDK) 7 or later.
     	}
     }
     ```
-    
+
+## Run the application
+
+Build and run your project.
+
+From the command line:
+
+**Build:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+```
+
+**Run:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
+
 ## Example JSON response
 
 A successful response is returned in JSON, as shown in the following example: 
