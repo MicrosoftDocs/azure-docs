@@ -241,6 +241,12 @@ Similarly, if a job starts after the token has expired, an error occurs and the 
 
 After the authorization has been refreshed with Power BI, a green alert appears in the authorization area to reflect that the issue has been resolved.
 
+### Changing your Power BI table's schema
+
+The schema of your Power BI table is set based on the data being sent to it. To ensure consistent and performant behavior, ensure that the schema of the data being sent to Power BI remains the same as long as your job is running. Sending data with multiple schemas can cause your streaming job to stop in some cases.
+
+If you need to change the schema of the data being output to Power BI, stop your Stream Analytics job, make any changes needed to the format of your data, and then restart your job. Before Stream Analytics outputs the new data, it will adjust the table's schema based on the new data being sent.
+
 ## Get help
 For further assistance, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
