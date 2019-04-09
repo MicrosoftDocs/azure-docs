@@ -4,8 +4,6 @@ description: Describes the functions to use in an Azure Resource Manager templat
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 
 ms.assetid: 
 ms.service: azure-resource-manager
@@ -13,7 +11,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
 
 ---
@@ -29,8 +27,6 @@ Resource Manager provides the following functions for getting resource values:
 * [subscription](#subscription)
 
 To get values from parameters, variables, or the current deployment, see [Deployment value functions](resource-group-template-functions-deployment.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 <a id="listkeys" />
 <a id="list" />
@@ -169,17 +165,19 @@ The returned object varies by the list function you use. For example, the listKe
 }
 ```
 
-Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template. 
+Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example template.
 
 ### Remarks
 
 Specify the resource by using either the resource name or the [resourceId function](#resourceid). When using a list function in the same template that deploys the referenced resource, use the resource name.
 
+If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource exists. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and list with a conditionally deployed resource.
+
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json) shows how to return the primary and secondary keys from a storage account in the outputs section. It also returns a SAS token for the storage account. 
 
-To get the SAS token token, pass an object for the expiry time. The expiry time must be in the future. This example is intended to show how you use the list functions. Typically, you would use the SAS token in a resource value rather than return it as an output value. Output values are stored in the deployment history and aren't secure.
+To get the SAS token, pass an object for the expiry time. The expiry time must be in the future. This example is intended to show how you use the list functions. Typically, you would use the SAS token in a resource value rather than return it as an output value. Output values are stored in the deployment history and aren't secure.
 
 ```json
 {
@@ -242,23 +240,10 @@ To get the SAS token token, pass an object for the expiry time. The expiry time 
         }
     }
 }
-``` 
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json --parameters storagename=<your-storage-account>
 ```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/listkeys.json -storagename <your-storage-account>
-```
-
-<a id="providers" />
 
 ## providers
+
 `providers(providerNamespace, [resourceType])`
 
 Returns information about a resource provider and its supported resource types. If you don't provide a resource type, the function returns all the supported types for the resource provider.
@@ -332,21 +317,8 @@ For the **Microsoft.Web** resource provider and **sites** resource type, the pre
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json --parameters providerNamespace=Microsoft.Web resourceType=sites
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/providers.json -providerNamespace Microsoft.Web -resourceType sites
-```
-
-<a id="reference" />
-
 ## reference
+
 `reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])`
 
 Returns an object representing a resource's runtime state.
@@ -370,6 +342,8 @@ The reference function retrieves the runtime state of either a previously deploy
 The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment.
 
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
+
+If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource exists. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
 
 To see the property names and values for a resource type, create a template that returns the object in the outputs section. If you have an existing resource of that type, your template returns the object without deploying any new resources. 
 
@@ -510,18 +484,6 @@ The full object is in the following format:
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json --parameters storageAccountName=<your-storage-account>
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/referencewithstorage.json -storageAccountName <your-storage-account>
-```
-
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json) references a storage account that isn't deployed in this template. The storage account already exists within the same subscription.
 
 ```json
@@ -546,21 +508,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json --parameters storageResourceGroup=<rg-for-storage> storageAccountName=<your-storage-account>
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/reference.json -storageResourceGroup <rg-for-storage> -storageAccountName <your-storage-account>
-```
-
-<a id="resourcegroup" />
-
 ## resourceGroup
+
 `resourceGroup()`
 
 Returns an object that represents the current resource group. 
@@ -631,21 +580,8 @@ The preceding example returns an object in the following format:
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourcegroup.json 
-```
-
-<a id="resourceid" />
-
 ## resourceId
+
 `resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Returns the unique identifier of a resource. You use this function when the resource name is ambiguous or not provisioned within the same template. 
@@ -785,21 +721,8 @@ The output from the preceding example with the default values is:
 | differentSubOutput | String | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | nestedResourceOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/resourceid.json 
-```
-
-<a id="subscription" />
-
 ## subscription
+
 `subscription()`
 
 Returns details about the subscription for the current deployment. 
@@ -835,19 +758,8 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 }
 ```
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/subscription.json 
-```
-
 ## Next steps
+
 * For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To merge multiple templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 * To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
