@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
 ---
 
@@ -32,7 +32,11 @@ Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, 
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
-Azure Disk Encryption is supported on the following Linux server distributions and versions:
+Azure Disk Encryption is supported on a subset of [Azure endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all possible distributions.
+
+ ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
+
+Distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following Linux server distributions and versions support Azure Disk Encryption:
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
@@ -59,7 +63,8 @@ Azure Disk Encryption is supported on the following Linux server distributions a
 | SLES | 12-SP4 | Data disk |
 | SLES | 12-SP3 | Data disk |
 
-*__New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
+> [!NOTE]
+> New ADE implementation is supported for RHEL OS and data disk for RHEL7 Pay-As-You-Go images. ADE is currently not supported for RHEL Bring-Your-Own-Subscription (BYOS) images. Please also refer to the [Azure Disk Encryption for Linux](azure-security-disk-encryption-linux.md) article for more information.__
 
 ## How can I start using Azure Disk Encryption?
 
@@ -67,7 +72,7 @@ To get started, read the [Azure Disk Encryption overview](azure-security-disk-en
 
 ## Can I encrypt both boot and data volumes with Azure Disk Encryption?
 
-Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported.
+Yes, you can encrypt boot and data volumes for Windows and Linux IaaS VMs. For Windows VMs, you can't encrypt the data without first encrypting the OS volume. For Linux VMs, it's possible to encrypt the data volume without having to encrypt the OS volume first. After you've encrypted the OS volume for Linux, disabling encryption on an OS volume for Linux IaaS VMs isn't supported. For Linux VMs in a scale set, only the data volume can be encrypted.
 
 ## Can I encrypt an unmounted volume with Azure Disk Encryption?
 

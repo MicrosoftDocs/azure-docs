@@ -1,6 +1,6 @@
 ---
 title: How to integrate with Azure Active Directory | Microsoft Docs
-description: A guide to benefits of and resources for integration with Azure Active Directory.
+description: Learn the benefits of integrating your application with Azure Active Directory, and get resources for features like simplified sign-in, identity management, multi-factor authentication, and access control.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/04/2019
+ms.date: 04/08/2019
 ms.author: celested
 ms.reviewer: bryanla
-ms.custom: aaddev
+ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
 ---
 
@@ -25,7 +25,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
 
-Azure Active Directory (Azure AD) provides organizations with enterprise-grade identity management for cloud applications. Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
+In this article, you learn about the benefits of integrating your application with Azure Active Directory (Azure AD) and get resources for integration. Azure AD provides organizations with enterprise-grade identity management for cloud applications. Azure AD integration gives your users a streamlined sign-in experience, and helps your application conform to IT policy.
 
 ## How to integrate
 
