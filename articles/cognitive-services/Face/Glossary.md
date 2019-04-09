@@ -51,30 +51,10 @@ For more information, see the reference documentation:
 
 ## D
 
-#### Detection/Face Detection
 
-Face detection is the action of locating faces in images. Users can upload an image or specify an image URL in the request. The detected faces are returned with [face IDs](#face-id)	indicating a unique identity in Face API. The rectangles indicate the face locations in the image in pixels, as well as the optional [attributes](#attributes) for each face such as [age](#age-attribute), [gender](#gender-attribute), [head pose](#head-pose-attribute), [facial hair](#facial-hair-attribute) and [smiling](#smile-attribute).
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-## E
-
-#### Emotion (Attribute)
-
-Emotion is one of the [face attributes](#attributes). When queried, it returns a list of emotions and their detection confidence for the given face. Confidence scores are normalized: the scores across all emotions will add up to one. The emotions returned are happiness, sadness, neutral, anger, contempt, disgust, surprise, and fear.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## F
 
-#### Face
-
-Face is a unified term for the results derived from Face API related with detected faces. Ultimately, face is represented by a unified identity ([Face ID](#face-id)), a specified region in images ([Face Rectangle](#face-rectangle)), and extra face-related attributes, such as [age](#age-attribute), [gender](#gender-attribute), landmarks and [head pose](#head-pose-attribute). Additionally, faces can be returned from detection.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### Face API
 
@@ -88,39 +68,8 @@ For more information, see the reference documentation:
 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239),
 [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-#### Face Attributes/Facial Attributes
 
-Please see [Attributes](#attributes).
 
-#### Face ID
-
-Face ID is derived from the detection results, in which a string represents a [face](#face) in [Face API](#face-api).
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-#### Face Landmarks/Facial Landmarks
-
-Landmarks are optional in the detection results; which are semantic facial points, such as the eyes, nose and mouth (illustrated in following figure). Landmarks can be controlled with a detection request by the Boolean number returnFaceLandmarks. If returnFaceLandmarks is set as true, the returned faces will have landmark attributes.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-![HowToDetectFace](./Images/landmarks.1.jpg)
-
-#### Face Rectangle
-
-Face rectangle is derived from the detection results, which is an upright rectangle (left, top, width, height) in images in pixels. The top-left corner of a [face](#face) (left, top), besides the width and height, indicates face sizes in x and y axes respectively.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-#### Facial Hair (Attribute)
-
-Facial hair is one of the [attributes](#attributes) used to describe the facial hair length of the available faces. The facial hair attribute is optional in the detection results, and can be controlled with a detection request by returnFaceAttributes. If returnFaceAttributes contains 'facialHair', the returned faces will have facial hair attributes.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### FaceList
 
@@ -149,12 +98,7 @@ For more information, see the reference documentation:
 
 ## G
 
-#### Gender (Attribute)
 
-Gender is one of the [attributes](#attributes) used to describe the genders of the available faces. The gender attribute is optional in the detection results, and can be controlled with a detection request by returnFaceAttributes. If returnfaceAttributes contains 'gender', the returned faces will have gender attributes.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### Grouping
 
@@ -172,14 +116,7 @@ For more information, see the reference documentation:
 
 ## H
 
-#### Head Pose (Attribute)
 
-Head pose is one of the [attributes](#attributes) that represents face orientation in 3D space according to roll, pitch and yaw angles, as shown in following figure. The value ranges of roll and yaw are [-180, 180] and [-90, 90] in degrees. In the current version, the pitch value returned from detection is always 0. The head pose attribute is optional in the detection results, and can be controlled with a detection request by the returnFaceAttributes parameter. If returnFaceAttributes parameter contains 'headPose', the returned faces will have head pose attributes.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
-
-![GlossaryHeadPose](./Images/headpose.1.jpg)
 
 ## I
 
@@ -212,11 +149,6 @@ IsIdentical is a Boolean field of [verification](#verification) results indicati
 For more information, see the reference documentation:
 [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-## L
-
-#### Landmarks
-
-Please see face landmarks.
 
 #### LargeFaceList
 
@@ -342,9 +274,6 @@ For more information, see the reference documentation:
 [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244),
 [PersonGroup - Get](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395246).
 
-#### Pose (Attribute)
-
-Please see [Head Pose](#head-pose-attribute).
 
 ## R
 
@@ -358,22 +287,8 @@ For more information, see the reference documentation:
 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239),
 [Face - Verify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-#### Rectangle (Face)
 
-Please see [face rectangle](#face-rectangle).
 
-## S
-
-#### Similar Face Searching
-
-Please see [Find Similar](#find-similar).
-
-#### Smile (Attribute)
-
-Smile is one of the [attributes](#attributes) used to describe the smile expression of the available faces. The smile attribute is optional in the detection results, and can be controlled with a detection request by returnFaceAttributes. If returnFaceAttributes contains 'smile', the returned faces will have smile attributes.
-
-For more information, see the reference documentation:
-[Face - Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 #### Snapshot
 

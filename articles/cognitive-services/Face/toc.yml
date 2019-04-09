@@ -45,6 +45,10 @@
       href: Tutorials/FaceAPIinCSharpTutorial.md
     - name: Android
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+- name: Concepts
+  items:
+  - name: Face detection
+    href: concepts/face-detection.md
 - name: How-to guides
   items:
   - name: Face detection
