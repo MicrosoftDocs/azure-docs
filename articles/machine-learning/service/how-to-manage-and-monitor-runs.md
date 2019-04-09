@@ -1,7 +1,7 @@
 ---
 title: Start, monitor, and cancel training runs in Python
 titleSuffix: Azure Machine Learning service
-description: This article provides examples for how to start, status, tag and organize training runs. 
+description: Learn how to start, status, tag and organize your machine learning experiments . 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -31,7 +31,7 @@ You'll need the following:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](setup-create-workspace).
 
 * The Azure Machine Learning SDK for Python installed (version 1.0.21 or later). To install or update to the latest version of the SDK, go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page.
 
@@ -83,7 +83,7 @@ notebook_run.complete()
 print(notebook_run.get_status())
 ```
 
-You can also use Python's `with...as` pattern. In this context, the run will automatically mark itself as complete when the run is out of scope. This way you don't need to manually mark the run as complete.
+You can also use Python's `with...as` pattern. In this context, the run will automatically mark itself as complete when the run is out of scope. This way you don't need to manually mark the run as completed.
 
 ```Python
 with exp.start_logging() as notebook_run:
@@ -97,7 +97,7 @@ print("Has it completed?",notebook_run.get_status())
 
 ## Cancel or fail runs
 
- If your run doesn't seem to be converging, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
+ If you notice a mistake or your run seems to be taking long to finish, use the [`cancel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#cancel--) method to stop the run before it finishes and mark it as canceled.
 
 ```Python
 run_config = ScriptRunConfig(source_directory='.', script='hello_with_delay.py')
@@ -159,7 +159,7 @@ In Azure Machine Learning service, you can use properties and tags to help organ
 
 ### Add properties and tags
 
-The [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) method allows you to add searchable metadata to your runs. For example, the following code adds the "author" property to the run.
+Use the [`add_properties()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#add-properties-properties-) to add searchable metadata to your runs. For example, the following code adds the "author" property to the run.
 
 ```Python
 local_script_run.add_properties({"author":"azureml-user"})
