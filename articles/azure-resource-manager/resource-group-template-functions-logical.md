@@ -151,7 +151,7 @@ Returns second parameter when first parameter is **True**; otherwise, returns th
 
 ### Remarks
 
-When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. You can include an expression in one of these values that is only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition.
+When the condition is **True**, only the true value is evaluated. When the condition is **False**, only the false value is evaluated. With the **if** function, you can include expressions that are only conditionally valid. For example, you can reference a resource that exists under one condition but not under the other condition. An example of conditionally evaluating expressions is shown in the following section.
 
 ### Examples
 
