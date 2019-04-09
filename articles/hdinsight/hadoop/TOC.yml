@@ -89,7 +89,7 @@
         href: apache-hadoop-use-hive-curl.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-hive-powershell.md
-      - name: Use .NET SDK
+      - name: Use SDK for .NET
         href: apache-hadoop-use-hive-dotnet-sdk.md
     - name: Use a Java UDF with Hive
       href: apache-hadoop-hive-java-udf.md
@@ -102,7 +102,7 @@
         href: apache-hadoop-use-mapreduce-curl.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-mapreduce-powershell.md
-      - name: Use .NET SDK
+      - name: Use SDK for .NET
         href: apache-hadoop-use-mapreduce-dotnet-sdk.md
       - name: Run the MapReduce samples
         href: apache-hadoop-run-samples-linux.md
@@ -113,7 +113,7 @@
         href: apache-hadoop-use-pig-ssh.md
       - name: Use Azure PowerShell
         href: apache-hadoop-use-pig-powershell.md
-      - name: Use the .NET SDK
+      - name: Use the SDK for .NET
         href: apache-hadoop-use-pig-dotnet-sdk.md
       - name: Use cURL
         href: apache-hadoop-use-pig-curl.md
@@ -276,7 +276,7 @@
         displayName: resource manager template, arm template, resource manager group
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
-      - name: Use .NET SDK
+      - name: Use SDK for .NET
         href: ../hdinsight-sdk-dotnet-samples.md
         maintainContext: true
       - name: Use Java SDK
@@ -298,7 +298,7 @@
       href: ../hdinsight-administer-use-portal-linux.md
       maintainContext: true
       items:
-      - name: Use .NET SDK
+      - name: Use SDK for .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
       - name: Use Python SDK
         href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
@@ -350,7 +350,7 @@
         href: apache-hadoop-use-sqoop-mac-linux.md
       - name: Run using cURL
         href: apache-hadoop-use-sqoop-curl.md
-      - name: Run using .NET SDK
+      - name: Run using SDK for .NET
         href: apache-hadoop-use-sqoop-dotnet-sdk.md
       - name: Run using Azure PowerShell
         href: apache-hadoop-use-sqoop-powershell.md
@@ -466,7 +466,7 @@
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/az.hdinsight
-  - name: .NET SDK
+  - name: SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python

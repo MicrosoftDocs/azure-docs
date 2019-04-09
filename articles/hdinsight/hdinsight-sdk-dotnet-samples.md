@@ -40,4 +40,4 @@ You can get these samples for .NET by cloning the the [hdinsight-dotnet-sdk-samp
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for .NET reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).

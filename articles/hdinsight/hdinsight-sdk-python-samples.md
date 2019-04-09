@@ -39,4 +39,4 @@ You can get these samples for Python by cloning the [hdinsight-python-sdk-sample
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-Code snippets for this additional SDK functionality can be found in the [HDInsight Python SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
+Code snippets for this additional SDK functionality can be found in the [HDInsight SDK for Python reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
