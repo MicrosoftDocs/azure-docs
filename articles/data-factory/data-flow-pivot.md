@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ---
 
-# Azure Data Factory 
+# Azure data factory pivot transformation
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 Use Pivot in ADF Data Flow as an aggregation where one or more grouping columns has its distinct row values transformed into individual columns. Essentially, you can Pivot row values into new columns (turn data into metadata).
 
 ![Pivot options](media/data-flow/pivot1.png "pivot 1")
 
-## Group By
+## Group by
 
 ![Pivot options](media/data-flow/pivot2.png "pivot 2")
 
 First, set the columns that you wish to group by for your pivot aggregation. You can set more than 1 column here with the + sign next to the column list.
 
-## Pivot Key
+## Pivot key
 
 ![Pivot options](media/data-flow/pivot3.png "pivot 3")
 
 The Pivot Key is the column that ADF will pivot from row to column. By default, each unique value in the dataset for this field will pivot to a column. However, you can optionally enter the values from the dataset that you wish to pivot to column values. This is the column that will determine the new columns that will be created.
 
-## Pivoted Columns
+## Pivoted columns
 
 ![Pivot options](media/data-flow/pivot4.png "pivot 4")
 
