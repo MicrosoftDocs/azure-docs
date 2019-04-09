@@ -21,6 +21,8 @@ ms.custom: seodec18
 
 Currently, Azure Media Services does not defined any custom roles specific to the service. Customers can use the built-in roles of **Owner** or **Contributor** to get full access to a Media Services account. The main difference between these roles is: the **Owner** can control who has access to a resource and the **Contributor** cannot. The built-in reader account only has read access to the Media Services account. 
 
+## Design principles
+
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
 
 To list the operations Media Services supports, do:
