@@ -8,7 +8,9 @@ ms.topic: conceptual
 ms.date: 04/09/2019
 ---
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure portal
-Server-level firewall rules enable administrators to access an Azure Database for MariaDB Server from a specified IP address or a range of IP addresses. 
+Server-level firewall rules enable administrators to access an Azure Database for MariaDB Server from a specified IP address or a range of IP addresses.
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -48,4 +50,4 @@ Repeat the steps to manage the firewall rules.
 
 ## Next steps
  - Similarly, you can script to [Create and manage Azure Database for MariaDB firewall rules using Azure CLI](howto-manage-firewall-cli.md).
- - Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md)
+ - Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-portal.md).
