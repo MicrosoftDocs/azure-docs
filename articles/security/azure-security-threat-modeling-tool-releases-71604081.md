@@ -33,7 +33,7 @@ Version 7.1.60408.1 of the Microsoft Threat Modeling Tool (TMT) was released on 
 
 ![Azure Key Vault Stencil](./media/azure-security-threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
-New stencils and threats for Azure Key Vault and Azure Traffic Manager have been added to the Azure stencil set. When opening models based on the Azure stencil set, users will be prompted to update the template associated with the model. Updating a model based on the Azure stencil set can also be manually initiated by using the "Apply Template" command in the "File" menu and re-applying the latest Azure Cloud Services.tb7 file.
+New stencils and threats for Azure Key Vault and Azure Traffic Manager have been added to the Azure stencil set. When opening models based on the Azure stencil set, users will be prompted to update the template associated with the model. Updating a model based on the Azure stencil set can also be manually initiated by using the "Apply Template" command in the "File" menu and reapplying the latest Azure Cloud Services.tb7 file.
 
 ### TMT version number is now shown on the home screen
 
@@ -43,7 +43,7 @@ The client version of the Threat Modeling Tool is now shown on the home screen o
 
 ### Support links have been updated
 
-All support links within the tool have been updated to direct users to [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) rather then a MSDN forum.
+All support links within the tool have been updated to direct users to [tmtextsupport@microsoft.com](mailto:tmtextsupport@microsoft.com) rather than an MSDN forum.
 
 ## System requirements
 
