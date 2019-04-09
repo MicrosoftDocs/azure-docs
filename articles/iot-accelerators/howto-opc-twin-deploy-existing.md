@@ -135,4 +135,4 @@ AAD tenant to use.
 Now that you have learned how to deploy OPC Twin to an existing project, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Secure communication of OPC Client and OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Secure communication of OPC Client and OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)
