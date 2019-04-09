@@ -264,7 +264,7 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 
 ## Run your .NET application
 
-Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. Follow these instructions to [generate the device connection string](concepts-connectivity.md#get-a-connection-string) using the **Scope ID**, **Device ID**, and **Primary key** you made a note of previously.
+Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. Follow these instructions to [generate the device connection string](howto-generate-connection-string.md) using the **Scope ID**, **Device ID**, and **Primary key** you made a note of previously.
 
 1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you generated.
 
