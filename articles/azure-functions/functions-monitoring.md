@@ -636,7 +636,7 @@ You can enable streaming logs by using [Azure PowerShell](/powershell/azure/over
 Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <function app name> -Tail
+Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
 ## Disable built-in logging
