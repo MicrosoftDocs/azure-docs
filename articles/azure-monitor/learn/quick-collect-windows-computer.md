@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ---
@@ -23,8 +23,8 @@ To understand the supported configuration, review [supported Windows operating s
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure portal
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+## Sign in to Azure portal
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Create a workspace
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
