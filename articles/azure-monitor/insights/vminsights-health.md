@@ -371,7 +371,7 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
 		}
 	  ],
 	  "nextLink": null
-	}
+    }
     ```
 
 ## Next steps
