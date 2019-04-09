@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
 ---
 
@@ -56,7 +56,8 @@ To use the HTTP Data Collector API, you create a POST request that includes the 
 | Authorization |The authorization signature. Later in the article, you can read about how to create an HMAC-SHA256 header. |
 | Log-Type |Specify the record type of the data that is being submitted. The size limit for this parameter is 100 characters. |
 | x-ms-date |The date that the request was processed, in RFC 1123 format. |
-| time-generated-field |The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
+| x-ms-AzureResourceId | Resource ID of the Azure resource the data should be associated with. This populates the [_ResourceId](log-standard-properties.md#_resourceid) property and allows the data to be included in [resource-centric](manage-access.md#access-modes) queries. If this field isn't specified, the data will not be included in resource-centric queries. |
+| time-generated-field | The name of a field in the data that contains the timestamp of the data item. If you specify a field then its contents are used for **TimeGenerated**. If this field isn’t specified, the default for **TimeGenerated** is the time that the message is ingested. The contents of the message field should follow the ISO 8601 format YYYY-MM-DDThh:mm:ssZ. |
 
 ## Authorization
 Any request to the Azure Monitor HTTP Data Collector API must include an authorization header. To authenticate a request, you must sign the request with either the primary or the secondary key for the workspace that is making the request. Then, pass that signature as part of the request.   
@@ -161,6 +162,11 @@ But, if you then made this next submission, Azure Monitor would create the new p
 If you then submitted the following entry, before the record type was created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
 ![Sample record 4](media/data-collector-api/record-04.png)
+
+## Reserved properties
+The following properties are reserved and should not be used in a custom record type. You will receive an error if your payload includes any of these property names.
+
+- tenant
 
 ## Data limits
 There are some constraints around the data posted to the Azure Monitor Data collection API.

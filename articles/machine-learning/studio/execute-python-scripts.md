@@ -99,7 +99,7 @@ from azure.storage.blob import BlockBlobService
 block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
 ```
 
-4. Disable **Secure transfer required** in your Storage **Configuration** setting tab
+1. Disable **Secure transfer required** in your Storage **Configuration** setting tab
 
 ![Disable Secure transfer required in the Azure portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
 

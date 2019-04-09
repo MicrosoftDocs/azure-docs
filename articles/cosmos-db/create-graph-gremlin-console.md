@@ -77,13 +77,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 make sure to wrap the value of hosts parameter within brackets []. 
 
-3. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
+1. In your terminal, run `bin/gremlin.bat` or `bin/gremlin.sh` to start the [Gremlin Console](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. In your terminal, run `:remote connect tinkerpop.server conf/remote-secure.yaml` to connect to your app service.
 
     > [!TIP]
     > If you receive the error `No appenders could be found for logger` ensure that you updated the serializer value in the remote-secure.yaml file as described in step 2. 
 
-5. Next run `:remote console` to redirect all console commands to the remote server.
+1. Next run `:remote console` to redirect all console commands to the remote server.
 
    > [!NOTE]
    > If you don't run the `:remote console` command but would like to redirect all console commands to the remote server, you should prefix the command with `:>`, for example you should run the command as `:> g.V().count()`. This prefix is a part of the command and it is important when using the Gremlin console with Azure Cosmos DB. Omitting this prefix instructs the console to execute the command locally, often against an in-memory graph. Using this prefix `:>` tells the console to execute a remote command, in this case against Azure Cosmos DB (either the localhost emulator, or an Azure instance).

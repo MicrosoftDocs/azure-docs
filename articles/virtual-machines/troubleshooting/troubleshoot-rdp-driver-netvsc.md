@@ -94,22 +94,22 @@ Connect to [the Serial Console, open a PowerShell instance](serial-console-windo
 
 12. Download the appropriate update:
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) or a later update
-   - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) or a later update
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) or a later update
+    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) or a later update
 
 13. Attach the system disk as a data disk on a rescue VM on which you can download the update.
 
 14. Run the following command to install the update on the VM:
 
-   ```
-   dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
-   ```
+    ```
+    dism /image:<OS Disk letter>:\ /add-package /packagepath:c:\temp\<KB .msu or .cab>
+    ```
 
 15. Run the following command to unmount the hives:
 
-   ```
-   reg unload HKLM\BROKENSYSTEM
-   ```
+    ```
+    reg unload HKLM\BROKENSYSTEM
+    ```
 
 16. [Detach the system disk, and create the VM again](../windows/troubleshoot-recovery-disks-portal.md).
 

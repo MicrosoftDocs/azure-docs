@@ -32,7 +32,6 @@ The code will demonstrate the initiation process of a device stream, as well as 
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
 ## Prerequisites
 
 The preview of device streams is currently only supported for IoT Hubs created in the following regions:
@@ -48,6 +47,12 @@ You can verify the current version of Node.js on your development machine using 
 
 ```
 node --version
+```
+
+Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
 ```
 
 If you haven't already done so, download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip and extract the ZIP archive.
@@ -66,14 +71,13 @@ If you completed the previous [Quickstart: Send telemetry from a device to an Io
 
 A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+1. Run the following command in Azure Cloud Shell to create the device identity.
 
    **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
    **MyDevice**: This is the name given for the registered device. Use MyDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
     ```
 
@@ -82,7 +86,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     **YourIoTHubName**: Replace this placeholder below with the name you chose for your IoT hub.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Make a note of the returned value, which looks like this:
@@ -102,7 +106,7 @@ As mentioned earlier, IoT Hub Node.js SDK only supports device streams on the se
 Assuming the device-side application is running, follow the steps below to run the service-side application in Node.js:
 
 - Provide your service credentials and device ID as environment variables.
-```
+  ```
   # In Linux
   export IOTHUB_CONNECTION_STRING="<provide_your_service_connection_string>"
   export STREAMING_TARGET_DEVICE="MyDevice"
@@ -110,11 +114,11 @@ Assuming the device-side application is running, follow the steps below to run t
   # In Windows
   SET IOTHUB_CONNECTION_STRING=<provide_your_service_connection_string>
   SET STREAMING_TARGET_DEVICE=MyDevice
-```
-Change `MyDevice` to the device ID you chose for your device.
+  ```
+  Change `MyDevice` to the device ID you chose for your device.
 
 - Navigate to `Quickstarts/device-streams-service` in your unzipped project folder and run the sample using node.
-```
+  ```
   cd azure-iot-samples-node-streams-preview/iot-hub/Quickstarts/device-streams-service
   
   # Install the preview service SDK, and other dependencies
@@ -122,7 +126,7 @@ Change `MyDevice` to the device ID you chose for your device.
   npm install
 
   node echo.js
-```
+  ```
 
 At the end of the last step, the service-side program will initiate a stream to your device and once established will send a string buffer to the service over the stream. In this sample, the service-side program simply reads the stdin on the terminal and sends it to the device, which will then echo it back. This demonstrates successful bidirectional communication between the two applications.
 

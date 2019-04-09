@@ -21,6 +21,9 @@ ms.author: rkarlin
 # Gain tenant-wide visibility for Azure Security Center
 This article helps you get started by doing several actions that maximize the benefits Azure Security Center provides. Performing these actions enables you to gain visibility on all the Azure subscriptions that are linked to your Azure Active Directory tenant and effectively manage your organization’s security posture at scale by applying security policies across multiple subscriptions in an aggregative manner.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Management groups
 Azure management groups provide the ability to efficiently manage access, policies, and reporting on groups of subscriptions, as well as effectively manage the entire Azure estate by performing actions on the root management group. Each Azure AD tenant is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. This group allows global policies and RBAC assignments to be applied at the directory level. 
 
@@ -74,7 +77,7 @@ An Azure Active Directory tenant administrator doesn’t have direct access to A
 
    - When you set the switch to Yes, you are assigned the User Access Administrator role in Azure RBAC at the root scope (/). This grants you permission to assign roles in all Azure subscriptions and management groups associated with this Azure AD directory. This switch is only available to users who are assigned the Global Administrator role in Azure AD.
 
-  - When you set the switch to No, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
+   - When you set the switch to No, the User Access Administrator role in Azure RBAC is removed from your user account. You can no longer assign roles in all Azure subscriptions and management groups that are associated with this Azure AD directory. You can view and manage only the Azure subscriptions and management groups to which you have been granted access.
 
 4. Click **Save** to save your setting.
 
@@ -178,8 +181,8 @@ You can add subscriptions to the management group that you created. These steps 
 
 4. Repeat steps 1 through 3 until you've added all the subscriptions in the scope.
 
- > [!NOTE]
- > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
+   > [!NOTE]
+   > Management groups can contain both subscriptions and child management  groups. When you assign a user an RBAC role to the parent management group, the access is inherited by the child management group's subscriptions. Policies set at the parent management group are also inherited by the children. 
 
 ## Next steps
 In this article, you learned how to gain tenant-wide visibility for Azure Security Center. To learn more about Security Center, see the following articles:

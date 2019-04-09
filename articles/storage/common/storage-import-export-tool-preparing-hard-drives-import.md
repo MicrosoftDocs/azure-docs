@@ -146,12 +146,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
->[!NOTE] 
->The session id should match the previous session id. Journal file should match the one specified in previous session.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> The session id should match the previous session id. Journal file should match the one specified in previous session.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Example:**
 

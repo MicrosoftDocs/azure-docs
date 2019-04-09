@@ -72,7 +72,7 @@ In the next section, you create a new ASP.NET MVC application.
 
 3. In the **Name** box, type the name of the project. This tutorial uses the name "todo". If you choose to use something other than this, then wherever this tutorial talks about the todo namespace, adjust the provided code samples to use whatever you named your application. 
 
-4. Select **Browse** to navigate to the folder where you would like to create the project, and then choose **.Net framework 4.6.1** or higher. Select **OK**. 
+4. Select **Browse** to navigate to the folder where you would like to create the project, and then choose **.NET framework 4.6.1** or higher. Select **OK**. 
 
 5. The **New ASP.NET Web Application** dialog box appears. In the templates pane, select **MVC**.
 
@@ -230,7 +230,7 @@ The first thing to do here is add a class that contains the logic to connect to 
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
+   This code now tells ASP.NET MVC that if you have not specified a value in the URL to control the routing behavior, instead of **Home**, it uses **Item** as the controller and **Index** as the view.
 
 Now if you run the application, it calls into your **ItemController** that calls the GetItems methods from the TodoItemService class that you define in the next section. 
 

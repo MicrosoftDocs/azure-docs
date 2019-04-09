@@ -75,13 +75,13 @@ To install via Composer: (take blob as example).
 
 1. Create a file named **composer.json** in the root of the project with following code:
 
-  ```json
+   ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-  ```
+   ```
 
 2. Download [composer.phar](https://getcomposer.org/composer.phar) to the project root.
 3. Run: `php composer.phar install`.

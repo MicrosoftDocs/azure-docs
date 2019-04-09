@@ -69,14 +69,14 @@ Restore as follows:
     ![Select Restore DB](./media/backup-azure-sql-database/restore-db-button.png)
 
 7. In **Restore Configuration**, specify where to restore the data:
-    - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
-    - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
+   - **Alternate Location**: Restore the database to an alternate location and keep the original source database.
+   - **Overwrite DB**: Restore the data to the same SQL Server instance as the original source. This option overwrites the original database.
 
-    > [!Important]
-    > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-    >
+     > [!Important]
+     > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+     >
 
-    ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+     ![Restore Configuration menu](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
 
 ### Restore to an alternate location
 

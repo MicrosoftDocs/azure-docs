@@ -61,7 +61,7 @@ Here is a sample of a single CORS rule, specified via a Set Service Properties o
 
 Each element included in the CORS rule is described below:
 
-* **AllowedOrigins**: The origin domains that are permitted to make a request against the storage service via CORS. The origin domain is the domain from which the request originates. Note that the origin must be an exact case-sensitive match with the origin that the user age sends to the service. You can also use the wildcard character '*' to allow all origin domains to make requests via CORS. In the example above, the domains [http://www.contoso.com](http://www.contoso.com) and [http://www.fabrikam.com](http://www.fabrikam.com) can make requests against the service using CORS.
+* **AllowedOrigins**: The origin domains that are permitted to make a request against the storage service via CORS. The origin domain is the domain from which the request originates. Note that the origin must be an exact case-sensitive match with the origin that the user age sends to the service. You can also use the wildcard character '*' to allow all origin domains to make requests via CORS. In the example above, the domains http:\//www.contoso.com and http:\//www.fabrikam.com can make requests against the service using CORS.
 * **AllowedMethods**: The methods (HTTP request verbs) that the origin domain may use for a CORS request. In the example above, only PUT and GET requests are permitted.
 * **AllowedHeaders**: The request headers that the origin domain may specify on the CORS request. In the example above, all metadata headers starting with x-ms-meta-data, x-ms-meta-target, and x-ms-meta-abc are permitted. Note that the wildcard character '*' indicates that any header beginning with the specified prefix is allowed.
 * **ExposedHeaders**: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer. In the example above, the browser is instructed to expose any header beginning with x-ms-meta.
@@ -124,9 +124,9 @@ Next, consider the following CORS requests:
 | Request |  |  | Response |  |
 | --- | --- | --- | --- | --- |
 | **Method** |**Origin** |**Request Headers** |**Rule Match** |**Result** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |First rule |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Second rule |Success |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Second rule |Failure |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |First rule |Success |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Second rule |Success |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Second rule |Failure |
 
 The first request matches the first rule – the origin domain matches the allowed origins, the method matches the allowed methods, and the header matches the allowed headers – and so succeeds.
 

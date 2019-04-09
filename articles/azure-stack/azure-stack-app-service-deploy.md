@@ -40,13 +40,13 @@ You can give your users the ability to create web and API applications. To let u
 
 Installing the App Service resource provider takes at least an hour. The length of time needed depends on how many role instances you deploy. During the deployment, the installer runs the following tasks:
 
- - Create a blob container in the specified Azure Stack storage account.
- - Create a DNS zone and entries for App Service.
- - Register the App Service resource provider.
- - Register the App Service gallery items.
+- Create a blob container in the specified Azure Stack storage account.
+- Create a DNS zone and entries for App Service.
+- Register the App Service resource provider.
+- Register the App Service gallery items.
 
- > [!IMPORTANT]
- > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
+  > [!IMPORTANT]
+  > Before deploying the resource provider, review the release notes to learn about new functionality, fixes, and any known issues that could affect your deployment.
 
 To deploy App Service resource provider, follow these steps:
 
@@ -70,8 +70,8 @@ To deploy App Service resource provider, follow these steps:
 
     a. Select **Connect** next to the **Azure Stack Subscriptions**.
 
-     - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
-     - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
+   - If you're using Azure Active Directory (Azure AD), enter the Azure AD admin account and password that you provided when you deployed Azure Stack. Select **Sign In**.
+   - If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, cloudadmin@azurestack.local. Enter your password, and then select **Sign In**.
 
    b. In **Azure Stack Subscriptions**, select the **Default Provider Subscription**.
 

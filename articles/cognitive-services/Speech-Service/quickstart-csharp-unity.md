@@ -77,8 +77,8 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Edit the script by double-clicking it.
 
-  > [!NOTE]
-  > You can configure which code editor will be launched under **Edit** > **Preferences**, see the [Unity User Manual](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > You can configure which code editor will be launched under **Edit** > **Preferences**, see the [Unity User Manual](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Replace all code with the following:
 
@@ -92,15 +92,15 @@ When you're done, the UI should look similar to this screenshot:
 
 1. Back in the Unity Editor, the script needs to be added as a component to one of your game objects.
 
-  * Click on the **Canvas** object in the Hierarchy Window. This opens up the setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
-  * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
-  * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
-    To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
+   * Click on the **Canvas** object in the Hierarchy Window. This opens up the setting in the [Inspector Window](https://docs.unity3d.com/Manual/UsingTheInspector.html) (by default on the right).
+   * Click the **Add Component** button in the Inspector Window, then search for the HelloWorld script we create above and add it.
+   * Note that the Hello World component has two uninitialized properties, **Output Text** and **Start Reco Button**, that match public properties of the `HelloWorld` class.
+     To wire them up, click the Object Picker (the small circle icon to the right of the property), and choose the text and button objects you created earlier.
 
-    > [!NOTE]
-    > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
-    > rename one of the text objects using the Name field in the Inspector
-    > Window to avoid that confusion).
+     > [!NOTE]
+     > The button also has a nested text object. Make sure you do not accidentally pick it for text output (or
+     > rename one of the text objects using the Name field in the Inspector
+     > Window to avoid that confusion).
 
 ## Run the application in the Unity Editor
 

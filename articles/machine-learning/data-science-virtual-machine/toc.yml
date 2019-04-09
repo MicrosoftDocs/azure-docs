@@ -65,7 +65,8 @@
 - name: Resources
   items:
   - name: R developer guide 
-    href: ../r-developers-guide.md
+    href: /azure/architecture/data-guide/technology-choices/r-developers-guide
+    maintainContext: true
   - name: Blog
     href: https://blogs.technet.microsoft.com/machinelearning/tag/dsvm/
   - name: MSDN forum

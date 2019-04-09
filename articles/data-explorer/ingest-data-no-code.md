@@ -1,15 +1,14 @@
 ---
 title: 'Tutorial: Ingest diagnostic and activity log data in Azure Data Explorer without one line of code'
 description: In this tutorial, you learn how to ingest data to Azure Data Explorer without one line of code and query that data.
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 3/14/2019
+ms.date: 04/07/2019
 
-#Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
+# Customer intent: I want to ingest data to Azure Data Explorer without one line of code, so that I can explore and analyze my data by using queries.
 ---
 
 # Tutorial: Ingest data in Azure Data Explorer without one line of code
@@ -207,12 +206,12 @@ To map the activity logs' data to the table, use the following query:
 
 #### Activity log data update policy
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of activity log records so that each value in the collection receives a separate row. Use the [`mvexpand`](/azure/kusto/query/mvexpandoperator) operator:
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of activity log records so that each value in the collection receives a separate row. Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
         ActivityLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -236,11 +235,11 @@ To map the activity logs' data to the table, use the following query:
 
 #### Diagnostic log data update policy
 
-1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic log records so that each value in the collection receives a separate row. Use the [`mvexpand`](/azure/kusto/query/mvexpandoperator) operator:
+1. Create a [function](/azure/kusto/management/functions) that expands the collection of diagnostic log records so that each value in the collection receives a separate row. Use the [`mv-expand`](/azure/kusto/query/mvexpandoperator) operator:
      ```kusto
     .create function DiagnosticLogRecordsExpand() {
         DiagnosticLogsRawRecords
-        | mvexpand events = Records
+        | mv-expand events = Records
         | project
             Timestamp = todatetime(events["time"]),
             ResourceId = tostring(events["resourceId"]),
@@ -298,12 +297,12 @@ Select a resource from which to export metrics. Several resource types support e
     ![Diagnostic settings](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. The **Diagnostics settings** pane opens. Take the following steps:
-    1. Give your diagnostics log data the name *ADXExportedData*.
-    1. Under **METRIC**, select the **AllMetrics** check box (optional).
-    1. Select the **Stream to an event hub** check box.
-    1. Select **Configure**.
+   1. Give your diagnostics log data the name *ADXExportedData*.
+   1. Under **METRIC**, select the **AllMetrics** check box (optional).
+   1. Select the **Stream to an event hub** check box.
+   1. Select **Configure**.
 
-    ![Diagnostics settings pane](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Diagnostics settings pane](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. In the **Select event hub** pane, configure how to export data from diagnostic logs to the event hub you created:
     1. In the **Select event hub namespace** list, select *AzureMonitoringData*.

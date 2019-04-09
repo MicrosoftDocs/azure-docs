@@ -80,15 +80,15 @@ These references are supported:
 
 msgen understands configuration files in the following format:
 * All options are provided as key-value pairs with values separated from keys by a colon.
-Whitespace is ignored.
+  Whitespace is ignored.
 * Lines starting with `#` are ignored.
 * Any command-line argument in the long format can be converted to a key by stripping its leading dashes and replacing dashes between words with underscores. Here are some conversion examples:
 
- |Command-line argument            | Configuration file line |
- |:-------------                   |:-------------                 |
- |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
- |`-k/--access-key KEY`            | *access_key:KEY*              |      
- |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
+  |Command-line argument            | Configuration file line |
+  |:-------------                   |:-------------                 |
+  |`-u/--api-url-base https://url`  | *api_url_base:https://url*    |
+  |`-k/--access-key KEY`            | *access_key:KEY*              |      
+  |`-pa/--process-args R=B37m1`     | *process_args:R-b37m1*        |  
 
 ## Next steps
 

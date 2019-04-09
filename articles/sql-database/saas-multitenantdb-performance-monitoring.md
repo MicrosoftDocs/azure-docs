@@ -22,7 +22,7 @@ The Wingtip Tickets SaaS Multi-tenant Database app uses a sharded multi-tenant d
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Simulate usage on a sharded multi-tenant database by running a provided load generator
 > * Monitor the database as it responds to the increase in load
 > * Scale up the database in response to the increased database load

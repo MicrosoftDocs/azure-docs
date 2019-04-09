@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: DrEsteban
 ms.author: stevenry
-ms.date: "11/21/2018"
+ms.date: 11/21/2018
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
@@ -54,7 +54,7 @@ Let's now write code in `webfrontend` that makes a request to `mywebapi`.
        });
     });
     ```
- 4. *Remove* the `server.close()` line at the end of `server.js`
+   1. *Remove* the `server.close()` line at the end of `server.js`
 
 The preceding code example forwards the `azds-route-as` header from the incoming request to the outgoing request. You'll see later how this helps teams with collaborative development.
 

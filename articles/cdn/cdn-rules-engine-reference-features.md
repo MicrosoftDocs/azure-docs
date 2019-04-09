@@ -73,7 +73,7 @@ This feature is designed to provide additional information within a rule.
 Name | Purpose
 -----|--------
 [Comment](#comment) | Allows a note to be added within a rule.
- 
+ 
 ## Header features
 
 These features are designed to add, modify, or delete headers from the request or response.
@@ -123,7 +123,7 @@ Enabled|Indicates that the request is eligible for Edge Optimizer processing.
 Disabled|Restores the default behavior. The default behavior is to deliver content over the ADN platform without any additional processing.
 
 **Default Behavior:** Disabled
- 
+ 
 
 ### Edge Optimizer - Instantiate Configuration
 **Purpose:** Instantiates or activates the Edge Optimizer configuration associated with a site.
@@ -161,7 +161,7 @@ Name | Purpose
 [Cacheable Request Body Size](#cacheable-request-body-size) | Defines the threshold for determining whether a POST response can be cached.
 [User Variable](#user-variable) | For internal use only.
 
- 
+ 
 ## URL features
 
 These features allow a request to be redirected or rewritten to a different URL.
@@ -392,6 +392,7 @@ Option|Description
 --|--
 Original Path| Define the relative path to the types of requests whose cache-key is rewritten. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern.
 New Path|Define the relative path for the new cache-key. A relative path can be defined by selecting a base origin path and then defining a regular expression pattern. This relative path can be dynamically constructed through the use of [HTTP variables](cdn-http-variables.md).
+
 **Default Behavior:** A request's cache-key is determined by the request URI.
 
 [Back to top](#azure-cdn-rules-engine-features)

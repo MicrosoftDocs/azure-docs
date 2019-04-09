@@ -370,50 +370,50 @@ Records with a type of *ServiceMapComputer_CL* have inventory data for servers w
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapComputer_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a machine within the workspace |
-| ResourceName_s | The unique identifier for a machine within the workspace |
-| ComputerName_s | The computer FQDN |
-| Ipv4Addresses_s | A list of the server's IPv4 addresses |
-| Ipv6Addresses_s | A list of the server's IPv6 addresses |
-| DnsNames_s | An array of DNS names |
-| OperatingSystemFamily_s | Windows or Linux |
-| OperatingSystemFullName_s | The full name of the operating system  |
-| Bitness_s | The bitness of the machine (32-bit or 64-bit)  |
-| PhysicalMemory_d | The physical memory in MB |
-| Cpus_d | The number of CPUs |
-| CpuSpeed_d | The CPU speed in MHz|
-| VirtualizationState_s | *unknown*, *physical*, *virtual*, *hypervisor* |
-| VirtualMachineType_s | *hyperv*, *vmware*, and so on |
-| VirtualMachineNativeMachineId_g | The VM ID as assigned by its hypervisor |
-| VirtualMachineName_s | The name of the VM |
-| BootTime_t | The boot time |
+| `Type` | *ServiceMapComputer_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | The unique identifier for a machine within the workspace |
+| `ResourceName_s` | The unique identifier for a machine within the workspace |
+| `ComputerName_s` | The computer FQDN |
+| `Ipv4Addresses_s` | A list of the server's IPv4 addresses |
+| `Ipv6Addresses_s` | A list of the server's IPv6 addresses |
+| `DnsNames_s` | An array of DNS names |
+| `OperatingSystemFamily_s` | Windows or Linux |
+| `OperatingSystemFullName_s` | The full name of the operating system  |
+| `Bitness_s` | The bitness of the machine (32-bit or 64-bit)  |
+| `PhysicalMemory_d` | The physical memory in MB |
+| `Cpus_d` | The number of CPUs |
+| `CpuSpeed_d` | The CPU speed in MHz|
+| `VirtualizationState_s` | *unknown*, *physical*, *virtual*, *hypervisor* |
+| `VirtualMachineType_s` | *hyperv*, *vmware*, and so on |
+| `VirtualMachineNativeMachineId_g` | The VM ID as assigned by its hypervisor |
+| `VirtualMachineName_s` | The name of the VM |
+| `BootTime_t` | The boot time |
 
 ### ServiceMapProcess_CL Type records
 Records with a type of *ServiceMapProcess_CL* have inventory data for TCP-connected processes on servers with Service Map agents. These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
-| Type | *ServiceMapProcess_CL* |
-| SourceSystem | *OpsManager* |
-| ResourceId | The unique identifier for a process within the workspace |
-| ResourceName_s | The unique identifier for a process within the machine on which it is running|
-| MachineResourceName_s | The resource name of the machine |
-| ExecutableName_s | The name of the process executable |
-| StartTime_t | The process pool start time |
-| FirstPid_d | The first PID in the process pool |
-| Description_s | The process description |
-| CompanyName_s | The name of the company |
-| InternalName_s | The internal name |
-| ProductName_s | The name of the product |
-| ProductVersion_s | The product version |
-| FileVersion_s | The file version |
-| CommandLine_s | The command line |
-| ExecutablePath _s | The path to the executable file |
-| WorkingDirectory_s | The working directory |
-| UserName | The account under which the process is executing |
-| UserDomain | The domain under which the process is executing |
+| `Type | *ServiceMapProcess_CL* |
+| `SourceSystem` | *OpsManager* |
+| `ResourceId` | The unique identifier for a process within the workspace |
+| `ResourceName_s` | The unique identifier for a process within the machine on which it is running|
+| `MachineResourceName_s` | The resource name of the machine |
+| `ExecutableName_s` | The name of the process executable |
+| `StartTime_t` | The process pool start time |
+| `FirstPid_d` | The first PID in the process pool |
+| `Description_s` | The process description |
+| `CompanyName_s` | The name of the company |
+| `InternalName_s` | The internal name |
+| `ProductName_s` | The name of the product |
+| `ProductVersion_s` | The product version |
+| `FileVersion_s` | The file version |
+| `CommandLine_s` | The command line |
+| `ExecutablePath _s` | The path to the executable file |
+| `WorkingDirectory_s` | The working directory |
+| `UserName` | The account under which the process is executing |
+| `UserDomain` | The domain under which the process is executing |
 
 ## Sample log searches
 

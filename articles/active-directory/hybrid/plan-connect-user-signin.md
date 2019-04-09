@@ -71,7 +71,9 @@ For more information, see:
 ### Federation that uses a new or existing farm with AD FS in Windows Server 2012 R2
 With federated sign-in, your users can sign in to Azure AD-based services with their on-premises passwords. While they're on the corporate network, they don't even have to enter their passwords. By using the federation option with AD FS, you can deploy a new or existing farm with AD FS in Windows Server 2012 R2. If you choose to specify an existing farm, Azure AD Connect configures the trust between your farm and Azure AD so that your users can sign in.
 
-<center>![Federation with AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federation with AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### Deploy federation with AD FS in Windows Server 2012 R2
 

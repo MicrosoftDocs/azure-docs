@@ -273,11 +273,11 @@ Install IIS with a custom web page on both back-end VMs as follows:
 
 1. Get the Public IP address of the Load Balancer. Using `Get-AzPublicIPAddress`, obtain the Public IP address of the Load Balancer.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Create a remote desktop connection to VM1 using the Public Ip address that you obtained from the previous step. 
 
    ```azurepowershell-interactive

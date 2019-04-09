@@ -12,7 +12,7 @@ ms.date: 02/03/2019
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Sink options](media/data-flow/windows1.png "sink 1")
+![Sink options](media/data-flow/sink1.png "sink 1")
 
 At the completion of your data flow transformation, you can sink your transformed data into a destination dataset. In the Sink transformation, you can choose the dataset definition that you wish to use for the destination output data. You may have as many Sink transformation as your data flow requires.
 
@@ -29,7 +29,7 @@ For Azure Storage Blob or Data Lake sink types, you will output the transformed 
 
 ![Sink options](media/data-flow/opt001.png "sink options")
 
-#### Field mapping
+## Field mapping
 
 On the Mapping tab of your Sink transformation, you can map the incoming (left side) columns to the destination (right side). When you sink data flows to files, ADF will always write new files to a folder. When you map to a database dataset, you can choose to either generate a new table with this schema (set Save Policy to "overwrite") or insert new rows to an existing table and map the fields to the existing schema.
 
@@ -49,24 +49,33 @@ If you'd like to reset your columns mappings, press the "Remap" button to reset 
 
 * Clear the Folder. ADF will truncate the sink folder contents before writing the destination files in that target folder.
 
-* File name options
+## File name options
 
    * Default: Allow Spark to name files based on PART defaults
-   * Pattern: Enter a name for your output files
+   * Pattern: Enter a pattern for your output files. For example, "loans[n]" will create loans1.csv, loans2.csv, ...
    * Per partition: Enter a file name per partition
    * As data in column: Set the output file to the value of a column
 
 > [!NOTE]
 > File operations will only execute when you are running the Execute Data Flow activity, not while in Data Flow Debug mode
 
-With database dataset sinks, you will have additional options:
+## Database options
 
-* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or insert rows, you must first add an alter row transformation to tag rows for those specific actions.
+* Allow insert, update, delete, upserts. The default is to allow inserts. If you wish to update, upsert, or delete rows, you must first add an alter row transformation to tag rows for those specific actions. Turning off "Allow insert" will stop ADF from inserting new rows from your source.
 * Truncate table (removes all rows from your target table before completing the data flow)
 * Recreate table (performs drop/create of your target table before completing the data flow)
-* Batch size for large data loads. Enter a number to bucket writes into chunks.
+* Batch size for large data loads. Enter a number to bucket writes into chunks
+* Enable staging: This will instruct ADF to use Polybase when loading Azure Data Warehouse as your sink dataset
+
+> [!NOTE]
+> In Data Flow, you can ask ADF to create a new table definition in your target database by setting a dataset in the Sink transformation that has a new table name. In the SQL dataset, click "Edit" below the table name and enter a new table name. Then, in the Sink Transformation, turn on "Allow Schema Drift". Seth the "Import Schema" setting to None.
+
+![Source Transformation schema](media/data-flow/dataset2.png "SQL Schema")
 
 ![SQL Sink Options](media/data-flow/alter-row2.png "SQL Options")
+
+> [!NOTE]
+> When updating or deleting rows in your database sink, you must set the key column. This way, Alter Row is able to determine the unique row in the DML.
 
 ## Next steps
 

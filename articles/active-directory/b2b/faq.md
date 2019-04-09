@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 10/29/2018
+ms.date: 04/02/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celested
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -45,7 +45,7 @@ This feature is planned for a future release, so that then you can select specif
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
 
 ### Can I make guest users visible in the Exchange Global Address List?
-Yes. Guest objects aren't visible in your organization's global address list by default, but you can use Azure Active Directory PowerShell to make them visible. See **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
@@ -57,12 +57,12 @@ Unless a user is assigned the role of limited administrator or global administra
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
 To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
-  ![modify the group screenshot](media/faq/modify-all-users-group.png)
+   ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
-  ![create group screenshot](media/faq/group-with-guest-users.png)
+   ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
   
-  > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
 ### Does Azure AD B2B collaboration support multi-factor authentication and consumer email accounts?
 Yes. Multi-factor authentication and consumer email accounts are both supported for Azure AD B2B collaboration.
@@ -92,7 +92,7 @@ A guest user can use any identity provider to authenticate. For more information
 
 ### Where can I find a B2B collaboration community to share solutions and to submit ideas?
 We're constantly listening to your feedback, to improve B2B collaboration. Please share your user scenarios, best practices, and what you like about Azure AD B2B collaboration. Join the discussion in the [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b).
- 
+ 
 We also invite you to submit your ideas and vote for future features at [B2B Collaboration Ideas](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas).
 
 ### Can we send an invitation that is automatically redeemed, so that the user is just “ready to go”? Or does the user always have to click through to the redemption URL?

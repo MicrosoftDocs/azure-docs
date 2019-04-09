@@ -110,8 +110,8 @@ You can choose from the following settings:
    * Apply updates
    * Install hotfixes
 
-    > [!NOTE]
-    > This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.
+     > [!NOTE]
+     > This is the preferred option if you have forgotten the device administrator password and cannot connect through option 1 or 2.
 
 4. **Change language**
    This option allows you to change the display language on the Windows PowerShell interface. The languages supported are English, Japanese, Russian, French, South Korean, Spanish, Italian, German, Chinese, and Brazilian Portuguese.

@@ -60,9 +60,9 @@ Choose your names now, and write them down.
 ### Steps
 
 1. Click the following blue **Deploy to Azure** button.
-    - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
+   - It opens the Azure portal with the Wingtip Tickets SaaS deployment template.
 
-    [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Button for Deploy to Azure.][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Enter the required parameter values for the deployment.
 
@@ -119,9 +119,9 @@ Each venue gets a personalized web app to list their events and sell tickets. Ea
 A central **Events Hub** webpage provides a list of links to the tenants in your particular deployment. Use the following steps to experience the **Events Hub** webpage and an individual web app:
 
 1. Open the **Events Hub** in your web browser:
-    - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(Replace &lt;user&gt; with your deployment's user value.)*
 
-    ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![events hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Click **Fabrikam Jazz Club** in the **Events Hub**.
 

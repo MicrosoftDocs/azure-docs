@@ -15,6 +15,9 @@ This quickstart shows you how to use the Azure portal to create an application g
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Sign in to Azure
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
@@ -31,10 +34,10 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 1. On the **Basics** page, enter these values for the following application gateway settings:
 
-    - **Name**: Enter *myAppGateway* for the name of the application gateway.
-    - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
+   - **Name**: Enter *myAppGateway* for the name of the application gateway.
+   - **Resource group**: Select **myResourceGroupAG** for the resource group. If it doesn't exist, select **Create new** to create it.
 
-    ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
+     ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
 2. Accept the default values for the other settings and then select **OK**.
 
@@ -44,15 +47,15 @@ For Azure to communicate between the resources that you create, it needs a virtu
 
 2. On the **Choose virtual network** page, select **Create new**, and then enter values for the following virtual network settings:
 
-    - **Name**: Enter *myVNet* for the name of the virtual network.
+   - **Name**: Enter *myVNet* for the name of the virtual network.
 
-    - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
+   - **Address space**: Enter *10.0.0.0/16* for the virtual network address space.
 
-    - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
+   - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
 
-    - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
+   - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.
 
-    ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
+     ![Create virtual network](./media/application-gateway-create-gateway-portal/application-gateway-vnet.png)
 
 3. Select **OK** to return to the **Settings** page.
 
@@ -117,7 +120,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
 2. Run the following command to install IIS on the virtual machine: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -128,7 +131,7 @@ In this example, we are installing IIS on the virtual machines only for the purp
       -Location EastUS
     ```
 
-3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzureRmVMExtension** cmdlet.
+3. Create a second virtual machine and install IIS by using the steps that you previously completed. Use *myVM2* for the virtual machine name and for the **VMName** setting of the **Set-AzVMExtension** cmdlet.
 
 ### Add backend servers to backend pool
 

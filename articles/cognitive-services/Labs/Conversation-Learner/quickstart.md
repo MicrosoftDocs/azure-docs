@@ -90,16 +90,16 @@ The instructions above started the generic empty bot.  To run a tutorial or demo
 
 3. Run a demo bot from the command line (step 2 above).  Demos include:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
 4. If you're not already, switch to the Conversation Learner web UI in Chrome by loading `http://localhost:3978/ui/home`. 
 

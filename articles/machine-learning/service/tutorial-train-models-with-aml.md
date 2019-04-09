@@ -7,9 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/28/2019
 ms.custom: seodec18
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning by using Python in a Jupyter notebook.
@@ -63,9 +62,11 @@ After you complete the steps below, run the **tutorials/img-classification-part1
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
+Use these steps to create a local Jupyter Notebook server on your computer. 
 
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
+
+ After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 ## <a name="start"></a>Set up your development environment
 
