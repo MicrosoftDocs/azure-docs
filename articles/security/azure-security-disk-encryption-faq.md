@@ -32,11 +32,11 @@ Azure Disk Encryption is available on standard tier VMs including [A, D, DS, G, 
 
 ## <a name="bkmk_LinuxOSSupport"></a> What Linux distributions does Azure Disk Encryption support?
 
-Azure Disk Encryption is supported on a subset of [Azure endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all possible distributions.
+Azure Disk Encryption is supported on a subset of the [Azure-endorsed Linux distributions](../virtual-machines/linux/endorsed-distros.md), which is itself a subset of all Linux server possible distributions.
 
  ![Venn Diagram of Linux server distributions that support Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following Linux server distributions and versions support Azure Disk Encryption:
+Linux server distributions that are not endorsed by Azure do not support Azure Disk Encryption and, of those that are endorsed, only the following distributions and versions support Azure Disk Encryption:
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
