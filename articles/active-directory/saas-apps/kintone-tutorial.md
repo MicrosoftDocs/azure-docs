@@ -105,8 +105,8 @@ To configure Azure AD single sign-on with Kintone, perform the following steps:
     `https://<companyname>.kintone.com`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-	| |
-	|--|
+	|||
+	|-|-|
 	| `https://<companyname>.cybozu.com`|
 	| `https://<companyname>.kintone.com`|
 
