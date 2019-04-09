@@ -61,23 +61,29 @@ The custom filters criteria you specify are sent back to the Live Metrics compon
 
 Azure Functions enables Sampling by default in their configuration. For more information, see [Configure Sampling](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-If your project takes a dependency on the AI SDK to do manual telemetry tracking, you may experience strange behavior if these are sampled differently than Functions.
+If your project takes a dependency on the Application Insights SDK to do manual telemetry tracking, you may experience strange behavior if your sampling configuration is different than the Functions' sampling configuration. 
 
 We recommend using the same configuration as Functions. With **Functions v2**, you can get the same configuration using dependency injection in your constructor:
 
 ```csharp
-private readonly TelemetryClient telemetryClient;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.Extensibility;
 
-public Function1(TelemetryConfiguration configuration)
+public class Function1 
 {
-    this.telemetryClient = new TelemetryClient(configuration);
-}
 
-[FunctionName("Function1")]
-public async Task<IActionResult> Run(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
-{
-    this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
-}
+    private readonly TelemetryClient telemetryClient;
+
+    public Function1(TelemetryConfiguration configuration)
+    {
+        this.telemetryClient = new TelemetryClient(configuration);
+    }
+
+    [FunctionName("Function1")]
+    public async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, ILogger logger)
+    {
+        this.telemetryClient.TrackTrace("C# HTTP trigger function processed a request.");
+    }
 
 ```
