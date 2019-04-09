@@ -38,7 +38,7 @@ You must first complete and submit the [Cognitive Services Speech Containers Req
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
-[!INCLUDE [Log in to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
 
 ## The host computer
 
