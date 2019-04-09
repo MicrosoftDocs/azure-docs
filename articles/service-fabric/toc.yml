@@ -87,6 +87,8 @@
   items:
   - name: Service Fabric best practices overview
     href: service-fabric-best-practices-overview.md
+  - name: Service Fabric Security
+    href: service-fabric-best-practices-security.md
   - name: Networking 
     href: service-fabric-best-practices-networking.md
   - name: Compute planning and scaling  
