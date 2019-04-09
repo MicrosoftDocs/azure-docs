@@ -101,6 +101,12 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramter
 
 ## Privacy and authentication
 
+You may get a warning message when you attempt to run the query because Power BI doesn't let you combine an external data source with another query. 
+
+![An image showing a warning created by Power BI](../media/tutorials/blocked-function.png)
+
+To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**. 
+<!--
 If you get a warning message to specify how you connect to the API, click **Edit Credentials**. In the windows that appears, click **Anonymous** and apply it to the Anomaly Detector URL.
 
 ![An image of the credentials warning message](../media/tutorials/credentials-warning-message.png)
@@ -110,7 +116,7 @@ If you see the message even after choosing anonymous access, you may have forgot
 ![An image of the privacy levels warning message](../media/tutorials/privacy-levels-screen.png)
 
 Selecting the privacy levels should let your function be invoked on the time series data. Click **Close and upload**
-
+-->
 ## Visualize the Anomaly Detector API response
 
 Use the screenshot below to help build your chart.
