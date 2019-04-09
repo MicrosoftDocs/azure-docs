@@ -17,7 +17,7 @@ ms.date: 03/19/2019
 In this article, you learn how to train a time-series forecasting regression model using automated machine learning in Azure Machine Learning service. Configuring a forecasting model is similar to setting up a standard regression model using automated machine learning, but certain configuration options and pre-processing steps exist for working with time-series data. The following examples show you how to:
 
 * Prepare data for time series modeling
-* Configure specific time-series parameters in an [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) object
+* Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
 * Run predictions with time-series data
 
 ## Prerequisites
