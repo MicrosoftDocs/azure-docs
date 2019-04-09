@@ -18,13 +18,13 @@ In [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and
 [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), 
 some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
 get their values from runtime actions that might not yet exist 
-when your logic app or flow starts running. To reference or work 
-with these values in expressions, you can use the *functions* 
-provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-For example, you can use math functions, such as the
-[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add) 
-for calculations, for returning the sum from integers or floats. 
-Here are a couple more example tasks you can perform with functions:
+when your logic app or flow starts running. To reference these 
+values or process these values in expressions, you can use 
+the *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, you can use math functions for calculations, such as the
+[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
+when you want the sum from integers or floats. 
+Here are a couple more example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -32,9 +32,9 @@ Here are a couple more example tasks you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This article describes the functions you can use when creating your logic app definitions.
+This article describes the functions that you can use when creating logic apps or flows.
 To find functions [based on their general purpose](#ordered-by-purpose),
-continue with the following tables. Or, for detailed information about each function,
+review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
 
 > [!NOTE]
@@ -163,7 +163,7 @@ For the full reference about each function, see the
 
 To change a value's type or format, you can use these conversion functions.
 For example, you can change a value from a Boolean to an integer.
-To learn how Logic Apps handles content types during
+For more information about how Logic Apps handles content types during
 conversion, see [Handle content types](../logic-apps/logic-apps-content-type.md).
 For the full reference about each function, see the
 [alphabetical list](../logic-apps/workflow-definition-language-functions-reference.md#alphabetical-list).
@@ -254,7 +254,7 @@ For the full reference about each function, see the
 These workflow functions can help you:
 
 * Get details about a workflow instance at run time.
-* Work with the inputs used for instantiating logic apps.
+* Work with the inputs used for instantiating logic apps or flows.
 * Reference the outputs from triggers and actions.
 
 For example, you can reference the outputs from
@@ -275,7 +275,7 @@ For the full reference about each function, see the
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a for-each or do-until-loop, return the current item from the specified loop.|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app definition. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app or flow definition. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -1884,7 +1884,7 @@ And return these results:
 Convert a string version for a floating-point
 number to an actual floating point number.
 You can use this function only when passing custom
-parameters to an app, such as a logic app.
+parameters to an app, for example, a logic app or flow.
 
 ```
 float('<value>')
@@ -2968,7 +2968,7 @@ And return these results:
 ### parameters
 
 Return the value for a parameter that is
-described in your logic app definition.
+described in your logic app or flow definition.
 
 ```
 parameters('<parameterName>')
