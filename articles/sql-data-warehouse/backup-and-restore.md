@@ -20,7 +20,7 @@ Learn how to use backup and restore in Azure SQL Data Warehouse. Use data wareho
 
 A *data warehouse snapshot* creates a restore point you can leverage to recover or copy your data warehouse to a previous state.  Since SQL Data Warehouse is a distributed system, a data warehouse snapshot consists of many files that are located in Azure storage. Snapshots capture incremental changes from the data stored in your data warehouse.
 
-A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  SQL Data Warehouse uses fast restore mechanisms within the same region which has been measured to take less than 20 minutes for any data size.
+A *data warehouse restore* is a new data warehouse that is created from a restore point of an existing or deleted data warehouse. Restoring your data warehouse is an essential part of any business continuity and disaster recovery strategy because it re-creates your data after accidental corruption or deletion. Data warehouse is also a powerful mechanism to create copies of your data warehouse for test or development purposes.  SQL Data Warehouse restore rates can vary depending on the database size and location of the source and target data warehouse. On average within the same region, restore rates typically take around 20 minutes. 
 
 ## Automatic Restore Points
 
