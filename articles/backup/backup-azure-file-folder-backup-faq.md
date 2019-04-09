@@ -113,6 +113,7 @@ If an ongoing restore job is canceled, the restore process stops and all files r
 
 
 ## Manage backups
+
 ### What happens if I rename a Windows server that is backing up data to Azure?<br/>
 When you rename a server, all currently configured backups are stopped. Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
