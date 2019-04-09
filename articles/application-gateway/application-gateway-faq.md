@@ -114,7 +114,7 @@ Use Traffic Manager to distribute traffic across multiple application gateways i
 
 ### Does Application Gateway support autoscaling?
 
-Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and zone-redundant Application Gateway (public preview)](application-gateway-autoscaling-zone-redundant.md).
+Yes, the Application Gateway v2 SKU supports autoscaling. For more information, see [Autoscaling and zone-redundant Application Gateway (public preview)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 ### Does manual scale up or scale down cause downtime?
 
