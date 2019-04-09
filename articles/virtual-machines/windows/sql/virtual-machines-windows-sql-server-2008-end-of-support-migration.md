@@ -24,7 +24,7 @@ This article discusses the options available for extending support for SQL Serve
 For brevity, SQL Server 2008 and SQL Server 2008 R2 images will be referred to as SQL EOS images. 
 
 ## End of Support options
-Customers with Windows Server and SQL Server 2008 or SQL Server 2008 R2  have three options to continue support, help reduce security risk, and continue to get regular security updates. 
+Customers with Windows Server 2008, Windows Server 2008 R2, SQL Server 2008 and/or SQL Server 2008 R2  have three options to continue receiving support past the end of the product life cycle.  Extending support helps reduce security risk, and ensures getting regular security updates. 
 
 ### Move to Azure SQL VM - IaaS option
 Customers can choose to either upgrade to a new version on an Azure VM, or move "as-is" to a SQL Server 2008 / 2008 R2 Azure VM. Extended security updates (ESU) for Windows Server and for SQL EOS images will be offered on Azure Infrastructure-as-a-Service (IaaS) at no additional charge above the standard pricing for Azure VMs. Customers that migrate workloads to Azure VMs will receive security updates and bulletins rated "Critical" and "Important" for EOS Windows Servers, and "Critical" for EOS SQL Server. 
@@ -46,9 +46,9 @@ Some of the benefits to registering your SQL Server instance with Azure are:
 - Discounted security patching. 
 - Free DR replica in Azure. 
     - You can add DR on an Azure VM with a one-click button within the portal. 
-  - One-click "As is" migration to Azure VM. 
-  - Pay as you go licensing
-      - Per hour rate including end-of-support security updates (ESU) charges - you'll only have to pay if the instance is running.
+- One-click "As is" migration to Azure VM. 
+- Pay as you go licensing
+    - Per hour rate including end-of-support security updates (ESU) charges - you'll only have to pay if the instance is running.
 
 For more information on how to register, see [Register on-premises EOS SQL instance with Azure](#register-on-premises-eos-sql-instance-with-azure) later in the article. 
 
@@ -113,6 +113,7 @@ Registering with the Hybrid EOS SQL Server resource gives access to ESU patches 
     1. Agent re-enables the host as a target for Microsoft Update for ESU patches. 
    
 ## Manage on-premises EOS instances
+The `EOS SQL Server` service provides a way to manage EOS SQL Server instances on-premises. To manage an EOS SQL Server instance, do the following: 
  
 1. Sign into the Azure portal and select `EOS SQL Server` service in All Services. This service lists all Hybrid EOS SQL and EOS SQL VM resources. 
 1. Manage Hybrid EOS SQL Servers through Azure portal:
