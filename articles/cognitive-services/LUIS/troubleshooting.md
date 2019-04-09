@@ -141,7 +141,7 @@ See the [Batch testing](luis-tutorial-batch-testing.md) tutorial.
 
 ### When an app is exported then reimported into a new app (with a new app ID), the LUIS prediction scores are different. Why does this happen?
 
-See [Prediction differences between copies of same app](luis-concept-prediction-score.md#differences-with-predictions).
+See [Prediction differences between copies of same app](luis-concept-prediction-score.md#review-intents-with-similar-scores).
 
 ### Some utterances go to the wrong intent after I made changes to my app. The issue seems to disappear at random. How do I fix it? 
 

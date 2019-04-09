@@ -28,11 +28,10 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models.
 
-[![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)]
-(./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Azure Machine Learning service workflow](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning service fully supports open-source technologies. So you can use tens of thousands of open-source Python packages with machine learning components. Examples are PyTorch, TensorFlow, and scikit-learn.
-Support for rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are [Jupyter notebooks](http://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
+Support for rich tools makes it easy to interactively explore and prepare data and then develop and test models. Examples are [Jupyter notebooks](https://jupyter.org) or the [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview) extension.
 Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
 
 By using Azure Machine Learning service, you can start training on your local machine and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets.md), like Azure Machine Learning Compute and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster by using the power of the cloud.
@@ -53,7 +52,7 @@ You can choose from many machine learning components available in open-source Py
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
 - <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
-- <a href="http://mxnet.io" target="_blank">MXNet</a>
+- <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning service can also autotrain a model and autotune it for you.
 For an example, see [Train a regression model with automated machine learning](tutorial-auto-train-models.md).
@@ -78,7 +77,7 @@ Use Machine Learning service if you work in a Python environment, you want more 
 
 ## Free trial
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 You get credits to spend on Azure services. After they're used up, you can keep the account and use [free Azure services](https://azure.microsoft.com/free/). Your credit card is never charged unless you explicitly change your settings and ask to be charged. Or [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F), which give you credits every month that you can use for paid Azure services.
 
@@ -89,7 +88,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 - Follow the full-length tutorials: 
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
   + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
-  
+
 - Use the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) to prepare your data.
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.

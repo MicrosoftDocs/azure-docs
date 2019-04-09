@@ -16,7 +16,7 @@ This article describes the different types of outputs available for an Azure Str
 
 When you design your Stream Analytics query, refer to the name of the output using the [INTO clause](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics). You can use a single output per job, or multiple outputs per streaming job if you need by providing multiple INTO clauses in the query.
 
-To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.Net API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
+To create, edit, and test Stream Analytics job outputs, you can use the [Azure portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output), and [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Some outputs types support [partitioning](#partitioning), and [output batch sizes](#output-batch-size) vary to optimize throughput.
 
@@ -164,7 +164,7 @@ Azure Stream Analytics updates the data model dynamically at runtime if the outp
 This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
 
 From Stream Analytics | To Power BI
------|-----|------------
+-----|-----
 bigint | Int64
 nvarchar(max) | String
 datetime | Datetime
@@ -181,7 +181,7 @@ Previous/Current | Int64 | String | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | String | String | Double
 Double | Double | String | String | Double
-String | String | String | String |  | String |
+String | String | String | String | String 
 Datetime | String | String |  Datetime | String
 
 
@@ -256,6 +256,7 @@ Azure Cosmos DB output from Stream Analytics is currently not available in the A
 > Other Azure Cosmos DB APIs are not yet supported. If you point Azure Stream Analytics to the Azure Cosmos DB accounts created with other APIs, the data might not be properly stored.
 
 The following table describes the properties for creating an Azure Cosmos DB output.
+
 | Property name | description |
 | --- | --- |
 | Output alias | An alias to refer this output in your Stream Analytics query. |
@@ -326,7 +327,7 @@ The following table explains some of the considerations to output batching:
 
 ## Next steps
 > [!div class="nextstepaction"]
-
+> 
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

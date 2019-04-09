@@ -78,20 +78,20 @@ To select the VMs that you want to enable:
 
 1. Under **Just-in-time VM access**, select the **Recommended** tab.
 
-  ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time-access.png)
+   ![Enable just-in-time access](./media/security-center-just-in-time/enable-just-in-time-access.png)
 
 2. Under **VIRTUAL MACHINE**, select the VMs that you want to enable. This puts a checkmark next to a VM.
 3. Select **Enable JIT on VMs**.
-  1. This blade displays the default ports recommended by Azure Security Center:
-     - 22 - SSH
-     - 3389 - RDP
-     - 5985 - WinRM 
-     - 5986 - WinRM
-  2. You can also configure custom ports. To do this, select **Add**. 
-  3. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
-    - **Protocol type**- The protocol that is allowed on this port when a request is approved.
-    - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
-    - **Maximum request time**- The maximum time window during which a specific port can be opened.
+   1. This blade displays the default ports recommended by Azure Security Center:
+      - 22 - SSH
+      - 3389 - RDP
+      - 5985 - WinRM 
+      - 5986 - WinRM
+   2. You can also configure custom ports. To do this, select **Add**. 
+   3. In **Add port configuration**, for each port you choose to configure, both default and custom, you can customize the following settings:
+      - **Protocol type**- The protocol that is allowed on this port when a request is approved.
+      - **Allowed source IP addresses**- The IP ranges that are allowed on this port when a request is approved.
+      - **Maximum request time**- The maximum time window during which a specific port can be opened.
 
 4. Select **Save**.
 
@@ -170,9 +170,9 @@ You can gain insights into VM activities using log search. To view logs:
 2. Under **VMs**, select a VM to view information about by clicking on the three dots within the row for that VM. This opens a menu.
 3. Select **Activity Log** in the menu. This opens **Activity log**.
 
-  ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
+   ![Select activity log](./media/security-center-just-in-time/select-activity-log.png)
 
-  **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
+   **Activity log** provides a filtered view of previous operations for that VM along with time, date, and subscription.
 
 You can download the log information by selecting **Click here to download all the items as CSV**.
 
@@ -184,17 +184,17 @@ Modify the filters and select **Apply** to create a search and log.
 Set these required privileges to enable a user to configure or edit a JIT policy for a VM.
 
 Assign these *actions* to the role: 
--	On the scope of a subscription or Resource Group that is associated with the VM:
-   - Microsoft.Security/locations/jitNetworkAccessPolicies/write
--	 On the scope of a subscription or Resource Group or VM:
-   - Microsoft.Compute/virtualMachines/write 
+- On the scope of a subscription or Resource Group that is associated with the VM:
+  - Microsoft.Security/locations/jitNetworkAccessPolicies/write
+- On the scope of a subscription or Resource Group or VM:
+  - Microsoft.Compute/virtualMachines/write 
 
 Set these privileges to enable a user to successfully request JIT access to a VM:
 Assign these *actions* to the user:
--	On the scope of a subscription or Resource Group that is associated with the VM:
-   - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
--	 On the scope of a Subscription or Resource Group or VM:
-   - Microsoft.Compute/virtualMachines/read
+- On the scope of a subscription or Resource Group that is associated with the VM:
+  - Microsoft.Security/locations/{the_location_of_the_VM}/jitNetworkAccessPolicies/ initiate/action
+- On the scope of a Subscription or Resource Group or VM:
+  - Microsoft.Compute/virtualMachines/read
 
 
 

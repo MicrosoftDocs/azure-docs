@@ -14,9 +14,9 @@ ms.author: absha
 
 Application gateway comprises of several components that can be configured in different ways for accomplishing different scenarios. This article walks you through how each component is to be configured.
 
-![application-gateway-components](.\media\configuration-overview\configuration-overview1.png)
+![application-gateway-components](./media/configuration-overview/configuration-overview1.png)
 
-The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for http://acme.com/* and http://fabrikam.com/*, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
+The example image above illustrates configuration of an application with 3 listeners. First two are multi-site listeners for `http://acme.com/*` and `http://fabrikam.com/*`, respectively. Both are listening on port 80. The third listener is a basic listener with end to end SSL termination. 
 
 ## Prerequisites
 
@@ -81,7 +81,7 @@ You can choose between [basic or multi-site listener](https://docs.microsoft.com
 
 - If you are hosting a single site behind an Application gateway, choose basic listener. Learn [how to create an application gateway with basic listener](https://docs.microsoft.com/azure/application-gateway/quick-create-portal).
 
-- If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.![1551057450710](C:\Users\absha\AppData\Roaming\Typora\typora-user-images\1551057450710.png)
+- If you are configuring more than one web application or multiple subdomains of the same parent domain on the same application gateway instance, then choose multi-site listener. For multi-site listener, you will additionally need to enter a host name. This is because Application Gateway relies on HTTP 1.1 host headers to host more than one website on the same public IP address and port.![1551057450710](C:/Users/absha/AppData/Roaming/Typora/typora-user-images/1551057450710.png)
 
 
 > [!NOTE]
@@ -191,7 +191,7 @@ For information about the redirection capability, see [Redirection overview](htt
 
   - ##### Listener
 
-    Choosing listener as the redirection target helps in redirecting from one listener to another listener on the gateway. This setting is required when you want to enable HTTP to HTTPS redirection, i.e., redirect traffic from the source listener checking for the incoming HTTP requests to the destination listener checking for the incoming HTTPS requests. You can also choose the query string and path in the original request to be included in the request forwarded to the redirection target.![application-gateway-components](.\media\configuration-overview\configure-redirection.png)
+    Choosing listener as the redirection target helps in redirecting from one listener to another listener on the gateway. This setting is required when you want to enable HTTP to HTTPS redirection, i.e., redirect traffic from the source listener checking for the incoming HTTP requests to the destination listener checking for the incoming HTTPS requests. You can also choose the query string and path in the original request to be included in the request forwarded to the redirection target.![application-gateway-components](./media/configuration-overview/configure-redirection.png)
 
     For more information on HTTP to HTTPS redirection, see [HTTP to HTTP redirection using portal](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal), [HTTP to HTTP redirection using PowerShell](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell), [HTTP to HTTP redirection using CLI](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
 
@@ -273,7 +273,7 @@ If you own a custom domain and have mapped the existing custom DNS name to the A
 
 ### Host name override
 
-This capability replaces the *host* header in the incoming request on the application gateway to the host name you specify here. For example, if www.contoso.com is specified as the **Host name** setting, the original request https://appgw.eastus.cloudapp.net/path1 will be changed to https://www.contoso.com/path1 when the request is forwarded to the backend server. 
+This capability replaces the *host* header in the incoming request on the application gateway to the host name you specify here. For example, if www\.contoso.com is specified as the **Host name** setting, the original request https://appgw.eastus.cloudapp.net/path1 will be changed to https://www.contoso.com/path1 when the request is forwarded to the backend server. 
 
 ## Backend pool
 

@@ -28,6 +28,7 @@ In this tutorial, you learn how to:
 > * Deploy the Azure Stream Analytics job to an IoT Edge device from the Azure portal.
 
 <center>
+
 ![Diagram - Tutorial architecture, stage and deploy ASA job](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
@@ -210,9 +211,9 @@ Now you can go to your IoT Edge device to check out the interaction between the 
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. View all system logs and metrics data. Use the Stream Analytics module name:
 
    ```cmd/sh

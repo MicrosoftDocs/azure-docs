@@ -65,8 +65,8 @@ The following prerequisites must be in place:
    ```powershell
    $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
    ```
-> [!NOTE]
-  > As a CSP, when using a Shared Services or IUR subscription, you will need to provide the credentials of a user from that respective AAD. Usually this will be similar to `subscriptionowner@iurcontoso.onmicrosoft.com`. That user needs to be have the appropriate credentials, as described above.
+   > [!NOTE]
+   > As a CSP, when using a Shared Services or IUR subscription, you will need to provide the credentials of a user from that respective AAD. Usually this will be similar to `subscriptionowner@iurcontoso.onmicrosoft.com`. That user needs to be have the appropriate credentials, as described above.
 
 3. From the PowerShell prompt, run the following to set `$subscriptionID` as the Azure subscription you will use. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your own subscription ID:
    ```powershell

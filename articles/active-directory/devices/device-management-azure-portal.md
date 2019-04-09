@@ -18,7 +18,7 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 
-#Customer intent: As a IT admin, I want to manage all devices related tasks from a central location
+#Customer intent: As an IT admin, I want to manage all devices related tasks from a central location
 
 ms.collection: M365-identity-device-management
 ---

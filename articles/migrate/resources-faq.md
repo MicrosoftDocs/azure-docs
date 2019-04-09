@@ -16,7 +16,7 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 
 ### Does Azure Migrate support assessment of only VMware workloads?
 
-Yes, Azure Migrate currently only supports assessment of VMware workloads. Support for Hyper-V is in preview, please sign up [here](http://aka.ms/migratefuture) to get access to the preview. Support for physical servers will be enabled in future.
+Yes, Azure Migrate currently only supports assessment of VMware workloads. Support for Hyper-V is in preview, please sign up [here](https://aka.ms/migratefuture) to get access to the preview. Support for physical servers will be enabled in future.
 
 ### Does Azure Migrate need vCenter Server to discover a VMware environment?
 
@@ -37,7 +37,7 @@ Azure Migrate is a migration planning tool and Azure Site Recovery Deployment Pl
 
 **Migration from VMware to Azure**: If you intend to migrate your on-premises workloads to Azure, use Azure Migrate for migration planning. Azure Migrate assesses on-premises workloads and provides guidance, insights, and mechanisms to assist you in migrating to Azure. Once you are ready with your migration plan, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
-**Migration from Hyper-V to Azure**: The Generally Available version of Azure Migrate currently supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is currently in preview with production support. If you are interested in trying out the preview, please sign up [here](http://aka.ms/migratefuture).
+**Migration from Hyper-V to Azure**: The Generally Available version of Azure Migrate currently supports assessment of VMware virtual machines for migration to Azure. Support for Hyper-V is currently in preview with production support. If you are interested in trying out the preview, please sign up [here](https://aka.ms/migratefuture).
 
 **Disaster Recovery from VMware/Hyper-V to Azure**: If you intend to do disaster recovery (DR) on Azure using Azure Site Recovery (Site Recovery), use Site Recovery Deployment Planner for DR planning. Site Recovery Deployment Planner does a deep, ASR-specific assessment of your on-premises environment. It provides recommendations that are required by Site Recovery for successful DR operations such as replication, failover of your virtual machines.  
 

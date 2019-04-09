@@ -41,7 +41,7 @@ QnA Maker auto-detects the language of the knowledge base during creation and se
 |Languages supported|
 |-----|
 |Arabic|
-|Armenian|,
+|Armenian|
 Bengali|
 |Basque|
 |Bulgarian|

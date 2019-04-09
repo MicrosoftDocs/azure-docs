@@ -167,7 +167,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
  
-  Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
+   Note that Stream Analytics runtime may periodically run the snapshot query in addition to the delta query to store checkpoints.
 
 ## FAQs
 

@@ -203,4 +203,4 @@ var embedCreateConfiguration = {
 [Power BI Core NuGut Package](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
 [Power BI JavaScript package](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

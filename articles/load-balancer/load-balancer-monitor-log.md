@@ -33,7 +33,7 @@ You can use different types of logs in Azure to manage and troubleshoot Basic Lo
 
 Audit logging is automatically enabled for every Resource Manager resource. You need to enable event and health probe logging to start collecting the data available through those logs. Use the following steps to enable logging.
 
-Sign-in to the [Azure portal](http://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue.
+Sign-in to the [Azure portal](https://portal.azure.com). If you don't already have a load balancer, [create a load balancer](load-balancer-get-started-internet-arm-ps.md) before you continue.
 
 1. In the portal, click **Browse**.
 2. Select **Load Balancers**.

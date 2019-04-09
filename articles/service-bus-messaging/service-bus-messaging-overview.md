@@ -17,7 +17,7 @@ ms.author: aschhab
 
 # What is Azure Service Bus?
 
-Microsoft Azure Service Bus is a fully managed enterprise [integration](http://azure.com/integration) message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
+Microsoft Azure Service Bus is a fully managed enterprise [integration](https://azure.com/integration) message broker. Service Bus is most commonly used to decouple applications and services from each other, and is a reliable and secure platform for asynchronous data and state transfer. Data is transferred between different applications and services using *messages*. A message is in binary format, which can contain JSON, XML, or just text. 
 
 Some common messaging scenarios are:
 

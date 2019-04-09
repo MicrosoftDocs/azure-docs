@@ -63,13 +63,13 @@ Azure QuickStart Templates is a repository for Resource Manager templates. Inste
 3. Select **Open** to open the file.
 4. There are five resources defined by the template:
 
-    * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. See the [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
+   * `Microsoft.Network/publicIPAddresses`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
+   * `Microsoft.Network/virtualNetworks`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
+   * `Microsoft.Network/networkInterfaces`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
+   * `Microsoft.Compute/virtualMachines`. See the [template reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    It is helpful to get some basic understanding of the template before customizing the template.
+     It is helpful to get some basic understanding of the template before customizing the template.
 5. Select **File**>**Save As** to save a copy of the file to your local computer with the name **azuredeploy.json**.
 6. Select **File**>**Save As** to create another copy of the file with the name **linkedTemplate.json**.
 
@@ -80,78 +80,78 @@ The linked template creates a storage account. The linked template is almost ide
 1. Open linkedTemplate.json in Visual Studio Code if the file is not opened.
 2. Make the following changes:
 
-    * Remove all the resources except the storage account. You remove a total of four resources.
-    * Update the value of the **name** element of the storage account resource to:
+   * Remove all the resources except the storage account. You remove a total of four resources.
+   * Update the value of the **name** element of the storage account resource to:
 
-        ```json
-          "name": "[parameters('storageAccountName')]",
-        ```
-    * Remove the **variables** element, and all the variable definitions.
-    * Remove all the parameters except **location**.
-    * Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
+       ```json
+         "name": "[parameters('storageAccountName')]",
+       ```
+   * Remove the **variables** element, and all the variable definitions.
+   * Remove all the parameters except **location**.
+   * Add a parameter called **storageAccountName**. The storage account name is passed from the main template to the linked template as a parameter.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
-    * Update the **outputs** element, so it looks like:
+       ```json
+       "storageAccountName":{
+       "type": "string",
+       "metadata": {
+           "description": "Azure Storage account name."
+       }
+       },
+       ```
+   * Update the **outputs** element, so it looks like:
 
-        ```json
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
-        }
-        ```
-        **storageUri** is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
+       ```json
+       "outputs": {
+           "storageUri": {
+               "type": "string",
+               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+             }
+       }
+       ```
+       **storageUri** is required by the virtual machine resource definition in the main template.  You pass the value back to the main template as an output value.
 
-    When you are done, the template shall look like:
+     When you are done, the template shall look like:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
-            }
-          },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
-            }
-          }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
-        }
-    }
-    ```
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+         "storageAccountName":{
+           "type": "string",
+           "metadata": {
+             "description": "Azure Storage account name."
+           }
+         },
+         "location": {
+           "type": "string",
+           "defaultValue": "[resourceGroup().location]",
+           "metadata": {
+             "description": "Location for all resources."
+           }
+         }
+       },
+       "resources": [
+         {
+           "type": "Microsoft.Storage/storageAccounts",
+           "name": "[parameters('storageAccountName')]",
+           "apiVersion": "2016-01-01",
+           "location": "[parameters('location')]",
+           "sku": {
+             "name": "Standard_LRS"
+           },
+           "kind": "Storage",
+           "properties": {}
+         }
+       ],
+       "outputs": {
+           "storageUri": {
+               "type": "string",
+               "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+             }
+       }
+     }
+     ```
 3. Save the changes.
 
 ## Upload the linked template

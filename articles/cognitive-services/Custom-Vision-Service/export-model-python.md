@@ -17,6 +17,9 @@ ms.author: areddish
 
 After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
+> [!NOTE]
+> This tutorial applies only to models exported from image classification projects.
+
 ## Install required components
 
 ### Prerequisites
@@ -51,7 +54,7 @@ filename = "model.pb"
 labels_filename = "labels.txt"
 
 # Import the TF graph
-with tf.gfile.FastGFile(filename, 'rb') as f:
+with tf.gfile.GFile(filename, 'rb') as f:
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
 
@@ -176,8 +179,12 @@ output_layer = 'loss:0'
 input_node = 'Placeholder:0'
 
 with tf.Session() as sess:
-    prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-    predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+    try:
+        prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+    except KeyError:
+        print ("Couldn't find classification output layer: " + output_layer + ".")
+        print ("Verify this a model exported from an Object Detection project.")
+        exit(-1)
 ```
 
 ## View the results
@@ -192,7 +199,7 @@ The results of running the image tensor through the model will then need to be m
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions[0]:
+    for p in predictions:
         truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1

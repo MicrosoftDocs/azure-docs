@@ -158,7 +158,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## Package the Docker image with Yeoman
-The Service Fabric SDK for Linux includes a [Yeoman](http://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
+The Service Fabric SDK for Linux includes a [Yeoman](https://yeoman.io/) generator that makes it easy to create your application and add a container image. Let's use Yeoman to create an application with a single Docker container called *SimpleContainerApp*.
 
 To create a Service Fabric container application, open a terminal window and run `yo azuresfcontainer`. 
 
@@ -187,7 +187,7 @@ Specify the port mapping in the appropriate format. For this article, you need t
 	    </ContainerHostPolicies>
 	</Policies>
    </ServiceManifestImport>
-```	
+``` 
 
 We recommend that you encrypt the repository password. Refer to [
 Manage encrypted secrets in Service Fabric applications](service-fabric-application-secret-management.md) for instructions.
@@ -298,8 +298,8 @@ Here are the complete service and application manifests used in this article.
 <ServiceManifest Name="myservicePkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          The UseImplicitHost attribute indicates this is a guest service. -->
@@ -344,8 +344,8 @@ Here are the complete service and application manifests used in this article.
 <ApplicationManifest ApplicationTypeName="mycontainerType"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <!-- Import the ServiceManifest from the ServicePackage. The ServiceManifestName and ServiceManifestVersion 
        should match the Name and Version attributes of the ServiceManifest element defined in the 
        ServiceManifest.xml file. -->

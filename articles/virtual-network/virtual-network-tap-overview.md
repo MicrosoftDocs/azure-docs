@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/04/2019
+ms.date: 03/14/2019
 ms.author: kaanan
 ---
 
@@ -37,9 +37,11 @@ preview by sending an email to <azurevnettap@microsoft.com> with your subscript
 ### Security analytics, network/application performance management
 
 - [Awake Security](https://awakesecurity.com/technology-partners/microsoft-azure/)
+- [Cisco Stealthwatch Cloud](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
 - [ExtraHop Reveal(x)](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Fidelis Cybersecurity](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
+- [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [Netscout vSTREAM]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
 - [Nubeva Prisms](https://www.nubeva.com/azurevtap)
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)

@@ -29,7 +29,7 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 6. Select **Email owners...** if you want administrators and co-administrators to receive email notifications when the alert fires.
 
-7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email@contoso.com;email2@contoso.com*
+7. If you want to send notifications to additional email addresses when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semicolons, in the following format: *email\@contoso.com;email2\@contoso.com*
 
 8. Put in a valid URI in the **Webhook** field if you want it to be called when the alert fires.
 
@@ -121,7 +121,7 @@ This sections shows how to use PowerShell commands create, view and manage class
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzMetricAlertRule'](https://docs.microsoft.com/powershell/module/az.insights/add-azmetricalertrule?view=azurermps-6.13.0) command.
+8. Classic alert rules can no longer be created via PowerShell. To create an alert rule you need to use the new ['Add-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) command.
 
 ## Next steps
 

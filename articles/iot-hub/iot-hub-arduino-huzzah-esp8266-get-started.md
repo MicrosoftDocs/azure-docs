@@ -175,15 +175,15 @@ The sample application is hosted on GitHub. Clone the sample repository that con
 
 12. Click **Install** button for esp8266.
 
-   Boards Manager indicates that ESP8266 with a version of 2.2.0 or later is installed.
+    Boards Manager indicates that ESP8266 with a version of 2.2.0 or later is installed.
 
-   ![The esp8266 package is installed](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
+    ![The esp8266 package is installed](media/iot-hub-arduino-huzzah-esp8266-get-started/13_vscode-esp8266-installed.png)
 
 13. Enter `F1`, then type **Arduino** and select **Arduino: Board Config**.
 
 14. Click box for **Selected Board:** and type **esp8266**, then select **Adafruit HUZZAH ESP8266 (esp8266)**.
 
-   ![Select esp8266 board](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
+    ![Select esp8266 board](media/iot-hub-arduino-huzzah-esp8266-get-started/14_vscode-select-esp8266.png)
 
 ### Install necessary libraries
 

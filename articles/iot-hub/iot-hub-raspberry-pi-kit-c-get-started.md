@@ -151,8 +151,8 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    **Mac and Ubuntu Users**
    
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
-   > [!NOTE] 
-   The default username is `pi` , and the password is `raspberry`.
+   > [!NOTE]
+   > The default username is `pi` , and the password is `raspberry`.
 
 
 ### Configure the sample application

@@ -38,11 +38,11 @@ This section explains how to use the sample script when you create a new cluster
 
 1. Start to provision a cluster by taking the steps in [Create Linux-based clusters in HDInsight by using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md). Make sure you create the cluster by using the **Custom** cluster creation flow. The cluster must meet the following requirements:
 
-	* It must be a Hadoop cluster with HDInsight version 3.6.
+   * It must be a Hadoop cluster with HDInsight version 3.6.
 
-	* It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Storage as the storage option isn't an option yet.
+   * It must use Azure Storage as the data store. Using Presto on a cluster that uses Azure Data Lake Storage as the storage option isn't an option yet.
 
-	![HDInsight, Custom (size, settings, apps)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
+     ![HDInsight, Custom (size, settings, apps)](./media/hdinsight-hadoop-install-presto/hdinsight-install-custom.png)
 
 2. In the **Advanced settings** area, select **Script Actions**. Provide the following information. You can also choose the **Install Presto** option for the script type:
    
@@ -159,7 +159,6 @@ To customize the installation, take the following steps:
 	`sudo slider create presto1 --template /var/lib/presto/presto-hdinsight-master/appConfig-default.json --resources /var/lib/presto/presto-hdinsight-master/resources-default.json`
 
 5. Wait for the new instance to be ready. Note the Presto coordinator address:
-
 
     `sudo slider registry --name presto1 --getexp presto`
 

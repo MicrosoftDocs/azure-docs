@@ -15,7 +15,7 @@ A hub contains the gateway. Once the hub is created, you'll be charged for the h
 2. On the Hubs page, click **+New Hub** to open the **Virtual WAN hub** page.
 3. On the Virtual WAN hub page, complete the following fields:
 
-  * Location
-  * Name
-  * Hub private address space
+   * Location
+   * Name
+   * Hub private address space
 4. Click **Confirm** to create the hub. Click **Refresh** to view the hub on the **Hubs** page.

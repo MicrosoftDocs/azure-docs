@@ -25,7 +25,7 @@ The following table lists the agent data sources that are currently available in
 
 
 | Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 | [Custom logs](data-sources-custom-logs.md) | Windows |&#8226; |  | |  |  | on arrival |
 | [Custom logs](data-sources-custom-logs.md) | Linux   |&#8226; |  | |  |  | on arrival |
 | [IIS logs](data-sources-iis-logs.md) | Windows |&#8226; |&#8226; |&#8226; |  |  |depends on Log File Rollover setting |

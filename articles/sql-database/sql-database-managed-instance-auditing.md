@@ -44,7 +44,7 @@ The following section describes the configuration of auditing on your managed in
 
    1. Provide a container **Name**, set Public access level to **Private**, and then click **OK**.
 
-     ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
+      ![Create blob container configuration](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
 1. After creating the container for the Audit logs there are two ways to configure it as the target for the audit logs: [using T-SQL](#blobtsql) or [using the SQL Server Management Studio (SSMS) UI](#blobssms):
 
@@ -107,7 +107,7 @@ The following section describes the configuration of auditing on your managed in
         GO
         ```
 
-      1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
+        1. Continue by [creating a Server Audit Specification or Database Audit Specification](#createspec)
 
    - <a id="blobssms"></a>Configure blob storage for audit logs using the SQL Server Management Studio (SSMS) 18 (Preview):
 

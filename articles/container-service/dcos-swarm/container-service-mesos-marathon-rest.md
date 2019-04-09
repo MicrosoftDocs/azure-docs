@@ -127,8 +127,6 @@ From your tunneled connection, run the following command to scale out the applic
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample that is provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -186,8 +184,6 @@ Run the following command to scale out the application:
 
 > [!NOTE]
 > The URI is http://localhost/marathon/v2/apps/ followed by the ID of the application to scale. If you are using the Nginx sample provided here, the URI would be http://localhost/marathon/v2/apps/nginx.
-> 
-> 
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'

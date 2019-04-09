@@ -65,7 +65,7 @@ Before you proceed, note the Log Analytics workspace that your Automation accoun
 
 1. Install the Log Analytics agent for Linux by running the following command. Replace \<WorkspaceID\> and \<WorkspaceKey\> with the appropriate values from your workspace.
 
-  [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -105,12 +105,8 @@ The following runbook types don't work on a Linux Hybrid Worker:
 * Graphical
 * Graphical PowerShell Workflow
 
-## Troubleshoot
-
-To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)
-
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * For instructions on how to remove Hybrid Runbook Workers, see [Remove Azure Automation Hybrid Runbook Workers](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
-
+* To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshooting Linux Hybrid Runbook Workers](troubleshoot/hybrid-runbook-worker.md#linux)

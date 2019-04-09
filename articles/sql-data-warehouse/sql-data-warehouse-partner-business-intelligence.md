@@ -59,29 +59,29 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 <!--Website links -->
 [birst_website]:https://www.birst.com/
-[clearstory_website]:http://www.clearstorydata.com/
+[clearstory_website]:https://www.clearstorydata.com/
 [dell_statistica_website]:http://www.statsoft.com/Products/STATISTICA-Features
-[dundas_bi_website]:http://www.dundas.com/dundas-bi
-[jinfonet_website]:http://www.jinfonet.com/product/jreport-designer
-[logianalytics_website]:http://www.logianalytics.com/
+[dundas_bi_website]:https://www.dundas.com/dundas-bi
+[jinfonet_website]:https://www.jinfonet.com/product/jreport-designer
+[logianalytics_website]:https://www.logianalytics.com/
 [looker_website]:https://looker.com/partners/microsoft-azure/
-[qlik_website]:http://www.qlik.com/us/products/qlik-sense/enterprise
+[qlik_website]:https://www.qlik.com/us/products/qlik-sense/enterprise
 [sisense_website]:https://www.sisense.com/product/
-[tableau_website]:http://www.tableau.com/
+[tableau_website]:https://www.tableau.com/
 [targit_website]:https://www.targit.com/en/software/deployment/targitonazure
-[yellowfin_website]:http://www.yellowfinbi.com/
+[yellowfin_website]:https://www.yellowfinbi.com/
 
 <!--Get Started Links-->
-[qlik_getstarted]:http://www.qlik.com/us/products/qlik-sense/getting-started
+[qlik_getstarted]:https://www.qlik.com/us/products/qlik-sense/getting-started
 
 <!--Datasheet Links-->
 
 <!--[birst_datasheet]:-->
 
-[clearstory_datasheet]:http://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
+[clearstory_datasheet]:https://www.clearstorydata.com/wp-content/uploads/2016/05/ClearStoryData-PO01-062015-01-2.pdf
 [dell_statistica_datasheet]:http://www.statsoft.com/Portals/0/Support/Download/Brochures/STATISTICA_Data_Miner.pdf
-[dundas_bi_datasheet]:http://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
-[jinfonet_datasheet]:http://www.jinfonet.com/products/JReport%20Brief.pdf
+[dundas_bi_datasheet]:https://www.dundas.com/resource/getwhitepaper?whitePaperName=27-05-2016-Dundas-BI-Product-Brief-_-Embedded-Analytics%2FEckerson-Group-EBI-Report-DundasProduct-Brief.pdf
+[jinfonet_datasheet]:https://www.jinfonet.com/products/JReport%20Brief.pdf
 [logianalytics_datasheet]:https://www.logianalytics.com/datasheet/logi-info/
 
 [looker_datasheet]:https://info.looker.com/h/i/229169578-looker-for-microsoft-azure
@@ -89,11 +89,11 @@ To learn more about some of our other partners, see [Data Integration partners][
 [qlik_datasheet]:http://www.qlik.com/en/resource-library/the-qlikview-product-family
 [sisense_datasheet]:https://pages.sisense.com/rs/601-OXE-081/images/Product%20Highlights.pdf
 
-[tableau_datasheet]:http://www.tableau.com/stories/workbook/azure-sql-data
+[tableau_datasheet]:https://www.tableau.com/stories/workbook/azure-sql-data
 
 <!--[targit_datasheet]:-->
 
-[yellowfin_datasheet]:http://www.yellowfinbi.com/Document.i4?DocumentId=877299
+[yellowfin_datasheet]:https://www.yellowfinbi.com/Document.i4?DocumentId=877299
 
 <!--Marketplace Links -->
 
@@ -117,7 +117,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 <!--[birst_press]:-->
 
-[clearstory_press]:http://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
+[clearstory_press]:https://www.clearstorydata.com/press/clearstory-data-paired-with-new-microsoft-azure-sql-data-warehouse-release-provides-highly-scalable-data-analysis-at-apache-spark-speed/
 
 <!--[dell_statistica_press]:-->
 
@@ -125,7 +125,7 @@ To learn more about some of our other partners, see [Data Integration partners][
 
 <!--[jinfonet_press]:-->
 
-[logianalytics_press]:http://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
+[logianalytics_press]:https://www.logianalytics.com/logi-news/announcing-logi-info-integration-with-azure-sql-data-warehouse/
 [looker_press]:https://looker.com/news/press/looker-brings-self-serve-analytics-to-microsoft-azure
 
 <!--[qlik_press]:-->

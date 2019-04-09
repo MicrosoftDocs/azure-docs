@@ -89,15 +89,15 @@ The device must be installed on a standard 19-inch rack. Use the following proce
     ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Install the outer rails on the rack cabinet vertical members. To help with orientation, the rail slides are marked **Front**, and that end is affixed towards the front of the enclosure.    
-    1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack-mounting holes.   
+   1. Locate the rail pins at the front and rear of the rail assembly. Extend the rail to fit between the rack posts. Attach the outer rail at the rear of the rack first. Adjust the rear mounting bracket to position it inside the rear rack-mounting holes.   
 
-    2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
+   2. Push and hold the trigger on the back bracket to expose the metal hooks. Align and insert the back bracket into the mounting holes, and then release the trigger.
 
-    3. Align the front bracket with the mounting hole.
+   3. Align the front bracket with the mounting hole.
 
-    4. The front bracket should be now fixed on the rack. Optionally, M5 X 10L screws can be used to secure the rails with posts if needed. 
+   4. The front bracket should be now fixed on the rack. Optionally, M5 X 10L screws can be used to secure the rails with posts if needed. 
 
-    ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Install rackmount rails](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. To attach the inner rail on the chassis, make sure that the keyhole openings on the inner rail are aligned with the locating pins on the side of the chassis. Make sure that the heads of the chassis locating pins protrude through the keyhole openings in the inner rail. Pull the rail toward the front of the chassis until the rail locks into place with an audible click. Repeat with the other inner rail. Push the chassis with the inner rail into the slide to complete the rack installation.
 

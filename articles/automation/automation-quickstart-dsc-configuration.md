@@ -122,7 +122,7 @@ A compiled *Node Configuration* can be assigned to DSC Nodes. Assignment applies
 1. Click **Assign Node Configuration**
 1. Select the *Node Configuration* - **LAMPServer.localhost** -  to assign and click **OK**
 1. The compiled configuration is now be assigned to the node, and the node status changes to *Pending*. On the next periodic check, the node retrieves the configuration, apply it, and report status back. It can take up to 30 minutes for the node to retrieve the configuration, depending on the node's settings. To force an immediate check, you can run the following command locally on the Linux virtual machine:
-`sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
+   `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Assigning a Node Configuration](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
 

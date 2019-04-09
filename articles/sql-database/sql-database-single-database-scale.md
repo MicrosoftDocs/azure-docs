@@ -11,13 +11,15 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/06/2019
+ms.date: 03/14/2019
 ---
 # Scale single database resources in Azure SQL Database
 
 This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ## Change compute resources (vCores or DTUs)
 
@@ -27,6 +29,9 @@ The following video shows dynamically changing the service tier and compute size
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
 >
+
+> [!IMPORTANT]
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ### Impact of changing service tier or rescaling compute size
 

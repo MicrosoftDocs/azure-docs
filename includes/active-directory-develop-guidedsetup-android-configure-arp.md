@@ -24,9 +24,9 @@ In this step, you need to add the Application / Client ID to your project.
 
 1. Open `MainActivity` (under `app` > `java` > *`{host}.{namespace}`*)
 2. Replace the line starting with `final static String CLIENT_ID` with:
-```java
-final static String CLIENT_ID = "[Enter the application Id here]";
-```
+   ```java
+   final static String CLIENT_ID = "[Enter the application Id here]";
+   ```
 3. Open: `app` > `manifests` > `AndroidManifest.xml`
 4. Add the following activity to `manifest\application`. The`BrowserTabActivity` allows the Microsoft to call back to your application after completing the authentication:
 

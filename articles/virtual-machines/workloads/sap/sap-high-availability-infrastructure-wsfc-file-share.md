@@ -43,7 +43,7 @@ ms.custom: H1Hack27Feb2017
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 

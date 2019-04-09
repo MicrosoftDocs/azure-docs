@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
@@ -43,6 +43,8 @@ To copy a database by using the Azure portal, open the page for your database, a
 ## Copy a database by using PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To copy a database by using PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet. 
 

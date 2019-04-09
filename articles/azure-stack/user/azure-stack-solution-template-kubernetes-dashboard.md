@@ -110,12 +110,12 @@ You can retrieve the URL for the dashboard from the master node in your cluster.
 
 ## Open the Kubernetes dashboard 
 
-1.  Disable the pop-up blocker on your Web browser.
+1. Disable the pop-up blocker on your Web browser.
 
-2.  Point your browser to the URL noted when you ran the command `kubectl cluster-info`. For example:
-https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
-3.  Select the client certificate.
-4.  Enter the token. 
+2. Point your browser to the URL noted when you ran the command `kubectl cluster-info`. For example:
+   https://azurestackdomainnamefork8sdashboard/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy 
+3. Select the client certificate.
+4. Enter the token. 
 5. Reconnect to the bash command line on the master node and give permissions to `kubernetes-dashboard`. Run the following command:
 
     ```Bash  

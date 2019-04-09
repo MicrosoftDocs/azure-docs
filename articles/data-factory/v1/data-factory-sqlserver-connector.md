@@ -551,17 +551,15 @@ The pipeline contains a Copy Activity that is configured to use these input and 
 
     See [Enable or Disable a Server Network Protocol](https://msdn.microsoft.com/library/ms191294.aspx) for details and alternate ways of enabling TCP/IP protocol.
 3. In the same window, double-click **TCP/IP** to launch **TCP/IP Properties** window.
-4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port **(default is **1433**).
+4. Switch to the **IP Addresses** tab. Scroll down to see **IPAll** section. Note down the **TCP Port**(default is **1433**).
 5. Create a **rule for the Windows Firewall** on the machine to allow incoming traffic through this port.
 6. **Verify connection**: To connect to the SQL Server using fully qualified name, use SQL Server Management Studio from a different machine. For example: "\<machine\>.\<domain\>.corp.\<company\>.com,1433."
 
    > [!IMPORTANT]
-
+   > 
    > See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for detailed information.
-   >
+   > 
    > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
-   >
-   >
 
 
 ## Identity columns in the target database

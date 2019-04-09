@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 01/25/2019
+ms.date: 03/12/2019
 manager: craigg
 ---
 # Connect to Azure SQL Database with Active Directory MFA
@@ -93,7 +93,7 @@ For more information about Azure AD admins and users for Azure SQL Database, see
 
 An Azure AD admin for a SQL Database server can run the C# example program. An Azure AD user can run the program if they are in the database. An Azure AD SQL admin or an Azure AD user who exists already in the database and has the `ALTER ANY USER` permission on the database can add a user.
 
-You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=sql-server-2017) command. For example, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
+You can add a user to the database with the SQL [`Create User`](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql) command. For example, `CREATE USER [<username>] FROM EXTERNAL PROVIDER`.
 
 For more information, see [Use Azure Active Directory Authentication for authentication with SQL Database, Managed Instance, or SQL Data Warehouse](sql-database-aad-authentication.md).
 
@@ -120,7 +120,7 @@ For the C# program to successfully run, you need to assign proper values to stat
 | Static field name | Example value | Where in Azure portal |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL servers** > **Filter by name** |
-| AzureAD_UserID | "auser@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **User** > **New guest user** |
 | Initial_DatabaseName | "myDatabase" | **SQL servers** > **SQL databases** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **App registrations** > **Search by name** > **Application ID** |
 | RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** > **App registrations** > **Search by name** > *[Your-App-regis]* > **Settings** > **RedirectURIs**<br /><br />For this article, any valid value is fine for RedirectUri, as it isn't used here. |
@@ -336,5 +336,7 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 ## Next steps
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 - [Get-AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

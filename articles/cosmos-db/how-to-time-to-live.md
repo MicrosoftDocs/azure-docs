@@ -110,8 +110,8 @@ Use the following steps to enable time to live on an item:
 
 5. Next navigate to the item for which you want to set time to live, add the `ttl` property and select **Update**. 
 
-  ```json
-  {
+   ```json
+   {
     "id": "1",
     "_rid": "Jic9ANWdO-EFAAAAAAAAAA==",
     "_self": "dbs/Jic9AA==/colls/Jic9ANWdO-E=/docs/Jic9ANWdO-EFAAAAAAAAAA==/",
@@ -119,8 +119,8 @@ Use the following steps to enable time to live on an item:
     "_attachments": "attachments/",
     "ttl": 10,
     "_ts": 1551307496
-  }
-  ```
+   }
+   ```
 
 ### <a id="dotnet-set-ttl-item"></a>.NET SDK
 
@@ -156,7 +156,6 @@ const itemDefinition = {
           key: "value", 
           ttl: 2
         };
-}
 ```
 
 

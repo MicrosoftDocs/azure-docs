@@ -26,29 +26,29 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 
 * Connect a private network, such as your on-premises network, to the virtual network. This configuration allows clients in your on-premises network to directly work with Kafka. To enable this configuration, perform the following tasks:
 
-    1. Create a virtual network.
-    2. Create a VPN gateway that uses a site-to-site configuration. The configuration used in this document connects to a VPN gateway device in your on-premises network.
-    3. Create a DNS server in the virtual network.
-    4. Configure forwarding between the DNS server in each network.
-    5. Create a Kafka on HDInsight cluster in the virtual network.
+  1. Create a virtual network.
+  2. Create a VPN gateway that uses a site-to-site configuration. The configuration used in this document connects to a VPN gateway device in your on-premises network.
+  3. Create a DNS server in the virtual network.
+  4. Configure forwarding between the DNS server in each network.
+  5. Create a Kafka on HDInsight cluster in the virtual network.
 
-    For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section. 
+     For more information, see the [Connect to Apache Kafka from an on-premises network](#on-premises) section. 
 
 * Connect individual machines to the virtual network using a VPN gateway and VPN client. To enable this configuration, perform the following tasks:
 
-    1. Create a virtual network.
-    2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
-    3. Create a Kafka on HDInsight cluster in the virtual network.
-    4. Configure Kafka for IP advertising. This configuration allows the client to connect using broker IP addresses instead of domain names.
-    5. Download and use the VPN client on the development system.
+  1. Create a virtual network.
+  2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
+  3. Create a Kafka on HDInsight cluster in the virtual network.
+  4. Configure Kafka for IP advertising. This configuration allows the client to connect using broker IP addresses instead of domain names.
+  5. Download and use the VPN client on the development system.
 
-    For more information, see the [Connect to Apache Kafka with a VPN client](#vpnclient) section.
+     For more information, see the [Connect to Apache Kafka with a VPN client](#vpnclient) section.
 
-    > [!WARNING]  
-    > This configuration is only recommended for development purposes because of the following limitations:
-    >
-    > * Each client must connect using a VPN software client.
-    > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
+     > [!WARNING]  
+     > This configuration is only recommended for development purposes because of the following limitations:
+     >
+     > * Each client must connect using a VPN software client.
+     > * The VPN client does not pass name resolution requests to the virtual network, so you must use IP addressing to communicate with Kafka. IP communication requires additional configuration on the Kafka cluster.
 
 For more information on using HDInsight in a virtual network, see [Extend HDInsight by using Azure Virtual Networks](../hdinsight-extend-hadoop-virtual-network.md).
 
@@ -227,8 +227,8 @@ Use the steps in this section to create the following configuration:
         -SubnetName $defaultSubnet.Id
     ```
 
-  > [!WARNING]  
-  > This process takes around 15 minutes to complete.
+   > [!WARNING]  
+   > This process takes around 15 minutes to complete.
 
 ### Configure Kafka for IP advertising
 
@@ -318,23 +318,23 @@ To validate connectivity to Kafka, use the following steps to create and run a P
 
 3. To send data to Kafka, use the following Python code:
 
-  ```python
-  from kafka import KafkaProducer
-  # Replace the `ip_address` entries with the IP address of your worker nodes
-  # NOTE: you don't need the full list of worker nodes, just one or two.
-  producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
-  for _ in range(50):
+   ```python
+   from kafka import KafkaProducer
+   # Replace the `ip_address` entries with the IP address of your worker nodes
+   # NOTE: you don't need the full list of worker nodes, just one or two.
+   producer = KafkaProducer(bootstrap_servers=['kafka_broker_1','kafka_broker_2'])
+   for _ in range(50):
       producer.send('testtopic', b'test message')
-  ```
+   ```
 
     Replace the `'kafka_broker'` entries with the addresses returned from step 1 in this section:
 
-    * If you are using a __Software VPN client__, replace the `kafka_broker` entries with the IP address of your worker nodes.
+   * If you are using a __Software VPN client__, replace the `kafka_broker` entries with the IP address of your worker nodes.
 
-    * If you have __enabled name resolution through a custom DNS server__, replace the `kafka_broker` entries with the FQDN of the worker nodes.
+   * If you have __enabled name resolution through a custom DNS server__, replace the `kafka_broker` entries with the FQDN of the worker nodes.
 
-    > [!NOTE]
-    > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
+     > [!NOTE]
+     > This code sends the string `test message` to the topic `testtopic`. The default configuration of Kafka on HDInsight is to create the topic if it does not exist.
 
 4. To retrieve the messages from Kafka, use the following Python code:
 

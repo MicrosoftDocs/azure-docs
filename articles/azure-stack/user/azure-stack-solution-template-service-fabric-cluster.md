@@ -33,18 +33,18 @@ The following are required to deploy the Service Fabric cluster:
    This is the X.509 server certificate you add to KeyVault when deploying Service Fabric. 
    - The **CN** on this cert must match the Fully Qualified Domain Name (FQDN) of the Service Fabric cluster you create. 
    - The certificate format must be PFX, as both the public and private keys are required. 
-   See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this server-side cert.
+     See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this server-side cert.
 
-    > [!NOTE]  
-    > You can use a self-signed certificate inplace of the x.509 server certificate for test purposes. Self-signed certificates do not need to match the FQDN of the cluster.
+     > [!NOTE]  
+     > You can use a self-signed certificate inplace of the x.509 server certificate for test purposes. Self-signed certificates do not need to match the FQDN of the cluster.
 
-1.  **Admin Client certificate** 
-    This is the certificate that the client will use to authenticate to the Service Fabric cluster, which can be self-signed. See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this client cert.
+1. **Admin Client certificate** 
+   This is the certificate that the client will use to authenticate to the Service Fabric cluster, which can be self-signed. See [requirements](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) for creating this client cert.
 
-1.  **The following items must be available in the Azure Stack Marketplace:**
-     - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
-     - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
-     - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
+1. **The following items must be available in the Azure Stack Marketplace:**
+    - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
+    - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
+    - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
 
 
 ## Add a secret to Key Vault

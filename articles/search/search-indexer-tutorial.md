@@ -86,20 +86,20 @@ You can find the search service endpoint and key in the portal. A key provides a
 
 4. Copy and paste it as your first entry into **appsettings.json** in Visual Studio.
 
-  > [!Note]
-  > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL looks like this example: https://your-service-name.search.windows.net
+   > [!Note]
+   > A service name is part of the endpoint that includes search.windows.net. If you are curious, you can see the full URL in **Essentials** on the Overview page. The URL looks like this example: https://your-service-name.search.windows.net
 
 5. On the left, in **Settings** > **Keys**, copy one of the admin keys and paste it as the second entry into i**appsettings.json**. Keys are alphanumeric strings generated for your service during provisioning and required for authorized access to service operations. 
 
-  After adding both settings, your file should look something like this example:
+   After adding both settings, your file should look something like this example:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
 ## Prepare an external data source
 
@@ -121,7 +121,7 @@ The following exercise assumes no existing server or database, and instructs you
 
 4. Open the SQL Database page for your new database, if it's not already open. The resource name should say *SQL database* and not *SQL Server*.
 
-  ![SQL database page](./media/search-indexer-tutorial/hotels-db.png)
+   ![SQL database page](./media/search-indexer-tutorial/hotels-db.png)
 
 4. On the command bar, click **Tools** > **Query editor**.
 
@@ -131,24 +131,24 @@ The following exercise assumes no existing server or database, and instructs you
 
 7. Select the file and click **Open**. The script should look similar to the following screenshot:
 
-  ![SQL script](./media/search-indexer-tutorial/sql-script.png)
+   ![SQL script](./media/search-indexer-tutorial/sql-script.png)
 
 8. Click **Run** to execute the query. In the Results pane, you should see a query succeeded message, for 3 rows.
 
 9. To return a rowset from this table, you can execute the following query as a verification step:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   The prototypical query, `SELECT * FROM Hotels`, doesn't work in the Query Editor. The sample data includes geographic coordinates in the Location field, which is not handled in the editor at this time. For a list of other columns to query, you can execute this statement: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    The prototypical query, `SELECT * FROM Hotels`, doesn't work in the Query Editor. The sample data includes geographic coordinates in the Location field, which is not handled in the editor at this time. For a list of other columns to query, you can execute this statement: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Now that you have an external dataset, copy the ADO.NET connection string for the database. On the SQL Database page of your database, go to **Settings** > **Connection Strings**, and copy the ADO.NET connection string.
  
-  An ADO.NET connection string looks like the following example, modified to use a valid database name, user name, and password.
+    An ADO.NET connection string looks like the following example, modified to use a valid database name, user name, and password.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Paste the connection string into "AzureSqlConnectionString" as the third entry in **appsettings.json** file in Visual Studio.
 
     ```json
@@ -246,15 +246,15 @@ In the Azure portal, in the search service Overview page, click **Search explore
 
 2. Click the **Search** button to issue an empty search. 
 
-  The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
+   The three entries in your index are returned as JSON documents. Search explorer returns documents in JSON so that you can view the entire structure.
 
 3. Next, enter a search string: `search=river&$count=true`. 
 
-  This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
+   This query invokes full text search on the term `river`, and the result includes a count of the matching documents. Returning the count of matching documents is helpful in testing scenarios when you have a large index with thousands or millions of documents. In this case, only one document matches the query.
 
 4. Lastly, enter a search string that limits the JSON output to fields of interest: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  The query response is reduced to selected fields, resulting in more concise output.
+   The query response is reduced to selected fields, resulting in more concise output.
 
 ## View indexer configuration
 
@@ -264,7 +264,7 @@ All indexers, including the one you just created programmatically, are listed in
 2. Scroll down to find the tiles for **Indexers** and **Data Sources**.
 3. Click a tile to open a list of each resource. You can select individual indexers or data sources to view or modify configuration settings.
 
-  ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Indexer and data source tiles](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## Clean up resources

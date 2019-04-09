@@ -103,7 +103,7 @@ Before proceeding with updates, refer to [Site Recovery support statement](#supp
 A reboot is recommended after every upgrade of Mobility agent to ensure that all latest changes are loaded on the source machine. It is however **not mandatory**. If difference between agent version during last reboot and current version is greater than 4, then a reboot is mandatory. Refer to the following table for detailed explanation.
 
 |**Agent version during last reboot** | **Upgrading to** | **Is reboot mandatory?**|
-|---------|---------|---------|--------|
+|---------|---------|---------|
 |9.16 |  9.18 | Not mandatory|
 |9.16 | 9.19 | Not mandatory|
 | 9.16 | 9.20 | Not mandatory

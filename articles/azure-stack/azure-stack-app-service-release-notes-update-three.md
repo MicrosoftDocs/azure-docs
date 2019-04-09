@@ -55,7 +55,7 @@ Azure App Service on Azure Stack Update 3 includes the following improvements an
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
-  - Added ASP.Net Core 2.1.2
+  - Added ASP.NET Core 2.1.2
   - Added NodeJS 10.0.0
   - Added Zulu OpenJDK 8.30.0.1
   - Added Tomcat 8.5.31 and 9.0.8

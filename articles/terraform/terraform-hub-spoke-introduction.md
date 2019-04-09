@@ -77,7 +77,7 @@ As you work through each tutorial in this series, various components are defined
 
 Create the directory that holds your Terraform configuration files for the demo.
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 

@@ -33,7 +33,7 @@ This tutorial covers the following tasks:
 
 ## Create the directory structure
 
-1. Browse to the [Azure portal](http://portal.azure.com).
+1. Browse to the [Azure portal](https://portal.azure.com).
 
 1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). If you didn't select an environment previously, select **Bash** as your environment.
 

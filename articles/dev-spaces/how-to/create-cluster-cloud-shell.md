@@ -16,7 +16,7 @@ You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azur
 
 ## Create the cluster
 
-First, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
+First, create the resource group in a [region that supports Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>

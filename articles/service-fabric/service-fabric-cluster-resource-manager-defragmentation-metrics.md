@@ -37,6 +37,7 @@ Defragmentation can increase impactfulness of failures, since more services are 
 The following diagram gives a visual representation of two clusters, one that is defragmented and one that is not. 
 
 <center>
+
 ![Comparing Balanced and Defragmented Clusters][Image1]
 </center>
 

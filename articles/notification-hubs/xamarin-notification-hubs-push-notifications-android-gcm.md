@@ -14,7 +14,7 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/04/2019
+ms.date: 1/4/2019
 ms.author: jowargo
 ---
 
@@ -285,17 +285,17 @@ In this tutorial, you sent broadcast notifications to all your Android devices r
 [30]: ./media/notification-hubs-android-get-started/notification-hubs-test-send.png
 
 <!-- URLs. -->
-[Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
-[My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
-[Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
+[Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253
 [Get started with Mobile Services]: /develop/mobile/tutorials/get-started-xamarin-android/#create-new-service
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio with Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio for Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
 [Azure portal]: https://portal.azure.com/
-[wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
-[Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx
-[Notification Hubs How-To for Android]: http://msdn.microsoft.com/library/dn282661.aspx
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [GitHub]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/dotnet/Xamarin/GetStartedXamarinAndroid

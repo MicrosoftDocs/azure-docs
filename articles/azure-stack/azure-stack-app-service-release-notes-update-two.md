@@ -60,7 +60,7 @@ Azure App Service on Azure Stack Update 2 includes the following improvements an
     - NodeJS 8.11.1
   - Added **NPM** versions:
     - 5.6.0
-  - Updated .Net Core components to be consistent with Azure App Service in public cloud.
+  - Updated .NET Core components to be consistent with Azure App Service in public cloud.
   - Updated Kudu
 
 - Auto Swap of deployment slots feature enabled - [Configuring Auto Swap](https://docs.microsoft.com/azure/app-service/deploy-staging-slots#configure-auto-swap)

@@ -111,12 +111,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![Configure Single Sign-On](./media/tidemark-tutorial/tutorial_tidemark_url.png)
 
     a. In the **Sign-on URL** textbox, type a URL using the following patterns: 
+
 	| |
 	|--|
 	| `https://<subdomain>.tidemark.com/login` |
 	| `https://<subdomain>.tidemark.net/login` |
 
 	b. In the **Identifier** textbox, type a URL using the following patterns: 
+	
 	| |
 	|--|
 	| `https://<subdomain>.tidemark.com/saml` |

@@ -43,16 +43,16 @@ First, you'll create a group for your guest users who all are from a single part
 
 1. Sign in to the Azure portal (https://portal.azure.com) with an account that is the global administrator for your tenant.
 2. Select **Azure Active Directory** > **Groups** > **New group**.
-  ![select the new group command](./media/groups-dynamic-tutorial/new-group.png)
+   ![select the new group command](./media/groups-dynamic-tutorial/new-group.png)
 3. On the **Group** blade:
   
-  * Select **Security** as the group type
-  * Enter `Guest users Contoso` as the name and description for the group
-  * Change **Membership type** to **Dynamic User**
-  * Select **Add dynamic query**
+   * Select **Security** as the group type
+   * Enter `Guest users Contoso` as the name and description for the group
+   * Change **Membership type** to **Dynamic User**
+   * Select **Add dynamic query**
   
 4. Select **Advanced rule**, and in the **Advanced rule** box, enter:
-  `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
+   `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Select **Add query** to close the blade.
 6. On the **Group** blade, select **Create** to create the group.
 

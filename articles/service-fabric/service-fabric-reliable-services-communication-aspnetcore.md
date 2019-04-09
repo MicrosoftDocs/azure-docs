@@ -374,7 +374,7 @@ $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{Configuration
 For example, if you have a Configuration packages named `MyConfigPackage` with below content, then the configuration value will be available on ASP.NET Core `IConfiguration` via Key *MyConfigPackage:MyConfigSection:MyParameter*
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
-<Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
+<Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
   <Section Name="MyConfigSection">
     <Parameter Name="MyParameter" Value="Value1" />
   </Section>  

@@ -33,7 +33,7 @@ The following is an example of how to declare Mesh Secrets resources in a JSON f
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -99,7 +99,7 @@ The following is an example of how to declare Mesh Secrets/Values resources in a
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "location": {
@@ -211,9 +211,9 @@ az mesh secret show --Resource-group <myResourceGroup> --secret-name <mySecret>
 
 - A secret cannot be deleted while it is being referenced by a Mesh application.
 - Deleting a Secrets resource deletes all Secrets/Resources versions.
-```azurecli-interactive
-az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
-```
+  ```azurecli-interactive
+  az mesh secret delete --Resource-group <myResourceGroup> --secret-name <mySecret>
+  ```
 
 ### List Secrets in Subscription
 ```azurecli-interactive

@@ -109,7 +109,7 @@ The two versions (1.0.0.0 and 1.0.0.1) are for the [revision deployment](#deploy
 
     ![Azure Deployment Manager tutorial create web application template](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    The template calls a deploy package, which contains the files of the web application. In this tutorial, the compressed package only contains a index.html file.
+    The template calls a deploy package, which contains the files of the web application. In this tutorial, the compressed package only contains an index.html file.
 3. Open  **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**. 
 
     ![Azure Deployment Manager tutorial create web application template parameters containerRoot](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)

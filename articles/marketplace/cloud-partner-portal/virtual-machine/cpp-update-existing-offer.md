@@ -63,7 +63,7 @@ the VM image that your SKU references by using the following steps:
 
 4.  Under **Disk version**, click on **+New Disk Version** to add a new VM image.
 
-5.  Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](http://semver.org/) format. Versions should be of the
+5.  Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](https://semver.org/) format. Versions should be of the
     form X.Y.Z, where X, Y, and Z are integers. Verify that the new version you provide is greater than all previous versions; otherwise after republishing the new version will not display in either the portal or the Azure Marketplace.
 
 6.  For **OS VHD URL**, enter the [shared access signature (SAS) URI](./cpp-get-sas-uri.md) created for the operating system VHD. 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/13/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -80,7 +80,7 @@ You can use Media Services **Dynamic Manifests** to stream only a specific rendi
 
 ## Live streaming
 
-Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoid**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
+Azure Media Services enables you to deliver live events to your customers on the Azure cloud. **Live Events** are responsible for ingesting and processing the live video feeds. When you create a **Live Event**, an input endpoint is created that you can use to send a live signal from a remote encoder. Once you have the stream flowing into the **Live Event**, you can begin the streaming event by creating an **Asset**, **Live Output**, and **Streaming Locator**. **Live Output** will archive the stream  into the **Asset** and make it available to viewers through the **Streaming Endpoint**. A **Live Event** can be one of two types: **pass-through** and **live encoding**.
 
 The following image illustrates the Pass-through type workflow:
 

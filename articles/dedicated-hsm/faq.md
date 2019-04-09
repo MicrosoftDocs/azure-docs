@@ -173,7 +173,7 @@ No.
 
 ### Q: How many HSMs can I add to the same high availability configuration from one single application?
 
-16.
+16\.
 
 ## Support
 

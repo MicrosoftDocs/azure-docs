@@ -109,12 +109,14 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![iQualify LMS Domain and URLs single sign-on information](./media/iqualify-tutorial/tutorial_iqualify_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: 
+
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/`|
 	| Test Environment: `https://<yourorg>.iqualify.io`|
 	
 	b. In the **Reply URL** textbox, type a URL using the following pattern: 
+
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/auth/saml2/callback` |
@@ -125,6 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![iQualify LMS Domain and URLs single sign-on information](./media/iqualify-tutorial/tutorial_iqualify_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|--|--|
 	| Production Environment: `https://<yourorg>.iqualify.com/login` |

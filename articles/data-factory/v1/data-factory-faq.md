@@ -183,8 +183,8 @@ You can rerun a slice in one of the following ways:
 
 	```PowerShell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
-	```
-See [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.
+    ```
+  See [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.
 
 ### How long did it take to process a slice?
 Use Activity Window Explorer in Monitor & Manage App to know how long it took to process a data slice. See [Activity Window Explorer](data-factory-monitor-manage-app.md#activity-window-explorer) for details.

@@ -180,7 +180,7 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
    Go to Properties and write down the Directory ID. This is the **tenant ID**.
 1. Click App registrations
 1. Click Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example `http://localhost`) and click Create
 1. The sign-on URL is not used and can be any valid URL
 1. Select the new App and click Keys in the Settings tab
 1. Enter a description for a new key, select "Never expires" and click Save

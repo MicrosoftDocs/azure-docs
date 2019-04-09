@@ -151,4 +151,4 @@ The report will automatically be embedded based on the size of its container. To
 [PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [PowerBI-Node Git Repo](https://github.com/Microsoft/PowerBI-Node)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

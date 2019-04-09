@@ -90,11 +90,11 @@ Follow these steps to create a Recovery Services vault.
 
 - The Recovery Services vault is a Resource Manager resource, so you must place it within a resource group. You can use an existing resource group, or you can create a resource group with the **New-AzResourceGroup** cmdlet. When you create a resource group, specify the name and location for the resource group. 
 
-1.  A vault is placed in a resource group. If you don't have an existing resource group, create a new one with the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). In this example, we create a new resource group in the West US region.
+1. A vault is placed in a resource group. If you don't have an existing resource group, create a new one with the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0). In this example, we create a new resource group in the West US region.
 
-    ```powershell
-    New-AzResourceGroup -Name "test-rg" -Location "West US"
-    ```
+   ```powershell
+   New-AzResourceGroup -Name "test-rg" -Location "West US"
+   ```
 2. Use the [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet to create the vault. Specify the same location for the vault as was used for the resource group.
 
     ```powershell
@@ -102,13 +102,13 @@ Follow these steps to create a Recovery Services vault.
     ```
 3. Specify the type of redundancy to use for the vault storage.
 
-    - You can use [locally redundant storage](../storage/common/storage-redundancy-lrs.md) or [geo-redundant storage](../storage/common/storage-redundancy-grs.md).
-    - The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd for **testvault** set to **GeoRedundant**.
+   - You can use [locally redundant storage](../storage/common/storage-redundancy-lrs.md) or [geo-redundant storage](../storage/common/storage-redundancy-grs.md).
+   - The following example sets the **-BackupStorageRedundancy** option for the[Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd for **testvault** set to **GeoRedundant**.
 
-    ```powershell
-    $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
-    Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
-    ```
+     ```powershell
+     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
+     Set-AzRecoveryServicesBackupProperties  -Vault $vault1 -BackupStorageRedundancy GeoRedundant
+     ```
 
 ### View the vaults in a subscription
 

@@ -43,7 +43,7 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## Construct and perform an HTTP request
+   ## Construct and perform an HTTP request
 
 1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 

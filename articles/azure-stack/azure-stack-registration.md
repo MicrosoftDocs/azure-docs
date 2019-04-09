@@ -171,7 +171,7 @@ Connected environments can access the internet and Azure. For these environments
    ```
    For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
-  The process takes between 10 and 15 minutes. When the command completes, you see the message **"Your environment is now registered and activated using the provided parameters."**
+   The process takes between 10 and 15 minutes. When the command completes, you see the message **"Your environment is now registered and activated using the provided parameters."**
 
 ## Register connected with capacity billing
 
@@ -208,20 +208,20 @@ Connected environments can access the internet and Azure. For these environments
 
 5. Start PowerShell ISE as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Import the **RegisterWithAzure.psm1** module using PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet by setting the parameter to false. 
    
-  For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
+   For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
 ## Register disconnected with capacity billing
 

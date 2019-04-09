@@ -11,7 +11,7 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 03/04/2019
+ms.date: 03/12/2019
 ---
 # Configure and manage Azure Active Directory authentication with SQL
 
@@ -23,12 +23,14 @@ This article shows you how to create and populate Azure AD, and then use Azure A
 > Connecting to SQL Server running on an Azure VM is not supported using an Azure Active Directory account. Use a domain Active Directory account instead.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 ## Create and populate an Azure AD
 
 Create an Azure AD and populate it with users and groups. Azure AD can be the initial Azure AD managed domain. Azure AD can also be an on-premises Active Directory Domain Services that is federated with the Azure AD.
 
-For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview?view=azureadps-2.0), and [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md).
+For more information, see [Integrating your on-premises identities with Azure Active Directory](../active-directory/hybrid/whatis-hybrid-identity.md), [Add your own domain name to Azure AD](../active-directory/active-directory-domains-add-azure-portal.md), [Microsoft Azure now supports federation with Windows Server Active Directory](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/), [Administering your Azure AD directory](../active-directory/fundamentals/active-directory-administer.md), [Manage Azure AD using Windows PowerShell](/powershell/azure/overview), and [Hybrid Identity Required Ports and Protocols](../active-directory/hybrid/reference-connect-ports.md).
 
 ## Associate or add an Azure subscription to Azure Active Directory
 
@@ -236,6 +238,7 @@ You can also provision an Azure Active Directory Administrator by using the REST
 ### CLI  
 
 You can also provision an Azure AD admin by calling the following CLI commands:
+
 | Command | Description |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |
@@ -348,7 +351,7 @@ Use this method when connecting with an Azure AD principal name using the Azure 
 Use this method to authenticate to SQL DB/DW with Azure AD for native or federated Azure AD users. A native user is one explicitly created in Azure AD and being authenticated using user name and password, while a federated user is a Windows user whose domain is federated with Azure AD. The latter method (using user & password) can be used when a user wants to use their windows credential, but their local machine is not joined with the domain (for example, using a remote access). In this case, a Windows user can indicate their domain account and password and can authenticate to SQL DB/DW using federated credentials.
 
 1. Start Management Studio or Data Tools and in the **Connect to Server** (or **Connect to Database Engine**) dialog box, in the **Authentication** box, select **Active Directory - Password**.
-2. In the **User name** box, type your Azure Active Directory user name in the format **username@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
+2. In the **User name** box, type your Azure Active Directory user name in the format **username\@domain.com**. User names must be an account from the Azure Active Directory or an account from a domain federate with the Azure Active Directory.
 3. In the **Password** box, type your user password for the Azure Active Directory account or federated domain account.
 
     ![Select AD Password Authentication][12]

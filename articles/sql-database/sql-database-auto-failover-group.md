@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -317,24 +317,24 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 ### PowerShell: Managing failover groups with Managed Instances (preview)
 
-#### Install the newest pre-release version of Powershell
+#### Install the newest pre-release version of PowerShell
 
 1. Update the PowerShellGet module to 1.6.5 (or newest preview version). See [PowerShell preview site](https://www.powershellgallery.com/packages/AzureRM.Sql/4.11.6-preview).
 
-   ```Powershell
+   ```PowerShell
       install-module PowerShellGet -MinimumVersion 1.6.5 -force
    ```
 
 2. In a new PowerShell window, execute the following commands:
 
-   ```Powershell
+   ```PowerShell
       import-module PowerShellGet
       get-module PowerShellGet #verify version is 1.6.5 (or newer)
       install-module azurerm.sql -RequiredVersion 4.5.0-preview -AllowPrerelease –Force
       import-module azurerm.sql
    ```
 
-#### Powershell commandlets to create an instance failover group
+#### PowerShell commandlets to create an instance failover group
 
 | API | Description |
 | --- | --- |

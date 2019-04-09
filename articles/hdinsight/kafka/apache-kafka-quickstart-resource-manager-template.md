@@ -31,9 +31,9 @@ In this quickstart, you learn how to create an [Apache Kafka](https://kafka.apac
 
     The `ssh` command is provided by default on Linux, Unix, and macOS systems. On Windows 10, use one of the following methods to install the `ssh` command:
 
-    * Use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). The cloud shell provides the `ssh` command, and can be configured to use either Bash or PowerShell as the shell environment.
+  * Use the [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). The cloud shell provides the `ssh` command, and can be configured to use either Bash or PowerShell as the shell environment.
 
-    * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
+  * [Install the Windows Subsystem for Linux](https://docs.microsoft.com/windows/wsl/install-win10). The Linux distributions available through the Microsoft Store provide the `ssh` command.
 
     > [!IMPORTANT]  
     > The steps in this document assume that you are using one of the SSH clients mentioned above. If you are using a different SSH client and encounter problems, please consult the documentation for your SSH client.

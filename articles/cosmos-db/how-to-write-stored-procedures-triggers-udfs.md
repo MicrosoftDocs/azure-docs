@@ -281,9 +281,9 @@ The following sample creates a UDF to calculate income tax for various income br
 
 ```json
 {
-   name = "Satya Nadella",
-   country = "USA",
-   income = 70000
+   "name": "Satya Nadella",
+   "country": "USA",
+   "income": 70000
 }
 ```
 

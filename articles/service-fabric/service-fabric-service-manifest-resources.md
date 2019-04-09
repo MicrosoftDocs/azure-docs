@@ -57,8 +57,8 @@ HTTP endpoints are automatically ACL'd by Service Fabric.
 <ServiceManifest Name="Stateful1Pkg"
                  Version="1.0.0"
                  xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                 xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                 xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                 xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <ServiceTypes>
     <!-- This is the name of your ServiceType.
          This name must match the string used in the RegisterServiceType call in Program.cs. -->
@@ -115,8 +115,8 @@ Here is an example ApplicationManifest that you need to set for HTTPS. The thumb
 <ApplicationManifest ApplicationTypeName="Application1Type"
                      ApplicationTypeVersion="1.0.0"
                      xmlns="http://schemas.microsoft.com/2011/01/fabric"
-                     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-                     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+                     xmlns:xsd="https://www.w3.org/2001/XMLSchema"
+                     xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
   <Parameters>
     <Parameter Name="Stateful1_MinReplicaSetSize" DefaultValue="3" />
     <Parameter Name="Stateful1_PartitionCount" DefaultValue="1" />

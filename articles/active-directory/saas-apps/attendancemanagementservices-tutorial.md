@@ -203,7 +203,7 @@ To enable Azure AD users to log in to Attendance Management Services, they must 
 
 	![Add Employee](./media/attendancemanagementservices-tutorial/user4.png)
 
-	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon@contoso.com**.
+	a. In the **OBCiD** textbox, type the email of user like **BrittaSimon\@contoso.com**.
 
 	b. In the **Password** textbox, type the password of user.
 

@@ -76,7 +76,7 @@ Once the Azure Database for MariaDB server is created, you can use the first ser
    ```bash
    mysql --host mydemoserver.mariadb.database.azure.com --database testdb --user db_user@mydemoserver -p
    ```
-For more information regarding user account management, see MariaDB documentation for [User account management](https://mariadb.com/kb/en/library/user-account-management/), [GRANT Syntax](https://mariadb.com/kb/en/library/grant/), and [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
+   For more information regarding user account management, see MariaDB documentation for [User account management](https://mariadb.com/kb/en/library/user-account-management/), [GRANT Syntax](https://mariadb.com/kb/en/library/grant/), and [Privileges](https://mariadb.com/kb/en/library/grant/#privilege-levels).
 
 ## Next steps
 Open the firewall for the IP addresses of the new users' machines to enable them to connect:

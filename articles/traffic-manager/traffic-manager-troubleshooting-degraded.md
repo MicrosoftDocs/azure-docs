@@ -36,7 +36,7 @@ If the health of your Traffic Manager displays an **Inactive** status, then both
 
 To troubleshoot a probe failure, you need a tool that shows the HTTP status code return from the probe URL. There are many tools available that show you the raw HTTP response.
 
-* [Fiddler](http://www.telerik.com/fiddler)
+* [Fiddler](https://www.telerik.com/fiddler)
 * [curl](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 

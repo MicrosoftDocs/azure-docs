@@ -66,7 +66,7 @@ using (var txn = this.StateManager.CreateTransaction())
 Assume that the task completed successfully, and that there were no concurrent transactions modifying the queue. The user can expect the queue to contain the items in any of the following orders:
 
 > 10, 20
-
+> 
 > 20, 10
 
 
@@ -161,7 +161,7 @@ Assume that the items were dequeued in the following order:
 
 When we abort the transaction, the items would be added back to the head of the queue in any of the following orders:
 > 10, 20
-
+> 
 > 20, 10
 
 The same is true for all cases where the transaction was not successfully *Committed*.

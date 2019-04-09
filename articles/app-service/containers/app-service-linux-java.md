@@ -246,21 +246,21 @@ Next, determine if the data source should be available to one application or to 
 #### Finally, place the driver JARs in the Tomcat classpath and restart your App Service
 
 1. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. (Create this directory if it does not already exist.) To upload these files to your App Service instance, perform the following steps:  
-    1. Install the Azure App Service webpp extension:
+   1. Install the Azure App Service webpp extension:
 
       ```azurecli-interactive
       az extension add –name webapp
       ```
 
-    1. Run the following CLI command to create a SSH tunnel from your local system to App Service:
+   1. Run the following CLI command to create a SSH tunnel from your local system to App Service:
 
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
 
-    1. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
+   1. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
-    Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
+      Alternatively, you can use an FTP client to upload the JDBC driver. Follow these [instructions for getting your FTP credentials](https://docs.microsoft.com/azure/app-service/deploy-configure-credentials).
 
 2. If you created a server-level data source, restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat/conf` and use the updated configuration.
 

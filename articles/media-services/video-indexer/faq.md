@@ -96,7 +96,7 @@ Your video or audio content that have public as its privacy setting can be acces
 
 ### What access does Microsoft have to my video or audio files that have been indexed and/or stored by Video Indexer and the metadata and insights that were extracted?
 
-Per the [Azure Online Services Terms](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
+Per the [Azure Online Services Terms](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (OST), you completely own your content, and Microsoft will only access your content and the metadata and insights that Video Indexer extracts from your content according to the OST and the Microsoft Privacy Statement.
 
 ### Are the custom models that I build in my Video Indexer account available to other accounts?
 

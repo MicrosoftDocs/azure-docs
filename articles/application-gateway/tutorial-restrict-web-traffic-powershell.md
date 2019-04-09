@@ -261,7 +261,7 @@ $storageAccount = New-AzStorageAccount `
 
 ### Configure diagnostics
 
-Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs using [Set-AzDiagnosticSetting](/powershell/module/az.insights/set-azdiagnosticsetting).
+Configure diagnostics to record data into the ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, and ApplicationGatewayFirewallLog logs using [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `

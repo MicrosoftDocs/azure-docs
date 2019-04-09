@@ -187,7 +187,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 This code prompts us for the path to a local file, the name of a new or existing container, and the name of a new blob. The `TransferManager.UploadAsync` method performs the upload using this information.
 
-Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+Hit `F5` to run your application. You can verify that the upload occurred by viewing your Storage account with the [Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 
 ## Set number of parallel operations
 A great feature offered by the Data Movement Library is the ability to set the number of parallel operations to increase the data transfer throughput. By default, the Data Movement Library sets the number of parallel operations to 8 * the number of cores on your machine.

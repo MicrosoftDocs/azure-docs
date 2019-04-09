@@ -37,14 +37,14 @@ For Azure to communicate between the resources that you create, it needs a virtu
    - 10.0.0.0/16* - for the virtual network address space.
    - *myAGSubnet* - for the subnet name.
    - *10.0.0.0/24* - for the subnet address space.	
-   ![private-frontendip-1](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-1.png)
+     ![private-frontendip-1](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-1.png)
 6. Click **OK** to create the virtual network and subnet.
 7. Choose the Frontend IP configuration as Private and by default, it is a dynamic IP address assignment. The first available address of the chosen Subnet will be assigned as the frontend IP address.
 8. If you would like to choose a private IP from the subnet address range (static allocation), click the box **Choose a specific private IP address** and specify the IP address.
    > [!NOTE]
    > Once allocated, the IP address type (static or dynamic) cannot be changed later.
 9. Choose your listener configuration for the protocol and the port, WAF configuration (if needed) and click OK.
-   ​	![private-frontendip-2](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-2.png)
+    ![private-frontendip-2](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-2.png)
 10. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until the deployment finishes successfully before moving on to the next section.
 
 ## Add backend pool
@@ -73,7 +73,7 @@ The backend pool is used to route requests to the backend servers which will be 
 ### Install IIS
 
 1. Open the interactive shell and make sure that it is set to **PowerShell**.
-   ​	![private-frontendip-3](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-3.png)
+    ![private-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Run the following command to install IIS on the virtual machine:
 
    ```azurepowershell
@@ -102,13 +102,13 @@ The backend pool is used to route requests to the backend servers which will be 
 1. Click **All resources**, and then click **myAppGateway**.
 2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
 3. Click **Add target** to add each virtual machine that you created to the backend pool.
-   ![private-frontendip-4](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-4.png)
+   ![private-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 4. Click **Save.**
 
 ## Test the application gateway
 
 1. Check your frontend IP that got assigned by clicking the **Frontend IP Configurations** blade in the portal.
-   ​	![private-frontendip-5](.\media\configure-application-gateway-with-private-frontend-ip\private-frontendip-5.png)
+    ![private-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copy the private IP address, and then paste it into the address bar of your browser of a VM in the same VNet or on-premises which has connectivity to this VNet and try to access the Application Gateway.
 
 ## Next steps

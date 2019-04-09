@@ -34,7 +34,7 @@ The list of versions show which versions are published, where they are published
      > [!NOTE]
      > Version ID can consist only of characters, digits or '.' and cannot be longer than 10 characters.
  
- A new version with the specified name is created and set as the active version.
+   A new version with the specified name is created and set as the active version.
 
 ## Set active version
 

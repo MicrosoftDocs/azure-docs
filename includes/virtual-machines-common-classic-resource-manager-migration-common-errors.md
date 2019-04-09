@@ -9,6 +9,7 @@ ms.author: cynthn
 This article catalogs the most common errors and mitigations during the migration of IaaS resources from Azure classic deployment model to the Azure Resource Manager stack.
 
 ## List of errors
+
 | Error string | Mitigation |
 | --- | --- |
 | Internal server error |In some cases, this is a transient error that goes away with a retry. If it continues to persist, [contact Azure support](../articles/azure-supportability/how-to-create-azure-support-request.md) as it needs investigation of platform logs. <br><br> **NOTE:** Once the incident is tracked by the support team, please do not attempt any self-mitigation as this might have unintended consequences on your environment. |

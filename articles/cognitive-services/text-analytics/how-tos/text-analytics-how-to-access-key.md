@@ -29,7 +29,7 @@ If you need help finding the key, or to determine whether your subscription alre
 
 4. Click the link to open the service blade. You can now get a key from **Resources > Keys** or by clicking **Show access keys** in the Essentials pane. The endpoint is also visible in the Essentials pane.
 
- ![Portal page with endpoint and keys](../media/portal-keys-endpoint.png)
+   ![Portal page with endpoint and keys](../media/portal-keys-endpoint.png)
 
 ## See also 
 

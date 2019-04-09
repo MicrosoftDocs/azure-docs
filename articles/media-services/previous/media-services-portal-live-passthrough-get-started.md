@@ -32,7 +32,7 @@ The following are required to complete the tutorial:
 
 * An Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/). 
 * A Media Services account. To create a Media Services account, see [How to Create a Media Services Account](media-services-portal-create-account.md).
-* A webcam. For example, [Telestream Wirecast encoder](http://www.telestream.net/wirecast/overview.htm).
+* A webcam. For example, [Telestream Wirecast encoder](https://www.telestream.net/wirecast/overview.htm).
 
 It is highly recommended to review the following articles:
 

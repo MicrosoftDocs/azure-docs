@@ -49,10 +49,10 @@ Both services provide complementary but different functionality.
 Use the table points to help figure out your BCDR needs. 
 
 **Objective** | **Details** | **Comparison**
---- | --- | --- | --- |
+--- | --- | --- 
 **Data backup/retention** | Backup data can be retained and stored for days, months, or even years if required from a compliance perspective. | Backup solutions like Azure Backup allow you to finely pick data you want to back up, and finely tune backup and retention policies.<br/><br/> Site Recovery doesn't allow the same fine tuning.
 **Recovery point objective (RPO)** | The amount of acceptable data loss if a recovery needs to be done. | Backups have more variable RPO.<br/><br/> VM backups usually have an RPO of a day, while database backups have RPOs as low as 15 minutes.<br/><br/> Site Recovery provides a low RPO since replication is continuous or frequent, so that the delta between the source and replica copy is small.
-**Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. | Disaster recovery solutions such as Site Recovery have a low RPO since continuous/frequent replication generally means that the target is more highly synchronized with the source. |
+**Recovery time objective (RTO)** |The amount of time that it takes to complete a recovery or restore. | Because of the larger RPO, the amount of data that a backup solution needs to process is typically much higher, which leads to longer RTOs. For example, it can take days to restore data from tapes, depending on the time it takes to transport the tape from an off-site location. 
 
 ## What backup scenarios are supported?
 

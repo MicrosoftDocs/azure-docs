@@ -135,6 +135,10 @@ To disconnect from a source control repository, open **Source control (Preview)*
 
 Select the source control you want to remove. On the **Source Control Summary** page, click **Delete**.
 
+## Encoding
+
+If multiple people are editing runbooks in your source control repository with different editors there is a chance to run into encoding issues. This can insert incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
 ## Next steps
 
 To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](automation-runbook-types.md)

@@ -176,7 +176,7 @@ Use the steps in this section to generate test certificates on a Linux device. Y
 
 In this section, you create three certificates and then connect them in a chain. Placing the certificates in a chain file allows to easily install them on your IoT Edge gateway device and any downstream devices.  
 
-1.	Create the owner CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
+1. Create the owner CA certificate and one intermediate certificate. These certificates are placed in *\<WRKDIR>*.
 
    ```bash
    ./certGen.sh create_root_and_intermediate
@@ -188,7 +188,7 @@ In this section, you create three certificates and then connect them in a chain.
    * `<WRKDIR>/private/azure-iot-test-only.root.ca.key.pem`
    * `<WRKDIR>/private/azure-iot-test-only.intermediate.key.pem`
 
-2.	Create the Edge device CA certificate and private key with the following command. Provide a name for the gateway device, which will be used to name the files and during certificate generation. 
+2. Create the Edge device CA certificate and private key with the following command. Provide a name for the gateway device, which will be used to name the files and during certificate generation. 
 
    ```bash
    ./certGen.sh create_edge_device_certificate "<gateway name>"

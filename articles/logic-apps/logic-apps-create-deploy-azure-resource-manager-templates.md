@@ -88,7 +88,7 @@ Here are descriptions for the parameters in the template:
 | Parameter | Description | JSON definition example | 
 | --------- | ----------- | ----------------------- | 
 | `logicAppName` | Defines the name of the logic app that template creates. | "logicAppName": { "type": "string", "metadata": { "description": "myExampleLogicAppName" } } |
-| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "http://azure.microsoft.com/status/feed/"} | 
+| `testUri` | Defines the location to ping for testing. | "testUri": { "type": "string", "defaultValue": "https://azure.microsoft.com/status/feed/"} | 
 ||||
 
 Learn more about [REST API for Logic Apps Workflow definition and properties](https://docs.microsoft.com/rest/api/logic/workflows) 

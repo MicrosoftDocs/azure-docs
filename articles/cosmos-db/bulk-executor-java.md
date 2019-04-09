@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 This tutorial provides instructions on using the Azure Cosmos DB’s bulk executor Java library to import, and update Azure Cosmos DB documents. To learn about bulk executor library and how it helps you leverage massive throughput and storage, see [bulk executor Library overview](bulk-executor-overview.md) article. In this tutorial, you build a Java application that generates random documents and they are bulk imported into an Azure Cosmos DB container. After importing, you will bulk update some properties of a document. 
 
-Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .Net library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
+Currently, bulk executor library is supported by Azure Cosmos DB SQL API and Gremlin API accounts only. This article describes how to use bulk executor .NET library with SQL API accounts. To learn about using bulk executor .NET library with Gremlin API, see [perform bulk operations in Azure Cosmos DB Gremlin API](bulk-executor-graph-dotnet.md).
 
 ## Prerequisites
 
@@ -81,13 +81,13 @@ The cloned repository contains two samples "bulkimport" and "bulkupdate" relativ
    // Set retries to 0 to pass complete control to bulk executor
    client.getConnectionPolicy().getRetryOptions().setMaxRetryWaitTimeInSeconds(0);
    client.getConnectionPolicy().getRetryOptions().setMaxRetryAttemptsOnThrottledRequests(0);
-```
+   ```
 
 4. Call the importAll API that generates random documents to bulk import into an Azure Cosmos DB container. You can configure the command line configurations within the CmdLineConfiguration.java file.
 
    ```java
    BulkImportResponse bulkImportResponse = bulkExecutor.importAll(documents, false, true, null);
-```
+   ```
    The bulk import API accepts a collection of JSON-serialized documents and it has the following syntax, for more details, see the [API documentation](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor):
 
    ```java

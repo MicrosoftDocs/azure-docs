@@ -13,7 +13,9 @@ ms.custom: seodec18
 # Understand resource locking in Azure Blueprints
 
 The creation of consistent environments at scale is only truly valuable if there's a mechanism to
-maintain that consistency. This article explains how resource locking works in Azure Blueprints.
+maintain that consistency. This article explains how resource locking works in Azure Blueprints. To
+see an example of resource locking and application of _deny assignments_, see the [protecting new resources](../tutorials/protect-new-resources.md)
+tutorial.
 
 ## Locking modes and states
 
@@ -72,8 +74,9 @@ lock outside Blueprints.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md)
-- Understand how to use [static and dynamic parameters](parameters.md)
-- Learn to customize the [blueprint sequencing order](sequencing-order.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Follow the [protect new resources](../tutorials/protect-new-resources.md) tutorial.
+- Learn about the [blueprint life-cycle](lifecycle.md).
+- Understand how to use [static and dynamic parameters](parameters.md).
+- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

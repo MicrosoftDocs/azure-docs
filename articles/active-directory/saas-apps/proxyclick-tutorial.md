@@ -211,7 +211,7 @@ To enable Azure AD users to log in to Proxyclick, they must be provisioned into 
 
 	![Add Employee](./media/proxyclick-tutorial/user3.png)
 
-	a. In the **Email** textbox, type the email address of user like **brittasimon@contoso.com**.
+	a. In the **Email** textbox, type the email address of user like **brittasimon\@contoso.com**.
 
 	b. In the **First Name** textbox, type the first name of user like Britta.
 

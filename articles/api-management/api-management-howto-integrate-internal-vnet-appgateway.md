@@ -352,7 +352,7 @@ Get-AzPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ## <a name="summary"> </a> Summary
 Azure API Management configured in a VNET provides a single gateway interface for all configured APIs, whether they are hosted on premises or in the cloud. Integrating Application Gateway with API Management provides the flexibility of selectively enabling particular APIs to be accessible on the Internet, as well as providing a Web Application Firewall as a frontend to your API Management instance.
 
-##<a name="next-steps"> </a> Next steps
+## <a name="next-steps"> </a> Next steps
 * Learn more about Azure Application Gateway
   * [Application Gateway Overview](../application-gateway/application-gateway-introduction.md)
   * [Application Gateway Web Application Firewall](../application-gateway/application-gateway-webapplicationfirewall-overview.md)

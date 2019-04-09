@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.custom: mvc
 ms.date: 12/07/2018
 ms.custom: seodec18
-#Customer intent: "What is Azure Stream Analytics and why should I care? As a IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
+#Customer intent: "What is Azure Stream Analytics and why should I care? As an IT Pro or developer, how do I use Stream Analytics to perform analytics on data streams?".
 
 ---
 

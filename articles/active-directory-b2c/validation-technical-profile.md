@@ -1,6 +1,6 @@
 ---
 title: Define a validation technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define a Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
+description: Define an Azure Active Directory technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba

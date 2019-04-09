@@ -72,7 +72,7 @@ Security benefits of Azure Active Directory (Azure AD) include the ability to:
 
 - Provision secure remote access to on-premises web applications through Azure AD Application Proxy.
 
-The [Azure Active Directory portal](http://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
+The [Azure Active Directory portal](https://aad.portal.azure.com/) is available a part of the Azure portal. From this dashboard, you can get an overview of the state of your organization, and easily dive into managing the directory, users, or application access.
 
 ![Azure Active Directory](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig2.png)
 
@@ -110,7 +110,7 @@ Not only do users not have to manage multiple sets of usernames and passwords, a
 
 Security monitoring and alerts and machine learning-based reports that identify inconsistent access patterns can help you protect your business. You can use Azure Active Directory's access and usage reports to gain visibility into the integrity and security of your organization’s directory. With this information, a directory admin can better determine where possible security risks may lie so that they can adequately plan to mitigate those risks.
 
-In the Azure portal or through the [Azure Active Directory portal](http://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
+In the Azure portal or through the [Azure Active Directory portal](https://aad.portal.azure.com/), [reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-guide) are categorized in the following ways:
 
 - Anomaly reports – contain sign in events that we found to be anomalous. Our goal is to make you aware of such activity and enable you to be able to decide about whether an event is suspicious.
 
@@ -271,7 +271,7 @@ You can learn more about Azure VPN option by reading the article [Planning and d
 
 [Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) uses encryption, identity, and authorization policies to help secure your files and email. Azure RMS works across multiple devices — phones, tablets, and PCs by protecting both within your organization and outside your organization. This capability is possible because Azure RMS adds a level of protection that remains with the data, even when it leaves your organization’s boundaries.
 
-When you use Azure RMS to protect your files, you are using industry-standard cryptography with full support of [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). When you leverage Azure RMS for data protection, you have the assurance that the protection stays with the file, even if it is copied to storage that is not under the control of IT, such as a cloud storage service. The same occurs for files shared via e-mail, the file is protected as an attachment to an email message, with instructions how to open the protected attachment.
+When you use Azure RMS to protect your files, you are using industry-standard cryptography with full support of [FIPS 140-2](https://csrc.nist.gov/groups/STM/cmvp/standards.html). When you leverage Azure RMS for data protection, you have the assurance that the protection stays with the file, even if it is copied to storage that is not under the control of IT, such as a cloud storage service. The same occurs for files shared via e-mail, the file is protected as an attachment to an email message, with instructions how to open the protected attachment.
 When planning for Azure RMS adoption we recommend the following:
 
 - Install the [RMS sharing app](https://technet.microsoft.com/library/dn339006.aspx). This app integrates with Office applications by installing an Office add-in so that users can easily protect files directly.

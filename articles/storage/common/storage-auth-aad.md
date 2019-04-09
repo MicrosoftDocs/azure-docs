@@ -31,7 +31,7 @@ Keep in mind the following points about the preview:
 - Azure Storage supports both built-in and custom RBAC roles. You can assign roles scoped to the subscription, the resource group, the storage account, or an individual container or queue.
 - The Azure Storage client libraries that currently support Azure AD integration include:
     - [.NET](https://www.nuget.org/packages/WindowsAzure.Storage)
-    - [Java](http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
+    - [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage)
     - Python
         - [Blob, Queue and Files](https://github.com/Azure/azure-storage-python)
     - [Node.js](https://www.npmjs.com/package/azure-storage)

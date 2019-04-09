@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/09/2018
+ms.date: 03/14/2019
 ms.author: alkohli
 
 ---
@@ -52,7 +52,7 @@ You can choose whether you want to be notified by email of alert conditions for 
 > [!NOTE]
 > You can enter a maximum of 20 email addresses per device.
 
-After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
+After you enable email notification for a device, members of the notification list will receive an email message each time a critical alert occurs. The messages will be sent from *storsimple-alerts-noreply\@mail.windowsazure.com* and will describe the alert condition. Recipients can click **Unsubscribe** to remove themselves from the email notification list.
 
 #### To enable email notification of alerts for a device
 1. Go to your StorSimple Device Manager service. From the list of devices, select and click the device that you wish to configure.
@@ -64,7 +64,7 @@ After you enable email notification for a device, members of the notification li
    
    1. In the **Send email notification** field, select **YES**.
    2. In the **Email service administrators** field, select **YES** to have the service administrator and all co-administrators receive the alert notifications.
-   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
+   3. In the **Other email recipients** field, enter the email addresses of all other recipients who should receive the alert notifications. Enter names in the format *someone\@somewhere.com*. Use semicolons to separate the email addresses. You can configure a maximum of 20 email addresses per device. 
       
 3. To send a test email notification, click **Send test email**. The StorSimple Device Manager service will display status messages as it forwards the test notification.
 
@@ -202,9 +202,10 @@ If cloud connectivity fails on your StorSimple production device, then depending
 
 ### Performance alerts
 
-| Alert text | Event | More information / recommended actions |
-|:--- |:--- |:--- |
-| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |and the current status, go to [Use the StorSimple Device Manager service to monitor your device](storsimple-8000-monitor-device.md) |
+| Alert text | Event | More information / recommended actions | |
+|:--- |:--- |:--- | --- |
+| The device load has exceeded <*threshold*>. |Slower than expected response times. |Your device reports utilization under a heavy input/output load. This could cause your device to not work as well as it should. Review the workloads that you have attached to the device, and determine if there are any that could be moved to another device or that are no longer necessary.|
+| Could not start StorSimple service(s). |Datapath error |If the problem persists, contact Microsoft Support. |
 
 ### Security alerts
 

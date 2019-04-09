@@ -105,8 +105,8 @@ Following steps describe how you can set the blob tier to Archive using an Azure
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> If you want the data to archive on ingest, set the default account tier to Hot. If the default tier is Cool, then there is a 30-day early deletion penalty if the data moves to Archive immediately.
+   > [!TIP]
+   > If you want the data to archive on ingest, set the default account tier to Hot. If the default tier is Cool, then there is a 30-day early deletion penalty if the data moves to Archive immediately.
 
 ## Next steps
 

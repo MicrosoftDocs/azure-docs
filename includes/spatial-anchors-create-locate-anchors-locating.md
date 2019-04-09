@@ -1,4 +1,4 @@
-## Locating a cloud spatial anchor
+## Locate a cloud spatial anchor
 
 To locate cloud spatial anchors, you'll need to know their identifiers. Anchor IDs can be stored in your application's backend service, and accessible to all devices that can properly authenticate to it. For an example of this see [Tutorial: Share Spatial Anchors across devices](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 

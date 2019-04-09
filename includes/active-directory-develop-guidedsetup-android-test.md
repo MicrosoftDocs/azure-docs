@@ -21,7 +21,7 @@ ms.custom: include file
 ## Test your app
 
 1. Run your code to your device/emulator.
-2. Try to sign in with a Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com). 
+2. Try to sign in with an Azure Active Directory account (work or school account) or Microsoft account (live.com, outlook.com). 
 
     ![Test your application](media/active-directory-develop-guidedsetup-android-test/mainwindow.png)
     <br/><br/>

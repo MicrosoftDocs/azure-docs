@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/12/2019
 ms.author: alkohli
 ---
 # Azure Data Box Edge technical specifications (preview)
@@ -34,7 +34,7 @@ The following table lists the typical power consumption data (actual values may 
 
 ## Storage specifications
 
-The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly XX TB. The following table has the details for the storage capacity of the device.
+The Data Box Edge devices have 10 X 2.5” NVMe SSDs, each with a capacity of 1.6 TB. Of these SSDs, 2 are operating system disks, and the other 8 are data disks. The total usable capacity for the device is roughly 12.5 TB. The following table has the details for the storage capacity of the device.
 
 |     Specification                          |     Value             |
 |--------------------------------------------|-----------------------|

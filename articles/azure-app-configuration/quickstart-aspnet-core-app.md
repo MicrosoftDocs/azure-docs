@@ -86,7 +86,7 @@ You will add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/se
 
     Secret Manager will only be used for testing the web app locally. When the app is deployed (for example, to [Azure App Service](https://azure.microsoft.com/services/app-service/web)), you will use an application setting (for example, **Connection Strings** in App Service) instead of storing the connection string with Secret Manager.
 
-    This secret is a accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
+    This secret is an accessed with the configuration API. A colon (:) works in the configuration name with the configuration API on all supported platforms, see [Configuration by environment](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
 4. Open *Program.cs* and update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration()` method.
 

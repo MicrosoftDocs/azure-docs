@@ -11,7 +11,7 @@ ms.date: 02/06/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
@@ -30,8 +30,8 @@ The subject of the email follows the following pattern:
 You're invited to the &lt;tenantname&gt; organization
 
 ### From address
-We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is:
-&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+We use a LinkedIn-like pattern for the From address.  You should be clear who the inviter is and from which company, and also clarify that the email is coming from a Microsoft email address. The format is: Microsoft Invitations <invites@microsoft.com> or 
+&lt;Display name of inviter&gt; from &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>.
 
 ### Reply To
 The reply-to email is set to the inviter's email when available, so that replying to the email sends an email back to the inviter.
@@ -56,8 +56,12 @@ If you haven't yet set up your profile picture, an icon with the inviter's initi
 ### Body
 The body contains the message that the inviter composes when [inviting a guest user to the directory, group, or app](add-users-administrator.md) or [by using the invitation API](customize-invitation-api.md). It is a text area, so it does not process HTML tags for security reasons.
 
+  ![picture of email body](media/invitation-email-elements/invitation-email-body.png)
+
 ### Footer section
-The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. Special cases:
+The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. 
+
+Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
 

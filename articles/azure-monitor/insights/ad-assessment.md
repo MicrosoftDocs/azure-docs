@@ -105,10 +105,10 @@ View the summarized compliance assessments for your infrastructure and then dril
 ### To view recommendations for a focus area and take corrective action
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
-4. On the **Overview** page, click the **Active Directory Health Check** tile.
-5. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
-6. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
-7. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
+1. On the **Overview** page, click the **Active Directory Health Check** tile.
+1. On the **Health Check** page, review the summary information in one of the focus area blades and then click one to view recommendations for that focus area.
+1. On any of the focus area pages, you can view the prioritized recommendations made for your environment. Click a recommendation under **Affected Objects** to view details about why the recommendation is made.<br><br> ![image of Health Check recommendations](./media/ad-assessment/ad-healthcheck-dashboard-02.png)
+1. You can take corrective actions suggested in **Suggested Actions**. When the item has been addressed, later assessments records that recommended actions were taken and your compliance score will increase. Corrected items appear as **Passed Objects**.
 
 ## Ignore recommendations
 If you have recommendations that you want to ignore, you can create a text file that Azure Monitor will use to prevent recommendations from appearing in your assessment results.

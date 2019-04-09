@@ -114,10 +114,10 @@ You need an LRS or GRS storage. We recommend GRS so that data is resilient if a 
 * **Azure VMs, VMware and physical servers:** A replication frequency isn't relevant here. Replication is continuous.
 
 ### Can I extend replication from existing recovery site to another tertiary site?
-Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
 
 ### Can I do an offline replication the first time I replicate to Azure?
-This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude specific disks from replication?
 This is supported when you're replicating VMware VMs and Hyper-V VMs to Azure, using the Azure portal.

@@ -54,11 +54,11 @@ Power BI Desktop is a desktop application that allows you to create datasets and
 ## Publish to Power BI
 When you publish to Power BI, a dataset and a report will be created.  If you create a report in Power BI Desktop, then this will be published with your data.  If not, then a blank report will be created.  You can modify the report in Power BI or create a new one based on the dataset.
 
-8. Create a report based on your data.  Use [Power BI Desktop documentation](https://docs.microsoft.com/power-bi/desktop-report-view) if you're not familiar with it.  When you're ready to send it to Power BI, click **Publish**.  When prompted, select a destination in your Power BI account.  Unless you have a specific destination in mind, use **My workspace**.
+1. Create a report based on your data.  Use [Power BI Desktop documentation](https://docs.microsoft.com/power-bi/desktop-report-view) if you're not familiar with it.  When you're ready to send it to Power BI, click **Publish**.  When prompted, select a destination in your Power BI account.  Unless you have a specific destination in mind, use **My workspace**.
 
     ![Power BI Desktop publish](media/powerbi/desktop-publish.png)
 
-3. When the publishing completes, click **Open in Power BI** to open Power BI with your new dataset.
+1. When the publishing completes, click **Open in Power BI** to open Power BI with your new dataset.
 
 
 ### Configure scheduled refresh

@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: genemi,ayolubek, jrasnick
 manager: craigg
-ms.date: 03/07/2019
+ms.date: 03/12/2019
 ---
 # DNS alias for Azure SQL Database
 
@@ -82,6 +82,8 @@ Also, the REST APIs can be seen in GitHub at:
 #### PowerShell for managing your DNS aliases
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 PowerShell cmdlets are available that call the REST APIs.
 

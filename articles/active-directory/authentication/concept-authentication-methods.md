@@ -146,6 +146,8 @@ The Microsoft Authenticator app or other third-party apps can be used as a softw
 > For self-service password reset when only one method is required for reset verification code is the only option available to users **to ensure the highest level of security**.
 >
 
+Users may have a combination of up to 5 OATH hardware tokens or authenticator applications such as the Microsoft Authenticator app configured for use at any time.
+
 ## OATH hardware tokens (public preview)
 
 OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Note that secret keys are limited to 128 characters, which may not be compatible with all tokens.

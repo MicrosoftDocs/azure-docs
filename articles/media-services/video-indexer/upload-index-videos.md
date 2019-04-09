@@ -60,16 +60,16 @@ A URL that is used to notify the customer (using a POST request) about the follo
         |state|The video state|  
     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
-    - Properties
+  - Properties
     
-        |Name|Description|
-        |---|---|
-        |id| The video id|
-        |faceId|The face ID that appears in the video index|
-        |knownPersonId|The person ID that is unique within a face model|
-        |personName|The name of the person|
+      |Name|Description|
+      |---|---|
+      |id| The video id|
+      |faceId|The face ID that appears in the video index|
+      |knownPersonId|The person ID that is unique within a face model|
+      |personName|The name of the person|
         
-     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### Notes
 

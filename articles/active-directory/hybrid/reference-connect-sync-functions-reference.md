@@ -47,8 +47,9 @@ The types are expressed with the following syntax:
 The functions with the types **mvbin**, **mvstr**, and **mvref** can only work on multi-valued attributes. Functions with **bin**, **str**, and **ref** work on both single-valued and multi-valued attributes.
 
 ## Functions Reference
+
 | List of functions |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificate** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |

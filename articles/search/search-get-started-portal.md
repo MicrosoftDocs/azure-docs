@@ -29,13 +29,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-[Create an Azure Search service](search-create-service-portal.md) or find an existing service under your current subscription.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Open the service dashboard of your Azure Search service. If you didn't pin the service tile to your dashboard, you can find your service this way:
-
-   * In the Jumpbar, click **All services** on the left navigation pane.
-   * In the search box, type *search* to get a list of search-related services for your subscription. Click **Search services**. Your service should appear in the list.
+[Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart. 
 
 ### Check for space
 

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
 
 ---
@@ -122,7 +122,7 @@ Response:
     }
 
 ## Demos
-See [Azure Media Analytics demos](http://azuremedialabs.azurewebsites.net/demos/Analytics.html).
+See [Azure Media Analytics demos](https://azuremedialabs.azurewebsites.net/demos/Analytics.html).
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

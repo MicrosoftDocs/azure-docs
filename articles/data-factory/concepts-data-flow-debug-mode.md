@@ -41,7 +41,7 @@ When you are finished with your debugging, turn the Debug switch off so that you
 <img src="media/data-flow/datapreview.png" width="400">
 
 ## Data preview
-With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your source settings. You may need to click "Fetch data" to refresh the data preview.
+With debug on, the Data Preview tab will light-up on the bottom panel. Without debug mode on, Data Flow will show you only the current metadata in and out of each of your transformations in the Inspect tab. The data preview will only query the number of rows that you have set as your limit in your debug settings. You may need to click "Fetch data" to refresh the data preview.
 
 <img src="media/data-flow/stats.png" width="400">
 

@@ -14,8 +14,8 @@ ms.author: ramamill
 
 You deploy an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication. This article walks you through the steps needed to deploy the configuration server when you're replicating VMware VMs to Azure. [Follow this article](physical-azure-set-up-source.md) if you need to set up a configuration server for physical server replication.
 
->[!TIP]
-You can learn about the role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
+> [!TIP]
+> You can learn about the role of Configuration server as part of Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
 ## Deployment of configuration server through OVA template
 
@@ -41,7 +41,7 @@ You require a user with **one of the following** permissions set in AAD (Azure A
    1. Navigate to Azure Active Directory > User settings
    1. Under **App registrations", "Users can register applications" should be chosen as "Yes".
 
-    ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
+      ![AAD_application_permission](media/vmware-azure-deploy-configuration-server/AAD_application_permission.png)
 
 > [!NOTE]
 > Active Directory Federation Services(ADFS) is **not supported**. Please use an account managed through [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis).
@@ -65,11 +65,11 @@ If you're replicating more than one VMware VM, read [capacity planning considera
 3. In **Add Server**, check that **Configuration server for VMware** appears in **Server type**.
 4. Download the Open Virtualization Application (OVA) template for the configuration server.
 
-  > [!TIP]
->You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+   > [!TIP]
+   >You can also download the latest version of the configuration server template directly from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
->[!NOTE]
-The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
+> [!NOTE]
+> The license provided with OVA template is an evaluation license valid for 180 days. Post this period, customer needs to activate the windows with a procured license.
 
 ## Import the template in VMware
 
@@ -131,6 +131,7 @@ If you want to add an additional NIC to the configuration server, add it before 
     |Can I download & install MySQL manually?     |  Yes. Download MySQL application & place it in the folder **C:\Temp\ASRSetup**, then install manually. Now, when you accept the terms > click on **Download and install**, the portal says *Already installed*. You can proceed to the next step.       |
     |Can I avoid download of MySQL online?     |   Yes. Place your MySQL installer application in the folder **C:\Temp\ASRSetup**. Accept the terms > click on **Download and install**, the portal will use the installer added by you and installs the application. You can proceed to the next step post installation.    |
     |I would like to download & install MySQL through Azure Site Recovery     |  Accept the license agreement & click on **Download and Install**. Then you can proceed to the next step post installation.       |
+
 5. In **Validate appliance configuration**, prerequisites are verified before you continue.
 6. In **Configure vCenter Server/vSphere ESXi server**, enter the FQDN or IP address of the vCenter server, or vSphere host, where the VMs you want to replicate are located. Enter the port on which the server is listening. Enter a friendly name to be used for the VMware server in the vault.
 7. Enter credentials to be used by the configuration server to connect to the VMware server. Site Recovery uses these credentials to automatically discover VMware VMs that are available for replication. Select **Add**, and then **Continue**. The credentials entered here are locally saved.

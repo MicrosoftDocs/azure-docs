@@ -41,13 +41,13 @@ These actions included in this tutorial allow you to:
 
 ### Create an Azure Automation account
 
-1.	Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
-2.	Click the **Create a resource** button found on the upper left corner of Azure.
-3.	Select **Management Tools** > **Automation**.
-    > [!NOTE]
-    > If you don’t have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
-4.	Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
-5.	When complete, click **Create**, to start the Automation account deployment.
+1. Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account credentials.
+2. Click the **Create a resource** button found on the upper left corner of Azure.
+3. Select **Management Tools** > **Automation**.
+   > [!NOTE]
+   > If you don’t have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
+4. Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
+5. When complete, click **Create**, to start the Automation account deployment.
 
 ### Import the Stop Azure V2 VMs runbook
 
@@ -70,19 +70,19 @@ Using an [Azure Automation runbook](https://docs.microsoft.com/azure/automation/
 
 Using the [Stop Azure V2 VMs](https://gallery.technet.microsoft.com/scriptcenter/Stop-Azure-ARM-VMs-1ba96d5b) graphical runbook, you will create two Webhooks to start the runbook in Azure Automation through a single HTTP request. The first webhook will invoke the runbook at an 80% budget threshold with the resource group name as a parameter, allowing the optional VMs to be stopped. Then, second webhook will invoke the runbook with no parameters (at 100%), which will stop all remaining VM instances.
 
-1.	From the **Runbooks** page in the [Azure portal](https://portal.azure.com/), click the **StopAzureV2Vm** runbook that displays the runbook’s overview blade. 
-2.	Click **Webhook** at the top of the page to open the **Add Webhook** blade.
-3.	Click **Create new webhook** to open the **Create a new webhook** blade.
-4.	Set the **Name** of the Webhook to **Optional**. The **Enabled** property must be **Yes**. The **Expires** value does not need to be changed. For more information about Webhook properties, see [Details of a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#details-of-a-webhook).
-5.	Next to the URL value, click the copy icon to copy the URL of the webhook. 
-    > [!IMPORTANT]
-    > Save the URL of the webhook named **Optional** in a safe place. You will use the URL later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.
-6.	Click **OK** to create the new webhook.
-7.	Click **Configure parameters and run settings** to view parameter values for the runbook. 
-    > [!NOTE]
-    > If the runbook has mandatory parameters, then you are not able to create the webhook unless values are provided.
-8.	Click **OK** to accept the webhook parameter values.
-9.	Click **Create** to create the webhook.
+1. From the **Runbooks** page in the [Azure portal](https://portal.azure.com/), click the **StopAzureV2Vm** runbook that displays the runbook’s overview blade. 
+2. Click **Webhook** at the top of the page to open the **Add Webhook** blade.
+3. Click **Create new webhook** to open the **Create a new webhook** blade.
+4. Set the **Name** of the Webhook to **Optional**. The **Enabled** property must be **Yes**. The **Expires** value does not need to be changed. For more information about Webhook properties, see [Details of a webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#details-of-a-webhook).
+5. Next to the URL value, click the copy icon to copy the URL of the webhook. 
+   > [!IMPORTANT]
+   > Save the URL of the webhook named **Optional** in a safe place. You will use the URL later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.
+6. Click **OK** to create the new webhook.
+7. Click **Configure parameters and run settings** to view parameter values for the runbook. 
+   > [!NOTE]
+   > If the runbook has mandatory parameters, then you are not able to create the webhook unless values are provided.
+8. Click **OK** to accept the webhook parameter values.
+9. Click **Create** to create the webhook.
 10.	Next, follow the steps above to create a second webhook named **Complete**. 
     > [!IMPORTANT]
     > Be sure to save both webhook URLs to use later in this tutorial. For security reasons, once you create the webhook, you cannot view or retrieve the URL again.

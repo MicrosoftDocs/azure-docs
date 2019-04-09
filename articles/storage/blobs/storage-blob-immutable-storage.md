@@ -82,7 +82,7 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 ## Getting started
 
-The most recent releases of the [Azure portal](http://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage. [Client library support](#client-libraries) is also provided.
+The most recent releases of the [Azure portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) support immutable storage for Azure Blob storage. [Client library support](#client-libraries) is also provided.
 
 > [!NOTE]
 >

@@ -22,8 +22,6 @@ ms.author: juliako;anilmur
 > For premium encoder questions, email mepd@microsoft.com.
 > 
 > Media Encoder Premium Workflow media processor discussed in this topic is not available in China. 
-> 
-> 
 
 This document contains a list of input and output file formats and codecs that are supported by the public preview version of the **Media Encoder Premium Workflow** encoder.
 

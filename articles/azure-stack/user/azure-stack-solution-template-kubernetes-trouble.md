@@ -148,6 +148,7 @@ To get logs, take the following steps:
     ```
 
 4. Review the parameters, and set the values based on your environment.
+
     | Parameter           | Description                                                                                                      | Example                                                                       |
     |---------------------|------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------|
     | -d, --vmd-host       | The public IP or the FQDN of the DVM. The VM name starts with `vmd-`.                                                       | IP: 192.168.102.38<br><br>DNS: vmd-dnsk8-frog.local.cloudapp.azurestack.external |
@@ -171,7 +172,7 @@ To get logs, take the following steps:
     ![Generated logs](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-generated-logs.png)
 
 
-4. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
+1. Retrieve the logs in the folders that were created by the command. The command creates new folders and time stamps them.
     - KubernetesLogs*YYYY-MM-DD-XX-XX-XX-XXX*
         - Dvmlogs
         - Acsengine-kubernetes-dvm.log

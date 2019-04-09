@@ -110,7 +110,7 @@ At a high level, Azure RBAC roles control permissions to manage Azure resources,
 | Manage access to Azure resources | Manage access to Azure Active Directory resources |
 | Supports custom roles | Cannot create your own roles |
 | Scope can be specified at multiple levels (management group, subscription, resource group, resource) | Scope is at the tenant level |
-| Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API | Role information can be accessed in Azure admin portal, Office 365 admin portal, Microsoft Graph, AzureAD PowerShell |
+| Role information can be accessed in Azure portal, Azure CLI, Azure PowerShell, Azure Resource Manager templates, REST API | Role information can be accessed in Azure admin portal, Microsoft 365 admin center, Microsoft Graph, AzureAD PowerShell |
 
 ### Do Azure RBAC roles and  Azure AD administrator roles overlap?
 

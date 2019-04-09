@@ -213,22 +213,22 @@ You can also programmatically access metrics. For more information, see the foll
 > Successful notifications mean simply that push notifications have been delivered to the external PNS (for example, APNS for Apple or FCM for Google). It is the responsibility of the PNS to deliver the notifications to target devices. Typically, the PNS does not expose delivery metrics to third parties.  
 
 [Azure portal]: https://portal.azure.com
-[Notification Hubs Pricing]: http://azure.microsoft.com/pricing/details/notification-hubs/
-[Notification Hubs SLA]: http://azure.microsoft.com/support/legal/sla/
+[Notification Hubs Pricing]: https://azure.microsoft.com/pricing/details/notification-hubs/
+[Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Case Study: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
 [Case Study: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
 [Case Study: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
 [Case Study: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
 [Case Study: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [Notification Hubs REST APIs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
-[Notification Hubs Getting Started tutorials]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
-[Chrome Apps tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
-[Mobile Services Pricing]: http://azure.microsoft.com/pricing/details/mobile-services/
+[Notification Hubs Getting Started tutorials]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[Chrome Apps tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/
+[Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
 [Backend Registration guidance]: https://msdn.microsoft.com/library/azure/dn743807.aspx
 [Backend Registration guidance 2]: https://msdn.microsoft.com/library/azure/dn530747.aspx
 [Notification Hubs security model]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Notification Hubs Secure Push tutorial]: http://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Notification Hubs troubleshooting]: http://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Notification Hubs Secure Push tutorial]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
+[Notification Hubs troubleshooting]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs Metrics]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registrations Export/Import]: https://msdn.microsoft.com/library/dn790624.aspx
 [Azure portal]: https://portal.azure.com

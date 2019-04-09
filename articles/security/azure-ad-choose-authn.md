@@ -129,10 +129,10 @@ Refer to [implementing pass-through authentication](https://docs.microsoft.com/a
 
 * **Advanced scenarios**. A federated authentication solution is usually required when customers have an authentication requirement that Azure AD doesn't support natively. See detailed information to help you [choose the right sign-in option](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Consider the following common requirements:
 
-	* Authentication that requires smartcards or certificates.
-	* On-premises MFA servers or third-party multifactor providers.
-	* Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-	* Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
+  * Authentication that requires smartcards or certificates.
+  * On-premises MFA servers or third-party multifactor providers.
+  * Authentication by using third-party authentication solutions. See the [Azure AD federation compatibility list](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Sign in that requires an sAMAccountName, for example, DOMAIN\username, instead of a User Principal Name (UPN), for example, user@domain.com.
 
 * **Business continuity**. Federated systems typically require a load-balanced array of servers, known as a farm. This farm is configured in an internal network and perimeter network topology to ensure high availability for authentication requests.
 

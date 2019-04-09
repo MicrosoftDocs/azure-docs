@@ -83,4 +83,4 @@ For more development tips, see [SQL Data Warehouse development overview][SQL Dat
 <!--MSDN references-->
 
 <!--Other Web references-->
-[Azure Stream Analytics documentation]: http://azure.microsoft.com/documentation/services/stream-analytics/
+[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

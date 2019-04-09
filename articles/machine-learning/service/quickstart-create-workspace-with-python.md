@@ -45,7 +45,7 @@ The following Azure resources are added automatically to your workspace when the
 > Code in this article requires  Azure Machine Learning SDK version 1.0.2 or later and was tested with version 1.0.8.
 
 
-If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## Install the SDK
 
@@ -53,6 +53,9 @@ If you don’t have an Azure subscription, create a free account before you begi
 > Skip this section if you use an Azure Data Science Virtual Machine or Azure Databricks.
 > * Azure Data Science Virtual Machines created after September 27, 2018 come with the Python SDK preinstalled.
 > * In the Azure Databricks environment, use the [Databricks installation steps](how-to-configure-environment.md#azure-databricks) instead.
+
+>[!NOTE]
+> Use these instructions to install and use SDK from Jupyter Notebook on your local computer. To use Jupyter on remote virtual machine, set up a remote desktop or X terminal session. 
 
 Before you install the SDK, we recommend that you create an isolated Python environment. Although this article uses [Miniconda](https://docs.conda.io/en/latest/miniconda.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
@@ -110,8 +113,8 @@ The instructions in this quickstart will install all the packages you need to ru
 
 > [!IMPORTANT]
 > In some command-line tools, you might need to add quotation marks as follows:
->      *  'azureml-sdk[notebooks]'
->      * 'azureml-sdk[automl]'
+> *  'azureml-sdk[notebooks]'
+> * 'azureml-sdk[automl]'
 >
 
 

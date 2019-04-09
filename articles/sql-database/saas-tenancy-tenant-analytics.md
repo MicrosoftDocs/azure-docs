@@ -87,7 +87,7 @@ In the following steps, you deploy the analytics store, which is called **tenant
     - To use SQL database with column store, set **$DemoScenario** = **3**  
 3. Press **F5** to run the demo script (that calls the *Deploy-TenantAnalytics<XX>.ps1* script) which creates the tenant analytics store. 
 
-Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
+Now that you have deployed the application and filled it with interesting tenant data, use [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) to connect **tenants1-dpt-&lt;User&gt;** and **catalog-dpt-&lt;User&gt;** servers using Login = *developer*, Password = *P\@ssword1*. See the [introductory tutorial](saas-dbpertenant-wingtip-app-overview.md) for more guidance.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -169,7 +169,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P@ssword1*. Click **Connect**.  
+5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

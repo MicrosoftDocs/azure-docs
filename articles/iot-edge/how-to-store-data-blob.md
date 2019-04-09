@@ -225,6 +225,7 @@ Use desired properties to set auto-tiering and auto-expiration properties. They 
 
 ### Auto-tiering properties 
 The name of this setting is `tieringSettings`
+
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | tieringOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
@@ -234,6 +235,7 @@ The name of this setting is `tieringSettings`
 
 ### Auto-expiration properties
 The name of this setting is `ttlSettings`
+
 | Field | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | ttlOn | true, false | By default it is set to `false`, if you want to turn it On set it to `true`|
@@ -267,7 +269,7 @@ Set the desired properties to enable auto-tiering and auto-expiration, you can s
 
    ```
 
- ![set auto-tiering and auto-expiration properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
+  ![set auto-tiering and auto-expiration properties](./media/how-to-store-data-blob/iotedge_custom_module.png)
 
 - **After the module is deployed via "Module Identity Twin" feature**: Go to "Module Identity Twin" of this module, copy the JSON under properties desired, configure each property with appropriate value, and save. In "Module Identity Twin" Json make sure every time you add or update any desired property, the `reported configuration` section reflects the changes, and the `configurationValidation` section reports success for each property.
 
@@ -339,6 +341,9 @@ Here is an example of desired properties for this module:
     }
 
    ```
+  ## Logs
+
+Please follow the directions to [configure your docker logs for IoT Edge modules](production-checklist.md#set-up-logs-and-diagnostics)
 
 ## Connect to your blob storage module
 
@@ -374,7 +379,7 @@ The following quickstarts use languages that are also supported by IoT Edge, so 
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### Azure Storage Explorer
-You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account. We have tried with [previous version 1.5.0](https://go.microsoft.com/fwlink/?LinkId=809306&clcid=0x409) of Azure Explorer.
+You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account. We have tried with [previous version 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) of Azure Explorer.
 > [!NOTE]
 > You might encounter errors while performing below steps, ignore and refresh. 
 
@@ -384,8 +389,8 @@ You can also try [Azure Storage Explorer](https://azure.microsoft.com/features/s
 4. Go through the steps to connect.
 5. Create container inside your local storage account
 6. Start uploading files as Block blobs.
-> [!NOTE]
-> uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx or any big files.
+   > [!NOTE]
+   > uncheck the checkbox to upload it as page blobs. This module does not support page blobs. You will get this prompt while uploading files like .iso, .vhd, .vhdx or any big files.
 
 7. You can choose to connect your Azure storage accounts where you are uploading the data. It gives you a single view for both your local storage account and Azure storage account
 
@@ -441,7 +446,7 @@ Supported:
 Unsupported:
 * Put block from URL
 
-##Feedback:
+## Feedback:
 Your feedback is very important to us, to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
 
 You can reach out to us at absiotfeedback@microsoft.com 

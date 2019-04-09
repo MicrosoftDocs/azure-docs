@@ -57,7 +57,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ProvisioningState : Succeeded
    Tags              :
    ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/VMwareDRtoAzurePS
-```
+   ```
    
 2. Create a Recovery services vault. In the example below, the Recovery services vault is named VMwareDRToAzurePs, and is created in the East Asia region and in the resource group created in the previous step.
 

@@ -87,7 +87,7 @@ An error is returned when:
 **Q: Why is the domain deletion failing with an error that states that I have Exchange mastered groups on this domain name?** <br>
 **A:** Today, certain groups like Mail-Enabled Security groups and distributed lists are provisioned by Exchange and need to be manually cleaned up in [Exchange Admin Center (EAC)](https://outlook.office365.com/ecp/). There may be lingering ProxyAddresses which rely on the custom domain name and will need to be updated manually to another domain name. 
 
-**Q: I am logged in as admin@contoso.com but I cannot delete the domain name “contoso.com”?**<br>
+**Q: I am logged in as admin\@contoso.com but I cannot delete the domain name “contoso.com”?**<br>
 **A:** You cannot reference the custom domain name you are trying to delete in your user account name. Ensure that the Global Administrator account is using the initial default domain name (.onmicrosoft.com) such as admin@contoso.onmicrosoft.com. Sign in with a different Global Administrator account that such as admin@contoso.onmicrosoft.com or another custom domain name like “fabrikam.com” where the account is admin@fabrikam.com.
 
 **Q: I clicked the Delete domain button and see `In Progress` status for the Delete operation. How long does it take? What happens if it fails?**<br>

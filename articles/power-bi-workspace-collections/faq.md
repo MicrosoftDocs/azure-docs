@@ -72,7 +72,7 @@ In the Power BI Workspace Collections model, there is no explicit requirement to
 Developers/employees working on or building your application needs to have an AAD user account when they are to manage your Azure Subscription and Workspace Collections via the Azure portal. Programmatic APIs to enable developers to import reports, modify connection strings and get embed URLs leverage App Tokens for authentication instead, and as a result do not require an AAD.
 
 ## Where can I learn more?
-You can visit the [Power BI Workspace Collections documentation page](get-started.md). You can stay up-to-date about this service by visiting the [Power BI blog](https://powerbi.microsoft.com/blog/) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at [Stack Overflow](http://stackoverflow.com/questions/tagged/powerbi).
+You can visit the [Power BI Workspace Collections documentation page](get-started.md). You can stay up-to-date about this service by visiting the [Power BI blog](https://powerbi.microsoft.com/blog/) or by visiting the Power BI developer center at dev.powerbi.com. You can also ask questions at [Stack Overflow](https://stackoverflow.com/questions/tagged/powerbi).
 
 ## How do I get started?
 You can get started for free now! If you have an Azure subscription, you can now provision Power BI Workspace Collections from the Azure portal directly. You can also create your [free Azure account](https://azure.microsoft.com/free/). Once you've provisioned the Power BI Workspace Collections service, you can easily use Power BI REST APIs directly, or use the developer SDK available on [GitHub](https://go.microsoft.com/fwlink/?LinkID=746472). Samples are provided on how to leverage the developer SDK.
@@ -84,5 +84,5 @@ You can get started for free now! If you have an Azure subscription, you can now
 [Get started with sample](get-started-sample.md)   
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)
 

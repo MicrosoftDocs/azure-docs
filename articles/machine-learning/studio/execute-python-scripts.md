@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 
-author: ericlicoding
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
-ms.date: 03/05/2019
+ms.date: 03/12/2019
 ---
 # Execute Python machine learning scripts in Azure Machine Learning Studio
 
@@ -57,13 +57,14 @@ Studio datasets are not the same as Panda DataFrames. As a result, input dataset
 | Index vectors | Unsupported* |
 | Non-string column names | Call `str` on column names |
 | Duplicate column names | Add numeric suffix: (1), (2), (3), and so on.
+
 **All input data frames in the Python function always have a 64-bit numerical index from 0 to the number of rows minus 1*
 
 ## <a id="import-modules"></a>Importing existing Python script modules
 
-The backend used to execute Python is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. However, you may find the need to incorporate additional libraries.
+The backend used to execute Python is based on [Anaconda](https://store.continuum.io/cshop/anaconda/), a widely used scientific Python distribution. It comes with close to 200 of the most common Python packages used in data-centric workloads. Studio does not currently support the use of package management systems like Pip or Conda to install and manage external libraries.  If you find the need to incorporate additional libraries, use the following scenario as a guide.
 
-A common use-case is to incorporate existing Python scripts into Studio experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly.
+A common use-case is to incorporate existing Python scripts into Studio experiments. The [Execute Python Script][execute-python-script] module accepts a zip file containing Python modules at the third input port. The file is unzipped by the execution framework at runtime and the contents are added to the library path of the Python interpreter. The `azureml_main` entry point function can then import these modules directly. 
 
 As an example, consider the file Hello.py containing a simple “Hello, World” function.
 
@@ -82,6 +83,25 @@ Upload the zip file as a dataset into Studio. Then create and run an experiment 
 The module output shows that the zip file has been unpackaged and that the function `print_hello` has been run.
 
 ![Module output showing user-defined function](./media/execute-python-scripts/figure7.png)
+
+## Accessing Azure Storage Blobs
+
+You can access data stored in an Azure Blob Storage account using these steps:
+
+1. Download the [Azure Blob Storage package for Python](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) locally.
+1. Upload the zip file to your Studio workspace as a dataset.
+1. Create your BlobService object with `protocol='http'`
+
+```
+from azure.storage.blob import BlockBlobService
+
+# Create the BlockBlockService that is used to call the Blob service for the storage account
+block_blob_service = BlockBlobService(account_name='account_name', account_key='account_key', protocol='http')
+```
+
+1. Disable **Secure transfer required** in your Storage **Configuration** setting tab
+
+![Disable Secure transfer required in the Azure portal](./media/execute-python-scripts/disable-secure-transfer-required.png)
 
 ## Operationalizing Python scripts
 

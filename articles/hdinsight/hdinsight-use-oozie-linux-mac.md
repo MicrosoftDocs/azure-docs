@@ -36,7 +36,7 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 * **Possible change to storage configuration.**  See [Storage configuration](#storage-configuration) if using storage account kind `BlobStorage`.
 
 ## Storage configuration
-No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in the article will produce output to at least `/mapreducestaging`.  A default hadoop configuration will contain `/mapreducestaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which is not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/mapreducestaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](/hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
+No action is required if the storage account used is of kind `Storage (general purpose v1)` or `StorageV2 (general purpose v2)`.  The process in the article will produce output to at least `/mapreducestaging`.  A default hadoop configuration will contain `/mapreducestaging` in the `fs.azure.page.blob.dir` configuration variable in `core-site.xml` for service `HDFS`.  This configuration will cause output to the directory to be page blobs, which is not supported for storage account kind `BlobStorage`.  To use `BlobStorage` for this article, remove `/mapreducestaging` from the `fs.azure.page.blob.dir` configuration variable.  The configuration can be accessed from the [Ambari UI](hdinsight-hadoop-manage-ambari.md).  Otherwise, you will receive the error message: `Page blob is not supported for this account type.`
 
 > [!NOTE]  
 > The storage account used in this article has [secure transfer](../storage/common/storage-require-secure-transfer.md) enabled and thus `wasbs` rather than `wasb` is used throughout the article.
@@ -124,11 +124,11 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     There are two variables used in the script:
 
-    * `${hiveTableName}`: Contains the name of the table to be created.
+   * `${hiveTableName}`: Contains the name of the table to be created.
 
-    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
+   * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
-    The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
+     The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
 
 4. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
 
@@ -301,7 +301,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
     |Placeholder value| Replaced value|
     |---|---|
-    |wasbs://mycontainer@mystorageaccount.blob.core.windows.net| Value received from step 1.|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
     |admin| Your login name for the HDInsight cluster if not admin.|
     |serverName| Azure SQL database server name.|
     |sqlLogin| Azure SQL database server login.|

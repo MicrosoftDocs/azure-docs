@@ -143,12 +143,12 @@ In this section, you'll create a file system and a folder in your storage accoun
 
    * The `storage-account-name` is the name of your Azure Data Lake Storage Gen2 storage account.
 
-    > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+   > [!NOTE]
+   > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
 
 19. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-    Keep this notebook open as you will add commands to it later.
+   Keep this notebook open as you will add commands to it later.
 
 ## Ingest data
 
@@ -178,7 +178,7 @@ Use AzCopy to copy data from your *.csv* file into your Data Lake Storage Gen2 a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-In the notebook that you previously created, add a new cell, and paste the following code into that cell. Replace the `storage-account-name` placeholder value in this code snippet with the name of the folder that you saved the csv file to.
+In the notebook that you previously created, add a new cell, and paste the following code into that cell. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.

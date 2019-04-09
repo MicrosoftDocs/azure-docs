@@ -113,4 +113,4 @@ Now, with all the pieces together, when someone logs in to our application to vi
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [JavaScript Embed Sample](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-More questions? [Try the Power BI Community](http://community.powerbi.com/)
+More questions? [Try the Power BI Community](https://community.powerbi.com/)

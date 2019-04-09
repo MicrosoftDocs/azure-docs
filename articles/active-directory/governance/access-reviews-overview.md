@@ -79,7 +79,7 @@ If you are ready to deploy access reviews in your organization, follow these ste
 
 To enable access reviews, follow these steps.
 
-1. As a Global Administrator or User Account Administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
+1. As a Global administrator or User administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use access reviews.
 
 1. Click **All services** and find the access reviews service.
 
