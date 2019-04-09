@@ -43,6 +43,39 @@ Take the following steps in the local web UI to view the hardware status of your
 
 Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../../azure-monitor/platform/alerts-metric.md).
 
+## View metrics
+
+You can also view the metrics to monitor the performance of the device. There are two types of metrics available:
+
+- **Resource**: You can select the subscription, resource group, resource type, and the specific resource for which you want to show the metrics.
+- **Metric namespace**:
+- **Metric**: These can be **Capacity metrics** or **Transaction metrics**. The capacity metrics are related to the capacity of the device. The transaction metrics are related to the read and write operations to Azure Storage.
+
+    |Capacity metrics                     |Column2  |
+    |-------------------------------------|---------|
+    |**Available capacity**               |         |
+    |**Total capacity**                   |         |
+    
+    |**Transaction metrics**              | Description         |
+    |-------------------------------------|---------|
+    |**Cloud bytes uploaded (device)**    |         |
+    |**Cloud bytes uploaded (share)**     |         |
+    |**Cloud download throughput (share)**|         |
+    |**Cloud read throughput**            |         |
+    |**Cloud upload throughput**          |         |
+    |**Cloud upload throughput (share)**  |         |
+    |**Read through (network)**           |         |
+    |**Write throughput (network)**       |         |
+    |**Edge compute - memory usage**      |         |
+    |**Edge compute - percentage CPU**    |         |
+
+- **Aggregation**: When a metric is selected, aggregation can be defined. Aggregation refers to the actual value aggregated over a specified span of time. These can be average, minimum, or the maximum value.
+
++ New chart
++ Refresh
++ Share - To export the chart data to an Excel spreadsheet. You can also get a link to this chart that you can share.
+
+
 
 ## Next steps
 
