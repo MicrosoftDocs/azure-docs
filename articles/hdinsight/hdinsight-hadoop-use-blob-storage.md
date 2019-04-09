@@ -35,7 +35,7 @@ Sharing one blob container as the default file system for multiple clusters is n
  > [!NOTE]  
  > The Archive access tier is an offline tier that has a several hour retrieval latency and is not recommended for use with HDInsight. For more information, see <a href="https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier">Archive access tier</a>.
 
-If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions, be sure to check the option **Allow trusted Microsoft services...** so that HDInsight can access your storage account. 
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account.
 
 ## HDInsight storage architecture
 The following diagram provides an abstract view of the HDInsight storage architecture of using Azure Storage:
