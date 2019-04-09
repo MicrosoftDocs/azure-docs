@@ -28,7 +28,7 @@ Commands:
 - **show**: Show the details of an Azure MariaDB server firewall rule.
 - **update**: Update an Azure MariaDB server firewall rule.
 
-## Log in to Azure and list your Azure Database for MariaDB Servers
+## Sign in to Azure and list your Azure Database for MariaDB Servers
 Securely connect Azure CLI with your Azure account by using the **az login** command.
 
 1. From the command-line, run the following command:
@@ -39,7 +39,7 @@ Securely connect Azure CLI with your Azure account by using the **az login** com
 
 2. Use a web browser to open the page [https://aka.ms/devicelogin](https://aka.ms/devicelogin), and then enter the code.
 
-3. At the prompt, log in using your Azure credentials.
+3. At the prompt, sign in using your Azure credentials.
 
 4. After your login is authorized, a list of subscriptions is printed in the console. Copy the ID of the desired subscription to set the current subscription to use. Use the [az account set](/cli/azure/account#az-account-set) command.
    ```azurecli-interactive

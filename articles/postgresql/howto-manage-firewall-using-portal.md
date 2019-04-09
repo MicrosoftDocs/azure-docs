@@ -30,7 +30,7 @@ To step through this how-to guide, you need:
 
    ![Bing search for What is my IP](./media/howto-manage-firewall-using-portal/3-what-is-my-ip.png)
 
-4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to log in to any database on the PostgreSQL server to which they have valid credentials.
+4. Add additional address ranges. In the firewall rules for the Azure Database for PostgreSQL, you can specify a single IP address, or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the field for Start IP and End IP. Opening the firewall enables administrators, users, and applications to access any database on the PostgreSQL server to which they have valid credentials.
 
    ![Azure portal - firewall rules](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
