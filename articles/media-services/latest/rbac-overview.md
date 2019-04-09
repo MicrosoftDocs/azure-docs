@@ -37,7 +37,7 @@ The built-in role definitions documentation tells you exactly what the role gran
 See the following articles for more information:
 
 - [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
-- [What is role-based access control (RBAC) for Azure resources?](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [What is RBAC for Azure resources?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
 - [Get content key policy using Media Services .NET](get-content-key-policy-dotnet-howto.md)
 
