@@ -102,11 +102,11 @@ To configure Azure AD single sign-on with Sugar CRM, perform the following steps
     ![Sugar CRM Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
-	| `https://<companyname>.sugarondemand.com` |
-	| `https://<companyname>.trial.sugarcrm` |
-    | |
+	| `https://<companyname>.sugarondemand.com`|
+	| `https://<companyname>.trial.sugarcrm`|
 
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Sugar CRM Client support team](https://support.sugarcrm.com/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
