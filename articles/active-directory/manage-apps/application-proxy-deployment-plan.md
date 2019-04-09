@@ -12,7 +12,7 @@ ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04-04-2019
 ms.author: barbaraselden
 ms.reviewer: 
@@ -30,22 +30,22 @@ The following section provides a broad view of the key planning elements that wi
 
 ### Prerequisites
 
-The following are prerequisites that should be met before beginning your implementation. You can see more information on setting up your environment including these prerequisites in this [tutorial](application-proxy-add-on-premises-application.md).
+You need to meet the following prerequisites before beginning your implementation. You can see more information on setting up your environment, including these prerequisites, in this [tutorial](application-proxy-add-on-premises-application.md).
 
 * **Connectors**: Connectors are lightweight agents that you can deploy onto:
-   * physical hardware on-premises
-   * a VM hosted within any hypervisor solution
-   * a VM hosted in Azure to enable outbound connection to the Application Proxy service.
+   * Physical hardware on-premises
+   * A VM hosted within any hypervisor solution
+   * A VM hosted in Azure to enable outbound connection to the Application Proxy service.
 
-See [Understand Azure AD App Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors) for a more detailed overview.
+See [Understand Azure AD App Proxy Connectors](application-proxy-connectors.md) for a more detailed overview.
 
    * Connector hosts must [be enabled for TLS 1.2](application-proxy-add-on-premises-application.md) before installing the connectors.
 
-   * If possible, connectors should be deployed in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connector hosts after you complete a discovery of applications.
+   * If possible, deploy connectors in the [same network](application-proxy-network-topology.md) and segment as the back-end web application servers. It's best to deploy connector hosts after you complete a discovery of applications.
 
 * **Network access settings**: Azure AD Application Proxy connectors [attempt to connect to Azure via HTTPS (TCP Port 443) and HTTP (TCP Port 80)](application-proxy-add-on-premises-application.md). 
 
-   * Terminating connector TLS traffic is not supported and will prevent connectors from establishing a secure channel with their respective Azure App Proxy endpoints.
+   * Terminating connector TLS traffic isn't supported and will prevent connectors from establishing a secure channel with their respective Azure App Proxy endpoints.
 
    * Avoid all forms of inline inspection on outbound TLS communications between connectors and Azure. Internal inspection between a connector and backend applications is possible, but could degrade the user experience, and as such, isn't recommended.
 
@@ -82,18 +82,18 @@ The following core requirements must be met in order to configure and implement 
 Compile an inventory of all in-scope applications that are being published via Application Proxy by collecting the following information:
 
 | Information Type| Information to collect |
-| - | - |
+|---|---|
 | Service Type| For example: SharePoint, SAP, CRM, Custom Web Application, API |
-| Application platform| For example: Windows IIS, Apache on Linux, Tomcat, NGINX |
-| Domain membership| Web server’s fully qualified domain name (FQDN). |
-| Application location| Where the web server or farm is located in your infrastructure |
-| Internal access| The exact URL used when accessing the application internally. <br> If a farm, what type of load balancing is in use? <br> Whether the application draws content from sources other than itself.<br> Determine if the application operates over WebSockets. |
-| External access| The vendor solution that the application is already exposed to externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
-| Public certificate| If using a custom domain, procure a certificate with a corresponding subject name. if a certificate exists note the serial number and location from where it can be obtained. |
+| Application platform | For example: Windows IIS, Apache on Linux, Tomcat, NGINX |
+| Domain membership| Web server’s fully qualified domain name (FQDN) |
+| Application location | Where the web server or farm is located in your infrastructure |
+| Internal access | The exact URL used when accessing the application internally. <br> If a farm, what type of load balancing is in use? <br> Whether the application draws content from sources other than itself.<br> Determine if the application operates over WebSockets. |
+| External access | The vendor solution that the application is already exposed to externally. <br> The URL you want to use for external access. If SharePoint, ensure Alternate Access Mappings are configured per [this guidance](https://docs.microsoft.com/SharePoint/administration/configure-alternate-access-mappings). If not, you will need to define external URLs. |
+| Public certificate | If using a custom domain, procure a certificate with a corresponding subject name. if a certificate exists note the serial number and location from where it can be obtained. |
 | Authentication type| The type of authentication supported by the application support such as Basic, Windows Integration Authentication, forms-based, header-based, and claims. <br>If the application is configured to run under a specific domain account, note the Fully Qualified Domain Name (FQDN) of the service account.<br> If SAML-based, the identifier and reply URLs. <br> If header-based, the vendor solution and specific requirement for handling authentication type. |
-| Connector group name| The logical name for the group of connectors that will be designated to provide the conduit and SSO to this backend application. |
-| Users/Groups access| The users or user groups that will be granted external access to the application. |
-| Additional requirements| Note any additional remote access or security requirements that should be factored into publishing the application. |
+| Connector group name | The logical name for the group of connectors that will be designated to provide the conduit and SSO to this backend application. |
+| Users/Groups access | The users or user groups that will be granted external access to the application. |
+| Additional requirements | Note any additional remote access or security requirements that should be factored into publishing the application. |
 
 You can download this [application inventory spreadsheet](https://aka.ms/appdiscovery) to inventory your apps.
 
@@ -204,7 +204,7 @@ The most straight forward way of assigning users access to an application is goi
 
 ![Picture 24](media/App-proxy-deployment-plan/add-user.png)
 
-You can also allow users to self-service access to your application by assigning a group that they are not currently a member of and configuring the self-serve options.
+You can also allow users to self-service access to your application by assigning a group that they aren't currently a member of and configuring the self-serve options.
 
 ![Picture 25](media/App-proxy-deployment-plan/allow-access.png)
 
@@ -221,29 +221,27 @@ Leaving this option set to No allows users to access the on-premises application
 
 Once your application is published, it should be accessible by typing its external URL in a browser or by its icon at [https://myapps.microsoft.com](https://myapps.microsoft.com/).
 
-
-
 ### Enable pre-authentication
 
 Verify that your application is accessible through the Application Proxy. 
 
-1. Navigate to Azure Active Directory > Enterprise applications > All applications and choose the app you want to manage.
+1. Navigate to **Azure Active Directory** > **Enterprise applications** > **All applications** and choose the app you want to manage.
 
-2. Select Application Proxy.
+2. Select **Application Proxy**.
 
-3. In the Pre-Authentication field, use the dropdown list to select Azure Active Directory, and hit Save
+3. In the **Pre-Authentication** field, use the dropdown list to select **Azure Active Directory**, and select **Save**.
 
-With pre-authentication enabled, Azure AD will challenge you for authentication and then the back-end application should also challenge you if it requires authentication. Changing the pre-authentication from Passthrough to Azure Active Directory also configures the external URL with HTTPS, so any application initially configured for HTTP will now be secured with HTTPS.
+With pre-authentication enabled, Azure AD will challenge you for authentication and then the back-end application should also challenge you if it requires authentication. Changing the pre-authentication from Passthrough to Azure AD also configures the external URL with HTTPS, so any application initially configured for HTTP will now be secured with HTTPS.
 
 ### Enable Single Sign-On
 
-SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure Active Directory. Once a user has pre-authenticated, SSO is performed by the Application Proxy connector authenticating to the on-premises application, on behalf of the user. The backend application processes the login as if it were the user themselves. 
+SSO provides the best possible user experience and security because users only need to sign in once when accessing Azure AD. Once a user has pre-authenticated, SSO is performed by the Application Proxy connector authenticating to the on-premises application, on behalf of the user. The backend application processes the login as if it were the user themselves. 
 
 Choosing the **Passthrough** option allows users to access the published application without ever having to authenticate to Azure AD.
 
 Performing SSO is only possible if Azure AD can identify the user requesting access to a resource, so your application must be configured to pre-authenticate users upon access for SSO to function, otherwise the SSO options will be disabled.
 
-Read [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on) to help you choose the most appropriate SSO method when configuring your applications.
+Read [Single sign-on to applications in Azure AD](what-is-single-sign-on.md) to help you choose the most appropriate SSO method when configuring your applications.
 
 ###  Working with other types of applications
 
@@ -267,64 +265,51 @@ The following capabilities can be used to support Azure AD Application Proxy:
 
 * Azure AD Application Panel: With your Application Proxy service deployed, and applications securely published, offer your users a simple hub to discover and access all their applications. Increase productivity with self-service capabilities, such as the ability to request access to new apps and groups or manage access to these resources on behalf of others, through the [Access Panel](https://aka.ms/AccessPanelDPDownload).
 
- 
-
 ## Manage your implementation
 
 ### Required roles
 
-Microsoft advocates the principle of granting the least possible privilege to perform needed tasks with Azure Active Directory. [Review the different Azure roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to address the needs of each persona. Some roles may need to be applied temporarily and removed after the deployment is completed.
+Microsoft advocates the principle of granting the least possible privilege to perform needed tasks with Azure AD. [Review the different Azure roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to address the needs of each persona. Some roles may need to be applied temporarily and removed after the deployment is completed.
 
-| Business Role| Business tasks| AAD Roles |
-| - | -| -|
-| Help Desk Admin| Typically limited to qualifying end user reported issues and performing limited tasks such as changing users’ passwords, invalidating refresh tokens, and monitoring service health. | Helpdesk Administrator |
-| Identity Admin| Read Azure Active Directory sign in reports and audit logs to debug App Proxy related issues.| Security reader |
+| Business role| Business tasks| Azure AD roles |
+|---|---|---|
+| Help desk admin | Typically limited to qualifying end user reported issues and performing limited tasks such as changing users’ passwords, invalidating refresh tokens, and monitoring service health. | Helpdesk Administrator |
+| Identity admin| Read Azure AD sign in reports and audit logs to debug App Proxy related issues.| Security reader |
 | Application owner| Create and manage all aspects of enterprise applications, application registrations, and application proxy settings.| Application Admin |
-| Infrastructure Admin| Certificate Rollover Owner| Application Admin |
+| Infrastructure admin | Certificate Rollover Owner | Application Admin |
 
 Minimizing the number of people who have access to secure information or resources will help in reducing the chance of a malicious actor obtaining unauthorized access, or an authorized user inadvertently impacting a sensitive resource. 
  
 However, users still need to carry out day to day privileged operations, so enforcing just-in-time (JIT) based [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) policies to provide on-demand privileged access to Azure resources and Azure AD is our recommended approach towards effectively managing administrative access and auditing.
 
-
 ### Reporting and monitoring
 
 Azure AD can provide additional insights into your organization’s user provisioning usage and operational health through audit logs and reports. 
 
-**Application audit logs**
+#### Application audit logs
 
- These logs detail logins to applications configured with Application Proxy, as well as information about the device and the user accessing the application. They are located in the Azure management portal and in Audit API.
+These logs detail logins to applications configured with Application Proxy, as well as information about the device and the user accessing the application. They are located in the Azure management portal and in Audit API.
 
-**Windows event logs and performance counters**
+#### Windows event logs and performance counters
 
 Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs, and follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
-### Troubleshooting Guide & Steps
+### Troubleshooting guide and steps
 
-Learn more about common issues and how to resolve them with our guide to [troubleshooting](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-troubleshoot) error messages. These articles cover common scenarios, but you can also create your own troubleshooting guides for your support organization. 
+Learn more about common issues and how to resolve them with our guide to [troubleshooting](application-proxy-troubleshoot.md) error messages. 
 
-* [Problem displaying app page](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-page-appearance-broken-problem)
+These articles cover common scenarios, but you can also create your own troubleshooting guides for your support organization. 
 
-* [Application load is too long](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-page-load-speed-problem)
-
-* [Links on application page not working](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-page-links-broken-problem)
-
-* [What ports to open for my app](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-ports-how-to)
-
-* [No working connector in a connector group for my app](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectivity-no-working-connector)
-
-* [Configure in admin portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-config-how-to)
-
-* [Configure single sign-on to my app](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-config-sso-how-to)
-
-* [Problem creating an app in admin portal](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-config-problem)
-
-* [Configure Kerberos Constrained Delegation](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to)
-
-* [Configure with PingAccess](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-back-end-ping-access-how-to)
-
-* [Can't Access this Corporate Application error](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-sign-in-bad-gateway-timeout-error)
-
-* [Problem installing the Application Proxy Agent Connector](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connector-installation-problem)
-
-* [Sign-in problem](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-on-premises-application-proxy)
+* [Problem displaying app page](application-proxy-page-appearance-broken-problem.md)
+* [Application load is too long](application-proxy-page-load-speed-problem.md)
+* [Links on application page not working](application-proxy-page-links-broken-problem.md)
+* [What ports to open for my app](application-proxy-connectivity-ports-how-to.md)
+* [No working connector in a connector group for my app](application-proxy-connectivity-no-working-connector.md)
+* [Configure in admin portal](application-proxy-config-how-to.md)
+* [Configure single sign-on to my app](application-proxy-config-sso-how-to.md)
+* [Problem creating an app in admin portal](application-proxy-config-problem.md)
+* [Configure Kerberos Constrained Delegation](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Configure with PingAccess](application-proxy-back-end-ping-access-how-to.md)
+* [Can't Access this Corporate Application error](application-proxy-sign-in-bad-gateway-timeout-error.md)
+* [Problem installing the Application Proxy Agent Connector](application-proxy-connector-installation-problem.md)
+* [Sign-in problem](application-sign-in-problem-on-premises-application-proxy.md)
