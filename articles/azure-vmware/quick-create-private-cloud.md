@@ -18,7 +18,7 @@ This topic shows how to create a CloudSimple Private Cloud and set up your Priva
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the **Resources** or **CloudSimple Dedicated VMware Nodes** page, select **Create Private Cloud**.
 3. Select the location to host the Private Cloud resources.
-4. Select the node type for your Private Cloud. You can choose the [CS28 or CS36 option](cs-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+4. Select the node type for your Private Cloud. You can choose the [CS28 or CS36 option](cs-node.md#VMware-Solution-by-CloudSimple-Nodes-SKU). The latter option includes the maximum compute and memory capacity.
 5. Select the number of nodes for the Private Cloud. You can select at most the number of nodes that you have [purchased](create-nodes.md) or [reserved](reserve-nodes.md).
 6. Select **Next: Advanced options**.
 7. Enter the CIDR range for vSphere/vSAN subnets. Make sure that the CIDR range doesn't overlap with any of your on-premises or other Azure subnets.
@@ -38,8 +38,6 @@ After creating a Private Cloud, create a VLAN in which to deploy your workload/a
 6. To enable routing on the VLAN (subnet), specify the subnet CIDR range.
 7. Click **Submit**.
 
-    ![VLAN setup](./media/quick-create-private-cloud/vlanconfig.png)
-
     [!NOTE]
         If you want the subnet created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
 
@@ -51,13 +49,9 @@ CloudSimple provides you with an ExpressRoute circuit for your Private Cloud. Yo
 
 You can now log in to vCenter to set up virtual machines and policies.
 
-1. To access vCenter, start from the CloudSimple Portal. On the Home page, click **Launch vSphere Client** and then click **Launch vSphere Client**.
-
-    ![vCenter launch](./media/quick-create-private-cloud/vc00.png)
+1. To access vCenter, start from the CloudSimple Portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
 
 2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The default user name is **CloudOwner@cloudsimple.local** and the default password is **CloudSimple123!**.  If your Private Cloud was created in link mode, log in as your on-premises administrator user or as a user who is a member of the administrator group.
-
-    ![vCenter](./media/quick-create-private-cloud/vc11.png)
 
 [!NOTE]
     The vCenter screens in the next procedures are from the vSphere (HTML5) client.
@@ -91,9 +85,7 @@ CloudSimple assigns a default vCenter user account with username **cloudowner@cl
 
 ## Create a Port Group
 
-To create a distributed port group in vSphere, follow the instructions in the VMware topic 'Add a distributed port group' in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf). When setting up the distributed port group, provide the VLAN ID used in [Create a VLAN for your Workload VMs](#Create a VLAN for your Workload VMs).
-
-![Distributed Port Group](./media/quick-create-private-cloud/distributedPortGroup.png)
+To create a distributed port group in vSphere, follow the instructions in the VMware topic 'Add a distributed port group' in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf). When setting up the distributed port group, provide the VLAN ID used in [Create a VLAN for your Workload VMs](#Create-a-VLAN-for-your-Workload-VMs).
 
 ## Upload an ISO and/or vSphere Template
 
@@ -101,49 +93,39 @@ To create a distributed port group in vSphere, follow the instructions in the VM
     For ISO upload, use the vSphere HTML5 client.  Using Flash client may result in an error.
 
 1. Obtain the ISO or vSphere template that you want to upload to vCenter to create a VM and have it available on your local system.
-2. In vCenter, click the **Disk** icon and select **vsanDatastore**. Click **Files** and then click **New Folder**.
-    ![vCenter ISO](./media/quick-create-private-cloud/vciso00.png)
+2. In vCenter, in the upper left, click the **Disk** icon, and then below it select **vsanDatastore**. 
+3. In the middle top, click **Files**, and then click **New Folder**.
 
-3. Create a folder entitled ‘ISOs and Templates’.
+4. Create a folder entitled ‘ISOs and Templates’.
 
-4. Navigate to the ISOs folder in ISOs and Templates, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
+5. Navigate to the ISOs folder in ISOs and Templates, and click **Upload Files**. Follow the on-screen instructions to upload the ISO.
 
 ## Create a Virtual Machine in vCenter
 
-1. In vCenter, click the **Hosts and Clusters** icon.
+1. In vCenter, in the upper left, click the **Hosts and Clusters** icon.
 
-2. Right-click **Workload** and select **New Virtual Machine**.
-    ![New VM](./media/quick-create-private-cloud/vcvm01.png)
+2. Right-click **Workload**, and then click **New Virtual Machine**.
 
-3. Select **Create new virtual machine** and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm02.png)
+3. In the **New Virtual Machine** screen, click **Create new virtual machine**, and then click **Next**.
 
-4. Name the machine, select the **Workload VMs** location, and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm03.png)
+4. In **Virtual machine name** enter the machine name, select the **Workload VMs** location, and then click **Next**.
 
-5. Select the **Workload** compute resource and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm04.png)
+5. Select the **Workload** compute resource, and then click **Next**.
+  
+6. Select **vsanDatastore**, and then click **Next**.
 
-6. Select **vsanDatastore** and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm05.png)
+7. Keep the default ESXi 6.5 compatibility selection, and then click **Next**.
 
-7. Keep the default ESXi 6.5 compatibility selection and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm06.png)
+8. Select the guest OS of the ISO for the VM that you are creating, and then click **Next**.
 
-8. Select the guest OS of the ISO for the VM that you are creating and click **Next**.
-    ![New VM](./media/quick-create-private-cloud/vcvm07.png)
+9. Select hard disk and network options. For **New DC/DVD Drive**, select **Datastore ISO file**.  If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
 
-9. Select hard disk and network options. For New DC/DVD Drive, select **Datastore ISO file**.  If you want to allow traffic from the Public IP address to this VM, select the network as **vm-1**.
-    ![New VM](./media/quick-create-private-cloud/vcvm08.png)
+10. A selection window opens. Select the file you previously uploaded to the ISOs and Templates folder, and then click **OK**.
 
-10. A selection window opens. Select the file you previously uploaded to the ISOs and Templates folder and click **OK**.
-    ![New VM](./media/quick-create-private-cloud/vcvm10.png)
-
-11. Review the settings and click **OK** to create the VM.
-    ![New VM](./media/quick-create-private-cloud/vcvm11.png)
+11. Review the settings and click **Finish** to create the VM.
 
 The VM is now added to the Workload compute resources and is ready for use.
-![New VM](./media/quick-create-private-cloud/vcvm12.png)
+
 
 The basic setup is now complete. You can start using your Private Cloud similar to how you would use your on-premises VM infrastructure.
 
@@ -192,9 +174,7 @@ The Network pages in the CloudSimple Portal allow you to specify the configurati
 5. Use the slider to change the idle timeout if desired.
 6. Enter the local IP address for which you want to assign a public IP address.
 7. Enter an associated DNS name if desired.
-8. Click **Done**.
-
-    ![Public IP](./media/quick-create-private-cloud/allocateips.png)
+8. Click **Submit**.
 
 The task of allocating the public IP address begins. You can check the status of the task on the **Activity > Tasks** page. When allocation is complete, the new entry is shown on the Public IPs page.
 

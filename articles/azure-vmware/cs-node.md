@@ -27,7 +27,7 @@ The reservation is charged to the payment method tied to the Azure subscription.
 
 At the end of the reservation term, the billing discount expires and your nodes are billed at the pay-as-you-go price. Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible nodes.
 
-## VMware Solution by CloudSimple – Nodes SKU
+## VMware Solution by CloudSimple Nodes SKU
 
 The following types nodes are available for purchase or reservation.
 

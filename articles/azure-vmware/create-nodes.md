@@ -21,7 +21,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 5. Enter a name or prefix to identify the node.
 6. Select the Azure region to host the node.
 7. Select the node location. TODO: what is this?
-8. Select the node type. You can choose the [CS28 or CS36 option](cs-node.md#vmware-solution-by-cloudsimple-nodes-sku). The latter option includes the maximum compute and memory capacity.
+8. Select the node type. You can choose the [CS28 or CS36 option](cs-node.md#VMware-Solution-by-CloudSimple-Nodes-SKU). The latter option includes the maximum compute and memory capacity.
 9. Select the number of nodes to provision.
 10. Select **Next: Review**.
 11. Review the settings. To modify any settings, click **Previous**.

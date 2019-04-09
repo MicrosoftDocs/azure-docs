@@ -27,8 +27,6 @@ To get started with Azure VMware Solutions by CloudSimple, first create the Azur
 
 The service is created and added to the list of services.
 
-![Creating the CloudSimple service](./media/quick-create-cs-service/create-cs-service.png)
-
 ## Purchase nodes
 
 To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, first provision nodes in the Azure Portal. For instructions on reserving capacity for a fixed term, see Node reservations.
@@ -40,7 +38,7 @@ To set up pay-as-you go capacity for a CloudSimple Private Cloud environment, fi
 5. Enter a name or prefix to identify the node.
 6. Select the Azure region to host the node.
 7. Select the node location.
-8. Select the node type. You can choose the [CS28 or CS36 option](cs-node.md#VMwareSolution-by-CloudSimple-–-Nodes-SKU). The latter option includes the maximum compute and memory capacity.
+8. Select the node type. You can choose the [CS28 or CS36 option](cs-node.md#VMware-Solution-by-CloudSimple-Nodes-SKU). The latter option includes the maximum compute and memory capacity.
 9. Select the number of nodes to provision.
 10. Select **Next: Review**.
 11. Review the settings. To modify any settings, click **Previous**.
