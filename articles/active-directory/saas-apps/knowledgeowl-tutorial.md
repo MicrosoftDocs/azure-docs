@@ -118,7 +118,6 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
 	| `https://privatedomain.com/help/saml-login`|
 	| `https://privatedomain.com/docs/saml-login`|
 	| `https://privatedomain.com/home/saml-login`|
-	|||
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -133,7 +132,6 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
 	| `https://privatedomain.com/help/saml-login`|
 	| `https://privatedomain.com/docs/saml-login`|
 	| `https://privatedomain.com/home/saml-login`|
-	|||
 
 	> [!NOTE]
 	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
