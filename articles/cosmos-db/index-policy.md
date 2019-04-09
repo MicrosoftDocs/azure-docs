@@ -24,7 +24,7 @@ Azure Cosmos DB supports two indexing modes:
 
 ## Including and excluding property paths
 
-A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-paths) with the following additions:
+A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
 - a path leading to a scalar value ends with `/?`
 - elements from an array are addressed together through the `/[]` notation (instead of `/0`, `/1` etc.)

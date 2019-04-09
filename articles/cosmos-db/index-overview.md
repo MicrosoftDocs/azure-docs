@@ -12,7 +12,7 @@ ms.author: thweiss
 
 Azure Cosmos DB is a schema-agnostic database that allows you to iterate on your application without having to deal with schema or index management. By default, Azure Cosmos DB automatically indexes every property for all items in your container without having to define any schema or configure secondary indexes.
 
-This goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index.policy.md).
+This goal of this article is to explain how Azure Cosmos DB indexes data and how it uses indexes to improve query performance. It is recommended to go through this section before exploring how to customize [indexing policies](index-policy.md).
 
 ## From items to trees
 
@@ -38,7 +38,7 @@ would be represented as the following tree:
 
 Note how arrays are encoded in the tree: every entry in an array gets an intermediate node labeled with the index of that entry within the array (0, 1 etc.).
 
-## From trees to index paths
+## From trees to property paths
 
 The reason why Azure Cosmos DB transforms items into trees is because it allows properties to be referenced by their paths within those trees. To get the path for a property, we simply have to walk down the tree, from the root node to that property, and concatenate the labels of each node we traverse.
 
