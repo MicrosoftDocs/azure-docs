@@ -20,7 +20,7 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 3 experiment.
+4. Select the **Open** button for the Sample 3 experiment:
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
 
@@ -48,6 +48,7 @@ We follow these steps to create the experiment:
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
     
 Here's the complete experiment graph:
+
 ![Graph of the experiment](media/sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 

@@ -29,7 +29,7 @@ With both approaches, we evaluate the models by using the test dataset with repl
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select the **Open** button for the Sample 4 experiment.
+4. Select the **Open** button for the Sample 4 experiment:
 
     ![Open the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
