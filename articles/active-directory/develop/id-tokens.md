@@ -88,7 +88,7 @@ This list shows the claims that are in most id_tokens by default (except where n
 
 ## Validating an id_token
 
-Validating an `id_token` is very similar to the first step of [validating an access token](access-tokens.md#validating-tokens) - your client should validate that the correct issuer has sent back the token and that it hasn't been tampered with. Because `id_tokens` are always a JWT, many librarie[Validating an id_token](#validating-an-id_token)s exist to validate these tokens - we recommend you use one of these rather than doing it yourself. 
+Validating an `id_token` is very similar to the first step of [validating an access token](access-tokens.md#validating-tokens) - your client should validate that the correct issuer has sent back the token and that it hasn't been tampered with. Because `id_tokens` are always a JWT, many libraries exist to validate these tokens - we recommend you use one of these rather than doing it yourself.
 
 To manually validate the token, see the steps details in [validating an access token](access-tokens.md#validating-tokens). After validating the signature on the token, the following claims should be validated in the id_token (these may also be done by your token validation library):
 
