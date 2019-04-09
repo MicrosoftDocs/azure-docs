@@ -174,13 +174,13 @@ To configure Azure AD single sign-on with SignalFx, perform the following steps:
 
 	a. In the **Name** textbox type, a new integration name, like **OurOrgName SAML SSO**.
 
-	b. Copy the **Integration ID** value and append with the **Reply URL** like `https://api.signalfx.com/v1/saml/acs/<integration ID>` in the **Reply URL** textbox of **Basic SAML Configuration** section in Azure portal.
+	b. Copy the **Integration ID** value and append to the **Reply URL** in the place of `<integration ID>` in the **Reply URL** textbox of **Basic SAML Configuration** section in Azure portal.
 
 	c. Click on **Upload File** to upload the **Base64 encoded certificate** downloaded from Azure portal in the **Certificate** textbox.
 
 	d. In the **Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 
-	e. In the **Metadata URL** textbox, paste the **App Federation Metadata Url** which you have copied from the Azure portal.
+	e. In the **Metadata URL** textbox, paste the **Login URL** which you have copied from the Azure portal.
 
 	f. Click **Save**.
 
