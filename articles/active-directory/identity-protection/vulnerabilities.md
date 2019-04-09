@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 04/09/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -29,7 +29,12 @@ This vulnerability helps assess the deployment of Azure Multi-Factor Authenticat
 
 To view the count for users that are not registered for MFA, click on the vulnerability and you are redirected to statistics within Identity Secure Score.
 
-Azure Multi-Factor Authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication via a range of easy verification options—phone call, text message, or mobile app notification or verification code and third-party OATH tokens.
+Azure Multi-Factor Authentication provides a second layer of security to user authentication. It helps safeguard access to data and applications while meeting user demand for a simple sign-in process. Azure Multi-Factor Authentication provides easy to use verification options like:
+
+* Phone call
+* Text message
+* Mobile app notification
+* OTP Verification code
 
 We recommend that you require Azure Multi-Factor Authentication for user sign-ins. Multi-factor authentication plays a key role in risk-based conditional access policies available through Identity Protection.
 
@@ -39,7 +44,7 @@ For more information, see [What is Azure Multi-Factor Authentication?](../authen
 
 This vulnerability helps you identify unmanaged cloud apps in your organization.
 
-In modern enterprises, IT departments are often unaware of all the cloud applications that users in their organization are using to do their work. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage, and other security risks.
+IT staff are often unaware of all the cloud applications in their organization. It is easy to see why administrators would have concerns about unauthorized access to corporate data, possible data leakage, and other security risks.
 
 We recommend deploying Cloud Discovery to discover unmanaged cloud applications, and to manage these applications using Azure Active Directory.
 
@@ -51,7 +56,7 @@ This vulnerability helps you discover and resolve alerts about privileged identi
 
 To enable users to carry out privileged operations, organizations need to grant users temporary or permanent privileged access in Azure AD, Azure or Office 365 resources, or other SaaS apps. Each of these privileged users increases the attack surface of your organization. This vulnerability helps you identify users with unnecessary privileged access, and take appropriate action to reduce or eliminate the risk they pose.
 
-We recommend that your organization uses Azure AD Privileged Identity Management to manage, control, and monitor privileged identities and their access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
+We recommend organizations use Azure AD Privileged Identity Management to manage, control, and monitor privileged identities in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
 
 For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md).
 
