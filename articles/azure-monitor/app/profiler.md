@@ -23,7 +23,7 @@ To enable Profiler for an app, follow the instructions below. If you're running 
 * [Service Fabric Applications](../../azure-monitor/app/profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Virtual Machines](../../azure-monitor/app/profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-.Application Insights Profiler is pre-installed as part of the App Services runtime. The steps below will show you how to enable it for your App Service. Follow these steps even if you've included the App Insights SDK in your application at build time.
+Application Insights Profiler is pre-installed as part of the App Services runtime. The steps below will show you how to enable it for your App Service. Follow these steps even if you've included the App Insights SDK in your application at build time.
 
 1. Enable "Always On" setting for your app service. You can update the setting in the Configuration page of your App Service under General Settings.
 1. Go to the **App Services** pane in the Azure portal.
