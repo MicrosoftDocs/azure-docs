@@ -28,13 +28,17 @@ According to the information provided on Custom Vision welcome page (https://www
 >Easily customize your own state-of-the-art computer vision models for your unique use case. Just upload a few labeled images and let Custom Vision Service do the hard work. With just one click, you can export trained models to be run on device or as Docker containers. However, what if we wanted to go beyond the scope of simple usage and dive a little bit deeper, say inspect the model?Fortunately there is a way to do that using TensorBoard. 
 The computations you'll use TensorFlow for - like training a massive deep neural network - can be complex and confusing. To make it easier to understand, debug, and optimize TensorFlow programs, we've included a suite of visualization tools called TensorBoard. You can use TensorBoard to visualize your TensorFlow graph, plot quantitative metrics about the execution of your graph, and show additional data like images that pass through it.
 So, the idea is quite simple
-1)	Train your image classifier (Important : use Compact model to able to export it to your machine)
-2)	Generate tensor flow model
-3)	Use TensorBoard 
+1. Train your image classifier (Important : use Compact model to able to export it to your machine)
+2. Generate tensor flow model
+3. Use TensorBoard 
 
 
-### Create a new Custom Vision service project
+### Train image classifier
 
+At this stage there should be no problem. Simply upload your images, tag them and launch the training. Important: before starting your project be sure to make it ‘exportable’, i.e. select compact option.
+![alt text](https://static.wixstatic.com/media/749f52_3a10d568cd2343dcbd28ce0836bae0fd~mv2.png/v1/fill/w_469,h_1024,al_c,lg_1,q_90/749f52_3a10d568cd2343dcbd28ce0836bae0fd~mv2.webp)
+
+### Train image classifier
 The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
