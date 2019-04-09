@@ -105,10 +105,10 @@ The snapshot operation failed as the snapshot limit has exceeded for some of the
 
 * Delete the disk blob-snapshots which are not required. Be cautious to not delete Disk blob, only snapshot blobs should be deleted.
 * If Soft-delete is enabled on VM disk Storage-Accounts, configure soft-delete retention such that existing snapshots are less than the maximum allowed at any point of time.
-* If ASR is enabled in the backed up VM, then perform the below:
+* If Azure Site Recovery is enabled in the backed up VM, then perform the below:
 
 	* Ensure the value of **isanysnapshotfailed** is set as false in /etc/azure/vmbackup.conf
-	* Schedule ASR at a different time, such that it does not conflict the backup operation.
+	* Schedule Azure Site Recovery at a different time, such that it does not conflict the backup operation.
 
 ### ExtensionFailedTimeoutVMNetworkUnresponsive - Snapshot operation failed due to inadequate VM resources.
 
