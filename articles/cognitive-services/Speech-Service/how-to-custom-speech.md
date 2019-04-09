@@ -24,25 +24,33 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 ![Highlights the different components that make up the Custom Speech portal.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Subscription and Projects](placeholder) - Set up your account by binding it to a subscription, then create a project to begin your custom speech journey.
+1. [Subscribe and create a project](placeholder) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
 
-2. [Data: Training/Test](placeholder)- Upload your test/training audio/text data files to examine and improve the quality of Microsoft's speech recognition.
+2. [Upload test data](placeholder) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
 
-3. [Testing: Inspect Quality](placeholder) - Visually play back the audio and inspect speech recognition quality to see if you need to improve it. If you want a quantitative measurement, you can do so in the Testing: Evaluate Accuracy.
+3. [Inspect recognition quality](placeholder) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
 
-4. [Testing: Evaluate Accuracy](placeholder) -- Provide human transcripts with your test audio and an accuracy measurement, *Word Error Rate* (WER) will be calculated. If you want to increase accuracy by 5%-20% relative on average go to Training page. If accuracy is good enough, use the Speech Service API directly.
+4. [Evaluate accuracy](placeholder) - Provide written transcripts with your test audio and an accuracy measurement, *Word Error Rate* (WER) will be calculated. If you want to increase accuracy by 5%-20% relative on average go to Training page. If accuracy is good enough, use the Speech Service API directly.
 
-5.  [Training](placeholder) - Improving accuracy by uploading human transcripts with your audio (10-1000 hrs) and/or related text (to capture product jargon) in the 10-500MB range. This will help teach the speech recognition models how to improve. Retest and deploy the model in Deployment if you are satisfied with the level of accuracy improvement.
+<< **Archer/Ed/Mark** - What is an accuracy measurement? It's unclear from this description. >>
 
-6. [Deployment](placeholder) - Create a custom endpoint for your newly trained model and use it in your application.
+5. [Train the model](placeholder) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
+
+<< **Archer/Ed/Mark** - Can you clarify what the difference is between human transcripts and related text? By transcripts, are you speaking about raw audio? It's unclear here. >>
+
+6. [Deploy the model](placeholder) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
 
 ## Set up your Azure account
 
-<<TODO: Erik - Fine tune text >>
+A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create an account: [Try Speech Services for free](get-started.md).
 
-A subscription key is a unique string used to associate an Azure API request to a developer’s account.  If you already have one or aren’t sure if you have one, try logging into customspeech.ai.  If you don’t have one, you will need to get one in the Azure portal following instructions here. <this link should open a new tab, not replace it>  
+Once you've created an Azure account and a Speech Services subscription, you'll need to sign-in to Custom Speech portal and connect your subscription.
 
-For first time users, you will be instructed to select an existing Speech Services subscription, Connect subscription.  If you would like to modify your subscription at any point, click the cog icon on the top right at any time.
+1. Get your Speech Services subscription key from the Azure portal.
+2. Sign-in to the [Custom Speech portal](https://customspeech.ai).
+2. Click **Connect existing subscription**.
+4. When prompted, add your subscription key and click **Add**.
+5. If you'd like to modify your subscription, use the **cog** icon located in the top navigation.
 
 ## How to create a project
 
@@ -51,8 +59,6 @@ For first time users, you will be instructed to select an existing Speech Servic
 Custom Speech Services content are organized into Projects, where a project represents a particular domain (call center, virtual assistant, video, etc) and language+country pair, commonly referred to as locale (en-US would be English+United States).  A single project can, for example, be used for multiple en-US call centers.
 
 Under the Speech-to-text/Custom speech tab, click New Project and go through the wizard to create your first project.  Once completed, you will see 4 tabs Data, Testing, Training, and Deployment in the project.
-
-![](./media/custom-speech/custom-speech-nav-tabs.png)
 
 ## Next steps
 
