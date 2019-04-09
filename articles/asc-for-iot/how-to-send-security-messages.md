@@ -1,7 +1,8 @@
 ---
 title: Send your security messages to Azure Security Center for IoT Preview| Microsoft Docs
 description: Learn how to send your security messages using Azure Security Center for IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

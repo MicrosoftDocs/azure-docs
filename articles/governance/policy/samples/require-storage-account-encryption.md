@@ -1,7 +1,6 @@
 ---
 title: Sample - Require storage account encryption
 description: This sample policy definition requires the storage account to use blob encryption.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

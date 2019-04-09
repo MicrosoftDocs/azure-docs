@@ -12,6 +12,7 @@ ms.date: 04/01/2019
 
 In this article, you learn how to create and manage read replicas in Azure Database for PostgreSQL from the Azure portal. To learn more about read replicas, see the [overview](concepts-read-replicas.md).
 
+
 ## Prerequisites
 An [Azure Database for PostgreSQL server](quickstart-create-server-database-portal.md) to be the master server.
 

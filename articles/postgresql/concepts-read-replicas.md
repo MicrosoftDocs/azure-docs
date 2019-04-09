@@ -12,9 +12,6 @@ ms.date: 04/01/2019
 
 The read replica feature allows you to replicate data from an Azure Database for PostgreSQL server to a read-only server. You can replicate from the master server to up to five replicas within the same Azure region. Replicas are updated asynchronously with the PostgreSQL engine native replication technology.
 
-> [!IMPORTANT]
-> The read replica feature is in public preview.
-
 Replicas are new servers that you manage similar to regular Azure Database for PostgreSQL servers. For each read replica, you're billed for the provisioned compute in vCores and storage in GB/ month.
 
 Learn how to [create and manage replicas](howto-read-replicas-portal.md).

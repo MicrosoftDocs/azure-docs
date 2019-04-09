@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 experimental: false
-experiment_id: 80e4ff38-5174-43
+experiment_id: c80d19c3-428d-4b
 ---
 
 # Work with Azure Functions Core Tools

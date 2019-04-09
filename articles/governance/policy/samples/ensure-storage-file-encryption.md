@@ -1,7 +1,6 @@
 ---
 title: Sample - Ensure storage file encryption
 description: This sample policy definition requires that file encryption is enabled for storage accounts.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy

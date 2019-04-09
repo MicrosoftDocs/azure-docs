@@ -1,7 +1,8 @@
 ---
 title: Deploy Azure Security Center for IoT Edge module | Microsoft Docs
 description: Learn about how to deploy an Azure Security Center for IoT security agent on IoT Edge.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

@@ -29,7 +29,7 @@ The limitations and known issues section, lists some of limitations and workarou
 ## Supported Operating Systems and environments
 
 
-|Operating System  | On-premise environment  |
+|Operating System  | On-premises environment  |
 |---------|---------|
 |Windows Server 2008 SP2 - 32 bit and 64 bit(IA-32 and x86-64)</br>- Standard</br>- Enterprise</br>- Datacenter   |     VMware VMs, Hyper-V VMs, and Physical Servers    |
 |Windows Server 2008 R2 SP1 - 64 bit</br>- Standard</br>- Enterprise</br>- Datacenter     |     VMware VMs, Hyper-V VMs, and Physical Servers|

@@ -26,7 +26,7 @@ Using the Activity Log, you can determine the *what*, *who*, and *when* for any 
 When you connect your Azure activity logs to a Log Analytics workspace, you can:
 
 - Analyze the activity logs with pre-defined views
-- Analyze and search and activity logs from multiple Azure subscriptions
+- Analyze and search activity logs from multiple Azure subscriptions
 - Keep activity logs for longer than 90 days<sup>1</sup>
 - Correlate activity logs with other Azure platform and application data
 - See operational activities aggregated by status

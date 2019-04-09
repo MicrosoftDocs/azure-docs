@@ -273,6 +273,8 @@ To support the failover integration between geo-redundant storage and Azure File
 | East Asia           | Southeast Asia     |
 | East US             | West US            |
 | East US 2           | Central US         |
+| Korea Central       | Korea South        |
+| Korea South         | Korea Central      |
 | North Europe        | West Europe        |
 | North Central US    | South Central US   |
 | South India         | Central India      |

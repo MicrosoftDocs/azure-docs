@@ -116,5 +116,5 @@ The following table compares two types of labs that are supported by Azure Lab S
 
 See the following articles: 
 
-- [About Classroom Labs ](./classroom-labs/classroom-labs-overview.md)
+- [About Classroom Labs](./classroom-labs/classroom-labs-overview.md)
 - [About DevTest Labs](devtest-lab-overview.md)
