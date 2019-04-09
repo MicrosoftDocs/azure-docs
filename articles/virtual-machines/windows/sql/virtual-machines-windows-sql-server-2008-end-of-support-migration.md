@@ -50,7 +50,7 @@ Some of the benefits to registering your SQL Server instance with Azure are:
   - Pay as you go licensing
       - Per hour rate including end-of-support security updates (ESU) charges - you'll only have to pay if the instance is running.
 
-For more information on how to register, see [Register on-premises EOS SQL instance with Azure](#register-on-premsies-eos-sql-instance-with-azure) later in the article. 
+For more information on how to register, see [Register on-premises EOS SQL instance with Azure](#register-on-premises-eos-sql-instance-with-azure) later in the article. 
 
 
 ## Considerations 
