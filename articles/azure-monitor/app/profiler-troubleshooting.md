@@ -77,7 +77,7 @@ For Profiler to work properly:
    
       ![profiler-webjob]   
    
-   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler2** link.  
+   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
       ![profiler-webjob-log]
