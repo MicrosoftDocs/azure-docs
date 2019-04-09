@@ -22,8 +22,6 @@
     href: front-door-quickstart-template-samples.md
 - name: Concepts
   items:
-  - name: WAF
-    href: waf-overview.md
   - name: Backends and backend pools
     href: front-door-backend-pool.md
   - name: Caching with Front Door
@@ -48,6 +46,16 @@
     href: front-door-routing-methods.md
   - name: URL rewrite
     href: front-door-url-rewrite.md
+  - name: WAF
+    items:
+    - name: Overview
+      href: waf-overview.md
+    - name: Custom rules
+      href: waf-front-door-custom-rules.md
+    - name: Policy settings
+      href: waf-front-door-policy-settings.md
+    - name: Monitoring and logging
+      href: waf-front-door-monitor.md  
 - name: How-to guides
   items:
   - name: Troubleshoot
@@ -56,10 +64,14 @@
       href: front-door-troubleshoot-routing.md
     - name: Allowed certificate authorities
       href: front-door-troubleshoot-allowed-ca.md
-  - name: WAF
+  - name: Configure WAF
     items:
     - name: Configure WAF policy - portal
       href: waf-front-door-create-portal.md
+    - name: Configure WAF policy - Azure PowerShell
+      href: waf-front-door-custom-rules-powershell.md  
+    - name: Configure custom response code
+      href: waf-front-door-configure-custom-response-code.md
 - name: FAQ
   items:
   - name: Front Door FAQ
