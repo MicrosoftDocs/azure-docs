@@ -18,9 +18,9 @@ ms.author: glenga
 
 [Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) to monitor functions. This article shows you how to configure Azure Functions to send system-generated log files to Application Insights.
 
-We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. The service is designed to help you continuously improve performance and usability. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md).
+We recommend using Application Insights because it collects log, performance, and error data. It automatically detects performance anomalies and includes powerful analytics tools to help you diagnose issues and to understand how your functions are used. It's designed to help you continuously improve performance and usability. You can even use Application Insights during local function app project development. For more information, see [What is Application Insights?](../azure-monitor/app/app-insights-overview.md)
 
-The required Application Insights instrumentation is built into Azure Functions. This integration means that all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
+As the required Application Insights instrumentation is built into Azure Functions, all you need is a valid instrumentation key to connect your function app to an Application Insights resource.
 
 ## Application Insights pricing and limits
 
@@ -625,7 +625,7 @@ You can enable streaming logs by using the [Azure Command Line Interface (CLI)](
 az login
 az account list
 az account set --subscription <subscriptionNameOrId>
-az webapp log tail --resource-group <resource group name> --name <function app name>
+az webapp log tail --resource-group <RESOURCE_GROUP_NAME> --name <FUNCTION_APP_NAME>
 ```
 
 ### Azure PowerShell
@@ -636,7 +636,7 @@ You can enable streaming logs by using [Azure PowerShell](/powershell/azure/over
 Add-AzAccount
 Get-AzSubscription
 Get-AzSubscription -SubscriptionName "<subscription name>" | Select-AzSubscription
-Get-AzWebSiteLog -Name <function app name> -Tail
+Get-AzWebSiteLog -Name <FUNCTION_APP_NAME> -Tail
 ```
 
 ## Disable built-in logging
