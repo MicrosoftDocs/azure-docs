@@ -355,7 +355,7 @@ Azure Monitor for VMs Health supports SMS and email notifications when alerts ar
 
     The output should resemble the following:
     
-    ````
+    ```
     {
 	  "value": [
 		{
