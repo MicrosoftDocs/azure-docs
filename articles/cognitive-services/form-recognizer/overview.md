@@ -26,6 +26,7 @@ Once the model is trained, you can test, retrain, and eventually use it to relia
 ## What it includes
 
 Form Recognizer is available as a REST API. You can create, train and score a model by invoking the API, and you can optionally run the model in a local Docker container.
+
 ## Input requirements
 
 Form Recognizer works on input documents that meet the following requirements:
@@ -34,11 +35,19 @@ Form Recognizer works on input documents that meet the following requirements:
 * For images:
   * File size must be less than 4 megabytes (MB)
   * Dimensions must be between 50x50 and 4200x4200 pixels
+* If scanned from paper documents, forms should be high-quality scans
 * Must use the Latin alphabet (English characters)
 * Printed data (not handwritten)
 * Must contain keys and values
 * Keys must appear on the top or the left of the document
-* If scanned from paper documents, forms should be high-quality scans
+
+Additionally, Form Recognizer is **not** compatible with the following types of input data:
+
+* Forms which have keys and values in varying locations for the same form type
+* Complex tables (tables whose header and data associations cannot be easily determined from the layout)
+* Forms with checkboxes or radio buttons
+* Images which appear tilted
+* PDF documents longer than 3000 pages (Form Recognizer will process the first 3000 pages)
 
 Pre-trained machine learning models work best with standardized content. If you have input material that deviates from traditional formats, like industry-specific forms, then the data extraction may be less accurate.
 
