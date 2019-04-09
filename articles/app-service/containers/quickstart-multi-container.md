@@ -1,7 +1,7 @@
 ---
 title: Create multi-container app using Docker Compose - Azure App Service
 description: Deploy your first multi-container app in Azure Web App for Containers in minutes
-keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, kubernetes, wordpress, azure db for mysql, production database with containers
+keywords: azure app service, web app, linux, docker, compose, multicontainer, multi-container, web app for containers, multiple containers, container, wordpress, azure db for mysql, production database with containers
 services: app-service\web
 documentationcenter: ''
 author: msangapu
@@ -20,7 +20,7 @@ ms.custom: seodec18
 ---
 # Create a multi-container (preview) app using a Docker Compose configuration
 
-[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration. For Kubernetes and a full end-to-end solution using Azure DB for MySQL, follow the [multi-container tutorial](tutorial-multi-container-app.md).
+[Web App for Containers](app-service-linux-intro.md) provides a flexible way to use Docker images. This quickstart shows how to deploy a multi-container app to Web App for Containers in the [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) using a Docker Compose configuration.
 
 You'll complete this quickstart in Cloud Shell, but you can also run these commands locally with [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 or later). 
 
