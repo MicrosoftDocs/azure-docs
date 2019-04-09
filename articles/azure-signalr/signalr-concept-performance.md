@@ -174,7 +174,7 @@ Case study
 The following sections go through four typical use cases for WebSocket transport: **echo**, **broadcast**, **send-to-group**, and **send-to-connection**. For each scenario, it lists the current ASRS inbound and outbound capacity, meanwhile explains what is the main factors on performance.
 
 In default mode, App server, through Azure SignalR Service SDK by default, creates five server connections with ASRS. In the performance test result below, server connections are
-increased to 15 (or more for broadcast and sending message to large group).
+increased to 15 (or more for broadcast and sending message to big group).
 
 Different use cases have different requirement on app servers. **Broadcast** needs small number of app servers. **Echo** or **send-to-connection** needs many app servers.
 
@@ -265,7 +265,7 @@ The broadcasting clients that post messages are no more than 4, thus requires fe
 ![Send To Group](./media/signalr-concept-performance/sendtogroup.png)
 
 Group member and group count are two factors with impact on the performance. To
-simplify the analysis, we define two kinds of groups: small group and large
+simplify the analysis, we define two kinds of groups: small group and big
 group.
 
 - `small group`: 10 connections in every group. The group number is equal to (max
@@ -301,11 +301,11 @@ There are many client connections calling the hub, therefore, app server number 
 >
 > The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory have impact on overall performance of **send-to-small-group**.
 
-#### Large group
+#### Big group
 
-For **send-to-large-group**, the outbound bandwidth becomes the bottleneck before hitting the routing cost limit. The following table lists the maximum outbound bandwidth, which is almost the same as **broadcast**.
+For **send-to-big-group**, the outbound bandwidth becomes the bottleneck before hitting the routing cost limit. The following table lists the maximum outbound bandwidth, which is almost the same as **broadcast**.
 
-|    Send to large group      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
+|    Send to big group      | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
 | Connections               | 1,000 | 2,000 | 5,000  | 10,000 | 20,000 | 50,000  | 100,000
 | Group member count        | 100   | 200   | 500    | 1,000  | 2,000  | 5,000   | 10,000 
@@ -317,7 +317,7 @@ For **send-to-large-group**, the outbound bandwidth becomes the bottleneck befor
 
 The sending connection count is no more than 40, the burden on app server is small, thus the suggested web app number is also small.
 
-|  Send to large group  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
+|  Send to big group  | Unit1 | Unit2 | Unit5 | Unit10 | Unit20 | Unit50 | Unit100 |
 |------------------|-------|-------|-------|--------|--------|--------|---------|
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
@@ -327,7 +327,7 @@ The sending connection count is no more than 40, the burden on app server is sma
 > Increase the default server connections from 5 to 40 on every app server to
 > avoid possible unbalanced server connections to ASRS.
 > 
-> The client connection number, message size, message sending rate, routing cost, and SKU tier have impact on overall performance of **send-to-large-group**.
+> The client connection number, message size, message sending rate, routing cost, and SKU tier have impact on overall performance of **send-to-big-group**.
 
 ### Send to connection
 
