@@ -30,7 +30,7 @@ This section assumes you have the following entities:
 
 - A provisioned notification hub.
 - An Azure Storage blob container.
-- References to the Azure Storage and Azure Service Bus NuGet packages.
+- References to the [Azure Storage NuGet package](https://www.nuget.org/packages/windowsazure.storage/) and [Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### Create input file and store it in a blob
 An input file contains a list of registrations serialized in XML, one per row. Using the Azure SDK, the following code example shows how to serialize the registrations and upload them to blob container.
@@ -128,7 +128,7 @@ These files contain the list of successful and failed operations from your batch
 The following sample code imports registrations into a notification hub.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
