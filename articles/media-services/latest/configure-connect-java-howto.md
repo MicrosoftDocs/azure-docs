@@ -22,11 +22,12 @@ This article shows you how to connect to the Azure Media Services v3 Java SDK us
 
 ## Prerequisites
 
-Follow [Writing Java with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) to install:
+- Follow [Writing Java with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) to install:
 
-- JDK
-- Maven
-- Java Extension Pack
+   - JDK
+   - Maven
+   - Java Extension Pack
+- Make sure to set JAVA_HOME environment variable to the install location of the JDK
 - [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 
 Also review:
@@ -36,16 +37,14 @@ Also review:
 
 ## Create a Maven project
 
-1. If you haven't already done so, install [Java](https://aka.ms/azure-jdks).
-2. Install [Maven](https://maven.apache.org/download.cgi).
-3. Create a new folder and the project:
+Create a new folder and the project by running the following commands:
     
-    ```
-    mkdir java-azure-test
-    cd java-azure-test
+ ```
+ mkdir java-azure-test
+ cd java-azure-test
     
-    mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-    ```
+ mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+ ```
 
 ## Add dependencies
 
@@ -55,7 +54,6 @@ The following packages should be specified:
 |---|---|
 |[com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)|Azure Media Services SDK. |
 |`ms-rest-azure`| Used to sign in.|
-
 
 1. Under the `testAzureApp` folder, open the `pom.xml` file and add the build configuration to &lt;project&gt; to enable the building of your application:
 
@@ -84,7 +82,7 @@ The following packages should be specified:
     <dependency>
       <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
       <artifactId>azure-mgmt-media</artifactId>
-      <version>1.0.0-beta</version>
+      <version>1.0.0-beta-2</version>
     </dependency>
         <dependency>
       <groupId>com.microsoft.azure</groupId>
@@ -97,12 +95,11 @@ The following packages should be specified:
       <version>2.0.0-java7-beta1</version>
     </dependency>
     ```
-
 3. Save the file.
 
 ## Create credentials
 
-Before you start this step, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-create-service-principal-portal.md). You should also record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the application ID, the authentication key, and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 
@@ -119,10 +116,8 @@ Before you start this step, make sure that you have access to an [Active Directo
     graphURL=https://graph.windows.net/
     ```
 
-    Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
-
+    Replace **&lt;subscription-id&gt;**, **&lt;application-id&gt;**, **&lt;authentication-key&gt;**, and **&lt;tenant-id&gt;** with the values you got from the [Access APIs](access-api-cli-how-to.md) topic.
 2. Save the file.
-3. Set an environment variable named AZURE_AUTH_LOCATION in your shell with the full path to the authentication file.
 
 ### Create the management client
 
@@ -142,20 +137,19 @@ Before you start this step, make sure that you have access to an [Active Directo
     import com.microsoft.rest.RestClient;
     import java.io.*;
     ```
-
 2. To create the Active Directory credentials that you need to make requests, add this code to the main method of the App class:
    
     ```java
     try {
-        final File credFile = new File(System.getenv("AZURE_AUTH_LOCATION"));
+        final File credFile = new File("path to the azureauth.properties file");
         Azure azure = Azure.configure()
             .withLogLevel(LogLevel.BASIC)
             .authenticate(credFile)
             .withDefaultSubscription();
 
 
-// ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
-  //  _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
+       // ApplicationTokenCredentials creds = new ApplicationTokenCredentials(_clientId, _tenantId, _clientSecret, null);
+       //  _adlsClient = new DataLakeStoreAccountManagementClientImpl(creds);
 
     } catch (Exception e) {
         System.out.println(e.getMessage());
@@ -163,8 +157,6 @@ Before you start this step, make sure that you have access to an [Active Directo
     }
 
     ```
-
-
 
 ## Next steps
 
