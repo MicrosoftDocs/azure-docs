@@ -80,13 +80,12 @@ Restart VSS writers that are in a bad state. From an elevated command prompt, ru
 Error code: ExtensionConfigParsingFailure<br/>
 Error message: Failure in parsing the config for the backup extension.
 
-This error happens because of changed permissions on the **MachineKeys** directory:
- **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**. Run the following command and verify that permissions on the **MachineKeys** directory are default ones:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+This error happens because of changed permissions on the **MachineKeys** directory: **%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
+Run the following command and verify that permissions on the **MachineKeys** directory are default ones:**icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 
- Default permissions are as follows:
-
-	* Everyone: (R,W)
-	* BUILTIN\Administrators: (F)
+Default permissions are as follows:
+* Everyone: (R,W)
+* BUILTIN\Administrators: (F)
 
 If you see permissions in the **MachineKeys** directory that are different than the defaults, follow these steps to correct permissions, delete the certificate, and trigger the backup:
 
@@ -101,7 +100,6 @@ If you see permissions in the **MachineKeys** directory that are different than 
 	* Write extended attributes
 	* Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
-
 	* [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
 	* Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
