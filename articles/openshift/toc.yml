@@ -1,21 +1,45 @@
-- name: OpenShift Documentation
-  href: index.md
-- name: Quickstarts
-  expanded: true
+- name: Azure Red Hat OpenShift
+  href: index.yml
+- name: Overview
   items:
-  - name: 'OpenShift:  Community template'
-    href: https://azure.microsoft.com/resources/templates/openshift-origin-rhel/
+  - name: What is Azure Red Hat OpenShift?
+    href: intro-openshift.md
 - name: Tutorials
   items:
-  - name: Deploy to Azure VMs
-    href: /azure/virtual-machines/linux/openshift-get-started
+  - name: Create and manage an Azure Red Hat OpenShift cluster
+    items:
+    - name: 1 - Create an Azure Red Hat OpenShift cluster
+      href: tutorial-create-cluster.md
+    - name: 2 - Scale an Azure Red Hat OpenShift cluster
+      href: tutorial-scale-cluster.md
+    - name: 3 - Delete an Azure Red Hat OpenShift cluster
+      href: tutorial-delete-cluster.md
+
+- name: How-to guides
+  items:
+  - name: Set up your Azure Red Hat OpenShift dev environment
+    href: howto-setup-environment.md
+  - name: Create a tenant for your Azure Red Hat OpenShift cluster
+    href: howto-create-tenant.md
+  - name: Create an Azure AD app object and user
+    href: howto-aad-app-configuration.md
+
+- name: Reference
+  items:
+  - name: Azure Red Hat OpenShift CLI
+    href: https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create, 
+  - name: Azure Red Hat OpenShift REST APIs
+    href: https://docs.microsoft.com/rest/api/azure/
+
 - name: Resources
   items:
+  - name: Common questions
+    href: openshift-faq.md
+  - name: Troubleshoot
+    href: troubleshoot.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/regions/services/
+  - name: Red Hat OpenShift documentation
+    href: https://docs.openshift.org/latest/welcome/index.html
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: OpenShift Container template
-    href: https://github.com/Microsoft/openshift-container-platform
-  - name: OpenShift Origin
-    href: https://docs.openshift.org/latest/getting_started/index.html
-  - name: OpenShift site
-    href: https://docs.openshift.org/latest/welcome/index.html
