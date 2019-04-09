@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 ---
 # Monitor published APIs
@@ -32,13 +32,14 @@ In this tutorial, you learn how to:
 The following video shows how to monitor API Management using Azure Monitor. 
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
->
->
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## View metrics of your APIs
 
@@ -51,13 +52,16 @@ API Management emits metrics every minute, giving you near real-time visibility 
 * Unauthorized Gateway Requests: the number of API requests that received HTTP response codes including 401, 403, and 429.
 * Other Gateway Requests: the number of API requests that received HTTP response codes that do not belong to any of the preceding categories (for example, 418).
 
+![metrics chart](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+
 To access metrics:
 
 1. Select **Metrics** from the menu near the bottom of the page.
-2. From the drop-down, select metrics you are interested in (you can add multiple metrics). 
 
-    For example, select **Total Gateway Requests** and **Failed Gateway Requests** from the list of available metrics.
-3. The chart shows the total number of API calls. It also shows the number of API calls that failed. 
+    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+
+2. From the drop-down, select metrics you are interested in. For example, **Successful Gateway Requests**. You can also add more metrics to the chart.
+3. The chart shows the total number of successful API calls.
 
 ## Set up an alert rule for unauthorized request
 
@@ -69,18 +73,28 @@ You can configure to receive alerts based on metrics and activity logs. Azure Mo
 
 To configure alerts:
 
-1. Select **Alert rules** from the menu bar near the bottom of the page.
-2. Select **Add metric alert**.
-3. Enter a **Name** for this alert.
-4. Select **Unauthorized Gateway Requests** as the metric to monitor.
-5. Select **Email owners, contributors, and readers**.
-6. Press **OK**.
-7. Try to call the Conference API without an API key. As the owner of this API Management service, you receive an email alert. 
+1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    > [!TIP]
-    > The alert rule can also call a Web Hook or an Azure Logic App when it is triggered.
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+2. Click on a **New alert rule** for this alert.
+3. Click on **Add condition**.
+4. Select **Metrics** in the Signal type drop down.
+5. Select **Unauthorized Gateway Request** as the signal to monitor.
+
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+
+6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Provide a name, description of the alert rule and choose the severity level. 
+9. Press **Create alert rule**.
+10. Now, try to call the Conference API without an API key. The alert will be triggered an email will be sent to the admins. 
 
 ## Activity Logs
 
@@ -91,10 +105,16 @@ Activity logs provide insight into the operations that were performed on your AP
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
+![activity logs](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+
 To view activity logs:
 
 1. Select your APIM service instance.
 2. Click **Activity log**.
+
+    ![activity log](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+
+3. Select desired filtering scope and click **Apply**.
 
 ## Diagnostic Logs
 
@@ -103,8 +123,11 @@ Diagnostic logs provide rich information about operations and errors that are im
 To configure diagnostic logs:
 
 1. Select your APIM service instance.
-2. Click **Diagnostic log**.
-3. Click **Turn on diagnostics**. You can archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Log Analytics. 
+2. Click **Diagnostic settings**.
+
+    ![diagnostic logs](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+
+3. Click **Turn on diagnostics**. You can archive diagnostic logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
 
 API Management currently provides diagnostics logs (batched hourly) about individual API request with each entry having the following schema:
 
@@ -164,7 +187,7 @@ API Management currently provides diagnostics logs (batched hourly) about indivi
 | correlationId | string | Unique http request identifier assigned by API Management |
 | location | string | Name of the Azure region where the Gateway that processed the request was located |
 | httpStatusCodeCategory | string | Category of http response status code: Successful (301 or less or 304 or 307), Unauthorized (401, 403, 429), Erroneous (400, between 500 and 600), Other |
-| resourceId | string | "Id of the API Management resource /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| resourceId | string | ID of the API Management resource /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Properties of the current request |
 | method | string | HTTP method of the incoming request |
 | url | string | URL of the incoming request |

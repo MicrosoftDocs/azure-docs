@@ -1,35 +1,61 @@
 ---
-title: Troubleshoot role-based access control Azure RBAC | Microsoft Docs
-description: Get help with issues or questions about Role Based Access Control resources.
+title: Troubleshoot RBAC for Azure resources | Microsoft Docs
+description: Troubleshoot issues with role-based access control (RBAC) for Azure resources.
 services: azure-portal
 documentationcenter: na
 author: rolyon
 manager: mtillman
 
 ms.assetid: df42cca2-02d6-4f3c-9d56-260e1eb7dc44
-ms.service: active-directory
+ms.service: role-based-access-control
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 03/24/2019
 ms.author: rolyon
-ms.reviewer: rqureshi
+ms.reviewer: bagovind
 ms.custom: seohack1
 ---
-# Troubleshooting Azure role-based access control 
+# Troubleshoot RBAC for Azure resources
 
-This article answers common questions about the specific access rights that are granted with roles, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems. These three roles cover all resource types:
+This article answers common questions about role-based access control (RBAC) for Azure resources, so that you know what to expect when using the roles in the Azure portal and can troubleshoot access problems.
 
-* Owner  
-* Contributor  
-* Reader  
+## Problems with RBAC role assignments
 
-Owners and contributors both have full access to the management experience, but a contributor can’t give access to other users or groups. Things get a little more interesting with the reader role, so that’s where we'll spend some time. See the [Role-Based Access Control get-started article](role-assignments-portal.md) for details on how to grant access.
+- If you are unable to add a role assignment in the Azure portal on **Access control (IAM)** because the **Add** > **Add role assignment** option is disabled or because you get the permissions error "The client with object id does not have authorization to perform action", check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleAssignments/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator) at the scope you are trying to assign the role.
+- If you get the error message "No more role assignments can be created (code: RoleAssignmentLimitExceeded)" when you try to assign a role, try to reduce the number of role assignments by assigning roles to groups instead. Azure supports up to **2000** role assignments per subscription.
 
-## App Service
-### Write access capabilities
-If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren’t available in any read-only scenario.
+## Problems with custom roles
+
+- If you need steps for how to create a custom role, see the custom role tutorials using [Azure PowerShell](tutorial-custom-role-powershell.md) or [Azure CLI](tutorial-custom-role-cli.md).
+- If you are unable to update an existing custom role, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinition/write` permission such as [Owner](built-in-roles.md#owner) or [User Access Administrator](built-in-roles.md#user-access-administrator).
+- If you are unable to delete a custom role and get the error message "There are existing role assignments referencing role (code: RoleDefinitionHasAssignments)", then there are role assignments still using the custom role. Remove those role assignments and try to delete the custom role again.
+- If you get the error message "Role definition limit exceeded. No more role definitions can be created (code: RoleDefinitionLimitExceeded)" when you try to create a new custom role, delete any custom roles that aren't being used. Azure supports up to **2000** custom roles in a tenant.
+- If you get an error similar to "The client has permission to perform action 'Microsoft.Authorization/roleDefinitions/write' on scope '/subscriptions/{subscriptionid}', however the linked subscription was not found" when you try to update a custom role, check whether one or more [assignable scopes](role-definitions.md#assignablescopes) have been deleted in the tenant. If the scope was deleted, then create a support ticket as there is no self-service solution available at this time.
+
+## Recover RBAC when subscriptions are moved across tenants
+
+- If you need steps for how to transfer a subscription to a different Azure AD tenant, see [Transfer ownership of an Azure subscription to another account](../billing/billing-subscription-transfer.md).
+- If you transfer a subscription to a different Azure AD tenant, all role assignments are permanently deleted from the source Azure AD tenant and are not migrated to the target Azure AD tenant. You must re-create your role assignments in the target tenant.
+- If you are an Azure AD Global Administrator and you don't have access to a subscription after it was moved between tenants, use the **Access management for Azure resources** toggle to temporarily [elevate your access](elevate-access-global-admin.md) to get access to the subscription.
+
+## Issues with service admins or co-admins
+
+- If you are having issues with Service administrator or Co-administrators, see [Add or change Azure subscription administrators](../billing/billing-add-change-azure-subscription-administrator.md) and [Classic subscription administrator roles, Azure RBAC roles, and Azure AD administrator roles](rbac-and-directory-admin-roles.md).
+
+## Access denied or permission errors
+
+- If you get the permissions error "The client with object id does not have authorization to perform action over scope (code: AuthorizationFailed)" when you try to create a resource, check that you are currently signed in with a user that is assigned a role that has write permission to the resource at the selected scope. For example, to manage virtual machines in a resource group, you should have the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role on the resource group (or parent scope). For a list of the permissions for each built-in role, see [Built-in roles for Azure resources](built-in-roles.md).
+- If you get the permissions error "You don't have permission to create a support request" when you try to create or update a support ticket, check that you are currently signed in with a user that is assigned a role that has the `Microsoft.Support/supportTickets/write` permission, such as [Support Request Contributor](built-in-roles.md#support-request-contributor).
+
+## RBAC changes are not being detected
+
+Azure Resource Manager sometimes caches configurations and data to improve performance. When creating or deleting role assignments, it can take up to 30 minutes for changes to take effect. If you are using the Azure portal, Azure PowerShell, or Azure CLI, you can force a refresh of your role assignment changes by signing out and signing in. If you are making role assignment changes with REST API calls, you can force a refresh by refreshing your access token.
+
+## Web app features that require write access
+
+If you grant a user read-only access to a single web app, some features are disabled that you might not expect. The following management capabilities require **write** access to a web app (either Contributor or Owner), and aren't available in any read-only scenario.
 
 * Commands (like start, stop, etc.)
 * Changing settings like general configuration, scale settings, backup settings, and monitoring settings
@@ -44,8 +70,9 @@ If you grant a user read-only access to a single web app, some features are disa
 
 If you can't access any of these tiles, you need to ask your administrator for Contributor access to the web app.
 
-### Dealing with related resources
-Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple websites:
+## Web app resources that require write access
+
+Web apps are complicated by the presence of a few different resources that interplay. Here is a typical resource group with a couple of websites:
 
 ![Web app resource group](./media/troubleshooting/website-resource-model.png)
 
@@ -53,7 +80,7 @@ As a result, if you grant someone access to just the web app, much of the functi
 
 These items require **write** access to the **App Service plan** that corresponds to your website:  
 
-* Viewing the web app’s pricing tier (Free or Standard)  
+* Viewing the web app's pricing tier (Free or Standard)  
 * Scale configuration (number of instances, virtual machine size, autoscale settings)  
 * Quotas (storage, bandwidth, CPU)  
 
@@ -65,15 +92,9 @@ These items require **write** access to the whole **Resource group** that contai
 * Application insights components  
 * Web tests  
 
-## Azure Functions
-Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+## Virtual machine features that require write access
 
-![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
-
-A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
-
-## Virtual machine
-Much like with web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
+Similar to web apps, some features on the virtual machine blade require write access to the virtual machine, or to other resources in the resource group.
 
 Virtual machines are related to Domain names, virtual networks, storage accounts, and alert rules.
 
@@ -92,9 +113,15 @@ These require **write** access to both the **Virtual machine**, and the **Resour
 
 If you can't access any of these tiles, ask your administrator for Contributor access to the Resource group.
 
-## See more
-* [Role Based Access Control](role-assignments-portal.md): Get started with RBAC in the Azure portal.
-* [Built-in roles](built-in-roles.md): Get details about the roles that come standard in RBAC.
-* [Custom roles in Azure RBAC](custom-roles.md): Learn how to create custom roles to fit your access needs.
-* [Create an access change history report](change-history-report.md): Keep track of changing role assignments in RBAC.
+## Azure Functions and write access
+
+Some features of [Azure Functions](../azure-functions/functions-overview.md) require write access. For example, if a user is assigned the Reader role, they will not be able to view the functions within a function app. The portal will display **(No access)**.
+
+![Function apps no access](./media/troubleshooting/functionapps-noaccess.png)
+
+A reader can click the **Platform features** tab and then click **All settings** to view some settings related to a function app (similar to a web app), but they can't modify any of these settings.
+
+## Next steps
+* [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md)
+* [View activity logs for RBAC changes to Azure resources](change-history-report.md)
 

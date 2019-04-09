@@ -1,163 +1,207 @@
 ---
-title: "Create a Kubernetes development environment in the cloud | Microsoft Docs"
+title: "Develop with Node.js on Kubernetes using Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
-author: "ghogen"
+author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
-ms.author: "ghogen"
-ms.date: "05/11/2018"
+ms.subservice: azds-kubernetes
+ms.author: zarhoads
+ms.date: 03/22/2019
 ms.topic: "quickstart"
-description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: "douge"
+description: "Rapid Kubernetes development with containers, microservices, and Node.js on Azure"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s"
+manager: jeconnoc
 ---
-# Quickstart: Create a Kubernetes development environment with Azure Dev Spaces (Node.js)
+# Quickstart: Develop with Node.js on Kubernetes using Azure Dev Spaces
 
+In this guide, you will learn how to:
 
-[!INCLUDE[](includes/learning-objectives.md)]
+- Set up Azure Dev Spaces with a managed Kubernetes cluster in Azure.
+- Iteratively develop code in containers using Visual Studio Code and the command line.
+- Debug the code in your dev space from Visual Studio Code.
 
-[!INCLUDE[](includes/see-troubleshooting.md)]
+## Prerequisites
 
-You're now ready to create a Kubernetes-based development environment in Azure.
+- An Azure subscription. If you don't have an Azure subscription, you can create a [free account](https://azure.microsoft.com/free).
+- [Visual Studio Code installed](https://code.visualstudio.com/download).
+- The [Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds) extension for Visual Studio Code installed.
+- [Azure CLI installed](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-[!INCLUDE[](includes/portal-aks-cluster.md)]
+## Create an Azure Kubernetes Service cluster
 
-## Install the Azure CLI
-Azure Dev Spaces requires minimal local machine setup. Most of your development environment's configuration gets stored in the cloud, and is shareable with other users. Start by downloading and running the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). 
+You need to create an AKS cluster in a [supported region](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). The below commands create a resource group called *MyResourceGroup* and an AKS cluster called *MyAKS*.
 
-[!INCLUDE[](includes/sign-into-azure.md)]
+```cmd
+az group create --name MyResourceGroup --location eastus
+az aks create -g MyResourceGroup -n MyAKS --location eastus --node-count 1 --generate-ssh-keys
+```
 
-[!INCLUDE[](includes/use-dev-spaces.md)]
+## Enable Azure Dev Spaces on your AKS cluster
 
-[!INCLUDE[](includes/install-vscode-extension.md)]
+Use the `use-dev-spaces` command to enable Dev Spaces on your AKS cluster and follow the prompts. The below command enables Dev Spaces on the *MyAKS* cluster in the *MyResourceGroup* group and creates a *default* dev space.
 
-While you're waiting for the environment to be create, you can start writing code.
+```cmd
+$ az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 
-## Create a Node.js container in Kubernetes
+'An Azure Dev Spaces Controller' will be created that targets resource 'MyAKS' in resource group 'MyResourceGroup'. Continue? (y/N): y
 
-In this section, you'll create a Node.js web app and get it running in a container in Kubernetes.
+Creating and selecting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAKS' in resource group 'MyResourceGroup'...2m 24s
 
-### Create a Node.js Web App
-Download code from GitHub by navigating to https://github.com/Azure/dev-spaces and select **Clone or Download** to download the GitHub repository to your local environment. The code for this guide is in `samples/nodejs/getting-started/webfrontend`.
+Select a dev space or Kubernetes namespace to use as a dev space.
+ [1] default
+Type a number or a new name: 1
 
-[!INCLUDE[](includes/azds-prep.md)]
+Kubernetes namespace 'default' will be configured as a dev space. This will enable Azure Dev Spaces instrumentation for new workloads in the namespace. Continue? (Y/n): Y
 
-[!INCLUDE[](includes/ensure-env-created.md)]
+Configuring and selecting dev space 'default'...3s
 
-[!INCLUDE[](includes/build-run-k8s-cli.md)]
+Managed Kubernetes cluster 'MyAKS' in resource group 'MyResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
+```
 
-### Update a content file
-Azure Dev Spaces isn't just about getting code running in Kubernetes - it's about enabling you to quickly and iteratively see your code changes take effect in a Kubernetes environment in the cloud.
+## Get sample application code
 
-1. Locate the file `./public/index.html` and make an edit to the HTML. For example, change the page's background color to a shade of blue:
+In this article, you use the [Azure Dev Spaces sample application](https://github.com/Azure/dev-spaces) to demonstrate using Azure Dev Spaces.
 
-    ```html
-    <body style="background-color: #95B9C7; margin-left:10px; margin-right:10px;">
-    ```
+Clone the application from GitHub and navigate into the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory:
 
-2. Save the file. Moments later, in the Terminal window you'll see a message saying a file in the running container was updated.
-1. Go to your browser and refresh the page. You should see your color update.
+```cmd
+git clone https://github.com/Azure/dev-spaces
+cd dev-spaces/samples/nodejs/getting-started/webfrontend
+```
 
-What happened? Edits to content files, like HTML and CSS, don't require the Node.js process to restart, so an active `azds up` command will automatically sync any modified content files directly into the running container in Azure, thereby providing a fast way to see your content edits.
+## Prepare the application
 
-### Test from a mobile device
-If you open the web app on a mobile device, you will notice that the UI does not display properly on a small device.
+Generate the Docker and Helm chart assets for running the application in Kubernetes using the `azds prep` command:
 
-To fix this, you'll add a `viewport` meta tag:
-1. Open the file `./public/index.html`
-1. Add a `viewport` meta tag in the existing `head` element:
+```cmd
+azds prep --public
+```
 
-    ```html
-    <head>
-        <!-- Add this line -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    ```
+You must run the `prep` command from the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory to correctly generate the Docker and Helm chart assets.
 
-1. Save the file.
-1. Refresh your device's browser. You should now see the web app rendered correctly. 
+## Build and run code in Kubernetes
 
-This is an example of how some problems just aren't found until you test on the devices where an app is meant to be used. With VS Azure Dev Spaces, you can rapidly iterate on your code and validate any changes on target devices.
+Build and run your code in AKS using the `azds up` command:
 
-### Update a code file
-Updating server-side code files requires a little more work, because a Node.js app needs to restart.
+```cmd
+$ azds up
+Using dev space 'default' with target 'MyAKS'
+Synchronizing files...2s
+Installing Helm chart...2s
+Waiting for container image build...2m 25s
+Building container image...
+Step 1/8 : FROM node
+Step 2/8 : ENV PORT 80
+Step 3/8 : EXPOSE 80
+Step 4/8 : WORKDIR /app
+Step 5/8 : COPY package.json .
+Step 6/8 : RUN npm install
+Step 7/8 : COPY . .
+Step 8/8 : CMD ["npm", "start"]
+Built container image in 6m 17s
+Waiting for container...13s
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:54256
+...
+```
 
-1. In the terminal window, press `Ctrl+C` (to stop `azds up`).
-1. Open the code file named `server.js`, and edit service's hello message: 
+You can see the service running by opening the public URL, which is displayed in the output from the `azds up` command. In this example, the public URL is *http://webfrontend.1234567890abcdef1234.eus.azds.io/*.
 
+If you stop the `azds up` command using *Ctrl+c*, the service will continue to run in AKS, and the public URL will remain available.
+
+## Update code
+
+To deploy an updated version of your service, you can update any file in your project and rerun the `azds up` command. For example:
+
+1. If `azds up` is still running, press *Ctrl+c*.
+1. Update [line 10 in `server.js`](https://github.com/Azure/dev-spaces/blob/master/samples/nodejs/getting-started/webfrontend/server.js#L10) to:
+    
     ```javascript
-    res.send('Hello from webfrontend running in Azure!');
+        res.send('Hello from webfrontend in Azure');
     ```
 
-3. Save the file.
-1. Run  `azds up` in the terminal window. 
+1. Save your changes.
+1. Rerun the `azds up` command:
 
-This rebuilds the container image and redeploys the Helm chart. Reload the browser page to see your code changes take effect.
+    ```cmd
+    $ azds up
+    Using dev space 'default' with target 'MyAKS'
+    Synchronizing files...1s
+    Installing Helm chart...3s
+    Waiting for container image build...
+    ...    
+    ```
 
-But there is an even *faster method* for developing code, which you'll explore in the next section. 
+1. Navigate to your running service and observe your changes.
+1. Press *Ctrl+c* to stop the `azds up` command.
 
-## Debug a container in Kubernetes
+## Initialize code for debugging in Kubernetes with Visual Studio Code
 
-[!INCLUDE[](includes/debug-intro.md)]
+Open Visual Studio Code, click *File* then *Open...*, navigate to the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory, and click *Open*.
 
-[!INCLUDE[](includes/init-debug-assets-vscode.md)]
+You now have the *webfrontend* project open in Visual Studio Code, which is the same service you ran using the `azds up` command. To debug this service in AKS using Visual Studio Code, as opposed to using `azds up` directly, you need to prepare this project to use Visual Studio Code to communicate with your dev space.
 
-### Select the AZDS debug configuration
-1. To open the Debug view, click on the Debug icon in the **Activity Bar** on the side of VS Code.
-1. Select **Launch Program (AZDS)** as the active debug configuration.
+To open the Command Palette in Visual Studio Code, click *View* then *Command Palette*. Begin typing `Azure Dev Spaces` and click on `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`.
+
+![](./media/common/command-palette.png)
+
+This command prepares your project to run in Azure Dev Spaces directly from Visual Studio Code. It also generates a *.vscode* directory with debugging configuration at the root of your project.
+
+## Build and run code in Kubernetes from Visual Studio Code
+
+Click on the *Debug* icon on the left and click *Launch Server (AZDS)* at the top.
 
 ![](media/get-started-node/debug-configuration-nodejs.png)
 
+This command builds and runs your service in Azure Dev Spaces in debugging mode. The *Terminal* window at the bottom shows the build output and URLs for your service running Azure Dev Spaces. The *Debug Console* shows the log output.
+
 > [!Note]
-> If you don't see any Azure Dev Spaces commands in the Command Palette, ensure you have installed the VS Code extension for Azure Dev Spaces.
+> If you don't see any Azure Dev Spaces commands in the *Command Palette*, make sure you have installed the [Visual Studio Code extension for Azure Dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Also verify you opened the *dev-spaces/samples/nodejs/getting-started/webfrontend* directory in Visual Studio Code.
 
-### Debug the container in Kubernetes
-Hit **F5** to debug your code in Kubernetes!
+Click *Debug* then *Stop Debugging* to stop the debugger.
 
-Similar to the `up` command, code is synced to the development environment when you start debugging, and a container is built and deployed to Kubernetes. This time, the debugger is attached to the remote container.
+## Setting and using breakpoints for debugging
 
-[!INCLUDE[](includes/tip-vscode-status-bar-url.md)]
+Start your service using *Launch Server (AZDS)*.
 
-Set a breakpoint in a server-side code file, for example within the `app.get('/api'...` in  `server.js`. Refresh the browser page, or press the 'Say It Again' button, and you should hit the breakpoint and be able to step through code.
+Navigate back to the *Explorer* view by clicking *View* then *Explorer*. Open `server.js` and click somewhere on line 10 to put your cursor there. To set a breakpoint hit *F9* or click *Debug* then *Toggle Breakpoint*.
 
-You have full access to debug information just like you would if the code was executing locally, such as the call stack, local variables, exception information, etc.
+Open your service in a browser and notice no message is displayed. Return to Visual Studio Code and observe line 10 is highlighted. The breakpoint you set has paused the service at line 10. To resume the service, hit *F5* or click *Debug* then *Continue*. Return to your browser and notice the message is now displayed.
 
-### Edit code and refresh the debug session
-With the debugger active, make a code edit; for example, modify the hello message again:
+While running your service in Kubernetes with a debugger attached, you have full access to debug information such as the call stack, local variables, and exception information.
 
+Remove the breakpoint by putting your cursor on line 10 in `server.js` and hitting *F9*.
+
+Click *Debug* then *Stop Debugging* to stop the debugger.
+
+## Update code from Visual Studio Code
+
+Change the debug mode to *Attach to a Server (AZDS)* and start the service:
+
+![](media/get-started-node/attach-nodejs.png)
+
+This command builds and runs your service in Azure Dev Spaces. It also starts a [nodemon](https://nodemon.io) process in your service's container and attaches VS Code to it. The *nodemon* process allows for automatic restarts when source code changes are made, enabling faster inner loop development similar to developing on your local machine.
+
+After the service starts, navigate to it using your browser and interact with it.
+
+While the service is running, return to VS Code and update line 10 in `server.js`. For example:
 ```javascript
-app.get('/api', function (req, res) {
-    res.send('**** Hello from webfrontend running in Azure! ****');
-});
+    res.send('Hello from webfrontend in Azure while debugging!');
 ```
 
-Save the file, and in the **Debug actions pane**, click the **Refresh** button. 
+Save the file and return to your service in a browser. Interact with the service and notice your updated message is displayed.
 
-![](media/get-started-node/debug-action-refresh-nodejs.png)
+While running *nodemon*, the Node process is automatically restarted as soon as any code changes are detected. This automatic restart process is similar to the experience of editing and restarting your service on your local machine, providing an inner loop development experience.
 
-Instead of rebuilding and redeploying a new container image each time code edits are made, which will often take considerable time, Azure Dev Spaces will restart the Node.js process in between debug sessions to provide a faster edit/debug loop.
+## Clean up your Azure resources
 
-Refresh the web app in the browser, or press the *Say It Again* button. You should see your custom message appear in the UI.
-
-### Use NodeMon to develop even faster
-*Nodemon* is a popular tool that Node.js developers use for rapid development. Instead of manually restarting the Node process each time a server-side code edit is made, developers will often configure their Node project to have *nodemon* monitor file changes and automatically restart the server process. In this style of working, the developer just refreshes their browser after making a code edit.
-
-With Azure Dev Spaces, you can use many of the same development workflows you use when developing locally. To illustrate this, the sample `webfrontend` project was configured to use *nodemon* (it is configured as a dev dependency in `package.json`).
-
-Try the following steps:
-1. Stop the VS Code debugger.
-1. Click on the Debug icon in the **Activity Bar** on the side of VS Code. 
-1. Select **Attach (AZDS)** as the active debug configuration.
-1. Hit F5.
-
-In this configuration, the container is configured to start *nodemon*. When server code edits are made, *nodemon* automatically restarts the Node process, just like it does when you develop locally. 
-1. Edit the hello message again in `server.js`, and save the file.
-1. Refresh the browser, or click the *Say It Again* button, to see your changes take effect!
-
-**Now you have a method for rapidly iterating on code and debugging directly in Kubernetes!**
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## Next steps
 
+Learn how Azure Dev Spaces helps you develop more complex applications across multiple containers, and how you can simplify collaborative development by working with different versions or branches of your code in different spaces.
+
 > [!div class="nextstepaction"]
-> [Working with multiple containers and team development](get-started-nodejs.md)
+> [Working with multiple containers and team development](multi-service-nodejs.md)

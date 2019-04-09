@@ -1,9 +1,9 @@
 ---
-title: Azure Event Hubs geo-disaster recovery | Microsoft Docs
+title: Geo-disaster recovery - Azure Event Hubs| Microsoft Docs
 description: How to use geographical regions to failover and perform disaster recovery in Azure Event Hubs
 services: event-hubs
 documentationcenter: ''
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 
@@ -12,12 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
-ms.author: sethm
+ms.custom: seodec18
+ms.date: 12/06/2018
+ms.author: shvija
 
 ---
 
-# Azure Event Hubs Geo-disaster recovery
+# Azure Event Hubs - Geo-disaster recovery 
 
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
@@ -98,6 +99,17 @@ Note the following considerations to keep in mind with this release:
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
+## Availability Zones 
+
+The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+
+> [!NOTE]
+> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-overview.md#regions-that-support-availability-zones) where availability zones are present.
+
+You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
+
+![3][]
+
 ## Next steps
 
 * The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
@@ -111,3 +123,4 @@ For more information about Event Hubs, visit the following links:
 
 [1]: ./media/event-hubs-geo-dr/geo1.png
 [2]: ./media/event-hubs-geo-dr/geo2.png
+[3]: ./media/event-hubs-geo-dr/eh-az.png

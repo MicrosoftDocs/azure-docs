@@ -1,21 +1,15 @@
 ---
-title: Azure Quickstart - Back up a VM with the Azure portal | Microsoft Docs
+title: Azure Quickstart - Back up a VM with the Azure portal
 description: Learn how to back up your virtual machines with the Azure portal
 services: backup
-documentationcenter: virtual-machines
 author: saurabhsensharma
 manager: shivamg
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 2/14/2018
-ms.author: iainfou
+ms.date: 7/17/2018
+ms.author: saurse
 ms.custom: mvc
 ---
 
@@ -26,7 +20,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
 ## Log in to Azure
 
-Log in to the Azure portal at http://portal.azure.com.
+Log in to the Azure portal at https://portal.azure.com.
 
 ## Select a VM to back up
 Create a simple scheduled daily backup to a Recovery Services Vault. 
@@ -80,7 +74,7 @@ If you are going to continue on to a Backup tutorial that explains how to restor
 
 3. Select **Delete Backup Data** from the drop-down menu.
 
-4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**
+4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**.
 
     Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may wish to leave the resource group and VM in place.
 

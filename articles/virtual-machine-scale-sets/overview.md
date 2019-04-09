@@ -3,7 +3,7 @@ title: Azure virtual machine scale sets overview | Microsoft Docs
 description: Learn about Azure virtual machine scale sets and how to automatically scale your applications
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
-ms.author: negat
+ms.author: manayar
 
 ---
 # What are virtual machine scale sets?
@@ -42,8 +42,8 @@ Azure virtual machine scale sets provide the management capabilities for applica
     - Autoscale also minimizes the number of unnecessary VM instances that run your application when demand is low, while customers continue to receive an acceptable level of performance as demand grows and additional VM instances are automatically added. This ability helps reduce costs and efficiently create Azure resources as required.
 
 - **Works at large-scale**
-    - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 300 VM instances.
-    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) and [Premium Storage](../virtual-machines/windows/premium-storage.md).
+    - Scale sets support up to 1,000 VM instances. If you create and upload your own custom VM images, the limit is 600 VM instances.
+    - For the best performance with production workloads, use [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## Differences between virtual machines and scale sets

@@ -4,7 +4,7 @@ description: Set up HTTP endpoints to call, trigger, or nest workflows for Azure
 services: logic-apps
 keywords: workflows, HTTP endpoints
 author: jeffhollan
-manager: anneta
+manager: jeconnoc
 editor: ''
 documentationcenter: ''
 
@@ -79,7 +79,7 @@ that you expect the trigger to receive.
     > [!TIP]
     > 
     > You can generate a schema for a sample JSON payload 
-    > from a tool like [jsonschema.net](http://jsonschema.net/), 
+    > from a tool like [jsonschema.net](https://jsonschema.net/), 
     > or in the **Request** trigger by choosing **Use sample payload to generate schema**. 
     > Enter your sample payload, and choose **Done**.
 
@@ -392,7 +392,7 @@ To ask questions, answer questions, and learn what other Azure Logic Apps users 
 visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
 To help improve Azure Logic Apps and connectors, vote on or submit ideas at the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

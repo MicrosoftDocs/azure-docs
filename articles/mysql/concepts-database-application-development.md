@@ -1,13 +1,10 @@
 ---
 title: Database application development overview for Azure Database for MySQL
 description: Introduces design considerations that a developer should follow when writing application code to connect to Azure Database for MySQL 
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
-ms.service: mysql-database
-ms.topic: article
+ms.service: mysql
+ms.topic: conceptual
 ms.date: 02/28/2018
 ---
 

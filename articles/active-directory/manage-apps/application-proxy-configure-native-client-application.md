@@ -3,20 +3,21 @@ title: Publish native client apps - Azure AD | Microsoft Docs
 description: Covers how to enable native client apps to communicate with Azure AD Application Proxy Connector to provide secure remote access to your on-premises apps.
 services: active-directory
 documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/31/2018
-ms.author: barbkess
-ms.reviewer: harshja
+ms.topic: conceptual
+ms.date: 11/08/2018
+ms.author: celested
+ms.reviewer: japere
 ms.custom: it-pro
 
+ms.collection: M365-identity-device-management
 ---
 
 # How to enable native client apps to interact with proxy applications
@@ -27,12 +28,12 @@ Application Proxy supports native client apps by accepting Azure AD issued token
 
 ![Relationship between end users, Azure Active Directory, and published applications](./media/application-proxy-configure-native-client-application/richclientflow.png)
 
-Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api). 
+Use the Azure AD Authentication Library, which takes care of authentication and supports many client environments, to publish native applications. Application Proxy fits into the [Native Application to Web API scenario](../develop/native-app.md). 
 
 This article walks you through the four steps to publish a native application with Application Proxy and the Azure AD Authentication Library. 
 
 ## Step 1: Publish your application
-Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-publish-azure-portal.md).
+Publish your proxy application as you would any other application and assign users to access your application. For more information, see [Publish applications with Application Proxy](application-proxy-add-on-premises-application.md).
 
 ## Step 2: Configure your application
 Configure your native application as follows:
@@ -45,15 +46,15 @@ Configure your native application as follows:
    ![Create a new app registration](./media/application-proxy-configure-native-client-application/create.png)
 5. Select **Create**.
 
-For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](./../develop/active-directory-integrating-applications.md).
+For more detailed information about creating a new app registration, see [Integrating applications with Azure Active Directory](../develop/quickstart-v1-integrate-apps-with-azure-ad.md).
 
 
 ## Step 3: Grant access to other applications
 Enable the native application to be exposed to other applications in your directory:
 
 1. Still in **App registrations**, select the new native application that you just created.
-2. Select **Required permissions**.
-3. Select **Add**.
+2. Select **API permissions**.
+3. Select **Add a permission**.
 4. Open the first step, **Select an API**.
 5. Use the search bar to find the Application Proxy app that you published in the first section. Choose that app, then click **Select**. 
 
@@ -93,6 +94,6 @@ Once the ADAL is edited with these parameters, your users should be able to auth
 
 ## Next steps
 
-For more information about the native application flow, see [Native application to web API](../develop/active-directory-authentication-scenarios.md#native-application-to-web-api)
+For more information about the native application flow, see [Native application to web API](../develop/native-app.md)
 
-Learn about setting up [Single sign-on for Application Proxy](application-proxy-single-sign-on.md)
+Learn about setting up [Single sign-on for Application Proxy](what-is-single-sign-on.md#single- sign-on-methods)

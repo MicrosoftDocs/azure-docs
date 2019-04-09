@@ -1,28 +1,28 @@
-﻿---
-title: Tools for Azure Stack storage
+---
+title: Tools for Azure Stack storage | Microsoft Docs
 description: Learn about Azure Stack storage data transfer tools
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
 
-ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 04/25/2018
+ms.topic: conceptual
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
+ms.lastreviewed: 12/03/2018
 
 
 ---
-# Use data transfer tools for Azure Stack Storage
+# Use data transfer tools for Azure Stack storage
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure Storage tools if you want to manage or move data to or from Azure Stack Storage. This article provides an  overview of the available tools.
+Microsoft Azure Stack provides a set of the storage services for disks, blobs, tables, queues, and account management functions. You can use a set of Azure storage tools if you want to manage or move data to or from Azure Stack storage. This article provides an  overview of the available tools.
 
 Your requirements determine which of the following tools works best for you:
 
@@ -38,11 +38,15 @@ Your requirements determine which of the following tools works best for you:
 
     An open-source, cross-platform tool that provides a set of commands for working with the Azure and Azure Stack platforms.
 
-* [Microsoft Storage Explorer](#microsoft-azure-storage-explorer)
+* [Microsoft storage explorer](#microsoft-azure-storage-explorer)
 
     An easy-to-use stand-alone app with a user interface.
 
-Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md).
+* [Blobfuse](#blobfuse)
+
+    A virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. 
+
+Due to the storage services differences between Azure and Azure Stack, there might be some specific requirements for each tool described in the following sections. For a comparison between Azure Stack storage and Azure storage, see [Azure Stack storage: Differences and considerations](azure-stack-acs-differences.md).
 
 ## AzCopy
 
@@ -53,66 +57,67 @@ AzCopy is a command-line utility designed to copy data to and from Microsoft Azu
 There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Linux.
 
  - **AzCopy on Windows**
-    - Download the supported version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
-        - For the 1802 update, or newer versions, [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
-        - For previous versions, [download AzCopy 5.0.0](https://aka.ms/azcopyforazurestack20170417).
+    - Download the supported version of AzCopy for Azure Stack. You can install and use AzCopy on Azure Stack the same way as Azure. For more information, see [AzCopy on Windows](../../storage/common/storage-use-azcopy.md).
+        - For the 1811 update, or newer versions, [download AzCopy 7.3.0](https://aka.ms/azcopyforazurestack20171109).
+        - For previous versions (1802 to 1809 update), [download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417).
 
  - **AzCopy on Linux**
 
-    - AzCopy on Linux supports Azure Stack 1802 update or newer versions. You can install and use AzCopy on Azure Stack the same way as Azure. To learn more, see [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+    - You can install and use AzCopy on Azure Stack the same way as Azure. For more information, see [AzCopy on Linux](../../storage/common/storage-use-azcopy-linux.md).
+    - For previous versions (1802 to 1809 updates), see the [installation steps for AzCopy 7.1 and earlier versions](../../storage/common/storage-use-azcopy-linux.md#installation-steps-for-azcopy-71-and-earlier-versions).
 
 ### AzCopy command examples for data transfer
 
-The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) and [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](../../storage/common/storage-use-azcopy.md) and [AzCopy on Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### Download all blobs to a local disk
 
 **Windows**
 
-````AzCopy
+```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount.blob.local.azurestack.external/mycontainer \
     --destination /mnt/myfiles \
     --source-key <key> \
     --recursive
-````
+```
 
 ### Upload single file to virtual directory
 
 **Windows**
 
-```AzCopy
+```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
 ```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source /mnt/myfiles/abc.txt \
     --destination https://myaccount.blob.local.azurestack.external/mycontainer/vd/abc.txt \
     --dest-key <key>
-````
+```
 
-### Move data between Azure and Azure Stack Storage
+### Move data between Azure and Azure Stack storage
 
-Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You need to specify the transfer with the **/SyncCopy** or **--sync-copy** option.
+Asynchronous data transfer between Azure storage and Azure Stack is not supported. You need to specify the transfer with the **/SyncCopy** or **--sync-copy** option.
 
 **Windows**
 
-````AzCopy
+```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
-````
+```
 
 **Linux**
 
-````AzCopy
+```bash
 azcopy \
     --source https://myaccount1.blob.local.azurestack.external/myContainer/ \
     --destination https://myaccount2.blob.core.windows.net/myContainer/ \
@@ -120,12 +125,12 @@ azcopy \
     --dest-key <key2> \
     --include "abc.txt" \
     --sync-copy
-````
+```
 
 ### Azcopy known issues
 
  - Any AzCopy operation on a file store is not available because file storage is not yet available in Azure Stack.
- - Asynchronous data transfer between Azure Storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
+ - Asynchronous data transfer between Azure storage and Azure Stack is not supported. You can specify the transfer with the **/SyncCopy** option to copy the data.
  - The Linux version of Azcopy only supports 1802 update or later versions. And it doesn’t support Table service.
 
 ## Azure PowerShell
@@ -148,12 +153,12 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
    > [!NOTE]
    > This script has to be run at the root directory for **AzureStack_Tools**.
 
-```PowerShell
+```powershell  
 # begin
 
-$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environemnt name
+$ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
 $ARMEndPoint = "https://management.local.azurestack.external" 
-$GraphAudiance = "https://graph.windows.net/" 
+$GraphAudience = "https://graph.windows.net/" 
 $AADTenantName = "<myDirectoryTenantName>.onmicrosoft.com" 
 
 $SubscriptionName = "basic" # Update with the name of your subscription.
@@ -162,7 +167,7 @@ $StorageAccountName = "azsblobcontainer" # Give a name to your new storage accou
 $Location = "Local" # Choose "Local" as an example.
 $ContainerName = "photo" # Give a name to your new container.
 $ImageToUpload = "C:\temp\Hello.jpg" # Prepare an image file and a source directory in your local computer.
-$DestinationFolder = "C:\temp\downlaod" # A destination directory in your local computer.
+$DestinationFolder = "C:\temp\download" # A destination directory in your local computer.
 
 # Import the Connect PowerShell module"
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
@@ -215,24 +220,23 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
 
 ### PowerShell known issues
 
-The current compatible Azure PowerShell module version for Azure Stack is 1.2.12. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
+The current compatible Azure PowerShell module version for Azure Stack is 1.2.11 for the user operations. It’s different from the latest version of Azure PowerShell. This difference impacts storage services operation:
 
-* The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.12 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
+The return value format of `Get-AzureRmStorageAccountKey` in version 1.2.11 has two properties: `Key1` and `Key2`, while the current Azure version returns an array containing all the account keys.
 
-   ```
-   # This command gets a specific key for a Storage account, 
-   # and works for Azure PowerShell version 1.4, and later versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Value[0]
+```powershell
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.4, and later versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Value[0]
 
-   # This command gets a specific key for a Storage account, 
-   # and works for Azure PowerShell version 1.3.2, and previous versions.
-   (Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
-   -AccountName "MyStorageAccount").Key1
+# This command gets a specific key for a storage account, 
+# and works for Azure PowerShell version 1.3.2, and previous versions.
+(Get-AzureRmStorageAccountKey -ResourceGroupName "RG01" `
+-AccountName "MyStorageAccount").Key1
+```
 
-   ```
-
-   For more information, see [Get-​Azure​Rm​Storage​Account​Key](https://docs.microsoft.com/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey?view=azurermps-4.1.0).
+For more information, see [Get-​Azure​Rm​Storage​Account​Key](/powershell/module/azurerm.storage/Get-AzureRmStorageAccountKey).
 
 ## Azure CLI
 
@@ -240,11 +244,11 @@ The Azure CLI is Azure’s command-line experience for managing Azure resources.
 
 Azure CLI is optimized for managing and administering Azure resources from the command line, and for building automation scripts that work against the Azure Resource Manager. It provides many of the same functions found in the Azure Stack portal, including rich data access.
 
-Azure Stack requires Azure CLI version 2.0. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI 2.0 to perform several tasks working with resources in your Azure Stack Storage account, see [Using the Azure CLI2.0 with Azure Storage](../../storage/storage-azure-cli.md)
+Azure Stack requires Azure CLI version 2.0 or later. For more information about installing and configuring Azure CLI with Azure Stack, see [Install and configure Azure Stack CLI](azure-stack-version-profiles-azurecli2.md). For more information about how to use the Azure CLI to perform several tasks working with resources in your Azure Stack storage account, see [Using the Azure CLI with Azure storage](../../storage/storage-azure-cli.md)
 
 ### Azure CLI sample script for Azure Stack
 
-Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack Storage resources. The script completes the following actions:
+Once you complete the CLI installation and configuration, you can try the following steps to work with a small shell sample script to interact with Azure Stack storage resources. The script completes the following actions:
 
 * Creates a new container in your storage account.
 * Uploads an existing file (as a blob) to the container.
@@ -259,9 +263,9 @@ Before you run this script, make sure that you can successfully connect to, and 
 4. Mark the script as executable, if necessary: `chmod +x my_storage_sample.sh`
 5. Execute the script. For example, in Bash: `./my_storage_sample.sh`
 
-```bash
+```azurecli
 #!/bin/bash
-# A simple Azure Stack Storage example script
+# A simple Azure Stack storage example script
 
 export AZURESTACK_RESOURCE_GROUP=<resource_group_name>
 export AZURESTACK_RG_LOCATION="local"
@@ -292,15 +296,44 @@ az storage blob download --container-name $AZURESTACK_STORAGE_CONTAINER_NAME --a
 echo "Done"
 ```
 
-## Microsoft Azure Storage Explorer
+## Microsoft Azure storage explorer
 
-Microsoft Azure Storage Explorer is a standalone app from Microsoft. It allows you to easily work with both Azure Storage and Azure Stack Storage data on Windows, macOS and Linux computers. If you want an easy way to manage your Azure Stack Storage data, then consider using Microsoft Azure Storage Explorer.
+Microsoft Azure storage explorer is a standalone app from Microsoft. It allows you to easily work with both Azure storage and Azure Stack storage data on Windows, macOS and Linux computers. If you want an easy way to manage your Azure Stack storage data, then consider using Microsoft Azure storage explorer.
 
-* To learn more about configuring Azure Storage Explorer to work with Azure Stack, see [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
-* To learn more about Microsoft Azure Storage Explorer, see [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* To learn more about configuring Azure storage explorer to work with Azure Stack, see [Connect storage explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md).
+* To learn more about Microsoft Azure storage explorer, see [Get started with storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+## Blobfuse 
+
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash `/` as a delimiter. Blobfuse works on both Azure and Azure Stack. 
+
+To learn more about mounting Blob storage as a file system with Blobfuse on Linux, see [How to mount Blob storage as a file system with Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). 
+
+For Azure Stack, **blobEndpoint** needs to be specified besides accountName, accountKey/sasToken, containerName, while configuring your Storage account credentials in the step of preparing for mounting. 
+
+In the Azure Stack development Kit, the blobEndpoint should be `myaccount.blob.local.azurestack.external`. In Azure Stack integrated system, contact your cloud administrator if you’re not sure about your endpoint. 
+
+Please be aware that accountKey and sasToken can only be configured one at a time. When storage account key is given, the credentials configuration file is in the following format: 
+
+```
+accountName myaccount 
+accountKey myaccesskey== 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
+```
+
+When shared access token is given, the credentials configuration file is in the following format:
+
+```  
+accountName myaccount 
+sasToken ?mysastoken 
+containerName mycontainer 
+blobEndpoint myaccount.blob.local.azurestack.external
+```
 
 ## Next steps
-* [Connect Storage Explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
-* [Get started with Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+
+* [Connect storage explorer to an Azure Stack subscription](azure-stack-storage-connect-se.md)
+* [Get started with storage explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
 * [Azure-consistent storage: differences and considerations](azure-stack-acs-differences.md)
-* [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* [Introduction to Microsoft Azure storage](../../storage/common/storage-introduction.md)

@@ -1,30 +1,32 @@
 ---
-title: 'Azure Cosmos DB: Build a todo app with Xamarin | Microsoft Docs'
+title: 'Azure Cosmos DB: Build a todo app with Xamarin'
 description: Presents a Xamarin code sample you can use to connect to and query Azure Cosmos DB
-services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
-manager: kfile
-
-ms.assetid: 
+author: codemillmatt
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: sngun
+ms.date: 05/30/2018
+ms.author: masoucou
 
 ---
-# Azure Cosmos DB: Build a todo app with Xamarin
+# Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
+
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
 
 Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can quickly create and query document, key/value, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB.
 
 > [!NOTE]
 > Sample code for an entire canonical sample Xamarin app showcasing multiple Azure offerings, including CosmosDB, can be found on GitHub [here](https://github.com/xamarinhq/app-geocontacts). This app demonstrates viewing geographically dispersed contacts, and allowing those contacts to update their location.
 
-This quickstart demonstrates how to create an Azure Cosmos DB SQL API account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+This quickstart demonstrates how to create an Azure Cosmos DB SQL API account, document database, and collection using the Azure portal. You'll then build and deploy a todo list web app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![Xamarin todo app running on iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 
@@ -55,7 +57,7 @@ If you are using a Mac, you can download the **free** [Visual Studio for Mac](ht
 
 ## Clone the sample application
 
-Now let's clone the Xamarin SQL API app from github, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
+Now let's clone the Xamarin SQL API app from GitHub, review the code, obtain the API keys, and run it. You'll see how easy it is to work with data programmatically.
 
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
@@ -72,16 +74,16 @@ Now let's clone the Xamarin SQL API app from github, review the code, obtain the
 3. Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
     ```bash
-    git clone https://github.com/Azure/azure-documentdb-dotnet.git
+    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started.git
     ```
 
-3. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
+4. Then open the ToDoItems.sln file from the samples/xamarin/ToDoItems folder in Visual Studio.
 
 ## Obtain your API keys
 
 Go back to the Azure portal to get your API key information and copy it into the app.
 
-1. In the [Azure portal](http://portal.azure.com/), in your Azure Cosmos DB SQL API account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the APIKeys.cs file in the next step.
+1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB SQL API account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the APIKeys.cs file in the next step.
 
     ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-xamarin-dotnet/keys.png)
 
@@ -94,6 +96,8 @@ Go back to the Azure portal to get your API key information and copy it into the
 4. Then copy your PRIMARY KEY value from the portal and make it the value of the `Cosmos Auth Key` in APIKeys.cs.
 
     `public static readonly string CosmosAuthKey = "{Azure Cosmos DB secret}";`
+
+[!INCLUDE [cosmos-db-auth-key-info](../../includes/cosmos-db-auth-key-info.md)]
 
 ## Review the code
 
@@ -191,7 +195,7 @@ Now let's take a quick review of how the app communicates with Azure Cosmos DB.
     }
     ```
 
-    Again note the unique doument URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
+    Again note the unique document URI being created and passed to the `DocumentClient.DeleteDocumentAsync` function.
 
 ## Run the app
 

@@ -3,19 +3,12 @@ title: 'Configure BGP on an Azure VPN gateway: Resource Manager and CLI | Micros
 description: This article walks you through configuring BGP with an Azure VPN gateway by using Azure Resource Manager and CLI.
 services: vpn-gateway
 documentationcenter: na
-author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
+author: yushwang
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/25/2017
-ms.author: cherylmc
+ms.date: 09/25/2018
+ms.author: yushwang
 
 ---
 # How to configure BGP on an Azure VPN gateway by using CLI
@@ -51,7 +44,7 @@ This section is required before you perform any of the steps in the other two co
 
 ### Before you begin
 
-Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install Azure CLI 2.0](/cli/azure/install-azure-cli) and [Get Started with Azure CLI 2.0](/cli/azure/get-started-with-azure-cli).
+Install the latest version of the CLI commands (2.0 or later). For information about installing the CLI commands, see [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ### Step 1: Create and configure TestVNet1
 

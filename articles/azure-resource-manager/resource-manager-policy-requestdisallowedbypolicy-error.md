@@ -1,7 +1,7 @@
 ---
 title: RequestDisallowedByPolicy error with Azure resource policy | Microsoft Docs
 description: Describes the cause of the RequestDisallowedByPolicy error.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: genlin
 manager: cshepard
@@ -11,8 +11,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
-ms.date: 03/09/2018
+ms.topic: troubleshooting
+ms.date: 10/31/2018
 ms.author: genli
 
 ---
@@ -39,15 +39,17 @@ To retrieve details about the policy that blocked your deployment, use the follo
 
 ### PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 
-```PowerShell
-(Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
 ```
 
 ### Azure CLI
 
-In Azure CLI 2.0, provide the name of the policy definition:
+In Azure CLI, provide the name of the policy definition:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -60,5 +62,5 @@ To resolve this problem, review the resource policies, and determine how to depl
 
 For more information, see the following articles:
 
-- [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)
-- [Create and manage policies to enforce compliance](../azure-policy/create-manage-policy.md)
+- [What is Azure Policy?](../governance/policy/overview.md)
+- [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md)

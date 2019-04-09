@@ -10,22 +10,19 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 03/27/2018
+
+ms.topic: conceptual
+ms.date: 01/28/2019
 ms.author: jingwang
 
 ---
 # Copy Activity performance and tuning guide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-copy-activity-performance.md)
-> * [Version 2 - Preview](copy-activity-performance.md)
+> * [Version 1](v1/data-factory-copy-activity-performance.md)
+> * [Current version](copy-activity-performance.md)
 
 
 Azure Data Factory Copy Activity delivers a first-class secure, reliable, and high-performance data loading solution. It enables you to copy tens of terabytes of data every day across a rich variety of cloud and on-premises data stores. Blazing-fast data loading performance is key to ensure you can focus on the core “big data” problem: building advanced analytics solutions and getting deep insights from all that data.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [copy activity performance in Data Factory version 1](v1/data-factory-copy-activity-performance.md).
 
 Azure provides a set of enterprise-grade data storage and data warehouse solutions, and Copy Activity offers a highly optimized data loading experience that is easy to configure and set up. With just a single copy activity, you can achieve:
 
@@ -36,7 +33,7 @@ Azure provides a set of enterprise-grade data storage and data warehouse solutio
 This article describes:
 
 * [Performance reference numbers](#performance-reference) for supported source and sink data stores to help you plan your project;
-* Features that can boost the copy throughput in different scenarios, including [cloud Data Movement Units](#cloud-data-movement-units), [parallel copy](#parallel-copy), and [staged Copy](#staged-copy);
+* Features that can boost the copy throughput in different scenarios, including [data integration units](#data-integration-units), [parallel copy](#parallel-copy), and [staged Copy](#staged-copy);
 * [Performance tuning guidance](#performance-tuning-steps) on how to tune the performance and the key factors that can impact copy performance.
 
 > [!NOTE]
@@ -45,17 +42,17 @@ This article describes:
 
 ## Performance reference
 
-As a reference, below table shows the copy throughput number **in MBps** for the given source and sink pairs **in a single copy activity run** based on in-house testing. For comparison, it also demonstrates how different settings of [cloud data movement units](#cloud-data-movement-units) or [Self-hosted Integration Runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime) (multiple nodes) can help on copy performance.
+As a reference, below table shows the copy throughput number **in MBps** for the given source and sink pairs **in a single copy activity run** based on in-house testing. For comparison, it also demonstrates how different settings of [Data Integration Units](#data-integration-units) or [Self-hosted Integration Runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime) (multiple nodes) can help on copy performance.
 
 ![Performance matrix](./media/copy-activity-performance/CopyPerfRef.png)
 
->[!IMPORTANT]
->In Azure Data Factory version 2, when copy activity is executed on an Azure Integration Runtime, the minimal allowed cloud data movement units is two. If not specified, see default data movement units being used in [cloud data movement units](#cloud-data-movement-units).
+> [!IMPORTANT]
+> When copy activity is executed on an Azure Integration Runtime, the minimal allowed Data Integration Units (formerly known as Data Movement Units) is two. If not specified, see default Data Integration Units being used in [Data Integration Units](#data-integration-units).
 
 Points to note:
 
 * Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
-* The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) dataset in a single copy activity run.
+* The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) dataset in a single copy activity run. Test files for file-based stores are multiple files with 10GB in size.
 * In Azure data stores, the source and sink are in the same Azure region.
 * For hybrid copy between on-premises and cloud data stores, each Self-hosted Integration Runtime node was running on a machine that was separate from the data store with below specification. When a single activity was running, the copy operation consumed only a small portion of the test machine's CPU, memory, or network bandwidth.
     <table>
@@ -75,25 +72,25 @@ Points to note:
 
 
 > [!TIP]
-> You can achieve higher throughput by using more data movement units (DMUs) than the default allowed maximum DMUs, which are 32 for a cloud-to-cloud copy activity run. For example, with 100 DMUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Cloud data movement units](#cloud-data-movement-units) section for details about this feature and the supported scenario. Contact [Azure support](https://azure.microsoft.com/support/) to request more DMUs.
+> You can achieve higher throughput by using more Data Integration Units (DIU). For example, with 100 DIUs, you can achieve copying data from Azure Blob into Azure Data Lake Store at **1.0GBps**. See the [Data Integration Units](#data-integration-units) section for details about this feature and the supported scenario. 
 
-## Cloud data movement units
+## Data integration units
 
-A **cloud data movement unit (DMU)** is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. **DMU only applies to [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, but not [Self-hosted Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
+A **Data Integration Unit (DIU)** (formerly known as Cloud Data Movement Unit or DMU) is a measure that represents the power (a combination of CPU, memory, and network resource allocation) of a single unit in Data Factory. **DIU only applies to [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime)**, but not [Self-hosted Integration Runtime](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**The minimal cloud data movement units to empower Copy Activity run is two.** If not specified, the following table lists the default DMUs used in different copy scenarios:
+**The minimal Data Integration Units to empower Copy Activity run is two.** If not specified, the following table lists the default DIUs used in different copy scenarios:
 
-| Copy scenario | Default DMUs determined by service |
+| Copy scenario | Default DIUs determined by service |
 |:--- |:--- |
 | Copy data between file-based stores | Between 4 and 32 depending on the number and size of the files. |
 | All other copy scenarios | 4 |
 
-To override this default, specify a value for the **cloudDataMovementUnits** property as follows. The **allowed values** for the **cloudDataMovementUnits** property is **up to 256**. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
+To override this default, specify a value for the **dataIntegrationUnits** property as follows. The **allowed values** for the **dataIntegrationUnits** property is **up to 256**. The **actual number of DIUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
-You can see the actually used cloud data movement units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
+You can see the actually used Data Integration Units for each copy run in the copy activity output when monitoring an activity run. Learn details from [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
 > [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
+> Setting of DIUs **larger than 4** currently works only when you **copy multiple files from Blob storage/Data Lake Storage/Amazon S3/cloud FTP/cloud SFTP to any other cloud data stores.**.
 >
 
 **Example:**
@@ -112,15 +109,15 @@ You can see the actually used cloud data movement units for each copy run in the
             "sink": {
                 "type": "AzureDataLakeStoreSink"
             },
-            "cloudDataMovementUnits": 32
+            "dataIntegrationUnits": 32
         }
     }
 ]
 ```
 
-### Cloud data movement units billing impact
+### Data Integration Units billing impact
 
-It's **important** to remember that you are charged based on the total time of the copy operation. The total duration you are billed for data movement is the sum of duration across DMUs. If a copy job used to take one hour with two cloud units and now it takes 15 minutes with eight cloud units, the overall bill remains almost the same.
+It's **important** to remember that you are charged based on the total time of the copy operation. The total duration you are billed for data movement is the sum of duration across DIUs. If a copy job used to take one hour with two cloud units and now it takes 15 minutes with eight cloud units, the overall bill remains almost the same.
 
 ## Parallel Copy
 
@@ -130,11 +127,11 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 
 | Copy scenario | Default parallel copy count determined by service |
 | --- | --- |
-| Copy data between file-based stores |Depends on the size of the files and the number of cloud data movement units (DMUs) used to copy data between two cloud data stores, or the physical configuration of the Self-hosted Integration Runtime machine. |
+| Copy data between file-based stores |Depends on the size of the files and the number of Data Integration Units (DIUs) used to copy data between two cloud data stores, or the physical configuration of the Self-hosted Integration Runtime machine. |
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-[!TIP]
+> [!TIP]
 > When copying data between file-based stores, the default behavior (auto determined) usually give you the best throughput. 
 
 To control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
@@ -164,7 +161,7 @@ Points to note:
 * When you copy data between file-based stores, the **parallelCopies** determine the parallelism at the file level. The chunking within a single file would happen underneath automatically and transparently, and it's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to parallelCopies. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, Copy Activity cannot take advantage of file-level parallelism.
 * When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores, and to Self-Hosted Integration Runtime if the copy activity is empowered by it for example, for hybrid copy. This happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or Self-hosted Integration Runtime is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
 * When you copy data from stores that are not file-based to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
-* **parallelCopies** is orthogonal to **cloudDataMovementUnits**. The former is counted across all the cloud data movement units.
+* **parallelCopies** is orthogonal to **dataIntegrationUnits**. The former is counted across all the Data Integration Units.
 
 ## Staged copy
 
@@ -194,6 +191,9 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 | **linkedServiceName** |Specify the name of an [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) linked service, which refers to the instance of Storage that you use as an interim staging store. <br/><br/> You cannot use Storage with a shared access signature to load data into SQL Data Warehouse via PolyBase. You can use it in all other scenarios. |N/A |Yes, when **enableStaging** is set to TRUE |
 | **path** |Specify the Blob storage path that you want to contain the staged data. If you do not provide a path, the service creates a container to store temporary data. <br/><br/> Specify a path only if you use Storage with a shared access signature, or you require temporary data to be in a specific location. |N/A |No |
 | **enableCompression** |Specifies whether data should be compressed before it is copied to the destination. This setting reduces the volume of data being transferred. |False |No |
+
+>[!NOTE]
+> If you use staged copy with compression enabled, service principal or MSI authentication for staging blob linked service is not supported.
 
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 
@@ -238,11 +238,21 @@ We suggest that you take these steps to tune the performance of your Data Factor
 
 1. **Establish a baseline**. During the development phase, test your pipeline by using Copy Activity against a representative data sample. Collect execution details and performance characteristics following [Copy activity monitoring](copy-activity-overview.md#monitoring).
 
-2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. A full description of performance diagnosis is beyond the scope of this article, but here are some common considerations:
+2. **Diagnose and optimize performance**. If the performance you observe doesn't meet your expectations, you need to identify performance bottlenecks. Then, optimize performance to remove or reduce the effect of bottlenecks. 
+
+    In some cases, when you execute a copy activity in ADF, you will directly see "**Performance tuning tips**" on top of the [copy activity monitoring page](copy-activity-overview.md#monitor-visually) as shown in the following example. It not only tells you the bottleneck identified for the given copy run, but also guides you on what to change so as to boost copy throughput. The performance tuning tips currently provide suggestions like to use PolyBase when copying data into Azure SQL Data Warehouse, to increase Azure Cosmos DB RU or Azure SQL DB DTU when the resource on data store side is the bottleneck, to remove the unnecessary staged copy, etc. The performance tuning rules will be gradually enriched as well.
+
+    **Example: copy into Azure SQL DB with performance tuning tips**
+
+    In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU. 
+
+    ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    In addition, the following are some common considerations. A full description of performance diagnosis is beyond the scope of this article.
 
    * Performance features:
      * [Parallel copy](#parallel-copy)
-     * [Cloud data movement units](#cloud-data-movement-units)
+     * [Data integration units](#data-integration-units)
      * [Staged copy](#staged-copy)
      * [Self-hosted Integration Runtime scalability](concepts-integration-runtime.md#self-hosted-integration-runtime)
    * [Self-hosted Integration Runtime](#considerations-for-self-hosted-integration-runtime)

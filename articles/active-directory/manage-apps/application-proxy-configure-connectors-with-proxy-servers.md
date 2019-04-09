@@ -2,20 +2,17 @@
 title: Work with existing on-premises proxy servers and Azure AD | Microsoft Docs
 description: Covers how to work with existing on-premises proxy servers.
 services: active-directory
-documentationcenter: ''
-author: barbkess
+author: CelesteDG
 manager: mtillman
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 08/31/2017
-ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: it-pro
+ms.topic: conceptual
+ms.date: 09/12/2018
+ms.author: celested
+ms.reviewer: japere
+ms.collection: M365-identity-device-management
 ---
 
 # Work with existing on-premises proxy servers
@@ -73,7 +70,7 @@ As a result of having only outbound traffic, there's no need to configure inboun
 
 If WPAD is enabled in the environment and configured appropriately, the connector automatically discovers the outbound proxy server and attempt to use it. However, you can explicitly configure the connector to go through an outbound proxy.
 
-To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on.
+To do so, edit the C:\Program Files\Microsoft AAD App Proxy Connector\ApplicationProxyConnectorService.exe.config file, and add the *system.net* section shown in this code sample. Change *proxyserver:8080* to reflect your local proxy server name or IP address, and the port that it's listening on. The value must have the prefix http:// even if you are using an IP address.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -103,20 +100,21 @@ There are four aspects to consider at the outbound proxy:
 * SSL inspection
 
 #### Proxy outbound rules
-Allow access to the following endpoints for connector service access:
+Allow access to the following URLs:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+| URL | How it's used |
+| --- | --- |
+| \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
+| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure uses these URLs to verify certificates |
+| login.windows.net<br>login.microsoftonline.com | The connector uses these URLs during the registration process. |
 
-For initial registration, allow access to the following endpoints:
+If your firewall or proxy allows DNS whitelisting, you can whitelist connections to \*.msappproxy.net and \*.servicebus.windows.net. If not, you need to allow access to the [Azure DataCenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). The IP ranges are updated each week.
 
-* login.windows.net
-* login.microsoftonline.com
 
 If you can't allow connectivity by FQDN and need to specify IP ranges instead, use these options:
 
 * Allow the connector outbound access to all destinations.
-* Allow the connector outbound access to all of the [Azure datacenter IP ranges](https://www.microsoft.com/en-gb/download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break.
+* Allow the connector outbound access to all of the [Azure datacenter IP ranges](https://www.microsoft.com//download/details.aspx?id=41653). The challenge with using the list of Azure datacenter IP ranges is that it's updated weekly. You need to put a process in place to ensure that your access rules are updated accordingly. Only using a subset of the IP addresses may cause your configuration to break.
 
 #### Proxy authentication
 

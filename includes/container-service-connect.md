@@ -1,3 +1,10 @@
+---
+author: dlepow
+ms.service: container-service
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: danlep
+---
 # Make a remote connection to a Kubernetes, DC/OS, or Docker Swarm cluster
 After creating an Azure Container Service cluster, you need to connect to the cluster to deploy and manage workloads. This article describes how to connect to the master VM of the cluster from a remote computer. 
 
@@ -26,7 +33,7 @@ Follow these steps to install and configure `kubectl` on your computer.
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install-cli` Azure CLI 2.0 command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and logged in to an Azure account (`az login`).
+tool is to use the `az acs kubernetes install-cli` Azure CLI command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest version of the Azure CLI and are signed in to an Azure account (`az login`).
 
 ```azurecli
 # Linux or macOS
@@ -108,11 +115,11 @@ The first thing that you do when you create an SSH tunnel on Linux or macOS is t
     ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
     ```
   
-  > [!NOTE]
-  > The SSH connection port is 2200 and not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
-  > 
+   > [!NOTE]
+   > The SSH connection port is 2200 and not the standard port 22. In a cluster with more than one master VM, this is the connection port to the first master VM.
+   > 
 
-  The command returns without output.
+   The command returns without output.
 
 See the examples for DC/OS and Swarm in the following sections.    
 
@@ -176,16 +183,16 @@ There are multiple options for creating SSH tunnels on Windows. If you are runni
 
 5. Select **SSH > Tunnels** and configure the following forwarded ports:
 
-    * **Source Port:** Use 80 for DC/OS or 2375 for Swarm.
-    * **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
+   * **Source Port:** Use 80 for DC/OS or 2375 for Swarm.
+   * **Destination:** Use localhost:80 for DC/OS or localhost:2375 for Swarm.
 
-    The following example is configured for DC/OS, but will look similar for Docker Swarm.
+     The following example is configured for DC/OS, but will look similar for Docker Swarm.
 
-    > [!NOTE]
-    > Port 80 must not be in use when you create this tunnel.
-    > 
+     > [!NOTE]
+     > Port 80 must not be in use when you create this tunnel.
+     > 
 
-    ![PuTTY configuration 3](./media/container-service-connect/putty3.png)
+     ![PuTTY configuration 3](./media/container-service-connect/putty3.png)
 
 6. When you're finished, click **Session > Save** to save the connection configuration.
 

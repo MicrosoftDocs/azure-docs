@@ -5,28 +5,30 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 01/18/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
+### How many VPN client endpoints can I have in my Point-to-Site configuration?
+
+It depends on the gateway SKU. For more information on the number of connections supported, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+
 ### <a name="supportedclientos"></a>What client operating systems can I use with Point-to-Site?
 
 The following client operating systems are supported:
 
 * Windows 7 (32-bit and 64-bit)
 * Windows Server 2008 R2 (64-bit only)
-* Windows 8 (32-bit and 64-bit)
 * Windows 8.1 (32-bit and 64-bit)
 * Windows Server 2012 (64-bit only)
 * Windows Server 2012 R2 (64-bit only)
 * Windows Server 2016 (64-bit only)
 * Windows 10
-* Mac OS X version 10.11 (El Capitan)
-* Mac OS X version 10.12 (Sierra)
+* Mac OS X version 10.11 or above
+* Linux (StrongSwan)
+* iOS
 
-### How many VPN client endpoints can I have in my Point-to-Site configuration?
-
-We support up to 128 VPN clients to be able to connect to a virtual network at the same time.
+[!INCLUDE [TLS](vpn-gateway-tls-updates.md)]
 
 ### Can I traverse proxies and firewalls using Point-to-Site capability?
 
@@ -62,17 +64,18 @@ No. You can only use the native VPN client on Windows for SSTP, and the native V
 
 ### Does Azure support IKEv2 VPN with Windows?
 
-IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP or **OpenVPN® Protocol**.
 
 To prepare Windows 10 or Server 2016 for IKEv2:
 
 1. Install the update.
 
-  | OS version | Date | Number/Link |
-  |---|---|---|---|
-  | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
-  | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
-  |  |  |  |  |
+   | OS version | Date | Number/Link |
+   |---|---|---|
+   | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |
 
 2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
@@ -82,7 +85,7 @@ When you configure both SSTP and IKEv2 in a mixed environment (consisting of Win
 
 ### Other than Windows and Mac, which other platforms does Azure support for P2S VPN?
 
-Azure supports only Windows and Mac for P2S VPN.
+Azure supports Windows, Mac and Linux for P2S VPN.
 
 ### I already have an Azure VPN Gateway deployed. Can I enable RADIUS and/or IKEv2 VPN on it?
 

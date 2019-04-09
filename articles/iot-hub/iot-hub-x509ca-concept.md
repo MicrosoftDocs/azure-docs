@@ -1,22 +1,15 @@
 ---
 title: Concepts of Azure IoT Hub X.509 security | Microsoft Docs
 description: Concept - understanding the value X.509 certificate authority certificates in IoT device manufacturing, and authentication . 
-services: iot-hub
-documentationcenter: .net
 author: eustacea
 manager: arjmands
-editor: ''
-
-ms.assetid: 
 ms.service: iot-hub
-ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+services: iot-hub
+ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-
 ---
+
 # Conceptual understanding of X.509 CA certificates in the IoT industry
 
 This article describes the value of using X.509 certificate authority (CA) certificates in IoT device manufacturing and authentication to IoT Hub.  It includes information about supply chain setup and highlight advantages.
@@ -110,7 +103,7 @@ In our example, both Factory-Y and Technician-Z interact with the Smart-X-Widget
 
 ![img-cert-mfr-chain](./media/cert-mfr-chain.png)
 
-This is a good point to review the value of the X.509 CA method.  Instead of pre-generating and handing off certificates for every Smart-X-Widget into the supply chain, Company-X only hand to sign Factory-Y once.  Instead of having to track every device throughout the devices life-cycle, Company-X may not track and manage devices through groups that naturally emerge from the supply chain process, for example,  devices installed by Technician-Z after July of some year.
+This is a good point to review the value of the X.509 CA method.  Instead of pre-generating and handing off certificates for every Smart-X-Widget into the supply chain, Company-X only had to sign Factory-Y once.  Instead of having to track every device throughout the device's life-cycle, Company-X may now track and manage devices through groups that naturally emerge from the supply chain process, for example,  devices installed by Technician-Z after July of some year.
 
 Last but not least, the CA method of authentication infuses secure accountability into the device manufacturing supply chain. Because of the certificate chain process, the actions of every member in the chain is cryptographically recorded and verifiable.
 

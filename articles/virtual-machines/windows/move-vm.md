@@ -14,17 +14,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
 
 ---
 # Move a Windows VM to another Azure subscription or resource group
-This article walks you through how to move a Windows VM between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
+This article walks you through how to move a Windows virtual machine (VM) between resource groups or subscriptions. Moving between subscriptions can be handy if you originally created a VM in a personal subscription and now want to move it to your company's subscription to continue your work.
 
 > [!IMPORTANT]
->You cannot move Managed Disks at this time. 
->
->New resource IDs are created as part of the move. Once the VM has been moved, you need to update your tools and scripts to use the new resource IDs. 
+>New resource IDs are created as part of the move. After the VM has been moved, you will need to update your tools and scripts to use the new resource IDs. 
 > 
 > 
 
@@ -32,31 +30,30 @@ This article walks you through how to move a Windows VM between resource groups 
 
 ## Use Powershell to move a VM
 
-To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To use the Move-AzureRMResource cmdlet, you need the ResourceId of each of the resources. You can get a list of the ResourceId's using the [Find-AzureRMResource](/powershell/module/azurerm.resources/find-azurermresource) cmdlet.
+To move a virtual machine to another resource group, you need to make sure that you also move all of the dependent resources. To get a list with the resource ID of each of these resources, use the [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) cmdlet.
 
 ```azurepowershell-interactive
- Find-AzureRMResource -ResourceGroupNameContains <sourceResourceGroupName> | Format-table -Property ResourceId 
+ Get-AzResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-To move a VM we need to move multiple resources. We can use the output of Find-AzureRMResource to create a comma separated list of the ResourceIds and pass that to [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) to move them to the destination. 
+You can use the output of the previous command as a comma-separated list of resource IDs to [Move-AzResource](https://docs.microsoft.com/powershell/module/az.resources/move-azresource) to move each resource to the destination. 
 
 ```azurepowershell-interactive
-
-Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
+Move-AzResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 	
 To move the resources to different subscription, include the **-DestinationSubscriptionId** parameter. 
 
 ```azurepowershell-interactive
-Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
+Move-AzResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" `
     -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
 
 
-You will be asked to confirm that you want to move the specified resources. 
+When you are asked to confirm that you want to move the specified resources, enter **Y** to confirm.
 
 ## Next steps
-You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to new resource group or subscription](../../resource-group-move-resources.md).    
+You can move many different types of resources between resource groups and subscriptions. For more information, see [Move resources to a new resource group or subscription](../../resource-group-move-resources.md).    
 

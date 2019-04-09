@@ -21,11 +21,13 @@ ms.author: jdial
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [CLI 1.0](network-watcher-security-group-view-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-security-group-view-cli.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
 > - [REST API](network-watcher-security-group-view-rest.md)
 
 Security group view returns configured and effective network security rules that are applied to a virtual machine. This capability is useful to audit and diagnose Network Security Groups and rules that are configured on a VM to ensure traffic is being correctly allowed or denied. In this article, we show you how to retrieve the effective and applied security rules to a virtual machine using REST API
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Before you begin
 
@@ -39,7 +41,7 @@ The scenario covered in this article retrieves the effective and applied securit
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -47,7 +49,7 @@ armclient login
 
 Run the following script to return a virtual machineThe following code needs variables:
 
-- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzSubscription** cmdlet.
 - **resourceGroupName** - The name of a resource group that contains virtual machines.
 
 ```powershell

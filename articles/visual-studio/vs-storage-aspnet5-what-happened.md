@@ -7,7 +7,8 @@ manager: douge
 ms.assetid: e7caa9fa-c780-45eb-a546-299fc1c68455
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
@@ -31,5 +32,5 @@ Also, the NuGet package **Microsoft.Framework.Configuration.Json** was added.
 ## Connection string for Azure Storage added
 In the config.json file of your project, an element was created with the selected storage account's connection string and key.
 
-For more information, see [ASP.NET 5](http://www.asp.net/vnext).
+For more information, see [ASP.NET 5](https://www.asp.net/vnext).
 

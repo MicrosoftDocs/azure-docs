@@ -2,20 +2,12 @@
 title: Sample workflow to prep hard drives for an Azure Import/Export import job - v1 | Microsoft Docs
 description: See a walkthrough for the complete process of preparing drives for an import job in the Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 6eb1b1b7-c69f-4365-b5ef-3cd5e05eb72a
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-
+ms.subservice: common
 ---
 
 # Sample workflow to prepare hard drives for an import job
@@ -34,12 +26,12 @@ The import job imports this data into the following destinations in the storage 
   
 |Source|Destination virtual directory or blob|  
 |------------|-------------------------------------------|  
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovie.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovie.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|  
   
-With this mapping, the file `H:\Video\Drama\GreatMovie.mov` is imported to the blob `https://mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov`.  
+With this mapping, the file `H:\Video\Drama\GreatMovie.mov` is imported to the blob https:\//mystorageaccount.blob.core.windows.net/video/Drama/GreatMovie.mov.  
   
 Next, to determine how many hard drives are needed, compute the size of the data:  
   
@@ -49,11 +41,11 @@ For this example, two 3-TB hard drives should be sufficient. However, since the 
   
 |Location|Size|Destination virtual directory or blob|  
 |--------------|----------|-------------------------------------------|  
-|H:\Video1|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Video2|2.5 TB|https://mystorageaccount.blob.core.windows.net/video|  
-|H:\Photo|30 GB|https://mystorageaccount.blob.core.windows.net/photo|  
-|K:\Temp\FavoriteMovies.ISO|25 GB|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
-|\\\bigshare\john\music|10 GB|https://mystorageaccount.blob.core.windows.net/music|  
+|H:\Video1|2.5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Video2|2.5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
+|H:\Photo|30 GB|https:\//mystorageaccount.blob.core.windows.net/photo|  
+|K:\Temp\FavoriteMovies.ISO|25 GB|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteMovies.ISO|  
+|\\\bigshare\john\music|10 GB|https:\//mystorageaccount.blob.core.windows.net/music|  
   
  Even though the `H:\Video`directory has been split to two directories, they point to the same destination virtual directory in the storage account. This way, all video files are maintained under a single `video` container in the storage account.  
   

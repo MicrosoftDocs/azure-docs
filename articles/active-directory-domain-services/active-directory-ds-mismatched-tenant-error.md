@@ -3,24 +3,25 @@ title: 'Resolve mismatched directory errors for existing Azure AD Domain Service
 description: Understand and resolve mismatched directory errors for existing Azure AD Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article 
+ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Resolve mismatched directory errors for existing Azure AD Domain Services managed domains
 You have an existing Azure AD Domain Services managed domain. When you navigate to the Azure portal and view the managed domain, you see the following error message:
 
-![Mismatched directory error](.\media\getting-started\mismatched-tenant-error.png)
+![Mismatched directory error](./media/getting-started/mismatched-tenant-error.png)
 
 You cannot administer this managed domain until the error is resolved.
 

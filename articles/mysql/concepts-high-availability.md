@@ -1,14 +1,11 @@
 ---
 title: High availability concepts in Azure Database for MySQL
 description: This topic provides information of high availability when using Azure Database for MySQL
-services: mysql
-author: jasonwhowell
-ms.author: jasonh
-manager: kfile
-editor: jasonwhowell
-ms.service: mysql-database
-ms.topic: article
-ms.date: 02/28/2018
+author: ajlam
+ms.author: andrela
+ms.service: mysql
+ms.topic: conceptual
+ms.date: 02/01/2019
 ---
 # High availability concepts in Azure Database for MySQL
 The Azure Database for MySQL service provides a guaranteed high level of availability. The financially backed service level agreement (SLA) is 99.99% upon general availability. There is virtually no application down time when using this service.
@@ -29,4 +26,5 @@ Similar to the HA model, when an Azure Database for MySQL is scaled up or down, 
 During the scale operation, an interruption to the database connections occurs. The client applications are disconnected, and open uncommitted transactions are canceled. Once the client application retries the connection, or makes a new connection, the gateway directs the connection to the newly sized instance. 
 
 ## Next steps
-- For an overview of the service, see [Azure Database for MySQL Overview](overview.md)
+- Learn about [handling transient connectivity errors](concepts-connectivity.md)
+- Learn how to [replicate your data with read replicas](howto-read-replicas-portal.md)

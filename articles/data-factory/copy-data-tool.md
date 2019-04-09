@@ -3,15 +3,15 @@ title: Copy Data tool Azure Data Factory | Microsoft Docs
 description: 'Provides information about the Copy Data tool in Azure Data Factory UI'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
-ms.topic: article
-ms.date: 01/10/2018
-ms.author: jingwang
+ms.topic: conceptual
+ms.date: 06/18/2018
+ms.author: yexu
 
 ---
 # Copy Data tool in Azure Data Factory
@@ -44,7 +44,7 @@ This tool allows you to easily move data from a wide variety of sources to desti
 5. Review **summary** of Data Factory entities to be created. 
 6. **Edit** the pipeline to update settings for the copy activity as needed. 
 
- The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
+   The tool is designed with big data in mind from the start, with support for diverse data and object types. You can use it to move hundreds of folders, files, or tables. The tool supports automatic data preview, schema capture and automatic mapping, and data filtering as well.
 
 ![Copy Data tool](./media/copy-data-tool/copy-data-tool.png)
 

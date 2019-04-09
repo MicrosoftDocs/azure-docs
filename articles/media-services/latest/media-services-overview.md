@@ -4,7 +4,7 @@ description: This article provides a high-level overview of Media Services and p
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, stream, broadcast, live, offline
@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/27/2018
+ms.date: 03/29/2019
 ms.author: juliako
 ms.custom: mvc
 #Customer intent: As a developer or a content provider, I want to encode, stream (on demand or live), analyze my media content so that my customers can: view the content on a wide variety of browsers and devices, gain valuable insights from recorded content.
@@ -22,14 +22,10 @@ ms.custom: mvc
 
 # What is Azure Media Services v3?
 
-> [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
-> * [Version 2 - GA](../previous/media-services-overview.md)
-> * [Version 3 - Preview](media-services-overview.md)
+Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
 
 > [!NOTE]
-> The latest version of Azure Media Services is in Preview and may be referred to as v3.
-
-Azure Media Services is a cloud-based platform that enables you to build solutions that achieve broadcast-quality video streaming, enhance accessibility and distribution, analyze content, and much more. Whether you are an application developer, a call center, a government agency, an entertainment company, Media Services helps you create applications that deliver media experiences of outstanding quality to large audiences on today’s most popular mobile devices and browsers. 
+> Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ## What can I do with Media Services?
 
@@ -38,56 +34,54 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Deliver videos in various formats so they can be played on a wide variety of browsers and devices. For both on-demand and live streaming delivery to various clients (mobile devices, TV, PC, etc.) the video and audio content needs to be encoded and packaged appropriately. To see how to deliver and stream such content, see [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md).
 * Stream live sporting events to a large online audience, such as soccer, baseball, college and high school sports, and more. 
 * Broadcast public meetings and events such as town halls, city council meetings, and legislative bodies.
-* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data. 
+* Analyze recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can extract speech-to-text and build search indexes and dashboards. Then, they can extract intelligence around common complaints, sources of complaints, and other relevant data.
 * Create a subscription video service and stream DRM protected content when a customer (for example, a movie studio) needs to restrict the access and use of proprietary copyrighted work.
 * Deliver offline content for playback on airplanes, trains, and automobiles. A customer might need to download content onto their phone or tablet for playback when they anticipate to be disconnected from the network.
-* Add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language). 
-* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc.
-* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event.) 
+* Implement an educational e-learning video platform with Azure Media Services and [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) for speech-to-text captioning, translating to multi-languages, etc. 
+* Use Azure Media Services together with [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
+* Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
 
-## v3 capabilities
+## How can I get started with v3? 
 
-v3 is based on a unified API surface which exposes both management and operations functionality built on **Azure Resource Manager**. This version provides the following capabilities:  
+Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
-* **Transforms** that help you define simple workflows of media processing or analytics tasks. Transform is a recipe for processing your video and audio files. You can then apply it repeatedly to process all the files in your content library, by submitting jobs to the Transform.
-* **Jobs** to process (encode or analyze) your videos. An input content can be specified on a job using HTTP(s) URLs, SAS URLs, or paths to files located in Azure Blob storage. 
-* **Notifications** that monitor job progress or states, or Live Channel start/stop and error events. Notivications are integrated with the Azure Event Grid notification system. You can easily subscribe to events on several resources in Azure Media Services. 
-* **Azure Resource Management** templates can be used to create and deploy Transforms, Streaming Endpoints, Channels, and more.
-* **Role-based access control** can be set at the resource level, allowing you to lock down access to specific resources like Transforms, Channels, and more.
-* **Client SDKs** in multiple languages: .NET, .NET core, Python, Go, Java, and Node.js.
+Before you start developing, review [Fundamental concepts](concepts-overview.md)<br/>
 
-## How can I get started with v3?
+### Quickstarts  
 
-As a developer, you can use Media Services [REST API](https://go.microsoft.com/fwlink/p/?linkid=873030) or client libraries that allow you to interact with the REST API, to easily create, manage, and maintain custom media workflows. Microsoft generates and supports the following client libraries: 
+The quickstarts show fundamental day-1 instructions for new customers to quickly try out Media Services.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
-* [.NET languages](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0)
-* [.NET Core](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/1.0.0) (choose the **.NET CLI** tab)
-* Java
+* [Stream video files - .NET](stream-files-dotnet-quickstart.md)
+* [Stream video files - CLI](stream-files-cli-quickstart.md)
+* [Stream video files - Node.js](stream-files-nodejs-quickstart.md)
+    
+### Tutorials 
 
-  Add following dependency in your project:
-  
-  ```
-  <dependency>
-    <groupId>com.microsoft.azure.media-2018-03-30-preview</groupId>
-    <artifactId>azure-mgmt- media</artifactId>
-    <version>0.0.1-beta</version>
-  </dependency> 
-  ```
-* Node.js 
+The tutorials show scenario-based procedures for some of the top Media Services tasks.
 
-  Use the following command:
-  
-  ```
-  npm install azure-arm-mediaservices
-  ```
-  
-* [Python](https://pypi.org/project/azure-mgmt-media/1.0.0rc1/)
-* [Go](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/mediaservices/mgmt/2018-03-30-preview/media)
+* [Encode remote file and stream video – REST](stream-files-tutorial-with-rest.md)
+* [Encode uploaded file and stream video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analyze your video - .NET](analyze-videos-tutorial-with-api.md)
+* [AES-128 dynamic encryption - .NET](protect-with-aes128.md)
+    
+### How-to guides
 
-Media Services provides [Swagger files](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media) that you can use to generate SDKs for your preferred language/technology.  
+Articles contain code samples that demonstrate how to complete a task. In this section, you will find many examples, here are just a few of them:
+
+* [Create an account - CLI](create-account-cli-how-to.md)
+* [Access APIs - CLI](access-api-cli-how-to.md)
+* [Start developing with SDKs](developers-guide.md)
+* [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
+* [Monitor events - Portal](monitor-events-portal-how-to.md)
+* [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
+* [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 
 ## Next steps
 
-To see how easy it is to start encoding and streaming video files, check out [Stream files](stream-files-dotnet-quickstart.md). 
+How can I get started with v3? 
+
+> [!div class="nextstepaction"]
+> [Learn about fundamental concepts](concepts-overview.md)<br/>
+> [Develop with the Media Services v3 API using SDKs](developers-guide.md) 
 

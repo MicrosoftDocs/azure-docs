@@ -1,27 +1,19 @@
 ---
-title: Back up Windows system state to Azure | Microsoft Docs
+title: Back up Windows system state to Azure
 description: Learn to back up the system state of Windows Server and/or Windows computers to Azure.
 services: backup
-documentationcenter: ''
 author: saurabhsensharma
-manager: carmonm
-editor: ''
+manager: shivamg
 keywords: how to backup; how to back up; backup files and folders
-
-ms.assetid: 5b15ebf1-2214-4722-b937-96e2be8872bb
 ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2017
-ms.author: saurse;markgal
-
+ms.topic: conceptual
+ms.date: 05/23/2018
+ms.author: saurse
 ---
 # Back up Windows system state in Resource Manager deployment
 This article explains how to back up your Windows Server system state to Azure. It's a tutorial intended to walk you through the basics.
 
-If you want to know more about Azure Backup, read this [overview](backup-introduction-to-azure-backup.md).
+If you want to know more about Azure Backup, read this [overview](backup-overview.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) that lets you access any Azure service.
 
@@ -53,7 +45,7 @@ To back up your Windows Server System State, you need to create a Recovery Servi
     Or
     * select **Use existing** and click the drop-down menu to see the available list of Resource groups.
 
-  For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+   For complete information on Resource groups, see the [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 7. Click **Location** to select the geographic region for the vault. This choice determines the geographic region where your backup data is sent.
 
@@ -132,9 +124,9 @@ Now that you've created a vault, configure it for backing up Windows System Stat
     The vault credentials download to your Downloads folder. After the vault credentials finish downloading, you see a pop-up asking if you want to open or save the credentials. Click **Save**. If you accidentally click **Open**, let the dialog that attempts to open the vault credentials, fail. You cannot open the vault credentials. Proceed to the next step. The vault credentials are in the Downloads folder.   
 
     ![vault credentials finished downloading](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent. 
->
+   > [!NOTE]
+   > The vault credentials must be saved only to a location that is local to the Windows Server on which you intend to use the agent.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
@@ -165,13 +157,18 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
 The agent is now installed and your machine is registered to the vault. You're ready to configure and schedule your backup.
 
-## Back up Windows Server System State 
+## Back up Windows Server System State
 The initial backup includes two tasks:
 
 * Schedule the backup
 * Back up  System State for the first time
 
 To complete the initial backup, use the Microsoft Azure Recovery Services agent.
+
+> [!NOTE]
+> You can back up System State on Windows Server 2008 R2 through Windows Server 2016. System State back up is not supported on client SKUs. System State is not shown as an option for Windows clients, or Windows Server 2008 SP2 machines.
+>
+>
 
 ### To schedule the backup job
 
@@ -191,7 +188,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
 6. Click **Next**.
 
-7. Select the required Backup frequency and the retention policy for your System State backups in the subsequent pages. 
+7. Select the required Backup frequency and the retention policy for your System State backups in the subsequent pages.
 
 8. On the Confirmation page, review the information, and then click **Finish**.
 
@@ -217,7 +214,7 @@ After the initial backup is completed, the **Job completed** status appears in t
   ![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](https://aka.ms/azurebackup_feedback).
 
 ## Next steps
 * Get more details about [backing up Windows machines](backup-configure-vault.md).

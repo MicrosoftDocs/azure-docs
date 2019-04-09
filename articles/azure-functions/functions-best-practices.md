@@ -4,17 +4,13 @@ description: Learn best practices and patterns for Azure Functions.
 services: functions
 documentationcenter: na
 author: wesmc7777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, patterns, best practice, functions, event processing, webhooks, dynamic compute, serverless architecture
 
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 
@@ -24,7 +20,7 @@ ms.custom: H1Hack27Feb2017
 
 # Optimize the performance and reliability of Azure Functions
 
-This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/overview/serverless-computing/) function apps. 
+This article provides guidance to improve the performance and reliability of your [serverless](https://azure.microsoft.com/solutions/serverless/) function apps. 
 
 ## General best practices
 
@@ -40,7 +36,7 @@ to be processed by a queue trigger function. This approach allows you to defer t
 
 ### Cross function communication
 
-[Durable Functions](durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
+[Durable Functions](durable/durable-functions-concepts.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) are built to manage state transitions and communication between multiple functions.
 
 If not using Durable Functions or Logic Apps to integrate with multiple functions, it is generally a best practice to use storage queues for cross function communication.  The main reason is storage queues are cheaper and much easier to provision. 
 
@@ -77,13 +73,17 @@ Take advantage of defensive measures already provided for components you use in 
 
 There are a number of factors which impact how instances of your function app scale. The details are provided in the documentation for [function scaling](functions-scale.md).  The following are some best practices to ensure optimal scalability of a function app.
 
+### Share and manage connections
+
+Re-use connections to external resources whenever possible.  See [how to manage connections in Azure Functions](./manage-connections.md).
+
 ### Don't mix test and production code in the same function app
 
 Functions within a function app share resources. For example, memory is shared. If you're using a function app in production, don't add test-related functions and resources to it. It can cause unexpected overhead during production code execution.
 
 Be careful what you load in your production function apps. Memory is averaged across each function in the app.
 
-If you have a shared assembly referenced in multiple .Net functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
+If you have a shared assembly referenced in multiple .NET functions, put it in a common shared folder. Reference the assembly with a statement similar to the following example if using C# Scripts (.csx): 
 
 	#r "..\Shared\MyAssembly.dll". 
 
@@ -116,7 +116,8 @@ Settings in the hosts file apply across all functions within the app, within a *
 Other host configuration options can be found [in the host configuration document](functions-host-json.md).
 
 ## Next steps
+
 For more information, see the following resources:
 
-Because Azure Functions uses Azure App Service, you should also be aware of  App Service guidelines.
-* [Patterns and Practices HTTP Performance Optimizations](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)
+* [How to manage connections in Azure Functions](manage-connections.md)
+* [Azure App Service best practices](../app-service/app-service-best-practices.md)

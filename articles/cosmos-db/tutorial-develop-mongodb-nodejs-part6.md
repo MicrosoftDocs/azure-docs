@@ -1,28 +1,20 @@
 ---
-title: "MongoDB, Angular, and Node tutorial for Azure - Part 6 | Microsoft Docs"
+title: Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
+titleSuffix: Azure Cosmos DB
 description: Part 6 of the tutorial series on creating a MongoDB app with Angular and Node on Azure Cosmos DB using the exact same APIs you use for MongoDB
-services: cosmos-db
-documentationcenter: ''
-author: SnehaGunda
-manager: kfile
-editor: ''
-
-ms.assetid: 
+author: johnpapa
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 09/05/2017
-ms.author: sngun
-ms.custom: mvc
-
+ms.date: 12/26/2018
+ms.author: jopapa
+ms.custom: seodec18
+ms.reviewer: sngun
 ---
-# Create a MongoDB app with Angular and Azure Cosmos DB - Part 6: Add Post, Put, and Delete functions to the app
+# Create an Angular app with Azure Cosmos DB's API for MongoDB - Add CRUD functions to the app
 
-This multi-part tutorial demonstrates how to create a new [MongoDB API](mongodb-introduction.md) app written in Node.js with Express and Angular and then connect it to your Azure Cosmos DB database.
-
-Part 6 of the tutorial builds on [Part 5](tutorial-develop-mongodb-nodejs-part5.md) and covers the following tasks:
+This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md). Part 6 of the tutorial builds on [Part 5](tutorial-develop-mongodb-nodejs-part5.md) and covers the following tasks:
 
 > [!div class="checklist"]
 > * Create Post, Put, and Delete functions for the hero service
@@ -53,7 +45,7 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 
    ```javascript
    function postHero(req, res) {
-     const originalHero = { id: req.body.id, name: req.body.name, saying: req.body.saying };
+     const originalHero = { uid: req.body.uid, name: req.body.name, saying: req.body.saying };
      const hero = new Hero(originalHero);
      hero.save(error => {
        if (checkServerError(res, error)) return;
@@ -87,13 +79,13 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     });
     ```
 
-5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, click the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then click the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
+5. Check that everything worked by running the app. In Visual Studio Code, save all your changes, select the **Debug** button ![Debug icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/debug-button.png) on the left side, then select the **Start Debugging** button ![Start debugging icon in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/start-debugging-button.png).
 
 6. Now go back to your internet browser and open the Developer tools Network tab by pressing F12 on most machines. Navigate to [http://localhost:3000](http://localhost:3000) to watch the calls made over the network.
 
     ![Networking tab in Chrome that shows network activity](./media/tutorial-develop-mongodb-nodejs-part6/add-new-hero.png)
 
-7. Add a new hero by clicking the **Add New Hero** button. Enter an ID of "999", name of "Fred", and saying of "Hello", then click **Save**. You should see in the Networking tab you've sent a POST request for a new hero. 
+7. Add a new hero by selecting the **Add New Hero** button. Enter an ID of "999", name of "Fred", and saying of "Hello", then select **Save**. You should see in the Networking tab you've sent a POST request for a new hero. 
 
     ![Networking tab in Chrome that shows network activity for Get and Post functions](./media/tutorial-develop-mongodb-nodejs-part6/post-new-hero.png)
 
@@ -104,11 +96,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
 1. In **routes.js**, add the `put` and `delete` routers after the post router.
 
     ```javascript
-    router.put('/hero/:id', (req, res) => {
+    router.put('/hero/:uid', (req, res) => {
       heroService.putHero(req, res);
     });
 
-    router.delete('/hero/:id', (req, res) => {
+    router.delete('/hero/:uid', (req, res) => {
       heroService.deleteHero(req, res);
     });
     ```
@@ -121,11 +113,11 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
    ```javascript
    function putHero(req, res) {
      const originalHero = {
-       id: parseInt(req.params.id, 10),
+       uid: parseInt(req.params.uid, 10),
        name: req.body.name,
        saying: req.body.saying
      };
-     Hero.findOne({ id: originalHero.id }, (error, hero) => {
+     Hero.findOne({ uid: originalHero.uid }, (error, hero) => {
        if (checkServerError(res, error)) return;
        if (!checkFound(res, hero)) return;
 
@@ -140,8 +132,8 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
    }
 
    function deleteHero(req, res) {
-     const id = parseInt(req.params.id, 10);
-     Hero.findOneAndRemove({ id: id })
+     const uid = parseInt(req.params.uid, 10);
+     Hero.findOneAndRemove({ uid: uid })
        .then(hero => {
          if (!checkFound(res, hero)) return;
          res.status(200).json(hero);
@@ -172,17 +164,17 @@ Before starting this part of the tutorial, ensure you've completed the steps in 
     };
     ```
 
-4. Now that we've updated the code, click the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
+4. Now that we've updated the code, select the **Restart** button ![Restart button in Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part6/restart-debugger-button.png) in Visual Studio Code.
 
-5. Refresh the page in your internet browser and click the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Click the **Save** button to save the new hero.
+5. Refresh the page in your internet browser and select the **Add New Hero** button. Add a new hero with an ID of "9", name of "Starlord", and saying "Hi". Select the **Save** button to save the new hero.
 
-6. Now select the **Starlord** hero, and change the saying from "Hi" to "Bye", then click the **Save** button. 
+6. Now select the **Starlord** hero, and change the saying from "Hi" to "Bye", then select the **Save** button. 
 
     You can now select the ID in the Network tab to show the payload. You can see in the payload that the saying is now set to "Bye".
 
     ![Heroes app and Networking tab showing the payload](./media/tutorial-develop-mongodb-nodejs-part6/put-hero-function.png) 
 
-    You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation. Try this out by clicking the "Delete" button for the hero named "Fred".
+    You can also delete one of the heroes in the UI, and see the times it takes to complete the delete operation. Try this out by selecting the "Delete" button for the hero named "Fred".
 
     ![Heroes app and the Networking tab showing the time to complete the functions](./media/tutorial-develop-mongodb-nodejs-part6/times.png) 
 

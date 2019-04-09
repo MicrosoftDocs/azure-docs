@@ -2,20 +2,12 @@
 title: Previewing drive usage for an Azure Import/Export export job - v1 | Microsoft Docs
 description: Learn how to preview the list of blobs you've selected for an export job in the Azure Import/Export service.
 author: muralikk
-manager: syadav
-editor: tysonn
 services: storage
-documentationcenter: ''
-
-ms.assetid: 7707d744-7ec7-4de8-ac9b-93a18608dc9a
 ms.service: storage
-ms.workload: storage 
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-
+ms.subservice: common
 ---
 
 # Previewing drive usage for an export job
@@ -33,7 +25,7 @@ You can use the following parameters when using the `PreviewExport` command of t
 |**/sn:**<StorageAccountName\>|Required. The name of the storage account for the export job.|  
 |**/sk:**<StorageAccountKey\>|Required if and only if a container SAS is not specified. The account key for the storage account for the export job.|  
 |**/csas:**<ContainerSas\>|Required if and only if a storage account key is not specified. The container SAS for listing the blobs to be exported in the export job.|  
-|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation of the Import/Export service REST API.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](/rest/api/storageimportexport/jobs) operation of the Import/Export service REST API.|  
 |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500GB, 1.5TB.|  
 
 ## Command-line example

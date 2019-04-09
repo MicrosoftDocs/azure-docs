@@ -1,15 +1,17 @@
 ---
 title: "Guidance for SQL Database multi-tenant app example - Wingtip SaaS | Microsoft Docs"
 description: "Provides steps and guidance for installing and running the sample multi-tenant application that uses Azure SQL Database, the Wingtip Tickets SaaS example."
-keywords: "sql database tutorial"
-services: "sql-database"
-author: "MightyPen"
-manager: "craigg"
-ms.service: "sql-database"
-ms.custom: "scale out apps"
-ms.topic: "article"
-ms.date: 04/01/2018
-ms.author: "genemi"
+services: sql-database
+ms.service: sql-database
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MightyPen
+ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
+ms.date: 12/18/2018
 ---
 # General guidance for working with Wingtip Tickets sample SaaS apps
 
@@ -86,7 +88,7 @@ To ensure a successful demo connection, all servers have a [firewall rule](sql-d
 
    ![catalog server](media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Demo credentials are: Login = *developer*, Password = *P@ssword1*
+3. Demo credentials are: Login = *developer*, Password = *P\@ssword1*
 
     The image below demonstrates the login for the *Database per tenant* pattern. 
     ![connection](media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)

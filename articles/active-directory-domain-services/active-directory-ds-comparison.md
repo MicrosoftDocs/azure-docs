@@ -3,18 +3,19 @@ title: 'Azure AD Domain Services: Compare Azure AD Domain Services to DIY domain
 description: Comparing Azure Active Directory Domain Services to DIY domain controllers
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/07/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # How to decide if Azure AD Domain Services is right for your use-case
@@ -110,9 +111,9 @@ You may have deployment use-cases where you need some of the capabilities offere
 >
 >
 
-We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx) to help make DIY installations easier.
+We have published [guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100) to help make DIY installations easier.
 
 ## Related Content
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](active-directory-ds-scenarios.md)
-* [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx)
+* [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)

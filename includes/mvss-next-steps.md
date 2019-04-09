@@ -1,3 +1,10 @@
+---
+author: mayanknayar
+ms.service: virtual-machine-scale-sets
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: manayar
+---
 You can deploy the preceding template by following the [Azure Resource Manager documentation](../articles/azure-resource-manager/resource-group-template-deploy.md).
 
 You can start this tutorial series from the [minimum viable scale set template article](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-mvss-start.md).

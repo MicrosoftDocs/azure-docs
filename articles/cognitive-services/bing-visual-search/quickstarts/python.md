@@ -1,91 +1,93 @@
 ---
-title: Python Quickstart for Bing Visual Search API | Microsoft Docs
-titleSuffix: Bing Web Search APIs - Cognitive Services
-description: Shows how to quickly get started using the Visual Search API to get insights about an image.
+title: "Quickstart: Get image insights using the Bing Visual Search REST API and Python"
+titleSuffix: Azure Cognitive Services
+description: Learn how to upload an image to the Bing Visual Search API and get insights about it.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
-ms.date: 4/19/2018
+ms.subservice: bing-visual-search
+ms.topic: quickstart
+ms.date: 4/02/2019
 ms.author: scottwhi
 ---
 
-# Your first Bing Visual Search query in Python
+# Quickstart: Get image insights using the Bing Visual Search REST API and Python
 
-Bing Visual Search API lets you send a request to Bing to get insights about an image. To call the API, send an HTTP POST  request to https:\/\/api.cognitive.microsoft.com/bing/v7.0/images/visualsearch. The response contains JSON objects that you parse to get the insights.
+Use this quickstart to make your first call to the Bing Visual Search API and view the results. This Python application uploads an image to the API and displays the information it returns. Though this application is written in Python, the API is a RESTful Web service compatible with most programming languages.
 
-This article includes a simple console application that sends a Bing Visual Search API request and displays the JSON search results. While this application is written in Python, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+When you upload a local image, the form data must include the `Content-Disposition` header. You must set its `name` parameter to "image", and you can set the `filename` parameter to any string. The contents of the form include the binary data of the image. The maximum image size you can upload is 1 MB.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
+
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+
+--boundary_1234-abcd--
+```
 
 ## Prerequisites
 
-You need [Python 3](https://www.python.org/) to run this code.
+* [Python 3.x](https://www.python.org/)
 
-For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+[!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## Running the walkthrough
+## Initialize the application
 
-To run this application, follow these steps:
+1. Create a new Python file in your favorite IDE or editor, and add the following `import` statement:
 
-1. Create a new Python project in your favorite IDE or editor.
-2. Create a file named visualsearch.py and add the code shown in this quickstart.
-3. Replace the `SUBSCRIPTION_KEY` value with your subscription key.
-4. Run the program.
+    ```python
+    import requests, json
+    ```
 
+2. Create variables for your subscription key, endpoint, and the path to the image you're uploading:
 
-```python
-"""Bing Visual Search example"""
+    ```python
 
-# Download and install Python at https://www.python.org/
-# Run the following in a command console window
-# pip3 install requests
+    BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    SUBSCRIPTION_KEY = 'your-subscription-key'
+    imagePath = 'your-image-path'
+    ```
 
-import requests, json
+3. Create a dictionary object to hold your request's header information. Bind your subscription key to the string `Ocp-Apim-Subscription-Key`, as shown below:
 
-BASE_URI = 'https://api.cognitive.microsoft.com/bing/v7.0/images/visualsearch'
+    ```python
+    HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```
 
-SUBSCRIPTION_KEY = '<yoursubscriptionkeygoeshere>'
+4. Create another dictionary to contain your image, which is opened and uploaded when you send the request:
 
-HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
+    ```python
+    file = {'image' : ('myfile', open(imagePath, 'rb'))}
+    ```
 
-# To get an insights, call the /images/search endpoint. Get the token from
-# the imageInsightsToken field in the Image object.
-insightsToken = 'ccid_tmaGQ2eU*mid_D12339146CFEDF3D409CC7A66D2C98D0D71904D4*simid_608022145667564759*thid_OIP.tmaGQ2eUI1yq3yll!_jn9kwHaFZ'
+## Parse the JSON response
 
-formData = '{"imageInfo":{"imageInsightsToken":"' + insightsToken + '"}}'
+1. Create a method called `print_json()` to take in the API response, and print the JSON:
 
+    ```python
+    def print_json(obj):
+        """Print the object as json"""
+        print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
+    ```
 
-file = {'knowledgeRequest' : (None, formData)}
+## Send the request
 
-def main():
-    
+1. Use `requests.post()` to send a request to the Bing Visual Search API. Include the string for your endpoint, header, and file information. Print `response.json()` with `print_json()`:
+
+    ```python
     try:
         response = requests.post(BASE_URI, headers=HEADERS, files=file)
         response.raise_for_status()
         print_json(response.json())
-
+    
     except Exception as ex:
         raise ex
-
-
-def print_json(obj):
-    """Print the object as json"""
-    print(json.dumps(obj, sort_keys=True, indent=2, separators=(',', ': ')))
-
-
-
-# Main execution
-if __name__ == '__main__':
-    main()
-```
+    ```
 
 ## Next steps
 
-[Get insights about an image you upload](../upload-image.md#using-python)  
-[Bing Visual Search single-page app tutorial](../tutorial-bing-visual-search-single-page-app.md)  
-[Bing Visual Search overview](../overview.md)  
-[Try it](https://aka.ms/bingvisualsearchtryforfree)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
-[Bing Visual Search API reference](https://aka.ms/bingvisualsearchreferencedoc)
+> [!div class="nextstepaction"]
+> [Create a Visual Search single-page web app](../tutorial-bing-visual-search-single-page-app.md)

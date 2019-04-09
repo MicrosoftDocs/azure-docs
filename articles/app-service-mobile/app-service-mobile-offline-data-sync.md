@@ -62,7 +62,7 @@ A local store is the data persistence layer on the client device. The Azure Mobi
 default local store implementation. On Windows, Xamarin and Android, it is based on SQLite. On iOS, it is based
 on Core Data.
 
-To use the SQLite-based implementation on Windows Phone or Windows Store 8.1, you need to install a SQLite
+To use the SQLite-based implementation on Windows Phone or Microsoft Store, you need to install a SQLite
 extension. For more information, see [Universal Windows Platform: Enable offline sync]. Android and iOS ship
 with a version of SQLite in the device operating system itself, so it is not necessary to reference your own
 version of SQLite.
@@ -73,7 +73,7 @@ format on the mobile client, you can define a local store that uses SQLCipher fo
 ## What is a sync context?
 A *sync context* is associated with a mobile client object (such as `IMobileServiceClient` or `MSClient`)
 and tracks changes that are made with sync tables. The sync context maintains an *operation queue*, which
-keeps an ordered list of CUD operations (Create, Update, Delete) that is later be sent to the server.
+keeps an ordered list of CUD operations (Create, Update, Delete) that is later sent to the server.
 
 A local store is associated with the sync context using an initialize method such as
 `IMobileServicesSyncContext.InitializeAsync(localstore)` in the [.NET client SDK].

@@ -8,7 +8,7 @@ manager: jeconnoc
 
 ms.author: cynthn
 ms.date: 10/09/2017
-ms.topic: howto
+ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
@@ -17,13 +17,15 @@ ms.workload: infrastructure
 ---
 # How to enable nested virtualization in an Azure VM
 
-Nested virtualization is supported in the Dv3 and Ev3 series of Azure virtual machines. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments. 
+Nested virtualization is supported in several Azure virtual machine families. This capability provides great flexibility in supporting scenarios such as development, testing, training, and demonstration environments.   
 
-This article steps through enabling nested virtualization on an Azure VM and configuring Internet connectivity to that guest virtual machine.
+This article steps through enabling Hyper-V on an Azure VM and configuring Internet connectivity to that guest virtual machine.
 
-## Create a Dv3 or Ev3 series Azure VM
+## Create a nesting capable Azure VM
 
-Create a new Windows Server 2016 Azure VM and choose a size from the Dv3 or Ev3 series. Ensure you choose a size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
+Create a new Windows Server 2016 Azure VM.  For quick reference, all v3 virtual machines support nested virtualization. For a complete list of virtual machine sizes that support nesting, check out the [Azure Compute Unit article](acu.md).
+
+Remember to choose a VM size large enough to support the demands of a guest virtual machine. In this example, we are using a D3_v3 size Azure VM. 
 
 You can view the regional availability of Dv3 or Ev3 series virtual machines [here](https://azure.microsoft.com/regions/services/).
 
@@ -153,7 +155,7 @@ Follow the steps below to configure DHCP on the host virtual machine for dynamic
   
 4. Define an IP Range for your DCHP Server (for example, 192.168.0.100 to 192.168.0.200).
   
-5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway.
+5. Click **Next** until the Default Gateway page. Enter the IP Address you created earlier (for example, 192.168.0.1) as the Default Gateway, then click **Add**.
   
 6. Click **Next** until the wizard completes, leaving all default values, then click **Finish**.
     
@@ -176,3 +178,7 @@ In this example you will use an address in the 192.168.0.0/24 range.
 
 In the guest virtual machine, open your browser and navigate to a web page.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
+
+## Set up intranet connectivity for the guest virtual machine
+
+For instructions on how to enable transparent connectivity between Guest VMs and Azure VMs, please reference [this document](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization-azure-virtual-network).

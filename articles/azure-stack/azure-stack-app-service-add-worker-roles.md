@@ -1,10 +1,10 @@
-﻿---
+---
 title: Scale out worker roles in App Services - Azure Stack  | Microsoft Docs
 description: Detailed guidance for scaling Azure Stack App Services
 services: azure-stack
 documentationcenter: ''
-author: apwestgarth
-manager: stefsch
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.assetid: 3cbe87bd-8ae2-47dc-a367-51e67ed4b3c0
@@ -13,9 +13,10 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/08/2018
-ms.author: anwestg
-ms.reviewer: brenduns
+ms.date: 02/22/2010
+ms.author: jeffgilb
+ms.reviewer: anwestg
+ms.lastreviewed: 06/08/2018
 
 ---
 # App Service on Azure Stack: Add more infrastructure or worker roles
@@ -33,11 +34,6 @@ If you are not sure what was deployed with the default App Service on Azure Stac
 
 Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale Sets and as such takes advantage of the scaling capabilities of this workload. Therefore, all scaling of the worker tiers is done via the App Service Admin.
 
-> [!IMPORTANT]
-> Currently it is not possible to scale virtual machine scale sets in the portal as identified in the Azure Stack release notes,  therefore use the PowerShell example to scale out.
->
->
-
 ## Add additional workers with PowerShell
 
 1. [Setup the Azure Stack Admin environment in PowerShell](azure-stack-powershell-configure-admin.md)
@@ -48,7 +44,7 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
     ##### Scale out the AppService Role instances ######
    
     # Set context to AzureStack admin.
-    Add-AzureRmAccount -EnvironmentName AzureStackAdmin
+    Login-AzureRmAccount -EnvironmentName AzureStackAdmin
                                                  
     ## Name of the Resource group where AppService is deployed.
     $AppServiceResourceGroupName = "AppService.local"
@@ -75,9 +71,9 @@ Azure App Service on Azure Stack deploys all roles using Virtual Machine Scale S
 
 3. Monitor the status of the new role instances in the App Service Administration, to check the status of an individual role instance click the role type in the list.
 
-## Add additional workers directly within the App Service Resource Provider Admin.
+## Add additional workers using the administration portal
 
-1. Log in to the Azure Stack administration portal as the service administrator.
+1. Sign in to the Azure Stack administration portal as the service administrator.
 
 2. Browse to **App Services**.
 

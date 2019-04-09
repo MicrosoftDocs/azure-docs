@@ -55,7 +55,7 @@ The system is made up of the following components:
   * Create an account and subscribe to get API keys.
   * Access analytics on their own usage.
 
-For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](http://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
+For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
  
  * Common API requirements and challenges
  * Decoupling APIs and presenting facades
@@ -88,7 +88,7 @@ In addition to these system groups, administrators can create custom groups or [
 For more information, see  [How to create and use groups][How to create and use groups].
 
 ## <a name="developers"> </a> Developers
-Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can be subscribe to the products that grant visibility to those groups.
+Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [Developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
 
 When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when making calls into the product's APIs.
 
@@ -97,7 +97,7 @@ For more information, see [How to create or invite developers][How to create or 
 ## <a name="policies"> </a> Policies
 Policies are a powerful capability of API Management that allow the Azure portal to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer, and many other policies are available.
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) and [Set variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) and [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](/azure/api-management/api-management-advanced-policies#choose) and [Set variable](/azure/api-management/api-management-advanced-policies#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) and [Policy expressions](/azure/api-management/api-management-policy-expressions).
 
 
 For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings].

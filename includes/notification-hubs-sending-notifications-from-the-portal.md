@@ -1,3 +1,10 @@
+---
+author: spelluru
+ms.service: service-bus
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: spelluru
+---
 
 
 Push notifications are normally sent in a back-end service like Mobile Apps or ASP.NET using a compatible library. If a library is not available for your back-end you can also use the REST API directly to send notification messages.

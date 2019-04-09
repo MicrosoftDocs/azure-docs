@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Create and use disks for scale sets with Azure CLI 2.0 | Microsoft Docs
-description: Learn how to use the Azure CLI 2.0 to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
+title: Tutorial - Create and use disks for scale sets with Azure CLI | Microsoft Docs
+description: Learn how to use the Azure CLI to create and use Managed Disks with virtual machine scale set, including how to add, prepare, list, and detach disks.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: iainfou
+ms.author: cynthn
 ms.custom: mvc
 
 ---
-# Tutorial: Create and use disks with virtual machine scale set with the Azure CLI 2.0
+# Tutorial: Create and use disks with virtual machine scale set with the Azure CLI
 Virtual machine scale sets use disks to store the VM instance's operating system, applications, and data. As you create and manage a scale set, it is important to choose a disk size and configuration appropriate to the expected workload. This tutorial covers how to create and manage VM disks. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.29 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 
 ## Default Azure disks
@@ -91,13 +91,13 @@ While the above table identifies max IOPS per disk, a higher level of performanc
 You can create and attach disks when you create a scale set, or with an existing scale set.
 
 ### Attach disks at scale set creation
-First, create a resource group with the [az group create](/cli/azure/group#az_group_create) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
+First, create a resource group with the [az group create](/cli/azure/group) command. In this example, a resource group named *myResourceGroup* is created in the *eastus* region.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Create a virtual machine scale set with the [az vmss create](/cli/azure/vmss#az_vmss_create) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist. Two disks are created with the `--data-disk-sizes-gb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
+Create a virtual machine scale set with the [az vmss create](/cli/azure/vmss) command. The following example creates a scale set named *myScaleSet*, and generates SSH keys if they do not exist. Two disks are created with the `--data-disk-sizes-gb` parameter. The first disk is *64* GB in size, and the second disk is *128* GB:
 
 ```azurecli-interactive
 az vmss create \
@@ -113,7 +113,7 @@ az vmss create \
 It takes a few minutes to create and configure all the scale set resources and VM instances.
 
 ### Attach a disk to existing scale set
-You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [az vmss disk attach](/cli/azure/vmss/disk#az_vmss_disk_attach). The following example attaches an additional *128* GB disk:
+You can also attach disks to an existing scale set. Use the scale set created in the previous step to add another disk with [az vmss disk attach](/cli/azure/vmss/disk). The following example attaches an additional *128* GB disk:
 
 ```azurecli-interactive
 az vmss disk attach \
@@ -128,7 +128,7 @@ The disks that are created and attached to your scale set VM instances are raw d
 
 To automate the process across multiple VM instances in a scale set, you can use the Azure Custom Script Extension. This extension can execute scripts locally on each VM instance, such as to prepare attached data disks. For more information, see the [Custom Script Extension overview](../virtual-machines/linux/extensions-customscript.md).
 
-The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) that prepares all the raw attached data disks:
+The following example executes a script from a GitHub sample repo on each VM instance with [az vmss extension set](/cli/azure/vmss/extension) that prepares all the raw attached data disks:
 
 ```azurecli-interactive
 az vmss extension set \
@@ -140,7 +140,7 @@ az vmss extension set \
   --settings '{"fileUris":["https://raw.githubusercontent.com/Azure-Samples/compute-automation-configurations/master/prepare_vm_disks.sh"],"commandToExecute":"./prepare_vm_disks.sh"}'
 ```
 
-To confirm that the disks have been prepared correctly, SSH to one of the VM instances. List the connection information for your scale set with [az vmss list-instance-connection-info](/cli/azure/vmss#az_vmss_list_instance_connection_info):
+To confirm that the disks have been prepared correctly, SSH to one of the VM instances. List the connection information for your scale set with [az vmss list-instance-connection-info](/cli/azure/vmss):
 
 ```azurecli-interactive
 az vmss list-instance-connection-info \
@@ -221,7 +221,7 @@ exit
 
 
 ## List attached disks
-To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss#az_vmss_show) and query on *virtualMachineProfile.storageProfile.dataDisks*:
+To view information about disks attached to a scale set, use [az vmss show](/cli/azure/vmss) and query on *virtualMachineProfile.storageProfile.dataDisks*:
 
 ```azurecli-interactive
 az vmss show \
@@ -275,7 +275,7 @@ Information on the disk size, storage tier, and LUN (Logical Unit Number) is sho
 
 
 ## Detach a disk
-When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk#az_vmss_disk_detach) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss#az_vmss_show) in the previous section. The following example detaches LUN *2* from the scale set:
+When you no longer need a given disk, you can detach it from the scale set. The disk is removed from all VM instances in the scale set. To detach a disk from a scale set, use [az vmss disk detach](/cli/azure/vmss/disk) and specify the LUN of the disk. The LUNs are shown in the output from [az vmss show](/cli/azure/vmss) in the previous section. The following example detaches LUN *2* from the scale set:
 
 ```azurecli-interactive
 az vmss disk detach \
@@ -286,7 +286,7 @@ az vmss disk detach \
 
 
 ## Clean up resources
-To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group#az_group_delete). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
+To remove your scale set and disks, delete the resource group and all its resources with [az group delete](/cli/azure/group). The `--no-wait` parameter returns control to the prompt without waiting for the operation to complete. The `--yes` parameter confirms that you wish to delete the resources without an additional prompt to do so.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --no-wait --yes
@@ -294,7 +294,7 @@ az group delete --name myResourceGroup --no-wait --yes
 
 
 ## Next steps
-In this tutorial, you learned how to create and use disks with scale sets with the Azure CLI 2.0:
+In this tutorial, you learned how to create and use disks with scale sets with the Azure CLI:
 
 > [!div class="checklist"]
 > * OS disks and temporary disks

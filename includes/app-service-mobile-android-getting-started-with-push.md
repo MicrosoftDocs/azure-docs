@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.author: crdun
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+---
 1. In your **app** project, open the file `AndroidManifest.xml`. Add the following code after the `application` opening tag:
 
     ```xml

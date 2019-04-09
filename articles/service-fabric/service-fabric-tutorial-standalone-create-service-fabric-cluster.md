@@ -3,8 +3,8 @@ title: Tutorial install Service Fabric standalone client - Azure Service Fabric 
 description: In this tutorial you learn how to install the Service Fabric standalone client on the cluster you created in the previous tutorial article.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
-manager: timlt
+author: dkkapur
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
 ---
 # Tutorial: Install and create Service Fabric cluster
@@ -32,7 +32,7 @@ In part two of the series, you learn how to:
 
 ## Download the Service Fabric for Windows Server package
 
-Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
+Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
 
 Select the zip file and open the context menu and select **Extract All** > **Extract**.  As you extract the files, you will generate a folder on the desktop that is the same as the zip file name.
 
@@ -56,15 +56,9 @@ After updating the nodes, they appear as follows:
         }
 ```
 
-Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this after modification, with your IP address replaced in `"connectionstring": "\\\\172.31.27.1\\c$\\DiagnosticsStore"`
+Then you need to update a couple of the properties.  On line 34, you need to modify the connection string for the diagnostic store it should look like this `"connectionstring": "C:\\ProgramData\\SF\\DiagnosticsStore"`
 
-After you update the connection string be sure to create the folder.  The following command will create it, be sure to replace the ip address below with the IP address you inserted into the connection string:
-
-```powershell
-mkdir \\172.31.27.1\c$\DiagnosticsStore
-```
-
-Finally, in the `nodeTypes` section add of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should like like the following:
+Finally, in the `nodeTypes` section of the configuration add a new section to map the ephemeral ports that windows will use.  The configuration file should look like the following:
 
 ```json
 "applicationPorts": {
@@ -130,7 +124,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### Bring up Service Fabric Explorer
 
-Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http://localhost:19080/Explorer/index.html or remotely with http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+Now you can connect to the cluster with Service Fabric Explorer either directly from one of the machines with http:\//localhost:19080/Explorer/index.html or remotely with http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## Add and remove nodes
 

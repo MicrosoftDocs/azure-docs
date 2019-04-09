@@ -1,22 +1,24 @@
 ---
-title:  Manage security alerts for Azure resources by using Privileged Identity Management | Microsoft Docs
-description: Describes PIM security alerts.
+title: Configure security alerts for Azure resource roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to configure security alerts for Azure resource roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
+ms.subservice: pim
 ms.date: 04/02/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
-# Manage security alerts for Azure resources by using Privileged Identity Management
-Privileged Identity Management (PIM) for Azure Resources generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the Alerts page. 
+# Configure security alerts for Azure resource roles in PIM
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) generates alerts when there is suspicious or unsafe activity in your environment. When an alert is triggered, it shows up on the Alerts page. 
 
 ![Alerts page](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
@@ -44,3 +46,7 @@ From the Alerts page, go to **Settings**.
 
 Customize settings on the different alerts to work with your environment and security goals.
 ![Customize settings](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## Next steps
+
+- [Configure security alerts for Azure resource roles in PIM](pim-resource-roles-configure-alerts.md)

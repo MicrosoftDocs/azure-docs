@@ -12,22 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 12/10/2018
 ms.author: jeffgilb
-ms.reviewer: hector.linares
+ms.reviewer: hectorl
+ms.lastreviewed: 3/19/2018
 ---
 
 # Protect virtual machines deployed on Azure Stack
 
 Use this article as a guide to developing a plan for protecting virtual machines (VMs) that your users deploy on Azure Stack.
 
-To protect against data loss and unplanned downtime, you need to implement a backup-recovery or disaster-recovery plan for user applications and their data. This plan might be unique for each application but follows a framework established by your organization's comprehensive business continuity and disaster recovery (BC/DR) strategy. A good starting point is [Designing resilient applications for Azure](https://docs.microsoft.com/azure/architecture/resiliency), which provides general patterns and practices for application availability and resiliency.
-
->[!IMPORTANT]
-> Test your backup-recovery and disaster-recovery plans on an ongoing basis. You must to this to ensure that:
-> * The plans work
-> * The plans still meet the needs they were designed for.
+To protect against data loss and unplanned downtime, you need to implement a backup-recovery or disaster-recovery plan for user applications and their data. This plan might be unique for each application but follows a framework established by your organization's comprehensive business continuity and disaster recovery (BC/DR) strategy. A good starting point is [Azure Stack: Considerations for business continuity and disaster recovery](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## Azure Stack infrastructure recovery
 
@@ -43,6 +39,9 @@ If the Azure Stack cloud is offline for an extended time or permanently unrecove
 
 The operator of the Azure Stack cloud is responsible for creating a recovery plan for the underlying Azure Stack infrastructure and services. To learn more, read the article [Recover from catastrophic data loss](https://docs.microsoft.com/azure/azure-stack/azure-stack-backup-recover-data).
 
+## Considerations for IaaS VMs
+The operating system installed in the IaaS VM will limit which products you can use to protect the data it contains. For Windows based IaaS VMs, you can use Microsoft and partner products to protect data. For Linux based IaaS VMs, the only option is to use partner products. Refer to [this datasheet for all the BC/DR partners with validated products for Azure Stack](https://aka.ms/azurestackbcdrpartners).
+
 ## Source/target combinations
 
 Each Azure Stack cloud is deployed to one datacenter. A separate environment is required so you can recover your applications. The recovery environment can be another Azure Stack cloud in a different datacenter or the Azure public cloud. Your data sovereignty and data privacy requirements will determine the recovery environment for your application. As you enable protection for each application, you have the flexibility to choose a specific recovery option for each one. You can have applications in one subscription backing up data to another datacenter. In another subscription, you can replicate data to the Azure public cloud.
@@ -51,10 +50,10 @@ Plan your backup-recovery and disaster-recovery strategy for each application to
 
 |  | Global Azure | Azure Stack deployed into CSP datacenter and operated by CSP | Azure Stack deployed into customer datacenter and operated by customer |
 |------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| **Azure Stack deployed into CSP datacenter and operated by CSP** | User VMs are deployed to the CSP operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | CSP operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | CSP operates Azure Stack in the primary site. Customer’s datacenter is the restore or failover target. |
-| **Azure Stack deployed into customer datacenter and operated by customer** | User VMs are deployed to the customer operated Azure Stack. User VMs are restored from backup or failed over directly to Azure. | Customer operates the primary and secondary instances of Azure Stack in their own datacenters. User VMs are restored or failed over between the two Azure Stack instances. | Customer operates Azure Stack in the primary site. CSP’s datacenter is the restore or failover target. |
+| **Azure Stack deployed into CSP datacenter and operated by CSP** | User VMs are deployed to the CSP operated Azure Stack.<br><br>User VMs are restored from backup or failed over directly to Azure. | CSP operates the primary and secondary instances of Azure Stack in their own datacenters.<br><br>User VMs are restored or failed over between the two Azure Stack instances. | CSP operates Azure Stack in the primary site.<br><br>Customer’s datacenter is the restore or failover target. |
+| **Azure Stack deployed into customer datacenter and operated by customer** | User VMs are deployed to the customer operated Azure Stack.<br><br>User VMs are restored from backup or failed over directly to Azure. | Customer operates Azure Stack in the primary site.<br><br>CSP’s datacenter is the restore or failover target. | Customer operates the primary and secondary instances of Azure Stack in their own datacenters.<br><br>User VMs are restored or failed over between the two Azure Stack instances. |
 
-![Source-target combinations](media\azure-stack-manage-vm-backup\vm_backupdataflow_01.png)
+![Source-target combinations](media/azure-stack-manage-vm-backup/vm_backupdataflow_01.png)
 
 ## Application recovery objectives
 
@@ -73,7 +72,7 @@ Another metric is **Mean Time to Recover** (MTTR), which is the average time tha
 
 The most common protection scheme for VM-based applications is to use backup software. Backing up a VM typically includes the operating system, operating system configuration, application binaries, and application data. The backups are created by taking a snapshot of the volumes, disks, or the entire VM. With Azure Stack, you have the flexibility of backing up from within the context of the guest OS or from the Azure Stack storage and compute APIs. Azure Stack does not support taking backups at the hypervisor level.
  
-![Backup-restor](media\azure-stack-manage-vm-backup\vm_backupdataflow_03.png)
+![Backup-restor](media/azure-stack-manage-vm-backup/vm_backupdataflow_03.png)
 
 Recovering the application requires restoring one or more VMs to the same cloud or to a new cloud. You can target a cloud in your datacenter or the public cloud. The cloud you choose is completely within your control and is based on your data privacy and sovereignty requirements.
  
@@ -103,7 +102,7 @@ An alternate approach to supporting high availability is to replicate your appli
 
 With this approach, the application is deployed in one cloud and its VM is replicated to the other cloud. If a failover is triggered, the secondary VMs need to be powered on in the second cloud. In some scenarios, the failover creates the VMs and attaches disks to them. This process can take a long time to complete, especially with a multi-tiered application that requires a specific start-up sequence. There may also be steps that must be run before the application is ready to start servicing requests.
 
-![Replication-manual failover](media\azure-stack-manage-vm-backup\vm_backupdataflow_02.png)
+![Replication-manual failover](media/azure-stack-manage-vm-backup/vm_backupdataflow_02.png)
 
  - RTO: Downtime measured in minutes
  - RPO: Variable data loss (depending on replication frequency)

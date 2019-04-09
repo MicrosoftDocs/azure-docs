@@ -33,14 +33,14 @@ The first restarts all the VMs in the resource group.
 az vm restart --ids $(az vm list --resource-group myResourceGroup --query "[].id" -o tsv)
 ```
 
-The second gets the tagged VMs using `az resouce list` and filters to the resources that are VMs,
+The second gets the tagged VMs using `az resource list` and filters to the resources that are VMs,
 and restarts those VMs.
 
 ```bash
 az vm restart --ids $(az resource list --tag "restart-tag" --query "[?type=='Microsoft.Compute/virtualMachines'].id" -o tsv)
 ```
 
-This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Running the Azure CLI in Windows](../windows/cli-options.md).
+This sample works in a Bash shell. For options on running Azure CLI scripts on Windows client, see [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
 
 
 ## Sample script
@@ -86,12 +86,12 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Creates the virtual machines.  |
-| [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
-| [az resource list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Used with `--query` to get the IDs of the VMs using the tag. |
-| [az vm restart](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Restarts the VMs. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
+| [az group create](https://docs.microsoft.com/cli/azure/group) | Creates a resource group in which all resources are stored. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Creates the virtual machines.  |
+| [az vm list](https://docs.microsoft.com/cli/azure/vm) | Used with `--query` to ensure the VMs are provisioned before restarting them, and then to get the IDs of the VMs to restart them. |
+| [az resource list](https://docs.microsoft.com/cli/azure/vm) | Used with `--query` to get the IDs of the VMs using the tag. |
+| [az vm restart](https://docs.microsoft.com/cli/azure/vm) | Restarts the VMs. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

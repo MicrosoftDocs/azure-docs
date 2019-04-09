@@ -2,20 +2,12 @@
 title: Tools for working with Azure Storage | Microsoft Docs
 description: A list of tools that allow you to view/interact with your Azure Storage data.
 services: storage
-documentationcenter: ''
 author: dineshmurthy
-manager: jahogg
-editor: tysonn
-
-ms.assetid: e4748642-98c4-437e-b0ed-4f9641c2e894
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-
+ms.subservice: common
 ---
 # Azure Storage Client Tools
 Users of Azure Storage frequently want to be able to view/interact with their data using an Azure Storage client tool. In the tables below, we list a number of tools that allow you to do this. We put an "X" in each block if it provides the ability to either enumerate and/or access the data abstraction. The table also shows if the tools is free or not. "Trial" indicates that there is a free trial, but the full product is not free. "Y/N" indicates that a version is available for free, while a different version is available for purchase.
@@ -57,7 +49,7 @@ We've only provided a snapshot of the available Azure Storage client tools. Thes
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://storageexplorer.com/">Microsoft Azure Storage Explorer</a></td>
+    <td><a href="https://storageexplorer.com/">Microsoft Azure Storage Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -109,7 +101,7 @@ We have not verified the functionality or quality claimed by the following third
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="http://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
+    <td><a href="https://www.cerebrata.com/products/azure-management-studio/introduction">Cerabrata: Azure Management Studio</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -151,7 +143,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
+    <td><a href="https://www.cloudberrylab.com/explorer/microsoft-azure.aspx">CloudBerry Explorer</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -165,7 +157,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
+    <td><a href="https://www.gapotchenko.com/cloudcombine">Cloud Combine</a></td>
     <td>X</td>
     <td>X</td>
     <td></td>
@@ -193,7 +185,7 @@ We have not verified the functionality or quality claimed by the following third
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
+    <td><a href="https://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>

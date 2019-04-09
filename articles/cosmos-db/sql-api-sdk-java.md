@@ -1,21 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL Java API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL Java API, SDK & resources'
 description: Learn all about the SQL Java API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB SQL Java SDK.
-services: cosmos-db
-documentationcenter: java
-author: rnagpal
-manager: kfile
-editor: cgronlun
-
-ms.assetid: 7861cadf-2a05-471a-9925-0fec0599351b
+author: SnehaGunda
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-sql
 ms.devlang: java
-ms.topic: article
-ms.date: 11/14/2017
-ms.author: khdang
-ms.custom: H1Hack27Feb2017
+ms.topic: reference
+ms.date: 03/13/2019
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB Java SDK for SQL API: Release notes and resources
@@ -29,28 +22,73 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
 The SQL API Java SDK supports synchronous operations. For asynchronous support, use the [SQL API Async Java SDK](sql-api-sdk-async-java.md). 
 
-<table>
-
-<tr><td>**SDK Download**</td><td>[Maven](http://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)</td></tr>
-
-<tr><td>**API documentation**</td><td>[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)</td></tr>
-
-<tr><td>**Contribute to SDK**</td><td>[GitHub](https://github.com/Azure/azure-documentdb-java/)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Java SDK](sql-api-java-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-java-application.md)</td></tr>
-
-<tr><td>**Minimum supported runtime**</td><td>[JDK 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK Download**|[Maven](https://search.maven.org/#search%7Cgav%7C1%7Cg%3A%22com.microsoft.azure%22%20AND%20a%3A%22azure-documentdb%22)|
+|**API documentation**|[Java API reference documentation](/java/api/com.microsoft.azure.documentdb)|
+|**Contribute to SDK**|[GitHub](https://github.com/Azure/azure-documentdb-java/)|
+|**Get started**|[Get started with the Java SDK](sql-api-java-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-java-application.md)|
+|**Minimum supported runtime**|[Java Development Kit (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## Release notes
+
+### <a name="2.1.3"/>2.1.3
+* Fixed bug in PartitionKey for Hash V2.
+
+### <a name="2.1.2"/>2.1.2
+* Added support for composite indexes.
+* Fixed bug in global endpoint manager to force refresh.
+* Fixed bug for upserts with pre-conditions in direct mode.
+
+### <a name="2.1.1"/>2.1.1
+* Fixed bug in gateway address cache.
+
+### <a name="2.1.0"/>2.1.0
+* Multi-region write support added for direct mode.
+* Added support for handling IOExceptions thrown as ServiceUnavailable exceptions, from a proxy.
+* Fixed a bug in endpoint discovery retry policy.
+* Fixed a bug to ensure null pointer exceptions are not thrown in BaseDatabaseAccountConfigurationProvider.
+* Fixed a bug to ensure QueryIterator does not return nulls.
+* Fixed a bug to ensure large PartitionKey is allowed
+
+### <a name="2.0.0"/>2.0.0
+* Multi-region write support added for gateway mode.
+
+### <a name="1.16.4"/>1.16.4
+* Fixed a bug in Read partition Key ranges for a query.
+
+### <a name="1.16.3"/>1.16.3
+* Fixed a bug in setting continuation token header size in DirectHttps mode.
+
+### <a name="1.16.2"/>1.16.2
+* Added streaming fail over support.
+* Added support for custom metadata.
+* Improved session handling logic.
+* Fixed a bug in partition key range cache.
+* Fixed a NPE bug in direct mode.
+
+### <a name="1.16.1"/>1.16.1
+* Added support for Unique Index.
+* Added support for limiting continuation token size in feed-options.
+* Fixed a bug in Json Serialization (timestamp).
+* Fixed a bug in Json Serialization (enum).
+* Dependency on com.fasterxml.jackson.core:jackson-databind upgraded to 2.9.5.
+
+### <a name="1.16.0"/>1.16.0
+* Improved Connection Pooling for Direct Mode.
+* Improved Prefetch improvement for non-orderby cross partition query.
+* Improved UUID generation.
+* Improved Session consistency logic.
+* Added support for multipolygon.
+* Added support for Partition Key Range Statistics for Collection.
+* Fixed a bug in Multi-region support.
 
 ### <a name="1.15.0"/>1.15.0
 * Improved Json Serialization performance.
@@ -81,7 +119,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Fixed a few bugs in the session container that may cause an "Owner resource not found" exception for requests immediately after collection creation.
 
 ### <a name="1.9.5"/>1.9.5
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
 * Added support for change feed.
 * Added support for collection quota information through RequestOptions.setPopulateQuotaInfo.
 * Added support for stored procedure script logging through RequestOptions.setScriptLoggingEnabled.
@@ -100,7 +138,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 
 ### <a name="1.9.3"/>1.9.3
 * Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
-* Fixed a bug in the TOP query where it may throw NullReferenece exception.
+* Fixed a bug in the TOP query where it may throw NullReference exception.
 * Improved performance by reducing the number of network call for the internal caches.
 * Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
 
@@ -133,7 +171,7 @@ The SQL API Java SDK supports synchronous operations. For asynchronous support, 
 * Deprecated IPartitionResolver based custom partitioning code. Please use partitioned collections for higher storage and throughput.
 
 ### <a name="1.7.1"/>1.7.1
-* Added retry policy support for throttling.  
+* Added retry policy support for rate limiting.  
 
 ### <a name="1.7.0"/>1.7.0
 * Added time to live (TTL) support for documents.
@@ -181,6 +219,16 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |Mar 13, 2018 |--- |
+| [2.1.2](#2.1.2) |Mar 09, 2018 |--- |
+| [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
+| [2.1.0](#2.1.0) |Nov 20, 2018 |--- |
+| [2.0.0](#2.0.0) |Sept 21, 2018 |--- |
+| [1.16.4](#1.16.4) |Sept 10, 2018 |--- |
+| [1.16.3](#1.16.3) |Sept 09, 2018 |--- |
+| [1.16.2](#1.16.2) |June 29, 2018 |--- |
+| [1.16.1](#1.16.1) |May 16, 2018 |--- |
+| [1.16.0](#1.16.0) |March 15, 2018 |--- |
 | [1.15.0](#1.15.0) |Nov 14, 2017 |--- |
 | [1.14.0](#1.14.0) |Oct 28, 2017 |--- |
 | [1.13.0](#1.13.0) |August 25, 2017 |--- |
@@ -205,7 +253,7 @@ Any request to Cosmos DB using a retired SDK will be rejected by the service.
 | [1.3.0](#1.3.0) |October 05, 2015 |--- |
 | [1.2.0](#1.2.0) |August 05, 2015 |--- |
 | [1.1.0](#1.1.0) |July 09, 2015 |--- |
-| [1.0.1](#1.0.1) |May 12, 2015 |--- |
+| 1.0.1 |May 12, 2015 |--- |
 | [1.0.0](#1.0.0) |April 07, 2015 |--- |
 | 0.9.5-prelease |Mar 09, 2015 |February 29, 2016 |
 | 0.9.4-prelease |February 17, 2015 |February 29, 2016 |

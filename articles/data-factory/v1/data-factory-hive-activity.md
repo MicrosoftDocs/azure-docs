@@ -11,8 +11,8 @@ ms.assetid: 80083218-743e-4da8-bdd2-60d1c77b1227
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 
@@ -32,7 +32,7 @@ robots: noindex
 > * [.NET Custom Activity](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [transform data using Hive activity in Data Factory version 2](../transform-data-using-hadoop-hive.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [transform data using Hive activity in Data Factory](../transform-data-using-hadoop-hive.md).
 
 The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pipelines.md) executes Hive queries on [your own](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) or [on-demand](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux-based HDInsight cluster. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
@@ -167,7 +167,7 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 			]
 		}
 	}
-	```
+    ```
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -213,10 +213,10 @@ To use parameterized Hive script, do the following
         ]
       }
     }
-	```
+    ```
 * In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
   
-	```
+    ```
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
     (
@@ -239,8 +239,8 @@ To use parameterized Hive script, do the following
         ProfileID,
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
-	```
-## See Also
+    ```
+  ## See Also
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)

@@ -4,7 +4,7 @@ description: Application to automate operating system patching on a Linux Servic
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/22/2018
+ms.date: 5/22/2018
 ms.author: nachandr
 
 ---
@@ -59,9 +59,9 @@ The patch orchestration app is composed of the following subcomponents:
 ### Ensure that your Azure VMs are running Ubuntu 16.04
 At the time of writing this document, Ubuntu 16.04 (`Xenial Xerus`) is the only supported version.
 
-### Ensure that the service fabric linux cluster is version 6.1.x and above
+### Ensure that the service fabric linux cluster is version 6.2.x and above
 
-Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.1.x and above.
+Patch orchestration app linux uses certain features of runtime that are only available in service fabric runtime version 6.2.x and above.
 
 ### Enable the repair manager service (if it's not running already)
 
@@ -116,7 +116,9 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 ## Download the app package
 
-Download the application from the [download link](https://go.microsoft.com/fwlink/?linkid=867984).
+Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
+
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.3.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -142,7 +144,7 @@ The behavior of the patch orchestration app can be configured to meet your needs
 
 1. Prepare the cluster by finishing all the prerequisite steps.
 2. Deploy the patch orchestration app like any other Service Fabric app. You can deploy the app by using PowerShell or Azure Service Fabric CLI. Follow the steps in [Deploy and remove applications using PowerShell](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-remove-applications) or [Deploy application using Azure Service Fabric CLI](https://docs.microsoft.com/azure/service-fabric/scripts/cli-deploy-application)
-3. To configure the application at the time of deployment, pass the `ApplicationParamater` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
+3. To configure the application at the time of deployment, pass the `ApplicationParameter` to the `New-ServiceFabricApplication` cmdlet or the scripts provided. For your convenience, powershell (Deploy.ps1) and bash (Deploy.sh) scripts are provided along with the application. To use the script:
 
     - Connect to a Service Fabric cluster.
     - Execute the Deploy script. Optionally pass the application parameter to the script. for example: .\Deploy.ps1 -ApplicationParameter @{ UpdateFrequency = "Daily, 11:00:00"} OR ./Deploy.sh "{\"UpdateFrequency\":\"Daily, 11:00:00\"}" 
@@ -320,6 +322,10 @@ Q. **Post upgrade does patch orchestration app do the cleanup of unused packages
 
 A. Yes, cleanup happens as part of post-installation steps. 
 
+Q. **Can Patch Orchestration app be used to patch my dev cluster (one-node cluster) ?**
+
+A. No, Patch orchestration app cannot be used to patch one-node cluster. This limitation is by design, as [service fabric system services](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) or any customer apps will face downtime and hence any repair job for patching would never get approved by repair manager.
+
 ## Troubleshooting
 
 ### A node is not coming back to up state
@@ -361,5 +367,16 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 0.1.0
 - Private preview release
 
-### Version 2.0.0 (Latest)
+### Version 2.0.0
 - Public release
+
+### Version 2.0.1
+- Recompiled the app using latest Service Fabric SDK
+
+### Version 2.0.2 
+- Fixed an issue with health warning getting left behind during restart.
+
+### Version 2.0.3 (Latest)
+- Fixing the issue where CPU usage of Node Agent daemon service reached upto 99% on Standard_D1_v2 VMs.
+- Fixing the issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending.
+- Fixed a bug due to which Node Agent daemon keeps crashing when corrupt settings are passed to the service.

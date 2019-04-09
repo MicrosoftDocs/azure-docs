@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 10/31/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
 
@@ -48,7 +48,7 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Follow the steps below to change the script to work in your environment.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
 
 	```powershell
 	$location              = "West US"
@@ -195,4 +195,10 @@ Now that you downloaded and changed the script based on your needs, runt the scr
 
 ### Step 5 - Configure routing within the VM's operating system
 
-Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see [Routing within a virtual machine operating system with multiple network interfaces](virtual-network-network-interface-vm.md).
+Azure DHCP assigns a default gateway to the first (primary) network interface attached to the virtual machine. Azure does not assign a default gateway to additional (secondary) network interfaces attached to a virtual machine. Therefore, you are unable to communicate with resources outside the subnet that a secondary network interface is in, by default. Secondary network interfaces can, however, communicate with resources outside their subnet. To configure routing for secondary network interfaces, see the following articles:
+
+- [Configure a Windows VM for multiple NICs](../virtual-machines/windows/multiple-nics.md#configure-guest-os-for-multiple-nics
+)
+
+- [Configure a Linux VM for multiple NICs](../virtual-machines/linux/multiple-nics.md#configure-guest-os-for-multiple-nics
+)

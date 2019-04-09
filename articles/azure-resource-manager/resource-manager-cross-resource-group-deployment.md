@@ -9,15 +9,17 @@ editor: ''
 
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2018
+ms.date: 06/02/2018
 ms.author: tomfitz
 
 ---
 
 # Deploy Azure resources to more than one subscription or resource group
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Typically, you deploy all the resources in your template to a single [resource group](resource-group-overview.md). However, there are scenarios where you want to deploy a set of resources together but place them in different resource groups or subscriptions. For example, you may want to deploy the backup virtual machine for Azure Site Recovery to a separate resource group and location. Resource Manager enables you to use nested templates to target different subscriptions and resource groups than the subscription and resource group used for the parent template.
 
@@ -124,13 +126,11 @@ The following example deploys two storage accounts - one in the resource group s
 
 If you set `resourceGroup` to the name of a resource group that does not exist, the deployment fails.
 
-To deploy the example template, use Azure PowerShell 4.0.0 or later, or Azure CLI 2.0.0 or later.
+## Use the resourceGroup() and subscription() functions
 
-## Use the resourceGroup() function
+For cross resource group deployments, the [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) and [subscription()](resource-group-template-functions-resource.md#subscription) functions resolve differently based on how you specify the nested template. 
 
-For cross resource group deployments, the [resourceGroup() function](resource-group-template-functions-resource.md#resourcegroup) resolves differently based on how you specify the nested template. 
-
-If you embed one template within another template, resourceGroup() in the nested template resolves to the parent resource group. An embedded template uses the following format:
+If you embed one template within another template, the functions in the nested template resolve to the parent resource group and subscription. An embedded template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -141,12 +141,12 @@ If you embed one template within another template, resourceGroup() in the nested
     "mode": "Incremental",
     "template": {
         ...
-        resourceGroup() refers to parent resource group
+        resourceGroup() and subscription() refer to parent resource group/subscription
     }
 }
 ```
 
-If you link to a separate template, resourceGroup() in the linked template resolves to the nested resource group. A linked template uses the following format:
+If you link to a separate template, the functions in the linked template resolve to the nested resource group and subscription. A linked template uses the following format:
 
 ```json
 "apiVersion": "2017-05-10",
@@ -157,7 +157,7 @@ If you link to a separate template, resourceGroup() in the linked template resol
     "mode": "Incremental",
     "templateLink": {
         ...
-        resourceGroup() in linked template refers to linked resource group
+        resourceGroup() and subscription() in linked template refer to linked resource group/subscription
     }
 }
 ```
@@ -179,10 +179,10 @@ For PowerShell, to deploy two storage accounts to two resource groups in the **s
 $firstRG = "primarygroup"
 $secondRG = "secondarygroup"
 
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+New-AzResourceGroup -Name $firstRG -Location southcentralus
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -199,13 +199,13 @@ $secondRG = "secondarygroup"
 $firstSub = "<first-subscription-id>"
 $secondSub = "<second-subscription-id>"
 
-Select-AzureRmSubscription -Subscription $secondSub
-New-AzureRmResourceGroup -Name $secondRG -Location eastus
+Select-AzSubscription -Subscription $secondSub
+New-AzResourceGroup -Name $secondRG -Location eastus
 
-Select-AzureRmSubscription -Subscription $firstSub
-New-AzureRmResourceGroup -Name $firstRG -Location southcentralus
+Select-AzSubscription -Subscription $firstSub
+New-AzResourceGroup -Name $firstRG -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName $firstRG `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crosssubscription.json `
   -storagePrefix storage `
@@ -217,11 +217,11 @@ New-AzureRmResourceGroupDeployment `
 For PowerShell, to test how the **resource group object** resolves for the parent template, inline template, and linked template, use:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name parentGroup -Location southcentralus
-New-AzureRmResourceGroup -Name inlineGroup -Location southcentralus
-New-AzureRmResourceGroup -Name linkedGroup -Location southcentralus
+New-AzResourceGroup -Name parentGroup -Location southcentralus
+New-AzResourceGroup -Name inlineGroup -Location southcentralus
+New-AzResourceGroup -Name linkedGroup -Location southcentralus
 
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -ResourceGroupName parentGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/crossresourcegroupproperties.json
 ```

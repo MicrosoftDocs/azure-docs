@@ -3,18 +3,19 @@ title: 'Azure Active Directory Domain Services: Deployment scenarios | Microsoft
 description: Deployment scenarios for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
-manager: mtillman
+author: eringreenlee
+manager: daveba
 editor: curtand
 
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/21/2017
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Deployment scenarios and use-cases

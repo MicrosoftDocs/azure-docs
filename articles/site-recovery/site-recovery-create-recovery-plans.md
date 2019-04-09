@@ -1,13 +1,12 @@
 ---
-title: Create and customize recovery plans for failover and recovery in Azure Site Recovery | Microsoft Docs
-description: Learn how to create and customize recovery plans in Azure Site Recovery. This article describes how to fail over and recover VMs and physical servers.
-services: site-recovery
-documentationcenter: ''
+title: Create and customize recovery plans for disaster recovery using Azure Site Recovery | Microsoft Docs
+description: Learn how to create and customize recovery plans for disaster recovery using the Azure Site Recovery service.
 author: rayne-wiselman
 manager: carmonm
+services: site-recovery
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 12/27/2018
 ms.author: raynew
 ---
 
@@ -41,7 +40,7 @@ This article describes how to create and customize a recovery plan in [Azure Sit
 
 ## Add a group to a plan
 
-You create additional groups, and add machines to different groups so that you can specify different behavior on a group-by-grou basis. For example, you can specify when machines in a group should start after failover, or specify customized actions per group.
+You create additional groups, and add machines to different groups so that you can specify different behavior on a group-by-group basis. For example, you can specify when machines in a group should start after failover, or specify customized actions per group.
 
 1. In **Recovery Plans**, right-click the plan > **Customize**. By default, after creating a plan all the machines you added to it are located in default Group 1.
 2. Click **+Group**. By default a new group is numbered in the order in which it's added. You can have up to seven groups.
@@ -75,7 +74,7 @@ You can customize a recovery plan by adding a script or manual action. Note that
     a. Type in a name for the action, and type in action instructions. The person running the failover will see these instructions.
     b. Specify whether you want to add the manual action for all types of failover (Test, Failover, Planned failover (if relevant)). Then click **OK**.
 4. If you want to add a script, do the following:
-    a. If you're adding a VMM script, select **Failover to VMM script**, and in in **Script Path** type the relative path to the share. For example, if the share is located at \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
+    a. If you're adding a VMM script, select **Failover to VMM script**, and in **Script Path** type the relative path to the share. For example, if the share is located at \\<VMMServerName>\MSSCVMMLibrary\RPScripts, specify the path: \RPScripts\RPScript.PS1.
     b. If you're adding an Azure automation run book, specify the **Azure Automation Account** in which the runbook is located, and select the appropriate **Azure Runbook Script**.
 5. Run a test failover of the recovery plan to ensure that the script works as expected.
 

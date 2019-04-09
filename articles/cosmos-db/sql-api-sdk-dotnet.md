@@ -1,21 +1,14 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET API, SDK & resources'
 description: Learn all about the SQL .NET API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET SDK.
-services: cosmos-db
-documentationcenter: .net
-author: rnagpal
-manager: kfile
-editor: cgronlun
-
-ms.assetid: 8e239217-9085-49f5-b0a7-58d6e6b61949
+author: SnehaGunda
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: reference
 ms.date: 03/09/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB .NET SDK for SQL API: Download and release notes
@@ -29,26 +22,94 @@ ms.custom: H1Hack27Feb2017
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+> * [SQL](sql-api-query-reference.md)
 > * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
 > * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK download**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET SDK](sql-api-get-started.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 ## Release notes
+
+### <a name="3.0.0.1-preview"/>3.0.0.1-preview
+* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
+* Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
+* New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes. 
+* Support for streams. 
+* Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned. 
+
+### <a name="2.2.3"/>2.2.3
+
+* Diagnostics improvements
+
+### <a name="2.2.2"/>2.2.2
+
+* Added environment variable setting “POCOSerializationOnly”.
+
+* Removed DocumentDB.Spatial.Sql.dll and now included in Microsoft.Azure.Documents.ServiceInterop.dll
+
+### <a name="2.2.1"/>2.2.1
+
+* Improvement in retry logic during failover for StoredProcedure execute calls.
+
+* Made DocumentClientEventSource singleton. 
+
+* Fix GatewayAddressCache timeout not honoring ConnectionPolicy RequestTimeout.
+
+### <a name="2.2.0"/>2.2.0
+
+* For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
+
+* Added new constructor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+
+* Fix bug where header with null values were not being handled properly.
+
+* Improved collection cache validation.
+
+### <a name="2.1.3"/>2.1.3
+
+* Updated System.Net.Security to 4.3.2.
+
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
+### <a name="2.1.0"/>2.1.0
+
+* Added Multi-region write support.
+* Cross partition query performance improvements with TOP and MaxBufferedItemCount.
+
+### <a name="2.0.0"/>2.0.0
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
 ### <a name="1.22.0"/>1.22.0
 
 * Added ConsistencyLevel Property to FeedOptions.
@@ -62,7 +123,7 @@ ms.custom: H1Hack27Feb2017
 
 ### <a name="1.20.2"/>1.20.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.20.1"/>1.20.1
 
@@ -143,7 +204,7 @@ ms.custom: H1Hack27Feb2017
 * Fix for an issue wherein cross partition order-by query continuation was not working when sorting on string field.
 
 ### <a name="1.12.0"/>1.12.0
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.11.4"/>1.11.4
@@ -204,7 +265,7 @@ ms.custom: H1Hack27Feb2017
 ### <a name="1.8.0"/>1.8.0
 * Added the support for multi-region database accounts.
 * Added support for retry on throttled requests.  User can customize the number of retries and the max wait time by configuring the ConnectionPolicy.RetryOptions property.
-* Added a new IDocumentClient interface that defines the signatures of all DocumenClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
+* Added a new IDocumentClient interface that defines the signatures of all DocumentClient properties and methods.  As part of this change, also changed extension methods that create IQueryable and IOrderedQueryable to methods on the DocumentClient class itself.
 * Added configuration option to set the ServicePoint.ConnectionLimit for a given Azure Cosmos DB endpoint Uri.  Use ConnectionPolicy.MaxConnectionLimit to change the default value, which is set to 50.
 * Deprecated IPartitionResolver and its implementation.  Support for IPartitionResolver is now obsolete. It's recommended that you use Partitioned Collections for higher storage and throughput.
 
@@ -296,6 +357,15 @@ Any requests to Azure Cosmos DB using a retired SDK are rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.2.3](#2.2.3) |February 11, 2019 |--- |
+| [2.2.2](#2.2.2) |February 06, 2019 |--- |
+| [2.2.1](#2.2.1) |December 24, 2018 |--- |
+| [2.2.0](#2.2.0) |December 07, 2018 |--- |
+| [2.1.3](#2.1.3) |October 15, 2018 |--- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
+| [2.1.0](#2.1.0) |September 21, 2018 |--- |
+| [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.22.0](#1.22.0) |April 19, 2018 |--- |
 | [1.21.1](#1.20.1) |March 09, 2018 |--- |
 | [1.20.2](#1.20.1) |February 21, 2018 |--- |

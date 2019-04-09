@@ -1,19 +1,18 @@
 ---
-title: 'Azure Active Directory B2C: Region availability & data residency | Microsoft Docs'
-description: A topic on the types of Azure Active Directory B2C tenants
+title: Region availability & data residency in Azure Active Directory B2C | Microsoft Docs
+description: A topic on the types of Azure Active Directory B2C tenants.
 services: active-directory-b2c
-documentationcenter: ''
 author: davidmu1
-manager: mtillman
-editor: ''
+manager: daveba
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
-
+ms.subservice: B2C
 ---
+
 # Azure Active Directory B2C: Region availability & data residency
 Region availability and data residency are two very different concepts that apply differently to Azure AD B2C from the rest of Azure. This article will explain the differences between these two concepts and compare how they apply to Azure versus Azure AD B2C.
 
@@ -34,7 +33,7 @@ Azure AD B2C stores user data in either United States or Europe.
 
 Data residency is determined based on which country/region is selected when [creating an Azure AD B2C tenant](active-directory-b2c-get-started.md).
 
-![Screen shot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
+![Screenshot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/data-residency-b2c-tenant.png)
 
 Data resides in the United States for the following countries/regions:
 
@@ -55,4 +54,4 @@ If you had created a B2C tenant during Azure AD B2C's preview period, it is like
 > There is no migration path from a preview B2C tenant to a production-scale B2C tenant. Note that there are known issues when you delete a preview B2C tenant and re-create a production-scale B2C tenant with the same domain name. You have to create a production-scale B2C tenant with a different domain name.
 
 
-![Screen shot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)
+![Screenshot of a preview tenant](./media/active-directory-b2c-reference-tenant-type/preview-b2c-tenant.png)

@@ -1,17 +1,17 @@
 ---
-title: Exclude disks from protection using Azure Site Recovery | Microsoft Docs
-description: Describes why and how to exclude VM disks from replication for VMware to Azure.
-services: site-recovery
-author: nsoneji
-manager: garavd
+title: Exclude disks from replication for VMware disaster recovery to Azure using Azure Site Recovery | Microsoft Docs
+description: Describes why and how to exclude VM disks from replication for VMware disaster recovery to Azure.
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.topic: article
-ms.date: 03/05/2018
-ms.author: nisoneji
+ms.date: 3/3/2019
+ms.author: mayg
+ms.topic: conceptual
 
 ---
-# Exclude disks from replication for VMware to Azure scenario
+
+# Exclude disks from replication of VMware VMs to Azure
 
 This article describes how to exclude disks when replicating VMware VMs to Azure. This exclusion can optimize the consumed replication bandwidth or optimize the target-side resources that such disks utilize. If you need information about excluding disks for Hyper-V, read [this article](hyper-v-exclude-disk.md)
 
@@ -34,7 +34,7 @@ You can identify specific examples of data churn that are great candidates for e
 1. Split the single virtual disk into two virtual disks. One virtual disk has the operating system, and the other has the paging file.
 2. Exclude the paging file disk from replication.
 
-Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb fie and the system database file:
+Similarly, you can use the following steps to optimize a disk that has both the Microsoft SQL Server tempdb file and the system database file:
 
 1. Keep the system database and tempdb on two different disks.
 2. Exclude the tempdb disk from replication.
@@ -48,7 +48,7 @@ Follow the [Enable replication](vmware-azure-enable-replication.md) workflow to 
 
 >[!NOTE]
 >
-> * You can exclude only disks that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed by using the push mechanism after replication is enabled.
+> * You can only exclude disks on VMs that already have the Mobility service installed. You need to manually install the Mobility service, because the Mobility service is only installed using the push mechanism after replication is enabled.
 > * Only basic disks can be excluded from replication. You can't exclude operating system or dynamic disks.
 > * After you enable replication, you can't add or remove disks for replication. If you want to add or exclude a disk, you need to disable protection for the machine and then enable it again.
 > * If you exclude a disk that's needed for an application to operate, after failover to Azure, you’ll need to create the disk manually in Azure so that the replicated application can run. Alternatively, you can integrate Azure automation into a recovery plan to create the disk during failover of the machine.
@@ -76,7 +76,7 @@ Disks on the source virtual machine are as follows:
 DB-Disk0-OS | DISK0 | C:\ | Operating system disk
 DB-Disk1| Disk1 | D:\ | SQL system database and User Database1
 DB-Disk2 (Excluded the disk from protection) | Disk2 | E:\ | Temp files
-DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\) </br /> </br />Write down the folder path before failover.
+DB-Disk3 (Excluded the disk from protection) | Disk3 | F:\ | SQL tempdb database (folder path(F:\MSSQL\Data\) <br /> <br />Write down the folder path before failover.
 DB-Disk4 | Disk4 |G:\ |User Database2
 
 Because data churn on two disks of the virtual machine is temporary, while you protect the SalesDB virtual machine, exclude Disk2 and Disk3 from replication. Azure Site Recovery will not replicate those disks. On failover, those disks will not be present on the failover virtual machine on Azure.
@@ -86,7 +86,7 @@ Disks on the Azure virtual machine after failover are as follows:
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
 DISK0 |	C:\ | Operating system disk
-Disk1 |	E:\ | Temporary storage</br /> </br />Azure adds this disk and assigns the first available drive letter.
+Disk1 |	E:\ | Temporary storage<br /> <br />Azure adds this disk and assigns the first available drive letter.
 Disk2 | D:\ | SQL system database and User Database1
 Disk3 | G:\ | User Database2
 
@@ -150,7 +150,7 @@ In the previous example, the Azure virtual machine disk configuration is as foll
 **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | ---
 DISK0 | C:\ | Operating system disk
-Disk1 |	E:\ | Temporary storage</br /> </br />Azure adds this disk and assigns the first available drive letter.
+Disk1 |	E:\ | Temporary storage<br /> <br />Azure adds this disk and assigns the first available drive letter.
 Disk2 |	D:\ | SQL system database and User Database1
 Disk3 |	G:\ | User Database2
 
@@ -189,7 +189,7 @@ After failover of the virtual machine from VMware to Azure, disks on the Azure v
 **Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Operating system disk
-DB-Disk1 | Disk1 | D:\ | Temporary storage</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Temporary storage<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 
@@ -216,10 +216,10 @@ Here are the paging file settings on the on-premises virtual machine:
 
 After failover of the virtual machine from VMware to Azure, disks on the Azure virtual machine are as follows:
 
-**Disk name**| **Guest operating system disk#**| **Drive letter** | **Data type on the disk**
+**Disk name** | **Guest operating system disk#** | **Drive letter** | **Data type on the disk**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Operating system disk
-DB-Disk1 | Disk1 | D:\ | Temporary storage</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Temporary storage<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | User data 1
 DB-Disk3 | Disk3 | F:\ | User data 2
 

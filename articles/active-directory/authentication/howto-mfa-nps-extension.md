@@ -1,18 +1,19 @@
 ---
-title: Use existing NPS servers to provide Azure MFA capabilities | Microsoft Docs
-description: Add cloud-based two-step vericiation capabilities to your existing authentication infrastructure
+title: Use existing NPS servers to provide Azure MFA capabilities - Azure Active Directory
+description: Add cloud-based two-step verification capabilities to your existing authentication infrastructure
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
-ms.topic: article
-ms.date: 05/01/2018
+ms.subservice: authentication
+ms.topic: conceptual
+ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
-ms.reviewer: richagi
+manager: daveba
+ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Integrate your existing NPS infrastructure with Azure Multi-Factor Authentication
 
@@ -55,8 +56,8 @@ Windows Server 2008 R2 SP1 or above.
 
 These libraries are installed automatically with the extension.
 
--	[Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
--	[Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Visual C++ Redistributable Packages for Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Microsoft Azure Active Directory Module for Windows PowerShell version 1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 The Microsoft Azure Active Directory Module for Windows PowerShell is installed, if it is not already present, through a configuration script you run as part of the setup process. There is no need to install this module ahead of time if it is not already installed.
 
@@ -67,6 +68,13 @@ Everyone using the NPS extension must be synced to Azure Active Directory using 
 When you install the extension, you need the directory ID and admin credentials for your Azure AD tenant. You can find your directory ID in the [Azure portal](https://portal.azure.com). Sign in as an administrator, select the **Azure Active Directory** icon on the left, then select **Properties**. Copy the GUID in the **Directory ID** box and save it. You use this GUID as the tenant ID when you install the NPS extension.
 
 ![Find your Directory ID under Azure Active Directory properties](./media/howto-mfa-nps-extension/find-directory-id.png)
+
+### Network requirements
+
+The NPS server needs to be able to communicate with the following URLs over ports 80 and 443.
+
+* https://adnotifications.windowsazure.com  
+* https://login.microsoftonline.com
 
 ## Prepare your environment
 
@@ -95,7 +103,7 @@ This step may already be complete on your tenant, but it's good to double-check 
 2. Select **Azure Active Directory** > **Azure AD Connect**
 3. Verify that your sync status is **Enabled** and that your last sync was less than an hour ago.
 
-If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../connect/active-directory-aadconnectsync-feature-scheduler.md#start-the-scheduler).
+If you need to kick off a new round of synchronization, us the instructions in [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### Determine which authentication methods your users can use
 
@@ -108,11 +116,11 @@ There are two factors that affect which authentication methods are available wit
 
 When you deploy the NPS extension, use these factors to evaluate which methods are available for your users. If your RADIUS client supports PAP, but the client UX doesn't have input fields for a verification code, then phone call and mobile app notification are the two supported options.
 
-You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#selectable-verification-methods) in Azure.
+You can [disable unsupported authentication methods](howto-mfa-mfasettings.md#verification-methods) in Azure.
 
 ### Register users for MFA
 
-Before you deploy and use the NPS extension, users that will be required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
+Before you deploy and use the NPS extension, users that are required to perform two-step verification need to be registered for MFA. More immediately, to test the extension as you deploy it, you need at least one test account that is fully registered for Multi-Factor Authentication.
 
 Use these steps to get a test account started:
 1. Sign in to [https://aka.ms/mfasetup](https://aka.ms/mfasetup) with a test account. 
@@ -128,19 +136,19 @@ Your users also need to follow these steps to enroll before they can authenticat
 
 ### Download and install the NPS extension for Azure MFA
 
-1.	[Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
-2.	Copy the binary to the Network Policy Server you want to configure.
-3.	Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
+1. [Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
+2. Copy the binary to the Network Policy Server you want to configure.
+3. Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
 
 ### Run the PowerShell script
 
-The installer creates a PowerShell script in this location: `C:\Program Files\Microsoft\AzureMfa\Config` (where C:\ is your installation drive). This PowerShell script performs the following actions:
+The installer creates a PowerShell script in this location: `C:\Program Files\Microsoft\AzureMfa\Config` (where C:\ is your installation drive). This PowerShell script performs the following actions each time it is run:
 
--	Create a self-signed certificate.
--	Associate the public key of the certificate to the service principal on Azure AD.
--	Store the cert in the local machine cert store.
--	Grant access to the certificate’s private key to Network User.
--	Restart the NPS.
+- Create a self-signed certificate.
+- Associate the public key of the certificate to the service principal on Azure AD.
+- Store the cert in the local machine cert store.
+- Grant access to the certificate’s private key to Network User.
+- Restart the NPS.
 
 Unless you want to use your own certificates (instead of the self-signed certificates that the PowerShell script generates), run the PowerShell Script to complete the installation. If you install the extension on multiple servers, each one should have its own certificate.
 
@@ -159,8 +167,8 @@ Unless you want to use your own certificates (instead of the self-signed certifi
 
 Repeat these steps on any additional NPS servers that you want to set up for load balancing.
 
->[!NOTE]
->If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
+> [!NOTE]
+> If you use your own certificates instead of generating certificates with the PowerShell script, make sure that they align to the NPS naming convention. The subject name must be **CN=\<TenantID\>,OU=Microsoft NPS Extension**. 
 
 ## Configure your NPS extension
 
@@ -169,7 +177,7 @@ This section includes design considerations and suggestions for successful NPS e
 ### Configuration limitations
 
 - The NPS extension for Azure MFA does not include tools to migrate users and settings from MFA Server to the cloud. For this reason, we suggest using the extension for new deployments, rather than existing deployment. If you use the extension on an existing deployment, your users have to perform proof-up again to populate their MFA details in the cloud.  
-- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. See [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfaserver-nps-vpn.md) for more information.
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. For more information, see the article, [Advanced configuration options for the NPS extension for Multi-Factor Authentication](howto-mfa-nps-extension-advanced.md).
 - Not all encryption protocols support all verification methods.
    - **PAP** supports phone call, one-way text message, mobile app notification, and mobile app verification code
    - **CHAPV2** and **EAP** support phone call and mobile app notification
@@ -202,15 +210,31 @@ Look for the self-signed certificate created by the installer in the cert store,
 
 Open PowerShell command prompt and run the following commands:
 
-```
+``` PowerShell
 import-module MSOnline
 Connect-MsolService
-Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1
 ```
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a "Base-64 encoded X.509(.cer)" file without the private key, and compare it with the list from PowerShell.
 
+The following command will create a file named "npscertificate" on your "C:" drive in format .cer.
+
+``` PowerShell
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
+```
+
+Once you run this command, go to your C drive, locate the file and double click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
+
 Valid-From and Valid-Until timestamps, which are in human-readable form, can be used to filter out obvious misfits if the command returns more than one cert.
+
+-------------------------------------------------------------
+
+### Why cant I sign in?
+
+Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Please contact your organization's IT Staff for further assistance.
 
 -------------------------------------------------------------
 
@@ -219,7 +243,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 This error could be due to one of several reasons. Use these steps to help troubleshoot:
 
 1. Restart your NPS server.
-2. Verify that that client cert is installed as expected.
+2. Verify that client cert is installed as expected.
 3. Verify that the certificate is associated with your tenant on Azure AD.
 4. Verify that https://login.microsoftonline.com/ is accessible from the server running the extension.
 
@@ -229,12 +253,15 @@ This error could be due to one of several reasons. Use these steps to help troub
 
 Verify that AD Connect is running, and that the user is present in both Windows Active Directory and Azure Active Directory.
 
-------------------------------------------------------------
+-------------------------------------------------------------
 
 ### Why do I see HTTP connect errors in logs with all my authentications failing?
 
 Verify that https://adnotifications.windowsazure.com is reachable from the server running the NPS extension.
 
+## Managing the TLS/SSL Protocols and Cipher Suites
+
+It is recommended that older and weaker cipher suites be disabled or removed unless required by your organization. Information on how to complete this task can be found in the article [Managing SSL/TLS Protocols and Cipher Suites for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs)
 
 ## Next steps
 

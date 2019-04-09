@@ -1,23 +1,17 @@
 ---
 title: Weather forecast using Azure Machine Learning with data from IoT Hub | Microsoft Docs
 description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-services: iot-hub
-documentationcenter: ''
-author: rangv
-manager: timlt
-tags: ''
-keywords: 'weather forecast machine learning'
-
-ms.assetid: 8ba7d9e7-699c-4448-b353-0f3e1429d198
+author: robinsh
+manager: philmea
+keywords: weather forecast machine learning
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
-ms.author: rangv
-
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
+ms.author: robinsh
 ---
+
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/6.png)
@@ -176,7 +170,7 @@ In the Stream Analytics job, click **Start** > **Now** > **Start**. Once the job
 
 Run the client application to start collecting and sending temperature and humidity data to your IoT hub. For each message that your IoT hub receives, the Stream Analytics job calls the weather forecast web service to produce the chance of rain. The result is then saved to your Azure blob storage. Azure Storage Explorer is a tool that you can use to view the result.
 
-1. [Download and install Microsoft Azure Storage Explorer](http://storageexplorer.com/).
+1. [Download and install Microsoft Azure Storage Explorer](https://storageexplorer.com/).
 1. Open Azure Storage Explorer.
 1. Sign in to your Azure account.
 1. Select your subscription.

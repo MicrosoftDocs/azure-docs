@@ -1,17 +1,14 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using Node.js | Microsoft Docs
-description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Node.js service SDK
-services: iot-dps 
-keywords: 
-author: bryanla
-ms.author: v-jamebr
+description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using Node.js service SDK. This quickstart uses individual enrollments.
+author: wesmc7777
+ms.author: wesmc
 ms.date: 12/21/2017
-ms.topic: hero-article
+ms.topic: quickstart
 ms.service: iot-dps
- 
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
-ms.devlang: na
+ms.devlang: nodejs
 ms.custom: mvc
 ---
  
@@ -64,15 +61,15 @@ These steps show how to programmatically create an individual enrollment for a T
         console.log("enrollment record returned: " + JSON.stringify(enrollmentResponse, null, 2));
       }
     });
-    ````
+    ```
 
 ## Run the individual enrollment sample
   
 1. To run the sample, you need the connection string for your provisioning service. 
-    1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
+    1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service. 
     2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
-    ![Get provisioning service connection string from the portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
+       ![Get provisioning service connection string from the portal](./media/quick-enroll-device-tpm-node/get-service-connection-string.png) 
 
 
 2. You also need the endorsement key for your device. If you have followed the [Create and provision a simulated device](quick-create-simulated-device.md) quickstart to create a simulated TPM device, use the key created for that device. Otherwise, to create a sample individual enrollment, you can use the following endorsement key supplied with the SDK:
@@ -102,7 +99,7 @@ If you plan to explore the Node.js service samples, do not clean up the resource
 
 1. Close the Node.js sample output window on your machine.
 1. If you created a simulated TPM device, close the TPM simulator window.
-2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments** and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
+2. Navigate to your Device Provisioning service in the Azure portal, click **Manage enrollments**, and then select the **Individual Enrollments** tab. Select the *Registration ID* for the enrollment entry you created using this Quickstart, and click the **Delete** button at the top of the blade. 
  
 ## Next steps
 In this Quickstart, you’ve programmatically created an individual enrollment entry for a TPM device, and, optionally, created a TPM simulated device on your machine and provisioned it to your IoT hub using the Azure IoT Hub Device Provisioning Service. To learn about device provisioning in depth, continue to the tutorial for the Device Provisioning Service setup in the Azure portal. 

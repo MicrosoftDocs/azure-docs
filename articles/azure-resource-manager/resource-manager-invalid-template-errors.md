@@ -1,7 +1,7 @@
 ---
 title: Azure invalid template errors | Microsoft Docs
 description: Describes how to resolve invalid template errors.
-services: azure-resource-manager,azure-portal
+services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
 manager: timlt
@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 03/08/2018
 ms.author: tomfitz
 
@@ -130,7 +130,7 @@ for the template parameter {parameter name} is not valid. The parameter value is
 part of the allowed values
 ```
 
-Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](resource-manager-templates-parameters.md).
+Double check the allowed values in the template, and provide one during deployment. For more information about allowed parameter values, see [Parameters section of Azure Resource Manager templates](resource-group-authoring-templates.md#parameters).
 
 <a id="too-many-resource-groups" />
 

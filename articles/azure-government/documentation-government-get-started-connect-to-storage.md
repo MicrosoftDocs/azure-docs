@@ -1,32 +1,36 @@
 ---
-title: Azure Government Storage | Microsoft Docs
-description: This provides a quickstart-guide for getting started with Storage in Azure Government
+title: Develop with Storage API in Azure Government  | Microsoft Docs
+description: This provides a guide for getting started with Storage in Azure Government
 services: azure-government
 cloud: gov
 documentationcenter: ''
 author: yujhongmicrosoft
 manager: zakramer
 
-ms.assetid: fb11f60c-5a70-46a9-82a0-abb2a4f4239b
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 9/08/2017
+ms.date: 08/10/2018
 ms.author: yujhong
-
 ---
-# Connect to Storage in Azure Government
+
+# Develop with Storage API on Azure Government
+
 Azure Government uses the same underlying technologies as commercial Azure, enabling you to use the development tools you’re already familiar with.
 In order to use these services in Azure Government, you must define different endpoint mappings, as shown below for the Storage service. 
 
+If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
+
+## Prerequisites
+
+* Review [Guidance for developers](documentation-government-developer-guide.md).<br/> This article discusses Azure Government's unique URLs and endpoints for managing your environment. You must know about these endpoints in order to connect to Azure Government. 
+* Review [Compare Azure Government and global Azure](compare-azure-government-global-azure.md) and click on a service of interest to see variations between Azure Government and global Azure.
+* Download and install the latest version of Azure Storage Explorer [here](https://azure.microsoft.com/features/storage-explorer/). 
+
 ## Connecting Storage Explorer to Azure Government
 [The Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a cross-platform tool for working with Azure Storage. Government customers will now be able to take advantage of all the latest features of the Azure Storage Explorer such as being able to create and manage blobs, queues, tables, and file shares.
-### Prerequisites
-* Download and install the latest version of Azure Storage Explorer [here](https://azure.microsoft.com/features/storage-explorer/). 
-* Have an active Azure Government subscription.
-If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/overview/clouds/government/) before you begin.
 
 ### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
@@ -64,7 +68,7 @@ These endpoint differences must be taken into account when you connect to storag
 	var credentials = new StorageCredentials(storageAccountName, storageAccountKey);
 
     var storageAccount = new CloudStorageAccount(credentials, "core.usgovcloudapi.net", useHttps: true);   
-	```
+    ```
 
     -   Notice on the second line we had to use a [particular constructor for the CloudStorageAccount](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.-ctor?view=azure-dotnet) – enabling us to explicitly pass in the endpoint suffix of “core.usgovcloudapi.net”. This constructor is the **only difference** your code requires to connect to storage in Azure Government as compared with commercial Azure.
 
@@ -106,7 +110,7 @@ These endpoint differences must be taken into account when you connect to storag
             }
     
     	}
-	``` 
+    ``` 
 3. Create a "test" class where we will access Azure Table Storage using the Azure Storage API. 
  Copy and paste the code below, and **paste** your Storage Account connection string into the storageConnectionString variable. 
 
@@ -157,7 +161,7 @@ These endpoint differences must be taken into account when you connect to storag
 2. The following code below connects to Azure Blob Storage and creates a Container using the Azure Storage API. 
     **Paste** your Azure Storage account connection string into the storageConnectionString variable below. 
 
-	```nodejs
+	```javascript
 	var azure = require('azure-storage');
 	var storageConnectionString = //Paste Azure Storage connection string here
 	var blobSvc = azure.createBlobService(storageConnectionString);
@@ -166,7 +170,7 @@ These endpoint differences must be taken into account when you connect to storag
 	// Container exists and is private
 	}
 	});
-	```
+    ```
 
 #### Python
 1. Download the [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python).
@@ -180,43 +184,48 @@ These endpoint differences must be taken into account when you connect to storag
 	generator = block_blob_service.list_blobs(container_name)
 	for blob in generator:
 		print(blob.name)
-	```
+    ```
 
 #### PHP
 1. Download the [Azure Storage SDK for PHP](../php-download-sdk.md).
 2. The code below accesses Azure Table Storage using the Azure Storage API.
-   In the `connectionString` variable you will notice that there is a `TableEndpoint` parameter. 
+   In the `connectionString` variable, you will notice that there is a `TableEndpoint` parameter. 
    Depending on which service you are using, you must define the parameter and set it to the endpoint for that service:
    
-	- BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-	- QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-	- TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-	>[!Note]
-	> You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-	> **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-	>
+   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
+   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
+   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
+     >[!Note]
+     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
+     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
+     >
 	
-	```php
-	<?php
-	require_once "vendor/autoload.php";
-	use WindowsAzure\Common\ServicesBuilder;
-	use MicrosoftAzure\Storage\Common\ServiceException;	
-	$connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
+     ```php
+     <?php
+     require_once "vendor/autoload.php";
+     use WindowsAzure\Common\ServicesBuilder;
+     use MicrosoftAzure\Storage\Common\ServiceException; 
+     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
 
-	$tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-	try {
-	// Create table.
-	$tableRestProxy->createTable("test");
-	}
-	catch(ServiceException $e){
-	$code = $e->getCode();
-	$error_message = $e->getMessage();
-	}
-	?>
-	```
+     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
+     try {
+     // Create table.
+     $tableRestProxy->createTable("test");
+     }
+     catch(ServiceException $e){
+     $code = $e->getCode();
+     $error_message = $e->getMessage();
+     }
+     ?>
+     ```
 
-## Next steps
+## Get help and provide feedback
+
 * Read more about [Azure Storage](https://docs.microsoft.com/azure/storage/). 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
 * Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+
+## Next steps
+
+[Develop with Visual Studio](documentation-government-get-started-connect-with-vs.md)

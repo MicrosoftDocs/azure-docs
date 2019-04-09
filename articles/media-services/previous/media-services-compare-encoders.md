@@ -1,10 +1,10 @@
-﻿---
+---
 title: Comparison of Azure on demand media encoders | Microsoft Docs
 description: This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: a79437c0-4832-423a-bca8-82632b2c47cc
@@ -13,12 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 03/14/2019
 ms.author: juliako;anilmur
 
 ---
 
-# Comparison of Azure on demand media encoders
+# Comparison of Azure on demand media encoders  
 
 This topic compares the encoding capabilities of **Media Encoder Standard** and **Media Encoder Premium Workflow**.
 
@@ -30,7 +30,7 @@ The following table compares the functionality between Media Encoder Standard (M
 |---|---|---|
 |Apply conditional logic while encoding<br/>(for example, if the input is HD, then encode 5.1 audio)|No|Yes|
 |Closed captioning|No|[Yes](media-services-premium-workflow-encoder-formats.md#closed_captioning)|
-|[Dolby® Professional Loudness Correction](http://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> with Dialogue Intelligence™|No|Yes|
+|[Dolby® Professional Loudness Correction](https://www.dolby.com/us/en/technologies/dolby-professional-loudness-solutions.pdf)<br/> with Dialogue Intelligence™|No|Yes|
 |De-interlacing, inverse telecine|Basic|Broadcast quality|
 |Detect and remove black borders <br/>(pillarboxes, letterboxes)|No|Yes|
 |Thumbnail generation|[Yes](media-services-dotnet-generate-thumbnail-with-mes.md)|[Yes](media-services-media-encoder-premium-workflow-tutorials.md#thumbnails_to__multibitrate_MP4)|
@@ -81,6 +81,7 @@ The following table compares the functionality between Media Encoder Standard (M
 | Apple ProRes Proxy |Yes |No |
 | Apple ProRes 4444 |Yes |No |
 | Apple ProRes 4444 XQ |Yes |No |
+| HEVC/H.265|Main Profile|Main and Main 10 Profile|
 
 ## Input audio codecs
 | Input Audio Codecs | Media Encoder Standard | Media Encoder Premium Workflow |
@@ -149,4 +150,4 @@ The following table compares the functionality between Media Encoder Standard (M
 * [Quotas and Limitations](media-services-quotas-and-limitations.md)
 
 <!--Reference links in article-->
-[1]: http://azure.microsoft.com/pricing/details/media-services/
+[1]: https://azure.microsoft.com/pricing/details/media-services/

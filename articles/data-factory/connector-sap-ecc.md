@@ -10,8 +10,8 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+
+ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: jingwang
 
@@ -19,9 +19,6 @@ ms.author: jingwang
 # Copy data from SAP ECC using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from SAP ECC (SAP Enterprise Central Component). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
@@ -99,7 +96,7 @@ To copy data from SAP ECC, set the type property of the dataset to **SapEccResou
     "name": "SapEccDataset",
     "properties": {
         "type": "SapEccResource",
-        "typePoperties": {
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {
@@ -121,7 +118,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **SapEccSource** | Yes |
-| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| query | OData query options to filter data. Example: "$select=Name,Description&$top=10".<br/><br/>SAP ECC connector copies data from the combined URL: (url specified in linked service)/(path specified in dataset)?(query specified in copy activity source). Refer to [OData URL components](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
 
 **Example:**
 
@@ -160,7 +157,7 @@ To copy data from SAP ECC, set the source type in the copy activity to **SapEccS
 When copying data from SAP ECC, the following mappings are used from OData data types for SAP ECC data to Azure Data Factory interim data types. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
 
 | OData data type | Data factory interim data type |
-|:--- |:--- |:--- |
+|:--- |:--- |
 | Edm.Binary | String |
 | Edm.Boolean | Bool |
 | Edm.Byte | String |

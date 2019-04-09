@@ -1,22 +1,16 @@
 ---
-title: Monitor Azure Cosmos DB requests and storage | Microsoft Docs
+title: Monitor performance and storage metrics in Azure Cosmos DB
 description: Learn how to monitor your Azure Cosmos DB account for performance metrics, such as requests and server errors, and usage metrics, such as storage consumption.
-services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
-manager: kfile
-
-ms.assetid: 4c6a2e6f-6e78-48e3-8dc6-f4498b235a9e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 09/19/2017
+ms.topic: conceptual
+ms.date: 12/06/2018
 ms.author: sngun
+ms.custom: seodec18
 
 ---
-# Monitor Azure Cosmos DB
+# Monitor performance and storage metrics in Azure Cosmos DB
+
 You can monitor your Azure Cosmos DB accounts in the [Azure portal](https://portal.azure.com/). For each Azure Cosmos DB account, a full suite of metrics is available to monitor throughput, storage, availability, latency, and consistency.
 
 Metrics can be reviewed on the Account page, the new Metrics page, or in Azure Monitor.
@@ -28,7 +22,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
 
    The Azure portal displays the suite of collection metrics available. Note that throughput, storage, availability, latency, and consistency metrics are provided on separate tabs. To get additional detail on the metrics provided, click on the double-arrow in the top right of each metrics pane.
 
-   ![Screen shot of the Monitoring lens that shows the metrics suite](./media/monitor-accounts/metrics-suite.png)
+   ![Screenshot of the Monitoring lens that shows the metrics suite](./media/monitor-accounts/metrics-suite.png)
 
 ## View performance metrics by using Azure Monitoring
 1. In the [Azure portal](https://portal.azure.com/), click **Monitor** on the left bar.
@@ -44,14 +38,14 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
    * Total requests for the current day.
    * Storage used.
    
-   ![Screen shot of the Monitoring lens that shows the requests and the storage usage](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![Screenshot of the Monitoring lens that shows the requests and the storage usage](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. Clicking on the double-arrow in the top-right of the **Requests** tile opens a detailed **Metric** page.
 4. The **Metric** page shows you details about the total requests. 
 
 ## Set up alerts in the portal
 1. In the [Azure portal](https://portal.azure.com/), click **All services**, click **Azure Cosmos DB**, and then click the name of the Azure Cosmos DB account for which you would like to set up performance metric alerts.
 2. In the resource menu, click **Alert Rules** to open the Alert rules page.  
-   ![Screen shot of the Alert rules part selected](./media/monitor-accounts/madocdb10.5.png)
+   ![Screenshot of the Alert rules part selected](./media/monitor-accounts/madocdb10.5.png)
 3. In the **Alert rules** page, click **Add alert**.  
    ![Screenshot of the Alert Rules page, with the Add Alert button highlighted](./media/monitor-accounts/madocdb11.png)
 4. In the **Add an alert rule** page, specify:
@@ -62,7 +56,7 @@ Metrics can be reviewed on the Account page, the new Metrics page, or in Azure M
    * The condition, threshold, and period that determine when the alert activates. For example, a server error count greater than 5 over the last 15 minutes.
    * Whether the service administrator and coadministrators are emailed when the alert fires.
    * Additional email addresses for alert notifications.  
-     ![Screen shot of the Add an alert rule page](./media/monitor-accounts/madocdb12.png)
+     ![Screenshot of the Add an alert rule page](./media/monitor-accounts/madocdb12.png)
 
 ## Monitor Azure Cosmos DB programmatically
 The account level metrics available in the portal, such as account storage usage and total requests, are not available via the SQL APIs. However, you can retrieve usage data at the collection level by using the SQL APIs. To retrieve collection level data, do the following:
@@ -76,7 +70,7 @@ To access additional metrics, use the [Azure Monitor SDK](https://www.nuget.org/
 
 Queries to retrieve individual metrics use the following format:
 
-    https://management.azure.com/subscriptions/{SubecriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
+    https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroup}/providers/Microsoft.DocumentDb/databaseAccounts/{DocumentDBAccountName}/metrics?api-version=2015-04-08&$filter=%28name.value%20eq%20%27Total%20Requests%27%29%20and%20timeGrain%20eq%20duration%27PT5M%27%20and%20startTime%20eq%202016-06-03T03%3A26%3A00.0000000Z%20and%20endTime%20eq%202016-06-10T03%3A26%3A00.0000000Z
 
 For more information, see [Retrieving Resource Metrics via the Azure Monitor REST API](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/02/23/retrieving-resource-metrics-via-the-azure-insights-api/). Note that "Azure Insights" was renamed "Azure Monitor".  This blog entry refers to the older name.
 

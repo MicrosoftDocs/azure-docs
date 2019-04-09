@@ -3,7 +3,7 @@ title: Infrastructure Backup Service best practices for Azure Stack | Microsoft 
 description: You can follow set of best practices when you deploy and manage Azure Stack in your datacenter to help mitigate data loss if there is a catastrophic failure.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 02/08/2019
+ms.author: jeffgilb
 ms.reviewer: hectorl
+ms.lastreviewed: 02/08/2019
 
 ---
 # Infrastructure Backup Service best practices
@@ -30,7 +31,7 @@ You should review the best practices at a regular interval to verify that your i
 
 ### Deployment
 
-Enable Infrastructure Backup after deployment of each Azure Stack Cloud. Using AzureStack-Tools you can schedule backups from any client/server with access to the operator management API endpoint.
+Enable Infrastructure Backup after deployment of each Azure Stack Cloud. Using Azure Stack PowerShell you can schedule backups from any client/server with access to the operator management API endpoint.
 
 ### Networking
 
@@ -38,21 +39,27 @@ The Universal Naming Convention (UNC) string for the path must use a fully quali
 
 ### Encryption
 
-The encryption key is used to encrypt backup data that gets exported to external storage. The key can be generated using AzureStack-Tools. 
+#### Version 1901 and newer
 
-![AzureStack-Tools](media\azure-stack-backup\azure-stack-backup-encryption1.png)
+The encryption certificate is used to encrypt backup data that gets exported to external storage. The certificate can be a self-signed certificate since the certificate is only used to transport keys. Refer to New-SelfSignedCertificate for more information on how to create a certificate.  
+The key must be stored in a secure location (for example, global Azure Key Vault certificate). The CER format of the certificate is used to encrypt data. The PFX format must be used during cloud recovery deployment of Azure Stack to decrypt backup data.
 
-The key must be stored in a secure location (for example, public Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
+![Stored the certificate in a secure location.](media/azure-stack-backup/azure-stack-backup-encryption-store-cert.png)
 
-![Stored the key a secure location.](media\azure-stack-backup\azure-stack-backup-encryption2.png)
+#### 1811 and older
+
+The encryption key is used to encrypt backup data that gets exported to external storage. The key is generated as part of [enabling backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
+
+The key must be stored in a secure location (for example, global Azure Key Vault secret). This key must be used during redeployment of Azure Stack. 
+
+![Stored the key a secure location.](media/azure-stack-backup/azure-stack-backup-encryption2.png)
 
 ## Operational best practices
 
 ### Backups
 
- - Infrastructure Backup Controller needs to be triggered on demand. Recommendation is to backup at least two times per day.
  - Backup jobs execute while the system is running so there is no downtime to the management experiences or user applications. Expect the backup jobs to take 20-40 minutes for a solution that is under reasonable load.
- - Using OEM provided instruction, manually backup network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
+ - Using OEM provided instructions, manually backup network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
 
 ### Folder Names
 
@@ -72,7 +79,7 @@ Region: nyc
 
 MASBackup folder is where Azure Stack stores its backup data. You should not use this folder to store your own data. OEM should not use this folder to store any backup data either. 
 
-OEMs are encouraged to store backup data for their components under the region folder. Each network switches, hardware lifecycle host (HLH), and so on may be stored in its own subfolder. For example:
+OEMs are encouraged to store backup data for their components under the region folder. Each network switches, hardware lifecycle host (HLH), and so on, may be stored in its own subfolder. For example:
 
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\HLH
     \\fileserver01.contoso.com\AzSBackups\contoso.com\nyc\Switches
@@ -93,5 +100,6 @@ The following alerts are supported by the system:
 
 ## Next steps
 
- - Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).  
- - Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).
+Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md)
+
+Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md)

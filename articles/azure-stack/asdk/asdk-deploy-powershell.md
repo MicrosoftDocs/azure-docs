@@ -1,6 +1,6 @@
 ---
 title: Deploy Azure Stack - PowerShell | Microsoft Docs
-description: In this tutorial, you install the ASDK from the command line.
+description: In this article, you install the ASDK from the command line using PowerShell.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,25 +12,18 @@ ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: tutorial
-ms.custom: mvc
-ms.date: 03/16/2018
+ms.topic: article
+ms.custom: 
+ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
+ms.lastreviewed: 02/08/2019
+
+
 ---
 
-# Tutorial: deploy the ASDK from the command line
-In this tutorial, you deploy the Azure Stack Development Kit (ASDK) from the command line in a non-production environment. 
-
+# Deploy the ASDK from the command line
 The ASDK is a testing and development environment that you can deploy to evaluate and demonstrate Azure Stack features and services. To get it up and running, you need to prepare the environment hardware and run some scripts (this will take several hours). After that, you can sign in to the admin and user portals to start using Azure Stack.
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Download and extract the deployment package
-> * Prepare the development kit host computer 
-> * Perform post-deployment configurations
-> * Register with Azure
 
 ## Prerequisites 
 Prepare the development kit host computer. Plan your hardware, software, and network. The computer that hosts the development kit (the development kit host) must meet hardware, software, and network requirements. You must also choose between using Azure Active Directory (Azure AD) or Active Directory Federation Services (AD FS). Be sure to comply with these prerequisites before starting your deployment so that the installation process runs smoothly. 
@@ -98,6 +91,8 @@ Run the following PowerShell commands to deploy the development kit using Azure 
 
 A few minutes into ASDK installation you will be prompted for Azure AD credentials. You must provide global administrator credentials for your Azure AD tenant. 
 
+After deployment, Azure Active Directory global administrator permission is not required. However, some operations may require the global administrator credential. For example, a resource provider installer script or a new feature requiring a permission to be granted. You can either temporarily re-instate the account’s global administrator permissions or use a separate global administrator account that is an owner of the *default provider subscription*.
+
 ### Deploy Azure Stack using AD FS 
 To deploy the development kit **using AD FS as the identity provider**, run the following PowerShell commands (you just need to add the -UseADFS parameter): 
 
@@ -137,10 +132,11 @@ $aadcred = Get-Credential "<Azure AD global administrator account name>" #Exampl
 If your environment does not have DHCP enabled, then you must include the following additional parameters to one of the options above (example usage provided): 
 
 ```powershell
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -NatIPv4Subnet 10.10.10.0/24 -NatIPv4Address 10.10.10.3 -NatIPv4DefaultGateway 10.10.10.1 -TimeServer 10.222.112.26
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -TimeServer 10.222.112.26
 ```
 
 ### ASDK InstallAzureStackPOC.ps1 optional parameters
+
 |Parameter|Required/Optional|Description|
 |-----|-----|-----|
 |AdminPassword|Required|Sets the local administrator account and all other user accounts on all the virtual machines created as part of development kit deployment. This password must match the current local administrator password on the host.|
@@ -149,9 +145,6 @@ If your environment does not have DHCP enabled, then you must include the follow
 |InfraAzureDirectoryTenantAdminCredential|Optional|Sets the Azure Active Directory user name and password. These Azure credentials must be an Org ID.|
 |InfraAzureEnvironment|Optional|Select the Azure Environment with which you want to register this Azure Stack deployment. Options include Public Azure, Azure - China, Azure - US Government.|
 |DNSForwarder|Optional|A DNS server is created as part of the Azure Stack deployment. To allow computers inside the solution to resolve names outside of the stamp, provide your existing infrastructure DNS server. The in-stamp DNS server forwards unknown name resolution requests to this server.|
-|NatIPv4Address|Required for DHCP NAT support|Sets a static IP address for MAS-BGPNAT01. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.|
-|NatIPv4Subnet|Required for DHCP NAT support|IP Subnet prefix used for DHCP over NAT support. Only use this parameter if the DHCP can’t assign a valid IP address to access the Internet.|
-|PublicVlanId|Optional|Sets the VLAN ID. Only use this parameter if the host and MAS-BGPNAT01 must configure VLAN ID to access the physical network (and Internet). For example, .\InstallAzureStackPOC.ps1 -Verbose -PublicVLan 305|
 |Rerun|Optional|Use this flag to rerun deployment. All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment.|
 
 
@@ -173,16 +166,5 @@ You must register Azure Stack with Azure so that you can [download Azure marketp
 ## Next steps
 Congratulations! After completing these steps, you’ll have a development kit environment with both [administrator](https://adminportal.local.azurestack.external) and [user](https://portal.local.azurestack.external) portals. 
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Download and extract the deployment package
-> * Prepare the development kit host computer 
-> * Perform post-deployment configurations
-> * Register with Azure
-
-Advance to the next tutorial to learn how to add an Azure Stack marketplace item.
-
-> [!div class="nextstepaction"]
-> [Add an Azure Stack marketplace item](asdk-marketplace-item.md)
+[Post ASDK installation configuration tasks](asdk-post-deploy.md)
 

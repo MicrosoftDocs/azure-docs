@@ -1,23 +1,13 @@
 ---
-title: How to query table data in Azure Cosmos DB? | Microsoft Docs
+title: How to query table data in Azure Cosmos DB? 
 description: Learn to query table data in Azure Cosmos DB
-services: cosmos-db
-documentationcenter: ''
-author: kanshiG
-manager: kfile
-editor: ''
-tags: ''
-
-ms.assetid: 14bcb94e-583c-46f7-9ea8-db010eb2ab43
+author: wmengmsft
+ms.author: wmeng
 ms.service: cosmos-db
-ms.devlang: na
+ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: ''
 ms.date: 11/15/2017
-ms.author: govindk
-ms.custom: mvc
-
+ms.reviewer: sngun
 ---
 
 # Tutorial: Query Azure Cosmos DB by using the Table API
@@ -83,21 +73,21 @@ For more information on how to construct filter expressions for various data typ
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+| Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
 ## Query by using LINQ 
 You can also query by using LINQ, which translates to the corresponding OData query expressions. Here's an example of how to build queries by using the .NET SDK:
 
 ```csharp
 CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("people");
+CloudTable table = tableClient.GetTableReference("People");
 
 TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
     .Where(
         TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition(PartitionKey, QueryComparisons.Equal, "Smith"),
+            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
             TableOperators.And,
-            TableQuery.GenerateFilterCondition(Email, QueryComparisons.Equal,"Ben@contoso.com")
+            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
     ));
 
 await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
