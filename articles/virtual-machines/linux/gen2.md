@@ -76,7 +76,7 @@ Generation 2 VMs support the following Azure Marketplace images:
 ## Frequently asked questions
 
 * **Do Gen2 VMs support Accelerated Networking?**  
-    Yes, Gen2 VMs support [Accelerated Networking](../articles/virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes, Gen2 VMs support [Accelerated Networking](../../articles/virtual-network/create-vm-accelerated-networking-cli.md).
 
 * **Is .vhdx supported on Gen2?**
     No, only .vhd is supported on Gen2 VMs.
