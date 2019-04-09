@@ -24,7 +24,7 @@ One of the easiest ways to explore the [Azure Search REST API](https://docs.micr
 
 > [!div class="checklist"]
 > * Download a web api test tool
-> * Get the api-key and endpoint for your search service
+> * Get a key and URL for your search service
 > * Connect to Azure Search
 > * Create an index
 > * Load an index
@@ -40,7 +40,7 @@ The following services and tools are used in this quickstart.
 
 [Postman desktop app](https://www.getpostman.com/) or [Telerik Fiddler](https://www.telerik.com/fiddler) is used for sending requests to Azure Search.
 
-## Get the api-key and endpoint
+## Get a key and URL
 
 REST calls require the service URL and an access key on every request. A search service is created with both, so if you added Azure Search to your subscription, follow these steps to get the necessary information:
 
