@@ -1,15 +1,16 @@
 ---
-title: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
-description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service(AKS) cluster
-ms.service: azure
+title: Tutorial - Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
+description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
+ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
-author: tomarchermsft
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
+# Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
 
 In Azure Kubernetes Service(AKS), you can deploy a cluster that uses one of the following two network models:
 
@@ -22,15 +23,9 @@ This article shows you how to use Ansible to create an AKS cluster and configure
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), note the following values: **appId**, **displayName**, **password**, and **tenant**.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- The virtual network for the AKS cluster must allow outbound internet connectivity.
-- Do not create more than one AKS cluster in the same subnet.
-- AKS clusters may not use `169.254.0.0/16`, `172.30.0.0/16`, or `172.31.0.0/16` for the Kubernetes service address range.
-
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial.
 
 ## Create a virtual network and subnet
 
@@ -99,7 +94,7 @@ Before creation, we use `azure_rm_aks_version` module to find the supported vers
   register: aks
 ```
 
-## Combine tasks together
+## Combine tasks
 
 Here is the complete playbook that calls all the preceding tasks. Save this playbook as *aks-azure-cni.yml*. You can replace **aksansibletest**, **aksansibletest**, **eastus** in the **vars** section with your own resource group name, AKS name and location respectively.
 
@@ -219,15 +214,17 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## Clean up
+## Clean up resources
 
-Remove these resources by deleting the resource group. Here we are deleting the resource group **aksansibletest**.
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 ---
 - hosts: localhost
   vars:
-      resource_group: aksansibletest
+      resource_group: **{{ resource_group_name }}**
   tasks:
       - name: Clean up resource group
         azure_rm_resourcegroup:
@@ -236,13 +233,15 @@ Remove these resources by deleting the resource group. Here we are deleting the 
             force: yes
 ```
 
-Save this playbook to `clean.yml`, and run with command `ansible-playbook`:
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook clean.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure Azure Active Directory in Azure Kubernetes Service (AKS) using Ansible](https://docs.microsoft.com/azure/ansible/ansible-aks-configure-rbac)
+> [Tutorial: Configure Azure Active Directory in Azure Kubernetes Service (AKS) using Ansible](./ansible-aks-configure-rbac.md)

@@ -338,5 +338,6 @@ ansible-playbook cleanup.yml
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
 > [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)

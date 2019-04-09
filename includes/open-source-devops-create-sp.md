@@ -1,0 +1,9 @@
+---
+ author: TomArcherMsft
+ ms.service: ansible
+ ms.topic: include
+ ms.date: 04/04/2019
+ ms.author: tarcher
+---
+
+- **Azure service principal** - [Create a service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), making note the following values: **appId**, **displayName**, **password**, and **tenant**.
