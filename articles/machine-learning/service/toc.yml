@@ -147,6 +147,11 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+  - name: Track and monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
@@ -210,11 +215,19 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Algorithm & modules for visual interface (Preview)
+  - name: Algorithm & modules (Preview)
     displayName: module reference
     items:
-    - name: Reference overview
+    - name: Overview
       href: ../algorithm-module-reference/module-reference.md
+    - name: Input & Output
+      items:
+      - name: Import Data
+        href: ../algorithm-module-reference/import-data.md
+      - name: Export Data
+        href: ../algorithm-module-reference/export-data.md
+      - name: Enter Data Manually
+        href: ../algorithm-module-reference/enter-data-manually.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
