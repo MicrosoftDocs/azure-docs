@@ -12,14 +12,16 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
 
-In Azure Kubernetes Service(AKS), you can deploy a cluster that uses one of the following two network models:
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-- [**Kubenet networking**](https://docs.microsoft.com/en-us/azure/aks/configure-kubenet) - the network resources are typically created and configured as the AKS cluster is deployed.
-- [**Azure Container Networking Interface (CNI) networking**](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni) - the AKS cluster is connected to existing virtual network resources and configurations.
+Using Azure Kubernetes Service (AKS) you can deploy a cluster using the following network models:
 
-Refer to [Network concepts for applications in Azure Kubernetes Sevrice (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-network) for core concepts that provide networking to your applications in AKS.
+- [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
+- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network resources and configurations.
 
-This article shows you how to use Ansible to create an AKS cluster and configure Azure CNI (advanced) networking.
+For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
+
+This article shows you how to use Ansible to create an AKS cluster and configure Azure CNI networking.
 
 ## Prerequisites
 
@@ -29,7 +31,11 @@ This article shows you how to use Ansible to create an AKS cluster and configure
 
 ## Create a virtual network and subnet
 
-The first section contains two tasks to create a virtual network, and add a subnet to it. Save these tasks as *vnet.yml*.
+This section presents a playbook with two tasks to perform the following work: 
+- Create a virtual network
+- Add a subnet to the virtual network
+
+Save the following playbook as *vnet.yml*:
 
 ```yml
 - name: Create vnet
@@ -50,18 +56,19 @@ The first section contains two tasks to create a virtual network, and add a subn
 
 ## Create an AKS cluster in the virtual network
 
-This section creates an AKS cluster with the virtual network. Save these tasks to *aks.yml*.
+This section presents a playbook that creates an AKS cluster with a virtual network. 
 
-Before creation, we use `azure_rm_aks_version` module to find the supported version.
+Here are some key notes to consider when working with the sample playbook:
+- Use the `azure_rm_aks_version` module to find the supported version.
+- The `vnet_subnet_id` is the subnet created in the previous section.
+- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
+- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+    ```yml
+    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    ```
 
-> [!Tip]
-> - The `vnet_subnet_id` is the subnet we create in previous section.
-> - This task loads `ssh_key` from `~/.ssh/id_rsa.pub`. You can change it to RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-> - `client_id` and `client_secret` are loaded from `~/.azure/credentials` where is the default credential file for Ansible. You can set these as your own service principal or load these from environment:
->    ```yml
->    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
->    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
->    ```
+Save the following playbook as `aks.yml`:
 
 ```yml
 - name: List supported kubernetes version from Azure
@@ -94,9 +101,11 @@ Before creation, we use `azure_rm_aks_version` module to find the supported vers
   register: aks
 ```
 
-## Combine tasks
+## Run the complete playbook
 
-Here is the complete playbook that calls all the preceding tasks. Save this playbook as *aks-azure-cni.yml*. You can replace **aksansibletest**, **aksansibletest**, **eastus** in the **vars** section with your own resource group name, AKS name and location respectively.
+This section lists the complete playbook that calls the tasks creating in this article. 
+
+Save the following playbook as `aks-azure-cni.yml`:
 
 ```yml
 ---
@@ -124,13 +133,19 @@ Here is the complete playbook that calls all the preceding tasks. Save this play
            var: aks
 ```
 
-Save the playbook, with all other task files in the same folder. To run this playbook, use command `ansible-playbook` as follow:
+In the **vars** section, make the following changes:
+- For the **resource_group** key, change the **aksansibletest** value to your resource group name.
+- For the **name** key, change the **aksansibletest** value to your AKS name.
+- For the **Location** key, change the **eastus** value to your resource group location.
+
+
+Run the complete playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook aks-azure-cni.yml
 ```
 
-After running the playbook, output similar to the following shows the progress and results:
+Running the playbook shows results similar to the following output:
 
 ```Output
 PLAY [localhost] ***************************************************************
