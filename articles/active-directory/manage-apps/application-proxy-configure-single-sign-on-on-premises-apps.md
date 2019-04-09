@@ -47,7 +47,7 @@ Keep in mind the following when you're going through the tutorial:
 1. Select **SAML** as the single sign-on method.
 1. In the **Set up Single Sign-On with SAML** page, edit the **Basic SAML Configuration** data, and follow the steps in [Enter basic SAML configuration](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) to configure SAML-based authentication for the application.
 
-   * Make sure the **Reply URL** matches or is a path under tehe **External URL** for the on-premises application that you published through Application Proxy. If your application requires a different **Reply URL** for the SAML configuration, add this as the **first** URL in the list and move the **External URL** to after it.
+   * Make sure the **Reply URL** matches or is a path under the **External URL** for the on-premises application that you published through Application Proxy. If your application requires a different **Reply URL** for the SAML configuration, add this as the **first** URL in the list and keep the **External URL** as an additional URL ordered after the first.
    * Ensure that the application also specifies the correct **Reply URL** or Assertion Consumer Service URL to use for receiving the authentication token.
 
      ![Enter basic SAML configuration data](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
