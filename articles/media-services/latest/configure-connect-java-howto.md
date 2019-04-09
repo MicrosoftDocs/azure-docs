@@ -53,7 +53,6 @@ The following packages should be specified:
 |Package|Description|
 |---|---|
 |[com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)|Azure Media Services SDK. |
-|`ms-rest-azure`| Used to sign in.|
 
 1. Under the `testAzureApp` folder, open the `pom.xml` file and add the build configuration to &lt;project&gt; to enable the building of your application:
 
@@ -99,7 +98,7 @@ The following packages should be specified:
 
 ## Create credentials
 
-Before you start this step, follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the application ID, the authentication key, and the tenant ID that you need in a later step.
+Before you start this step, follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the application ID (client ID), the authentication key (secret), and the tenant ID that you need in a later step.
 
 ### Create the authorization file
 
