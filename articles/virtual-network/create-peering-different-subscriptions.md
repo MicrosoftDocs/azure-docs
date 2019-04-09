@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create a virtual network peering between virtual networks created through Resource Manager that exist in different Azure subscriptions.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
+ms.date: 04/09/2019
+ms.author: anavin
 ---
 
 # Create a virtual network peering - Resource Manager, different subscriptions
@@ -34,7 +34,9 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 ## <a name="portal"></a>Create peering - Azure portal
 
-If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, follow steps in the CLI and PowerShell section of this article. Portal does not have support to peer virtual networks belonging to subscriptions from different Active Directory Tenants.
+If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, follow steps in the CLI and PowerShell section of this article. Portal does not have support to peer virtual networks belonging to subscriptions from different Active Directory Tenants. 
+
+Note that Cloud Shell has limitations in switching subscriptions and tenants due to which VNet Peering or Global VNet Peering between VNets belonging to subscriptions in different Azur Active Directory Tenants will not work. Please use PowerShell or CLI.
 
 The following steps use different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks.
 
