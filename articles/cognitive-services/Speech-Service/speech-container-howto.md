@@ -1,7 +1,8 @@
 ---
 title: Install Speech containers
 titleSuffix: Azure Cognitive Services
-description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  services: cognitive-services
+description: Install and run speech containers. Speech-to-text transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. Text-to-speech converts input text into human-like synthesized speech.  
+services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
