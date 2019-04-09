@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 03/29/2019
+ms.date: 034/08/2019
 ---
 # What is a single database in Azure SQL Database
 
@@ -50,7 +50,7 @@ For more information, see [Resolving Transact-SQL differences during migration t
 SQL Database provides a range of [built-in security and compliance](sql-database-security-overview.md) features to help your application meet various security and compliance requirements.
 
 > [!IMPORTANT]
-> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Azure SQL Database (all deployment options), has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Next steps
 
