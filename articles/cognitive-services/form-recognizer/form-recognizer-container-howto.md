@@ -53,7 +53,7 @@ The **host** is the computer that runs the docker container. It can be a compute
 If you plan to use Azure Blob as a data storage then the **host** has to be ** Ubuntu Linux**.
 
 > [!TIP]
-> If the host computer is a virtual machine, like for example [Azure VM](link) then every docker command has to be run as ```sudo``` in case you face permission issues.
+> If the host computer is a virtual machine, like for example Azure VM, then every docker command has to be run as ```sudo``` in case you face permission issues.
 >
 
 
@@ -101,7 +101,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-forms:lates
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](#example-docker-run-commands) of the `docker run` command are available.
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](form-recognizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
 2. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Data storage options and configurations
@@ -114,7 +114,7 @@ There are multiple options on how the forms can be provided to the service. The 
 
 
 ### Local volumes
-Please refer to the [mount section](#mount-settings)
+Please refer to the [mount section](form-recognizer-container-configuration.md#mount-settings)
 
 ### Azure files
 
@@ -299,9 +299,9 @@ The container provides a full set of documentation for the endpoints as well as 
 
 The _Form Recognizer_ containers send billing information to Azure, using a _Form Recognizer_ resource on your Azure account.
 
-[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
+For more information about these options, see [Configure containers](form-recognizer-container-configuration.md).
 
 ## Summary
 

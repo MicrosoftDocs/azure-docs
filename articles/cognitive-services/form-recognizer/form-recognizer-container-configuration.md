@@ -21,21 +21,21 @@ This container has the following configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
-|Yes|[ApiKey](#apikey-setting)|Used to track billing information.|
-|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
-|Yes|[Billing](#billing-setting)|Specifies the endpoint URI of the service resource on Azure.|
+|Yes|[ApiKey](#apikey-configuration-setting)|Used to track billing information.|
+<!--|No|[ApplicationInsights](#applicationinsights-setting)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|-->
+|Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the service resource on Azure.|
 |Yes|[Eula](#eula-setting)| Indicates that you've accepted the license for the container.|
-|No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
-|No|[Http Proxy](#http-proxy-credentials-settings)|Configure an HTTP proxy for making outbound requests.|
+<!--|No|[Fluentd](#fluentd-settings)|Write log and, optionally, metric data to a Fluentd server.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure an HTTP proxy for making outbound requests.|-->
 |Yes|[Logging](#logging-settings)|Provides ASP.NET Core logging support for your container. |
 |Yes|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](form-recognizer-container-howto.md#billing).
 
 ## ApiKey configuration setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Forms Recognizer_ resource specified for the [`Billing`](#billing-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Forms Recognizer_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in the following place:
 
@@ -88,7 +88,7 @@ The following logging providers are supported by the container:
 |--|--|
 |[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|The ASP.NET Core `Console` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
 |[Debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|The ASP.NET Core `Debug` logging provider. All of the ASP.NET Core configuration settings and default values for this logging provider are supported.|
-|[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|
+<!--|[Disk](#disk-logging)|The JSON logging provider. This logging provider writes log data to the output mount.|-->
 
 <!-- ### Disk logging
 
@@ -108,7 +108,7 @@ Use bind mounts to read and write data to and from the container. You can specif
 
 The Form Recognizer containers requires an **input** and **output** mount. The input mount can be read-only and is required to access the data that will be used for training and scoring. The output mount has to be writable and will be used to store the models and temporary data.
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the [host computer](form-recognizer-container-howto.md#the-host-computer)'s mount location may not be accessible due to a conflict between permissions used by the Docker service account and the host mount location permissions.
 
 |Optional| Name | Data type | Description |
 |-------|------|-----------|-------------|
@@ -117,7 +117,7 @@ The exact syntax of the host mount location varies depending on the host operati
 
 ## Example docker run commands
 
-The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](#stop-the-container) it.
+The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](form-recognizer-container-howto.md#stop-the-container) it.
 
 * **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a carot, `^`. Replace the back slash with the carot.
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
@@ -132,7 +132,7 @@ Replace {_argument_name_} with your own values:
 |{COMPUTER_VISION_API_BILLING_ENDPOINT_URI} | The billing endpoint value including region for the Computer Vision API.|`https://westus.api.cognitive.microsoft.com`|
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](form-recognizer-container-howto.md#billing).
 > The ApiKey value is the **Key** from the Azure Form Recognizer Resource keys page.
 
 ## Form Recognizer container Docker examples
