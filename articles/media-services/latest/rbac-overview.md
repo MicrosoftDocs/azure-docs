@@ -21,7 +21,7 @@ ms.custom: seodec18
 
 Currently, Azure Media Services does not defined any custom roles specific to the service. Customers can use the built-in roles of **Owner** or **Contributor** to get full access to a Media Services account. The main difference between these roles is: the **Owner** can control who has access to a resource and the **Contributor** cannot. The built-in reader account only has read access to the Media Services account. 
 
-One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. Thus, the readers cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. The keys are always null, empty, or sanitized from the response. The readers need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions, in case some APIs do retrieve/display secrets while other APIs do not.
+One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
 
 To list the operations Media Services supports, do:
 
@@ -32,7 +32,7 @@ foreach (Microsoft.Azure.Management.Media.Models.Operation a in client.Operation
 }
 ```
 
-The built-in role definitions documentation tells you exactly what the role grants. 
+The [built-in role definitions](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) article tells you exactly what the role grants. 
 
 See the following articles for more information:
 
