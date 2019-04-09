@@ -124,7 +124,7 @@ Video Indexer supports automatic customization of Language models based on the a
 
     ![Customize language model](./media/customize-language-model/edits.png)
 
-    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to re-train the specific Language model that was used to index this video. You will see transcript corrections show up in the Language tab of the Content model customization page.
+    Video Indexer captures all lines that are corrected by you in the transcription of your video and adds them automatically to a text file called "From transcript edits". These edits are used to re-train the specific Language model that was used to index this video. 
     
     If you did not specify a Language model when indexing this video, then all edits for this video will be stored in a default Language model called Account adaptations within the detected language of the video. 
     
@@ -132,10 +132,12 @@ Video Indexer supports automatic customization of Language models based on the a
     
     > [!NOTE]
     > Only textual corrections are used for the customization. This means that corrections that do not involve actual words (for example, punctuation marks or spaces) are not included. 
+    
+1. You will see transcript corrections show up in the Language tab of the Content model customization page.
 
     ![Customize language model](./media/customize-language-model/customize.png)
 
-1. To look at the "From transcript edits" file for each of your Language models, click on it to open it. 
+   To look at the "From transcript edits" file for each of your Language models, click on it to open it. 
 
     ![From transcript edits](./media/customize-language-model/from-transcript-edits.png)
 

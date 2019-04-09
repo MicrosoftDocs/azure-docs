@@ -27,7 +27,7 @@ Stay up-to-date with what's new in the ASDK by subscribing to the [![RSS](./medi
 
 ## Build 1903
 
-The 1903 payload does not include an ASDK release. Future releases will contain an ASDK release.
+The 1903 payload does not include an ASDK release.
 
 ## Build 1.1902.0.69
 

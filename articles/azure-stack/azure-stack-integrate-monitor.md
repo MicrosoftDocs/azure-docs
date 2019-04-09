@@ -26,7 +26,7 @@ For external monitoring of the Azure Stack infrastructure, you need to monitor t
 - Physical computers can make health and alert information available via the baseboard management controllers (BMCs).
 - Physical network devices can make health and alert information available via the SNMP protocol.
 
-Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. If desired, you can bypass these monitoring solutions and directly integrate with existing monitoring solutions in your datacenter.
+Each Azure Stack solution ships with a hardware lifecycle host. This host runs the Original Equipment Manufacturer (OEM) hardware vendor’s monitoring software for the physical servers and network devices. Please check with your OEM provider if their monitoring solutions can integrate with existing monitoring solutions in your datacenter.
 
 > [!IMPORTANT]
 > The external monitoring solution you use must be agentless. You can't install third-party agents inside Azure Stack components.
@@ -36,7 +36,7 @@ The following diagram shows traffic flow between an Azure Stack integrated syste
 ![Diagram showing traffic between Azure Stack, monitoring, and ticketing solution.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> External Monitoring Integration directly with physical servers and network devices is not allowed and actively blocked by Access Control Lists (ACLs). 
+> External Monitoring Integration directly with physical servers is not allowed and actively blocked by Access Control Lists (ACLs).  External Monitoring Integration directly with Physical network devices is supported, please check with your OEM provider on how to enable this feature.
 
 This article explains how to integrate Azure Stack with external monitoring solutions such as System Center Operations Manager and Nagios. It also includes how to work with alerts programmatically by using PowerShell or through REST API calls.
 

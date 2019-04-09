@@ -20,6 +20,9 @@ ms.author: jdial
 
 This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## What are the prerequisites to use traffic analytics?
 
 Traffic Analytics requires the following prerequisites:
@@ -47,12 +50,12 @@ Your account must meet one of the following to enable traffic analytics:
         
 To check roles assigned to a user for a subscription:
 
-1. Sign in to Azure by using **Login-AzureRmAccount**. 
+1. Sign in to Azure by using **Login-AzAccount**. 
 
-2. Select the required subscription by using **Select-AzureRmSubscription**. 
+2. Select the required subscription by using **Select-AzSubscription**. 
 
 3. To list all the roles that are assigned to a specified user, use
-    **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
+    **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -136,8 +139,8 @@ Please contact support if the problem persists.
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?
@@ -167,7 +170,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 

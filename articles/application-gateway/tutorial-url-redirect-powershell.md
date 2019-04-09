@@ -3,14 +3,9 @@ title: Create an application gateway with URL path-based redirection - Azure Pow
 description: Learn how to create an application gateway with URL path-based redirected traffic using Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
 #Customer intent: As an IT administrator, I want to use Azure PowerShell to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
 ---
 
@@ -499,7 +494,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Test base URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
+Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, substituting your IP address for &lt;ip-address&gt;, and you should see something like the following example:
 
 ![Test images URL in application gateway](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 

@@ -33,6 +33,8 @@ Before you commit your first line of code, ACR Tasks's [quick task](container-re
 
 Using the familiar `docker build` format, the [az acr build][az-acr-build] command in the Azure CLI takes a *context* (the set of files to build), sends it ACR Tasks and, by default, pushes the built image to its registry upon completion.
 
+For an introduction, see the quickstart to [build and run a container image](container-registry-quickstart-task-cli.md) in Azure Container Registry.  
+
 The following table shows a few examples of supported context locations for ACR Tasks:
 
 | Context location | Description | Example |
@@ -91,10 +93,9 @@ Learn about multi-step tasks in [Run multi-step build, test, and patch tasks in 
 
 ## Next steps
 
-When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part ACR Tasks tutorial series.
+When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

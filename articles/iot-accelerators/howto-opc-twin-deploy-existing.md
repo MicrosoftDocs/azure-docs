@@ -25,10 +25,7 @@ The core of the module is the Supervisor identity. The supervisor manages endpoi
 
 ## Prerequisites
 
-> [!NOTE]
-> Note: Due the dependency on the AzureRM module, deployment currently is only supported on Windows.
-
-Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) extensions installed.   If you have not done so yet, clone this GitHub repository.  Open a command prompt or terminal and run:
+Make sure you have PowerShell and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) extensions installed.   If you have not done so yet, clone this GitHub repository.  Open a command prompt or terminal and run:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -138,4 +135,4 @@ AAD tenant to use.
 Now that you have learned how to deploy OPC Twin to an existing project, here is the suggested next step:
 
 > [!div class="nextstepaction"]
-> [Secure communication of OPC Client and OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Secure communication of OPC Client and OPC PLC](howto-opc-vault-deploy-existing-client-plc-communication.md)

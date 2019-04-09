@@ -37,10 +37,11 @@ In nearly all OAuth 2.0 and OpenID Connect flows, there are four parties involve
 * The **Authorization Server** is the v2.0 endpoint and responsible for ensuring the user's identity, granting and revoking access to resources, and issuing tokens. The authorization server also known as the identity provider - it securely handles anything to do with the user's information, their access, and the trust relationships between parties in a flow.
 * The **Resource Owner** is typically the end user. It's the party that owns the data and has the power to allow third parties to access that data or resource.
 * The **OAuth Client** is your app, identified by its application ID. The OAuth client is usually the party that the end user interacts with, and it requests tokens from the authorization server. The client must be granted permission to access the resource by the resource owner.
-* The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access_tokens to ensure that access to a resource can be granted.
+* The **Resource Server** is where the resource or data resides. It trusts the Authorization Server to securely authenticate and authorize the OAuth Client, and uses Bearer access tokens to ensure that access to a resource can be granted.
 
 ## App Registration
-Every app that uses the v2.0 endpoint must be registered in [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) or through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can interact using OAuth or OpenID Connect. The app registration process will collect and assign a few values to your app:
+
+Every app that wants to accept both personal and work or school accounts must be registered through the new **App registrations (Preview)** experience in the [Azure portal](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) before it can sign these users in using OAuth 2.0 or OpenID Connect. The app registration process will collect and assign a few values to your app:
 
 * An **Application ID** that uniquely identifies your app
 * A **Redirect URI** or **Package Identifier** that can be used to direct responses back to your app
@@ -67,6 +68,9 @@ Where the `{tenant}` can take one of four different values:
 | `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Allows only users with work/school accounts from a particular Azure AD tenant to sign into the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
 
 To learn how to interact with these endpoints, choose a particular app type in the [Protocols](#protocols) section and follow the links for more info.
+
+> [!TIP]
+> Any app registered in Azure AD can use the v2.0 endpoint, even if they don't sign in personal accounts.  This way, you can migrate existing applications to v2.0 and [MSAL](reference-v2-libraries.md) without re-creating your application.  
 
 ## Tokens
 

@@ -462,7 +462,7 @@ For more information about Azure AD Password Protection, see [Eliminate bad pass
 
 During the creation of your Terms of Use (ToU), a new conditional access policy template is also created for "all guests" and "all apps". This new policy template applies the newly created ToU, streamlining the creation and enforcement process for guests.
 
-For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -474,7 +474,7 @@ For more information, see [Azure Active Directory Terms of use feature](https://
 
 During the creation of your Terms of Use (ToU), a new “custom” conditional access policy template is also created. This new policy template lets you create the ToU and then immediately go to the conditional access policy creation blade, without needing to manually navigate through the portal.
 
-For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see [Azure Active Directory Terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -735,7 +735,7 @@ For more information, see:
  
 Administrators can now select a given ToU and see all the users that have consented to that ToU and what date/time it took place.
 
-For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
  
@@ -778,7 +778,7 @@ For more information, see [Configuring single sign-on to applications that are n
 
 Azure AD Terms of Use have moved from public preview to generally available.
 
-For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see the [Azure AD terms of use feature](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 
@@ -1410,7 +1410,7 @@ Follow these steps:
 
 4. Now you can review the terms of use you accepted. 
 
-For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
  
@@ -1450,7 +1450,7 @@ An option for administrators requires their users to expand the terms of use pri
 
 Select either **On** or **Off** to require users to expand the terms of use. The **On** setting requires users to view the terms of use prior to accepting them.
 
-For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see the [Azure AD terms of use feature (preview)](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
  
 ---
 
@@ -1804,7 +1804,7 @@ You can use Azure AD terms of use in the following scenarios:
 - Specific terms of use based on a user's attributes (for example, doctors vs. nurses or domestic vs. international employees, done by dynamic groups)
 - Specific terms of use for accessing high-impact business apps, like Salesforce
 
-For more information, see [Azure AD terms of use](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+For more information, see [Azure AD terms of use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use).
 
 ---
 

@@ -6,7 +6,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
 ---
 
@@ -66,7 +66,7 @@ This article shows you three ways to enable managed identity for an Azure Stream
 
    ![Stream Analytics job config managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity (preview)**.
+2. In the output properties window of the ADLS Gen1 output sink, click the Authentication mode drop-down and select **Managed Identity **.
 
    ![ADLS output managed identities](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

@@ -7,13 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Container Registry - CLI
+  - name: Create a container registry - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry - Portal
+  - name: Create a container registry - Portal
     href: container-registry-get-started-portal.md
-  - name: Container Registry - PowerShell
+  - name: Create a container registry - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Events with Event Grid - CLI
+  - name: Build and run image - CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Send events to Event Grid - CLI
     href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
