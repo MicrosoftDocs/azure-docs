@@ -18,6 +18,7 @@ AzCopy v10 (Preview) is the command-line utility for copying data to or from Mic
 - Synchronizes file systems to Azure Blob storage or vice versa. Use `azcopy sync <source> <destination>`. Ideal for incremental copy scenarios.
 - Supports Azure Data Lake Storage Gen2 APIs. Use `myaccount.dfs.core.windows.net` as a URI to call the Data Lake Storage Gen2 APIs.
 - Supports copying an entire account (Blob service only) to another account.
+- Supports copying data from an Amazon Web Services S3 bucket.
 - Uses the new [Put Block from URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) APIs to support account-to-account copy. The data transfer is faster, since transfer to the client isn't required.
 - Lists or removes files and blobs in a given path.
 - Supports wildcard patterns in a path, and --exclude flags.
@@ -73,8 +74,8 @@ AzCopy v10 has a self-documented syntax. When you have logged in to Azure Active
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 Here's how you can get a list of available commands:
@@ -129,16 +130,16 @@ Use the copy command to transfer data from the source to the destination. The so
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` directory in the container:
+The following command uploads all files under the folder `C:\local\path` recursively to the container `mycontainer1`, creating `path` directory in the container. When `--put-md5` flag is provided, AzCopy calculates and stores each file's md5 hash in `Content-md5` property of the corresponding blob for later use.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 The following command uploads all files under the folder `C:\local\path` (without recursing into the subdirectories) to the container `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 To find more examples, use the following command:
@@ -147,21 +148,27 @@ To find more examples, use the following command:
 .\azcopy cp -h
 ```
 
-## Copy data between two storage accounts
+## Copy Blob data between two storage accounts
 
 Copying data between two storage accounts uses the [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API, and doesn't use the client machine's network bandwidth. Data is copied between two Azure Storage servers directly, while AzCopy simply orchestrates the copy operation. This option is currently only available for Blob storage.
 
-To copy the data between two storage accounts, use the following command:
+To copy the all of the Blob data between two storage accounts, use the following command:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> This command will enumerate all blob containers and copy them to the destination account. At this time, AzCopy v10 supports copying only block blobs between two storage accounts. It will skip all other storage account objects (such as append blobs, page blobs, files, tables, and queues).
+To copy a Blob container to another Blob container, use the following command:
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## Copy a VHD image to a storage account
 
-AzCopy v10 by default uploads data into block blobs. However, if a source file has a `.vhd` extension, AzCopy v10 will default to uploading to a page blob. At this time, this action isn't configurable.
+AzCopy by default uploads data into block blobs. To upload files as Append Blobs, or Page Blobs use the flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## Sync: incremental copy and delete (Blob storage only)
 
@@ -186,6 +193,30 @@ You can also sync a blob container down to a local file system:
 ```
 
 This command incrementally syncs the source to the destination based on the last modified timestamps. If you add or delete a file in the source, AzCopy v10 will do the same in the destination. Before deletion, AzCopy will prompt you to confirm.
+
+## Copy data from Amazon Web Services (AWS) S3
+
+To authenticate with an AWS S3 bucket, set the following environment variables:
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+To copy the bucket to a Blob container, issue the following command:
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+For more details on copying data from AWS S3 using AzCopy, see the page [here](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
 
 ## Advanced configuration
 

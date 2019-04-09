@@ -43,10 +43,7 @@ To set up a Windows IoT Core device please follow the step by step guide at [Set
 
 ### Add a real device
 
-In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
-
- > [!NOTE]
-   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instructions to [get the device connection string](concepts-connectivity.md#get-a-connection-string) and continue with the rest of the tutorial.
+In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template and make a note of the device connection details(**Scope ID, Device ID, Primary key**). Follow these instructions to [generate the device connection string](howto-generate-connection-string.md) using the **Scope ID**, **Device ID**, and **Primary key** you made a note of previously.
 
 ## Prepare the Windows 10 IoT Core device
 

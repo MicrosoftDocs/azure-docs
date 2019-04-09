@@ -42,11 +42,11 @@ The following steps show you how to create a static HTML page embedded with the 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -78,7 +78,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page, which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs. 
 
-3. Add the following JavaScript code to the `GetMap` function. Replace the string **\<Your Azure Maps Key\>** with the primary key that you copied from your Maps account.
+3. Add the following JavaScript code to the `GetMap` function. Replace the string `<Your Azure Maps Key>` with the primary key that you copied from your Maps account.
 
     ```JavaScript
    //Instantiate a map object
@@ -91,11 +91,11 @@ The following steps show you how to create a static HTML page embedded with the 
    });
    ```
 
-    The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
+    The `atlas.Map` provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
-   ![View basic map](./media/tutorial-route-location/basic-map.png)
+   ![View basic map](media/tutorial-route-location/basic-map.png)
 
 ## Define how the route will be rendered
 
@@ -163,7 +163,7 @@ In this tutorial, a simple route will be rendered using a symbol icon for the st
 
 3. Save the **MapRoute.html** file and refresh your browser. Now the map is centered over Seattle, and you can see the blue pin marking the start point and the round blue pin marking the finish point.
 
-   ![View map with start and end points marked](./media/tutorial-route-location/map-pins.png)
+   ![View map with start and end points marked](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 
@@ -184,9 +184,9 @@ This section shows how to use Azure Maps route service API to find the route fro
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   The **SubscriptionKeyCredential** creates a **SubscriptionKeyCredentialPolicy** to authenticate HTTP requests to Azure Maps with the subscription key. The **atlas.service.MapsURL.newPipeline()** takes in the **SubscriptionKeyCredential** policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The **routeURL** represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
 
-2. After setting up credentials and the URL, add the following JavaScript code to construct the route from start to end point. The **routeURL** requests the Azure Maps route service to calculate route directions. A GeoJSON feature collection from the response is then extracted using the **geojson.getFeatures()** method and added to the data source.
+2. After setting up credentials and the URL, add the following JavaScript code to construct the route from start to end point. The `routeURL` requests the Azure Maps route service to calculate route directions. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source.
 
     ```JavaScript
     //Start and end point input to the routeURL
