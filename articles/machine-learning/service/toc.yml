@@ -215,6 +215,14 @@
     items:
     - name: Reference overview
       href: ../algorithm-module-reference/module-reference.md
+    - name: Input & Output
+      items:
+      - name: Import Data
+        href: ../algorithm-module-reference/import-data.md
+      - name: Export Data
+        href: ../algorithm-module-reference/export-data.md
+      - name: Enter Data Manually
+        href: ../algorithm-module-reference/enter-data-manually.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources
