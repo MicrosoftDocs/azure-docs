@@ -64,7 +64,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|form-understanding| 2 core, 4 GB memory | 4 core, 8 GB memory |
+|form-recognizer| 2 core, 4 GB memory | 4 core, 8 GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -76,7 +76,7 @@ Container images for Form Recognizer are available.
 
 | Container | Repository |
 |-----------|------------|
-| form-understanding| `containerpreview.azurecr.io/microsoft/cognitive-services-forms:latest` |
+| form-recognizer| `containerpreview.azurecr.io/microsoft/form-recognizer:latest` |
 
 
 > [!TIP]
@@ -87,14 +87,14 @@ Container images for Form Recognizer are available.
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
 >  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        containerpreview.azurecr.io/microsoft/cognitive-services-forms                latest
+>  ebbee78a6baa        containerpreview.azurecr.io/microsoft/form-recognizer                latest
 >  ```
 
 
 ### Docker pull for the Form Recognizer container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-forms:latest
+docker pull containerpreview.azurecr.io/microsoft/form-recognizer:latest
 ```
 
 ## How to use the container
@@ -102,7 +102,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-forms:lates
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
 1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](form-recognizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available.
-2. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
+2. [Query the container's prediction endpoint](#query-the-form-recognizer-container-endpoint).
 
 ## Data storage options and configurations
 
@@ -147,7 +147,7 @@ Replace these parameters with your own values in the following example `docker r
  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
- containerpreview.azurecr.io/microsoft/cognitive-services-forms
+ containerpreview.azurecr.io/microsoft/form-recognizer
   eula=accept apikey={BILLING_KEY}
   billing={BILLING_ENDPOINT_URI} forms:computervisionapikey={COMPUTER_VISION_API_KEY}
   forms:computervisionendpointuri={COMPUTER_VISION_ENDPOINT_URI}
@@ -175,7 +175,7 @@ Run the first container on port 5000.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/cognitive-services-forms
+containerpreview.azurecr.io/microsoft/form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
@@ -187,7 +187,7 @@ Run the second container on port 5001.
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/cognitive-services-forms
+containerpreview.azurecr.io/microsoft/form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}

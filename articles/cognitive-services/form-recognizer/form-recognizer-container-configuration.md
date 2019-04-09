@@ -146,7 +146,7 @@ The following Docker examples are for the Form Recognizer container.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/cognitive-services-forms
+containerpreview.azurecr.io/microsoft/form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
@@ -159,7 +159,7 @@ computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/cognitive-services-forms
+containerpreview.azurecr.io/microsoft/form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
@@ -172,7 +172,7 @@ Logging:Console:LogLevel:Default=Information
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/cognitive-services-forms
+containerpreview.azurecr.io/microsoft/form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
