@@ -138,15 +138,11 @@
       - name: Indexing
         items:
         - name: Overview
+          displayName: range, spatial
           href: index-overview.md
-        - name: Index policy
+        - name: Indexing policies
           displayName: consistent, none
           href: index-policy.md
-        - name: Index types
-          displayName: hash, range, spatial
-          href: index-types.md
-        - name: Index paths
-          href: index-paths.md
       - name: Change feed
         items:
         - name: Overview
@@ -481,10 +477,8 @@
         href: storage-explorer.md
       - name: Work with data using Azure Cosmos explorer
         href: data-explorer.md
-      - name: Indexing
-        items:
-        - name: Manage indexing
-          href: how-to-manage-indexing-policy.md
+      - name: Manage indexing policies
+        href: how-to-manage-indexing-policy.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs

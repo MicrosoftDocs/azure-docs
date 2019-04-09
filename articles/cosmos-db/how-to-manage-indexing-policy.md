@@ -1,49 +1,44 @@
 ---
-title: Learn how to manage database accounts in Azure Cosmos DB
-description: Learn how to manage database accounts in Azure Cosmos DB
+title: Manage indexing policies in Azure Cosmos DB
+description: Learn how to manage indexing policies in Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
+ms.date: 04/08/2019
 ms.author: mjbrown
 ---
 
-# Manage indexing in Azure Cosmos DB
+# Manage indexing policies in Azure Cosmos DB
 
-In Azure Cosmos DB, you can choose whether you want a container to automatically index all the items or not. By default, all items in an Azure Cosmos container are automatically indexed, but you can turn off the automatic indexing. When indexing is turned off, items can be accessed through their self-links or through the queries by using the ID of the item, such as document id. You can explicitly request to serve results without using index by passing in **x-ms-documentdb-enable-scan** header in REST API or the **EnableScanInQuery** request option by using the .NET SDK.
+In Azure Cosmos DB, data is indexed following [indexing policies](index-policy.md) that are defined for each container. The default indexing policy for newly created containers enforces range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. This policy can be overridden from the Azure portal or by using the .NET SDK.
 
-With automatic indexing turned off, you can still selectively add specific items to the index. Conversely, you can leave automatic indexing turned on and selectively choose to exclude specific items. Indexing on/off configurations are useful when you have a subset of items that need to be queried.  
+## Use the Azure portal
 
-Write throughput and request units are proportional to the number of values that need to be indexed, which is specified by the included set in the indexing policy. If you have a good understanding of query patterns, you can explicitly choose the include/exclude subset of paths to improve the write throughput.
-
-## Manage indexing using Azure portal
+Azure Cosmos containers store their indexing policy as a JSON document that the Azure portal lets you directly edit.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos account or select an existing account.
+1. Create a new Azure Cosmos account or select an existing account.
 
-3. Open the **Data Explorer** pane.
+1. Open the **Data Explorer** pane and select the container that you want to work on.
 
-4. Select an existing container, expand it and modify the following values:
+1. Click on **Scale & Settings**.
 
-   * Open the **Scale & Settings** window.
-   * Change **indexingMode** from *consistent* to *none* or include/exclude certain paths from indexing.
-   * Click **OK** to save the changes.
+1. Modify the indexing policy JSON document.
 
-   ![Manage Indexing using Azure portal](./media/how-to-manage-indexing/how-to-manage-indexing-portal.png)
+1. Click **Save** when you are done.
 
-## Manage indexing using Azure SDKs
+![Manage Indexing using Azure portal](./media/how-to-manage-indexing-policy/indexing-policy-portal.png)
 
-### <a id="dotnet"></a>.NET SDK
+## Use the .NET SDK V2
 
-The following sample shows how to include an item explicitly by using the [SQL API .NET SDK](sql-api-sdk-dotnet.md) and the [RequestOptions.IndexingDirective](/dotnet/api/microsoft.azure.documents.client.requestoptions.indexingdirective) property.
+The `DocumentCollection` from the [.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) (see [this quickstart](create-sql-api-dotnet.md) regarding its usage) exposes an `IndexingPolicy` property that lets you change the `IndexingMode` and add or remove `IncludedPaths` and `ExcludedPaths`.
 
 ```csharp
-// To override the default behavior to exclude (or include) a document in indexing,
-// use the RequestOptions.IndexingDirective property.
-client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseName", "myCollectionName"),
-    new { id = "myDocumentId", isRegistered = true },
-    new RequestOptions { IndexingDirective = IndexingDirective.Include });
+ResourceResponse<DocumentCollection> containerResponse = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("database", "container"));
+containerResponse.Resource.IndexingPolicy.IndexingMode = IndexingMode.Consistent;
+containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { Path = "/headquarters/employees/?" });
+await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
 ## Next steps
@@ -52,5 +47,3 @@ Read more about the indexing in the following articles:
 
 * [Indexing Overview](index-overview.md)
 * [Indexing policy](index-policy.md)
-* [Index types](index-types.md)
-* [Index paths](index-paths.md)
