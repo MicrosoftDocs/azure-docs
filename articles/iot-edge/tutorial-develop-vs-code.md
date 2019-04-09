@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Choose your scenario 
+## Before you begin 
 
 IoT Edge has created development tools for both Visual Studio Code and Visual Studio 2017. Each tool supports different scenarios, so we have tutorials to help you get started with either. Before you begin this tutorial, make sure that you're using the right tool for your goals. 
 
@@ -46,6 +46,21 @@ Use **Visual Studio Code** if you...
 * Are developing primarily for Linux IoT devices (although you can develop for Windows devices, too)
 * Are developing for either AMD64 or ARM32 devices
 * Or, see [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) for the full list of supported features
+
+This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio 2017, switch to [Develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md)
+
+## Before you begin 
+
+IoT Edge has created development tools for both Visual Studio Code and Visual Studio 2017. Each tool supports different scenarios, so we have tutorials to help you get started with either. Before you begin this tutorial, make sure that you're using the right tool for your goals. 
+
+If you don't have a specific scenario in mind, or an existing tools preference, but are just interested in learning about IoT Edge, then we recommend that you stay on this page to develop with Visual Studio Code. Visual Studio Code is easy to get started with, and has a wide variety of supported scenarios for IoT Edge. 
+
+|   | Visual Studio Code | Visual Studio 2017 |
+| - | ------------------ | ------------------ |
+| **Languages** | * C <br> * C# <br> * Java <br> * Node.js <br> * Python | * C <br> * C# |
+| **Azure services** | * Azure Functions <br> * Azure Stream Analytics <br> * Azure Machine Learning |   |
+| **IoT Edge device architecture** | * Windows AMD64 <br> * Linux AMD64 <br> * Linux ARM32 | * Windows AMD64 <br> * LInux AMD64 |
+| **Full feature list** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio 2017, switch to [Develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md)
 
