@@ -192,10 +192,12 @@ def run(raw_data):
 If you are using an ONNX model, the script is slightly different. It must:
 
 * Import the `onnxruntime` module.
-* Create an [InferenceSession()](https://docs.microsoft.com/python/api/onnxruntime/onnxruntime.capi.session.inferencesession?view=azure-onnx-py) instance using the model.
-* Get the model metadata using [get_modelmeta()](https://docs.microsoft.com/python/api/onnxruntime/onnxruntime.capi.session.inferencesession?view=azure-onnx-py#get-modelmeta--).
-* Get the model inputs and outputs using [get_inputs()](https://docs.microsoft.com/python/api/onnxruntime/onnxruntime.capi.session.inferencesession?view=azure-onnx-py#get-inputs--) and [get_outputs()](https://docs.microsoft.com/python/api/onnxruntime/onnxruntime.capi.session.inferencesession?view=azure-onnx-py#get-outputs--).
-* Use [run()](https://docs.microsoft.com/python/api/onnxruntime/onnxruntime.capi.session.inferencesession?view=azure-onnx-py#run-output-names--input-feed--run-options-none-) to pass the outputs you want returned and a map of input values. If you pass an empty array of outputs, all outputs are returned.
+* Create an `InferenceSession` instance using the model.
+* Get the model metadata using `get_modelmeta`.
+* Get the model inputs and outputs using `get_inputs` and `get_outputs`.
+* Use `run` to pass the outputs you want returned and a map of input values. If you pass an empty array of outputs, all outputs are returned.
+
+For more information on the `onnxruntime` module, see [https://github.com/Microsoft/onnxruntime](https://github.com/Microsoft/onnxruntime).
 
 An example Python scoring script for an ONNX model is shown below:
 
