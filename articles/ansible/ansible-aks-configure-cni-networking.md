@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
+title: Tutorial - Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible
+# Tutorial: Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -31,7 +31,7 @@ This article shows you how to use Ansible to create an AKS cluster and configure
 
 ## Create a virtual network and subnet
 
-This section presents a playbook with two tasks to perform the following work: 
+This section presents a playbook with two tasks to do the following work: 
 - Create a virtual network
 - Add a subnet to the virtual network
 
