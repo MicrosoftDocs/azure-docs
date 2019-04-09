@@ -265,7 +265,7 @@ The new capability is only available from newer Azure App Service scale units. I
 The new version is in Preview and has the following characteristics.
 
 * No gateway is required to use the new VNet Integration feature
-* You can access resources across ExpressRoute connections without any additional configuration beyond integrating with the ExpressRoute connected VNet.
+* You can access resources across ExpressRoute connections without any additional configuration beyond integrating with the ExpressRoute connected VNet. It is not possible to leverage VNet peering of any kind in the path between the VNet to which the app is connected and the VNet with the ExpressRoute Gateway.
 * The app and the VNet must be in the same region
 * The new feature requires an unused subnet in your Resource Manager VNet.
 * Your App Service plan must be a Standard, Premium, or PremiumV2 plan
