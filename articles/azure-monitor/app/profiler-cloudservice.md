@@ -35,7 +35,7 @@ Application Insights Profiler is installed with the Azure Diagnostics extension.
 
     * For worker roles, [add code to track requests](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json).
 
-1. Configure the Azure Diagnostics extension to enable Profiler by doing the following:
+1. Configure the Azure Diagnostics extension to enable Profiler:
 
     a. Locate the [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* file for your application role, as shown here:  
 
