@@ -1,6 +1,6 @@
 ---
-title: "Tutorial: Vizualize anomalies as a batch using Power BI"
-description: Use the Anomaly Detector API and Power BI to vizualize anomalies throughout your time series data.
+title: "Tutorial: Visualize anomalies as a batch using Power BI"
+description: Use the Anomaly Detector API and Power BI to visualize anomalies throughout your time series data.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,7 +11,7 @@ ms.date: 03/28/2019
 ms.author: aahi
 ---
 
-# Tutorial: Vizualize anomalies as a batch using Power BI
+# Tutorial: Visualize anomalies as a batch using Power BI
 
 In this tutorial, you'll learn how to:
 
@@ -30,7 +30,7 @@ In this tutorial, you'll learn how to:
 
 ## Load and format the time series data
 
-To get started, open Power BI Desktop and load the the time series data you downloaded in the prerequisites. This excel file contains a series of Coordinated Universal Time (UTC) timestamp and value pairs.  
+To get started, open Power BI Desktop and load the time series data you downloaded from the prerequisites. This excel file contains a series of Coordinated Universal Time (UTC) timestamp and value pairs.  
 
 > [!NOTE]
 > Power BI can use data from a wide variety of sources, such as .csv files, SQL databases, Azure blob storage, and more.  
@@ -43,7 +43,7 @@ After the dialog appears, navigate to the folder where you downloaded the exampl
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/navigator-dialog-box.png)
 
-Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. To do this, In Power Query Editor click the **Transform** ribbon. in the **Any Column** group, click **Text**
+Power BI will convert the timestamps in the first column to a `Date/Time` data type. These timestamps must be converted to text in order to be sent to the Anomaly Detector API. To do this, click the **Transform** ribbon in the Power Query Editor. in the **Any Column** group, click **Text**
 
 ![An image of the data source "Navigator" screen in Power BI](../media/tutorials/data-type-drop-down.png)
 
@@ -95,7 +95,7 @@ Within the Advanced Editor, use the following Power Query M snippet to extract t
  in results
 ```
 
-Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramter**, and click **Invoke**.
+Invoke the query on your data sheet by selecting `Sheet1` below **Enter Parameter**, and click **Invoke**.
 
 ![An image of the "Advanced Editor" button](../media/tutorials/invoke-function-screenshot.png)
 
@@ -137,7 +137,7 @@ Your chart will look similar to the below screenshot:
 
 ![An image of the new quick measure screen](../media/tutorials/chart-visualization.png)
 
-### Display anomaly points
+### Display data anomaly points
 
 On the right side of the screen, below **Fields**, right-click on **Value**. Select **New Quick Measure**.
 
@@ -147,10 +147,11 @@ On the screen that appears, select **Filtered value** as the calculation. Set **
 
 ![An image of the new quick measure screen](../media/tutorials/new-quick-measure-2.png)
 
-After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Add it to the chart's **Values**. Then select the **Format** tool, and set the X axis type to **Categorical**.
+After clicking **Ok**, you will have a `Value for True` field, at the bottom of the list of your fields. Add it to the chart's **Values**. Then select the **Format** tool, and set the X-axis type to **Categorical**.
 
 ![An image of the new quick measure screen](../media/tutorials/format-x-axis.png)
 
 Apply colors to your chart by clicking on the **Format** tool and **Data colors**. Your chart should look something like the following:
 
 ![An image of the new quick measure screen](../media/tutorials/chart-final.jpg)
+
