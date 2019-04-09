@@ -4,7 +4,7 @@ description: Learn how to use ASP.NET Core in stateless and stateful Reliable Se
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 8aa4668d-cbb6-4225-bd2d-ab5925a868f2
@@ -366,7 +366,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### Default Key Mapping
-By default, Service Fabric configuraiton provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
+By default, Service Fabric configuration provider includes package name, section name, and property name together to form the asp.net core configuration Key using following function:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/15/2019
+ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ---
@@ -102,11 +102,14 @@ API | Default Data Format | Other Formats
 /scheduledevents | json | none
 /attested | json | none
 
-To access a non-default response format, specify the requested format as a querystring parameter in the request. For example:
+To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
+
+> [!NOTE]
+> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
 
 ### Security
 
@@ -120,8 +123,8 @@ If there is a data element not found or a malformed request, the Instance Metada
 HTTP Status Code | Reason
 ----------------|-------
 200 OK |
-400 Bad Request | Missing `Metadata: true` header
-404 Not Found | The requested element doesn't exist 
+400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
+404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` and `POST` requests are supported
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
 500 Service Error     | Retry after some time
@@ -213,7 +216,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "resourceGroupName": "myrg",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
     "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
@@ -290,7 +293,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "resourceGroupName": "myrg",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
@@ -500,20 +503,42 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
-
+``` bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+```
 
 **Response**
 ```
 AZUREPUBLICCLOUD
 ```
 
+### Getting the tags for the VM
+
+You may have assigned tags to your Azure VMs to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+```
+
+**Response**
+
+```text
+Department:IT;Environment:Test;Role:WebRole
+```
+
+> [!NOTE]
+> The tags are semicolon separated. If a parser is written to programmatically extract the tags, the tag names and values shouldn't contain semicolons in order for the parser to work correctly.
+
 ### Validating that the VM is running in Azure
 
  Marketplace vendors want to ensure that their software is licensed to run only in Azure. If someone copies the VHD out to on-premise, then they should have a way to detect that. By calling into Instance Metadata Service, Marketplace vendors can get signed data that guarantees response only from Azure.
- **Request**
+
  > [!NOTE]
 > Requires jq to be installed.
+
+ **Request**
 
  ```bash
   # Get the signature

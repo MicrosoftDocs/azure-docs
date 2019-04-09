@@ -6,7 +6,7 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "03/04/2019"
+ms.date: 03/04/2019
 ms.topic: "conceptual"
 description: "Describes the processes that power Azure Dev Spaces and how they are configured in the azds.yaml configuration file"
 keywords: "azds.yaml, Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
@@ -92,7 +92,7 @@ When Azure Dev Spaces is enabled on your AKS cluster, it installs the controller
 * Removes any Kubernetes namespace named *azds*, if it exists, and creates a new one.
 * Deploys a Kubernetes initializer object.
 
-![Azure Dev Spaces prepare cluster]](media/how-dev-spaces-works/prepare-cluster.svg)
+![Azure Dev Spaces prepare cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 In order to use Azure Dev Spaces, there must be at least one dev space. Azure Dev Spaces uses Kubernetes namespaces within your AKS cluster for dev spaces. When a controller is being installed, it prompts you to create a new Kubernetes namespace or choose an existing namespace to use as your first dev space. When a namespace is designated as a dev space, the controller adds the *azds.io/space=true* label to that namespace to identify it as a dev space. The initial dev space you create or designate is selected by default after you prepare your cluster. When a space is selected, it is used by Azure Dev Spaces for creating new workloads.
 
@@ -163,6 +163,8 @@ install:
         kubernetes.io/ingress.class: traefik-azds
       hosts:
         # This expands to [space.s.][rootSpace.]webfrontend.<random suffix>.<region>.azds.io
+        # Customize the public URL by changing the 'webfrontend' text between the $(rootSpacePrefix) and $(hostSuffix) tokens
+        # For more information see https://aka.ms/devspaces/routing
         - $(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)
 configurations:
   develop:
@@ -311,6 +313,8 @@ install:
         kubernetes.io/ingress.class: traefik-azds
       hosts:
       # This expands to [space.s.][rootSpace.]webfrontend.<random suffix>.<region>.azds.io
+      # Customize the public URL by changing the 'webfrontend' text between the $(rootSpacePrefix) and $(hostSuffix) tokens
+      # For more information see https://aka.ms/devspaces/routing
       - $(spacePrefix)$(rootSpacePrefix)webfrontend$(hostSuffix)
 ...
 ```

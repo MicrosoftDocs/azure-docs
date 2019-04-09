@@ -1,17 +1,17 @@
 ---
 title: Prepare and customize a master VHD image - Azure
-description: How to prepare, customize and upload a Windows Virtual Desktop (preview) master image to Azure.
+description: How to prepare, customize and upload a Windows Virtual Desktop preview master image to Azure.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
 
-This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop-specific (preview) configuration that can be used with your organization's existing processes.
+This article will tell you how to prepare a master virtual hard disk (VHD) image for upload to Azure, including how to create virtual machines (VMs) and install and configure software on them. These instructions are for a Windows Virtual Desktop Preview-specific configuration that can be used with your organization's existing processes.
 
 ## Create a VM
 
@@ -157,8 +157,8 @@ You can disable Automatic Updates manually.
 
 To disable Automatic Updates:
 
-1. Install Office365 by following the instructions in [Office image preparation](set-up-customize-master-image.md#office-image-preparation).
-2. Install any additional applications by following the instructions in [User profile setup (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Disable Windows Auto Update Service on the local VM.
 4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
 5. Right-click **Configure Automatic Update** and set it to **Disabled**.
@@ -166,7 +166,7 @@ To disable Automatic Updates:
 You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Run this command to specify a Start layout for Windows 10 PCs.
@@ -227,9 +227,7 @@ Windows Virtual Desktop does not officially support Skype for Business and Teams
 
 ### Set up user profile container (FSLogix)
 
-To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-When configuring the file share registry key, use the file share you created in [Configure permissions for the file server](set-up-customize-master-image.md#configure-permissions-for-the-file-server) where you plan to store the profile containers. You can also test the functionality of the FSLogix container using this [quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+To include the FSLogix container as part of the image, follow the instructions in [Set up a user profile share for a host pool](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). You can test the functionality of the FSLogix container with [this quickstart](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### Configure Windows Defender
 
@@ -257,10 +255,10 @@ You can also configure remote session policies manually by running the following
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 5000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
 ```
 
 ### Set up time zone redirection
@@ -365,8 +363,8 @@ The following instructions will tell you how to upload your master image into an
 
 Now that you have an image, you can create or update host pools. To learn more about how to create and update host pools, see the following articles:
 
-- [Create a host pool with an Azure Resource Manager template (Preview)](create-host-pools-arm-template.md)
-- [Tutorial: Create a host pool with Azure Marketplace (Preview)](create-host-pools-azure-marketplace.md)
-- [Create a host pool with PowerShell (Preview)](create-host-pools-powershell.md)
+- [Create a host pool with an Azure Resource Manager template](create-host-pools-arm-template.md)
+- [Tutorial: Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Create a host pool with PowerShell](create-host-pools-powershell.md)
 - [Set up a user profile share for a host pool](create-host-pools-user-profile.md)
 - [Configure the Windows Virtual Desktop load-balancing method](configure-host-pool-load-balancing.md)

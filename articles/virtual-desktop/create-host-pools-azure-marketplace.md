@@ -1,17 +1,17 @@
 ---
-title: Create a host pool with Azure Marketplace (preview)  - Azure
-description: How to create a Windows Virtual Desktop host pool with Azure Marketplace.
+title: Create a Windows Virtual Desktop Preview host pool with Azure Marketplace  - Azure
+description: How to create a Windows Virtual Desktop Preview host pool with Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
 ---
-# Tutorial: Create a host pool with Azure Marketplace (Preview)
+# Tutorial: Create a host pool with Azure Marketplace
 
-Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop tenant (preview) environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
+Host pools are a collection of one or more identical virtual machines within Windows Virtual Desktop Preview tenant environments. Each host pool can contain an app group that users can interact with as they would on a physical desktop.
 
 This article describes how to create a host pool within a Windows Virtual Desktop tenant using a Microsoft Azure Marketplace offering. This includes creating a host pool in Windows Virtual Desktop, creating a resource group with VMs in an Azure subscription, joining those VMs to the Active Directory domain, and registering the VMs with Windows Virtual Desktop.
 
@@ -59,7 +59,7 @@ For the Virtual machine setting blade:
 3. Select the virtual network that has connectivity to the Active Directory server, then choose a subnet to host the virtual machines.
 4. Select **OK**.
 
-### Windows Virtual Desktop tenant information
+### Windows Virtual Desktop Preview tenant information
 
 For the Windows Virtual Desktop tenant information blade:
 
@@ -111,6 +111,9 @@ Here are the current supported clients:
 
 - [Remote Desktop client for Windows 7 and Windows 10](connect-windows-7-and-10.md)
 - [Windows Virtual Desktop web client](connect-web.md)
+
+>[!IMPORTANT]
+>To help secure your Windows Virtual Desktop environment in Azure, we recommend you don't open inbound port 3389 on your VMs. Windows Virtual Desktop doesn't require an open inbound port 3389 for users to access the host pool's VMs. If you must open port 3389 for troubleshooting purposes, we recommend you use [just-in-time VM access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
 ## Next steps
 

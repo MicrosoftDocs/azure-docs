@@ -50,7 +50,7 @@ To complete the tutorial, make sure you have the following prerequisites:
 
 ## Limiting access to your managed instance
 
-Managed instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a managed instance from outside the managed instance network. Much like an isolated SQL Server on-premise environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
+Managed instances can only be accessed through a private IP address. There are no service endpoints that are available to connect to a managed instance from outside the managed instance network. Much like an isolated SQL Server on-premises environment, applications or users need access to the managed instance network (VNet) before a connection can be established. For more information, see the following article, [Connect your application to a managed instance](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Since managed instances can only be accessed inside of its VNET, [SQL Database firewall rules](sql-database-firewall-configure.md) do not apply. Managed instance has its own [built-in firewall](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -166,7 +166,7 @@ Once the Azure AD server principal (login) has been created, and provided with `
 
     This example creates a login for the Azure AD user bob@aadsqlmi.net, whose domain aadsqlmi.net is federated with the Azure AD aadsqlmi.onmicrosoft.com.
 
-    Execute the following T-SQL command. Federated Azure AD accounts are the managed instance replacements for on-premise Windows logins and users.
+    Execute the following T-SQL command. Federated Azure AD accounts are the managed instance replacements for on-premises Windows logins and users.
 
     ```sql
     USE master

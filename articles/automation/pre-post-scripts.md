@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/12/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
@@ -62,6 +62,23 @@ If you need another object type, you can cast it to another type with your own l
 
 In addition to your standard runbook parameters, an additional parameter is provided. This parameter is **SoftwareUpdateConfigurationRunContext**. This parameter is a JSON string, and if you define the parameter in your pre or post script, it is automatically passed in by the update deployment. The parameter contains information about the update deployment, which is a subset of information returned by the [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) The following table shows you the properties that are provided in the variable:
 
+## Stopping a deployment
+
+If you want to stop a deployment based on a Pre script you must [throw](automation-runbook-execution.md#throw) an exception. If you do not throw an exception, the deployment and Post script will still run. The [example runbook](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) in the gallery shows how you can do this. The following is a snippet from that runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
+
 ### SoftwareUpdateConfigurationRunContext properties
 
 |Property  |Description  |
@@ -109,6 +126,9 @@ The following example is a JSON string passed in to the **SoftwareUpdateConfigur
 ```
 
 A full example with all properties can be found at: [Software Update Configurations - Get By Name](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)
+
+> [!NOTE]
+> The `SoftwareUpdateConfigurationRunContext` object can contain duplicate entries for machines. This can cause Pre and Post scripts to run multiple times on the same machine. To workaround this behavior, use `Sort-Object -Unique` to select only unique VM names in your script.
 
 ## Samples
 
@@ -161,7 +181,7 @@ $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConn
 #If you wish to use the run context, it must be converted from JSON 
 $context = ConvertFrom-Json  $SoftwareUpdateConfigurationRunContext 
 #Access the properties of the SoftwareUpdateConfigurationRunContext 
-$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines 
+$vmIds = $context.SoftwareUpdateConfigurationSettings.AzureVirtualMachines | Sort-Object -Unique
 $runId = $context.SoftwareUpdateConfigurationRunId 
  
 Write-Output $context 
@@ -222,6 +242,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## Abort patch deployment
+
+If your pre script returns an error, you may want to abort your deployment. To do this, you must [throw](/powershell/module/microsoft.powershell.core/about/about_throw) an error in your script for any logic that would constitute a failure.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## Known issues
 
 * You can't pass objects or arrays to parameters when using pre and post scripts. The runbook will fail.
