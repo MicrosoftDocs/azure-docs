@@ -6,7 +6,7 @@ ms.topic: include
 ms.date: 05/07/2019
 ---
 
-## Authenticate to the container registry
+## Use Docker CLI to authenticate private container registry
 
 There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
