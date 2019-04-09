@@ -196,14 +196,14 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create SpringCM test user
 
-To enable Azure Active Directory users to log in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
+To enable Azure Active Directory users to sign in to SpringCM, they must be provisioned into SpringCM. In the case of SpringCM, provisioning is a manual task.
 
 > [!NOTE]
 > For more information, see [Create and Edit a SpringCM User](https://knowledge.springcm.com/create-and-edit-a-springcm-user). 
 
 **To provision a user account to SpringCM, perform the following steps:**
 
-1. Log in to your **SpringCM** company site as administrator.
+1. Sign in to your **SpringCM** company site as administrator.
 
 1. Click **GOTO**, and then click **ADDRESS BOOK**.
    
