@@ -55,7 +55,7 @@ The resource group contains all the resources for the tutorial.
 3. For **Resource group name**, type **Test-FW-RG**.
 4. For **Subscription**, select your subscription.
 5. For **Resource group location**, select a location. All subsequent resources that you create must be in the same location.
-6. select **Create**.
+6. Select **Create**.
 
 ### Create a VNet
 
@@ -80,11 +80,11 @@ This VNet will contain three subnets.
 Next, create subnets for the jump server, and a subnet for the workload servers.
 
 1. On the Azure portal home page, select **Resource groups** > **Test-FW-RG**.
-2. select the **Test-FW-VN** virtual network.
-3. select **Subnets** > **+Subnet**.
+2. Select the **Test-FW-VN** virtual network.
+3. Select **Subnets** > **+Subnet**.
 4. For **Name**, type **Workload-SN**.
 5. For **Address range**, type **10.0.2.0/24**.
-6. select **OK**.
+6. Select **OK**.
 
 Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
 
@@ -93,7 +93,7 @@ Create another subnet named **Jump-SN**, address range **10.0.3.0/24**.
 Now create the jump and workload virtual machines, and place them in the appropriate subnets.
 
 1. On the Azure portal, select **Create a resource**.
-2. select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
 3. Enter these values for the virtual machine:
 
    |Setting  |Value  |
@@ -112,7 +112,7 @@ Now create the jump and workload virtual machines, and place them in the appropr
 8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Jump-SN**.
 9. For **Public IP**, accept the default new public ip address name (Srv-Jump-ip).
 11. Accept the other defaults and select **Next: Management**.
-12. select **Off** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
+12. Select **Off** to disable boot diagnostics. Accept the other defaults and select **Review + create**.
 13. Review the settings on the summary page, and then select **Create**.
 
 Use the information in the following table to configure another virtual machine named **Srv-Work**. The rest of the configuration is the same as the Srv-Jump virtual machine.
