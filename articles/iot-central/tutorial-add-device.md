@@ -296,7 +296,7 @@ To configure your client code to connect to your Azure IoT Central application, 
     var connectionString = '{your device connection string}';
     ```
 
-1. Replace `{your device connection string}` with the connection string of your real device. You saved the connection string earlier in a text editor.
+1. Replace `{your device connection string}` with the connection string of your real device. You copied the connection string you generated in a previous step.
 
 1. Save the changes to the **ConnectedAirConditioner.js** file.
 
