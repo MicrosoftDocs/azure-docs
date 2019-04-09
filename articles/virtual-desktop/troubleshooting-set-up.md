@@ -26,13 +26,13 @@ Each host pool may have one or more app groups. An app group is a logical groupi
 - Desktop
 - RemoteApp
 
-A *desktop app group* publishes the full desktop and provides access to all the apps installed on the session hosts in the host pool. A *RemoteApp app group* publishes one or more RemoteApps that display on the Remote Desktop client as the application window on the desktop of a local Remote Desktop client.
+A desktop app group publishes the full desktop and provides access to all the apps installed on the session hosts in the host pool. A RemoteApp app group publishes one or more RemoteApps that display on the Remote Desktop client as the application window on the desktop of a local Remote Desktop client.
 
 ## Escalation tracks
 
 Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client.
 
-| **If you have an issue with:**                                       | **Use this information to resolve the issue:**  |
+| **Issues**                                                            | **Resolutions**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **RDS/WVD support**.|
 | Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> Azure Marketplace WVD templates are freely available.|
@@ -40,12 +40,12 @@ Use the following table to identify and resolve issues you may encounter when se
 | Session host pool VNET and Express Route settings                    | Contact **Azure Support (Networking)**. |
 | Session host pool VM creation when ARM templates provided with WVD are not being used | Contact **Azure Support (Compute)**. <br> For issue with the ARM templates provided with WVD, see **Creating WVD tenant**. |
 | Managing WVD session host environment from the Azure management portal                | Contact **Azure Support**. <br> For management issues when using **RDS/WVD PowerShell**, troubleshoot using **Management with PowerShell** or contact the **RDS/WVD support team**. |
-| Managing WVD configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **RDS/WVD support team**. If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **RDS/WVD support team**. If it's a network issues, your users need to contact their network administrator. |
-| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. If your users have been assigned to an appgroup, escalate to the **RDS/WVD support team**. |
+| Managing WVD configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **RDS/WVD support team**. <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
+| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **RDS/WVD support team**. <br> If it's a network issues, your users need to contact their network administrator. |
+| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> If your users have been assigned to an appgroup, escalate to the **RDS/WVD support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | Troubleshoot using **Session host VMs configuration** and **Client connection issues**. |
-| Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. <br> If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product.|
 
 ## Setup issues
@@ -62,7 +62,7 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 ### Creating WVD session host VMs
 
-> [AZURE.NOTE] Session host VMs can be created using multiple methods but RDS/WVD teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+> [!NOTE] Session host VMs can be created using multiple methods but RDS/WVD teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
 ### Issues executing “Windows Virtual Desktop – Provision a host pool”
 
@@ -88,8 +88,7 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 ### ARM template and DSC errors
 
-Use the steps below to troubleshoot unsuccessful deployments of Azure ARM
-templates and DSC.
+Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templates and DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
 2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -105,7 +104,7 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 **Cause 1:** Credential provided for joining VMs to the domain are incorrect.
 
-**Fix 1:** See the Incorrect credentials error in the section titled **VMs are not joined to a domain.**
+**Fix 1:** See the Incorrect credentials error in **VMs are not joined to a domain.**
 
 **Cause 2:** Domain name does not resolve.
 
@@ -113,7 +112,7 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 **Error:** VMExtensionProvisioningError
 
-GRAPHIC: Your deployment failed. 
+[Deployment details VMExtensionProvisioningError]](media/7aaf15615309c18a984673be73ac969a.png)
 
 **Cause 1:** Transient error with the WVD environment.
 
@@ -519,50 +518,6 @@ If the web client is being used, confirm that there are no cached credentials is
 
 This section covers common errors and issues reported when using PowerShell. For more information on RDS PowerShell, please see the **PowerShell Reference(WVD)** document.
 
-### Generic errors
-
-**Error:** The term '\<Cmdlet\>' is not recognized as the name of a cmdlet, function, script file, or operable program.
-
-**Cause:** The \<Cmdlet\> being used is not recognized by PowerShell
-
-**Fix:** Check the following:
-
-- Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
-
-- Confirm spelling of the \<Cmdlet\> as specified in the PowerShell Reference (WVD) document.
-
-- Confirm the RDS PowerShell modules has been imported via Import-Module cmdlet and there were no errors during importing.
-
-- Confirm that the latest version for the RDS PowerShell module is being used.
-
-- Restart PowerShell.
-
-**Error:** TBD
-
-**Cause:** TBD
-
-**Fix:** TBD
-
-### RDS PowerShell piping
-
-Earlier versions (prior to November 15, 2018) of RDS PowerShell were not implementing proper piping of objects. To address the issue, download and import the latest version or RDS PowerShell.
-
-### Add-RdsAccount
-
-> Command: Add-RdsAccount -DeploymentUrl \<URL\>
-
-**Error:** Add-RdsAccount : Specified method is not supported.
-
-**Cause:** RDS PowerShell module was not correctly imported.
-
-**Fix:** Close all PowerShell session. Start PowerShell and re-import RDS PowerShell module.
-
-**Error:** TBD
-
-**Cause:** TBD
-
-**Fix:** TBD
-
 ### Add-RdsAppGroupUser
 
 **Command:** Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
@@ -604,50 +559,6 @@ Earlier versions (prior to November 15, 2018) of RDS PowerShell were not impleme
 **Cause:** Using -Deployment switch.
 
 **Fix:** -Deployment switch can be used by deployment administrators only. These are usually members of the RDS/WVD team. Replace -Deployment with -TenantName \<TenantName\>
-
-### Get-RdsRoleDefinition
-
-**Error:** Get-RdsRoleDefinition :User is not authorized to query the management service.
-
-**Cause:** Bug in earlier version of RDS PowerShell.
-
-**Fix:** Download and import latest version RDS PowerShell. Include -TenantName in the Get-RdsRoleDefinition.
-
-**Error:** TBD
-
-**Cause:** TBD
-
-**Fix:** TBD
-
-### Get-RdsStartMenuApp
-
-**Error:** Get-RdsStartMenuApp output loop endlessly Cause: Bug in RDS PowerShell.
-
-**Fix:** Run the following cmdlet:
-
-> Get-RdsStartMenuApp \$tenant \$pool1 \$appgroup1 \| Select-Object -First 100
-
-**Error:** TBD
-
-**Cause:** TBD
-
-**Fix:** TBD
-
-### Get-RdsTenant
-
-**Error:** Get-RdsTenant : TenantName: 'Partner' does not exist. Please use PowerShell command: New-RdsTenant Cause: Incorrect tenant name or tenant not existing.
-
-**Fix:**
-
-- Confirm spelling of tenant name.
-
-- Make sure tenant has been created for you by the RDS/WVD team.
-
-**Error:** Get-RdsTenant returns the same tenant multiple times
-
-**Cause:** Bug in earlier version of RDS PowerShell.
-
-**Fix:** Download and import latest version RDS PowerShell. 
 
 ### New-RdsRoleAssignment
 
