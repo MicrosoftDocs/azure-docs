@@ -465,7 +465,7 @@ namespace functionapp0915
     {
         private readonly TelemetryClient telemetryClient;
 
-        /// Using dependency injection will guarantee that you use the same configuration as Functions.
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
         public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
         {
             this.telemetryClient = new TelemetryClient(telemetryConfiguration);
