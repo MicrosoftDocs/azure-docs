@@ -1,5 +1,4 @@
 ---
-# required metadata
 title: Schema reference for Workflow Definition Language - Azure Logic Apps
 description: Write custom workflow definitions for Azure Logic Apps and Microsoft Flow with the Workflow Definition Language
 services: logic-apps
