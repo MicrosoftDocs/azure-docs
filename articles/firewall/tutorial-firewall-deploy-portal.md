@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Tutorial: Deploy and configure Azure Firewall using the Azure portal
 
-Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites, or the outbound IP addresses and ports that can be accessed.
+Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
 
 One way you can control outbound network access from an Azure subnet is with Azure Firewall. With Azure Firewall, you can configure:
 
@@ -22,7 +22,7 @@ One way you can control outbound network access from an Azure subnet is with Azu
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet, and workload servers are in peered VNets in the same region with one or more subnets.
+For this tutorial, you create a simplified single VNet with three subnets for easy deployment. For production deployments, a [hub and spoke model](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
@@ -228,7 +228,7 @@ For testing purposes in this tutorial, configure the server's primary and second
 Now, test the firewall to confirm that it works as expected.
 
 1. From the Azure portal, review the network settings for the **Srv-Work** virtual machine and note the private IP address.
-2. Connect a remote desktop to **Srv-Jump** virtual machine, and log on. From there, open a remote desktop connection to the **Srv-Work** private IP address.
+2. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
 
 3. Open Internet Explorer and browse to http://www.google.com.
 4. Select **OK** > **Close** on the Internet Explorer security alerts.
