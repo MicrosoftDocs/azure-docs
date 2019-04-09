@@ -117,7 +117,7 @@ DocumentClient client = new DocumentClient(
 
 ### Azure Cosmos DB's API for MongoDB
 
-If you're using [Azure Cosmos DB for MongoDB](mongodb-introduction.md), use the following connection string:
+If you're using [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), use the following connection string:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
