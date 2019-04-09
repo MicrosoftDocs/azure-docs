@@ -163,9 +163,9 @@
     items:
     - name: Install and run containers
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
-      href: how-to-install-and-run-container.md
+      href: speech-container-howto.md
     - name: Configure containers
-      href: how-to-configure-container.md  
+      href: speech-container-configuration.md  
       displayName: docker, container, billing, apikey, pull, logging    
 - name: Samples
   items:
