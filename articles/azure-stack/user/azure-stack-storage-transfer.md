@@ -68,7 +68,7 @@ There are two versions of the AzCopy utility: AzCopy on Windows and AzCopy on Li
 
 ### AzCopy command examples for data transfer
 
-The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) and [AzCopy on Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+The following examples follow typical scenarios for copying data to and from Azure Stack blobs. To learn more, see [AzCopy on Windows](../../storage/common/storage-use-azcopy.md) and [AzCopy on Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### Download all blobs to a local disk
 
@@ -153,7 +153,7 @@ This sample assume you have successfully [Installed PowerShell for Azure Stack](
    > [!NOTE]
    > This script has to be run at the root directory for **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name

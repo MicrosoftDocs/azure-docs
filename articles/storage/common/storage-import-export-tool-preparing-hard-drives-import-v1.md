@@ -38,10 +38,10 @@ To prepare one or more hard drives for an import job, follow these steps:
 
 |Source file or directory|Destination blob or virtual directory|
 |------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
-|\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|
+|K:\Temp\FavoriteVideo.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
+|\\\myshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|
 
 ## Determine how many drives are needed
  Next, you need to determine:

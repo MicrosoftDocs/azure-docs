@@ -1,7 +1,6 @@
 ---
-title: Create a policy for non-compliant resources with Azure PowerShell
+title: Create policy for non-compliant resources with Azure PowerShell
 description: Use Azure PowerShell to create an Azure Policy assignment to identify non-compliant resources.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019

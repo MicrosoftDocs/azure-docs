@@ -42,7 +42,7 @@ For more information:
 
 - Refresh your knowledge by completing the [Key Vault tutorials](https://docs.microsoft.com/azure/key-vault/#step-by-step-tutorials).
 - Review the [Key Vault overview](../key-vault/key-vault-overview.md).
-- Review the [Key Vault PowerShell cmdlets](/powershell/module/azurerm.keyvault/?view=azurermps-6.5.0).
+- Review the [Key Vault PowerShell cmdlets](/powershell/module/azurerm.keyvault/).
 
 ## VPN Gateway
 
@@ -56,7 +56,7 @@ For more information:
 
 - Refresh your knowledge by completing the [VPN Gateway tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials).
 - Learn how to [create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-- Review the [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets.
+- Review the [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway) PowerShell cmdlets.
 - Read the blog post [Create a site-to-site connection](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/).
   
 ## Application Gateway
@@ -69,7 +69,7 @@ For more information:
 
 - Refresh your knowledge by completing the [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials).
 - Learn how to [create an application gateway](../application-gateway/quick-create-portal.md).
-- Review the [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets.
+- Review the [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway) PowerShell cmdlets.
 
 ## Next steps
 

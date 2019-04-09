@@ -9,4 +9,4 @@ ms.author: rgarcia
 
 ## Initialize the session
 
-The main entry point for the sdk is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.
+The main entry point for the SDK is the class representing your session. Typically you'll declare a field in the class that manages your view and native AR session.

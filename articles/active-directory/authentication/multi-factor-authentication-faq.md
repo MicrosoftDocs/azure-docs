@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication FAQ | Microsoft Docs
+title: Azure Multi-Factor Authentication FAQ - Azure Active Directory
 description: Frequently asked questions and answers related to Azure Multi-Factor Authentication. 
 
 services: multi-factor-authentication

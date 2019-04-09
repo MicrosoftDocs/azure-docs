@@ -1,13 +1,12 @@
 ---
 title: Write queries for Azure Data Explorer
 description: In this how-to, you learn how to perform basic and more advanced queries for Azure Data Explorer.
-services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/07/2019
 ---
 
 # Write queries for Azure Data Explorer
@@ -365,7 +364,7 @@ The following query returns data for the last 12 hours.
 //The first two lines generate sample data, and the last line uses
 //the ago() operator to get records for last 12 hours.
 print TimeStamp= range(now(-5d), now(), 1h), SomeCounter = range(1,121)
-| mvexpand TimeStamp, SomeCounter
+| mv-expand TimeStamp, SomeCounter
 | where TimeStamp > ago(12h)
 ```
 
@@ -615,12 +614,12 @@ StormEvents
 | project State, FloodReports
 ```
 
-### mvexpand
+### mv-expand
 
-[**mvexpand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):
+[**mv-expand**](https://docs.microsoft.com/azure/kusto/query/mvexpandoperator):
 Expands multi-value collection(s) from a dynamic-typed column so that each value in the collection gets a separate row. All the other columns in an expanded row are duplicated. It's the opposite of makelist.
 
-The following query generates sample data by creating a set and then using it to demonstrate the **mvexpand** capabilities.
+The following query generates sample data by creating a set and then using it to demonstrate the **mv-expand** capabilities.
 
 **\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAFWOQQ6CQAxF9yTcoWGliTcws1MPIFygyk9EKTPpVBTj4Z2BjSz%2f738v7WF06r1vD2xcp%2bCoNq9yHDFYLIsvvW5Q0JybKYCco2omqnyNTxHW7oPFckbwajFZhB%2bIsE1trNZ0gi1dpuRmQ%2baC%2bjuuthS7Fbwvi%2f%2bP8lpGvAMP7Wr3A6BceSu7AAAA)**\]**
 
@@ -630,7 +629,7 @@ let FloodDataSet = StormEvents
 | summarize FloodReports = makeset(StartTime) by State
 | project State, FloodReports;
 FloodDataSet
-| mvexpand FloodReports
+| mv-expand FloodReports
 ```
 
 ### percentiles()
@@ -731,7 +730,7 @@ StormEvents
 | extend row_number = row_number()
 ```
 
-The row set is also considered as serialized if it's a result of: **sort**, **top**, or **range** operators, optionally followed by **project**, **project-away**, **extend**, **where**, **parse**, **mvexpand**, or **take** operators.
+The row set is also considered as serialized if it's a result of: **sort**, **top**, or **range** operators, optionally followed by **project**, **project-away**, **extend**, **where**, **parse**, **mv-expand**, or **take** operators.
 
 **\[**[**Click to run query**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAEAAsuyS%2fKdS1LzSsp5uWqUSguzc1NLMqsSlVIzi%2fNK9HQVEiqVAguSSxJBcvmF5XABRQSi5NBgqkVJal5KQpF%2beXxeaW5SalFCrZIHA1NAEGimf5iAAAA)**\]**
 
@@ -808,7 +807,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+100*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Calculate DAU/WAU ratio
 | evaluate activity_engagement(['id'], _day, _start, _end, 1d, 7d)
 | project _day, Dau_Wau=activity_ratio*100
@@ -835,7 +834,7 @@ range _day from _start to _end step 1d
 | extend d = tolong((_day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 | where _day > datetime(2017-01-02)
 | project _day, id
 // Calculate weekly retention rate
@@ -861,7 +860,7 @@ range Day from _start to _end step 1d
 | extend d = tolong((Day - _start)/1d)
 | extend r = rand()+1
 | extend _users=range(tolong(d*50*r), tolong(d*50*r+200*r-1), 1)
-| mvexpand id=_users to typeof(long) limit 1000000
+| mv-expand id=_users to typeof(long) limit 1000000
 // Take only the first week cohort (last parameter)
 | evaluate new_activity_metrics(['id'], Day, _start, _end, 7d, _start)
 | project from_Day, to_Day, retention_rate, churn_rate
