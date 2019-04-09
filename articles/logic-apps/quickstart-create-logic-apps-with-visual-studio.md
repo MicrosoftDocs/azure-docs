@@ -170,8 +170,8 @@ the Logic Apps engine creates a logic app instance that runs your workflow.
 
 1. In Logic App Designer, under the search box, choose **All**.
 
-1. In the search box, enter "rss" in the search box. 
-Select this trigger: **When a feed item is published**
+1. In the search box, enter "rss". From the triggers list, 
+select this trigger: **When a feed item is published - RSS**
 
    ![Build your logic app by adding a trigger and actions](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
