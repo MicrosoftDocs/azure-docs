@@ -17,7 +17,7 @@ ms.custom: seodec18
 
 [MLflow](https://www.mlflow.org) is an open-source library for tracking your machine learning experiments and models, by instrumenting your code in cloud-independent way. It provides [a tracking API](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) with functionality to log metrics and artifacts from your Python training code.
 
-Azure Machine Learning service Workspace provides a centralized, secure, scalable location to store your metrics and models, as well as manage your compute and deployed model. You can use MLflow client with Azure Machine Learning service as a back end by setting the MLflow tracking URI to point to your wWorkspace. You can then view and track the metrics and artifacts in your workspace.
+Azure Machine Learning service Workspace provides a centralized, secure, scalable location to store your metrics and models, and manage your compute and deployed model. You can use MLflow client with Azure Machine Learning service by setting the MLflow tracking URI to point to your workspace. You can then view and track the metrics and artifacts in your workspace.
 
 You can use MLflow logging on interactive runs on your local computer, as well as on different Azure ML compute targets, such as Machine Learning compute, and also on Azure Databricks.
 
@@ -26,7 +26,7 @@ You can use MLflow logging on interactive runs on your local computer, as well a
 ## Pre-requisites
 
  * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
- * [Install Azure ML Python SDK on your local computer and create Azure ML Workspace](setup-create-workspace.md). The SDK provides the connectivity for MLflow to access your Workspace.
+ * [Install Azure ML Python SDK on your local computer and create Azure ML Workspace](setup-create-workspace.md). The SDK provides the connectivity for MLflow to access your workspace.
 
 ## Interactive runs
 
@@ -67,7 +67,7 @@ In addition to logging metrics, you can log models and artifacts. See [TBD noteb
 
 ## Remote runs
 
-Remote runs allow you to to train your models on more powerful compute, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
+Remote runs allow you to train your models on more powerful compute, such as GPU enabled virtual machines, or Machine Learning Compute clusters. See [Set up compute targets for model training](how-to-set-up-training-targets.md) to learn about different compute options.
 
 When you submit a run to a compute target using Azure ML SDK's ```Experiment.submit("train.py")``` method, Azure ML automatically sets the MLflow tracking URI and directs the logging from MLflow to your Workspace. 
 
@@ -105,7 +105,7 @@ Then, in your script you can use MLflow logging APIs as shown above, but without
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging appear in your workspace. You can simply navigate to your Workspace blade at [Azure Portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
+The metrics and artifacts from MLflow logging appear in your workspace. You can avigate to your Workspace blade at [Azure portal](https://portal.azure.com), find the experiment by name, and then view the details of your runs.
 
 ## Next steps
 
