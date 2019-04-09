@@ -153,6 +153,8 @@
     - name: Develop with SDKs
       href: developers-guide.md
       items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
       - name: Connect with .NET 
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js
