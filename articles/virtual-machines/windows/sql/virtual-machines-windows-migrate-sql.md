@@ -21,7 +21,11 @@ ms.reviewer: jroth
 
 There are a number of methods to migrate an on-premises SQL Server user database to SQL Server in an Azure VM. This article will briefly discuss various methods and recommend the best method for various scenarios.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 and SQL Server 2008 R2 are approaching the [end of their support life cycle](https://www.microsoft.com/sql-server/sql-server-2008). To extend support, you can either migrate your SQL Server instance to an Azure VM, or register it with Azure but keep it on-premises. For more information, see [Extend support for SQL Server 2008 and 2008 R2 with Azure](virtual-machines-windows-sql-sever-2008-end-of-support-migration.md)
 
 ## What are the primary migration methods?
 The primary migration methods are:
