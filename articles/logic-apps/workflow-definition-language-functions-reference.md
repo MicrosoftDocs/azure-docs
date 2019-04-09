@@ -1,31 +1,30 @@
 ---
 # required metadata
-title: Functions reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
-description: Learn about Workflow Definition Language functions for Azure Logic Apps
+title: Reference for functions in Workflow Definition Language - Azure Logic Apps
+description: Reference guide to functions in Workflow Definition Language for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/15/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
-# Functions reference for Workflow Definition Language in Azure Logic Apps
+# Reference guide for functions available in Workflow Definition Language for Azure Logic Apps and Microsoft Flow
 
-Some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions)
-in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) get their values from runtime
-actions that might not yet exist when your logic app workflow definition starts to run.
-To reference or work with these values in expressions, you can use *functions* provided by the
-[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-For example, you can use math functions for calculations, such as the
-[add()](../logic-apps/workflow-definition-language-functions-reference.md#add) function,
-which returns the sum from integers or floats. Here are a couple more example tasks
-you can perform with functions:
+In [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
+[Microsoft Flow](https://docs.microsoft.com/flow/getting-started), 
+some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
+get their values from runtime actions that might not yet exist 
+when your logic app or flow starts running. To reference or work 
+with these values in expressions, you can use the *functions* 
+provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
+For example, you can use math functions, such as the
+[add() function](../logic-apps/workflow-definition-language-functions-reference.md#add) 
+for calculations, for returning the sum from integers or floats. 
+Here are a couple more example tasks you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
