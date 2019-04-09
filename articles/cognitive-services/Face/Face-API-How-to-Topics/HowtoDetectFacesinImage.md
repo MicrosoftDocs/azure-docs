@@ -51,17 +51,13 @@ See **[FaceRectangle](https://docs.microsoft.com/dotnet/api/microsoft.azure.cogn
 
 ## Get face landmarks
 
-Face landmarks are a set of easy-to-find points on a face such as the pupils or the tip of nose. You can get face landmark data by setting the _returnFaceLandmarks_ parameter to **true**.
+[Face landmarks](../concepts/face-detection.md#face-landmarks) are a set of easy-to-find points on a face such as the pupils or the tip of nose. You can get face landmark data by setting the _returnFaceLandmarks_ parameter to **true**.
 
 ```csharp
 IList<DetectedFace> faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, null);
 ```
 
-By default, there are 27 predefined landmark points. The following figure shows all 27 points:
-
-![A face diagram with all 27 landmarks labelled](../Images/landmarks.1.jpg)
-
-The points returned are in units of pixels, just like the face rectangle frame. The following code demonstrates how you might retrieve the locations of the nose and pupils:
+The following code demonstrates how you might go on to retrieve the locations of the nose and pupils:
 
 ```csharp
 foreach (var face in faces)
