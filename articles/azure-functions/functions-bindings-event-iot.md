@@ -16,7 +16,7 @@ ms.author: cshoe
 ---
 # Azure IoT Hub bindings for Azure Functions
 
-This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](../../includes/functions-bindings-event-hubs.md).
+This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
