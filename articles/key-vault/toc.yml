@@ -83,6 +83,8 @@
       href: create-certificate.md
     - name: Monitor and manage certificate creation
       href: create-certificate-scenarios.md
+    - name: Azure Common Security Attributes
+      href: key-vault-security-attributes.md  
 - name: How-to guides
   items:
   - name: Azure Key Vault logging
@@ -163,8 +165,6 @@
     href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
   - name: Service Level Agreement (SLA)
     href: https://azure.microsoft.com/support/legal/sla/key-vault/
-  - name: Common Security Attributes
-    href: key-vault-security-attributes.md  
   - name: Service limits
     href: key-vault-service-limits.md  
   - name: Service status
