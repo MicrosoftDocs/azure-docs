@@ -15,62 +15,62 @@ ms.custom: seodec18
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-Create a cloud-based notebook server, then use it to run code that logs values in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+In this article, you use Azure Notebooks to run code that is logged in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
-This quickstart shows how to create a cloud resource in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
+This quickstart uses cloud resources and requires no installation. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
  
 In this quickstart, you take the following actions:
 
-* Create a workstation
-* Start a Jupyter Notebook server on your workstation
-* Open a notebook that contains code to estimate pi and logs errors at each iteration.
-* Run the notebook.
-* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+* Connect to your workspace with Python in a Jupyter notebook. The notebook contains code to estimate pi and logs errors at each iteration. 
+* View the logged error values in your workspace.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## Prerequisites
+## Prerequisite
 
 1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
 
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  See how to [find your workspace](how-to-manage-workspace.md#view).
 
-## Create a workstation 
+## Use your workspace
 
-A notebook workstation gives you a cloud-based platform for Jupyter Notebooks that is preconfigured with everything you need to run Azure Machine Learning service. From your workspace, you can create this platform to get started using Jupyter notebooks.
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
-1. On your workspace page in Azure portal, select **Notebook Workstation** on the left.
 
-1. Select **Create Notebooks in an Azure Machine Learning workstation (Preview)**
+
+Learn how a workspace helps you manage your machine learning scripts. In this section, you take the following steps:
+
+* Open a notebook in Azure Notebooks.
+* Run code that creates some logged values.
+* View the logged values in your workspace.
+
+This example shows how the workspace can help you keep track of information generated in a script. 
+
+### Open a notebook 
+
+[Azure Notebooks](https://notebooks.azure.com) provides a free cloud platform for Jupyter notebooks that is preconfigured with everything you need to run Machine Learning. From your workspace, you can launch this platform to get started using your Azure Machine Learning service workspace.
+
+1. On the workspace Overview page, select **Get Started Azure Notebooks** to try your first experiment in Azure Notebooks.  Azure Notebooks is a separate service that lets you run Jupyter notebooks for free in the cloud.  When you use this link to the service, information about how to connect to your workspace will be added to the library you create in Azure Notebooks.
 
    ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
-1. The **Notebook Workstations** section shows a list of all the cloud-based notebook servers available in your workspace.  From here you can also manage these resources and delete them when they are no longer needed. 
+1. Sign into Azure Notebooks.  Make sure you sign in with the same account you used to sign into the Azure portal. Your organization might require [administrator consent](https://notebooks.azure.com/help/signing-up/work-or-school-account/admin-consent) before you can sign in.
 
-1. Select **Add Workstation** to create a notebook workstation.
+1. After you sign in, a new tab opens and a `Clone Library` prompt appears. Cloning this library will load a set of notebooks and other files into your Azure Notebooks account.  These files help you explore the capabilities of Azure Machine Learning.
 
-     ![Select Add Workstation](./media/quickstart-run-cloud-notebook/add-workstation.png)
+1. Uncheck **Public** so that you don't share your workspace information with others.
 
-1. On the Add Notebook Workstation section, give your workstation a **Compute name** and select a **Compute type**. Then select **Create**.
+1. Select **Clone**.
 
-    ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+   ![Clone a library](./media/quickstart-run-cloud-notebook/clone.png)
 
-    > [!NOTE]
-    > Your workstation takes approximately two minutes to create. When finished, the status updates to "Running" and links to Jupyter and JupyterLab appear.
+1. If you see that the project status is stopped, click on **Run on Free Computer** to use the free notebook server.
 
-## Launch Jupyter web interface
-
-After your workstation is created, use the Notebook Workstations section to launch the Jupyter web interface.
-
-* Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
-
-    ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
-
-    This starts your notebook server and opens the server homepage in a new browser tab.  Your server shows sample notebooks for you to use to get started with Azure Machine Learning service.
+    ![Run a project on free compute](./media/quickstart-run-cloud-notebook/run-project.png)
 
 ### Run the notebook
 
-Run a notebook that estimates pi and logs the error to your workspace.
+In the list of files for this project, you see a `config.json` file. This config file contains information about the workspace you created in the Azure portal.  This file allows your code to connect to and add information into your workspace.
 
 1. Select **01.run-experiment.ipynb** to open the notebook.
 
@@ -78,7 +78,9 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
     ![Wait for kernel to start](./media/quickstart-run-cloud-notebook/wait-for-kernel.png)
 
-1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk(__*__) next to a cell, the cell is still running. After the code for that cell finishes, a number appears.  
+1. After the kernel has started, run the cells one at a time using **Shift+Enter**. Or select **Cells** > **Run All** to run the entire notebook. When you see an asterisk, __*__, next to a cell, the cell is still running. After the code for that cell finishes, a number appears. 
+
+1. Follow instructions in the notebook to authenticate your Azure subscription.
 
 After you've finished running all of the cells in the notebook, you can view the logged values in your workspace.
 
@@ -102,16 +104,9 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
-
 ## Next steps
 
-In this quickstart, you completed the following:
-
-* Create a workstation
-* Start a Jupyter Notebook server on your workstation
-* Open a notebook that contains code to estimate pi and logs errors at each iteration.
-* Run the notebook.
-* View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
+You created the necessary resources to experiment with and deploy models. You also ran some code in a notebook. And you explored the run history from that code in your workspace in the cloud.
 
 For an in-depth workflow experience, follow Machine Learning tutorials to train and deploy a model:  
 
