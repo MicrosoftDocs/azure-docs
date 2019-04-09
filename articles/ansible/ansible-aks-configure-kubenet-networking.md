@@ -1,38 +1,41 @@
 ---
-title: Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
-description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service(AKS) cluster
-ms.service: azure
+title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
+description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
+ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
-author: tomarchermsft
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
+# Tutorial: Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
 
-In Azure Kubernetes Service(AKS), you can deploy a cluster that uses one of the following two network models:
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-- [**Kubenet networking**](https://docs.microsoft.com/en-us/azure/aks/configure-kubenet) - the network resources are typically created and configured as the AKS cluster is deployed.
-- [**Azure Container Networking Interface (CNI) networking**](https://docs.microsoft.com/en-us/azure/aks/configure-azure-cni) - the AKS cluster is connected to existing virtual network resources and configurations.
+Using Azure Kubernetes Service (AKS) you can deploy a cluster using the following network models:
 
-Refer to [Network concepts for applications in Azure Kubernetes Sevrice (AKS)](https://docs.microsoft.com/en-us/azure/aks/concepts-network) for core concepts that provide networking to your applications in AKS.
+- [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
+- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network resources and configurations.
 
-This article shows you how to use Ansible to create an AKS cluster and configure kubenet (basic) networking.
+For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
+
+This article shows you how to use Ansible to create an AKS cluster and configure kubenet networking.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), note the following values: **appId**, **displayName**, **password**, and **tenant**.
-
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial.
 
 ## Create a virtual network and subnet
 
-The first section contains two tasks to create a virtual network, and add a subnet to it. Save these tasks as *vnet.yml*.
+This section presents a playbook with two tasks to do the following work: 
+- Create a virtual network
+- Add a subnet to the virtual network
+
+Save the following playbook as `vnet.yml`:
 
 ```yml
 - name: Create vnet
@@ -53,26 +56,26 @@ The first section contains two tasks to create a virtual network, and add a subn
 
 ## Create an AKS cluster in the virtual network
 
-This section shows you how to create an AKS cluster with the virtual network. Save these tasks to *aks.yml*.
+This section presents a playbook that creates an AKS cluster with a virtual network. 
 
-Before creation, we use `azure_rm_aks_version` module to find the supported version.
+Here are some key notes to consider when working with the sample playbook:
+- Use `azure_rm_aks_version` module to find the supported version.
+- The `vnet_subnet_id` is the subnet created in the previous section.
+- The `network_profile` defines the properties for the kubenet network plugin.
 
-> [!Tip]
-> - The `vnet_subnet_id` is the subnet we create in previous section.
-> - The `network_profile` defines the properties for kubenet network plugin.
->   - The `service_cidr` is used to assign internal services in the AKS cluster an IP address. This IP address range should be an address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connections.
->   - The `dns_service_ip` address is the .10 address of your service IP address range.
->   - The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. This includes any on-premises network ranges if you connect, or plan to connect, your Azure virtual networks using Express Route or a Site-to-Site VPN connection.
->   - This address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed if you need more addresses for additional nodes.<br/>
->     The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.<br/>
->     As the cluster scales or upgrades, the Azure platform continues to assign a pod IP address range to each new node.
-> - This task loads `ssh_key` from `~/.ssh/id_rsa.pub`. You can change it to RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-> - `client_id` and `client_secret` are loaded from `~/.azure/credentials`, the default credential file for Ansible. You can set these as your own service principal or load these from environment:
->
->    ```yml
->    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
->    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
->    ```
+- The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
+- The `dns_service_ip` address is the .10 address of your service IP address range.
+- The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
+- The pod IP address range is used to assign a /24 address space to each node in the cluster. In the following example, the `pod_cidr` of 192.168.0.0/16 assigns the first node 192.168.0.0/24, the second node 192.168.1.0/24, and the third node 192.168.2.0/24.
+- As the cluster scales or upgrades, Azure continues to assign a pod IP address range to each new node.
+- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
+- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+    ```yml
+    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    ```
+
+Save the following playbook as `aks.yml`:
 
 ```yml
 - name: List supported kubernetes version from Azure
@@ -108,10 +111,13 @@ Before creation, we use `azure_rm_aks_version` module to find the supported vers
 
 ## Associate network resources with the node subnet
 
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane and updated as you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. Save these tasks in *associate.yml*.
+When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane and updated as you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. 
 
-> - The `node_resource_group` is the resource group name where to put AKS nodes.
-> - The `vnet_subnet_id` is the subnet created in previous section.
+Here are some key notes to consider when working with the sample playbook:
+- The `node_resource_group` is the resource group name in which AKS nodes reside.
+- The `vnet_subnet_id` is the subnet created in previous section.
+
+Save the following playbook as `associate.yml`.
 
 ```yml
 - name: Get route table
@@ -143,9 +149,11 @@ When you create an AKS cluster, a network security group and route table are cre
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
 
-## Combine tasks together
+## Run the complete playbook
 
-Here is the complete playbook that calls all the preceding tasks. Save this playbook as *aks-kubenet.yml*. You can replace **aksansibletest**, **aksansibletest**, **eastus** in the ```vars``` section with your own resource group name, AKS name and location respectively.
+This section lists the complete playbook that calls the tasks creating in this article. 
+
+Save the following playbook as `aks-kubenet.yml`:
 
 ```yml
 ---
@@ -186,13 +194,18 @@ Here is the complete playbook that calls all the preceding tasks. Save this play
            var: output.aks[0]
 ```
 
-Make sure the playbook and all other task files are saved in the same folder. To run this playbook, use command `ansible-playbook` as follow:
+In the **vars** section, make the following changes:
+- For the **resource_group** key, change the **aksansibletest** value to your resource group name.
+- For the **name** key, change the **aksansibletest** value to your AKS name.
+- For the **Location** key, change the **eastus** value to your resource group location.
+
+Run the complete playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook aks-kubenet.yml
 ```
 
-After running the playbook, output similar to the following example shows the progress and results:
+Running the playbook shows results similar to the following output:
 
 ```Output
 PLAY [localhost] ***************************************************************
@@ -297,9 +310,11 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=15   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-## Clean up
+## Clean up resources
 
-Remove these resources by deleting the resource group. Here we are deleting the resource group **aksansibletest**.
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 ---
@@ -314,13 +329,15 @@ Remove these resources by deleting the resource group. Here we are deleting the 
             force: yes
 ```
 
-Save this playbook to `clean.yml`, and run with command `ansible-playbook`:
+In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook clean.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure Azure CNI networking in Azure Kubernetes Service (AKS) using Ansible](https://docs.microsoft.com/azure/ansible/ansible-aks-configure-CNI-networking)
+> [Tutorial - Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible](./ansible-aks-configure-CNI-networking.md)

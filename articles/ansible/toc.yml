@@ -28,6 +28,8 @@
       href: ./ansible-create-configure-aks.md
     - name: Configure Azure CNI networking
       href: ./ansible-aks-configure-cni-networking.md
+    - name: Configure kubenet networking
+      href: ./ansible-aks-configure-kubenet-networking.md
   - name: App Service
     items:
     - name: Create and configure Azure Web Apps

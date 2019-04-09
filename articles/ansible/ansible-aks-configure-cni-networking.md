@@ -35,7 +35,7 @@ This section presents a playbook with two tasks to do the following work:
 - Create a virtual network
 - Add a subnet to the virtual network
 
-Save the following playbook as *vnet.yml*:
+Save the following playbook as `vnet.yml`:
 
 ```yml
 - name: Create vnet
