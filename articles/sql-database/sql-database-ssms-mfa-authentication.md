@@ -1,5 +1,5 @@
 ---
-title: Using Universal Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse | Microsoft Docs
+title: Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse | Microsoft Docs
 description: Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication. 
 services: sql-database
 ms.service: sql-database
@@ -14,22 +14,23 @@ manager: craigg
 ms.date: 10/08/2018
 ---
 
-# Using Universal Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse (SSMS support for MFA)
-Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the different authentication options, and also the limitations associated with using Universal Authentication. 
+# Using Multi-factor AAD authentication with Azure SQL Database and Azure SQL Data Warehouse (SSMS support for MFA)
+Azure SQL Database and Azure SQL Data Warehouse support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. This article discusses the differences between the various authentication options, and also the limitations associated with using Universal Authentication. 
 
 **Download the latest SSMS** - On the client computer, download the latest version of SSMS, from [Download SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx). 
 
 
-For all the features in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image: 
+For all the features discussed in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image:
+ 
   ![1mfa-universal-connect](./media/sql-database-ssms-mfa-auth/1mfa-universal-connect.png "Completes the User name box.")  
 
 ## The five authentication options  
 
 Active Directory Universal Authentication supports the two non-interactive authentication methods:
-    - (`Active Directory - Password` authentication
-    -  `Active Directory - Integrated` authentication). 
+    - `Active Directory - Password` authentication
+    - `Active Directory - Integrated` authentication
 
-There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.) These two methods never result in pop-up dialog boxes: 
+There are two non-interactive authentication models as well, which can be used in many different applications (ADO.NET, JDCB, ODC, etc.). These two methods never result in pop-up dialog boxes: 
 - `Active Directory - Password` 
 - `Active Directory - Integrated` 
 
