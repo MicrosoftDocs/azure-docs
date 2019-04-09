@@ -86,7 +86,7 @@ To view the health of an Azure VM, select **Insights (preview)** from the left-h
 
 ![Azure Monitor for VMs health overview of a selected Azure virtual machine](./media/vminsights-health/vminsights-directvm-health.png)
 
-On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. Refer to Alerts section for more details about the alerting experience.  
+On the **Health** tab, under the section **Guest VM health**, the table shows the current health state of your virtual machine and the total number of VM Health alerts raised by an unhealthy component. For more information, see [Alerts](#alerts) section for more details about the alerting experience.  
 
 The health states defined for a VM are described in the following table: 
 
@@ -140,7 +140,7 @@ Selecting **View all health criteria** opens a page showing a list of all the he
 
 * **Type** – There are three kinds of health criteria types to assess conditions and roll up overall health state of the monitored VM.  
     a. **Unit** – Measures some aspect of the virtual machine. This health criteria type might be checking a performance counter to determine the performance of the component, running a script to perform a synthetic transaction, or watch for an event that indicates an error.  By default the filter is set to unit.  
-    b. **Dependency** - Provides health rollup between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.  
+    b. **Dependency** - Provides health roll up between different entities. This health criteria allows the health of an entity to depend on the health of another kind of entity that it relies on for successful operation.  
     c. **Aggregate** -  Provides a combined health state of similar health criteria. Unit and dependency health criterion will typically be configured under an aggregate health criterion. In addition to providing better general organization of the many different health criteria targeted at an entity, aggregate health criterion provides a unique health state for distinct categories of the entities.
 
 * **Category** - Type of health criteria used to group criteria of similar type for reporting purposes.  They are either **Availability** or **Performance**.
@@ -218,7 +218,7 @@ The right-most column in the Health Diagnostics page is **State Changes**. It li
 
 This section consists of the health criteria state and the associated time sorted by the latest state on top.   
 
-### Association of Component Model, Health Criteria and State change columns 
+### Association of Component Model, Health Criteria, and State change columns 
 
 The three columns are interlinked with each other. When you select a discovered instance in the **Component Model** section, the **Health Criteria** section is filtered to that component view and correspondingly the **State Change** section is updated based on the selected health criteria. 
 
@@ -236,7 +236,7 @@ Total number of VM Health alerts categorized by severity is available on the **H
 
 ![Example of all Severity Level 1 alerts](./media/vminsights-health/vminsights-sev1-alerts-01.png)
 
-On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
+On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  It is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
 
 Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on log queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) page. 
 
