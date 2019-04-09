@@ -28,7 +28,10 @@ The Translator Text API supports the following languages for text to text transl
 * Neural only: Only neural translation is available.
 
 **V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. [View languages currently available in Custom Translator](#customization).
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. 
+
+> [!NOTE]
+> Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
 
 |Language|	Language code|	V2 API|	V3 API|
 |:-----|:-----:|:-----|:-----|

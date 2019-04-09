@@ -37,7 +37,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Create a workstation 
 
-A notebook workstation gives you a cloud platform for Jupyter notebooks that is preconfigured with everything you need to run Azure Machine Learning service. From your workspace, you can create this platform to get started using Jupyter notebooks.
+A notebook workstation gives you a cloud-based platform for Jupyter Notebooks that is preconfigured with everything you need to run Azure Machine Learning service. From your workspace, you can create this platform to get started using Jupyter notebooks.
 
 1. On your workspace page in Azure portal, select **Notebook Workstation** on the left.
 
@@ -45,7 +45,9 @@ A notebook workstation gives you a cloud platform for Jupyter notebooks that is 
 
    ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
-1. The Notebook Workstations section shows a list of all the workstations available in your workspace.  From here you can also manage these workstations.  Select **Add Workstation** to create a notebook workstation.
+1. The **Notebook Workstations** section shows a list of all the cloud-based notebook servers available in your workspace.  From here you can also manage these resources and delete them when they are no longer needed. 
+
+1. Select **Add Workstation** to create a notebook workstation.
 
      ![Select Add Workstation](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
@@ -99,6 +101,7 @@ Because the code to approximate pi uses random values, your plots will show diff
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
+
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Routing coverage in Azure Maps | Microsoft Docs
 description: Learn about routing coverage in Azure Maps 
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -196,14 +196,14 @@ The following table provides coverage information for Azure Maps routing.
 | +Aruba                         |        ✓       |                      |             | 
 | +Caribbean Netherlands         |        ✓       |                      |             |
 | +Curaçao                       |        ✓       |                      |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Norway                         |        ✓       |         ✓            |     ✓      | 
 | Poland                         |        ✓       |         ✓            |     ✓      | 
 | Portugal                       |        ✓       |         ✓            |     ✓      |  
 | Romania                        |        ✓       |         ✓            |     ✓      | 
 | Russian Federation             |        ✓       |         ✓            |     ✓      | 
 | San Marino                     |        ✓       |         ✓            |             |
-| +Sint Maarten                  |        ✓       |                      |             |
+| +Saint Maarten                  |        ✓       |                      |             |
 | Serbia                         |        ✓       |                      |     ✓      | 
 | Slovakia                       |        ✓       |         ✓            |     ✓      | 
 | Slovenia                       |        ✓       |         ✓            |     ✓      |
@@ -230,7 +230,7 @@ The following table provides coverage information for Azure Maps routing.
 |--------------------------------|:---------------:|:--------------------:|:------------:|
 | Bahrain                        |        ✓       |         ✓            |             |
 | Iraq                           |        ✓       |                      |             |
-| Israel                         |                |         ✓            |             |
+| Israel                         |        ✓       |         ✓            |             |
 | Jordan                         |        ✓       |                      |             |
 | Kuwait                         |        ✓       |         ✓            |             |
 | Lebanon                        |        ✓       |                      |             |

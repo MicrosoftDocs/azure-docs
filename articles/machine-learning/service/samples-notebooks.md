@@ -23,13 +23,13 @@ Learn how to use the service with the documentation on this site and use these n
 
 Use one of the paths below to run a notebook server with these sample notebooks.  Once the server is running, find tutorial notebooks in **tutorials** folder, or explore different features in **how-to-use-azureml** folder.
 
+## Use a cloud notebook server in your workspace
 
-## Try Azure Notebooks: Free Jupyter notebooks in the cloud
+It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.  
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-  
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
+* The samples are available on the notebook webpage.
 
 ## Use a Data Science Virtual Machine (DSVM)
 
@@ -47,6 +47,12 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 [!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
 The quickstart instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
+
+## Try Azure Notebooks: Free Jupyter notebooks in the cloud
+
+It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+
+Use the [Azure portal](https://portal.azure.com) to get started with Azure Notebooks.  Open your workspace and from the  **Overview** section, select **Get Started in Azure Notebooks**.
 
 <a name="automated-ml-setup"></a>
 
