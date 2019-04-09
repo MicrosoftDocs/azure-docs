@@ -17,7 +17,7 @@ ms.date: 04/04/2019
 Using Azure Kubernetes Service (AKS) you can deploy a cluster using the following network models:
 
 - [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
-- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network resources and configurations.
+- [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network (VNET) resources and configurations.
 
 For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
 
@@ -29,7 +29,7 @@ This article shows you how to use Ansible to create an AKS cluster and configure
 - [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-## Create a virtual network and subnet
+## Create a VNET and subnet
 
 This section presents a playbook with two tasks to do the following work: 
 - Create a virtual network
@@ -54,7 +54,7 @@ Save the following playbook as `vnet.yml`:
   register: subnet
 ```
 
-## Create an AKS cluster in the virtual network
+## Create an AKS cluster in the VNET
 
 This section presents a playbook that creates an AKS cluster with a virtual network. 
 
@@ -109,7 +109,7 @@ Save the following playbook as `aks.yml`:
   register: aks
 ```
 
-## Associate network resources with the node subnet
+## Associate the network resources
 
 When you create an AKS cluster, a network security group and route table are created. These resources are managed by AKS and updated when you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. 
 
