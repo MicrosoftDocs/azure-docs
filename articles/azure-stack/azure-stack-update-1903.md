@@ -165,11 +165,11 @@ The following are post-installation known issues for this build version.
 - If you do not have a Hardware Lifecycle Host (HLH): before build 1902, you had to set group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you won't be able to establish a PowerShell remote session and you will see an **Access is denied** error:
 
    ```powershell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
+   PS C:\Users\Administrator> $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $Cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
