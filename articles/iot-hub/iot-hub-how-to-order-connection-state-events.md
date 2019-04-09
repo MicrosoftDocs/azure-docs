@@ -19,7 +19,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure account. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-costmos-db-account) for a walkthrough.
+* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) for a walkthrough.
 
 * A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough. When you create your collection, use `id` for the partition key.
 
