@@ -33,7 +33,7 @@ The following services, tools, and data are used in this quickstart.
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) is used for storing the sample data.
 
 [Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
 
@@ -262,6 +262,8 @@ The response should look like:
 ## Search your JSON files
 
 You can start searching as soon as the first document is loaded. For this task, use [**Search explorer**](search-explorer.md) in the portal.
+
+In Azure portal, open the search service **Overview** page, find the index you created in the **Indexes** list.
 
 Be sure to choose the index you just created. The API version can be preview or a generally available version. The only preview requirement was for indexing JSON arrays.
 
