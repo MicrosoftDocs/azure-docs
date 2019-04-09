@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 04/09/2019
 ---
 
 # Create and manage Azure Database for MariaDB firewall rules by using the Azure CLI
@@ -114,3 +114,4 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 - Understand more about [Azure Database for MariaDB Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-cli.md)

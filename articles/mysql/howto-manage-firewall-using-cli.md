@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 04/09/2018
 ---
 
 # Create and manage Azure Database for MySQL firewall rules by using the Azure CLI
@@ -114,3 +114,4 @@ Upon success, there is no output. Upon failure, error message text displays.
 ## Next steps
 - Understand more about [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure CLI](howto-manage-vnet-using-cli.md)
