@@ -10,15 +10,15 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 4/8/2019
+ms.date: 04/09/19
 
 ---
 
-# <What the document is about> 
+# Create and register Datasets with your workspace 
 
 In Azure Machine Learning service, Datasets are first-class entities which manage data in various machine learning scenarios such as model training and pipeline creation. With Datasets, you can access the underlying storage, explore and prepare data, manage the lifecycle of different Dataset definitions, and compare the difference between Datasets used in training and in production.
 
-Datasets can be created from local files, [Azure Datastores](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-access-data). We support delimited, Excel, Parquet, binary, and json file formats.
+Datasets can be created from local files, [Azure Datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data). We support delimited, Excel, Parquet, binary, and json file formats.
 
 ## Prerequisites
 
@@ -262,6 +262,6 @@ Dataset.list(workspace)
 
 ## Next steps
 
-* Learn how to [explore and prepare data](how-to-explore-and-prepare-data.md)
-* Manage the lifecycle of [Dataset definitions](how-to-manage-dataset-definitions.md)
-* Learn how to [take snapshot of Datasets](how-to-create-dataset-snapshots.md)
+* Learn how to [explore and prepare data]
+* Manage the lifecycle of [Dataset definitions]
+* Learn how to [take snapshot of Datasets]
