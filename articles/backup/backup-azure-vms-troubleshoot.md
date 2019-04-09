@@ -92,18 +92,18 @@ If you see permissions in the **MachineKeys** directory that are different than 
 
 1. Fix permissions on the **MachineKeys** directory. By using Explorer security properties and advanced security settings in the directory, reset permissions back to the default values. Remove all user objects except the defaults from the directory and make sure the **Everyone** permission has special access as follows:
 
-		* List folder/read data 
-		* Read attributes
-		* Read extended attributes
-		* Create files/write data
-		* Create folders/append data
-		* Write attributes
-		* Write extended attributes
-		* Read permissions
+	* List folder/read data
+	* Read attributes
+	* Read extended attributes
+	* Create files/write data
+	* Create folders/append data
+	* Write attributes
+	* Write extended attributes
+	* Read permissions
 2. Delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**:
 
-		* [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
-		* Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
+	* [Open certificates on a local computer console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+	* Under **Personal** > **Certificates**, delete all certificates where **Issued To** is the classic deployment model or **Windows Azure CRP Certificate Generator**.
 3. Trigger a VM backup job.
 
 ### ExtensionStuckInDeletionState - Extension state is not supportive to backup operation
