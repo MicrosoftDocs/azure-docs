@@ -1,7 +1,7 @@
 ---
 title: Start, monitor, and cancel training runs in Python
 titleSuffix: Azure Machine Learning service
-description: Learn how to start, status, tag and organize your machine learning experiments . 
+description: Learn how to start, status, tag, and organize your machine learning experiments. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -35,7 +35,7 @@ You'll need the following:
 
 * The Azure Machine Learning SDK for Python installed (version 1.0.21 or later). To install or update to the latest version of the SDK, go to the [Install/update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) page.
 
-    To check your version of the Azure Machine Learning SDK use the following code.
+    To check your version of the Azure Machine Learning SDK, use the following code.
 
     ```Python
     print(azureml.core.VERSION)
@@ -45,7 +45,7 @@ You'll need the following:
 
 ## Start and status a run
 
-Set up your experiment by importing the [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) and [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classes from the [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) package.
+Set up your experiment by importing the [Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py), [Experiment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py), [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py), and [ScriptRunConfig](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) classes from the [azureml.core](https://docs.microsoft.com/python/api/azureml-core/azureml.core?view=azure-ml-py) package.
 
 ```Python
 import azureml.core
