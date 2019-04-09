@@ -111,10 +111,10 @@ Save the following playbook as `aks.yml`:
 
 ## Associate network resources with the node subnet
 
-When you create an AKS cluster, a network security group and route table are created. These network resources are managed by the AKS control plane and updated as you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. 
+When you create an AKS cluster, a network security group and route table are created. These resources are managed by the AKS control plane and updated when you create and expose services. Associate the network security group and route table with your virtual network subnet as follows. 
 
 Here are some key notes to consider when working with the sample playbook:
-- The `node_resource_group` is the resource group name in which AKS nodes reside.
+- The `node_resource_group` is the resource group name in which the AKS nodes are created.
 - The `vnet_subnet_id` is the subnet created in previous section.
 
 Save the following playbook as `associate.yml`.
