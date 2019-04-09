@@ -1,47 +1,43 @@
 ---
-title: 'Azure HDInsight: .NET samples for the SDK'
-description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK.
+title: 'Azure HDInsight: .NET samples'
+description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK for .NET.
 author: hrasheed-msft
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 03/10/2018
+ms.date: 04/05/2018
 ms.author: hrasheed
 
 ---
-# Azure HDInsight: .NET samples for the SDK
+# Azure HDInsight: .NET samples
 
 > [!div class="op_single_selector"]
 > * [.NET Examples](hdinsight-sdk-dotnet-samples.md)
-> * [Java Examples](hdinsight-sdk-java-samples.md)
 > * [Python Examples](hdinsight-sdk-python-samples.md)
+> * [Java Examples](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
 This article provides:
 
 * Links to samples for cluster creation tasks.
-* Links to API reference content for other management tasks.
+* Links to reference content for other management tasks.
 
-For code samples for the .NET SDK Version 3.0 (Preview), see the latest samples in the [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub repository. 
+You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
-**Prerequisites**
+## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-  
-You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
+
+- [Azure HDInsight SDK for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
-* [Kafka](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateKafkaClusterSample.cs)
-* [Spark](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateSparkClusterSample.cs)
-* [Spark with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
-* [Spark with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
+* [Create a Kafka cluster](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateKafkaClusterSample.cs)
+* [Create a Spark cluster](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateSparkClusterSample.cs)
+* [Create a Spark cluster with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateHadoopClusterWithAdlsGen2Sample.cs)
+* [Create a Spark cluster with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples/blob/master/Management/Microsoft.Azure.Management.HDInsight.Samples/Microsoft.Azure.Management.HDInsight.Samples/CreateEspClusterSample.cs)
 
-## Other API functions
+You can get these samples for .NET by cloning the the [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub repository.
 
-Code snippets for the following API functions can be found in the [HDInsight .NET API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet):
+[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-* List clusters
-* Delete clusters
-* Resize clusters
-* Monitoring
-* Script Actions
+Code snippets for this additional SDK functionality can be found in the [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).

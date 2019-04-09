@@ -1,14 +1,14 @@
 ---
-title: 'Azure HDInsight: Python samples for the SDK'
-description: Find Python examples on GitHub for common tasks using the HDInsight SDK.
+title: 'Azure HDInsight: Python samples'
+description: Find Python examples on GitHub for common tasks using the HDInsight SDK for Python.
 author: hrasheed-msft
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 03/10/2018
+ms.date: 04/05/2018
 ms.author: hrasheed
 
 ---
-# Azure HDInsight: Python samples for the SDK
+# Azure HDInsight: Python samples
 
 > [!div class="op_single_selector"]
 > * [Python Examples](hdinsight-sdk-python-samples.md)
@@ -20,29 +20,23 @@ ms.author: hrasheed
 This article provides:
 
 * Links to samples for cluster creation tasks.
-* Links to API reference content for other management tasks.
+* Links to reference content for other management tasks.
 
-For code samples for the .NET SDK Version 3.0 (Preview), see the latest samples in the [hdinsight-dotnet-sdk-samples](https://github.com/Azure-Samples/hdinsight-dotnet-sdk-samples) GitHub repository. 
+## Prerequisites
 
-**Prerequisites**
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An Azure account. If you don't have one, [get a free trial](https://azure.microsoft.com/free/).
-* [Python](https://www.python.org/downloads/)
-* [pip](https://pypi.org/project/pip/#description)
+- [Azure HDInsight SDK for Python](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## Cluster management - creation
 
-* [Kafka](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
-* [Spark](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Spark with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
-* [Spark with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Create a Kafka cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
+* [Create a Spark cluster](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
+* [Create a Spark cluster with Azure Data Lake Storage Gen2](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [Create a Spark cluster with Enterprise Security Package (ESP)](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
-## Other API functions
+You can get these samples for Python by cloning the [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub repository.
 
-Code snippets for the following API functions can be found in the [HDInsight Python API reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python):
+[!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-* List clusters
-* Delete clusters
-* Resize clusters
-* Monitoring
-* Script Actions
+Code snippets for this additional SDK functionality can be found in the [HDInsight Python SDK reference documentation](https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python).
