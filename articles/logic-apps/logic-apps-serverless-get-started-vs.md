@@ -9,12 +9,19 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.custom: vs-azure
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/25/2019
 ---
 
 # Build your first serverless app with Azure Logic Apps and Azure Functions - Visual Studio
 
-You can quickly develop and deploy cloud apps by using the serverless tools and capabilities in Azure such as [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Azure Functions](../azure-functions/functions-overview.md). This article shows how to start building a serverless app, which uses a logic app that calls an Azure function, in Visual Studio. To learn more about serverless solutions in Azure, see [Azure Serverless with Functions and Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
+You can quickly develop and deploy cloud apps by using the 
+serverless tools and capabilities in Azure such as 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Azure Functions](../azure-functions/functions-overview.md). 
+This article shows how to start building a serverless app, 
+which uses a logic app that calls an Azure function, in Visual Studio. 
+To learn more about serverless solutions in Azure, see 
+[Azure Serverless with Functions and Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
 ## Prerequisites
 
@@ -31,9 +38,6 @@ To build a serverless app in Visual Studio, you need these items:
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
     > that you select the **Azure development** workload.
-    > For Visual Studio 2019, Cloud Explorer can open 
-    > the Logic App Designer in the Azure portal, 
-    > but can't yet open the embedded Logic App Designer.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a>. Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
 

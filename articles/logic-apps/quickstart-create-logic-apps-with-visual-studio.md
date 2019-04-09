@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.date: 04/02/2019
+ms.date: 04/25/2019
 ---
 
 # Quickstart: Create automated tasks, processes, and workflows with Azure Logic Apps - Visual Studio
@@ -28,8 +28,8 @@ If you're new to Azure Logic Apps and just want the basic concepts, try the
 [quickstart for creating a logic app in the Azure portal](../logic-apps/quickstart-create-first-logic-app-workflow.md) instead. 
 The Logic App Designer in both the Azure portal and Visual Studio work similarly.
 
-Here, you create the same logic app as in the Azure portal quickstart 
-but with Visual Studio. This logic app monitors a website's RSS feed 
+In this topic, you create the same logic app as in the Azure portal quickstart 
+but with Visual Studio. This sample logic app monitors a website's RSS feed 
 and sends email for each new item posted on the site. 
 When you're done, your logic app looks like this high-level workflow:
 
@@ -37,9 +37,9 @@ When you're done, your logic app looks like this high-level workflow:
 
 <a name="prerequisites"></a>
 
-Before you start, make sure that you have these items for following this quickstart:
+To follow this quickstart, make sure you have these items:
 
-* If you don't have an Azure subscription, 
+* An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * Download and install these tools, if you don't have them already:
@@ -50,9 +50,6 @@ Before you start, make sure that you have these items for following this quickst
     > [!IMPORTANT]
     > When you install Visual Studio 2019 or 2017, make sure 
     > that you select the **Azure development** workload.
-    > For Visual Studio 2019, Cloud Explorer can open 
-    > the Logic App Designer in the Azure portal, 
-    > but can't yet open the embedded Logic App Designer.
 
   * <a href="https://azure.microsoft.com/downloads/" target="_blank">Microsoft Azure SDK for .NET (2.9.1 or later)</a>. Learn more about <a href="https://docs.microsoft.com/dotnet/azure/dotnet-tools?view=azure-dotnet">Azure SDK for .NET</a>.
 
@@ -61,9 +58,9 @@ Before you start, make sure that you have these items for following this quickst
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
-    
+
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
-    
+
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
   
     You can either download and install Azure Logic Apps Tools 
@@ -82,7 +79,7 @@ Before you start, make sure that you have these items for following this quickst
 * An email account that's supported by Logic Apps, 
 such as Office 365 Outlook, Outlook.com, or Gmail. For other providers, 
 <a href="https://docs.microsoft.com/connectors/" target="_blank">review the connectors list here</a>. 
-This logic app uses Office 365 Outlook. If you use a different provider, 
+This example logic app uses Office 365 Outlook. If you use a different provider, 
 the overall steps are the same, but your UI might slightly differ.
 
 ## Create Azure resource group project
@@ -279,8 +276,7 @@ Enter the resource group name as confirmation, and choose **Delete**.
 
 ## Get support
 
-* For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
-* To submit or vote on feature ideas, visit the <a href="https://aka.ms/logicapps-wish" target="_blank">Logic Apps user feedback site</a>.
+For questions, visit the <a href="https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps" target="_blank">Azure Logic Apps forum</a>.
 
 ## Next steps
 
@@ -290,4 +286,3 @@ for logic apps with Visual Studio, see these articles:
 
 > [!div class="nextstepaction"]
 > * [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
-> * [Create deployment templates for logic apps with Visual Studio](../logic-apps/logic-apps-create-deploy-template.md)

@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 04/02/2019
+ms.date: 04/25/2019
 ---
 
 # Manage logic apps with Visual Studio
@@ -37,7 +37,7 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, 
+* An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
 
 * Download and install these tools, if you don't have them already: 
@@ -50,10 +50,6 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
     > you select the **Azure development** workload.
     > For more information, see 
     > [Manage resources associated with your Azure accounts in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
-    >
-    > In Visual Studio 2019, Cloud Explorer can open 
-    > the Logic App Designer in the Azure portal, 
-    > but can't yet open the embedded Logic App Designer.
 
     To install Cloud Explorer for Visual Studio 2015, 
     [download Cloud Explorer from the Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
@@ -66,9 +62,9 @@ If you're new to working with Azure Logic Apps in Visual Studio, learn
   * Azure Logic Apps Tools for the Visual Studio version you want:
 
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
-    
+
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
-    
+
     * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
 
     You can either download and install Azure Logic Apps Tools 
@@ -95,13 +91,13 @@ and are deployed in the Azure portal by using Cloud Explorer.
 1. Open Visual Studio. On the **View** menu, 
 select **Cloud Explorer**.
 
-2. In Cloud Explorer, choose **Account Management**. 
+1. In Cloud Explorer, choose **Account Management**. 
 Select the Azure subscription associated with your logic apps, 
 then choose **Apply**. For example:
 
    ![Choose "Account Management"](./media/manage-logic-apps-with-visual-studio/account-management-select-Azure-subscription.png)
 
-2. Based on whether you're searching by **Resource Groups** 
+1. Based on whether you're searching by **Resource Groups** 
 or **Resource Types**, follow these steps:
 
    * **Resource Groups**: Under your Azure subscription, 
@@ -125,8 +121,8 @@ or as Azure Resource Manager projects with Visual Studio.
 
 1. Open Cloud Explorer, and find your logic app. 
 
-2. On the logic app's shortcut menu, 
-   select **Open with Logic App Editor**.
+1. On the logic app's shortcut menu, 
+select **Open with Logic App Editor**.
 
    This example shows logic apps by resource type, 
    so your logic apps appear under the **Logic Apps** section.
@@ -194,7 +190,7 @@ make sure that you refresh that app's version in Visual Studio with those change
   -or-
 
 * In Visual Studio Cloud Explorer, open your logic app's shortcut menu, 
-and select **Refresh**. 
+and select **Refresh**.
 
 ![Refresh logic app with updates](./media/manage-logic-apps-with-visual-studio/refresh-logic-app.png)
 
@@ -223,7 +219,7 @@ and select **Open run history**.
 
    ![Open run history](./media/manage-logic-apps-with-visual-studio/view-run-history.png)
 
-2. To view the details for a specific run, 
+1. To view the details for a specific run, 
 double-click a run. For example:
 
    ![Detailed run history](./media/manage-logic-apps-with-visual-studio/view-run-history-details.png)
@@ -232,7 +228,7 @@ double-click a run. For example:
    > To sort the table by property, 
    > choose the column header for that property. 
 
-3. Expand the steps whose inputs and outputs you want to review. 
+1. Expand the steps whose inputs and outputs you want to review. 
 For example:
 
    ![View inputs and outputs for each step](./media/manage-logic-apps-with-visual-studio/run-inputs-outputs.png)
