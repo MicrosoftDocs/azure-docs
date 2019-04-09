@@ -1,0 +1,48 @@
+- name: CloudSimple on Azure Documentation
+- name: Overview
+  items:
+  - name: What is VMware Solutions on Azure by CloudSimple?
+    href: what-is-solution.md
+- name: Quickstart guides
+  expanded: true
+  items:
+  - name: QS at a glance
+    href: qs-at-glance.md
+  - name: Initialize and purchase capacity
+    href: quick-create-cs-service.md
+  - name: Configure PC environment
+    href: quick-create-private-cloud.md
+  - name: Consuming Vmware VMs on Azure
+    href: quick-create-vmware-vm.md
+- name: Concepts
+  items:
+  - name: CloudSimple Service
+    href: cs-service.md
+  - name: CloudSimple Node
+    href: cs-node.md
+  - name: Private Cloud
+    href: cs-private-cloud.md
+  - name: CloudSimple Virtual Machines
+    href: cs-vms.md
+  - name: VLANs/Subnets
+    href: cs-vlans-subnets.md
+  - name: FW Tables
+    href: cs-fwtables.md
+  - name: VPN Gateways
+    href: cs-vpngw.md
+  - name: Public IP
+    href: cs-publicip.md
+  - name: Azure Network Connection
+    href: cs-az-network-conn.md
+  - name: Account Management
+    href: cs-account.md
+- name: Tutorials
+  items:
+    - name: How to access the CloudSimple Portal
+      href: access-cs-portal.md
+    - name: Manage nodes
+      items:
+       - name: Purchase nodes
+         href: create-nodes.md
+       - name: Reserve nodes
+         href: reserve-nodes.md
