@@ -29,7 +29,7 @@ Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', 
 
 For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
 
-## v3 API design principles
+## v3 API design principles and RBAC
 
 One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
 
@@ -39,7 +39,7 @@ Examples of this include:
 * Not returning the restriction keys in the Get of the ContentKeyPolicy.
 * Not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
 
-See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
+See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md) and [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md).
 
 ## Long-running operations
 
@@ -63,10 +63,6 @@ Media Services has the following long-running operations:
 * Start StreamingEndpoint
 * Stop StreamingEndpoint
 * Scale StreamingEndpoint
-
-## Role-based access control (RBAC) for Media Services accounts
-
-See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md)
 
 ## Filtering, ordering, paging of Media Services entities
 
