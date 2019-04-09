@@ -179,8 +179,6 @@
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
-- name: Test nested TOC
-  href: /stream-analytics-query/toc.yml
 - name: Stream Analytics Query Language
   items: 
     - name: Built-in Functions
