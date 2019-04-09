@@ -14,7 +14,7 @@ ms.date: 05/06/2019
 
 # Sample 1 - Regression: Predict price
 
-This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
+This visual interface sample experiment shows how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ Here's the complete graph of the experiment:
 
 ## Get the data
 
-In this experiment, we use the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. In this experiment, the goal is to predict the price of the car.
+In this experiment, we use the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
 
 ## Pre-process the data
 

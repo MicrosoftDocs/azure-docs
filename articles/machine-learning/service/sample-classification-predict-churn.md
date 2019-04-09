@@ -26,7 +26,7 @@ This visual interface sample experiment shows binary classifier prediction of ch
 
 ## Data
 
-The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. Refer to the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) for further details about the data and the task.
+The data we use for this experiment is from KDD Cup 2009. The dataset has 50,000 rows and 230 feature columns. The task is to predict churn, appetency, and up-selling for customers who use these features. See the [KDD website](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) for more details about the data and the task.
 
 ## Experiment summary
 
@@ -44,10 +44,10 @@ First, we do some simple data processing.
  
     ![Add the column dataset](./media/sample-classification-predict-churn/added-column1.png)
 
-- We use the **Split** module split the dataset into train and test sets.
+- We use the **Split Data** module to split the dataset into train and test sets.
 
 
-    We then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. Build one model per task, that is, one model each to predict up-selling, appetency, and churn.
+    We then use the Boosted Decision Tree binary classifier with the default parameters to build the prediction models. We build one model per task, that is, one model each to predict up-selling, appetency, and churn.
 
 ## Results
 

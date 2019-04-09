@@ -27,7 +27,7 @@ This visual interface sample experiment demonstrates how to perform binary class
 ## Related sample
 
 [Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-provides an advanced experiment that solves the same problem as this experiment. It demonstrates how to perform _cost sensitive_ classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiments.
+provides an advanced experiment that solves the same problem as this experiment. It shows how to perform _cost sensitive_ classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiments.
 
 ## Data
 
@@ -41,9 +41,9 @@ We follow these steps to create the experiment:
 
 1. Drag the German Credit Card UCI Data dataset module into the experiment's canvas.
 1. Add an **Edit Metadata** module so we can add meaningful names for each column.
-1. Add a **Split Data** module so we can create the testing and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port and the rest to the right port of the module. We use the left dataset for training and the right one for testing.
+1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
 1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
-1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will perform the training of the classifier.
+1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Add the training set (the left output port of the **Split Data**) to the right input port of the **Train Model**. The **Train Model** will train the classifier.
 1. Add a **Score Model** module and connect the **Train Model** module to it. Then add the test set (the right port of the **Split Data**) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
 1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
     

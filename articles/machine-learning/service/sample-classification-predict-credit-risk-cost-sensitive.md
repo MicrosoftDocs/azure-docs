@@ -14,7 +14,7 @@ ms.date: 05/06/2019
 
 # Sample 4 - Classification: Predict credit risk (cost sensitive)
 
-This visual interface sample experiment demonstrates how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
+This visual interface sample experiment shows how to use a customized Python script to perform cost-sensitive binary classification. The cost of misclassifying the positive samples is five times the cost of misclassifying the negative samples.
 
 This sample predicts credit risk based on information provided in a credit application, taking into account the misclassification costs.
 
@@ -44,6 +44,8 @@ We use the German Credit Card dataset from the UC Irvine repository. This datase
 ## Experiment summary
 
 The cost of misclassifying a low-risk example as high is 1, and the cost of misclassifying a high-risk example as low is 5. We use an **Execute Python Script** module to account for this misclassification cost.
+
+Here's the graph of the experiment:
 
 ![Graph of the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/graph.png)
 
@@ -84,7 +86,7 @@ The **Two-Class Support Vector Machine** algorithm requires normalized data. So 
 
 The **Two-Class Support Vector Machine** module handles string features, converting them to categorical features and then to binary features with a value of 0 or 1. So we don't need to normalize these features.
 
-## Model
+## Models
 
 Because we apply two classifiers, **Two-Class Support Vector Machine** (SVM) and **Two-Class Boosted Decision Tree**, and also use two datasets, we generate a total of four models:
 
@@ -112,7 +114,7 @@ Notice that the replicated test dataset is used as the input for **Score Model**
 
 ## Combine multiple results
 
-The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following simple Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
+The **Evaluate Model** module produces a table with a single row that contains various metrics. To create a single set of accuracy results, we first use **Add Rows** to combine the results into a single table. We then use the following Python script in the **Execute Python Script** module to add the model name and training approach for each row in the table of results:
 
 ```
 import pandas as pd

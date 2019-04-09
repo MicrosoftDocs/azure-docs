@@ -22,7 +22,7 @@ To delete experiments, web services, or datasets that you created, select them, 
 
 ![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
 
-### Delete compute target
+### Delete the compute target
 
 To avoid extra charges, the compute target used to run experiments automatically scales to `0` nodes when it's not being used.
 
