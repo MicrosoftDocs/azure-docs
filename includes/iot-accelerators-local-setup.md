@@ -64,3 +64,5 @@ If you've not yet created the required Azure resources, follow these steps:
 ### Use existing Azure resources
 
 If you've already created the required Azure resources, create the corresponding environment variables on your local machine. These may be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+
+Some of the configuration needed by the microservice is stored in an instance of **Key Vault** that was created on initial deployment. The corresponding variables in keyvault should be modified as needed.
