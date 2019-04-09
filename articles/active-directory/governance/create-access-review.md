@@ -30,7 +30,7 @@ This article describes how to create one or more access reviews for group member
 
 ## Create one or more access reviews
 
-1. Sign-in to the Azure portal and open the [Access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Sign in to the Azure portal and open the [Access reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. In the left menu, click **Access reviews**.
 
