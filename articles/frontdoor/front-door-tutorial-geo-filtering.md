@@ -41,7 +41,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 
 ```
 Install-Module -Name Az.FrontDoor
-``
+```
 
 ### Create a Front Door profile
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md).
