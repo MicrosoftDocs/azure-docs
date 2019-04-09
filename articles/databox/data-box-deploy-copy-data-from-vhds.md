@@ -41,7 +41,7 @@ Based on the resource groups specified, Data Box creates one share for each asso
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Within each share, the following four folders are created which correspond to containers in your storage account.
+Within each share, the following three folders are created which correspond to containers in your storage account.
 
 - Premium SSD
 - Standard HDD

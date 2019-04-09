@@ -1,11 +1,11 @@
 ---
 title: Azure Cosmos DB indexing policies
 description:  Learn how to configure and change the default indexing policy for automatic indexing and greater performance in Azure Cosmos DB.
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mjbrown
+ms.author: thweiss
 ---
 
 # Indexing policies in Azure Cosmos DB
@@ -76,5 +76,5 @@ When working with indexing policies, you may encounter the following attributes 
 
 Read more about the indexing in the following articles:
 
-* [Indexing Overview](index-overview.md)
-* [How to manage indexing policy](how-to-manage-indexing-policy.md)
+- [Indexing Overview](index-overview.md)
+- [How to manage indexing policy](how-to-manage-indexing-policy.md)

@@ -155,7 +155,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Time in seconds, default is 2 |Dynamic|Specify timespan in seconds. Connection timeout interval for each time client tries to open a connection to the gateway.|
 |HealthOperationTimeout |Time in seconds, default is 120 |Dynamic|Specify timespan in seconds. The timeout for a report message sent to Health Manager. |
-|HealthReportRetrySendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component re-sends accumulated health reports to Health Manager. |
+|HealthReportRetrySendInterval |Time in seconds, default is 30, minimum is 1 |Dynamic|Specify timespan in seconds. The interval at which the reporting component resends accumulated health reports to Health Manager. |
 |HealthReportSendInterval |Time in seconds, default is 30 |Dynamic|Specify timespan in seconds. The interval at which reporting component sends accumulated health reports to Health Manager. |
 |KeepAliveIntervalInSeconds |Int, default is 20 |Static|The interval at which the FabricClient transport sends keep-alive messages to the gateway. For 0; keepAlive is disabled. Must be a positive value. |
 |MaxFileSenderThreads |Uint, default is 10 |Static|The max number of files that are transferred in parallel. |
@@ -403,11 +403,14 @@ The following is a list of Fabric settings that you can customize, organized by 
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
 |CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|This configuration enables or disables the automatic cleanup of application package on successful provision. |
+|CleanupUnusedApplicationTypes|Bool, default is FALSE |Dynamic|This configuration if enabled, allows to automatically unregister unused application type versions skipping the latest three unused versions, thereby trimming the disk space occupied by image store. The automatic cleanup will be triggered at the end of successful provision for that specific app type and also runs periodically once a day for all the application types. Number of unused versions to skip is configurable using parameter "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |
 |ImageCachingEnabled | Bool, default is true |Static|This configuration allows us to enable or disable caching. |
 |ImageStoreConnectionString |SecureString |Static|Connection string to the Root for ImageStore. |
 |ImageStoreMinimumTransferBPS | Int, default is 1024 |Dynamic|The minimum transfer rate between the cluster and ImageStore. This value is used to determine the timeout when accessing the external ImageStore. Change this value only if the latency between the cluster and ImageStore is high to allow more time for the cluster to download from the external ImageStore. |
+|MaxUnusedAppTypeVersionsToKeep | Int, default is 3 |Dynamic|This configuration defines the number of unused application type versions to be skipped for cleanup. This parameter is applicable only if parameter CleanupUnusedApplicationTypes is enabled. |
+
 
 ## MetricActivityThresholds
 | **Parameter** | **Allowed Values** |**Upgrade Policy**| **Guidance or Short Description** |

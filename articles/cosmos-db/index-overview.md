@@ -1,11 +1,11 @@
 ---
 title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB.
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: mjbrown
+ms.author: thweiss
 ---
 
 # Indexing in Azure Cosmos DB - Overview
