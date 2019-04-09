@@ -112,7 +112,7 @@
     displayName: recognize intent, intent recognition, language understanding service, luis
   - name: Build a Flask app to translate and synthesize text (REST)
     maintainContext: true
-    href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=/azure/cognitive-services/speech-service/TOC.yml?bc=/azure/cognitive-services/speech-service/breadcrumb/toc.yml
+    href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=/azure/cognitive-services/speech-service/toc.json?bc=/azure/cognitive-services/speech-service/breadcrumb/toc.json
 - name: How-to guides
   items:
   - name: Sign up for the Speech Services
