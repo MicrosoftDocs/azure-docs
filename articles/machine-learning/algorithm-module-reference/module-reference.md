@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Algorithm & module reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn about the modules available in the Azure Machine Learning visual interface
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,13 +12,18 @@ ms.author: amlstudiodocs
 ms.date: 04/22/2019
 ROBOTS: NOINDEX
 ---
-# Algorithm & Module reference overview
+# Algorithm & module reference overview
 
-Each *module* in Machine Learning visual interface represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
+This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning. 
+
+Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
+
+> [!TIP]
+> If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 Modules are organized by functionality:
 
-+ Data input and output modules  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
+**Data input and output modules**  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
 
   + [Import Data](import-data.md)
 
@@ -27,7 +32,7 @@ Modules are organized by functionality:
   + [Enter Data Manually](enter-data-manually.md)
 
 
-+ Data transformation modules support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
+**Data transformation modules** support operations on data that are unique to machine learning, such as normalizing or binning data, feature selection, and dimensionality reduction.
 
   + [Select Columns in Dataset](select-columns-in-dataset.md)
 
@@ -48,7 +53,7 @@ Modules are organized by functionality:
   + [Partition and Sample](partition-and-sample.md)
 
 
-+ Machine learning algorithms such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
+**Machine learning algorithms** such as clustering, support vector machine, or neural networks, are available within individual modules that let you customize the machine learning task with appropriate parameters.  
   + [Score Model](score-model.md)
 
   + [Train Model](train-model.md)
@@ -84,15 +89,9 @@ Modules are organized by functionality:
   + [Two-Class Support Vector Machine](two-class-support-vector-machine.md)
 
 
-+ Python module makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
+**Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
 
-+ Data Format Conversions
+**Data Format Conversions**
 
   + [Convert to CSV ](convert-to-csv.md)
-
-  
-In this reference section, you'll find technical background on the machine learning algorithms,  implementation details if available, and links to sample experiments that demonstrate how the module is used. 
-
- > [!TIP]
- > If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
