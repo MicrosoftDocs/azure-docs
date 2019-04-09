@@ -199,6 +199,8 @@ Apply the binding using the [kubectl apply][kubectl-apply] command as shown in t
 kubectl apply -f rbac-aad-group.yaml
 ```
 
+Note: The designated AAD user or group must have the roles '_Azure Kubernetes Service Cluster Admin Role_' and '_Azure Kubernetes Service Cluster User Role_' set on the cluster resource. 
+
 For more information on securing a Kubernetes cluster with RBAC, see [Using RBAC Authorization][rbac-authorization].
 
 ## Access cluster with Azure AD
