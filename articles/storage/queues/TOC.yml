@@ -32,6 +32,8 @@
     items:
     - name: Security overview
       href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Storage account encryption
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Authorization
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
@@ -41,8 +43,6 @@
         href: /rest/api/storageservices/authorize-with-shared-key
       - name: Authorize with SAS
         href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Storage account encryption
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Advanced threat protection
       href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Azure common security attributes
@@ -96,7 +96,7 @@
       href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Upgrade a storage account
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Secure
+  - name: Secure queue data
     items:
     - name: Authorize access to queue data
       items:
@@ -128,7 +128,7 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Manage custom keys for Azure Storage encryption
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Secure data over the network
+      - name: Configure network security
         items:         
         - name: Configure client-side encryption
           items:
@@ -142,7 +142,7 @@
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Require secure transfer
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Enable secure TLS for Azure Storage client
+        - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Disaster recovery
     items:

@@ -102,6 +102,8 @@
       items:
       - name: Security overview
         href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage account encryption
+        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Authorization
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
@@ -113,8 +115,6 @@
           href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
-      - name: Storage account encryption
-        href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Business-critical Blob storage
         href: storage-blob-immutable-storage.md
       - name: Advanced threat protection
@@ -288,7 +288,7 @@
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Secure
+    - name: Secure blob data
       items:
       - name: Authorize access to blob data
         items:
@@ -320,7 +320,7 @@
             href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Manage custom keys for Azure Storage encryption
         href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Secure data over the network
+      - name: Configure network security
         items:         
         - name: Configure client-side encryption
           items:
@@ -332,13 +332,13 @@
             href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Configure firewalls and virtual networks
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Use a custom domain with HTTPS over Azure CDN
+        - name: Map Azure CDN to a custom domain for access over HTTPS
           href: storage-https-custom-domain-cdn.md
         - name: Require secure transfer
           href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Enable secure TLS for Azure Storage client
+        - name: Enable Transport Layer Security
           href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Recover data
+    - name: Disaster recovery
       items:
       - name: Initiate account failover
         href: ../common/storage-initiate-account-failover.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

@@ -2,12 +2,12 @@
 title: Azure Storage encryption for data at rest | Microsoft Docs
 description: Azure Storage protects your data by automatically encrypting it before persisting it to the cloud. All data in Azure Storage, whether in blobs, disks, files, queues, or tables, is encrypted and decrypted transparently using 256-bit AES encryption and is FIPS 140-2 compliant.
 services: storage
-author: lakasa
+author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
-ms.author: lakasa
+ms.date: 04/08/2019
+ms.author: tamram
 ms.subservice: common
 ---
 
