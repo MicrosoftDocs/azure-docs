@@ -36,7 +36,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with eDigitalResearch, you need the following items:
 
 - An Azure AD subscription
-- A eDigitalResearch single sign-on enabled subscription
+- An eDigitalResearch single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.

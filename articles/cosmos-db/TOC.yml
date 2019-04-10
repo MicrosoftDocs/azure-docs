@@ -319,7 +319,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-        - name: Store and manage Spring Data 
+        - name: Optimize Gremlin queries
+          href: graph-execution-profile.md
+        - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
     - name: Cassandra API

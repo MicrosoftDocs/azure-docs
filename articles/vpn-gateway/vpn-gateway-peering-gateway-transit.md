@@ -33,9 +33,6 @@ There are two scenarios described in this document:
 1. Both virtual networks are using the Resource Manager deployment model
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
 
-> [!IMPORTANT]	
-> Gateway transit is currently supported with global virtual network peering in preview. The preview is available in all Azure regions, China cloud regions, and Government cloud regions, but not across clouds. No whitelisting is required. You can test in preview through CLI, PowerShell, Templates, or API. Portal is not supported in the preview. 
-
 ## Requirements
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

@@ -6,7 +6,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
 
 ---
@@ -51,7 +51,7 @@ The first section shows the overall DR cost by components and DR cost by states.
 
 **Network**: ExpressRoute and site-to-site VPN cost for DR needs. 
 
-**ASR license**: The Site Recovery license cost for all compatible VMs. If you manually entered a VM in the detailed cost analysis table, the Site Recovery license cost also is included for that VM.
+**Azure Site Recovery license**: The Site Recovery license cost for all compatible VMs. If you manually entered a VM in the detailed cost analysis table, the Site Recovery license cost also is included for that VM.
 
 ### Overall DR costs by states
 The total DR cost is categorized based on two different states: replication and DR drill.
@@ -152,7 +152,7 @@ To manually add VMs:
 
 **Total DR-Drill cost (average)**: The compute and storage cost for DR drills.
 
-**ASR license cost**: The Site Recovery license cost.
+**Azure Site Recovery license cost**: The Site Recovery license cost.
 
 ## Supported target regions
 Site Recovery Deployment Planner provides cost estimation for the following Azure regions. If your region isn't listed here, you can use any of the following regions whose pricing is nearest to your region:

@@ -183,6 +183,8 @@
           href: iot-hub-device-sdk-c-iothubclient.md
         - name: Use the serializer
           href: iot-hub-device-sdk-c-serializer.md
+      - name: Azure IoT C SDK resource information
+        href: https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md
       - name: Develop for constrained devices
         href: iot-hub-devguide-develop-for-constrained-devices.md
       - name: Develop for mobile devices

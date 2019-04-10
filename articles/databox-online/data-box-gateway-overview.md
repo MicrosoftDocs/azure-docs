@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.topic: overview
-ms.date: 03/20/2019
+ms.date: 04/08/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Gateway is and how it works so I can use it to send data to Azure.
 ---
@@ -25,6 +25,8 @@ Data Box Gateway can be leveraged for transferring data to the cloud such as clo
 - **Continuous data ingestion** - Continuously ingest data into the device to copy to the cloud, regardless of the data size. As the data is written to the gateway device, the device uploads the data to Azure Storage.  
 
 - **Initial bulk transfer followed by incremental transfer** - Use Data Box for the bulk transfer in an offline mode (initial seed) and Data Box Gateway for incremental transfers (ongoing feed) over the network.
+
+For more information, go to [Azure Data Box Gateway use cases](data-box-gateway-use-cases.md).
 
 ## Benefits
 
