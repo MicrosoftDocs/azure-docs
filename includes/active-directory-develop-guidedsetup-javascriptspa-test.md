@@ -32,7 +32,7 @@ If you're not using Visual Studio, make sure your web server is started.
     ```
 1. Open the browser and type http://<span></span>localhost:30662 or http://<span></span>localhost:{port} where **port** is the port that your web server is listening to. You should see the contents of your index.html file and the **Sign In** button.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### Test with Visual Studio
 
@@ -40,7 +40,7 @@ If you're using Visual Studio, make sure to select the project solution and pres
 
 ## Test your application
 
-After the browser loads your index.html file, click **Sign In**. You will be prompted to sign in with the Microsoft Azure Active Directory (Azure AD) v2.0 endpoint:
+After the browser loads your index.html file, click **Sign In**. You will be prompted to sign in with the Microsoft identity platform endpoint:
 
 ![Sign in to your JavaScript SPA account](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 
