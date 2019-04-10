@@ -21,6 +21,7 @@ In this quickstart, you will use the Azure Face REST API with PHP to detect huma
 - A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
 - A code editor such as [Visual Studio Code](https://code.visualstudio.com/download).
 - The PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) package.
+- A PHP-enabled web browser. If you have not set this up, you can do so by installing and setting up [XAMPP](https://www.apachefriends.org/) on your machine.
 
 ## Initialize the HTML file
 
