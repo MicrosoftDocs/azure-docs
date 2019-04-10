@@ -64,7 +64,7 @@ The following limits apply only for networking resources managed through Azure R
 | Resource | Default limit | Maximum limit |
 | --- | --- | --- |
 | Public IP addresses - dynamic | 1,000 for Basic. |Contact support. |
-| Public IP addresses - static | 200 for Basic. |Contact support. |
+| Public IP addresses - static | 1,000 for Basic. |Contact support. |
 | Public IP addresses - static | 200 for Standard.|Contact support. |
 | Public IP prefix size (preview) | /28 | /28 |
 
