@@ -1,6 +1,6 @@
 ---
-title: Azure AD v2 Windows desktop quickstart | Microsoft Docs
-description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Azure Active Directory v2.0 endpoint
+title: Microsoft identity platform Windows desktop quickstart | Microsoft Docs
+description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,10 +14,10 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
-#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Azure AD v2.0 endpoint.
+#Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---
 
@@ -37,7 +37,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
+> 1. Go to the new [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 >
@@ -46,9 +46,10 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
+> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
@@ -96,7 +97,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). You can install MSAL by running the following command in Visual Studio's **Package Manager Console**:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can install MSAL by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
 Install-Package Microsoft.Identity.Client
@@ -126,7 +127,7 @@ MSAL has two methods for acquiring tokens: `AcquireTokenAsync` and `AcquireToken
 
 #### Get a user token interactively
 
-Some situations require forcing users interact with the Azure AD v2.0 endpoint through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users interact with the Microsoft identity platform endpoint through a popup window to either validate their credentials or to give consent. Some examples include:
 
 - The first time users sign in to the application
 - When users may need to reenter their credentials because the password has expired
