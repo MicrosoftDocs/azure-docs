@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Description
 
-Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to login into the JIRA application. This plugin uses SAML 2.0 for federation.
+Use your Microsoft Azure Active Directory account with Atlassian JIRA server to enable single sign-on. This way all your organization users can use the Azure AD credentials to signin into the JIRA application. This plugin uses SAML 2.0 for federation.
 
 ## Prerequisites
 
@@ -63,7 +63,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
-> Please note that JIRA also supports Linux Ubuntu version 16.04.
+> Please note that JIRA also supports Linux Ubuntu version 16.04
 
 ## Scenario description
 
