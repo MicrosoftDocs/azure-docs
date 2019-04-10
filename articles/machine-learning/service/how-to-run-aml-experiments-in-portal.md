@@ -62,9 +62,9 @@ Use the Create Experiment button.
 
     1. On the Preview tab, indicate if your data includes headers and select the features (columns) for training using the **Included** switch buttons in each feature column.
 
-    1. On the Profile tab, you can view the profile of your data by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, etc) of each. The following error message will appear if your compute context is **not** profiling enabled. *Data profiling is only available for compute targets that are already running*
+    1. On the Profile tab, you can view the profile of your data by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, etc.) of each. The following error message will appear if your compute context is **not** profiling enabled. *Data profiling is only available for compute targets that are already running*
 
- 1. Select the training job type: classification, regression or forecasting
+1. Select the training job type: classification, regression or forecasting
 
 1. Select target column. This is the column which you would like to do the predictions on.
 
