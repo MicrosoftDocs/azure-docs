@@ -47,7 +47,6 @@ POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
-&client_secret=wkubdywbc2894u
 &username=MyUsername@myTenant.com
 &password=SuperS3cret
 &grant_type=password

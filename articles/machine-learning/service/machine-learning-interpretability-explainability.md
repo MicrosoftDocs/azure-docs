@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ---
 
 # Azure Machine Learning Interpretability SDK
 
-Learn how to explain why your model arrives the predictions it makes. The Azure Machine Learning Interpretability SDK enables you to explain your model, which is important for the following reasons:
+In this article, you will learn how to explain why your model made the predictions it made by using the Azure Machine Learning Interpretability SDK. Being able to explain your model is important for the following reasons:
 
 * Customers and stakeholders want to know **if they can trust the predictions your model makes**.
 * As a data scientist, you want to understand **how to query the model to find insights**. You also need tools to make informed decisions on **how to improve your model**.
@@ -22,20 +22,14 @@ Learn how to explain why your model arrives the predictions it makes. The Azure 
 
 Machine learning interpretability is important in two phases of machine learning development cycle: **training** time and **inferencing** time:
 
-* During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. Interpretability tools also enable you to debug the model:
-
-    * Does its behavior match the goals and objectives?
-    * Is it biased?
-
+* During **training**: Model designers and evaluators require interpretability tools to explain the output of a model to stakeholders to build trust. They also need insights into the model so that they can debug the model and make decisions on whether the behavior matches their objectives. Finally, they need to ensure that the model is not biased.
 * During **inferencing**: Predictions need to be explainable to the people who use your model. For example, why did the model deny a mortgage loan, or predict that an investment portfolio carries a higher risk?
 
-The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and proven third-party libraries (for example, SHAP and LIME). It provides a common API across the integrated libraries, and integrates with Azure Machine Learning services. 
-
-Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
+The Azure Machine Learning Interpretability SDK incorporates technologies developed by Microsoft and  proven third-party libraries (for example, SHAP and LIME). The SDK creates a common API across the integrated libraries and integrates Azure Machine Learning services. Using this SDK, you can explain machine learning models **globally on all data**, or **locally on a specific data point** using the state-of-art technologies in an easy-to-use and scalable fashion.
 
 ## How does it work?
 
-Azure Machine Learning Interpretability can be applied to understand the model’s global behavior or a specific prediction. The former is called global explanation and the latter is called local explanation.
+Azure Machine Learning Interpretability can be applied to understand the model’s global behavior or specific predictions. The former is called global explanation and the latter is called local explanation.
 
 Azure Machine Learning Interpretability methods can be also categorized based on whether the method is model agnostic or model specific. Some methods target certain type of models. For example, SHAP’s tree explainer only applies to tree-based models. Some methods treat the model as a black box, such as mimic explainer or SHAP’s kernel explainer. Azure Machine Learning Interpretability SDK leverages these different approaches based on data sets, model types, and use cases.
 
@@ -43,11 +37,6 @@ Azure Machine Learning Interpretability returns a set of information on how a mo
 
 * Global/local relative feature importance
 * Global/local feature and prediction relationship
-* Interactive visualizations for:
-
-    * Predictions
-    * Feature and prediction relationships
-    * Relative feature importance values globally and locally
 
 ## Architecture
 
@@ -75,11 +64,10 @@ __Direct explainers__ come from integrated libraries. The SDK wraps all the expl
 * **LIME Explainer**: Based on LIME, LIME Explainer uses the state-of-the-art Local interpretable model-agnostic explanations (LIME) algorithm to create local surrogate models. Unlike the global surrogate models, LIME focuses on training local surrogate models to explain individual predictions.
 * **HAN Text Explainer**: HAN Text Explainer uses a Hierarchical Attention Network for getting model explanations from text data for a given black box text model. We train the HAN surrogate model on a given teacher model's predicted outputs. After training globally across the text corpus, we have added a fine-tune step for a specific document in order to improve the accuracy of the explanations. HAN uses a bidirectional RNN with two attention layers, for sentence and word attention. Once the DNN is trained on the teacher model and fine-tuned on a specific document, we can extract the word importances from the attention layers. We have found HAN to be more accurate than LIME or SHAP for text data but more costly in terms of training time as well. However, we have made improvements to the training time by giving the user the option to initialize the network with GloVe word embeddings, although it is still slow. The training time can be improved significantly by running HAN on a remote Azure GPU VM. The implementation of HAN is described in 'Hierarchical Attention Networks for Document Classification (Yang et al., 2016)' ([https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf](https://www.cs.cmu.edu/~diyiy/docs/naacl16.pdf)).
 
-__Meta explainers__ automatically select a suitable direct explainer and generate the best explanation info based on the given model and data sets. The meta explainers leverage all the libraries (SHAP, LIME, GA2M, Mimic, etc.) that we have integrated or developed. The following are the meta explainers available in the SDK:
+__Meta explainers__ automatically select a suitable direct explainer and generate the best explanation info based on the given model and data sets. The meta explainers leverage all the libraries (SHAP, LIME, Mimic, etc.) that we have integrated or developed. The following are the meta explainers available in the SDK:
 
 * **Tabular Explainer**: Used with tabular datasets.
 * **Text Explainer**: Used with text datasets.
-* **Image Explainer** Used with image datasets.
 
 In addition to Meta-selecting of the direct explainers, meta explainers develop additional features on top of the underlying libraries and improve the speed and scalability over the direct explainers.
 
@@ -95,7 +83,6 @@ The intelligence built into `TabularExplainer` will become more sophisticated as
 
 * **Summarization of the initialization dataset**. In cases where speed of explanation is most important, we summarize the initialization dataset and generate a small set of representative samples, which speeds up both global and local explanation.
 * **Sampling the evaluation data set**. If the user passes in a large set of evaluation samples but doesn't actually need all of them to be evaluated, the sampling parameter can be set to true to speed up the global explanation.
-* **KNN fast explanation**. In the case where explanation needs to be as fast as a single scoring/prediction, a KNN method can be used. During global explanation, both the initialization samples and the corresponding top-k features are preserved. To generate the explanation for each evaluation sample, the KNN method is used to find the most similar sample from the initialization samples, and the most similar sample's top-k features are returned as the top-k features for the evaluation sample.
 
 The following diagram shows the relationship between the two sets of direct and meta explainers.
 
@@ -105,15 +92,11 @@ The following diagram shows the relationship between the two sets of direct and 
 
 Any models that are trained on datasets in Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`, or `scipy.sparse.csr_matrix` format are supported by the Machine Learning Interpretability SDK.
 
-The explanation functions accept both models and pipelines as input. If a model is provided, the model must implement the prediction function `predict` or `predict_proba` that confirms to the Scikit convention. If a pipeline (name of the pipeline script) is provided, the explanation function assumes that the running pipeline script returns a prediction.
+The explanation functions accept both models and pipelines as input. If a model is provided, the model must implement the prediction function `predict` or `predict_proba` that conforms to the Scikit convention. If a pipeline (name of the pipeline script) is provided, the explanation function assumes that the running pipeline script returns a prediction.
 
 ### Local and remote compute target
 
-The Machine Learning Interpretability SDK is designed to work with both local and remote compute targets. 
-
-* If run **locally**, the SDK does not contact any Azure services.
-
-* If run **remotely**, information about the run is logged in the Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace Portal for user analysis.
+The Machine Learning Interpretability SDK is designed to work with both local and remote compute targets. If run locally, The SDK functions will not contact any Azure services. You can run explanation remotely on Azure Machine Learning Compute and log the explanation info into Azure Machine Learning Run History Services. Once this information is logged, reports and visualizations from the explanation are readily available on Azure Machine Learning Workspace Portal for user analysis.
 
 ## Train and explain locally
 
@@ -133,20 +116,18 @@ The Machine Learning Interpretability SDK is designed to work with both local an
     model = clf.fit(x_train, y_train)
     ```
 
-2. Call the explainer. When instantiating an explainer object, pass the model, and training data. Optionally you can pass features of interest. If using classification, pass the output class names.
-
-    The following example demonstrates how to create an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), and `LimeExplainer` locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
+2. Call the explainer: To initiate an explainer object, you need to pass the model, training data, features of interest (optional), and output class names (if classification) to the explainer. 
+Here is how to instantiate an explainer object using [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), and `LimeExplainer` locally. `TabularExplainer` is calling one of the three explainers underneath (`TreeExplainer`, `DeepExplainer`, or `KernelExplainer`), and is automatically selecting the most appropriate one for your use case. You can however, call each of its three underlying explainers directly.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
+    ```
     or
+    ```python
     from azureml.explain.model.mimic.mimic_explainer import MimicExplainer
     from azureml.explain.model.mimic.models.lightgbm_model import LGBMExplainableModel
     explainer = MimicExplainer(model, x_train, LGBMExplainableModel, features=breast_cancer_data.feature_names, classes=classes)
-    or
-    from azureml.contrib.explain.model.lime.lime_explainer import LIMEExplainer
-    explainer = LIMEExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     ```
 
 3. Get the global feature importance values.
@@ -165,9 +146,16 @@ The Machine Learning Interpretability SDK is designed to work with both local an
     ```python
     # explain the first data point in the test set
     local_explanation = explainer.explain_local(x_test[0,:])
+    
+    # sorted feature importance values and feature names
+    sorted_local_importance_names = local_explanation.get_ranked_local_names()
+    sorted_local_importance_values = local_explanation.get_ranked_local_values()
+    ```
     or
+    ```python
     # explain the first five data points in the test set
     local_explanation = explainer.explain_local(x_test[0:4,:])
+    
     # sorted feature importance values and feature names
     sorted_local_importance_names = local_explanation.get_ranked_local_names()
     sorted_local_importance_values = local_explanation.get_ranked_local_values()
@@ -183,21 +171,14 @@ While you can train on the various compute targets supported by Azure Machine Le
     run = Run.get_context()
     client = ExplanationClient.from_run(run)
     
-    breast_cancer_data = load_breast_cancer()
-    X_train, X_test, y_train, y_test = train_test_split(breast_cancer_data.data, breast_cancer_data.target, test_size = 0.2, random_state = 0)
-    data = {
-        "train":{"X": X_train, "y": y_train},        
-        "test":{"X": X_test, "y": y_test}
-    }
-    clf = svm.SVC(gamma=0.001, C=100., probability=True)
-    model = clf.fit(data['train']['X'], data['train']['y'])
-    joblib.dump(value = clf, filename = 'model.pkl')
+    # Train your model here
+
     # explain predictions on your local machine    
     explainer = TabularExplainer(model, x_train, features=breast_cancer_data.feature_names, classes=classes)
     # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(data["test"]["X"])
+    global_explanation = explainer.explain_global(x_test)
     # explain local data points (individual instances)
-    local_explanation = explainer.explain_local(data["test"]["X"][0,:])
+    local_explanation = explainer.explain_local(x_test[0,:])
     # upload global and local explanation objects to Run History
     upload_model_explanation(run, local_explanation, top_k=2, comment='local explanation: top 2 features')
     # Uploading global model explanation data for storage or visualization in webUX
@@ -208,9 +189,11 @@ While you can train on the various compute targets supported by Azure Machine Le
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. To submit a training run, follow the steps in the [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) article. Use the steps to create an Azure Machine Learning Compute target, and then submit a training run.
+2. Follow the instructions on [Set up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) to learn about how to set up an Azure Machine Learning Compute as your compute target and submit your training run.
 
 3. Download the explanation in your local Jupyter notebook. 
+    > [!IMPORTANT]
+    > Things in contrib are not fully supported. As the experimental functionalities become mature, they will gradually be moved to the main package.
 
     ``` python
     from azureml.contrib.explain.model.explanation.explanation_client import ExplanationClient
@@ -232,6 +215,6 @@ While you can train on the various compute targets supported by Azure Machine Le
     print('global importance names: {}'.format(global_importance_names))
     ```
 
-## Next steps
+## Next Steps
 
 To see a collection of Jupyter notebooks that demonstrate the instructions above, see the [Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).

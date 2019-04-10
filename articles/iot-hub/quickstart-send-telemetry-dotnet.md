@@ -3,7 +3,7 @@ title: Send telemetry to Azure IoT Hub quickstart (C#) | Microsoft Docs
 description: In this quickstart, you run two sample C# applications to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp

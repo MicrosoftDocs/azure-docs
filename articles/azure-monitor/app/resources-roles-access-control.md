@@ -42,7 +42,7 @@ First, some definitions:
 
 ## <a name="access"></a> Control access in the resource group
 
-It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your application. You might also have put other Azure services in there, such as websites or storage.
+It's important to understand that in addition to the resource you created for your application, there are also separate hidden resources for alerts and web tests. They are attached to the same [resource group](#resource-group) as your Application Insights resource. You might also have put other Azure services in there, such as websites or storage.
 
 To control access to these resources it's therefore recommended to:
 

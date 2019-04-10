@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/04/2019
+ms.lastreviewed: 04/11/2019
 ---
 
 # Azure Stack 1903 update
@@ -60,6 +60,12 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - Improvements to the detection and remediation of low disk space conditions.
 
+### Secret management
+
+- Azure Stack now supports rotation of the root certificate used by certificates for external secret rotation. For more information, [see this article](azure-stack-rotate-secrets.md).
+
+- 1903 contains performance improvements for secret rotation that reduce the time that it takes to execute internal secret rotation.
+
 ## Prerequisites
 
 > [!IMPORTANT]
@@ -87,7 +93,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 - When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
-- <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title `Error – Template for FaultType UserAccounts.New is missing.`  You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
+<!-- 2468613 - IS -->
+- During installation of this update, you might see alerts with the title **Error – Template for FaultType UserAccounts. New is missing.** You can safely ignore these alerts. The alerts close automatically after the installation of this update completes.
 
 ## Post-update steps
 
@@ -114,15 +121,22 @@ The following are post-installation known issues for this build version.
 - Deleting user subscriptions results in orphaned resources. As a workaround, first delete user resources or the entire resource group, and then delete the user subscriptions.
 
 <!-- 1663805 - IS ASDK --> 
-- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
+- You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azurerm.resources/get-azurermroleassignment).
 
 <!-- Daniel 3/28 -->
-- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load.
+- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load. To work around this issue, the following PowerShell cmdlets enable creating, retrieving, setting and deleting access policies, respectively:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
 
 <!-- Daniel 3/28 -->
 - In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message. To work around this issue, upload the blob using the **SAS** option.
 
 - When logged into the Azure Stack portals you might see notifications about the public Azure portal. You can safely ignore these notifications, as they do not currently apply to Azure Stack (for example, "1 new update - The following updates are now available: Azure portal April 2019 update").
+
+- In the user portal dashboard, when you select the **Feedback** tile, an empty browser tab opens. As a workaround, you can use [Azure Stack User Voice](http://aka.ms/azurestackuservoice) to file a User Voice request.
 
 <!-- ### Health and monitoring -->
 
@@ -147,14 +161,16 @@ The following are post-installation known issues for this build version.
 
 - An Ubuntu 18.04 VM created with SSH authorization enabled will not allow you to use the SSH keys to sign in. As a workaround, use VM access for the Linux extension to implement SSH keys after provisioning, or use password-based authentication.
 
-- If you do not have a Hardware Lifecycle Host (HLH): Before build 1902, you had to set Group Policy *Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options* to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is a default value). Otherwise, you won't be able to establish a PowerShell remote session and you'll receive an *Access is denied* error:
+- Azure Stack now supports Windows Azure Linux agents greater than version 2.2.20. This support was a part of the 1901 and 1902 hotfixes and allows customers to maintain consistent Linux images between Azure and Azure Stack.
 
-   ```PowerShell
+- If you do not have a Hardware Lifecycle Host (HLH): before build 1902, you had to set group policy **Computer Configuration\Windows Settings\Security Settings\Local Policies\Security Options** to **Send LM & NTLM – use NTLMv2 session security if negotiated**. Since build 1902, you must leave it as **Not Defined** or set it to **Send NTLMv2 response only** (which is the default value). Otherwise, you won't be able to establish a PowerShell remote session and you will see an **Access is denied** error:
+
+   ```powershell
    PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
    New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
    about_Remote_Troubleshooting Help topic.
    At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
+   + $Session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
    +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
       + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
@@ -165,7 +181,7 @@ The following are post-installation known issues for this build version.
 <!-- 3239127 - IS, ASDK -->
 - In the Azure Stack portal, when you change a static IP address for an IP configuration that is bound to a network adapter attached to a VM instance, you will see a warning message that states 
 
-    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`.
+    `The virtual machine associated with this network interface will be restarted to utilize the new private IP address...`
 
     You can safely ignore this message; the IP address will be changed even if the VM instance does not restart.
 
@@ -190,12 +206,15 @@ The following are post-installation known issues for this build version.
 <!-- 2352906 - IS ASDK --> 
 - You must register the storage resource provider before you create your first Azure Function in the subscription.
 
-
 <!-- ### Usage -->
 
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### Syslog
+
+- The syslog configuration is not persisted through an update cycle, causing the syslog client to lose its configuration, and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809). To work around this issue, reconfigure the syslog client after applying an Azure Stack update.
 
 ## Download the update
 

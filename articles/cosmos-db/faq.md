@@ -89,8 +89,9 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 * Up to three collections per subscription for MongoDB accounts.
 * 10-GB storage capacity.
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
-* Maximum throughput of 5 K RU/s.
-* Subscriptions expire after 24 hours, and can be extended to a maximum of 48 hours total.
+* Maximum throughput of 5 K RU/s when provisioned at the container level.
+* Maxium throughput of 20 K RU/s when provisioned at the database level.
+* Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total.
 * Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
 
 ## Set up Azure Cosmos DB
