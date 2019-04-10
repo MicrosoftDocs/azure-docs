@@ -1,6 +1,6 @@
 ---
-title: Collect Azure AD data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Azure Active Directory data in Azure Sentinel.
+title: Connect Azure AD data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Azure Active Directory data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Azure Active Directory
+# Connect data from Azure Active Directory
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -35,7 +35,7 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 
 ## Connect to Azure AD
 
-1. In Azure Sentinel, select **Data collection** and then click the **Azure Active Directory** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Azure Active Directory** tile.
 
 2. Next to the logs you want to stream into Azure Sentinel, click **Connect**.
 
