@@ -32,7 +32,9 @@ Remember to replace the placeholder values in brackets with your own values.
 ### PowerShell
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource_group> -Name <storage-account> -AssignIdentity
+Set-AzStorageAccount -ResourceGroupName <resource_group> `
+    -Name <storage-account> `
+    -AssignIdentity
 ```
 
 ### Azure CLI
@@ -55,13 +57,22 @@ To learn how to create a key vault using the Azure portal, see [Quickstart: Set 
 ### PowerShell
 
 ```powershell
-New-AzKeyVault -Name <key-vault> -ResourceGroupName <resource_group> -Location <location> -EnableSoftDelete -EnablePurgeProtection
+New-AzKeyVault -Name <key-vault> `
+    -ResourceGroupName <resource_group> `
+    -Location <location> `
+    -EnableSoftDelete `
+    -EnablePurgeProtection
 ```
 
 ### Azure CLI
 
 ```azurecli-interactive
-az keyvault create -n <key-vault> -g <resource_group> -l <region> --enable-soft-delete --enable-purge-protection
+az keyvault create \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --location <region> \
+    --enable-soft-delete \
+    --enable-purge-protection
 ```
 
 ## Enable custom key management and specify key
@@ -75,7 +86,8 @@ In the following examples, remember to replace the placeholder values in bracket
 The following example adds a key to the key vault using [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) and sets the access policy for the key vault using [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). The example then configures the storage account to use customer-managed keys and specifies the newly created key as the key to use for Azure Storage encryption.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage-account>
+$storageAccount = Get-AzStorageAccount -ResourceGroupName <resource_group> `
+    -AccountName <storage-account>
 $keyVault = Get-AzKeyVault -VaultName <key-vault>
 $key = Add-AzKeyVaultKey -VaultName <key-vault> -Name <key> -Destination 'Software'
 Set-AzKeyVaultAccessPolicy `
@@ -133,20 +145,6 @@ To specify a key from a key vault, first make sure that you have a key vault tha
     ![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
 
 You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account. Be sure to replace the placeholder values shown in angle brackets with your own values:
-
-
-## Associate a key with a storage account
-
-You can associate the above key with an existing storage account using either PowerShell or CLI.
-
-
-### Azure CLI
-
-```azurecli-interactive
-kv_uri=$(az keyvault show -n <key-vault> -g <resource_group> --query properties.vaultUri -o tsv)
-key_version=$(az keyvault key list-versions -n <key_name> --vault-name <key-vault> --query [].kid -o tsv | cut -d '/' -f 6)
-az storage account update -n <storage-account> -g <resource_group> --encryption-key-name <key_name> --encryption-key-version $key_version --encryption-key-source Microsoft.Keyvault --encryption-key-vault $kv_uri 
-```
 
 ## Next steps
 
