@@ -57,11 +57,11 @@ To remove the registration resource, use the **Remove-AzsRegistration** cmdlet t
 3. You are prompted to sign in to both your Azure subscription and the local ASDK installation when the script runs.
 4. When the script completes, you should see messages similar to the following examples:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).`
-    ` Your environment is now unable to syndicate items and is no longer reporting usage data.`
-    ` Remove registration resource from Azure...`
-    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
-    ` ********** End Log: Remove-AzsRegistration ********* `
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).`
+    `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
 
 
 

@@ -61,7 +61,7 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 4. Navigate to the directory that has the edited script above. 
 5. Edit the following command with the name of your script and run:
-    `./<name of script file you saved> `
+    `./<name of script file you saved>`
 6. The "subscriptionName" parameter can be found by logging into your Azure Government subscription with `Connect-AzureRmAccount -EnvironmentName AzureUSGovernment` and then running `Get-AzureSubscription`. 
 7. When prompted for the "password" parameter, enter your desired password. 
 8. After providing your Azure Government subscription credentials, you should see the following: 

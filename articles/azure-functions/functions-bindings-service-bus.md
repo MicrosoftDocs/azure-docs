@@ -326,7 +326,6 @@ The Service Bus trigger provides several [metadata properties](./functions-bindi
 |`To`|`string`|The send to address.|
 |`Label`|`string`|The application specific label.|
 |`CorrelationId`|`string`|The correlation ID.|
-|`UserProperties`|`IDictionary<String,Object>`|The application specific message properties.|
 
 > [!NOTE]
 > Currently, trigger only works with queues and subscriptions that don't use sessions. Please track [this feature item](https://github.com/Azure/azure-functions-host/issues/563) for any further updates regarding this feature. 

@@ -29,9 +29,9 @@ This article shows you how to manage DNS records for your DNS zone by using Azur
 
 The examples in this article assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-operations-dnszones.md).
 
-## Introduction
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## Introduction
 
 Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
@@ -394,4 +394,4 @@ Learn more about [zones and records in Azure DNS](dns-zones-records.md).
 <br>
 Learn how to [protect your zones and records](dns-protect-zones-recordsets.md) when using Azure DNS.
 <br>
-Review the [Azure DNS PowerShell reference documentation](/powershell/module/azurerm.dns).
+Review the [Azure DNS PowerShell reference documentation](/powershell/module/az.dns).

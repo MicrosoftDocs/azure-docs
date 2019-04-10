@@ -15,7 +15,9 @@
     href: quick-onboard-windows-computer.md
   - name: Linux computers
     href: quick-onboard-linux-computer.md
-  
+  - name: Azure Stack virtual machines
+    href: quick-onboard-azure-stack.md
+
 - name: Tutorials
   items:
   - name: Protect your resources

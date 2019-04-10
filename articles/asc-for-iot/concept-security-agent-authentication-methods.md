@@ -1,7 +1,8 @@
 ---
 title: Authentication methods for Azure Security Center for IoT Preview| Microsoft Docs
 description: Learn about the different authentication methods available when using the Azure Security Center for IoT service.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
