@@ -149,7 +149,7 @@ For the conditional access policy in this step, configure the following componen
     ![Conditional access](./media/app-protection-based-conditional-access/05.png)
 
 
-**Step 3 - Configure Intune app protection policy for iOS and Android client applications**
+**Step 3: Configure Intune app protection policy for iOS and Android client applications**
 
 
 ![Conditional access](./media/app-protection-based-conditional-access/09.png)
@@ -433,6 +433,5 @@ For more information, see [Protect apps and data with Microsoft Intune](https://
 
 ## Next steps
 
-If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
-
-If you're ready to configure conditional access policies for your environment, see [Best practices for conditional access in Azure Active Directory](best-practices.md). 
+- If you want to know how to configure a conditional access policy, see [Require MFA for specific apps with Azure Active Directory conditional access](app-based-mfa.md).
+- If you're ready to configure conditional access policies for your environment, see [Best practices for conditional access in Azure Active Directory](best-practices.md). 
