@@ -78,9 +78,6 @@
   - name: Data sources supported
     href: Concepts/data-sources-supported.md
     displayName: metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard
-  - name: Conversational flow
-    href: /Concepts/conversation-flow.md
-    displayName: multi-turn dialogs
 - name: How-to guides
   items:
   - name: Manage knowledge base
@@ -90,6 +87,9 @@
       displayName: create bot, bot, publish to bot, test, edit
     - name: Add chit-chat to knowledge base
       href: How-to/chit-chat-knowledge-base.md
+    - name: Conversational context from one question to the next
+      href: /Concepts/conversation-with-contex.md
+      displayName: multi-turn dialogs, parent question, child question, filtering
     - name: Migrate a knowledge base
       href: Tutorials/migrate-knowledge-base.md
     - name: Edit a knowledge base
