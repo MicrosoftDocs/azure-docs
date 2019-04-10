@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: batch
 documentationcenter: 
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/05/2018
-ms.author: danlep
+ms.date: 04/10/2019
+ms.author: lahugh
 ms.custom: include file 
 ---
 
@@ -62,14 +62,14 @@ You do not need to specify NSGs at the subnet level because Batch configures its
 
 | Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-Any <br /><br />Although this requires effectively "allow all", the Batch service applies an NSG at the network interface level on each VM created under Virtual Machine configuration that filters out all non-Batch service IP addresses. | * | Any | 29876-29877 | TCP | Allow |
-| User machines, used for debugging purposes to remotely access the pool VMs. | * | Any |  3389 (Windows), 22 (Linux) | TCP | Allow |
+Any <br /><br />Although this requires effectively "allow all", the Batch service applies an NSG at the network interface level on each VM created under Virtual Machine configuration that filters out all non-Batch service IP addresses. | * | [BatchNodeManagement service tag](../articles/virtual-network/security-overview.md#service-tags) | 29876-29877 | TCP | Allow |
+| User machines, used for debugging purposes to remotely access the pool VMs. | * | [BatchNodeManagement service tag](../articles/virtual-network/security-overview.md#service-tags) |  3389 (Windows), 22 (Linux) | TCP | Allow |
 
 **Outbound security rules**
 
 | Source | Source ports | Destination | Destination service tag | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-| Any | 443 | [Service tag](../articles/virtual-network/security-overview.md#service-tags) | Storage (in the same region as your Batch account and VNet)  | Any | Allow |
+| Any | 443 | [BatchNodeManagement service tag](../articles/virtual-network/security-overview.md#service-tags) | Storage (in the same region as your Batch account and VNet)  | Any | Allow |
 
 ### Pools in the Cloud Services configuration
 
