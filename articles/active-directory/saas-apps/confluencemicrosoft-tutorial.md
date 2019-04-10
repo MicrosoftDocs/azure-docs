@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -73,6 +74,7 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.10.0
 - Confluence: 6.11.0
 - Confluence: 6.12.0
+- Linux Ubuntu version 16.04
 
 ## Scenario description
 
@@ -183,18 +185,18 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	d. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user id. If the user id is not matched, then system will not allow users to log in. 
+	d. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 
 	> [!Note]
 	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 	
-	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
+	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
 
 	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 	
 	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from Confluence. 
+	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from Confluence. 
 
 	i. Click **Save** button to save the settings.
 
