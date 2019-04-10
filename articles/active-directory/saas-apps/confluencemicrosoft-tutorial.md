@@ -74,7 +74,9 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.10.0
 - Confluence: 6.11.0
 - Confluence: 6.12.0
-- Linux Ubuntu version 16.04
+
+> [!NOTE]
+> Please note that Confluence also supports Linux Ubuntu version 16.04.
 
 ## Scenario description
 
@@ -102,7 +104,7 @@ To configure the integration of Confluence SAML SSO by Microsoft into Azure AD, 
 
 4. In the search box, type **Confluence SAML SSO by Microsoft**, select **Confluence SAML SSO by Microsoft** from result panel then click **Add** button to add the application.
 
-	 ![Confluence SAML SSO by Microsoft in the results list](common/search-new-app.png)
+	![Confluence SAML SSO by Microsoft in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
