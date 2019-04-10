@@ -62,11 +62,11 @@
       href: ./ansible-vnet-peering-create-configure.md
   - name: Virtual Machines Scale Sets
     items:
-    - name: Create and configure VM scale sets
+    - name: Create virtual machine scale sets
       href: ./ansible-create-configure-vmss.md
-    - name: Deploy app to a VM scale set
+    - name: Deploy to virtual machine scale sets
       href: ./ansible-deploy-app-vmss.md
-    - name: Autoscale VM scale sets
+    - name: Autoscale virtual machine scale sets
       href: ./ansible-auto-scale-vmss.md
 - name: Reference
   items:
