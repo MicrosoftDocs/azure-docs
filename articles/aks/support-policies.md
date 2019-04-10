@@ -23,7 +23,7 @@ This article provides details around AKS technical support policies, limitations
 
 ## What is 'managed'
 
-Unlike base IaaS cloud components such as compute or networking, which expose low-level controls and customization options for users to leverage, the AKS service provides a turn-key Kubernetes deployment that represents the common set of configurations and capabilities required for Kubernetes. Users who use this service have a limited number of customizations, deployment, and other options. This also means that customers do not need to worry or manage the Kubernetes cluster(s) directly.
+Unlike base IaaS cloud components such as compute or networking, which expose low-level controls and customization options for users to leverage, the AKS service provides a turn-key Kubernetes deployment that represents the common set of configurations and capabilities required for Kubernetes. Customers who use this service have a limited number of customizations, deployment, and other options. This also means that customers do not need to worry or manage the Kubernetes cluster(s) directly.
 
 With AKS, the customer gets a fully managed **control plane** – where the control plane contains all components and services required to operate and provide Kubernetes clusters to end users. All Kubernetes components are maintained and operated by Microsoft.
 
@@ -135,7 +135,7 @@ There are two cases where Alpha or Beta features may be rolled out prior to GA:
 * Customers have met with the AKS product, support, or engineering teams and have been explicitly asked to try these new features.
 * These features have been [enabled via a Feature Flag][2] (explicit opt-in)
 
-## Preview Features / Feature Flags
+## Preview features / feature Flags
 
 For features and functionality that require extended testing, community and user feedback, Microsoft will release new preview features, or features behind a feature flag. These features should be considered pre-release / Beta, and are exposed to give users a chance to try out these new features.
 
@@ -144,7 +144,7 @@ However, these preview / feature flag features are not meant for production use 
 > [!NOTE]
 > Enabling preview features takes effect at the Azure **subscription** level. Do not install preview features on production subscription as it can change default API behavior impacting regular operations.
 
-## Upstream Bugs and Issues
+## Upstream bugs and issues
 
 Given the speed of development in the upstream Kubernetes project, there are invariably bugs that cannot be patched or worked-around within the AKS system, and instead require larger patches to upstream projects (such as Kubernetes, Node/Worker OSes and Kernels). For components we own (such as the Azure Cloud Provider), AKS/Azure personnel are committed to fixing the issue upstream in the community.
 
