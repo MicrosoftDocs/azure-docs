@@ -113,8 +113,8 @@ You can see the newly created tables in the list of tables now by typing:
 \dt
 ```
 
-Note how all primary and foreign keys include the company ID. Multi-
-tenant applications can enforce uniqueness only per tenant.
+Multi-tenant applications can enforce uniqueness only per tenant,
+which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
@@ -224,14 +224,17 @@ SELECT c.id, clicked_at, latlon
 
 ## Customize the schema per-tenant
 
-Given that all tenants share a common schema and hardware infrastructure,
-how can we allow some tenants to store extra information not needed
-by others? One way is through PostgreSQL's JSONB type.
+Each tenant may need to store special information not needed by
+others. However, all tenants share a common infrastructure with
+an identical database schema. Where can the extra data go?
 
-Our schema already has a JSONB field in `clicks` called `user_data`.
-Suppose company five includes information in the field to track
-whether the user is on a mobile device. The company can query to
-find who clicks more: mobile, or traditional visitors.
+One trick is to use an open-ended column type like PostgreSQL's
+JSONB.  Our schema has a JSONB field in `clicks` called `user_data`.
+A company (say company five), can use the column to track whether
+the user is on a mobile device.
+
+Here's a query to find who clicks more: mobile, or traditional
+visitors.
 
 ```sql
 SELECT
@@ -243,7 +246,8 @@ GROUP BY user_data->>'is_mobile'
 ORDER BY count DESC;
 ```
 
-We can optimize this query for company five by creating a [partial
+We can optimize this query for a single company by creating a
+[partial
 index](https://www.postgresql.org/docs/current/static/indexes-partial.html).
 
 ```sql
