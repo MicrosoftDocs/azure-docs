@@ -60,8 +60,10 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 * JIRA Core and Software: 6.0 to 7.12
 * JIRA Service Desk 3.0.0 to 3.5.0
-* Linux Ubuntu version 16.04
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
+
+> [!NOTE]
+> Please note that JIRA also supports Linux Ubuntu version 16.04.
 
 ## Scenario description
 
