@@ -68,7 +68,7 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 **Error**: When using the link from GitHub, the message “Create a free account" appears.
 
-![Create a free account]](media/be615904ace9832754f0669de28abd94.png)
+![Screenshot for create a free account.](/media/be615904ace9832754f0669de28abd94.png.png)
 
 **Cause 1:** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
 
@@ -97,7 +97,9 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error: Your deployment failed….\<hostname\>/joindomain**
 
-[Deployment details]](media/e72df4d5c05d390620e07f0d7328d50f.png)
+
+
+![Screenshot of your deployment failed.](/media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 > **Example of raw error:** {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for >details. Please see <https://aka.ms/arm-debug> for usage
 details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Failed\\",\\r\\n \\"error\\": {\\r\\n\\"code\\":\\"ResourceDeploymentFailure\\",\\r\\n \\"message\\": \\"The resource operation completed with terminal provisioning state 'Failed'.\\",\\r\\n\\"details\\":[\\r\\n {\\r\\n \\"code\\":\\"VMExtensionProvisioningError\\",\\r\\n\\"message\\": \\"VM has reported a failure when processing extension 'joindomain'. Error message: occured while joining Domain '[diamondsg.onmicrosoft.com](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdiamondsg.onmicrosoft.com&data=02%7C01%7CStefan.Georgiev%40microsoft.com%7C01339d07d3424818eee608d6b0d672e8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636890832443357907&sdata=JSaCC4NQEYK0x3wD%2FYIoK97%2Fzeo19JKN4j97UjQmzXc%3D&reserved=0)'}\\r\\n ]\\r\\n }\\r\\n}"}]}
@@ -112,7 +114,7 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 **Error:** VMExtensionProvisioningError
 
-[Deployment details VMExtensionProvisioningError]](media/7aaf15615309c18a984673be73ac969a.png)
+![Screenshot of Your Deployment Failed with terminal provisioning state failed.](/media/7aaf15615309c18a984673be73ac969a.png)
 
 **Cause 1:** Transient error with the WVD environment.
 
@@ -122,7 +124,7 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 **Error:** The Admin Username specified is not allowed.
 
-GRAPHIC: Deployment Failed
+![Screenshot of admin specified is not allowed in Your Deployment Failed.](/media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 > **Example of raw error:** { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Resources/deployments/vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demoHostv2-1", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demoHostv2-1" } }}
 
@@ -132,7 +134,7 @@ GRAPHIC: Deployment Failed
 
 **Error:** VM has reported a failure when processing extension
 
-GRAPHIC: Deployment Failed
+![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](/media/49c4a1836a55d91cd65125cf227f411f.png)
 
 > **Example of raw error:** { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z", "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict", "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message": "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Compute/virtualMachines/desktop-1/extensions/dscextension", "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 
@@ -142,7 +144,7 @@ GRAPHIC: Deployment Failed
 
 **Error:** DeploymentFailed – DSC Configuration ‘FirstSessionHost’ completed with Error(s).
 
-GRAPHIC: Screenshot with error details
+![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](/media/64870370bcbe1286906f34cf0a8646ab.png)
 
 > **Example of raw Error:** { "code": "DeploymentFailed","message": "At least one resource deployment operation failed. Please list deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.","details": [{ "code": "Conflict", "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\":\"VMExtensionProvisioningError\",\r\n \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\\\".\"\r\n }\r\n ]\r\n }\r\n}"  }
 
@@ -260,7 +262,7 @@ When the RD Agent is first installed on the session host VM (either manually or 
 
 **Error:** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
 
-GRAPHIC: Status in Get-RidsSessionHost cmdlet
+![Get-RdsSessionHost cmdlet shows status as Unavailable.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The agent is not able to update itself to a new version.
 
@@ -341,7 +343,7 @@ If you're having issues with the the SxS stack, confirm the SxS stack is install
 
 If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
 
-GRAPHIC: qwinsta command output
+![SxS stack installed or enabled with qwinsta listed as rdp-sxs in the output.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your WVD tenant** on how to reinstall the SxS stack.
 
@@ -353,7 +355,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 **Error:** O_REVERSE_CONNECT_STACK_FAILURE
 
-GRAPHIC: Reverse Connect Stack Failure
+![O_REVERSE_CONNECT_STACK_FAILURE error code.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The SxS stack is not installed on the session host VM.
 
@@ -448,7 +450,9 @@ Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
 In scenarios where users can obtain their feed and see the resource provided to them, there can sometimes be misconfigurations, availability, or performance issues that prevent users from accessing their remote resources. The user gets a messages like the one below:
 
-GRAPHIC: Remote Desktop Connection: Can't connect to the gateway error
+![Remote Desktop Connection error message.](/media/eb76b666808bddb611448dfb621152ce.png)
+
+![Can't connect to the gateway error message.](/media/a8fbb9910d4672147335550affe58481.png)
 
 Below are general troubleshooting steps and common error codes.
 
