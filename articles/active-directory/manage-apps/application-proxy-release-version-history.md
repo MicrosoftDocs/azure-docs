@@ -1,6 +1,6 @@
 ---
 title: 'Azure AD Application Proxy: Version release history | Microsoft Docs'
-description: This article lists all releases of Azure AD Application Proxy
+description: This article lists all releases of Azure AD Application Proxy and describes new features and fixed issues
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -21,9 +21,9 @@ ms.collection: M365-identity-device-management
 # Azure AD Application Proxy: Version release history
 This article lists the versions and features of Azure Active Directory (Azure AD) Application Proxy that have been released. The Azure Active Directory (Azure AD) team regularly updates Application Proxy with new features and functionality. Application Proxy connectors are updated automatically when a new version is released.
 
-Here is a list of related topics:
+Here is a list of related resources:
 
-Topic |  Details
+Resource |  Details
 --------- | --------- |
 How to enable Application Proxy | Pre-requisites for enabling Application Proxy and installing and registering a connector are described in this [tutorial](application-proxy-add-on-premises-application.md).
 Understand Azure AD Application Proxy connectors | Find out more about [connector management](application-proxy-connectors.md) and how connectors auto-upgrade.
@@ -40,7 +40,7 @@ September 20, 2018: Released for download
 - Added WebSocket support for the QlikSense application. To learn more about how to integrate QlikSense with Application Proxy, see this [walkthrough](application-proxy-qlik.md). 
 - Improved the installation wizard to make it easier to configure an outbound proxy. 
 - Set TLS 1.2 as the default protocol for connectors. 
-- Added a new EULA message for GDPR compliance.  
+- Added a new End-User License Agreement (EULA).  
 
 ### Fixed issues
 
@@ -81,7 +81,7 @@ April 15, 2017: Released for download
 
 ## Earlier versions
 
-If you're using versions of Azure AD Application Proxy earlier than version 1.5.36.0, update to the latest version to ensure you have the latest fully supported features.
+If you're using an Application Proxy connector version earlier than 1.5.36.0, update to the latest version to ensure you have the latest fully supported features.
 
 ## Next steps
 - Learn more about [Remote access to on-premises applications through Azure AD Application Proxy](application-proxy.md).
