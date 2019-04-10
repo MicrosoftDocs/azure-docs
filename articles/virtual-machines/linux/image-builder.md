@@ -45,21 +45,34 @@ az provider register -n Microsoft.Storage
 
 ## Create a resource group
 
+We will be using some pieces of information repeatedly, so we will create some variables to store that information.
+
+
 ```bash
+# Resource group name - we are using myImageBuilderRG in this example
 imageResourceGroup=myImageBuilerRG
+# Datacenter location - we are using West US 2 in this example
 location=WestUS2
 # Get the current subscription ID using: az account show | grep id
 subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
+# Name for the image - we are using myBuilderImage in this example
 imageName=myBuilderImage
+```
 
+Create the resource group.
+
+```bash
 az group create -n $imageResourceGroup -l $location
+```
 
-# assign permissions for that resource group
+
+Give Image Builder permission to create resources in that resource group. The `--assignee` value is the app registration ID for the Image Builder service. 
+
+```
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/$imageResourceGroup
-
 ```
 
 ## Download the .json example
@@ -136,6 +149,7 @@ In the Image Builder Template, in the 'Properties', you will see the source imag
 cat helloImageTemplate.json
 ```
 
+For more detailed information about this .json file, see [Image builder .json example](image-builder-json)
 
 ## Clean Up
 
@@ -153,3 +167,4 @@ az group delete -n $imageResourceGroup
 
 ## Next Steps
 
+To learn more about the components of the .json file used in this article, see [Image builder json example](image-builder-json).
