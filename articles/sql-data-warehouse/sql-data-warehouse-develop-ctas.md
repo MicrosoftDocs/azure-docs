@@ -21,7 +21,7 @@ This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in Azure
 
 The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
 
-## SELECT..INTO vs. CTAS
+## SELECT...INTO vs. CTAS
 
 CTAS is a more customizable version of the [SELECT...INTO](/sql/t-sql/queries/select-into-clause-transact-sql) statement.
 
@@ -221,7 +221,7 @@ WITH
 (   Distribution=HASH(ProductKey)
 ,   CLUSTERED INDEX (ProductKey)
 )
-AS -- Select Data you wish to keep
+AS -- Select Data you want to keep
 SELECT     p.ProductKey
 ,          p.EnglishProductName
 ,          p.Color
@@ -343,7 +343,7 @@ SELECT ISNULL(CAST(@d*@f AS DECIMAL(7,2)),0) as result
 
 Note the following:
 
-* You could have used CAST or CONVERT.
+* You can use CAST or CONVERT.
 * Use ISNULL, not COALESCE, to force NULLability. See the following note.
 * ISNULL is the outermost function.
 * The second part of the ISNULL is a constant, 0.
@@ -425,7 +425,7 @@ OPTION (LABEL = 'CTAS : Partition IN table : Create');
 
 You can see that type consistency and maintaining nullability properties on a CTAS is an engineering best practice. It helps to maintain integrity in your calculations, and also ensures that partition switching is possible.
 
-CTAS is one of the most important statements in Azure SQL Data Warehouse. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
+CTAS is one of the most important statements in SQL Data Warehouse. Make sure you thoroughly understand it. See the [CTAS documentation](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse).
 
 ## Next steps
 
