@@ -65,7 +65,7 @@ For more information, see [Streaming logs with the Azure CLI](../troubleshoot-di
 
 ### App logging
 
-Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
+Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the `/home/LogFiles/Application/` directory.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
@@ -81,6 +81,7 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 - [Set up a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Enable SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Add a CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### Set Java runtime options
 
@@ -101,9 +102,9 @@ To configure the app setting from the Azure App Service Linux Maven plugin, add 
 
 Developers running a single application with one deployment slot in their App Service plan can use the following options:
 
-- B1 and S1 instances: -Xms1024m -Xmx1024m
-- B2 and S2 instances: -Xms3072m -Xmx3072m
-- B3 and S3 instances: -Xms6144m -Xmx6144m
+- B1 and S1 instances: `-Xms1024m -Xmx1024m`
+- B2 and S2 instances: `-Xms3072m -Xmx3072m`
+- B3 and S3 instances: `-Xms6144m -Xmx6144m`
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
 
@@ -138,6 +139,10 @@ Alternatively, you can configure the app setting using the App Service Maven plu
     </property>
 </appSettings>
 ```
+
+### Adjust startup timeout
+
+If your Java application is particularly large, you should increase the startup time limit. To do this, create an application setting, `WEBSITES_CONTAINER_START_TIME_LIMIT` and set it to the number of seconds that App Service should wait before timing out. The maximum value is `1800` seconds.
 
 ## Secure applications
 
