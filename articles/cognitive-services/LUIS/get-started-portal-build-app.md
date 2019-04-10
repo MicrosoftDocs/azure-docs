@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Create new app with LUIS Portal" 
+title: "Quickstart: Create a new app in the LUIS Portal" 
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: In this quickstart, you create a new app in the LUIS portal. Create the basic parts of an app, intents and entities, then test by providing a sample user utterance in the interactive test panel to get the predicted intent. Building an app is free; it doesn't require an Azure subscription. 
+description: In this quickstart, you create a new app in the LUIS portal. Create the basic parts of an app, intents, and entities. Test the app by providing a sample user utterance in the interactive test panel to get the predicted intent. Building an app is free; it doesn't require an Azure subscription. 
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 03/11/2019
 ms.author: diberry
-#Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity and example utterances. 
+#Customer intent: As a new user, I want to quickly get a LUIS app created in the LUIS portal so I can understand the different models of intent, entity, and example utterances. 
 ---
 
 # Quickstart: Create a new app in the LUIS portal

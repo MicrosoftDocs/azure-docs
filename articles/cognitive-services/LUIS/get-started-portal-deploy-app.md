@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy app with LUIS Portal" 
+title: "Quickstart: Deploy an app in the LUIS Portal" 
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Once the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. In this quickstart, you learn to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 services: cognitive-services
