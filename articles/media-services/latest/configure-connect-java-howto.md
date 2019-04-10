@@ -40,7 +40,7 @@ Also review:
 
 ## Create a Maven project
 
-Open a command line tool and `cd` to a directory where  you want to create the project.
+Open a command-line tool and `cd` to a directory where  you want to create the project.
     
 ```
 mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -80,7 +80,6 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
     ```java
     package com.azure.ams;
     ```
-
 2. Under the package statement, add these import statements:
    
    ```java
