@@ -25,9 +25,7 @@ This article shows how to configure a key vault with custom keys, using either A
 
 ## Assign an identity to the storage account
 
-To enable custom key management for your storage account, first assign a system-assigned managed identity to the storage account. You can assign the identity by executing the following PowerShell or Azure CLI commands. For more information about system-assigned managed identities, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
-
-Remember to replace the placeholder values in brackets with your own values.
+To enable custom key management for your storage account, first assign a system-assigned managed identity to the storage account. You can assign the identity by executing the following PowerShell or Azure CLI commands. Remember to replace the placeholder values in brackets with your own values.
 
 ### PowerShell
 
@@ -36,6 +34,8 @@ Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -Name <storage-account> `
     -AssignIdentity
 ```
+
+For more information about system-assigned managed identities, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md).
 
 ### Azure CLI
 
@@ -47,6 +47,8 @@ az storage account update \
     --resource-group <resource_group> \
     --assign-identity
 ```
+
+For more information about system-assigned managed identities, see [Configure managed identities for Azure resources on an Azure VM using Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md).
 
 ## Create a new key vault
 
@@ -83,7 +85,7 @@ In the following examples, remember to replace the placeholder values in bracket
 
 ### PowerShell
 
-The following example adds a key to the key vault using [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) and sets the access policy for the key vault using [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). The example then configures the storage account to use customer-managed keys and specifies the newly created key as the key to use for Azure Storage encryption.
+The following example adds a key to the key vault using [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) and sets the access policy for the key vault using [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). The example then calls [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) to configure the storage account to use customer-managed keys and specify the newly created key as the key to use for Azure Storage encryption.
 
 ```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName <resource_group> `
@@ -125,8 +127,12 @@ After you enable custom key management, you'll have the opportunity to specify a
 
 To specify a key as a URI, follow these steps:
 
-1. Choose the **Enter key URI** option.
-2. In the **Key URI** field, specify the URI.
+1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its settings. Copy the value of the **Key Identifier** field, which provides the URI.
+
+    ![Screenshot showing key vault key URI](media/storage-service-encryption-customer-managed-keys/key-uri-portal.png)
+
+1. In the **Encryption** settings for your storage account, choose the **Enter key URI** option.
+1. In the **Key URI** field, specify the URI.
 
    ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
 
