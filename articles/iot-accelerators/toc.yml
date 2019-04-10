@@ -164,7 +164,7 @@
       href: quickstart-connected-factory-deploy.md
   - name: How-to guides
     items:
-    - name: Connected Factory    
+    - name: Connected Factory
       items:
       - name: Use the dashboard
         href: iot-accelerators-connected-factory-dashboard.md
@@ -176,7 +176,7 @@
         href: iot-accelerators-connected-factory-configure.md
       - name: Customize the solution accelerator
         href: iot-accelerators-connected-factory-customize.md
-    - name: OPC Twin    
+    - name: OPC Twin
       items:
       - name: Deploy OPC Twin services
         href: howto-opc-twin-deploy-existing.md
@@ -188,9 +188,9 @@
       items:
       - name: Deploy OPC Vault to an existing project
         items: 
-        - name: Secure communication of OPC Client and OPC PLC
+        - name: Secure communication of OPC client and OPC PLC
           href: howto-opc-vault-deploy-existing-client-plc-communication.md
-        - name: Secure OPC UA Client and OPC UA Server Application 
+        - name: Secure OPC UA client and OPC UA server applications
           href: howto-opc-vault-deploy-existing-client-server-communication.md
       - name: Deploy OPC Vault from scratch
         href: howto-opc-vault-deploy-scratch.md
