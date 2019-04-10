@@ -35,10 +35,10 @@ Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced through the `PutBlob`, `PutBlockList`, or `CopyBlob` operations. <br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `CreateFile`, or `Flush` operations. |
 > |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted through the `DeleteBlob` operation. <br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `DeleteFile` operation.|
-> |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed through the `RenameFile` operation <br>(Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created through a `CreateDirectory` operation. <br>(Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryRenamed`|Raised when a directory is renamed through a `RenameDirectory` operation. <br> (Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryDeleted`|Raised when a directory is deleted through a `DeleteDirectory` operation. <br> (Available only when a hierarchical namespace is enabled on the account)|
+> |`Microsoft.Storage.BlobRenamed` <br>(Available only when a hierarchical namespace is enabled on the account) |Raised when a blob is renamed through the `RenameFile` operation |
+> |`Microsoft.Storage.DirectoryCreated` <br>(Available only when a hierarchical namespace is enabled on the account)|Raised when a directory is created through a `CreateDirectory` operation. |
+> |`Microsoft.Storage.DirectoryRenamed` <br>(Available only when a hierarchical namespace is enabled on the account)Raised when a directory is renamed through a `RenameDirectory` operation. |
+> |`Microsoft.Storage.DirectoryDeleted` <br>(Available only when a hierarchical namespace is enabled on the account)|Raised when a directory is deleted through a `DeleteDirectory` operation. |
 
 ## Event Schema
 
@@ -61,7 +61,7 @@ Blob storage events contain all the information you need to respond to changes i
 > |data.api|string|The name of the api operation that triggered this event. For example, this value is "PutBlob", "PutBlockList", or "CopyBlob" for BlobCreated events. These values are the same api names that are present in the Azure Storage diagnostic logs. See [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
 > |data.contentOffset|number|Put explanation here.|
 > |data.recursive|string|`True` to perform the operation on all child directories; otherwise `False`|
-> |data.destinationUrl|string|The url of the file that exists after the operation completes. For example, in the case of an operation to rename a file, the `data.destinationUrl` property would be set to the desired (fully qaulified) name. |
+> |data.destinationUrl|string|The url of the file that exists after the operation completes. For example, in the case of an operation to rename a file, the `data.destinationUrl` property would be set to the desired (fully qualified) name. |
 > |data.sourceUrl|string|The url of the file that exists prior to the operation. For example, in the case of an operation to rename a file, the `data.sourceUrl` property would be set to the fully qualified name of the file to be renamed.|
 > |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name.|
 > |data.requestId|string|Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
