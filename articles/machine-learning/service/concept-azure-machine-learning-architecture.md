@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 04/15/2019
+ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
