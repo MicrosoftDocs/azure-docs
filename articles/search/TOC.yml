@@ -79,6 +79,8 @@
       href: search-security-trimming-for-azure-search.md
     - name: Filter on AAD identities
       href: search-security-trimming-for-azure-search-with-aad.md
+    - name: Manage encryption keys
+      href: search-security-manage-encryption-keys.md
   - name: Development
     items:
     - name: API versions
