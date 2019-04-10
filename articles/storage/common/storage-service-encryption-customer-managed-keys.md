@@ -48,42 +48,20 @@ az storage account update \
 
 ## Create a new key vault
 
-To create a new key vault using PowerShell or Azure CLI, execute the following commands. Remember to replace the placeholder values in brackets with your own values. To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md). 
+The key vault that you use to manage custom keys for Azure Storage encryption must have two key protection settings enabled, **Soft Delete** and **Do Not Purge**. To create a new key vault using PowerShell or Azure CLI with these settings enabled, execute the following commands. Remember to replace the placeholder values in brackets with your own values. 
+
+To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md). 
 
 ### PowerShell
 
 ```powershell
-New-AzKeyVault -Name <key-vault> -ResourceGroupName <resource_group> -Location <location>
+New-AzKeyVault -Name <key-vault> -ResourceGroupName <resource_group> -Location <location> -EnableSoftDelete -EnablePurgeProtection
 ```
 
 ### Azure CLI
 
 ```azurecli-interactive
 az keyvault create -n <key-vault> -g <resource_group> -l <region> --enable-soft-delete --enable-purge-protection
-```
-
-## Configure key vault settings
-
-Enable two key protection settings for the key vault, **Soft Delete** and **Do Not Purge**, by executing the following PowerShell or Azure CLI commands. Remember to replace the placeholder values in brackets with your own values.
-
-### PowerShell
-
-```powershell
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName <key-vault>).ResourceId).Properties `
-    | Add-Member -MemberType NoteProperty -Name enableSoftDelete -Value 'True'
-
-Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
-
-($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName <key-vault>).ResourceId).Properties `
-    | Add-Member -MemberType NoteProperty -Name enablePurgeProtection -Value 'True'
-
-Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
-```
-
-### Azure CLI
-
-```azurecli-interactive
-az keyvault update -n <key-vault> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
 
 ## Enable custom key management and specify key
