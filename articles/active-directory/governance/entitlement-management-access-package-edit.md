@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/06/2019
+ms.date: 04/10/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -66,9 +66,9 @@ Any users with existing assignments to the access package will automatically be 
 
 Any users with existing assignments to the access package will automatically have their access revoked to this resource role when it is removed.
 
-## Create a policy
+## Add a new policy
 
-The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval and expiration settings. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
+The way you specify who can request an access package is to create a policy. You can create multiple policies for a single access package if you want to allow different sets of users to be granted assignments with different approval and expiration settings. A single policy cannot be used to assign internal and external users to the same access package. However, you can create two policies in the same access package -- one for internal users and one for external users. If there are multiple policies that apply to a user, they will be prompted at the time of their request to select the policy they would like to be assigned to.
 
 The following diagram shows the high-level process to create a policy for an existing access package.
 
@@ -194,6 +194,28 @@ In the Expiration section, you specify when a user's assignment to the access pa
     ![Access package - Policy- Enable policy setting](./media/entitlement-management-shared/policy-enable.png)
 
 1. Click **Create** to create the policy.
+
+## Edit an existing policy
+
+You can edit a policy at any time. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. Click **Policies** and then click the policy you want to edit.
+
+    The **Policy details** pane opens at the bottom of the page.
+
+    ![Access package - Policy details pane](./media/entitlement-management-access-package-edit/policy-details.png)
+
+1. Click **Edit** to edit the policy.
+
+    ![Access package - Edit policy](./media/entitlement-management-access-package-edit/policy-edit.png)
+
+1. When finished, click **Update**.
 
 ## Directly assign a user
 
