@@ -23,7 +23,7 @@ This page indexes Azure Diagnostics extension schema versions shipped as part of
 >
 > This page is only relevant if you are using one of these services.
 
-The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
+The Azure Diagnostics extension is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics. For more information, see [Microsoft Monitoring Tools Overview](../../azure-monitor/overview.md).
 
 ## Azure SDK and diagnostics versions shipping chart  
 
