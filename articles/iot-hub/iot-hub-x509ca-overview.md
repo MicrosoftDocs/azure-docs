@@ -37,8 +37,6 @@ You may also create a self-signed X.509 CA for experimentation or for use in clo
 
 Regardless of how you obtain your X.509 CA certificate, make sure to keep it's corresponding private key secret and protected at all times.  This is necessary for trust building trust in the X.509 CA authentication.
 
-Also make sure the end device certificate (Leaf certificate) has the *Subject Name* set to the **Device ID** used for the IoT device that was created in the Azure IoT Hub. This is required for authentication.
-
 Learn how to [create a self-signed CA certificate](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), which you can use for experimentation throughout this feature description.
 
 ## Sign devices into the certificate chain of trust
@@ -46,6 +44,8 @@ Learn how to [create a self-signed CA certificate](https://github.com/Azure/azur
 The owner of an X.509 CA certificate can cryptographically sign an intermediate CA who can in turn sign another intermediate CA, and so on, until the last intermediate CA terminates this process by signing a device. The result is a cascaded chain of certificates known as a certificate chain of trust. In real life this plays out as delegation of trust towards signing devices. This delegation is important because it establishes a cryptographically variable chain of custody and avoids sharing of signing keys.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+The device certificate (also called a leaf certificate) must have the *Subject Name* set to the **Device ID** that was used when registering the IoT device in the Azure IoT Hub. This setting is required for authentication.
 
 Learn here how to [create a certificate chain](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) as done when signing devices.
 
