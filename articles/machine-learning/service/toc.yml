@@ -90,11 +90,12 @@
       - name: Train and deploy
         href: how-to-vscode-train-deploy.md
   - name: Work with data
-    displayName: data prep, etl, dataset, data preparation
     items:
     - name: Create Datasets
+      displayName: data, etl, dataset
       href: how-to-create-and-register-datasets.md
     - name: Transform data
+      displayName: data, etl, dataset, data preparation
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
