@@ -48,7 +48,7 @@ az storage account update \
 
 ## Create a new key vault
 
-To create a new key vault using PowerShell or Azure CLI, execute the following commands. Remember to replace the placeholder values in brackets with your own values. To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal). 
+To create a new key vault using PowerShell or Azure CLI, execute the following commands. Remember to replace the placeholder values in brackets with your own values. To learn how to create a key vault using the Azure portal, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../../key-vault/quick-create-portal.md). 
 
 ### PowerShell
 
