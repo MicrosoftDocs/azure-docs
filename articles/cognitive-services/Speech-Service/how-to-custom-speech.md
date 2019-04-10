@@ -24,7 +24,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 ![Highlights the different components that make up the Custom Speech portal.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Subscribe and create a project](placeholder) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
+1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
 
 2. [Upload test data](placeholder) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
 
