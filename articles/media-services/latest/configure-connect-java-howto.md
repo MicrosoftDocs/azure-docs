@@ -29,7 +29,7 @@ In this article, the Visual Studio Code is used to develop an app.
    - JDK
    - Apache Maven
    - Java Extension Pack
-- Make sure to set `JAVA_HOME` and `PATH` environment variables to the install locations of the JDK and Apache Maven.
+- Make sure to set `JAVA_HOME` and `PATH` environment variables.
 - [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in a later step.
 
@@ -75,7 +75,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 ### Create the management client
 
-1. Open the `App.java` file under `src\main\java\com\azure\ams` and make sure this package statement is at the top:
+1. Open the `App.java` file under `src\main\java\com\azure\ams` and make sure your package is included at the top:
 
     ```java
     package com.azure.ams;
