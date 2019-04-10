@@ -60,9 +60,9 @@
       href: ./ansible-create-configure-route-table.md
     - name: Configure Azure VNet peering
       href: ./ansible-vnet-peering-create-configure.md
-  - name: Virtual Machines Scale Sets
+  - name: Virtual Machines Scale Sets (VMSS)
     items:
-    - name: Create virtual machine scale sets
+    - name: Create VMSS
       href: ./ansible-create-configure-vmss.md
     - name: Deploy to virtual machine scale sets
       href: ./ansible-deploy-app-vmss.md
