@@ -339,7 +339,7 @@ The following items are prefixed with either:
 - **[1]** - only applicable to node 1 
 - **[2]** - only applicable to node 2.
 
-[comment]: <> (Yast is a fixed term in Linux and not a spelling error)
+<!-- Yast is a fixed term in Linux and not a spelling error -->
 
 **[A]** Prerequisites for Pacemaker configuration:
 1. Shut down both database server with user db2\<sid> with db2stop
