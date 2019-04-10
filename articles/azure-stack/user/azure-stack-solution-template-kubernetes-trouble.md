@@ -49,7 +49,7 @@ If an ARM deployment fails, its detailed view will show a red banner on the top 
 
     ![Troubleshooting](media/azure-stack-solution-template-kubernetes-trouble/azure-stack-kub-trouble-report.png)
 
-If the failure happened during the DVM deployment or its CSE execution, look for the corresponding entry in this [exit code table](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/template/DeploymentTemplates/script.sh#L3). More details on these errors can be found [here]().
+If the failure happened during the DVM deployment or its CSE execution, look for the corresponding entry in this [exit code table](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/template/DeploymentTemplates/script.sh#L3). More details on these errors can be found [here](https://github.com/msazurestackworkloads/azurestack-gallery/blob/master/kubernetes/docs/troubleshooting.md).
 
 If the failure ocurred during the Kubernetes cluster deployment, then follow AKS Engine's [troubleshooting guide](https://github.com/Azure/aks-engine/blob/master/docs/howto/troubleshooting.md). 
 
