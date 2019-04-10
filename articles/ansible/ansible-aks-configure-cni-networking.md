@@ -2,7 +2,7 @@
 title: Tutorial - Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
@@ -14,14 +14,14 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-Using Azure Kubernetes Service (AKS) you can deploy a cluster using the following network models:
+Using [Azure Kubernetes Service (AKS)](/azure/aks/) you can deploy a cluster using the following network models:
 
 - [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
 - [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network (VNET) resources and configurations.
 
 For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
 
-This article shows you how to use Ansible to create an AKS cluster and configure Azure CNI networking.
+In this article, you use Ansible to create an AKS cluster and configure Azure CNI networking.
 
 ## Prerequisites
 
@@ -101,9 +101,9 @@ Save the following playbook as `aks.yml`:
   register: aks
 ```
 
-## Run the complete playbook
+## Run the sample playbook
 
-This section lists the complete playbook that calls the tasks creating in this article. 
+This section lists the complete sample playbook that calls the tasks creating in this article. 
 
 Save the following playbook as `aks-azure-cni.yml`:
 
@@ -259,4 +259,4 @@ ansible-playbook cleanup.yml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configure Azure Active Directory in Azure Kubernetes Service (AKS) using Ansible](./ansible-aks-configure-rbac.md)
+> [Tutorial: Configure Azure Active Directory in AKS using Ansible](./ansible-aks-configure-rbac.md)

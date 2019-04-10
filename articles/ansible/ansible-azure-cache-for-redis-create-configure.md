@@ -145,9 +145,9 @@ The following code deletes the cache:
       state: absent
 ```
 
-## Get the complete playbook
+## Get the sample playbook
 
-There are two ways to get the complete playbook:
+There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) and save it to `rediscache.yml`.
 - Create a new file called `rediscache.yml` and copy into it the following contents:
 

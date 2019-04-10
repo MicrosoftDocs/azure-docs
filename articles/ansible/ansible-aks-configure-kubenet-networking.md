@@ -2,7 +2,7 @@
 title: Tutorial - Configure kubenet networking in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure kubenet networking in Azure Kubernetes Service (AKS) cluster
 ms.service: ansible
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
 author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
@@ -14,14 +14,14 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-Using Azure Kubernetes Service (AKS) you can deploy a cluster using the following network models:
+Using [Azure Kubernetes Service (AKS)](/azure/aks/) you can deploy a cluster using the following network models:
 
 - [Kubenet networking](/azure/aks/configure-kubenet) - Network resources are typically created and configured as the AKS cluster is deployed.
 - [Azure Container Networking Interface (CNI) networking](/azure/aks/configure-azure-cni) - AKS cluster is connected to existing virtual network (VNET) resources and configurations.
 
 For more information about networking to your applications in AKS, see [Network concepts for applications in AKS](/azure/aks/concepts-network).
 
-This article shows you how to use Ansible to create an AKS cluster and configure kubenet networking.
+In this article, you use Ansible to create an AKS cluster and configure kubenet networking.
 
 ## Prerequisites
 
@@ -62,7 +62,6 @@ Here are some key notes to consider when working with the sample playbook:
 - Use `azure_rm_aks_version` module to find the supported version.
 - The `vnet_subnet_id` is the subnet created in the previous section.
 - The `network_profile` defines the properties for the kubenet network plugin.
-
 - The `service_cidr` is used to assign internal services in the AKS cluster to an IP address. This IP address range should be an address space that isn't used elsewhere in your network. 
 - The `dns_service_ip` address should be the ".10" address of your service IP address range.
 - The `pod_cidr` should be a large address space that isn't in use elsewhere in your network environment. The address range must be large enough to accommodate the number of nodes that you expect to scale up to. You can't change this address range once the cluster is deployed.
@@ -149,9 +148,9 @@ Save the following playbook as `associate.yml`.
       route_table: "{{ routetable.route_tables[0].id }}"
 ```
 
-## Run the complete playbook
+## Run the sample playbook
 
-This section lists the complete playbook that calls the tasks creating in this article. 
+This section lists the complete sample playbook that calls the tasks creating in this article. 
 
 Save the following playbook as `aks-kubenet.yml`:
 
@@ -340,4 +339,4 @@ ansible-playbook cleanup.yml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial - Configure Azure Container Networking Interface (CNI) networking in Azure Kubernetes Service (AKS) using Ansible](./ansible-aks-configure-CNI-networking.md)
+> [Tutorial - Configure Azure Container Networking Interface (CNI) networking in AKS using Ansible](./ansible-aks-configure-cni-networking.md)

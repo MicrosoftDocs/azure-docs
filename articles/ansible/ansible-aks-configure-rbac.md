@@ -1,41 +1,55 @@
 ---
-title: Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
+title: Tutorial - Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
-ms.service: azure
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, Kubernetes, azure active directory, rbac
-author: tomarchermsft
+ms.service: ansible
+keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
+# Tutorial: Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
 
-Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. You can then log into an AKS cluster using your Azure Active Directory authentication token. Additionally, cluster administrators can configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-This article shows you how to use Ansible to create an Azure AD-enabled AKS cluster and create an RBAC role in the cluster using Ansible.
+[Azure Kubernetes Service (AKS)](/azure/aks/) can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. You can then log into an AKS cluster using your Azure AD authentication token. Additionally, administrators can configure AKS role-based access control (RBAC). The RBAC can be based on a user's identity or directory group membership.
+
+In this article, you use Ansible to create an Azure AD-enabled AKS cluster. Once created, you configure an RBAC role in the cluster using Ansible.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), note the following values: **appId**, **displayName**, **password**, and **tenant**.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- Install `openshift` library using `pip install openshift`.
-- Copy and save your `Object ID` from Azure portal -> `Azure Active Directory` -> `Users` -> your account.
-![VM A](media/ansible-aks-configure-rbac/ansible-aad-objectid.png)
-- When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with Azure Kubernetes Service](https://docs.microsoft.com/en-us/azure/aks/aad-integration#create-server-application). Make sure you obtain the server application secret, server application ID, the client application ID and the tenant ID from your Azure tenant administrator. You need the information in order to run the sample playbook.  
+- **Install the openshift library** - `pip install openshift`
 
-## Deploy cluster
+## Configure Azure AD for AKS authentication
 
-This section shows you how to create an Azure Kubernetes Service with the Azure AD application created in previous steps. Save the tasks as *aks-create.yml*
+When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-server-application). 
 
-> [!Tip]
-> - This task loads `ssh_key` from `~/.ssh/id_rsa.pub`.You can change it to RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
-> - `client_id` and `client_secret` are loaded from `~/.azure/credentials`, the default credential file for Ansible. You can set these as your own service principal or load these from environment:
->    ```yml
->    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
->    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
->    ```
+From the Azure tenant administrator, get the following values:
+- Server app secret
+- Server app ID
+- Client app ID 
+- Tenant ID
+
+These values are needed to run the sample playbook.  
+
+## Create an AKS cluster
+
+In this section, you create an AKS with the [Azure AD application](#configure-azure-ad-for-aks-authentication).
+
+Here are some key notes to consider when working with the sample playbook:
+- The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
+- The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+    ```yml
+    client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+    client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    ```
+
+Save the following playbook as `aks-create.yml`:
 
 ```yml
 - name: Create resource group
@@ -90,11 +104,31 @@ This section shows you how to create an Azure Kubernetes Service with the Azure 
       dest: "aks-{{ name }}-kubeconfig"
 ```
 
+## Get the Azure AD Object ID
+
+To create an RBAC binding, you first need to get the Azure AD Object ID. 
+
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. In the search field at the top of the page, enter `Azure Active Directory`. 
+
+1. Select the **Enter** key.
+
+1. In the **Manage** menu, select **Users**.
+
+1. In the name field, search for your account.
+
+1. In the **Name** column, select the link to your account.
+
+1. In the **Identity** section, copy the **Object ID**.
+
+  ![Copy the Azure AD Object ID.](./media/ansible-aks-configure-rbac/ansible-aad-objectid.png)
+
 ## Create RBAC binding
 
-This section shows you how to create a role binding or cluster role binding. It will create a role in AKS. Save the file as *kube-role.yml*.
+In this section, you create a role binding or cluster role binding in AKS. 
 
-> Note: replace the `<your-aad-account>` placeholder with the object id of your Azure AD tenant.
+Save the following playbook as `kube-role.yml`:
 
 ```yml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -111,7 +145,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Deploy this role to AKS using the following task, save these tasks as *aks-kube-deploy.yml*.
+Replace the **&lt;your-aad-account>** placeholder with the your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+
+The following task deploy your new role to AKS. Save this as `aks-kube-deploy.yml`:
 
 ```yml
 - name: Apply role to AKS
@@ -120,12 +156,11 @@ Deploy this role to AKS using the following task, save these tasks as *aks-kube-
       kubeconfig: "aks-{{ name }}-kubeconfig"
 ```
 
-## Putting everything together
+## Run the sample playbook
 
-Here is the complete playbook to call all preceding tasks. Save the playbook as *aks-rbac.yml*.
+This section lists the complete sample playbook that calls the tasks creating in this article. 
 
-> [!Tip]
-> replace the `<client id>`, `<server id>`, `<server secret>` and `<tenant id>` with your AAD information.
+Save the following playbook as `aks-rbac.yml`:
 
 ```yml
 ---
@@ -152,20 +187,31 @@ Here is the complete playbook to call all preceding tasks. Save the playbook as 
        include_tasks: aks-kube-deploy.yml
 ```
 
-Save the playbook, with all other task files in one folder. To run this playbook, use command `ansible-playbook` as follows:
+In the **vars** section, replace the following placeholders with your Azure AD information:
+- **<client id>**
+- **<server id>**
+- **<server secret>**
+- **<tenant id>**
+
+Run the complete playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook aks-rbac.yml
 ```
 
-## Verify
-Use the kubectl to list the nodes with cluster user kube config
+## Verify the results
+
+In this section, you use kubectl list the nodes creating in this article.
+
+Enter the following at a terminal prompt:
 
 ```bash
 kubectl --kubeconfig aks-aksansibletest-kubeconfig-user get nodes
 ```
 
-The command line should direct you to https://microsoft.com/devicelogin and let you enter a code to authenticate. Log in with your Azure account the nodes should be listed as below
+The command will direct you to an authentication page. Log in with your Azure account.
+
+Once authenticated, kubectl lists the nodes in similar fashion to the following results:
 
 ```txt
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code XXXXXXXX to authenticate.
@@ -175,10 +221,11 @@ aks-nodepool1-33413200-1   Ready    agent   49m   v1.12.6
 aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 ```
 
+## Clean up resources
 
-## Clean up
+When no longer needed, delete the resources created in this article. 
 
-Remove these resources by deleting the resource group
+Save the following code as `cleanup.yml`:
 
 ```yml
 ---
@@ -198,10 +245,10 @@ Remove these resources by deleting the resource group
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Save this playbook to *clean.yml*, and run using command `ansible-playbook`:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook clean.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps

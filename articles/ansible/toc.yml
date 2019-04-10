@@ -30,6 +30,8 @@
       href: ./ansible-aks-configure-cni-networking.md
     - name: Configure kubenet networking
       href: ./ansible-aks-configure-kubenet-networking.md
+    - name: Configure RBAC role in AKS cluster
+      href: ./ansible-aks-configure-rbac.md
   - name: App Service
     items:
     - name: Create and configure Azure Web Apps
