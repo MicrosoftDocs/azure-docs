@@ -44,7 +44,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-This tutorial requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
+This procedure requires that you run PowerShell locally. You must have the Azure PowerShell module installed. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps). After you verify the PowerShell version, run `Connect-AzAccount` to create a connection with Azure.
 
 ## Set up the network
 
@@ -55,7 +55,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 The resource group contains all the resources for the deployment.
 
 ```azurepowershell
-New-AzResourceGroup -Name Test-FW-RG -Location "East US"`
+New-AzResourceGroup -Name Test-FW-RG -Location "East US"
 ```
 
 ### Create a VNet
@@ -198,7 +198,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 ### Change the primary and secondary DNS address for the **Srv-Work** network interface
 
-For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
+For testing purposes in this procedure, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
 ```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
@@ -254,5 +254,4 @@ Remove-AzResourceGroup -Name Test-FW-RG`
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
+* [Tutorial: Monitor Azure Firewall logs](./tutorial-diagnostics.md)
