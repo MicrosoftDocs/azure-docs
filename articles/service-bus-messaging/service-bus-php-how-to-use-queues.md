@@ -22,9 +22,13 @@ ms.author: aschhab
 
 This guide shows you how to use Service Bus queues. The samples are written in PHP and use the [Azure SDK for PHP](../php-download-sdk.md). The scenarios covered include **creating queues**, **sending and receiving messages**, and **deleting queues**.
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## Prerequisites
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md).
+    1. Create a Sevice Bus **namespace**. 
+    2. Get the **connection string**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+    You will create a **queue** in the Service Bus namespace by using the PHP code in this tutorial. 
 
 ## Create a PHP application
 The only requirement for creating a PHP application that accesses the Azure Blob service is the referencing of classes in the [Azure SDK for PHP](../php-download-sdk.md) from within your code. You can use any development tools to create your application, or Notepad.
