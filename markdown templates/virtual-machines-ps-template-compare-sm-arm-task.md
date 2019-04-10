@@ -97,5 +97,5 @@ Here's an example that uses [cmdlet names)] to [task]. It includes commands that
     [link text](https://azure.microsoft.com/pricing/details/virtual-machines/)-->
 
 <!--use this for URLs outside of ACOM. Be sure to locale, and if you're linking to the Azure library on MSDN, include the '/azure/' part of the URL-->
-[Virtual machines documentation](https://msdn.microsoft.com/library/azure/jj156003.aspx)
+[Virtual machines documentation](/previous-versions/azure/jj156003(v=azure.100))
 

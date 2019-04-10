@@ -1,13 +1,12 @@
 ---
-title: 'Azure Data Explorer time series analysis'
-description: 'Learn about time series analysis in Azure Data Explorer '
-services: data-explorer
+title: Analyze time series data using Azure Data Explorer
+description: Learn how to analyze time series data in the cloud using Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 04/07/2019
 ---
 
 # Time series analysis in Azure Data Explorer
@@ -133,7 +132,7 @@ demo_series3
 ```kusto
 demo_series3
 | project (periods, scores) = series_periods_detect(num, 0., 14d/2h, 2) //to detect the periods in the time series
-| mvexpand periods, scores
+| mv-expand periods, scores
 | extend days=2h*todouble(periods)/1d
 ```
 

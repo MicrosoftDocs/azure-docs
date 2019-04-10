@@ -3,8 +3,8 @@ title: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog | M
 description: Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Register data from Azure Data Lake Storage Gen1 in Azure Data Catalog

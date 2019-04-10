@@ -40,7 +40,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 #### Install Az.FrontDoor module 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 
 ### Create a Front Door profile

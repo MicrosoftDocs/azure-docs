@@ -72,7 +72,7 @@ Use the **New-AzsScaleUnitNodeObject** cmdlet to add a node.
 Before using either of the following sample PowerShell scripts, replace the values *node names* and *IP addresses* with values from your Azure Stack environment.
 
   > [!Note]  
-  > When naming a node you must keep the name to less than 15 characters in length. You also cannot use a name that contains a space or contains any of the following characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > When naming a node you must keep the name to less than 15 characters in length. You also cannot use a name that contains a space or contains any of the following characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Add a node:**
   ```powershell
