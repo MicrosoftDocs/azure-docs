@@ -27,8 +27,8 @@ Function Apps can be hosted in several different ways.
 |                |[Consumption Plan](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inbound IP Restrictions**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET Integration**](#vnet-integration)|❌No|⚠ Yes|✅Yes|✅Yes|
-|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠ Yes|⚠ Yes|✅Yes|
+|[**VNET Integration**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
 |[**Hybrid Connections**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Private Site Access**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
