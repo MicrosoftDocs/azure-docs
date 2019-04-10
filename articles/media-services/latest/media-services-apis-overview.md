@@ -25,14 +25,9 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. 
 
-### Azure AD overview
+### Azure AD service principal 
 
-You need to create an Azure AD application and service principal in its own tenant. After you create the application, give the app **Contributor** or **Owner** role access to the Media Services account. You also can use an existing Azure AD application.
-
-After you create your Azure AD application, you get values for the following settings. You need these values for authentication:
-
-- Client ID 
-- Client secret 
+You need to create an Azure AD application and service principal in its own tenant. After you create the application, give the app **Contributor** or **Owner** role access to the Media Services account. 
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 
@@ -41,21 +36,16 @@ In the following figure, the numbers represent the flow of the requests in chron
 1. A middle-tier app (web API or web application) requests an Azure AD access token that has the following parameters:  
 
    * Azure AD tenant endpoint.
-
-       The tenant information can be retrieved from the Azure portal. Place your cursor over the name of the signed-in user in the top right corner.
-   * Media Services resource URI. 
-
-       This URI is the same for Media Services accounts that are located in the same Azure environment (for example, https://rest.media.azure.net).
+   * Media Services resource URI.
    * Resource URI for REST Media Services.
-
-       The URI represents the REST API endpoint (for example, https://test03.restv2.westus.media.azure.net/api/).
    * Azure AD application values: the client ID and client secret.
-	
-     To get values for these parameters, see [Use the Azure portal to access Azure AD authentication settings](media-services-portal-get-started-with-aad.md) by using the service principal authentication option.
+   
+   To get all the needed values, 
+see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md)
 
-### Access APIs 
-
-See [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.md)
+2. The Azure AD access token is sent to the middle tier.
+4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
+5. The middle tier gets back the data from Media Services.
 
 ### v3 API design principles and RBAC
 
