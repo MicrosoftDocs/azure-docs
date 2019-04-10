@@ -1,6 +1,6 @@
 ---
 title: 'Design a Multi-Tenant Database'
-description: This tutorial shows how to create, populate, and query distributed tableson Azure Database for PostgreSQL Hyperscale (Citus).
+description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -30,10 +30,9 @@ TODO: add section for creating db and getting connection string.
 Now that you know how to connect to the Azure Database for PostgreSQL,
 you can complete some basic tasks.
 
-First let's create tables for a hypothetical online advertising
-application. The application must keep track of multiple companies,
-each of which runs advertising campaigns. Campaigns have many ads,
-and each ad has associated records of its clicks and impressions.
+First let's create tables for a hypothetical advertising application.
+Multiple companies can all use the app to track advertising campaigns,
+recording clicks and ad impressions.
 
 In the psql client, run these commands:
 
@@ -114,8 +113,8 @@ You can see the newly created tables in the list of tables now by typing:
 \dt
 ```
 
-Note how all primary and foreign keys include the company id. This
-enforces uniqueness per tenant.
+Note how all primary and foreign keys include the company ID. Multi-
+tenant applications can enforce uniqueness only per tenant.
 
 ## Shard tables across nodes
 
@@ -124,7 +123,7 @@ user-designated column called the "distribution column." This column
 marks which tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
-identifier. Run this in psql:
+identifier. In psql, run these functions:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -158,10 +157,10 @@ This data will now be spread across worker nodes.
 
 ## Query tenant data
 
-Citus executes single-tenant queries on whichever worker node
-contains data for that tenant. For instance, the following query
-for company 5 ranks the ads in each campaign by the count of their
-impressions.
+When the application requests data for a single tenant, Citus can
+execute the query on a single worker node. Single-tenant queries
+filter by a single tenant ID. For example, the following query
+filters `company_id = 5` for ads and impressions:
 
 ```sql
 SELECT a.campaign_id,
@@ -180,13 +179,13 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## Share data between tenants
 
-Up until now all tables have been distributed by `company_id`, but
-sometimes there is data that can be shared by all tenants, and
-doesn't "belong" to any tenant in particular. For instance, all
-companies using this example ad platform might want to get geographical
-information for their audience based on IP addresses.
+Until now all tables have been distributed by `company_id`, but
+some data doesn't naturally "belong" to any tenant in particular,
+and can be shared. For instance, all companies in the example ad
+platform might want to get geographical information for their
+audience based on IP addresses.
 
-Create a table to hold geographic information:
+Create a table to hold shared geographic information:
 
 ```sql
 CREATE TABLE geo_ips (
@@ -198,8 +197,8 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Next designate `geo_ips` as a "reference table." This stores a copy
-of the table on every worker node, for fast lookups by any tenant.
+Next make `geo_ips` a "reference table" to store a copy of the
+table on every worker node.
 
 ```sql
 SELECT create_reference_table('geo_ips');
@@ -211,8 +210,9 @@ Load it with example data:
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Joining the clicks with geo\_ips is efficient. We can ask, for
-example, the locations of everyone who clicked on ad 290.
+Joining the clicks table with geo\_ips is efficient on all nodes.
+Here is a join to find the locations of everyone who clicked on ad
+290:
 
 ```sql
 SELECT c.id, clicked_at, latlon
@@ -231,7 +231,7 @@ by others? One way is through PostgreSQL's JSONB type.
 Our schema already has a JSONB field in `clicks` called `user_data`.
 Suppose company five includes information in the field to track
 whether the user is on a mobile device. The company can query to
-find who clicks more, mobile or traditional visitors:
+find who clicks more: mobile, or traditional visitors.
 
 ```sql
 SELECT
