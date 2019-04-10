@@ -60,7 +60,7 @@ In this example, we will modify the redirection URL by rewriting the location he
 
    ![Add rewrite set](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
-4.  Provide name to the rewrite set and associate it with a routing rule:
+4. Provide name to the rewrite set and associate it with a routing rule:
 
    - Enter the name of the rewrite set in the **Name** textbox.
    - Select one or more rules listed in the **Associated routing rules** list. You can only select those rules which have not been associated with other rewrite sets. The rules which have already been associated with other rewrite sets will be grayed out.
@@ -119,8 +119,6 @@ In this example, we will modify the redirection URL by rewriting the location he
 
    ## Next steps
 
-   To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](./rewrite-http-headers#common-scenarios).
-
-   
+   To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
    
