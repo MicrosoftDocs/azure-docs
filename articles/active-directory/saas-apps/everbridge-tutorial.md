@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ---
@@ -146,7 +146,7 @@ To configure Azure AD single sign-on with EverBridge, perform the following step
 
 	c. Logout URL
 
-### Configure EverBridge Single Sign-On
+### Configure EverBridge Manager Portal Single Sign-On
 
 1. To get SSO configured for **EverBridge** as **EverBridge Manager Portal** application, perform the following steps: 
  
@@ -168,9 +168,11 @@ To configure Azure AD single sign-on with EverBridge, perform the following step
    
      f. In the Service Provider Initiated Request Binding, select **HTTP Redirect**.
 
-     g. Click **Save**
+     g. Click **Save**.
 
-4. To configure single sign-on on **EverBridge** application as **EverBridge Member Portal**, you need to send the downloaded **Federation Metadata XML** to [Everbridge support team](mailto:support@everbridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
+### Configure EverBridge EverBridge Member Portal Single Sign-On
+
+To configure single sign-on on **EverBridge** application as **EverBridge Member Portal**, you need to send the downloaded **Federation Metadata XML** to [Everbridge support team](mailto:support@everbridge.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
