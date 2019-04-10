@@ -258,6 +258,7 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 >
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
+<<<<<<< HEAD
 2. Select **Monitor** from the pane on the left side. Under **Insights**, select **Containers**.
 3. On the **Monitored Clusters** tab, select a cluster from the list.
 4. In the pane on the left side under **Monitoring**, select **Logs** to open the Azure Monitor logs page. You use this page to write and execute Azure Log Analytics queries.
@@ -277,6 +278,28 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 11. To immediately activate the alert rule, accept the default value for **Enable rule upon creation**.
 12. Select an existing **Action Group** or create a new group. This step ensures that the same actions are taken every time that an alert is triggered. Configure based on how your IT or DevOps operations team  manages incidents.
 13. Select **Create alert rule** to complete the alert rule. It starts running immediately.
+=======
+2. Select **Monitor** from the left-hand pane in the Azure portal. Under the **Insights** section, select **Containers**.    
+3. From the **Monitored Clusters** tab, select a cluster from the list by clicking on the name of the cluster.
+4. On the left-hand pane under the **Monitoring** section, select **Logs** to open the Azure Monitor logs page, which used to write and execute Azure Log Analytics queries.
+5. On the **Logs** page, click **+ New alert rule**.
+6. Under the **Condition** section, click on the pre-defined custom log condition **Whenever the Custom log search is \<logic undefined>**. The **custom log search** signal type is automatically selected for us because we initiated creating an alert rule directly from the Azure Monitor logs page.  
+7. Paste one of the [queries](#resource-utilization-log-search-queries) provided earlier into the **Search query** field. 
+
+8. Configure the alert with the following information:
+
+    a. From the **Based on** drop-down list, select **Metric measurement**. A metric measurement will create an alert for each object in the query with a value that exceeds our specified threshold.  
+    b. For the **Condition**, select **Greater than** and enter **75** as an initial baseline **Threshold** or enter a value that meets your criteria.  
+    c. Under **Trigger Alert Based On** section, select **Consecutive breaches** and from the drop-down list select **Greater than** enter a value of **2**.  
+    d. If configuring an alert for container CPU or memory utilization, under **Aggregate on** select **ContainerName** from the drop-down list.  
+    e. Under **Evaluated based on** section, modify the **Period** value to 60 minutes. The rule will run every five minutes and return records that were created within the last hour from the current time. Setting the time period to a wider window accounts for the potential of data latency, and ensures the query returns data to avoid a false negative where the alert never fires. 
+
+9. Click **Done** to complete the alert rule.
+10. Provide a name of your alert in the **Alert rule name** field. Specify a **Description** detailing specifics for the alert, and select an appropriate severity from the options provided.
+11. To immediately activate the alert rule on creation, accept the default value for **Enable rule upon creation**.
+12. For the final step, you select an existing or create a new **Action Group**, which ensures that the same actions are taken each time an alert is triggered and can be used for each rule you define. Configure based on how your IT or DevOps operations manages incidents. 
+13. Click **Create alert rule** to complete the alert rule. It starts running immediately.
+>>>>>>> 2ec335ceeb54acff39143633d9deaebc3a0d6944
 
 ## Next steps
 

@@ -90,14 +90,14 @@ The following example shows how to set the assetName attribute:
 
 ## Considerations
 * TaskBody properties must use literal XML to define the number of input, or output assets that are used by the task. The task article contains the XML Schema Definition for the XML.
-* In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
+* In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
 * The value parameter that you pass to JobInputAsset or JobOutputAsset represents the index value for an asset. The actual assets are defined in the InputMediaAssets and OutputMediaAssets navigation properties on the job entity definition.
 * Because Media Services is built on OData v3, the individual assets in the InputMediaAssets and OutputMediaAssets navigation property collections are referenced through a "__metadata: uri" name-value pair.
 * InputMediaAssets maps to one or more assets that you created in Media Services. OutputMediaAssets are created by the system. They don't reference an existing asset.
-* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample," then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob," then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
+* OutputMediaAssets can be named by using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the `<outputAsset>` element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample," then the OutputMediaAsset Name property is set to "Sample." However, if you didn't set a value for assetName, but did set the job name to "NewJob," then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob."
 
 ## Create a job with chained tasks
 In many application scenarios, developers want to create a series of processing tasks. In Media Services, you can create a series of chained tasks. Each task performs different processing steps and can use different media processors. The chained tasks can hand off an asset from one task to another, performing a linear sequence of tasks on the asset. However, the tasks performed in a job are not required to be in a sequence. When you create a chained task, the chained **ITask** objects are created in a single **IJob** object.
