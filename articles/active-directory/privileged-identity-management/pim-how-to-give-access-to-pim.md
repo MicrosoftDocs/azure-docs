@@ -1,5 +1,5 @@
 ---
-title: Grant access to other administrators to manage PIM - Azure | Microsoft Docs
+title: Grant access to other administrators to manage PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to grant access to other administrations to manage Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 08/29/2018
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
 # Grant access to other administrators to manage PIM
 
-The Global Administrator who enables Azure AD Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets write access by default, though, including other Global Administrators. Other Global Administrators, Security Administrators, and Security Readers have read-only access to PIM. To grant access to PIM, the first user can assign others to the **Privileged Role Administrator** role.
+The Global Administrator who enables Azure Active Directory (Azure AD) Privileged Identity Management (PIM) for an organization automatically get role assignments and access to PIM. No one else gets write access by default, though, including other Global Administrators. Other Global Administrators, Security Administrators, and Security Readers have read-only access to PIM. To grant access to PIM, the first user can assign others to the **Privileged Role Administrator** role.
 
 > [!NOTE]
 > Managing PIM requires Azure MFA. Since Microsoft accounts cannot register for Azure MFA, a user who signs in with a Microsoft account cannot access PIM.
@@ -31,11 +31,11 @@ Make sure there are always at least two users in a Privileged Role Administrator
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **Roles**.
 
-    ![PIM Azure AD directory roles - Roles](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![PIM Azure AD roles - Roles](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Click the **Privileged Role Administrator** role to open the members page.
 
@@ -69,7 +69,7 @@ Before you remove someone from the Privileged Role Administrator role, always ma
 
 1. Open **Azure AD Privileged Identity Management**.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **Roles**.
 

@@ -10,6 +10,7 @@ ms.author: ancav
 ms.subservice: metrics
 ---
 # Supported metrics with Azure Monitor
+
 Azure Monitor provides several ways to interact with metrics, including charting them in the portal, accessing them through the REST API, or querying them using PowerShell or CLI. Below is a complete list of all metrics currently available with Azure Monitor's metric pipeline. Other metrics may be available in the portal or using legacy APIs. This list below only includes metrics available using the consolidated Azure Monitor metric pipeline. To query for and access these metrics please use the [2018-01-01 api-version](https://docs.microsoft.com/rest/api/monitor/metricdefinitions)
 
 > [!NOTE]
@@ -654,7 +655,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | MetadataRequests |	Metadata Requests	|Count|	Count	| Count of metadata requests. Azure Cosmos DB maintains system metadata collection for each account, that allows you to enumerate collections, databases, etc, and their configurations, free of charge.	| DatabaseName, CollectionName, Region, StatusCode|	All|  |Used to monitor throttles due to metadata requests.|
 | MongoRequests |	Mongo Requests|	Count |	Count|	Number of Mongo Requests Made	| DatabaseName, CollectionName, Region, CommandName, ErrorCode|	All	|Mongo Query Request Rate, Mongo Update Request Rate, Mongo Delete Request Rate, Mongo Insert Request Rate, Mongo Count Request Rate|	Used to monitor Mongo request errors, usages per command type. |
 
-
 ### Request Unit metrics
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
@@ -667,7 +667,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions| Time granularities| Legacy metric mapping | Usage |
 |---|---|---|---|---|---| ---| ---| ---|
-| AvailableStorage|	Available Storage	|Bytes|	Total|	Total available storage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Available Storage|	 Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.| 
+| AvailableStorage|	Available Storage	|Bytes|	Total|	Total available storage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Available Storage|	 Used to monitor available storage capacity (applicable only for fixed storage collections) Minimum granularity should be 5 minutes.|
 | DataUsage	|Data Usage	|Bytes|	Total	|Total data usage  reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M	|Data size	| Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes.|
 | IndexUsage|	Index Usage|	Bytes|	Total	|Total Index usage reported at 5 minutes granularity per region|	DatabaseName, CollectionName, Region|	5M|	Index Size|	Used to monitor total data usage at collection and region, minimum granularity should be 5 minutes. |
 | DocumentQuota|	Document Quota|	Bytes|	Total|	Total storage quota reported at 5 minutes granularity per region. Applicable for fixed storage collections|	DatabaseName, CollectionName, Region|	5M	|Storage Capacity|	Used to monitor total quota at collection and region, minimum granularity should be 5 minutes.|
@@ -799,6 +799,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |ScaleActionsInitiated|Scale Actions Initiated|Count|Total|The direction of the scale operation.|ScaleDirection|
 
 ## Microsoft.Insights/Components
+
 (Public Preview)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1218,7 +1219,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |Update|Update|Count|Average|Update|Computer, Product, Classification, UpdateState, Optional, Approved|
 |Event|Event|Count|Average|Event|Source, EventLog, Computer, EventCategory, EventLevel, EventLevelName, EventID|
 
-
 ## Microsoft.PowerBIDedicated/capacities
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
@@ -1281,8 +1281,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MessageCount|Message Count|Count|Total|The total amount of messages.|No Dimensions|
 |InboundTraffic|Inbound Traffic|Bytes|Total|The inbound traffic of service|No Dimensions|
 |OutboundTraffic|Outbound Traffic|Bytes|Total|The outbound traffic of service|No Dimensions|
-|UserErrors|User Errors|Percent|Maximum|The percentage of user errors|No Dimensions|
-|SystemErrors|System Errors|Percent|Maximum|The percentage of system errors|No Dimensions|
+|UserErrors|User Errors|Percent|Average|The percentage of user errors|No Dimensions|
+|SystemErrors|System Errors|Percent|Average|The percentage of system errors|No Dimensions|
 
 ## Microsoft.Sql/servers/databases
 
@@ -1602,7 +1602,6 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |MemoryPercentage|Memory Percentage|Percent|Average|Memory Percentage|Instance|
 
 ## Next steps
-* [Read about metrics in Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Create alerts on metrics](../../azure-monitor/platform/alerts-overview.md)
-* [Export metrics to storage, Event Hub, or Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
-
+* [Read about metrics in Azure Monitor](data-platform.md)
+* [Create alerts on metrics](alerts-overview.md)
+* [Export metrics to storage, Event Hub, or Log Analytics](diagnostic-logs-overview.md)

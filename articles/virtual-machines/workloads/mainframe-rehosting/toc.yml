@@ -6,16 +6,28 @@
       href: overview.md
     - name: Workloads
       href: partner-workloads.md
+  - name: Concepts
+    items:
+    - name: Compute
+      href: concepts/mainframe-compute-azure.md
+    - name: Storage
+      href: concepts/mainframe-storage-azure.md
   - name: Micro Focus
     items:
     - name: Get started
       href: microfocus/get-started.md
-    - name: Install Micro Focus Enterprise Server
-      href: microfocus/set-up-micro-focus-on-azure.md
-    - name: Demo
+    - name: Install Enterprise Server
+      href: microfocus/set-up-micro-focus-azure.md
+    - name: Run CICS BankDemo
       href: microfocus/demo.md
+    - name: Enterprise Server in containers
+      href: microfocus/run-enterprise-server-container.md
   - name: TmaxSoft OpenFrame
-    href: https://azure.microsoft.com/resources/install-tmaxsoft-openframe-on-azure/
+    items:
+    - name: Get started
+      href: tmaxsoft/get-started.md
+    - name: Install OpenFrame
+      href: tmaxsoft/install-openframe-azure.md
   - name: IBM
     items:
     - name: Get started
@@ -28,3 +40,9 @@
       href: /azure/virtual-machines/linux/ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
     - name: Deploy IBM DB2 pureScale
       href: /azure/virtual-machines/linux/deploy-ibm-db2-purescale-azure?toc=/azure/virtual-machines/workloads/mainframe-rehosting/toc.json
+  - name: Resources
+    items:
+    - name: White papers
+      href: mainframe-white-papers.md
+    - name: Azure roadmap
+      href: https://azure.microsoft.com/updates/

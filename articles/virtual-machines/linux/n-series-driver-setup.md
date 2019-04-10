@@ -184,9 +184,9 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
 
    sudo apt-get dist-upgrade -y
 
-   sudo apt-get install build-essential ubuntu-desktop -y
-   ```
-3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NVv2 VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NVv2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
 
    ```
    blacklist nouveau
@@ -241,7 +241,7 @@ To install NVIDIA GRID drivers on NV or NVv2-series VMs, make an SSH connection 
    sudo yum install dkms
    ```
 
-2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV2 VMs.) To do this, create a file in `/etc/modprobe.d `named `nouveau.conf` with the following contents:
+2. Disable the Nouveau kernel driver, which is incompatible with the NVIDIA driver. (Only use the NVIDIA driver on NV or NV2 VMs.) To do this, create a file in `/etc/modprobe.d` named `nouveau.conf` with the following contents:
 
    ```
    blacklist nouveau

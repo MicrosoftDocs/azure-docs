@@ -3,7 +3,7 @@ title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
@@ -28,7 +28,10 @@ The Translator Text API supports the following languages for text to text transl
 * Neural only: Only neural translation is available.
 
 **V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. [View languages currently available in Custom Translator](#customization).
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. 
+
+> [!NOTE]
+> Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
 
 |Language|	Language code|	V2 API|	V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -263,7 +266,7 @@ You can retrieve a list of supported languages for the Translator Text API v3.0 
 
 ## Customization
 
-The following languages are available for customization to or from English using [Custom Translator](http://aka.ms/CustomTranslator).
+The following languages are available for customization to or from English using [Custom Translator](https://aka.ms/CustomTranslator).
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -285,6 +288,7 @@ The following languages are available for customization to or from English using
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
+| Icelandic | `is` |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
 | Korean      | `ko`          |
@@ -304,6 +308,7 @@ The following languages are available for customization to or from English using
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
+| Welsh | `cy` |
 
 ## Access the list on the Microsoft Translator website
 

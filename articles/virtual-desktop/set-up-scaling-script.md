@@ -1,6 +1,6 @@
 ---
-title: Automatically scale session hosts - Azure
-description: Describes how to set up the automatic scaling script for Windows Virtual Desktop (preview) session hosts.
+title: Automatically scale Windows Virtual Desktop Preview session hosts - Azure
+description: Describes how to set up the automatic scaling script for Windows Virtual Desktop Preview session hosts.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Automatically scale session hosts
 
-For many Windows Virtual Desktop deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
+For many Windows Virtual Desktop Preview deployments in Azure, the virtual machine costs represent significant portion of the total Windows Virtual Desktop deployment cost. To reduce costs, it's best to shut down and deallocate session host virtual machines (VMs) during off-peak usage hours, then restart them during peak usage hours.
 
 This article uses a simple scaling script to automatically scale session host virtual machines in your Windows Virtual Desktop environment. To learn more about how the scaling script works, see the [How the scaling script works](#how-the-scaling-script-works) section.
 
@@ -76,7 +76,7 @@ Enter the relevant values into the following fields to update the scaling script
 | currentAzureSubscriptionId    | The ID of the Azure subscription where the session host VMs run                        |
 | tenantName                    | Windows Virtual Desktop tenant name                                                    |
 | hostPoolName                  | Windows Virtual Desktop host pool name                                                 |
-| RDBroker                      | URL to the WVD service, default value <https://rdbroker.wvd.microsoft.com>             |
+| RDBroker                      | URL to the WVD service, default value https:\//rdbroker.wvd.microsoft.com             |
 | Username                      | The service principal application ID (it’s possible to have the same service principal as in AADApplicationId) or standard user without multi-factor authentication |
 | isServicePrincipal            | Accepted values are **true** or **false**. Indicates whether the second set of credentials being used is a service principal or a standard account. |
 | BeginPeakTime                 | When peak usage time begins                                                            |

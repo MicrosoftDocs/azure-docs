@@ -16,7 +16,7 @@ ms.author: bwren
 ---
 
 # Collect IIS logs in Azure Monitor
-Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-collection.md).
+Internet Information Services (IIS) stores user activity in log files that can be collected by Azure Monitor and stored as [log data](data-platform.md).
 
 ![IIS logs](media/data-sources-iis-logs/overview.png)
 

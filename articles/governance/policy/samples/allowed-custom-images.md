@@ -1,7 +1,6 @@
 ---
 title: Sample - Approved VM images
 description: This sample policy definition requires that only approved custom images are deployed in your environment.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -9,7 +8,7 @@ ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
 ---
-# Sample - Approved VM images
+# Sample - Approved virtual machine images
 
 This policy requires that only approved custom images are deployed in your environment. You specify
 an array of approved image IDs.
@@ -76,8 +75,8 @@ May 2018 image version of Windows Server 2016 Datacenter located in 'Central US'
 
 ## Azure portal
 
-[![Deploy to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
-[![Deploy to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Fallowed-custom-images%2Fazurepolicy.json)
 
 ## Azure PowerShell
 
