@@ -5,7 +5,7 @@ description: Use Service Fabric's periodic backup and restore feature for enabli
 services: service-fabric
 documentationcenter: .net
 author: hrushib
-manager: timlt
+manager: chackdan
 editor: hrushib
 
 ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C

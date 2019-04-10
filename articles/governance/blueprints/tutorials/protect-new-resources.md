@@ -1,7 +1,6 @@
 ---
 title: Protect new resources with blueprint resource locks
 description: Learn to use the Azure Blueprints resource locks Read Only and Do Not Delete to protect newly deployed resources.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
@@ -225,6 +224,8 @@ on the assignment details page.
    on the deployed resource group to enforce the _Read Only_ blueprint lock mode. The deny
    assignment prevents someone with appropriate rights on the _Role assignments_ tab from taking
    specific actions. The deny assignment affects _All principals_.
+
+   For information about excluding a principal from a deny assignment, see [blueprints resource locking](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
 1. Select the deny assignment, then select the **Denied Permissions** page on the left.
 

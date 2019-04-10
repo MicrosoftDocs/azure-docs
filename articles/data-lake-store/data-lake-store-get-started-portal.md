@@ -3,14 +3,14 @@ title: Use Azure portal to get started with Azure Data Lake Storage Gen1 | Micro
 description: Use the Azure portal to create an Azure Data Lake Storage Gen1 account and perform basic operations in the Data Lake Storage Gen1 account.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Get started with Azure Data Lake Storage Gen1 using the Azure portal

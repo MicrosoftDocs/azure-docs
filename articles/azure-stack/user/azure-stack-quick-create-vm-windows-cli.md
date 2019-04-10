@@ -58,7 +58,6 @@ az vm create \
   --image "Win2016Datacenter" \
   --admin-username "Demouser" \
   --admin-password "Demouser@123" \
-  --use-unmanaged-disk \
   --location local
 ```
 

@@ -1,7 +1,8 @@
 ---
-title: Understanding ASC for IoT solution architecture Preview| Microsoft Docs
-description: Learn about the flow of information in the ASC for IoT service.
-services: ascforiot
+title: Understanding Azure Security Center for IoT solution architecture Preview| Microsoft Docs
+description: Learn about the flow of information in the Azure Security Center for IoT service.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -17,12 +18,12 @@ ms.date: 03/24/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT architecture
+# Azure Security Center for IoT architecture
 
-This article explains the functional system architecture of the Azure Security Center for IoT solution. 
+This article explains the functional system architecture of the Azure Security Center (ASC) for IoT solution. 
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

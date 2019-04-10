@@ -127,14 +127,14 @@ To create the user interface, add code to *index.html*:
 1. Add references to the Azure Maps web control JavaScript and CSS files:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Add a reference to the Azure Maps Services module. The module is a JavaScript library that wraps the Azure Maps REST services and makes them easy to use in JavaScript. The module is useful for powering search functionality.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Add references to *index.js* and *index.css*:
@@ -449,7 +449,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+			//Add your post-map load functionality.
 
         });
     }
@@ -511,7 +511,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     window.onload = initialize;
     ```
 
-1. In the map's `load` event listener, add a zoom control and an HTML marker to display the center of a search area.
+1. In the map's `ready` event listener, add a zoom control and an HTML marker to display the center of a search area.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -528,7 +528,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     map.markers.add(centerMarker);
     ```
 
-1. In the map's `load` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
+1. In the map's `ready` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -543,7 +543,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     loadStoreData();
     ```
 
-1. After you load the dataset in the map's `load` event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map.
+1. After you load the dataset in the map's `ready` event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map.
 
    Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms the map in two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
 
@@ -965,3 +965,6 @@ To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

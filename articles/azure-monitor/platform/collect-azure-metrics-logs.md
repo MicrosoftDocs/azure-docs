@@ -27,7 +27,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 
 | Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
-| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](../../azure-monitor/insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-log-analytics) |
+| Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | [Azure Application Gateway Analytics](../insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) |
 | Application insights    |                                         | Connector   | Connector   | [Application Insights Connector](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) (Preview) |
 | Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | [More information](../../automation/automation-manage-send-joblogs-log-analytics.md)|
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
@@ -37,15 +37,15 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
 | Event Hub namespace     | Microsoft.EventHub/namespaces           | Diagnostics | Diagnostics | |
 | IoT Hubs                | Microsoft.Devices/IotHubs               |             | Diagnostics | |
-| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](../../azure-monitor/insights/azure-key-vault.md) |
+| Key Vault               | Microsoft.KeyVault/vaults               | Diagnostics |             | [KeyVault Analytics](../insights/azure-key-vault.md) |
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
-| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](../../azure-monitor/insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) |
+| Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | [Azure Network Security Group Analytics](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor) |
 | Recovery vaults         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (Preview)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 | Service Fabric          |                                         | Storage     |             | [Service Fabric Analytics (Preview)](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |
-| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) |
+| SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (Preview)](../insights/azure-sql.md) |
 | Storage                 |                                         |             | Script      | [Azure Storage Analytics (Preview)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
