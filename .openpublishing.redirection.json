@@ -35401,6 +35401,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
+      "redirect_url": "/azure/storage/common/storage-analytics-metrics",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
       "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
       "redirect_document_id": false
