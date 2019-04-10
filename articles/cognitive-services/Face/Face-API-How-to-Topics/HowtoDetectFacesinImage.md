@@ -101,19 +101,7 @@ Knowing the direction of the face, you can then rotate the rectangular face fram
 
 ## Get face attributes
 
-Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. These include:
-
-- Age
-- Gender
-- Smile intensity
-- Facial hair
-- Glasses
-- 3D head pose
-- Emotion
-
-> [!IMPORTANT]
-> These attributes are predicted through the use of statistical algorithms and may not always be accurate. Use caution when making decisions based on attribute data.
->
+Besides face rectangles and landmarks, the face detection API can analyze several conceptual attributes of a face. See the [Face attributes](../concepts/face-detection.md#attributes) conceptual section for a full list.
 
 To analyze face attributes, set the _returnFaceAttributes_ parameter to a list of **[FaceAttributeType Enum](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** values.
 
