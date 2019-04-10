@@ -47,7 +47,7 @@ The steps of using the example are as follows.
 <html>
 <head>
     <title>Anomaly Detection Javascript Quick Starts</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 </head>
 <body>
 

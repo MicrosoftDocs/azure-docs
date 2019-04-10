@@ -10,15 +10,17 @@ ms.author: victorh
 ---
 # Azure Firewall log analytics samples
 
-The following log analytics samples can be used to analyze your Azure Firewall logs. The sample file is built in Log Analytics View Designer, the [Log Analytics View Designer](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
+The following Azure Monitor logs samples can be used to analyze your Azure Firewall logs. The sample file is built in View Designer in Azure Monitor, the [View Designer in Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) article has more information about the View Design concept.
 
-## Log Analytics View
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Here's how you can configure an example log analytics visualization. You can download the example visualization from the [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repository. The easiest way is to right-click the hyperlink on this page and choose *save as* and provide a name like **AzureFirewall.omsview**. 
+## Azure Monitor logs view
 
-Execute the following steps to add the view to your log analytics workspace:
+Here's how you can configure an example Azure Monitor logs visualization. You can download the example visualization from the [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview) repository. The easiest way is to right-click the hyperlink on this page and choose *save as* and provide a name like **AzureFirewall.omsview**. 
 
-1. Open the log analytics workspace in the Azure Portal.
+Execute the following steps to add the view to your Log Analytics workspace:
+
+1. Open the Log Analytics workspace in the Azure Portal.
 2. Open **View Designer** below **General**.
 3. Click **Import**.
 4. Browse and select the **AzureFirewall.omsview** file you downloaded before.
@@ -32,7 +34,7 @@ And for the network rule log data:
 
 ![Network rule log data]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallApplicationRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
+Azure Firewall logs data below AzureDiagnostics with Category as either **AzureFirewallApplicationRule** or **AzureFirewallNetworkRule**. The data containing the details is stored in the msg_s field. Using the [parse](https://docs.microsoft.com/azure/kusto/query/parseoperator) operator we can extract the various interesting properties from the msg_s field. The queries below extract the information for both categories.
 
 ## Application rules log data query
 

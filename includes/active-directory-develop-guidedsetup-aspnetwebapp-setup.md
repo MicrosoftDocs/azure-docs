@@ -3,8 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
 ---
 
@@ -47,6 +47,7 @@ This section shows the steps to install and configure the authentication pipelin
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
+
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > [!TIP]

@@ -59,7 +59,9 @@ The image can also include SDK components for logging and monitoring. The SDK lo
 Azure Machine Learning supports the most popular frameworks, but in general any framework that can be pip installed can work.
 
 When your workspace was created, so were other several other Azure resources used by that workspace.
-All the objects used to create the image are stored in the Azure storage account in your workspace. You can provide additional metadata tags when creating the image. The metadata tags are also stored by the image registry, and can be queried to find your image.
+All the objects used to create the default image are stored in the Azure storage account in your workspace. You can provide additional metadata tags when creating the image. The metadata tags are also stored by the image registry, and can be queried to find your image.
+
+You can also use custom images, which can be uploaded to Azure Container Registry and used by the Azure Machine Learning service.
 
 For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
@@ -101,6 +103,6 @@ Updates to your model are not automatically registered. Similarly, registering a
 
 ## Next steps
 
-Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service.
+Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).

@@ -31,7 +31,7 @@ There are two types of organizations shown on the **Organizations** page:
 
 2. Select **Organizations** from the left navigation pane or select the **Manage organizations** link from the **Organizations** block.
 
-    ![My Profile page, showing highlighted Organizations links](media/myprofile-portal/myprofile-portal-organizations-links.png)
+    ![My Profile page, showing highlighted Organizations links](media/myprofile-portal/myprofile-portal-organizations.png)
 
 3. Review the information for your **Home organization**. 
 
@@ -53,4 +53,4 @@ You can leave any organization that isn't your Home organization.
 
 ## Next steps
 
-- After viewing your recent sign-in activity, you can select to view or manage your [security info](user-help-security-info-overview.md), [recent sign-in activity](myprofile-portal-recent-activity-page.md), connected [devices](myprofile-portal-devices-page.md), or to view how your organization [uses your data](myprofile-portal-privacy-page.md).
+- After viewing your organizations, you can select to view or manage your [security info](user-help-security-info-overview.md), connected [devices](myprofile-portal-devices-page.md), or view how your organization [uses your data](myprofile-portal-privacy-page.md).

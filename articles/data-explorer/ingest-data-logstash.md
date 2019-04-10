@@ -1,13 +1,12 @@
 ---
 title: 'Quickstart: Ingest data from Logstash to Azure Data Explorer'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Logstash'
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
-ms.reviewer: orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
+ms.date: 01/14/2019
 
 #Customer intent: As a DevOps engineer, I want to use Logstash to pipeline logs and ingest into Azure Data Explorer so that I can analyze them later.
 ---
@@ -105,7 +104,7 @@ output {
 ```
 
 | Parameter Name | Description |
-| --- | --- | --- |
+| --- | --- |
 | **path** | The Logstash plugin writes events to temporary files before sending them to Azure Data Explorer. This parameter includes a path where files should be written and a time expression for file rotation to trigger an upload to the Azure Data Explorer service.|
 | **ingest_url** | The Kusto endpoint for ingestion-related communication.|
 | **app_id**,  **app_key**, and **app_tenant**| Credentials required to connect to Azure Data Explorer. Be sure to use an application with ingest privileges. |

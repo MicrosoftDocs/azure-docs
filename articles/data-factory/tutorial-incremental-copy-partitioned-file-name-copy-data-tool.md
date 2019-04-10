@@ -38,20 +38,21 @@ In this tutorial, you perform the following steps:
 
 Prepare your Blob storage for the tutorial by performing these steps.
 
-1. Create a container named **source**.  Create a folder path as **2019/02/26/14** in your container. Create an empty text file, and name it as **file1.txt**. Upload the file1.txt to the folder path **source/2019/02/26/14** in your storage account.  You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+1. Create a container named **source**.  Create a folder path as **2019/02/26/14** in your container. Create an empty text file, and name it as **file1.txt**. Upload the file1.txt to the folder path **source/2019/02/26/14** in your storage account.  You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 	
 	![upload files](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
 	
 	> [!NOTE]
 	> Please adjust the folder name with your UTC time.  For example, if the current UTC time is 2:03 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/14/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/**.
 
-2. Create a container named **destination**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+2. Create a container named **destination**. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
 ## Create a data factory
 
-1. On the left menu, select **+ New** > **Data + Analytics** > **Data Factory**: 
+1. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
    
-   ![New data factory creation](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
       
     ![New data factory](./media/tutorial-copy-data-tool/new-azure-data-factory.png)
@@ -170,10 +171,10 @@ Prepare your Blob storage for the tutorial by performing these steps.
 
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
 	
-	You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files.
+	You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2019/02/26/15** in your storage account.   You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).	
+12. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2019/02/26/15** in your storage account.   You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).	
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
 	
@@ -192,7 +193,7 @@ Prepare your Blob storage for the tutorial by performing these steps.
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png)	
 	
-	You can also verify the same by using Azure Storage Explorer (http://storageexplorer.com/) to scan the files in **destination** container
+	You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container
 	
 	![Monitor pipeline runs](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

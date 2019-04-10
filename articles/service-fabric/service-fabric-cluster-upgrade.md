@@ -4,7 +4,7 @@ description: Learn about upgrading the version or configuration of an Azure Serv
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 15190ace-31ed-491f-a54b-b5ff61e718db
@@ -97,8 +97,6 @@ Many different configuration settings can be customized on a cluster, such as th
 ## Patch the OS in the cluster nodes
 The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) or [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time. 
 
-## OS upgrades on the VMs that make up the cluster
-If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
 * Learn how to customize some of the [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md)

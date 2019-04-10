@@ -129,7 +129,6 @@
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
-      maintainContext: true
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
@@ -147,9 +146,6 @@
     maintainContext: true
   - name: Monitoring
     href: ../virtual-machines/windows/monitor.md
-    maintainContext: true
-  - name: High performance computing
-    href: ../virtual-machines/windows/high-performance-computing.md
     maintainContext: true
   - name: Deployment considerations
     items:
@@ -282,4 +278,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+    href: https://stackoverflow.com/questions/tagged/azure-vm-scale-set

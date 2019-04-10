@@ -77,10 +77,12 @@ After a few moments, the new setting appears in your list of settings for this r
 
 ### Via PowerShell Cmdlets
 
-To enable streaming via the [Azure PowerShell Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), you can use the `Set-AzureRmDiagnosticSetting` cmdlet with these parameters:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+To enable streaming via the [Azure PowerShell Cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), you can use the `Set-AzDiagnosticSetting` cmdlet with these parameters:
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
+Set-AzDiagnosticSetting -ResourceId [your resource ID] -EventHubAuthorizationRuleId [your Event Hub namespace auth rule ID] -Enabled $true
 ```
 
 The Event Hub Authorization Rule ID is a string with this format: `{Event Hub namespace resource ID}/authorizationrules/{key name}`, for example, `/subscriptions/{subscription ID}/resourceGroups/{resource group}/providers/Microsoft.EventHub/namespaces/{Event Hub namespace}/authorizationrules/RootManageSharedAccessKey`. You cannot currently select a particular event hub name with PowerShell.

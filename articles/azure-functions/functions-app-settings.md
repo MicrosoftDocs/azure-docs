@@ -117,7 +117,7 @@ The version of the Functions runtime to use in this function app. A tilde with m
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
-The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript), and `java` (Java).
+The language worker runtime to load in the function app.  This will correspond to the language being used in your application (for example, "dotnet"). For functions in multiple languages you will need to publish them to multiple apps, each with a corresponding worker runtime value.  Valid values are `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), and `python` (Python).
 
 |Key|Sample value|
 |---|------------|

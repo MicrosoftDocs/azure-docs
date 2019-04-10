@@ -1,14 +1,15 @@
 ---
 title: Optimize cluster configurations with Apache Ambari - Azure HDInsight 
 description: Use the Apache Ambari web UI to configure and optimize HDInsight clusters.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
+ms.date: 03/26/2019
+ms.author: hrasheed
 ---
+
 # Use Apache Ambari to optimize HDInsight cluster configurations
 
 HDInsight provides [Apache Hadoop](https://hadoop.apache.org/) clusters for large-scale data processing applications. Managing,  monitoring, and optimizing these complex multi-node clusters can be challenging. [Apache Ambari](https://ambari.apache.org/) is a web interface to  manage and monitor HDInsight Linux clusters.  For Windows clusters, use the [Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -45,7 +46,7 @@ To modify the NameNode Java heap size:
 
     ![Edit NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. The NameNode Java heap size is changed to 2 GB from 1 GB.
+1. The NameNode Java heap size is changed to 1 GB from 2 GB.
 
     ![Edited NameNode Java heap size](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -119,7 +120,7 @@ A Hive query is executed in one or more stages. If the independent stages can be
 
 1.	To enable parallel query execution, navigate to the Hive **Config** tab and search for the `hive.exec.parallel` property. The default value is false. Change the value to true, and then press **Enter** to save the value.
  
-1.	To limit the number of jobs to be run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
+1.	To limit the number of jobs to run in parallel, modify the `hive.exec.parallel.thread.number` property. The default value is 8.
 
     ![Hive exec parallel](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -276,7 +277,7 @@ Additional recommendations for optimizing the Hive execution engine:
 | Setting | Recommended | HDInsight Default |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = safer, slower; false = faster | false |
-| `tez.am.resource.memory.mb` | 4 GB upper bound for most | Auto-Tuned |
+| `tez.am.resource.memory.mb` | 4-GB upper bound for most | Auto-Tuned |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -289,7 +290,7 @@ Additional recommendations for optimizing the Hive execution engine:
 
 1. Find, uncomment, and change the value of the property you wish to modify.
 
-1. Select **Save** on the top right side of the window to save the new value. Some properties may require a service restart.
+1. Select **Save** on the top-right side of the window to save the new value. Some properties may require a service restart.
 
     ![Advanced pig-properties](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

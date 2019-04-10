@@ -26,8 +26,8 @@ This article helps you configure high availability and scalability solution with
 
 > [!NOTE]
 > This article assumes that you are already familiar with basics of Integration Runtime (Earlier Data Management Gateway). If you are not, see [Data Management Gateway](data-factory-data-management-gateway.md).
-
->**This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **This preview feature is officially supported on Data Management Gateway version 2.12.xxxx.x and above**. Please make sure you are using version 2.12.xxxx.x or above. Download the latest version of Data Management Gateway [here](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Overview
 You can associate data management gateways that are installed on multiple on-premises machines with a single logical gateway from the portal. These machines are called **nodes**. You can have up to **four nodes** associated with a logical gateway. The benefits of having multiple nodes (on-premises machines with gateway installed) for a logical gateway are:  
@@ -160,8 +160,8 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 
 - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public (third-party) certification authority (CA).
 - Each integration runtime node must trust this certificate, as well as the client machine that is running the credential manager application. 
-> [!NOTE]
-> Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on-premises/ private data store.
+  > [!NOTE]
+  > Credential manager application is used while securely setting credential from Copy Wizard/ Azure Portal. And this can be fired from any machine within the same network as the on-premises/ private data store.
 - Wild card certificates are supported. If your FQDN name is **node1.domain.contoso.com**, you can use ***.domain.contoso.com** as subject name of the certificate.
 - SAN certificates are not recommended since only the last item of the Subject Alternative Names will be used and all others will be ignored due to current limitation. E.g. you have a SAN certificate whose SAN are **node1.domain.contoso.com** and **node2.domain.contoso.com**, you can only use this cert on machine whose FQDN is **node2.domain.contoso.com**.
 - Supports any key size supported by Windows Server 2012 R2 for SSL certificates.

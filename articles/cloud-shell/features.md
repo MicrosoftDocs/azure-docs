@@ -3,7 +3,7 @@ title: Azure Cloud Shell features | Microsoft Docs
 description: Overview of features of Bash in Azure Cloud Shell
 services: Azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: juluk
+ms.author: damaerte
 ---
 
 # Features & tools for Azure Cloud Shell
@@ -78,5 +78,5 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

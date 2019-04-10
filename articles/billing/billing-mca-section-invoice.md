@@ -16,15 +16,15 @@ ms.author: banders
 
 # Create sections on your invoice to organize your costs
 
-Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions for the section. Any usage charges or purchases for the subscriptions then show on the invoice section. View the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [View transactions by invoice sections](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
+Create sections on your invoice to organize your costs by a department, development environment, or based on your organization's needs. Then give others permission to create Azure subscriptions for the section. Any usage charges or purchases for the subscriptions reflect on the invoice section. View the total charges for the section on your invoice, in the Azure portal, or review them in Azure cost analysis. For more information, see [view transactions by invoice sections](billing-mca-understand-your-bill.md#view-transactions-by-invoice-sections).
 
 This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 ## Create an invoice section in the Azure portal
 
-To create an invoice section, you need to be a **billing profile owner** or a **billing profile contributor**. For more information, see [Manage invoice sections for billing profile](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
+To create an invoice section, you need to be a **billing profile owner** or a **billing profile contributor**. For more information, see [manage invoice sections for billing profile](billing-understand-mca-roles.md#manage-invoice-sections-for-billing-profile).
 
-1. Sign in to the [Azure portal](http://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Search on **Cost Management + Billing**.
 
@@ -40,7 +40,7 @@ To create an invoice section, you need to be a **billing profile owner** or a **
 
    ![Screenshot that shows invoice section creation page](./media/billing-mca-section-invoice/mca-create-invoice-section.png)
 
-6. Select a billing profile. Any usage charges or purchases for the invoice section will show on the billing profile's invoice.
+6. Select a billing profile. Any usage charges or purchases for the invoice section will reflect on the billing profile's invoice.
 
 7. Select **Create**.
 

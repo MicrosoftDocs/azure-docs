@@ -18,7 +18,7 @@ ms.author: magoedte
 # Collect alerts from Nagios and Zabbix in Azure Monitor from Log Analytics agent for Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Azure Monitor in order to analyze them with log data from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
+[Nagios](https://www.nagios.org/) and [Zabbix](https://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Azure Monitor in order to analyze them with log data from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
 
 
 > [!NOTE]
@@ -87,15 +87,15 @@ Alert records collected by Nagios have a **Type** of **Alert** and a **SourceSys
 
 | Property | Description |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*Nagios* |
-| AlertName |Name of the alert. |
-| AlertDescription | Description of the alert. |
-| AlertState | Status of the service or host.<br><br>OK<br>WARNING<br>UP<br>DOWN |
-| HostName | Name of the host that created the alert. |
-| PriorityNumber | Priority level of the alert. |
-| StateType | The type of state of the alert.<br><br>SOFT - Issue that has not been rechecked.<br>HARD - Issue that has been rechecked a specified number of times.  |
-| TimeGenerated |Date and time the alert was created. |
+| `Type` |*Alert* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Name of the alert. |
+| `AlertDescription` | Description of the alert. |
+| `AlertState` | Status of the service or host.<br><br>OK<br>WARNING<br>UP<br>DOWN |
+| `HostName` | Name of the host that created the alert. |
+| `PriorityNumber` | Priority level of the alert. |
+| `StateType` | The type of state of the alert.<br><br>SOFT - Issue that has not been rechecked.<br>HARD - Issue that has been rechecked a specified number of times.  |
+| `TimeGenerated` |Date and time the alert was created. |
 
 
 ### Zabbix alert records
@@ -103,17 +103,17 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 
 | Property | Description |
 |:--- |:--- |
-| Type |*Alert* |
-| SourceSystem |*Zabbix* |
-| AlertName | Name of the alert. |
-| AlertPriority | Severity of the alert.<br><br>not classified<br>information<br>warning<br>average<br>high<br>disaster  |
-| AlertState | State of the alert.<br><br>0 - State is up-to-date.<br>1 - State is unknown.  |
-| AlertTypeNumber | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up-to-date.<br>1 - State is unknown.    |
-| Comments | Additional comments for alert. |
-| HostName | Name of the host that created the alert. |
-| PriorityNumber | Value indicating severity of the alert.<br><br>0 - not classified<br>1 - information<br>2 - warning<br>3 - average<br>4 - high<br>5 - disaster |
-| TimeGenerated |Date and time the alert was created. |
-| TimeLastModified |Date and time the state of the alert was last changed. |
+| `Type` |*Alert* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Name of the alert. |
+| `AlertPriority` | Severity of the alert.<br><br>not classified<br>information<br>warning<br>average<br>high<br>disaster  |
+| `AlertState` | State of the alert.<br><br>0 - State is up-to-date.<br>1 - State is unknown.  |
+| `AlertTypeNumber` | Specifies whether alert can generate multiple problem events.<br><br>0 - State is up-to-date.<br>1 - State is unknown.    |
+| `Comments` | Additional comments for alert. |
+| `HostName` | Name of the host that created the alert. |
+| `PriorityNumber` | Value indicating severity of the alert.<br><br>0 - not classified<br>1 - information<br>2 - warning<br>3 - average<br>4 - high<br>5 - disaster |
+| `TimeGenerated` |Date and time the alert was created. |
+| `TimeLastModified` |Date and time the state of the alert was last changed. |
 
 
 ## Next steps

@@ -19,11 +19,11 @@ Use this quickstart to make your first call to the Bing Image Search API and rec
 
 While this application is written in PHP, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON.
 
-The source code for this sample is available [on GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingImageSearchv7.java).
+The source code for this sample is available [on GitHub]https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/php/Search/BingWebSearchv7.php).
 
 ## Prerequisites
 
-* [PHP 5.6.x or later](http://php.net/downloads.php).
+* [PHP 5.6.x or later](https://php.net/downloads.php).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
@@ -43,7 +43,7 @@ To run this application, follow these steps.
     $accessKey = 'enter key here';
     $term = 'tropical ocean';
     ```
-## Construct and perform an HTTP request
+   ## Construct and perform an HTTP request
 
 1. Use the variables from the last step to prepare an HTTP request to the Image Search API.
 

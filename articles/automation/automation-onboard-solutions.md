@@ -99,7 +99,7 @@ From the **Modules** page, select **Browse gallery** to open up the module galle
 1. Select **Browse gallery**.
 1. Search for **update and change tracking**, click the runbook and select **Import** on the **View Source** page. Select **OK** to import the runbook into the Automation account.
 
-  ![Import onboarding runbook](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Import onboarding runbook](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. On the **Runbook** page, select **Edit**, then select **Publish**. On the **Publish Runbook** dialog, select **Yes** to publish the runbook.
 

@@ -139,7 +139,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *Can I configure per-pod network policies?*
 
-  No. Per-pod network policies are currently unsupported.
+  Kubernetes network policy is currently available as a preview feature in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
@@ -197,3 +197,4 @@ Kubernetes clusters created with AKS Engine support both the [kubenet][kubenet] 
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md
