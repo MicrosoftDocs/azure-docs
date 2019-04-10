@@ -232,7 +232,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 The objective of this section is to create a user called Britta Simon in Spotinst.
 
-1. If you have configured the application in the **SP** intiated mode, perform the following steps:
+1. If you have configured the application in the **SP** initiated mode, perform the following steps:
 
    a. In a different web browser window, sign in to Spotinst as a Security Administrator.
 
@@ -254,7 +254,7 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
 	* Select your organization-specific details for the **Organization Role, Account Role, and Accounts**.
 
-2. If you have configured the application in the **IDP** intiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
+2. If you have configured the application in the **IDP** initiated mode, There is no action item for you in this section. Spotinst supports just-in-time provisioning, which is by default enabled. A new user is created during an attempt to access Spotinst if it doesn't exist yet.
 
 ### Test single sign-on 
 
