@@ -58,7 +58,6 @@ sections:
     style: unordered
     items:
     - html: '<a href="https://aka.ms/aml-sdk">Main Python SDK</a>: core functionality, automated machine learning, pipelines, and more'
-    - html: '<a href="https://aka.ms/data-prep-sdk">Data Prep</a> Python SDK: prep and transform your data'
     - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoring</a> Python SDK: collect data on deployed web services'
 
   
