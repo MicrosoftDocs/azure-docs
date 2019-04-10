@@ -195,34 +195,9 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 ## Example - GCM native
 
-This C# script example shows how to send a native GCM notification. 
+> [!WARNING]
+> A previous version of this document had an example of using this binding to use the Google Cloud Messaging (GCM) API. In April 2019, Google deprecated GCM in favor of Firebase Cloud Messaging (FCM). For more information, see https://developers.google.com/cloud-messaging/faq. This binding doesn't support FCM, so we advise developers to use the Firebase API directly, or to use the template message option in Notification Hub.
 
-```cs
-#r "Microsoft.Azure.NotificationHubs"
-#r "Newtonsoft.Json"
-
-using System;
-using Microsoft.Azure.NotificationHubs;
-using Newtonsoft.Json;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<Notification> notification, TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a new user to be processed in the form of a JSON string with 
-    // a "name" value.
-    //
-    // The JSON format for a native GCM notification is ...
-    // { "data": { "message": "notification message" }}  
-
-    log.Info($"Sending GCM notification of a new user");    
-    dynamic user = JsonConvert.DeserializeObject(myQueueItem);    
-    string gcmNotificationPayload = "{\"data\": {\"message\": \"A new user wants to be added (" + 
-                                        user.name + ")\" }}";
-    log.Info($"{gcmNotificationPayload}");
-    await notification.AddAsync(new GcmNotification(gcmNotificationPayload));        
-}
-```
 
 ## Example - WNS native
 
