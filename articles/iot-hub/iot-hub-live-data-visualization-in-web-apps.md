@@ -1,13 +1,13 @@
 ---
 title: Real-time data visualization of sensor data from your Azure IoT hub – Web Apps | Microsoft Docs
 description: Use the Web Apps feature of Microsoft Azure App Service to visualize temperature and humidity data that is collected from the sensor and sent to your Iot hub.
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service

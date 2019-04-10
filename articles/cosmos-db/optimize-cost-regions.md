@@ -12,7 +12,7 @@ ms.author: rimman
 
 You can add and remove regions to your Azure Cosmos account at any time. The throughput that you configure for various Azure Cosmos databases and containers is reserved in each region associated with your account. If the throughput provisioned per hour, that is the sum of RU/s configured across all the databases and containers for your Azure Cosmos account is `T` and the number of Azure regions associated with your database account is `N`, then the total provisioned throughput for your Cosmos account, for a given hour is equal to:
 
-1. ` T x N RU/s` if your Azure Cosmos account is configured with a single write region. 
+1. `T x N RU/s` if your Azure Cosmos account is configured with a single write region. 
 
 1. `T x (N+1) RU/s` if your Azure Cosmos account is configured with all regions capable of processing writes. 
 
@@ -20,7 +20,7 @@ Provisioned throughput with single write region costs $0.008/hour per 100 RU/s a
 
 ## Costs for multiple write regions
 
-In a multi-master system, the net available RUs for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and should support conflict resolution. The amount of workload for writers has increased. From the cost planning point of view, to perform` M` RU/s worth of writes worldwide, you will need to provision M `RUs` at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU worth of worldwide writes. 
+In a multi-master system, the net available RUs for write operations increases `N` times where `N` is the number of write regions. Unlike single region writes, every region is now writable and should support conflict resolution. The amount of workload for writers has increased. From the cost planning point of view, to perform `M` RU/s worth of writes worldwide, you will need to provision M `RUs` at a container or database level. You can then add as many regions as you would like and use them for writes to perform `M` RU worth of worldwide writes. 
 
 ### Example
 

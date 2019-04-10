@@ -58,7 +58,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
-    2. Shoose the pricing tier (Basic or Standard).
+    2. Choose the pricing tier (Basic or Standard).
     3. Select the **subscription** in which you want to create the namespace.
     4. Select a **location** for the namespace.
     5. Select **Create**. You may have to wait a few minutes for the system to fully provision the resources.

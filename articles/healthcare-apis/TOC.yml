@@ -21,11 +21,15 @@
     href: fhir-oss-powershell-quickstart.md
   - name: Deploy FHIR Server for Azure - CLI
     href: fhir-oss-cli-quickstart.md
+  - name: Configure CORS
+    href: configure-cross-origin-resource-sharing.md
 - name: Tutorials
   expanded: false
   items:
   - name: Access FHIR API with Postman
     href: access-fhir-postman-tutorial.md
+  - name: Use SMART on FHIR proxy
+    href: use-smart-on-fhir-proxy.md
 - name: How-to guides
   expanded: false
   items:

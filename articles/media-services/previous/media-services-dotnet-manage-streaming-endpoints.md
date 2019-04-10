@@ -15,12 +15,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
 
-# Manage streaming endpoints with .NET SDK (legacy)
+# Manage streaming endpoints with .NET SDK  
 
 >[!NOTE]
 >Make sure to review the [overview](media-services-streaming-endpoints-overview.md) article. Also, review [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).

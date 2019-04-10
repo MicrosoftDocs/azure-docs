@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Train PyTorch models with Azure Machine Learning service
 
-For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom `PyTorch` class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
+For deep neural network (DNN) training using PyTorch, Azure Machine Learning provides a custom [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class of the `Estimator`. The Azure SDK's `PyTorch` estimator enables you to easily submit PyTorch training jobs for both single-node and distributed runs on Azure compute.
 
 ## Single-node training
 Training with the `PyTorch` estimator is similar to using the [base `Estimator`](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
@@ -38,6 +38,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-proj',
 ```
 
 Here, we specify the following parameters to the PyTorch constructor:
+
 Parameter | Description
 --|--
 `source_directory` |  Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
@@ -78,6 +79,7 @@ pt_est = PyTorch(source_directory='./my-pytorch-project',
 ```
 
 This code exposes the following new parameters to the PyTorch constructor:
+
 Parameter | Description | Default
 --|--|--
 `node_count` |  Number of nodes to use for your training job. | `1`

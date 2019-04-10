@@ -9,7 +9,7 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
@@ -23,7 +23,7 @@ Load balancing provides a higher level of availability and scale by spreading in
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
-To do the tasks in this quickstart, sign in to the [Azure portal](http://portal.azure.com).
+To do the tasks in this quickstart, sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a Basic Load Balancer
 
@@ -202,7 +202,7 @@ The load balancer rule named **MyLoadBalancerRule** listens to port 80 in the fr
    
 1. Select **OK**.
    
-  ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Add a load balancer rule](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## Test the load balancer
 
@@ -254,6 +254,7 @@ Open a browser and paste your load balancer's public IP address into the browser
 
 ![IIS web server](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+To see the load balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
 ## Clean up resources
 
 To delete the load balancer and all related resources when you no longer need them, open the **MyResourceGroupLB** resource group and select **Delete resource group**.

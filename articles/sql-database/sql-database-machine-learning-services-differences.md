@@ -3,7 +3,6 @@ title: Key differences for Azure SQL Database Machine Learning Services (preview
 description: This topic describes key differences between Azure SQL Database Machine Learning Services (with R) and SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -11,7 +10,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ---
 # Key differences between Machine Learning Services in Azure SQL Database (preview) and SQL Server
 
@@ -42,22 +41,17 @@ R package management and installation work different between SQL Database and SQ
 
 It is not possible to limit R resources through [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) and external resource pools.
 
-R resources are maximum 20% of the SQL Database resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
-
+During the public preview, R resources are set to a maximum of 20% of the SQL Database resources, and depend on which service tier you choose. For more information, see [Azure SQL Database purchasing models](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
 ### Insufficient memory error
 
 If there is insufficient memory available for R, you will get an error message. Common error messages are:
 
-* Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime
-* 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
-* An external script error occurred: Error: cannot allocate vector of size.
+- Unable to communicate with the runtime for 'R' script for request id: *******. Please check the requirements of 'R' runtime
+- 'R' script error occurred during execution of 'sp_execute_external_script' with HRESULT 0x80004004. ...an external script error occurred: "..could not allocate memory (0 Mb) in C function 'R_AllocStringBuffer'"
+- An external script error occurred: Error: cannot allocate vector of size.
 
 Memory usage depends on how much is used in your R scripts and the number of parallel queries being executed. If you receive the errors above, you can scale your database to a higher service tier to resolve this.
-
-## Security isolation
-
-In Azure SQL Database, the SQL Platform Abstraction Layer (SQLPAL) provides isolation for external processes. This isolation provides an extra layer of security for running R scripts.
 
 ## Next steps
 

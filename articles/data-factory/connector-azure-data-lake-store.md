@@ -181,6 +181,7 @@ To copy data to and from Azure Data Lake Store, set the `type` property of the d
         },
         "typeProperties": {
             "folderPath": "datalake/myfolder/",
+            "fileName": "*",
             "modifiedDatetimeStart": "2018-12-01T05:00:00Z",
             "modifiedDatetimeEnd": "2018-12-01T06:00:00Z",
             "format": {

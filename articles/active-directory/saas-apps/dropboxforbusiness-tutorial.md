@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 63502412-758b-4b46-a580-0e8e130791a1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -152,7 +152,7 @@ To configure Azure AD single sign-on with Dropbox for Business, perform the foll
 
 	![Configure single sign-on](./media/dropboxforbusiness-tutorial/configure5.png "Configure single sign-on")
 
-	a. Select **Required** as a option from the dropdown for the **Single sign-on**.
+	a. Select **Required** as an option from the dropdown for the **Single sign-on**.
 
 	b. Click on **Add sign-in URL** and in the **Identity provider sign-in URL** textbox, paste the **Login URL** value which you have copied from the Azure portal and then select **Done**.
 
@@ -182,7 +182,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

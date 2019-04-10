@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
@@ -149,7 +149,7 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     node -v
     npm -v
     ```
-2. Install the [Yeoman](http://yeoman.io/) template generator on your machine from NPM:
+2. Install the [Yeoman](https://yeoman.io/) template generator on your machine from NPM:
 
     ```bash
     npm install -g yo

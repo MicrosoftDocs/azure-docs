@@ -37,6 +37,9 @@ When you use the solution, you can:
 - Visualize application data with perspectives in log search
 - Pivot from Log Analytics data to your Application Insights app in the Azure portal
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Connected sources
 
 Unlike most other Log Analytics solutions, data isn't collected for the Application Insights Connector by agents. All data used by the solution comes directly from Azure.
@@ -267,7 +270,7 @@ This solution does not have a set of sample log searches shown on the dashboard.
 ## Removing the connector with PowerShell
 With OMS portal deprecation, there is no way to configure and remove existing connections from the portal. You can remove existing connections with the following PowerShell script. You must be the owner or contributor of the workspace and reader of Application Insights resource to perform this operation.
 
-```PowerShell
+```powershell
 $Subscription_app = "App Subscription Name"
 $ResourceGroup_app = "App ResourceGroup"
 $Application = "Application Name"
@@ -275,25 +278,25 @@ $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $Subscription_app
-$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+Connect-AzAccount
+Set-AzContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzContext -SubscriptionId $Subscription_workspace
+Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
 You can retrieve a list of applications using the following PowerShell script that invokes a REST API call. 
 
-```PowerShell
-Connect-AzureRmAccount
+```powershell
+Connect-AzAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 $AccessToken = "AAD Authentication Token" 
 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+Set-AzContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
 
 $Headers = @{
     "Authorization" = "Bearer $($AccessToken)"

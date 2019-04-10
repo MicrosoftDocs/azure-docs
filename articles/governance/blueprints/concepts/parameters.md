@@ -1,10 +1,9 @@
 ---
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -59,12 +58,19 @@ parameter:
 - Key Vault secret name
 - Key Vault secret version
 
-The referenced Key Vault must exist in the same subscription as the Blueprint is being assigned to.
-It must also have **Enable access to Azure Resource Manager for template deployment** configured on
-the Key Vault's **Access policies** page. For directions on how to enable this feature, see [Key
-Vault - Enable template
-deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment). For more
-information about Azure Key Vault, see [Key Vault
+If the blueprint assignment uses a **system-assigned managed identity**, the referenced Key Vault
+_must_ exist in the same subscription the blueprint definition is assigned to.
+
+If the blueprint assignment uses a **user-assigned managed identity**, the referenced Key Vault
+_may_ exist in a centralized subscription. The managed identity must be granted appropriate rights
+on the Key Vault prior to blueprint assignment.
+
+In both cases, the Key Vault must have **Enable access to Azure Resource Manager for template
+deployment** configured on the **Access policies** page. For directions on how to enable this
+feature, see [Key Vault - Enable template
+deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment).
+
+For more information about Azure Key Vault, see [Key Vault
 Overview](../../../key-vault/key-vault-overview.md).
 
 ## Parameter types
@@ -90,11 +96,11 @@ be selective in what you define as required vs what can be changed during assign
 
 1. Artifacts added to the blueprint that have parameter options display **X of Y parameters populated** in the **Parameters** column. Click on the artifact row to edit the artifact parameters.
 
-   ![Blueprint parameters](../media/parameters/parameter-column.png)
+   ![Blueprint parameters on a blueprint definition](../media/parameters/parameter-column.png)
 
 1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to make it a **static parameter**. In the example below, only _Location_ is a **static parameter** as it's unchecked and _Resource Group Name_ is checked.
 
-   ![Blueprint static parameters](../media/parameters/static-parameter.png)
+   ![Blueprint static parameters on a blueprint artifact](../media/parameters/static-parameter.png)
 
 #### Setting static parameters from REST API
 
@@ -215,7 +221,7 @@ different name for every assignment of the blueprint.
 
 1. On the **Assign blueprint** page, find the **Artifact parameters** section. Each artifact with at least one **dynamic parameter** displays the artifact and the configuration options. Provide required values to the parameters before assigning the blueprint. In the example below, _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
 
-   ![Blueprint dynamic parameter](../media/parameters/dynamic-parameter.png)
+   ![Blueprint dynamic parameter during blueprint assignment](../media/parameters/dynamic-parameter.png)
 
 #### Setting dynamic parameters from REST API
 
@@ -277,8 +283,8 @@ isn't provided during assignment, the assignment will fail.
 
 ## Next steps
 
-- Learn about the [blueprint life-cycle](lifecycle.md)
-- Learn to customize the [blueprint sequencing order](sequencing-order.md)
-- Find out how to make use of [blueprint resource locking](resource-locking.md)
-- Learn how to [update existing assignments](../how-to/update-existing-assignments.md)
-- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md)
+- Learn about the [blueprint life-cycle](lifecycle.md).
+- Learn to customize the [blueprint sequencing order](sequencing-order.md).
+- Find out how to make use of [blueprint resource locking](resource-locking.md).
+- Learn how to [update existing assignments](../how-to/update-existing-assignments.md).
+- Resolve issues during the assignment of a blueprint with [general troubleshooting](../troubleshoot/general.md).

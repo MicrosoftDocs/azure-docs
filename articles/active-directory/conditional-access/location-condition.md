@@ -4,7 +4,7 @@ description: Learn how to use the location condition to control access to your c
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/28/2019
-ms.author: markvi
+ms.date: 03/01/2019
+ms.author: joflore
 ms.reviewer: calebb
 
-#Customer intent: As a IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
+#Customer intent: As an IT admin, I need to understand what the location condition is so that I can configure location- based conditional access policies
 
 ms.collection: M365-identity-device-management
 ---
@@ -65,7 +65,7 @@ A named location has the following components:
 
 - **Include unknown areas** - Some IP addresses are not mapped to a specific country. This option allows you to choose if these IP addresses should be included in the named location. Use this setting when the policy using the named location should apply to unknown locations.
 
-The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure:
+The number of named locations you can configure is constrained by the size of the related object in Azure AD. You can configure one of the following:
 
 - One named location with up to 1200 IP ranges.
 
@@ -140,7 +140,7 @@ By default, Azure AD issues a token on an hourly basis. After moving off the cor
 
 ### User IP address
 
-The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only a IPv6 address, configuring the location condition is not supported.
+The IP address that is used in policy evaluation is the public IP address of the user. For devices on a private network, this is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet. If your device has only an IPv6 address, configuring the location condition is not supported.
 
 ### Bulk uploading and downloading of named locations
 

@@ -8,7 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -225,7 +225,7 @@ In the case of Cisco Umbrella, provisioning is a manual task.
 
 	c. From the **Choose Delegated Admin Role**, select your role.
   
-    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon@contoso.com**.
+    d. In the **Email Address** field, enter the emailaddress of user like **brittasimon\@contoso.com**.
 
     e. In the **Password** field, enter your password.
 

@@ -8,7 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 
 ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -143,9 +143,9 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
     a. In the **Email Domain** textbox, type a registered domain.
 
-    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
+    b. In  **Single Sign On URL** textboxes, paste the value of **Login URL** which you have copied from Azure portal.
 
-	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
+	c. Open your downloaded **Certificate file** from Azure portal into Notepad, copy the content of it into your clipboard, and then paste it to the **X509 Certificate**  textbox.
 
     d. Click **Save**.
 
@@ -175,7 +175,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 03/05/2019
 ms.author: diberry
 ---
 # Patterns improve prediction accuracy
@@ -35,8 +35,11 @@ Patterns solve the following situations:
 ## Patterns are not a guarantee of intent
 Patterns use a mix of prediction technologies. Setting an intent for a template utterance in a pattern is not a guarantee of the intent prediction but it is a strong signal. 
 
-## Patterns do not improve entity detection
-While patterns require entities, a pattern does not help detect the entity. A pattern is only meant to help the prediction with intents and roles.  
+<a name="patterns-do-not-improve-entity-detection"/>
+
+## Patterns do not improve machine-learned entity detection
+
+A pattern is primarily meant to help the prediction of intents and roles. The pattern.any entity is used to extract free-form entities. While patterns use entities, a pattern does not help detect a machine-learned entity.  
 
 Do not expect to see improved entity prediction if you collapse multiple utterances into a single pattern. For Simple entities to fire, you need to add utterances or use list entities else your pattern will not fire.
 
@@ -56,7 +59,7 @@ Entities in patterns are surrounded by curly brackets, `{}`. Patterns can includ
 
 Pattern syntax supports the following syntax:
 
-|Function|Syntax|[Nesting level](#nesting-syntax)|Example|
+|Function|Syntax|Nesting level|Example|
 |--|--|--|--|
 |entity| {} - curly brackets|2|Where is form {entity-name}?|
 |optional|[] - square brackets<BR><BR>There is a limit of 3 on nesting levels of any combination of optional and grouping |2|The question mark is optional [?]|

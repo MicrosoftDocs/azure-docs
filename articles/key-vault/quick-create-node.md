@@ -180,7 +180,7 @@ Make note of the output of the previous command. It should be in the format:
 Then, run the following command by using the name of your key vault and the value of **principalId**:
 
 ```azurecli
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get set
 ```
 
 ## Deploy the Node app to Azure and retrieve the secret value

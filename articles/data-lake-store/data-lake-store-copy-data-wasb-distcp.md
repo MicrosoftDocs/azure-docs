@@ -3,8 +3,8 @@ title: Copy data to and from WASB into Azure Data Lake Storage Gen1 using Distcp
 description: Use Distcp tool to copy data to and from Azure Storage Blobs to Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Use Distcp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen1
@@ -29,9 +29,6 @@ If you have an HDInsight cluster with access to Azure Data Lake Storage Gen1, yo
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
-
-## Do you learn fast with videos?
-[Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Storage Gen1 using DistCp.
 
 ## Use Distcp from an HDInsight Linux cluster
 

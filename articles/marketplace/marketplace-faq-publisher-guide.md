@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 03/02/2019
 ms.author: ellacroi
 
 ---
@@ -70,7 +70,7 @@ Azure Marketplace offers can be purchased through:
 
 **Can I choose which Microsoft Azure region(s) to deploy my Azure Marketplace purchase?**
 
-The publishers have the option of deploying to any Azure data center region they enable. We recommend selecting the data center locations closest to your services to optimize performance and control budget.
+The customer has the option of deploying to any Azure data center region they enable. We recommend selecting the data center locations closest to your services to optimize performance and control budget.
 
 **If I accidentally delete an Azure Marketplace purchase, can I "undo" the action?**
 
@@ -86,7 +86,7 @@ Dependencies are not automatically managed for Azure Marketplace offerings. Care
 
 **Can I buy Azure Marketplace solutions from an Azure Cloud Solution Provider?**
 
-Currently, only free and bring-your-own-license (BYOL) Marketplace offers are available via Azure CSP and Open customers.
+If the publisher has configured their offering to be available through the CSP channel, it will be available through your reseller.
 
 **What countries are supported for purchasing applications and services sold/provisioned through the Azure Marketplace?**
 
@@ -245,7 +245,7 @@ Contact the publisher provider for all technical product support. Publisher cont
 
 **If I am not satisfied, can I return a purchase?**
 
-Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are cancelled and will not be billed past the current billing period. If a subscription is cancelled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
+Purchases made from [Azure Marketplace](https://azuremarketplace.microsoft.com/) cannot be returned but can be canceled/deleted. Consumption based offers are billed according to usage, so when it stops, charges stop as well. Subscriptions are canceled and will not be billed past the current billing period. If a subscription is canceled shortly after purchase (24 hours for monthly and 14 days for annual), a full refund is provided.
 
 Customers must directly contact the publisher for any technical issues relating to their Marketplace service or purchase. Publisher contact information and/or a link to the support website can be found on their solution details page on Azure Marketplace.
 
@@ -468,10 +468,6 @@ Azure Marketplace is the store for IT Pros and Developers to discover technical 
 
 You can find Azure Marketplace offers via the [web-based storefront](https://azuremarketplace.microsoft.com/marketplace/), in the [Microsoft Azure Management portal](https://portal.azure.com/), or via the [Azure Marketplace Command Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest). Once logged into the Azure Marketplace, you can discover and buy Microsoft and Partner solutions. Note: Prepaid credits and other forms of Monetary Commitment are not used for software license fees.  Instead, they cover associated Azure usage charges. Exceptions are listed in [Azure monetary commitment](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/).
 
-**Can I choose which Microsoft Azure regions my Azure Marketplace purchase is deployed?**
-
-Customers have the option of deploying to any Azure data center region that a publisher enables. You can select data center locations closest to their services to optimize performance and manage budget.
-
 **If I accidentally delete an Azure Marketplace purchase, can I “undo” the action?**
 
 No, deletions are final. If you accidentally delete a subscription, you can easily restart it by purchasing again.  However, any unused functionality or prepaid services are lost, so take care when deleting a subscription.
@@ -483,10 +479,6 @@ No, Azure does not warn you when you delete a purchase that your application dep
 **If my Azure Marketplace purchase has any dependencies on other assets such as an Azure website, then do I have to manage them?**
 
 Dependencies are not automatically managed for Azure Marketplace offerings. Carefully review the description of your Azure Marketplace purchase before using it.  You should determine if there are any dependencies before deploying the solution.
-
-**Can I buy Azure Marketplace solutions from an Azure Cloud Solution Provider (CSP)?**
-
-Currently, only free and bring-your-own-license (BYOL) Marketplace offers are available to Azure CSP and Open customers.
 
 **Who can purchase applications and services sold/provisioned through the Azure Marketplace?**
 
