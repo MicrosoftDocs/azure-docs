@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by an Azure AD v2.0 endpoint.
@@ -48,8 +48,8 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
-> 1. When the **Register an application** page appears, enter your application's registration information:
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Select **New registration**.
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Win-App-calling-MsGraph`.
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
@@ -68,7 +68,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 
 #### Step 2: Download your Visual Studio project
 
-[Download the Visual Studio 2017 project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip)
+[Download the Visual Studio 2017 project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/msal3x.zip)
 
 #### Step 3: Configure your Visual Studio project
 
@@ -99,7 +99,7 @@ In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) appli
 MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory (Azure AD). You can install MSAL by running the following command in Visual Studio's **Package Manager Console**:
 
 ```powershell
-Install-Package Microsoft.Identity.Client
+Install-Package Microsoft.Identity.Client -Pre
 ```
 
 ### MSAL initialization
@@ -113,7 +113,10 @@ using Microsoft.Identity.Client;
 Then, initialize MSAL using the following code:
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApplicationBuilder.Create(ClientId)
+                .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .Build();
 ```
 
 > |Where: ||
@@ -122,7 +125,7 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### Requesting tokens
 
-MSAL has two methods for acquiring tokens: `AcquireTokenAsync` and `AcquireTokenSilentAsync`.
+MSAL has two methods for acquiring tokens: `AcquireToken` and `AcquireTokenSilent`.
 
 #### Get a user token interactively
 
@@ -134,12 +137,14 @@ Some situations require forcing users interact with the Azure AD v2.0 endpoint t
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(_scopes);
+authResult = await App.PublicClientApp.AcquireToken(_scopes, this)
+                                      .ExecuteAsync();
 ```
 
 > |Where:||
 > |---------|---------|
 > | `_scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
+> | `this` | Window used to center the sign-in dialog
 
 #### Get a user token silently
 
@@ -147,13 +152,15 @@ You don't want to require the user to validate their credentials every time they
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
-> | `accounts.FirstOrDefault()` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
+> | `firstAccount` | Specifies the first user in the cache (MSAL support multiple users in a single app). |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
