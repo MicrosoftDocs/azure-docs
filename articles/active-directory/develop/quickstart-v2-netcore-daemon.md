@@ -107,7 +107,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
     
 #### Step 4: Admin consent
 
-If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that an global administrator of your directory must give consent to your application. Select one of the options below depending your role:
+If you try to run the application at this point, you will receive *HTTP 403 - Forbidden* error: `Insufficient privileges to complete the operation`. This happens because any *app-only permission* requires Admin consent, which means that a global administrator of your directory must give consent to your application. Select one of the options below depending on your role:
 
 ##### Global tenant administrator
 
@@ -156,7 +156,7 @@ You should see a list of users in your Azure AD directory as result.
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. As described, this quickstart request tokens by using the application own identity instead of delegated permissions. The authentication flow used in this case is known as *[client credentials oauth flow](v2-oauth2-client-creds-grant-flow.md)*. For more information on how to use MSAL.NET with client credentials flow, please see [this article](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. As described, this quickstart requests tokens by using the application own identity instead of delegated permissions. The authentication flow used in this case is known as *[client credentials oauth flow](v2-oauth2-client-creds-grant-flow.md)*. For more information on how to use MSAL.NET with client credentials flow, see [this article](https://aka.ms/msal-net-client-credentials).
 
  You can install MSAL.NET by running the following command in Visual Studio's **Package Manager Console**:
 
