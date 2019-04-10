@@ -9,14 +9,14 @@ ms.reviewer: barbkess
 
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Evernote
 
@@ -115,7 +115,17 @@ To configure Azure AD single sign-on with Evernote, perform the following steps:
 
 	![The Certificate download link](common/certificatebase64.png)
 
-7. On the **Set up Evernote** section, copy the appropriate URL(s) as per your requirement.
+7. To modify the **Signing** options, click **Edit** button to open **SAML Signing Certificate** dialog.
+
+	![image](common/edit-certificate.png) 
+
+	![image](./media/evernote-tutorial/samlassertion.png)
+
+	a. Select the **Sign SAML response and assertion** option for **Signing Option**.
+
+	b. Click **Save**
+
+8. On the **Set up Evernote** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -167,8 +177,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
