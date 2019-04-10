@@ -44,7 +44,7 @@ This flowchart walks you through the steps for debugging a connector issue. For 
 |7 | Lengthen the time-out value on the back end | In the **Additional Settings** for your application, change the **Backend Application Timeout** setting to **Long**. See [Add an on-premises app to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#add-an-on-premises-app-to-azure-ad). |
 |8 | Check if a back-end proxy is in use | Check to see if the connectors are using back-end proxy servers or bypassing them. For details, see [Troubleshoot connector proxy problems and service connectivity issues](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
 |9 | Update the connector and updater to use the back-end proxy | If a back-end proxy is in use, you'll want to make sure the connector is using the same proxy. For details about troubleshooting and configuring connectors to work with proxy servers, see [Work with existing on-premises proxy servers](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers). |
-|10 | Target specific flow issues, review SSO and KCD debugging flows | Go to the SSO and KCD debugging flow. |
+|10 | Target specific flow issues, review app and SSO debugging flows. | Use the [Debug Application Proxy application issues](application-proxy-debug-apps.md) troubleshooting flow. |
 
 ## Next steps
 
