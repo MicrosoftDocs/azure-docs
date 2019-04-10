@@ -10,7 +10,7 @@ ms.author: tsikiksr
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 3/29/2019
+ms.date: 04/10/2019
 
 ---
 
@@ -28,21 +28,13 @@ In this article you learn how to create, run and explore automated machine learn
 
 Left pane Automated Machine Learning under Application
 
-< image of Application pane with Automated Machine Learning button >
-
 You'll see the following if this is your first time doing any experiments with Automated Machine Learning.
 
-< insert screen shot of Getting Started experience for first time experiments >
-
 Otherwise, you will see your Automated machine learning dashboard with an overview of all of your automated machine learning experiments and runs, including those run using the SDK. Here you can filter and explore your runs by date, experiment name, and run status.
-
-< insert screen shot of workspace dashboard >
 
 ## Create an experiment
 
 Use the Create Experiment button.
-
-< screenshot of Create a new automated machine learning experiment >
 
 1. Enter your experiment name
 
@@ -55,8 +47,6 @@ Use the Create Experiment button.
     Compute name| Enter a unique name that identifies your compute context.
     Virtual machine size| Select the virtual machine size for your compute.
     Additional settings| *Min node*: Enter the minimum number of nodes for your compute. The minimum number of nodes for AML compute is 0. To enable data profiling you must have 1 or more nodes. <br> *Max node*: Enter the maximum number of nodes for your compute. The default is 6 nodes for an AML Compute.
-
-     < screenshot of Create a New Compute screen >
 
       To start the creation of your new compute, select **Create**. This can take a few moments.
 
@@ -72,13 +62,9 @@ Use the Create Experiment button.
 
     1. On the Preview tab, indicate if your data includes headers and select the features (columns) for training using the **Included** switch buttons in each feature column.
 
-        < screenshot of preview >
-
     1. On the Profile tab, you can view the profile of your data by feature, as well as the distribution, type, and summary statistics (mean, median, max/min, etc) of each. The following error message will appear if your compute context is **not** profiling enabled. *Data profiling is only available for compute targets that are already running*
 
-        < screenshot of profile, summary stats table and circle switch buttons >
-
-1. Select the training job type: classification, regression or forecasting
+ 1. Select the training job type: classification, regression or forecasting
 
 1. Select target column. This is the column which you would like to do the predictions on.
 
@@ -110,19 +96,13 @@ It goes through a preparing process which takes a couple minutes
 
 Once that's done you'll see the run details screen. This will give you a full list of the models  created. By default, the model that scores the highest based on your parameters will be at the top of the list.
 
-< screenshot of run and pipeline details >
-
 You are able to drill down on any of the output models which opens the details of that model including performance and distribution charts and metrics.
 
-< screenshot of highest scoring run and pipeline details screen>
-
-training jobs can take a while for each pipeline to finish running
+Training jobs can take a while for each pipeline to finish running
 
 ## Deploy model
 
 directly deploy the model by clicking the button on the right
-
-< steps to deploy the model screenshots >
 
 1. Enter a deployment name
 
