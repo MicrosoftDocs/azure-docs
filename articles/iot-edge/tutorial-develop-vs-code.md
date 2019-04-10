@@ -1,17 +1,19 @@
 ---
-title: Develop your first module - Azure IoT Edge | Microsoft Docs
-description: This tutorial walks through the process of setting up your development machine and cloud resources to develop IoT Edge modules
+title: Develop module for Linux devices - Azure IoT Edge | Microsoft Docs
+description: This tutorial walks through setting up your development machine and cloud resources to develop IoT Edge modules using Linux containers for Linux devices 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 03/26/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop an IoT Edge module in Visual Studio Code
+# Tutorial: Develop an IoT Edge module for a Linux device
+
+Use Visual Studio Code to develop and deploy code to Linux devices running IoT Edge. 
 
 In the quickstart articles, you created an IoT Edge device and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
 
@@ -28,41 +30,25 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Before you begin 
 
-IoT Edge has created development tools for both Visual Studio Code and Visual Studio 2017. Each tool supports different scenarios, so we have tutorials to help you get started with either. Before you begin this tutorial, make sure that you're using the right tool for your goals. 
+## Key concepts
 
-If you don't have a specific scenario in mind, or an existing tools preference, but are just interested in learning about IoT Edge, then we recommend that you stay on this page to develop with Visual Studio Code. Visual Studio Code is easy to get started with, and has a wide variety of supported scenarios for IoT Edge. 
+This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container that contains executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, performing data analytics or data cleaning operations, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
 
-Use **Visual Studio 2017** if you...
-* Want to develop using C or C#
-* Are developing primarily for Windows IoT devices (although you can develop for Linux devices, too)
-* Are developing for AMD64 devices
-* Or, see [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for the full list of supported features
+When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the *target device*. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux device running IoT Edge. In that case, the container operating system would be Linux. As you go through this tutorial, keep in mind the difference between the *development machine OS* and the *container OS*.
 
-Use **Visual Studio Code** if you...
-* Want to develop in Java, Node.js, or Python (although you can use C or C#, too)
-* Want to develop solutions with services like Azure Functions, Azure Machine Learning, or Azure Stream Analytics
-* Are developing primarily for Linux IoT devices (although you can develop for Windows devices, too)
-* Are developing for either AMD64 or ARM32 devices
-* Or, see [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) for the full list of supported features
+This tutorial targets Linux devices running IoT Edge. You can use your preferred development machine operating system, as long as your development machine can run Linux containers. We recommend using Visual Studio Code to develop for Linux devices, so that's what this tutorial will use. You can use Visual Studio 2017 as well, although there are differences in support between the two tools.
 
-This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio 2017, switch to [Develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md)
-
-## Before you begin 
-
-IoT Edge has created development tools for both Visual Studio Code and Visual Studio 2017. Each tool supports different scenarios, so we have tutorials to help you get started with either. Before you begin this tutorial, make sure that you're using the right tool for your goals. 
-
-If you don't have a specific scenario in mind, or an existing tools preference, but are just interested in learning about IoT Edge, then we recommend that you stay on this page to develop with Visual Studio Code. Visual Studio Code is easy to get started with, and has a wide variety of supported scenarios for IoT Edge. 
+The following table lists the supported development scenarios for Linux containers in Visual Studio Code and Visual Studio 2017.
 
 |   | Visual Studio Code | Visual Studio 2017 |
 | - | ------------------ | ------------------ |
-| **Languages** | * C <br> * C# <br> * Java <br> * Node.js <br> * Python | * C <br> * C# |
+| **Linux device architecture** | * Linux AMD64 <br> * Linux ARM32 | * Linux AMD64 |
 | **Azure services** | * Azure Functions <br> * Azure Stream Analytics <br> * Azure Machine Learning |   |
-| **IoT Edge device architecture** | * Windows AMD64 <br> * Linux AMD64 <br> * Linux ARM32 | * Windows AMD64 <br> * LInux AMD64 |
+| **Languages** | * C <br> * C# <br> * Java <br> * Node.js <br> * Python | * C <br> * C# |
 | **Full feature list** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
-This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio 2017, switch to [Develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md)
+This tutorial teaches the development steps for Visual Studio Code. If you would rather use Visual Studio 2017, refer to the devlopment instructions in [Use Visual Studio 2017 to develop and debug modules for Azure IoT Edge](how-to-visual-studio-develop-module.md).
 
 ## Prerequisites
 
@@ -70,21 +56,16 @@ A development machine:
 
 * You can use your own computer or a virtual machine, depending on your development preferences.
 * Most operating systems that can run a container engine can be used for IoT Edge development. This tutorial uses a Windows computer, but points out known differences on MacOS or Linux. 
+* Install [Git](https://git-scm.com/), to pull module template packages later in this tutorial.  
 
-An Azure IoT Edge device:
+An Azure IoT Edge device on Linux:
 
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
-* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md). This tutorial uses a Linux IoT Edge device, but points out differences for Windows devices. 
+* If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Linux virtual machine](quickstart-linux.md). This tutorial uses a Linux IoT Edge device.
 
 Cloud resources:
 
-* Along with your working IoT Edge device, you should also have a free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
-
-## Key concepts
-
-This tutorial walks through the development of an IoT Edge module. An *IoT Edge module*, or sometimes just *module* for short, is a container that contains executable code. You can deploy one or more modules to an IoT Edge device. Modules perform specific tasks like ingesting data from sensors, performing data analytics or data cleaning operations, or sending messages to an IoT hub. For more information, see [Understand Azure IoT Edge modules](iot-edge-modules.md).
-
-When developing IoT Edge modules, it's important to understand the difference between the development machine and the target IoT Edge device where the module will eventually be deployed. The container that you build to hold your module code must match the operating system (OS) of the target device. For example, the most common scenario is someone developing a module on a Windows computer intending to target a Linux IoT Edge device. In that case, the container operating system would be Linux. This tutorial demonstrates that scenario and tries to explicitly call out when a step applies to the *development machine OS* or the *container OS*.
+* A free or standard-tier [IoT hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 
 ## Install container engine
 
@@ -94,7 +75,7 @@ Use the Docker documentation to install on your development machine:
 
 * [Install Docker Desktop for Windows](https://docs.docker.com/docker-for-windows/install/)
 
-  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. This decision can be changed at any time using an easy switch. For this tutorial, we assume Linux containers. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
+  * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. This decision can be changed at any time using an easy switch. For this tutorial, we use Linux containers because our modules are targeting Linux devices. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 * [Install Docker Desktop for Mac](https://docs.docker.com/docker-for-mac/install/)
 
@@ -102,18 +83,7 @@ Use the Docker documentation to install on your development machine:
 
 ## Install VS Code and tools
 
-If you're familiar with container development, you can use your preferred editors and tools to develop IoT Edge modules. If not, we recommend using the IoT extensions for Visual Studio Code or Visual Studio 2017 that were built specifically to assist with IoT Edge development. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. 
-
-Visual Studio 2017 currently supports the following development options:
-* Languages: C and C#
-* Device architecture: AMD64
-
-Visual Studio Code currently supports the following development options:
-* Languages: C, C#, Java, Node.js, and Python
-* Device architecture: AMD64, ARM32v7
-* Cloud services: Azure Functions (C#), Azure Machine Learning, Azure Stream Analytics, Azure Marketplace
-
-This tutorial uses Visual Studio Code for development, because it covers more scenarios. If you prefer to use Visual Studio 2017, you can learn more about it in [Use Visual Studio 2017 to develop and debug modules](how-to-visual-studio-develop-csharp-module.md).
+Use the IoT extensions for Visual Studio Code to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. 
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/) on your development machine. 
 
@@ -166,7 +136,7 @@ If you don't already have a container registry, follow these steps to create a n
 
 The Azure IoT Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio Code. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
 
-For this tutorial, we use the C module template because it has no additional prerequisites to install. However, IoT Edge modules written in C don't support Windows containers. You can quickly create a Linux device following the quickstart for IoT Edge on [Linux virtual machines](quickstart-linux.md). If you are only interested in developing for Windows containers, you can follow this tutorial up until the deployment step. Then, continue onto one of the other tutorials for more examples. 
+For this tutorial, we use the C module template because it has the fewest prerequisites to install. 
 
 ### Create a project template
 
@@ -182,7 +152,7 @@ In the Visual Studio Code command palette, search for and select **Azure IoT Edg
  
    ![Provide Docker image repository](./media/tutorial-develop-vs-code/image-repository.png)
 
-Once your new solution loads in the Visual Studio Code window, take a moment to familiarize yourself with the files it created: 
+Once your new solution loads in the Visual Studio Code window, take a moment to familiarize yourself with the files that it created: 
 
 * The **.vscode** folder contains a file called **launch.json**, which is used for debugging modules.
 * The **modules** folder contains a folder for each module in your solution. Right now, that should only be **SampleModule**, or whatever name you gave to the module. The SampleModule folder contains the main program code, the module metadata, and several Docker files. 
@@ -202,7 +172,7 @@ The environment file stores the credentials for your container registry and shar
 
 ### Select your target architecture
 
-Currently, IoT Edge modules can run on Linux AMD64, Linux ARM32v7, and Windows AMD64. You need to select which architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64, because that's the most common device architecture for IoT Edge deployments. 
+Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because that affects how the container is built and runs. The default is Linux AMD64, because that's the most common device architecture for IoT Edge deployments. 
 
 1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
 
@@ -214,19 +184,19 @@ Currently, IoT Edge modules can run on Linux AMD64, Linux ARM32v7, and Windows A
 
 The solution template that you created includes sample code for an IoT Edge module. This sample module simply receives messages and then passes them on. The pipeline functionality demonstrates an important concept in IoT Edge, which is how modules communicate with each other.
 
-Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [module-composition.md#declare-routes].
+Each module can have multiple *input* and *output* queues declared in their code. The IoT Edge hub running on the device routes messages from the output of one module into the input of one or more modules. The specific language for declaring inputs and outputs varies between languages, but the concept is the same across all modules. For more information about routing between modules, see [Declare routes](module-composition.md#declare-routes).
 
-1. Open the **main.c** file, which is inside the modules/SampleModules/ folder. 
+1. Open the **main.c** file, which is inside the **modules/SampleModules/** folder. 
 
-2. The IoT Hub C SDK uses the method [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) to initialize module input queues. Search within the main.c file for that method.
+2. The IoT Hub C SDK uses the function [SetInputMessageCallback](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-setinputmessagecallback) to initialize module input queues. Search within the main.c file for that function.
 
-3. Review the method constructor, and see that an input queue called **input1** is initialized in the code. 
+3. Review the SetInputMessageCallback function constructor, and see that an input queue called **input1** is initialized in the code. 
 
    ![Find the input name in SetInputMessageCallback constructor](./media/tutorial-develop-vs-code/SetInputMessageCallback.png)
 
-4. Similarly, module output queues are initialized as part of a method. Search for the [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) method constructor in the main.c file. 
+4. Module output queues are initialized in a similar way. Search for the [SendEventToOutputAsync](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-ll-h/iothubmoduleclient-ll-sendeventtooutputasync) function in the main.c file. 
 
-5. Review the method constructor, and see that an output queue called **output1** is initialized in the code. 
+5. Review the SendEventToOutputAsync function constructor, and see that an output queue called **output1** is initialized in the code. 
 
    ![Find the output name in SendEventToOutputAsync](./media/tutorial-develop-vs-code/SendEventToOutputAsync.png)
 
@@ -298,7 +268,7 @@ If you encounter errors when building and pushing your module image, it often ha
 * Did you run the `docker login` command using the credentials that you copied from your container registry? These are different than the credentials you use to sign in to Azure. 
 * Is your container repository correct? Does it have your correct container registry name and your correct module name? Open the **module.json** file in the SampleModule folder to check. The repository value should look like **\<registry name\>.azurecr.io/samplemodule**. 
 * If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
-* Is your machine running the same type of containers that you're building? This tutorial assumes that you're targeting a Linux AMD64 device, so Visual Studio Code should say **amd64** in the side bar, and Docker Desktop should be running Linux containers. C modules do not support Windows containers. 
+* Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers. C modules in Visual Studio Code do not support Windows containers. 
 
 ## Deploy solution to a device
 
@@ -310,7 +280,7 @@ You verified that the built container images are stored in your container regist
 
 3. In the file explorer, navigate into the **config** folder then select the **deployment.amd64.json** file. 
 
-   Do not use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it.
+   Do not use the deployment.template.json file, which doesn't have the container registry credentials or module image values in it. If you're targeting a Linux ARM32 device, the deployment manifest will be named deployment.arm32v7.json. 
 
 4. Expand the details for your IoT Edge device, then expand the **Modules** list for your device. 
 
@@ -319,10 +289,6 @@ You verified that the built container images are stored in your container regist
    It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. 
 
    ![View modules running on your IoT Edge device](./media/tutorial-develop-vs-code/view-running-modules.png)
-
-### Troubleshoot
-
-
 
 ## View messages from device
 
@@ -334,12 +300,9 @@ The SampleModule code receives messages through its input queue and passes them 
 
    ![View incoming device to cloud messages](./media/tutorial-develop-vs-code/view-d2c-messages.png)
 
-
-
-
 ## Next steps
 
-In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
+In this tutorial, you set up Visual Studio Code on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
 
 > [!div class="nextstepaction"] 
 > [C](tutorial-c-module.md)

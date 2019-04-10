@@ -15,16 +15,24 @@
   items:
   - name: 1. Set up development environment
     items:
-    - name: Visual Studio Code
+    - name: Develop for Linux devices
       href: tutorial-develop-vs-code.md
-    - name: Visual Studio 2017
-      href: tutorial-develop-vs-2017.md
+    - name: Develop for Windows devices
+      href: tutorial-develop-visual-studio.md
   - name: 2. Develop custom code modules
     items:
     - name: C
-      href: tutorial-c-module.md
+      items:
+      - name: C modules for Linux devices
+        href: tutorial-c-module.md
+      - name: C modules for Windows devices
+        href: tutorial-c-module-visual-studio.md
     - name: C#
-      href: tutorial-csharp-module.md
+      items: 
+      - name: C# modules for Linux devices
+        href: tutorial-csharp-module.md
+      - name: C# modules for Windows devices
+        href: tutorial-csharp-module-visual-studio.md
     - name: Java
       href: tutorial-java-module.md
     - name: Node.js
