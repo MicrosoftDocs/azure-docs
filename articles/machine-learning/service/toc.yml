@@ -135,8 +135,8 @@
     items:
     - name: Configure auto training
       href: how-to-configure-auto-train.md
-    - name: Automate training in Portal
-      href: how-to-run-aml-experiments-in-portal.md
+    - name: Automate training in portal
+      href: how-to-create-portal-experiments.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
