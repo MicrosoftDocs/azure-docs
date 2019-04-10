@@ -36,7 +36,7 @@ You can use the [Azure portal](#portal), the Azure [command-line interface](#cli
 
 If the virtual networks that you want to peer are in subscriptions that are associated to different Azure Active Directory tenants, follow steps in the CLI and PowerShell section of this article. Portal does not have support to peer virtual networks belonging to subscriptions from different Active Directory Tenants. 
 
-Note that Cloud Shell has limitations in switching subscriptions and tenants due to which VNet Peering or Global VNet Peering between VNets belonging to subscriptions in different Azur Active Directory Tenants will not work. Please use PowerShell or CLI.
+Note that Cloud Shell has limitations in switching subscriptions and tenants due to which VNet Peering or Global VNet Peering between VNets belonging to subscriptions in different Azure Active Directory Tenants will not work. Please use PowerShell or CLI.
 
 The following steps use different accounts for each subscription. If you're using an account that has permissions to both subscriptions, you can use the same account for all steps, skip the steps for logging out of the portal, and skip the steps for assigning another user permissions to the virtual networks.
 
