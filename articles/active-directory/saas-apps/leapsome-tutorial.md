@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ---
@@ -41,8 +41,7 @@ To configure Azure AD integration with Leapsome, you need the following items:
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Leapsome supports **Just In Time** user provisioning
-* Leapsome supports [**Automated** user provisioning]()
+* Leapsome supports **SP and IDP** initiated SSO
 
 ## Adding Leapsome from the gallery
 
@@ -64,7 +63,7 @@ To configure the integration of Leapsome into Azure AD, you need to add Leapsome
 
 4. In the search box, type **Leapsome**, select **Leapsome** from result panel then click **Add** button to add the application.
 
-	 ![Leapsome in the results list](common/search-new-app.png)
+	![Leapsome in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -116,7 +115,7 @@ To configure Azure AD single sign-on with Leapsome, perform the following steps:
 	> [!NOTE]
     > The preceding Reply URL and Sign-on URL value is not real value. You will update these with the actual values, which is explained later in the tutorial.
 
-6. Your Leapsome application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Your Leapsome application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -131,7 +130,7 @@ To configure Azure AD single sign-on with Leapsome, perform the following steps:
 	| | |
 
 	> [!Note]
-	> The value of picture attribute is not real. Update this value with actual picture URL. To get this value contact [Leapsome Client support team](mailto:support@leapsome.com).
+	> The value of picture attribute is not real. Update this value with actual picture URL. To get this value contact [Leapsome Client support team](mailto:support@leapsome.com).
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -185,7 +184,7 @@ To configure Azure AD single sign-on with Leapsome, perform the following steps:
 
 	d. In the **SSO Login URL (provided by identity provider)** textbox, paste the value of **Login URL**, which you copied from the Azure portal.
 
-	e. Copy the Certificate that you have downloaded from Azure portal without --BEGIN CERTIFICATE and END CERTIFICATE-- comments and paste it in the **Certificate (provided by identity provider)** textbox.
+	e. Copy the Certificate that you have downloaded from Azure portal without `--BEGIN CERTIFICATE and END CERTIFICATE--` comments and paste it in the **Certificate (provided by identity provider)** textbox.
 
 	f. Click **UPDATE SSO SETTINGS**.
 
@@ -242,7 +241,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Leapsome test user
 
-In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain, which needs to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Leapsome. Work with [Leapsome Client support team](mailto:support@leapsome.com) to add the users or the domain, which needs to be whitelisted in the Leapsome platform. If the domain is added by the team, users will get automatically provisioned to the Leapsome platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
