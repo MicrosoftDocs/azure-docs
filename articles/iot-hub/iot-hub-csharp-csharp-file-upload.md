@@ -8,7 +8,7 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
+ms.author: robinsh
 ---
 
 # Upload files from your device to the cloud with IoT Hub using .NET

@@ -117,7 +117,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that logs are being received from the source appliance on the right port and right facility.
 2. Check that there is communication between the Syslog daemon and the agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 25226 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that the logs are also being received on the agent.
-3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
+3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog` type.
 
 4. Make sure to run these commands:
   

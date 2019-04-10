@@ -4,7 +4,7 @@ description: Application to automate operating system patching on a Linux Servic
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
@@ -118,7 +118,7 @@ For Ubuntu [unattended-upgrades](https://help.ubuntu.com/community/AutomaticSecu
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=867984).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v2.0.3.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -373,5 +373,10 @@ The patch orchestration app collects telemetry to track usage and performance. T
 ### Version 2.0.1
 - Recompiled the app using latest Service Fabric SDK
 
-### Version 2.0.2 (Latest)
+### Version 2.0.2 
 - Fixed an issue with health warning getting left behind during restart.
+
+### Version 2.0.3 (Latest)
+- Fixing the issue where CPU usage of Node Agent daemon service reached upto 99% on Standard_D1_v2 VMs.
+- Fixing the issue which effected the patching life-cyle on a node in case there are nodes with name which is subset of the current node name. For such nodes, its possible, patching is missed or reboot is pending.
+- Fixed a bug due to which Node Agent daemon keeps crashing when corrupt settings are passed to the service.

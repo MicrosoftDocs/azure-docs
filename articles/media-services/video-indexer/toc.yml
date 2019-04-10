@@ -40,8 +40,12 @@
     href: video-indexer-output-json-v2.md
   - name: Find exact moments within videos
     href: video-indexer-search.md
+  - name: Scenes, shots, and keyframes
+    href: scenes-shots-keyframes.md
   - name: View and edit Video Indexer insights
     href: video-indexer-view-edit.md
+  - name: Use editor to create projects
+    href: use-editor-create-project.md
   - name: Create video insights from existing videos
     href: video-indexer-create-new.md
   - name: Embed widgets into your application

@@ -14,10 +14,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
+ms.custom: fasttrack-edit
 
 ms.collection: M365-identity-device-management
 ---
@@ -78,7 +79,7 @@ The v2.0 implementation of OpenID Connect has a few well-defined scopes that do 
 
 ### openid
 
-If an app performs sign-in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used to secure HTTP calls between different components of an app.
+If an app performs sign-in by using [OpenID Connect](active-directory-v2-protocols.md), it must request the `openid` scope. The `openid` scope shows on the work account consent page as the "Sign you in" permission, and on the personal Microsoft account consent page as the "View your profile and connect to apps and services using your Microsoft account" permission. With this permission, an app can receive a unique identifier for the user in the form of the `sub` claim. It also gives the app access to the UserInfo endpoint. The `openid` scope can be used at the v2.0 token endpoint to acquire ID tokens, which can be used by the app for authentication.
 
 ### email
 
@@ -256,8 +257,7 @@ For more information about the OAuth 2.0 protocol and how to get access tokens, 
 
 You can use the `/.default` scope to help migrate your apps from the v1.0 endpoint to the v2.0 endpoint. This is a built-in scope for every application that refers to the static list of permissions configured on the application registration. A `scope` value of `https://graph.microsoft.com/.default` is functionally the same as the v1.0 endpoints `resource=https://graph.microsoft.com` - namely, it requests a token with the scopes on Microsoft Graph that the application has registered for in the Azure portal.
 
-The /.default scope can be used in any OAuth 2.0 flow, but is particularly necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow
-.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).  
+The /.default scope can be used in any OAuth 2.0 flow, but is particularly necessary in the [On-Behalf-Of flow](v2-oauth2-on-behalf-of-flow.md) and [client credentials flow](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > Clients cannot combine static (`/.default`) and dynamic consent in a single request. Thus, `scope=https://graph.microsoft.com/.default+mail.read` will result in an error due to the combination of scope types.

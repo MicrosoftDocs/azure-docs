@@ -100,9 +100,9 @@ You need to be part of the Public Preview program and whitelisted for accessing 
    4. Use the default value for quota. 
    5. Under virtual network, click **Create new** to create a new Azure virtual network (Vnet).  Then fill in the following information:
        * Enter **myvnet1** as the Vnet name.
-       * Specify an address space, for example, 10.7.0.0/16.
+       * Specify an address space for your setting, for example, 10.7.0.0/16
        * Enter **myANFsubnet** as the subnet name.
-       * Specify the subnet address range, for example, 10.7.0.0/24.
+       * Specify the subnet address range, for example, 10.7.0.0/24. Note that you cannot share the dedicated subnet with other resources.
        * Select **Microsoft.NetApp/volumes** for subnet delegation.
        * Click **OK** to create the Vnet.
    6. In subnet, select the newly created Vnet (**myvnet1**) as the delegate subnet.

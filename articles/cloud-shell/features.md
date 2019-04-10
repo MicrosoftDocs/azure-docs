@@ -78,5 +78,5 @@ Cloud Shell includes pre-configured authentication for open-source tools such as
 ## Next steps
 [Bash in Cloud Shell Quickstart](quickstart.md) <br>
 [PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Learn about Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Learn about Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

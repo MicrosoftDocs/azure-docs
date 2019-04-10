@@ -111,7 +111,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
 
 1. Make sure that your logs are getting to the right port in the Syslog agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv` This command shows you the logs that streams from the device to the Syslog machine.This command shows you the logs that are streaming from the device to the Syslog machine. Make sure that logs are being received from the source appliance on the right port and right facility.
 2. Check that there is communication between the Syslog daemon and the agent. Run this command the Syslog agent machine: `tcpdump -A -ni any  port 25226 -vv` This command shows you the logs that streams from the device to the Syslog machine.Make sure that the logs are also being received on the agent.
-3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
+3. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog` type.
 1. To check if there are errors or if the logs aren't arriving, look in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
 6. To use the relevant schema in Log Analytics for the Cisco events, search for **CommonSecurityLog**.

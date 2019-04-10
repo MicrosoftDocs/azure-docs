@@ -53,26 +53,28 @@ The `{tenant}` can take one of four values:
 | `common` |Users with both a personal Microsoft account and a work or school account from Azure Active Directory (Azure AD) can sign in to the application. |
 | `organizations` |Only users with work or school accounts from Azure AD can sign in to the application. |
 | `consumers` |Only users with a personal Microsoft account can sign in to the application. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` |Only users with a work or school account from a specific Azure AD tenant can sign in to the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` or `contoso.onmicrosoft.com` | Only users with a work or school account from a specific Azure AD tenant can sign in to the application. Either the friendly domain name of the Azure AD tenant or the tenant's GUID identifier can be used. You can also use the consumer tenant, `9188040d-6c67-4c5b-b112-36a304b66dad`, in place of the `consumers` tenant.  |
 
 The metadata is a simple JavaScript Object Notation (JSON) document. See the following snippet for an example. The snippet's contents are fully described in the [OpenID Connect specification](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
 
   ...
 
 }
 ```
+If your app has custom signing keys as a result of using the [claims-mapping](active-directory-claims-mapping.md) feature, you must append an `appid` query parameter containing the app ID in order to get a `jwks_uri` pointing to your app's signing key information. For example: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contains a `jwks_uri` of `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-build OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app by using the v2.0 endpoint.
+
+Typically, you would use this metadata document to configure an OpenID Connect library or SDK; the library would use the metadata to do its work. However, if you're not using a pre-built OpenID Connect library, you can follow the steps in the remainder of this article to perform sign-in in a web app by using the v2.0 endpoint.
 
 ## Send the sign-in request
 
@@ -83,7 +85,7 @@ When your web app needs to authenticate the user, it can direct the user to the 
 * The request must include the `nonce` parameter.
 
 > [!IMPORTANT]
-> In order to successfully request an ID token, the app registration in the [registration portal](https://apps.dev.microsoft.com) must have the **[Implicit grant](v2-oauth2-implicit-grant-flow.md)** enabled for the Web client. If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
+> In order to successfully request an ID token from the /authorization endpoint, the app registration in the [registration portal](https://portal.azure.com) must have the implicit grant of id_tokens enabled in the Authentication tab (which sets the `oauth2AllowIdTokenImplicitFlow` flag in the [application manifest](reference-app-manifest.md) to `true`). If it is not enabled, an `unsupported_response` error will be returned: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'"
 
 For example:
 
@@ -109,14 +111,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |Required |You can use the `{tenant}` value in the path of the request to control who can sign in to the application. The allowed values are `common`, `organizations`, `consumers`, and tenant identifiers. For more information, see [protocol basics](active-directory-v2-protocols.md#endpoints). |
 | client_id |Required |The Application ID that the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) assigned to your app. |
 | response_type |Required |Must include `id_token` for OpenID Connect sign-in. It might also include other `response_type` values, such as `code`. |
-| redirect_uri |Recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. |
+| redirect_uri |Recommended |The redirect URI of your app, where authentication responses can be sent and received by your app. It must exactly match one of the redirect URIs you registered in the portal, except that it must be URL encoded. If not present, the endpoint will pick one registered redirect_uri at random to send the user back to. |
 | scope |Required |A space-separated list of scopes. For OpenID Connect, it must include the scope `openid`, which translates to the "Sign you in" permission in the consent UI. You might also include other scopes in this request for requesting consent. |
 | nonce |Required |A value included in the request, generated by the app, that will be included in the resulting id_token value as a claim. The app can verify this value to mitigate token replay attacks. The value typically is a randomized, unique string that can be used to identify the origin of the request. |
 | response_mode |Recommended |Specifies the method that should be used to send the resulting authorization code back to your app. Can be `form_post` or `fragment`. For web applications, we recommend using `response_mode=form_post`, to ensure the most secure transfer of tokens to your application. |
 | state |Recommended |A value included in the request that also will be returned in the token response. It can be a string of any content you want. A randomly generated unique value typically is used to [prevent cross-site request forgery attacks](https://tools.ietf.org/html/rfc6749#section-10.12). The state also is used to encode information about the user's state in the app before the authentication request occurred, such as the page or view the user was on. |
 | prompt |Optional |Indicates the type of user interaction that is required. The only valid values at this time are `login`, `none`, and `consent`. The `prompt=login` claim forces the user to enter their credentials on that request, which negates single sign-on. The `prompt=none` claim is the opposite. This claim ensures that the user is not presented with any interactive prompt whatsoever. If the request cannot be completed silently via single sign-on, the v2.0 endpoint returns an error. The `prompt=consent` claim triggers the OAuth consent dialog after the user signs in. The dialog asks the user to grant permissions to the app. |
 | login_hint |Optional |You can use this parameter to pre-fill the username and email address field of the sign-in page for the user, if you know the username ahead of time. Often, apps use this parameter during reauthentication, after already extracting the username from an earlier sign-in by using the `preferred_username` claim. |
-| domain_hint |Optional |This value can be `consumers` or `organizations`. If included, it skips the email-based discovery process that the user goes through on the v2.0 sign-in page, for a slightly more streamlined user experience. Often, apps use this parameter during reauthentication by extracting the `tid` claim from the ID token. If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad` (the Microsoft Account consumer tenant), use `domain_hint=consumers`. Otherwise, use `domain_hint=organizations`. |
+| domain_hint |Optional | The realm of the user in a federated directory.  This skips the email-based discovery process that the user goes through on the v2.0 sign-in page, for a slightly more streamlined user experience. For tenants that are federated through an on-premises directory like ADFS, this often results in a seamless sign-in due to the existing login session. |
 
 At this point, the user is prompted to enter their credentials and complete the authentication. The v2.0 endpoint verifies that the user has consented to the permissions indicated in the `scope` query parameter. If the user has not consented to any of those permissions, the v2.0 endpoint prompts the user to consent to the required permissions. You can read more about [permissions, consent, and multitenant apps](v2-permissions-and-consent.md).
 
@@ -175,7 +177,6 @@ The following table describes error codes that can be returned in the `error` pa
 Just receiving an id_token is not sufficient to authenticate the user; you must validate the id_token's signature and verify the claims in the token per your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
 You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [Validating Tokens](id-tokens.md#validating-an-id_token) and [Important Information About Signing Key Rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
-<!--TODO: Improve the information on this-->
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
 

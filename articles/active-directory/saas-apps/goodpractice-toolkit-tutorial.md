@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with GoodPractice Toolkit, perform the foll
 	![GoodPractice Toolkit Domain and URLs single sign-on information](common/sp-intiated.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
 	> [!Note]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [GoodPractice Toolkit Client support team](mailto:support@goodpractice.com) to get the value.
