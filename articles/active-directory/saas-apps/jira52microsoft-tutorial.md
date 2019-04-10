@@ -59,8 +59,10 @@ To test the steps in this tutorial, you should follow these recommendations:
 ## Supported versions of JIRA
 
 * JIRA Core and Software: 5.2
-* Linux Ubuntu version 16.04
 * JIRA also supports 6.0 to 7.12. For more details, click [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
+
+> [!NOTE]
+> Please note that JIRA also supports Linux Ubuntu version 16.04.
 
 ## Scenario description
 
