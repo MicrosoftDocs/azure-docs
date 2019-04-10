@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Zscaler ZSCloud for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: In this tutorial, you will learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler ZSCloud.
+description: In this tutorial, you'll learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler ZSCloud.
 services: active-directory
 documentationcenter: ''
 author: zchia

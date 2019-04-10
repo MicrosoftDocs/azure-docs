@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Zscaler Two for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: In this tutorial, you learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler Two.
+description: In this tutorial, you'll learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler Two.
 services: active-directory
 documentationcenter: ''
 author: zchia
