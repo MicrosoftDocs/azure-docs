@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Sign-in options for Microsoft accounts in Azure Active Directory
 
-The Microsoft 365 sign-in page for Azure Active Directory (Azure AD) supports one or both of work or school accounts and Microsoft accounts, depending on the situation, to support:
+The Microsoft 365 sign-in page for Azure Active Directory (Azure AD) supports work or school accounts and Microsoft accounts, but depending on the user's situation, it could be one or the other or both. For example, the Azure AD sign-in page supports:
 
 * Apps that accept sign-ins from both types of account
 * Organizations that accept guests
