@@ -262,6 +262,6 @@ Dataset.list(workspace)
 
 ## Next steps
 
-* Learn how to [explore and prepare data]
-* Manage the lifecycle of [Dataset definitions]
-* Learn how to [take snapshot of Datasets]
+* Learn how to explore and prepare data
+* Manage the lifecycle of Dataset definitions
+* Learn how to take snapshot of Datasets
