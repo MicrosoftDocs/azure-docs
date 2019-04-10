@@ -84,3 +84,8 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. Private site access is only available with an ASE configured with an Internal Load Balancer (ILB). For details on using an ILB ASE, see [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
 
 There are many ways to access VNET resources in other hosting options, but an ASE is the only way to allow triggers for a function to occur over a VNET.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Understand Azure Functions scale and hosting options](functions-scale.md)
