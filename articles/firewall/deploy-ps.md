@@ -52,9 +52,7 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 The resource group contains all the resources for the tutorial.
 
-```azurepowershell
-  New-AzResourceGroup -Name Test-FW-RG -Location "East US"
-  ```
+`New-AzResourceGroup -Name Test-FW-RG -Location "East US"`
 
 ### Create a VNet
 
@@ -139,9 +137,9 @@ Note the private IP address. You'll use it later when you create the default rou
 
 ## Create a default route
 
-#Create a table, with BGP route propagation disabled
+Create a table, with BGP route propagation disabled
 
-```
+```azurepowershell
 $routeTableDG = New-AzRouteTable `
   -Name Firewall-rt-table `
   -ResourceGroupName Test-FW-RG `
@@ -170,7 +168,7 @@ Set-AzVirtualNetworkSubnetConfig `
 
 ## Configure an application rule
 
-This is the application rule that allows outbound access to www.google.com.
+The application rule allows outbound access to www.google.com.
 
 ```azurepowershell
 $AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 -Protocol http, https -TargetFqdn www.google.co
@@ -186,7 +184,7 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 
 ## Configure a network rule
 
-This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
+The network rule allows outbound access to two IP addresses at port 53 (DNS).
 
 ```azurepowershell
 $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAddress 10.0.2.0/24 `
@@ -202,7 +200,7 @@ Set-AzFirewall -AzureFirewall $Azfw
 
 For testing purposes in this tutorial, configure the server's primary and secondary DNS addresses. This isn't a general Azure Firewall requirement.
 
-```
+```azurepowershell
 $NIC.DnsSettings.DnsServers.Add("209.244.0.3")
 $NIC.DnsSettings.DnsServers.Add("209.244.0.4")
 $NIC | Set-AzNetworkInterface
@@ -219,6 +217,7 @@ Now, test the firewall to confirm that it works as expected.
 1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
 
 3. Open a PowerShell window and run the following commands:
+
    ```
    nslookup www.google.com
    nslookup www.microsoft.com
@@ -242,7 +241,6 @@ So now you've verified that the firewall rules are working:
 
 * You can resolve DNS names using the configured external DNS server.
 * You can browse to the one allowed FQDN, but not to any others.
-
 
 ## Clean up resources
 
