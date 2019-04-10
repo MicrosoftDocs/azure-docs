@@ -162,7 +162,7 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test.
+From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test. It may take up to 20 minutes for configuration changes to propagate.
 
 Select **View test details** from a specific test to see its scatter plot and specific test location details.
 

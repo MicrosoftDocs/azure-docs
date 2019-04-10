@@ -23,6 +23,9 @@ Azure VPN Gateway enables you to create hybrid solution that address the need fo
 
 With the Azure Network Watcher troubleshoot feature, you are able to diagnose any issues with your Gateway and Connections and within minutes have enough information to make an informed decision to rectify the issue.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Scenario
 
 You want to configure a site-to-site connection between Azure and on-premises using FortiGate as the on-premises VPN Gateway. To achieve this scenario, you would require the following setup:
@@ -53,7 +56,7 @@ These issues are hard to troubleshoot and root causes are often non-intuitive. I
 
 ## Troubleshooting using Azure Network Watcher
 
-To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzureRmNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete.
+To diagnose your connection, connect to Azure PowerShell and initiate the `Start-AzNetworkWatcherResourceTroubleshooting` cmdlet. You can find the details on using this cmdlet at [Troubleshoot Virtual Network Gateway and connections - PowerShell](network-watcher-troubleshoot-manage-powershell.md). This cmdlet may take up to few minutes to complete.
 
 Once the cmdlet completes, you can navigate to the storage location specified in the cmdlet to get detailed information on about the issue and logs. Azure Network Watcher creates a zip folder that contains the following log files:
 

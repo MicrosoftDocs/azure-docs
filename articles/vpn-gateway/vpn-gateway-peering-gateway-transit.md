@@ -33,9 +33,6 @@ There are two scenarios described in this document:
 1. Both virtual networks are using the Resource Manager deployment model
 2. The spoke virtual network is classic, and the hub virtual network with gateway is in Resource Manager
 
-> [!IMPORTANT]
-> Gateway transit is currently not supported with global virtual network peering.
-
 ## Requirements
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]

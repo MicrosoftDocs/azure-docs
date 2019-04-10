@@ -89,8 +89,9 @@ The following conditions apply to Try Azure Cosmos DB subscriptions:
 * Up to three collections per subscription for MongoDB accounts.
 * 10-GB storage capacity.
 * Global replication is available in the following [Azure regions](https://azure.microsoft.com/regions/): Central US, North Europe, and Southeast Asia
-* Maximum throughput of 5 K RU/s.
-* Subscriptions expire after 24 hours, and can be extended to a maximum of 48 hours total.
+* Maximum throughput of 5 K RU/s when provisioned at the container level.
+* Maxium throughput of 20 K RU/s when provisioned at the database level.
+* Subscriptions expire after 30 days, and can be extended to a maximum of 31 days total.
 * Azure support tickets can't be created for Try Azure Cosmos DB accounts; however, support is provided for subscribers with existing support plans.
 
 ## Set up Azure Cosmos DB
@@ -153,7 +154,7 @@ Containers are also the billing entities for Azure Cosmos DB. Each container is 
 
 ### How do I create a database?
 
-You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
+You can create databases by using the [Azure portal](https://portal.azure.com), as described in [Add a collection](create-sql-api-dotnet.md#create-collection-database), one of the [Azure Cosmos DB SDKs](sql-api-sdk-dotnet.md), or the [REST APIs](/rest/api/cosmos-db/).
 
 ### How do I set up users and permissions?
 
@@ -195,7 +196,7 @@ Yes. The [Azure Cosmos DB Emulator](local-emulator.md) provides a high-fidelity 
 
 ### Why are long floating-point values in a document rounded when viewed from data explorer in the portal.
 
-This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely hold numbers between -(253 - 1) and 253-1 (i.e., 9007199254740991) only.
+This is limitation of JavaScript. JavaScript uses double-precision floating-point format numbers as specified in IEEE 754 and it can safely hold numbers between -(2<sup>53</sup> - 1) and 2<sup>53</sup>-1 (i.e., 9007199254740991) only.
 
 ### Where are permissions allowed in the object hierarchy?
 
@@ -209,7 +210,7 @@ The Azure Cosmos DB's API for MongoDB is a wire-protocol compatibility layer tha
 
 ### How do I connect to my database?
 
-The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. QuickStart is the best way to get code snippets to connect to your database.
+The quickest way to connect to a Cosmos database with Azure Cosmos DB's API for MongoDB is to head over to the [Azure portal](https://portal.azure.com). Go to your account and then, on the left navigation menu, click **Quick Start**. Quickstart is the best way to get code snippets to connect to your database.
 
 Azure Cosmos DB enforces strict security requirements and standards. Azure Cosmos DB accounts require authentication and secure communication via SSL, so be sure to use TLSv1.2.
 
@@ -251,7 +252,7 @@ There are some behavior differences that users coming from Azure Table storage w
 * CORS isn't currently supported
 * Table names in Azure Table storage aren't case-sensitive, but they are in Azure Cosmos DB Table API
 * Some of Azure Cosmos DB's internal formats for encoding information, such as binary fields, are currently not as efficient as one might like. Therefore this can cause unexpected limitations on data size. For example, currently one couldn't use the full one Meg of a table entity to store binary data because the encoding increases the data's size.
-* Entity property name 'Id' currently not supported
+* Entity property name 'ID' currently not supported
 * TableQuery TakeCount isn't limited to 1000
 
 In terms of the REST API there are a number of endpoints/query options that aren't supported by Azure Cosmos DB Table API:

@@ -57,7 +57,7 @@ In the **data source** page, the source must be **Cosmos DB**, with the followin
 
 + **Name** is the name of the data source object. Once created, you can choose it for other workloads.
 
-+ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEdpointPoint` and an `AccountKey`. The account determines whether data is cast as SQL API or Mongo DB API
++ **Cosmos DB account** should be the primary or secondary connection string from Cosmos DB, with an `AccountEndpoint` and an `AccountKey`. The account determines whether data is cast as SQL API or Mongo DB API
 
 + **Database** is an existing database from the account. 
 

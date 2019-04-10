@@ -129,7 +129,6 @@
     - name: Premium storage performance
       href: ../virtual-machines/windows/premium-storage-performance.md
       maintainContext: true
-      maintainContext: true
     - name: Scalability targets for disks
       href: ../virtual-machines/windows/disk-scalability-targets.md
       maintainContext: true
