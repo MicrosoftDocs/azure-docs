@@ -374,7 +374,7 @@ You see user profile information returned by the Microsoft Graph API call on the
 
 ![API Call Results screen](./media/tutorial-v2-windows-uwp/uwp-results-screen.PNG)
 
-You also see basic information about the token acquired via `AcquireToken` or `AcquireTokenSilentAsync` in the **Token Info** box:
+You also see basic information about the token acquired via `AcquireTokenInteractive` or `AcquireTokenSilent` in the **Token Info** box:
 
 |Property  |Format  |Description |
 |---------|---------|---------|
