@@ -1,15 +1,15 @@
 ---
-title: 'Deploy and configure Azure Firewall using the Azure PowerShell'
+title: 'Deploy and configure Azure Firewall using Azure PowerShell'
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure PowerShell. 
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.date: 4/9/2019
+ms.date: 4/10/2019
 ms.author: victorh
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Deploy and configure Azure Firewall using the Azure PowerShell
+# Deploy and configure Azure Firewall using Azure PowerShell
 
 Controlling outbound network access is an important part of an overall network security plan. For example, you may want to limit access to web sites. Or, you may want to limit the outbound IP addresses and ports that can be accessed.
 
