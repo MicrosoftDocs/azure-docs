@@ -1,9 +1,13 @@
 - name: Form Recognizer Documentation
 - name: Overview
-  expanded: true
   items:
   - name: What is Form Recognizer?
     href: overview.md
+- name: Quickstarts
+  expaned: true
+  items:
+  - name: cURL
+    href: quickstarts/curl-train-extract.md
 - name: How-to guides
   items:
   - name: Use containers

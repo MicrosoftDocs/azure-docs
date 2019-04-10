@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: form-recognizer
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 04/08/2019
 ms.author: pafarley
 #Customer intent: As the developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use its features.
 ---
@@ -19,11 +19,13 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 ## What it does
 
-When you submit your input data the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present in the forms, and learns to associate values to keys and entries to tables. Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
+When you submit your input data, the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present, and learns to associate values to keys and entries to tables. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data and are less accurate with input material that deviates from traditional formats, like industry-specific forms.
+
+Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
 ## What it includes
 
-Form Recognizer is available as a REST API. You can create, train and score a model by invoking this API, and you can optionally run the model in a local Docker container.
+Form Recognizer is available as a REST API. You can create, train and score a model by invoking the API, and you can optionally run the model in a local Docker container.
 
 ## Input requirements
 
@@ -33,11 +35,19 @@ Form Recognizer works on input documents that meet the following requirements:
 * For images:
   * File size must be less than 4 megabytes (MB)
   * Dimensions must be between 50x50 and 4200x4200 pixels
+* If scanned from paper documents, forms should be high-quality scans
 * Must use the Latin alphabet (English characters)
 * Printed data (not handwritten)
 * Must contain keys and values
-* Keys must appear on the top or the left of the document
-* If scanned from paper documents, forms should be high-quality scans
+* Keys can appear above or to the left of the values, but not below or to the right.
+
+Additionally, Form Recognizer is **not** compatible with the following types of input data:
+
+* Forms which have keys and values in varying locations for the same form type
+* Complex tables (tables whose header and data associations cannot be easily determined from the layout)
+* Forms with checkboxes or radio buttons
+* Images which appear tilted
+* PDF documents longer than 3000 pages (Form Recognizer will process the first 3000 pages)
 
 ## Data privacy and security
 

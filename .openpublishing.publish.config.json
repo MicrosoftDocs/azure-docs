@@ -21,7 +21,9 @@
       "version": 0
     }
   ],
-  "notification_subscribers": [],
+  "notification_subscribers": [
+    "azure-docs-publish@microsoft.com"
+  ],
   "sync_notification_subscribers": [
     "tysonn@microsoft.com"
   ],
