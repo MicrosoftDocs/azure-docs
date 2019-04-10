@@ -5,7 +5,7 @@
   items:
   - name: What is the Text Analytics API?
     href: overview.md
-  - name: Example use cases
+  - name: Example user scenarios
     href: text-analytics-use-cases.md
 - name: Quickstarts
   items:
