@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: alkohli
 ---
 # Monitor your Azure Data Box Edge
@@ -51,25 +51,27 @@ You can also view the metrics to monitor the performance of the device. There ar
 - **Metric namespace**:
 - **Metric**: These can be **Capacity metrics** or **Transaction metrics**. The capacity metrics are related to the capacity of the device. The transaction metrics are related to the read and write operations to Azure Storage.
 
-    |Capacity metrics                     |Column2  |
-    |-------------------------------------|---------|
-    |**Available capacity**               |         |
-    |**Total capacity**                   |         |
+    |Capacity metrics                     |Description  |
+    |-------------------------------------|-------------|
+    |**Available capacity**               | Refers to the size of the data that can be written to the device. In other words, this is the capacity that can be made available on the device. You can free up the device capacity by deleting the local copy of files that have a copy on both the device as well as the cloud.        |
+    |**Total capacity**                   | Refers to the total bytes on the device to write data to. This is also referred to as the total size of the local cache. <br> You can now increase the capacity of an existing virtual device by adding a data disk. Add a data disk through the hypervisor management for the VM and then restart your VM. The local storage pool of the Gateway device will expand to accommodate the newly added data disk. <br>For more information, go to [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
     
     |**Transaction metrics**              | Description         |
     |-------------------------------------|---------|
-    |**Cloud bytes uploaded (device)**    |         |
-    |**Cloud bytes uploaded (share)**     |         |
-    |**Cloud download throughput (share)**|         |
-    |**Cloud read throughput**            |         |
-    |**Cloud upload throughput**          |         |
-    |**Cloud upload throughput (share)**  |         |
-    |**Read through (network)**           |         |
-    |**Write throughput (network)**       |         |
-    |**Edge compute - memory usage**      |         |
-    |**Edge compute - percentage CPU**    |         |
+    |**Cloud bytes uploaded (device)**    | Sum of all bytes uploaded across all shares        |
+    |**Cloud bytes uploaded (share)**     | Sum of all bytes uploaded per share / # of shares is average, max and min       |
+    |**Cloud download throughput (share)**| Sum of all bytes read or downloaded to a share / # of shares is average, max and min   per share     |
+    |**Cloud read throughput**            | Sum of all the bytes read from the cloud across all the shares     |
+    |**Cloud upload throughput**          |  Sum of all the bytes written to the cloud across all the shares      |
+    |**Cloud upload throughput (share)**  |   Sum of all bytes written to the cloud from a share / # of shares is average, max and min   per share      |
+    |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares such as updates or support package. Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
+    |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares such as updates or support package. Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
+    |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. This metrics is not populated for Data Box Gateway.          |
+    |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. This metrics is not populated for Data Box Gateway.        |
 
-- **Aggregation**: When a metric is selected, aggregation can be defined. Aggregation refers to the actual value aggregated over a specified span of time. These can be average, minimum, or the maximum value.
+- **Aggregation**: When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. These can be average, minimum, or the maximum value. Aggregation is only defined for metrics that have multiple instances over which the value is aggregated.
+
+If for a metrics multiple instances exist, then the splitting option is available once you enter the resource, metrics, and aggregation.
 
 + New chart
 + Refresh
