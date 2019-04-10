@@ -149,6 +149,8 @@
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
+  - name: Google GCM to FCM Migration
+    href: notification-hubs-gcm-to-fcm.md
   - name: SDKs
     href: notification-hubs-sdks.md
   - name: Azure Roadmap
