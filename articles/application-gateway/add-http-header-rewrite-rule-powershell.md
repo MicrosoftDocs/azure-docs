@@ -45,9 +45,9 @@ To configure HTTP header rewrite, you will need to:
 
      If you don't specify the RuleSequence explicitly, a default value of 100 will be set.
 
-   - **RewriteRuleSet**- this object contains multiple rewrite rules which will be associated to a request routing rule.
+   - **RewriteRuleSet**: this object contains multiple rewrite rules which will be associated to a request routing rule.
 
-2. You will be required to attach the rewrite set with a routing rule. This is because the rewrite configuration is attached to the source listener via the routing rule. When using a basic routing rule, the header rewrite configuration is associated with a source listener and is a global header rewrite. When a path-based routing rule is used, the header rewrite configuration is defined on the URL path map. So, it only applies to the specific path area of a site.
+2. You will be required to attach the rewriteRuleSet with a routing rule. This is because the rewrite configuration is attached to the source listener via the routing rule. When using a basic routing rule, the header rewrite configuration is associated with a source listener and is a global header rewrite. When a path-based routing rule is used, the header rewrite configuration is defined on the URL path map. So, it only applies to the specific path area of a site.
 
 You can create multiple http header rewrite sets and each rewrite set can be applied to multiple listeners. However, you can apply only one rewrite set to a specific listener.
 
@@ -60,10 +60,9 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## **Specify your http header rewrite rule configuration**
 
-Configure the new objects required to rewrite the http headers:
+In this example, we will modify the redirection URL by rewriting the location header in the http response whenever the location header contains a reference to "azurewebsites.net". To do this, we will add a condition to evaluate whether the location header in the response contains azurewebsites.net by using the pattern `(https?):\/\/.*azurewebsites\.net(.*)$`. We will use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This will replace *azurewebsites.net* with *contoso.com* in the location header.
 
 ```azurepowershell
-$requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
 $actionSet = New-AzApplicationGatewayRewriteRuleActionSet -RequestHeaderConfiguration $requestHeaderConfiguration -ResponseHeaderConfiguration $responseHeaderConfiguration
 $condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsites\.net(.*)$" -IgnoreCase
