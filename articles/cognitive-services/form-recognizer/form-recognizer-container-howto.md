@@ -17,7 +17,7 @@ The Form Recognizer has the following container(s):
 
 |Function|Features|
 |-|-|
-|form-understanding|Form Recognizer learns the structure of your forms in order to intelligently extract key value pairs and tables.|
+|form-recognizer|Form Recognizer learns the structure of your forms in order to intelligently extract key value pairs and tables.|
 
 <!--If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.-->
 
@@ -64,7 +64,7 @@ The following table describes the minimum and recommended CPU cores and memory t
 
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
-|form-recognizer| 2 core, 4 GB memory | 4 core, 8 GB memory |
+|cognitive-services-form-recognizer| 2 core, 4 GB memory | 4 core, 8 GB memory |
 
 Each core must be at least 2.6 gigahertz (GHz) or faster.
 
@@ -76,7 +76,7 @@ Container images for Form Recognizer are available.
 
 | Container | Repository |
 |-----------|------------|
-| form-recognizer| `containerpreview.azurecr.io/microsoft/form-recognizer:latest` |
+| form-recognizer| `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest` |
 
 
 > [!TIP]
@@ -86,15 +86,15 @@ Container images for Form Recognizer are available.
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        containerpreview.azurecr.io/microsoft/form-recognizer                latest
+>  IMAGE ID            REPOSITORY                                                                   TAG
+>  ebbee78a6baa        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer     latest
 >  ```
 
 
 ### Docker pull for the Form Recognizer container
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/form-recognizer:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:latest
 ```
 
 ## How to use the container
@@ -147,7 +147,7 @@ Replace these parameters with your own values in the following example `docker r
  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
- containerpreview.azurecr.io/microsoft/form-recognizer
+ containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer
   eula=accept apikey={BILLING_KEY}
   billing={BILLING_ENDPOINT_URI} forms:computervisionapikey={COMPUTER_VISION_API_KEY}
   forms:computervisionendpointuri={COMPUTER_VISION_ENDPOINT_URI}
@@ -175,7 +175,7 @@ Run the first container on port 5000.
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/form-recognizer
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
@@ -187,7 +187,7 @@ Run the second container on port 5001.
 docker run --rm -it -p 5000:5001 --memory 4g --cpus 2
 --mount type=bind,source=c:\input,target=/input  
 --mount type=bind,source=c:\output,target=/output
-containerpreview.azurecr.io/microsoft/form-recognizer
+containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer
 eula=accept apikey={BILLING_KEY}
 billing={BILLING_ENDPOINT_URI} computervisionapikey={COMPUTER_VISION_API_KEY}
 computervisionendpointuri={COMPUTER_VISION_API_BILLING_ENDPOINT_URI}
@@ -207,7 +207,7 @@ To mount a previously created  Azure file to kubernetes get the YOUR_STORAGEACCO
 
 1. Configure Kubernetes manifest file
 
-    a. Download this [aks.forms_understanding.pp.yaml](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/aks.forms_understanding.pp.yaml) file from thi github to the folder "kubectl/form-understanding" on your **host** locally.
+    a. Download this [aks.forms_understanding.pp.yaml](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/aks.forms_understanding.pp.yaml) file from thi github to the folder "kubectl/form-recognizer" on your **host** locally.
 
     b. Inside the local folder, open the file `aks.forms_understanding.pp.yaml`. You will need to fill in the following values, with keys specific to your Azure subscription.
 
@@ -233,26 +233,26 @@ To mount a previously created  Azure file to kubernetes get the YOUR_STORAGEACCO
 
 1. Verify you have installed AKS cluster `az aks get-credentials -g {YOUR_AKS_RESOURCE_GROUP_NAME} -n {YOUR_AKS_CLUSTER_NAME}`
 
-1. Install the form-understanding yaml file - From local folder in step 3a. above, run following comand to install file and start service: `kubectl apply -f aks.forms_understanding.pp.yaml`
+1. Install the form-recognizer yaml file - From local folder in step 3a. above, run following command to install file and start service: `kubectl apply -f aks.forms_understanding.pp.yaml`
 
-1. Wait for service to come online - Once service is fully online, EXTERNAL-IP field will be populated with a publicly accessible IPv4 address: `kubectl get service forms-understanding-1 --watch`
+1. Wait for service to come online - Once service is fully online, EXTERNAL-IP field will be populated with a publicly accessible IPv4 address: `kubectl get service form-recognizer-1 --watch`
 
 1. Configure Port forwarding - In order to configure localhost port forwarding, run following command to get list of pods. From this list look for pod name with format:
   
-    forms-understanding-1-{xxxx-xxxx}
+    form-recognizer-1-{xxxx-xxxx}
      `kubectl get pods --namespace default`
 
     Use the pod name found in previous command to configure port forwarding:
-    `kubectl port-forward forms-understanding-1-{xxxx-xxxx} 5000:5000`
+    `kubectl port-forward form-recognizer-1-{xxxx-xxxx} 5000:5000`
 
     Get the name:
     ```
-    kubectl get pods --namespace default -l "app.kubernetes.io/name=forms-understanding,app.kubernetes.io/instance=forms-understanding-1" -o jsonpath="{.items[0].metadata.name}"
+    kubectl get pods --namespace default -l "app.kubernetes.io/name=form-recognizer,app.kubernetes.io/instance=form-recognizer-1" -o jsonpath="{.items[0].metadata.name}"
     ```
 
     Using the name do the port forward:
     ```
-    kubectl port-forward forms-understanding-1-{XXXXXXX-XXXXX} 5000:5000
+    kubectl port-forward form-recognizer-1-{XXXXXXX-XXXXX} 5000:5000
     ```
 
 ## Query the Form Recognizer container endpoint
