@@ -1,5 +1,5 @@
 ---
-title: Example use cases for the Text Analytics API
+title: Example user scenarios for the Text Analytics API
 titleSuffix: Azure Cognitive Services
 description: Use this article to see some common scenarios for integrating the Text Analytics API into your services and processes. 
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 ms.author: aahi
 ---
 
-# Example use cases for the Text Analytics API
+# Example user scenarios for the Text Analytics API
 
 The Text Analytics API is a cloud-based service that provides advanced natural language processing over text. This article describes some example use cases for integrating the API into your business solutions and processes. 
 
