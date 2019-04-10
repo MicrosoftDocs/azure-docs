@@ -30547,6 +30547,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/alibaba-cloud-service-(role-based-sso)-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/index.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -35393,6 +35398,11 @@
     {
       "source_path": "articles/storage/common/storage-lifecycle-managment-concepts.md",
       "redirect_url": "/azure/storage/common/storage-lifecycle-management-concepts",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
+      "redirect_url": "/azure/storage/common/storage-metrics-in-azure-monitor",
       "redirect_document_id": true
     },
     {

@@ -1,4 +1,4 @@
-﻿---
+---
 title: PowerShell example - create a managed instance in Azure SQL Database | Microsoft Docs
 description: Azure PowerShell example script to create a managed instance in Azure SQL Database
 services: sql-database
@@ -7,15 +7,15 @@ ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer:
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
 ---
 # Use PowerShell to create an Azure SQL Database managed instance
 
-This PowerShell script example creates an Azure SQL Database managed instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. For quickstarts showing you how to accomplish this, see [Configure Azure VM to connect to an Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) and [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](../sql-database-managed-instance-configure-p2s.md).
+This PowerShell script example creates an Azure SQL Database managed instance in a dedicated subnet within a new virtual network. It also configures a route table and a network security group for the virtual network. Once the script has been successfully run, the managed instance can be accessed from within the virtual network or from an on-premises environment. See [Configure Azure VM to connect to an Azure SQL Database Managed Instance](../sql-database-managed-instance-configure-vm.md) and [Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > For limitations, see [supported regions](../sql-database-managed-instance-resource-limits.md#supported-regions) and [supported subscription types](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -30,7 +30,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 
 ## Clean up deployment
 
-After the script sample has been run, the following command can be used to remove the resource group and all resources associated with it.
+Use the following command to remove  the resource group and all resources associated with it.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -42,7 +42,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Creates a resource group in which all resources are stored.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Creates a virtual network |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Adds a subnet configuration to a virtual network |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Gets a virtual network in a resource group |
