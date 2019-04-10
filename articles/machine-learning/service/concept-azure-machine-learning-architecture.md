@@ -1,14 +1,14 @@
 ---
-title: 'Machine learning in the cloud: Terms and architecture'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
