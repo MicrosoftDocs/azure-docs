@@ -37,6 +37,7 @@ This article lists the new features and improvements in the SQL Database service
 |Memory Grant Feedback (Row Mode) (under compatibility level 150)|For information, see [Memory Grant Feedback (Row Mode)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback)|
 |Table Variable Deferred Compilation (under compatibility level 150)|For information, see [Table Variable Deferred Compilation](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#table-variable-deferred-compilation)|
 |SQL Analytics|For information, see [Azure SQL Analytics](../azure-monitor/insights/azure-sql.md)|
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 |||
 
 ## March 2019
@@ -52,7 +53,7 @@ This article lists the new features and improvements in the SQL Database service
 
 | Documentation improvements | Details |
 | --- | --- |
-| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instnace-timezone.md)|
+| Time zone support for managed instances|For more information, see [Time Zone in Azure SQL Database Managed Instance](sql-database-managed-instance-timezone.md)|
 | Added log limits for single databases|For more information, see [Single database vCore resource limits](sql-database-vcore-resource-limits-single-databases.md).|
 | Added log limits for elastic pools and pooled databases|For more information, see [Elastic pools vCore resource limits](sql-database-vcore-resource-limits-elastic-pools.md).|
 | Added Transaction log rate governance| Added new content for [Transaction log rate governance](sql-database-resource-limits-database-server.md#transaction-log-rate-governance).|
