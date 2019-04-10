@@ -16,18 +16,15 @@ ms.author: spelluru
 ---
 
 # Quickstart: Use Azure portal to create a Service Bus queue
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.  
-
-![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
-
 This quickstart describes how to send and receive messages to and from a Service Bus queue, using the [Azure portal][Azure portal] to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-If you don't have an Azure subscription, you can create a [free account][] before you begin.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## Prerequisites
 
 To complete this tutorial, make sure you have installed:
 
+- An Azure subscription. If you don't have an Azure subscription, you can create a [free account][] before you begin.
 - [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
