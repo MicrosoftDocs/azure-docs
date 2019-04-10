@@ -19,7 +19,7 @@ Azure Form Recognizer is a cognitive service that uses machine learning technolo
 
 ## What it does
 
-When you submit your input data, the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present, and learns to associate values to keys and entries to tables. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance.
+When you submit your input data, the algorithm trains to it, clusters the forms by types, discovers what keys and tables are present, and learns to associate values to keys and entries to tables. Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data and are less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
 Once the model is trained, you can test, retrain, and eventually use it to reliably extract data from more forms according to your needs.
 
@@ -39,7 +39,7 @@ Form Recognizer works on input documents that meet the following requirements:
 * Must use the Latin alphabet (English characters)
 * Printed data (not handwritten)
 * Must contain keys and values
-* Keys must appear on the top or the left of the document
+* Keys can appear above or to the left of the values, but not below or to the right.
 
 Additionally, Form Recognizer is **not** compatible with the following types of input data:
 
@@ -48,8 +48,6 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 * Forms with checkboxes or radio buttons
 * Images which appear tilted
 * PDF documents longer than 3000 pages (Form Recognizer will process the first 3000 pages)
-
-Pre-trained machine learning models work best with standardized content. If you have input material that deviates from traditional formats, like industry-specific forms, then the data extraction may be less accurate.
 
 ## Data privacy and security
 
