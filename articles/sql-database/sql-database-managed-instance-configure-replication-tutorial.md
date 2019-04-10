@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 > - Configure a Managed Instance as a replication Distributor. 
 > - Configure a SQL Server as a subscriber. 
 
-This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying managed instances, and SQL Server VMs within Azure. As such, steps for creating the managed instance will be glossed over. 
+This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances, and SQL Server VMs within Azure. As such, certain steps in this tutorial are glossed over. 
 
 
 To learn more, see the [Azure SQL Database managed instance overview](sql-database-managed-instance-index.yml), [capabilities](sql-database-managed-instance.md), and [SQL Transacational Replication](sql-database-managed-instance-transactional-replication.md) articles.
@@ -74,7 +74,6 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName SQLMI-Repl `
   -Name vnet-sql-mi-pub 
 
-
  $virtualNetwork2 = Get-AzVirtualNetwork `
   -ResourceGroupName SQLMI-Repl `
   -Name sql-vm-sub-vnet 
@@ -105,6 +104,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
+Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on your SQL Server VM and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to the MI](sql-database-managed-instance-configure-p2s#use-ssms-to-connect-to-the-managed-instance). 
 
 ## Clean up resources
 
