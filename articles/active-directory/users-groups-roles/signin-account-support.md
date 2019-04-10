@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/10/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
@@ -29,7 +29,7 @@ You can tell if the sign-in page your organization uses supports Microsoft accou
 
 ![Difference between account sign-in pages](./media/signin-account-support/ui-prompt.png)
 
-[Additional sign-in options work only for personal Microsoft accounts](index.yml) but can't be used for signing in to work or school account resources.
+[Additional sign-in options work only for personal Microsoft accounts](https://azure.microsoft.com/updates/signin-hrd/) but can't be used for signing in to work or school account resources.
 
 ## Next steps
 
