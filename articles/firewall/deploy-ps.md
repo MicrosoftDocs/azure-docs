@@ -38,6 +38,8 @@ In this article, you learn how to:
 > * Configure a network rule to allow access to external DNS servers
 > * Test the firewall
 
+If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
@@ -50,9 +52,11 @@ First, create a resource group to contain the resources needed to deploy the fir
 
 ### Create a resource group
 
-The resource group contains all the resources for the tutorial.
+The resource group contains all the resources for the deployment.
 
-`New-AzResourceGroup -Name Test-FW-RG -Location "East US"`
+```azurepowershell
+New-AzResourceGroup -Name Test-FW-RG -Location "East US"`
+```
 
 ### Create a VNet
 
@@ -96,15 +100,9 @@ Create a workload virtual machine with no public IP address.
 When prompted, type a user name and password for the virtual machine.
 
 ```azurepowershell
-# Create an inbound network security group rule for ports 3389
-$nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name Allow-RDP  -Protocol Tcp `
-  -Direction Inbound -Priority 200 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix 10.0.2.0/24 -DestinationPortRange 3389 -Access Allow
-
-# Create a network security group
-$nsg = New-AzNetworkSecurityGroup -ResourceGroupName Test-FW-RG -Location "East US" -Name NSG-01 -SecurityRules $nsgRuleRDP
-
 #Create the NIC
-$NIC = New-AzNetworkInterface -Name Srv-work -ResourceGroupName Test-FW-RG -Location "East US" -Subnetid $testVnet.Subnets[1].Id -NetworkSecurityGroupId $nsg.Id
+$NIC = New-AzNetworkInterface -Name Srv-work -ResourceGroupName Test-FW-RG `
+ -Location "East US" -Subnetid $testVnet.Subnets[1].Id 
 
 #Define the virtual machine
 $VirtualMachine = New-AzVMConfig -VMName Srv-Work -VMSize "Standard_DS2"
@@ -118,7 +116,7 @@ New-AzVM -ResourceGroupName Test-FW-RG -Location "East US" -VM $VirtualMachine -
 
 ## Deploy the firewall
 
-Now deploy the firewall into the hub virtual network.
+Now deploy the firewall into the virtual network.
 
 ```azurepowershell
 # Get a Public IP for the firewall
@@ -147,11 +145,9 @@ $routeTableDG = New-AzRouteTable `
   -DisableBgpRoutePropagation
 
 #Create a route
-Get-AzRouteTable `
-  -ResourceGroupName Test-FW-RG `
-  -Name Firewall-route `
- | Add-AzRouteConfig `
+ Add-AzRouteConfig `
   -Name "DG-Route" `
+  -RouteTable $routeTableDG `
   -AddressPrefix 0.0.0.0/0 `
   -NextHopType "VirtualAppliance" `
   -NextHopIpAddress $AzfwPrivateIP `
@@ -171,12 +167,14 @@ Set-AzVirtualNetworkSubnetConfig `
 The application rule allows outbound access to www.google.com.
 
 ```azurepowershell
-$AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 -Protocol http, https -TargetFqdn www.google.co
+$AppRule1 = New-AzFirewallApplicationRule -Name Allow-Google -SourceAddress 10.0.2.0/24 `
+  -Protocol http, https -TargetFqdn www.google.com
 
 $AppRuleCollection = New-AzFirewallApplicationRuleCollection -Name App-Coll01 `
   -Priority 200 -ActionType Allow -Rule $AppRule1
 
 $Azfw.ApplicationRuleCollections = $AppRuleCollection
+
 Set-AzFirewall -AzureFirewall $Azfw
 ```
 
@@ -192,7 +190,9 @@ $NetRule1 = New-AzFirewallNetworkRule -Name "Allow-DNS" -Protocol UDP -SourceAdd
 
 $NetRuleCollection = New-AzFirewallNetworkRuleCollection -Name RCNet01 -Priority 200 `
    -Rule $NetRule1 -ActionType "Allow"
+
 $Azfw.NetworkRuleCollections = $NetRuleCollection
+
 Set-AzFirewall -AzureFirewall $Azfw
 ```
 
@@ -212,11 +212,13 @@ Now, test the firewall to confirm that it works as expected.
 
 1. Note the private IP address for the **Srv-Work** virtual machine:
 
-   `$NIC.IpConfigurations.PrivateIpAddress`
+   ```
+   $NIC.IpConfigurations.PrivateIpAddress
+   ```
 
-1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address.
+1. Connect a remote desktop to **Srv-Jump** virtual machine, and sign in. From there, open a remote desktop connection to the **Srv-Work** private IP address and sign in.
 
-3. Open a PowerShell window and run the following commands:
+3. On **SRV-Work**, open a PowerShell window and run the following commands:
 
    ```
    nslookup www.google.com
@@ -246,7 +248,9 @@ So now you've verified that the firewall rules are working:
 
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources:
 
-`Remove-AzResourceGroup -Name Test-FW-RG`
+```azurepowershell
+Remove-AzResourceGroup -Name Test-FW-RG`
+```
 
 ## Next steps
 
