@@ -7,16 +7,16 @@ author: jnoller
 ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
-ms.author: jnoller
+ms.author: jenoller
 
 #Customer intent: As a cluster operator or developer, I want to understand what components for AKS I need to manage, and those managed by Microsoft including security patches, networking and preview features.
 ---
 
-# Azure Kubernetes Service (AKS) Support Policies
+# Azure Kubernetes Service (AKS) support policies
 
 This article provides details around AKS technical support policies, limitations, and details including worker node management, managed control plane components, third-party open-source components, and security / patch management.
 
-## Service Updates & Releases
+## Service updates & releases
 
 * For release info, see the [AKS Release Notes][1]
 * For features in public preview, see [AKS Preview Features and Related Projects][2]
@@ -66,11 +66,12 @@ Due to the sensitive nature of these worker nodes, Microsoft takes great care to
 * Advisory/"How-To" use Kubernetes questions, for example how to create custom ingress controllers, application workload questions, and third-party/OSS packages or tools are out of scope.
   * Advisory tickets for AKS cluster functionality, customization, tuning – e.g Kubernetes operations issues/how-tos are within scope.
 * Third-party open-source projects not provided as part of the Kubernetes control plane or deployed with AKS clusters, such as Istio, Helm, Envoy, and others.
-  * In the case of third-party open-source projects, such as Helm and Kured, best effort support is provided for examples and applications provided in Microsoft documentation and where that third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs.
+  * For third-party open-source projects, such as Helm and Kured, best effort support is provided for examples and applications provided in Microsoft documentation and where that third-party open-source tool integrates with the Kubernetes Azure cloud provider or other AKS-specific bugs.
 * Third-party closed-source software – this can include security scanning tools, networking devices or software.
 * Issues about "multi-cloud" or multi-vendor build-outs are not supported, for example running a Federated multi public cloud vendor solution is not supported.
 * Specific network customizations, other than those specifically documented in the official [AKS documentation][3].
-  * **Note:** Issues and bugs around Network Security Groups is supported. For example, support can answer questions around NSGs failing to update, or unexpected NSG / Load Balancer behavior.
+  > [!NOTE]
+  > Issues and bugs around Network Security Groups is supported. For example, support can answer questions around NSGs failing to update, or unexpected NSG / Load Balancer behavior.
 
 ## Azure Kubernetes Service Support coverage (Worker Nodes)
 
@@ -114,16 +115,16 @@ If a security patch requires worker node reboots, Microsoft will notify customer
 
 Because worker nodes are a shared responsibility and under the ownership of customers, customers can log into these workers and perform potentially harmful changes, such as kernel updates, removing packages and installing new packages.
 
-If customers perform destructive actions, or actions that trigger control plane components to go offline or otherwise become non-functional, the AKS service will detect this failure and perform auto-remediation to restore the worker node to the previous working state.
+If customers perform destructive actions, or actions that trigger control plane components to go offline or otherwise become non-functional, the AKS service will detect this failure and perform autoremediation to restore the worker node to the previous working state.
 
-Although customers can log into and alter worker nodes, it is *strongly discouraged*, as this can make your cluster unsupportable.
+Although customers can log into and alter worker nodes, it is *discouraged* because this can make your cluster unsupportable.
 
 ## Network ports, access, and Network Security Groups
 
 As a managed service, AKS has specific networking and connectivity requirements. These requirements are less flexible than normal IaaS components. Unlike other IaaS components, certain operations (such as the customization of Network Security Group rules, specific port blocking, URL whitelisting, and so on) can render your cluster unsupportable (for example, firewall rules blocking outbound port 443).
 
 > [!NOTE]
-> Completely locking down egress (for example, explicit domain/port whitelisting) from your cluster is not a supported AKS scenario at this time. The list of URLs and Ports is subject to change without warning and can be provided by Azure Support via a ticket. The provided list is only for customers who are willing to accept that the availability of your cluster could be impacted at any time.**
+> Completely locking down egress (for example, explicit domain/port whitelisting) from your cluster is not a supported AKS scenario at this time. The list of URLs and Ports is subject to change without warning and can be provided by Azure Support via a ticket. The provided list is only for customers who are willing to accept that *the availability of your cluster could be affected at any time.*
 
 ## Alpha/Beta Kubernetes features (not supported)
 
@@ -147,7 +148,7 @@ However, these preview / feature flag features are not meant for production use 
 
 Given the speed of development in the upstream Kubernetes project, there are invariably bugs that cannot be patched or worked-around within the AKS system, and instead require larger patches to upstream projects (such as Kubernetes, Node/Worker OSes and Kernels). For components we own (such as the Azure Cloud Provider), AKS/Azure personnel are committed to fixing the issue upstream in the community.
 
-For cases where a technical support issue is root-caused to one or more upstream bugs, AKS support and engineering will do the following:
+For cases where a technical support issue is root-caused to one or more upstream bugs, AKS support and engineering will do the following items:
 
 * Identify and link the upstream bugs with any supporting details as to why this impacts your cluster and/or workload. Customers will be provided with links to the required repos/issues to watch the issues and see when a new Kubernetes/other release will include the fix(es)
 * Potential work-arounds or mitigations: In some cases it may be possible to work around the issue – in this case, a "[known-issue](https://github.com/Azure/AKS/issues?q=is%3Aissue+is%3Aopen+label%3Aknown-issue)" will be filed on the AKS repository that explains:
@@ -157,4 +158,4 @@ For cases where a technical support issue is root-caused to one or more upstream
 
 [1]: https://github.com/Azure/AKS/releases
 [2]: https://github.com/Azure/AKS/blob/master/previews.md
-[3]: https://docs.microsoft.com/en-us/azure/aks/
+[3]: https://docs.microsoft.com/azure/aks/
