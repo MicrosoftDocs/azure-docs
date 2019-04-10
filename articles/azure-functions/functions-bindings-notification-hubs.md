@@ -22,6 +22,9 @@ Azure Notification Hubs must be configured for the Platform Notifications Servic
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
+> [!IMPORTANT]
+> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the Firebase API directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+
 ## Packages - Functions 1.x
 
 The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub repository.
@@ -192,12 +195,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
     await notification.AddAsync(new AppleNotification(apnsNotificationPayload));        
 }
 ```
-
-## Example - GCM native
-
-> [!WARNING]
-> A previous version of this document had an example of using this binding to use the Google Cloud Messaging (GCM) API. In April 2019, Google deprecated GCM in favor of Firebase Cloud Messaging (FCM). For more information, see https://developers.google.com/cloud-messaging/faq. This binding doesn't support FCM, so we advise developers to use the Firebase API directly, or to use the template message option in Notification Hub.
-
 
 ## Example - WNS native
 
