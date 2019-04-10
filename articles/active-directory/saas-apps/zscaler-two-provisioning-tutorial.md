@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Zscaler Two for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler Two Two.
+description: In this tutorial, you learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Zscaler Two.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -13,74 +13,70 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: v-ant-msft
 ---
 
 # Tutorial: Configure Zscaler Two for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Zscaler Two and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Zscaler Two.
+In this tutorial, you'll learn how to configure Azure Active Directory (Azure AD) to automatically provision and de-provision users and/or groups to Zscaler Two.
 
 > [!NOTE]
-> This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector that's built on the Azure AD user provisioning service. For important details on what this service does and how it works and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 
-> This connector is currently in Public Preview. For more information on the general Microsoft Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> This connector is currently in Public Preview. For more information on the general Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
-The scenario outlined in this tutorial assumes that you already have the following:
+To complete the steps outlined in this tutorial, you need the following:
 
-* An Azure AD tenant
-* A Zscaler Two tenant
-* A user account in Zscaler Two with Admin permissions
+* An Azure AD tenant.
+* A Zscaler Two tenant.
+* A user account in Zscaler Two with admin permissions.
 
 > [!NOTE]
-> The Azure AD provisioning integration relies on the Zscaler Two SCIM API, which is available to Zscaler Two developers for accounts with the Enterprise package.
+> The Azure AD provisioning integration relies on the Zscaler Two SCIM API, which is available for Enterprise accounts.
 
-## Adding Zscaler Two from the gallery
+## Add Zscaler Two from the gallery
 
-Before configuring Zscaler Two for automatic user provisioning with Azure AD, you need to add Zscaler Two from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Zscaler Two for automatic user provisioning with Azure AD, you need to add Zscaler Two from the Azure AD application gallery to your list of managed SaaS applications.
 
-**To add Zscaler Two from the Azure AD application gallery, perform the following steps:**
+In the [Azure portal](https://portal.azure.com), in the left pane, select **Azure Active Directory**.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+![Select Azure Active Directory](common/select-azuread.png)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+Go to **Enterprise applications** and then select **All applications**.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+![Enterprise applications](common/enterprise-applications.png)
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+To add an application, select **New application** at the top of the window.
 
-3. To add new application, click **New application** button on the top of dialog.
+![Select New application](common/add-new-app.png)
 
-	![The New application button](common/add-new-app.png)
+In the search box, enter **Zscaler Two**. Select **Zscaler Two** in the results and then select **Add**.
 
-4. In the search box, type **Zscaler Two**, select **Zscaler Two** from result panel then click **Add** button to add the application.
+![Results list](common/search-new-app.png)
 
-	![Zscaler Two in the results list](common/search-new-app.png)
+## Assign users to Zscaler Two
 
-## Assigning users to Zscaler Two
+Azure AD users need to be assigned access to selected apps before they can use them. In the context of automatic user provisioning, only users or groups that have been assigned to an application in Azure AD are synchronized.
 
-Azure Active Directory uses a concept called "assignments" to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been "assigned" to an application in Azure AD are synchronized.
-
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler Two. Once decided, you can assign these users and/or groups to Zscaler Two by following the instructions here:
-
-* [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Before you configure and enable automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Zscaler Two. After you've decided that, you can assign these users and groups to Zscaler Two by following the instructions at [Assign a user or group to an enterprise app](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
 
 ### Important tips for assigning users to Zscaler Two
 
-* It is recommended that a single Azure AD user is assigned to Zscaler Two to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* We recommend that you first assign a single Azure AD user to Zscaler Two to test the automatic user provisioning configuration. You can add more users and groups later.
 
-* When assigning a user to Zscaler Two, you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
+* When you assign a user to Zscaler Two, you need to select any valid application-specific role (if available) in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
 
-## Configuring automatic user provisioning to Zscaler Two
+## Configure automatic user provisioning to Zscaler Two
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Zscaler Two based on user and/or group assignments in Azure AD.
+This section guides you through the steps for configuring the Azure AD provisioning service to create, update, and disable users or groups in Zscaler Two based on user or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Zscaler Two, following the instructions provided in the [Zscaler Two single sign-on tutorial](zscaler-two-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
+> You might also choose to enable SAML-based single sign-on for Zscaler Two, following the instructions provided in the [Zscaler Two single sign-on tutorial](zscaler-two-tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Zscaler Two in Azure AD:
 
