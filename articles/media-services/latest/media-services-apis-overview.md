@@ -27,15 +27,17 @@ To access the Azure Media Services resources, you should use the Azure Active Di
 
 ### Azure AD overview
 
-You need to create an Azure AD application and service principal in its own tenant. After you create the application, give the app Contributor or Owner role access to the Media Services account. You can do this in the Azure portal, by using the Azure CLI, or with a PowerShell script. You also can use an existing Azure AD application.
+You need to create an Azure AD application and service principal in its own tenant. After you create the application, give the app **Contributor** or **Owner** role access to the Media Services account. You also can use an existing Azure AD application.
 
 After you create your Azure AD application, you get values for the following settings. You need these values for authentication:
 
 - Client ID 
 - Client secret 
 
-In the preceding figure, the numbers represent the flow of the requests in chronological order:
-	
+In the following figure, the numbers represent the flow of the requests in chronological order:
+
+![Middle-tier apps](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
 1. A middle-tier app (web API or web application) requests an Azure AD access token that has the following parameters:  
 
    * Azure AD tenant endpoint.
