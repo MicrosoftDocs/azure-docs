@@ -118,10 +118,11 @@ node index.js
 
 ## See also
 
-[.NET reference](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
-
-## Next steps
-
 - [Media Services concepts](concepts-overview.md)
 - [Node.js reference](https://docs.microsoft.com/javascript/api/azure-arm-mediaservices/?view=azure-node-latest)
 - [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)<br>
+
+## Next steps
+
+Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+
