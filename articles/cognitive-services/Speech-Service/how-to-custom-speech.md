@@ -54,11 +54,9 @@ Once you've created an Azure account and a Speech Services subscription, you'll 
 
 ## How to create a project
 
-<<TODO: Erik - Fine tune text >>
+Content like data, models, tests, and endpoints are organized into **Projects** in the Custom Speech portal. Each project is usually specific to a domain and country/language. For example, you may create a project for call centers that use English in the United States.
 
-Custom Speech Services content are organized into Projects, where a project represents a particular domain (call center, virtual assistant, video, etc) and language+country pair, commonly referred to as locale (en-US would be English+United States).  A single project can, for example, be used for multiple en-US call centers.
-
-Under the Speech-to-text/Custom speech tab, click New Project and go through the wizard to create your first project.  Once completed, you will see 4 tabs Data, Testing, Training, and Deployment in the project.
+To create your first project, select the **Speech-to-text/Custom speech**, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
 ## Next steps
 
