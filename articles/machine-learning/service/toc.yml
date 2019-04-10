@@ -182,11 +182,8 @@
 - name: Reference
   items:
   - name: Machine learning SDK
-    displayName: api core package python
+    displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
-  - name: Data prep SDK
-    displayName: api preparation package python
-    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
