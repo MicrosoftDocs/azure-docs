@@ -67,6 +67,8 @@ Additional compute instances are automatically added for your app using the same
 
 Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this unbounded for Premium plan apps.
 
+In preview, your duration is not guaranteed past 12 minutes and will behave best if your app is not scaled beyond its minimum worker count. 
+
 ## Plan and SKU settings
 
 When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  The minimum instances for a Premium plan is 1, and the maximum burst during the preview is 20.  Minimum instances are reserved and always running.
