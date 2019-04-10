@@ -23,8 +23,6 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items:
-    - name: Identify the sentiment of comments in a Yammer group with MS Flow
-      href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure?toc=%2F%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=%2F%2Fazure%2Fbread%2Ftoc.json
     - name: Integrate Power BI to analyze customer feedback
       href: Tutorials/tutorial-power-bi-key-phrases.md
     - name: Text Analytics in Power Apps
@@ -84,6 +82,8 @@
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: Resources
   items:
+  - name: Identify the sentiment of comments in a Yammer group with MS Flow
+    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
   - name: External and community content
     href: text-analytics-resource-external-community.md
   - name: FAQ
