@@ -15,6 +15,9 @@ ms.author: anwestg
 ---
 # Install the Azure Functions Runtime preview 2
 
+> [!IMPORTANT]
+> The Azure Functions Runtime preview 2 supports only version 1.x of the Azure Functions runtime. This preview feature is not being updated to support version 2.x of the runtime, and no future updates are planned. If you need to host the Azure Functions runtime outside of Azure, consider [using a customer Linux container](functions-create-function-linux-custom-image.md).
+
 If you would like to install the Azure Functions Runtime preview 2, follow these steps:
 
 1. Ensure your machine passes the minimum requirements.
