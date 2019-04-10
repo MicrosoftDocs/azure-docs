@@ -123,7 +123,7 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-  - name: Track and monitor experiments
+  - name: Track & monitor experiments
     items:
     - name: Start, monitor or cancel runs
       displayName: cancel, fail, status, child run
@@ -135,8 +135,6 @@
     items:
     - name: Configure auto training
       href: how-to-configure-auto-train.md
-    - name: Automate training in Portal
-      href: how-to-run-aml-experiments-in-portal.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
