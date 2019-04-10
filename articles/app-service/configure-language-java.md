@@ -3,7 +3,7 @@ title: Configure Windows Java apps - Azure App Service | Microsoft Docs
 description: Learn how to configure Java apps to run on the default Windows instances in Azure App Service.
 keywords: azure app service, web app, windows, oss, java
 services: app-service
-author: jafreebe;cephalin
+author: jasonfreeberg
 manager: jeconnock
 ms.service: app-service
 ms.workload: na
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 4/4/2019
-ms.author: jasonfreeberg
+ms.author: jafreebe;cephalin
 ms.custom: seodec18
 
 ---
