@@ -42,8 +42,7 @@ To answer these questions, this performance guide first gives a high-level expla
 
 It is impossible for this document to cover all scenarios (and different use case, different message size, or message sending pattern etc.). However, it provides some evaluation methods to help users to approximately evaluate their requirement of the inbound or outbound messages, then find the proper tiers by checking the performance table.
 
-Performance insight
--------------------
+## Performance insight
 
 This section describes the performance evaluation methodologies, then lists all factors that have impacts on performance. In the end, it provides methods to help evaluate the performance requirements.
 
@@ -139,7 +138,7 @@ The inbound bandwidth and outbound bandwidth formulas:
 
 #### Evaluation for complex use cases
 
-* Bigger message size or different sending rate
+##### Bigger message size or different sending rate
 
 The real use case is more complicated. It may send message larger than 2048 bytes, or sending message rate is not one message per second. Let's take unit100's broadcast as an example to find how to evaluate its performance.
 
@@ -160,7 +159,7 @@ For unit100, we know the max outbound bandwidth is 400M from previous table,
 then for 20-K message size, the max outbound connections should be 400M \* 5 / 20 K =
 100,000, which matches the real value.
 
-* Mixed use cases
+##### Mixed use cases
 
 The real use case typically mixes the four basic use cases together: **echo**, **broadcast**, **send to group**, or **send to connection**. The methodology used to evaluate the capacity is to divide the mixed use cases into four basic use cases, **calculate the maximum inbound and outbound message bandwidth** using the above formulas separately, and sum them to get the total maximum inbound/outbound bandwidth. Then pick up the proper tier from the maximum inbound/outbound bandwidth tables.
 
@@ -168,8 +167,7 @@ Meanwhile, for sending message to hundreds or thousands of small groups, or thou
 
 For the use case of sending message to clients, make sure the app server is **NOT** the bottleneck. "Case study" section gives the guideline about how many app servers you need and how many server connections should be configured.
 
-Case study
-----------
+## Case study
 
 The following sections go through four typical use cases for WebSocket transport: **echo**, **broadcast**, **send-to-group**, and **send-to-connection**. For each scenario, it lists the current ASRS inbound and outbound capacity, meanwhile explains what is the main factors on performance.
 
@@ -222,7 +220,7 @@ Even for this simple hub, the traffic pressure on app server is also prominent a
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
-> **Note**
+> [!NOTE]
 >
 > The client connection number, message size, message sending rate, SKU tier and app server's CPU/Memory have impact on overall performance of **echo**.
 
@@ -251,11 +249,10 @@ The broadcasting clients that post messages are no more than 4, thus requires fe
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
-> **Note**
-> 
-> Increase the default server connections from 5 to 40 on every app server to
-> avoid possible unbalanced server connections to ASRS.
-> 
+> [!NOTE]
+>
+> Increase the default server connections from 5 to 40 on every app server to avoid possible unbalanced server connections to ASRS.
+>
 > The client connection number, message size, message sending rate, and SKU tier have impact on overall performance for **broadcast**
 
 ### Send to group
@@ -297,7 +294,7 @@ There are many client connections calling the hub, therefore, app server number 
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
-> **Note**
+> [!NOTE]
 >
 > The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory have impact on overall performance of **send-to-small-group**.
 
@@ -322,7 +319,7 @@ The sending connection count is no more than 40, the burden on app server is sma
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 2      | 2      | 2      | 2       |
 
-> **Note**
+> [!NOTE]
 >
 > Increase the default server connections from 5 to 40 on every app server to
 > avoid possible unbalanced server connections to ASRS.
@@ -354,7 +351,7 @@ This use case requires high load on app server side. See the suggested app serve
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 2     | 3      | 3      | 10     | 20      |
 
-> **Note**
+> [!NOTE]
 >
 > The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory have impact on overall performance of **send-to-connection**.
 
@@ -362,7 +359,7 @@ This use case requires high load on app server side. See the suggested app serve
 
 ASRS provides the same performance capacity for ASP.NET SignalR. This section gives the suggested web app count for ASP.NET SignalR **echo**, **broadcast**, and **send-to-small-group**.
 
-The performance test uses Azure Web App of [Standard Service Plan S3](https://azure.microsoft.com/en-us/pricing/details/app-service/windows/) for ASP.NET SignalR.
+The performance test uses Azure Web App of [Standard Service Plan S3](https://azure.microsoft.com/pricing/details/app-service/windows/) for ASP.NET SignalR.
 
 - `echo`
 
@@ -385,8 +382,7 @@ The performance test uses Azure Web App of [Standard Service Plan S3](https://az
 | Connections      | 1,000 | 2,000 | 5,000 | 10,000 | 20,000 | 50,000 | 100,000 |
 | App server count | 2     | 2     | 4     | 4      | 8      | 32      | 40       |
 
-Serverless mode
----------------
+## Serverless mode
 
 Clients and ASRS are involved in this mode. Every client stands for a single connection. The client sends messages through REST API to another client or broadcast messages to all.
 
@@ -414,9 +410,7 @@ The benchmark assigns user names to all of the clients before they start connect
 | Inbound bandwidth (byte/s)  | 600 K  | 1.2M  | 1.8M   | 2.6M   | 4M     | 10M     | 36M    |
 | Outbound bandwidth (byte/s) | 600 K  | 1.2M  | 1.8M   | 2.6M   | 4M     | 10M     | 36M    |
 
-
-Performance test environments
-------------------------
+## Performance test environments
 
 The performance test for all use cases listed above were conducted in Azure
 environment. At most 50 client VMs, and 20 app server VMs are used.
@@ -427,8 +421,7 @@ App server VM size: StandardF4sV2 (4 vCPU, 8G memory)
 
 Azure SignalR SDK server connections: 15
 
-Performance tools
------------------
+## Performance tools
 
 https://github.com/Azure/azure-signalr-bench/tree/master/SignalRServiceBenchmarkPlugin
 
