@@ -10,7 +10,7 @@ ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
