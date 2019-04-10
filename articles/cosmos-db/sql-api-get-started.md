@@ -141,6 +141,8 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
 1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
    
    ```csharp
+        static void Main(string[] args)
+        {
             try
             {
                Program p = new Program();
@@ -160,6 +162,8 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
             {
                Console.WriteLine("End of demo, press any key to exit.");
                Console.ReadKey();
+            }
+        }
    ```
    
 1. Press **F5** to run your app. 
@@ -417,13 +421,13 @@ Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON docume
    
 1. Press **F5** to run your app.
 
-The preceding query returns the complete item for the Andersen family in the console. You've successfully queried against an Azure Cosmos DB collection.
+The preceding query returns the complete item for the Andersen family. You've successfully queried against an Azure Cosmos DB collection.
 
 The following diagram illustrates how the Azure Cosmos DB SQL query syntax calls against the collection. The same logic applies to the LINQ query.
 
 ![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](how-to-sql-query.md#FromClause) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refer to the current collection.
+The [FROM](how-to-sql-query.md#FromClause) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refers to the current collection.
 
 ## <a id="ReplaceDocument"></a>Update and replace a JSON document
 
