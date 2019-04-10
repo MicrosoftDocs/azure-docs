@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!Important] 
-> At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the organizations endpoint.  
+> At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  
 >
 > Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
 
@@ -45,6 +45,12 @@ The entire device code flow looks similar to the next diagram. We describe each 
 ## Device authorization request
 
 The client must first check with the authentication server for a device and user code, used to initiate authentication.  The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user.  From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
+
+
+> [!TIP]
+> Try executing this request in Postman! 
+> [![Run in Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
 
 ```
 // Line breaks are for legibility only.
@@ -79,7 +85,7 @@ A successful response will be a JSON object containing the required information 
 
 ## Authenticating the user
 
-After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to log in using their mobile phone or PC browser.  Additionally, the client can use a QR code or similar mechanism to display the `verfication_uri_complete`, which will take the step of entering the `user_code` for the user.
+After receiving the `user_code` and `verification_uri`, the client displays these to the user, instructing them to sign in using their mobile phone or PC browser.  Additionally, the client can use a QR code or similar mechanism to display the `verfication_uri_complete`, which will take the step of entering the `user_code` for the user.
 
 While the user is authenticating at the `verification_uri`, the client should be polling the `/token` endpoint for the requested token using the `device_code`.
 
