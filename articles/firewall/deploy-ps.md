@@ -249,7 +249,7 @@ So now you've verified that the firewall rules are working:
 You can keep your firewall resources for the next tutorial, or if no longer needed, delete the **Test-FW-RG** resource group to delete all firewall-related resources:
 
 ```azurepowershell
-Remove-AzResourceGroup -Name Test-FW-RG`
+Remove-AzResourceGroup -Name Test-FW-RG
 ```
 
 ## Next steps
