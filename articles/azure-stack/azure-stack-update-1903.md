@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/10/2019
+ms.lastreviewed: 04/11/2019
 ---
 
 # Azure Stack 1903 update
@@ -138,6 +138,8 @@ The following are post-installation known issues for this build version.
 - In the user portal, when you try to upload a blob using the **OAuth(preview)** option, the task fails with an error message. To work around this issue, upload the blob using the **SAS** option.
 
 - When logged into the Azure Stack portals you might see notifications about the public Azure portal. You can safely ignore these notifications, as they do not currently apply to Azure Stack (for example, "1 new update - The following updates are now available: Azure portal April 2019 update").
+
+- In the user portal dashboard, when you select the **Feedback** tile, an empty browser tab opens. As a workaround, you can use [Azure Stack User Voice](http://aka.ms/azurestackuservoice) to file a User Voice request.
 
 <!-- ### Health and monitoring -->
 

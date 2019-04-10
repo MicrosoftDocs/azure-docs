@@ -131,7 +131,8 @@
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Configure auto training
+    - name: Automate training in Python
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
