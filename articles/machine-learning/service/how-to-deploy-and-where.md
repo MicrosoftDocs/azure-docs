@@ -74,7 +74,7 @@ model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
 **Time estimate**: Approximately 10 seconds.
 
 > [!TIP]
-> You can also register ONNX models. ONNX is a portable, open format that allows you to move your model between tools and frameworks. For more information see [https://onnx.ai](https://onnx.ai).
+> You can also register ONNX models. ONNX is a portable, open format that allows you to move your model between tools and frameworks. Converting your model to ONNX can also increase it's performance. For more information see [https://onnx.ai](https://onnx.ai).
 >  
 > If you have a model that you'd like to convert to an ONNX model, see the tutorials at [https://github.com/onnx/tutorials](https://github.com/onnx/tutorials).
 
@@ -163,7 +163,9 @@ The script contains two functions that load and run the model:
 
 #### Working with JSON data
 
-The following example script accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
+The following example scripts accept and returns JSON data. The first script uses scikit-learn while the second uses an ONNX model.
+
+**Scikit-learn example:**
 
 ```python
 import json
@@ -186,20 +188,10 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    return {"result": y_hat.tolist()}
 ```
 
-If you are using an ONNX model, the script is slightly different. It must:
-
-* Import the `onnxruntime` module.
-* Create an `InferenceSession` instance using the model.
-* Get the model metadata using `get_modelmeta`.
-* Get the model inputs and outputs using `get_inputs` and `get_outputs`.
-* Use `run` to pass the outputs you want returned and a map of input values. If you pass an empty array of outputs, all outputs are returned.
-
-For more information on the `onnxruntime` module, see [https://github.com/Microsoft/onnxruntime](https://github.com/Microsoft/onnxruntime).
-
-An example Python scoring script for an ONNX model is shown below:
+**ONNX example:**
 
 ```python
 import onnxruntime
@@ -211,6 +203,7 @@ from azureml.core.model import Model
 def init():
     global session
     model = Model.get_model_path(model_name = 'MyONNXModel')
+    # Create an instance of the model
     session = onnxruntime.InferenceSession(model)
 
 def preprocess(input_data_json):
@@ -223,7 +216,9 @@ def postprocess(result):
 def run(input_data_json):
     try:
         input_data = preprocess(input_data_json)
-        input_name = session.get_inputs()[0].name  # get the id of the first input of the model
+        # get the id of the first input of the model
+        input_name = session.get_inputs()[0].name
+        # Score the data and retrieve the results
         result = session.run([], {input_name: input_data})
 
         return {"result": postprocess(result)}
@@ -231,6 +226,12 @@ def run(input_data_json):
         result = str(e)
         return {"error": result}
 ```
+
+For more example scripts, see the following examples:
+
+* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
+* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* Keeras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 
 #### Working with Binary data
 
