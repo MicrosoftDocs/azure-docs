@@ -393,12 +393,10 @@
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Branding guidelines
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Publisher domain
+        href: howto-configure-publisher-domain.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: Secure a Java web app
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
