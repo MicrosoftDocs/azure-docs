@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to Azure Germany by using PowerShell | Microsoft Docs
 description: Information on managing your subscription in Azure Germany by using PowerShell
 services: germany
@@ -32,9 +32,9 @@ When you start PowerShell, you have to tell Azure PowerShell to connect to Azure
 
 | Connection type | Command |
 | --- | --- |
-| [Azure (classic deployment model)](https://msdn.microsoft.com/library/dn708504.aspx) commands |`Add-AzureAccount -Environment AzureGermanCloud` |
-| [Azure (Resource Manager deployment model)](https://msdn.microsoft.com/library/mt125356.aspx) commands |`Connect-AzAccount -EnvironmentName AzureGermanCloud` |
-| [Azure Active Directory (classic deployment model)](https://msdn.microsoft.com/library/azure/jj151815.aspx) commands |`Connect-MsolService -AzureEnvironment AzureGermanyCloud` |
+| [Azure (classic deployment model)](/powershell/azure) commands |`Add-AzureAccount -Environment AzureGermanCloud` |
+| [Azure (Resource Manager deployment model)](/powershell/azure) commands |`Connect-AzAccount -EnvironmentName AzureGermanCloud` |
+| [Azure Active Directory (classic deployment model)](/previous-versions/azure/jj151815(v=azure.100)) commands |`Connect-MsolService -AzureEnvironment AzureGermanyCloud` |
 | [Azure Active Directory (Resource Manager deployment model)](https://msdn.microsoft.com/library/azure/mt757189.aspx) commands |`Connect-AzureAD -AzureEnvironmentName AzureGermanyCloud` |
 
 You can also use the `Environment` switch when connecting to a storage account by using `New-AzStorageContext`, and then specify `AzureGermanCloud`.
