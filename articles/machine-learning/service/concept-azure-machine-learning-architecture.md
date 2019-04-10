@@ -1,25 +1,28 @@
 ---
-title: 'Machine learning in the cloud: Terms and architecture'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
+ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
 
 # How Azure Machine Learning service works: Architecture and concepts
 
-This article describes the architecture and concepts for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
 [![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-The workflow generally follows this sequence:
+## Workflow
+
+The machine learning workflow generally follows this sequence:
 
 1. Develop machine learning training scripts in **Python**.
 1. Create and configure a **compute target**.

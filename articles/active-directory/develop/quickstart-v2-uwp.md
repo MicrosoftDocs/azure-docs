@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -69,29 +69,32 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 
 #### Step 2: Download your Visual Studio project
 
- - [Download the Visual Studio 2017 project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip)
+ - [Download the Visual Studio 2017 project](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
-1. Open the project in Visual Studio.
-1. Edit **App.Xaml.cs** and replace the values of the fields `ClientId` and `Tenant` with:
+1. Open the project in Visual Studio. You might be prompted to install a UWP SDK. In that case, accept.
+1. Edit **MainPage.Xaml.cs** and replace the values of the `ClientId` field:
 
     ```csharp
-    private static string ClientId = "Enter_the_Application_Id_here";
-    private static string Tenant = "Enter_the_Tenant_Info_Here";
+    private const string ClientId = "Enter_the_Application_Id_here";
     ```
 
 > [!div renderon="docs"]
 > Where:
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Tenant_Info_Here` - is one of the options below:
->   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.onmicrosoft.com)
->   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **All Microsoft account users**, replace this value with `common`
 >
 > > [!TIP]
-> > To find the values of *Application ID*, *Directory (tenant) ID*, and *Supported account types*, go to the **Overview** page
+> > To find the values of *Application ID*, go to the **Overview** page
+
+#### Step 4: Run your application
+
+If you want to try the quickstart on your Windows machine:
+
+1. In the Visual Studio toolbar, choose the right platform (probably **x64** or **x86**, not ARM).
+   > Observe that the target device changes from *Device* to *Local Machine*
+1. select Debug | **Start Without Debugging**
 
 ## More information
 
@@ -99,7 +102,7 @@ This section provides more information about the quickstart.
 
 ### MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request tokens used to access an API protected by Microsoft Azure Active Directory. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by Microsoft Identity platform for developers. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
 Install-Package Microsoft.Identity.Client -Pre
@@ -116,7 +119,9 @@ using Microsoft.Identity.Client;
 Then, initialize MSAL using the following code:
 
 ```csharp
-public static PublicClientApplication PublicClientApp = new PublicClientApplication(ClientId);
+public static IPublicClientApplication PublicClientApp;
+PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+                                                    .Build();
 ```
 
 > |Where: ||
@@ -125,38 +130,42 @@ public static PublicClientApplication PublicClientApp = new PublicClientApplicat
 
 ### Requesting tokens
 
-MSAL has two methods for acquiring tokens: `AcquireTokenAsync` and `AcquireTokenSilentAsync`.
+MSAL has two methods used to acquiring tokens interactively: `AcquireTokenInteractive` and `AcquireTokenSilent`.
 
 #### Get a user token interactively
 
 Some situations require forcing users interact with the Microsoft identity platform endpoint through a popup window to either validate their credentials or to give consent. Some examples include:
 
-- The first time users sign in to the application
+- The first-time users sign in to the application
 - When users may need to reenter their credentials because the password has expired
-- When your application is requesting access to a resource that the user needs to consent to
+- When your application is requesting access to a resource, that the user needs to consent to
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireTokenAsync(scopes);
+authResult = await App.PublicClientApp.AcquireToken(scopes, this)
+                       .ExecuteAsync();
 ```
 
 > |Where:||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
+> | `this`| Stands for the WPF window which will be used to center the sign-in dialog
 
 #### Get a user token silently
 
-You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method:
+You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
-authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.FirstOrDefault());
+var firstAccount = accounts.FirstOrDefault();
+authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
+                                      .ExecuteAsync();
 ```
 
 > |Where: ||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs |
-> | `accounts.FirstOrDefault()` | Specifies the first user in the cache (MSAL supports multiple users in a single app) |
+> | `firstAccount` | Specifies the first user account in the cache (MSAL supports multiple users in a single app) |
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
