@@ -88,11 +88,11 @@ There are other ways to specify the connection string, such as providing a share
 
 Start Postman and set up an HTTP request. If you are unfamiliar with this tool, see [Explore Azure Search REST APIs using Postman](search-fiddler.md).
 
-The request methods used in this tutorial are **POST** and **PUT**. The header keys are "Content-type" set to "application/json" and an "api-key" set to an admin key of your Azure Search service. The body is where you place the actual contents of your call. 
+The request methods used in this tutorial are **POST**, **PUT**, and **GET**. The header keys are "Content-type" set to "application/json" and an "api-key" set to an admin key of your Azure Search service. The body is where you place the actual contents of your call. 
 
   ![Semi-structured search](media/search-semi-structured-data/postmanoverview.png)
 
-We are using Postman to make three API calls to your search service in order to create a data source, a skillset, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
+We are using Postman to make four API calls to your search service in order to create a data source, a skillset, an index, and an indexer. The data source includes a pointer to your storage account and your JSON data. Your search service makes the connection when loading the data.
 
 
 ## Create a data source
@@ -322,9 +322,9 @@ To learn more about defining an index, see [Create Index (Azure Search REST API)
 
 So far you have created a data source, a skillset, and an index. These three components become part of an [indexer](search-indexer-overview.md) that pulls each piece together into a single multi-phased operation. To tie these together in an indexer, you must define field mappings. 
 
-+ The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index.
++ The fieldMappings are processed before the skillset, mapping source fields from the data source to target fields in an index. If field names and types are the same at both ends, no mapping is required.
 
-+ The outputFieldMappings are processed after the skillset, referencing source fields (paths) that don't exist until after document cracking occurs. The targetField is a field in an index.
++ The outputFieldMappings are processed after the skillset, referencing sourceFieldNames that don't exist until document cracking or enrichment creates them. The targetFieldName is a field in an index.
 
 Besides hooking up inputs to outputs, you can also use field mappings to flatten data structures. For more information, see [How to map enriched fields to a searchable index](cognitive-search-output-field-mapping.md).
 
