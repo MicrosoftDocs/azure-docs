@@ -1592,7 +1592,7 @@ az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 -
 
 ##### Template
 
-You can use the sample templates on the azure-quickstart-templates repository on github.
+You can use the sample templates on the azure-quickstart-templates repository on GitHub.
 
 * [Simple Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
 * [Simple Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
