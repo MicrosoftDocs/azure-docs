@@ -34,11 +34,11 @@ Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 > |Event Name|Description|
 > |----------|-----------|
 > |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced through the `PutBlob`, `PutBlockList`, or `CopyBlob` operations. <br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `CreateFile`, or `Flush` operations. |
-> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted through the `DeleteBlob` operation. <br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `DeleteFile` operation.|
-> |`Microsoft.Storage.BlobRenamed` <br>(Available only when a hierarchical namespace is enabled on the account) |Raised when a blob is renamed through the `RenameFile` operation |
-> |`Microsoft.Storage.DirectoryCreated` <br>(Available only when a hierarchical namespace is enabled on the account)|Raised when a directory is created through a `CreateDirectory` operation. |
-> |`Microsoft.Storage.DirectoryRenamed` <br>(Available only when a hierarchical namespace is enabled on the account)Raised when a directory is renamed through a `RenameDirectory` operation. |
-> |`Microsoft.Storage.DirectoryDeleted` <br>(Available only when a hierarchical namespace is enabled on the account)|Raised when a directory is deleted through a `DeleteDirectory` operation. |
+> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted through the `DeleteBlob` operation. <br><br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `DeleteFile` operation.|
+> |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed through the `RenameFile` operation <br><br>(Available only when a hierarchical namespace is enabled on the account)|
+> |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created through a `CreateDirectory` operation. <br><br>(Available only when a hierarchical namespace is enabled on the account)|
+> |`Microsoft.Storage.DirectoryRenamed`|Raised when a directory is renamed through a `RenameDirectory` operation. <br><br> (Available only when a hierarchical namespace is enabled on the account)|
+> |`Microsoft.Storage.DirectoryDeleted`|Raised when a directory is deleted through a `DeleteDirectory` operation. <br><br> (Available only when a hierarchical namespace is enabled on the account)|
 
 ## Event Schema
 
