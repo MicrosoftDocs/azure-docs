@@ -19,7 +19,8 @@ Windows Virtual Desktop (WVD) is a multi-tenant service hosted by Microsoft that
 
 Each WVD tenant environment consists of one or more host pools. Each host pool consists of one or more identical session hosts. The session hosts are virtual machines (VMs) running different Windows operating systems. Each session host must have a WVD host agent installed and registered with the Windows Virtual Desktop service.
 
->[!NOTE] Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment. The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
+>[!NOTE]
+> Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment. The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
 
 Each host pool may have one or more app groups. An app group is a logical grouping of applications that are installed on the session hosts in the host pool. There are two types of app groups:
 
@@ -32,7 +33,7 @@ A desktop app group publishes the full desktop and provides access to all the ap
 
 Use the following table to identify and resolve issues you may encounter when setting up a tenant environment using Remote Desktop client.
 
-| **Issues**                                                            | **Resolutions**  |
+| **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **RDS/WVD support**.|
 | Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> Azure Marketplace WVD templates are freely available.|
@@ -62,13 +63,14 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 ### Creating WVD session host VMs
 
-> [!NOTE] Session host VMs can be created using multiple methods but RDS/WVD teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+>[!NOTE]
+>Session host VMs can be created using multiple methods but RDS/WVD teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
 ### Issues executing “Windows Virtual Desktop – Provision a host pool”
 
 **Error**: When using the link from GitHub, the message “Create a free account" appears.
 
-![Screenshot for create a free account.](/media/be615904ace9832754f0669de28abd94.png.png)
+![Screenshot to create a free account.](/media/be615904ace9832754f0669de28abd94.png)
 
 **Cause 1:** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
 
@@ -83,8 +85,10 @@ During the private and public preview creation of the WVD, the tenant will be co
 3. Before the \# character, insert the CSP end customer tenant name.
 4. Open the new link in a browser and the Azure portal will load the template.
 
->   Example: https://portal.azure.com/\<CSP end customer tenant name\>
->   \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
+```
+    Example: https://portal.azure.com/\<CSP end customer tenant name\>
+     \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
+```
 
 ### ARM template and DSC errors
 
@@ -97,12 +101,14 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error: Your deployment failed….\<hostname\>/joindomain**
 
-
-
 ![Screenshot of your deployment failed.](/media/e72df4d5c05d390620e07f0d7328d50f.png)
 
-> **Example of raw error:** {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for >details. Please see <https://aka.ms/arm-debug> for usage
+**Example of raw error**
+
+```
+ {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for >details. Please see <https://aka.ms/arm-debug> for usage
 details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Failed\\",\\r\\n \\"error\\": {\\r\\n\\"code\\":\\"ResourceDeploymentFailure\\",\\r\\n \\"message\\": \\"The resource operation completed with terminal provisioning state 'Failed'.\\",\\r\\n\\"details\\":[\\r\\n {\\r\\n \\"code\\":\\"VMExtensionProvisioningError\\",\\r\\n\\"message\\": \\"VM has reported a failure when processing extension 'joindomain'. Error message: occured while joining Domain '[diamondsg.onmicrosoft.com](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdiamondsg.onmicrosoft.com&data=02%7C01%7CStefan.Georgiev%40microsoft.com%7C01339d07d3424818eee608d6b0d672e8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636890832443357907&sdata=JSaCC4NQEYK0x3wD%2FYIoK97%2Fzeo19JKN4j97UjQmzXc%3D&reserved=0)'}\\r\\n ]\\r\\n }\\r\\n}"}]}
+```
 
 **Cause 1:** Credential provided for joining VMs to the domain are incorrect.
 
