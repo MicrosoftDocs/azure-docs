@@ -58,6 +58,8 @@
     href: machine-learning-interpretability-explainability.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
+  - name: Optimize with ONNX and ONNX Runtime
+    href: concept-onnx.md
   - name: Machine learning pipelines
     href: concept-ml-pipelines.md
   - name: Security
@@ -138,8 +140,6 @@
       href: how-to-auto-train-remote.md
     - name: Auto-train forecast models
       href: how-to-auto-train-forecast.md
-  - name: ONNX models
-    href: how-to-build-deploy-onnx.md
   - name: Deploy models
     items:
     - name: Where and how to deploy

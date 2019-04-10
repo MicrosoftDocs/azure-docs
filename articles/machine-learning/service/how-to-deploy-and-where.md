@@ -54,8 +54,6 @@ For more information on the concepts involved in the deployment workflow, see [M
 
     > [!NOTE]
     > While the Azure Machine Learning service can work with any generic model that can be loaded in Python 3, the examples in this document demonstrate using a model stored in Python pickle format.
-    >
-    > For more information on using ONNX models, see the [ONNX and Azure Machine Learning](how-to-build-deploy-onnx.md) document.
 
 ## <a id="registermodel"></a> Register a trained model
 
@@ -64,6 +62,8 @@ The model registry is a way to store and organize your trained models in the Azu
 ```python
 from azureml.core.model import Model
 
+# Register the model.
+# To use an ONNX model instead, set model_path to the path of the .onnx file
 model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
                        model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
@@ -73,7 +73,14 @@ model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
 
 **Time estimate**: Approximately 10 seconds.
 
+> [!TIP]
+> You can also register ONNX models. ONNX is a portable, open format that allows you to move your model between tools and frameworks. Converting your model to ONNX can also increase it's performance. For more information see [https://onnx.ai](https://onnx.ai).
+>  
+> If you have a model that you'd like to convert to an ONNX model, see the tutorials at [https://github.com/onnx/tutorials](https://github.com/onnx/tutorials).
+
 For an example of registering a model, see [Train an image classifier](tutorial-train-models-with-aml.md).
+
+For an example of registering an ONNX model, see the [example ONNX notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/onnx).
 
 For more information, see the reference documentation for the [Model class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py).
 
@@ -106,6 +113,9 @@ The important parameters in this example described in the following table:
 | `execution_script` | Specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. For more information, see the [Execution script](#script) section. |
 | `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
 | `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
+
+> [!TIP]
+> If you are using an ONNX model, the conda environment must list `onnxruntime` or `onnxruntime-gpu` as a dependency.
 
 For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
@@ -153,10 +163,11 @@ The script contains two functions that load and run the model:
 
 #### Working with JSON data
 
-The following example script accepts and returns JSON data. The `run` function transforms the data from JSON into a format that the model expects, and then transforms the response to JSON before returning it:
+The following example scripts accept and returns JSON data. The first script uses scikit-learn while the second uses an ONNX model.
+
+**Scikit-learn example:**
 
 ```python
-%%writefile score.py
 import json
 import numpy as np
 import os
@@ -177,8 +188,50 @@ def run(raw_data):
     data = np.array(json.loads(raw_data)['data'])
     # make prediction
     y_hat = model.predict(data)
-    return json.dumps(y_hat.tolist())
+    return {"result": y_hat.tolist()}
 ```
+
+**ONNX example:**
+
+```python
+import onnxruntime
+import json
+import numpy as np
+import sys
+from azureml.core.model import Model
+
+def init():
+    global session
+    model = Model.get_model_path(model_name = 'MyONNXModel')
+    # Create an instance of the model
+    session = onnxruntime.InferenceSession(model)
+
+def preprocess(input_data_json):
+    # convert the JSON data into the tensor input
+    return np.array(json.loads(input_data_json)['data']).astype('float32')
+
+def postprocess(result):
+    return np.array(result).tolist()
+
+def run(input_data_json):
+    try:
+        input_data = preprocess(input_data_json)
+        # get the id of the first input of the model
+        input_name = session.get_inputs()[0].name
+        # Score the data and retrieve the results
+        result = session.run([], {input_name: input_data})
+
+        return {"result": postprocess(result)}
+    except Exception as e:
+        result = str(e)
+        return {"error": result}
+```
+
+For more example scripts, see the following examples:
+
+* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
+* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* Keeras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 
 #### Working with Binary data
 
@@ -253,7 +306,7 @@ When you get to deployment, the process is slightly different depending on the c
 > [!IMPORTANT]
 > Cross-origin resource sharing (CORS) is not currently supported when deploying a model as a web service.
 
-The examples in this section use [deploy_from_image](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), which requires you to register the model and image before doing a deployment. For more information on other deployment methods, see [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) and [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
+The examples in this section use [deploy_from_image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-), which requires you to register the model and image before doing a deployment. For more information on other deployment methods, see [deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) and [deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-).
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
 
@@ -328,7 +381,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
+For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
 
 #### Create a new cluster
 
