@@ -87,7 +87,8 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 ```
     Example: https://portal.azure.com/\<CSP end customer tenant name\>
-     \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
+     \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
+     2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
 ```
 
 ### ARM template and DSC errors
@@ -106,8 +107,11 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 **Example of raw error**
 
 ```
- {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for >details. Please see <https://aka.ms/arm-debug> for usage
-details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Failed\\",\\r\\n \\"error\\": {\\r\\n\\"code\\":\\"ResourceDeploymentFailure\\",\\r\\n \\"message\\": \\"The resource operation completed with terminal provisioning state 'Failed'.\\",\\r\\n\\"details\\":[\\r\\n {\\r\\n \\"code\\":\\"VMExtensionProvisioningError\\",\\r\\n\\"message\\": \\"VM has reported a failure when processing extension 'joindomain'. Error message: occured while joining Domain '[diamondsg.onmicrosoft.com](https://nam06.safelinks.protection.outlook.com/?url=http%3A%2F%2Fdiamondsg.onmicrosoft.com&data=02%7C01%7CStefan.Georgiev%40microsoft.com%7C01339d07d3424818eee608d6b0d672e8%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636890832443357907&sdata=JSaCC4NQEYK0x3wD%2FYIoK97%2Fzeo19JKN4j97UjQmzXc%3D&reserved=0)'}\\r\\n ]\\r\\n }\\r\\n}"}]}
+ {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
+ Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\": \"Failed\",\r\n \"error\":
+ {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.
+ \",\r\n \"details\": [\r\n {\r\n \"code\": \"VMExtensionProvisioningError\",\r\n \"message\": \"VM has reported a failure when processing
+ extension 'joindomain'. Error message: \\\"Exception(s) occurred while joining Domain 'diamondsg.onmicrosoft.com'\\\".\"\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
 **Cause 1:** Credential provided for joining VMs to the domain are incorrect.
@@ -130,9 +134,18 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 **Error:** The Admin Username specified is not allowed.
 
-![Screenshot of admin specified is not allowed in Your Deployment Failed.](/media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Screenshot of your deployment failed due to admin specified is not allowed.](/media/f2b3d3700e9517463ef88fa41875bac9.png)
 
-> **Example of raw error:** { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Resources/deployments/vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId": "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message": "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demoHostv2-1", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demoHostv2-1" } }}
+> **Example of raw error:**
+
+```
+ { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Resources/deployments
+ /vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation":
+ "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
+ "1f460af8-34dd-4c03-9359-9ab249a1a005", "statusCode": "BadRequest", "statusMessage": { "error": { "code": "InvalidParameter", "message":
+ "The Admin Username specified is not allowed.", "target": "adminUsername" } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76
+ /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demoHostv2-1", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demoHostv2-1" } }}
+```
 
 **Cause:** Password provided contains forbidden substrings (admin, administrator, root).
 
@@ -142,7 +155,11 @@ details.","details":[{"code":"Conflict","message":"{\\r\\n \\"status\\":\\"Faile
 
 ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](/media/49c4a1836a55d91cd65125cf227f411f.png)
 
-> **Example of raw error:** { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z", "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict", "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message": "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Compute/virtualMachines/desktop-1/extensions/dscextension", "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
+**Example of raw error:**
+
+```
+{ "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z", "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict", "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message": "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Compute/virtualMachines/desktop-1/extensions/dscextension", "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
+```
 
 **Cause:** DSC extension was not able to get admin access on the VM.
 
