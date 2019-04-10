@@ -286,7 +286,9 @@ In this sample application, the `GetHttpContentWithToken` method is used to make
         }
     ```
 
-Note that MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts, and therefore you need to take care of doing UI-ed actions in the UI thread, hence the `Dispatcher.RunAsync`, and the precautions to call `ConfigureAwait(false)`
+> [!NOTE]
+> Note that MSAL.NET uses asynchronous methods to acquire tokens or manipulate accounts, and therefore you need to take care of doing UI-ed actions in the UI thread, hence the `Dispatcher.RunAsync`,
+> and the precautions to call `ConfigureAwait(false)`
 
 ### More information on sign-out
 
