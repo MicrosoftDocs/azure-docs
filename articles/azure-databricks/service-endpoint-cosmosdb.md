@@ -1,5 +1,5 @@
 ---
-title: Implement VNet injected Azure Databricks environment with a service endpoint enabled for Cosmos DB
+title: Implement VNet injected Azure Databricks with Cosmos DB endpoint
 description: This tutorial describes how to implement a VNet injected Databricks environment with a Service Endpoint enabled for Cosmos DB. 
 services: azure-databricks
 author: mamccrea
@@ -7,10 +7,10 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 04/9/2019
 ---
 
-# Tutorial: Implement VNet injected Azure Databricks environment with a service endpoint enabled for Cosmos DB
+# Tutorial: Implement VNet injected Azure Databricks with Cosmos DB endpoint
 
 This tutorial describes how to implement a VNet injected Databricks environment with a Service Endpoint enabled for Cosmos DB.
 
@@ -112,4 +112,47 @@ Before you start, make sure you have the following:
 
     ![Create new Databricks notebook](./media/service-endpoint-cosmosdb/new-python-notebook.png)
 
-2. 
+2. Run the following python code to set the Cosmos DB connection configuration.
+
+    ```python
+    connectionConfig = {
+      "Endpoint" : "https://db-vnet-service-endpoint.documents.azure.com:443/",
+      "Masterkey" : "JASrT4VNsRP9XZxuiZ63W6nU5enosq9q7JRVrOqGKJtDu66vn0iD5LbmDDfziZ7yeZfHP9OEBfQDaJLQtOyL6Q==",
+      "Database" : "User",
+      "preferredRegions" : "West US 2",
+      "Collection": "UserCollection",
+      "schema_samplesize" : "1000",
+      "query_pagesize" : "200000",
+      "query_custom" : "SELECT * FROM c"
+    }
+    ```
+
+3. Use the following python code to load the data and create a temporary view.
+
+    ```python
+    users = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**connectionConfig).load()
+    users.createOrReplaceTempView("users")
+    ```
+
+4. Use the following magic command to execute a SQL statement that returns data.
+
+    ```python
+    %sql
+    select * from users
+    ```
+
+    You have successfully connected your VNet-injected Databricks workspace to a service-endpoint enabled Cosmos DB resource. To read more about how to connect to Cosmos DB, see [Azure Cosmos DB Connector for Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
+
+## Clean up resources
+
+When no longer needed, delete the resource group, the Azure Databricks workspace, and all related resources. Deleting the job avoids unnecessary billing. If you're planning to use the Azure Databricks workspace in future, you can stop the cluster and restart it later. If you are not going to continue to use this Azure Databricks workspace, delete all resources you created in this tutorial by using the following steps:
+
+1. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource group you created.
+
+2. On your resource group page, select **Delete**, type the name of the resource to delete in the text box, and then select **Delete** again.
+
+## Next steps
+
+Advance to the next article to learn how to extract, transform, and load data using Azure Databricks.
+> [!div class="nextstepaction"]
+> [Tutorial: Extract, transform, and load data by using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
