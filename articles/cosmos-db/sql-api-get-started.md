@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/03/2019
+ms.date: 04/09/2019
 ms.author: sngun
 
 ---
@@ -92,7 +92,7 @@ Follow these instructions to create an Azure Cosmos DB account in the Azure port
 
 ## <a id="Connect"></a>Connect to the Azure Cosmos DB account
 
-Now start writing some code. The complete *Project.cs* file for this tutorial is in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
+Now, get started writing some code. The complete *Project.cs* file for this tutorial is in [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started/blob/master/src/Program.cs).
 
 1. In **Solution Explorer**, select *Program.cs*, and in the code editor, add the following references to the beginning of the file:
    
@@ -114,7 +114,7 @@ Now start writing some code. The complete *Project.cs* file for this tutorial is
       private DocumentClient client;
    ```
    
-1. Get the endpoint URL and primary key from your Azure Cosmos DB account in the [Azure portal](https://portal.azure.com). The endpoint URL and primary key allow your app to connect, and your Azure Cosmos DB account to trust the connection.
+1. The endpoint URL and primary key allow your app to connect to your Azure Cosmos DB account, and the Azure Cosmos DB account to trust the connection. Copy the keys from the [Azure portal](https://portal.azure.com), and paste them into your code. 
 
    
    1. In your Azure Cosmos DB account left navigation, select **Keys**.
@@ -129,7 +129,7 @@ Now start writing some code. The complete *Project.cs* file for this tutorial is
       
       `private const string PrimaryKey = "19ZDNJAiYL26tmnRvoez6hmtIfBGwjun50PWRjNYMC2ig8Ob9hYk7Fq1RYSv8FcIYnh1TdBISvCh7s6yyb0000==";`
    
-1. After the `Main` method, add a new asynchronous task called `GetStartedDemo`, which will instantiate a new `DocumentClient`.
+1. After the `Main` method, add a new asynchronous task called `GetStartedDemo`, which instantiates a new `DocumentClient` called `client`.
    
    ```csharp
       private async Task GetStartedDemo()
@@ -138,7 +138,7 @@ Now start writing some code. The complete *Project.cs* file for this tutorial is
       }
    ```
    
-1. Add the following code to the `Main` method to run your asynchronous task. The `Main` method will catch exceptions and write them to the console.
+1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
    
    ```csharp
             try
@@ -164,13 +164,13 @@ Now start writing some code. The complete *Project.cs* file for this tutorial is
    
 1. Press **F5** to run your app. 
    
-1. When you see the message **End of demo, press any key to exit** in the console window, it means the connection was successful. Press a key to close the console window. 
+1. When you see the message **End of demo, press any key to exit** in the console window, it means the connection was successful. Press any key to close the console window. 
 
 You've successfully connected to your Azure Cosmos DB account. Now, work with some Azure Cosmos DB resources.  
 
 ## Create a database
 
-An Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) is the logical container of JSON document storage partitioned across collections. You can create a database by using the [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync) method of the `DocumentClient` class. 
+An Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) is the logical container of JSON document storage partitioned across collections. You create a database by using the [CreateDatabaseIfNotExistsAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.createdatabaseifnotexistsasync) method of the `DocumentClient` class. 
 
 1. Before you add the code for creating a database, add a helper method for writing to the console. Copy and paste the following `WriteToConsoleAndPromptToContinue` method after the `GetStartedDemo` method in your code.
    
@@ -267,7 +267,7 @@ The following code creates and inserts two documents into your database collecti
     }
    ```
    
-1. Copy and paste the following `CreateFamilyDocumentIfNotExists` method after the `Address` class.
+1. Copy and paste the following `CreateFamilyDocumentIfNotExists` method after the `Address` class you just added.
    
    ```csharp
     private async Task CreateFamilyDocumentIfNotExists(string databaseName, string collectionName, Family family)
@@ -292,7 +292,7 @@ The following code creates and inserts two documents into your database collecti
     }
    ```
    
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await client.CreateDocumentCollectionIfNotExistsAsync` line. This code inserts two documents, one each for the Andersen Family and the Wakefield Family.
+1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await client.CreateDocumentCollectionIfNotExistsAsync` line. This code creates and inserts two documents, one each for the Andersen and Wakefield families.
    
    ```csharp
     Family andersenFamily = new Family
@@ -369,7 +369,7 @@ You've successfully created two Azure Cosmos DB documents. You can see the docum
 
 ## <a id="Query"></a>Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query, using Azure Cosmos DB SQL syntax as well as LINQ, that you can run against the sample documents.
+Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in collections. The following sample code uses LINQ and Azure Cosmos DB SQL syntax to run a query against the sample documents.
 
 1. Copy and paste the following `ExecuteSimpleQuery` method after the `CreateFamilyDocumentIfNotExists` method in your code.
    
@@ -423,7 +423,7 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax calls
 
 ![Diagram illustrating the scope and meaning of the query used by the NoSQL tutorial to create a C# console application](./media/sql-api-get-started/nosql-tutorial-collection-documents.png)
 
-The [FROM](how-to-sql-query.md#FromClause) keyword in the query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refer to the current collection.
+The [FROM](how-to-sql-query.md#FromClause) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refer to the current collection.
 
 ## <a id="ReplaceDocument"></a>Update and replace a JSON document
 
@@ -439,7 +439,7 @@ Azure Cosmos DB SQL API supports updating and replacing JSON documents.
     }
    ```
    
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `ExecuteSimpleQuery("FamilyDB", "FamilyCollection");` line. The code updates the data in one of the documents, then runs the query again to show the changed document.
+1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `ExecuteSimpleQuery("FamilyDB", "FamilyCollection");` line. The code updates the data in one of the documents, and then runs the query again to show the changed document.
    
    ```csharp
    // Update the Grade of the Andersen Family child
@@ -450,7 +450,7 @@ Azure Cosmos DB SQL API supports updating and replacing JSON documents.
    
 1. Press **F5** to run your app.
 
-You've successfully updated and replaced an Azure Cosmos DB document. The query output shows that the `Grade` for the Andersen Family's child updated from `5` to `6`. 
+The query output shows that the `Grade` for the Andersen Family's child updated from `5` to `6`. You've successfully updated and replaced an Azure Cosmos DB document. 
 
 ## <a id="DeleteDocument"></a>Delete a JSON document
 
@@ -483,7 +483,7 @@ Delete the database you created to remove it and all its child resources, includ
 1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await DeleteFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily");` line. 
    
    ```csharp
-   // Clean up/delete the database
+   // Clean up - delete the database
    await client.DeleteDatabaseAsync(UriFactory.CreateDatabaseUri("FamilyDB"));
    ```
    
@@ -493,7 +493,7 @@ You've successfully deleted the Azure Cosmos DB database. You can see in the **D
 
 ## <a id="Run"></a>Run the entire C# console app
 
-Press **F5** in Visual Studio to build and run the complete app in debug mode. You should see the following output in the console window:
+Press **F5** in Visual Studio to build and run the complete C# console app in debug mode. You should see the following output in the console window:
 
 ```
 Created Family AndersenFamily
