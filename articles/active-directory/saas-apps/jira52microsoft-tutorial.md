@@ -211,8 +211,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -246,11 +245,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create JIRA SAML SSO by Microsoft (V5.2) test user
 
-To enable Azure AD users to log in to JIRA on-premises server, they must be provisioned into JIRA on-premises server.
+To enable Azure AD users to sign in to JIRA on-premises server, they must be provisioned into JIRA on-premises server.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your JIRA on-premises server as an administrator.
+1. Sign in to your JIRA on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
