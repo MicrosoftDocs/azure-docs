@@ -76,13 +76,13 @@ Generation 2 VMs support the following Azure Marketplace images:
 ## Frequently asked questions
 
 * **Do Gen2 VMs support Accelerated Networking?**  
-    Yes, Gen2 VMs support [Accelerated Networking](../../articles/virtual-network/create-vm-accelerated-networking-cli.md).
+    Yes, Gen2 VMs support [Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli).
 
-* **Is .vhdx supported on Gen2?**
+* **Is .vhdx supported on Gen2?**  
     No, only .vhd is supported on Gen2 VMs.
 
-* **Do generation 2 VMs support Ultra Solid State Drives (SSD)?**
+* **Do generation 2 VMs support Ultra Solid State Drives (SSD)?**  
     Yes, generation 2 VMs support Ultra SSD.
 
-* **Can I migrate from generation 1 to generation 2 VMs?**
+* **Can I migrate from generation 1 to generation 2 VMs?**  
     No, (TBD).
