@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 4b663047-7f88-443b-97bd-54224b232815
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -59,6 +60,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 * JIRA Core and Software: 6.0 to 7.12
 * JIRA Service Desk 3.0.0 to 3.5.0
+* Linux Ubuntu version 16.04
 * JIRA also supports 5.2. For more details, click [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md)
 
 ## Scenario description
@@ -143,7 +145,7 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft, perform th
 
 ### Configure JIRA SAML SSO by Microsoft Single Sign-On
 
-1. In a different web browser window, log in to your JIRA instance as an administrator.
+1. In a different web browser window, sign in to your JIRA instance as an administrator.
 
 2. Hover on cog and click the **Add-ons**.
 
@@ -256,11 +258,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create JIRA SAML SSO by Microsoft test user
 
-To enable Azure AD users to log in to JIRA on-premises server, they must be provisioned into JIRA SAML SSO by Microsoft. For JIRA SAML SSO by Microsoft, provisioning is a manual task.
+To enable Azure AD users to sign in to JIRA on-premises server, they must be provisioned into JIRA SAML SSO by Microsoft. For JIRA SAML SSO by Microsoft, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your JIRA on-premises server as an administrator.
+1. Sign in to your JIRA on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
