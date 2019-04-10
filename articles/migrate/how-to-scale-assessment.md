@@ -36,20 +36,11 @@ Azure Migrate needs access to VMware servers to automatically discover VMs for a
 - Details: User assigned at datacenter level, and has access to all the objects in the datacenter.
 - To restrict access, assign the No access role with the Propagate to child object, to the child objects (vSphere hosts, datastores, VMs, and networks).
 
-If you're deploying in a tenant environment, here's one way to set this up:
+If you are deploying in a multi-tenant environment and would like to scope by folder of VMs for a single tenant, you cannot directly select the VM folder when scoping collection in Azure Migrate. Following are instructions on how to scope discovery by folder of VMs:
 
-1. Create a user per tenant and using [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), assign read-only permissions to all the VMs belonging to a particular tenant. Then, use those credentials for discovery. RBAC ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
-2. You set up RBAC for different tenant users as described in the following example for User #1 and User #2:
-
-    - In **User name** and **Password**, specify the read-only account credentials that the collector will use to discover VMs in
-    - Datacenter1 - give read-only permissions to User #1 and User #2. Don't propagate those permissions to all child objects, because you'll set permissions on individual VMs.
-
-      - VM1 (Tenant #1) (read-only permission to User #1)
-      - VM2 (Tenant #1) (read-only permission to User #1)
-      - VM3 (Tenant #2) (read-only permission to User #2)
-      - VM4 (Tenant #2) (read-only permission to User #2)
-
-   - If you perform discovery using User #1 credentials, then only VM1 and VM2 will be discovered.
+1. Create a user per tenant and assign read-only permissions to all the VMs belonging to a particular tenant. 
+2. Grant this user read-only access to all the parent objects where the VMs are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters - in the hierarchy up to the data center are to be included. You do not need to propagate the permissions to all child objects.
+3. Use the credentials for discovery selecting datacenter as *Collection Scope*. The RBAC set up ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
 
 ## Plan your migration projects and discoveries
 
@@ -94,7 +85,7 @@ If you have multiple vCenter Servers with less than 1500 virtual machines per vC
 
 ### More than 1500 machines in a single vCenter Server
 
-If you have more than 1500 virtual machines in a single vCenter Server, you need to split the discovery into multiple migration projects. To split discoveries, you can leverage the Scope field in the appliance and specify the host, cluster, folder, or datacenter that you want to discover. For example, if you have two folders in vCenter Server, one with 1000 VMs (Folder1) and other with 800 VMs (Folder2), you can use the scope field to split the discoveries between these folders.
+If you have more than 1500 virtual machines in a single vCenter Server, you need to split the discovery into multiple migration projects. To split discoveries, you can leverage the Scope field in the appliance and specify the host, cluster, folder of hosts, folder of clusters or datacenter that you want to discover. For example, if you have two folders in vCenter Server, one with 1000 VMs (Folder1) and other with 800 VMs (Folder2), you can use the scope field to split the discoveries between these folders.
 
 **Continuous discovery:** In this case, you need to create two collector appliances, for the first collector, specify the scope as Folder1 and connect it to the first migration project. You can in parallel start the discovery of Folder2 using the second collector appliance and connect it to the second migration project.
 
