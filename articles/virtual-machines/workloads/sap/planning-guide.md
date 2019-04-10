@@ -1637,13 +1637,13 @@ The cross-premises or hybrid scenario can be roughly described like in the graph
 
 ![Site-to-Site connectivity between on-premises and Azure assets][planning-guide-figure-2100]
 
-The scenario shown above describes a scenario where the on-premises AD/OpenLDAP and DNS are extended to Azure. On the on-premises side, a certain IP address range is reserved per Azure subscription. The IP address range will be assigned to an Azure Virtual Network on the Azure side.
-
-#### Security considerations
+The scenario shown above describes a scenario where the on-premise
 
 The minimum requirement is the use of secure communication protocols such as SSL/TLS for browser access or VPN-based connections for system access to the Azure services. The assumption is that companies handle the VPN connection between their corporate network and Azure differently. Some companies might blankly open all the ports. Some other companies might want to be precise in which ports they need to open, etc.
 
 In the table below typical SAP communication ports are listed. Basically it is sufficient to open the SAP gateway port.
+
+<!-- sapms is prefix of a SAP service name and not a spelling error -->
 
 | Service | Port Name | Example `<nn`> = 01 | Default Range (min-max) | Comment |
 | --- | --- | --- | --- | --- |
@@ -1845,7 +1845,7 @@ The setup of an SAP Portal in an Azure Virtual Machine does not differ from an o
 
 A special deployment scenario by some customers is the direct exposure of the SAP Enterprise Portal to the Internet while the virtual machine host is connected to the company network via site-to-site VPN tunnel or ExpressRoute. For such a scenario, you have to make sure that specific ports are open and not blocked by firewall or network security group. 
 
-The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed by 50000 plus (Systemnumber ?? 100). The default portal URI of SAP system 00 is `<dns name`>.`<azure region`>.Cloudapp.azure.com:PublicPort/irj. For more details, have a look at
+The initial portal URI is http(s):`<Portalserver`>:5XX00/irj where the port is formed as documented by SAP in 
 <https://help.sap.com/saphelp_nw70ehp1/helpdata/de/a2/f9d7fed2adc340ab462ae159d19509/frameset.htm>.
 
 ![Endpoint configuration][planning-guide-figure-2800]
