@@ -363,13 +363,13 @@ The following code creates and inserts two documents into your database collecti
    
 1. Press **F5** to run your app.
 
-Congratulations! You have successfully created two Azure Cosmos DB documents. You can see the documents under your **FamilyDB** database and **FamilyCollection** collection in **Data Explorer** in the Azure portal.   
+You've successfully created two Azure Cosmos DB documents. You can see the documents under your **FamilyDB** database and **FamilyCollection** collection in **Data Explorer** in the Azure portal.   
 
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Query Azure Cosmos DB resources
 
-Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in each collection. The following sample code shows various queries, using Azure Cosmos DB SQL syntax as well as LINQ, that you can run against the sample documents.
+Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON documents stored in each collection. The following sample code shows a query, using Azure Cosmos DB SQL syntax as well as LINQ, that you can run against the sample documents.
 
 1. Copy and paste the following `ExecuteSimpleQuery` method after the `CreateFamilyDocumentIfNotExists` method in your code.
    
@@ -450,7 +450,7 @@ Azure Cosmos DB SQL API supports updating and replacing JSON documents.
    
 1. Press **F5** to run your app.
 
-You've successfully updated and replaced an Azure Cosmos DB document. 
+You've successfully updated and replaced an Azure Cosmos DB document. The query output shows that the `Grade` for the Andersen Family's child updated from `5` to `6`. 
 
 ## <a id="DeleteDocument"></a>Delete a JSON document
 
@@ -466,21 +466,21 @@ Azure Cosmos DB SQL API supports deleting JSON documents.
     }
    ```
    
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the second query execution line.
+1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the second `ExecuteSimpleQuery("FamilyDB", "FamilyCollection");` line.
    
    ```csharp
    await DeleteFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily");
    ```
    
-1. Press **F5** to run your application.
+1. Press **F5** to run your app.
 
-You've successfully deleted an Azure Cosmos DB document. You can see in **Data Explorer** in the Azure portal that the AndersenFamily document is deleted.
+You've successfully deleted an Azure Cosmos DB document. 
 
 ## <a id="DeleteDatabase"></a>Delete the database
 
-Delete the database you created to remove the database and all its child resources, including the collection and documents. 
+Delete the database you created to remove it and all its child resources, including the collection and documents. 
 
-1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the document deletion line. 
+1. Copy and paste the following code at the end of your `GetStartedDemo` method, after the `await DeleteFamilyDocument("FamilyDB", "FamilyCollection", "AndersenFamily");` line. 
    
    ```csharp
    // Clean up/delete the database
