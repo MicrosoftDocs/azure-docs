@@ -76,7 +76,7 @@ At its simplest, a model is a piece of code that takes an input and produces out
 
 A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
+Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
 For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
@@ -181,6 +181,10 @@ Azure Machine Learning can create two types of images:
 
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
+
+The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+
+For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 

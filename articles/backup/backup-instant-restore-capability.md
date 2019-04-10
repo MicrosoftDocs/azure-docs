@@ -6,7 +6,7 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
 ---
 
@@ -18,8 +18,8 @@ ms.author: sogup
 The new model for Instant Restore provides the following feature enhancements:
 
 * Ability to use snapshots taken as part of a backup job that is available for recovery without waiting for data transfer to the vault to finish. It reduces the wait time for snapshots to copy to the vault before triggering restore.
-* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default vault is configurable to any value between 1 to 5 days.
-* Supports disk sizes up to 4 TB.
+* Reduces backup and restore times by retaining snapshots locally, for two days by default. This default snapshot retention value is configurable to any value between 1 to 5 days.
+* Supports disk sizes up to 4 TB. Azure Backup does not support striped disks. Resizing of disk is not recommended by Azure Backup.
 * Supports Standard SSD disks along with Standard HDD disks and Premium SSD disks.
 *	Ability to use an unmanaged VM's original storage accounts (per disk), when restoring. This ability exists even when the VM has disks that are distributed across storage accounts. It speeds up restore operations for a wide variety of VM configurations.
 
