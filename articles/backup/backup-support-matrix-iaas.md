@@ -144,8 +144,7 @@ Back up VMs that are deployed in a [scale set](https://docs.microsoft.com/azure/
 Back up VMs that are deployed from the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Published by Microsoft, third party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are deployed from a custom image (third-party) |	Supported.<br/><br/> The VM must be running a supported operating system.<br/><br/> When recovering files on the VM, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure	| Supported.<br/><br/> To back up the VM, the VM agent must be installed on the migrated machine.
-Back up VMs consistency | Unsupported. <br/><br/>Azure Backup doesn't support multi-VM consistency.
-
+Back up Multi-VM consistency | Azure Backup does not provide data and application consistency across multiple VMs.
 
 
 ## VM storage support
@@ -161,7 +160,7 @@ Disks with Write Accelerator enabled | Not supported.<br/><br/> If you're runnin
 Back up deduplicated disks | Not supported.
 Add disk to protected VM | Supported.
 Resize disk on protected VM | Supported.
-Shared storage| Backing up VMs using CSV or Scale-Out File Server is not recommended. CSV writers are likely to fail.
+Shared storage| Backing up VMs using CSV or Scale-Out File Server is not recommended. CSV writers are likely to fail during backup. On restore, disks containing CSV volumes might not come-up.
 
 > [!NOTE]
 > Azure Backup does not support striped disks. Resizing of disk is not recommended by Azure Backup.
