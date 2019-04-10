@@ -6,7 +6,7 @@ ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/25/2019
+ms.date: 04/10/2019
 ---
 
 # Create an Azure Data Explorer cluster and database by using Azure CLI
@@ -74,7 +74,7 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
 1. Create your database by using the following command:
 
     ```azurecli-interactive
-    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period 3650:00:00:00 --hot-cache-period 3650:00:00:00
+    az kusto database create --cluster-name azureclitest --name clidatabase --resource-group testrg --soft-delete-period P365D --hot-cache-period P31D
     ```
 
    |**Setting** | **Suggested value** | **Field description**|
@@ -82,8 +82,8 @@ If the result contains `provisioningState` with the `Succeeded` value, then the 
    | cluster-name | *azureclitest* | The name of your cluster where the database will be created.|
    | name | *clidatabase* | The name of your database.|
    | resource-group | *testrg* | The resource group name where the cluster will be created. |
-   | soft-delete-period | *3650:00:00:00* | The amount of time that data will be kept available to query. |
-   | hot-cache-period | *3650:00:00:00* | The amount of time that data will be kept in cache. |
+   | soft-delete-period | *P365D* | Signifies the amount of time that data will be kept available to query. See [retention policy](/azure/kusto/concepts/retentionpolicy) for more information. |
+   | hot-cache-period | *P31D* | Signifies the amount of time that data will be kept in cache. See [cache policy](/azure/kusto/concepts/cachepolicy) for more information. |
 
 1. Run the following command to see the database that you created:
 
