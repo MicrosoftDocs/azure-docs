@@ -44,7 +44,7 @@
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Prepare on-premises Hyper-V
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Set up replication for Hyper-V VMs
