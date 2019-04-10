@@ -47,6 +47,7 @@ This section shows the steps to install and configure the authentication pipelin
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
+
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > [!TIP]

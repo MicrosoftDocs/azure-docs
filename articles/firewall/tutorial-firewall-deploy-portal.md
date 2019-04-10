@@ -40,6 +40,8 @@ In this tutorial, you learn how to:
 > * Configure a network rule to allow access to external DNS servers
 > * Test the firewall
 
+If you prefer, you can complete this tutorial using [Azure PowerShell](deploy-ps.md).
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Set up the network
