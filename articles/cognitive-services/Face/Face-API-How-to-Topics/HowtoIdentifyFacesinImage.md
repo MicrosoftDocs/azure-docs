@@ -9,21 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 03/01/2018
+ms.date: 04/10/2019
 ms.author: sbowles
 ---
 
-# Example: How to identify faces in images
+# Example: Identify faces in images
 
 This guide demonstrates how to identify unknown faces using PersonGroups, which are created from known people in advance. The samples are written in C# using the Face API client library.
-
-## Concepts
-
-If you are not familiar with the following concepts in this guide, please search for the definitions in our [glossary](../Glossary.md) at any time:
-
-- Face - Detect
-- Face - Identify
-- PersonGroup
 
 ## Preparation
 

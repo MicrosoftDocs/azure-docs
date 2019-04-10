@@ -39,7 +39,7 @@ However, the drawback is that the new added persons/faces will not appear in the
 
 ## Concepts
 
-If you are not familiar with the following concepts in this guide, the definitions can be found in the [glossary](../Glossary.md):
+You should be familiar with the following concepts before going forward:
 
 - LargePersonGroup: A collection of Persons with capacity up to 1,000,000.
 - LargeFaceList: A collection of Faces with capacity up to 1,000,000.
