@@ -279,10 +279,10 @@
       - name: Use SDK for .NET
         href: ../hdinsight-sdk-dotnet-samples.md
         maintainContext: true
-      - name: Use Java SDK
+      - name: Use SDK for Java
         href: ../hdinsight-sdk-java-samples.md
         maintainContext: true
-      - name: Use Python SDK
+      - name: Use SDK for Python
         href: ../hdinsight-sdk-python-samples.md
         maintainContext: true
       - name: Use Azure PowerShell
@@ -300,11 +300,11 @@
       items:
       - name: Use SDK for .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-      - name: Use Python SDK
+      - name: Use SDK for Python
         href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-      - name: Use Java SDK
+      - name: Use SDK for Java
         href: https://docs.microsoft.com/java/api/overview/azure/hdinsight
-      - name: Use GO SDK (Preview)
+      - name: Use SDK for Go (Preview)
         href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
@@ -468,11 +468,11 @@
     href: /powershell/module/az.hdinsight
   - name: SDK for .NET
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Python SDK
+  - name: SDK for Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Java SDK
+  - name: SDK for Java
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Go SDK
+  - name: SDK for Go
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
