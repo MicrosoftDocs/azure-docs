@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
+title: Tutorial - Configure a role-based access control (RBAC) role in Azure Kubernetes Service (AKS) using Ansible
 description: Learn how to use Ansible to configure RBAC in Azure Kubernetes Service(AKS) cluster
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes, azure active directory, rbac
@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure an RBAC role in Azure Kubernetes Service (AKS) using Ansible
+# Tutorial: Configure a role-based access control (RBAC) role in Azure Kubernetes Service (AKS) using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Kubernetes Service (AKS)](/azure/aks/) can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. You can then log into an AKS cluster using your Azure AD authentication token. Additionally, administrators can configure AKS role-based access control (RBAC). The RBAC can be based on a user's identity or directory group membership.
+[Azure Kubernetes Service (AKS)](/azure/aks/) can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. Once configured, you use your Azure AD authentication token to sign into the AKS cluster. The RBAC can be based on a user's identity or directory group membership.
 
 In this article, you use Ansible to create an Azure AD-enabled AKS cluster. Once created, you configure an RBAC role in the cluster using Ansible.
 
@@ -145,9 +145,9 @@ subjects:
   name: <your-aad-account>
 ```
 
-Replace the **&lt;your-aad-account>** placeholder with the your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+Replace the **&lt;your-aad-account>** placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
 
-The following task deploy your new role to AKS. Save this as `aks-kube-deploy.yml`:
+The following task deploys your new role to AKS. Save this as `aks-kube-deploy.yml`:
 
 ```yml
 - name: Apply role to AKS
@@ -203,13 +203,13 @@ ansible-playbook aks-rbac.yml
 
 In this section, you use kubectl list the nodes creating in this article.
 
-Enter the following at a terminal prompt:
+Enter the following command at a terminal prompt:
 
 ```bash
 kubectl --kubeconfig aks-aksansibletest-kubeconfig-user get nodes
 ```
 
-The command will direct you to an authentication page. Log in with your Azure account.
+The command will direct you to an authentication page. Sign in with your Azure account.
 
 Once authenticated, kubectl lists the nodes in similar fashion to the following results:
 
