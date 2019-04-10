@@ -259,9 +259,3 @@ Dataset.list(workspace)
 
     [Dataset(Name: dataset_crime,
      Workspace: your_workspace_name)]
-
-## Next steps
-
-* Learn how to explore and prepare data
-* Manage the lifecycle of Dataset definitions
-* Learn how to take snapshot of Datasets

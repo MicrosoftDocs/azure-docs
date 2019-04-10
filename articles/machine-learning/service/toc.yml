@@ -93,7 +93,7 @@
     items:
     - name: Create Datasets
       displayName: data, etl, dataset
-      href: how-to-create-and-register-datasets.md
+      href: how-to-create-register-datasets.md
     - name: Transform data
       displayName: data, etl, dataset, data preparation, dataprep
       href: how-to-transform-data.md
