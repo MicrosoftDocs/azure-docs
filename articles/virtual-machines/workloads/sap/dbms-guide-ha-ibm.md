@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/05/2019
+ms.date: 04/10/2019
 ms.author: juergent
 
 ---
@@ -135,7 +135,7 @@ Go through the planing before you execute the deployment. It is building the fou
 More details on the usage of Linux Pacemaker in Azure can be found in these articles:
 
 - [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-- [Setting up Pacemaker on Red Hat Enterprise Linux in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) 
+
 
 
 ## Deployment on SUSE Linux
@@ -344,8 +344,7 @@ The following items are prefixed with either:
 **[A]** Prerequisites for Pacemaker configuration:
 1. Shut down both database server with user db2\<sid> with db2stop
 2. Change shell environment for db2\<sid> user to "/bin/ksh" - recommended to use Yast tool 
-3. Update the resource agent:
-	<pre><code>sudo curl -so https://github.com/ClusterLabs/resource-agents/blob/master/heartbeat/db2 /usr/lib/ocf/resource.d/heartbeat/db2	</code></pre>
+
 
 ### Pacemaker configuration:
 
