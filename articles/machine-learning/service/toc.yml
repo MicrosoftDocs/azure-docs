@@ -95,17 +95,15 @@
       - name: Train and deploy
         href: how-to-vscode-train-deploy.md
   - name: Work with data
-    displayName: data prep, ETL, ELT, data preparation
     items:
-    - name: Explore and prep data
-      displayName: data prep, ETL, ELT, data preparation
-      items:
-      - name: Load data
-        href: how-to-load-data.md
-      - name: Transform data
-        href: how-to-transform-data.md
-      - name: Write data
-        href: how-to-write-data.md
+    - name: Create Datasets
+      displayName: data, etl, dataset
+      href: how-to-create-register-datasets.md
+    - name: Transform data
+      displayName: data, etl, dataset, data preparation, dataprep
+      href: how-to-transform-data.md
+    - name: Write data
+      href: how-to-write-data.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
