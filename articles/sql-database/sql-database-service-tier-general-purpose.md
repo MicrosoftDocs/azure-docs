@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
 ---
@@ -20,7 +20,7 @@ ms.date: 02/07/2019
 
 Azure SQL Database is based on SQL Server database engine architecture adapted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three service tiers that are used in Azure SQL Database, each with different architectural models. These service tiers are:
 
-- General purpose 
+- General purpose
 - Business critical
 - Hyperscale
 

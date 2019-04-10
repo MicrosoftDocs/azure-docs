@@ -1,12 +1,12 @@
 ---
-title: Build a Cognitive Services pipeline for AI-powered indexing in Azure portal - Azure Search
-description: Data extraction, natural language and image processing skills example in Azure portal using sample data. 
+title: 'Quickstart: Build an AI-powered index in Azure portal - Azure Search'
+description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---

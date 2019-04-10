@@ -30547,6 +30547,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/alibaba-cloud-service-(role-based-sso)-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/index.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
