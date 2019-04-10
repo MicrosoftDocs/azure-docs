@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ---
@@ -64,7 +64,7 @@ To configure the integration of KnowledgeOwl into Azure AD, you need to add Know
 
 4. In the search box, type **KnowledgeOwl**, select **KnowledgeOwl** from result panel then click **Add** button to add the application.
 
-	 ![KnowledgeOwl in the results list](common/search-new-app.png)
+	![KnowledgeOwl in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -103,15 +103,16 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
     ![KnowledgeOwl Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	|||
-	|-|-|
+
+	||
+	|-|
 	| `https://app.knowledgeowl.com/sp`|
 	| `https://app.knowledgeowl.com/sp/id/<unique ID>`|
-	|||
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-	|||
-	|-|-|
+
+	||
+	|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
 	| `https://subdomain.knowledgeowl.com/home/saml-login`|
@@ -124,8 +125,9 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
     ![KnowledgeOwl Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-	|||
-	|-|-|
+
+	||
+	|-|
 	| `https://subdomain.knowledgeowl.com/help/saml-login`|
 	| `https://subdomain.knowledgeowl.com/docs/saml-login`|
 	| `https://subdomain.knowledgeowl.com/home/saml-login`|
@@ -134,9 +136,9 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
 	| `https://privatedomain.com/home/saml-login`|
 
 	> [!NOTE]
-	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
+	> These values are not real. You'll need to update these value from actual Identifier, Reply URL, and Sign-On URL which is explained later in the tutorial.
 
-6. Your KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. Your KnowledgeOwl application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -187,7 +189,7 @@ To configure Azure AD single sign-on with KnowledgeOwl, perform the following st
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure1.png)
 
 1. Scroll to **SAML SSO Integration** and perform the following steps:
-	
+
 	![KnowledgeOwl Configuration](./media/knowledgeowl-tutorial/configure2.png)
 
 	a. Select **Enable SAML SSO**.
@@ -274,7 +276,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 In this section, a user called Britta Simon is created in KnowledgeOwl. KnowledgeOwl supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in KnowledgeOwl, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [KnowledgeOwl support team](mailto:support@knowledgeowl.com).
+> If you need to create a user manually, contact [KnowledgeOwl support team](mailto:support@knowledgeowl.com).
 
 ### Test single sign-on
 
