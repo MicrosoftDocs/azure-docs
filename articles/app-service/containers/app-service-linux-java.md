@@ -69,6 +69,10 @@ Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#ena
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
 
+### Troubleshooting Tools
+
+The built-in Java images are based on the [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operating system. Use the `apk` package manager to install any troubleshooting tools or commands.
+
 ## Customization and tuning
 
 Azure App Service for Linux supports out of the box tuning and customization through the Azure Portal and CLI. Review the following articles for non-Java specific web app configuration:
