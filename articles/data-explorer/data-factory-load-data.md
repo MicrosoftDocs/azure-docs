@@ -79,70 +79,89 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 1. Select **Amazon S3**, and then select **Continue**
 
-    ![New linked service](media/data-factory-load-data/source-data-store-s3.png)
+    ![New linked service](media/data-factory-load-data/as3-select-new-linked-service.png)
 
 1. In the **New Linked Service (Amazon S3)** pane, do the following steps:
 
-    ![Specify Amazon S3 linked service](media/data-factory-load-data/amazon-s3-linked-service.png)
+    ![Specify Amazon S3 linked service](media/data-factory-load-data/as3-new-linked-service-properties.png)
 
-    1. Specify **Name** of your new linked service.
-    1. Select **Connect via integration runtime** value from the dropdown.
-    1. Specify the **Access Key ID** value.
-    1. Specify the **Secret Access Key** value.
-    1. Select **Test Connection** to test the linked service connection you created.
-    1. Select **Finish**.
+    * Specify **Name** of your new linked service.
+    * Select **Connect via integration runtime** value from the dropdown.
+    * Specify the **Access Key ID** value.
+    * Specify the **Secret Access Key** value.
+    * Select **Test Connection** to test the linked service connection you created.
+    * Select **Finish**.
 
 1. In the **Source data store** page, you will see your new AmazonS31 connection. Select **Next**.
 
-   ![Source data store created connection]((media/data-factory-load-data/source-data-store-created-connection.png)
+   ![Source data store created connection](media/data-factory-load-data/source-data-store-created-connection.png)
 
 1. In the **Choose the input file or folder** page:
 
     1. Browse to the folder/file that you want to copy. Select the folder/file.
-    1. Select the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options.
+    1. Select the copy behavior as required. Keep   **Binary copy** unchecked.
     1. Select **Next**.
 
     ![Choose input file or folder](media/data-factory-load-data/source-choose-input-file.png)
 
-## Create a service principal
+1. In the **file formats settings** window select the relevant settings for your file and click **Next**.
 
-> In this how-to, you use a Azure Active Directory (Azure AD) service principal. The service principal is used by Azure Data Factory to access the Azure Data Explorer service. To create a service principal see ***(new doc)***
+ ![Choose input file or folder](media/data-factory-load-data/source-file-format-settings.png)
 
-## Create a new linked service - Sink
+### Copy data into Azure Data Explorer (Destination)
 
-1. In the **Destination data store** page, click **+ Create new connection**, and then select **Azure Data Explorer**, and select **Continue**.
+Azure Data Explorer new linked service is created to copy the data into the Azure Data Explorer destination table (sink) specified below.
 
-    ![Need: Destination data store page]()
+1. In the **Destination data store** page, you can use an existing data store or specify a new data store by clicking **+ Create new connection**.
 
-1. In the **New Linked Service (Azure Data Explorer)** page, do the following:
+    ![Need: Destination data store page](media/data-factory-load-data/destination-create-connection.png)
 
-    ![Need: ADX linked service]()
+1. In the **New Linked Service** window, select **Azure Data Explorer**, and then select **Continue**
 
-   1. Select **Name** for Azure Data Explorer linked service.
-   1. In **Account selection method**: 
-       1. Select **From Azure subscription** radio button and select your **Azure subscription** account. Then,select your **Cluster**. Or:
-       1. Select **Enter manually** radio button and enter your **Endpoint**.
-    a. Specify the **Tenant**.
-    b. Enter **Service principal ID**.
-    c. Enter **Service Principal Key**.
-    d. Select your **Database**. Alternatively, select Edit and enter your database name. 
-    e. Select **Test Connection** and **Finish**.
+    ![Select Azure Data Explorer - new linked service](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. **Destination data store pane** opens.
+1. In the **New Linked Service (Azure Data Explorer)** window, do the following:
 
-## Place data in Azure Data Explorer (Sink)
+    ![ADX new linked service](media/data-factory-load-data/adx-new-linked-service.png)
 
-1. In the **Choose the output file or folder** page, enter **copyfroms3** as the output folder name, and select **Next**.
+   * Select **Name** for Azure Data Explorer linked service.
+   * In **Account selection method**: 
+        * Select the **From Azure subscription** radio button and select your **Azure subscription** account. Then, select your **Cluster**.
+        Or:
+        * Select **Enter manually** radio button and enter your **Endpoint**.
+    * Specify the **Tenant**.
+    * Enter **Service principal ID**.
+    * Select **Service principal key** button and enter **Service Principal Key**.
+    * Select your **Database** from the dropdown menu. Alternatively, select **Edit** checkbox and enter your database name.
+    * Select **Test Connection** to test the linked service connection you created. A green checkmark **Connection successful** will appear.
+    * Select **Finish** to complete linked service creation.
+
+    > [!NOTE]
+    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad).
+
+1. The **Destination data store** opens. The Azure Data Explorer data connection you created is available for use. Select **Next** to configure the connection.
+
+    ![ADX destination data store](media/data-factory-load-data/destination-data-store.png)
+
+1. In the **Choose the output file or folder** page, enter the output folder name, determine settings, and select **Next**.
 
     ![Specify output folder](media/data-factory-load-data/specify-path.png)
 
-1. In the **Settings** page, select **Next**.
+1. In the **Table mapping** window, set the destination table name and select **Next**.
 
-    ![Need: Settings page]()
+    ![Destination dataset table mapping](media/data-factory-load-data/destination-dataset-table-mapping.png)
+
+1. In the **Column mapping** set the column mapping for the destination table and select **Next**.
+
+    ![Destination dataset column mapping](media/data-factory-load-data/destination-dataset-column-mapping.png)
+
+1. In the **Settings** page, set the relevant settings and select **Next**.
+
+    ![Copy data settings](media/data-factory-load-data/copy-data-settings.png)
 
 1. In the **Summary** page, review the settings, and select **Next**.
 
-    ![Need: Summary page]()
+    ![Copy data summary](media/data-factory-load-data/copy-data-summary.png)
 
 1. In the **Deployment page**, select **Monitor** to monitor the pipeline (task):
 
