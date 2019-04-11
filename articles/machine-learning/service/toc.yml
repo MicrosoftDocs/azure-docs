@@ -138,7 +138,7 @@
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
     - name: Auto-train a forecast model
-      display: time series
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md
