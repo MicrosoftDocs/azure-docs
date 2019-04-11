@@ -580,8 +580,8 @@
           href: insights/network-performance-monitor.md
         - name: Performance Monitor
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service Endpoint
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Service Connectivity Monitor
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Pricing

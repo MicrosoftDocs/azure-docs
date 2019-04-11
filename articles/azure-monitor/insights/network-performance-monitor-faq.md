@@ -19,7 +19,7 @@ ms.author: vinynigam
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-endpoint.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) and [monitor the performance of Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
