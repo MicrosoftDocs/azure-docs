@@ -30657,6 +30657,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/b2b/b2b-tutorial-bulk-invite.md",
+      "redirect_url": "/azure/active-directory/b2b/tutorial-bulk-invite",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
