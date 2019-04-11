@@ -55,7 +55,7 @@ For more information, see [Define resource dependencies](https://docs.microsoft.
 
 The `source` section contains information about the source image that will be used by Image Builder.
 
-The API requires a 'SourceType', this defines the source for the image build, currently there are three types:
+The API requires a 'SourceType' that defines the source for the image build, currently there are three types:
 - ISO
 - PlatformImage
 - ManagedImage
@@ -143,10 +143,10 @@ The `imageId` should be the ResourceId of the managed image. Use `az image list`
 		
 ```		
 
-Customize 
-We support multiple ‘customizers’, these are functions that are used to customize your image, such as running scripts, rebooting servers etc. We are adding support for customizers constantly, so please keep checking the documentation or MS Teams channel for announcements for additional customizers. 
+
+Image Builder supports multiple ‘customizers’. Customizers are functions that are used to customize your image, such as running scripts, or rebooting servers. 
  
-The customize section is an array, Azure Image Builder will run through the customizers in sequential order, any failure in any customizer will fail the build process. 
+The customize section is an array. Azure Image Builder will run through the customizers in sequential order. Any failure in any customizer will fail the build process. 
  
      "customize": [ 
          { 
@@ -186,7 +186,7 @@ When using `customize`:
 - You can use multiple customizers, but they must have a unique `name`.
 - Customizers execute in the order specified in the template.
 - If one customizer fails, then the whole customization component will fail and report back an error.
-- In Private Preview, there is a 1 hour timeout for customization allowance.
+- In preview, there is a 1-hour timeout allowance for customization.
 - It is strongly advised you test the script thoroughly before using in a template, since debugging the script on your own accessible VM will be easier.
 - Do not put sensitive data in the scripts. The script locations are publicly accessible.
 
@@ -209,7 +209,7 @@ OS Support: Windows
  
 Customize properties:
 **Type**: WindowsRestart
-**restartCommand** - Command to execute the restart (pptional). The default is `'shutdown /r /f /t 0 /c 
+**restartCommand** - Command to execute the restart (optional). The default is `'shutdown /r /f /t 0 /c 
 \"packer restart\"'`.
 **restartCheckCommand** – Command to check if restart succeeded (optional).  [Default: '…..'] 
 **restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, '5m' (5 minutes) or '2h' (2 hours). The default is: '5m'
@@ -272,7 +272,7 @@ You can distribute an image to both of the target types in the same configuratio
  
 Distribute properties 
 **type** – managedImage 
-**imageId** – Resource Id of the destination image, expected format: 
+**imageId** – Resource ID of the destination image, expected format: 
 /subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
 **location** - location of the managed image.  
 **runOutputName** – this must be the same as the image name.  
@@ -311,7 +311,7 @@ Before you can distribute to the Image Gallery, you must create a gallery and an
 
 Distribute properties for shared image galleries:
 **type** - sharedImage  
-**galleryImageId** – Id of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+**galleryImageId** – ID of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
 **imageName** - Image name  
 **replicationRegions** - Array of regions for r.eplication
  
@@ -348,7 +348,7 @@ az resource show \
 ```
 
 > [!NOTE]
-> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will loose this VHD. 
+> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will lose this VHD. 
  
 ## Next steps
 

@@ -157,7 +157,7 @@ In the Image Builder Template, in the 'Properties', you will see the source imag
 cat helloImageTemplate.json
 ```
 
-For more detailed information about this .json file, see [Image builder .json example](image-builder-json)
+For more detailed information about this .json file, see [Image builder .json example](image-builder-json.md)
 
 ## Clean Up
 
