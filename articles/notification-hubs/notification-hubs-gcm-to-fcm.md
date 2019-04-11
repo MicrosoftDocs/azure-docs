@@ -17,6 +17,8 @@ ms.author: jowargo
 
 # Google Firebase Cloud Messaging Migration
 
+## Current State
+
 When Google announced its migration from Google Cloud Messaging (GCM) to Firebase Cloud Messaging (FCM), push services like ours had to adjust how we sent notifications to Android devices to accommodate the change.
 
 We updated our service backend, then published updates to our API and SDKs as needed. With our implementation, we made the decision to maintain compatibility with existing GCM notification schemas to minimize customer impact. This means that we currently send notifications to Android devices using FCM in FCM Legacy Mode. Ultimately, we want to add true support for FCM, including the new features and payload format. That is a longer-term change and the current migration is focused on maintaining compatibility with existing applications and SDKs. You can use either the GCM or FCM SDKs in your app (along with our SDK) and we make sure the notification is sent correctly.
@@ -25,9 +27,13 @@ Some customers recently received an email from Google warning about apps using a
 
 We replaced that deprecated endpoint and the fix is deployed.
 
+## Going Forward
+
 Google’s FCM FAQ says you don't have to do anything. In the [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google said “client SDKs and GCM tokens will continue to work indefinitely. However, you won't be able to target the latest version of Google Play Services in your Android app unless you migrate to FCM.”
 
 If your app uses the GCM library, go ahead and follow Google’s instructions to upgrade to the FCM library in your app. Our SDK is compatible with either, so you won’t have to update anything in your app on our side (as long as you’re up to date with our SDK version).
+
+## Q & A
 
 Now, this isn’t how we want things to stay; so over the next year you’ll see API and SDK updates from us implementing full support for FCM (and likely deprecate GCM support). In the meantime, here’s some answers to common questions we’ve heard from customers:
 
