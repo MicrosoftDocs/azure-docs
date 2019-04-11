@@ -58,7 +58,7 @@ To configure the integration of Teamwork.com into Azure AD, you need to add Team
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, click a **New application** button at the top of the dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
