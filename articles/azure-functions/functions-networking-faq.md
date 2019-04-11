@@ -50,7 +50,10 @@ Deploying to an App Service Environment is the only way to create a function app
 
 For scenarios where you only need one-way access to VNET resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
 
-## Next steps
+## Next Steps
 
-> [!div class="nextstepaction"]
-> [Understand Azure Functions scale and hosting options](functions-scale.md)
+1. [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+1. [Learn more about the networking options in functions here](./functions-networking-options.md)
+1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+1. [Enable for networking features and control with App Service Environments](../app-service/environment/intro.md)

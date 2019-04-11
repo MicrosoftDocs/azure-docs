@@ -85,7 +85,13 @@ Private site access refers to making your app only accessible from a private net
 
 There are many ways to access VNET resources in other hosting options, but an ASE is the only way to allow triggers for a function to occur over a VNET.
 
-## Next steps
+## Next Steps
 
-> [!div class="nextstepaction"]
-> [Understand Azure Functions scale and hosting options](functions-scale.md)
+1. [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+1. [Learn more about the networking options in functions here](./functions-networking-options.md)
+1. [Read the Functions networking FAQ here](./functions-networking-faq.md)
+1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+1. [Enable for networking features and control with App Service Environments](../app-service/environment/intro.md)
+1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
+1. [Learn more about Function Proxies](./functions-proxies.md)
