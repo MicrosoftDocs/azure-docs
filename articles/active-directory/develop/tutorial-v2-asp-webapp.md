@@ -24,3 +24,14 @@ ms.collection: M365-identity-device-management
 [!INCLUDE [3. Use](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-use.md)]
 [!INCLUDE [4. Configure](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-configure.md)]
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-aspnetwebapp-test.md)]
+
+## Next steps
+
+Learn about Web apps calling web APIs:.
+
+### Learn the steps to create the application used in this quickstart
+
+> [!div class="nextstepaction"]
+> [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

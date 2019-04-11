@@ -125,7 +125,7 @@ PublicClientApplicationBuilder.Create(ClientId)
 
 ### Requesting tokens
 
-MSAL has two methods for acquiring tokens: `AcquireToken` and `AcquireTokenSilent`.
+MSAL has two methods for acquiring tokens: `AcquireTokenInteractive` and `AcquireTokenSilent`.
 
 #### Get a user token interactively
 
@@ -137,7 +137,7 @@ Some situations require forcing users interact with the Microsoft identity platf
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(_scopes)
+authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
@@ -147,7 +147,7 @@ authResult = await App.PublicClientApp.AcquireToken(_scopes)
 
 #### Get a user token silently
 
-You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method:
+You don't want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use the `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method:
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();

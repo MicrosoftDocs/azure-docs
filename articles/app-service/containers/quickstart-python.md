@@ -108,7 +108,7 @@ Checking connectivity... done.
 
 Change to the directory that contains the sample code and run the `az webapp up` command.
 
-In the following example, replace <app-name> with a unique app name.
+In the following example, replace `<app-name>` with a unique app name.
 
 ```bash
 cd python-docs-hello-world
