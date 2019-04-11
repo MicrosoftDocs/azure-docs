@@ -56,7 +56,7 @@ Unlike most other Azure Monitor solutions, data isn't collected for activity log
 
 To access Azure activity log information, you must have an Azure subscription.
 
-The solution also requires that the following two resource providers are registered for your subscription:
+The solution also requires that the following two resource providers are registered in your subscription:
 
 1. Microsoft.OperationalInsights
 2. Microsoft.OperationsManagement
