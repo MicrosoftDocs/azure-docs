@@ -58,21 +58,20 @@ Follow the steps in [Writing Python with Visual Studio Code](https://code.visual
 
 1. Open `connectwithpython.py` and add the following snippet to import the required modules:
 
-	```
-	## Use this for Azure AD authentication
-	from msrestazure.azure_active_directory import AADTokenCredentials
+    ```
+    ## Use this for Azure AD authentication
+    from msrestazure.azure_active_directory import AADTokenCredentials
 
-   ## Required for Media Services 
-	from azure.mgmt.media import AzureMediaServicesClient
+    ## Required for Media Services 
+    from azure.mgmt.media import azure_media_services
 
-	# Common Azure imports
-   import adal
-	from azure.mgmt.resource.resources import ResourceManagementClient
-	from azure.mgmt.resource.resources.models import ResourceGroup
+    import adal
+    from azure.mgmt.resource.resources import ResourceManagementClient
+    from azure.mgmt.resource.resources.models import ResourceGroup
 
-	## Use these as needed for your application
-	import logging, getpass, pprint, uuid, time
-	```
+    ## Use these as needed for your application
+    import logging, getpass, pprint, uuid, time
+    ```
 2. To create the Active Directory credentials that you need to make requests, add following code to `connectwithpython.py`  class and set the values that you got from [Access APIs](access-api-cli-how-to.md)
 
     ```
