@@ -139,7 +139,8 @@ This article shows you three ways to enable managed identity for an Azure Stream
         "sku": {
           "name": "standard"
         },
-      }
+     }
+   }
    ```
 
    Take note of the Principal ID from the job response to grant access to the required ADLS resource.
