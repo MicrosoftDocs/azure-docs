@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ms.author: juliako
 
 ---
@@ -24,93 +24,69 @@ In this article, the Visual Studio Code is used to develop an app.
 
 ## Prerequisites
 
-- Follow [Writing Python with Visual Studio Code](https://code.visualstudio.com/docs/java/java-tutorial) to install:
+- Follow [Writing Python with Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial) to install:
 
-   - JDK
-   - Apache Maven
-   - Java Extension Pack
-- Make sure to set `JAVA_HOME` and `PATH` environment variables.
+   - Python extension for VS Code
+   - Download Python from [python.org](https://www.python.org/downloads/)
+   - Make sure to set the `PATH` environment variable
 - [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
-- Follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in a later step.
+- Follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in the lasta later step.
 
-Also review:
+## Install the modules
 
-- [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java)
-- [Java Project Management in VS Code](https://code.visualstudio.com/docs/java/java-project)
+To work with Data Lake Storage Gen1 using Python, you need to install three modules.
 
-## Create a Maven project
+* The `azure-mgmt-resource` module, which includes Azure modules for Active Directory.
+* The `azure-mgmt-media` module, which includes the Media Services entities.
 
-Open a command-line tool and `cd` to a directory where  you want to create the project.
+Use the following commands to install the modules.
+
+```
+pip install azure-mgmt-resource
+pip install azure-mgmt-media==1.1.1
+```
+
+## Create a Python project
+
+Follow the steps in [Writing Python with Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial) to
+
+1. Start a project
+1. Select an interpreter
+1. Create a Python source file with `.py` extension. In this example, we call the file `connectwithpython.py`.
+
+## Connect to the Python client
+
+1. Open `connectwithpython.py` and add the following snippet to import the required modules:
+
+	```
+	## Use this for Azure AD authentication
+	from msrestazure.azure_active_directory import AADTokenCredentials
+
+   ## Required for Media Services 
+	from azure.mgmt.media import AzureMediaServicesClient
+
+	# Common Azure imports
+   import adal
+	from azure.mgmt.resource.resources import ResourceManagementClient
+	from azure.mgmt.resource.resources.models import ResourceGroup
+
+	## Use these as needed for your application
+	import logging, getpass, pprint, uuid, time
+	```
+2. To create the Active Directory credentials that you need to make requests, add following code to `connectwithpython.py`  class and set the values that you got from [Access APIs](access-api-cli-how-to.md)
+
+    ```
+    authority_host_uri = 'https://login.microsoftonline.com'
+    tenant = '<TENANT>'
+    authority_uri = authority_host_uri + '/' + tenant
+    RESOURCE = 'https://management.core.windows.net/'
+    client_id = '<CLIENT_ID>'
+    client_secret = '<CLIENT_SECRET>'
     
-```
-mvn archetype:generate -DgroupId=com.azure.ams -DartifactId=testAzureApp -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
-```
-
-When you run the command, the `pom.xml`, `App.java`, and other files are created. 
-
-## Add dependencies
-
-1. In Visual Studio Code, open the folder where your project is. 
-1. Find and open the `pom.xml`. 
-1. Add the needed dependencies. One of them is [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar).
-
-    ```xml
-    <dependency>
-      <groupId>com.microsoft.azure.mediaservices.v2018_07_01</groupId>
-      <artifactId>azure-mgmt-media</artifactId>
-      <version>1.0.0-beta</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.rest</groupId>
-      <artifactId>client-runtime</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    <dependency>
-      <groupId>com.microsoft.azure</groupId>
-      <artifactId>azure-client-authentication</artifactId>
-      <version>1.6.5</version>
-    </dependency>
-    </dependency>
+    context = adal.AuthenticationContext(authority_uri, api_version=None)
+    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
+    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
     ```
-
-### Create the management client
-
-1. Open the `App.java` file under `src\main\java\com\azure\ams` and make sure your package is included at the top:
-
-    ```java
-    package com.azure.ams;
-    ```
-2. Under the package statement, add these import statements:
-   
-   ```java
-   import com.microsoft.azure.AzureEnvironment;
-   import com.microsoft.azure.credentials.ApplicationTokenCredentials;
-   import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
-   import com.microsoft.rest.LogLevel;
-   ```
-2. To create the Active Directory credentials that you need to make requests, add following code to the main method of the App class and set the values that you got from [Access APIs](access-api-cli-how-to.md):
-   
-   ```java
-   final String clientId = "00000000-0000-0000-0000-000000000000";
-   final String tenantId = "00000000-0000-0000-0000-000000000000";
-   final String clientSecret = "00000000-0000-0000-0000-000000000000";
-   final String subscriptionId = "00000000-0000-0000-0000-000000000000";
-
-   try {
-      ApplicationTokenCredentials credentials = new ApplicationTokenCredentials(clientId, tenantId, clientSecret, AzureEnvironment.AZURE);
-      credentials.withDefaultSubscriptionId(subscriptionId);
-
-      MediaManager manager = MediaManager
-              .configure()
-              .withLogLevel(LogLevel.BODY_AND_HEADERS)
-              .authenticate(credentials, credentials.defaultSubscriptionId());
-      System.out.println("signed in");
-   }
-   catch (Exception e) {
-      System.out.println("Exception encountered.");
-      System.out.println(e.toString());
-   }
-   ```
 
 ## Next steps
 
