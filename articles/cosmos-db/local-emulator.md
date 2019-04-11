@@ -247,7 +247,7 @@ To view the list of options, type `CosmosDB.Emulator.exe /?` at the command prom
 | GremlinPort | Port number to use for the Gremlin Endpoint. Default value is 8901. | CosmosDB.Emulator.exe /GremlinPort=\<port\> | \<port\>: Single port number |
 |TablePort | Port number to use for the Azure Table Endpoint. Default value is 8902. | CosmosDB.Emulator.exe /TablePort=\<port\> | \<port\>: Single port number|
 | KeyFile | Read authorization key from the specified file. Use the /GenKeyFile option to generate a keyfile | CosmosDB.Emulator.exe /KeyFile=\<file_name\> | \<file_name\>: Path to the file |
-| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=<path>] | \<path\>: File path  |
+| ResetDataPath | Recursively removes all the files in the specified path. If you don't specify a path, it defaults to %LOCALAPPDATA%\CosmosDbEmulator | CosmosDB.Emulator.exe /ResetDataPath[=\<path>] | \<path\>: File path  |
 | StartTraces  |  Start collecting debug trace logs. | CosmosDB.Emulator.exe /StartTraces | |
 | StopTraces     | Stop collecting debug trace logs. | CosmosDB.Emulator.exe /StopTraces  | |
 |EnableTableEndpoint | Enables Azure Table API | CosmosDB.Emulator.exe /EnableTableEndpoint | |
