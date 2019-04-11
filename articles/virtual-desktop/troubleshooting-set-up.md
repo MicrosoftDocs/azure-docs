@@ -22,7 +22,7 @@ Each WVD tenant environment consists of one or more host pools. Each host pool c
 >[!NOTE]
 > Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment.
 
->[TIP]
+>[!TIP]
 >The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
 
 Each host pool may have one or more app groups. An app group is a logical grouping of applications that are installed on the session hosts in the host pool. There are two types of app groups:
@@ -39,17 +39,17 @@ Use the following table to identify and resolve issues you may encounter when se
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **RDS/WVD support**.|
-| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> Azure Marketplace WVD templates are freely available.|
-| Accessing ARM templates via GitHub                                   | If the issue is not covered in **Issues executing create and provision new WVD host pool**, contact the [GitHub support team](https://github.com/contact). <br>  If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
+| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace WVD templates are freely available.|
+| Accessing ARM templates via GitHub                                   | If the issue is not covered in **Creating WVD session host VMs**, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
 | Session host pool VNET and Express Route settings                    | Contact **Azure Support (Networking)**. |
-| Session host pool VM creation when ARM templates provided with WVD are not being used | Contact **Azure Support (Compute)**. <br> For issue with the ARM templates provided with WVD, see **Creating WVD tenant**. |
-| Managing WVD session host environment from the Azure management portal                | Contact **Azure Support**. <br> For management issues when using **RDS/WVD PowerShell**, troubleshoot using **Management with PowerShell** or contact the **RDS/WVD support team**. |
-| Managing WVD configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **RDS/WVD support team**. <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **RDS/WVD support team**. <br> If it's a network issues, your users need to contact their network administrator. |
-| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> If your users have been assigned to an appgroup, escalate to the **RDS/WVD support team**. |
+| Session host pool VM creation when ARM templates provided with WVD are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the ARM templates provided with WVD, see **Creating WVD tenant**. |
+| Managing WVD session host environment from the Azure management portal                | Contact **Azure Support**. <br> <br> For management issues when using **RDS/WVD PowerShell**, troubleshoot using **Management with PowerShell** or contact the **RDS/WVD support team**. |
+| Managing WVD configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **RDS/WVD support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
+| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **RDS/WVD support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
+| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> <br> If your users have been assigned to an appgroup, escalate to the **RDS/WVD support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | Troubleshoot using **Session host VMs configuration** and **Client connection issues**. |
-| Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. <br> If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. <br> <br> If issues are tied to a specific application or product, contact the team responsible for that product. |
 | Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product.|
 
 ## Setup issues
@@ -58,7 +58,7 @@ This section covers potential issues during the initial setup of the WVD tenant 
 
 ### Acquiring the Windows 10 Enterprise multi-session image
 
-To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from the [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from [Azure Marketplace](https://azuremarketplace.microsoft.com/).
 
 ### Creating WVD tenant
 
@@ -71,24 +71,24 @@ During the private and public preview creation of the WVD, the tenant will be co
 
 ### Issues executing “Windows Virtual Desktop – Provision a host pool”
 
-**Error**: When using the link from GitHub, the message “Create a free account" appears.
+| **Error** | When using the link from GitHub, the message “Create a free account" appears. |
 
-![Screenshot to create a free account.](/media/be615904ace9832754f0669de28abd94.png)
+![Screenshot to create a free account.](media/be615904ace9832754f0669de28abd94.png)
 
-**Cause 1:** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
+**Cause 1** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
 
-**Fix 1:** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
+**Fix 1** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
 
-**Cause 2:** The subscription being used is part of a CSP tenant.
+**Cause 2** The subscription being used is part of a CSP tenant.
 
-**Fix 2:** Go to the GitHub location for **Create and provision new WVD host pool** and perform the following steps:
+**Fix 2** Go to the GitHub location for **Create and provision new WVD host pool** and perform the following steps:
 
 1. Right click on **Deploy to Azure** and select **Copy link address**.
 2. Open **Notepad** and paste the link.
-3. Before the \# character, insert the CSP end customer tenant name.
+3. Before the \# character, insert the CSP end customer tenant name. 
 4. Open the new link in a browser and the Azure portal will load the template.
 
-```
+```batch
     Example: https://portal.azure.com/\<CSP end customer tenant name\>
      \#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%
      2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
@@ -105,11 +105,11 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error: Your deployment failed….\<hostname\>/joindomain**
 
-![Screenshot of your deployment failed.](/media/e72df4d5c05d390620e07f0d7328d50f.png)
+![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
 **Example of raw error**
 
-```
+```batch
  {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
  Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\": \"Failed\",\r\n \"error\":
  {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.
@@ -127,7 +127,7 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** VMExtensionProvisioningError
 
-![Screenshot of Your Deployment Failed with terminal provisioning state failed.](/media/7aaf15615309c18a984673be73ac969a.png)
+![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/7aaf15615309c18a984673be73ac969a.png)
 
 **Cause 1:** Transient error with the WVD environment.
 
@@ -137,7 +137,7 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** The Admin Username specified is not allowed.
 
-![Screenshot of your deployment failed due to admin specified is not allowed.](/media/f2b3d3700e9517463ef88fa41875bac9.png)
+![Screenshot of your deployment failed due to admin specified is not allowed.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
 > **Example of raw error:**
 
@@ -156,11 +156,11 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** VM has reported a failure when processing extension
 
-![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](/media/49c4a1836a55d91cd65125cf227f411f.png)
+![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/49c4a1836a55d91cd65125cf227f411f.png)
 
 **Example of raw error:**
 
-```
+```batch
 { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
  rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
@@ -171,7 +171,8 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
  Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: 
  PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
  One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": 
- { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft. Compute/virtualMachines/desktop-1/extensions/dscextension",
+ { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft. 
+ Compute/virtualMachines/desktop-1/extensions/dscextension",
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
 
@@ -181,11 +182,11 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** DeploymentFailed – DSC Configuration ‘FirstSessionHost’ completed with Error(s).
 
-![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](/media/64870370bcbe1286906f34cf0a8646ab.png)
+![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](media/64870370bcbe1286906f34cf0a8646ab.png)
 
-> **Example of raw Error**
+> **Example of raw error**
 
-```
+```batch
 {
     "code": "DeploymentFailed",
    "message": "At least one resource deployment operation failed. Please list 
@@ -213,9 +214,9 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** DeploymentFailed – InvalidResourceReference.
 
-> **Example of raw Error:** 
+> **Example of raw error:**
 
-```
+```batch
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -244,7 +245,7 @@ region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r
 
 > **Example of raw error:**
 
-```
+```batch
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -272,7 +273,7 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 
 **Error:** DeploymentFailed – Error downloading.
 
-> **Example of Raw Error:**
+> **Example of raw error:**
 
 ```
 \\\"The DSC Extension failed to execute: Error downloading
@@ -375,7 +376,7 @@ When the RD Agent is first installed on the session host VM (either manually or 
 
 **Error:** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
 
-![Get-RdsSessionHost cmdlet shows status as Unavailable.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Get-RdsSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The agent is not able to update itself to a new version.
 
@@ -412,12 +413,13 @@ When the RD Agent is first installed on the session host VM (either manually or 
 2. Install PSPing on the session host VM where the agent is running.
 3. Open the command prompt as an administrator and issue the command below:
 
-```
+```cmd
 psping rdbroker.wvdselfhost.microsoft.com:443
 ```
-Confirm that PSPing received information back from the RDBroker:
 
-```
+4. Confirm that PSPing received information back from the RDBroker:
+
+```batch
 PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
 Copyright (C) 2012-2016 Mark Russinovich
 Sysinternals - www.sysinternals.com
@@ -447,11 +449,11 @@ If you're having issues with the the SxS stack, confirm the SxS stack is install
 
 If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
 
-![SxS stack installed or enabled with qwinsta listed as rdp-sxs in the output.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![SxS stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your WVD tenant** on how to reinstall the SxS stack.
 
-```
+```reg
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
     Server\\WinStations\\rds-sxs\\"fEnableWinstation":DWORD=1
 
@@ -461,7 +463,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 **Error:** O_REVERSE_CONNECT_STACK_FAILURE
 
-![O_REVERSE_CONNECT_STACK_FAILURE error code.](/media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![O_REVERSE_CONNECT_STACK_FAILURE error code.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
 **Cause:** The SxS stack is not installed on the session host VM.
 
@@ -504,44 +506,43 @@ psexec.exe \\<VMname> cmd
 >[!Note]
 >VMname is the machine name of the VM with the chased SxS stack.
 
-Accept the PsExec License Agreement.
+7. Accept the PsExec License Agreement.
 
-![Software license agreement screenshot.](/media/troubleshooting-set-up/SoftwareLicenseAgreement.png)
+![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
 
 >[!Note]
 >This dialog will show up only the first time PsExec is run.
 
-This will start a command prompt session on the VM with the crashed SxS stack.
+8. This will start a command prompt session on the VM with the crashed SxS stack. Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the SxS stack as this indicates no SxS present on the VM.
 
-Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the SxS stack as this indicates no SxS present on the VM.
+![Administrator command prompt](media/AdministratorCommandPrompt.png)
 
-![Administrator command prompt](/media/troubleshooting-set-up/AdministratorCommandPrompt.png)
-
-Run the following command. It will list Microsoft components installed on the VM with the malfunctioning SxS stack.
+9. Run the following command. It will list Microsoft components installed on the VM with the malfunctioning SxS stack.
 
 ```
 wmic product get name
 ```
 
-Run the command below with product names from step above. Uninstall all products that start with “Remote Desktop.”
+10. Run the command below with product names from step above. Uninstall all products that start with “Remote Desktop.”
 
 ```
 wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
 ```
 
-If the operating system is Windows Server, once all WVD components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool). 
+11. If the operating system is Windows Server, once all WVD components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool).
 
 If the operating system is Windows 10 machines the following steps must be performed.
 
-- From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned SxS stack.
+1.  From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned SxS stack.
 
 ```
 \\<VMname>\c$\
 ```
+
 >[!NOTE]
 >VMname is the machine name of the VM with the chased SxS stack.
 
-From the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1.
+2. From the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1.
 
 Or alternatively run the following cmdlets:
 
@@ -552,9 +553,9 @@ Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Serve
 ```
 
 >[!Note]
-.The recommended process is to run disablesxsstackrc.ps1.
+>The recommended process is to run disablesxsstackrc.ps1.
 
-Once cmdlets have completed restart the VM with crashed SxS.
+3. Once cmdlets have completed restart the VM with crashed SxS.
 
 ## Client connection issues
 
@@ -610,8 +611,8 @@ If the Web client keeps prompting for credentials, use the following steps:
 1. Confirm web client URL is correct.
 2. Confirm that credentials are for the WVD environment tied to the URL.
 3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
-4.  Clear browser cache. See [clear browser cache for yourbrowser](https://binged.it/2RKyfdU).
-5.  Open browser in Private mode.
+4. Clear browser cache. See [clear browser cache for yourbrowser](https://binged.it/2RKyfdU).
+5. Open browser in Private mode.
 
 ### Remote Desktop client for Windows 7 or Windows 10 crashes or cannot be opened
 
@@ -635,9 +636,9 @@ Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
 In scenarios where users can obtain their feed and see the resource provided to them, there can sometimes be misconfigurations, availability, or performance issues that prevent users from accessing their remote resources. The user gets a messages like the one below:
 
-![Remote Desktop Connection error message.](/media/eb76b666808bddb611448dfb621152ce.png)
+![Remote Desktop Connection error message.](media/eb76b666808bddb611448dfb621152ce.png)
 
-![Can't connect to the gateway error message.](/media/a8fbb9910d4672147335550affe58481.png)
+![Can't connect to the gateway error message.](media/a8fbb9910d4672147335550affe58481.png)
 
 Below are general troubleshooting steps and common error codes.
 
@@ -726,9 +727,7 @@ This section covers common errors and issues reported when using PowerShell. For
 **Fix:** Confirm the following:
 
 - User has synched to Azure AD.
-
 - User is not B2C or B2B.
-
 - WVD tenant is tied to correct Azure AD.
 
 ### Get-RdsDiagnosticActivities
