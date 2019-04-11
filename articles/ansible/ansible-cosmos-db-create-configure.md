@@ -232,8 +232,6 @@ To run the playbook, use the **ansible-playbook** command as follows:
 ansible-playbook cosmosdb.yml
 ```
 
-The output shows the Azure Cosmos DB account is created. Also, the output lists the primary and secondary keys.
-
 ## Clean up resources
 
 When no longer needed, delete the resources created in this article. 
