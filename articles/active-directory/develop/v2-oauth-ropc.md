@@ -100,8 +100,8 @@ If the user hasn't provided the correct username or password, or the client hasn
 | Error | Description | Client action |
 |------ | ----------- | -------------|
 | `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` error will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser. |
-| `invalid_request` | The request was improperly constructed | The grant type is not supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
-| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property is not set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. Note that ROPC is only supported for public client apps. |
+| `invalid_request` | The request was improperly constructed | The grant type isn't supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
+| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property isn't set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. Note that ROPC is only supported for public client apps. |
 
 ## Learn more
 
