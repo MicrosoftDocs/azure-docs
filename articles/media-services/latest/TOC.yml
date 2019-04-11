@@ -164,6 +164,10 @@
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js
         href: configure-connect-nodejs-howto.md
+      - name: Python
+        href: configure-connect-python-howto.md
+      - name: Go
+        href: configure-connect-go-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET
