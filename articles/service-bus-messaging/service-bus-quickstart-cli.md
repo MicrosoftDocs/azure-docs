@@ -367,10 +367,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the following tutorial for Service Bus:
+In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the tutorials in the **Send and receive messages** section. 
 
 > [!div class="nextstepaction"]
-> [Update inventory by using the Azure CLI and Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Send and receive messages](service-bus-dotnet-get-started-with-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
