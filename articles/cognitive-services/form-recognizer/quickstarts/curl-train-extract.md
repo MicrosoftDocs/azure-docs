@@ -35,51 +35,70 @@ To run the sample command, do the following steps:
 1. Copy the following command into a text editor
 
     ```bash
-    curl -X POST "http://localhost:5000/forms/v1.0/dataset" --data "{\"name\": \"<dataset name>\",\"dataRef\": \"/input/<dataset path>\"}" -H "Content-Type: application/json"
+    curl -X POST "https://westcentralus.api.cognitive.microsoft.com/FormRecognizer/v1.0/dataset" --data "{\"name\": \"<dataset name>\",\"dataRef\": \"/input/<dataset path>\"}" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscriptionKey>"
     ```
 
 1. Make the following changes:
 
-   * Replace `<dataset name>` with a name for the dataset
-   * Replace `<dataset path>` with the path to your training dataset
+   * Replace `<dataset name>` with a name for the dataset.
+   * Replace `<dataset path>` with the path to your training dataset.
+   * Replace `<subscriptionKey>` with your subscription key.
+   * If necessary, replace `westcentralus` in the URL with the region of your API key.
 
    > [!NOTE]
    > The `dataRef` parameter is always relative to the input mount root path, which is **/input** by default. Therefore, all `dataRef` attribute values are relative to this path. For example, if the value is `/input/dataset`, it's expected that the **/dataset** folder is present under the path that was mapped to **/input**.
 
-1. Open a command prompt window, paste the command from the text editor, and run the command.
-1. You should receive a `202 (Accepted)` response with the following JSON output:
+1. Open a command prompt window, paste the command from the text editor, and run the command. You should receive a `202 (Accepted)` response with the following JSON output:
 
    ```json
    {"purpose":"train","state":"created","id":1,"name":"<dataset name>","dataRef":"/input/<dataset path>"}
    ```
 
-1. Copy the `"id"` value; you will need it for the following steps.
+1. Copy the `"id"` value to a secure location; you will need it for the following steps.
 
 ## Train a Form Recognizer model
 
-To train a new Form Recognizer model using the documents in your dataset, call the **Train** API by executing the following cURL command. Replace `<id>` with your dataset ID:
+To train a new Form Recognizer model using the documents in your dataset, you need to call the **Train** API:
 
-```bash
-curl -X POST --data "" "http://localhost:5000/forms/v1.0/dataset/<id>/train"
-```
+1. Copy the following command into a text editor:
 
-You will receive a `200 (Success)` response with the following JSON output:
+    ```bash
+    curl -X POST --data "" "https://westcentralus.api.cognitive.microsoft.com/FormRecognizer/v1.0/dataset/<id>/train" -H "Ocp-Apim-Subscription-Key: <subscriptionKey>"
+    ```
 
-```json
-{"modelVersion":{"versionId":1,"modelId":1,"modelRef":"/output/datasets/<dataset name>/models/1260d261-2737-4b29-ac18-b578fab103b1.gz","isActive":true}}
-```
+1. Make the following changes:
 
-Take note of the `"modelId"` value; you will need it for the following steps.
+   * Replace `<id>` with your dataset ID.
+   * Replace `<subscriptionKey>` with your subscription key.
+   * If necessary, replace `westcentralus` in the URL with the region of your API key.
+
+1. Run the command. You should receive a `200 (Success)` response with the following JSON output:
+
+    ```json
+    {"modelVersion":{"versionId":1,"modelId":1,"modelRef":"/output/datasets/<dataset name>/models/1260d261-2737-4b29-ac18-b578fab103b1.gz","isActive":true}}
+    ```
+
+1. Copy the `"modelId"` value; you will need it for the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you will score all the documents in the dataset (batch scoring). Copy the following command, replacing `<model Id>` with your model ID and `<id>` with your dataset ID. Then execute the command.
+Next, you will score (get predictions for) all the documents in the dataset. 
 
-```bash
-curl -X POST --data "{\"modelId\": <model Id> }" "http://localhost:5000/forms/v1.0/dataset/<id>/score"
-```
+1. Copy the following command:
 
-### Examine the response
+    ```bash
+    curl -X POST --data "{\"modelId\": <model Id> }" "https://westcentralus.api.cognitive.microsoft.com/FormRecognizer/v1.0/dataset/<id>/score" -H "Ocp-Apim-Subscription-Key: <subscriptionKey>"
+    ```
+
+1. Make the following changes:
+   * Replace `<model Id>` with your model ID.
+   * Replace `<id>` with your dataset ID.
+   * Replace `<subscriptionKey>` with your subscription key.
+   * If necessary, replace `westcentralus` in the URL with the region of your API key.
+
+1. Run the command.
+
+## Examine the response
 
 A successful response is returned in JSON and represents the extracted key-value pairs and tables for all documents in the dataset.
 
