@@ -7,30 +7,60 @@ ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.custom: 
 ---
-# Quickstart: Manage encryption keys in Azure Search
+# Manage encryption keys in Azure Search
 
 By default, Azure Search encrypts user data (in the context of an index or synonym-map) at rest with keys managed internally by Microsoft, see [Security and data privacy in Azure Search](search-security-overview.md) to learn more. 
 This document describes how to encrypt an index\synonym-map at rest using a key stored in your Azure Key Vault.
 For a more general overview of index creation, please see [Create a basic index in Azure Search](search-what-is-an-index.md).
 
-Azure Search service encryption is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage.
+Azure Search service encryption is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage. To learn more about Azure Key Vault, see [Azure Key Vault Overview](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview).
 
-> Encryption with customer managed keys is configured at the index or synonym-map level, and not on the search service level. This means a single search service can host multiple encrypted indexes\synonym-maps, each encrypted potentially using a different customer managed key, alongside indexes\synonym-maps that are not encrypted using customer managed keys   
-
-## Feature availability
-Encryption with customer managed keys feature is supported only for paid search service created on or after 01/01/2019, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
+>[!Note]
+> **Feature availability** 
+> Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
 
 ## Get started with customer-managed keys
 To create an Azure search index or synonym-map that is encrypted with a customer-managed key, you can either create a new Azure Key vault and key or use an existing key vault and key. Note that different indexes\synonym-maps in the same search service may use different keys from different Key vaults, or may not be encrypted using customer managed keys at all, if not required.  
 
+>[!Note] 
+> Encryption with customer managed keys is configured at the index or synonym-map level, and not on the search service level. This means a single search service can host multiple encrypted indexes\synonym-maps, each encrypted potentially using a different customer managed key, alongside indexes\synonym-maps that are not encrypted using customer managed keys   
+
 ### Prerequisites
 1. Create a search service if you don't have one already. For more information, see [Create an Azure Search service](search-create-service-portal.md)
-2. Create a new Azure Key vault or find an existing vault under your subscription. For more information, see [Create a new Azure Key Vault](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-key-vault-manage-portal).
-3. Create a new key in your Azure Key Vault to be used with your Azure Search index\synonym-map encryption or select an existing key. For more information, see [Create a new key](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-key-vault-manage-portal).
-> Make a note of the Key Identifier – this is composed from the **key value Uri**, the **key name**, and the **key version**. We will need these to define an encrypted index in Azure Search 
+2. Create a new Azure Key vault or find an existing vault under your subscription. For more information, see [Create a new Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-portal#create-a-vault).
+3. Enable Soft Delete and Purge Protection in the selected Key vault by executing the following PowerShell or Azure CLI commands:   
+
+```powershell
+$resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
+
+$resource.Properties | Add-Member -MemberType NoteProperty -Name "enableSoftDelete" -Value 'true'
+
+$resource.Properties | Add-Member -MemberType NoteProperty -Name "enablePurgeProtection" -Value 'true'
+
+Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+```
+
+```azurecli-interactive
+az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
+```
+
+>[!Note]
+> Due to the very nature of the encryption with customer managed keys feature, Azure Search will not be able to retrieve your data if your Azure Key vault key is deleted. To prevent data loss caused by accidental Key vault key deletions, it is highly recommended to enabling Soft Delete and Purge Protection on the selected key vault. Learn more about [Azure Key Vault soft-delete](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete).   
+
+4. Create a new key in your Azure Key Vault to be used with your Azure Search index\synonym-map encryption or select an existing key.
+
+#### Creating a new Azure Key vault key
+1. Sign in to [Azure portal](https://portal.azure.com), navigate to the key vault dashboard
+2. Select the **Keys** setting from the left navigation pane, and click on the **+ General/Import** button
+3. In the **Create a key** pane, from the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or use **Restore Backup** to select a backup of a key
+4. Enter a **Name** for your key, and optionally select other key properties 
+5. Click on the **Create** button to start the deployment
+
+Make a note of the Key Identifier – this is composed from the **key value Uri**, the **key name**, and the **key version**. We will need these to define an encrypted index in Azure Search 
+![Create a new key vault key](./media/search-enable-msi/create-new-key-vault-key.png "Create a new key vault key")
 
 ## Recommended workflow
 
