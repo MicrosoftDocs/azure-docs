@@ -27,18 +27,29 @@ Take a look at [Route Blob storage events to a custom web endpoint - CLI](storag
 
 Blob storage events are available in general-purpose v2 storage accounts and Blob storage accounts. **General-purpose v2** storage accounts support all features for all storage services, including Blobs, Files, Queues, and Tables. A **Blob storage account** is a specialized storage account for storing your unstructured data as blobs (objects) in Azure Storage. Blob storage accounts are like general-purpose storage accounts and share all the great durability, availability, scalability, and performance features that you use today including 100% API consistency for block blobs and append blobs. For more information, see [Azure storage account overview](../common/storage-account-overview.md).
 
-## Available Blob storage events
+Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.
 
-Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.  Blob storage event subscriptions can include two types of events:  
+## Available events
+
+ The following two blob storage events are available to all storage accounts.  
 
 > |Event Name|Description|
 > |----------|-----------|
-> |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced through the `PutBlob`, `PutBlockList`, or `CopyBlob` operations. <br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `CreateFile`, or `Flush` operations. |
-> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted through the `DeleteBlob` operation. <br><br> If a hierarchical namespace is enabled on the account, this event is raised as a result of the `DeleteFile` operation.|
-> |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed through the `RenameFile` operation <br><br>(Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created through a `CreateDirectory` operation. <br><br>(Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryRenamed`|Raised when a directory is renamed through a `RenameDirectory` operation. <br><br> (Available only when a hierarchical namespace is enabled on the account)|
-> |`Microsoft.Storage.DirectoryDeleted`|Raised when a directory is deleted through a `DeleteDirectory` operation. <br><br> (Available only when a hierarchical namespace is enabled on the account)|
+> |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced. |
+> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted. |
+
+## Available events for Azure Data Lake Gen 2
+
+These blob storage events are available if you've enabled a hierarchical namespace on the account.
+
+> |Event Name|Description|
+> |----------|-----------|
+> |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced. |
+> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted. |
+> |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed. |
+> |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created. |
+> |`Microsoft.Storage.DirectoryRenamed`|Raised when a directory is renamed. |
+> |`Microsoft.Storage.DirectoryDeleted`|Raised when a directory is deleted. |
 
 ## Event Schema
 
