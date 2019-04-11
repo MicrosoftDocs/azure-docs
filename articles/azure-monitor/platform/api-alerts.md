@@ -279,7 +279,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 By default actions, follow standard template and format for notifications. But user can customize some actions, even if they are controlled by Action Groups. Currently, customization is possible for Email Subject and Webhook Payload.
 
 ##### Customize E-Mail Subject for Action Group
-By default, the email subject for alerts is: Alert Notification <AlertName> for <WorkspaceName>. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
+By default, the email subject for alerts is: Alert Notification `<AlertName>` for `<WorkspaceName>`. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
 The customize email header details need to send along with ActionGroup details, as in sample below.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
