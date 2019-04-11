@@ -104,9 +104,9 @@ All shares can burst up to at least 100 IOPS and target throughput of 100 MiB/s.
 >
 > Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
 >
-> egress rate = 60 MiB/s + 0.06 * provisioned GiB (up to 6 GiB/s)
+> egress rate = 60 MiB/s + 0.06 * provisioned GiB
 >
-> ingress rate = 40 MiB/s + 0.04 * provisioned GiB (up to 4 GiB)
+> ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
 Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within 24 hours after the size change.
 

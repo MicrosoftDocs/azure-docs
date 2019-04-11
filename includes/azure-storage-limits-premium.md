@@ -23,7 +23,8 @@ Premium files use a unique storage account called **FileStorage (preview)**. Thi
 |Max size     |5 TiB (public preview), 100 TiB (limited public preview)     |
 |Shares   |Unlimited  |
 |IOPS     |100,000 (limited public preview)    |
-|Bandwidth|5 GB/s     |
+|Ingress|4,136 MiB/s     |
+|Egress|6,204 MiB/s |
 
  For premium file share scale targets, see the [Premium files scale targets](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) section.
 
