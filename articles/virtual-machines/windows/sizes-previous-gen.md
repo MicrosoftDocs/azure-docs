@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/11/2019
 ms.author: jonbeck
 
 ---
@@ -27,7 +27,7 @@ ms.author: jonbeck
 
 ## Older generations of virtual machine sizes
 
-[!INCLUDE [virtual-machines-older-sizes](../../../includes/virtual-machines-older-sizes.md)]
+[!INCLUDE [virtual-machines-common-sizes-older](../../../includes/virtual-machines-common-sizes-older.md)]
 
 ## Other sizes
 
