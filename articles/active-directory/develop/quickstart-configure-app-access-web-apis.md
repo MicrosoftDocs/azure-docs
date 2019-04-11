@@ -36,7 +36,7 @@ Additionally, before a client can access a web API exposed by a resource applica
 In this quickstart, we'll show you how to configure your app to:
 
 * [Add redirect URIs to your application](#add-redirect-uris-to-your-application)
-* [Add credentails to your web application](#add-credentials-to-your-web-application)
+* [Add credentials to your web application](#add-credentials-to-your-web-application)
 * [Add permissions to access web APIs](#add-permissions-to-access-web-apis)
 
 ## Prerequisites
