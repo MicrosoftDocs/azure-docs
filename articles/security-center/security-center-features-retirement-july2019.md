@@ -85,10 +85,10 @@ When you choose a workspace to view its threat intelligence dashboard, the secur
 
 ![Security alerts map in Log Analytics][12]
 
-Your existing data will remain available in the log analytics security solution and will not be modified or removed.
+Your existing data will remain available in the log analytics security solution and will not be modified nor removed.
 
 ### Security events map - New experience
-We encourage our customers to use the alerts map functionality built into Security Center - “Security alerts map (Preview)”. This provides an optimized experience and works across all subscriptions and associated workspaces, allowing you to get a macro view across his environment, and not focus on a single workspace.
+We encourage our customers to use the alerts map functionality built into Security Center - “Security alerts map (Preview)”. This provides an optimized experience and works across all subscriptions and associated workspaces, allowing a macro view across your environment, and not focus on a single workspace.
 
 ## Custom alert rules (Preview)<a name="menu_customalerts"></a>
 The custom alerts experience will be [retired](https://docs.microsoft.com/en-us/azure/security-center/security-center-custom-alert) June 30th, 2019, due to retirement of the Azure Monitor classic alerts service. In the timeframe until deprecation, users will be able to edit existing custom alert rules but will not be able to add new ones. Users are advised to enable [Azure Sentinel](https://azure.microsoft.com/en-us/services/azure-sentinel/) with one-click onboarding to automatically migrate their existing alerts and create new ones, or alternatively re-create their alerts with Azure Monitor log alerts.
@@ -107,7 +107,7 @@ For more information on custom alerts retirement - [click here](https://docs.mic
 ![Security incident][14]
 
 When you click on the “Investigate” button above, the “Investigation Dashboard (Preview)” in Log Analytics opens. The Investigation Dashboard will be retired.  
-Your existing data will remain available in the log analytics security solution and will not be modified or removed.
+Your existing data will remain available in the Log Analytics security solution and will not be modified nor removed.
 
 ![Investigation dashboard in Log Analytics][15]
 
