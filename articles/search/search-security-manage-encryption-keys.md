@@ -19,8 +19,7 @@ For a more general overview of index creation, please see [Create a basic index 
 Azure Search service encryption is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage. To learn more about Azure Key Vault, see [Azure Key Vault Overview](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-overview).
 
 >[!Note]
-> **Feature availability** 
-> Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
+> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
 
 ## Get started with customer-managed keys
 To create an Azure search index or synonym-map that is encrypted with a customer-managed key, you can either create a new Azure Key vault and key or use an existing key vault and key. Note that different indexes\synonym-maps in the same search service may use different keys from different Key vaults, or may not be encrypted using customer managed keys at all, if not required.  
@@ -31,7 +30,7 @@ To create an Azure search index or synonym-map that is encrypted with a customer
 ### Prerequisites
 1. Create a search service if you don't have one already. For more information, see [Create an Azure Search service](search-create-service-portal.md)
 2. Create a new Azure Key vault or find an existing vault under your subscription. For more information, see [Create a new Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-portal#create-a-vault).
-3. Enable Soft Delete and Purge Protection in the selected Key vault by executing the following PowerShell or Azure CLI commands:   
+3. Enable **Soft Delete** and **Purge Protection** in the selected Key vault by executing the following PowerShell or Azure CLI commands:   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -59,8 +58,9 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 4. Enter a **Name** for your key, and optionally select other key properties 
 5. Click on the **Create** button to start the deployment
 
-Make a note of the Key Identifier – this is composed from the **key value Uri**, the **key name**, and the **key version**. We will need these to define an encrypted index in Azure Search 
-![Create a new key vault key](./media/search-enable-msi/create-new-key-vault-key.png "Create a new key vault key")
+Make a note of the Key Identifier – this is composed from the **key value Uri**, the **key name**, and the **key version**. We will need these to define an encrypted index in Azure Search
+ 
+![Create a new key vault key](./media/search-manage-encryption-keys/create-new-key-vault-key.png "Create a new key vault key")
 
 ## Recommended workflow
 
