@@ -16,6 +16,8 @@ The following rule groups and rules are available when using Application Gateway
 
 # [OWASP 3.0](#tab/owasp3)
 
+## <a name="owasp30"></a> OWASP_3.0
+
 ### <a name="General"></a> <p x-ms-format-detection="none">General</p>
 
 |RuleId|Description|
@@ -212,6 +214,8 @@ The following rule groups and rules are available when using Application Gateway
 |943120|Possible Session Fixation Attack = SessionID Parameter Name with No Referrer|
 
 # [OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> OWASP_2.2.9
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
