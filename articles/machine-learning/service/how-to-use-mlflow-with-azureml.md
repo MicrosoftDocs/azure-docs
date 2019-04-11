@@ -63,7 +63,7 @@ with mlflow.start_run():
     mlflow.log_metric('alpha', 0.03)
 ```
 
-In addition to logging metrics, you can log models and artifacts. See [TBD notebooks](tbd) for more examples.
+In addition to logging metrics, you can log models and artifacts. See [sample notebooks]((https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow) for more examples.
 
 ## Remote runs
 
@@ -109,4 +109,4 @@ The metrics and artifacts from MLflow logging appear in your workspace. You can 
 
 ## Next steps
 
- * Try out [example notebooks for MLflow with Azure ML](TBD)
+ * Try out [example notebooks for MLflow with Azure ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/mlflow)
