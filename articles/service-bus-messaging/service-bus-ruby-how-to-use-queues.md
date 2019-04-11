@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 04/10/2019
 ms.author: aschhab
 
 ---
@@ -21,12 +21,7 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This guide describes how to use Service Bus queues. The samples are
-written in Ruby and use the Azure gem. The scenarios
-covered include **creating queues, sending and receiving messages**, and
-**deleting queues**. For more information about Service Bus queues, see the [Next Steps](#next-steps) section.
-
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+In this tutorial, you learn how to create Ruby applications to send messages to and receive messages from a Service Bus queue. The samples are written in Ruby and use the Azure gem.
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A85619ABF).
@@ -36,6 +31,8 @@ covered include **creating queues, sending and receiving messages**, and
     3. Get the **connection string**. 
 
     You will create a **queue** in the Service Bus namespace by using the Ruby code in this tutorial. 
+
+[!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
 ## How to create a queue
 The **Azure::ServiceBusService** object enables you to work with queues. To create a queue, use the `create_queue()` method. The following example creates a queue or prints out any errors.

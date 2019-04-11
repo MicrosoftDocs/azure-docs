@@ -9,7 +9,7 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
@@ -25,7 +25,7 @@ This quickstart describes how to send and receive messages to and from a Service
 To complete this tutorial, make sure you have installed:
 
 - An Azure subscription. If you don't have an Azure subscription, you can create a [free account][] before you begin.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later. You use Visual Studio to build a sample that sends messages to and receives message from a queue. The sample is to test the queue you created using PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]

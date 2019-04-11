@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
 
 ---
@@ -21,13 +21,7 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-This article describes how to use Service Bus queues. The samples are written in Python and use the [Python Azure Service Bus package][Python Azure Service Bus package]. The scenarios covered include **creating queues, sending and receiving messages**, and **deleting queues**.
-
-
-> [!IMPORTANT]
-> To install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md).
-> 
-> See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python)
+In this tutorial, you learn how to create Python applications to send messages to and receive messages from a Service Bus queue. 
 
 ## Prerequisites
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A85619ABF).
@@ -37,6 +31,7 @@ This article describes how to use Service Bus queues. The samples are written in
     3. Get the **connection string**. 
 
     You will create a **queue** in the Service Bus namespace by using the Python code in this tutorial. 
+3. Install Python or the [Python Azure Service Bus package][Python Azure Service Bus package], see the [Python Installation Guide](../python-how-to-install.md). See full documentation of Service Bus Python SDK [here](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## Create a queue
 The **ServiceBusClient** object enables you to work with queues. Add the following code near the top of any Python file in which you wish to programmatically access Service Bus:
