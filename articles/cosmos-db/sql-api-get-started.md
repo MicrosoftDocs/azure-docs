@@ -312,13 +312,13 @@ The following code creates and inserts two documents into your database collecti
         {
             new Child
             {
-                    FirstName = "Henriette Thaulow",
-                    Gender = "female",
-                    Grade = 5,
-                    Pets = new Pet[]
-                    {
-                        new Pet { GivenName = "Fluffy" }
-                    }
+                FirstName = "Henriette Thaulow",
+                Gender = "female",
+                Grade = 5,
+                Pets = new Pet[]
+                {
+                    new Pet { GivenName = "Fluffy" }
+                }
             }
         },
         Address = new Address { State = "WA", County = "King", City = "Seattle" },
