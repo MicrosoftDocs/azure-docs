@@ -32,7 +32,7 @@ Take the following steps in the Azure portal to view a device event.
 
 ## View hardware status
 
-Take the following steps in the local web UI to view the hardware status of your device components.
+Take the following steps in the local web UI to view the hardware status of your device components. This information is only available for a Data Box Edge device.
 
 1. Connect to the local web UI of your device.
 2. Go to **Maintenance > Hardware status**. You can view the health of the various device components.
@@ -41,7 +41,7 @@ Take the following steps in the local web UI to view the hardware status of your
 
 ## View alerts
 
-Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../../azure-monitor/platform/alerts-metric.md).
+Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## View metrics
 
@@ -72,24 +72,35 @@ Take the following steps in the Azure portal to create a chart.
     
     |**Transaction metrics**              | Description         |
     |-------------------------------------|---------|
-    |**Cloud bytes uploaded (device)**    | Sum of all bytes uploaded across all shares        |
-    |**Cloud bytes uploaded (share)**     | Sum of all bytes uploaded per share / # of shares is average, max and min       |
-    |**Cloud download throughput (share)**| Sum of all bytes read or downloaded to a share / # of shares is average, max, and min   per share     |
-    |**Cloud read throughput**            | Sum of all the bytes read from the cloud across all the shares     |
-    |**Cloud upload throughput**          | Sum of all the bytes written to the cloud across all the shares      |
+    |**Cloud bytes uploaded (device)**    | Sum of all the bytes uploaded across all the shares on your device        |
+    |**Cloud bytes uploaded (share)**     | Bytes uploaded per share. This can be: <br></br> Avg which is the (Sum of all the bytes uploaded per share / Number of shares),  <br></br>Max which is (Maximum number of bytes uploaded from a share/Number of shares on the device) <br></br>Min which is (Minimum number of bytes uploaded from a share/ Number of shares on the device)      |
+    |**Cloud download throughput (share)**| Bytes downloaded per share. This can be: <br></br> Avg which is the (Sum of all bytes read or downloaded to a share / Number of shares) <br></br> Max which is the (Maximum number of bytes downloaded from a share/Number of shares on the device) <br></br> and Min which is the (Minimum number of bytes downloaded from a share/Number of shares on the device)     |
+    |**Cloud read throughput**            | Sum of all the bytes read from the cloud across all the shares on your device     |
+    |**Cloud upload throughput**          | Sum of all the bytes written to the cloud across all the shares on your device     |
     |**Cloud upload throughput (share)**  | Sum of all bytes written to the cloud from a share / # of shares is average, max, and min per share      |
     |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
     |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
     |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metrics is not populated for Data Box Gateway.          |
     |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metrics is not populated for Data Box Gateway.        |
-4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max or Min.
-5. If the metrics you selected has multiple instances, then the splitting option is available. Select Apply splitting and then select the parameter by which you want to see the breakdown.
+4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max, or Min.
 
-+ New chart
-+ Refresh
-+ Share - To export the chart data to an Excel spreadsheet. You can also get a link to this chart that you can share.
+    ![View chart](media/data-box-edge-monitor/view-metrics-4.png)
 
+5. If the metrics you selected has multiple instances, then the splitting option is available. Select **Apply splitting** and then select the value by which you want to see the breakdown.
 
+    ![Apply splitting](media/data-box-edge-monitor/view-metrics-5.png)
+
+6. If you now want to see the breakdown only for a few instances, you can filter the data. For example, in this case, if you want to see the network throughput only for the 2 connected network interfaces on your device, you could filter those interfaces. Select **Add filter** and specify the network interface name for filtering.
+
+    ![Add filter](media/data-box-edge-monitor/view-metrics-6.png)
+
+7. You could also pin the chart to dashboard for easy access.
+
+    ![Pin to dashboard](media/data-box-edge-monitor/view-metrics-7.png)
+
+8. To export chart data to an Excel spreadsheet or get a link to the chart that you can share, select the share option from the command bar.
+
+    ![Export data](media/data-box-edge-monitor/view-metrics-8.png)
 
 ## Next steps
 
