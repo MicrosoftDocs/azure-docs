@@ -10,11 +10,11 @@
  ms.custom: include file
 ---
 
-# Enabling Azure ultra SSDs
+# Enable and deploy Azure ultra SSDs (preview)
 
-Azure ultra SSD deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your virtual machines. Ultra SSD are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+Azure ultra solid state drives (SSD) (preview) offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. Additional benefits of ultra SSD include the ability to dynamically change the performance of the disk along with your workloads without the need to restart your VMs. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
-Currently, ultra SSD are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
+Currently, ultra SSDs are in preview and you must [enroll](https://aka.ms/UltraSSDPreviewSignUp) in the preview in order to access them.
 
 Once approved, run one of the following commands to determine which zone in East US 2 to deploy your ultra disk to:
 
@@ -22,7 +22,7 @@ PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and 
 
 CLI: `az vm list-skus --resource-type disks --query “[?name==UltraSSD_LRS]”`
 
-The response will be similar to the form below, where X is the Zone to use for deploying in East US 2. X could be either 1, 2, or 3.
+The response will be similar to the form below, where X is the zone to use for deploying in East US 2. X could be either 1, 2, or 3.
 
 |ResourceType  |Name  |Location  |Zones  |Restriction  |Capability  |Value  |
 |---------|---------|---------|---------|---------|---------|---------|
@@ -32,10 +32,11 @@ If there was no response from the command, that means your registration to the f
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 
-## Deploying an ultra SSD using ARM
+## Deploy an ultra SSD using Azure Resource Manager
 
-First, determine the VM Size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
-Also refer to the sample [Create a VM with multiple ultra SSD](https://aka.ms/UltraSSDTemplate), which shows how to create a VM with multiple ultra SSD.
+First, determine the VM size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+
+If you would like to create a VM with multiple ultra SSDs, refer to the sample [Create a VM with multiple ultra SSD](https://aka.ms/UltraSSDTemplate).
 
 The following describe the new/modified Resource Manager template changes:
 **apiVersion** for `Microsoft.Compute/virtualMachines` and `Microsoft.Compute/Disks` must be set as `2018-06-01` (or later).
@@ -53,7 +54,7 @@ Specify Disk Sku UltraSSD_LRS, disk capacity, IOPS, and throughput in MBps to cr
 }
 ```
 
-Add an additional capability on the properties of the VM to indicate its ultra enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full Resource Manager template):
+Add an additional capability on the properties of the VM to indicate it's ultra enabled (refer to the [sample](https://aka.ms/UltraSSDTemplate) for the full Resource Manager template):
 
 ```json
 {
@@ -73,19 +74,19 @@ Add an additional capability on the properties of the VM to indicate its ultra e
 
 Once the VM is provisioned, you can partition and format the data disks and configure them for your workloads.
 
-## Deploying an ultra SSD using CLI
+## Deploy an ultra SSD using CLI
 
-### Deploying an ultra SSD enabled VM with a disk attached using CLI
+### Deploy an ultra SSD enabled VM with a disk attached using CLI
 
-In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following CLI command to create one such VM:
+To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
 az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password xxxx --admin-username ultrauser --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
-### Creating an ultra SSD using CLI
+### Create an ultra SSD using CLI
 
-Now that you have a VM which is capable of using ultra SSDs, you can create and attach an ultra SSD to it.
+Now that you have a VM that is capable of using ultra SSDs, you can create and attach an ultra SSD to it.
 
 ```azurecli-interactive
 location="eastus2"
@@ -101,15 +102,15 @@ az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 4 
 
 ### Adjust the performance of an ultra SSD using CLI
 
-Ultra SSDs offer a unique capability which allows you to adjust their performance, the following command depicts how to use this feature:
+Ultra SSDs offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
 
 ```azurecli-interactive
 az disk update --subscription $sub --resource-group $resourceGroup --name $diskName --set diskIopsReadWrite=80000 --set diskMbpsReadWrite=800
 ```
 
-## Deploying an ultra SSD using PowerShell
+## Deploy an ultra SSD using PowerShell
 
-In order to use ultra SSDs, you must create a VM which is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create one such VM:
+To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following [New-AzVm](/powershell/module/az.compute/new-azvm) command to create an ultra enabled VM:
 
 ```powershell
 New-AzVm `
@@ -124,7 +125,7 @@ New-AzVm `
 
 ### Create an ultra SSD using PowerShell
 
-Now that you have a VM which is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
+Now that you have a VM that is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
 
 ```powershell
 New-AzDiskConfig -Location 'EastUS2' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone $zone;
@@ -133,19 +134,12 @@ New-AzDisk -ResourceGroupName $resourceGroup -DiskName 'Disk02' -Disk $diskconfi
 
 ### Adjust the performance of an ultra SSD using PowerShell
 
-Ultra SSDs have a unique capability which allows you to adjust their performance, the following command depicts how to use this feature:
+Ultra SSDs have a unique capability that allows you to adjust their performance, the following command is an example that adjusts the performance without having to detach the disk:
 
 ```powershell
 $diskupdateconfig = New-AzDiskUpdateConfig -DiskMBpsReadWrite 2000
 Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate $diskupdateconfig
 ```
-
-## Additional ultra SSD scenarios
-
-- During VM Creation, ultra SSD can be implicitly created as well. However, these disks will receive a default value for IOPS (500) and throughput (8 MiB/s).
-- Additional ultra SSD can be attached to compatible VMs.
-- Ultra SSD support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
-- Growing the disk capacity does require a virtual machine to be de-allocated.
 
 ## Next steps
 
