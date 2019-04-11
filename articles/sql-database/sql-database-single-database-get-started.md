@@ -57,6 +57,8 @@ To create a single database containing the AdventureWorksLT sample data:
    - **Want to use SQL elastic pool**: Select the **No** option. 
    - **Compute + storage**: Select **Configure database** and for this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage. Select **Apply**. 
 
+    ![Configure tier](media/sql-database-get-started-portal/create-database-s1.png) 
+
 
       > [!NOTE]
       > This quickstart uses the [DTU-based purchasing model](sql-database-service-tiers-dtu.md), but the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) is also available.
