@@ -64,4 +64,7 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
 
 ## Reference
 
-[REST API](https://docs.microsoft.com/en-us/rest/api/netapp/) 
+| **REST**   | **Azure Resource Manager**  |
+|---|---|
+| [REST API](https://docs.microsoft.com/en-us/rest/api/netapp/)    | [Resource Manager template](https://docs.microsoft.com/en-us/azure/templates/microsoft.netapp/allversions)  |
+
