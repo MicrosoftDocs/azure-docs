@@ -211,7 +211,7 @@ Many web apps need to not only sign the user in, but also to access a web servic
 
 The full OpenID Connect sign-in and token acquisition flow looks similar to the next diagram. We describe each step in detail in the next sections of the article.
 
-![OpenID Connect  protocol: Token acquisition](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect  protocol: Token acquisition](./media/v2-protocols-oidc/convergence-scenarios-webapp-webapi.svg)
 
 ## Get access tokens
 To acquire access tokens, modify the sign-in request:
