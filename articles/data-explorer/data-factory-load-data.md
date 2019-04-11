@@ -1,6 +1,6 @@
 ---
 title: 'Load data into Azure Data Explorer by using Azure Data Factory'
-description: 'In this topic, you learn to ingest (load) data into Azure Data Explorer by using Azure Data Factory'
+description: 'In this topic, you learn to ingest (load) data into Azure Data Explorer by using Azure Data Factory copy tool'
 services: data-explorer
 author: orspod
 ms.author: orspodek
@@ -12,7 +12,7 @@ ms.date: 03/31/2019
 #Customer intent: I want to use Azure Data Factory to load data into Azure Data Explorer so that I can analyze it later.
 ---
 
-# Load data into Azure Data Explorer by using Azure Data Factory
+# Load data into Azure Data Explorer using Azure Data Factory
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes. Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
 
@@ -61,7 +61,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 There are two ways to load data into Azure Data Explorer using Azure Data Factory:
 
 * Azure Data Factory user interface - [**Author** tab](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
-* Azure Data Factory **Copy Data** tool used in this article.
+* [Azure Data Factory **Copy Data** tool](/azure/data-factory/quickstart-create-data-factory-copy-data-tool) used in this article.
 
 ### Copy data from Amazon S3 (Source)
 
@@ -172,6 +172,6 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
 ## Next steps
 
-* Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal.md)
+* Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)
 
-* Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data.md) for data querying.
+* Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
