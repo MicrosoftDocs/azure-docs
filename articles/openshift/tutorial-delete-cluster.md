@@ -30,6 +30,10 @@ In this tutorial series you learn how to:
 
 Before you begin this tutorial:
 
+* Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
+
+## Step 1: Log in to Azure
+
 If you are running the Azure CLI locally, run `az login` to sign in to Azure.
 
 ```bash
@@ -56,7 +60,7 @@ You will be prompted whether you want to perform the operation. Confirm with `y`
 
 ## Deleting a cluster using the Azure portal
 
-If you are using the Azure portal to delete the cluster, delete the resource group that you specified when you created the cluster. The name of that resource group is the same as the cluster name. Deleting that resource group will delete all of the related resources that get created when you build an Azure Red Hat OpenShift cluster.
+If you want to use the Azure portal to delete the cluster, delete the resource group that you specified when you created the cluster. The name of that resource group is the same as the cluster name. Deleting that resource group will delete all of the related resources that get created when you build an Azure Red Hat OpenShift cluster.
 
 Currently, the `Microsoft.ContainerService/openShiftManagedClusters` resource that is created when you create the cluster is hidden in the Azure portal. In the `Resource group` view, check `Show hidden types` to view the resource group.
 
