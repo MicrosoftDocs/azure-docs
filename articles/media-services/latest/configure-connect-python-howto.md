@@ -42,8 +42,8 @@ To work with Data Lake Storage Gen1 using Python, you need to install three modu
 Use the following commands to install the modules.
 
 ```
-pip install azure-mgmt-resource
-pip install azure-mgmt-media==1.1.1
+pip3 install azure-mgmt-resource
+pip3 install azure-mgmt-media==1.1.1
 ```
 
 ## Create a Python project
