@@ -35,9 +35,9 @@ You can diagnose installation problems with the Access Panel Extension by downlo
    
 3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, then select **Open with** > **Microsoft Windows Based Script Host**.
    
-    ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open_tool.png)
+    ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 
-4. Review the diagnostic results appear.
+4. Review the diagnostic results that appear.
 
 5. Select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
 
@@ -76,6 +76,8 @@ To uninstall the Access Panel Extension from your computer:
     ![Search for uninstall program.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
 
 3. From the list, select **Access Panel Extension**, and then select **Uninstall**.
+
+    ![Uninstall the Access Panel Extension.](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
    
 4. You can then try to install the extension again to see if the problem has been resolved.
 
