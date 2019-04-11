@@ -142,7 +142,7 @@ Some situations require forcing users interact with the Microsoft identity platf
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(scopes)
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
                       .ExecuteAsync();
 ```
 
