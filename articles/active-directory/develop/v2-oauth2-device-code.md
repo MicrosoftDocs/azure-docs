@@ -1,5 +1,5 @@
 ---
-title: Use Azure AD v2.0 to sign in users on browser-less devices | Microsoft Docs
+title: Use Microsoft identity platform to sign in users on browser-less devices | Azure
 description: Build embedded and browser-less authentication flows using the device code grant.
 services: active-directory
 documentationcenter: ''
@@ -14,26 +14,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory v2.0 and the OAuth 2.0 device code flow
+# Microsoft identity platform and the OAuth 2.0 device code flow
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
+Microsoft identity platform supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
-> [!Important] 
-> At this time, the v2.0 endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  
+> [!IMPORTANT]
+> At this time, the Microsoft identity platform endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  
 >
 > Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
 
 > [!NOTE]
-> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
+> The Microsoft identity platform endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the Microsoft identity platform endpoint, read about [Microsoft identity platform limitations](active-directory-v2-limitations.md).
 >
 
 ## Protocol diagram

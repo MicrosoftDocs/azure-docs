@@ -51,7 +51,7 @@ The steps that follow constitute the OBO flow and are explained with the help of
 
 ## Service-to-service access token request
 
-To request an access token, make an HTTP POST to the tenant-specific v2.0 token endpoint with the following parameters.
+To request an access token, make an HTTP POST to the tenant-specific Microsoft identity platform token endpoint with the following parameters.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -187,13 +187,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## Gaining consent for the middle-tier application
 
-Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given. How that occurs, however, depends on which users your application supports. 
+Depending on the audience for your application, you may consider different strategies for ensuring that the OBO flow is successful. In all cases, the ultimate goal is to ensure proper consent is given. How that occurs, however, depends on which users your application supports.
 
 ### Consent for Azure AD-only applications
 
 #### /.default and combined consent
 
-For applications that only need to sign in work or school accounts, the traditional "Known Client Applications" approach is sufficient. The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the v2.0 endpoint, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for both the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
+For applications that only need to sign in work or school accounts, the traditional "Known Client Applications" approach is sufficient. The middle tier application adds the client to the known client applications list in its manifest, and then the client can trigger a combined consent flow for both itself and the middle tier application. On the Microsoft identity platform endpoint, this is done using the [`/.default` scope](v2-permissions-and-consent.md#the-default-scope). When triggering a consent screen using known client applications and `/.default`, the consent screen will show permissions for both the client to the middle tier API, and also request whatever permissions are required by the middle-tier API. The user provides consent for both applications, and then the OBO flow works.
 
 At this time, the personal Microsoft account system does not support combined consent and so this approach does not work for apps that want to specifically sign in personal accounts. Personal Microsoft accounts being used as guest accounts in a tenant are handled using the Azure AD system, and can go through combined consent.
 
