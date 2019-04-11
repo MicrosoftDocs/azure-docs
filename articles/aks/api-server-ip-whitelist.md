@@ -197,7 +197,7 @@ NAME         ENDPOINTS            AGE
 kubernetes   40.121.139.101:443   22h
 ```
 
-Finally, create a route in the existing AKS network route table that allows traffic to use the Azure firewall appliance for API server communication. In the following example, replace *your_cluster_endpoint* with the IP address returned in the previous `kubectl get endpoints kubernetes` command:
+Finally, create a route in the existing AKS network route table using the [az network route-table route create][az-network-route-table-route-create] command that allows traffic to use the Azure firewall appliance for API server communication. In the following example, replace *your_cluster_endpoint* with the IP address returned in the previous `kubectl get endpoints kubernetes` command:
 
 ```azurecli-interactive
 az network route-table route create \
@@ -261,9 +261,10 @@ For more information, see [Security concepts for applications and clusters in AK
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[az-network-vnet-subnet-create]:
-[az-extension-add]:
-[az-network-firewall-create]:
-[az-network-public-ip-create]:
-[az-network-firewall-ip-config-create]:
-[az-network-firewall-network-rule-create]:
+[az-network-vnet-subnet-create]: /cli/azure/network/vnet/subnet#az-network-vnet-subnet-create
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-network-firewall-create]: /cli/azure/ext/azure-firewall/network/firewall#ext-azure-firewall-az-network-firewall-create
+[az-network-public-ip-create]: /cli/azure/network/public-ip#az-network-public-ip-create
+[az-network-firewall-ip-config-create]: /cli/azure/ext/azure-firewall/network/firewall/ip-config#ext-azure-firewall-az-network-firewall-ip-config-create
+[az-network-firewall-network-rule-create]: /cli/azure/ext/azure-firewall/network/firewall/network-rule#ext-azure-firewall-az-network-firewall-network-rule-create
+[az-network-route-table-route-create]: /cli/azure/network/route-table/route#az-network-route-table-route-create
