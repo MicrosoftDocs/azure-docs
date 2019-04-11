@@ -15,7 +15,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Learn how to create a volume of Azure NetApp Files using:'
+    text: 'Learn how to set up Azure NetApp Files and create a volume Files using:'
   - type: list
     style: icon48
     items: 
