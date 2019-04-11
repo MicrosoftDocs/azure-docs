@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Configure a Linux virtual machine in Azure using Ansible | Microsoft Docs
+title: Quickstart - Configure Linux virtual machines in Azure using Ansible | Microsoft Docs
 description: In this quickstart, learn how to create a Linux virtual machine in Azure using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, virtual machine
@@ -10,7 +10,8 @@ ms.topic: quickstart
 ms.date: 04/04/2019
 ---
 
-# Quickstart: Configure a Linux virtual machine in Azure using Ansible
+# Quickstart: Configure Linux virtual machines in Azure using Ansible
+
 Using a declarative language, Ansible allows you to automate the creation, configuration, and deployment of Azure resources via Ansible *playbooks*. Each section of this article shows you how each section of an Ansible playbook might look to create and configure different aspects of a Linux virtual machine. The [complete Ansible playbook](#complete-sample-ansible-playbook) is listed at the end of this article.
 
 ## Prerequisites

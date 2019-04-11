@@ -19,9 +19,10 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 - **managed identities for Azure resources** - The [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/overview) feature addresses the issue of keeping cloud application credentials secure.
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Deploy the Ansible solution template from the Azure Marketplace
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+
+## Deploy the Ansible solution template
 
 1. Browse to the [Ansible solution template in the Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -81,5 +82,6 @@ The Ansible solution template for Azure is designed to configure an Ansible inst
 1. On the resource group page, get the IP address of your Ansible host and sign in to manage your Azure resources using Ansible.
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
 > [Quickstart: Configure a Linux virtual machine in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)

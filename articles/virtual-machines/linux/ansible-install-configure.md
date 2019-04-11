@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Install Ansible on Azure virtual machines | Microsoft Docs
+title: Quickstart - Install Ansible on Linux virtual machines in Azure| Microsoft Docs
 description: In this quickstart, learn how to install and configure Ansible for managing Azure resources on Ubuntu, CentOS, and SLES
 ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
@@ -10,17 +10,15 @@ ms.topic: quickstart
 ms.date: 04/04/2019
 ---
 
-# Quickstart: Install Ansible on Azure virtual machines
+# Quickstart: Install Ansible on Linux virtual machines in Azure
 
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. For a list of additional tools available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
-- **Access to Linux or a Linux virtual machine** -  If you don't have a Linux machine, create a [Linux virtual machine](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
-
-- **Azure service principal**: Follow the directions in the section of the **Create the service principal** section in the article, [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Take note of the values for the **appId**, **displayName**, **password**, and **tenant**.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
+- **Access to Linux or a Linux virtual machine** -  If you don't have a Linux machine, create a [Linux virtual machine](/azure/virtual-network/quick-create-cli).
 
 ## Install Ansible on an Azure Linux virtual machine
 
@@ -124,6 +122,7 @@ export AZURE_TENANT=<security-principal-tenant>
 ```
 
 ## Verify the configuration
+
 To verify the successful configuration, you can now use Ansible to create a resource group.
 
 [!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]

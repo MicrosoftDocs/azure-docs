@@ -7,18 +7,18 @@
 - name: Quickstarts
   expanded: true
   items:
-    - name: Deploy Ansible solution template
+    - name: Deploy Ansible solution template to CentOS
       href: ./ansible-deploy-solution-template.md
-    - name: Install Ansible on a Linux VM
+    - name: Install Ansible on Linux virtual machines
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
-    - name: Configure a Linux VM
+    - name: Configure Linux virtual machines
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
-    - name: Manage a Linux VM
+    - name: Manage Linux virtual machines
       href: /azure/virtual-machines/linux/ansible-manage-linux-vm
       maintainContext: true
-    - name: Run a playbook in Cloud Shell
+    - name: Run playbooks in Cloud Shell
       href: ./ansible-run-playbook-in-cloudshell.md
 - name: Tutorials 
   items:
