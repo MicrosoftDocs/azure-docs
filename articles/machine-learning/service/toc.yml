@@ -99,9 +99,9 @@
     - name: Create Datasets
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
-    - name: Transform data
-      displayName: data, etl, dataset, data preparation, dataprep
-      href: how-to-transform-data.md
+    - name: Prepare data
+      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
     - name: Manage Dataset definitions
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
