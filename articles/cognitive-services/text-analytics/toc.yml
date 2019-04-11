@@ -5,6 +5,8 @@
   items:
   - name: What is the Text Analytics API?
     href: overview.md
+  - name: Example user scenarios
+    href: text-analytics-user-scenarios.md
 - name: Quickstarts
   items:
   - name: C#
