@@ -50,7 +50,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
     ![New data factory page](media/data-factory-load-data/new-data-factory.png)
 
-1. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
+1. Select Notifications on the toolbar to monitor the creation process. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
 
    ![Data factory home page](media/data-factory-load-data/data-factory-home-page.png)
 
@@ -61,7 +61,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 There are two ways to load data into Azure Data Explorer using Azure Data Factory:
 
 * Azure Data Factory user interface - [**Author** tab](/azure/data-factory/quickstart-create-data-factory-portal#create-a-data-factory)
-* Azure Data Factory **Copy Data** tool (used in this topic)
+* Azure Data Factory **Copy Data** tool used in this article.
 
 ### Copy data from Amazon S3 (Source)
 
@@ -69,17 +69,17 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
    ![Copy Data tool tile](media/data-factory-load-data/copy-data-tool-tile.png)
 
-1. In the **Properties** page, specify: **CopyFromAmazonS3ToADX** for the **Task name** field, and select **Next**:
+1. In the **Properties** page, specify **Task name** and select **Next**:
 
-    ![Properties page](media/data-factory-load-data/copy-data-tool-properties-pane.png)
+    ![Copy from source properties](media/data-factory-load-data/copy-from-source.png)
 
 1. In the **Source data store** page, click **+ Create new connection**:
 
-    ![Source data store page](media/data-factory-load-data/source-data-store-pane.png)
+    ![Source data create connection](media/data-factory-load-data/source-create-connection.png)
 
 1. Select **Amazon S3**, and then select **Continue**
 
-    ![Source data store s3 new linked service](media/data-factory-load-data/source-data-store-s3.png)
+    ![New linked service](media/data-factory-load-data/source-data-store-s3.png)
 
 1. In the **New Linked Service (Amazon S3)** pane, do the following steps:
 
