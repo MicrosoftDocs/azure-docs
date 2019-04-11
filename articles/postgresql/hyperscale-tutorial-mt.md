@@ -12,8 +12,8 @@ ms.date: 04/09/2019
 
 # Tutorial: Design a Multi-Tenant Database
 
-In this tutorial, you use Azure Database for PostgreSQL Hyperscale
-to learn how to:
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to
+learn how to:
 
 > [!div class="checklist"]
 > * Use psql utility to create a database
@@ -27,8 +27,8 @@ TODO: add section for creating db and getting connection string.
 
 ## Use psql utility to create a database
 
-Now that you know how to connect to the Azure Database for PostgreSQL,
-you can complete some basic tasks.
+Now that you know how to connect to the Azure Database for PostgreSQL -
+Hyperscale (Citus), you can complete some basic tasks.
 
 First let's create tables for a hypothetical advertising application.
 Multiple companies can all use the app to track advertising campaigns,
@@ -118,9 +118,10 @@ which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
-Citus stores table rows on different nodes based on the value of a
-user-designated column called the "distribution column." This column
-marks which tenant owns which rows.
+Azure Database for PostgreSQL – Hyperscale (Citus) stores table
+rows on different nodes based on the value of a user-designated
+column called the "distribution column." This column marks which
+tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
 identifier. In psql, run these functions:
@@ -157,8 +158,8 @@ This data will now be spread across worker nodes.
 
 ## Query tenant data
 
-When the application requests data for a single tenant, Citus can
-execute the query on a single worker node. Single-tenant queries
+When the application requests data for a single tenant, the database
+can execute the query on a single worker node. Single-tenant queries
 filter by a single tenant ID. For example, the following query
 filters `company_id = 5` for ads and impressions:
 
