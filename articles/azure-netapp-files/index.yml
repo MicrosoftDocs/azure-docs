@@ -20,7 +20,7 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: /media/index/get-started.svg
+        src: https://docs.microsoft.com/azure/azure-netapp-files/media/index/get-started.svg
       text: Azure Portal
       href: /azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes
 - title: Reference
