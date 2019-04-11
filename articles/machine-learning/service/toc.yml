@@ -99,7 +99,7 @@
     - name: Create Datasets
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
-    - name: Transform data
+    - name: Explore & transform data
       displayName: data, etl, dataset, data preparation, dataprep
       href: how-to-transform-data.md
     - name: Write data
