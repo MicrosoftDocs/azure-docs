@@ -36,15 +36,13 @@ By default, all users, including guests, can invite guest users.
 1. Sign in to the [Azure portal](https://portal.azure.com) as a tenant administrator.
 2. Select **Azure Active Directory** > **Users** > **User settings**.
 3. Under **External users**, select **Manage external collaboration settings**.
+   > [!NOTE]
+   > The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
+4. On the **External collaboration settings** page, choose the policies you want to enable.
 
    ![External collaboration settings](./media/delegate-invitations/control-who-to-invite.png)
 
-   > [!NOTE]
-   > The **External collaboration settings** are also available from the **Organizational relationships** page. In Azure Active Directory, under **Manage**, go to **Organizational relationships** > **Settings**.
-
-
-4. Choose the policies you want to enable.
-   - **Guest users permissions are limited**: This policy determines permissions for guests in your directory. Select **Yes** to block guests from certain directory tasks, like enumerating users, groups, or other directory resources. Select **No** to give guests the same access to directory data as  regular users in your directory.
+  - **Guest users permissions are limited**: This policy determines permissions for guests in your directory. Select **Yes** to block guests from certain directory tasks, like enumerating users, groups, or other directory resources. Select **No** to give guests the same access to directory data as  regular users in your directory.
    - **Admins and users in the guest inviter role can invite**: To allow admins and users in the "Guest Inviter" role to invite guests, set this policy to **Yes**.
    - **Members can invite**: To allow non-admin members of your directory to invite guests, set this policy to **Yes**.
    - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
