@@ -90,12 +90,11 @@ If you have product names or features that are unique, and you want to make sure
 
 Store the utterances into a single text file in sentence form or in multiple text files.  The more aligned the text data is to what is spoken the more effective in improving accuracy.
 
-To upload related text, navigate to Speech-to-text/Custom Speech/Data.  Upload your own Related Text dataset yourself as a zip or upload our example. Click on Upload data to begin the upload process.  Once uploaded, go to the Training tab to begin using the dataset to train a model to improve accuracy. 
+To upload related text, navigate to Speech-to-text/Custom Speech/Data.  Upload your own Related Text dataset yourself as a zip or upload our example. Click on Upload data to begin the upload process.  Once uploaded, go to the Training tab to begin using the dataset to train a model to improve accuracy.
 
 
 ## Next steps
 
-* [Prepare and test your data](placeholder)
 * [Inspect and evaluate your data quality](placeholder)
 * [Train your model](placeholder)
 * [Deploy your model](placeholder)
