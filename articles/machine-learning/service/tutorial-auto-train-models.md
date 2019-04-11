@@ -131,8 +131,7 @@ import azureml.dataprep as dprep
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package_saved = dprep.Package.open(file_path)
-dflow_prepared = package_saved.dataflows[0]
+dflow_prepared = dprep.Dataflow.open(file_path)
 dflow_prepared.get_profile()
 ```
 
