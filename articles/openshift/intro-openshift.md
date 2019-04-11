@@ -37,7 +37,7 @@ Azure Red Hat OpenShift nodes run on Azure virtual machines. You can connect sto
 
 ## Virtual networks and ingress
 
-An AKS cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster, and other nodes in the virtual network. Pods can connect also to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.
+An Azure Red Hat OpenShift cluster can be deployed into an existing virtual network. In this configuration, every pod in the cluster is assigned an IP address in the virtual network, and can directly communicate with other pods in the cluster, and other nodes in the virtual network. Pods can connect also to other services in a peered virtual network, and to on-premises networks over ExpressRoute or site-to-site (S2S) VPN connections.
 
 For more information, see [Create a Microsoft Red Hat OpenShift cluster on Azure](tutorial-create-cluster.md).
 
