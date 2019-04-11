@@ -143,7 +143,7 @@ java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
 
 ## Example JSON response
 
-A successful response is returned in JSON, as shown in the following example: 
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
