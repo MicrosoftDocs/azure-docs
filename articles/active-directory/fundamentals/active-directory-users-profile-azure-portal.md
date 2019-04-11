@@ -36,7 +36,7 @@ As you'll see, there's more information available in a user's profile than what 
 
     - **Profile picture.** Select a thumbnail image for the user's account. This picture appears in Azure Active Directory and on the user's personal pages, such as the myapps.microsoft.com page.
 
-    - **Identity.** Add or update an additional identity value for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. In another example, for two users whose names are ‘Chris Green’ you could use the **Identity** string to set their names to 'Chris B. Green' 'Chris R. Green (Contoso).'
+    - **Identity.** Add or update an additional identity value for the user, such as a married last name. You can set this name independently from the values of First name and Last name. For example, you could use it to include initials, a company name, or to change the sequence of names shown. In another example, for two users whose names are ‘Chris Green’ you could use the Identity string to set their names to 'Chris B. Green' 'Chris R. Green (Contoso).'
 
     - **Job info.** Add any job-related information, such as the user's job title, department, or manager.
 
