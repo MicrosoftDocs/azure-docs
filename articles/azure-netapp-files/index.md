@@ -9,7 +9,7 @@ ms.service: azure-netapp-files
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 04/23/2018
+ms.date: 04/10/2019
 ms.author: b-juche
 ---
 # Azure NetApp Files Documentation
@@ -61,7 +61,6 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
         </a>
     </li>
 </ul>
-
 ## Reference
 
 [REST API](https://docs.microsoft.com/en-us/rest/api/netapp/) 
