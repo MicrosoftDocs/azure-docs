@@ -37,7 +37,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
    ![Create a new data factory](media/data-factory-load-data/select-adf.png)
 
-1. In the **New data factory** pane, provide values for the following fields and then Select **Create**.
+1. In the **New data factory** page, provide values for the following fields and then Select **Create**.
 
     ![New data factory page](media/data-factory-load-data/new-data-factory.png)
 
@@ -81,7 +81,7 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
     ![New linked service](media/data-factory-load-data/as3-select-new-linked-service.png)
 
-1. In the **New Linked Service (Amazon S3)** pane, do the following steps:
+1. In the **New Linked Service (Amazon S3)** page, do the following steps:
 
     ![Specify Amazon S3 linked service](media/data-factory-load-data/as3-new-linked-service-properties.png)
 
@@ -104,7 +104,7 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
     ![Choose input file or folder](media/data-factory-load-data/source-choose-input-file.png)
 
-1. In the **file formats settings** window select the relevant settings for your file and click **Next**.
+1. In the **file formats settings** page select the relevant settings for your file and click **Next**.
 
  ![Choose input file or folder](media/data-factory-load-data/source-file-format-settings.png)
 
@@ -112,60 +112,66 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 Azure Data Explorer new linked service is created to copy the data into the Azure Data Explorer destination table (sink) specified below.
 
-1. In the **Destination data store** page, you can use an existing data store or specify a new data store by clicking **+ Create new connection**.
+1. In the **Destination data store** page, you can use an existing data store connection or specify a new data store by clicking **+ Create new connection**.
 
     ![Destination data store page](media/data-factory-load-data/destination-create-connection.png)
 
-1. In the **New Linked Service** window, select **Azure Data Explorer**, and then select **Continue**
+1. In the **New Linked Service** page, select **Azure Data Explorer**, and then select **Continue**
 
     ![Select Azure Data Explorer - new linked service](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** window, do the following:
+1. In the **New Linked Service (Azure Data Explorer)** page, do the following:
 
     ![ADX new linked service](media/data-factory-load-data/adx-new-linked-service.png)
 
    * Select **Name** for Azure Data Explorer linked service.
    * In **Account selection method**: 
-        * Select the **From Azure subscription** radio button and select your **Azure subscription** account. Then, select your **Cluster**.
-        Or:
-        * Select **Enter manually** radio button and enter your **Endpoint**.
+        * Select the **From Azure subscription** radio button and select your **Azure subscription** account. Then, select your **Cluster**. Note the drop-down will only list clusters that belong to the user.
+        * Alternatively, select **Enter manually** radio button and enter your **Endpoint**.
     * Specify the **Tenant**.
     * Enter **Service principal ID**.
     * Select **Service principal key** button and enter **Service Principal Key**.
     * Select your **Database** from the dropdown menu. Alternatively, select **Edit** checkbox and enter your database name.
-    * Select **Test Connection** to test the linked service connection you created. A green checkmark **Connection successful** will appear.
+    * Select **Test Connection** to test the linked service connection you created. If you can connect to your setup, a green checkmark **Connection successful** will appear.
     * Select **Finish** to complete linked service creation.
 
     > [!NOTE]
-    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad).
+    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Do not use the **Azure Key Vault** method.
 
 1. The **Destination data store** opens. The Azure Data Explorer data connection you created is available for use. Select **Next** to configure the connection.
 
     ![ADX destination data store](media/data-factory-load-data/destination-data-store.png)
 
-1. In the **Choose the output file or folder** page, enter the output folder name, determine settings, and select **Next**.
+1. In **Choose the output file or folder**, enter the output folder name, determine settings, and select **Next**.
 
     ![Specify output folder](media/data-factory-load-data/specify-path.png)
 
-1. In the **Table mapping** window, set the destination table name and select **Next**.
+1. In **Table mapping**, set the destination table name and select **Next**.
 
     ![Destination dataset table mapping](media/data-factory-load-data/destination-dataset-table-mapping.png)
 
-1. In the **Column mapping** set the column mapping for the destination table and select **Next**.
+1. In the **Column mapping** page:
+    * Set the column mapping for the Azure Data Factory destination table. The default mapping is displayed.
+    * Unselect the columns that you do not need.
+    * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional)
+    * Select **Next**
 
     ![Destination dataset column mapping](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
-1. In the **Settings** page, set the relevant settings and select **Next**.
+1. In the **Settings** page:
+    * Set the relevant **fault tolerance settings**.
+    * **Performance settings**: Enable staging is not applicable. **Advanced settings** include cost considerations. Leave as is if no specific needs.
+    * Select **Next**.
 
     ![Copy data settings](media/data-factory-load-data/copy-data-settings.png)
 
-1. In the **Summary** page, review the settings, and select **Next**.
+1. In **Summary**, review the settings, and select **Next**.
 
     ![Copy data summary](media/data-factory-load-data/copy-data-summary.png)
 
 1. In the **Deployment page**:
-    * Select **Monitor** to switch to the **Monitor** tab and see the status of the pipeline.
-    * Select **Edit Pipeline** to edit linked services, datasets, and pipelines. 
+    * Select **Monitor** to switch to the **Monitor** tab and see the status of the pipeline (progress, errors and data flow).
+    * Select **Edit Pipeline** to edit linked services, datasets, and pipelines.
     * Select **Finish** to complete copy data task
 
     ![Deployment page](media/data-factory-load-data/deployment.png)
