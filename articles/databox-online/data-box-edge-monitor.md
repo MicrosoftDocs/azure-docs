@@ -45,33 +45,45 @@ Configure alert rules to inform you of alert conditions related to the consumpti
 
 ## View metrics
 
-You can also view the metrics to monitor the performance of the device. There are two types of metrics available:
+You can also view the metrics to monitor the performance of the device and in some instances for troubleshooting device issues. 
 
-- **Resource**: You can select the subscription, resource group, resource type, and the specific resource for which you want to show the metrics.
-- **Metric namespace**:
-- **Metric**: These can be **Capacity metrics** or **Transaction metrics**. The capacity metrics are related to the capacity of the device. The transaction metrics are related to the read and write operations to Azure Storage.
+### Create a chart
+
+Take the following steps in the Azure portal to create a chart.
+
+1. For your resource in the Azure portal, go to **Monitoring > Metrics** and select **Add metric**.
+
+    ![Add metric](media/data-box-edge-monitor/view-metrics-1.png)
+
+2. The resource is automatically populated.  
+
+    ![Current resource](media/data-box-edge-monitor/view-metrics-2.png)
+
+    To specify another resource, select the resource. On **Select a resource** blade, select the subscription, resource group, resource type, and the specific resource for which you want to show the metrics and select **Apply**.
+
+    ![Choose another resource](media/data-box-edge-monitor/view-metrics-3.png)
+
+3. From the dropdown list, select a metrics to use to monitor your device. These can be **Capacity metrics** or **Transaction metrics**. The capacity metrics are related to the capacity of the device. The transaction metrics are related to the read and write operations to Azure Storage.
 
     |Capacity metrics                     |Description  |
     |-------------------------------------|-------------|
-    |**Available capacity**               | Refers to the size of the data that can be written to the device. In other words, this is the capacity that can be made available on the device. You can free up the device capacity by deleting the local copy of files that have a copy on both the device as well as the cloud.        |
-    |**Total capacity**                   | Refers to the total bytes on the device to write data to. This is also referred to as the total size of the local cache. <br> You can now increase the capacity of an existing virtual device by adding a data disk. Add a data disk through the hypervisor management for the VM and then restart your VM. The local storage pool of the Gateway device will expand to accommodate the newly added data disk. <br>For more information, go to [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
+    |**Available capacity**               | Refers to the size of the data that can be written to the device. In other words, this is the capacity that can be made available on the device. <br></br>You can free up the device capacity by deleting the local copy of files that have a copy on both the device as well as the cloud.        |
+    |**Total capacity**                   | Refers to the total bytes on the device to write data to. This is also referred to as the total size of the local cache. <br></br> You can now increase the capacity of an existing virtual device by adding a data disk. Add a data disk through the hypervisor management for the VM and then restart your VM. The local storage pool of the Gateway device will expand to accommodate the newly added data disk. <br></br>For more information, go to [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
     
     |**Transaction metrics**              | Description         |
     |-------------------------------------|---------|
     |**Cloud bytes uploaded (device)**    | Sum of all bytes uploaded across all shares        |
     |**Cloud bytes uploaded (share)**     | Sum of all bytes uploaded per share / # of shares is average, max and min       |
-    |**Cloud download throughput (share)**| Sum of all bytes read or downloaded to a share / # of shares is average, max and min   per share     |
+    |**Cloud download throughput (share)**| Sum of all bytes read or downloaded to a share / # of shares is average, max, and min   per share     |
     |**Cloud read throughput**            | Sum of all the bytes read from the cloud across all the shares     |
-    |**Cloud upload throughput**          |  Sum of all the bytes written to the cloud across all the shares      |
-    |**Cloud upload throughput (share)**  |   Sum of all bytes written to the cloud from a share / # of shares is average, max and min   per share      |
-    |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares such as updates or support package. Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
-    |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares such as updates or support package. Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
-    |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. This metrics is not populated for Data Box Gateway.          |
-    |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. This metrics is not populated for Data Box Gateway.        |
-
-- **Aggregation**: When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. These can be average, minimum, or the maximum value. Aggregation is only defined for metrics that have multiple instances over which the value is aggregated.
-
-If for a metrics multiple instances exist, then the splitting option is available once you enter the resource, metrics, and aggregation.
+    |**Cloud upload throughput**          | Sum of all the bytes written to the cloud across all the shares      |
+    |**Cloud upload throughput (share)**  | Sum of all bytes written to the cloud from a share / # of shares is average, max, and min per share      |
+    |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
+    |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
+    |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metrics is not populated for Data Box Gateway.          |
+    |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metrics is not populated for Data Box Gateway.        |
+4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max or Min.
+5. If the metrics you selected has multiple instances, then the splitting option is available. Select Apply splitting and then select the parameter by which you want to see the breakdown.
 
 + New chart
 + Refresh
