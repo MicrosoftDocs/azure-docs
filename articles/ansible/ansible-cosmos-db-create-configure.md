@@ -10,11 +10,11 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Tutorial : Create and configure an Azure Cosmos DB account using Ansible
+# Tutorial: Create and configure an Azure Cosmos DB account using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Cosmos DB](/azure/cosmos-db/) is a globally distributed, multi-model database service. Azure Cosmos DB supports several database types, including document, key-value, wide-column, and graph. Using Ansible, you can automate the deployment and configuration of resources in your environment.
+[Azure Cosmos DB](/azure/cosmos-db/) is a database service that supports several database types. These types database include document, key-value, wide-column, and graph. Using Ansible, you can automate the deployment and configuration of resources in your environment.
 
 In this tutorial, you use Ansible to first create an Azure Cosmo DB account. Once the account is created, you retrieve its write and read-only keys. 
 
@@ -232,7 +232,7 @@ To run the playbook, use the **ansible-playbook** command as follows:
 ansible-playbook cosmosdb.yml
 ```
 
-Successfully running the playbook shows the Azure Cosmos DB account was created. Also, the output lists the primary and secondary keys.
+Running the playbook shows the Azure Cosmos DB account was created. Also, the output lists the primary and secondary keys.
 
 ## Clean up resources
 
