@@ -61,9 +61,10 @@ Follow the steps in [Writing Python with Visual Studio Code](https://code.visual
     ```
     ## Use this for Azure AD authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
+    from msrest.service_client import SDKClient
 
     ## Required for Media Services 
-    from azure.mgmt.media import azure_media_services
+    ## from azure.mgmt.media import azure_media_services
 
     import adal
     from azure.mgmt.resource.resources import ResourceManagementClient
