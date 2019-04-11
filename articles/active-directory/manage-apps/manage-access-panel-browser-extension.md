@@ -42,39 +42,38 @@ You can diagnose installation problems with the Access Panel Extension by downlo
 4. Select **Yes** fix the issues. To save these changes, close every Internet Explorer window, and then open Internet Explorer again. If you still can't access your apps, try the steps below.
 
 ## Check that the Access Panel Extension is enabled
+
 To verify that the Access Panel Extension is enabled in Internet Explorer:
 
 1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
    
-2. Select the **Programs** tab, and then select **Manage add-ons**.
+2. Go to the **Programs** tab and select **Manage add-ons**.
    
 3. In this dialog, select **Access Panel Extension** and then select **Enable**.
    
-4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+4. Close the Internet Explorer windows you have open to save these changes. The change takes effect the next time you open an Internet Explorer browser.
 
-## Enable extensions for InPrivate browsing
-To enable extensions for InPrivate browsing:
+## Enable extensions for InPrivate Browsing
+
+To enable extensions for InPrivate Browsing:
 
 1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
    
-2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
+2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
-    ![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/manage-access-panel-browser-extension/enabletoolbars.png)
-3. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
+3.  Close the Internet Explorer windows you have open to save these changes. The change takes effect the next time you open an Internet Explorer browser.
 
 ## Uninstall the Access Panel Extension
-To uninstall the Access Panel extension from your computer:
 
-1. On your keyboard, press the **Windows key** to open the Start menu. When the menu is open, you can type anything to do a search. Type "Control Panel" and then open the **Control Panel** when it appears in the search results.
+To uninstall the Access Panel Extension from your computer:
+
+1. In Control Panel, search for **uninstall**. Select **Uninstall a program**.
    
-    ![Search for Control Panel](./media/manage-access-panel-browser-extension/search_sm.png)
-2. In the top right corner of the Control Panel, change the **View by** option to **Large icons**. Then find and click the **Programs and Features** button.
+    ![Search for uninstall program.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
+
+2. From the list, select **Access Panel Extension**, and then select **Uninstall**.
    
-    ![Chang the view to show Large Icons](./media/manage-access-panel-browser-extension/control_panel.png)
-3. From the list, select **Access Panel Extension**, and the click the **Uninstall** button.
-   
-    ![Click Uninstall](./media/manage-access-panel-browser-extension/uninstall.png)
-4. You can then try to install the extension again to see if the problem has been resolved.
+3. You can then try to install the extension again to see if the problem has been resolved.
 
 If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
 
