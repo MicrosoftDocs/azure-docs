@@ -57,11 +57,11 @@ To configure the integration of Insperity ExpensAble into Azure AD, you need to 
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button on the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Insperity ExpensAble**, select **Insperity ExpensAble** from result panel then click **Add** button to add the application.
+4. In the search box, type **Insperity ExpensAble**, select **Insperity ExpensAble** from the result panel then click the **Add** button to add the application.
 
 	 ![Insperity ExpensAble in the results list](common/search-new-app.png)
 
