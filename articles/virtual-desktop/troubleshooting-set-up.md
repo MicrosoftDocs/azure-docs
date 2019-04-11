@@ -20,7 +20,10 @@ Windows Virtual Desktop (WVD) is a multi-tenant service hosted by Microsoft that
 Each WVD tenant environment consists of one or more host pools. Each host pool consists of one or more identical session hosts. The session hosts are virtual machines (VMs) running different Windows operating systems. Each session host must have a WVD host agent installed and registered with the Windows Virtual Desktop service.
 
 >[!NOTE]
-> Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment. The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
+> Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment.
+
+>[TIP]
+>The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
 
 Each host pool may have one or more app groups. An app group is a logical grouping of applications that are installed on the session hosts in the host pool. There are two types of app groups:
 
@@ -158,7 +161,18 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 **Example of raw error:**
 
 ```
-{ "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties": { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z", "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict", "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message": "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Compute/virtualMachines/desktop-1/extensions/dscextension", "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
+{ "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
+ rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
+ { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
+ "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
+ "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
+ "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
+ Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: 
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
+ One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": 
+ { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft. Compute/virtualMachines/desktop-1/extensions/dscextension",
+ "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
 
 **Cause:** DSC extension was not able to get admin access on the VM.
@@ -169,7 +183,29 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 ![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](/media/64870370bcbe1286906f34cf0a8646ab.png)
 
-> **Example of raw Error:** { "code": "DeploymentFailed","message": "At least one resource deployment operation failed. Please list deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.","details": [{ "code": "Conflict", "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\":\"VMExtensionProvisioningError\",\r\n \"message\": \"VM has reported a failure when processing extension 'dscextension'. Error message: \\\"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT ScriptResource failed to execute Set-TargetResource functionality with error message: One or more errors occurred. The SendConfigurationApply function did not succeed.\\\".\"\r\n }\r\n ]\r\n }\r\n}"  }
+> **Example of raw Error**
+
+```
+{
+    "code": "DeploymentFailed",
+   "message": "At least one resource deployment operation failed. Please list 
+ deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
+ "details": [
+         { "code": "Conflict",  
+         "message": "{\r\n \"status\": \"Failed\",\r\n \"error\": {\r\n \"code\":
+         \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource
+         operation completed with terminal provisioning state 'Failed'.\",\r\n
+         \"details\": [\r\n {\r\n \"code\":
+        \"VMExtensionProvisioningError\",\r\n \"message\": \"VM has
+              reported a failure when processing extension 'dscextension'.
+              Error message: \\\"DSC Configuration 'FirstSessionHost'
+              completed with error(s). Following are the first few:
+              PowerShell DSC resource MSFT ScriptResource failed to
+              execute Set-TargetResource functionality with error message:
+              One or more errors occurred. The SendConfigurationApply
+              function did not succeed.\\\".\"\r\n }\r\n ]\r\n }\r\n}"  }
+
+```
 
 **Cause:** DSC extension was not able to get admin access on the VM.
 
@@ -177,7 +213,28 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** DeploymentFailed – InvalidResourceReference.
 
-> **Example of raw Error:** {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":\"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n\"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\": \"DeploymentFailed\",\r\n\"message\": \"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":\"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-50a4c19530a9/resourceGroups/ernani-wvd-demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-50a4c19530a9/resourceGroups/ernani-wvd-demo/providers/Microsoft.Network/networkInterfaces/erd. Please make sure that the referenced resource exists, and that both resources are in the same region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
+> **Example of raw Error:** 
+
+```
+{"code":"DeploymentFailed","message":"At least one resource deployment operation
+failed. Please list deployment operations for details. Please see https://aka.ms/arm-
+debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
+\"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n
+\"message\": \"The resource operation completed with terminal provisioning state
+'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\": \"DeploymentFailed\",\r\n
+\"message\": \"At least one resource deployment operation failed. Please list
+deployment operations for details. Please see https://aka.ms/arm-debug for usage
+details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":
+\"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n
+\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-
+50a4c19530a9/resourceGroups/ernani-wvd-
+demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default
+referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-
+50a4c19530a9/resourceGroups/ernani-wvd-
+demo/providers/Microsoft.Network/networkInterfaces/erd. Please make sure that
+the referenced resource exists, and that both resources are in the same
+region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
+```
 
 **Cause:** Part of the resource group name is used for certain resources being created by the template. Due to the name matching existing resources, the template may select an existing resource from a different group.
 
@@ -185,7 +242,29 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** DeploymentFailed – InvalidResourceReference
 
-> **Example of raw error:** {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":\"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n\"message\": \"The resource operation completed with terminal provisioning state 'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\": \"DeploymentFailed\",\r\n\"message\": \"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":\"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-50a4c19530a9/resourceGroups/ernani-wvd-demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-50a4c19530a9/resourceGroups/ernani-wvd-demo/providers/Microsoft.Network/networkInterfaces/ernani-wvd-demo-0-nic was not found. Please make sure that the referenced resource exists, and that both resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\"\r\n}\r\n ]\r\n }\r\n ]\r\n }\r\n\
+> **Example of raw error:**
+
+```
+{"code":"DeploymentFailed","message":"At least one resource deployment operation
+failed. Please list deployment operations for details. Please see https://aka.ms/arm-
+debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
+\"Failed\",\r\n \"error\": {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n
+\"message\": \"The resource operation completed with terminal provisioning state
+'Failed'.\",\r\n \"details\": [\r\n {\r\n \"code\": \"DeploymentFailed\",\r\n
+\"message\": \"At least one resource deployment operation failed. Please list
+deployment operations for details. Please see https://aka.ms/arm-debug for usage
+details.\",\r\n \"details\": [\r\n {\r\n \"code\": \"BadRequest\",\r\n \"message\":
+\"{\\r\\n \\\"error\\\": {\\r\\n \\\"code\\\": \\\"InvalidResourceReference\\\",\\r\\n
+\\\"message\\\": \\\"Resource /subscriptions/4b46ada1-921a-40e0-a964-
+50a4c19530a9/resourceGroups/ernani-wvd-
+demo/providers/Microsoft.Network/virtualNetworks/wvd-vnet/subnets/default
+referenced by resource /subscriptions/4b46ada1-921a-40e0-a964-
+50a4c19530a9/resourceGroups/ernani-wvd-
+demo/providers/Microsoft.Network/networkInterfaces/ernani-wvd-demo-0-nic was
+not found. Please make sure that the referenced resource exists, and that both
+resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\"\r\n
+}\r\n ]\r\n }\r\n ]\r\n }\r\n\
+```
 
 **Cause:** This error is due to having the NIC being created by the ARM template having the same name as another NIC already in the VNET.
 
@@ -193,7 +272,18 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 **Error:** DeploymentFailed – Error downloading.
 
-> **Raw Error:** \\\"The DSC Extension failed to execute: Error downloading https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-1/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be resolved: 'catalogartifact.azureedge.net'.\\nMore information about the failure can be found in the logs located under'C:\\\\WindowsAzure\\\\Logs\\\\Plugins\\\\Microsoft.Powershell.DSC\\\\2.77.0.0' on the VM.\\\"
+> **Example of Raw Error:**
+
+```
+\\\"The DSC Extension failed to execute: Error downloading
+https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
+2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
+1/Artifacts/DSC/Configuration.zip after 29 attempts: The remote name could not be
+resolved: 'catalogartifact.azureedge.net'.\\nMore information about the failure can
+be found in the logs located under
+'C:\\\\WindowsAzure\\\\Logs\\\\Plugins\\\\Microsoft.Powershell.DSC\\\\2.77.0.0' on
+the VM.\\\"
+```
 
 **Cause:** This is due to either a static route, firewall rule, or NSG blocking download of the zip file tied to the ARM template.
 
@@ -322,35 +412,26 @@ When the RD Agent is first installed on the session host VM (either manually or 
 2. Install PSPing on the session host VM where the agent is running.
 3. Open the command prompt as an administrator and issue the command below:
 
->   psping rdbroker.wvdselfhost.microsoft.com:443
-
+```
+psping rdbroker.wvdselfhost.microsoft.com:443
+```
 Confirm that PSPing received information back from the RDBroker:
 
->   PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
-
->   Copyright (C) 2012-2016 Mark Russinovich
-
->   Sysinternals - www.sysinternals.com
-
->   TCP connect to 13.77.160.237:443:
-
->   5 iterations (warmup 1) ping test:
-
->   Connecting to 13.77.160.237:443 (warmup): from 172.20.17.140:60649: 2.00ms
-
->   Connecting to 13.77.160.237:443: from 172.20.17.140:60650: 3.83ms
-
->   Connecting to 13.77.160.237:443: from 172.20.17.140:60652: 2.21ms
-
->   Connecting to 13.77.160.237:443: from 172.20.17.140:60653: 2.14ms
-
->   Connecting to 13.77.160.237:443: from 172.20.17.140:60654: 2.12ms
-
->   TCP connect statistics for 13.77.160.237:443:
-
->   Sent = 4, Received = 4, Lost = 0 (0% loss),
-
->   Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
+```
+PsPing v2.10 - PsPing - ping, latency, bandwidth measurement utility
+Copyright (C) 2012-2016 Mark Russinovich
+Sysinternals - www.sysinternals.com
+TCP connect to 13.77.160.237:443:
+5 iterations (warmup 1) ping test:
+Connecting to 13.77.160.237:443 (warmup): from 172.20.17.140:60649: 2.00ms
+Connecting to 13.77.160.237:443: from 172.20.17.140:60650: 3.83ms
+Connecting to 13.77.160.237:443: from 172.20.17.140:60652: 2.21ms
+Connecting to 13.77.160.237:443: from 172.20.17.140:60653: 2.14ms
+Connecting to 13.77.160.237:443: from 172.20.17.140:60654: 2.12ms
+TCP connect statistics for 13.77.160.237:443:
+Sent = 4, Received = 4, Lost = 0 (0% loss),
+Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
+```
 
 ### Troubleshooting issues with the side-by-side stack
 
@@ -362,7 +443,7 @@ There are three main ways SxS gets installed or enabled on session host pool VMs
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions / PS)
 
-If you're having issues with the the SxS stack, confirm the SxS stack is installed or enabled by issuing **qwinsta** command from **Command Prompt**. 
+If you're having issues with the the SxS stack, confirm the SxS stack is installed or enabled by issuing **qwinsta** command from **Command Prompt**.
 
 If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
 
@@ -370,11 +451,13 @@ If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-
 
 Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your WVD tenant** on how to reinstall the SxS stack.
 
+```
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
     Server\\WinStations\\rds-sxs\\"fEnableWinstation":DWORD=1
 
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
     Server\\ClusterSettings\\"SessionDirectoryListener":rdp-sxs
+```
 
 **Error:** O_REVERSE_CONNECT_STACK_FAILURE
 
@@ -382,7 +465,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 **Cause:** The SxS stack is not installed on the session host VM.
 
-**Fix:** RDP directly into the session host VM as local administrator. Complete steps in the Get started with your WVD tenant document for installing SxS stack.
+**Fix:** RDP directly into the session host VM as local administrator. Complete steps in the **Get started with your WVD tenant** document for installing SxS stack.
 
 **Error:** TBD
 
@@ -391,6 +474,87 @@ Examine the registry entries listed below and confirm that their values match. I
 ### How to re-install SxS stack
 
 For steps on uninstalling the SxS stack, see the **Fix crashed SxS stack** document.
+
+### How to fix an SxS stack that malfunctions
+
+There are known circumstance that can cause the side-by-side (SxS) stack to malfunction:
+
+- Not following the correct order of the steps to enable SxS
+- Auto update to Windows 10 EVD
+- Missing the RDSH role
+- Running enablesxsstackrc.ps1 multiple times
+- Running enablesxsstackrc.ps1 in an account that does not have local admin privileges
+
+The steps outlined in this section can help to uninstall the SxS stack. Once SxS has been uninstalled follow steps in “Register the VM with the Windows Virtual Desktop host pool” section from the “Get started with your WVD tenant” document to install SxS stack.
+
+### Remediation
+
+The VM used to run the remediation steps must be on the same subnet and part of the same domain as the VM with the crashed SxS stack.
+
+1. Connect via standard RDP to the VM from where fix will be applied 
+2. Download PsExec from https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
+3. Unzip the downloaded file
+4. Start command prompt as local administrator
+5. Navigate to folder where PsExec was unzipped
+6. From command prompt, use the following command:
+
+```
+psexec.exe \\<VMname> cmd
+```
+>[!Note]
+>VMname is the machine name of the VM with the chased SxS stack.
+
+Accept the PsExec License Agreement.
+
+![Software license agreement screenshot.](/media/troubleshooting-set-up/SoftwareLicenseAgreement.png)
+
+>[!Note]
+>This dialog will show up only the first time PsExec is run.
+
+This will start a command prompt session on the VM with the crashed SxS stack.
+
+Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the SxS stack as this indicates no SxS present on the VM.
+
+![Administrator command prompt](/media/troubleshooting-set-up/AdministratorCommandPrompt.png)
+
+Run the following command. It will list Microsoft components installed on the VM with the malfunctioning SxS stack.
+
+```
+wmic product get name
+```
+
+Run the command below with product names from step above. Uninstall all products that start with “Remote Desktop.”
+
+```
+wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
+```
+
+If the operating system is Windows Server, once all WVD components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool). 
+
+If the operating system is Windows 10 machines the following steps must be performed.
+
+- From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned SxS stack.
+
+```
+\\<VMname>\c$\
+```
+>[!NOTE]
+>VMname is the machine name of the VM with the chased SxS stack.
+
+From the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1.
+
+Or alternatively run the following cmdlets:
+
+```
+Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
+Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
+Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
+```
+
+>[!Note]
+.The recommended process is to run disablesxsstackrc.ps1.
+
+Once cmdlets have completed restart the VM with crashed SxS.
 
 ## Client connection issues
 
@@ -449,21 +613,19 @@ If the Web client keeps prompting for credentials, use the following steps:
 4.  Clear browser cache. See [clear browser cache for yourbrowser](https://binged.it/2RKyfdU).
 5.  Open browser in Private mode.
 
-### Remote Desktop client for Windows 7 and Windows 10 crashes or cannot be opened
+### Remote Desktop client for Windows 7 or Windows 10 crashes or cannot be opened
 
-Use following PS cmdlets to cleanup OOB client registries
+Use following PS cmdlets to cleanup OOB client registries.
 
-> Remove-ItemProperty 'HKCU:\\Software\\Microsoft\\Terminal Server
+```
+Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
 
-> Client\\Default' -Name FeedURLs
+#Remove RdClientRadc registry key
+Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 
-> \#Remove RdClientRadc registry key
-
-> Remove-Item 'HKCU:\\Software\\Microsoft\\RdClientRadc' -Recurse
-
-> \#Remove all files under %appdata%\\RdClientRadc
-
-> Remove-Item C:\\Users\\pavithir\\AppData\\Roaming\\RdClientRadc\\\* -Recurse
+#Remove all files under %appdata%\RdClientRadc
+Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
+```
 
 Navigate to **%AppData%\\RdClientRadc\\** and delete all content.
 
@@ -487,29 +649,29 @@ Below are general troubleshooting steps and common error codes.
 
 Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
-> Get-RdsDiagnosticActivities -TenantName \<TenantName\> -username \<UPN\>\ -StartTime "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure - ActivityType Connection
+```
+ Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
+ "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
+```
 
 Using the **ActivityId** from the previous cmdlet output, run the command below:
 
-> (Get-RdsDiagnosticActivities -TenantName \$tenant -ActivityId \<ActivityId\>\ - Detailed).Errors
+```
+(Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+```
 
 This will produce output of the type show below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
-> ErrorSource       : \<Source\>
-
-> ErrorOperation    : \<Operation\>
-
-> ErrorCode         : \<Error code\>
-
-> ErrorCodeSymbolic : \<Error code string\>
-
-> ErrorMessage      : \<Error code message\>
-
-> ErrorInternal     : \<Internal for the OS\>
-
-> ReportedBy        : \<Reported by component\>
-
-> Time              : \<Timestampt\>
+```
+ErrorSource       : <Source>
+ErrorOperation    : <Operation>
+ErrorCode         : <Error code>
+ErrorCodeSymbolic : <Error code string>
+ErrorMessage      : <Error code message>
+ErrorInternal     : <Internal for the OS>
+ReportedBy        : <Reported by component>
+Time              : <Timestampt>
+```
 
 **Error:** O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
 
