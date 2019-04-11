@@ -54,7 +54,7 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 
 **To add Salesforce from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -62,11 +62,11 @@ To configure the integration of Salesforce into Azure AD, you need to add Salesf
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Salesforce**, select **Salesforce** from result panel then click **Add** button to add the application.
+4. In the search box, type **Salesforce**, select **Salesforce** from the result panel then click the **Add** button to add the application.
 
 	![Salesforce in the results list](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ To configure Azure AD single sign-on with Salesforce, perform the following step
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
