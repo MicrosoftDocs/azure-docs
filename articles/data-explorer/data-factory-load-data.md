@@ -114,7 +114,7 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
 1. In the **Destination data store** page, you can use an existing data store or specify a new data store by clicking **+ Create new connection**.
 
-    ![Need: Destination data store page](media/data-factory-load-data/destination-create-connection.png)
+    ![Destination data store page](media/data-factory-load-data/destination-create-connection.png)
 
 1. In the **New Linked Service** window, select **Azure Data Explorer**, and then select **Continue**
 
