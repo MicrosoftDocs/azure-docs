@@ -1,25 +1,25 @@
 ---
-title: Use Ansible to manage your Azure dynamic inventories
+title: Tutorial - Manage Azure dynamic inventories using Ansible | Microsoft Docs
 description: Learn how to use Ansible to manage your Azure dynamic inventories
 ms.service: azure
 keywords: ansible, azure, devops, bash, cloudshell, dynamic inventory
-author: tomarchermsft
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/09/2018
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Use Ansible to manage your Azure dynamic inventories
+# Tutorial: Manage Azure dynamic inventories using Ansible | Microsoft Docs
 
 Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one of those virtual machines, and install Nginx on the tagged virtual machine.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-
-- **Azure credentials** - [Create Azure credentials and configure Ansible](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)
-
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- 
 ## Create the test virtual machines
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).

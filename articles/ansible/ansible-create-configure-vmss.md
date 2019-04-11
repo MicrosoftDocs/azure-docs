@@ -1,5 +1,5 @@
 ---
-title: Create virtual machine scale sets in Azure using Ansible
+title: Tutorial - Configure virtual machine scale sets in Azure using Ansible
 description: Learn how to use Ansible to create and configure a virtual machine scale set in Azure
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
@@ -7,20 +7,22 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
+ms.date: 04/04/2019
 ---
 
-# Create virtual machine scale sets in Azure using Ansible
+# Tutorial: Configure virtual machine scale sets in Azure using Ansible
+
+[!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
+
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. This article shows you how to use Ansible to create and scale out a virtual machine scale set. 
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.6 is required to run the following the sample playbooks in this tutorial. 
-
 ## Create a VMSS
+
 This section presents a sample Ansible playbook that defines the following resources:
 - **Resource group** into which all of your resources will be deployed
 - **Virtual network** in the 10.0.0.0/16 address space
@@ -169,6 +171,7 @@ After running the playbook, output similar to the following example shows that t
   ```
 
 ## Scale out a VMSS
+
 The created virtual machine scale set has two instances. If you navigate to the virtual machine scale set in the Azure portal, you see **Standard_DS1_v2 (2 instances)**. You can also use the [Azure Cloud Shell](https://shell.azure.com/) by running the following command within the Cloud Shell:
 
   ```azurecli-interactive
@@ -269,7 +272,6 @@ The result of running the command in Cloud Shell shows that three instances now 
   ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Deploy applications to virtual machine scale sets using Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-> 
-> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial - Deploy applications to virtual machine scale sets using Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)

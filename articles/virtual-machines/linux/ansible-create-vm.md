@@ -1,5 +1,5 @@
 ---
-title: Use Ansible to create a Linux virtual machine in Azure
+title: Quickstart - Configure a Linux virtual machine in Azure using Ansible | Microsoft Docs
 description: Learn how to Use Ansible to create a Linux virtual machine in Azure
 ms.service: virtual-machines-linux
 keywords: ansible, azure, devops, virtual machine
@@ -10,16 +10,16 @@ ms.topic: quickstart
 ms.date: 08/22/2018
 ---
 
-# Use Ansible to create a Linux virtual machine in Azure
+# Quickstart: Configure a Linux virtual machine in Azure using Ansible
 Using a declarative language, Ansible allows you to automate the creation, configuration, and deployment of Azure resources via Ansible *playbooks*. Each section of this article shows you how each section of an Ansible playbook might look to create and configure different aspects of a Linux virtual machine. The [complete Ansible playbook](#complete-sample-ansible-playbook) is listed at the end of this article.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)]
 
 ## Create a resource group
+
 Ansible needs a resource group in which your resources are deployed. The following sample Ansible playbook section creates a resource group named `myResourceGroup` in the `eastus` location:
 
 ```yaml
@@ -30,6 +30,7 @@ Ansible needs a resource group in which your resources are deployed. The followi
 ```
 
 ## Create a virtual network
+
 When you create an Azure virtual machine, you must create a [virtual network](/azure/virtual-network/virtual-networks-overview) or use an existing virtual network. You also need to decide how your virtual machines are intended to be accessed on the virtual network. The following sample Ansible playbook section creates a virtual network named `myVnet` in the `10.0.0.0/16` address space:
 
 ```yaml
@@ -54,6 +55,7 @@ The following sample Ansible playbook section creates a subnet named `mySubnet` 
 ```
 
 ## Create a public IP address
+
 [Public IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) allow Internet resources to communicate inbound to Azure resources. Public IP addresses also enable Azure resources to communicate outbound to Internet and public-facing Azure services with an IP address assigned to the resource. The address is dedicated to the resource, until it is unassigned by you. If a public IP address is not assigned to a resource, the resource can still communicate outbound to the Internet, but Azure dynamically assigns an available IP address that is not dedicated to the resource. 
 
 The following sample Ansible playbook section creates a public IP address named `myPublicIP`:
@@ -67,6 +69,7 @@ The following sample Ansible playbook section creates a public IP address named 
 ```
 
 ## Create a network security group
+
 A [network security group](/azure/virtual-network/security-overview) enables you to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. 
 
 The following sample Ansible playbook section creates a network security group named `myNetworkSecurityGroup` and defines a rule to allow SSH traffic on TCP port 22:
@@ -87,6 +90,7 @@ The following sample Ansible playbook section creates a network security group n
 
 
 ## Create a virtual network interface card
+
 A virtual network interface card connects your virtual machine to a given virtual network, public IP address, and network security group. 
 
 The following section in a sample Ansible playbook section creates a virtual network interface card named `myNIC` connected to the virtual networking resources you have created:
@@ -103,6 +107,7 @@ The following section in a sample Ansible playbook section creates a virtual net
 ```
 
 ## Create a virtual machine
+
 The final step is to create a virtual machine that uses all the resources you've created in the previous sections of this article. 
 
 The sample Ansible playbook section presented in this section creates a virtual machine named `myVM` and attaches the virtual network interface card named `myNIC`. Replace the &lt;your-key-data> placeholder with your own complete public key data.
@@ -273,5 +278,6 @@ This section walks you through running the sample Ansible playbook presented in 
     ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
 > [Use Ansible to manage a Linux virtual machine in Azure](./ansible-manage-linux-vm.md)

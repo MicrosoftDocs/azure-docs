@@ -12,7 +12,7 @@
     - name: Install Ansible on a Linux VM
       href: /azure/virtual-machines/linux/ansible-install-configure
       maintainContext: true
-    - name: Create a Linux VM
+    - name: Configure a Linux VM
       href: /azure/virtual-machines/linux/ansible-create-vm
       maintainContext: true
     - name: Manage a Linux VM
@@ -24,7 +24,7 @@
   items:
   - name: Azure Kubernetes Service (AKS)
     items:
-    - name: Create and configure AKS clusters
+    - name: Configure AKS clusters
       href: ./ansible-create-configure-aks.md
     - name: Configure Azure CNI networking
       href: ./ansible-aks-configure-cni-networking.md
@@ -34,27 +34,27 @@
       href: ./ansible-aks-configure-rbac.md
   - name: App Service
     items:
-    - name: Create and configure Azure Web Apps
+    - name: Configure an app in Azure Web Apps
       href: ./ansible-create-configure-azure-web-apps.md
     - name: Scale Azure Web Apps
       href: ./ansible-scale-azure-web-apps.md
   - name: Application Gateway
     items:
-    - name: Create and configure Azure Application Gateway
+    - name: Configure Azure Application Gateway
       href: ./ansible-create-configure-application-gateway.md
   - name: Azure Cache for Redis
     items:
-    - name: Create and configure a cache
+    - name: Configure a cache
       href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Databases
     items:
-    - name: Create and configure Azure DB for MySQL
+    - name: Configure Azure DB for MySQL
       href: ./ansible-create-configure-mysql.md
-    - name: Create and configure Azure Cosmos DB
+    - name: Configure Azure Cosmos DB
       href: ./ansible-cosmos-db-create-configure.md
   - name: DevTest Labs
     items:
-    - name: Create a lab in Azure DevTest Labs
+    - name: Configure a lab in Azure DevTest Labs
       href: ./ansible-devtest-labs-create-configure.md
   - name: Dynamic inventory
     items:
@@ -62,13 +62,13 @@
       href: ./ansible-manage-azure-dynamic-inventories.md
   - name: Virtual network
     items:
-    - name: Create and configure route tables
+    - name: Configure route tables
       href: ./ansible-create-configure-route-table.md
     - name: Configure Azure VNet peering
       href: ./ansible-vnet-peering-create-configure.md
   - name: Virtual Machines Scale Sets
     items:
-    - name: Create virtual machine scale sets
+    - name: Configure virtual machine scale sets
       href: ./ansible-create-configure-vmss.md
     - name: Deploy to virtual machine scale sets
       href: ./ansible-deploy-app-vmss.md

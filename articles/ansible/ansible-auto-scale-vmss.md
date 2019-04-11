@@ -1,5 +1,5 @@
 ---
-title: Automatically scale a virtual machine scale set in Azure using Ansible
+title: Tutorial - Autoscale a virtual machine scale set in Azure using Ansible | Microsoft Docs
 description: Learn how to use Ansible to scale a virtual machine scale set with autoscale in Azure
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
@@ -10,20 +10,21 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ---
 
-# Automatically scale a virtual machine scale set in Azure using Ansible
+# Tutorial: Autoscale a virtual machine scale set in Azure using Ansible
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. 
 
 When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this article, you will create an autoscale setting and associate it to an existing virtual machine scale set. In the autoscale setting, you can configure a rule to scale out or scale in as you want.
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - An existing Azure virtual machine scale set. - If you don't have a one, [Create virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
 
-> [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. 
-
 ## Auto scale based on a schedule   
+
 To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
 
 You can scale in and scale out in Virtual Machine Scale Sets by a recurring schedule, or by a particular date. This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in your scale sets on 10:00 of every Monday, Pacific Time zone. 
@@ -153,6 +154,7 @@ ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
 ## Get information for existing autoscale settings
+
 You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* module with the playbook as follows:
 
 ```yml
@@ -172,6 +174,7 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
 ```
 
 ## Disable the autoscale settings
+
 You can disable the autoscale setting by changing `enabled: true` to `enabled: false`, or deleting the autoscale settings with the playbook as follows:
 
 ```yml
@@ -188,5 +191,6 @@ You can disable the autoscale setting by changing `enabled: true` to `enabled: f
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Ansible sample playbook for virtual machine scale sets](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible on Azure](/azure/ansible)

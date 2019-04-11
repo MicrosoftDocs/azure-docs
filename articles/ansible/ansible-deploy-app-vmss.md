@@ -1,5 +1,5 @@
 ---
-title: Deploy applications to virtual machine scale sets in Azure using Ansible
+title: Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansible
 description: Learn how to use Ansible to configure a virtual machine scale set and deploy application on the virtual machine scale set in Azure
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
@@ -10,19 +10,20 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ---
 
-# Deploy applications to virtual machine scale sets in Azure using Ansible
+# Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible
+
+[!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
+
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to deploy your applications to Azure. This article shows you how to deploy a Java application to an Azure virtual machine scale set (VMSS).
 
 ## Prerequisites
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md).
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
 - **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
 - **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
-
-> [!Note]
-> Ansible 2.6 is required to run the following the sample playbooks in this tutorial.
 
 ## Get host information
 
@@ -202,5 +203,6 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 ![Java app running in a virtual machine scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## Next steps
+
 > [!div class="nextstepaction"]
-> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial - Autoscale a virtual machine scale set in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
