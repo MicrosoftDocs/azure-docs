@@ -9,32 +9,30 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
 ---
 # Quickstart: Use Azure PowerShell to create a Service Bus queue
-Microsoft Azure Service Bus is an enterprise integration message broker that provides secure messaging and absolute reliability. A typical Service Bus scenario usually involves decoupling two or more applications, services or processes from each other, and transferring state or data changes. Such scenarios might involve scheduling multiple batch jobs in another application or services, or triggering order fulfillment. For example, a retail company might send their point of sales data to a back office or regional distribution center for replenishment and inventory updates. In this scenario, the client app sends to and receives messages from a Service Bus queue.
-
-![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 This quickstart describes how to send and receive messages to and from a Service Bus queue, using PowerShell to create a messaging namespace and a queue within that namespace, and to obtain the authorization credentials on that namespace. The procedure then shows how to send and receive messages from this queue using the [.NET Standard library](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-If you do not have an Azure subscription, create a [free account][] before you begin.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## Prerequisites
 
 To complete this tutorial, make sure you have installed:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account][] before you begin. 
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later. You use Visual Studio to build a sample that sends messages to and receives message from a queue. The sample is to test the queue you created in the portal. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
-This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][].
+This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][]. If you are familiar with Azure Cloud Shell, you could use it without installing Azure PowerShell on your machine. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md)
 
-## Log in to Azure
+## Sign in to Azure
 
 1. First, install the Service Bus PowerShell module, if you haven't already:
 
@@ -42,7 +40,7 @@ This quickstart requires that you are running the latest version of Azure PowerS
    Install-Module Az.ServiceBus
    ```
 
-2. Run the following command to log in to Azure:
+2. Run the following command to sign in to Azure:
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -127,7 +125,7 @@ This section contains more details about what the sample code does.
 
 ### Get connection string and queue
 
-The connection string and queue name are passed to the `Main()` method as command line arguments. `Main()` declares two string variables to hold these values:
+The connection string and queue name are passed to the `Main()` method as command-line arguments. `Main()` declares two string variables to hold these values:
 
 ```csharp
 static void Main(string[] args)
@@ -164,7 +162,7 @@ The `Main()` method then starts the asynchronous message loop, `MainAsync()`.
 
 ### Message loop
 
-The MainAsync() method creates a queue client with the command line arguments, calls a receiving message handler named `RegisterOnMessageHandlerAndReceiveMessages()`, and sends the set of messages:
+The MainAsync() method creates a queue client with the command-line arguments, calls a receiving message handler named `RegisterOnMessageHandlerAndReceiveMessages()`, and sends the set of messages:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)
@@ -256,10 +254,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## Next steps
 
-In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the following tutorial for Service Bus:
+In this article, you created a Service Bus namespace and other resources required to send and receive messages from a queue. To learn more about writing code to send and receive messages, continue to the tutorials in the **Send and receive messages** section. 
 
 > [!div class="nextstepaction"]
-> [Update inventory using Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Send and receive messages](service-bus-dotnet-get-started-with-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Install and Configure Azure PowerShell]: /powershell/azure/install-Az-ps
