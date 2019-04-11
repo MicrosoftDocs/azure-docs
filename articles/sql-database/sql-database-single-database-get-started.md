@@ -112,7 +112,7 @@ Keep this resource group, database server, and single database if you want to go
 When you're finished using these resources, you can delete them as follows:
 
 1. From the left menu in the Azure portal, select **Resource groups**, and then select **myResourceGroup**.
-2. On your resource group page, select **Delete resource grexplorer .oup**.
+2. On your resource group page, select **Delete resource group**.
 3. Enter *myResourceGroup* in the field, and then select **Delete**.
 
 ## Next steps
