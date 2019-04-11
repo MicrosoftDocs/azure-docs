@@ -141,7 +141,7 @@ An Azure firewall is assigned a public IP address that egress traffic flows thro
 # Create a public IP address for the firewall
 FIREWALL_PUBLIC_IP=$(az network public-ip create \
     --resource-group $MC_RESOURCE_GROUP \
-    --name myAzureFirewallPublicIP5 \
+    --name myAzureFirewallPublicIP \
     --sku Standard \
     --query publicIp.ipAddress -o tsv)
 
@@ -170,7 +170,7 @@ az network firewall network-rule create \
     --destination-ports '*'
 ```
 
-To associate the Azure firewall with the network route, obtain the existing route table information, the internal IP address of the Azure firewall, and then the IP address of the API server. Make a note of the IP address shown in the output of the `kubectl get endpoints kubernetes` command as this address must be specified in the next section when you specify how traffic should be routed for cluster communication.
+To associate the Azure firewall with the network route, obtain the existing route table information, the internal IP address of the Azure firewall, and then the IP address of the API server. These IP addresses are specified in the next section to control how traffic should be routed for cluster communication.
 
 ```azurecli-interactive
 # Get the AKS cluster route table
@@ -185,30 +185,21 @@ FIREWALL_INTERNAL_IP=$(az network firewall show \
     --query ipConfigurations[0].privateIpAddress -o tsv)
 
 # Get the IP address of API server endpoint
-kubectl get endpoints kubernetes
+K8S_ENDPOINT_IP=$(k get endpoints -o=jsonpath='{.items[?(@.metadata.name == "kubernetes")].subsets[].addresses[].ip}')
 ```
 
-The following example output shows that the endpoint address for the AKS cluster is *40.121.139.101*:
-
-```console
-$ kubectl get endpoints kubernetes
-
-NAME         ENDPOINTS            AGE
-kubernetes   40.121.139.101:443   22h
-```
-
-Finally, create a route in the existing AKS network route table using the [az network route-table route create][az-network-route-table-route-create] command that allows traffic to use the Azure firewall appliance for API server communication. In the following example, replace *your_cluster_endpoint* with the IP address returned in the previous `kubectl get endpoints kubernetes` command:
+Finally, create a route in the existing AKS network route table using the [az network route-table route create][az-network-route-table-route-create] command that allows traffic to use the Azure firewall appliance for API server communication.
 
 ```azurecli-interactive
 az network route-table route create \
     --resource-group $MC_RESOURCE_GROUP \
     --route-table-name $ROUTE_TABLE \
     --name AzureFirewallAPIServer \
-    --address-prefix your_cluster_endpoint/32 \
+    --address-prefix $K8S_ENDPOINT_IP/32 \
     --next-hop-ip-address $FIREWALL_INTERNAL_IP \
     --next-hop-type VirtualAppliance
 
-echo "Public IP address for the Azure Firewall instance that should be added to the list of API server whitelisted addresses is: " $FIREWALL_PUBLIC_IP
+echo "Public IP address for the Azure Firewall instance that should be added to the list of API server whitelisted addresses is:" $FIREWALL_PUBLIC_IP
 ```
 
 Make a note of the public IP address of your Azure Firewall appliance. This address is added to the API server IP whitelist in the next section.
@@ -219,13 +210,13 @@ To enable the API server IP whitelisting, you provide a list of authorized IP ad
 
 To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. Add the public IP address of your own Azure firewall obtained in the previous step, such as *20.42.25.196/32*.
 
-The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *172.0.0.10/16* and *168.10.0.10/18*:
+The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.10/16* and *168.10.0.10/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 172.0.0.10/16,168.10.0.10/18,20.42.25.196/32
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
 ```
 
 ## Update or disable IP address whitelisting
