@@ -148,11 +148,11 @@ Use the host, https://localhost:5000, for container APIs.
 
 <!--  ## Validate container is running -->
 
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Stop the container
 
-[!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
 ## Troubleshooting
 
@@ -162,9 +162,9 @@ If you run the container with an output [mount](anomaly-detector-container-confi
 
 The Anomaly Detector containers send billing information to Azure, using an Anomaly Detector_ resource on your Azure account. 
 
-[!INCLUDE [Container's Billing Settings](../../../../includes/cognitive-services-containers-how-to-billing-info.md)]
+[!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](../text-analytics-resource-container-config.md).
+For more information about these options, see [Configure containers](../anomaly-detector-container-configuration.md).
 
 ## Summary
 
@@ -181,5 +181,5 @@ In this article, you learned concepts and workflow for downloading, installing, 
 
 ## Next steps
 
-* Review [Configure containers](../anomaly-detector-container-configuration.md) for configuration settings
+* Review [Configure containers](anomaly-detector-container-configuration.md) for configuration settings
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

@@ -31,7 +31,7 @@ This container has the following configuration settings:
 |No|[Mounts](#mount-settings)|Read and write data from host computer to container and from container back to host computer.|
 
 > [!IMPORTANT]
-> The [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](#billing).
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](anomaly-detector-container-howto.md#billing).
 
 ## ApiKey configuration setting
 
