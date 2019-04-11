@@ -1,12 +1,13 @@
 ---
 title: Tutorial - Configure a cluster in Azure HDInsight using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and resize an Azure HDInsight
-ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
 # Tutorial: Configure a cluster in Azure HDInsight using Ansible

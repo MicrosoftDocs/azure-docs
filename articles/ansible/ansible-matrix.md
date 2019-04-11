@@ -1,13 +1,13 @@
 ---
 title: Ansible module and version matrix for Azure | Microsoft Docs
 description: Ansible module and version matrix for Azure
-ms.service: azure
 keywords: ansible, roles, matrix, version, azure, devops
+ms.topic: reference
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 09/22/2018
-ms.topic: article
+ms.date: 04/04/2019
 ---
 
 # Ansible module and version matrix

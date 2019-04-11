@@ -1,12 +1,12 @@
 ---
 title: Quickstart - Manage Linux virtual machines in Azure using Ansible | Microsoft Docs
 description: In this quickstart, learn how to manage a Linux virtual machine in Azure using Ansible
-ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+ms.topic: quickstart
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: quickstart
 ms.date: 04/04/2019
 ---
 
