@@ -5,7 +5,7 @@ services: iot-hub
 ms.service: iot-hub
 author: ash2017
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 04/11/2019
 ms.author: asrastog
 ---
 
