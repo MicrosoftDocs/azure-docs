@@ -9,7 +9,7 @@ manager: jeconnoc
 
 Creating standardized virtual machine (VM) images allow organizations to migrate to the cloud and ensure consistency in the deployments. Users commonly want VMs to include predefined security and configuration settings as well as application software they own. However, setting up your own image build pipeline would require infrastructure and setup. With Azure VM Image Builder, you can take an ISO or Azure Marketplace image and start creating your own golden images in a few steps.
  
-The Azure VM Image Builder (AIB) lets you start with either a Windows or Linux-based Azure Marketplace VM or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Your customizations can be added in the documented customizations in this document, and because the VM Image Builder is built on HashiCorp Packer (https://packer.io/), you can also import your existing Packer shell provisioner scripts. As the last step, you specify where you would like your images hosted, either in the Azure Shared Image Gallery (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries) or as an Azure Managed Image. See below for a quick video on how to create a custom image using the VM Image Builder.
+The Azure VM Image Builder (Azure Image Builder) lets you start with either a Windows or Linux-based Azure Marketplace VM or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Your customizations can be added in the documented customizations in this document, and because the VM Image Builder is built on HashiCorp Packer (https://packer.io/), you can also import your existing Packer shell provisioner scripts. As the last step, you specify where you would like your images hosted, either in the Azure Shared Image Gallery (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries) or as an Azure Managed Image. See below for a quick video on how to create a custom image using the VM Image Builder.
  
 ## Preview feature support
 For the preview, we are supporting these key features:
@@ -22,71 +22,41 @@ For the preview, we are supporting these key features:
 * Red Hat Bring Your Own Subscription support. Create Red Hat Enterprise Images for use with your eligible, unused Red Hat subscriptions.
 
 ## Regions
-The AIB Service will be available for preview in these regions, however, images can be distributed outside of these regions. 
+The Azure Image Builder Service will be available for preview in these regions, however, images can be distributed outside of these regions. 
 - East US
 - East US 2
 - West Central US
-- West US"
+- West US
 - West US 2
 
 ## Pipeline
 
 
-The AIB is a fully managed Azure service that is accessible by an Azure first party resource provider.  
+The Azure Image Builder is a fully managed Azure service that is accessible by an Azure first party resource provider.  
  
-The diagram below shows the end to end AIB pipeline, where you can see the three main components, source, customize and distribute, with their inputs and outputs. 
+The diagram below shows the end to end Azure Image Builder pipeline, where you can see the three main components, source, customize and distribute, with their inputs and outputs. 
 
 ![Conceptual drawing of the image builder pipeline](/media/virtual-machines-image-builder-overview/pipelines.png)
 
 To describe the pipeline steps requires a configuration template, this is ingested into the service, then stored as an ImageTemplate. 
  
-For the AIB to stand up the pipeline requires an invocation call into the AIB service referencing a stored template.
+For the Azure Image Builder to stand up the pipeline requires an invocation call into the Azure Image Builder service referencing a stored template.
 
 ![Conceptual drawing of the submit and run command processes](/media/virtual-machines-image-builder-overview/submit-run.png)
 
-1. Create the Image Template, see the next sections on how to do this. 
-1. Submit the Image Template, at this time AIB will download the RHEL ISO, and shell scripts needed, and store these in an automatically resource group created in your subscription, in this format : ‘IT_<DestinationResourceGroup>_<TemplateName>’. This will be removed when the Image Template artifact is deleted. You will also see the template artifact, that references these in the resource group referenced when creating the image template.
-1. Invoking the AIB to create the image, will take the template artifact, then stand up a pipeline to create it, by standing up a VM, network, and storage in the automatically created resource group, ‘IT_<DestinationResourceGroup>_<TemplateName>’. 
+1. Create the Image Template. 
+1. Submit the Image Template. Azure Image Builder will download the RHEL ISO, and shell scripts needed, and store these in a resource group that is automatically created in your subscription, in this format : ‘IT_<DestinationResourceGroup>_<TemplateName>’. This will be removed when the Image Template artifact is deleted. You will also see the template artifact, that references these in the resource group referenced when creating the image template.
+1. Create the image. Azure Image Builder will take the template, then stand up a pipeline to create it, by standing up a VM, network, and storage in the automatically created resource group, ‘IT_<DestinationResourceGroup>_<TemplateName>’. 
 
-## Getting Started 
-To get started you must enable the pre-requisites, this involves 3 steps, please refer to the links below, note, these steps are in all the Quick Starts. 
- 
-1.	Register here to have your subscription enabled for the VM Image Builder For issues registering, please reach out to the MS Teams channel. 
- 
-1.	Register Subscription for the Image Builder Feature and Shared Image Gallery 
- https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/1 _Creating_a_Custom_Linux_Shared_Image_Gallery_Image#registerfor-image-builder--vm--storage-features  
-1.	Set Permissions for Image Builder and Create Shared Image Gallery 
-https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts /1_Creating_a_Custom_Linux_Shared_Image_Galle ry_Image#step-1-set-permissions--create-shared-image-gallery-sig 
-      If you want more details please see appendix. 
- 
 
-## Quickstarts 
-If you are just too eager and do not want to read the rest of the documentation, then you can use prepared ‘Quick Quickstarts’, from this repository 
-(https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts) 
- 
-You can run all these examples from CloudShell in the Portal, with the repository examples on creating: 
-* Custom Image from an Azure Platform Vanilla OS Image for Windows or Linux. 
-* Custom Image, then Distribute and Version over Multiple Regions using SIG. 
-* Custom Image, from an Existing Custom Managed Image
-* Custom Image from an Azure Platform Vanilla OS Image and distribute to VHD 5. Custom RHEL image using a RHEL ISO where you can use eligible Red Hat licenses.
-* Troubleshooting guide
- 
-## Resource Manager templates  
-The beauty of these examples, they are heavily parameterized, so you just need to drop in your own details, then begin image building, or integrate them to existing pipelines. https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates.  
- 
-Raw Image Builder Templates 
-If you do not use ARM, you can use these when submitting an Image Template directly to the Azure Resource Provider, please see the Quick Starts, these contain template examples and how to submit them to the service.  
- 
- 
- 
 ## Costs
-You will incur some Azure Compute / Storage / Network costs when creating, building and storing images with AIB, in the same way you would do creating custom images manually. For the resources, you will be charged at your Azure rates, below outlines a high level of resources are used. 
+You will incur some compute, networking and storage costs when creating, building and storing images with Azure Image Builder. These costs are similar to the costs incurred in manually creating custom images. For the resources, you will be charged at your Azure rates. The following outlines a high level of resources are used. 
  
-When you create an Image Template, automatically the AIB creates a resource group, in the format, ‘IT_<DestinationResourceGroup>_<TemplateName>’, at this time the RHEL ISO and shell scripts will be stored until the Image Template is deleted, therefore you will incur small storage costs. Do NOT delete or modify this resource group, delete the Image Template artifact. 
+- When you create an Image Template, automatically the Azure Image Builder creates a resource group, in the format, ‘IT_<DestinationResourceGroup>_<TemplateName>’, at this time the RHEL ISO and shell scripts will be stored until the Image Template is deleted, therefore you will incur small storage costs. Do not delete or modify this resource group, delete the Image Template artifact. 
  
-When you invoke AIB to build an image, it will stand up a D1v2 VM, storage and networking for it, these will last the time of the image build process, and will be deleted once AIB has finished creating the image. 
+- When you invoke Azure Image Builder to build an image, it will stand up a D1v2 VM, storage and networking for it, these will last the time of the image build process, and will be deleted once Azure Image Builder has finished creating the image. 
  
-AIB will distribute the image to your chosen regions, this will be backed by Azure storage.
+- Azure Image Builder will distribute the image to your chosen regions, this will be backed by Azure storage.
 
 
 ## Create the image template 
@@ -108,71 +78,17 @@ The following describes the template format, and shows the 3 main components:
 } 
 ```
 
-**Properties** type - must be 'Microsoft.VirtualMachineImages'  apiVersion - for preview, use '2018-02-01-preview'  location – describe AIB service location.
- 
-**Source** - The API requires a 'SourceType', this defines the source for the image build, currently there are three types: 
+**Properties** 
 
-* ISO - AIB only supports using published Red Hat Enterprise Linux 7.x Binary DVD ISO's, for private preview IB supports:
-    RHEL 7.3 
-    RHEL 7.4 
-    RHEL 7.5 
+`type` - must be 'Microsoft.VirtualMachineImages'  
+`apiVersion` - for preview, use '2018-02-01-preview'  
+`location` – for preview, use 'westcentralus'.
  
-    These are ISO's tested, and we will keep adding to the list over time, if you have a requirement for another RHEL version, please let us know. 
- 
- "source": { 
-Properties       "type": "ISO", 	 
-       "sourceURI": "sourceURI from RH download center", 
-To populate these, access 'https://access.redhat.com/downloads', then select the product 'Red         "sha256Checksum": "checksum associated with ISO" 
-Hat Enterprise Linux', and supported version of RHEL.   } 	 
- 
-In the list of 'Installers and Images for Red Hat Enterprise Linux Server', you need to copy the link for Red Hat Enterprise Linux 7.x Binary DVD, and the checksum, in to these properties: 
-•	sourceURI 
-•	Sha256Checksum 
- 
-Note!! The access tokens of the links are refreshed at frequent intervals, so every time you 
-want to submit a template, you must check if the RH link address has changed.	 
- 
-PlatformImage 
-AIB will support Azure Marketplace base OS Linux images: 
-•	Ubuntu 18.04 
-•	Ubuntu 16.04 
- 
-**Note, the AIB can support more, and we are continually testing, so please contact us on MS Teams channel, if you would like a specific OS to be supported. 
- 
-These are images tested, and we will keep adding to the list over time, if you have a requirement for a different Azure Marketplace base OS Linux image, please let us know. 
- 
- "source": { 
-        "type": "PlatformImage", 
-       "publisher": "[parameters('publisher')]", 
-        "offer": "[parameters('offer')]", 
-        "sku": "[parameters('sku')]", 
-        "version": "[parameters('version')]" 
-            }, 
- 
- 
-Properties 
-The properties here are the same that are used to create VM's, using AZ CLI, run the below to get the properties: 
- 
- az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all 
-  
- 
-Note!! Version cannot be ‘latest’, you must use the command above to get a version number. 
- 
-ManagedImage 
-Currently, this is only supported on Linux. 
- "source": { 
-        "type": "ManagedImage", 
-       "imageId": "ARM resource id of the managed image in customer subscription" 
- 	   } 
-Properties 
-imageId – ResourceId of the source image, expected format: 
- 
-/subscriptions/{subscriptionId}/resourceGroups/{destinationResourceGroupName}/pr  oviders/Microsoft.Compute/images/{imageName} 
  
 Customize 
 We support multiple ‘customizers’, these are functions that are used to customize your image, such as running scripts, rebooting servers etc. We are adding support for customizers constantly, so please keep checking the documentation or MS Teams channel for announcements for additional customizers. 
  
-The customize section is an array, AIB will run through the customizers in sequential order, any failure in any customizer will fail the build process. 
+The customize section is an array, Azure Image Builder will run through the customizers in sequential order, any failure in any customizer will fail the build process. 
  
      "customize": [ 
          { 
@@ -311,13 +227,13 @@ location - location of the MDI (see Note below)  runOutputName – this must be 
  
 Note!  
 •	The destination resource group must exist 
-•	If you want the image distributed to a different region to the AIB service, you must be aware that the AIB service will need to transfer the image bits between the datacenters, this will take significant increased time. 
+•	If you want the image distributed to a different region to the Azure Image Builder service, you must be aware that the Azure Image Builder service will need to transfer the image bits between the datacenters, this will take significant increased time. 
  
  
  
  
 Shared Image Gallery 
-The Azure Shared Image Gallery (SIG) is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. AIB supports distributing with this service, so you can distribute images to all SIG supported regions. 
+The Azure Shared Image Gallery (SIG) is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to all SIG supported regions. 
  
 SIG is made up of: 
  
@@ -350,7 +266,7 @@ imageName - Image name
 replicationRegions - Array of SIG replication regions  
  
 Note!  
-•	You can use AIB in a different region to the SIG, but the AIB service will need to transfer the image bits between the datacenters, this will take significant increased time. 
+•	You can use Azure Image Builder in a different region to the SIG, but the Azure Image Builder service will need to transfer the image bits between the datacenters, this will take significant increased time. 
 •	IB will automatically version the image, based on a monotonic integer, you cannot specify it currently. 
  
 VHD  
@@ -366,7 +282,7 @@ You can specify outputting to a VHD, this allows you to copy the VHD, and use it
  
 OS Support: Windows / Linux 
  
-AIB does not allow the user to specify a storage account location, but you can query the status of the ‘runOutput’ to get the location.  
+Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the ‘runOutput’ to get the location.  
  
 az resource show \     --ids 
 "/subscriptions/$subscriptionId/resourcegroups/<imageResourceGroup>/providers/Microsof
@@ -374,7 +290,7 @@ t.VirtualMachineImages/imageTemplates/<imageTemplateName>/runOutputs/<runOutputN
 } 
  
 Note!! Once the VHD has been created, copy it to an alternative location, as soon as possible. 
-The VHD is stored in a storage account in the temporary Resource Group created when the Image Template is submitted to the AIB service. If you delete the Image Template, then you will loose this VHD. 
+The VHD is stored in a storage account in the temporary Resource Group created when the Image Template is submitted to the Azure Image Builder service. If you delete the Image Template, then you will loose this VHD. 
  
  
  
@@ -389,9 +305,9 @@ The VHD is stored in a storage account in the temporary Resource Group created w
  
  
  
-Creating AIB Image 
+Creating Azure Image Builder Image 
  
-Submit Image Template to AIB 
+Submit Image Template to Azure Image Builder 
 To submit an image template to the resource provider, you can use parametrized ARM templates 
 (https://github.com/danielsollondon/azvmimagebuilder/tree/master/armTemplates), or call the resource provider, see the Quick QuickStart examples directly 
 (https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts). 
@@ -457,11 +373,11 @@ Timing
 In our tests, it takes around 45mins to build from an ISO or Platform image, with a script that takes around 5s to run. Timings can differ greatly, depending on configuration, such as: • Shell customizer scripts - number / time to execute 
 •	Distribution - If you are distributing you image to multiple regions, then this will take additional time. 
  
-Listing AIB Resources 
+Listing Azure Image Builder Resources 
 AZ CLI: To list the templates and images:  az resource list -g {resourceGroup} --output table | grep -e 'images*' 
  
  
-Deleting AIB Resource 
+Deleting Azure Image Builder Resource 
 AZ CLI: To delete the templates: 
  az resource delete -n {ImageTemplateName}  -g {resourceGroup} --resource-type  Microsoft.VirtualMachineImages/imageTemplates 
   
@@ -485,7 +401,7 @@ Troubleshooting    ----name {vmName} admin-username {userName}  \ 	\
  
 Please see this article for the latest troubleshooting information, such as where the logging exists, typical issues. 
  
-https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/troubles hootingaib.md 
+https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/troubles hootingAzure Image Builder.md 
  
  
 Contact US / Further Support & Questions & Feedback 
@@ -839,7 +755,7 @@ source image
 // ManagedImage Properties 
  
  
-“imageId” : “”, //string, required, ARM ResourceID of the custom image, must be accessible in the same resource group / location you are running AIB. 
+“imageId” : “”, //string, required, ARM ResourceID of the custom image, must be accessible in the same resource group / location you are running Azure Image Builder. 
  
 }  
       }, 
@@ -967,7 +883,7 @@ executed
 } }, 
  
 Appendix 
-Setting Permissions for AIB through the Portal 
+Setting Permissions for Azure Image Builder through the Portal 
 To allow Azure VM Image Builder to distribute, you will need to provide permissions for the service "Azure Virtual Machine Image Builder" (app id cf32a0cc-373c-47c9-9156-0db11f6a6dfc) to these locations. E.g. 'contributor' on a resource group where your managed image is written or 'contributor' on a Shared Image Gallery where you're writing a new image version. 
  
 The hyperlink shows how to do this through Az CLI, but you can go to the Portal, select Resource Group, Access Control (IAM), then ‘Add’: 

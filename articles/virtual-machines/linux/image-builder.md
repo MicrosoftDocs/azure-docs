@@ -22,10 +22,13 @@ To use Azure Image Builder during the preview, you need to register the new feat
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
-
-az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
+Check the status of the feature registration.
+
+```azurecli-interactive
+az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+```
 
 Check your registration.
 
@@ -35,7 +38,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-If they do not saw registered, run the following:
+If they do not say registered, run the following:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -48,27 +51,31 @@ az provider register -n Microsoft.Storage
 We will be using some pieces of information repeatedly, so we will create some variables to store that information.
 
 
-```bash
+```azurecli-interactive
 # Resource group name - we are using myImageBuilderRG in this example
 imageResourceGroup=myImageBuilerRG
 # Datacenter location - we are using West US 2 in this example
 location=WestUS2
-# Get the current subscription ID using: az account show | grep id
-subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
 # Name for the image - we are using myBuilderImage in this example
 imageName=myBuilderImage
 ```
 
+Create a variable for your subscription ID. You can get this using `az account show | grep id`.
+
+```azurecli-interactive
+subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
+```
+
 Create the resource group.
 
-```bash
+```azurecli-interactive
 az group create -n $imageResourceGroup -l $location
 ```
 
 
 Give Image Builder permission to create resources in that resource group. The `--assignee` value is the app registration ID for the Image Builder service. 
 
-```
+```azurecli-interactive
 az role assignment create \
     --assignee cf32a0cc-373c-47c9-9156-0db11f6a6dfc \
     --role Contributor \
@@ -116,7 +123,8 @@ Wait until the build is complete. This can take about 15 minutes.
 ## Create the VM
 
 Create the VM using the image you built.
-```bash
+
+```azurecli-interactive
 az vm create \
   --resource-group $imageResourceGroup \
   --name myVM \
@@ -167,4 +175,4 @@ az group delete -n $imageResourceGroup
 
 ## Next Steps
 
-To learn more about the components of the .json file used in this article, see [Image builder json example](image-builder-json).
+To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).
