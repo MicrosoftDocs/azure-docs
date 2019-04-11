@@ -336,6 +336,8 @@
         href: v2-oauth2-on-behalf-of-flow.md
       - name: OAuth 2.0 client credentials grant
         href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 device code flow
+        href: v2-oauth2-device-code.md
       - name: OAuth 2.0 resource owner password credentials grant
         href: v2-oauth-ropc.md
       - name: Signing key rollover

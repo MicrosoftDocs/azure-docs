@@ -78,7 +78,7 @@ For more information on creating clusters with Resource Manager templates, see [
 
 ### Enable and disable Autoscale for a running cluster
 
-You can enable or disable Autoscale for HDInsight clusters created after January 1, 2019 through the Azure portal.
+You can only enable or disable Autoscale for new HDInsight clusters.
 
 ## Monitoring
 
