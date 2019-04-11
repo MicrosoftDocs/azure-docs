@@ -23,7 +23,7 @@ ms.author: v-ant-msft
 In this tutorial, you'll learn how to configure Azure Active Directory (Azure AD) to automatically provision and deprovision users and/or groups to Zscaler Three.
 
 > [!NOTE]
-> This tutorial describes a connector that's built on the Azure AD user provisioning service. For important details on what this service does and how it works and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> This tutorial describes a connector that's built on the Azure AD user provisioning service. For important details on what this service does and how it works, and answers to frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md).
 >
 > This connector is currently in Public Preview. For more information on the general Azure terms of use for Preview features, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -54,7 +54,7 @@ To add an application, select **New application** at the top of the window:
 
 ![Select New application](common/add-new-app.png)
 
-In the search box, enter **Zscaler Three**. Select **Zscaler Three** in the results and then select **Add**:
+In the search box, enter **Zscaler Three**. Select **Zscaler Three** in the results and then select **Add**.
 
 ![Results list](common/search-new-app.png)
 
@@ -70,7 +70,7 @@ Before you configure and enable automatic user provisioning, you should decide w
 
 * When you assign a user to Zscaler Three, you need to select any valid application-specific role (if available) in the assignment dialog box. Users with the **Default Access** role are excluded from provisioning.
 
-## Configure automatic user provisioning to Zscaler Three
+## Set up automatic user provisioning
 
 This section guides you through the steps for configuring the Azure AD provisioning service to create, update, and disable users and groups in Zscaler Three based on user and group assignments in Azure AD.
 
