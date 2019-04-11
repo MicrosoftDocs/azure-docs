@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
 ---
 
@@ -25,6 +25,8 @@ This article shows two scenarios to create network access rules to limit access 
 * Only a **Premium** container registry can be configured with network access rules. For information about registry service tiers, see [Azure Container Registry SKUs](container-registry-skus.md). 
 
 * Only an [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry in a virtual network. *Other Azure services including Azure Container Instances aren't currently supported.*
+
+* [ACR Tasks](container-registry-tasks-overview.md) operations aren't currently supported in a container registry deployed to a virtual network.
 
 * Each registry supports a maximum of 100 virtual network rules.
 

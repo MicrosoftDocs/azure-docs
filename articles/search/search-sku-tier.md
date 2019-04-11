@@ -7,14 +7,16 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search.
+In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. 
+
+Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search.
 
 > [!NOTE]
 > The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
@@ -24,7 +26,7 @@ Tiers reflect the characteristics of the hardware hosting the service (rather th
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
 
-Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be small.
+Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the data set happens to be small.
 
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
@@ -48,7 +50,7 @@ The following table lists the available tiers. Other sources of tier information
 |Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
 
 > [!NOTE] 
-> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers.  The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
 >
 
 ## How billing works
@@ -65,17 +67,27 @@ In the following screenshot, per unit pricing is indicated for Free, Basic, and 
 
 Additional replicas and partitions are an add-on to the initial charge. A search service requires a replica and partition so the minimum configuration is one of each. Beyond the minimum, you add replicas and partitions independently. For example, you could add only replicas or only partitions. 
 
-Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### 2. Data egress charges during indexing
 
-When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those resources. Those charges are not Azure Search meters, but they are mentioned here because if you are using indexers to pull data from Azure SQL Database or Azure Cosmos DB, you'll see that charge in your bill.
+Use of [Azure Search indexers](search-indexer-overview.md) can result in billing impact depending where the services are located. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data.
+
++ No charges for any inbound data to any service on Azure.
+
++ No charges for any outbound data from Azure Search.
+
++ No charges for data or files outbound from SQL DB, Cosmos, Blob storage (inbound to Azure Search) as long as all services are in the same region.
+
++ Charges do apply for outbound data or files if storage and Azure Search are in different regions.
+
+When routing data across Azure regions, you will see bandwidth charges in the bill for those resources. Those charges are not part of your Azure Search bill, but they are mentioned here because if you are using indexers to pull data or files over the wire, you'll see that charge in your overall bill.
+
+If you are not using indexers, there are no bandwidth charges. 
 
 ### 3. AI-enriched indexing using Cognitive Services
 
-For [cognitive search](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
-
-If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
+For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments, such as natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
 
 <a name="search-units"></a>
 

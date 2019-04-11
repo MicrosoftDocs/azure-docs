@@ -68,6 +68,7 @@ try {
     # The properties will be slightly different depending on the base of the vm
     # (a marketplace image, custom image or formula).
     # The setup of the virtual network to be used may also affect the properties.
+    # This sample includes the properties to add an additional disk under dataDiskParameters
     
     $parameters = @{
        "name"      = $NewVmName;
@@ -88,6 +89,14 @@ try {
           "userName"                = $UserName;
           "password"                = $Password;
           "disallowPublicIpAddress" = $true;
+          "dataDiskParameters" = @(@{
+            "attachNewDataDiskOptions" = @{
+                "diskName" = "adddatadisk"
+                "diskSizeGiB" = "1023"
+                "diskType" = "Standard"
+                }
+          "hostCaching" = "ReadWrite"
+          })
        }
     }
     
