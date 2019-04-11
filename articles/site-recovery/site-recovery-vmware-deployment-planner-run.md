@@ -131,7 +131,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 
 
 ## Generate report
-The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named DeploymentPlannerReport_<unique numeric identifier>.xlsm and placed in the specified directory.
+The tool generates a macro-enabled Microsoft Excel file (XLSM file) as the report output, which summarizes all the deployment recommendations. The report is named `DeploymentPlannerReport_<unique numeric identifier>.xlsm` and placed in the specified directory.
 
 >[!NOTE]
 >The report requires decimal symbol configured as "." to produce cost estimates on the server where you run the deployment planner. In case you have setup "," as decimal symbol on a Windows machine, please go to "Change date, time or number formats" in Control Panel and go to "Additional Settings" to change the decimal symbol to ".".

@@ -43,7 +43,7 @@ Before you add links to your app's terms of service and privacy statement docume
 | Guideline     | Description                           |
 |---------------|---------------------------------------|
 | Format        | Valid URL                             |
-| Valid schemas | HTTP and HTTPS</br>We recommend HTTPS |
+| Valid schemas | HTTP and HTTPS<br/>We recommend HTTPS |
 | Max length    | 2048 characters                       |
 
 Examples: `https://myapp.com/terms-of-service` and `https://myapp.com/privacy-statement`
