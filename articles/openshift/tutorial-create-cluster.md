@@ -126,7 +126,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 After 10-15 minutes `az openshift create` will complete
 successfully and return a JSON document containing your cluster details.
 
-If you get an error that the host name is not available, it may be because your cluster name is not unique. Redo the steps in [Create an Azure AD app object and user](howto-add-app-configuration.md) (except for the last step of creating a new user) and use a unique cluster name. The FQDN needs to be unique and the part of the FQDN that you have the most control over is the cluster name.
+If you get an error that the host name is not available, it may be because your cluster name is not unique. Redo the steps in [Create an Azure AD app object and user](howto-aad-app-configuration.md#create-a-new-app-registration), except for the last step of creating a new user, and use a unique cluster name. The FQDN needs to be unique and the part of the FQDN that you have the most control over is the cluster name.
 
 ## Step 3: Sign on to the cluster console
 
