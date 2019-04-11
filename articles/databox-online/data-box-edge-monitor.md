@@ -91,7 +91,7 @@ Take the following steps in the Azure portal to create a chart.
 
     ![Apply splitting](media/data-box-edge-monitor/view-metrics-5.png)
 
-6. If you now want to see the breakdown only for a few instances, you can filter the data. For example, in this case, if you want to see the network throughput only for the 2 connected network interfaces on your device, you could filter those interfaces. Select **Add filter** and specify the network interface name for filtering.
+6. If you now want to see the breakdown only for a few instances, you can filter the data. For example, in this case, if you want to see the network throughput only for the two connected network interfaces on your device, you could filter those interfaces. Select **Add filter** and specify the network interface name for filtering.
 
     ![Add filter](media/data-box-edge-monitor/view-metrics-6.png)
 
