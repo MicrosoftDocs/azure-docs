@@ -1,6 +1,6 @@
 ---
 title: Performance guide for Azure SignalR Service
-description: An overview of Azure SignalR Service's performance.
+description: An overview of the performance of Azure SignalR Service.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
@@ -9,84 +9,84 @@ ms.author: zhshang
 ---
 # Performance guide for Azure SignalR Service
 
-One of the key benefits for using Azure SignalR Service is the ease to scale SignalR applications. In a large-scale scenario, performance becomes an important factor. In this guide we will introduce the factors that have impacts on the SignalR application performance, and under different use case scenarios, what is the typical performance? In the end, we will also introduce the environment and tools used to generate performance report.
+One of the key benefits of using Azure SignalR Service is the ease of scaling SignalR applications. In a large-scale scenario, performance is an important factor. 
 
-## Terms definition
+In this guide, we'll introduce the factors that affect SignalR application performance. We'll describe typical performance in different use case scenarios. In the end, we'll introduce the environment and tools that you can use to generate a performance report.
 
-*ASRS*: Azure SignalR Service
+## Term definitions
 
-*Inbound*: the incoming message to Azure SignalR Service
+*Inbound*: The incoming message to Azure SignalR Service.
 
-*Outbound*: the outgoing message from Azure SignalR Service
+*Outbound*: The outgoing message from Azure SignalR Service.
 
-*Bandwidth*: total size of all messages in 1 second
+*Bandwidth*: The total size of all messages in 1 second.
 
-*Default mode*: ASRS expects the app server to establish connection with it before accepting any client connections. It is the default working mode when an ASRS was created.
+*Default mode*: The default working mode when an Azure SignalR Service instance was created. Azure SignalR Service expects the app server to establish a connection with it before it accepts any client connections.
 
-*Serverless mode*: ASRS only accepts client connections. No server connection is allowed.
+*Serverless mode*: A mode in which Azure SignalR Service accepts only client connections. No server connection is allowed.
 
 ## Overview
 
-ASRS defines seven Standard tiers for different performance capacities, and this
-guide intends to answer the following questions:
+Azure SignalR Service defines seven Standard tiers for different performance capacities. This
+guide answers the following questions:
 
--   What is the typical ASRS performance for each tier?
+-   What is the typical Azure SignalR Service performance for each tier?
 
--   Does ASRS meet my requirement of message throughput, for example, sending 100,000 messages per second?
+-   Does Azure SignalR Service meet my requirements for message throughput (for example, sending 100,000 messages per second)?
 
 -   For my specific scenario, which tier is suitable for me? Or how can I select the proper tier?
 
--   What kind of app server (VM size) is suitable for me and how many of them shall I deploy?
+-   What kind of app server (VM size) is suitable for me? How many of them should I deploy?
 
-To answer these questions, this performance guide first gives a high-level explanation about the factors that have impacts on performance, then illustrates the maximum inbound and outbound messages for every tier for typical use cases: **echo**, **broadcast**, **send-to-group**, and **send-to-connection** (peer to peer chatting).
+To answer these questions, this guide first gives a high-level explanation of the factors that affect performance. It then illustrates the maximum inbound and outbound messages for every tier for typical use cases: *echo*, *broadcast*, *send-to-group*, and *send-to-connection* (peer-to-peer chatting).
 
-It is impossible for this document to cover all scenarios (and different use case, different message size, or message sending pattern etc.). However, it provides some evaluation methods to help users to approximately evaluate their requirement of the inbound or outbound messages, then find the proper tiers by checking the performance table.
+This guide can't cover all scenarios (and different use cases, message sizes, message sending patterns, etc.). But it provides some evaluation methods to help you evaluate your approximate requirement for the inbound or outbound messages, and then find the proper tiers by checking the performance table.
 
 ## Performance insight
 
-This section describes the performance evaluation methodologies, then lists all factors that have impacts on performance. In the end, it provides methods to help evaluate the performance requirements.
+This section describes the performance evaluation methodologies, and then lists all factors that affect performance. In the end, it provides methods to help you evaluate performance requirements.
 
 ### Methodology
 
-**Throughput** and **latency** are two typical aspects of performance checking. For ASRS, different SKU tier has different throughput throttling policy. This document defines **the maximum allowed throughput (inbound and outbound bandwidth)** as the max achieved throughput when 99% of messages have latency less than 1 second.
+*Throughput* and *latency* are two typical aspects of performance checking. For Azure SignalR Service, each SKU tier has its own throughput throttling policy. The policty defines *the maximum allowed throughput (inbound and outbound bandwidth)* as the maximum achieved throughput when 99% of messages have latency less than 1 second.
 
-The latency is the time span from the connection sending message to receiving the response message from ASRS. Let's take **echo** as an example, every client connection adds a timestamp in the message. App server's hub sends the original message back to the client. So the propagation delay is easily calculated by every client connection. The timestamp is attached for every message in **broadcast**, **send-to-group**, and **send-to-connection**.
+Latency is the time span from the connection sending message to receiving the response message from Azure SignalR Service. Let's take **echo** as an example, every client connection adds a timestamp in the message. App server's hub sends the original message back to the client. So the propagation delay is easily calculated by every client connection. The timestamp is attached for every message in **broadcast**, **send-to-group**, and **send-to-connection**.
 
-To simulate thousands of concurrent clients connections, multiple VMs are created in a virtual private network in Azure. All of these VMs connect to the same ASRS instance.
+To simulate thousands of concurrent clients connections, multiple VMs are created in a virtual private network in Azure. All of these VMs connect to the same Azure SignalR Service instance.
 
-In ASRS default mode, app server VMs are also deployed in the same virtual private network as client VMs.
+In Azure SignalR Service default mode, app server VMs are also deployed in the same virtual private network as client VMs.
 
-All client VMs and app server VMs are deployed in the same network of the same region to avoid cross region latency.
+All client VMs and app server VMs are deployed in the same network of the same region to avoid cross-region latency.
 
 ### Performance factors
 
-Theoretically, ASRS capacity is limited by computation resources: CPU, Memory, and Network. For example, more connections to ASRS, more memory ASRS consumed. For larger message traffic, for example, every message is larger than 2048 bytes, it requires ASRS to spend more CPU cycles to process as well. Meanwhile, Azure network bandwidth also imposes a limit for maximum traffic.
+Theoretically, Azure SignalR Service capacity is limited by computation resources: CPU, memory, and network. For example, more connections to Azure SignalR Service cause the service to consume more memory. For larger message traffic, for example, every message is larger than 2048 bytes, it requires Azure SignalR Service to spend more CPU cycles to process as well. Meanwhile, Azure network bandwidth also imposes a limit for maximum traffic.
 
-The transport type, [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Sever-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events), or [Long-Polling](https://en.wikipedia.org/wiki/Push_technology), is another factor affects performance. WebSocket is a bi-directional and full-duplex communication protocol over a single TCP connection. However, Sever-Sent-Event is uni-directional protocol to push message from server to client. Long-Polling requires the clients to periodically poll information from server through HTTP request. For the same API under the same condition, WebSocket has the best performance, Sever-Sent-Event is slower, and Long-Polling is the slowest. ASRS recommends WebSocket by default.
+The transport type, [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Sever-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events), or [Long-Polling](https://en.wikipedia.org/wiki/Push_technology), is another factor affects performance. WebSocket is a bi-directional and full-duplex communication protocol over a single TCP connection. However, Sever-Sent-Event is uni-directional protocol to push message from server to client. Long-Polling requires the clients to periodically poll information from server through HTTP request. For the same API under the same condition, WebSocket has the best performance, Sever-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
 
-In addition, the message routing cost also limits the performance. ASRS plays a role as a message router, which routes the message from a set of clients or servers to other clients or servers. Different scenario or API requires different routing policy. For **echo**, the client sends a message to itself, and the routing destination is also itself. This pattern has the lowest routing cost. But for **broadcast**, **send-to-group**, **send-to-connection**, ASRS needs to look up the target connections through the internal distributed data structure, which consumes more CPU, Memory and even network bandwidth. As a result, performance is slower than **echo**.
+In addition, the message routing cost also limits the performance. Azure SignalR Service plays a role as a message router, which routes the message from a set of clients or servers to other clients or servers. Different scenario or API requires different routing policy. For **echo**, the client sends a message to itself, and the routing destination is also itself. This pattern has the lowest routing cost. But for **broadcast**, **send-to-group**, **send-to-connection**, Azure SignalR Service needs to look up the target connections through the internal distributed data structure, which consumes more CPU, Memory and even network bandwidth. As a result, performance is slower than **echo**.
 
 In the default mode, the app server may also become a bottleneck for certain scenarios, because Azure SignalR SDK has to invoke the Hub, meanwhile it maintains the live connection with every client through heart-beat signals.
 
 In serverless mode, the client sends message by HTTP post, which is not as efficient as WebSocket.
 
-Another factor is protocol: JSON and [MessagePack](https://msgpack.org/index.html). MessagePack is smaller in size and delivered faster than JSON. Intuitively, MessagePack would benefit performance, but ASRS performance is not sensitive with protocols since it does not decode the message payload during message forwarding from clients to servers or vice versa.
+Another factor is protocol: JSON and [MessagePack](https://msgpack.org/index.html). MessagePack is smaller in size and delivered faster than JSON. Intuitively, MessagePack would benefit performance, but Azure SignalR Service performance is not sensitive with protocols since it does not decode the message payload during message forwarding from clients to servers or vice versa.
 
-In summary, the following factors have impacts on the inbound and outbound capacity:
+In summary, the following factors affect the inbound and outbound capacity:
 
 -   SKU tier (CPU/Memory)
 
--   number of connections
+-   Number of connections
 
--   message size
+-   Message size
 
--   message send rate
+-   Message send rate
 
--   transport type (WebSocket/Sever-Sent-Event/Long-Polling)
+-   Transport type (WebSocket/Sever-Sent-Event/Long-Polling)
 
--   use case scenario (routing cost)
+-   Use case scenario (routing cost)
 
--   app server and service connections (in server mode)
+-   App server and service connections (in server mode)
 
 
 ### Find a proper SKU
@@ -132,7 +132,7 @@ The inbound bandwidth and outbound bandwidth formulas:
 
 *sendInterval*: the time of sending one message, typically it is 1 second per message, which means sending one message every second. Smaller sendInterval means sending more message in given time period. For example, 0.5 second per message means sending two messages every second.
 
-*Connections* is the ASRS committed maximum threshold for every tier. If the connection number is increased further, it will suffer from connection throttling.
+*Connections* is the Azure SignalR Service committed maximum threshold for every tier. If the connection number is increased further, it will suffer from connection throttling.
 
 *Inbound bandwidth* and *Outbound bandwidth* are the total message size per second. Here 'M' means megabyte for simplicity.
 
@@ -169,9 +169,9 @@ For the use case of sending message to clients, make sure the app server is **NO
 
 ## Case study
 
-The following sections go through four typical use cases for WebSocket transport: **echo**, **broadcast**, **send-to-group**, and **send-to-connection**. For each scenario, it lists the current ASRS inbound and outbound capacity, meanwhile explains what is the main factors on performance.
+The following sections go through four typical use cases for WebSocket transport: **echo**, **broadcast**, **send-to-group**, and **send-to-connection**. For each scenario, it lists the current Azure SignalR Service inbound and outbound capacity, meanwhile explains what is the main factors on performance.
 
-In default mode, App server, through Azure SignalR Service SDK by default, creates five server connections with ASRS. In the performance test result below, server connections are
+In default mode, App server, through Azure SignalR Service SDK by default, creates five server connections with Azure SignalR Service. In the performance test result below, server connections are
 increased to 15 (or more for broadcast and sending message to big group).
 
 Different use cases have different requirement on app servers. **Broadcast** needs small number of app servers. **Echo** or **send-to-connection** needs many app servers.
@@ -181,11 +181,11 @@ interval is 1 second.
 
 ## Default mode
 
-Clients, web app servers, and ASRS are involved in this mode. Every client stands for a single connection.
+Clients, web app servers, and Azure SignalR Service are involved in this mode. Every client stands for a single connection.
 
 ### Echo
 
-Firstly, web apps connect to ASRS. Secondly, many clients connect to web app, which redirect the clients to ASRS with the access token and endpoint. Then, clients establish WebSocket connections with ASRS.
+Firstly, web apps connect to Azure SignalR Service. Secondly, many clients connect to web app, which redirect the clients to Azure SignalR Service with the access token and endpoint. Then, clients establish WebSocket connections with Azure SignalR Service.
 
 After all clients establish connections, they start sending message, which contains a timestamp to the specific Hub every second. The Hub echoes the message back to its original client. Every client calculates the latency when it receives the echo message back.
 
@@ -222,7 +222,7 @@ Even for this simple hub, the traffic pressure on app server is also prominent a
 
 > [!NOTE]
 >
-> The client connection number, message size, message sending rate, SKU tier and app server's CPU/Memory have impact on overall performance of **echo**.
+> The client connection number, message size, message sending rate, SKU tier and app server's CPU/Memory affect the overall performance of **echo**.
 
 ### Broadcast
 
@@ -251,17 +251,17 @@ The broadcasting clients that post messages are no more than 4, thus requires fe
 
 > [!NOTE]
 >
-> Increase the default server connections from 5 to 40 on every app server to avoid possible unbalanced server connections to ASRS.
+> Increase the default server connections from 5 to 40 on every app server to avoid possible unbalanced server connections to Azure SignalR Service.
 >
-> The client connection number, message size, message sending rate, and SKU tier have impact on overall performance for **broadcast**
+> The client connection number, message size, message sending rate, and SKU tier affect the overall performance for **broadcast**.
 
 ### Send to group
 
-**Send-to-group** has similar traffic pattern except that after clients establishing WebSocket connections with ASRS, they must join groups before they can send message to a specific group. The traffic flow is illustrated by the following diagram.
+**Send-to-group** has similar traffic pattern except that after clients establishing WebSocket connections with Azure SignalR Service, they must join groups before they can send message to a specific group. The traffic flow is illustrated by the following diagram.
 
 ![Send To Group](./media/signalr-concept-performance/sendtogroup.png)
 
-Group member and group count are two factors with impact on the performance. To
+Group member and group count are two factors that affect performance. To
 simplify the analysis, we define two kinds of groups: small group and big
 group.
 
@@ -271,11 +271,11 @@ connection count) / 10. For example, for Unit 1, if there are 1000 connection co
 - `Big group`: Group number is always 10. The group member count is equal to (max
 connection count) / 10. For example, for Unit 1, if there are 1000 connection counts, then every group has 1000 / 10 = 100 members.
 
-**Send-to-group** brings routing cost to ASRS because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases as well.
+**Send-to-group** brings routing cost to Azure SignalR Service because it has to find the target connections through a distributed data structure. As the sending connections increase, the cost increases as well.
 
 #### Small group
 
-The routing cost is significant for sending message to many small groups. Currently, the ASRS implementation hits routing cost limit at unit50. Adding more CPU and memory does not help, so unit100 cannot improve further by design. If you demand more inbound bandwidth, contact customer support for customization.
+The routing cost is significant for sending message to many small groups. Currently, the Azure SignalR Service implementation hits routing cost limit at unit50. Adding more CPU and memory does not help, so unit100 cannot improve further by design. If you demand more inbound bandwidth, contact customer support for customization.
 
 |   Send to small group     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50 | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|--------|---------|
@@ -296,7 +296,7 @@ There are many client connections calling the hub, therefore, app server number 
 
 > [!NOTE]
 >
-> The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory have impact on overall performance of **send-to-small-group**.
+> The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory affect the overall performance of **send-to-small-group**.
 
 #### Big group
 
@@ -322,13 +322,13 @@ The sending connection count is no more than 40, the burden on app server is sma
 > [!NOTE]
 >
 > Increase the default server connections from 5 to 40 on every app server to
-> avoid possible unbalanced server connections to ASRS.
+> avoid possible unbalanced server connections to Azure SignalR Service.
 > 
-> The client connection number, message size, message sending rate, routing cost, and SKU tier have impact on overall performance of **send-to-big-group**.
+> The client connection number, message size, message sending rate, routing cost, and SKU tier affect the overall performance of **send-to-big-group**.
 
 ### Send to connection
 
-In this use case, when clients establish the connections to ASRS, every client calls a special hub to get their own connection ID. The performance benchmark is responsible to collect all connection IDs, shuffle them and reassign them to all clients as a sending target. The clients keep sending message to the target connection until the performance test finishes.
+In this use case, when clients establish the connections to Azure SignalR Service, every client calls a special hub to get their own connection ID. The performance benchmark is responsible to collect all connection IDs, shuffle them and reassign them to all clients as a sending target. The clients keep sending message to the target connection until the performance test finishes.
 
 ![Send to client](./media/signalr-concept-performance/sendtoclient.png)
 
@@ -353,11 +353,11 @@ This use case requires high load on app server side. See the suggested app serve
 
 > [!NOTE]
 >
-> The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory have impact on overall performance of **send-to-connection**.
+> The client connection number, message size, message sending rate, routing cost, SKU tier and app server's CPU/Memory affect the overall performance of **send-to-connection**.
 
 ### ASP.NET SignalR echo/broadcast/send-to-connection
 
-ASRS provides the same performance capacity for ASP.NET SignalR. This section gives the suggested web app count for ASP.NET SignalR **echo**, **broadcast**, and **send-to-small-group**.
+Azure SignalR Service provides the same performance capacity for ASP.NET SignalR. This section gives the suggested web app count for ASP.NET SignalR **echo**, **broadcast**, and **send-to-small-group**.
 
 The performance test uses Azure Web App of [Standard Service Plan S3](https://azure.microsoft.com/pricing/details/app-service/windows/) for ASP.NET SignalR.
 
@@ -384,12 +384,12 @@ The performance test uses Azure Web App of [Standard Service Plan S3](https://az
 
 ## Serverless mode
 
-Clients and ASRS are involved in this mode. Every client stands for a single connection. The client sends messages through REST API to another client or broadcast messages to all.
+Clients and Azure SignalR Service are involved in this mode. Every client stands for a single connection. The client sends messages through REST API to another client or broadcast messages to all.
 
 Sending high-density messages through REST API is not as efficient as WebSocket, because it requires to build a new HTTP connection every time - an extra cost in serverless mode.
 
 ### Broadcast through REST API
-All clients establish WebSocket connections with ASRS. Then some clients start broadcasting through REST API. The message sending (inbound) are all through HTTP Post, which is not efficient compared with WebSocket.
+All clients establish WebSocket connections with Azure SignalR Service. Then some clients start broadcasting through REST API. The message sending (inbound) are all through HTTP Post, which is not efficient compared with WebSocket.
 
 |   Broadcast through REST API     | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
@@ -400,7 +400,7 @@ All clients establish WebSocket connections with ASRS. Then some clients start b
 | Outbound bandwidth (byte/s) | 4M    | 8M    | 20M    | 40M    | 80M    | 200M    | 400M    |
 
 ### Send to user through REST API
-The benchmark assigns user names to all of the clients before they start connecting to ASRS. After the clients established WebSocket connections with ASRS, they start sending messages to others through HTTP Post.
+The benchmark assigns user names to all of the clients before they start connecting to Azure SignalR Service. After the clients established WebSocket connections with Azure SignalR Service, they start sending messages to others through HTTP Post.
 
 |   Send to user through REST API | Unit1 | Unit2 | Unit5  | Unit10 | Unit20 | Unit50  | Unit100 |
 |---------------------------|-------|-------|--------|--------|--------|---------|---------|
