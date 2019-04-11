@@ -19,6 +19,7 @@ ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ---
 # Troubleshooting the Access Panel Extension for Internet Explorer
+
 This article helps you troubleshoot the following problems:
 
 * You're unable to access your apps through the My Apps portal while using Internet Explorer.
@@ -27,21 +28,22 @@ This article helps you troubleshoot the following problems:
 If you're an admin, see [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md).
 
 ## Run the diagnostic tool
-You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
+
+You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool. 
+
+To download and install the diagnostic tool:
 
 1. [Select this link to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
 2. Open the file, and then extract the contents to your computer.
    
-3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, then select **Open with** > **Microsoft Windows Based Script Host**.
+3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, and then select **Open with** > **Microsoft Windows Based Script Host**.
    
     ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 
-4. Review the diagnostic results that appear.
+4. Review the diagnostic results that appear, and select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
 
-5. Select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
-
-6. Read the message and select **OK**.
+5. Read the message and select **OK**.
 
 ## Check that the Access Panel Extension is enabled
 
