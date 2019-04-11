@@ -6,7 +6,7 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
@@ -56,4 +56,4 @@ For scenarios where you only need one-way access to VNET resources, or less comp
 1. [Learn more about the networking options in functions here](./functions-networking-options.md)
 1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
 1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
-1. [Enable for networking features and control with App Service Environments](../app-service/environment/intro.md)
+1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
