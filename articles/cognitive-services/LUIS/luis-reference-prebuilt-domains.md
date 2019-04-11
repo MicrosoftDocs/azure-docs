@@ -173,11 +173,11 @@ The Events domain provides intents and entities related to booking tickets for e
 ### Entities
 | Entities name | Description | Examples |
 | ---------------- |-----------------------|----|
-| Address | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
-| Name | The name of an event.|Shakespeare in the Park|
-| PlaceName| The event location name.|Louvre<br/>Opera House<br/>Broadway|
-| PlaceType | The type of the location the event will be held in.|Cafe<br/>Theatre<br/>Library|
-| Type | The type of an event.|Concert<br/>Sports game|
+| `Address` | Event location or address. |Palo Alto<br/>300 112th Ave SE <br/> Seattle |
+| `Name` | The name of an event.|Shakespeare in the Park|
+| `PlaceName` | The event location name.|Louvre<br/>Opera House<br/>Broadway|
+| `PlaceType` | The type of the location the event will be held in.|Cafe<br/>Theatre<br/>Library|
+| `Type` | The type of an event.|Concert<br/>Sports game|
 
 ## Fitness 
 The Fitness domain provides intents and entities related to tracking fitness activities. The intents include saving notes, remaining time or distance, or saving activity results.
