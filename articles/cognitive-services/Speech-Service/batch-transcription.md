@@ -83,6 +83,16 @@ Configuration parameters are provided as JSON:
 | `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
  | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. | Optional |
 
+### Supported storage
+
+Currently, only Azure Blob storage is supported.
+
+## Web hooks 
+
+Polling transcription status may not be the most performant or offer the best user experience. In addition however to poll for status a user can register callbacks, when their long-running transcription tasks complete.
+
+For details about Web hooks please visit our [Web Hooks](webhooks.md) page
+
 ## Sample code
 
 The complete sample is available in the [GitHub sample repository](https://aka.ms/csspeech/samples) inside the `samples/batch` subdirectory.
@@ -103,10 +113,6 @@ The current sample code doesn't specify a custom model. The service uses the bas
 
 > [!NOTE]
 > For baseline transcriptions, you don't need to declare the ID for the baseline models. If you only specify a language model ID (and no acoustic model ID), a matching acoustic model is automatically selected. If you only specify an acoustic model ID, a matching language model is automatically selected.
-
-### Supported storage
-
-Currently, only Azure Blob storage is supported.
 
 ## Download the sample
 
