@@ -60,7 +60,7 @@ Create a notebook server in your Azure Machine Learning workspace for the easies
 * The workstation environment is automatically configured to work with your workspace.
 * The resource is available and can be managed in your workspace
 
-To get started developing with your cloud-based notebook server, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+To get started developing with your cloud-based notebook server, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
