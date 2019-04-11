@@ -49,7 +49,7 @@ Unlike most other Azure Monitor solutions, data isn't collected for activity log
 | --- | --- | --- |
 | [Windows agents](agent-windows.md) | No | The solution does not collect information from Windows agents. |
 | [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [System Center Operations Manager management group](om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [System Center Operations Manager management group](om-agents.md) | No | The solution does not collect information from agents reporting to an Operations Manager management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collect information from Azure storage. |
 
 ## Prerequisites
@@ -68,12 +68,17 @@ To learn how to register or verify they are registered, see [Azure resource prov
 Perform the following steps to configure the Activity Log Analytics solution for your workspaces.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
 2. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../insights/solutions.md).
+
 2. Configure activity logs to go to your Log Analytics workspace.
     1. In the Azure portal, select your workspace and then click **Azure Activity log**.
     2. For each subscription, click the subscription name.  
+        
         ![add subscription](./media/collect-activity-logs/add-subscription.png)
+    
     3. In the *SubscriptionName* blade, click **Connect**.  
+    
         ![connect subscription](./media/collect-activity-logs/subscription-connect.png)
 
 ## Using the solution
