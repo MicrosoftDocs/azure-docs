@@ -113,6 +113,10 @@ The QnA Maker _GenerateAnswer_ JSON response includes the child prompts in the `
 
 The response gives you enough information to present the prompts with text as the next series of questions in the conversation flow. 
 
+## Prompt order supported in API
+
+The prompt order, returned in the [JSON](#json-response-for-prompts), is supported for editing by the API only. 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
