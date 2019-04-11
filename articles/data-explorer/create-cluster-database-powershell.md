@@ -112,5 +112,5 @@ You now have a cluster and a database.
 
 ## Next steps
 
-* [Additional Az.Kusto commands](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [Additional Az.Kusto commands](/powershell/module/az.kusto/?view=azps-1.7.0#kusto)
 * [Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)](net-standard-ingest-data.md)
