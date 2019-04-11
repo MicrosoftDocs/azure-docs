@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/11/2018
+ms.date: 04/10/2019
 ms.author: aljo
 
 ---
@@ -399,10 +399,11 @@ The following is a list of Fabric settings that you can customize, organized by 
 
 | **Parameter** | **Allowed Values** | **Upgrade Policy** | **Guidance or Short Description** |
 | --- | --- | --- | --- |
+|AutomaticUnprovisionInterval|TimeSpan, default is Common::TimeSpan::FromMinutes(5)|Dynamic|Specify timespan in seconds. The cleanup interval for allowed for unregister application type during automatic application type cleanup.|
 |AzureStorageMaxConnections | Int, default is 5000 |Dynamic|The maximum number of concurrent connections to azure storage. |
 |AzureStorageMaxWorkerThreads | Int, default is 25 |Dynamic|The maximum number of worker threads in parallel. |
 |AzureStorageOperationTimeout | Time in seconds, default is 6000 |Dynamic|Specify timespan in seconds. Time out for xstore operation to complete. |
-|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|This configuration enables or disables the automatic cleanup of application package on successful provision. |
+|CleanupApplicationPackageOnProvisionSuccess|bool, default is FALSE |Dynamic|Enables or disables the automatic cleanup of application package on successful provision. |
 |CleanupUnusedApplicationTypes|Bool, default is FALSE |Dynamic|This configuration if enabled, allows to automatically unregister unused application type versions skipping the latest three unused versions, thereby trimming the disk space occupied by image store. The automatic cleanup will be triggered at the end of successful provision for that specific app type and also runs periodically once a day for all the application types. Number of unused versions to skip is configurable using parameter "MaxUnusedAppTypeVersionsToKeep". |
 |DisableChecksumValidation | Bool, default is false |Static| This configuration allows us to enable or disable checksum validation during application provisioning. |
 |DisableServerSideCopy | Bool, default is false |Static|This configuration enables or disables server-side copy of application package on the ImageStore during application provisioning. |

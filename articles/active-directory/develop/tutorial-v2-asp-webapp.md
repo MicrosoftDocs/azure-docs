@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
