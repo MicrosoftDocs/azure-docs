@@ -32,7 +32,7 @@ Components are independently deployable parts of your distributed/microservices 
 
 You can see the full application topology across multiple levels of related application components. Components could be different Application Insights resources, or different roles in a single resource. The app map finds components by following HTTP dependency calls made between servers with the Application Insights SDK installed. 
 
-This experience starts with progressive discovery of the components. When you first load the application map, a set of queries are triggered to discover the components related to this component. A button at the top-left corner will update with the number of components in your application as they are discovered. 
+This experience starts with progressive discovery of the components. When you first load the application map, a set of queries is triggered to discover the components related to this component. A button at the top-left corner will update with the number of components in your application as they are discovered. 
 
 On clicking "Update map components", the map is refreshed with all components discovered until that point. Depending on the complexity of your application, this may take a minute to load.
 
@@ -105,7 +105,8 @@ namespace CustomInitializer.Telemetry
             if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
             {
                 //set custom role name here
-                telemetry.Context.Cloud.RoleName = "RoleName";
+                telemetry.Context.Cloud.RoleName = "Custom RoleName";
+                telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance"
             }
         }
     }
@@ -180,6 +181,32 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 });
 ```
+
+### Understanding Cloud.RoleName within the context of the Application Map
+
+As far as how to think about Cloud.RoleName it can be helpful to look at an Application Map that has multiple Cloud.RoleNames present:
+
+![Application Map Screenshot](media/app-map/cloud-rolename.png)
+
+In the Application Map above each of the names in green boxes are Cloud.RoleName/role values for different aspects of this particular distributed application. So for this app its roles consist of: `Authentication`, `acmefrontend`, `Inventory Management`,  a `Payment Processing Worker Role`. 
+
+In the case of this app each of those `Cloud.RoleNames` also represents a different unique Application Insights resource with their own instrumentation keys. Since the owner of this application has access to each of those four disparate Application Insights resources, Application Map is able to stitch together a map of the underlying relationships.
+
+For the [official definitions](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
+
+```
+   [Description("Name of the role the application is a part of. Maps directly to the role name in azure.")]
+    [MaxStringLength("256")]
+    705: string 	 CloudRole = "ai.cloud.role";
+    
+    [Description("Name of the instance where the application is running. Computer name for on-premises, instance name for Azure.")]
+    [MaxStringLength("256")]
+    715: string 	 CloudRoleInstance = "ai.cloud.roleInstance";
+```
+
+Alternatively, Cloud.RoleInstance can be helpful for scenarios where Cloud.RoleName tells you the problem is somewhere in your web front end, but you might be running your web front end across multiple load-balanced servers so being able to drill in a layer deeper via Kusto queries and knowing if the issue is impacting all web front-end servers/instances or just one can be extremely important.
+
+A scenario where you might want to override the value for Cloud.RoleInstance could be if your app is running in a containerized environment where just knowing the individual server might not be enough information to locate a given issue.
 
 For more information about how to override the cloud_RoleName property with telemetry initializers, see [Add properties: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 

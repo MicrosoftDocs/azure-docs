@@ -5,7 +5,7 @@ services: azure-dev-spaces
 ms.service: azure-dev-spaces
 author: zr-msft
 ms.author: zarhoads
-ms.date: "09/11/2018"
+ms.date: 09/11/2018
 ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
@@ -310,3 +310,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## Error "Internal watch failed: watch ENOSPC" when attaching debugging to a Node.js application
+
+### Reason
+
+The node running the pod with the Node.js application you are trying to attach to with a debugger has exceeded the *fs.inotify.max_user_watches* value. In some cases, [the default value of *fs.inotify.max_user_watches* may be too small to handle attaching a debugger directly to a pod](https://github.com/Azure/AKS/issues/772).
+
+### Try
+A temporary workaround for this issue is to increase the value of *fs.inotify.max_user_watches* on each node in the cluster and restart that node for the changes to take effect.

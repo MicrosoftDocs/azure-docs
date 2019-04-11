@@ -26,12 +26,15 @@ For example, you can:
 * Wait until a weekday to send a status update over email.
 * Delay the workflow until an HTTP call has time to finish before resuming and retrieving the result.
 
-To get started using the delay action in a logic app, see [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To get started using the delay action in a logic app, see 
+[Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## Use the delay actions
-An action is an operation that is carried out by the workflow that is defined in a logic app. [Learn more about actions](connectors-overview.md).
 
-Here’s an example sequence of how to use a delay step in a logic app:
+An action is an operation that is carried out by the workflow that is defined in a logic app. 
+[Learn more about actions](../connectors/apis-list.md).
+
+Here's an example sequence of how to use a delay step in a logic app:
 
 1. After adding a trigger, click **New Step** to add an action.
 2. Search for **delay** to bring up the delay actions. In this example, we will select **Delay**.

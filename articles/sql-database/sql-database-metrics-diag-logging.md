@@ -1,10 +1,10 @@
 ---
 title: Azure SQL Database metrics and diagnostics logging | Microsoft Docs
-description: Learn how to configure Azure SQL Database to store resource usage and query execution statistics.
+description: Learn how to enable diagnostics in Azure SQL Database to store information about resource utilization and query execution statistics.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: 
+ms.custom: seoapril2019
 ms.devlang: 
 ms.topic: conceptual
 author: danimir
@@ -15,6 +15,8 @@ ms.date: 03/12/2019
 ---
 
 # Azure SQL Database metrics and diagnostics logging
+
+In this topic, you will learn how to configure logging of diagnostics telemetry for Azure SQL Database through the Azure portal, PowerShell, Azure CLI, Azure Monitor REST API, and Azure Resource Manager template. These diagnostics can be used to gauge resource utilization and query execution statistics. 
 
 Single databases, pooled databases in elastic pools, and instance databases in a managed instance can stream metrics and diagnostics logs for easier performance monitoring. You can configure a database to transmit resource usage, workers and sessions, and connectivity to one of the following Azure resources:
 
@@ -59,15 +61,20 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | :------------------- | ----- | ----- |
 | [All metrics](#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such as CPU, LOG, and LOCKING. | Yes | Yes |
-| [Errors](#errors-dataset): Contains information about SQL errors on the database. | Yes | Yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time the database spent waiting on different wait types. | Yes | No |
-| [Timeouts](#time-outs-dataset): Contains information about timeouts on the database. | Yes | No |
-| [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
-| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. | Yes | Yes |
+| [Errors](#errors-dataset): Contains information about SQL errors on a database. | Yes | Yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types. | Yes | No |
+| [Timeouts](#time-outs-dataset): Contains information about timeouts on a database. | Yes | No |
+| [Blocks](#blockings-dataset): Contains information about blocking events on a database. | Yes | No |
+| [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on a database. | Yes | No |
+| [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations for a database. | Yes | No |
+| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
 > [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
+
+> [!NOTE]
+> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings (although showing on the screen). To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 
 ## Azure portal
 
@@ -131,7 +138,7 @@ To enable streaming of diagnostics telemetry for single or pooled databases, fol
 1. Repeat these steps for each database you want to monitor.
 
 > [!NOTE]
-> Security audit logs can't be enabled from the database diagnostics settings. To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Security Audit and SQLSecurityAuditEvents logs can't be enabled from the database diagnostics settings (although showing on the screen). To enable audit log streaming, see [Set up auditing for your database](sql-database-auditing.md#subheading-2), and [auditing logs in Azure Monitor logs and Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
 > [!TIP]
 > Repeat these steps for each Azure SQL Database you want to monitor.
 
