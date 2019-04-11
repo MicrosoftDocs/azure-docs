@@ -122,7 +122,7 @@ To create an RBAC binding, you first need to get the Azure AD Object ID.
 
 1. In the **Identity** section, copy the **Object ID**.
 
-  ![Copy the Azure AD Object ID.](./media/ansible-aks-configure-rbac/ansible-aad-objectid.png)
+    ![Copy the Azure AD Object ID.](./media/ansible-aks-configure-rbac/ansible-aad-objectid.png)
 
 ## Create RBAC binding
 
