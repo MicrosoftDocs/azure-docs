@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/09/2019
+ms.date: 04/11/2019
 ms.author: sngun
 
 ---
@@ -40,10 +40,10 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
-Visual Studio 2017 with the Azure development workflow installed
+Visual Studio 2017 with the Azure development workflow installed:
 - You can download and use the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Make sure that you enable **Azure development** during the Visual Studio setup. 
 
-An Azure subscription or free Cosmos DB trial account
+An Azure subscription or free Cosmos DB trial account:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
   
@@ -80,7 +80,7 @@ Follow these instructions to create an Azure Cosmos DB account in the Azure port
    
    ![Project context menu](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges.png)
    
-1. On the **NuGet** tab, select **Browse**, and type *azure documentdb* in the search box.
+1. On the **NuGet** tab, select **Browse**, and enter *azure documentdb* in the search box.
    
 1. Find and select **Microsoft.Azure.DocumentDB**, and select **Install** if it's not already installed.
    
@@ -141,29 +141,29 @@ Now, get started writing some code. The complete *Project.cs* file for this tuto
 1. Add the following code to the `Main` method to run the `GetStartedDemo` task. The `Main` method catches exceptions and writes them to the console.
    
    ```csharp
-        static void Main(string[] args)
+      static void Main(string[] args)
+      {
+        try
         {
-            try
-            {
-               Program p = new Program();
-               p.GetStartedDemo().Wait();
-            }
-            catch (DocumentClientException de)
-            {
-               Exception baseException = de.GetBaseException();
-               Console.WriteLine($"{de.StatusCode} error occurred: {de.Message}, Message: {baseException.Message}");
-            }
-            catch (Exception e)
-            {
-               Exception baseException = e.GetBaseException();
-               Console.WriteLine($"Error: {e.Message}, Message: {baseException.Message}");
-            }
-            finally
-            {
-               Console.WriteLine("End of demo, press any key to exit.");
-               Console.ReadKey();
-            }
+           Program p = new Program();
+           p.GetStartedDemo().Wait();
         }
+        catch (DocumentClientException de)
+        {
+           Exception baseException = de.GetBaseException();
+           Console.WriteLine($"{de.StatusCode} error occurred: {de.Message}, Message: {baseException.Message}");
+        }
+        catch (Exception e)
+        {
+           Exception baseException = e.GetBaseException();
+           Console.WriteLine($"Error: {e.Message}, Message: {baseException.Message}");
+        }
+        finally
+        {
+           Console.WriteLine("End of demo, press any key to exit.");
+           Console.ReadKey();
+        }
+      }
    ```
    
 1. Press **F5** to run your app. 
@@ -301,65 +301,65 @@ The following code creates and inserts two documents into your database collecti
    ```csharp
     Family andersenFamily = new Family
     {
-            Id = "AndersenFamily",
-            LastName = "Andersen",
-            Parents = new Parent[]
+        Id = "AndersenFamily",
+        LastName = "Andersen",
+        Parents = new Parent[]
+        {
+            new Parent { FirstName = "Thomas" },
+            new Parent { FirstName = "Mary Kay" }
+        },
+        Children = new Child[]
+        {
+            new Child
             {
-                    new Parent { FirstName = "Thomas" },
-                    new Parent { FirstName = "Mary Kay" }
-            },
-            Children = new Child[]
-            {
-                    new Child
+                    FirstName = "Henriette Thaulow",
+                    Gender = "female",
+                    Grade = 5,
+                    Pets = new Pet[]
                     {
-                            FirstName = "Henriette Thaulow",
-                            Gender = "female",
-                            Grade = 5,
-                            Pets = new Pet[]
-                            {
-                                    new Pet { GivenName = "Fluffy" }
-                            }
+                        new Pet { GivenName = "Fluffy" }
                     }
-            },
-            Address = new Address { State = "WA", County = "King", City = "Seattle" },
-            IsRegistered = true
+            }
+        },
+        Address = new Address { State = "WA", County = "King", City = "Seattle" },
+        IsRegistered = true
     };
 
     await CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", andersenFamily);
 
     Family wakefieldFamily = new Family
     {
-            Id = "WakefieldFamily",
-            LastName = "Wakefield",
-            Parents = new Parent[]
+        Id = "WakefieldFamily",
+        LastName = "Wakefield",
+        Parents = new Parent[]
+        {
+            new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
+            new Parent { FamilyName = "Miller", FirstName = "Ben" }
+        },
+        Children = new Child[]
+        {
+            new Child
             {
-                    new Parent { FamilyName = "Wakefield", FirstName = "Robin" },
-                    new Parent { FamilyName = "Miller", FirstName = "Ben" }
+                FamilyName = "Merriam",
+                FirstName = "Jesse",
+                Gender = "female",
+                Grade = 8,
+                Pets = new Pet[]
+                {
+                    new Pet { GivenName = "Goofy" },
+                    new Pet { GivenName = "Shadow" }
+                }
             },
-            Children = new Child[]
+            new Child
             {
-                    new Child
-                    {
-                            FamilyName = "Merriam",
-                            FirstName = "Jesse",
-                            Gender = "female",
-                            Grade = 8,
-                            Pets = new Pet[]
-                            {
-                                    new Pet { GivenName = "Goofy" },
-                                    new Pet { GivenName = "Shadow" }
-                            }
-                    },
-                    new Child
-                    {
-                            FamilyName = "Miller",
-                            FirstName = "Lisa",
-                            Gender = "female",
-                            Grade = 1
-                    }
-            },
-            Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
-            IsRegistered = false
+                FamilyName = "Miller",
+                FirstName = "Lisa",
+                Gender = "female",
+                Grade = 1
+            }
+        },
+        Address = new Address { State = "NY", County = "Manhattan", City = "NY" },
+        IsRegistered = false
     };
 
     await CreateFamilyDocumentIfNotExists("FamilyDB", "FamilyCollection", wakefieldFamily);
@@ -380,36 +380,36 @@ Azure Cosmos DB supports rich [queries](how-to-sql-query.md) against JSON docume
    ```csharp
     private void ExecuteSimpleQuery(string databaseName, string collectionName)
     {
-        // Set some common query options
+        // Set some common query options.
         FeedOptions queryOptions = new FeedOptions { MaxItemCount = -1 };
 
-            // Find the Andersen family by its LastName
-            IQueryable<Family> familyQuery = client.CreateDocumentQuery<Family>(
-                    UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
-                    .Where(f => f.LastName == "Andersen");
+        // Find the Andersen family by its LastName.
+        IQueryable<Family> familyQuery = client.CreateDocumentQuery<Family>(
+            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName), queryOptions)
+            .Where(f => f.LastName == "Andersen");
 
-            // Execute the query synchronously. 
-            // You could also execute it asynchronously using the IDocumentQuery<T> interface.
-            Console.WriteLine("Running LINQ query...");
-            foreach (Family family in familyQuery)
-            {
-                    Console.WriteLine($"\tRead {family}");
-            }
+        // Execute the query synchronously. 
+        // You could also execute it asynchronously using the IDocumentQuery<T> interface.
+        Console.WriteLine("Running LINQ query...");
+        foreach (Family family in familyQuery)
+        {
+            Console.WriteLine($"\tRead {family}");
+        }
 
-            // Now execute the same query using direct SQL
-            IQueryable<Family> familyQueryInSql = client.CreateDocumentQuery<Family>(
-                    UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
-                    "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
-                    queryOptions);
+        // Now execute the same query using direct SQL.
+        IQueryable<Family> familyQueryInSql = client.CreateDocumentQuery<Family>(
+            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
+            "SELECT * FROM Family WHERE Family.LastName = 'Andersen'",
+            queryOptions);
 
-            Console.WriteLine("Running direct SQL query...");
-            foreach (Family family in familyQueryInSql)
-            {
-                    Console.WriteLine($"\tRead {family}");
-            }
+        Console.WriteLine("Running direct SQL query...");
+        foreach (Family family in familyQueryInSql)
+        {
+            Console.WriteLine($"\tRead {family}");
+        }
 
-            Console.WriteLine("Press any key to continue ...");
-            Console.ReadKey();
+        Console.WriteLine("Press any key to continue ...");
+        Console.ReadKey();
     }
    ```
    
@@ -465,8 +465,8 @@ Azure Cosmos DB SQL API supports deleting JSON documents.
    ```csharp
     private async Task DeleteFamilyDocument(string databaseName, string collectionName, string documentName)
     {
-         await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
-         Console.WriteLine($"Deleted Family {documentName}");
+        await client.DeleteDocumentAsync(UriFactory.CreateDocumentUri(databaseName, collectionName, documentName));
+        Console.WriteLine($"Deleted Family {documentName}");
     }
    ```
    
