@@ -8,12 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/5/2019
+ms.date: 5/7/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
 
 # Release notes
+
+## Speech SDK 1.5.0: 2019-May release
+
+**Improvements / Changes**
+
+* Objective-C: OutputFormat property was added to SPXSpeechConfiguration.
 
 ## Speech SDK 1.4.1
 
