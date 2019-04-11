@@ -91,5 +91,5 @@ There are many ways to access VNET resources in other hosting options, but an AS
 1. [Read the Functions networking FAQ here](./functions-networking-faq.md)
 1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
 1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
-1. [Enable for networking features and control with App Service Environments](../app-service/environment/intro.md)
+1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
 1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
