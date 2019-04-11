@@ -205,54 +205,161 @@ The Restart customizer allows you to restart a Windows VM and wait for it come b
          }],
 ```
 
-OS Support: Windows 
+OS Support: Windows
  
-Customize properties: 
-**Type**: WindowsRestart 
-**restartCommand** - Command to execute the restart (Optional) [Default: 'shutdown /r /f /t 0 /c 
-\"packer restart\"'] 
-**restartCheckCommand** – (Optional) Command to check if restart succeeded [Default: '…..'] 
-**restartTimeout** - Restart timeout specified as a string of magnitude and unit, e.g. '5m' (5 minutes) or '2h' (2 hours) [Default: '5m']
+Customize properties:
+**Type**: WindowsRestart
+**restartCommand** - Command to execute the restart (pptional). The default is `'shutdown /r /f /t 0 /c 
+\"packer restart\"'`.
+**restartCheckCommand** – Command to check if restart succeeded (optional).  [Default: '…..'] 
+**restartTimeout** - Restart timeout specified as a string of magnitude and unit. For example, '5m' (5 minutes) or '2h' (2 hours). The default is: '5m'
 
 
 ### PowerShell Customizer 
-The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them. 
+The shell customizer supports running PowerShell scripts and inline command, the scripts must be publicly accessible for the IB to access them.
 
 ```json 
-     "customize": [          { 
-                         ""typename": "PowerS": "setupOS",hell",  
+     "customize": [
+        { 
+             "type": "PowerShell",
+             "name":   "setupOS",  
              "script": "http://myfilelocation.com/files/osconf.ps" 
-                         }, 	{ 
+        }, 	
+        { 
              "type": "PowerShell", 
              "name": "updateOS", 
-            "inline": "Install-Module PSWindowsUpdate", 
-  	      "valid_exit_codes": "30" 
+             "inline": "Install-Module PSWindowsUpdate", 
+  	         "valid_exit_codes": "30" 
          } 
  	], 
 ```
 
-type – PowerShell  script - URI to the location of the PowerShell script file inline – Inline commands to be run, separated by commas valid_exit_codes – Expected, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command. 
+Customize properties:
+**type** – PowerShell.
+**script** - URI to the location of the PowerShell script file. 
+**inline** – Inline commands to be run, separated by commas.
+**valid_exit_codes** – Expected, valid codes that can be returned from the script/inline command, this will avoid reported failure of the script/inline command.
 
 
 ## Properties: distribute
 
+IB supports three distribution targets: 
+
+- managedImage - managed images.
+- sharedImage - Shared Image Gallery.
+- VHD - VHD in a storage account.
+
+You can distribute an image to both of the target types in the same configuration. For an example, see [azplatform_image_deploy_sigmdi.json]
+(https://github.com/danielsollondon/azvmimagebuilder/blob/master/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+ 
+## Managed image
 
 
-		
+
 ```json
-        "distribute": 
-            [
-                {   "type":"ManagedImage",
-                    "imageId": "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.Compute/images/<imageName>",
-                    "location": "<region>",
-                    "runOutputName": "<imageName>",
-                    "tags": {
-                        "source": "azVmImageBuilder",
-                        "baseosimg": "ubuntu1804"
-                    }
-                }
-            ]
-        }
-    }
-	
+"distribute": [
+        {
+"type":"managedImage",
+       "imageId": "resourceid, see note on format",
+       "location": "region",
+       "runOutputName": "imageName",
+       "tags": {
+            "source": "goimagebuilderarm",
+             "baseosimg": "ubuntu1804"
+               }
+         }]
 ```
+ 
+Distribute properties 
+**type** – managedImage 
+**imageId** – Resource Id of the destination image, expected format: 
+/subscriptions/<subscriptionId>/resourceGroups/<destinationResourceGroupName>/providers/Microsoft.Compute/images/<imageName>
+**location** - location of the managed image.  
+**runOutputName** – this must be the same as the image name.  
+**tags** - Optional user specified key value pair tags.
+ 
+ 
+> [!NOTE]
+> The destination resource group must exist.
+> If you want the image distributed to a different region, be aware that the Azure Image Builder service will need to transfer the image and this will significantly increase deployment time. 
+
+## Shared Image Gallery 
+The Azure Shared Image Gallery is a new Image Management service that allows managing of image region replication, versioning and sharing custom images. Azure Image Builder supports distributing with this service, so you can distribute images to regions supported by Shared Image Galleries. 
+ 
+A Shared Image Gallery is made up of: 
+ 
+•	Gallery - Container for multiple shared images. A gallery is deployed in one region.
+•	Image definitions - a conceptual grouping for images. 
+•	Image versions - this is an image type used for deploying a VM or VMSS. Image versions can be replicated to other regions where VMs need to be deployed.
+ 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see documentation (https://docs.microsoft.com/en-us/azure/virtualmachines/windows/shared-image-galleries). 
+
+```jason
+{
+     "type": "sharedImage",
+"galleryImageId": “resourceId, see note below”,
+     "runOutputName": "imageGalleryName",
+     "tags": {
+        "mytag1": "someValue",
+        "mytag2": "someValue"
+      	},
+     "replicationRegions": [
+        "westcentralus",
+        "centralus"
+    ]}
+``` 
+
+Distribute properties for shared image galleries:
+**type** - sharedImage  
+**galleryImageId** – Id of the shared image gallery. The format is: /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.Compute/galleries/<sharedImageGalleryName>/images/<imageGalleryName>.
+**imageName** - Image name  
+**replicationRegions** - Array of regions for r.eplication
+ 
+> [!NOTE]
+> You can use Azure Image Builder in a different region to the gallery, but the Azure Image Builder service will need to transfer the image between the datacenters and this will take longer. 
+> Image Builder will automatically version the image, based on a monotonic integer, you cannot specify it currently. 
+
+## VHD  
+You can output to a VHD. You can then copy the VHD, and use it to publish to Azure MarketPlace, or use with Azure Stack.  
+
+```json
+ { 
+      "type": "VHD",
+      "runOutputName": "imageGalleryName",
+      "tags": {
+         "mytag1": "someValue",
+         "mytag2": "someValue"
+      	}
+ }
+```
+ 
+OS Support: Windows  and Linux
+
+Distribute VHD parameters:
+**type** - VHD.
+**runOutputName** - name to use for the VHD image.
+**tags** - Optional user specified key value pair tags.
+ 
+Azure Image Builder does not allow the user to specify a storage account location, but you can query the status of the ‘runOutput’ to get the location.  
+
+```azurecli-interactive
+az resource show \
+   --ids "/subscriptions/$subscriptionId/resourcegroups/<imageResourceGroup>/providers/Microsoft.VirtualMachineImages/imageTemplates/<imageTemplateName>/runOutputs/<runOutputName>"  | grep artifactUri 
+```
+
+> [!NOTE]
+> Once the VHD has been created, copy it to a different location, as soon as possible. The VHD is stored in a storage account in the temporary resource group created when the image template is submitted to the Azure Image Builder service. If you delete the image template, then you will loose this VHD. 
+ 
+## Next steps
+
+There are sample .json files for different scenarios in the [Azure Image Builder GitHub](https://github.com/danielsollondon/azvmimagebuilder).
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
