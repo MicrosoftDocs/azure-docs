@@ -4,7 +4,7 @@ description: Tutorial to send alerts in response to errors in your application u
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 09/20/2017
+ms.date: 04/10/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
