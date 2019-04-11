@@ -346,7 +346,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 }
 ```
 
-This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 To use this file from your code, use `ws=Workspace.from_config()`. This code loads the information from the file and connects to your workspace.
 
@@ -375,7 +375,7 @@ You can create the configuration file in three ways:
         print('Workspace not found')
     ```
 
-    This code writes the configuration file to the *aml_config/config.json* file.
+    This code writes the configuration file to the *.azureml/config.json* file.
 
 ## <a id="aznotebooks"></a>Azure Notebooks
 
