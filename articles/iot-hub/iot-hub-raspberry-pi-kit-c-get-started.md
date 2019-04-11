@@ -1,13 +1,13 @@
 ---
 title: Connect Raspberry Pi to Azure IoT Hub using C | Microsoft Docs
 description: Learn how to setup and connect Raspberry Pi to Azure IoT Hub for Raspberry Pi to send data to the Azure cloud platform
-author: rangv
+author: wesmc7777
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.author: rangv
+ms.author: wesmc
 ---
 
 # Connect Raspberry Pi to Azure IoT Hub (C)

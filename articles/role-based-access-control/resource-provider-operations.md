@@ -1104,7 +1104,7 @@ List faces' persistedFaceId and userData in a specified large face list. |
 Update a specified face's userData field in a large face list by its persistedFaceId. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Retrieve a large face list's largeFaceListId, name, userData.
 List large face lists' information of largeFaceListId, name and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Submit a large face list training task. Training is a crucial step that only a trained large face list can be used by |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Submit a large face list training task. Training is a crucial step that only a trained large face list can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | To check the large face list training status completed or still ongoing. LargeFaceList Training is an asynchronous operation |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Create an empty large face list with user-specified largeFaceListId, name and an optional userData.
 Update information of a large face list, including name and userData. |
@@ -1120,7 +1120,7 @@ List all persons' information in the specified large person group, including per
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Update name or userData of a person. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Retrieve the information of a large person group, including its name and userData. This API returns large person group information
 List all existing large person groups's largePesonGroupId, name, and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Submit a large person group training task. Training is a crucial step that only a trained large person group can be used |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Submit a large person group training task. Training is a crucial step that only a trained large person group can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | To check large person group training status completed or still ongoing. LargePersonGroup Training is an asynchronous operation |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Create a new large person group with user-specified largePersonGroupId, name, and optional userData.
 Update an existing large person group's name and userData. The properties keep unchanged if they are not in request body. |
@@ -1136,7 +1136,7 @@ List all persons' information in the specified person group, including personId,
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Update name or userData of a person. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Retrieve person group name and userData. To get person information under this personGroup, use
 List person groups's pesonGroupId, name, and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Submit a person group training task. Training is a crucial step that only a trained person group can be used by |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Submit a person group training task. Training is a crucial step that only a trained person group can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | To check person group training status completed or still ongoing. PersonGroup Training is an asynchronous operation triggered |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Create a new person group with specified personGroupId, name, and user-provided userData.
 Update an existing person group's name and userData. The properties keep unchanged if they are not in request body. |
@@ -2266,8 +2266,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for eventSubscriptions |
-> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
-> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update a eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
@@ -2761,8 +2761,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes a Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads a Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Lists database principals. |

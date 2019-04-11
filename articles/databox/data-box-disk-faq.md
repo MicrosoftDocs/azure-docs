@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk?
@@ -49,7 +49,7 @@ A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity 
 A.  To see where the Data Box Disks are currently available, go to the [Region availability](data-box-disk-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box Disks?
-A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -127,8 +127,8 @@ The toolset is available both for Windows and Linux. You can download the toolse
 - [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin) 
 - [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
-  A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
+### Q. Can I use Data Box Disk to transfer data to Azure Files and then use the data with Azure File Sync? 
+A. Azure Files are supported with Data Box Disk but will not work well with Azure File Sync. Metadata is not retained if the file data is used with Azure File Sync.
 
 
 ## Verify and upload
@@ -161,7 +161,7 @@ A. You can clone your previous order. Cloning creates the same order as before a
 A. Yes. Your data was uploaded to Azure but if you don't see any managed disks with the specified resource groups, it is likely because the data was not valid. If the page blobs, block blobs, Azure Files, and managed disks were not valid, these would go to the following folders:
  - Page blobs would go to a block blob container starting with *databoxdisk-invalid-pb-*.
  - Azure Files would go to a block blob container starting with *databoxdisk-invalid-af-*.
- - Managed disks would go to a block blob container starting with *databoxdisk-invliad-md-*.
+ - Managed disks would go to a block blob container starting with *databoxdisk-invalid-md-*.
 
 ## Next steps
 

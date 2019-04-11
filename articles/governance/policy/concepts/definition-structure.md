@@ -1,7 +1,6 @@
 ---
 title: Details of the policy definition structure
 description: Describes how resource policy definition is used by Azure Policy to establish conventions for resources in your organization by describing when the policy is enforced and what effect to take.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -160,12 +159,16 @@ properties](#parameter-properties).
 Within the `metadata` property, you can use **strongType** to provide a multi-select list of
 options within the Azure portal. Allowed values for **strongType** currently include:
 
-- `"location"`
-- `"resourceTypes"`
-- `"storageSkus"`
-- `"vmSKUs"`
-- `"existingResourceGroups"`
-- `"omsWorkspace"`
+- `location`
+- `resourceTypes`
+- `storageSkus`
+- `vmSKUs`
+- `existingResourceGroups`
+- `omsWorkspace`
+- `Microsoft.EventHub/Namespaces/EventHubs`
+- `Microsoft.EventHub/Namespaces/EventHubs/AuthorizationRules`
+- `Microsoft.RecoveryServices/vaults`
+- `Microsoft.RecoveryServices/vaults/backupPolicies`
 
 ## Definition location
 
