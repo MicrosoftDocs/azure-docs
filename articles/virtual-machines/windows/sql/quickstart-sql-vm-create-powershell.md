@@ -21,10 +21,8 @@ ms.reviewer: jroth
 This quickstart steps through creating a SQL Server virtual machine with Azure PowerShell.
 
 > [!TIP]
-> This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
-
-> [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
+> - This quickstart provides a path for quickly provisioning and connecting to a SQL VM. For more information about other Azure PowerShell options for creating SQL VMs, see the [Provisioning guide for SQL Server VMs with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+> - If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Get an Azure subscription
 

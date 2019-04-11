@@ -1,6 +1,6 @@
 - name: Overview
   items:
-  - name: About Windows SQL Server VMs
+  - name: What is a SQL Server VM?
     href: virtual-machines-windows-sql-server-iaas-overview.md
   - name: Release notes
     href: virtual-machines-windows-sql-server-iaas-release-notes.md
