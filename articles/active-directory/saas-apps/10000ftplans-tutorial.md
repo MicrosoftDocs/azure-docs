@@ -51,7 +51,7 @@ To configure the integration of 10,000ft Plans into Azure AD, you need to add 10
 
 **To add 10,000ft Plans from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -59,11 +59,11 @@ To configure the integration of 10,000ft Plans into Azure AD, you need to add 10
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **10,000ft Plans**, select **10,000ft Plans** from result panel then click **Add** button to add the application.
+4. In the search box, type **10,000ft Plans**, select **10,000ft Plans** from the result panel then click the **Add** button to add the application.
 
 	![10,000ft Plans in the results list](common/search-new-app.png)
 
