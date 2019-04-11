@@ -16,19 +16,87 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to
 learn how to:
 
 > [!div class="checklist"]
-> * Use psql utility to create a database
+> * Provision a Hyperscale (Citus) server group
+> * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Ingest sample data
 > * Query tenant data
 > * Share data between tenants
 > * Customize the schema per-tenant
 
-TODO: add section for creating db and getting connection string.
+## Prerequisites
 
-## Use psql utility to create a database
+If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-Now that you know how to connect to the Azure Database for PostgreSQL -
-Hyperscale (Citus), you can complete some basic tasks.
+## Log in to the Azure portal
+
+Log in to the [Azure portal](https://portal.azure.com).
+
+## Create an Azure Database for PostgreSQL
+
+Follow these steps to create an Azure Database for PostgreSQL server:
+1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
+2. Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
+3. For the deployment option, click the **Create** button under "Hyperscale (Citus) server group - PREVIEW."
+4. Fill out the new server details form with the following information:
+   - Subscription: be sure to select the subscription which was whitelisted for hyperscale public preview.
+   - Resource group: click the "Create new" link below the text box for this field. Enter a name such as **myresourcegroup**.
+   - Server group name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique).
+   - Password: pick the password of your choice. The username is "citus" and cannot be changed.
+   - Location: **East US 2**
+
+   > [!IMPORTANT]
+   > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
+
+5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
+6. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
+7. The page will redirect to monitor deployment. When the live status changes from "Your deployment is underway" to "Your deployment is complete," click the **Outputs** menu item on the left of the page.
+8. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
+
+## Configure a server-level firewall rule
+
+The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
+
+1. From the "Outputs" section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
+
+2. Find the scaling group for your deployment in the list of resources and click it. (Its name will be prefixed with "sg-".)
+
+3. Click **Firewall** under "Security" in the left hand menu.
+
+4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the "Save" button. 
+
+4. Click **Save**.
+
+   > [!NOTE]
+   > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
+   >
+
+## Connect to PostgreSQL database using psql in Cloud Shell
+
+Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
+1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
+
+   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
+
+2. The Azure Cloud Shell opens in your browser, enabling you to type bash commands.
+
+   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/tutorial-design-database-using-azure-portal/8-bash.png)
+
+3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
+   ```bash
+   psql --host=<myserver> --username=citus --dbname=citus
+   ```
+
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
+
+   ```bash
+   psql --host=mydemoserver.postgres.database.azure.com --username=citus --dbname=citus
+   ```
+
+## Use psql utility to create a schema
+
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using
+psql, you can complete some basic tasks.
 
 First let's create tables for a hypothetical advertising application.
 Multiple companies can all use the app to track advertising campaigns,
@@ -279,7 +347,8 @@ SELECT id
 In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Use psql utility to create a database
+> * Provision a Hyperscale (Citus) server group
+> * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Ingest sample data
 > * Query tenant data
