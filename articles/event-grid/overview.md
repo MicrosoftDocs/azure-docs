@@ -30,30 +30,29 @@ This image shows how Event Grid connects sources and handlers, and isn't a compr
 
 For full details on the capabilities of each source as well as related articles, see [event sources](event-sources.md). Currently, the following Azure services support sending events to Event Grid:
 
-* Azure Subscriptions (management operations)
-* Container Registry
-* Custom Topics
-* Event Hubs
-* IoT Hub
-* Media Services
-* Resource Groups (management operations)
-* Service Bus
-* Storage Blob
-* Storage General-purpose v2 (GPv2)
-* Azure Maps
+* [Azure Subscriptions (management operations)](event-sources.md#azure-subscriptions)
+* [Container Registry](event-sources.md#container-registry)
+* [Custom Topics](event-sources.md#custom-topics)
+* [Event Hubs](event-sources.md#event-hubs)
+* [IoT Hub](event-sources.md#iot-hub)
+* [Media Services](event-sources.md#media-services)
+* [Resource Groups (management operations)](event-sources.md#resource-groups)
+* [Service Bus](event-sources.md#service-bus)
+* [Storage Blob](event-sources.md#storage)
+* [Azure Maps](event-sources.md#maps)
 
 ## Event handlers
 
 For full details on the capabilities of each handler as well as related articles, see [event handlers](event-handlers.md). Currently, the following Azure services support handling events from Event Grid: 
 
-* Azure Automation
-* Azure Functions
-* Event Hubs
-* Hybrid Connections
-* Logic Apps
-* Microsoft Flow
-* Queue Storage
-* WebHooks
+* [Azure Automation](event-handlers.md#azure-automation)
+* [Azure Functions](event-handlers.md#azure-functions)
+* [Event Hubs](event-handlers.md#event-hubs)
+* [Hybrid Connections](event-handlers.md#hybrid-connections)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Microsoft Flow](event-handlers.md#logic-apps)
+* [Queue Storage](event-handlers.md#queue-storage)
+* [WebHooks](event-handlers.md#webhooks)
 
 ## Concepts
 
