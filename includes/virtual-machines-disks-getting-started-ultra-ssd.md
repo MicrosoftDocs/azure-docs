@@ -76,8 +76,6 @@ Once the VM is provisioned, you can partition and format the data disks and conf
 
 ## Deploy an ultra SSD using CLI
 
-### Deploy an ultra SSD enabled VM with a disk attached using CLI
-
 To use ultra SSDs, you must create a VM that is capable of using ultra SSDs. Replace or set the variables with your own values and then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
