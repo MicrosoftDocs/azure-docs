@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create and configure an Azure Cosmos DB account using Ansible
+title: Tutorial - Create and configure an Azure Cosmos DB account using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and configure an Azure Cosmos DB
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, cosmo db, database

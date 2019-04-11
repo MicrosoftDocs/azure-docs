@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a lab in Azure DevTest Labs using Ansible
+title: Tutorial - Create a lab in Azure DevTest Labs using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and configure an Azure DevTest Labs instance
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
