@@ -33,13 +33,15 @@ You can diagnose installation problems with the Access Panel Extension by downlo
 
 2. Open the file, and then extract the contents to your computer.
    
-3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, then select **Open with > Microsoft Windows Based Script Host**.
+3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, then select **Open with** > **Microsoft Windows Based Script Host**.
    
     ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open_tool.png)
 
-  The diagnostic results appear, which describes what might be wrong with your installation.
+4. Review the diagnostic results appear.
 
-4. Select **Yes** fix the issues. To save these changes, close every Internet Explorer window, and then open Internet Explorer again. If you still can't access your apps, try the steps below.
+5. Select **Yes** fix the issues. The **Check Results** dialog box appears. 
+
+6. Read the message and select **OK**.
 
 ## Check that the Access Panel Extension is enabled
 
