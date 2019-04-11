@@ -50,7 +50,7 @@ To configure the integration of Skytap into Azure AD, you need to add Skytap fro
 
 **To add Skytap from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -58,11 +58,11 @@ To configure the integration of Skytap into Azure AD, you need to add Skytap fro
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top ofthe dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Skytap**, select **Skytap** from result panel then click **Add** button to add the application.
+4. In the search box, type **Skytap**, select **Skytap** from the result panel then click the **Add** button to add the application.
 
 	![Skytap in the results list](common/search-new-app.png)
 
@@ -199,7 +199,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Skytap tile in the Access Panel, you should be automatically signed in to the Skytap for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
