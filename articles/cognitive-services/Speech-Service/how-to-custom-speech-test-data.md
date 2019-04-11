@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# How to prepare test data
+# Prepare test data
 
 Whether you are testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text).  In this page we cover the types of data, how they are used, and how to manage them.
 
@@ -28,11 +28,18 @@ This table lists accepted data types, when each data type should be used, and th
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
+When you are ready to upload your data, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
+
+![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
+
+Each dataset you upload must meet the requirements for the data type that you choose. It is important to correctly format your data prior to upload. This ensures the data will be accurately processed by the Custom Speech service. Requirements are listed in the following sections.
+
+After your dataset is uploaded, you have a few options:
+
+* You can navigate to the **Testing** tab and visually inspect audio only or audio + human-labeled transcription data.
+* You can navigate to the **Training** tab and us audio + human transcription data or related text data to train a custom model.
+
 ## Audio data for testing
-
-Assuming this is your first time, you likely will want to first test out our existing (baseline) speech recognition model on your own data.  Navigate to Speech-to-text/Custom Speech/Data.  Select Upload Data to upload your own test Audio only dataset yourself as a zip or download our samples.  We provide en-US, zh-CN, and de-DE for reference.
-
-![](placeholder.png)
 
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
@@ -45,9 +52,11 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
 
-If your audio doesn’t satisfy these properties or you aren’t sure if it does, we suggest downloading sox to do the check or audio conversion.  Below are some examples of how this can be achieved on the command line in Windows, Mac, or Linux.
+If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading sox to check or convert the audio. Below are some examples of how each of these activities can be done through the command line for Windows, macOS, or Linux.
 
 ### How to check the audio format of a file
+
+These commands demonstrate how to check the audio format of a file.
 
 | Platform | Command |
 |----------|---------|
@@ -56,6 +65,8 @@ If your audio doesn’t satisfy these properties or you aren’t sure if it does
 | macOS | TBD |
 
 ### How to convert an audio file
+
+These commands demonstrate how to down sample from 16KHz to 8KHz.
 
 | Platform | Command |
 |----------|---------|
@@ -78,20 +89,24 @@ Human transcription is time consuming and costly, but necessary to evaluate accu
 
 This is a sample data set that illustrates three audio + human-labeled transcript pairs:
 
-![](placeholder.png
+![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 Navigate to Speech-to-text/Custom Speech/Data.  Select Upload Data to upload your own test Audio + human-labeled transcript dataset yourself as a zip or upload our samples.   
 
 ## Related text data for training
 
-If you have product names or features that are unique, and you want to make sure they are recognized correctly, it is important to include them for training (if I were Microsoft I would want to make sure Azure, Office 365, and Cortana are recognized properly).  Related Text datasets helps solve this problem by introducing two types of text datasets you can upload described in the table below.
+If you have product names or features that are unique, and you want to make sure they are recognized correctly, it is important to include them for training (if I were Microsoft I would want to make sure Azure, Office 365, and Cortana are recognized properly).  Related text datasets helps solve this problem by introducing two types of text datasets listed below:
 
-<< Erik - TODO - Add Table >>
+| Data type | How this improves recognition | Links |
+|-----------|-------------------------------|-------|
+| Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. | <li>[Samples](placeholder)</li><li>[File format guidelines](placeholder)</li> |
+| Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. | <li>[Samples](placeholder)</li><li>[File format guidelines](placeholder)</li> |
 
 Store the utterances into a single text file in sentence form or in multiple text files.  The more aligned the text data is to what is spoken the more effective in improving accuracy.
 
 To upload related text, navigate to Speech-to-text/Custom Speech/Data.  Upload your own Related Text dataset yourself as a zip or upload our example. Click on Upload data to begin the upload process.  Once uploaded, go to the Training tab to begin using the dataset to train a model to improve accuracy.
 
+**<< Archer/Ed/Mark - Where do the audio + human transcription guidelines and related text guidelines belong? >>**
 
 ## Next steps
 
