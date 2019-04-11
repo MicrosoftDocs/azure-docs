@@ -73,7 +73,7 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
    
 1. Change the **name** to **azureiotsecurity**.
-1. Change the  **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**
+1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
 1. Verify the **Container Create Options** value is set to:      
     ``` json
     {
