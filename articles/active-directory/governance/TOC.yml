@@ -52,6 +52,8 @@
       href: entitlement-management-request-approve.md
     - name: View reports
       href: entitlement-management-reports.md
+    - name: Troubleshoot
+      href: entitlement-management-troubleshoot.md
   - name: Access reviews
     items:
     - name: Groups and apps
