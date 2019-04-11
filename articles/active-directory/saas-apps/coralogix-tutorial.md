@@ -169,7 +169,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, type **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **brittasimon@contoso.com**.
+    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **brittasimon@contoso.com**. 
 
     c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box.
 
