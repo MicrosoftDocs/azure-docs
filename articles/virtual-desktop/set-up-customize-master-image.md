@@ -153,21 +153,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-You can disable Automatic Updates manually.
+### Disable Automatic Updates
 
-To disable Automatic Updates:
+To disable Automatic Updates via local Group Policy:
 
-1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Disable Windows Auto Update Service on the local VM.
-4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
-5. Right-click **Configure Automatic Update** and set it to **Disabled**.
+1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
+2. Right-click **Configure Automatic Update** and set it to **Disabled**.
 
 You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### Specify Start layout for Windows 10 PCs (optional)
 
 Run this command to specify a Start layout for Windows 10 PCs.
 

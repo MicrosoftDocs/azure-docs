@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
@@ -70,10 +70,9 @@ There are three types of export options:
 
 **Custom** – Allows you to schedule weekly and monthly exports with week-to-date and month-to-date options. *The initial export will run immediately.*
 
-> [!NOTE]
-> If you are a Pay-As-You-Go, MSDN, or Visual Studio customer your invoice billing period for a subscription may not align to the calendar month. For subscriptions and resource groups that fall into this bucket, you can create an export that is aligned to your invoice or to calendar months.  To create an export aligned to your invoice month, navigate to **Custom**, then select "Billing-period-to-date".  To create an export aligned to the calendar month, select "Month-to-date".
-> 
-> 
+If you have a Pay-As-You-Go, MSDN, or Visual Studio subscription, your invoice billing period might not align to the calendar month. For those types of subscriptions and resource groups, you can create an export that's aligned to your invoice period or to calendar months. To create an export aligned to your invoice month, navigate to **Custom**, then select **Billing-period-to-date**.  To create an export aligned to the calendar month, select **Month-to-date**.
+>
+>
 
 ![New export - Basics tab showing a custom weekly week-to-date selection](./media/tutorial-export-acm-data/tutorial-export-schedule-weekly-week-to-date.png)
 
