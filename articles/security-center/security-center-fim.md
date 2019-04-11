@@ -20,7 +20,7 @@ ms.author: monhaber
 
 # Compare baselines using File Integrity Monitoring (FIM)
 
-File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files. 
+File Integrity Monitoring (FIM) informs you when changes occur to sensitive areas in your resources, so you can investigate and address unauthorized activity. FIM monitors Windows files, Windows registries, and Linux files.
 
 This topic explains how to enable FIM on the files and registries. For more information about FIM, see [File Integrity Monitoring in Azure Security Center](security-center-file-integrity-monitoring.md).
 
@@ -45,7 +45,7 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 >>![Enable FIM on a registry](./media/security-center-fim/fim-add-registry.png)
 
 >[!NOTE]
-> Recursive checks apply only recommended security hives and not to custom registry paths.  
+> Recursive checks apply only recommended to security hives and not to custom registry paths.  
 
 |Policy Name                 | Registry Setting|
 |---------------------------------------|-------------|
@@ -61,23 +61,23 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 |Network security: Restrict NTLM: Audit NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> To learn more about registry settings supported by various operating system versions, refer to the Group Policy Settings reference spreadsheet here.  
+> To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
 
 ## Tracking changes to Windows files
 
 1. In the **Add Windows File for Change Tracking** window, in the **Enter path** text box, enter the folder which contains the files that you want to track.
-
-In this example, Contoso Web App resides in the D:\ drive within the ‘ContosWebApp’ folder structure.  Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.  
+In the example in the following figure, 
+**Contoso Web App** resides in the D:\ drive within the **ContosWebApp** folder structure.  
+1. Create a custom Windows file entry by providing a name of the setting class, enabling recursion, and specifying the top folder with a wildcard (*) suffix.
 
 ![Enable FIM on a file](./media/security-center-fim/fim-add-file.png)
 
-
-
 ## Retrieving change data
 
-File Integrity Monitoring data resides within Azure Log Analytics / ConfigurationChange table set.  
+File Integrity Monitoring data resides within the Azure Log Analytics / ConfigurationChange table set.  
 
-Begin monitoring changes by setting a time range and retrieving a summary of changes by resource.  In this example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
+1. Set a time range to retrieve a summary of changes by resource.
+In the following example, we are retrieving all changes in the last fourteen days in the categories of registry and files:
 
 <code>
 > ConfigurationChange
@@ -90,7 +90,10 @@ Begin monitoring changes by setting a time range and retrieving a summary of cha
 
 </code>
 
-To view details of registry changes, remove ‘Files’ from the where clause, and remove the summarization line.  Replace it with an ordering clause:
+1. To view details of the registry changes:
+
+    1. Remove **Files** from the **where** clause, 
+    1. Remove the summarization line and replace it with an ordering clause:
 
 <code>
 > ConfigurationChange
@@ -103,6 +106,6 @@ To view details of registry changes, remove ‘Files’ from the where clause, a
 
 </code>
 
-These reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
+Reports can be exported to CSV for archival and/or channeled to a PowerBI report.  
 
 ![FIM data](./media/security-center-fim/fim-data.png)
