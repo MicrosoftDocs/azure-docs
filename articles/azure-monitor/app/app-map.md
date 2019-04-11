@@ -214,6 +214,8 @@ For more information about how to override the cloud_RoleName property with tele
 
 If you're having trouble getting Application Map to work as expected, try these steps:
 
+### General
+
 1. Make sure you're using an officially supported SDK. Unsupported/community SDKs might not support correlation.
 
     Refer to this [article](https://docs.microsoft.com/azure/application-insights/app-insights-platforms) for a list of supported SDKs.
@@ -225,6 +227,22 @@ If you're having trouble getting Application Map to work as expected, try these 
 4. Confirm [cloud_RoleName](#set-cloud_rolename) is correctly configured.
 
 5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If not, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### Too many nodes on the map
+
+* The map will construct an application node for each unique cloud/roleName present in your request telemetry and a dependency node for each unique combination of type, target, and cloud/roleName in your dependency telemetry.
+
+* If there are more than 10,000 nodes in your telemetry, the map will not be able to fetch all the nodes and edges, so your map will be incomplete.
+
+* The map will reduce visual complexity by grouping dependencies together that have the same type and callers, but if your telemetry has too many unique cloud/roleNames or too many dependency types, that grouping will be insufficient. The map only supports up to 1000 separate ungrouped nodes rendered at once.
+
+    * This issue can be mitigated with changes to your instrumentation to ensure low cardinality of the cloud/roleName, dependency/type, and dependency/target fields.
+
+    * Dependency/target should represent the logical name of a dependency. In many cases, it’s equivalent to the server or resource name of the dependency. For example, in the case of HTTP dependencies it is set to the hostname. It should not contain unique IDs or parameters that change from one request to another.
+
+    * Dependency/type should represent the logical type of a dependency. For example, HTTP, SQL or Azure Blob are typical dependency types. It should not contain unique IDs.
+    
+    * This section describes the purpose of cloud/roleName: https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud_rolename 
 
 ## Portal feedback
 
