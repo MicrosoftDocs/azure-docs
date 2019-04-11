@@ -13,25 +13,25 @@ ms.subservice: blobs
 
 # Reacting to Blob storage events
 
-Your applications can react to events, such as the creation of a blob. They can do this without the need for complicated code or expensive and inefficient polling services.  This article describes the event model, events that can be raised in response to blob-related activities, and the data about those events that subscribing applications can parse and use.
+Azure Storage events allow applications to react to events, such as the creation and deletion of blobs, by using modern serverless architectures. It does so without the need for complicated code or expensive and inefficient polling services.
 
-You can subscribe to events by using the Azure Portal, the Azure CLI, or by using Powershell. When you subscribe, you specify the end point that receives the event data. That endpoint could be an [Azure Function](https://azure.microsoft.com/services/functions/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), or even a custom http listener.
+Instead, events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) to subscribers such as Azure Functions, Azure Logic Apps, or even to your own custom http listener, and you only pay for what you use.
 
-You can use events for all sorts of file-oriented workflows such as asynchronous file uploads, video processing, or search indexing.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+Blob storage events are reliably sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery.
+
+Common Blob storage event scenarios include image or video processing, search indexing, or any file-oriented workflow. Asynchronous file uploads are a great fit for events. When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 If you want to try this out now, see any of these quickstart articles:
 
-* [Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.comazure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-* [Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-
-* [Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+|If you want to use this tool:    |See this article: |
+|--|-|
+|Azure Portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.comazure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure CLI    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Powershell    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## The event model
 
-All events are pushed through [Azure Event Grid](https://azure.microsoft.com/services/event-grid/). They are sent to the Event Grid service which provides reliable delivery services to your applications through rich retry policies and dead-letter delivery. Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.
-
-This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
+Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers. This image illustrates the relationship between event publishers, event subscriptions, and event handlers.
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
