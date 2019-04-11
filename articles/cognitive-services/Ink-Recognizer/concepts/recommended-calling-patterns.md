@@ -26,6 +26,10 @@ The Ink Recognizer API is a stateless service that accepts ink strokes as a time
 * The API parameters that were used.
 * The number of data points in your API request.
 
+Data points sent to the Anomaly Detector API must be formatted in JSON and have a valid Coordinated Universal Time (UTC) timestamp, and numerical X and Y values. 
+
+[Add short sample of ink data that would be sent to the API ]
+
 ## Recommended calling patterns
 
 You can call the Ink Recognizer REST API in different patterns according to different scenarios. 
@@ -40,6 +44,9 @@ You can also have your app call the Ink Recognizer API after a timeout. By sendi
 
 Having the recognition results in advance gives you information about the characteristics of ink strokes as they relate to each other - which strokes are grouped to form the same word, shape, list, or paragraph. This information can enhance the ink selection features in your app by being able to select groups of strokes at once, for exapmle.
 
+## Integrate the Ink Recognizer API with Windows Ink
+
+[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) provides tools and technologies to enable digital inking experiences on a diverse ecosystem of devices. You can combine the Windows Ink platform with the Ink Recognition API to create applications that display and interpret digital ink strokes.
 
 ## Next steps
 
