@@ -26,8 +26,10 @@ Known issues and limitations associated with online migrations from SQL Server t
 
 If your source database consists of one or more temporal tables, your database migration fails during the “Full data load” operation and you may see the following message:
 
+```
 { "resourceId":"/subscriptions/<subscription id>/resourceGroups/migrateready/providers/Microsoft.DataMigration/services/<DMS Service name>", "errorType":"Database migration error", "errorEvents":"["Capture functionalities could not be set. RetCode: SQL_ERROR SqlState: 42000 NativeError: 13570 Message: [Microsoft][SQL Server Native Client 11.0][SQL Server]The use of replication is not supported with system-versioned temporal table '[Application. Cities]' Line: 1 Column: -1 "]" }
- 
+```
+
  ![Temporal table errors example](media/known-issues-azure-sql-online/dms-temporal-tables-errors.png)
 
 **Workaround**
