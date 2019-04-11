@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08-04-2019
+ms.date: 04-08-2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -58,7 +58,7 @@ To configure the integration of Skytap into Azure AD, you need to add Skytap fro
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, click the **New application** button at the top ofthe dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
