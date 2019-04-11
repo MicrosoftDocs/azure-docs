@@ -142,7 +142,7 @@ To resolve this issue, install the SQL IaaS extension before attempting to regis
 
 
 ### The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/<resource-group>' under resource group '<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.
-This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL resource provider. You'll need to register the resource provider to your [subscription](#register-sql-resource-provider-to-your-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
+This error occurs when attempting to change the licensing model on a SQL Server VM that has not been registered with the SQL resource provider. You'll need to register the resource provider to your [subscription](#register-sql-vm-resource-provider-with-subscription), and then register your SQL Server VM with the SQL [resource provider](#register-sql-server-vm-with-sql-resource-provider). 
 
 ## Next steps
 
