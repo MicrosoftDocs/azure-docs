@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Download or copy the contents of the file [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
 2. Save the contents of this file locally as **AzureMapDemo.html**. Open it in a text editor.
-3. Search for the string `<insert-key>`. Replace it with the **Primary Key** value from the preceding section.
+3. Search for the string `<Your Azure Maps Key>`. Replace it with the **Primary Key** value from the preceding section.
 
 ## Open the application
 
@@ -65,15 +65,15 @@ The tutorials detail how to use and configure Azure Maps with your account. Don'
 
 ## Next steps
 
-In this quickstart, you created your Azure Maps account and created a demo app. To learn how to create your own application by using the Azure Maps APIs, continue to the following tutorial:
+In this quickstart, you created your Azure Maps account and created a demo app. Take a look at the following tutorials to learn about Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Search nearby points of interest by using Azure Maps](./tutorial-search-location.md)
+> [Search nearby points of interest by using Azure Maps](tutorial-search-location.md)
 
 For more code examples and an interactive coding experience, see these guides:
 
 > [!div class="nextstepaction"]
-> [Find an address by using the Azure Maps search service](./how-to-search-for-address.md)
+> [Find an address by using the Azure Maps search service](how-to-search-for-address.md)
 
 > [!div class="nextstepaction"]
-> [Use the Azure Maps Map Control](./how-to-use-map-control.md)
+> [Use the Azure Maps Map Control](how-to-use-map-control.md)

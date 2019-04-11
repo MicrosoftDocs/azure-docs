@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
 ---

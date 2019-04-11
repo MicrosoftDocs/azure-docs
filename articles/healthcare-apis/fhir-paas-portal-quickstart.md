@@ -50,7 +50,7 @@ Click **Next: Additional settings** to configure the authority, audience, identi
 - **Allowed object IDs:** You can specify identity object IDs that should be allowed to access this Azure API for FHIR  
 - **Smart On FHIR proxy:** You can enable SMART on FHIR proxy. For details on how to configure SMART on FHIR proxy see tutorial [Azure API for FHIR SMART on FHIR proxy](https://docs.microsoft.com/azure/healthcare-apis/use-smart-on-fhir-proxy)  
 
-![Configure allowed object IDs](media/quickstart-paas-portal/configure-allowed-oids.png)
+![Configure allowed object IDs](media/quickstart-paas-portal/configure-audience.png)
 
 See [how to find identity object IDs](find-identity-object-ids.md) for details on how to locate identity object IDs for users and service principals.
 
