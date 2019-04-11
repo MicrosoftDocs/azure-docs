@@ -39,7 +39,7 @@ You can diagnose installation problems with the Access Panel Extension by downlo
 
 4. Review the diagnostic results appear.
 
-5. Select **Yes** fix the issues. The **Check Results** dialog box appears. 
+5. Select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
 
 6. Read the message and select **OK**.
 
@@ -51,9 +51,9 @@ To verify that the Access Panel Extension is enabled in Internet Explorer:
    
 2. Go to the **Programs** tab and select **Manage add-ons**.
    
-3. In this dialog, select **Access Panel Extension** and then select **Enable**.
+3. Select **Access Panel Extension** in the **Microsoft Corporation** section and then select **Enable**.
    
-4. Close the Internet Explorer windows you have open to save these changes. The change takes effect the next time you open an Internet Explorer browser.
+4. To save the changes, close the Internet Explorer windows you have open. The change takes effect the next time you open an Internet Explorer browser.
 
 ## Enable extensions for InPrivate Browsing
 
@@ -63,7 +63,7 @@ To enable extensions for InPrivate Browsing:
    
 2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
-3.  Close the Internet Explorer windows you have open to save these changes. The change takes effect the next time you open an Internet Explorer browser.
+3.  To save the changes, close the Internet Explorer windows you have open. The change takes effect the next time you open an Internet Explorer browser.
 
 ## Uninstall the Access Panel Extension
 
@@ -81,7 +81,7 @@ To uninstall the Access Panel Extension from your computer:
 
 If you run into issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
 
-## Related Articles
+## Related articles
 * [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
-* [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md)
+* [How to deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md)
 
