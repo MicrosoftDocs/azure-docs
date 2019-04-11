@@ -19,18 +19,11 @@ Microsoft and third-parties publish SDKs for Azure Notification Hubs. The Micros
 
 ## Samples
 
-| SDK            | Publisher      |
-| -------------- | -------------- |
-| [.NET Server](https://github.com/Azure/azure-notificationhubs-dotnet) | Microsoft |
-| [Android](https://github.com/Azure/azure-notificationhubs-android)  |Microsoft |
-| [Apache Cordova](https://github.com/derek82511/cordova-azure-notification-hubs) | Third-party |
-| [iOS](https://github.com/Azure/azure-notificationhubs-ios) |Microsoft |
-| [Java Server](https://github.com/Azure/azure-notificationhubs-java-backend) |Microsoft |
-| [Nodejs](https://github.com/Azure/azure-sdk-for-node) | Microsoft |
-| [React Native](https://github.com/CatalystCode/react-native-azurenotificationhub) | Third-party |
-
-> [!Note]
-> Microsoft is not responsible for the quality, usefulness, or supportability of any third-party solutions.
+- [.NET](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples)
+- [Android](https://github.com/Azure/azure-notificationhubs-android/tree/master/samples)
+- [Apache Cordova](https://github.com/Azure/azure-notificationhubs-samples/tree/master/apache-cordova)
+- [Ionic](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Ionic)
+- [iOS](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)
 
 ## Next steps
 See tutorials in the **Tutorials** section of the table of contents (TOC).

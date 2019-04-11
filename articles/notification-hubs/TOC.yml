@@ -26,7 +26,7 @@
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
   - name: Baidu
     items:
-    - name: Push notifications by using Baidu cloud push
+    - name: Push notifications using Baidu cloud push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Chrome
     items:
