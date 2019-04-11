@@ -227,21 +227,29 @@ You can directly assign specific users to an access package if you do not need t
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Create a new policy.
+1. Add a new policy.
 
-1. In the **Users that can request options** section, select **No one (admin direct assignment only)**.
+1. In the **Users who can request access** section, select **None (administrator direct assignments only)**.
 
-1. Set any expiration settings you like.
+1. Specify expiration settings.
 
-1. Go to the access package's **User assignments** page and click **New assignment**.
+1. Open the **Assignments** page for the access package.
+
+1. Click **New assignment** to open Add user to access package.
+
+    ![Assignments - Add user to access package](./media/entitlement-management-access-package-edit/assignments-add-user.png)
 
 1. Select the users you want to give an assignment to.
 
-1. Select the policy you created in step 2 that you want the users' assignment to be governed by.
+1. Select the policy you created in a previous step that you want the users' assignment to be governed by.
 
-1. Set the date and time you want the users' assignment to start and end. If an end date is not provided, the policy's expiration settings will be implemented.
+1. Set the date and time you want the users' assignment to start and end. If an end date is not provided, the policy's expiration settings will be used.
 
 1. Optionally provide a justification for your direct assignment for record keeping.
+
+1. Click **Add** to directly assign the selected users to the access package.
+
+    After a few moments, click **Refresh** to see the users in the Assignments list.
 
 ## View who has an assignment
 
@@ -337,7 +345,11 @@ An access package can only be deleted if it has no active user assignments.
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. On the access package's Overview page, click **Delete**.
+1. In the left menu, click **Assignments** and remove access for all users.
+
+1. In the left menu, click **Overview** and then click **Delete**.
+
+1. In the delete message that appears, click **Yes**.
 
 ## Next steps
 

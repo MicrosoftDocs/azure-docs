@@ -54,7 +54,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in the catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
 
 **Prerequisite role:** User administrator or Catalog owner
 
