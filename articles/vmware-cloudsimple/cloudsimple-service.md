@@ -15,4 +15,4 @@ The CloudSimple service allows you to consume Azure VMware solutions by CloudSim
 
 Adding the CloudSimple service requires creation of a gateway subnet.  The gateway subnet is used when creating the edge network and requires a /28 CIDR block.  The gateway subnet address space must be unique. It cannot overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
-For more information, see [Create a CloudSimple service on Azure](quick-create-cs-service.md)
+For more information, see [Create a CloudSimple service on Azure](quickstart-create-cloudsimple-service.md)

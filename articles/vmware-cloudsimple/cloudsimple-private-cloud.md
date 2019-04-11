@@ -94,4 +94,4 @@ Table below shows the node limits on resources of a private cloud.
 ## Next steps
 
 * Learn how to [Create a private cloud](https://docs.azure.cloudsimple.com/create-private-cloud/)
-* Learn how to [Configure a private cloud environment](quick-create-private-cloud.md)
+* Learn how to [Configure a private cloud environment](quickstart-create-private-cloud.md)
