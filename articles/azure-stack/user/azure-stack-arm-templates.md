@@ -65,7 +65,7 @@ Use the PowerShell DSC extension to configure an existing virtual machine Local 
 
 ## Create a virtual machine from a user image
 
-[Create a virtual machine from a custom user image](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). This template also deploys a virtual network (with DNS), public IP address, and a network interface.
+[Create a virtual machine from a custom user image](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-create-from-customimage). This template also deploys a virtual network (with DNS), public IP address, and a network interface.
 
 ## Basic virtual machine
 

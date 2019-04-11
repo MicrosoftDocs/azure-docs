@@ -134,6 +134,7 @@ In your environment, you should avoid the following configurations:
 
 - **Require domain join** - This policy block access has also the potential to block access for all users in your organization if you don't have a domain-joined device yet.
 
+- **Require app protection policy** - This policy block access has also the potential to block access for all users in your organization if you don't have an Intune policy. If you are an administrator without a client application that has an Intune app protection policy, this policy blocks you from getting back into portals such as Intune and Azure.
 
 **For all users, all cloud apps, all device platforms:**
 
