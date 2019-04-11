@@ -15,7 +15,7 @@ ms.date: 03/28/2019
 ---
 
 # Azure Notification Hubs Samples
-Microsoft and third-parties publish SDKs for Azure Notification Hubs. The Microsoft repositories for Android, iOS, and .NET also include sample apps for each target platform.
+This article provides links to samples that demonstrate key features in Azure Notification Hubs.
 
 ## Samples
 
