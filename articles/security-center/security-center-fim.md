@@ -49,16 +49,16 @@ The FIM registry hive defaults provide a convenient way to monitor recursive cha
 
 |Policy Name                 | Registry Setting|
 |---------------------------------------|-------------|
-|Domain controller: Refuse machine account password changes| MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RefusePasswordChange|
-|Domain member: Digitally encrypt or sign secure channel data (always)|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireSignOrSeal|
-|Domain member: Digitally encrypt secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\SealSecureChannel|
-|Domain member: Digitally sign secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\SignSecureChannel|
-|Domain member: Disable machine account password changes|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\DisablePasswordChange|
-|Domain member: Maximum machine account password age|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\MaximumPasswordAge|
-|Domain member: Require strong (Windows 2000 or later) session key|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireStrongKey|
-|Network security: Restrict NTLM:  NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RestrictNTLMInDomain|
-|Network security: Restrict NTLM: Add server exceptions in this domain|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\DCAllowedNTLMServers|
-|Network security: Restrict NTLM: Audit NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\AuditNTLMInDomain|
+|Domain controller: Refuse machine account password changes| MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RefusePasswordChange|
+|Domain member: Digitally encrypt or sign secure channel data (always)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireSignOrSeal|
+|Domain member: Digitally encrypt secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\SealSecureChannel|
+|Domain member: Digitally sign secure channel data (when possible)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
+|Domain member: Disable machine account password changes|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
+|Domain member: Maximum machine account password age|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
+|Domain member: Require strong (Windows 2000 or later) session key|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
+|Network security: Restrict NTLM:  NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RestrictNTLMInDomain|
+|Network security: Restrict NTLM: Add server exceptions in this domain|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DCAllowedNTLMServers|
+|Network security: Restrict NTLM: Audit NTLM authentication in this domain|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
 > To learn more about registry settings supported by various operating system versions, refer to the [Group Policy Settings reference spreadsheet](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250).
