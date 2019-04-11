@@ -1,6 +1,6 @@
 ---
 title: Extend support for SQL Server 2008 and SQL Server 2008 R2 with Azure
-description: Learn how to extend support for SQL Server 2008 and SQL Servevr 2008 R2 by migrating your SQL Server instance to Azure, or registering your on-premises instance with Azure. 
+description: Learn how to extend support for SQL Server 2008 and SQL Server 2008 R2 by migrating your SQL Server instance to Azure, or registering your on-premises instance with Azure. 
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
