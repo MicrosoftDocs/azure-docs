@@ -55,7 +55,7 @@ The following diagram shows when these email notifications are sent in the acces
 
 When a requestor submits an access request for an access package that is configured to require approval, all approvers configured in the policy receive an email notification with details of the request. Details include the requestor's name, organization, access start and end date if provided, business justification, when the request was submitted, and when the request will expire. The email includes a link where approvers can approve or deny the access request. Here is a sample email notification that is sent to an approver when a requestor submits an access request.
 
-![Approve request to access package email](./media/entitlement-management-notifications/email-approve-request.png)
+![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
 
 ## Approved or denied emails
 

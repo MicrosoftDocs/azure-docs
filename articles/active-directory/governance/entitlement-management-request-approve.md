@@ -45,32 +45,36 @@ A user that needs access to an access package must submit an access request. Dep
 | Approved | Approver approves a request. |
 | Partially fulfilled | User has **not** been assigned access to all the resources in the access package. If the this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
 | Fulfilled | User has been assigned access to all the resources in the access package. |
-| Access extended | If extensions are allowed in the policy, the extended the assignment. |
+| Access extended | If extensions are allowed in the policy, the user extended the assignment. |
 | Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
 
-## Open the access request
+## Open request
 
 The first step to approve or deny access requests is to find and open the access request pending approval. There are two ways to open the access request.
 
 **Prerequisite role:** Approver
 
-1. Look for an email from Microsoft that asks you to review an access request. Here is an example email.
+1. Look for an email from Microsoft Azure that asks you to approve or deny a request. Here is an example email:
 
-1. Click the **Review access request** link to open the access request.
+    ![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
+
+1. Click the **Approve or deny request** link to open the access request.
 
 If you don't have the email, you can find the access requests pending your approval by following these steps.
 
 1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
-1. In the left menu, click **Approvals** to a list of access requests pending approval.
+1. In the left menu, click **Approvals** to see a list of access requests pending approval.
 
-## Approve or deny the access request
+1. On the **Pending** tab, find the request.
+
+## Approve or deny request
 
 After you open an access request pending approval, you can see details that will help you make an approve or deny decision.
 
 **Prerequisite role:** Approver
 
-1. In the **Details** column, click **View** to open the Access request pane.
+1. Click the **View** link to open the Access request pane.
 
 1. Click **Details** to see details about the access request.
 
@@ -78,7 +82,9 @@ After you open an access request pending approval, you can see details that will
 
 1. Click **Approve** or **Deny**.
 
-1. If necessary, enter reason.
+1. If necessary, enter a reason.
+
+    ![My Access portal - Access request](./media/entitlement-management-shared/my-access-approve-request.png)
 
 1. Click **Submit** to submit your decision.
 

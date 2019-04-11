@@ -230,15 +230,15 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. On the **Pending** tab, find **Requestor1**.
 
-1. On the right of the user, click the **View** link to open the Access request pane.
+1. Click the **View** link to open the Access request pane.
 
 1. Click **Approve**.
 
 1. In the **Reason** box, type the reason **Approved access for web project**.
 
-    ![My Access portal - Access request](./media/entitlement-management-access-package-first/my-access-approve-request.png)
+    ![My Access portal - Access request](./media/entitlement-management-shared/my-access-approve-request.png)
 
-1. Click **Submit**.
+1. Click **Submit** to submit your decision.
 
     You should see a message that it was successfully approved.
 
