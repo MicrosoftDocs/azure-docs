@@ -29,56 +29,56 @@ Blob storage events are available in general-purpose v2 storage accounts and Blo
 
 Event grid uses [event subscriptions](../../event-grid/concepts.md#event-subscriptions) to route event messages to subscribers.
 
-## Available events
+## Events
 
- The following two blob storage events are available to all storage accounts.  
+ The following events are available to all storage accounts.  
 
-> |Event Name|Description|
-> |----------|-----------|
-> |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced. |
-> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted. |
+ |Event Name|Description|
+ |----------|-----------|
+ |Microsoft.Storage.BlobCreated |Raised when a blob is created or replaced. |
+ |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted. |
 
-## Available events for Azure Data Lake Gen 2
+## Events for Azure Data Lake Gen 2
 
-These blob storage events are available if you've enabled a hierarchical namespace on the account.
+These events are available to storage accounts that have a hierarchical namespace.
 
-> |Event Name|Description|
-> |----------|-----------|
-> |`Microsoft.Storage.BlobCreated`|Raised when a blob is created or replaced. |
-> |`Microsoft.Storage.BlobDeleted`|Raised when a blob is deleted. |
-> |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed. |
-> |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created. |
-> |`Microsoft.Storage.DirectoryRenamed`|Raised when a directory is renamed. |
-> |`Microsoft.Storage.DirectoryDeleted`|Raised when a directory is deleted. |
+ |Event Name|Description|
+ |----------|-----------|
+ |**Microsoft.Storage.BlobCreated**|Raised when a blob is created or replaced. |
+ |**Microsoft.Storage.BlobDeleted**|Raised when a blob is deleted. |
+ |`Microsoft.Storage.BlobRenamed`|Raised when a blob is renamed. |
+ |`Microsoft.Storage.DirectoryCreated`|Raised when a directory is created. |
+ |Microsoft.Storage.DirectoryRenamed|Raised when a directory is renamed. |
+ |Microsoft.Storage.DirectoryDeleted|Raised when a directory is deleted. |
 
 ## Event Schema
 
 Blob storage events contain all the information you need to respond to changes in your data.  You can identify a Blob storage event because the eventType property starts with "Microsoft.Storage". Additional information about the usage of Event Grid event properties is documented in [Event Grid event schema](../../event-grid/event-schema.md).  
 
-> |Property|Type|Description|
-> |-------------------|------------------------|-----------------------------------------------------------------------|
-> |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
-> |subject|string|The relative resource path to the object that is the subject of the event, using the same extended Azure Resource Manager format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blob name.|
-> |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
-> |eventType|string|The fully qualified name of the event.|
-> |Id|string|Unique identifier if this event|
-> |dataVersion|string|The schema version of the data object.|
-> |metadataVersion|string|The schema version of top-level properties.|
-> |data|object|Collection of blob storage-specific event data|
-> |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob|
-> |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, but not with BlobDeleted.|
-> |data.url|string|The url of the object that is the subject of the event|
-> |data.eTag|string|The etag of the object when this event is raised.  Not available for the BlobDeleted event.|
-> |data.api|string|The name of the api operation that triggered this event. For example, this value is "PutBlob", "PutBlockList", or "CopyBlob" for BlobCreated events. These values are the same api names that are present in the Azure Storage diagnostic logs. See [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
-> |data.contentOffset|number|Put explanation here.|
-> |data.recursive|string|`True` to perform the operation on all child directories; otherwise `False`|
-> |data.destinationUrl|string|The url of the file that exists after the operation completes. For example, in the case of an operation to rename a file, the `data.destinationUrl` property would be set to the desired (fully qualified) name. |
-> |data.sourceUrl|string|The url of the file that exists prior to the operation. For example, in the case of an operation to rename a file, the `data.sourceUrl` property would be set to the fully qualified name of the file to be renamed.|
-> |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name.|
-> |data.requestId|string|Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
-> |data.clientRequestId|string|Client-provided request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
-> |data.storageDiagnostics|object|Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers.|
->|data.blobType|string|The type of the blob. Valid values are either "BlockBlob" or "PageBlob".|
+ |Property|Type|Description|
+ |-------------------|------------------------|-----------------------------------------------------------------------|
+ |topic|string|Full Azure Resource Manager id of the storage account that emits the event.|
+ |subject|string|The relative resource path to the object that is the subject of the event, using the same extended Azure Resource Manager format that we use to describe storage accounts, services, and containers for Azure RBAC.  This format includes a case-preserving blob name.|
+ |eventTime|string|Date/time that the event was generated, in ISO 8601 format|
+ |eventType|string|The fully qualified name of the event.|
+ |Id|string|Unique identifier if this event|
+ |dataVersion|string|The schema version of the data object.|
+ |metadataVersion|string|The schema version of top-level properties.|
+ |data|object|Collection of blob storage-specific event data|
+ |data.contentType|string|The content type of the blob, as would be returned in the Content-Type header from the blob|
+ |data.contentLength|number|The size of the blob as in integer representing a number of bytes, as would be returned in the Content-Length header from the blob.  Sent with BlobCreated event, but not with BlobDeleted.|
+ |data.url|string|The url of the object that is the subject of the event|
+ |data.eTag|string|The etag of the object when this event is raised.  Not available for the BlobDeleted event.|
+ |data.api|string|The name of the api operation that triggered this event. For example, this value is "PutBlob", "PutBlockList", or "CopyBlob" for BlobCreated events. These values are the same api names that are present in the Azure Storage diagnostic logs. See [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
+ |data.contentOffset|number|Put explanation here.|
+ |data.recursive|string|`True` to perform the operation on all child directories; otherwise `False`|
+ |data.destinationUrl|string|The url of the file that will exist after the operation completes. For example, if a file is renamed, the `data.destinationUrl` property contains the url of the new file name. |
+ |data.sourceUrl|string|The url of the file that exists prior to the operation. For example, if a file is renamed, the `data.sourceUrl` contains the url of the original file name prior to the rename operation.
+ |data.sequencer|string|An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name.|
+ |data.requestId|string|Service-generated request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "request-id-header" field in the logs and is returned from initiating API call in the 'x-ms-request-id' header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format).|
+ |data.clientRequestId|string|Client-provided request id for the storage API operation. Can be used to correlate to Azure Storage diagnostic logs using the "client-request-id" field in the logs, and can be provided in client requests using the "x-ms-client-request-id" header. See [Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
+ |data.storageDiagnostics|object|Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers.|
+|data.blobType|string|The type of the blob. Valid values are either "BlockBlob" or "PageBlob".|
 
 Here is an example of a BlobCreated event:
 ```json
