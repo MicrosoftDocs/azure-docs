@@ -124,6 +124,19 @@ The time-to-live (TTL) property of a message is checked by the server at the tim
 
 Prefetching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol. The HTTP protocol does not support prefetching. Prefetching is available for both synchronous and asynchronous receive operations.
 
+## Prefetching and ReceiveBatch
+
+While the concepts of prefetching multiple messages together have similar semantics to processing messages in a batch (ReceiveBatch), there are some minor differences that must be kept in mind when leveraging these together.
+
+Prefetch is a configuration (or mode) on the client (QueueClient and SubscriptionClient) and ReceiveBatch is an operation (that has request-response semantics).
+
+While using these together, consider the following cases -
+
+* Prefetch should be greater than or equal to the number of messages you are expecting to receive from ReceiveBatch.
+* Prefetch can be up to n/3 times the number of messages processed per second, where n is the default lock duration.
+
+There are some challenges with having a greedy approach(i.e. keeping the prefetch count very high), because it implies that the message is locked to a particular receiver. The recommendation is to try out prefetch values between the thresholds mentioned above and empirically identify what fits.
+
 ## Multiple queues
 
 If the expected load cannot be handled by a single partitioned queue or topic, you must use multiple messaging entities. When using multiple entities, create a dedicated client for each entity, instead of using the same client for all entities.

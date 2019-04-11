@@ -38,7 +38,7 @@ Function Apps can be hosted in several different ways.
 
 IP Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list. The IP Restrictions capability works with all function hosting options.
 
-> ![IMPORTANT]
+> [!NOTE]
 > To be able to use the Azure portal editor, the portal must be able to directly access your running function app, and the device you're using to access the portal must have its IP whitelisted. With network restrictions in place, you can still access any features in the **Platform features** tab.
 
 [Learn more here](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)

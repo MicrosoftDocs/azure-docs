@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/13/2019
+ms.date: 04/10/2019
 ---
 # Quickstart: Create an Azure SQL Database managed instance
 
@@ -42,9 +42,11 @@ The following steps show you how to create a managed instance.
    |**Managed instance name**|Any valid name|For valid names, see [naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Managed instance admin login**|Any valid user name|For valid names, see [naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" as that is a reserved server-level role.|
    |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Time zone**|The time zone to be observed by your managed instance|For more information, see [time zones](sql-database-managed-instance-timezone.md)|
    |**Collation**|The collation that you want to use for your managed instance|If you are migrating databases from SQL Server, check the source collation using `SELECT SERVERPROPERTY(N'Collation')` and use that value. For information about collations, see [server-level collations](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Location**|The location in which you want to create the managed instance|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
    |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network/subnet is unavailable it is must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information regarding the requirements for configuring the network environment for a managed instance, see [configure a VNet for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Connection type**|Choose between Proxy and Redirect connection type|For more information regarding connection types, see [Azure SQL connection policy](sql-database-connectivity-architecture.md#connection-policy).|
    |**Resource group**|A new or existing resource group|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

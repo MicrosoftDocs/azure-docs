@@ -21,7 +21,7 @@ The Geographic traffic routing method allows you to direct traffic to specific e
 1. From a browser, sign in to the [Azure portal](https://portal.azure.com). If you don’t already have an account, you can sign up for a [free one-month trial](https://azure.microsoft.com/free/).
 2. Click **Create a resource** > **Networking** > **Traffic Manager profile** > **Create**.
 4. In the **Create Traffic Manager profile**:
-    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name <profilename>.trafficmanager.net.
+    1. Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name `<profilename>.trafficmanager.net`.
     2. Select the **Geographic** routing method.
     3. Select the subscription you want to create this profile under.
     4. Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the **Resource Group location** dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally.
