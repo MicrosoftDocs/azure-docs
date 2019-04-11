@@ -58,8 +58,8 @@ For example: A single share can achieve 100,000 IOPS and a single file can scale
 |Minimum size increase/decrease    |1 GiB      |
 |Baseline IOPS    |1 IOPS per GiB up to 100,000|
 |IOPS bursting    |3x IOPS per GiB up to 100,000|
-|Min bandwidth                     |100        |
-|Bandwidth |0.1 MB/s per GiB up to 5 GiB/s     |
+|Egress rate         |60 MiB/s + 0.06 * provisioned GiB (up to 6 GiB/s)        |
+|Ingress rate| 40 MiB/s + 0.04 * provisioned GiB (up to 4 GiB)|
 |Maximum number of snapshots        |200       |
 
 #### Premium file limits
