@@ -24,7 +24,7 @@ The model you'll use in this quickstart is a simple regression model that predic
 > [!TIP]
 > Many datasets, small and large, are included with the R runtime. To get a list of datasets installed with R, type `library(help="datasets")` from an R command prompt.
 
-[!INCLUDE[ml-preview-note](../../includes/ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 

@@ -19,7 +19,7 @@ ms.date: 04/11/2019
 
 In this quickstart you'll create and run a simple R script using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
 
-[!INCLUDE[ml-preview-note](../../includes/ml-preview-note.md)]
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ In this quickstart you'll create and run a simple R script using the public prev
 
 - You can connect to the SQL Database and run the R scripts using any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. In this quickstart you'll use [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
-- For the [add a package](#add-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
+- For the [add a package](#add-a-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
 
 - This quickstart requires that you configure a server-level firewall rule. For information on how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
@@ -204,7 +204,7 @@ If you would like to see which version of R is installed in your SQL database, d
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below. To add additional packages, see the [add a package](#add-package) section.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below. To add additional packages, see the [add a package](#add-a-package) section.
 
 1. Run the script below on your SQL database.
 
