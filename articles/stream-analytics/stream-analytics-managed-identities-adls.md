@@ -119,8 +119,12 @@ This article shows you three ways to enable managed identity for an Azure Stream
                  "dateFormat": "YYYY/MM/DD",
                  "timeFormat": "HH",
                  "authenticationMode": "Msi"
-               }
+             }
            }
+         }
+       }
+     }
+   }
    ```
   
    **Sample job response**
