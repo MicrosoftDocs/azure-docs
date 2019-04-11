@@ -52,6 +52,10 @@
       href: ./ansible-create-configure-mysql.md
     - name: Create and configure Azure Cosmos DB
       href: ./ansible-cosmos-db-create-configure.md
+  - name: DevTest Labs
+    items:
+    - name: Create a lab in Azure DevTest Labs
+      href: ./ansible-devtest-labs-create-configure.md
   - name: Dynamic inventory
     items:
     - name: Manage dynamic inventories

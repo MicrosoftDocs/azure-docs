@@ -1,15 +1,16 @@
 ---
-title: Create and configure an Azure DevTest Labs instance by using Ansible
+title: Tutorial - Create a lab in Azure DevTest Labs using Ansible
 description: Learn how to use Ansible to create and configure an Azure DevTest Labs instance
-ms.service: azure
-keywords: ansible, azure, devops, bash, playbook, devtest lab
-author: tomarchermsft
+ms.service: ansible
+keywords: ansible, azure, devops, bash, playbook, devtest labs
+author: TomArcherMsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
+ms.date: 04/04/2019
 ---
 
-# Create and configure an Azure DevTest Labs instance by using Ansible
+# Tutorial: Create a lab in Azure DevTest Labs using Ansible
 
 [Azure DevTest Labs](https://docs.microsoft.com/en-us/azure/lab-services/devtest-lab-overview) is a service that allows developers to efficiently self-service virtual machines and/or PaaS resources that they need for developing, testing, and training etc. without waiting for constant approvals on the tools that they need.
 
@@ -35,7 +36,7 @@ The first task in the [sample playbook](https://github.com/Azure-Samples/ansible
       location: "{{ location }}"
 ```
 
-## Create an instance of DevTest Labs
+## Create a lab
 
 The next task creates an instance of DevTest Labs.
 
@@ -50,7 +51,7 @@ The next task creates an instance of DevTest Labs.
   register: output_lab
 ```
 
-## Set up DevTest Labs policies
+## Set the lab policies
 
 You can set up DevTest Labs policy settings. The following values can be set:
 
@@ -74,7 +75,7 @@ You can set up DevTest Labs policy settings. The following values can be set:
     threshold: 5
 ```
 
-## Set up DevTest Labs Schedules
+## Set the lab schedules
 
 You can configure DevTest Labs policy settings. The following values can be set:
 
@@ -94,7 +95,7 @@ You must specify time and time zone id.
   register: output
 ```
 
-## Set up virtual network
+## Set up a virtual network
 
 This task creates the default DevTest Labs virtual network.
 
@@ -109,7 +110,7 @@ This task creates the default DevTest Labs virtual network.
   register: output
 ```
 
-## Create DevTest Labs artifact source
+## Define a artifact source for the lab
 
 DevTest Lab artifacts source is a properly structured GitHub repository that contains artifact definition and ARM templates. Note that every lab comes with predefined public artifacts. The follow tasks shows you how to create the DevTest Labs artifact source.
 
@@ -125,7 +126,7 @@ DevTest Lab artifacts source is a properly structured GitHub repository that con
     security_token: "{{ github_token }}"
 ```
 
-## Create DevTest Labs virtual machine
+## Create virtual machine within the lab
 
 Next, create the DevTest Labs virtual machine.
 
@@ -157,7 +158,7 @@ Next, create the DevTest Labs virtual machine.
     expiration_date: "2029-02-22T01:49:12.117974Z"
 ```
 
-## List all artifact sources and artifacts
+## List the lab's artifact sources and artifacts
 
 To list all default and custom artifacts sources in the lab, use the following task:
 
@@ -184,7 +185,7 @@ The following task lists all the artifacts:
     var: output
 ```
 
-## Get information on ARM Templates in artifact source
+## Get Azure Resource Manager information for the artifact sources
 
 To list all the ARM templates in **public environment repository**, the predefined repository with templates:
 
