@@ -13759,6 +13759,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-database/sql-database-connect-query-r.md",
+      "redirect_url": "/azure/sql-database/sql-database-quickstart-r-create-script",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-elastic-pool-create-portal.md",
       "redirect_url": "/azure/sql-database/sql-database-elastic-pool-manage-portal",
       "redirect_document_id": false
