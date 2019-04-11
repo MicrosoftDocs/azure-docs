@@ -48,9 +48,8 @@ By default, all users, including guests, can invite guest users.
    - **Admins and users in the guest inviter role can invite**: To allow admins and users in the "Guest Inviter" role to invite guests, set this policy to **Yes**.
    - **Members can invite**: To allow non-admin members of your directory to invite guests, set this policy to **Yes**.
    - **Guests can invite**: To allow guests to invite other guests, set this policy to **Yes**.
- 
-> [!NOTE]
-> You can also use **Collaboration restrictions** to allow or block invitations to specific domains. For details, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
+   - **Enable Email One-Time Passcode for guests (Preview)**: For more information about the one-time passcode feature, see [Email one-time passcode authentication (preview)](one-time-passcode.md).
+   - **Collaboration restrictions**: For more information about allowing or blocking invitations to specific domains, see [Allow or block invitations to B2B users from specific organizations](allow-deny-list.md).
 
 ## Assign the Guest Inviter role to a user
 
