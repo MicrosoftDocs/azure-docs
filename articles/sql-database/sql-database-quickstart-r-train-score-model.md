@@ -17,7 +17,7 @@ ms.date: 04/11/2019
 
 # Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)
 
-In this quickstart, you'll train a predictive model using R, save the model to a table in your SQL database, then use the model to predict values from new data using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). 
+In this quickstart, you'll create and train a predictive model using R, save the model to a table in your SQL database, then use the model to predict values from new data using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). 
 
 The model you'll use in this quickstart is a simple regression model that predicts the stopping distance of a car based on speed. You'll use the `cars` dataset included with R, because it's small and easy to understand.
 
@@ -48,6 +48,10 @@ The requirements of a linear model are simple:
 > If you need a refresher on linear models, try this tutorial which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
 In the following steps you'll set up the training data, create a regression model, train it using the training data, then save the model to a SQL table.
+
+1. Open **SQL Server Management Studio** and connect to your SQL database.
+
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
 1. Create the `CarSpeed` table to save the training data.
 

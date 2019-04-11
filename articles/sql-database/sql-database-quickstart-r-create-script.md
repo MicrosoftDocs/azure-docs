@@ -1,7 +1,7 @@
 ---
-title: Create and run a simple R script
+title: Create and run simple R scripts
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Run a simple R script in Azure SQL Database using Machine Learning Services (preview).
+description: Run simple R scripts in Azure SQL Database using Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -10,14 +10,14 @@ ms.devlang: r
 ms.topic: quickstart
 author: dphansen
 ms.author: davidph
-ms.reviewer:
+ms.reviewer: garye
 manager: cgronlun
 ms.date: 04/11/2019
 ---
 
-# Create and run a simple R script in Azure SQL Database Machine Learning Services (preview)
+# Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
 
-In this quickstart you'll create and run a simple R script using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
+In this quickstart you'll create and run a set of simple R scripts using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -27,47 +27,23 @@ In this quickstart you'll create and run a simple R script using the public prev
 
 - To run the example code in these exercises, you must first have an Azure SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database. Follow the steps in [Sign up for the preview](sql-database-machine-learning-services-overview.md#signup).
 
-- You can connect to the SQL Database and run the R scripts using any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. In this quickstart you'll use [SQL Server Management Studio](sql-database-connect-query-ssms.md).
+- Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run R scripts using other database management or query tools, but in this quickstart you'll use SSMS.
 
-- For the [add a package](#add-a-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
+- For the [add a package](#add-a-package) exercise, you will need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This quickstart assumes you're using Windows.
 
 - This quickstart requires that you configure a server-level firewall rule. For information on how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
-
-## Verify R exists
-
-You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
-
-1. Open SQL Server Management Studio and connect to your SQL database. For more information on how to connect, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
-
-1. Run the following code:
-
-    ```sql
-    EXECUTE sp_execute_external_script
-    @language =N'R',
-    @script=N'print(31 + 11)';
-    GO
-    ```
-
-    If all is well, you should see a result message like this one.
-
-    ```text
-    STDOUT message(s) from external script:
-    42
-    ```
-
-1. If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See [Prerequisites](#prerequisites) above.
-
-   > [!NOTE]
-   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command: `GRANT EXECUTE ANY EXTERNAL SCRIPT TO ` *username*.
 
 ## Run a simple script
 
 To run an R script, you'll pass it as an argument to the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-> [!TIP]
-> You can also use a [remote R client](https://docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute the code using the SQL Database as the compute context.
+1. Open **SQL Server Management Studio** and connect to your SQL database.
 
-1. Run the following code. It passes a complete R script to [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) through the `@script` argument. Everything inside the `@script` argument must be valid R code.
+   If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
+
+1. Pass a complete R script to [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
+
+   The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -81,7 +57,14 @@ To run an R script, you'll pass it as an argument to the system stored procedure
     '
     ```
 
-2. Assuming that you have everything set up correctly, the correct result is calculated and the R `print` function returns the result to the **Messages** window. It should look something like this.
+   If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See [Prerequisites](#prerequisites) above.
+
+   > [!NOTE]
+   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command: `GRANT EXECUTE ANY EXTERNAL SCRIPT TO ` *username*.
+
+2. The correct result is calculated and the R `print` function returns the result to the **Messages** window.
+
+   It should look something like this.
 
     **Results**
 
@@ -95,9 +78,9 @@ To run an R script, you'll pass it as an argument to the system stored procedure
 By default, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepts a single dataset as input, which typically you supply in the form of a valid SQL query. It then returns a single R data frame as output.
 But other types of input can be passed as SQL variables, and you can output scalars and models as variables.
 
-For now, let's look at just the default input and output variables of [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): `InputDataSet` and `OutputDataSet`.
+For now, let's use the default input and output variables of [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): `InputDataSet` and `OutputDataSet`.
 
-1. Create a small table of test data by running the following T-SQL statement:
+1. Create a small table of test data.
 
     ```sql
     CREATE TABLE RTestData (col1 INT NOT NULL)
@@ -107,7 +90,7 @@ For now, let's look at just the default input and output variables of [sp_execut
     GO
     ```
 
-    When the table has been created, use the following statement to query the table:
+1. Use the `SELECT` statement to query the table.
   
     ```sql
     SELECT * FROM RTestData
@@ -117,7 +100,7 @@ For now, let's look at just the default input and output variables of [sp_execut
 
     ![Contents of the RTestData table](./media/sql-database-connect-query-r/select-rtestdata.png)
 
-2. Run the following statement. It retrieves the data from the table using the `SELECT` statement, passes it through the R runtime, and returns the data as a data frame. The `WITH RESULT SETS` clause defines the schema of the returned data table for SQL Database, adding the column name *NewColName*.
+1. Run the following R script. It retrieves the data from the table using the `SELECT` statement, passes it through the R runtime, and returns the data as a data frame. The `WITH RESULT SETS` clause defines the schema of the returned data table for SQL Database, adding the column name *NewColName*.
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -131,7 +114,7 @@ For now, let's look at just the default input and output variables of [sp_execut
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-3. Run the following script to change the names of the input and output variables. The default input and output variable names are `InputDataSet` and `OutputDataSet`. This script changes the names to `SQL_in` and `SQL_out`:
+1. Change the names of the input and output variables. The default input and output variable names are `InputDataSet` and `OutputDataSet`, this script changes the names to `SQL_in` and `SQL_out`:
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -143,8 +126,11 @@ For now, let's look at just the default input and output variables of [sp_execut
       WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-   <!-- This doesn't make sense to me -->
-    Note that R is case-sensitive, so the case of the input and output variables in `@input_data_1_name` and `@output_data_1_name` have to match the ones in the R code in `@script`. Also, the order of the parameters is important - you must specify the required parameters `@input_data_1` and `@output_data_1` first, in order to use the optional parameters `@input_data_1_name` and `@output_data_1_name`.
+    Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined in `@input_data_1_name` and `@output_data_1_name`, including case. 
+
+    <!--    
+    Also, the order of the parameters is important - you must specify the required parameters `@input_data_1` and `@output_data_1` first, in order to use the optional parameters `@input_data_1_name` and `@output_data_1_name`.
+    -->
 
    > [!TIP]
    > Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results.
@@ -168,9 +154,7 @@ For now, let's look at just the default input and output variables of [sp_execut
 
 ## Check R version
 
-If you would like to see which version of R is installed in your SQL database, do the following:
-
-1. Run the script below on your SQL database.
+If you would like to see which version of R is installed in your SQL database, run the following script.
 
     ```SQL
     EXECUTE sp_execute_external_script
@@ -179,7 +163,7 @@ If you would like to see which version of R is installed in your SQL database, d
     GO
     ```
 
-2. The R `print` function returns the version to the **Messages** window. In the example output below, you can see that SQL Database in this case have R version 3.4.4 installed.
+The R `print` function returns the version to the **Messages** window. In the example output below, you can see that SQL Database in this case has R version 3.4.4 installed.
 
     **Results**
 
@@ -204,9 +188,9 @@ If you would like to see which version of R is installed in your SQL database, d
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below. To add additional packages, see the [add a package](#add-a-package) section.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database.
 
-1. Run the script below on your SQL database.
+To see a list of which R packages are installed, including version, dependencies, license, and library path information, run the following script.
 
     ```SQL
     EXECUTE sp_execute_external_script @language = N'R'
@@ -216,7 +200,7 @@ Microsoft provides a number of R packages pre-installed with Machine Learning Se
         , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
     ```
 
-2. The output is from `installed.packages()` in R and returned as a result set.
+The output is from `installed.packages()` in R and is returned as a result set.
 
     **Results**
 
@@ -224,27 +208,27 @@ Microsoft provides a number of R packages pre-installed with Machine Learning Se
 
 ## Add a package
 
-If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). Follow the steps below to install the package.
+If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). 
+
+Follow the steps below to install the packages **RODBCext** and **sqlmlutils** (**RODBCext** is a prerequisite for **sqlmlutils**).
 
 1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
 
-1. If you don't have R installed, download R from [www.r-project.org](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
-
-1. First, install the **RODBCext** package, which is a prerequisite for **sqlmlutils**. **RODBCext** also installs the dependency the **RODBC** package. Open a **Command Prompt** and run the following command:
+1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
 
     ```
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    If you get the following  error, "'R' is not recognized as an internal or external command, operable program or batch file", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) before running the command.
+    If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file ", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
 
-1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
+1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the folder where you downloaded the zip file and the name of the zip file. For example:
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
     ```
 
-    The output you get should be similar to the following:
+    The output you see should be similar to the following:
 
     ```text
     In R CMD INSTALL
@@ -252,9 +236,7 @@ If you need to use a package that is not already installed in your SQL database,
     package 'sqlmlutils' successfully unpacked and MD5 sums checked
     ```
 
-1. In this example you will use RStudio Desktop as the IDE. You can use another IDE if you prefer. Download and install RStudio Desktop from [www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/), if you don't already have RStudio installed.
-
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils. In the example below, you will install the [glue](https://cran.r-project.org/web/packages/glue/) package, which can format and interpolate a string.
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using `sqlmlutils`. In the example below, you install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string.
 
     ```R
     library(sqlmlutils) 
@@ -263,10 +245,10 @@ If you need to use a package that is not already installed in your SQL database,
     sql_install.packages(connectionString = connection, pkgs = "glue", verbose = TRUE, scope = "PUBLIC")
     ```
 
-    > [!NOTE]
-    > The **scope** can either be **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package only available to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
+    > [!TIP]
+    > The **scope** can be either **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package  available only to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
 
-1. Now, verify that the **glue** package has been installed.
+1. Verify that the **glue** package has been installed.
 
     ```R
     r<-sql_installed.packages(connectionString = connection, fields=c("Package", "LibPath", "Attributes", "Scope"))
@@ -278,7 +260,11 @@ If you need to use a package that is not already installed in your SQL database,
     ![Contents of the RTestData table](./media/sql-database-connect-query-r/r-verify-package-install.png)
 
 
-1. Once the package is installed, you can use it in your R script through **sp_execute_external_script**. Open **SQL Server Management Studio** and connect to your SQL database. Run the following script:
+Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
+
+1. Open **SQL Server Management Studio** and connect to your SQL database.
+
+1. Run the following script:
 
     ```sql
     EXEC sp_execute_external_script @language = N'R'
@@ -313,12 +299,12 @@ If you need to use a package that is not already installed in your SQL database,
     sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
     ```
 
-> [!NOTE]
-> Another way to install R packages to your SQL database is to uploads the R package to from the  byte stream with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
+> [!TIP]
+> Another way to install an R package to your SQL database is to upload the R package with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
 ## Next steps
 
-To score new data based on this model, follow this quickstart:
+To create a machine learning model using R in SQL Database, follow this quickstart:
 
 > [!div class="nextstepaction"]
 > [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
