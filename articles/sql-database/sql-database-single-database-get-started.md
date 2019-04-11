@@ -4,14 +4,14 @@ description: Create and query a single database in Azure SQL Database using the 
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: 
-ms.devlang: 
+ms.custom:
+ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 04/11/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal
 
@@ -77,9 +77,8 @@ To create a single database containing the AdventureWorksLT sample data:
 1. Leave the rest of the values as default and select **Review + Create** at the bottom of the form. 
 1. Review the final settings and select **Create**. 
 
-    Deployment takes a few minutes. You can select **Notifications** on the toolbar to monitor deployment progress.
+8. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
-    ![Notification](./media/sql-database-get-started-portal/notification.png)
 
 ## Query the database
 
