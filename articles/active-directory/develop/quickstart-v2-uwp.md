@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
@@ -105,7 +105,7 @@ This section provides more information about the quickstart.
 MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) is the library used to sign in users and request security tokens. The security tokens are used to access an API protected by Microsoft Identity platform for developers. You can install MSAL by running the following command in Visual Studio's *Package Manager Console*:
 
 ```powershell
-Install-Package Microsoft.Identity.Client -Pre
+Install-Package Microsoft.Identity.Client -IncludePrerelease
 ```
 
 ### MSAL initialization
@@ -142,14 +142,13 @@ Some situations require forcing users interact with the Microsoft identity platf
 - When two factor authentication is required
 
 ```csharp
-authResult = await App.PublicClientApp.AcquireToken(scopes, this)
-                       .ExecuteAsync();
+authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
+                      .ExecuteAsync();
 ```
 
 > |Where:||
 > |---------|---------|
 > | `scopes` | Contains the scopes being requested, such as `{ "user.read" }` for Microsoft Graph or `{ "api://<Application ID>/access_as_user" }` for custom Web APIs. |
-> | `this`| Stands for the WPF window which will be used to center the sign-in dialog
 
 #### Get a user token silently
 
