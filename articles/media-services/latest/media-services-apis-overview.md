@@ -23,11 +23,15 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 ## Accessing the Azure Media Services API
 
-To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media REST service requires that the user or application that makes the REST API requests have either the **Contributor** or **Owner** role to access the resources. 
+To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media Services API requires that the user or application that makes the REST API requests have access to the Azure Media Services account resource (typically either the **Contributor** or **Owner** role). For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
+
+Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure Active Directory (Azure AD) authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Azure AD service principal 
 
 You need to create an Azure AD application and service principal in its own tenant. After you create the application, give the app **Contributor** or **Owner** role access to the Media Services account. 
+
+If you are not sure whether you have permissions to create an Azure AD application, see [Required permissions](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 
@@ -47,11 +51,9 @@ see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.m
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
 5. The middle tier gets back the data from Media Services.
 
-### v3 API design principles and RBAC
+###  Managed identities for Azure resources
 
-One of the key design principles of the Media Servics v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
-
-For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
+You can use the managed identities for Azure resources option instead of a service principal to access your Media Services account via Azure resources from your Azure VMs. For more information, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Naming conventions
 
