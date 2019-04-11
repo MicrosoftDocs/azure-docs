@@ -23,7 +23,7 @@ This article shows how to use Azure Data Factory to copy data from SAP Business 
 
 ## Prerequisites
 
-- **Azure Data Factory (ADF)**: If you don't have one, follow the steps to [create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
+- **Azure Data Factory**: If you don't have one, follow the steps to [create a data factory](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
 - **SAP BW Open Hub Destination (OHD) with destination type "Database Table"**: To create an OHD or to check that your OHD is configured correctly for Data Factory integration, see the [SAP BW Open Hub Destination configurations](#sap-bw-open-hub-destination-configurations) section of this article.
 
@@ -48,7 +48,7 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
 2. On the **Properties** page, specify a **Task name**, and then select **Next**.
 
-3. On the **Source data store** page, select **+Create new connection**. Select **SAP BW Open Hub** from the connector gallery, and then select **Continue**. To filter the connectors, you can type "SAP" in the search box.
+3. On the **Source data store** page, select **+Create new connection**. Select **SAP BW Open Hub** from the connector gallery, and then select **Continue**. To filter the connectors, you can type **SAP** in the search box.
 
 4. On the **Specify SAP BW Open Hub connection** page, follow these steps to create a new connection.
 
@@ -56,11 +56,11 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 
    1. From the **Connect via integration runtime** list, select an existing self-hosted IR. Or, choose to create one if you don't have one yet.
 
-      To create a new self-hosted IR, select **+New**, and then select **Self-hosted**. Enter a **Name**, and then select click **Next**. Select **Express setup** to install on the current computer, or follow the **Manual setup** steps that are provided.
+      To create a new self-hosted IR, select **+New**, and then select **Self-hosted**. Enter a **Name**, and then select **Next**. Select **Express setup** to install on the current computer, or follow the **Manual setup** steps that are provided.
 
       As mentioned in [Prerequisites](#prerequisites), make sure that you have SAP Connector for Microsoft .NET 3.0  installed on the same computer where the self-hosted IR is running.
 
-   2. Fill in the SAP BW **Server name**, **System number**, **Client ID,** **Language** (if other than "EN"), **User name**, and **Password**.
+   2. Fill in the SAP BW **Server name**, **System number**, **Client ID,** **Language** (if other than **EN**), **User name**, and **Password**.
 
    3. Select **Test connection** to validate the settings, and then select **Finish**.
 
@@ -85,7 +85,7 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
    1. Select your Data Lake Storage Gen2-capable account from the **Name** drop-down list.
    2. Select **Finish** to create the connection. Then select **Next**.
 
-9. On the **Choose the output file or folder** page, enter "copyfromopenhub" as the output folder name. Then select **Next**.
+9. On the **Choose the output file or folder** page, enter **copyfromopenhub** as the output folder name. Then select **Next**.
 
    ![Choose output folder page](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -124,7 +124,6 @@ In the Azure portal, go to your data factory. Select **Author & Monitor** to ope
 ## Do an incremental copy from SAP BW Open Hub
 
 > [!TIP]
->
 > See [SAP BW Open Hub connector delta extraction flow](connector-sap-business-warehouse-open-hub.md#delta-extraction-flow) to learn how the SAP BW Open Hub connector in Data Factory copies incremental data from SAP BW. This article can also help you understand basic connector configuration.
 
 Now, let's continue to configure incremental copy from SAP BW Open Hub.
@@ -133,15 +132,15 @@ Incremental copy uses a "high-watermark" mechanism that's based on the **request
 
 ![Incremental copy workflow flow chart](media/load-sap-bw-data/incremental-copy-workflow.png)
 
-On the Data factory **Let's get started** page, select **Create pipeline from template** to use the built-in template.
+On the data factory **Let's get started** page, select **Create pipeline from template** to use the built-in template.
 
-1. Search for "SAP BW" to find and select the **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** template. This template copies data into ADLS Gen2. You can use a similar workflow to copy to other sink types.
+1. Search for **SAP BW** to find and select the **Incremental copy from SAP BW to Azure Data Lake Storage Gen2** template. This template copies data into Azure Data Lake Storage Gen2. You can use a similar workflow to copy to other sink types.
 
 2. On the template's main page, select or create the following three connections, and then select **Use this template** in the lower-right corner of the window.
 
-   - **Azure Blob**: In this walkthrough, we use Azure Blob Storage to store the high watermark, which is the *max copied request ID*.
+   - **Azure Blob storage**: In this walkthrough, we use Azure Blob storage to store the high watermark, which is the *max copied request ID*.
    - **SAP BW Open Hub**: This is the source to copy data from. Refer to the previous full-copy walkthrough for detailed configuration.
-   - **ADLS Gen2**: This is the sink to copy data to. Refer to the previous full-copy walkthrough for detailed configuration.
+   - **Azure Data Lake Storage Gen2**: This is the sink to copy data to. Refer to the previous full-copy walkthrough for detailed configuration.
 
    ![Incremental copy from SAP BW template](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
@@ -153,7 +152,7 @@ On the Data factory **Let's get started** page, select **Create pipeline from te
 
    - **SAPOpenHubDestinationName**: Specify the Open Hub table name to copy data from.
 
-   - **ADLSGen2SinkPath**: Specify the destination ADLS Gen2 path to copy data to. If the path doesn't exist, the Data Factory copy activity creates a path during execution.
+   - **ADLSGen2SinkPath**: Specify the destination Azure Data Lake Storage Gen2 path to copy data to. If the path doesn't exist, the Data Factory copy activity creates a path during execution.
 
    - **HighWatermarkBlobPath**: Specify the path to store the high-watermark value, such as `container/path`.
 
@@ -186,7 +185,7 @@ On the Data factory **Let's get started** page, select **Create pipeline from te
 
       4. Select **Save**. Then, copy the value of **HTTP POST URL** to use in the Data Factory pipeline.
 
-4. After you provide the Data Factory pipeline parameters, select **Debug** -> **Finish** to invoke a run to validate the configuration. Or, select **Publish All** to publish the changes, and then select **Trigger** to execute a run.
+4. After you provide the Data Factory pipeline parameters, select **Debug** > **Finish** to invoke a run to validate the configuration. Or, select **Publish All** to publish the changes, and then select **Trigger** to execute a run.
 
 ## SAP BW Open Hub Destination configurations
 
@@ -198,10 +197,10 @@ If you need both historical copy and incremental copy or only incremental copy, 
 
 1. Create the Open Hub Destination. You can create the OHD in SAP Transaction RSA1, which automatically creates the required transformation and data-transfer process. Use the following settings:
 
-   - **ObjectType**: You can use any object type. Here, we use InfoCube as an example.
-   - **Destination Type**: Database Table.
-   - **Key of the Table**: Technical Key.
-   - **Extraction**: Keep Data and Insert Records into Table.
+   - **ObjectType**: You can use any object type. Here, we use **InfoCube** as an example.
+   - **Destination Type**: Select **Database Table**.
+   - **Key of the Table**: Select **Technical Key**.
+   - **Extraction**: Select **Keep Data and Insert Records into Table**.
 
    ![Create SAP BW OHD delta extraction dialog box](media/load-sap-bw-data/create-sap-bw-ohd-delta.png)
 
@@ -227,9 +226,9 @@ You can't have more than one DTP for the same OHD. So, you must create an additi
 
 For a full load OHD, choose different options than for delta extraction:
 
-- In OHD: Set the **Extraction** option to *Delete Data and Insert Records*. Otherwise, data will be extracted many times when you repeat the DTP in a BW process chain.
+- In OHD: Set the **Extraction** option to **Delete Data and Insert Records**. Otherwise, data will be extracted many times when you repeat the DTP in a BW process chain.
 
-- In the DTP: Set **Extraction Mode** to *Full*. You must change the automatically created DTP from *Delta* to *Full* immediately after the OHD is created, as this image shows:
+- In the DTP: Set **Extraction Mode** to **Full**. You must change the automatically created DTP from **Delta** to **Full** immediately after the OHD is created, as this image shows:
 
    ![Create SAP BW OHD dialog box configured for "Full" extraction](media/load-sap-bw-data/create-sap-bw-ohd-full2.png)
 
@@ -255,11 +254,11 @@ An SAP Open Hub Destination isn't a data-mart-controlled data target (in all SAP
 
 1. Run a full extraction in Data Factory (by using a full DTP in SAP).
 2. Delete all rows in the Open Hub table for the delta DTP.
-3. Set the status of the delta DTP to *Fetched*.
+3. Set the status of the delta DTP to **Fetched**.
 
 After this, all subsequent delta DTPs and Data Factory delta extractions work as expected.
 
-To set the status of the delta DTP to *Fetched*, you can use the following option to run the delta DTP manually:
+To set the status of the delta DTP to **Fetched**, you can use the following option to run the delta DTP manually:
 
     *No Data Transfer; Delta Status in Source: Fetched*
 
