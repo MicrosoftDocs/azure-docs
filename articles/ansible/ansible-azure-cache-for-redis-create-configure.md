@@ -227,7 +227,7 @@ There are two ways to get the complete sample playbook:
 
 ## Run the sample playbook
 
-In this section, run the playbook to test various features explained throughout this article.
+In this section, run the playbook to test various features shown in this article.
 
 In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
 

@@ -50,6 +50,8 @@
     items:
     - name: Create and configure Azure DB for MySQL
       href: ./ansible-create-configure-mysql.md
+    - name: Create and configure Azure Cosmos DB
+      href: ./ansible-cosmos-db-create-configure.md
   - name: Dynamic inventory
     items:
     - name: Manage dynamic inventories
