@@ -30,25 +30,29 @@ ms.collection: M365-identity-device-management
 
 With Azure AD entitlement management, you can configure policies to require approval for access packages, and choose one or more approvers. This article describes how designated approvers can approve or deny requests for access packages.
 
-## Prerequisites
+## Request and assignment process
 
-- Approver of an access request
-
-## Approval process
-
-A user that needs access to an access package must submit a request. Depending on the configuration of the policy, the access package might require an approval process. When a user submits an access request, their request is in the **submitted** state. This triggers the approval process, and moves the request to the **pending approval** state.
-
-The access package approvers are notified of the user's access request. There may be a single approver, multiple approvers, or a group of approvers defined in the policy. Only one approver needs to review the access request, and submit the approve or deny decision.
-
-If the access request is approved, the request is in the **approved** state. Entitlement management starts the process of provisioning the user's access to each resource in the access package. This moves the request to the **provisioning** state. When the user is provisioned access to all the resources in the access packages, they are notified of their access to the access package.
-
-If the access request is denied, the user gets notified of the deny decision. This changes the request to a **denied** state.
+A user that needs access to an access package must submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process.
 
 ![Approval process diagram](./media/entitlement-management-request-approve/approval-process.png)
+
+| State | Description |
+| --- | --- |
+| Submitted | User submits a request. |
+| Pending approval | If the policy for an access package requires approval, a request moves to pending approval. |
+| Expired | If no approvers review a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
+| Denied | Approver denies a request. |
+| Approved | Approver approves a request. |
+| Partially fulfilled | User has **not** been assigned access to all the resources in the access package. If the this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
+| Fulfilled | User has been assigned access to all the resources in the access package. |
+| Access extended | If extensions are allowed in the policy, the extended the assignment. |
+| Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
 
 ## Open the access request
 
 The first step to approve or deny access requests is to find and open the access request pending approval. There are two ways to open the access request.
+
+**Prerequisite role:** Approver
 
 1. Look for an email from Microsoft that asks you to review an access request. Here is an example email.
 
@@ -64,6 +68,8 @@ If you don't have the email, you can find the access requests pending your appro
 
 After you open an access request pending approval, you can see details that will help you make an approve or deny decision.
 
+**Prerequisite role:** Approver
+
 1. In the **Details** column, click **View** to open the Access request pane.
 
 1. Click **Details** to see details about the access request.
@@ -78,8 +84,9 @@ After you open an access request pending approval, you can see details that will
 
     If a policy is configured with multiple approvers, only one approver needs to make a decision about the pending approval. After an approver has submitted their decision to the access request, the request is completed and is no longer available for the other approvers to approve or deny the request. The other approvers can see the request decision and the decision maker in their My Access portal. At this time, only single-stage approval is supported.
 
-    If none of the configured approvers are able to approve or deny the access request, the request expires (times out) after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
+    If none of the configured approvers are able to approve or deny the access request, the request expires after the configured request duration. The user gets notified that their access request has expired and that they need to resubmit the access request.
 
 ## Next steps
 
 - [Email notifications](entitlement-management-notifications.md)
+- [Request access to an access package](entitlement-management-request-access.md)
