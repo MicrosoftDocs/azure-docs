@@ -13,11 +13,11 @@ ms.subservice: blobs
 
 # Reacting to Blob storage events
 
-Your applications can react to events, such as the creation of a blob, and it can do this without the need for complicated code or expensive and inefficient polling services.  This article explains the event model, which events you can subscribe to, and where to find hands-on tutorials and detailed descriptions of event data.
+Your applications can react to events, such as the creation of a blob. They can do this without the need for complicated code or expensive and inefficient polling services.  This article describes the event model, events that can be raised in response to blob-related activities, and the data about those events that subscribing applications can parse and use.
 
-## What you can do with blob storage events
+You can subscribe to events by using the Azure Portal, the Azure CLI, or by using Powershell. When you subscribe, you specify the end point that receives the event data. That endpoint could be an [Azure Function](https://azure.microsoft.com/services/functions/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), or even a custom http listener.
 
-You can subscribe to events that are raised when certain actions occur in your blob storage account. For example, when a user or application uploads a blob to the storage account, that raises an event and you can subscribe to. When you subscribe, you specify the end point receives the event data. That endpoint could be an [Azure Function](https://azure.microsoft.com/services/functions/), [Azure Logic App](https://azure.microsoft.com/services/logic-apps/), or even a custom http listener. You can use events for all sorts of file-oriented workflows such as asynchronous file uploads, video processing, or search indexing.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
+You can use events for all sorts of file-oriented workflows such as asynchronous file uploads, video processing, or search indexing.  When changes are infrequent, but your scenario requires immediate responsiveness, event-based architecture can be especially efficient.
 
 If you want to try this out now, see any of these quickstart articles:
 
