@@ -58,11 +58,11 @@ To configure the integration of Infinite Campus into Azure AD, you need to add I
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Infinite Campus**, select **Infinite Campus** from result panel then click **Add** button to add the application.
+4. In the search box, type **Infinite Campus**, select **Infinite Campus** from the result panel then click the **Add** button to add the application.
 
 	![Infinite Campus in the results list](common/search-new-app.png)
 
