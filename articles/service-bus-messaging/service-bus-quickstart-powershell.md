@@ -32,7 +32,7 @@ To complete this tutorial, make sure you have installed:
 
 This quickstart requires that you are running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and Configure Azure PowerShell][]. If you are familiar with Azure Cloud Shell, you could use it without installing Azure PowerShell on your machine. For details about Azure Cloud Shell, see [Overview of Azure Cloud Shell](../cloud-shell/overview.md)
 
-## Log in to Azure
+## Sign in to Azure
 
 1. First, install the Service Bus PowerShell module, if you haven't already:
 
@@ -40,7 +40,7 @@ This quickstart requires that you are running the latest version of Azure PowerS
    Install-Module Az.ServiceBus
    ```
 
-2. Run the following command to log in to Azure:
+2. Run the following command to sign in to Azure:
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -125,7 +125,7 @@ This section contains more details about what the sample code does.
 
 ### Get connection string and queue
 
-The connection string and queue name are passed to the `Main()` method as command line arguments. `Main()` declares two string variables to hold these values:
+The connection string and queue name are passed to the `Main()` method as command-line arguments. `Main()` declares two string variables to hold these values:
 
 ```csharp
 static void Main(string[] args)
@@ -162,7 +162,7 @@ The `Main()` method then starts the asynchronous message loop, `MainAsync()`.
 
 ### Message loop
 
-The MainAsync() method creates a queue client with the command line arguments, calls a receiving message handler named `RegisterOnMessageHandlerAndReceiveMessages()`, and sends the set of messages:
+The MainAsync() method creates a queue client with the command-line arguments, calls a receiving message handler named `RegisterOnMessageHandlerAndReceiveMessages()`, and sends the set of messages:
 
 ```csharp
 static async Task MainAsync(string ServiceBusConnectionString, string QueueName)

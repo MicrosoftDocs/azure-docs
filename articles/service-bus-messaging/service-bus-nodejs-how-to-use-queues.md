@@ -27,7 +27,7 @@ In this tutorial, you learn how to create Node.js applications to send messages 
 1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A85619ABF).
 2. If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue.
     1. Read the quick **overview** of Service Bus **queues**. 
-    2. Create a Sevice Bus **namespace**. 
+    2. Create a Service Bus **namespace**. 
     3. Get the **connection string**. 
 
         You will create a **queue** in the Service Bus namespace by using the Node.js code in this tutorial. 
@@ -115,7 +115,7 @@ After doing its pre-processing on the request options, the method must call `nex
 function (returnObject, finalCallback, next)
 ```
 
-In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke `next` if it exists to continue processing other filters, or simply invoke `finalCallback`, which ends the service invocation.
+In this callback, and after processing the `returnObject` (the response from the request to the server), the callback must either invoke `next` if it exists to continue processing other filters, or invoke `finalCallback`, which ends the service invocation.
 
 Two filters that implement retry logic are included with the Azure SDK for Node.js, `ExponentialRetryPolicyFilter` and `LinearRetryPolicyFilter`. The following code creates a `ServiceBusService` object that uses the `ExponentialRetryPolicyFilter`:
 
@@ -176,7 +176,7 @@ serviceBusService.receiveQueueMessage('myqueue', { isPeekLock: true }, function(
 Service Bus provides functionality to help you gracefully recover from errors in your application or difficulties processing a message. If a receiver application is unable to process the message for some reason, then it can call the `unlockMessage` method on the **ServiceBusService** object. This will cause Service Bus to unlock the
 message within the queue and make it available to be received again, either by the same consuming application or by another consuming application.
 
-There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (e.g., if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
+There is also a timeout associated with a message locked within the queue, and if the application fails to process the message before the lock timeout expires (for example, if the application crashes), then Service Bus will unlock the message automatically and make it available to be received again.
 
 In the event that the application crashes after processing the message but before the `deleteMessage` method is called, then the message will be redelivered to the application when it restarts. This is often called *At Least Once Processing*, that is, each message will be processed at least once but in certain situations the same message may be redelivered. If the scenario cannot tolerate duplicate processing, then application developers should add additional logic to their application to handle duplicate message delivery. This is often achieved using the **MessageId** property of the message, which will remain constant across delivery attempts.
 
