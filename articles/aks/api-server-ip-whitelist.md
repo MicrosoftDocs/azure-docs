@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/09/2019
 ms.author: iainfou
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
@@ -92,13 +92,132 @@ az aks create \
     --name myAKSCluster \
     --node-count 1 \
     --generate-ssh-keys
+
+# Get credentials to access the cluster
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
+
+## Create outbound gateway for firewall rules
+
+To ensure that the nodes in a cluster can reliably communicate with the API server when you enable IP whitelisting in the next section, create an Azure firewall for use as the outbound gateway. The IP address of the Azure firewall is then added to the list of authorized API server IP addresses in the next section.
+
+First, get the *MC_* resource group name for the AKS cluster and the virtual network. Then, create a subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *AzureFirewallSubnet* with the CIDR range of *10.200.0.0/16*:
+
+```azurecli-interactive
+# Get the name of the MC_ cluster resource group
+MC_RESOURCE_GROUP=$(az aks show \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --query nodeResourceGroup -o tsv)
+
+# Get the name of the virtual network used by the cluster
+VNET_NAME=$(az network vnet list \
+    --resource-group $MC_RESOURCE_GROUP \
+    --query [0].name -o tsv)
+
+# Create a subnet in the virtual network for Azure Firewall
+az network vnet subnet create \
+    --resource-group $MC_RESOURCE_GROUP \
+    --vnet-name $VNET_NAME \
+    --name AzureFirewallSubnet \
+    --address-prefixes 10.200.0.0/16
+```
+
+To create an Azure Firewall, install the *azure-firewall* CLI extension using the [az extension add][az-extension-add] command. Then, create a firewall using the [az network firewall create][az-network-firewall-create] command. The following example creates an Azure firewall named *myAzureFirewall*:
+
+```azurecli-interactive
+# Install the CLI extension for Azure Firewall
+az extension add --name azure-firewall
+
+# Create an Azure firewall
+az network firewall create \
+    --resource-group $MC_RESOURCE_GROUP\
+    --name myAzureFirewall
+```
+
+An Azure firewall is assigned a public IP address that egress traffic flows through. Create a public address using the [az network public-ip create][az-network-public-ip-create] command, then create an IP configuration on the firewall using the [az network firewall ip-config create][az-network-firewall-ip-config-create] that applies the public IP:
+
+```azurecli-interactive
+# Create a public IP address for the firewall
+FIREWALL_PUBLIC_IP=$(az network public-ip create \
+    --resource-group $MC_RESOURCE_GROUP \
+    --name myAzureFirewallPublicIP5 \
+    --sku Standard \
+    --query publicIp.ipAddress -o tsv)
+
+# Associated the firewall with virtual network
+az network firewall ip-config create \
+    --resource-group $MC_RESOURCE_GROUP \
+    --name myAzureFirewallIPConfig \
+    --vnet-name $VNET_NAME \
+    --firewall-name myAzureFirewall \
+    --public-ip-address myAzureFirewallPublicIP
+```
+
+Now create the Azure firewall network rule to *allow* all *TCP* traffic using the [az network firewall network-rule create][az-network-firewall-network-rule-create] command. The following example creates a network rule named *AllowTCPOutbound* for traffic with any source or destination address:
+
+```azurecli-interactive
+az network firewall network-rule create \
+    --resource-group $MC_RESOURCE_GROUP \
+    --firewall-name myAzureFirewall \
+    --name AllowTCPOutbound \
+    --collection-name myAzureFirewallCollection \
+    --priority 200 \
+    --action Allow \
+    --protocols TCP \
+    --source-addresses '*' \
+    --destination-addresses '*' \
+    --destination-ports '*'
+```
+
+To associate the Azure firewall with the network route, obtain the existing route table information, the internal IP address of the Azure firewall, and then the IP address of the API server. Make a note of the IP address shown in the output of the `kubectl get endpoints kubernetes` command as this address must be specified in the next section when you specify how traffic should be routed for cluster communication.
+
+```azurecli-interactive
+# Get the AKS cluster route table
+ROUTE_TABLE=$(az network route-table list \
+    --resource-group $MC_RESOURCE_GROUP \
+    --query "[?contains(name,'agentpool')].name" -o tsv)
+
+# Get internal IP address of the firewall
+FIREWALL_INTERNAL_IP=$(az network firewall show \
+    --resource-group $MC_RESOURCE_GROUP \
+    --name myAzureFirewall \
+    --query ipConfigurations[0].privateIpAddress -o tsv)
+
+# Get the IP address of API server endpoint
+kubectl get endpoints kubernetes
+```
+
+The following example output shows that the endpoint address for the AKS cluster is *40.121.139.101*:
+
+```console
+$ kubectl get endpoints kubernetes
+
+NAME         ENDPOINTS            AGE
+kubernetes   40.121.139.101:443   22h
+```
+
+Finally, create a route in the existing AKS network route table that allows traffic to use the Azure firewall appliance for API server communication. In the following example, replace *your_cluster_endpoint* with the IP address returned in the previous `kubectl get endpoints kubernetes` command:
+
+```azurecli-interactive
+az network route-table route create \
+    --resource-group $MC_RESOURCE_GROUP \
+    --route-table-name $ROUTE_TABLE \
+    --name AzureFirewallAPIServer \
+    --address-prefix your_cluster_endpoint/32 \
+    --next-hop-ip-address $FIREWALL_INTERNAL_IP \
+    --next-hop-type VirtualAppliance
+
+echo "Public IP address for the Azure Firewall instance that should be added to the list of API server whitelisted addresses is: " $FIREWALL_PUBLIC_IP
+```
+
+Make a note of the public IP address of your Azure Firewall appliance. This address is added to the API server IP whitelist in the next section.
 
 ## Enable IP address whitelisting
 
 To enable the API server IP whitelisting, you provide a list of authorized IP address ranges. When you specify a CIDR range, start with the first IP address in the range. For example, *137.117.106.90/29* is a valid range, but make sure you specify the first IP address in the range, such as *137.117.106.88/29*.
 
-To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks.
+To enable the API server IP address whitelist, you use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. Add the public IP address of your own Azure firewall obtained in the previous step, such as *20.42.25.196/32*.
 
 The following example enables the API server IP address whitelist on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to add to the whitelist are *172.0.0.10/16* and *168.10.0.10/18*:
 
@@ -106,7 +225,7 @@ The following example enables the API server IP address whitelist on the cluster
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 172.0.0.10/16,168.10.0.10/18,20.42.25.196/32
 ```
 
 ## Update or disable IP address whitelisting
@@ -142,3 +261,9 @@ For more information, see [Security concepts for applications and clusters in AK
 [create-aks-sp]: kubernetes-service-principal.md#manually-create-a-service-principal
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-extension-add]: /cli/azure/extension#az-extension-add
+[az-network-vnet-subnet-create]:
+[az-extension-add]:
+[az-network-firewall-create]:
+[az-network-public-ip-create]:
+[az-network-firewall-ip-config-create]:
+[az-network-firewall-network-rule-create]:
