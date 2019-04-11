@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/11/2018
+ms.date: 04/11/2019
 ms.author: celested
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -26,45 +26,37 @@ This article helps you troubleshoot the following problems:
 
 If you are an admin, see also: [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md)
 
-## Run the Diagnostic Tool
+## Run the diagnostic tool
 You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
 
 1. [Click here to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
-2. Open the file, and press **Extract all** button.
+
+2. Open the file, and then extract the contents to your computer.
    
-    ![Press Extract All](./media/manage-access-panel-browser-extension/extract1.png)
-3. Then press the **Extract** button to continue.
-   
-    ![Press Extract](./media/manage-access-panel-browser-extension/extract2.png)
-4. To run the tool, right-click the file named **AccessPanelExtensionDiagnosticTool**, then select **Open with > Microsoft Windows Based Script Host**.
+3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, then select **Open with > Microsoft Windows Based Script Host**.
    
     ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open_tool.png)
-5. You will then see the following diagnostic window, which describes what might be wrong with your installation.
-   
-    ![A sample of the diagnostic window](./media/manage-access-panel-browser-extension/tool_preview.png)
-6. Click "**YES**" to let the program fix the issues that have been found.
-7. To save these changes, close every Internet Explorer window, and then open Internet Explorer again.<br />If you still can't access your apps, try the steps below.
+
+  The diagnostic results appear, which describes what might be wrong with your installation.
+
+4. Select **Yes** fix the issues. To save these changes, close every Internet Explorer window, and then open Internet Explorer again. If you still can't access your apps, try the steps below.
 
 ## Check that the Access Panel Extension is enabled
 To verify that the Access Panel Extension is enabled in Internet Explorer:
 
-1. In Internet Explorer, click the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
    
-    ![Go to Tools > Internet Options](./media/manage-access-panel-browser-extension/internetoptions.png)
-2. Click the **Programs** tab, then click the **Manage add-ons** button.
+2. Select the **Programs** tab, and then select **Manage add-ons**.
    
-    ![Click Manage Add-Ons](./media/manage-access-panel-browser-extension/internetoptions_programs.png)
-3. In this dialog, select **Access Panel Extension** and then click the **Enable** button.
+3. In this dialog, select **Access Panel Extension** and then select **Enable**.
    
-    ![Click Enable](./media/manage-access-panel-browser-extension/enableaddon.png)
 4. To save these changes, close every Internet Explorer window and then open Internet Explorer again.
 
-## Enable Extensions for InPrivate Browsing
-If you are using the InPrivate Browsing mode:
+## Enable extensions for InPrivate browsing
+To enable extensions for InPrivate browsing:
 
-1. In Internet Explorer, click the **Gear icon** on the top right corner of the window. Then select **Internet options**.<br />(In older versions of Internet Explorer you can find this under **Tools > Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
    
-    ![A sample of the diagnostic window](./media/manage-access-panel-browser-extension/inprivateoptions.png)
 2. Go to the **Privacy** tab, then **uncheck** the checkbox labeled **Disable toolbars and extensions when InPrivate Browsing starts**</p>
    
     ![Uncheck Disable toolbars and extensions when InPrivate Browsing starts](./media/manage-access-panel-browser-extension/enabletoolbars.png)
