@@ -179,7 +179,8 @@ This `write_config()` API call creates the configuration file in the current dir
 
 To create a workspace with a template, see [Create an Azure Machine Learning service workspace by using a template](how-to-create-workspace-template.md)
 
-## CLI
+<a name="cli"></a>
+## Command-line interface
 
 To create a workspace with the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
 
