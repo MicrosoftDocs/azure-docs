@@ -24,12 +24,12 @@ This article helps you troubleshoot the following problems:
 * You're unable to access your apps through the My Apps portal while using Internet Explorer.
 * You see the "Install Software" message even though you've already installed the software.
 
-If you are an admin, see also: [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md)
+If you're an admin, see [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md).
 
 ## Run the diagnostic tool
 You can diagnose installation problems with the Access Panel Extension by downloading and running the Access Panel diagnostic tool:
 
-1. [Click here to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
+1. [Select this link to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
 2. Open the file, and then extract the contents to your computer.
    
