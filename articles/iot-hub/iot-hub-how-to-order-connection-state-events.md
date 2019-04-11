@@ -21,7 +21,7 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) for a walkthrough.
 
-* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough. When you create your collection, use `id` for the partition key.
+* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
 * An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
 
@@ -145,7 +145,7 @@ First, create a logic app and add an Event grid trigger that monitors the resour
    You've now created an Azure resource for your logic app. After Azure deploys your logic app, the Logic Apps Designer shows you templates for common patterns so you can get started faster.
 
    > [!NOTE]
-   > To find and open your logic app again, select **Resource groups** and select the resource group you are using for this how-to. 
+   > To find and open your logic app again, select **Resource groups** and select the resource group you are using for this how-to. Then select your new logic app. This opens the Logic App Designer.
 
 4. In the Logic App Designer, scroll to the right until you see common triggers. Under **Templates**, choose **Blank Logic App** so that you can build your logic app from scratch.
 
@@ -195,7 +195,7 @@ A trigger is a specific event that starts your logic app. For this tutorial, the
 
 In your logic app workflow, conditions help run specific actions after passing that specific condition. Once the condition is met, a desired action can be defined. For this tutorial, the condition is to check whether eventType is device connected or device disconnected. The action will be to execute the stored procedure in your database.
 
-1. Select **+ New step** then **Built-in**, then find and select **Condition**. A box will pop up showing the Dynamic content -- the fields that can be selected. Fill in the fields as shown below to only execute this for Device Connected and Device Disconnected events:
+1. Select **+ New step** then **Built-in**, then find and select **Condition**. Click in **Choose a value** and a box will pop up showing the Dynamic content -- the fields that can be selected. Fill in the fields as shown below to only execute this for Device Connected and Device Disconnected events:
 
    * Choose a value: **eventType** -- select this from the fields in the dynamic content that appear when you click on this field.
    * Change "is equal to" to **ends with**.
@@ -203,7 +203,7 @@ In your logic app workflow, conditions help run specific actions after passing t
 
      ![Fill Condition](./media/iot-hub-how-to-order-connection-state-events/condition-detail.png)
 
-2. If the condition is true, click on **Add an action**.
+2. In the **if true** dialog, click on **Add an action**.
   
    ![Add action if true](./media/iot-hub-how-to-order-connection-state-events/action-if-true.png)
 
@@ -211,13 +211,13 @@ In your logic app workflow, conditions help run specific actions after passing t
 
    ![Search for CosmosDB](./media/iot-hub-how-to-order-connection-state-events/cosmosDB-search.png)
 
-4. Enter the values for the fields:
+4. Fill in **cosmosdb-connection** for the **Connection Name** and select the entry in the table, then select **Create**. You see the **Execute stored procedure** panel. Enter the values for the fields:
 
    **Database ID**: ToDoList
 
    **Collection ID**: Items
 
-   ** Sproc ID**: LatestDeviceConnectionState
+   **Sproc ID**: LatestDeviceConnectionState
 
 5. Select **Add new parameter**. In the dropdown that appears, check the boxes next to **Partition key** and **Parameters for the stored procedure**, then click anywhere else on the screen; it adds a field for partition key value and a field for parameters for the stored procedure.
 
@@ -255,13 +255,13 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
    ![Open the Event Grid details](./media/iot-hub-how-to-order-connection-state-events/event-grid.png)
 
-3. Select **Event subscription**.
+3. Select **+ Event subscription**.
 
    ![Create new event subscription](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
 4. Fill in **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**.
 
-5. Fill in the **Event Type** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
+5. Fill in the **Event Types** fields. Uncheck **Subscribe to all event types** and select **Device Connected** and **Device Disconnected** from the menu.
 
    ![Set event types to look for](./media/iot-hub-how-to-order-connection-state-events/set-event-types.png)
 
@@ -283,7 +283,7 @@ Now that your event subscription is set up, let's test by connecting a device.
 
 1. From your IoT hub, select **IoT Devices**.
 
-2. Select **+Add**.
+2. Select **+Add** at the top of the pane.
 
 3. For **Device ID**, enter `Demo-Device-1`.
 
@@ -296,6 +296,8 @@ Now that your event subscription is set up, let's test by connecting a device.
 6. Click on the device again; now the connection strings and keys will be filled in. Copy the **Connection string -- primary key** for later use.
 
    ![ConnectionString for device](./media/iot-hub-how-to-order-connection-state-events/DeviceConnString.png)
+
+HostName=test-eventgrid-hub.azure-devices.net;DeviceId=Demo-Device-1;SharedAccessKey=cv8uPNixe7E2R9EHtimoY/PlJfBV/lOYCMajVOp/Cuw=
 
 ### Start Raspberry Pi simulator
 
@@ -311,9 +313,9 @@ This will trigger a device connected event.
 
    ![Paste in device connection string](./media/iot-hub-how-to-order-connection-state-events/raspconnstring.png)
 
-2. Run the application by clicking on **Run**.
+2. Run the application by selecting **Run**.
 
-You should see the following output that shows the sensor data and the messages that are sent to your IoT hub.
+You see something similar to the following output that shows the sensor data and the messages that are sent to your IoT hub.
 
    ![Running the application](./media/iot-hub-how-to-order-connection-state-events/raspmsg.png)
 
