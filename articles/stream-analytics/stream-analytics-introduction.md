@@ -1,13 +1,11 @@
 ---
 title: Overview of Azure Stream Analytics
 description: Learn about Stream Analytics, a managed service that helps you analyze streaming data from the Internet of Things (IoT) in real-time.
-services: stream-analytics
 author: jseb225
 ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: overview
-ms.workload: data-services
 ms.custom: mvc
 ms.date: 12/07/2018
 ms.custom: seodec18
@@ -65,10 +63,10 @@ You can extend the capabilities of the query language by defining and invoking a
 
 Azure Stream Analytics is a fully managed serverless (PaaS) offering on Azure. Which means you don’t have to provision any hardware or manage clusters to run your jobs. Azure Stream Analytics fully manages your job, by taking care of setting up complex compute clusters in the cloud and the performance tuning necessary to run the job. Integration with Azure Event Hubs and Azure IoT Hub allows jobs to ingest millions of events per second coming from connected devices, clickstreams, and log files, to name a few. Using the partitioning feature of event hubs, you can partition computations into logical steps, each with the ability to be further partitioned to increase scalability.
 
-## Run in the cloud on in the intelligent Edge
+## Run in the cloud on in the intelligent edge
 
-Azure Stream Analytics can run in the cloud, for large-scale analytics, or run on the intelligent Edge for ultra-low latency analytics.
-Azure Stream Analytics uses the same query language on both cloud and intelligent Edge, enabling developers to build truly hybrid architectures for stream processing.
+Azure Stream Analytics can run in the cloud, for large-scale analytics, or run on the intelligent edge for ultra-low latency analytics.
+Azure Stream Analytics uses the same query language on both cloud and intelligent edge, enabling developers to build truly hybrid architectures for stream processing.
 
 ## Low Total Cost of Ownership
 
