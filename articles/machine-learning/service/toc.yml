@@ -102,8 +102,9 @@
     - name: Explore & transform data
       displayName: data, etl, dataset, data preparation, dataprep
       href: how-to-transform-data.md
-    - name: Write data
-      href: how-to-write-data.md
+    - name: Manage Dataset definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
