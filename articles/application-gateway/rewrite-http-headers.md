@@ -53,7 +53,7 @@ Application gateway supports the following server variables:
 | add_x_forwarded_for_proxy  | Contains the “X-Forwarded-For” client request header field with the `client_ip` (explained in this table below) variable appended to it in the format (IP1, IP2, IP3,...). If the “X-Forwarded-For” field is not present in the client request header, the `add_x_forwarded_for_proxy` variable is equal to the `$client_ip` variable. This variable is particularly useful in scenarios where customers intend to rewrite the X-Forwarded-For header set by Application Gateway, such that the header contains only the IP address without the port information. |
 | ciphers_supported          | returns the list of ciphers supported by the client          |
 | ciphers_used               | returns the string of ciphers used for an established SSL connection |
-| client_ip                  | IP address of the client from which the application gateway received the request. If there is a reverse proxy before the application gateway and the originating client, then *client_ip* will return the IP adress of the reverse proxy. |
+| client_ip                  | IP address of the client from which the application gateway received the request. If there is a reverse proxy before the application gateway and the originating client, then *client_ip* will return the IP address of the reverse proxy. |
 | client_port                | client port                                                  |
 | client_tcp_rtt             | information about the client TCP connection; available on systems that support the TCP_INFO socket option |
 | client_user                | when using HTTP authentication, the username supplied for authentication |
