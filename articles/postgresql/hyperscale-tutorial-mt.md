@@ -273,3 +273,18 @@ SELECT id
  WHERE user_data ? 'is_mobile'
    AND company_id = 5;
 ```
+
+## Next steps
+
+In this tutorial, you learned how to:
+
+> [!div class="checklist"]
+> * Use psql utility to create a database
+> * Shard tables across nodes
+> * Ingest sample data
+> * Query tenant data
+> * Share data between tenants
+> * Customize the schema per-tenant
+
+Next, learn about the concepts of hyperscale, like [nodes](TODO), including the
+[coordinator](TODO).
