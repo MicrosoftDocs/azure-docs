@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Inspect test data
+# Inspect data
 
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.

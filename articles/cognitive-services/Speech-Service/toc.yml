@@ -134,9 +134,9 @@
       items:
       - name: Get started with Custom Speech
         href: how-to-custom-speech.md
-      - name: Prepare test data
+      - name: Prepare data
         href: how-to-custom-speech-test-data.md
-      - name: Inspect test data and compare models
+      - name: Inspect and evaluate data
         href: how-to-custom-speech-inspect-data.md
       - name: Train a custom model
         href: how-to-custom-speech-train-model.md

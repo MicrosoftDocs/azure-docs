@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Prepare test data
+# Prepare data
 
 Whether you are testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text).  In this page we cover the types of data, how they are used, and how to manage them.
 
