@@ -72,7 +72,7 @@
     - name: Create an R script
       href: sql-database-quickstart-r-create-script.md
     - name: Train and score a model
-      href: sql-data-quickstart-r-train-score-model.md
+      href: sql-database-quickstart-r-train-score-model.md
 - name: Tutorials
   items:
   - name: Design a database in SQL Database
