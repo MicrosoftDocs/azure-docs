@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 
 # Tutorial: Scale a Microsoft Azure Red Hat OpenShift cluster
 
-This tutorial is part two of a series. You'll learn how to create a Microsoft Red Hat OpenShift cluster on Azure using the Azure CLI, scale it, and clean up unused Azure resources so that you are not charged for what you aren't using.
+This tutorial is part two of a series. You'll learn how to create a Microsoft Red Hat OpenShift cluster on Azure using the Azure CLI, scale it, and delete it.
 
 In part two of the series, you learn how to:
 
@@ -32,15 +32,15 @@ Before you begin this tutorial:
 
 * Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
-## Step 1: Log in to Azure
+## Step 1: Sign in to Azure
 
-If you are running the Azure CLI locally, run `az login` to sign in to Azure.
+If you're running the Azure CLI locally, run `az login` to sign in to Azure.
 
 ```bash
 az login
 ```
 
-Whether you are running the Azure CLI locally, or are using the Azure cloud shell, if you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
+If you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
 
 ## Step 2: Scale the cluster up to 5 compute nodes
 
@@ -57,6 +57,8 @@ az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute
 ```
 
 After a few minutes, `az openshift scale` will complete successfully and return a JSON document containing the scaled cluster details.
+
+## Next steps
 
 In this part of the tutorial, you learned how to:
 

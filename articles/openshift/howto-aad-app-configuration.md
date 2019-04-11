@@ -32,21 +32,19 @@ If the wrong tenant is displayed, click on your user name in the top right, then
 3. The **App registrations** blade appears. Click **+New application registration**.
 4. In the **Create** pane, enter a friendly name for your application object.
 5. Ensure that **Application type** is set to **Web app/API**.
-6. Create a **Sign-on URL** comprised of the name you'll use when you create your cluster, the location of the cluster, and append `.cloudapp.azure.com` For example, if your cluster name is going to be `mycluster` (the cluster name must be all lowercase), and you will be creating it in the `eastus` region, the fully-qualified domain name (FQDN) that you'll enter for the **Sign-on URL** would be `https://mycluster.eastus.cloudapp.azure.com`
+6. Create a **Sign-on URL** comprised of the name you'll use when you create your cluster, the location of the cluster, and append `.cloudapp.azure.com` For example, if your cluster name is going to be `mycluster` (the cluster name must be all lowercase), and you will be creating it in the `eastus` region, the fully qualified domain name (FQDN) that you'll enter for the **Sign-on URL** would be `https://mycluster.eastus.cloudapp.azure.com`
 
-> [!IMPORTANT]
-> The cluster name must be all lowercase
-
-> [!IMPORTANT]
-> This FQDN URL needs to be unique. Choose a unique cluster name because that is the part of the FQDN that you have most control over.
-
+    > [!IMPORTANT]
+    > The cluster name must be all lowercase.
+    > The FQDN URL needs to be unique. Choose a unique cluster name because that is the part of the FQDN that you have the most control over.
+    
 Remember the cluster name and this URL because you'll need it to access the app running on your cluster.
-We will refer to the cluster name as `CLUSTER_NAME`, and this sign-on URL as `FQDN` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial. Write these two values down so you can provide them in the tutorial.
+We will refer to the cluster name as `CLUSTER_NAME`, and this sign-on URL as `FQDN` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial. Write down these two values so you can provide them in the tutorial.
 
 7. Press Tab to move focus out of the **Sign-on URL** field to validate the URL. A green check should appear in the right of the Sign-on URL checkbox.
 8. At the bottom of the Create pane, click **Create** to create the Azure AD application object.
 9. On the **Registered App** page that appears, copy the **Application ID** and save it where you can refer to it later. We will refer to this value as `APPID` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
-![Screenshot of the application id textbox][appidimage]
+![Screenshot of the application ID textbox][appidimage]
 
 For more information about Azure Application Objects, see [Application and service principal objects in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
 Refer to [Register an app with the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app) if you want more detailed instructions about creating a new Azure AD application.

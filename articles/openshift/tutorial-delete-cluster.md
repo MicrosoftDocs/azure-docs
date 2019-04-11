@@ -13,7 +13,7 @@ ms.date: 05/06/2019
 
 # Tutorial: Delete an Azure Red Hat OpenShift cluster
 
-This is the end of the tutorial. When you are done with the resources you have created, delete your cluster and associated resources.
+This is the end of the tutorial. When you're done with the resources you have created, delete your cluster and associated resources.
 
 In part three of the series, you learn how to:
 
@@ -32,15 +32,15 @@ Before you begin this tutorial:
 
 * Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
-## Step 1: Log in to Azure
+## Step 1: Sign in to Azure
 
-If you are running the Azure CLI locally, run `az login` to sign in to Azure.
+If you're running the Azure CLI locally, run `az login` to sign in to Azure.
 
 ```bash
 az login
 ```
 
-Whether you are running the Azure CLI locally, or are using the Azure cloud shell, if you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
+If you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
 
 ## Step 2: Delete the cluster
 
@@ -56,7 +56,7 @@ Then delete the cluster:
 az openshift delete --resource-group $CLUSTER_NAME --name $CLUSTER_NAME
 ```
 
-You will be prompted whether you want to perform the operation. Confirm with `y`.  It will take several minutes to delete the cluster. When the command finishes, the entire Resource Group and all resources inside it, including the cluster, will be deleted.
+You'll be prompted whether you want to delete the cluster. After you confirm with `y`, it will take several minutes to delete the cluster. When the command finishes, the entire Resource Group and all resources inside it, including the cluster, will be deleted.
 
 ## Deleting a cluster using the Azure portal
 
@@ -72,4 +72,4 @@ In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
 > * Delete an Azure Red Hat OpenShiftRO cluster
 
-Now that you have completed the tutorial series, learn more about Red Hat OpenShift at [Red Hat OpenShift dedicated documentation](https://access.redhat.com/documentation/openshift_dedicated/3/)
+Now that you've completed this tutorial, learn more about Red Hat OpenShift at [Red Hat OpenShift dedicated documentation](https://access.redhat.com/documentation/openshift_dedicated/3/)

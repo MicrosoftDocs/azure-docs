@@ -27,7 +27,7 @@ The following instructions will help you get everything ready.
 ## Install the Azure CLI
 
 If you don't have version [2.0.61] of the Azure CLI, install the [latest version here][azure-cli-install].
-You can see which version of the Azure CLI you have by running the following from a command window:
+You can see which version of the Azure CLI you have by running the following command from a command window:
 ```bat
 az --version
 ```
@@ -36,7 +36,7 @@ The first line of output will have the CLI version, for example `azure-cli (2.0.
 
 ## Create a tenant (Azure Active Directory)
 
-Before you can create an Azure Red Hat Azure Red Hat OpenShift cluster, you need a tenant, otherwise known as an Azure AD, for it.
+Before you can create an Azure Red Hat OpenShift cluster, you need a tenant, otherwise known as an Azure AD, for it.
 
 If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenShift cluster, or you wish to create a tenant for testing, follow the instructions in [Create a tenant for your Azure OpenShift cluster](howto-create-tenant.md) before continuing with these instructions.
 
@@ -44,7 +44,7 @@ If you don't have an Azure AD to use as the tenant for your Azure Red Hat OpenSh
 
 You also need an app registration that allows the cluster to perform functions such as configuring storage. You'll also need to create a new user in Azure AD to use to sign in to the app running on your Azure Red Hat OpenShift cluster.
 
-If you don't have an app registration in the Azure AD tenant you are using to create your Azure Red Hat OpenShift cluster, or don't have a Azure AD user to use to sign in to your cluster, follow the instructions in [Create an Azure Active Directory application object](howto-aad-app-configuration.md) before continuing with these instructions.
+If you don't have an app registration in the Azure AD tenant you are using to create your Azure Red Hat OpenShift cluster, or don't have an Azure AD user to use to sign in to your cluster, follow the instructions in [Create an Azure Active Directory application object](howto-aad-app-configuration.md) before continuing with these instructions.
 
 ## Register providers and features
 
@@ -52,8 +52,7 @@ The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Sol
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
 .
-1. If you have access to multiple subscriptions, specify the relevant
-  subscription ID:
+1. If you have access to multiple subscriptions, specify the relevant subscription ID:
 
     ```bash
     az account set --subscription <SUBSCRIPTION ID>

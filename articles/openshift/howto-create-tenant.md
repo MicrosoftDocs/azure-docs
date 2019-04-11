@@ -27,8 +27,10 @@ To create a tenant:
 4. Provide an **Initial domain name**. What you put here will have *onmicrosoft.com* appended to it. You can use what you put for **Organization name** here.
 5. Choose a country or region where the tenant will be created.
 6. At the bottom of the page, click **Create**.
-7. After your tenant (Azure AD) is created, click **Click here to manage your new directory**. Your new tenant name should be displayed in the upper right of the Azure portal:
-![Screenshot of the portal showing the tenant name in the upper-right][tenantcallout]
+7. After your tenant (Azure AD) is created, click **Click here to manage your new directory**. Your new tenant name should be displayed in the upper-right of the Azure portal:  
+
+![Screenshot of the portal showing the tenant name in the upper-right][tenantcallout]  
+
 8. We need to get the tenant ID to specify where to create the cluster later. On the portal, you should now see the Azure Active Directory overview blade for your new tenant. In the **Manage** section to the left, click **Properties**. Copy the value for **Directory ID**. We will refer to this value as the `tenant id` in the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial so make a copy of the value for later.
 
 Refer to [Set up a dev environment](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) if you need more detailed instructions about setting up an Azure tenant.
@@ -36,9 +38,9 @@ Refer to [Set up a dev environment](https://docs.microsoft.com/azure/active-dire
 ## Resources
 
 [Create a tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-
+  
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
-
+  
 ## Next steps
 
 [Create a new app registration and Azure Active Directory user for your cluster](howto-aad-app-configuration.md)
