@@ -39,6 +39,8 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. In the **New data factory** pane, provide values for the following fields and then Select **Create**.
 
+    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
+
     **Setting**  | **Field description**
     |---|---|
     | **Name** | Enter a globally unique name for your data factory. If you receive the error *"Data factory name \"LoadADXDemo\" is not available"*, enter a different name for the data factory. For naming rules of Data Factory artifacts, see [Data Factory naming rules](/azure/data-factory/naming-rules).|
@@ -48,9 +50,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
     | **Location** | Select the location for the data factory. Only supported locations are displayed in the drop-down list. The data stores that are used by data factory can be in other locations or regions. |
     | | |
 
-    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
-
-1. Select Notifications on the toolbar to monitor the creation process. After creation is complete, go to the data factory you created. You see the **Data Factory** home page as shown in the following image:
+1. Select Notifications on the toolbar to monitor the creation process. After creation is complete, go to the data factory you created. The **Data Factory** home page opens.
 
    ![Data factory home page](media/data-factory-load-data/data-factory-home-page.png)
 
@@ -65,15 +65,15 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 ### Copy data from Amazon S3 (Source)
 
-1. In the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool:
+1. In the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool.
 
    ![Copy Data tool tile](media/data-factory-load-data/copy-data-tool-tile.png)
 
-1. In the **Properties** page, specify **Task name** and select **Next**:
+1. In the **Properties** page, specify **Task name** and select **Next**.
 
     ![Copy from source properties](media/data-factory-load-data/copy-from-source.png)
 
-1. In the **Source data store** page, click **+ Create new connection**:
+1. In the **Source data store** page, click **+ Create new connection**.
 
     ![Source data create connection](media/data-factory-load-data/source-create-connection.png)
 
@@ -86,20 +86,23 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
     ![Specify Amazon S3 linked service](media/data-factory-load-data/amazon-s3-linked-service.png)
 
     1. Specify **Name** of your new linked service.
+    1. Select **Connect via integration runtime** value from the dropdown.
     1. Specify the **Access Key ID** value.
     1. Specify the **Secret Access Key** value.
+    1. Select **Test Connection** to test the linked service connection you created.
     1. Select **Finish**.
 
-1. You will see a new connection. Select **Next**.
+1. In the **Source data store** page, you will see your new AmazonS31 connection. Select **Next**.
 
-   ![Need: Create Amazon S3 account]()
+   ![Source data store created connection]((media/data-factory-load-data/source-data-store-created-connection.png)
 
 1. In the **Choose the input file or folder** page:
 
     1. Browse to the folder/file that you want to copy. Select the folder/file.
-    1. Select **Choose**, and then select **Next**.
+    1. Specify your file settings.
+    1. Select **Next**.
 
-    ![Choose input file or folder](media/data-factory-load-data/choose-input-folder.png)
+    ![Choose input file or folder](media/data-factory-load-data/source-choose-input-file.png)
 
 1. Select the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**.
 
