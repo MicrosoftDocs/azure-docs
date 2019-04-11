@@ -53,9 +53,9 @@ To verify that the Access Panel Extension is enabled in Internet Explorer:
    
 2. Go to the **Programs** tab and select **Manage add-ons**.
    
-3. Select **Access Panel Extension** in the **Microsoft Corporation** section and then select **Enable**.
+3. Select **Access Panel Extension** in the **Microsoft Corporation** section, and then select **Enable**.
    
-4. To save the changes, close the Internet Explorer windows you have open. The change takes effect the next time you open an Internet Explorer browser.
+4. To save the changes, close all of the Internet Explorer browsers you have open. The change takes effect the next time you open an Internet Explorer browser.
 
 ## Enable extensions for InPrivate Browsing
 
@@ -65,7 +65,7 @@ To enable extensions for InPrivate Browsing:
    
 2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
-3.  To save the changes, close the Internet Explorer windows you have open. The change takes effect the next time you open an Internet Explorer browser.
+3.  To save the changes, close all of the Internet Explorer browsers you have open. The change takes effect the next time you open an Internet Explorer browser.
 
 ## Uninstall the Access Panel Extension
 
