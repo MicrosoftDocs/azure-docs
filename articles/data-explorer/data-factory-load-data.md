@@ -163,35 +163,15 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![Copy data summary](media/data-factory-load-data/copy-data-summary.png)
 
-1. In the **Deployment page**, select **Monitor** to monitor the pipeline (task):
+1. In the **Deployment page**:
+    * Select **Monitor** to switch to the **Monitor** tab and see the status of the pipeline.
+    * Select **Edit Pipeline** to edit linked services, datasets, and pipelines. 
+    * Select **Finish** to complete copy data task
 
-    ![Need: Deployment page]()
-
-1. The **Monitor** tab on the left is automatically selected. The **Actions** column includes links to view activity run details and to rerun the pipeline:
-
-    ![Need: Monitor pipeline runs]()
-
-1. To view activity runs that are associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. There's only one activity (copy activity) in the pipeline, so you see only one entry.
-1. To switch back to the pipeline runs view, select the **Pipelines** link at the top. Select **Refresh** to refresh the list.
-
-    ![Need: Monitor activity runs]()
-
-1. To monitor the execution details for each copy activity, select the **Details** link under **Actions** in the activity monitoring view. You can monitor details like:
-
-    * volume of data copied from the source to the sink
-    * data throughput
-    * execution steps with corresponding duration
-    * used configurations
-
-    ![Need: Monitor activity run details]()
-
-1. Verify that the data is copied into your Azure Data Explorer database:
-
-    ![Need: Verify output]()
+    ![Deployment page](media/data-factory-load-data/deployment.png)
 
 ## Next steps
 
-Learn about Azure Data Explorer queries:
+* Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal.md)
 
-> [!div class="nextstepaction"]
->[Next step]()
+* Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data.md) for data querying.
