@@ -9,9 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 04/11/2019
 ms.author: aahill
 ---
+
 # Quickstart: Check spelling with the Bing Spell Check REST API and Java
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Java application sends a request to the API and returns a list of suggested corrections. While this application is written in Java, the API is a RESTful web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
@@ -20,9 +21,9 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 * The Java Development Kit(JDK) 7 or later.
 
-* Import the [gson-2.2.2.jar](http://www.java2s.com/Code/Jar/g/Downloadgson222jar.htm) (add to Java folder of the main class for command line execution).
+* Import the [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) or the most current [Gson](https://github.com/google/gson) version. For command line execution, add the `.jar` to your Java folder with the main class.
 
-* [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
 ## Create and initialize an application
 
@@ -84,7 +85,18 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
         wr.close();
     ```
 
-## Read the response and format it, then call
+## Format and read the API response
+
+1. Add this method to your class. It formats the JSON for a more readable output.
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
 
 1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
@@ -97,19 +109,10 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 	}
 	in.close();
     ```
-1. Add this method to your class. It formats the JSON for a more readable output.
 
-    ``` java
-    // This function prettifies the json response.
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonElement json = parser.parse(json_text);
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
-    }
-    ```
+## Call the API
 
-1. In the main function of your application, call your check() method created above.
+In the main function of your application, call your check() method created above.
 
     ```java
     public static void main(String[] args) {
@@ -126,7 +129,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 Build and run your project.
 
-From the command line:
+If you're using the command line, use the following commands to build and run the application.
 
 **Build:**
 ```bash

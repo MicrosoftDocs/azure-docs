@@ -8,9 +8,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 04/02/2019
+ms.date: 04/11/2019
 ms.author: aahi
 ---
+
 # Quickstart: Check spelling with the Bing Spell Check REST API and C#
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple C# application sends a request to the API and returns a list of suggested corrections. While this application is written in C#, the API is a RESTful Web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingAutosuggestv7.cs).
@@ -18,7 +19,10 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 ## Prerequisites
 
 * Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* The [Json.NET](https://www.newtonsoft.com/json) framework, available as a NuGet package called `Newtonsoft.Json`.
+* To install `Newtonsoft.Json` as a NuGet package in Visual studio:
+    1. In your Solution Explorer, right-click on the Solution file.
+    1. Select **Manage NuGet Packages for Solution**.
+    1. Search for `Newtonsoft.Json` and install the package.
 * If you're using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
