@@ -233,6 +233,10 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
     * Numeric features with very few unique values transformed into categorical features.
     * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
 
+## Ensemble Models
+
+Ensemble learning provides a method to improve machine learning results by combing many models. This approach allows to produce better predictive performance compared to single models. Automated ML currently supports ensemble models using [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration will appear as the last iteration in the Automated ML runs.
+
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
 1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series. 
@@ -265,7 +269,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)
