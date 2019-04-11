@@ -33,7 +33,7 @@ In the following figure, the numbers represent the flow of the requests in chron
 
 ![Middle-tier apps](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
-1. A middle-tier app (web API or web application) requests an Azure AD access token that has the following parameters:  
+1. A middle-tier app requests an Azure AD access token that has the following parameters:  
 
    * Azure AD tenant endpoint.
    * Media Services resource URI.
@@ -49,14 +49,9 @@ see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.m
 
 ### v3 API design principles and RBAC
 
-One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
+One of the key design principles of the Media Servics v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on **Get** or **List** operations. The keys are always null, empty, or sanitized from the response. The user needs to call a separate action method to get secrets or credentials. The **Reader** role cannot call operations so it cannot call operations like Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Having separate actions enables you to set more granular RBAC security permissions in a custom role if desired.
 
-For more information, see:
-
-- [Built-in role definitions](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Role-based access control for Media Services accounts](rbac-overview.md)
-- [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md).
+For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
 ## Naming conventions
 
