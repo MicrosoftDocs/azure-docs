@@ -1,5 +1,5 @@
 - name: Azure NetApp Files Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: Introduction to Azure NetApp Files
