@@ -1,6 +1,6 @@
 ---
-title: Google Firebase Cloud Messaging Migration
-description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration plus our future plans.
+title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration
+description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration.
 services: notification-hubs
 author: jwargo
 manager: patniko
@@ -15,7 +15,7 @@ ms.date: 04/10/2019
 ms.author: jowargo
 ---
 
-# Google Firebase Cloud Messaging Migration
+# Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration
 
 ## Current State
 
@@ -32,8 +32,6 @@ We replaced that deprecated endpoint and the fix is deployed.
 Google’s FCM FAQ says you don't have to do anything. In the [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google said “client SDKs and GCM tokens will continue to work indefinitely. However, you won't be able to target the latest version of Google Play Services in your Android app unless you migrate to FCM.”
 
 If your app uses the GCM library, go ahead and follow Google’s instructions to upgrade to the FCM library in your app. Our SDK is compatible with either, so you won’t have to update anything in your app on our side (as long as you’re up to date with our SDK version).
-
-Now, this isn’t how we want things to stay; so over the next year you’ll see API and SDK updates from us implementing full support for FCM (and likely deprecate GCM support).
 
 ## Q & A
 
