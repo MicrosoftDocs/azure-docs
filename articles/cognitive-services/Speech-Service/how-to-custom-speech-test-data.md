@@ -28,6 +28,8 @@ This table lists accepted data types, when each data type should be used, and th
 
 Files should be grouped by type into a dataset and uploaded as a zip file. Each dataset can only contain a single data type.
 
+## Upload data
+
 When you are ready to upload your data, click **Upload data** to launch the wizard and create your first dataset. You'll be asked to select a speech data type for your dataset, before allowing you to upload your data.
 
 ![Select audio from the Speech Portal](./media/custom-speech/custom-speech-select-audio.png)
