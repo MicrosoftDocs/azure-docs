@@ -19,25 +19,9 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
 > [!IMPORTANT] 
 > All tasks described in this documentation require that you be part of the Public Preview program and whitelisted for accessing the Microsoft.NetApp Azure Resource Provider. To request joining the Public Preview program, see [Register for Azure NetApp Files](azure-netapp-files-register.md). 
 
+## 5-minute quickstarts
+
 <ul class="panelContent cardsFTitle">
-    <li>
-        <a href="/azure/azure-netapp-files/azure-netapp-files-introduction">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/media/index/NetAppStorage.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Learn about Azure NetApp Files</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
 <!-- 
    <li>
         <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-netapp-files">
@@ -69,7 +53,7 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>5-minute quickstarts: Set up Azure NetApp Files and create a volume</h3>
+                        <h3>Set up Azure NetApp Files and create a volume</h3>
                     </div>
                 </div>
             </div>
@@ -78,3 +62,6 @@ Learn how to use Azure NetApp Files to create and manage NetApp accounts, capaci
     </li>
 </ul>
 
+## Reference
+
+[REST API](https://docs.microsoft.com/en-us/rest/api/netapp/) 
