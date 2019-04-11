@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Service Bus topic by using Ansible
+title: Tutorial - Configure a topic in Azure Service Bus using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create an Azure Service Bus topic
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, service bus, topics, subscriptions
@@ -9,7 +9,7 @@ ms.author: tarcher
 ms.topic: tutorial
 ---
 
-# Create an Azure Service Bus topic by using Ansible
+# Tutorial: Configure a topic in Azure Service Bus using Ansible
 
 [Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise [integration](https://azure.microsoft.com/en-us/product-categories/integration/) message broker. You can use topics to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish/subscribe scenarios.
 

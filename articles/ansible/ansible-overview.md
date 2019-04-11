@@ -1,16 +1,16 @@
 ---
-title: Using Ansible with Azure
+title: Using Ansible with Azure | Microsoft Docs
 description: Introduction to using Ansible to automates cloud provisioning, configuration management, and application deployments.
-ms.service: azure
+ms.service: ansible
 keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 09/02/2018
 ms.topic: overview
+ms.date: 04/04/2019
 ---
 
-# Ansible with Azure
+# Using Ansible with Azure
 
 [Ansible](https://www.ansible.com) is an open-source product that automates cloud provisioning, configuration management, and application deployments. Using Ansible you can provision virtual machines, containers, and network and complete cloud infrastructures. In addition, Ansible allows you to automate the deployment and configuration of resources in your environment.
 

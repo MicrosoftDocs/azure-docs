@@ -46,12 +46,22 @@
     items:
     - name: Configure a cache
       href: ./ansible-azure-cache-for-redis-create-configure.md
+  - name: Azure HDInsight
+    items:
+    - name: Configure a cluster in Azure HDInsight using Ansible
+      href: ./ansible-azure-hdinsight-configure.md
+  - name: Azure Service Bus
+    items:
+    - name: Configure a queue
+      href: ./ansible-azure-service-bus-configure-queues.md
+    - name: Configure a topic
+      href: ./ansible-azure-service-bus-configure-topics.md
   - name: Databases
     items:
     - name: Configure Azure DB for MySQL
       href: ./ansible-create-configure-mysql.md
     - name: Configure Azure Cosmos DB
-      href: ./ansible-cosmos-db-create-configure.md
+      href: ./ansible-cosmos-db-configure.md
   - name: DevTest Labs
     items:
     - name: Configure a lab in Azure DevTest Labs

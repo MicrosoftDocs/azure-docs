@@ -1,5 +1,5 @@
 ---
-title: Create an Azure Service Bus queue by using Ansible
+title: Tutorial - Configure a queue in Azure Service Bus using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create an Azure Service Bus queue
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, service bus, queue
@@ -9,7 +9,7 @@ ms.author: tarcher
 ms.topic: tutorial
 ---
 
-# Create an Azure Service Bus queue by using Ansible
+# Tutorial: Configure a queue in Azure Service Bus using Ansible
 
 [Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise [integration](https://azure.microsoft.com/en-us/product-categories/integration/) message broker. Messages are sent to and received from queues. Queues enable you to store messages until the receiving application is available to receive and process them.
 

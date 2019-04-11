@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure virtual machine scale sets in Azure using Ansible
+title: Tutorial - Configure virtual machine scale sets in Azure using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and configure a virtual machine scale set in Azure
 ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss

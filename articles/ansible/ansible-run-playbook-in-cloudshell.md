@@ -1,16 +1,16 @@
 ---
-title: Run Ansible with Bash in Azure Cloud Shell
-description: Learn how to perform various Ansible tasks with Bash in Azure Cloud Shell
-ms.service: azure
+title: Quickstart - Run Ansible with Bash in Azure Cloud Shell | Microsoft Docs
+description: In this quickstart, learn how to perform various Ansible tasks with Bash in Azure Cloud Shell
+ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 08/07/2018
 ms.topic: quickstart
+ms.date: 04/04/2019
 ---
 
-# Run Ansible with Bash in Azure Cloud Shell
+# Quickstart: Run Ansible with Bash in Azure Cloud Shell
 
 In this tutorial, you learn how to use Bash within Cloud Shell to configure an Azure subscription as your Ansible workspace. 
 
@@ -44,4 +44,4 @@ To verify the successful configuration, use Ansible to create a resource group.
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure virtual machine in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)

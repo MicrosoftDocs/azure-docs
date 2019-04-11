@@ -1,16 +1,17 @@
 ---
-title: Use Ansible to manage a Linux virtual machine in Azure
-description: Learn how to use Ansible to manage a Linux virtual machine in Azure
-ms.service: virtual-machines-linux
+title: Quickstart - Manage a Linux virtual machine in Azure using Ansible | Microsoft Docs
+description: In this quickstart, learn how to manage a Linux virtual machine in Azure using Ansible
+ms.service: ansible
 keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 04/04/2019
 ---
 
-# Use Ansible to manage a Linux virtual machine in Azure
+# Quickstart: Manage a Linux virtual machine in Azure using Ansible
+
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your Azure virtual machines as you do any other resource. This article shows you how to use an Ansible playbook to start and stop a Linux virtual machine. 
 
 ## Prerequisites
@@ -136,4 +137,4 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Use Ansible to manage your Azure dynamic inventories](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
+> [Tutorial: Manage Azure dynamic inventories using Ansible](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
