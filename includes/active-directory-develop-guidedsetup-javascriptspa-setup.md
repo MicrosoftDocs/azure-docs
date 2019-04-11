@@ -31,6 +31,8 @@ ms.custom: include file
 ## Prerequisites
 A local web server such as [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), or IIS Express integration with [Visual Studio 2017](https://www.visualstudio.com/downloads/) is required to run this tutorial.
 
+If using Node.js to run the project, install an IDE such as [Visual Studio Code](https://code.visualstudio.com/download) to edit the project files.
+
 Instructions in this guide are based on both Node.js and Visual Studio 2017, but feel free to use any other development environment or Web Server.
 
 ## Create your project
@@ -39,7 +41,7 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
 > Make sure you have installed [Node.js](https://nodejs.org/en/download/), then follow the step below:
 > -	Create a folder to host your application.
 
-<p/><!-- -->
+<p><!-- -->
 
 > ### Option 2: Visual Studio
 > If you are using Visual Studio and are creating a new project, follow the steps below to create a new Visual Studio solution:
@@ -47,7 +49,6 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
 > 2.	Under **Visual C#\Web**, select **ASP.NET Web Application (.NET Framework)**
 > 3.	Enter a name for your application and select **OK**
 > 4.	Under **New ASP.NET Web Application**, select **Empty**
-
 
 ## Create your single page application’s UI
 1. Create an `index.html` file for your JavaScript SPA. If you are using Visual Studio, select the project (project root folder), right click and select: **Add > New Item > HTML page** and name it index.html.
@@ -59,7 +60,7 @@ Instructions in this guide are based on both Node.js and Visual Studio 2017, but
    <head>
        <title>Quickstart for MSAL JS</title>
        <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js"></script>
-       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.3/js/msal.js"></script>
+       <script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.js"></script>
        <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
    </head>
    <body>

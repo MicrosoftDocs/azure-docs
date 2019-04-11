@@ -6,7 +6,7 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
@@ -27,8 +27,8 @@ Function Apps can be hosted in several different ways.
 |                |[Consumption Plan](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inbound IP Restrictions**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET Integration**](#vnet-integration)|❌No|⚠ Yes|✅Yes|✅Yes|
-|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠ Yes|⚠ Yes|✅Yes|
+|[**VNET Integration**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
 |[**Hybrid Connections**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Private Site Access**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
@@ -84,3 +84,12 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. Private site access is only available with an ASE configured with an Internal Load Balancer (ILB). For details on using an ILB ASE, see [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
 
 There are many ways to access VNET resources in other hosting options, but an ASE is the only way to allow triggers for a function to occur over a VNET.
+
+## Next Steps
+
+1. [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+1. [Read the Functions networking FAQ here](./functions-networking-faq.md)
+1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
+1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](../app-service/app-service-hybrid-connections.md)

@@ -72,7 +72,7 @@ To set up a managed identity in the portal, you first create an application as n
 
 ## Use a managed identity
 
-1. Open *appsettings.json*, and add the following script. Replace *<service_endpoint>*, including the brackets, with the URL to your app configuration store:
+1. Open *appsettings.json*, and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your app configuration store:
 
     ```json
     "AppConfig": {
