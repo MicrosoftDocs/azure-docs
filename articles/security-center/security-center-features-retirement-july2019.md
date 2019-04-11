@@ -9,7 +9,7 @@ The list of features being retired from the Security Center includes:
 
 - [Events](#menu_events)
 - [Search](#menu_search)
-- [View classic Identity & Access link on Identity and access (preview)](menu_classicidentity)
+- [View classic Identity & Access link on Identity and access (preview)](#menu_classicidentity)
 - [Security events map button on Security alerts map (preview)](#menu_securityeventsmap)
 - [Custom alert rules (preview)](#menu_customalerts)
 - [Investigate button in threat protection security alerts](#menu_investigate)
