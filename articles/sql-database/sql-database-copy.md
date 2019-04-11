@@ -90,7 +90,7 @@ This command copies Database1 on server1 to a new database named Database2 on se
 
 ### Copy a SQL database to a different subscription
 
-You can use the steps descrbed in the previous section to copy your database copy to a SQL Database server in a different subscription. You must make sure your to use a login that has the same name and password as the database owner of the source database. The login on the destination server must also be a member of the dbmanager role or be the server-level principal login. 
+You can use the steps descrbed in the previous section to copy your database copy to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
 
 > [!NOTE]
 > The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
