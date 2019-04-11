@@ -32,56 +32,31 @@ Before you begin this tutorial:
 
 * Create a cluster by following the [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md) tutorial.
 
-## Step 1: Sign in to Azure
+## Step 1: Log in to Azure
 
-If you're running the Azure CLI locally, run `az login` to sign in to Azure.
+If you are running the Azure CLI locally, run `az login` to sign in to Azure.
 
 ```bash
 az login
 ```
 
-If you have access to multiple subscriptions, run `az account set -s
-SUBSCRIPTION_ID` to default to the correct subscription.
+Whether you are running the Azure CLI locally, or are using the Azure cloud shell, if you have access to multiple subscriptions, run `az account set -s {subscription ID}` replacing `{subscription ID}` with the subscription you want to use.
 
-## Step 2: Navigate to the OpenShift on Azure cluster console
+## Step 2: Scale the cluster up to 5 compute nodes
 
-After `az openshift create` has completed, open your browser and navigate to https://$FQDN/, for example, https://myuniqueclustername.eastus.cloudapp.azure.com/.
+Open a Bash terminal and set the variable CLUSTER_NAME to the name of your cluster:
 
-> [!NOTE]
-> Currently, the OpenShift console certificate is untrusted, therefore when navigating to the console, you will need to manually
-> accept the untrusted certificate in your browser.
+```bash
+CLUSTER_NAME=yourclustername
+```
 
-To sign in to the cluster, click on `Azure AD`.
-
-![Screenshot of the OpenShift sign in screen](./media/aro-auth.png)
-
-The cluster console appears:
-
-![Screenshot of the OpenShift console](./media/aro-console.png)
-
-## Step 3: Use the oc CLI
-
-In the cluster console, click the question mark in the upper right corner and select `Command Line Tools`.  Follow the `Latest Release` link to download and
-install the supported oc CLI for Linux, MacOS, or Windows.  If you can't sign in to the Red Hat portal, the oc CLI is also available [here](https://www.okd.io/download.html).
-
-> [!NOTE]
-> If you do not see the question mark icon in the upper right corner, select **Service Catalog** or **Application Console**
-> from the upper left hand drop-down.
-
-The same page also has a command of the form `oc login https://myuniqueclustername.eastus.cloudapp.azure.com --token=<hidden>`.  Click
-the copy to clipboard button to copy this command.  Paste it in your terminal to sign in to the cluster using the oc CLI.  
-
-You can also find your token here: `https://myuniqueclustername.eastus.cloudapp.azure.com/oauth/token/request`
-
-## Step 4: Scale up to 5 compute nodes
-
-From the Azure CLI, run:
+Then scale the cluster to five nodes:
 
 ```bash
 az openshift scale --resource-group $CLUSTER_NAME --name $CLUSTER_NAME --compute-count 5
 ```
 
-All being well, after a few minutes `az openshift create` will complete successfully and return a JSON document containing your cluster details.
+After a few minutes, `az openshift scale` will complete successfully and return a JSON document containing the scaled cluster details.
 
 In this part of the tutorial, you learned how to:
 
