@@ -67,15 +67,17 @@ To enable extensions for InPrivate Browsing:
 
 To uninstall the Access Panel Extension from your computer:
 
-1. In Control Panel, search for **uninstall**. Select **Uninstall a program**.
+1. In Control Panel, search for **uninstall**. 
+
+2. In the search results, select **Uninstall a program**.
    
     ![Search for uninstall program.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
 
-2. From the list, select **Access Panel Extension**, and then select **Uninstall**.
+3. From the list, select **Access Panel Extension**, and then select **Uninstall**.
    
-3. You can then try to install the extension again to see if the problem has been resolved.
+4. You can then try to install the extension again to see if the problem has been resolved.
 
-If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
+If you run into issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
 
 ## Related Articles
 * [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
