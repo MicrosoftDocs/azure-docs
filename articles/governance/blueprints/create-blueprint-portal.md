@@ -117,60 +117,60 @@ Manager template and role assignment on the new resource group.
       parameters **storageAccountType** and **location** were detected. Each parameter was
       automatically detected and populated, but configured as a dynamic parameter.
 
-   > [!IMPORTANT]
-   > If you're importing the template, ensure that the file is only JSON and doesn't include HTML.
-   > When you're pointing to a URL on GitHub, ensure that you have selected **RAW** to get the pure
-   > JSON file and not the one wrapped with HTML for display on GitHub. An error occurs if the
-   > imported template is not purely JSON.
+      > [!IMPORTANT]
+      > If you're importing the template, ensure that the file is only JSON and doesn't include
+      > HTML. When you're pointing to a URL on GitHub, ensure that you have selected **RAW** to get
+      > the pure JSON file and not the one wrapped with HTML for display on GitHub. An error occurs
+      > if the imported template is not purely JSON.
 
-   ```json
-   {
-       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-       "contentVersion": "1.0.0.0",
-       "parameters": {
-           "storageAccountType": {
-               "type": "string",
-               "defaultValue": "Standard_LRS",
-               "allowedValues": [
-                   "Standard_LRS",
-                   "Standard_GRS",
-                   "Standard_ZRS",
-                   "Premium_LRS"
-               ],
-               "metadata": {
-                   "description": "Storage Account type"
-               }
-           },
-           "location": {
-               "type": "string",
-               "defaultValue": "[resourceGroup().location]",
-               "metadata": {
-                   "description": "Location for all resources."
-               }
-           }
-       },
-       "variables": {
-           "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
-       },
-       "resources": [{
-           "type": "Microsoft.Storage/storageAccounts",
-           "name": "[variables('storageAccountName')]",
-           "location": "[parameters('location')]",
-           "apiVersion": "2018-07-01",
-           "sku": {
-               "name": "[parameters('storageAccountType')]"
-           },
-           "kind": "StorageV2",
-           "properties": {}
-       }],
-       "outputs": {
-           "storageAccountName": {
-               "type": "string",
-               "value": "[variables('storageAccountName')]"
-           }
-       }
-   }
-   ```
+      ```json
+      {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+              "storageAccountType": {
+                  "type": "string",
+                  "defaultValue": "Standard_LRS",
+                  "allowedValues": [
+                      "Standard_LRS",
+                      "Standard_GRS",
+                      "Standard_ZRS",
+                      "Premium_LRS"
+                  ],
+                  "metadata": {
+                      "description": "Storage Account type"
+                  }
+              },
+              "location": {
+                  "type": "string",
+                  "defaultValue": "[resourceGroup().location]",
+                  "metadata": {
+                      "description": "Location for all resources."
+                  }
+              }
+          },
+          "variables": {
+              "storageAccountName": "[concat('store', uniquestring(resourceGroup().id))]"
+          },
+          "resources": [{
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[variables('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                  "name": "[parameters('storageAccountType')]"
+              },
+              "kind": "StorageV2",
+              "properties": {}
+          }],
+          "outputs": {
+              "storageAccountName": {
+                  "type": "string",
+                  "value": "[variables('storageAccountName')]"
+              }
+          }
+      }
+      ```
 
    1. Clear the **storageAccountType** check box and note that the drop-down list contains only
       values included in the Resource Manager template under **allowedValues**. Select the box to
@@ -178,7 +178,7 @@ Manager template and role assignment on the new resource group.
 
    1. Select **Add** to add this artifact to the blueprint.
 
-      ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Resource Manager template for the blueprint artifact](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Your completed blueprint should look similar to the following. Notice that each artifact has
    **_x_ out of _y_ parameters populated** in the **Parameters** column. The dynamic parameters are
@@ -220,7 +220,7 @@ assignment to the new resource group. You can fix both by following these steps:
 
    e. Select **Add** to add this artifact to the blueprint.
 
-      ![Second role assignment for the blueprint artifact](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Second role assignment for the blueprint artifact](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Your completed blueprint should look similar to the following. Notice that the newly added role
    assignment shows **1 out of 1 parameters populated**. That means it's a static parameter.
