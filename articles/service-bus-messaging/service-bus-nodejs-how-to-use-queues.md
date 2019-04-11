@@ -30,7 +30,8 @@ In this tutorial, you learn how to create Node.js applications to send messages 
     2. Create a Service Bus **namespace**. 
     3. Get the **connection string**. 
 
-        You will create a **queue** in the Service Bus namespace by using the Node.js code in this tutorial. 
+        > [!NOTE]
+        > You will create a **queue** in the Service Bus namespace by using Node.js in this tutorial. 
  
 
 ## Create a Node.js application

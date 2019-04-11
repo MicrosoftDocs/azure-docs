@@ -29,7 +29,8 @@ In this tutorial, you learn how to create PHP applications to send messages to a
     2. Create a Service Bus **namespace**. 
     3. Get the **connection string**. 
 
-    You will create a **queue** in the Service Bus namespace by using the PHP code in this tutorial. 
+        > [!NOTE]
+        > You will create a **queue** in the Service Bus namespace by using PHP in this tutorial. 
 3. [Azure SDK for PHP](../php-download-sdk.md)
 
 ## Create a PHP application

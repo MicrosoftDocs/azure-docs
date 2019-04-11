@@ -30,7 +30,8 @@ In this tutorial, you learn how to create Ruby applications to send messages to 
     2. Create a Service Bus **namespace**. 
     3. Get the **connection string**. 
 
-    You will create a **queue** in the Service Bus namespace by using the Ruby code in this tutorial. 
+        > [!NOTE]
+        > You will create a **queue** in the Service Bus namespace by using Ruby in this tutorial. 
 
 [!INCLUDE [service-bus-ruby-setup](../../includes/service-bus-ruby-setup.md)]
 
