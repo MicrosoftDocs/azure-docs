@@ -8,10 +8,10 @@ ms.custom:
 ms.devlang:
 ms.topic: quickstart
 author: sachinpMSFT
-ms.author: sachinp
+ms.author: ninarn
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/25/2019
+ms.date: 04/11/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal
 

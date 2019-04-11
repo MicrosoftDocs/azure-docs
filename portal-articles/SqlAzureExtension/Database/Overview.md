@@ -13,13 +13,13 @@ ms.author: ninarn
 
 # SQL Database Documentation
 
-Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quick starts, tutorials, and samples.
+Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
 
-## 5-Minute Quick starts
+## 5-Minute Quickstarts
 
-Azure SQL Database enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quick start samples:
+Azure SQL Database enables you to easily perform basic management tasks using the Azure portal, Azure CLI, and Azure PowerShell. Learn how to perform basic management tasks using the following quickstart samples:
 
-- [Azure Portal](/azure/sql-database/sql-database-single-database-get-started)
+- [Azure portal](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
 - [Azure CLI](/azure/sql-database/sql-database-get-started-cli)
 
@@ -27,7 +27,7 @@ Azure SQL Database enables you to easily perform basic management tasks using th
 
 Learn how to create, manage, and migrate databases using SQL DB.
 
-- Get started with a [single database](/azure/sql-database/sql-database-single-database-quickstart-guide) using our quick start guide
+- Get started with a [single database](/azure/sql-database/sql-database-single-database-quickstart-guide) using our quickstart guide
 - Create and design the schema for a new single database using [SSMS](/azure/sql-database/sql-database-design-first-database) or [.NET](/azure/sql-database/sql-database-design-first-database-csharp)
 - Migrate an existing database to Azure using [the Database Migration Assistant](/azure/dms/tutorial-sql-server-to-azure-sql) or [by importing a BACPAC file](/azure/sql-database/sql-database-import)
 - [Secure your SQL Database](/azure/sql-database/sql-database-security-tutorial)
