@@ -130,7 +130,7 @@ The existing connected solutions are encouraged to move to Azure Sentinel by the
 ![Security centers solutions][16]
 
 ## Edit security configurations for Security policies<a name="menu_securityconfigurations"></a>
-Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation. The [Edit security configuration blade](https://docs.microsoft.com/en-us/azure/security-center/security-center-customize-os-security-config) allows customers to customize the default OS security configuration in Security Center.
+Azure Security Center monitors security configurations by applying a set of [over 150 recommended rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) for hardening the OS, including rules related to firewalls, auditing, password policies, and more. If a machine is found to have a vulnerable configuration, Security Center generates a security recommendation. The [Edit security configuration blade](https://docs.microsoft.com/en-us/azure/security-center/security-center-customize-os-security-config) allows customers to customize the default OS security configuration in Security Center.
 
 This feature has been in preview and received **very** limited usage. It will be deprecated and will be replaced with an improved alternative in the near future,
 
