@@ -19,8 +19,8 @@
   items:
   - name: Entitlement management
     items:
-    - name: Email notifications
-      href: entitlement-management-notifications.md
+    - name: Fulfillment process
+      href: entitlement-management-process.md
     - name: Manage external users
       href: entitlement-management-external-users.md
   - name: Access reviews
