@@ -77,7 +77,7 @@ In this scenario, the application prompts the user to log in and all the operati
              -F client_id=<APPLICATION-ID> \
              -F refresh_token=<REFRESH-TOKEN>
 
-For more information on interactive user authentication, see [Authorization code grant flow](https://msdn.microsoft.com/library/azure/dn645542.aspx).
+For more information on interactive user authentication, see [Authorization code grant flow](/previous-versions/azure/dn645542(v=azure.100)).
 
 ## Next steps
 In this article, you learned how to use service-to-service authentication to authenticate with Azure Data Lake Storage Gen1 using REST API. You can now look at the following articles that talk about how to use the REST API to work with Azure Data Lake Storage Gen1.

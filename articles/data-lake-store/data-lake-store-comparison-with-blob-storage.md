@@ -28,7 +28,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Key Concepts |Data Lake Storage Gen1 account contains folders, which in turn contains data stored as files |Storage account has containers, which in turn has data in the form of blobs |
 | Structure |Hierarchical file system |Object store with flat namespace |
 | API |REST API over HTTPS |REST API over HTTP/HTTPS |
-| Server-side API |[WebHDFS-compatible REST API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| Server-side API |[WebHDFS-compatible REST API](/rest/api/datalakestore/) |[Azure Blob Storage REST API](/rest/api/storageservices/Blob-Service-REST-API) |
 | Hadoop File System Client |Yes |Yes |
 | Data Operations - Authentication |Based on [Azure Active Directory Identities](../active-directory/develop/authentication-scenarios.md) |Based on shared secrets - [Account Access Keys](../storage/common/storage-account-manage.md#access-keys) and [Shared Access Signature Keys](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Data Operations - Authentication Protocol |OAuth 2.0. Calls must contain a valid JWT (JSON Web Token) issued by Azure Active Directory |Hash-based Message Authentication Code (HMAC) . Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
