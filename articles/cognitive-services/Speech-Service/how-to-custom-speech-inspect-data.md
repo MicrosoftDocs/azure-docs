@@ -1,5 +1,5 @@
 ---
-title: "Inspect data quality for Custom Speech - Speech Services"
+title: "Inspect and evaluate data quality for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -49,7 +49,7 @@ For long audios, you may click in the certain audio item to playback the audio a
 
 If you have selected two models to test, you will see two columns of machine transcripts. You can choose one of the result to be the reference result, and the differentiations in the other transcript will be marked with color.  
 
-Inspecting quality testing is useful in doing a sanity check to validate the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, you will need to transcribe some audio and follow the instructions found in Testing: Evaluate Accuracy. 
+Inspecting quality testing is useful in doing a sanity check to validate the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, you will need to transcribe some audio and follow the instructions found in Testing: Evaluate Accuracy.
 
 ## Next steps
 
