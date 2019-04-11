@@ -87,7 +87,7 @@ Use Visual Studio Enterprise to record a web session.
 
     ![In Visual Studio Enterprise edition, create a project from the Web Performance and Load Test template.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
- * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
+   * *Don't see the Web Performance and Load Test template?* - Close Visual Studio Enterprise. Open **Visual Studio Installer** to modify your Visual Studio Enterprise installation. Under **Individual Components**, select **Web Performance and load testing tools**.
 
 2. Open the .webtest file and start recording.
 
@@ -162,7 +162,7 @@ You can apply filters on the test name, location to analyze trends of a particul
 
 ## <a name="edit"></a> Inspect and edit tests
 
-From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test.
+From the details tab, on a specific test select the ellipsis on the far right to edit, temporarily disable, delete or download web test. It may take up to 20 minutes for configuration changes to propagate.
 
 Select **View test details** from a specific test to see its scatter plot and specific test location details.
 

@@ -52,13 +52,13 @@ Using entity linking in various languages requires using a corresponding knowled
 | Quantity      | Temperature   | "32 degrees"    |
 | DateTime      | N/A\*         | "6:30PM February 4, 2012"      | 
 | DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
-| Date Time     | Time          | "8am", "8:00"  | 
+| DateTime      | Time          | "8am", "8:00"  | 
 | DateTime      | DateRange     | "May 2nd to May 5th"    | 
 | DateTime      | TimeRange     | "6pm to 7pm"     | 
 | DateTime      | Duration      | "1 minute and 45 seconds"   | 
 | DateTime      | Set           | "every Tuesday"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/A\*         | "https://www.bing.com"    |
+| URL           | N/A\*         | "https:\//www.bing.com"    |
 | Email         | N/A\*         | "support@contoso.com" |
 
 \* Depending on the input and extracted entities, certain entities may omit the `SubType`.
@@ -103,7 +103,7 @@ Details on request definition can be found in [How to call the Text Analytics AP
 
 ## Step 2: Post the request
 
-Analysis is performed upon receipt of the request. The service accepts up to 100 requests per minute. Each request can be a maximum of 1 MB.
+Analysis is performed upon receipt of the request. The service accepts up to 100 requests per second and 1000 requests per minute. Each request can be a maximum of 1 MB.
 
 Recall that the service is stateless. No data is stored in your account. Results are returned immediately in the response.
 

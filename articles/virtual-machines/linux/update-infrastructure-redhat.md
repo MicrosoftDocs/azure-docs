@@ -39,7 +39,7 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 
 * Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
-### RHEL EUS and version-locking RHEL VMs
+## RHEL EUS and version-locking RHEL VMs
 Some customers may want to lock their RHEL VMs to a certain RHEL minor release. You can version-lock your RHEL VM to a specific minor version by updating the repositories to point to the Extended Update Support repositories. Use the following instructions to lock a RHEL VM to a particular minor release:
 
 >[!NOTE]
@@ -68,7 +68,7 @@ Some customers may want to lock their RHEL VMs to a certain RHEL minor release. 
     sudo yum update
     ```
 
-### The IPs for the RHUI content delivery servers
+## The IPs for the RHUI content delivery servers
 
 RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions.
 
@@ -85,17 +85,16 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 # Azure US Government
 13.72.186.193
+13.72.14.155
+52.244.249.194
 
 # Azure Germany
 51.5.243.77
 51.4.228.145
 ```
 
-## RHUI Azure infrastructure update
+## Azure RHUI Infrastructure
 
-In September 2016, we deployed an updated Azure RHUI. In April 2017, we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
-
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, a single endpoint (rhui-1.microsoft.com) can be used by any VM, regardless of region.
 
 ### Update expired RHUI client certificate on a VM
 
@@ -107,6 +106,11 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Alternatively, running `sudo yum update` may also update the client certificate package (depending on your RHEL version), despite "expired SSL certificate" errors you will see for other repositories. If this update is successful, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
 
+If you run into a 404 error while running a `yum update`, try the following to refresh your yum cache:
+```bash
+sudo yum clean all;
+sudo yum makecache
+```
 
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:
@@ -120,6 +124,12 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 1. If you're using the new configuration, have verified that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
+
+### Infrastructure update
+
+In September 2016, we deployed an updated Azure RHUI. In April 2017, we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
+
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, a single endpoint (rhui-1.microsoft.com) can be used by any VM, regardless of region.
 
 ### Manual update procedure to use the Azure RHUI servers
 This procedure is provided for reference only. RHEL PAYG images already have the correct configuration to connect to Azure RHUI. To manually update the configuration to use the Azure RHUI servers, complete the following steps:

@@ -172,6 +172,11 @@ END
 Run the following query to create two stored procedures and two data types in your SQL database. 
 They're used to merge the data from source tables into destination tables.
 
+In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge the them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
+
+If you do need to merge a large number of delta rows into the destination store, we suggest you to use copy activity to copy all the delta data into a temporary "staging" table in the destination store first, and then built your own stored procedure without using table variable to merge  them from the “staging” table to the “final” table. 
+
+
 ```sql
 CREATE TYPE DataTypeforCustomerTable AS TABLE(
     PersonID int,
@@ -267,7 +272,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. In the **Integration Runtime Setup** window, select **Perform data movement and dispatch activities to external computes**, and click **Next**. 
 
    ![Select integration runtime type](./media/tutorial-incremental-copy-multiple-tables-portal/select-integration-runtime-type.png)
-1. Select **Private Network**, and click **Next**. 
+1. Select ** Private Network**, and click **Next**. 
 
    ![Select private network](./media/tutorial-incremental-copy-multiple-tables-portal/select-private-network.png)
 1. Enter **MySelfHostedIR** for **Name**, and click **Next**. 
@@ -379,7 +384,7 @@ In this step, you create datasets to represent the data source, the data destina
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. After clicking **Finish**, you see **\@dataset().SinkTableName** as the table name.
+ 1. After clicking **Finish**, you see **@dataset().SinkTableName** as the table name.
    
    ![Sink Dataset - connection](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 

@@ -53,6 +53,7 @@ In this section, you create a Standard Load Balancer that helps load balance vir
     | Public IP address | Select **Create new**. |
     | Public IP address name              | Type *myPublicIP* in the text box.   |
     |Availability zone| Select **Zone redundant**.    |
+
 3. In the **Review + create** tab, click **Create**.
 
    ![Create a Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -85,7 +86,8 @@ To allow the Load Balancer to monitor the status of your app, you use a health p
     | Interval | Enter *15* for number of **Interval** in seconds between probe attempts. |
     | Unhealthy threshold | Select *2* for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.|
     | Health probe | Select *myHealthProbe*. |
-1. Select **OK**.
+    
+4. Select **OK**.
 
 ### Create a Load Balancer rule
 
@@ -103,13 +105,15 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
     | Backend port | Enter *80*. |
     | Backend pool | Select *myBackendPool*.|
     | Health probe | Select *myHealthProbe*. |
-1. Leave the rest of the defaults and select **OK**.
+    
+4. Leave the rest of the defaults and select **OK**.
 
 ## Create backend servers
 
 In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
 ### Create a virtual network
+
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
 2. In **Create virtual network**, enter or select this information:
 
@@ -122,6 +126,7 @@ In this section, you create a virtual network, create three virtual machines for
     | Location | Select **West Europe**.|
     | Subnet - Name | Enter *myBackendSubnet*. |
     | Subnet - Address range | Enter *10.1.0.0/24*. |
+    
 3. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
@@ -217,7 +222,7 @@ To remove *myVM1* from the backend pool, complete the following steps:
 2. Under **Settings**, click **Backend pools**, then within the backend pool's list, click **myBackendPool**.
 3. On the **myBackendPool** page, to remove *VM1* select the delete icon at the end of the row that displays *myVM1*, and then click **Save**.
 
-With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1**, the load is now balanced across *myVM2* and *myVM3*. 
+With *myVM1* no longer in the backend address pool, you can perform any maintenance tasks on *myVM1*, such as installing software updates. In the absence of *VM1*, the load is now balanced across *myVM2* and *myVM3*. 
 
 ### Add VM to a backend pool
 To add *myVM1* back to the backend pool, complete the following steps:

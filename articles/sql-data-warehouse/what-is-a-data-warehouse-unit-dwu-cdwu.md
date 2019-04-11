@@ -181,7 +181,7 @@ FROM      sys.databases
 ;
 ```
 
-3. Submit the following query to check status of operation
+1. Submit the following query to check status of operation
 
 ```sql
 SELECT    *

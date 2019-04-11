@@ -104,7 +104,7 @@ For example, provide a string description for how many cars of the same make pas
 **Output**:
 
 | CarsPassed | Time |
-| --- | --- | --- |
+| --- | --- |
 | 1 Honda |2015-01-01T00:00:10.0000000Z |
 | 2 Toyotas |2015-01-01T00:00:10.0000000Z |
 

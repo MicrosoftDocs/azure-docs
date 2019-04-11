@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/31/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ---
 
@@ -101,7 +101,7 @@ A crash consistent snapshot captures data that was on the disk when the snapshot
 
 **Description** | **Details** | **Recommendation**
 --- | --- | ---
-App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   2) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   3) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. | <br/><br/>Application-consistent recovery points are recommended for database operating systems and applications such as SQL.<br/><br/> App-consistent snapshots are only supported for VMs running Windows.
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   2) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   3) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
 
 ## Replication process
 
@@ -113,8 +113,7 @@ When you enable replication for an Azure VM, the following happens:
 4. Site Recovery processes the data in the cache, and sends it to the target storage account, or to the replica managed disks.
 5. After the data is processed, crash-consistent recovery points are generated every five minutes. App-consistent recovery points are generated according to the setting specified in the replication policy.
 
-
-   ![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Enable replication process, step 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Replication process**
 
@@ -141,7 +140,7 @@ To control outbound connectivity for VMs using IP addresses, allow these address
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.<region-name>.
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the source region | Storage.\<region-name>.
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure Active Directory (Azure AD).<br/><br/> If Azure AD addresses are added in future you need to create new Network Security Group (NSG) rules.  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the target location. 
 
@@ -149,7 +148,7 @@ Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https
 
 **Rule** |  **Details** | **Service tag**
 --- | --- | --- 
-Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.<region-name>.
+Allow HTTPS outbound: port 443 | Allow ranges that correspond to storage accounts in the target region. | Storage.\<region-name>.
 Allow HTTPS outbound: port 443 | Allow ranges that correspond to Azure AD.<br/><br/> If Azure AD addresses are added in future you need to create new NSG rules.  | AzureActiveDirectory
 Allow HTTPS outbound: port 443 | Allow access to [Site Recovery endpoints](https://aka.ms/site-recovery-public-ips) that correspond to the source location. 
 

@@ -5,15 +5,11 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/12/2019
+ms.date: 03/26/2019
 ---
 # Monitor performance with the Query Store
 
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
-
-> [!IMPORTANT]
-> The Query Store feature is in Public Preview.
-
 
 The Query Store feature in Azure Database for PostgreSQL provides a way to track query performance over time. Query Store simplifies performance troubleshooting by helping you quickly find the longest running and most resource-intensive queries. Query Store automatically captures a history of queries and runtime statistics, and it retains them for your review. It separates data by time windows so that you can see database usage patterns. Data for all users, databases, and queries is stored in a database named **azure_sys** in the Azure Database for PostgreSQL instance.
 
@@ -30,8 +26,8 @@ Query Store is an opt-in feature, so it isn't active by default on a server. The
 4. Set the value to `TOP` and **Save**.
 
 To enable wait statistics in your Query Store: 
-5. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
-6. Set the value to `ALL` and **Save**.
+1. Search for the `pgms_wait_sampling.query_capture_mode` parameter.
+1. Set the value to `ALL` and **Save**.
 
 
 Alternatively you can set these parameters using the Azure CLI.
