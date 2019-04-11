@@ -73,7 +73,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
     </dependency>
     ```
 
-### Create the management client
+## Connect to the Java client
 
 1. Open the `App.java` file under `src\main\java\com\azure\ams` and make sure your package is included at the top:
 
