@@ -78,7 +78,7 @@ For more information on creating clusters with Resource Manager templates, see [
 
 ### Enable and disable Autoscale for a running cluster
 
-You can enable or disable Autoscale for HDInsight clusters created after January 1, 2019 through the Azure portal.
+You can only enable or disable Autoscale for new HDInsight clusters.
 
 ## Monitoring
 
@@ -103,8 +103,8 @@ The above metrics are checked every 60 seconds. Autoscale will make scale-up and
 
 When the following conditions are detected, Autoscale will issue a scale-up request:
 
-* Total pending CPU is greater than total free CPU for more than 1 minute.
-* Total pending memory is greater than total free memory for more than 1 minute.
+* Total pending CPU is greater than total free CPU for more than 3 minute.
+* Total pending memory is greater than total free memory for more than 3 minute.
 
 We will calculate that a certain number of new worker nodes are needed to meet the current CPU and memory requirements and then issue a scale-up request that adds that number of new worker nodes.
 
@@ -115,7 +115,7 @@ When the following conditions are detected, Autoscale will issue a scale-down re
 * Total pending CPU is less than total free CPU for more than 10 minutes.
 * Total pending memory is less than total free memory for more than 10 minutes.
 
-Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal. By default, two nodes will be removed in one cycle.
+Based on the number of AM containers per node and the current CPU and memory requirements, Autoscale will issue a request to remove a certain number of nodes, specifying which nodes are potential candidates for removal.The scale down will trigger decommissioning of nodes and after the nodes are completely decommissioned, they will be removed.
 
 ## Next steps
 

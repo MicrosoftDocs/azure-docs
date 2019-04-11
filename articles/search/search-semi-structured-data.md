@@ -33,9 +33,9 @@ The following services, tools, and data are used in this quickstart.
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) is used for storing the sample data.
+[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
 
-[Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
+[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
@@ -291,7 +291,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-You can attach AI-powered Cognitive Services algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
 
 > [!div class="nextstepaction"]
-> [Indexing with AI](cognitive-search-tutorial-blob.md)
+> [How to index JSON blobs using Azure Search Blob indexer](search-howto-index-json-blobs.md)
