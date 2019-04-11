@@ -14,7 +14,9 @@ ms.custom: "mvc, seodec18"
 
 ---
 
-# Tutorial: Develop and deploy an IoT Edge module written in C
+# Tutorial: Develop a C IoT Edge module and deploy to a Linux device
+
+Use Visual Studio Code to develop C code and deploy it to a Linux device running Azure IoT Edge. 
 
 You can use IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. In this tutorial, you learn how to:
 
@@ -40,7 +42,7 @@ This tutorial demonstrates how to develop a module in C using **Visual Studio 20
 
 ## Prerequisites
 
-Before beginning this tutorial, you should have gone through one of the previous tutorials that walk through setting up your development environment, either to [develop an IoT Edge module in Visual Studio Code](tutorial-develop-vs-code.md) or to [develop an IoT Edge module in Visual Studio 2017](tutorial-develop-vs-2017.md). By completing either of those tutorials, you should have the following prerequisites already in place: 
+Before beginning this tutorial, you should have gone through one of the previous tutorials that walk through setting up your development environment, either to [develop an IoT Edge module in Visual Studio Code](tutorial-develop-vs-code.md) or to [develop an IoT Edge module in Visual Studio 2017](tutorial-develop-visual-studio.md). By completing either of those tutorials, you should have the following prerequisites already in place: 
 * An Azure IoT Edge device
 * A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure.
 * A container registry, like [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/).
