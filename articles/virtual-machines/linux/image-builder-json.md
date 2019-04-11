@@ -62,7 +62,7 @@ The API requires a 'SourceType', this defines the source for the image build, cu
 
 ### ISO
 
-Azure Image Builder only supports using published Red Hat Enterprise Linux 7.x Binary DVD ISOs, for private preview. Image Builder supports:
+Azure Image Builder only supports using published Red Hat Enterprise Linux 7.x Binary DVD ISOs, for preview. Image Builder supports:
 - RHEL 7.3 
 - RHEL 7.4 
 - RHEL 7.5 
@@ -290,7 +290,7 @@ A Shared Image Gallery is made up of:
  
 •	Gallery - Container for multiple shared images. A gallery is deployed in one region.
 •	Image definitions - a conceptual grouping for images. 
-•	Image versions - this is an image type used for deploying a VM or VMSS. Image versions can be replicated to other regions where VMs need to be deployed.
+•	Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
 Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see documentation (https://docs.microsoft.com/en-us/azure/virtualmachines/windows/shared-image-galleries). 
 
