@@ -45,7 +45,7 @@ You can diagnose installation problems with the Access Panel Extension by downlo
 
 To verify that the Access Panel Extension is enabled in Internet Explorer:
 
-1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**.
    
 2. Go to the **Programs** tab and select **Manage add-ons**.
    
@@ -57,7 +57,7 @@ To verify that the Access Panel Extension is enabled in Internet Explorer:
 
 To enable extensions for InPrivate Browsing:
 
-1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**. In older versions of Internet Explorer you can find this under **Tools** > **Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**.
    
 2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
