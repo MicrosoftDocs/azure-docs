@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Scale Azure App Service web apps by using Ansible | Microsoft Docs
+title: Tutorial - Scale web apps in Azure App Service using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
@@ -10,18 +10,20 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Scale Azure App Service web apps by using Ansible
+# Tutorial: Scale web apps in Azure App Service using Ansible
 
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile back end. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+[Azure App Service Web Apps](/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile back end. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
 Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to scale your app in Azure App Service.
 
 ## Prerequisites
+
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - **Azure App Service Web Apps** - If you don't already have an Azure app service web app, you can [create Azure web apps by using Ansible](ansible-create-configure-azure-web-apps.md).
 
 ## Scale up an App in App Service
+
 You can scale up by changing the pricing tier of the App Service plan that your app belongs to. This section presents a sample Ansible playbook that defines following operation:
 - Get facts of an existing App Service plan
 - Update the App service plan to S2 with three workers
@@ -114,5 +116,6 @@ localhost                  : ok=6    changed=1    unreachable=0    failed=0
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)

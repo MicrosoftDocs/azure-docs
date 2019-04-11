@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure a database in Azure Database for MySQL server using Ansible | Microsoft Docs
+title: Tutorial - Configure databases in Azure Database for MySQL using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and configure an Azure Database for MySQL server
 keywords: ansible, azure, devops, bash, playbook, mysql, database
 ms.topic: tutorial
@@ -10,11 +10,11 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure a database in Azure Database for MySQL server using Ansible | Microsoft Docs
+# Tutorial: Configure databases in Azure Database for MySQL using Ansible | Microsoft Docs
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. Ansible enables you to automate the deployment and configuration of resources in your environment. 
+[Azure Database for MySQL](/azure/mysql/) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. Ansible enables you to automate the deployment and configuration of resources in your environment. 
 
 This quickstart shows you how use Ansible to create an Azure Database for MySQL server and configure its firewall rule. You can finish those tasks in about five minutes by using the Azure portal.
 

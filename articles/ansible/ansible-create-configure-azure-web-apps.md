@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Configure an app in Azure App Service using Ansible
-description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
+title: Tutorial - Configure a web app in Azure App Service using Ansible
+description: Learn how to create a Java web app in Azure App Service on Linux using Ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.service: ansible
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure an app in Azure App Service using Ansible
+# Tutorial: Configure a web app in Azure App Service using Ansible
 
 [Azure App Service](/azure/app-service/overview) (or just Web Apps) hosts web applications, REST APIs, and mobile backends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 

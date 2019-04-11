@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Create a lab in Azure DevTest Labs using Ansible | Microsoft Docs
+title: Tutorial - Create labs in Azure DevTest Labs using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create and configure an Azure DevTest Labs instance
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Create a lab in Azure DevTest Labs using Ansible
+# Tutorial: Create labs in Azure DevTest Labs using Ansible
 
 [Azure DevTest Labs](https://docs.microsoft.com/en-us/azure/lab-services/devtest-lab-overview) is a service that allows developers to efficiently self-service virtual machines and/or PaaS resources that they need for developing, testing, and training etc. without waiting for constant approvals on the tools that they need.
 
