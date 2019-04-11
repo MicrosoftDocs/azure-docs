@@ -64,7 +64,9 @@ In this example, we will modify the redirection URL by rewriting the location he
 
    - Enter the name of the rewrite set in the **Name** textbox.
    - Select one or more rules listed in the **Associated routing rules** list. You can only select those rules which have not been associated with other rewrite sets. The rules which have already been associated with other rewrite sets will be grayed out.
-   - Click next.![Add name and association](media/rewrite-http-headers-portal/name-and-association.png)
+   - Click next.
+   
+     ![Add name and association](media/rewrite-http-headers-portal/name-and-association.png)
 
 5. Create a rewrite rule:
 
