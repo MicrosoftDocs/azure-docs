@@ -67,7 +67,7 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 1. In the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool.
 
-   ![Copy Data tool tile](media/data-factory-load-data/copy-data-tool-tile.png)
+   ![Copy data tool tile](media/data-factory-load-data/copy-data-tool-tile.png)
 
 1. In the **Properties** page, specify **Task name** and select **Next**.
 
@@ -99,14 +99,10 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 1. In the **Choose the input file or folder** page:
 
     1. Browse to the folder/file that you want to copy. Select the folder/file.
-    1. Specify your file settings.
+    1. Select the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options.
     1. Select **Next**.
 
     ![Choose input file or folder](media/data-factory-load-data/source-choose-input-file.png)
-
-1. Select the copy behavior by selecting the **Copy files recursively** and **Binary copy** (copy files as-is) options. Select **Next**.
-
-    ![Specify output folder](media/data-factory-load-data/specify-binary-copy.png)
 
 ## Create a service principal
 
