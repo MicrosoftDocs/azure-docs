@@ -93,7 +93,7 @@ Command | Keyboard shortcut
 Copy    | **Control+C**
 Cut     | **Control+X**
 Paste   | **Control+V**
-Reload  | **Control+R**
+Refresh  | **Control+R**
 
 ### Other Commands
 
