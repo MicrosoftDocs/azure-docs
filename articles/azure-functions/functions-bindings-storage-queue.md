@@ -49,7 +49,7 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---Java-example)
+* [Java](#trigger---java-example)
 
 ### Trigger - C# example
 

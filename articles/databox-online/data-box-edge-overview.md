@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/25/2019
+ms.date: 04/12/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box Edge is and how it works so I can use it to process and transform data before sending to Azure.
 ---
@@ -85,11 +85,11 @@ The Data Box Edge solution comprises of Data Box Edge resource, Data Box Edge ph
 Data Box Edge physical device, Azure resource, and target storage account to which you transfer data do not all have to be in the same region.
 
 - **Resource availability** - For this release, the Data Box Edge resource is available in the following regions:
-    - **United States** - West US2 and East US
+    - **United States** - East US
     - **European Union** - West Europe
     - **Asia Pacific** - SE Asia
     
-    Data Box Gateway can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    Data Box Edge can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. 
 
@@ -98,9 +98,9 @@ Data Box Edge physical device, Azure resource, and target storage account to whi
 
 ## Next steps
 
-- Review the [Data Box Edge system requirements](https://aka.ms/dbe-docs).
-- Understand the [Data Box Edge limits](https://aka.ms/dbe-docs).
-- Deploy [Azure Data Box Edge](https://aka.ms/dbe-docs) in Azure portal.
+- Review the [Data Box Edge system requirements](data-box-edge-system-requirements.md).
+- Understand the [Data Box Edge limits](data-box-edge-limits.md).
+- Deploy [Azure Data Box Edge](data-box-edge-deploy-prep.md) in Azure portal.
 
 
 

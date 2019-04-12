@@ -45,7 +45,7 @@ Identifying a workspace can be accomplished one of several ways:
 
 * Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
-    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
     >Because Azure subscription names are not unique, this identifier might be ambiguous. 

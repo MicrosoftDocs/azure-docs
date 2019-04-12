@@ -136,26 +136,26 @@ Save this diagnostics file locally.
 
 Launch PowerShell and log in to Azure. 
 
-```PowerShell
+```powershell
 Login-AzAccount 
 ```
 
 Use the following commands to store the details of the storage account that you created earlier. 
 
-```PowerShell
+```powershell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
 
 Similarly, set the diagnostics file path to a variable by using the following command:
 
-```PowerShell
+```powershell
 $diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
 
 Deploy the Diagnostics extension to your cloud service with the diagnostics file with the Azure Monitor sink configured using the following command:  
 
-```PowerShell
+```powershell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
 

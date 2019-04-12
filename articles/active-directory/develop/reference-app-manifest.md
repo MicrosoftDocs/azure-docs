@@ -82,15 +82,17 @@ To configure the application manifest:
 | `signInAudience` | String | Specifies what Microsoft accounts are supported for the current application. Supported values are:<ul><li>**AzureADMyOrg** - Users with a Microsoft work or school account in my organization’s Azure AD tenant (i.e. single tenant)</li><li>**AzureADMultipleOrgs** - Users with a Microsoft work or school account in any organization’s Azure AD tenant (i.e. multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount** - Users with a personal Microsoft account, or a work or school account in any organization’s Azure AD tenant</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | String Array | Custom strings that can be used to categorize and identify the application. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
 
-## Common Issues
+## Common issues
 
-### Manifest Limits
+### Manifest limits
+
 An application manifest has multiple attributes which are referred to as collections for example approles , keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess , oauth2Permissions etc . Within the complete application manifest for any application, the total number of entries in all the collections combined has been capped at 1200. If you already have 100 redirect URI's specified in the application manifest then you are only left with 1100 remaining entries to use across all other collections combined which make up the manifest.
 
 > [!NOTE]
 > In case you try to add more than 1200 entries in the application manifest . You may recieve an error **"Failed to update application xxxxxx . Error details: The size of the manifest has exceeded its limit. Please reduce the number of values and retry your request.**"
 
 ### Unsupported attributes
+
 The application manifest represents the schema of the underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App Registrations (Preview)]((https://developer.microsoft.com/en-us/graph/blogs/new-app-registration/)) which are known with a different name in the App Registrations (GA) experience.
 
 

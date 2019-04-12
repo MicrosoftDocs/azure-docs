@@ -223,7 +223,7 @@ GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{lo
 
 ### Azure PowerShell
 ```azurepowershell-interactive
-Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+Get-AzVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
 ```
 
 ### Azure CLI 2.0

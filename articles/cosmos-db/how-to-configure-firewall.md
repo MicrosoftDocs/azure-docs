@@ -100,9 +100,10 @@ To configure access control to your Azure Cosmos DB account, make sure that the 
      "name": "[parameters('databaseAccountName')]",
      "location": "[resourceGroup().location]",
      "properties": {
-     "databaseAccountOfferType": "Standard",
-     "name": "[parameters('databaseAccountName')]",
-     "ipRangeFilter":"183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+       "databaseAccountOfferType": "Standard",
+       "name": "[parameters('databaseAccountName')]",
+       "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+     }
    }
 ```
 
@@ -121,7 +122,7 @@ az cosmosdb create \
   --resource-group $resourceGroupName \
   --max-interval 10 \
   --max-staleness-prefix 200 \
-  --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+  --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 To update the firewall settings for an existing account, run the following command:
@@ -130,7 +131,7 @@ To update the firewall settings for an existing account, run the following comma
 az cosmosdb update \
       --name $name \
       --resource-group $resourceGroupName \
-      --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
+      --ip-range-filter "183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
 ## <a id="troubleshoot-ip-firewall"></a>Troubleshoot issues with an IP access control policy

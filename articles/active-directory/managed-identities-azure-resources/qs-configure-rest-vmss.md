@@ -3,7 +3,7 @@ title: How to configure system and user-assigned managed identities on an Azure 
 description: Step by step instructions for configuring a system and user-assigned managed identities on an Azure VMSS using CURL to make REST API calls.
 services: active-directory
 documentationcenter: 
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: 
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -156,7 +156,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
     }  
    ```  
 
-### Enable system-assigned managed identity on a existing virtual machine scale set
+### Enable system-assigned managed identity on an existing virtual machine scale set
 
 To enable system-assigned managed identity on an existing virtual machine scale set, you need to acquire an access token and then use CURL to call the Resource Manager REST endpoint to update the identity type.
 
