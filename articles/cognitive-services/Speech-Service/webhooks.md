@@ -58,7 +58,7 @@ The 'Active' property is used to switch calling back into your URL on and off wi
 
 The event type `TranscriptionCompletion` is provided in the events array. It will callback to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type. 
 
-There is one additional event type that you cannot subscribe to. It is the Ping event type and a request with that type is sent to the URL when finishing to create the web hook and when using the ping URL (see below). 
+There is one event type that you cannot subscribe to. It is the `Ping` event type. A request with this type is sent to the URL when finished creating a webhook when using the ping URL (see below).  
 
 In the configuration the url property is required. It is the URL, the POST requests will be sent to, once the event triggers. The secret will be used to create a SHA256 hash of the payload with the secret as HMAC key. This hash will be set as X-MicrosoftSpeechServices-Signature header when calling back into the registered URL. It is Base64 encoded. 
 
