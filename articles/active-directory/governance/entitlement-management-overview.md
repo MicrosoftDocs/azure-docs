@@ -28,13 +28,13 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Managing access to all the resources a user needs to be productive is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of all the resources needed, the scope of the project, the individuals involved in the project, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with individuals or companies outside your organization.
+Users in most organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
 
-Azure Active Directory (Azure AD) entitlement management enables organizations to manage access to packages of groups, applications, and SharePoint Online sites for internal users and users from external partners.
+Azure Active Directory (Azure AD) entitlement management can help you manage access to groups, applications, and SharePoint Online sites for internal users and also users outside your organization.
 
 ## Why use entitlement management?
 
-Enterprise organizations often face challenges when managing access for users across resources:
+Enterprise organizations often face challenges when managing access to resources:
 
 - Users may not know what access rights they should have
 - Users may have difficulty locating the right individuals or right resources
@@ -87,7 +87,7 @@ Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21V
 
 ## What are access packages and policies?
 
-Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, and sites. Access packages are used to govern access for your internal employees, and also from users from outside your organization. Access packages are defined in containers called *catalogs*.
+Entitlement management introduces the concept of an *access package*. An access package is a bundle of all the resources a user needs to work on a project or perform their job. The resources include access to groups, applications, and sites. Access packages are used to govern access for your internal employees, and also users outside your organization. Access packages are defined in containers called *catalogs*.
 
 Access packages also include one or more *policies*. A policy defines the rules or guardrails to access an access package. Enabling a policy enforces that only the right users are granted access, to the right resources, and for the right amount of time.
 
