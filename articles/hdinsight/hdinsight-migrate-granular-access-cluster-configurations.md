@@ -27,9 +27,9 @@ The latest release of the Azure HDInsight SDK brings some important changes to a
     - To retrieve all configurations, including sensitive parameters, use `ClusterOperationsExtensions.ListConfigurations` going forward.  Note that users with the 'Reader' role will not be able to use this method. This allows for granular control over which users can access cluster secrets.
     - To retrieve just HTTP gateway credentials, use `ClusterOperationsExtensions.GetGatewaySettings`.
 
-2. ClusterOperationsExtensions.GetConnectivitySettings is now deprecated and has been replaced by `ClusterOperationsExtensions.GetGatewaySettings`.
+2. `ClusterOperationsExtensions.GetConnectivitySettings` is now deprecated and has been replaced by `ClusterOperationsExtensions.GetGatewaySettings`.
 
-3. ClusterOperationsExtensions.ConfigureHttpSettings is now deprecated and has been replaced by `ClusterOperationsExtensions.UpdateGatewaySettings`.
+3. `ClusterOperationsExtensions.ConfigureHttpSettings` is now deprecated and has been replaced by `ClusterOperationsExtensions.UpdateGatewaySettings`.
 
 4. `ConfigurationsOperationsExtensions.EnableHttp` and `DisableHttp` are now deprecated. HTTP is now always enabled, so these methods are no longer needed.
 
