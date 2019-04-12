@@ -12,7 +12,7 @@ ms.author: denisgun
 
 # Configure GPU acceleration for Windows Virtual Desktop Preview
 
-Windows Virtual Desktop Preview supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly important for graphics-intensive apps.
+Windows Virtual Desktop Preview supports GPU-accelerated rendering and encoding for improved app performance and scalability. GPU acceleration is particularly crucial for graphics-intensive apps.
 
 Follow this article's instructions to create a GPU optimized Azure virtual machine, add it to your host pool, and configure it to use GPU acceleration for rendering and encoding. This article assumes you already have a Windows Virtual Desktop tenant configured.
 
@@ -40,7 +40,7 @@ You must also configure an app group, or use the default desktop app group (name
 
 To take advantage of the GPU capabilities of Azure N-series VMs in Windows Virtual Desktop Preview, you must install NVIDIA graphics drivers. Follow the instructions at [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup) to do so, either manually or using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
 
-Note that only [NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distributed by Azure are supported for Windows Virtual Desktop Preview. GRID drivers from another source, and NVIDIA Tesla (CUDA) drivers, are not supported.
+Note that only [NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) distributed by Azure are supported for Windows Virtual Desktop Preview. GRID drivers from another source, and NVIDIA Tesla (CUDA) drivers are not supported.
 
 After driver installation, a VM restart is required. Use the verification steps in the above instructions to confirm that graphics drivers were successfully installed.
 
