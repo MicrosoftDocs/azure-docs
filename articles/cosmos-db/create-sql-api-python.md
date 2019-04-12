@@ -29,7 +29,7 @@ This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api
 
 ## Prerequisites
 
-* [Python 3.6](https://www.python.org/downloads/) with \<install location\>\Python36 and \<install location>\Python36\Scripts added to your PATH. 
+* [Python 3.6](https://www.python.org/downloads/), with the `python` executable available in your `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python extention for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
