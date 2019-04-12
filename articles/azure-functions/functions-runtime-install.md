@@ -100,13 +100,13 @@ To complete the Azure Functions Runtime installation, you must complete the conf
 
 To create your first function in Azure Functions Runtime preview
 
-1. Browse to the **Azure Functions Runtime Portal** as https://<machinename>.<domain> for example https://mycomputer.mydomain.com
+1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>` for example `https://mycomputer.mydomain.com`.
 
 1. You are prompted to **Log in**, if deployed in a domain use your domain account username and password, otherwise use your local account username and password to log in to the portal.
 
     ![Azure Functions Runtime preview portal login][14]
 
-1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions
+1. To create function apps, you must create a Subscription.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions.
 
     ![Azure Functions Runtime preview portal subscriptions][15]
 
