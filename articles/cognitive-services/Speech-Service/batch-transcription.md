@@ -85,7 +85,7 @@ Configuration parameters are provided as JSON:
 
 ### Storage
 
-Currently, only Azure Blob storage is supported.
+Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
 ## Web hooks 
 
