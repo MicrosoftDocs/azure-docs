@@ -1,5 +1,5 @@
 ---
-title: Secure your vault - Azure Key Vault | Microsoft Docs
+title: Introduction to Azure Key Vault security | Microsoft Docs
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: barclayn
-# Customer intent: As a key vault administrator, I want to secure my vaults and know that I can monitor access activity.
+Customer intent: As a key vault administrator, I want to secure my vaults and know that I can monitor access activity.
 ---
 
-# Secure your Azure Key vaults
+# Introduction to Azure Key Vault security
 
 You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
 
-## Authentication and Authorization
+## Identity and access management
 
 When you create a key vault in an Azure subscription, it's automatically associated with the Azure AD tenant of the subscription. Anyone trying to manage or retrieve content from a vault must be authenticated by Azure AD.
 
@@ -29,7 +29,7 @@ When you create a key vault in an Azure subscription, it's automatically associa
 
 ### Access model overview
 
-Access to vaults is controlled through two interfaces or planes. These planes are the management plane and the data plane.
+Access to vaults takes place through two interfaces or planes. These planes are the management plane and the data plane.
 
 - The *management plane* is where you manage Key Vault itself and it is the interface used to create and delete vaults. You can also read key vault properties and manage access policies.
 - The *data plane* allows you to work with the data stored in a key vault. You can add, delete, and modify keys, secrets, and certificates.
