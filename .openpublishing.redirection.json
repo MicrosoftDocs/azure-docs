@@ -36865,6 +36865,11 @@
       "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
       "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-jre-support.md ",
+      "redirect_url": "articles/app-service/configure-language-java.md",
+      "redirect_document_id": true
     }
   ]
 }
