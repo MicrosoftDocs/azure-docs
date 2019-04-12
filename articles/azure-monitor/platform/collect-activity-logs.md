@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
 ---
 
@@ -19,7 +19,7 @@ ms.author: magoedte
 
 ![Azure Activity Logs symbol](./media/collect-activity-logs/activity-log-analytics.png)
 
-The Activity Log Analytics solution helps you analyze and search the [Azure activity log](../../azure-monitor/platform/activity-logs-overview.md) across all your Azure subscriptions. The Azure Activity Log is a log that offers insights into the operations performed on resources in your subscriptions. The Activity Log was previously known as *Audit Logs* or *Operational Logs* since it reports events for your subscriptions.
+The Activity Log Analytics solution helps you analyze and search the [Azure activity log](activity-logs-overview.md) across all your Azure subscriptions. The Azure Activity Log is a log that offers insights into the operations performed on resources in your subscriptions. The Activity Log was previously known as *Audit Logs* or *Operational Logs* since it reports events for your subscriptions.
 
 Using the Activity Log, you can determine the *what*, *who*, and *when* for any write operations (PUT, POST, DELETE) made for the resources in your subscription. You can also understand the status of the operations and other relevant properties. The Activity Log does not include read (GET) operations or operations for resources that use the Classic deployment model.
 
@@ -47,28 +47,39 @@ Unlike most other Azure Monitor solutions, data isn't collected for activity log
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](../../azure-monitor/platform/agent-windows.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](../../azure-monitor/learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
-| [SCOM management group](../../azure-monitor/platform/om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
+| [Windows agents](agent-windows.md) | No | The solution does not collect information from Windows agents. |
+| [Linux agents](../learn/quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
+| [System Center Operations Manager management group](om-agents.md) | No | The solution does not collect information from agents reporting to an Operations Manager management group. |
 | [Azure storage account](collect-azure-metrics-logs.md) | No | The solution does not collect information from Azure storage. |
 
 ## Prerequisites
 
-- To access Azure activity log information, you must have an Azure subscription.
+To access Azure activity log information, you must have an Azure subscription.
+
+The solution also requires that the following two resource providers are registered in your subscription:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+To learn how to register or verify they are registered, see [Azure resource providers and types](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## Configuration
 
 Perform the following steps to configure the Activity Log Analytics solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../../azure-monitor/insights/solutions.md).
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+
+2. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../insights/solutions.md).
+
 2. Configure activity logs to go to your Log Analytics workspace.
     1. In the Azure portal, select your workspace and then click **Azure Activity log**.
     2. For each subscription, click the subscription name.  
+        
         ![add subscription](./media/collect-activity-logs/add-subscription.png)
+    
     3. In the *SubscriptionName* blade, click **Connect**.  
+    
         ![connect subscription](./media/collect-activity-logs/subscription-connect.png)
-
-Sign in to the Azure portal to connect an Azure subscription to your workspace.  
 
 ## Using the solution
 
@@ -93,5 +104,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../../azure-monitor/platform/alerts-metric.md) when a specific activity happens.
-- Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information from your activity logs.
+- Create an [alert](../platform/alerts-metric.md) when a specific activity happens.
+- Use [Log Search](../log-query/log-query-overview.md) to view detailed information from your activity logs.
