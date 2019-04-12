@@ -38,7 +38,7 @@ Building an app is free; it doesn't require an Azure subscription. When you are 
     ![Enter new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
 
 
-## Create intent 
+## Create intents 
 
 After this app is created, the next step is to create intents. Intents are a way to categorize text from users. If you have a human resources app that has two functions: first to help people find and apply for jobs and second to find forms to apply for jobs, these two different _intentions_ align to the following intents:
 
@@ -57,9 +57,9 @@ After this app is created, the next step is to create intents. Intents are a way
 
 ## Add example utterance 
 
-After creating the intent, the next step is to add example utterances. This is text, entered by the user in a chat bot or other client application, that maps the intention of the user's text to a LUIS intent. 
+You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application and which map the intention of the user's text to a LUIS intent. 
 
-For this example application's `FindForm` intent, example utterances will include the form number, which is important information within the utterance that the client application needs in order to fullfil the user's request. 
+For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fullfil the user's request so it's important to include in the utterance.
 
 Add the following fifteen example utterances to the `FindForm` intent. 
 
@@ -81,7 +81,7 @@ Add the following fifteen example utterances to the `FindForm` intent.
 |14|will hrf-234567 be edited for new requirements|
 |15|hrf-123456, hrf-123123, hrf-234567|
 
-These example utterances vary, on purpose, in the following ways:
+These example utterances vary on purpose, in the following ways:
 
 * utterance length
 * punctuation
