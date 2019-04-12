@@ -44,30 +44,27 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner |
-> | **2.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
-> | **3.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **4.** [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
+> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **3.** [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner |
-> | **2.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
-> | **3.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **4.** [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **5.** Send the **My Access portal link** to request the access package to your business partner<ul><li>Business partner can share link with their users</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
+> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
+> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **3.** [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **4.** Send the **My Access portal link** to request the access package to your business partner<ul><li>Business partner can share link with their users</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### I want to change the groups, applications, or SharePoint sites in an access package
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** Open the access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **1.** Open the access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
 
 ## Administrators and audits
 
@@ -76,17 +73,15 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** Open an access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [View **Assignments**](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>View which users have access to an access package</li><li>View which user's access has expired</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
+> | **1.** Open an access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
+> | **2.** [View **Assignments**](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>View which users have access to an access package</li><li>View which user's access has expired</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 ### I want to view groups, applications, or SharePoint sites a user has access to
 
 > [!div class="mx-tableFixed"]
 > | Step | Example | Who can perform |
 > | --- | --- | --- |
-> | **1.** Open entitlement management | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** [View **User assignments report**](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
+> | **1.** [View **User assignments report**](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 
 ## Approvers
