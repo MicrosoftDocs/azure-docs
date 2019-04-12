@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2019
+ms.date: 04/11/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -40,7 +40,7 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. In the left menu, click **Catalogs**.
 
-    ![Entitlement management in the Azure portal](./media/entitlement-management-catalog-create/elm-catalogs.png)
+    ![Entitlement management catalogs in the Azure portal](./media/entitlement-management-catalog-create/catalogs.png)
 
 1. Click **New catalog**.
 
@@ -50,11 +50,15 @@ A catalog is a container of resources and access packages. You create a catalog 
 
 1. If you want the access packages in this catalog to be available for users to request as soon as they are created, set **Enabled** to **Yes**.
 
-1. Click **Create**.
+1. If you want to allow users in selected external directories to be able to request access packages in this catalog, set **Enabled for external users** to **Yes**.
+
+    ![New catalog pane](./media/entitlement-management-catalog-create/new-catalog.png)
+
+1. Click **Create** to create the catalog.
 
 ## Add resources to a catalog
 
-To include resources in an access package, the resources must exist in a catalog. The types of resources you can add include groups, applications, and SharePoint Online sites.
+To include resources in an access package, the resources must exist in a catalog. The types of resources you can add are groups, applications, and SharePoint Online sites.
 
 **Prerequisite role:** User administrator or Catalog owner
 
@@ -88,7 +92,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 1. Select the resources you want to remove.
 
-1. Click **Remove** (or open the context menu for the resource and click **Remove**).
+1. Click **Remove** (or click the ellipsis (**...**) and then click **Remove resource**).
 
 ## Edit a catalog
 
