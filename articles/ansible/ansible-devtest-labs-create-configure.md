@@ -12,14 +12,16 @@ ms.date: 04/04/2019
 
 # Tutorial: Create labs in Azure DevTest Labs using Ansible
 
-[Azure DevTest Labs](https://docs.microsoft.com/en-us/azure/lab-services/devtest-lab-overview) is a service that allows developers to efficiently self-service virtual machines and/or PaaS resources that they need for developing, testing, and training etc. without waiting for constant approvals on the tools that they need.
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-This tutorial shows you how to use Ansible to create and manage Azure DevTest Labs for your team.
+[Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of virtual machine environments for their apps. These environments can be configured for app developing, testing, and training. 
+
+In this article, you create and manage labs in Azure DevTest Labs using Ansible.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- **Azure service principal** - When [creating the service principal](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), note the following values: **appId**, **displayName**, **password**, and **tenant**.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+- [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
@@ -27,7 +29,7 @@ This tutorial shows you how to use Ansible to create and manage Azure DevTest La
 
 ## Create resource group
 
-The first task in the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) creates a resource group; a logical container in which Azure resources are deployed and managed.
+The sample playbook snippet creates an Azure resource group. A resource group is a logical container in which Azure resources are deployed and managed.
 
 ```yaml
   - name: Create a resource group
@@ -110,7 +112,7 @@ This task creates the default DevTest Labs virtual network.
   register: output
 ```
 
-## Define a artifact source for the lab
+## Define an artifact source for the lab
 
 DevTest Lab artifacts source is a properly structured GitHub repository that contains artifact definition and ARM templates. Note that every lab comes with predefined public artifacts. The follow tasks shows you how to create the DevTest Labs artifact source.
 
@@ -213,7 +215,7 @@ And the following task retrieves details of a specific ARM template from the rep
     var: output
 ```
 
-## Create DevTest Labs environment
+## Create a DevTest Labs environment
 
 Finally, the following task creates the DevTest Lab environment based on one of the templates from public environment repository.
 
@@ -229,7 +231,7 @@ Finally, the following task creates the DevTest Lab environment based on one of 
       register: output
 ```
 
-## Create DevTest Labs image
+## Create a DevTest Labs image
 
 Another useful task is to create a DevTest Labs image based on an existing DevTest Labs virtual machine. That way, it can be used for creating new DevTest Labs virtual machines.
 
@@ -243,7 +245,7 @@ Another useful task is to create a DevTest Labs image based on an existing DevTe
     linux_os_state: non_deprovisioned
 ```
 
-## Delete the DevTest Labs instance
+## Delete the lab
 
 To delete the instance, use the following task:
 
@@ -260,12 +262,11 @@ To delete the instance, use the following task:
       - output.changed
 ```
 
-## Complete sample Ansible playbook
+## Get the sample playbook
 
-Here is the complete playbook you have built. [Download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) or save below as *cosmosdb.yml*. Make sure you replace the placeholder **{{ resoruce_group_name }}** in the `vars` section with your own resource group name.
-
-> [!Tip]
-> ```github_token``` - make sure you store the GitHub token as an environment variable GITHUB_ACCESS_TOKEN
+There are two ways to get the complete sample playbook:
+- [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) and save it to `devtestlab-create.yml`.
+- Create a new file called `devtestlab-create.ymll` and copy into it the following contents:
 
 ```yml
 ---
@@ -421,15 +422,25 @@ Here is the complete playbook you have built. [Download the sample playbook](htt
         state: absent
 ```
 
+## Run the playbook
+
+In this section, run the playbook to test various features shown in this article.
+
+Before running the playbook, make the following changes:
+- In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+- Store the GitHub token as an environment variable named `GITHUB_ACCESS_TOKEN`.
+
 To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
-ansible-playbook cosmosdb.yml
+ansible-playbook devtestlab-create.yml
 ```
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myResourceGroup**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -443,12 +454,13 @@ If you don't need these resources, you can delete them by running the following 
         state: absent
 ```
 
-Save the preceding playbook as *rg_delete.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)
