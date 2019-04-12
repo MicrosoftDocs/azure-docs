@@ -3,7 +3,7 @@ title: Security Center Planning and Operations Guide | Microsoft Docs
 description: This document helps you to plan before adopting Azure Security Center and considerations regarding daily operations.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 
@@ -13,8 +13,8 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
-ms.author: rkarlin
+ms.date: 04/11/2019
+ms.author: monhaber
 
 ---
 # Azure Security Center planning and operations guide
@@ -78,11 +78,6 @@ Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-con
 - **Security admin**: same as security reader but it can also update the security policy, dismiss recommendations and alerts.
 
 The Security Center roles described above do not have access to other service areas of Azure such as Storage, Web & Mobile, or Internet of Things.  
-
-> [!NOTE]
-> A user needs to be at least a subscription, resource group owner, or contributor to be able to see Security Center in Azure.
->
->
 
 Using the personas explained in the previous diagram, the following RBAC would be needed:
 

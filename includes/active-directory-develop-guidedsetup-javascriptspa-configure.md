@@ -36,7 +36,7 @@ ms.custom: include file
 > For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but you can use any other available port. Follow the instructions below to set up a redirect URL in the application registration information:<br/>
 > - Switch back to the *Application Registration* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number).
 
-<p/>
+<p>
 
 > #### Visual Studio instructions for obtaining the redirect URL
 > Follow these steps to obtain the redirect URL:
@@ -51,14 +51,15 @@ ms.custom: include file
     ```javascript
     var applicationConfig = {
         clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
+        authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
         graphScopes: ["user.read"],
         graphEndpoint: "https://graph.microsoft.com/v1.0/me"
     };
     ```
 
-<ol start="2">
-<li>
-Replace <code>Enter the application Id here</code> with the application ID you just registered.
-</li>
-</ol>
+    Where:
+    - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
+    - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
+       - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+       - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
+       - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
