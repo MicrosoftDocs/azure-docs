@@ -89,7 +89,7 @@ Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azu
 
 ## Webhooks 
 
-Polling transcription status may not be the most performant or offer the best user experience. In addition however to poll for status a user can register callbacks, when their long-running transcription tasks complete.
+Polling for transcription status may not be the most performant, or provide the best user experience. To poll for status, you can register callbacks, which will notify the client when long-running transcription tasks have completed.
 
 For more details, see [Webhooks](webhooks.md).
 
