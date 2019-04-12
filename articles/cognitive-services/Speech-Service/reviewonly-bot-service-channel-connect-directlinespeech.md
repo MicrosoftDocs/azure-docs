@@ -20,19 +20,38 @@ ms.custom:
 
 You can configure your bot to allow client applications to communicate with it through the Direct Line Speech channel.
 
-Once you have [built a Bot Framework bot with the Bot Builder SDK v4](https://blog.botframework.com/2018/05/07/build-a-microsoft-bot-framework-bot-with-the-bot-builder-sdk-v4/), onboarding your bot with Direct Line Speech will enable a low latency, high reliability connection with client applications using the [Cognitive Services Speech SDK](https://aka.ms/speech/sdk). These connections are optimized for voice in, voice out conversational experiences.
+Once you have [built a Bot Framework bot with the Bot Builder SDK v4.5](https://aka.ms/botframework/4.5), onboarding your bot with Direct Line Speech will enable a low latency, high reliability connection with client applications using the [Cognitive Services Speech SDK](https://aka.ms/speech/sdk). These connections are optimized for voice in, voice out conversational experiences.
 
 ## Add the Direct Line Speech channel
 
 1. To add the Direct Line Speech Channel, first open the bot in the [Azure Portal](https://portal.azure.com), and click on **Channels** in the configuration blade.
 
-  ![highlight of the location for selecting channels to connect to](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-selectchannel.png "selecting channels")
+    ![highlight of the location for selecting channels to connect to](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-selectchannel.png "selecting channels")
 
 1. In the channel selection page, find and click `Direct Line Speech` to choose the channel.
 
-  ![selecting direct line speech channel](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-connectspeechchannel.png "connecting Direct Line Speech")
+    ![selecting direct line speech channel](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-connectspeechchannel.png "connecting Direct Line Speech")
 
 1. This will take you to a configuration page for Direct Line Speech. Once you've reviewed the terms of use, click `Save` to confirm your channel selection.
+
+    ![saving the enablement of Direct Line Speech channel](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-savechannel.png "Save the channel configuration")
+
+## Enable the Bot Framework Streaming Protocol
+
+With the Direct Line Speech channel connected to your bot, you now need to enable Bot Framework Streaming Protocol support for optimal low-latency interaction.
+
+1. First, navigate to the **App Service** for your bot in the [Azure Portal](https://portal.azure.com) and click on **Settings** in the configuration blade.
+
+    > [!NOTE]
+    > This setting is under the **App Service** supporting your bot, not the bot itself.
+
+    ![configure the app service for streaming protocol](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-configureappservice.png "configure the app service")
+
+1. Click on `General settings` and then select the option to enable `Streaming protocol`.
+
+    ![enable streaming protocol for the app service](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-enablestreamingprotocol.png "enable the streaming protocol")
+
+1. Click `Save` at the top of the configuration page. The Bot Framework Streaming Protocol is now enabled for your bot.
 
 ## Manage secret keys
 
@@ -42,5 +61,4 @@ Client applications will need a bot secret key to connect to your bot through th
 
 ## Adding protocol support to your bot
 
-> [!NOTE]
-> TODO: Add details here -- maybe an aka.ms redirect to a blog post later?
+With the Direct Line Speech channel connected and support for the Bot Framework Streaming protocol enabled, all that's left is to add code to your bot to support the optimized communication. Follow the instructions on [adding Steaming protocol support to your bot](https://aka.ms/botframework/addstreamingprotocolsupport) to ensure full compatibility with Direct Line Speech.
