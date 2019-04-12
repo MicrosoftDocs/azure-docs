@@ -46,7 +46,7 @@ SpeechBotConnector connector = new SpeechBotConnector(botConfig, null);
 auto botConfig = BotConnectorConfig::FromBotConnectionId(botId, key, region);
 ...
 // Addition to include file logging
-botConfig->SetProperty("SPEECH-LogFileName", "fullPathToLogTo);
+botConfig->SetProperty("SPEECH-LogFileName", "fullPathToLogTo");
 ... 
 auto connector = SpeechBotConnector::FromConfig(botConfig);
 ```
