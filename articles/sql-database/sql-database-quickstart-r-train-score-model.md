@@ -173,16 +173,15 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
    Because your model is based on the **rxLinMod** algorithm provided as part of the **RevoScaleR** package, you call the [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) function, rather than the generic R `predict` function.
 
-   This example script performs the following steps:
+   This example script:
+   - Uses a SELECT statement to get a single model from the table
+   - Passes it as an input parameter
+   - Calls the `unserialize` function on the model
+   - Applies the `rxPredict` function with appropriate arguments to the model
+   - Provides the new input data
 
-   1. Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
-
-   1. Call the `unserialize` function on the model.
-
-      > [!TIP]
-      > For real-time scoring, see [Serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR.
-
-   1. Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
+   > [!TIP]
+   > For real-time scoring, see [Serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR.
 
    ```sql
    DECLARE @speedmodel varbinary(max) = 
