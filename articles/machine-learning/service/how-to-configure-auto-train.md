@@ -234,8 +234,7 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
     * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
 
 ## Ensemble Models
-
-Ensemble learning provides a method to improve machine learning results by combing many models. This approach allows to produce better predictive performance compared to single models. Automated ML currently supports ensemble models using [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration will appear as the last iteration in the Automated ML runs.
+Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
 
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
