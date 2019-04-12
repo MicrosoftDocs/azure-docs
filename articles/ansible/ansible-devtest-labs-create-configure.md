@@ -227,7 +227,7 @@ The following task creates the lab environment based on one of the templates fro
 
 ## Create the lab image
 
-An image is based on an existing lab virtual machine. Once created, the image allows you to create identical virtual machines.
+The following task creates an image from an existing virtual machine. The image allows you to create identical virtual machines.
 
 ```yaml
 - name: Create the lab image
