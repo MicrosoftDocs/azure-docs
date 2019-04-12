@@ -48,7 +48,7 @@ This section isn't used in this example, but it can be used to ensure that depen
     "dependsOn": [],
 ```
 
-For more information, see [Define resource dependencies](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
+For more information, see [Define resource dependencies](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson).
 
 
 ## Properties: source
@@ -249,8 +249,7 @@ IB supports three distribution targets:
 - sharedImage - Shared Image Gallery.
 - VHD - VHD in a storage account.
 
-You can distribute an image to both of the target types in the same configuration. For an example, see [azplatform_image_deploy_sigmdi.json]
-(https://github.com/danielsollondon/azvmimagebuilder/blob/master/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
+You can distribute an image to both of the target types in the same configuration. For an example, see [azplatform_image_deploy_sigmdi.json](https://github.com/danielsollondon/azvmimagebuilder/blob/master/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
  
 ## Managed image
 
@@ -288,11 +287,11 @@ The Azure Shared Image Gallery is a new Image Management service that allows man
  
 A Shared Image Gallery is made up of: 
  
-•	Gallery - Container for multiple shared images. A gallery is deployed in one region.
-•	Image definitions - a conceptual grouping for images. 
-•	Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
+- Gallery - Container for multiple shared images. A gallery is deployed in one region.
+- Image definitions - a conceptual grouping for images. 
+- Image versions - this is an image type used for deploying a VM or scale set. Image versions can be replicated to other regions where VMs need to be deployed.
  
-Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see documentation (https://docs.microsoft.com/en-us/azure/virtualmachines/windows/shared-image-galleries). 
+Before you can distribute to the Image Gallery, you must create a gallery and an image definition, see [Shared images] (shared-images.md). 
 
 ```jason
 {

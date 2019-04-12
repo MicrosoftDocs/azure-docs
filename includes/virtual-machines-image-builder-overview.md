@@ -9,7 +9,7 @@ manager: jeconnoc
 
 Creating standardized virtual machine (VM) images allows organizations to migrate to the cloud and ensure consistency in the deployments. Images typically include predefined security and configuration settings and necessary software. Setting up your own image build pipeline requires infrastructure and setup, but with Azure VM Image Builder, you can take an ISO or Azure Marketplace image and start creating your own golden images in a few steps.
  
-The Azure VM Image Builder (Azure Image Builder) lets you start with either a Windows or Linux-based Azure Marketplace VM or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Your customizations can be added in the documented customizations in this document, and because the VM Image Builder is built on HashiCorp Packer (https://packer.io/), you can also import your existing Packer shell provisioner scripts. As the last step, you specify where you would like your images hosted, either in the Azure Shared Image Gallery (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries) or as an Azure Managed Image. See below for a quick video on how to create a custom image using the VM Image Builder.
+The Azure VM Image Builder (Azure Image Builder) lets you start with either a Windows or Linux-based Azure Marketplace VM or Red Hat Enterprise Linux (RHEL) ISO and begin to add your own customizations. Your customizations can be added in the documented customizations in this document, and because the VM Image Builder is built on [HashiCorp Packer](https://packer.io/), you can also import your existing Packer shell provisioner scripts. As the last step, you specify where you would like your images hosted, either in the Azure Shared Image Gallery (https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) or as an Azure Managed Image. See below for a quick video on how to create a custom image using the VM Image Builder.
  
 ## Preview feature support
 For the preview, we are supporting these key features:
@@ -36,13 +36,13 @@ The Azure Image Builder is a fully managed Azure service that is accessible by a
  
 The diagram below shows the end to end Azure Image Builder pipeline, where you can see the three main components, source, customize and distribute, with their inputs and outputs. 
 
-![Conceptual drawing of the image builder pipeline](/media/virtual-machines-image-builder-overview/pipelines.png)
+![Conceptual drawing of the image builder pipeline](./media/virtual-machines-image-builder-overview/pipelines.png)
 
 The pipeline steps are defined in a configuration template that is used by the service, then stored as an ImageTemplate. 
  
 For the Azure Image Builder to stand up the pipeline requires an invocation call into the Azure Image Builder service referencing a stored template.
 
-![Conceptual drawing of the submit and run command processes](/media/virtual-machines-image-builder-overview/submit-run.png)
+![Conceptual drawing of the submit and run command processes](./media/virtual-machines-image-builder-overview/submit-run.png)
 
 1. Create the Image Template. 
 1. Submit the Image Template. Azure Image Builder will download the RHEL ISO, and shell scripts needed, and store these in a resource group that is automatically created in your subscription, in this format: ‘IT_<DestinationResourceGroup>_<TemplateName>’. This will be removed when the Image Template artifact is deleted. You will also see the template artifact, that references these in the resource group referenced when creating the image template.

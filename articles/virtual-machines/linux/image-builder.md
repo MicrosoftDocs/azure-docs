@@ -3,14 +3,14 @@ title: Create a Linux VM with Azure Image Builder (preview)
 description: Create a Linux VM with the Azure Image Builder.
 author: cynthn
 ms.author: cynthn
-ms.date: 3/18/2019
+ms.date: 04/12/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
 ---
 # Create a Linux VM with Azure Image Builder (preview)
 
-This article is to show you how you can create a basic customized image using the Azure VM Image Builder.
+This article shows you how you can create a basic customized image using the Azure Image Builder and the Azure CLI.
 
 > [!IMPORTANT]
 > Azure Image Builder is currently in public preview.
@@ -95,7 +95,7 @@ sed -i -e "s/<region>/$location/g" helloImageTemplateLinux.json
 sed -i -e "s/<imageName>/$imageName/g" helloImageTemplateLinux.json
 ```
 
-## Create the Image
+## Create the image
 Submit the image configuration to the VM Image Builder service
 
 ```azurecli-interactive
@@ -159,7 +159,7 @@ cat helloImageTemplate.json
 
 For more detailed information about this .json file, see [Image builder .json example](image-builder-json.md)
 
-## Clean Up
+## Clean up
 
 When you are done, delete the resources.
 
@@ -173,6 +173,6 @@ az group delete -n $imageResourceGroup
 ```
 
 
-## Next Steps
+## Next steps
 
 To learn more about the components of the .json file used in this article, see [Image builder json template example](image-builder-json.md).
