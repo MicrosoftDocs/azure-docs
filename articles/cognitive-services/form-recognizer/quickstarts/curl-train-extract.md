@@ -22,7 +22,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 * You must have [cURL](https://curl.haxx.se/windows/).
-* You must have a subscription key for Form Recognizer. To get a subscription key, see Obtaining subscription keys.
+* You must have a subscription key for Form Recognizer. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Form Recognizer and get your key.
 * You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) for this quickstart.
 
 ## Create a training dataset
