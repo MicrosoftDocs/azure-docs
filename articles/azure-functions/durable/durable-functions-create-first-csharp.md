@@ -54,6 +54,9 @@ The Azure Functions template creates a project that can be published to a functi
     | **Template** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
+> [!NOTE]
+> If you are going to be deploying multiply copies of the same functions (think dev, test, production), you will need to make sure they > each have their own **storage account**. If not you will get cross talk between the different versions of your functions.
+
 4. Click **OK** to create an empty function project. This project has the basic configuration files needed to run your functions.
 
 ## Add functions to the app
