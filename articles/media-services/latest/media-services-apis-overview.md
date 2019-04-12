@@ -25,7 +25,7 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media Services API requires that the user or application that makes the REST API requests have access to the Azure Media Services account resource (typically either the **Contributor** or **Owner** role). For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
-Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Azure AD service principal 
 
