@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 ---
 # How to change the licensing model for a SQL Server virtual machine in Azure
-This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and bring your own license (BYOL). And now, using either PowerShell or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
+This article describes how to change the licensing model for a SQL Server virtual machine in Azure using the new SQL VM resource provider - **Microsoft.SqlVirtualMachine**. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-as-you-go, and bring your own license (BYOL). And now, using either the Azure portal or Azure CLI, you can modify which licensing model your SQL Server VM uses. 
 
 The **pay-as-you-go** (PAYG) model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 
@@ -26,14 +26,12 @@ The **bring-your-own-license** (BYOL) model is also known as the [Azure Hybrid B
 
 Switching between the two license models incurs **no downtime**, does not restart the VM, adds **no additional cost** (in fact, activating AHB *reduces* cost) and is **effective immediately**. 
 
-[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
-
 ## Remarks
 
  - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
- - The ability to change the licensing model is a feature of the SQL VM resource provider. Manipulating a SQL Server VM within the portal automatically registers your SQL Server VM with the resource provider. However, some customers may need to [register their SQL Server VM](#register-sql-server-vm-with-the-resource-provider) with the resource provider manually, such as:
+ - The ability to change the licensing model is a feature of the SQL VM resource provider. Manipulating a SQL Server VM within the portal automatically registers your SQL Server VM with the resource provider. However, _some_ customers may need to manually [register their SQL Server VM](#register-sql-server-vm-with-the-resource-provider) with the resource provider, such as:
      - Customers who deployed their SQL Server VM using PowerShell or Azure CLI. 
      - Customers who self-installed SQL Server on a non-SQL Server image. 
      - Customers who deployed their VM using custom VHDs. 

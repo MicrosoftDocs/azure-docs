@@ -41,12 +41,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. In the search field, type `SQL Server 2017 Developer on Windows Server 2016`, and press ENTER.
 
-1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image.
+1. Select the **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** image. The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
    ![New search window](./media/quickstart-sql-vm-create-portal/newsearch.png)
 
-
-  The Developer edition is used in this tutorial because it is a full-featured edition of SQL Server that is free for development testing purposes. You pay only for the cost of running the VM. For complete pricing considerations, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
 1. Select **Create**.
 
