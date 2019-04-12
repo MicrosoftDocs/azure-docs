@@ -25,6 +25,8 @@ After you've created an Azure virtual network, you can connect that network to S
 > [!NOTE] 
 > This step can take up to 30 minutes to complete. The new gateway is created in the designated Azure subscription, and then connected to the specified Azure virtual network.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+
 If a gateway already exists, check whether it's an ExpressRoute gateway or not. If not, delete the gateway, and re-create it as an ExpressRoute gateway. If an ExpressRoute gateway is already established, see the following section of this article, "Link virtual networks." 
 
 - Use either the [Azure portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your virtual network.
@@ -44,15 +46,15 @@ $myGWPIPName = "VNet01GWPIP"
 $myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
-$vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
-$subnet = Get-AzureRmVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
-New-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName `
+$vnet = Get-AzVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -VirtualNetwork $vnet
+New-AzPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName `
 -Location $myAzureRegion -AllocationMethod Dynamic
-$gwpip = Get-AzureRmPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName
-$gwipconfig = New-AzureRmVirtualNetworkGatewayIpConfig -Name $myGWConfig -SubnetId $subnet.Id `
+$gwpip = Get-AzPublicIpAddress -Name $myGWPIPName -ResourceGroupName $myGroupName
+$gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name $myGWConfig -SubnetId $subnet.Id `
 -PublicIpAddressId $gwpip.Id
 
-New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Location $myAzureRegion `
+New-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName -Location $myAzureRegion `
 -IpConfigurations $gwipconfig -GatewayType ExpressRoute `
 -GatewaySku $myGWSku -VpnType PolicyBased -EnableBgp $true
 ```
@@ -82,9 +84,9 @@ $myGWLocation = "East US"
 $myConnectionName = "VNet01GWConnection"
 
 # Create a new connection between the ER Circuit and your Gateway using the Authorization
-$gw = Get-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
+$gw = Get-AzVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
     
-New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
+New-AzVirtualNetworkGatewayConnection -Name $myConnectionName `
 -ResourceGroupName $myGroupName -Location $myGWLocation -VirtualNetworkGateway1 $gw `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```

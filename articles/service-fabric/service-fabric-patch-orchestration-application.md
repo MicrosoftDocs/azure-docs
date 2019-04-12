@@ -325,7 +325,7 @@ If your cluster can tolerate running on N-1 number of upgrade domains during pat
 
 Q. **How much time does it take to patch a node?**
 
-A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
+A. Patching a node may take minutes (for example: [Windows Defender definition updates](https://www.microsoft.com/en-us/wdsi/definitions)) to hours (for example: [Windows Cumulative updates](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). Time required to patch a node depends mostly on 
  - The size of updates
  - Number of updates, which have to be applied in a patching window
  - Time it takes to install the updates, reboot the node (if required), and finish post-reboot installation steps.

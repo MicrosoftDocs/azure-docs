@@ -1,7 +1,8 @@
 ---
 title: Azure Security Center for IoT device investigation guide Preview| Microsoft Docs
 description: This how to guide explains how to use Azure Security Center for IoT to investigate a suspicious IoT device using Log Analytics.
-services: ascforiot
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess

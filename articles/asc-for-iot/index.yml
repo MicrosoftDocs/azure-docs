@@ -4,7 +4,7 @@ title: Azure Security Center for IoT Preview Documentation
 metadata:
   title: Azure Security Center for IoT Preview Documentation - Tutorials, Quickstarts | Microsoft Doc
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot

@@ -38,24 +38,22 @@ Skip to [Set up your development environment](#start) to read through the notebo
     * The Azure Machine Learning Data Prep SDK for Python
 * The tutorial notebook
 
-Get all these prerequisites from either of the sections below.
-
-* Use [Azure Notebooks](#azure)
+* Use a [cloud notebook server in your workspace](#azure) 
 * Use [your own notebook server](#server)
 
-### <a name="azure"></a>Use Azure Notebooks: Free Jupyter notebooks in the cloud
+### <a name="azure"></a>Use a cloud notebook server in your workspace
 
-It's easy to get started with Azure Notebooks! The Azure Machine Learning Data Prep SDK is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
-
-After you complete the steps below, run the **tutorials/regression-part1-data-prep.ipynb** notebook in your **Getting Started** project.
+It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
+
+* After you launch the notebook webpage, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
 ### <a name="server"></a>Use your own Jupyter notebook server
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
 1. Install the Data Prep SDK in your environment using `pip install azureml-dataprep`.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
@@ -81,7 +79,7 @@ All the setup for your development work can be accomplished in a Python notebook
 Use the following to install necessary packages if you don't already have them.
 
 ```shell
-pip install azureml-dataprep==1.0.17
+pip install "azureml-dataprep>=1.1.0,<1.2.0"
 ```
 
 Import the SDK.
@@ -91,7 +89,7 @@ import azureml.dataprep as dprep
 ```
 
 > [!IMPORTANT]
-> Ensure you install version 1.0.17. This tutorial will not work with the newest version 1.1.0
+> Ensure you install the latest version. This tutorial will not work with version number lower than 1.1.0
 
 ## Load data
 
@@ -1093,8 +1091,7 @@ You now have a fully transformed and prepared dataflow object to use in a machin
 import os
 
 file_path = os.path.join(os.getcwd(), "dflows.dprep")
-package = dprep.Package([final_df])
-package.save(file_path)
+final_df.save(file_path)
 ```
 
 ## Clean up resources

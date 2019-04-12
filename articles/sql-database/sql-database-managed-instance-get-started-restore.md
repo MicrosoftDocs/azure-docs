@@ -9,19 +9,19 @@ ms.devlang:
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
 ---
-# Quickstart: Restore a database to a Managed Instance 
+# Quickstart: Restore a database to a Managed Instance
 
-In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an Azure SQL Database [Managed Instance](sql-database-managed-instance.md). 
+In this quickstart, you'll use SQL Server Management Studio (SSMS) to restore a database (the Wide World Importers - Standard backup file) from Azure Blob storage into an Azure SQL Database [Managed Instance](sql-database-managed-instance.md).
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> - For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> - For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+> For more information on migration using the Azure Database Migration Service (DMS), see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+> For more information on various migration methods, see [SQL Server instance migration to Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## Prerequisites
 
@@ -45,9 +45,9 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 3. Run the following SQL script, which uses a pre-configured storage account and SAS key to [create a credential](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) in your Managed Instance.
 
    ```sql
-   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
-   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
     ![create credential](./media/sql-database-managed-instance-get-started-restore/credential.png)
@@ -55,7 +55,7 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 4. To check your credential, run the following script, which uses a [container](https://azure.microsoft.com/services/container-instances/) URL to get a backup file list.
 
    ```sql
-   RESTORE FILELISTONLY FROM URL = 
+   RESTORE FILELISTONLY FROM URL =
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
@@ -74,13 +74,13 @@ In SSMS, follow these steps to restore the Wide World Importers database to your
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
-      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
-   FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
+      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
+   FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. When the restore completes, view it in Object Explorer. 
+7. When the restore completes, view it in Object Explorer.
 
 ## Next steps
 
