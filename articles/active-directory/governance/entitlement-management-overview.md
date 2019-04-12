@@ -28,22 +28,22 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Users in most organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
+Users in organizations need access to various groups, applications, and sites to perform their job. Managing this access is challenging. In most cases, there is no organized list of all the resources a user needs for a project. The project manager has a good understanding of the resources needed, the individuals involved, and how long the project will last. However, the project manager typically does not have permissions to approve or grant access to others. This scenario gets more complicated when you try to work with external individuals or companies.
 
 Azure Active Directory (Azure AD) entitlement management can help you manage access to groups, applications, and SharePoint Online sites for internal users and also users outside your organization.
 
 ## Why use entitlement management?
 
-Enterprise organizations often face challenges when managing access to resources:
+Enterprise organizations often face challenges when managing access to resources such as:
 
-- Users may not know what access rights they should have
+- Users may not know what access they should have
 - Users may have difficulty locating the right individuals or right resources
-- Once users find and receive access to a resource, they may hold on to access rights longer than is required for business purposes
+- Once users find and receive access to a resource, they may hold on to access longer than is required for business purposes
 
 These problems are compounded for users who need access from another directory, such as external users that are from supply chain organizations or other business partners. For example:
 
 - Organizations may not know all of the specific individuals in other directories to be able to invite them
-- Even if organizations were able to invite these users, organizations may not remember to manage all of the user's access rights consistently
+- Even if organizations were able to invite these users, organizations may not remember to manage all of the user's access consistently
 
 Azure AD entitlement management can help address these challenges.
 
@@ -51,7 +51,7 @@ Azure AD entitlement management can help address these challenges.
 
 Here are some of capabilities of entitlement management:
 
-- Create packages of related resources that users need
+- Create packages of related resources that users can request
 - Define rules for how to request resources and when access expires
 - Govern the lifecycle of access for both internal and external users
 - Delegate management of resources
