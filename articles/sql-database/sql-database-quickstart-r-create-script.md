@@ -5,12 +5,12 @@ description: Run simple R scripts in Azure SQL Database using Machine Learning S
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: 
+ms.custom:
 ms.devlang: r
 ms.topic: quickstart
-author: dphansen
-ms.author: davidph
-ms.reviewer: garye
+author: garyericson
+ms.author: garye
+ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ---
@@ -84,6 +84,34 @@ print(c(c, d))
     0.5 2
     ```
 
+## Run a Hello World script
+
+A typical example script is one that just outputs the string "Hello World". Run the following command.
+
+```sql
+EXEC sp_execute_external_script
+  @language =N'R',
+  @script=N'OutputDataSet<-InputDataSet',
+  @input_data_1 =N'SELECT 1 AS hello'
+  WITH RESULT SETS (([Hello World] int));
+GO
+```
+
+Inputs to this stored procedure include:
+
+| | |
+|-|-|
+|*@language* | defines the language extension to call, in this case, R |
+|*@script* | defines the commands passed to the R runtime. Your entire R script must be enclosed in this argument, as Unicode text. You could also add the text to a variable of type **nvarchar** and then call the variable |
+|*@input_data_1* | data returned by the query, passed to the R runtime, which returns the data to SQL Server as a data frame |
+|WITH RESULT SETS | clause defines the schema of the returned data table for SQL Server, adding "Hello World" as the column name, **int** for the data type |
+
+The command outputs the following text:
+
+| Hello World |
+|-------------|
+| 1 |
+
 ## Use inputs and outputs
 
 By default, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepts a single dataset as input, which typically you supply in the form of a valid SQL query. It then returns a single R data frame as output.
@@ -138,7 +166,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
       WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-    Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined with `@input_data_1_name` and `@output_data_1_name`, including case. 
+    Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined with `@input_data_1_name` and `@output_data_1_name`, including case.
 
     <!--    
     Also, the order of the parameters is important - you must specify the required parameters `@input_data_1` and `@output_data_1` first, in order to use the optional parameters `@input_data_1_name` and `@output_data_1_name`.
@@ -147,8 +175,9 @@ For now, let's use the default input and output variables of [sp_execute_externa
    > [!TIP]
    > Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results.
 
-<!-- I think this is unclear and unnecessary.
-4. You can also generate values using the R script and leave the input query string in _@input_data_1_ blank.
+1. You also can generate values just using the R script with no input data (`@input_data_1` is set to blank).
+
+   The following script outputs the text "hello" and "world".
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -162,7 +191,6 @@ For now, let's use the default input and output variables of [sp_execute_externa
     **Results**
 
     ![Query results using @script as input](./media/sql-database-connect-query-r/r-data-generated-output.png)
--->
 
 ## Check R version
 

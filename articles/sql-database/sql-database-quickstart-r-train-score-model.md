@@ -5,12 +5,12 @@ description: Create a simple predictive model in R using Azure SQL Database Mach
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
-ms.custom: 
+ms.custom:
 ms.devlang: r
 ms.topic: quickstart
-author: dphansen
-ms.author: davidph
-ms.reviewer:
+author: garyericson
+ms.author: garye
+ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
 ---
