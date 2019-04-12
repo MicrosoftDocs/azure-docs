@@ -10879,6 +10879,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-install-mono.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/hdinsight/hdinsight-hadoop-r-scripts.md",
       "redirect_url": "/azure/hdinsight/r-server/r-server-get-started",
       "redirect_document_id": false
