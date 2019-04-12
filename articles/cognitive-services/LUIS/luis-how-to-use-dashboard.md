@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 05/08/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -27,7 +27,7 @@ The three problems addressed in the dashboard are:
 |Unclear predictions|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data). |
 |Incorrect predictions|This occurs when an utterance is not predicted for the intent it is in.|
 
-The summary dashboard shows these issues and tells you which intents are effected and suggests what you should do to improve the app. 
+The summary dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
 
 ## Before app is trained 
 
@@ -90,7 +90,7 @@ Do not add utterances to the None intent unless that is suggested on the summary
 
 ### Review incorrect predictions
 
-The **incorrect prediction** intent list shows intents that have utterances which are used as examples for a specific intent, but are predicted for different intents. 
+The **incorrect prediction** intent list shows intents that have utterances, which are used as examples for a specific intent, but are predicted for different intents. 
 
 **To fix this issue**:
 
@@ -114,7 +114,7 @@ The following chart shows a well-balanced app with almost no issues to fix.
 
 ![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-balance.png)
 
-The following chart shows a poorly-balanced app with many issues to fix.
+The following chart shows a poorly balanced app with many issues to fix.
 
 ![The following chart shows a well-balanced app with almost no issues to fix.](./media/luis-how-to-use-dashboard/utterance-per-intent-shows-data-imbalance.png)
 
@@ -132,16 +132,28 @@ This card allows you to review issues for a specific intent. The default view of
 
 The top donut chart shows the issues with the intent across the three problem types. If there are issues in the three problem types, each type has its own chart below, along with any rival intents. 
 
-## Filter intents by issue and percentage
+### Filter intents by issue and percentage
+
+This section of the card allows you to find example utterances that are falling outside your error threshold. Ideally you want correct predictions to be significant. That percentage is business and customer driven. 
+
+Determine the threshold percentages that you are comfortable with for your business. 
 
 The filter allows you to find intents with specific issue:
 
 |Filter|Suggested percentage|Purpose|
 |--|--|--|
-|Most problematic intents|-|Start here. Fixing these intents will improve the app more than other fixes.|
-|Correct predictions below|60%|Ideally you want correct predictions to be significant. That percentage is customer driven. If you are beginning with LUIS, start with 60%. Any intents that are correct but below 60% need to be fixed. |
-|Unclear predictions above|||
-|Incorrect predictions above|||
+|Most problematic intents|-|**Start here** - Fixing the utterances in this intent will improve the app more than other fixes.|
+|Correct predictions below|60%|This is the percentage of utterances in the selected intent that are correct but have a confidence score below the threshold. |
+|Unclear predictions above|15%|This is the percentage of utterances in the selected intent that are confused with the nearest rival intent.|
+|Incorrect predictions above|15%|This is the percentage of utterances in the selected intent that are incorrectly predicted. |
+
+### Correct prediction threshold
+
+What is a confident prediction confidence score to you? At the beginning of app development, 60% may be your target. Use the **Correct predictions below** with the percentage of 60% to find any utterances in the selected intent that need to be fixed.
+
+### Unclear or incorrect prediction threshold
+
+These two filters allow you to find utterances in the selected intent beyond your threshold. You can think of these two percentages as error percentages. If you are comfortable with a 10-15% error rate for predictions, set the filter threshold to 15% to find all utterances above this value. 
 
 ## Next steps
 
