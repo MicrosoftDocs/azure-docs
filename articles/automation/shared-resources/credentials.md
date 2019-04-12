@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 04/12/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -36,7 +36,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 
 | Cmdlets | Description |
 |:--- |:--- |
-| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Retrieves information about a credential asset.  |
+| [Get-AzureRmAutomationCredential](/powershell/module/azurerm.automation/get-azurermautomationcredential) |Retrieves information about a credential asset. This does not return a PSCredential object.  |
 | [New-AzureRmAutomationCredential](/powershell/module/azurerm.automation/new-azurermautomationcredential) |Creates a new Automation credential. |
 | [Remove-AzureRmAutomationCredential](/powershell/module/azurerm.automation/remove-azurermautomationcredential) |Removes an Automation credential. |
 | [Set-AzureRmAutomationCredential](/powershell/module/azurerm.automation/set-azurermautomationcredential) |Sets the properties for an existing Automation credential. |
@@ -89,6 +89,9 @@ New-AzureAutomationCredential -AutomationAccountName "MyAutomationAccount" -Name
 
 You retrieve a credential asset in a runbook or DSC configuration with the **Get-AutomationPSCredential** activity. This returns a [PSCredential object](/dotnet/api/system.management.automation.pscredential) that you can use with an activity or cmdlet that requires a PSCredential parameter. You can also retrieve the properties of the credential object to use individually. The object has a property for the username and the secure password, or you can use the **GetNetworkCredential** method to return a [NetworkCredential](/dotnet/api/system.net.networkcredential) object that will provide an unsecured version of the password.
 
+> [!NOTE]
+> **Get-AzureRmAutomationCredential** does not return a **PSCredential** that can be used for authentication. It only provides information about the credential. If you need to use a credential in a runbook you must use the **Get-AutomationPSCredential** to retrieve the **PSCredential** object.
+
 ### Textual runbook sample
 
 The following sample commands show how to use a PowerShell credential in a runbook. In this example, the credential is retrieved and its username and password assigned to variables.
@@ -117,11 +120,11 @@ Connect-AzureRmAccount -Credential $myPsCred
 
 You add a **Get-AutomationPSCredential** activity to a graphical runbook by right-clicking on the credential in the Library pane of the graphical editor and selecting **Add to canvas**.
 
-![Add credential to canvas](media/automation-credentials/credential-add-canvas.png)
+![Add credential to canvas](../media/credentials/credential-add-canvas.png)
 
 The following image shows an example of using a credential in a graphical runbook.  In this case, it's being used to provide authentication for a runbook to Azure resources as described in [Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
 
-![Add credential to canvas](media/automation-credentials/get-credential.png)
+![Add credential to canvas](../media/credentials/get-credential.png)
 
 ## Using a PowerShell credential in DSC
 
