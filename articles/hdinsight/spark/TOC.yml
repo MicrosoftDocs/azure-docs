@@ -352,6 +352,8 @@
         - name: Optimize Apache Hive queries
           href: ../hdinsight-hadoop-optimize-hive-query.md
           maintainContext: true
+        - name: Changes coming to cluster configuration access
+          hfef: ../hdinsight-migrate-granular-access-cluster-configurations.md
 - name: Enterprise readiness
   items:
   - name: Enterprise security

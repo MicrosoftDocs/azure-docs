@@ -276,3 +276,5 @@
   - name: Windows tools for HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
+  - name: Changes coming to cluster configuration access
+    hfef: ../hdinsight-migrate-granular-access-cluster-configurations.md
