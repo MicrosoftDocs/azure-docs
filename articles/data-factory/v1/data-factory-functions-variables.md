@@ -57,7 +57,7 @@ You can use functions in data factory along with system variables for the follow
 
 1. Specifying data selection queries (see connector articles referenced by the [Data Movement Activities](data-factory-data-movement-activities.md) article.
    
-   The syntax to invoke a data factory function is: **$$<function>** for data selection queries and other properties in the activity and datasets.  
+   The syntax to invoke a data factory function is: **$$\<function>** for data selection queries and other properties in the activity and datasets.  
 2. Specifying input dependencies with data factory functions in activity inputs collection.
    
     $$ is not needed for specifying input dependency expressions.     
