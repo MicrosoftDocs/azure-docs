@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
+ms.lastreviewed: 04/05/2019
 ---
 
 # Azure Stack 1902 update
@@ -61,6 +61,8 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
+  If the `AzsControlPlane` parameter is included when **Test-AzureStack** is executed, you will see the following failure in the **Test-AzureStack** output: **FAIL Azure Stack Control Plane Websites Summary**. You can safely ignore this specific error.
+
 - When Azure Stack is managed by System Center Operations Manager (SCOM), make sure to update the [Management Pack for Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) to version 1.0.3.11 before applying 1902.
 
 - The package format for the Azure Stack update has changed from **.bin/.exe/.xml** to **.zip/.xml** starting with the 1902 release. Customers with connected Azure Stack scale units will see the **Update available** message in the portal. Customers that are not connected can now simply download and import the .zip file with the corresponding .xml.
@@ -74,7 +76,7 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 - The 1902 build introduces a new user interface on the Azure Stack Administrator portal for creating plans, offers, quotas, and add-on plans. For more information, including screenshots, see [Create plans, offers, and quotas](azure-stack-create-plan.md).
 
 <!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.
+- Improvements to the reliability of capacity expansion during an add node operation when switching the scale unit state from “Expanding storage” to “Running”.
 
 <!--
 1426197	3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout	PNU
@@ -91,16 +93,14 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
   ```  
   
 - To improve on the overall reliability and availability of core infrastructure services during the update process, the native Update resource provider as part of the update action plan will detect and invoke automatic global remediations as-needed. Global remediation “repair” workflows include:
-    - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed 
-    - Check for SQL service issues as part of the control plan and attempt to repair them as-needed
-    - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed
-    - Check the state of the Network Controller (NC) service and attempt to repair it as needed
-    - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed
-    - Check the state of the XRP service fabric nodes and repair them as needed
-    - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed
 
-<!-- 1460884	Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator	Add node -->
-- Improvements to the reliability of capacity expansion during add node when switching the scale unit state from “Expanding storage” into running state.    
+  - Checking for infrastructure virtual machines that are in a non-optimal state and attempt to repair them as-needed.
+  - Check for SQL service issues as part of the control plan and attempt to repair them as-needed.
+  - Check the state of the Software Load Balancer (SLB) service as part of the Network Controller (NC) and attempt to repair them as-needed.
+  - Check the state of the Network Controller (NC) service and attempt to repair it as needed
+  - Check the state of the Emergency Recovery Console Service (ERCS) service fabric nodes and repair them as needed.
+  - Check the state of the infrastructure role and repair as needed.
+  - Check the state of the Azure Consistent Storage (ACS) service fabric nodes and repair them as needed.
 
 <!-- 
 1426690	[SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log	Diagnostics
@@ -194,6 +194,14 @@ The following are post-installation known issues for this build version.
 <!-- 1663805 - IS ASDK --> 
 - You cannot view permissions to your subscription using the Azure Stack portals. As a workaround, use [PowerShell to verify permissions](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- In the user portal, when you navigate to a blob within a storage account and try to open **Access Policy** from the navigation tree, the subsequent window fails to load. To work around this issue, the following PowerShell cmdlets enable creating, retrieving, setting and deleting access policies, respectively:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### Compute
@@ -253,6 +261,10 @@ The following are post-installation known issues for this build version.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### Syslog 
+
+- The syslog configuration is not persisted through an update cycle, causing the syslog client to lose its configuration, and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809). To work around this issue, reconfigure the syslog client after applying an Azure Stack update.
 
 ## Download the update
 

@@ -8,8 +8,8 @@ ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
 manager: craigg
 ms.date: 03/25/2019
@@ -41,11 +41,11 @@ ms.date: 03/25/2019
 Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
 ](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## Configure Visual Studio Code 
+## Configure Visual Studio Code
 
 ### **Mac OS**
 
-For macOS, you need to install OpenSSL, which is a prerequisite for .NET Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+For macOS, you need to install OpenSSL, which is a prerequisite for .NET Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -78,13 +78,13 @@ Get the connection information you need to connect to the Azure SQL database. Yo
 
 In Visual Studio Code, set the language mode to **SQL**  to enable mssql commands and T-SQL IntelliSense.
 
-1. Open a new Visual Studio Code window. 
+1. Open a new Visual Studio Code window.
 
-2. Press **Ctrl**+**N**. A new plain text file opens. 
+2. Press **Ctrl**+**N**. A new plain text file opens.
 
 3. Select **Plain Text** in the status bar's lower right-hand corner.
 
-4. In the **Select language mode** drop-down menu that opens, select **SQL**. 
+4. In the **Select language mode** drop-down menu that opens, select **SQL**.
 
 ## Connect to your database
 
@@ -92,7 +92,6 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 > [!IMPORTANT]
 > Before continuing, make sure that you have your server and sign in information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
->
 
 1. In Visual Studio Code, press **Ctrl+Shift+P** (or **F1**) to open the Command Palette.
 
@@ -100,17 +99,17 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 3. Select **Create Connection Profile**.
 
-4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue. 
+4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue.
 
    | Property       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **Server name** | The fully qualified server name | Something like: **mynewserver20170313.database.windows.net**. |
    | **Database name** | mySampleDatabase | The database to connect to. |
    | **Authentication** | SQL Login| This tutorial uses SQL Authentication. |
    | **User name** | User name | The user name of the server admin account used to create the server. |
    | **Password (SQL Login)** | Password | The password of the server admin account used to create the server. |
    | **Save Password?** | Yes or No | Select **Yes** if you do not want to enter the password each time. |
-   | **Enter a name for this profile** | A profile name, such as **mySampleProfile** | A saved profile speeds your connection on subsequent logins. | 
+   | **Enter a name for this profile** | A profile name, such as **mySampleProfile** | A saved profile speeds your connection on subsequent logins. |
 
    If successful, a notification appears saying your profile is created and connected.
 
@@ -139,22 +138,22 @@ Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Press **Ctrl**+**Shift**+**E** to insert a new row in the `Product` table.

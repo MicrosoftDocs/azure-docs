@@ -114,7 +114,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     - Stopping - is transitioning to the stopped state
     - Deleting - is being deleted
     
-- `scaleUnits ` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
+- `scaleUnits` - Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
 ## Working with CDN
 

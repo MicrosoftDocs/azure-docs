@@ -1,6 +1,6 @@
 ---
-title: Collect Fortinet data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Fortinet data in Azure Sentinel.
+title: Connect Fortinet data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Fortinet data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -39,7 +39,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 
 ### Deploy the agent in Azure
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type. 
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type. 
 
 1. Under **Linux Syslog agent configuration**:
    - Choose **Automatic deployment** if you want to create a new machine that is pre-installed with the Azure Sentinel agent, and includes all the configuration necessary, as described above. Select **Automatic deployment** and click **Automatic agent deployment**. This takes you to the purchase page for a dedicated VM that is automatically connected to your workspace, is . The VM is a **standard D2s v3 (2 vcpus, 8 GB memory)** and has a public IP address.
@@ -76,7 +76,7 @@ To see a network diagram of both options, see [Connect data sources](connect-dat
 If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
 
 
-1. In the Azure Sentinel portal, click **Data collection** and select your appliance type.
+1. In the Azure Sentinel portal, click **Data connectors** and select your appliance type.
 1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** choose **Manual deployment**.
    1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**. 
    1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine:
@@ -133,7 +133,7 @@ It may take upwards of 20 minutes until your logs start to appear in Log Analyti
    - syslog-ng: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
       
      Restart the Syslog daemon: `sudo service syslog-ng restart`
-1. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog ` type.
+1. If both of those commands provided successful results, check Log Analytics to see if your logs are arriving. All events streamed from these appliances appear in raw form in Log Analytics under `CommonSecurityLog` type.
 1. To check if there are errors or if the logs aren't arriving, look in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 1. Make sure that your Syslog message default size is limited to 2048 bytes (2KB). If logs are too long, update the security_events.conf using this command: `message_length_limit 4096`
 6. To use the relevant schema in Log Analytics for the Fortinet events, search for **CommonSecurityLog**.

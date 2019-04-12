@@ -286,7 +286,7 @@ For this transformation, you want a sequence of temporal windows that don't over
 
     The projection includes `System.Timestamp`, which returns a timestamp for the end of each window. 
 
-    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) function in the `GROUP BY `clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country for every 5 seconds' worth of calls.
+    To specify that you want to use a Tumbling window, you use the [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) function in the `GROUP BY` clause. In the function, you specify a time unit (anywhere from a microsecond to a day) and a window size (how many units). In this example, the Tumbling window consists of 5-second intervals, so you will get a count by country for every 5 seconds' worth of calls.
 
 2. Click **Test** again. In the results, notice that the timestamps under **WindowEnd** are in 5-second increments.
 

@@ -1,7 +1,6 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options to protect resources when assigning a blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
