@@ -1,6 +1,6 @@
 ---
 title: Software plan discount - Azure | Microsoft Docs
-description: Learn how SUSE plan discounts are applied to SUSE software on virtual machines.
+description: Learn how software plan discounts are applied to software on virtual machines.
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
@@ -36,6 +36,7 @@ Get the product name from your usage data and buy the SUSE plan with the same ty
 
 For example, if your usage is for product **SUSE Linux Enterprise Server Priority - 2-4 vCPU VM Support**, you should purchase **SUSE Linux Enterprise Server Priority** for **2-4 vCPU**.
 
+![Example of selecting the product to purchase](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
 ## Discount applies to different VM sizes
 
