@@ -210,14 +210,14 @@
         href: devtest-lab-manage-formulas.md
     - name: Manage artifacts
       items: 
-      - name: Specify mandatory artifacts 
-        href: devtest-lab-mandatory-artifacts.md
       - name: Add artifacts to a VM
         href: add-artifact-vm.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
       - name: Add an artifact repository to a lab
         href: add-artifact-repository.md
+      - name: Specify mandatory artifacts 
+        href: devtest-lab-mandatory-artifacts.md
       - name: Diagnose artifact failures
         href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Manage virtual networks
