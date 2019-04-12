@@ -95,6 +95,10 @@
       items:
         - name: Overview
           href: msal-overview.md
+        - name: Compare MSAL.NET and ADAL.Net
+          href: msal-compare-msaldotnet-and-adaldotnet.md
+        - name: Compare MSAL.js and ADAL.js
+          href: msal-compare-msaljs-and-adaljs.md
     - name: Authentication
       items:
       - name: Authentication basics
