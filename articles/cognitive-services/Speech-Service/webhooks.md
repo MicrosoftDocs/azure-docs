@@ -30,7 +30,7 @@ Next, let's create a webhook.
 
 ## Create a webhook
 
-Let's see how you create a web hook for an offline transcription. The scenario being the end user has a long audio file to asynchronously transcribe using our Batch Transcritpion API.
+Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API. 
 
 Configuration parameters for the request are provided as JSON:
 
