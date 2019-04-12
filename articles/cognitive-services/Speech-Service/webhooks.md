@@ -52,7 +52,7 @@ Configuration parameters for the request are provided as JSON:
 
 }
 ```
-As in all our HTTP POST requests the name is compulsory while description and properties are optional. 
+All POST requests to the Batch Transcription API require a `name`. The `description` and `properties` parameters are optional.
 
 The 'Active' property is used to switch calling back into your URL on and off without having to delete and re-create the web hook registration. IF you are looking to be called once when the is completed then Delete the webhook and switch the 'Active' property to false.
 
