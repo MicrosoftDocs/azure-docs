@@ -31,7 +31,7 @@ Here are the main benefits of using a transfer tool like Data Box for offline mi
 - Data Box and Azure File Sync require no downtime. When you use Data Box to transfer data into Azure, you use network bandwidth efficiently and preserve the file fidelity. You also keep your namespace up to date by uploading only the files that change after you move the data to Azure.
 
 ## Prerequisites for the offline data transfer
-Before you begin your offline data transfer:
+You should not enable sync on the server you are migrating before you complete your offline data transfer. Other things to consider before you begin are as follows:
 
 - If you plan to use Data Box for your bulk migration: Review the [deployment prerequisites for Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
 - Plan your final Azure File Sync topology: [Plan for an Azure File Sync deployment](storage-sync-files-planning.md)
