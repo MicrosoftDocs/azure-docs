@@ -45,7 +45,7 @@ Configuration parameters are provided as JSON:
   ],
   "active": true,
   "name": "TranscriptionCompletionWebHook",
-  "description": "This is a Web hook created to trigger an HTTP POST request when my audio file transcription is completed.",
+  "description": "This is a Webhook created to trigger an HTTP POST request when my audio file transcription is completed.",
   "properties": {
       "Active" : "True"
   }
