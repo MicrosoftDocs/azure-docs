@@ -218,8 +218,6 @@
         href: add-artifact-repository.md
       - name: Specify mandatory artifacts 
         href: devtest-lab-mandatory-artifacts.md
-      - name: Diagnose artifact failures
-        href: devtest-lab-troubleshoot-artifact-failure.md
     - name: Manage virtual networks
       items:
       - name: Configure virtual networks
