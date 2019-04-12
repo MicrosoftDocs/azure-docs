@@ -16,6 +16,8 @@ ms.author: aschhab
 
 This article discusses some frequently asked questions about Microsoft Azure Service Bus. You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing and support information.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## General questions about Azure Service Bus
 ### What is Azure Service Bus?
 [Azure Service Bus](service-bus-messaging-overview.md) is an asynchronous messaging cloud platform that enables you to send data between decoupled systems. Microsoft offers this feature as a service, which means that you do not need to host your own hardware to use it.
@@ -51,7 +53,7 @@ The following properties of a queue and topic are immutable. Consider this limit
 ## Pricing
 This section answers some frequently asked questions about the Service Bus pricing structure.
 
-The [Service Bus pricing and billing](service-bus-pricing-billing.md) article explains the billing meters in Service Bus. For specific information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
+The [Service Bus pricing and billing](https://azure.microsoft.com/pricing/details/service-bus/) article explains the billing meters in Service Bus. For specific information about Service Bus pricing options, see [Service Bus pricing details](https://azure.microsoft.com/pricing/details/service-bus/).
 
 You can also visit the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing information. 
 
@@ -103,13 +105,13 @@ The following sequence of PowerShell commands moves a namespace from one Azure s
 
 ```powershell
 # Create a new resource group in target subscription
-Select-AzureRmSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
-New-AzureRmResourceGroup -Name 'targetRG' -Location 'East US'
+Select-AzSubscription -SubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff'
+New-AzResourceGroup -Name 'targetRG' -Location 'East US'
 
 # Move namespace from source subscription to target subscription
-Select-AzureRmSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
-$res = Find-AzureRmResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
-Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
+Select-AzSubscription -SubscriptionId 'aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa'
+$res = Find-AzResource -ResourceNameContains mynamespace -ResourceType 'Microsoft.ServiceBus/namespaces'
+Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptionId 'ffffffff-ffff-ffff-ffff-ffffffffffff' -ResourceId $res.ResourceId
 ```
 
 ## Next steps

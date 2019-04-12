@@ -263,7 +263,7 @@ To upload a single large blob quickly, your client application should upload its
 * C++: Use the blob_request_options::set_parallelism_factor method.
 
 #### <a name="subheading22"></a>Uploading many blobs quickly
-To upload many blobs quickly, upload blobs in parallel. This is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. A single blob only supports a throughput of 60 MB/second (approximately 480 Mbps). At the time of writing, a US-based LRS account supports up to 20-Gbps ingress which is far more than the throughput supported by an individual blob.  [AzCopy](#subheading18) performs uploads in parallel by default, and is recommended for this scenario.  
+To upload many blobs quickly, upload blobs in parallel. This is faster than uploading single blobs at a time with parallel block uploads because it spreads the upload across multiple partitions of the storage service. A single blob only supports a throughput of 60 MB/second (approximately 480 Mbps). At the time of writing, a US-based LRS account supports up to 20-Gbps ingress, which is far more than the throughput supported by an individual blob.  [AzCopy](#subheading18) performs uploads in parallel by default, and is recommended for this scenario.  
 
 ### <a name="subheading23"></a>Choosing the correct type of blob
 Azure Storage supports two types of blob: *page* blobs and *block* blobs. For a given usage scenario, your choice of blob type will affect the performance and scalability of your solution. Block blobs are appropriate when you want to upload large amounts of data efficiently: for example, a client application may need to upload photos or video to blob storage. Page blobs are appropriate if the application needs to perform random writes on the data: for example, Azure VHDs are stored as page blobs.  
@@ -291,9 +291,7 @@ Beginning with storage service version 2013-08-15, the table service supports us
 For more information, see the post [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) and [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle Off
-Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle's algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.  
-
-For more information, see our blog post [Nagle's Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), which explains why Nagle's algorithm interacts poorly with table and queue requests, and shows how to disable it in your client application.  
+Nagle's algorithm is widely implemented across TCP/IP networks as a means to improve network performance. However, it is not optimal in all circumstances (such as highly interactive environments). For Azure Storage, Nagle's algorithm has a negative impact on the performance of requests to the table and queue services, and you should disable it if possible.
 
 ### Schema
 How you represent and query your data is the biggest single factor that affects the performance of the table service. While every application is different, this section outlines some general proven practices that relate to:  
@@ -367,7 +365,7 @@ Use table **Upsert** operations wherever possible. There are two types of **Upse
 ##### <a name="subheading37"></a>Storing Data Series in a Single Entity
 Sometimes, an application stores a series of data that it frequently needs to retrieve all at once: for example, an application might track CPU usage over time in order to plot a rolling chart of the data from the last 24 hours. One approach is to have one table entity per hour, with each entity representing a specific hour and storing the CPU usage for that hour. To plot this data, the application needs to retrieve the entities holding the data from the 24 most recent hours.  
 
-Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for a efficient query (see above discussion on [query scope](#subheading30)).
+Alternatively, your application could store the CPU usage for each hour as a separate property of a single entity: to update each hour, your application can use a single **InsertOrMerge Upsert** call to update the value for the most recent hour. To plot the data, the application only needs to retrieve a single entity instead of 24, making for an efficient query (see above discussion on [query scope](#subheading30)).
 
 ##### <a name="subheading38"></a>Storing structured data in blobs
 Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it's better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
@@ -384,7 +382,7 @@ View current scalability targets at [Azure Storage Scalability and Performance T
 See the section on table configuration that discusses the Nagle algorithm — the Nagle algorithm is generally bad for the performance of queue requests, and you should disable it.  
 
 ### <a name="subheading41"></a>Message Size
-Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.  
+Queue performance and scalability decrease as message size increases. You should place only the information the receiver needs in a message.  
 
 ### <a name="subheading42"></a>Batch Retrieval
 You can retrieve up to 32 messages from a queue in a single operation. This can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
@@ -395,7 +393,7 @@ Most applications poll for messages from a queue, which can be one of the larges
 For up-to-date cost information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
+You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of requeuing the message for the next step of the job every time a step completes.  
 
 For more information, see the article [How to: Change the contents of a queued message](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

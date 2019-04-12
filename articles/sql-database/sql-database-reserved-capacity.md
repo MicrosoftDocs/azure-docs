@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: service
 ms.custom:
-ms.devlang: 
+ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/08/2019
 ---
@@ -64,6 +64,8 @@ If you need to cancel your SQL Database reserved capacity reservation, there may
 
 If you need to change your SQL Database reserved capacity reservation to another region, deployment type, performance tier, or term, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. The 1 or 3 year term starts from when you create the new reservation. To request an exchange, go to the reservation in the Azure portal, and select **Exchange** to create a support request.
 
+For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
 ## vCore size flexibility
 
 vCore size flexibility helps you scale up or down within a performance tier and region, without losing the reserved capacity benefit. SQL Database reserved capacity also provides you with the flexibility to temporarily move your hot databases between pools and single databases as part of your normal operations (within the same region and performance tier) without losing the reserved capacity benefit. By keeping an un-applied buffer in your reservation, you can effectively manage the performance spikes without exceeding your budget.
@@ -86,4 +88,3 @@ To learn more about Azure Reservations, see the following articles:
 ## Need help? Contact us
 
 If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

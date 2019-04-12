@@ -4,7 +4,7 @@ description: Describing a Service Fabric cluster by specifying Fault Domains, Up
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
