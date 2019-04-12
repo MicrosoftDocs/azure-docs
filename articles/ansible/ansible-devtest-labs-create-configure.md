@@ -211,7 +211,7 @@ And the following task retrieves details of a specific Azure Resource Manager te
 
 ## Create the lab environment
 
-Finally, the following task creates the lab environment based on one of the templates from public environment repository.
+The following task creates the lab environment based on one of the templates from public environment repository.
 
 ```yaml
 - name: Create the lab environment
@@ -227,7 +227,7 @@ Finally, the following task creates the lab environment based on one of the temp
 
 ## Create the lab image
 
-Another useful task is to create an image based on an existing lab virtual machine. The image then allows you to create identical virtual machines.
+The following task creates an image based on an existing lab virtual machine. The image then allows you to create identical virtual machines.
 
 ```yaml
 - name: Create the lab image
