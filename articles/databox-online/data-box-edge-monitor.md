@@ -19,8 +19,8 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * View device events
 > * View hardware status
-> * Configure and manage alerts
 > * View metrics
+> * Configure and manage alerts
 
 ## View device events
 
@@ -40,17 +40,11 @@ Take the following steps in the local web UI to view the hardware status of your
 
     ![View hardware status](media/data-box-edge-monitor/view-hardware-status.png)
 
-## Configure and manage alerts
-
-Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../azure-monitor/platform/alerts-metric.md).
-
 ## View metrics
 
-You can also view the metrics to monitor the performance of the device and in some instances for troubleshooting device issues. 
+You can also view the metrics to monitor the performance of the device and in some instances for troubleshooting device issues.
 
-### Create a chart
-
-Take the following steps in the Azure portal to create a chart.
+Take the following steps in the Azure portal to create a chart for selected device metrics.
 
 1. For your resource in the Azure portal, go to **Monitoring > Metrics** and select **Add metric**.
 
@@ -81,8 +75,8 @@ Take the following steps in the Azure portal to create a chart.
     |**Cloud upload throughput (share)**  | Sum of all bytes written to the cloud from a share / # of shares is average, max, and min per share      |
     |**Read throughput (network)**           | Includes the system network throughput for all the bytes read from the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.      |
     |**Write throughput (network)**       | Includes the system network throughput for all the bytes written to the cloud. This view can include data that is not restricted to shares such as updates or support package. <br></br>Splitting will show the traffic over all the network adapters on the device. This includes adapters that are not connected or enabled.          |
-    |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metric is not populated for Data Box Gateway.          |
-    |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. If you see a high usage and if your performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metric is not populated for Data Box Gateway.        |
+    |**Edge compute - memory usage**      | Memory usage for the IoT Edge device for your Data Box Edge. If you see a high usage and if your device performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metric is not populated for Data Box Gateway.          |
+    |**Edge compute - percentage CPU**    | CPU usage for IoT Edge device for your Data Box Edge. If you see a high usage and if your device performance is affected by the current workloads that you have deployed, contact Microsoft Support to determine next steps. <br></br>This metric is not populated for Data Box Gateway.        |
 4. When a metric is selected from the dropdown list, aggregation can also be defined. Aggregation refers to the actual value aggregated over a specified span of time. The aggregated values can be average, minimum, or the maximum value. Select the Aggregation from Avg, Max, or Min.
 
     ![View chart](media/data-box-edge-monitor/view-metrics-4.png)
@@ -103,6 +97,10 @@ Take the following steps in the Azure portal to create a chart.
 
     ![Export data](media/data-box-edge-monitor/view-metrics-8.png)
 
-## Next steps
+## Configure and manage alerts
 
-- Learn how to [Manage bandwidth](data-box-edge-manage-bandwidth-schedules.md).
+Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../azure-monitor/platform/alerts-metric.md).
+
+## Next steps 
+
+Learn how to [Manage bandwidth](data-box-edge-manage-bandwidth-schedules.md).
