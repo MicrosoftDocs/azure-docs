@@ -60,7 +60,7 @@ The event type `TranscriptionCompletion` is provided in the events array. It wil
 
 There is one event type that you cannot subscribe to. It is the `Ping` event type. A request with this type is sent to the URL when finished creating a webhook when using the ping URL (see below).  
 
-In the configuration the url property is required. It is the URL, the POST requests will be sent to, once the event triggers. The secret will be used to create a SHA256 hash of the payload with the secret as HMAC key. This hash will be set as X-MicrosoftSpeechServices-Signature header when calling back into the registered URL. It is Base64 encoded. 
+In the configuration, the `url` property is required. POST requests are sent to this URL. The `secret` is used to create a SHA256 hash of the payload, with the secret as an HMAC key. The hash is set as the `X-MicrosoftSpeechServices-Signature` header when calling back to the registered URL. This header is Base64 encoded.
 
 Look at the sample C# code that shows how to validate the payload. 
 
