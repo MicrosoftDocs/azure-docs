@@ -15,7 +15,7 @@
       href: quickstart-ink-recognizer-javascript.md
   - name: Concepts
     items:
-    - name: Recommended calling patterns
+    - name: Send ink data to the Ink Recognizer API 
       href: concepts/recommended-calling-patterns.md
   - name: How-to guides
     items:

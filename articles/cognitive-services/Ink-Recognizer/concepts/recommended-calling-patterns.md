@@ -1,5 +1,5 @@
 ---
-title: Recommended calling patterns for the Ink Recognizer API
+title: Send ink data to the Ink Recognizer API 
 titlesuffix: Azure Cognitive Services
 description: Learn about calling the Ink Analyzer API for different applications
 services: cognitive-services
@@ -20,15 +20,38 @@ The Ink Recognizer API enables you to send ink strokes and get detailed informat
 
 ## Sending ink data to the API
 
-The Ink Recognizer API is a stateless service that accepts ink strokes as a time-ordered set of 2D points (X,Y coordinates). This is commonly referred to as time series data. The API uses these points to achieve detailed recognition for shapes and handwritten text. The accuracy and performance of its results can be impacted by:
+The Ink Recognizer API is a stateless service that accepts ink strokes as a time-ordered set of 2D points (X,Y coordinates). The API uses these points to achieve detailed recognition for shapes and handwritten text. The accuracy and performance of its results can be impacted by:
 
 * How your ink stroke data is prepared.
 * The API parameters that were used.
 * The number of data points in your API request.
 
-Data points sent to the Anomaly Detector API must be formatted in JSON and have a valid Coordinated Universal Time (UTC) timestamp, and numerical X and Y values. 
+Data points sent to the Anomaly Detector API must be formatted in JSON and have numerical X and Y values, like the example below
 
-[Add short sample of ink data that would be sent to the API ]
+```json
+{
+  "version": 1,
+  "language": "en-US",
+  "strokes": [
+   {
+    "id": 43,
+    "points": 
+        "5.1365, 12.3845,
+        4.9534, 12.1301,
+        4.8618, 12.1199,
+        4.7906, 12.2217,
+        4.7906, 12.5372,
+        4.8211, 12.9849,
+        4.9534, 13.6667,
+        5.0958, 14.4503,
+        5.3299, 15.2441,
+        5.6555, 16.0480,
+        ..."
+   },
+    ...
+  ]
+}
+```
 
 ## Recommended calling patterns
 
