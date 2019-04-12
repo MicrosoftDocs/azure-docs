@@ -133,7 +133,7 @@ Sends a POST request to the registered URL, if an entity for the subscribed even
 
 ### Testing
 
-A quick test can be done using the website https://bin.webhookrelay.com. From there you can obtain call back URLs to pass as parameter to the HTTP POST for creating a web hook described earlier in the document.
+A quick test can be done using the website https://bin.webhookrelay.com. From there you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
 
 ## Next steps
 
