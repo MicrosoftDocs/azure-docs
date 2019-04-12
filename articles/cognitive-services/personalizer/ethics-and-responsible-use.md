@@ -11,151 +11,152 @@ ms.date: 05/07/2019
 ms.author: edjez
 ---
 
-# Guidelines for Responsible Implementation of Personalizer
+# Guidelines for responsible implementation of Personalizer
 
-For people and society to realize the full potential of AI, implementations need to be designed in such a way that they earn the trust of those adding AI to their applications and the users of applications built with AI. These guidelines are aimed at helping you to implement personalization in a way that helps you build trust in your company and service. Be sure to pause to research, learn and deliberate on the impact of the personalization on people’s lives. When in doubt, seek guidance.
+These guidelines help you implement personalization in a way that builds trust in your company and service. Be sure to research, learn and deliberate on the impact of personalization on people’s lives. When in doubt, seek guidance. 
 
-These guidelines are not intended as legal advice and you should separately ensure that your application complies with the fast-paced developments in the law in this area and in your sector. 
+To realize the full potential of artificial intelligence (AI), implementations need to be designed in such a way that they earn the trust of those adding AI to their applications and the applications' users. 
 
-Also, in designing your application using Personalizer, you should consider a broad set of responsibilities you have when developing any data-centric AI system, including ethics, privacy, security, safety, inclusion, transparency and accountability. You can read more about these in the References section.
+These guidelines are not intended as legal advice and you should separately ensure that your application complies with the fast-paced legal developments in this area and in your sector. 
 
-You can use the following content as a starter checklist, and customize and refine it to your scenario.
+Also, in designing your client application, which uses Personalizer, you should consider the broad set of responsibilities you have when developing any data-centric AI system. These responsibilities include ethics, privacy, security, safety, inclusion, transparency and accountability. You can read more about these in the [Recommended reading](#recommended-reading) section.
 
-## Your Responsibility
+Use the following content as a checklist. Customize and refine it to your scenario.
+
+## Your responsibility
 
 All guidelines for responsible implementation build on the foundation that developers and businesses using Personalization are responsible and accountable for the effects of using these algorithms in society.
+
 If you are developing an application that your organization will deploy, you should recognize your role and responsibility for its operation and how it affects people. If you are designing an application to be deployed by a third party, come to a shared understanding with them of who is ultimately responsible for the behavior of the application, and document that understanding. 
 
 Trust is built on the notion of fulfilled commitments - consider your users, society, and the legal framework your applications works in to identify explicit and implicit commitments they may have.
 
+## Factors for responsibly implementing Personalizer
 
-# Factors for Responsibly Implementing Personalization
+Implementing Personalizer can be valuable to your users and your business. To implement Personalizer responsibly, start by considering the following guidelines when:
 
-Implementing Personalizer can be of great value to your users and your business. To implement Personalizer responsibly, start by considering the following guidelines when:
-
-* Choosing use cases to apply Personalization,
-* Building [reward functions](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md),
+* Choosing use cases to apply Personalization.
+* Building [reward functions](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-rewards.md).
 * Choosing which [features](https://github.com/Azure/personalization-rl/blob/master/docs/concepts-features.md) about the context and possible actions you will use for personalization.
 
-## Ethical Considerations when choosing use cases for Personalization
+## Ethical considerations when choosing use cases
 
 Using a service that learns to personalize content and user interfaces is useful. It can also be misapplied if the way the content is being personalized creates negative side effects in the real world, including if users are unaware of the content personalization.
 
-For example, the following are not good uses of personalization services, as the "reward" that one would really want to construct depends on many long-term complex factors. These factors, when over-simplified into an immediate reward can have unfavorable results for individuals:
+For example, the following are not good uses of personalization services, as the _reward_ that you want to construct depends on many long-term complex factors. These factors, when over-simplified into an immediate reward, can have unfavorable results for individuals:
 
-* Personalizing offers on loan, financial, and insurance products that are relevant to applicant, where risk factors are based on data the individuals don't know about, can't obtain, and can't dispute.
-* Personalizing items where the reward is based on a latter 3rd party evaluation of the user, instead of having a reward generated by the user's own behavior.
-* Personalizing ranks for school classes, courses and education institutions where recommendations may propagate biases and reduce users' awareness of other options.
+* **Finance**: Personalizing offers on loan, financial, and insurance products that are relevant to an applicant, where risk factors are based on data the individuals don't know about, can't obtain, and can't dispute. 
+* **Education**: Personalizing ranks for school classes, courses and education institutions where recommendations may propagate biases and reduce users' awareness of other options.
+* **Third-party reward evaluation**: Personalizing items where the reward is based on a third party evaluation of the user, instead of having a reward generated by the user's own behavior.
 
 When choosing use cases for personalization:
 
-* Start the design process considering how the personalization helps your users.
-* Consider the negative consequences in the real world if the items aren't ranked for users.
+* Start the design process by considering how the personalization helps your users.
+* Consider the negative consequences in the real world if the items aren't ranked for users. [This is not clearn - be more direct in what you are saying.]
 * Consider self-fulfilling prophecy loops. This may happen if a personalization reward trains a model so it may subsequently further exclude a demographic group from accessing relevant content. For example, most people in a low-income neighborhood don't obtain a premium insurance offer, and slowly nobody in the neighborhood tends to see the offer at all.
-* Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. 
-* Consider the level of exploration adequate for the space and how to use it as a tool to mitigate "echo chamber" effects.
-* Provide feedback to Microsoft if you believe additional tools, scripts and features would help you use Personalization Service in ways that make it easier to add more fairness, more transparency, and less bias. 
+* Save copies of models and learning policies in case it is necessary to reproduce Personalizer in the future. [What is a recommended time interval or data quantity to base backups on?]
+* Consider the level of exploration adequate for the subject area and how to use it as a tool to mitigate echo chamber effects.
+* Provide feedback to Microsoft if you believe additional tools, scripts and features would help you use Personalization Service in ways that make it easier to add more fairness, more transparency, and less bias. [How to provide feedback?]
 
 
-## Ethical Considerations for selecting features to use with Personalization
+## Ethical considerations for selecting features to use 
 
 Personalizing content depends on having useful information about the content and the user. Keep in mind, for some applications and industries, some user features can be directly or indirectly considered discriminatory and potentially illegal. 
 
-Consider:
+Discriminatory or illegal features may include:
 
-* Features regarding sex, gender, age, race, religion may be not allowed in certain applications for regulatory reasons, and it may not be ethical to personalize around them thus propagating generalizations and bias. (e.g. a job posting for engineering not being shown to elder audiences or women).
-* In many places of the world, location information (such as a zip code or postal code or neighborhood name) can be highly correlated with income, race and religion.
-* The business effect of users independently discovering that content displayed in your application is visibly changed based on features that are discriminatory (e.g. people of some races don't get shown high-quality university highlights in an education website).
+* **User information**: Features regarding sex, gender, age, race, religion: These features may be not allowed in certain applications for regulatory reasons, and it may not be ethical to personalize around them because the personalization would propagate generalizations and bias. An example of this bias propagation is a job posting for engineering not being shown to elderly or gender-based audiences.
+* **Locale information**: In many places of the world, location information (such as a zip code, postal code, or neighborhood name) can be highly correlated with income, race and religion.
+* The business effect of users independently discovering that content displayed in your application is visibly changed based on features that are discriminatory (for example, people of some races don't get shown high-quality university highlights in an education website). [how is this a feature you can pass into the system? ]
 
-Do:
+Apply the following ethical practices when using Personalizer:
 
-* Consider the legality and ethics of using certain features for some applications, and whether innocent-looking features may be proxies for others you want to or should avoid,
+* Consider the legality and ethics of using certain features for some applications, and whether innocent-looking features may be proxies for others you want to or should avoid.
 * Expose transparently to users that algorithms and data analysis are being used to personalize the options they see. 
-* Ask yourself: Would my users care and be happy if I used this information to personalize the content for them? Would I feel comfortable showing them how the decision got made to highlight or hide certain items?
-* Consider how to prevent features from being 'spoofed' by malicious users, which if exploited in large numbers can lead to training the Personalization Service in misleading ways to purposefully disrupt, embarrass and harass certain classes of users.
-* When appropriate, design your application to allow your users to opt in or opt out of having certain personal features used. These could be grouped, such as "Location information", "Device Information", "Past Purchase History" etc. Consider if some information types  (such as location) need opt-ins to be refreshed periodically.
+* Ask yourself: Would my users care and be happy if I used this information to personalize the content for them? Would I feel comfortable showing them how the decision was made to highlight or hide certain items?
+* Consider how to prevent features from being misused by malicious users, which if exploited in large numbers can lead to training the Personalization Service in misleading ways to purposefully disrupt, embarrass and harass certain classes of users.
+* When appropriate, design your application to allow your users to opt-in or opt-out of having certain personal features used. These could be grouped, such as location information, device information, and past purchase history. Consider if some information types, such as location, need opt-ins to be refreshed periodically.
 
-## Ethical Considerations for building reward functions
+## Ethical considerations for building reward functions
 
-Personalization Services will strive to improve rankings based on the reward function. 
+The Personalizer service strives to improve rankings based on the reward function. 
 
-A well-built reward function will act as a short-term proxy to a business goal, that is tied to an organization's mission. 
+A well-built reward function (the functions and code you write that generate reward scores from user behavior) will act as a short-term proxy to a business goal, that is tied to an organization's mission. 
 
-For example, rewarding on clicks will make the Personalization Service seek clicks at the expense of everything else, even if what is clicked on is distracting or not tied to a business outcome. 
+For example, rewarding on browser clicks will make the service seek clicks at the expense of everything else, even if what is clicked on is distracting or not tied to a business outcome. 
 
-For example, a news site may want to ask questions tied to something more meaningful than clicks, such as "Did the user spend enough time to read the content?" "Did they click on relevant articles or references?". With Personalization it is easy to tie metrics closely to rewards. But be careful not to confound user satisfaction with good outcomes.
+Another example is a news site that may want to ask questions tied to something more meaningful than clicks, such as did the user spend enough time reading the content, and did they click on relevant articles or references. With Personalizer, you can tie metrics closely to rewards. But be careful not to confound user satisfaction with good outcomes.
 
-### Unexpected Consequences from Reward Functions
+### Unexpected consequences from reward functions
 
-Reward functions (the functions and code you write that generate reward scores from user behavior) may be built with the best of intents, but can still create unexpected consequences or side effects on how the Personalization Service ranks content. 
+Reward functions may be built with the best of intentions, but can still create unexpected consequences or side effects on how Personalizer ranks content. 
 
 Consider the following examples:
 
-* Rewarding video content personalization on the percentage of video watched will probably tend to rank shorter videos.
-* Rewarding social media shares without sentiment analysis of how it's shared may lead to ranking offensive, unmoderated, or inflammatory content, which tends to create a lot of user "engagement".
-* Rewarding the action on user interface elements that users don't expect to change may interfere with usability and predictability of the user interface, where buttons are surprisingly changing location or purpose without warning.
+* Rewarding video content personalization on the percentage of videos watched will probably tend to rank shorter videos.
+* Rewarding social media shares, without sentiment analysis of how it's shared, may lead to ranking offensive, unmoderated, or inflammatory content, which tends to create a lot of negative user feedback.
+* Rewarding the action on user interface elements that users don't expect to change may interfere with the usability and predictability of the user interface, where buttons are surprisingly changing location or purpose without warning.
 
-Do:
+Implement these best practices:
 
 * Run offline experiments with your system using different reward functions to understand impact and side-effects.
-* Evaluate your reward functions and ask yourself "how would an extremely naïve person bend it's interpretation and reach undesirable outcomes with it".
+* Evaluate your reward functions and ask yourself how would an extremely naïve person bend its interpretation and reach undesirable outcomes with it.
 
-## Responsible Design Concerns
+## Responsible design concerns
 
-The following are areas of design for responsible implementations of AI. Here are some guidelines on how you can improve on these areas when using Personalization: 
+The following are areas of design for responsible implementations of artificial intelligence. 
 
 ### Transparency
 
-* *Give users information about how the content was personalized.* For example, you can show your users a button labelled "Why These Suggestions?" showing which top features of the user and actions played a role in the personalization.
-* Make sure your terms of use make mention that you will use information about users to personalize the experience.
+* *Give users information about how the content was personalized.* For example, you can show your users a button labeled `Why These Suggestions?` showing which top features of the user and actions played a role in the personalization.
+* Make sure your terms of use mention that you will use information about users to personalize the experience.
 
 
-### Inclusivity & Fairness
+### Inclusivity and fairness
 
-* *Provide personalized experiences even for accessibility-enabled interfaces.* The efficiency that comes from good personalization can be especially beneficial to people with disabilities.
+* *Provide personalized experiences for accessibility-enabled interfaces.* The efficiency that comes from good personalization can be especially beneficial to people with disabilities.
 
 
 ### Reliability 
 
-Do:
-
-* *Manage your Personalization model as a business asset.* Consider how often to save and backup the model behind your Personalization, and otherwise treat it as an important business asset. Reproducing past results is important for self-audit and measuring improvement.
-* *Provide channels to get direct feedback from users.* In addition to coding safety checks to make sure only the right audiences see the right content, provide a feedback mechanism for users to report content that may be surprising or disturbing.
-* *Establish a process to detect and act on malicious manipulation* There are actors that will take advantage of machine learning and AI systems' ability to learn from their environment to shift the outcome towards their goals. If your use of Personalization is in a position to influence important choices, make sure to have appropriate means to detect  and mitigate these classes of attacks, including human review in appropriate circumstances.
+* *Manage your Personalization model as a business asset*: Save and backup the Personalizer model. Reproducing past results is important for self-audit and measuring improvement.
+* *Provide channels to get direct feedback from users*: In addition to coding safety checks to make sure only the right audiences see the right content, provide a feedback mechanism for users to report content that may be surprising or disturbing.
+* *Establish a process to detect and act on malicious manipulation*: There are actors that will take advantage of machine learning and artificial intelligence systems' ability to learn from their environment to shift the outcome towards their goals. If your use of Personalization is in a position to influence important choices, make sure to have appropriate means to detect and mitigate these classes of attacks, including human review in appropriate circumstances.
 
 
-### Ethical Considerations for Privacy
+### Ethical considerations for privacy
 
-Do:
+* *Inform users up front about the data that is collected and how it is used and obtain their consent beforehand*, following your local and industry regulations.
+* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find buttons: 
+   * `Show me all you know about me`    
+   * `Forget my last interaction` 
+   * `Delete all you know about me`
 
-* *Inform users up front about the data that is collected and how it is used and obtain their
-consent beforehand*, following your local and industry regulations.
-* *Provide privacy-protecting user controls.* For applications that store personal information, consider providing an easy-to-find “Show me all you know about me” button, and similar buttons to “Forget my last interaction,” “Delete all you know about me,” and so forth. In some cases, such buttons may be legally required. Consider the tradeoffs in retraining models periodically so they don't contain traces of deleted data.
-
-
-### Ethical Considerations for Inclusiveness
-
-Do:
-* *Consider using Personalization to simplify interactions*, to reduce the amount of effort, movement, and needless repetition in interactions.
+In some cases, buttons may be legally required. Consider the tradeoffs in retraining models periodically so they don't contain traces of deleted data.
 
 
-## Proactive readiness for Increased Data Protection and Governance
+### Ethical considerations for inclusiveness
 
- It is hard to predict specific changes in regulatory contexts, but in general it would be wise to go beyond the minimum legal framework in ensuring respectful use of personal data, and providing transparency and choice related to algorithmic decision making.
+* *Consider using Personalization to simplify interactions*, to reduce the amount of effort, movement, and needless repetition in interactions.[Can you give an example?]
 
- * Consider planning ahead to a situation where data collected from individuals may not be free resource, and there is a need to show where it came from, and how it was used.
- * Consider extra readiness where users may include marginalized vulnerable populations, children, users in economic vulnerability, or susceptible to influence from algorithmic manipulation.
+
+## Proactive readiness for increased data protection and governance
+
+ It is hard to predict specific changes in regulatory contexts, but in general it would be wise to go beyond the minimum legal framework in ensuring respectful use of personal data, and provide transparency and choice related to algorithmic decision making.
+
+ * Consider planning ahead to a situation where data collected from individuals may not be afree resource, and there is a need to show where it came from, and how it was used.
+ * Consider extra readiness where users may include marginalized vulnerable populations,such as children, users of economic vulnerability, or susceptible to influence from algorithmic manipulation.
  * Consider the widespread dissatisfaction with how audience-targeting and audience-influencing data collection programs and algorithms have played out, and how to avoid proven strategic errors.
 
-## Proactive Assessments during your Project Lifecycle
+## Proactive Assessments during your project lifecycle
 
 Consider creating methods for team members, users and business owners to report concerns regarding responsible use, and creating a process that prioritizes their resolution and prevents retaliation.
 
-Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions by bringing in more diverse voices into your teams, users, or advisory boards; such that it is possible and encouraged for them to speak up. Consider training and learning materials to further expand the team capability. 
+Any person thinking about side effects of use of any technology is limited by their perspective and life experience. Expand the range of opinions by bringing in more diverse voices into your teams, users, or advisory boards. Encourage people with differing perspectives to speak up. Consider training and learning materials to further expand the team capability. 
 
-Consider treating tasks regarding responsible use just like tasks in user experience, security, or devops, which are crosscutting concerns across your application, and can't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle. 
+Consider responsible use tasks just like other tasks in user experience, security, or DevOps. These crosscutting concerns shouldn't be an afterthought. Responsible use should be discussed and verified throughout the application lifecycle. 
 
-# Recommended Reading
+# Recommended reading
 
 * See Microsoft’s six principles for the responsible development of AI published in the January 2018 book, [The Future Computed](https://news.microsoft.com/futurecomputed/)
 * [Asilomar AI Principles](https://futureoflife.org/ai-principles/) from Future of Life Institute.
