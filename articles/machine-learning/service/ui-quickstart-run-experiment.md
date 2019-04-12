@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ### Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#start). If you don't have a workspace, create one now.
+If you have an Azure Machine Learning service workspace, skip to the [next section](#start). Otherwise, create one now.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -73,14 +73,14 @@ The first thing you need for machine learning is data. There are several sample 
 
 ## Select columns
 
-Select which columns of data to work with.  To start with, configure this module to show all available columns.
+Select which columns of data to work with.  To start with, configure the module to show all available columns.
 
 > [!TIP]
-> If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
+> If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of the quickstart will use this shortcut.
 
 1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
-1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop this module below the dataset you added earlier.
+1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop the module below the dataset you added earlier.
 
 1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset, drag to the input port of **Select Columns in Dataset**, then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
@@ -91,7 +91,7 @@ Select which columns of data to work with.  To start with, configure this module
 
     ![Connect modules](./media/ui-quickstart-run-experiment/connect-modules.gif) 
 
-    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
+    The red exclamation mark indicates that you haven't set the properties for the module yet. You'll do that next.
    
 1. Select the **Select Columns in Dataset** module.
 
@@ -101,11 +101,11 @@ Select which columns of data to work with.  To start with, configure this module
 
      ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
 
-1. Select the check mark (OK) button to close the column selector (on the lower-right).
+1. On the lower right, select the check mark (OK) button to close the column selector.
 
 ## Run the experiment
 
-At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, sometimes the **Visualize** option is disabled.  When this is the case, you need to first run the experiment.  You'll do that next.
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
 
 An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
@@ -115,7 +115,7 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
 1. When the **Setup Compute Targets** dialog appears, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
 
-1. Provide the name for your compute target. 
+1. Provide a name for your compute target. 
 
 1. Select **Run**.
 
@@ -157,7 +157,7 @@ A dataset usually requires some preprocessing before it can be analyzed. You mig
 
 First,  remove the **normalized-losses** column completely.
 
-1. Select **Select Columns in Dataset**.
+1. Select the **Select Columns in Dataset** module.
 
 1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
 
@@ -165,7 +165,7 @@ First,  remove the **normalized-losses** column completely.
 
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
 
-    * Select the check mark (OK) button to close the column selector (on the lower-right).
+    * On the lower right, select the check mark (OK) button to close the column selector.
 
     ![Exclude a column](./media/ui-quickstart-run-experiment/exclude-column.png)
         
