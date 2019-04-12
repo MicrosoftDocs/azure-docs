@@ -126,7 +126,7 @@ The instance creation takes a few minutes to complete.
 
 ## Resize the cluster
 
-After cluster creation, the only setting you can change is the number of worker nodes. The following task increments the number of nodes (`workernode`) from one to two.
+After cluster creation, the only setting you can change is the number of worker nodes. The following task increments the number of worker nodes by updating `target_instance_count` within `workernode`.
 
 ```yaml
 - name: Resize cluster
