@@ -12,15 +12,14 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure a cluster in Azure HDInsight using Ansible
 
-[Azure HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/) is a managed, full-spectrum, open-source analytics service for enterprises. Learn how to set up and configure clusters in HDInsight using Ansible. This tutorial also shows you how to resize the cluster.
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
+[Azure HDInsight](/azure/hdinsight/) is a Hadoop-based analytics service for processing data. HDInsight is an ETL (extract, transform, load) tool used to work with big data - either structured or unstructured. HDInsight supports several [cluster types](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) where each type supports a different set of components. In this article, you use Ansible to configure a [Spark cluster in HDInsight](/azure/hdinsight/spark/apache-spark-overview).
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a random postfix
 
@@ -77,7 +76,7 @@ A storage account is used as the default storage for the HDInsight cluster. You 
     var: storage_output
 ```
 
-## Create an HDInsight cluster
+## Create an HDInsight Spark cluster
 
 The next sample playbook section includes codes to create the Azure HDInsight cluster.
 
@@ -125,7 +124,7 @@ The next sample playbook section includes codes to create the Azure HDInsight cl
 
 The instance creation takes a few minutes to complete.
 
-## Resize cluster
+## Resize the cluster
 
 After you create an Azure HDInsight cluster, the only configuration you can change is the number of worker nodes. Below task shows you how to increase the number of nodes from one to two.
 
@@ -183,9 +182,11 @@ Billing for HDInsight clusters is prorated per minute, whether you use them or n
     state: absent
 ```
 
-## Complete Sample Ansible playbook
+## Get the sample playbook
 
-Here is the complete playbook you have built. [Download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) or save below as *hdinsight.yml*. Make sure you replace the placeholder **{{ resoruce_group_name }}** in the `vars` section with your own resource group name.
+There are two ways to get the complete sample playbook:
+- [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) and save it to `hdinsight_create.yml`.
+- Create a new file called `hdinsight_create.yml` and copy into it the following contents:
 
 ```yml
 ---
@@ -327,6 +328,13 @@ Here is the complete playbook you have built. [Download the sample playbook](htt
         state: absent
 ```
 
+## Run the sample playbook
+
+In this section, run the playbook to test various features shown in this article.
+
+Before running the playbook, make the following changes:
+- In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+
 To run the playbook, use the **ansible-playbook** command as follows:
 
 ```bash
@@ -335,7 +343,9 @@ ansible-playbook hdinsight.yml
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myResourceGroup**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -349,12 +359,13 @@ If you don't need these resources, you can delete them by running the following 
         state: absent
 ```
 
-Save the preceding playbook as *rg_delete.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
+
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)

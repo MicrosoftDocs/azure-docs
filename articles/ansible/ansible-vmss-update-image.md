@@ -12,15 +12,14 @@ ms.date: 04/04/2019
 
 # Tutorial: Update Virtual Machine Scale Sets in Azure with custom image using Ansible
 
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
 Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure. If your VMSS is created with custom image, this tutorial shows you how to update your VMSS with another image.
 
 ## Prerequisites
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial.
 
 ## Create two virtual machines and install HTTPD
 

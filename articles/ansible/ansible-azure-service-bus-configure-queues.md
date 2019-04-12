@@ -12,6 +12,8 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure a queue in Azure Service Bus using Ansible
 
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
+
 [Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise [integration](https://azure.microsoft.com/en-us/product-categories/integration/) message broker. Messages are sent to and received from queues. Queues enable you to store messages until the receiving application is available to receive and process them.
 
 This tutorial shows you how to create a Service Bus queue.
@@ -20,9 +22,6 @@ This tutorial shows you how to create a Service Bus queue.
 
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a service bus queue
 
