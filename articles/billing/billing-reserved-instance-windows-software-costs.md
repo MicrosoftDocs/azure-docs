@@ -19,7 +19,7 @@ ms.author: banders
 ---
 # Software costs not included with Azure Reserved VM Instances
 
-If you don't have an Azure Hybrid Use Benefit on your reserved virtual machine instances, then you're charged for the software meters listed in the following sections.
+If you don't have an Azure Hybrid Benefit on your reserved virtual machine instances, then you are charged for the software meters listed in the following section.
 
 ## Windows software meters not included in reservation cost
 
@@ -62,7 +62,7 @@ If you don't have an Azure Hybrid Use Benefit on your reserved virtual machine i
 
 ## Rates for Azure meters
 
-You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](https://msdn.microsoft.com/library/azure/mt219004).
+You can get the cost of each of these meters through Azure RateCard API. For information on how to get the rates for an azure meter, see [Get price and metadata information for resources used in an Azure subscription](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## Next steps
 To learn more about reservations for Azure, see the following articles:

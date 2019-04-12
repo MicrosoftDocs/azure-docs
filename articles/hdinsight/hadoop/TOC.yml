@@ -193,9 +193,6 @@
     - name: Install and use Presto
       href: ../hdinsight-hadoop-install-presto.md
       maintainContext: true
-    - name: Install or update Mono
-      href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
     - name: Add Apache Hive libraries
       href: ../hdinsight-hadoop-add-hive-libraries.md
       maintainContext: true
@@ -416,6 +413,9 @@
     maintainContext: true
   - name: Network access
     items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+      maintainContext: true
     - name: HDInsight in Azure VNet
       href: ../hdinsight-extend-hadoop-virtual-network.md
       maintainContext: true

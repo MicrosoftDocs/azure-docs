@@ -16,7 +16,7 @@ ms.author: juliako
 
 ---
 
-# How to encode with a custom transform by using REST
+# How to encode with a custom transform - REST
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-tutorial-with-rest.md#create-a-transform) tutorial. You can also build a custom preset to target your specific scenario or device requirements.
 

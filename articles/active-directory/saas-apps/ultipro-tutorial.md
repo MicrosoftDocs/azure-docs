@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with UltiPro, perform the following steps:
 	|--|
 	| `https://<companyname>.ultipro.com/`|
 	| `https://<companyname>.ultiproworkplace.com?cpi=AZUREADISSSUERURL`|
-	| ` https://<companyname>.ultipro.ca`|
+	| `https://<companyname>.ultipro.ca`|
 	
     b. In the **Identifier** textbox, type a URL using the following pattern:
 
