@@ -1,5 +1,5 @@
 titlesuffix: Azure Cognitive Services
-description: Web Hooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests or transcritpion of long running files.
+description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests or transcritpion of long running files.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
