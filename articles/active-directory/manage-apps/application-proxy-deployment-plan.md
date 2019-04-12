@@ -71,7 +71,7 @@ The following core requirements must be met in order to configure and implement 
 
    * **Connector installation** requires local admin rights to the Windows server that it's being installed on. It also requires a minimum of an Application Admin role to authenticate and register the connector instance to your Azure AD tenant. 
 
-   * **Application publishing and admistration** requires the *Application Adminstrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
+   * **Application publishing and administration** require the *Application Administrator* role. Application Administrators can manage all applications in the directory including registrations, SSO settings, user and group assignments and licensing, Application Proxy settings, and consent. It doesn't grant the ability to manage conditional access. The *Cloud Application Administrator* role has all the abilities of the Application Administrator, except that it does not allow management of Application Proxy settings.
 
 * **Licensing**: Application Proxy is available through the Azure AD Basic subscription. Refer to the [Azure Active Directory Pricing page](https://azure.microsoft.com/pricing/details/active-directory/) for a full list of licensing options and features. 
 
@@ -117,7 +117,7 @@ The following are areas for which you should define your organization’s busine
 
 **Performance**
 
-* There is no degradation of applciation performance compared to accessing application from internal network.
+* There is no degradation of application performance compared to accessing application from internal network.
 
 **User Experience**
 
