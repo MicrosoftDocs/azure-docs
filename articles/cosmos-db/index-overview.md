@@ -25,7 +25,7 @@ As an example, this item:
             { "country": "Germany", "city": "Berlin" },
             { "country": "France", "city": "Paris" }
         ],
-        "headquarters": { "country": "Belgium", "employees": 250 }
+        "headquarters": { "country": "Belgium", "employees": 250 },
         "exports": [
             { "city": "Moscow" },
             { "city": "Athens" }
@@ -83,7 +83,7 @@ For example, consider the following query: `SELECT location FROM location IN com
 
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
-## What happens when no index is defined for a path
+### What happens when no index is defined for a path
 
 If a query predicate targets a path where no corresponding index is defined, for example:
 

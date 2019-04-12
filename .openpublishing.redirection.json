@@ -5095,12 +5095,12 @@
     },
     {
       "source_path": "articles/cosmos-db/index-types.md",
-      "redirect_url": "/azure/cosmos-db/index-policy#index-kinds",
+      "redirect_url": "/azure/cosmos-db/index-overview#index-kinds",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cosmos-db/index-paths.md",
-      "redirect_url": "/azure/cosmos-db/index-policy#paths",
+      "redirect_url": "/azure/cosmos-db/index-policy#including-and-excluding-property-paths",
       "redirect_document_id": true
     },
     {

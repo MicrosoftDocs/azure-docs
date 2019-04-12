@@ -24,7 +24,10 @@ Azure Cosmos containers store their indexing policy as a JSON document that the 
 
 1. Click on **Scale & Settings**.
 
-1. Modify the indexing policy JSON document.
+1. Modify the indexing policy JSON document. You can:
+    - change the indexing mode,
+    - add or remove included paths,
+    - add or remove excluded paths.
 
 1. Click **Save** when you are done.
 
@@ -41,6 +44,25 @@ containerResponse.Resource.IndexingPolicy.ExcludedPaths.Add(new ExcludedPath { P
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
+## Use the Java SDK
+
+The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods.
+
+```java
+Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(collectionLink, null);
+containerResponse.subscribe(result -> {
+    DocumentCollection container = result.getResource();
+    IndexingPolicy indexingPolicy = container.getIndexingPolicy();
+    indexingPolicy.setIndexingMode(IndexingMode.Consistent);
+    Collection<ExcludedPath> excludedPaths = new ArrayList<>();
+    ExcludedPath excludedPath = new ExcludedPath();
+    excludedPath.setPath("/*");
+    excludedPaths.add(excludedPath);
+    indexingPolicy.setExcludedPaths(excludedPaths);
+    client.replaceCollection(container, null);
+});
+```
+
 ## Use the Node.js SDK
 
 The `ContainerDefinition` interface from [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) (see [this quickstart](create-sql-api-nodejs.md) regarding its usage) exposes an `indexingPolicy` property that lets you change the `indexingMode` and add or remove `includedPaths` and `excludedPaths`.
@@ -52,9 +74,21 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/headquarters/
 await client.database('database').container('container').replace(containerResponse.body);
 ```
 
+## Use the Python SDK
+
+When using the [Python SDK](https://pypi.org/project/azure-cosmos/) (see [this quickstart](create-sql-api-python.md) regarding its usage), the container configuration is managed as a dictionary. From this dictionary, it is possible to access the indexing policy and all its attributes.
+
+```python
+containerPath = 'dbs/database/colls/collection'
+container = client.ReadContainer(containerPath)
+container['indexingPolicy']['indexingMode'] = 'consistent'
+container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+response = client.ReplaceContainer(containerPath, container)
+```
+
 ## Next steps
 
 Read more about the indexing in the following articles:
 
-* [Indexing Overview](index-overview.md)
-* [Indexing policy](index-policy.md)
+- [Indexing Overview](index-overview.md)
+- [Indexing policy](index-policy.md)

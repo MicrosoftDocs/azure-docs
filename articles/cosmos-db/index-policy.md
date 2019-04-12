@@ -18,7 +18,7 @@ In some situations, you may want to override this automatic behavior to better s
 
 Azure Cosmos DB supports two indexing modes:
 
-- **Consistent**: If a container's indexing policy is set to consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the container](consistency-levels.md).
+- **Consistent**: If a container's indexing policy is set to consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
 
 - **None**: If a container's indexing policy is set to none, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
 
@@ -26,7 +26,7 @@ Azure Cosmos DB supports two indexing modes:
 
 A custom indexing policy can specify property paths that are explicitly included or excluded from indexing. By optimizing the number of paths that are indexed, you can lower the amount of storage used by your container and improve the latency of write operations. These paths are defined following [the method described in the indexing overview section](index-overview.md#from-trees-to-property-paths) with the following additions:
 
-- a path leading to a scalar value ends with `/?`
+- a path leading to a scalar value (string or number) ends with `/?`
 - elements from an array are addressed together through the `/[]` notation (instead of `/0`, `/1` etc.)
 - the `/*` wildcard can be used to match any elements below the node
 
@@ -59,11 +59,24 @@ Any indexing policy has to include the root path `/*` as either an included or a
 
 ## Modifying the indexing policy
 
-A container's indexing policy can be updated at any time by using the Azure portal or one of the supported SDKs. An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The items indexed per the old policy are efficiently transformed per the new policy without affecting the write availability or the throughput provisioned on the container.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The items indexed per the old policy are efficiently transformed per the new policy without affecting the write availability or the throughput provisioned on the container.
 
 Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. While re-indexing is in progress, queries may not return all matching results and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed.
 
 If the new indexing policy's mode is set to consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be cancelled by setting the indexing policy's mode to none (which will immediately drop the index).
+
+## Indexing policies and TTL
+
+The [time-to-live (TTL) feature](time-to-live.md) requires indexing to be active on the container it is turned on. This means that:
+
+- it is not possible to activate TTL on a container where the indexing mode is set to `None`,
+- it is not possible to set the indexing mode to `None` on a container where TTL is activated.
+
+For scenarios where no property path needs to be indexed but TTL is required, you can use an indexing policy with:
+
+- an indexing mode set to `consistent`,
+- no included path,
+- `/*` as the only excluded path.
 
 ## Obsolete attributes
 
