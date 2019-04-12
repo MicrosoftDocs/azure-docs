@@ -87,7 +87,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
    psql --host=<myserver> --username=citus --dbname=citus
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
+   For example, the following command connects to the default database called **citus** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
 
    ```bash
    psql --host=mydemoserver.postgres.database.azure.com --username=citus --dbname=citus
