@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2019
+ms.date: 04/11/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -28,61 +28,65 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Prerequisites
-
-- User that needs access to an access package
-
 ## Open the My Access portal
 
 The first step is to open the My Access portal where you can request access to an access package. There are two ways to open the My Access portal.
 
-1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. Here is an example email with an access package link.
+**Prerequisite role:** Requestor
 
-1. Click the **Request access package** link to open the access package in the My Access portal.
+1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link will have the following format:
 
-If you did not receive an email or message, you can find the access packages you can request by following these steps.
+    `https://myaccess.microsoft.com/@[organization]#/access-packages/[unique-id]`
+
+1. Open the link.
+
+1. Sign in to the My Access portal.
+
+If you did not receive an email or message, you can try to find the access packages by following these steps.
 
 1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
 
 1. On the left, click **Access packages** to see the list of access packages you can request.
 
+1. Try to find the access package you want to request. If necessary, in the **Details** column, click the chevron to view details about the access package.
+
 ## Request an access package
 
-Once you have opened the My Access portal, you can request an access package.
+Once you have found the access package in the My Access portal, you can submit a request.
 
-1. Find the access package you want to request. If necessary, in the **Details** column, click the chevron to view details about the access package.
+**Prerequisite role:** Requestor
 
-1. Click the checkmark to select the package.
+1. Click the checkmark to select the access package.
+
+    ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)
 
 1. Click **Request access** to open the Request access pane.
 
 1. If the **Business justification** box is displayed, type a justification for needing access.
 
-1. If **Request for specific period?** is enabled, specify the **Yes** or **No**.
+1. If **Request for specific period?** is enabled, select **Yes** or **No**.
 
 1. If necessary, specify the start date and end date.
 
-1. When finished, click **Submit* to submit your request.
+    ![My Access portal - Request access](./media/entitlement-management-shared/my-access-request-access.png)
+
+1. When finished, click **Submit** to submit your request.
+
+1. Click **Request history** to see a list of your requests and the status.
 
     If the access package requires approval, the request is now in a pending approval state.
-
-## View your access and requests
-
-The My Access portal shows what you have access to and that status of your requests.
-
-1. In the My Access portal, on the left, click **Access packages** to see the list of access packages you have access to.
-
-1. On the left, click **Request history** to see a list of your requests and the status.
 
 ## Cancel a request
 
 If you submit an access request and the request is still in the **pending approval** state, you can cancel the request.
 
-1. In the My Access portal, on the left, click **Access packages** to see a list of your requests and the status.
+1. In the My Access portal, on the left, click **Request history** to see a list of your requests and the status.
 
-1. Click to open the request you want to cancel.
+1. Click the **View** link for the request you want to cancel.
 
-1. If the request is still in the **pending approval** state, you can click **Cancel** to cancel the request.
+1. If the request is still in the **pending approval** state, you can click **Cancel request** to cancel the request.
+
+    ![My Access portal - Cancel request](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. Click **Request history** to confirm the request was canceled.
 
@@ -92,4 +96,5 @@ If you are requesting access to an access package that has multiple policies tha
 
 ## Next steps
 
+- [How access requests are fulfilled](entitlement-management-process.md)
 - [Approve or deny access requests](entitlement-management-request-approve.md)

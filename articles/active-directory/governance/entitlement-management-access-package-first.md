@@ -198,7 +198,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 1. If necessary, in the **Description** column, click the chevron to view details about the access package.
 
-    ![My Access portal - Access packages](./media/entitlement-management-access-package-first/my-access-access-packages.png)
+    ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)
 
 1. Click the checkmark to select the package.
 
@@ -210,7 +210,7 @@ In this step, you perform the steps as the **internal requestor** and request ac
 
 1. Set the **Start date** to today and **End date** to tomorrow.
 
-    ![My Access portal - Request access](./media/entitlement-management-access-package-first/my-access-request-access.png)
+    ![My Access portal - Request access](./media/entitlement-management-shared/my-access-request-access.png)
 
 1. Click **Submit**.
 
