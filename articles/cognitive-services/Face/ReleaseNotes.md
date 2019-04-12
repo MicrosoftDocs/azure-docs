@@ -23,7 +23,7 @@ This article pertains to Face API Service version 1.0.
 
 ### Release changes in January 2019
 
-* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). More details in [How to Migrate your face data to a different Face subscription](Face-API-How-to-Topics/how-to-migrate-face-data.md).
+* Added Snapshot feature to support data migration across subscriptions: [Snapshot](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/snapshot-get). More details in [How to Migrate your face data to a different Face subscription](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### Release changes in October 2018
 
