@@ -29,27 +29,27 @@ In this article, you learn how to train a time-series forecasting regression mod
 
 The most important difference between a forecasting regression task type and regression task type within automated machine learning is including a feature in your data that represents a valid time series. A regular time series has a well-defined and consistent frequency and has a value at every sample point in a continuous time span. Consider the following snapshot of a file `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-This data set is a simple example of weekly sales data for a company that has two different stores, A and B. Additionally, there is a feature for `week_of_year` that will allow the model to detect weekly seasonality. The field `week_starting` represents a clean time series with weekly frequency, and the field `sales_quantity` is the target column for running predictions. Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
+This data set is a simple example of daily sales data for a company that has two different stores, A and B. Additionally, there is a feature for `week_of_year` that will allow the model to detect weekly seasonality. The field `day_datetime` represents a clean time series with daily frequency, and the field `sales_quantity` is the target column for running predictions. Read the data into a Pandas dataframe, then use the `to_datetime` function to ensure the time series is a `datetime` type.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-In this case the data is already sorted ascending by the time field `week_starting`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. Assume the data contains 1,000 records, and make a deterministic split in the data to create training and test data sets. Then separate the target field `sales_quantity` to create the prediction train and test sets.
+In this case the data is already sorted ascending by the time field `day_datetime`. However, when setting up an experiment, ensure the desired time column is sorted in ascending order to build a valid time series. Assume the data contains 1,000 records, and make a deterministic split in the data to create training and test data sets. Then separate the target field `sales_quantity` to create the prediction train and test sets.
 
 ```python
 X_train = data.iloc[:950]
