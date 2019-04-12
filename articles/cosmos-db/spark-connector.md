@@ -13,7 +13,7 @@ ms.author: ramkris
 
 You can run [Spark](https://spark.apache.org/) jobs with data stored in Azure Cosmos DB using the Cosmos DB Spark connector. Cosmos can be used for batch  and stream processing, and as a serving layer for low latency access.
 
-You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight, which provide managed Spark clusters on Azure. The following table shows supported Spark versions.
+You can use the connector with [Azure Databricks](https://azure.microsoft.com/services/databricks) or [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), which provide managed Spark clusters on Azure. The following table shows supported Spark versions.
 
 | Component | Version |
 |---------|-------|
