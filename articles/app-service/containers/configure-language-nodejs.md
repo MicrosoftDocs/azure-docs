@@ -36,12 +36,6 @@ To show all supported Node.js versions, run the following command in the [Cloud 
 az webapp list-runtimes --linux | grep NODE
 ```
 
-To see the corresponding NPM version for each supported Node.js version, navigate to the following URL in the browser:
-
-```
-https://<app-name>.scm.azurewebsites.net/api/diagnostics/runtime
-```
-
 ## Set Node.js version
 
 To set your app to a [supported Node.js version](#show-nodejs-version), run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -51,6 +45,9 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 ```
 
 This setting specifies the Node.js version to use, both at runtime and during automated package restore in Kudu.
+
+> [!NOTE]
+> You should set the Node.js version in your project's `package.json`. The deployment engine runs in a separate container that contains all the supported Node.js versions.
 
 ## Configure Node.js server
 
