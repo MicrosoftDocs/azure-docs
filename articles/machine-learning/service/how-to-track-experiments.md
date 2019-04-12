@@ -214,37 +214,9 @@ This example expands on the basic sklearn Ridge model from above. It does a simp
    run = experiment.submit(src)
    ```
 
-## Cancel a run
+## Manage a run
 
-Alter a run is submitted, you can cancel it even if you have lost the object reference, as long as you know the experiment name and run ID. 
-
-
-```python
-from azureml.core import Experiment
-exp = Experiment(ws, "my-experiment-name")
-
-# if you don't know the run id, you can list all runs under an experiment
-for r in exp.get_runs():  
-    print(r.id, r.get_status())
-
-# if you know the run id, you can "rehydrate" the run
-from azureml.core import get_run
-r = get_run(experiment=exp, run_id="my_run_id", rehydrate=True)
-  
-# check the returned run type and status
-print(type(r), r.get_status())
-
-# you can cancel a run if it hasn't completed or failed
-if r.get_status() not in ['Complete', 'Failed']:
-    r.cancel()
-```
-Currently only ScriptRun and PipelineRun types support cancel operation.
-
-Additionally, you can cancel a run through the CLI using the following command:
-```shell
-az ml run cancel -r <run_id> -p <project_path>
-```
-
+The [Start, monitor and cancel training runs](how-to-manage-runs.md) article highlights specific Azure Machine Learning workflows for how to manage your experiments.
 
 ## View run details
 

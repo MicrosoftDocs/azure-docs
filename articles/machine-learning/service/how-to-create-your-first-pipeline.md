@@ -32,6 +32,8 @@ If you don’t have an Azure subscription, create a free account before you begi
 * Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) to hold all your pipeline resources. 
 
   ```python
+  from azureml.core import Workspace
+  
   ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
@@ -115,6 +117,8 @@ Below are examples of creating and attaching compute targets for:
 You can create an Azure Machine Learning compute for running your steps.
 
 ```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
 compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]

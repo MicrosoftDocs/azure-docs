@@ -75,7 +75,7 @@ The project template creates a C# project, installs the `Microsoft.NET.Sdk.Funct
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for environment variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
 
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
@@ -202,15 +202,11 @@ You can also manage application settings in one of these other ways:
 
 ## Monitoring functions
 
-The recommended way to monitor the execution of your function in Azure is by integrating with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done. Instead, you get built-in logging, which isn't recommended.
+The recommended way to monitor the execution of your functions is by integrating your function app with Azure Application Insights. When you create a function app in the Azure portal, this integration is done for you by default. However, when you create your function app during Visual Studio publishing, the integration in your function app in Azure isn't done.
 
-To enable Application Insights for your function app in Azure:
+To enable Application Insights for your function app:
 
-1. Create an Application Insights instance in the [Azure portal](https://portal.azure.com) and copy its instrumentation key. To learn how, see [Manually connect an App Insights resource](functions-monitoring.md#manually-connect-an-app-insights-resource).  
-
-1. Add an app setting named `APPINSIGHTS_INSTRUMENTATIONKEY` to the function app settings in Azure, as described in [Function app settings](#function-app-settings). This app setting contains the instrumentation key that you created in the previous step.
-
-1. Remove the `AzureWebJobsDashboard` app setting from the function app in Azure, which disables built-in logging.  
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 To learn more, see [Monitor Azure Functions](functions-monitoring.md).
 

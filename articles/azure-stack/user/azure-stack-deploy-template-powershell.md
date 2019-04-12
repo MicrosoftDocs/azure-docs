@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
@@ -31,9 +31,9 @@ You can use PowerShell to deploy Azure Resource Manager templates to Azure Stack
 This example uses **AzureRM** PowerShell cmdlets and a template stored on GitHub. The template creates a Windows Server 2012 R2 Datacenter virtual machine.
 
 >[!NOTE]
->Before you try this example, make sure that you've [configured PowerShell](azure-stack-powershell-configure-user.md) for an Azure Stack user.
+> Before you try this example, make sure that you've [configured PowerShell](azure-stack-powershell-configure-user.md) for an Azure Stack user.
 
-1. Go to [https://aka.ms/AzureStackGitHub](https://aka.ms/AzureStackGitHub) and find the **101-simple-windows-vm** template. Save the template to this location: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
+1. Browse the [AzureStackGitHub repo](https://aka.ms/AzureStackGitHub) and find the **101-simple-windows-vm** template. Save the template to this location: `C:\templates\azuredeploy-101-simple-windows-vm.json`.
 2. Open an elevated PowerShell command prompt.
 3. Replace `username` and `password` in the following script with your username and password, and then run the script:
 
@@ -42,10 +42,10 @@ This example uses **AzureRM** PowerShell cmdlets and a template stored on GitHub
     $myNum = "001" # Modify this per deployment
     $RGName = "myRG$myNum"
     $myLocation = "local"
-   
+
     # Create resource group for template deployment
     New-AzureRmResourceGroup -Name $RGName -Location $myLocation
-   
+
     # Deploy simple IaaS template
     New-AzureRmResourceGroupDeployment `
         -Name myDeployment$myNum `
@@ -60,7 +60,7 @@ This example uses **AzureRM** PowerShell cmdlets and a template stored on GitHub
     ```
 
     >[!IMPORTANT]
-    >Every time you run this script, increment the value of the `$myNum` parameter to prevent overwriting your deployment.
+    > Every time you run this script, increment the value of the `$myNum` parameter to prevent overwriting your deployment.
 
 4. Open the Azure Stack portal, select **Browse**, and then select  **Virtual machines** to find your new virtual machine (**myDeployment001**).
 
