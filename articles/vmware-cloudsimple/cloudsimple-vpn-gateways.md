@@ -1,5 +1,5 @@
 ---
-title: VPN gateways in VMware Solutions by CloudSimple - Azure
+title: VPN gateways in VMware Solution by CloudSimple - Azure
 description: Learn about CloudSimple site-to-site VPN and point-to-site VPN concepts 
 author: sharaths-cs 
 ms.author: dikamath 
@@ -20,7 +20,7 @@ CloudSimple provides two kinds of VPN gateways:
 
 ## Site-to-site VPN gateway
 
-A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. A connection allows you to define the subnets/CIDR range that can send and receive network traffic from your on-premises network to the CloudSimple region network. 
+A site-to-site VPN gateway is used to send encrypted traffic between a CloudSimple region network and an on-premises datacenter. A connection allows you to define the subnets/CIDR range that can send and receive network traffic from your on-premises network to the CloudSimple region network.
 
 The VPN gateway allows you to consume services from on-premises on your private cloud and services on your private cloud from the on-premises network.  CloudSimple provides a policy-based VPN server for establishing connection from your on-premises network.
 
@@ -59,3 +59,7 @@ A site-to-site VPN connection uses the following default cryptographic parameter
 ## Point-to-site VPN gateway
 
 A point-to-site VPN is used to send encrypted traffic between a CloudSimple region network and a client computer.  Point-to-site VPN is the easiest way to access your private cloud network, including your private cloud vCenter and workload VMs.  Use point-to-site VPN connectivity if you're connecting to the private cloud remotely.
+
+## Next steps
+
+* [Set up VPN gateway](https://docs.azure.cloudsimple.com/vpn-gateway/)

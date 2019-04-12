@@ -1,5 +1,5 @@
 ---
-title: Private clouds in VMware Solutions by CloudSimple - Azure  
+title: Private clouds in VMware Solution by CloudSimple - Azure  
 description: Learn about CloudSimple private clouds and concepts. 
 author: sharaths-cs
 ms.author: dikamath 

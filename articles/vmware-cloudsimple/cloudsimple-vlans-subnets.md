@@ -1,5 +1,5 @@
 ---
-title: VLANs and subnets in VMware Solutions by CloudSimple - Azure 
+title: VLANs and subnets in VMware Solution by CloudSimple - Azure 
 description: Learn about VLANs and subnets in a CloudSimple private cloud 
 author: sharaths-cs 
 ms.author: dikamath 
@@ -22,3 +22,7 @@ A VLAN (Layer 2 network) is created per private cloud.  The Layer 2 traffic stay
 You can create a subnet when you create a VLAN, by defining the address space of the subnet. An IP address from the address space is assigned as a subnet gateway. A single private Layer 3 address space is assigned per customer and region. You can configure any RFC 1918 non-overlapping address space, with your on-premises network or Azure virtual network, in your network region.
 
 All subnets can communicate with each other by default, reducing the configuration overhead for routing between private clouds. East-west data across PCs in the same region stays in the same Layer 3 network and transfers over the local network infrastructure within the region. No egress is required for communication between private clouds in a region. This approach eliminates any WAN/egress performance penalty in deploying different workloads in different private clouds.
+
+## Next steps
+
+* [Create and manage VLANs and Subnets](https://docs.azure.cloudsimple.com/vlansubnet/)

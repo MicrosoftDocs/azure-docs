@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Account management overview
 
-An account on CloudSimple is created when you create your CloudSimple service.  The account is associated with your Azure subscription where the service is located.  All users who have **owner** and **contributor** role in the subscription have access to the CloudSimple Portal.  You can find the Azure subscription ID and tenant ID associated with the CloudSimple service on the [Accounts page](https://docs.azure.cloudsimple.com/account).
+An account on CloudSimple is created when you create your CloudSimple service.  The account is associated with your Azure subscription where the service is located.  All users who have **owner** and **contributor** role in the subscription have access to the CloudSimple Portal.  You can find the Azure subscription ID and tenant ID associated with the CloudSimple service on the [Accounts page](https://docs.azure.cloudsimple.com/account/).
 
 ## Additional alert emails
 
@@ -27,3 +27,8 @@ You can control access to the CloudSimple Portal for service operations personne
 ## Users
 
 All users who have **owner** and **contributor** role in the subscription have access to the CloudSimple Portal.  When you access the portal, the user is created on the CloudSimple account.  You can disable access to the CloudSimple Portal for specific users from the Accounts page.
+
+## Next steps
+
+* [View account summary](https://docs.azure.cloudsimple.com/account/)
+* [View user list](https://docs.azure.cloudsimple.com/users/)

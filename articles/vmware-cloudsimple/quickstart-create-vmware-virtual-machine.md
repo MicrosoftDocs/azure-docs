@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions by CloudSimple Quickstart - consume VMware VMs on Azure 
-description: Learn how to configure and consume VMware VMs from Azure portal using VMware Solutions by CloudSimple 
+title: Azure VMware Solution by CloudSimple Quickstart - consume VMware VMs on Azure 
+description: Learn how to configure and consume VMware VMs from Azure portal using Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/11/2019 
@@ -9,9 +9,15 @@ ms.service: vmware
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Quickstart - consume VMware VMs on Azure
+# Quickstart - Consume VMware VMs on Azure
 
 To create a virtual machine in the Azure portal, use Virtual Machine templates that your CloudSimple administrator has enabled for your subscription. These VM templates are found on the VMware infrastructure.
+
+## CloudSimple VM creation on Azure requires a VM template
+
+The VM template should exist on your private cloud vCenter.  Create a virtual machine on your private cloud from vCenter UI with the desired operating system and configurations.  to create a template, follow the instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc).
+
+## Create a virtual machine in the Azure portal
 
 1. On the left menu, click **+** or **Create a Resource**.
 
@@ -20,9 +26,6 @@ To create a virtual machine in the Azure portal, use Virtual Machine templates t
 3. Click **Confirm** to verify that you want to create a new VM.
 
 4. Set the basic configuration as described in the following table, and then click **Next: Size**.
-
-   > [!Note]
-   > CloudSimple virtual machine creation on Azure requires a VM template.  This VM template should exist on your private cloud vCenter.  Create a virtual machine on your private cloud from vCenter UI with the desired operating system and configurations.  to create a template, follow the instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc).
 
     | Field | Description |
     | ------------ | ------------- |
@@ -64,3 +67,8 @@ To create a virtual machine in the Azure portal, use Virtual Machine templates t
 8. Review the settings. To make any changes, click the tabs at the top.
 
 9. Click **Create** to save the settings and create the VM.
+
+## Next steps
+
+* [View list of CloudSimple virtual machines](https://docs.azure.cloudsimple.com/azurelistvms/)
+* [Manage CloudSimple virtual machine from Azure](https://docs.azure.cloudsimple.com/azureoverviewpage/)

@@ -1,5 +1,5 @@
 ---
-title: Nodes overview for VMware Solutions by CloudSimple - Azure 
+title: Nodes Overview for VMware Solution by CloudSimple - Azure 
 description: Learn about CloudSimple nodes and concepts. 
 author: sharaths-cs
 ms.author: dikamath 

@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solutions by CloudSimple Quickstart - Create a private cloud 
-description: Learn how to create and configure a private cloud on Azure VMware Solutions by CloudSimple 
+title: Azure VMware Solution by CloudSimple Quickstart - Create a private cloud 
+description: Learn how to create and configure a private cloud with Azure VMware Solution by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/10/2019 
@@ -250,3 +250,7 @@ You can also modify the way your traffic is secured, using the Firewall Rules fe
 You can install solutions on your CloudSimple private cloud to take full advantage of your private cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 
 To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](https://docs.azure.cloudsimple.com/vsphere-access#escalate-privileges).
+
+## Next steps
+
+* [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)

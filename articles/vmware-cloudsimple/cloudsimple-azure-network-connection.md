@@ -1,5 +1,5 @@
 ---
-title: VMware Solutions by CloudSimple - Azure network connections
+title: VMware Solution by CloudSimple - Azure network connections
 description: Learn about connecting your Azure virtual network to your CloudSimple region network 
 author: sharaths-cs
 ms.author: dikamath
@@ -26,3 +26,7 @@ Azure network connection allows you to:
 If you have an Azure ExpressRoute connection from an external location (such as on-premises) to Azure, you can connect it to your CloudSimple region. The Azure feature that allows two ExpressRoute circuits to connect with each other is used for this connection. This method establishes a secure, private, high bandwidth, low latency connection between the two environments.
 
 To create an ExpressRoute connection to an on-premises network, [contact support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+## Next steps
+
+* [Set up virtual network connection](https://docs.azure.cloudsimple.com/virtual-network-connection)

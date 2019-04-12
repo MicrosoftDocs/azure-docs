@@ -1,5 +1,5 @@
 ---
-title: Azure VMware Solutions by CloudSimple - reserve nodes 
+title: Azure VMware Solution by CloudSimple - reserve nodes 
 description: Learn how to reserve nodes on the Azure portal. 
 author: sharaths-cs 
 ms.author: dikamath 
@@ -9,7 +9,7 @@ ms.service: vmware
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
-# Reserve nodes for VMware Solutions by CloudSimple - Azure
+# Reserve nodes for VMware Solution by CloudSimple - Azure
 
 Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices, and keep the ability to add additional capacity on a pay-as-you-go basis.
 
@@ -32,3 +32,7 @@ Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-g
 The reservation request is recorded and the details are listed, including a reservation ID.
 
 All the reservations are listed on the **Dedicated VMware Cloud Nodes** > **Reservations** page.
+
+## Next steps
+
+* [Create Private Cloud](https://docs.azure.cloudsimple.com/create-private-cloud/)

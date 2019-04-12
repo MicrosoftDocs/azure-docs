@@ -1,5 +1,5 @@
 ---
-title: Purchase nodes for VMware solutions by CloudSimple - Azure 
+title: Purchase nodes for VMware Solution by CloudSimple - Azure 
 description: Learn how to add nodes to your VMWare with CloudSimple deployment
 author: dikamath
 ms.author: dikamath
@@ -25,3 +25,7 @@ Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity 
 10. Select **Next: Review**.
 11. Review the settings. To modify any settings, click **Previous**.
 12. Select **Add nodes**.
+
+## Next steps
+
+* [Create Private Cloud](https://docs.azure.cloudsimple.com/create-private-cloud/)
