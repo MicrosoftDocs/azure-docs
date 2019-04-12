@@ -10,8 +10,6 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
-#Customer intent: 
-
 ---
 
 # Concepts for Personalizer
@@ -72,4 +70,4 @@ The service returns the top action, the _Reward Action_,  to show to your users.
 
 # Next Steps
 
-Understand [how the Personalizer service works](how-personalizer-works-concept.md), in order to get the best results or to troubleshoot issues.
+Understand [how the Personalizer service works](how-personalizer-works.md), in order to get the best results or to troubleshoot issues.

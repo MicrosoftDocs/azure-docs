@@ -13,3 +13,11 @@
   items:
   - name: Overview
     href: overview-concept.md
+  - name: How Personalizer works
+    href: how-personalizer-works.md
+  - name: Use of Personalizer
+    items: 
+    - name: Assessing your Scenario
+      href: scenario-assessment.md
+    - name: Ethics & Responsible use
+      href: ethics-and-responsible-use.md
