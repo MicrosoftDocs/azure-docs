@@ -1,5 +1,5 @@
 titlesuffix: Azure Cognitive Services
-description: Web Hooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests or transcritpion of long running files.
+description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests or transcritpion of long running files.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,13 +11,13 @@ ms.author: panosper
 ms.custom: seodec18
 ---
 
-# Web hooks
+# Webhooks for Speech Services
 
-Web hooks are essentially http call backs which can be used to optimize the use of our REST APIs. In this page we explain how to use them.
+Webhooks are like HTTP callbacks that allow your application to accept data from the Speech Services when it becomes available. Using webhooks, you can optimize your use of our REST APIs by eliminating the need to continuously poll for a response. In the next few sections, you'll learn how to use webhooks with the Speech Services.
 
 ## Supported Operations
 
-Our service supports web hooks for all long running operations. Each of the operations listed below can trigger an http call back upon completion. The respective operations (event types) are:
+The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion. 
 
         DataImportCompletion
         ModelAdaptationCompletion
@@ -26,13 +26,13 @@ Our service supports web hooks for all long running operations. Each of the oper
         EndpointDeploymentCompletion
         EndpointDataCollectionCompletion
 
-Let's see how you create a web hook.
+Next, let's create a webhook.
 
-## Creating a web hook
+## Create a webhook
 
-Let's see how you create a web hook for an offline transcription. The scenario being the end user has a long audio file to asynchronously transcribe using our Batch Transcritpion API.
+Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API. 
 
-Configuration parameters are provided as JSON:
+Configuration parameters for the request are provided as JSON:
 
 ```json
 {
@@ -45,7 +45,7 @@ Configuration parameters are provided as JSON:
   ],
   "active": true,
   "name": "TranscriptionCompletionWebHook",
-  "description": "This is a Web hook created to trigger an HTTP POST request when my audio file transcription is completed.",
+  "description": "This is a Webhook created to trigger an HTTP POST request when my audio file transcription is completed.",
   "properties": {
       "Active" : "True"
   }

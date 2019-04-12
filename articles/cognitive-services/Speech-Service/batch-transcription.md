@@ -83,15 +83,15 @@ Configuration parameters are provided as JSON:
 | `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
  | `AddWordLevelTimestamps` | Specifies if word level timestamps should be added to the output. Accepted values are `true` which enables word level timestamps and `false` (the default value) to disable it. | Optional |
 
-### Supported storage
+### Storage
 
-Currently, only Azure Blob storage is supported.
+Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## Web hooks 
+## Webhooks 
 
 Polling transcription status may not be the most performant or offer the best user experience. In addition however to poll for status a user can register callbacks, when their long-running transcription tasks complete.
 
-For details about Web hooks please visit our [Web Hooks](webhooks.md) page
+For more details, see [Webhooks](webhooks.md).
 
 ## Sample code
 
