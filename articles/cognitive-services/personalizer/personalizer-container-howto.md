@@ -106,7 +106,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/personalizer:latest
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](#example-docker-run-commands) of the `docker run` command are available. 
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](personalizer-container-configuration.md#example-docker-run-commands) of the `docker run` command are available. 
 1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
 
 ## Run the container with `docker run`
@@ -179,7 +179,7 @@ To shut down the container, in the command-line environment where the container 
 
 ## Troubleshooting
 
-If you run the container with an output [mount](mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
 ## Container's API documentation
 
@@ -209,7 +209,7 @@ The `docker run` command uses the following arguments for billing purposes:
 > [!IMPORTANT]
 > All three options must be specified with valid values, or the container won't start.
 
-For more information about these options, see [Configure containers](#configure-containers).
+For more information about these options, see [Configure containers](personalizer-container-configuration.md).
 
 ## Summary
 
