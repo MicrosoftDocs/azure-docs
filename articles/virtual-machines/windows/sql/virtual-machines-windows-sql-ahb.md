@@ -31,7 +31,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  - CSP customers can utilize the AHB benefit by first deploying a pay-as-you-go VM and then converting it to bring-your-own-license. 
  - When registering a custom SQL Server VM image with the resource provider, specify the license type as = 'AHUB'. Leaving the license type as blank, or specifying 'PAYG' will cause the registration to fail. 
  - If you drop your SQL Server VM resource, you will go back to the hard-coded license setting of the image. 
- - The ability to change the licensing model is a feature of the SQL VM resource provider. Manipulating a SQL Server VM within the portal automatically registers your SQL Server VM with the resource provider. However, _some_ customers may need to manually [register their SQL Server VM](#register-sql-server-vm-with-the-sql-resource-provider) with the resource provider, such as:
+ - The ability to change the licensing model is a feature of the SQL VM resource provider. Manipulating a SQL Server VM within the portal automatically registers your SQL Server VM with the resource provider. However, _some_ customers may need to manually [register their SQL Server VM](#register-sql-server-vm-with-the-sql-vm-resource-provider) with the resource provider, such as:
      - Customers who deployed their SQL Server VM using PowerShell or Azure CLI. 
      - Customers who self-installed SQL Server on a non-SQL Server image. 
      - Customers who deployed their VM using custom VHDs. 
@@ -87,7 +87,7 @@ The following code snippet switches your bring-your-own-license model to pay-as-
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-## Register SQL Server VM with the SQL resource provider
+## Register SQL Server VM with the SQL VM resource provider
 In certain situations, you may need to manually register your SQL Server VM with the SQL VM resource provider. To do so, you may also need to manually register the resource provider with your subscription. 
 
 
@@ -107,7 +107,7 @@ The following steps will register the SQL resource provider to your Azure subscr
    ![Modify the provider](media/virtual-machines-windows-sql-ahb/select-resource-provider-sql.png)
 
 #### With Azure CLI
-The following code snippet will register the SQL resource provider to your Azure subscription. 
+The following code snippet will register the SQL VM resource provider to your Azure subscription. 
 
 ```azurecli
 # Register the new SQL resource provider to your subscription 
@@ -116,7 +116,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 
 
 ### Register SQL Server VM with SQL resource provider
-Once the SQL resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using Azure CLI. 
+Once the SQL VM resource provider has been registered to your subscription, you can then register your SQL Server VM with the resource provider using Azure CLI. 
 
 Register SQL Server VM using Azure CLI with the following code snippet: 
 
