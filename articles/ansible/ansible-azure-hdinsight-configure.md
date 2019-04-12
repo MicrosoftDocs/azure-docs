@@ -126,7 +126,7 @@ The instance creation takes a few minutes to complete.
 
 ## Resize the cluster
 
-After you create an Azure HDInsight cluster, the only configuration you can change is the number of worker nodes. Below task shows you how to increase the number of nodes from one to two.
+After cluster creation, the only setting you can change is the number of worker nodes. The following task increments the number of nodes (**workernode**) from one to two.
 
 ```yaml
 - name: Resize cluster
