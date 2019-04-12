@@ -24,7 +24,15 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 ## Debugging
 
-**Q: I'm getting an error when using a SpeechBotConnector and it's not clear what I should do. What *should* I do?**
+**Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
+
+**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services") and *not* **Speech**. Additionally, please note that only the **westus2** region is currently supported, with further region support coming soon.
+
+**Q: I get recognition text back from Direct Line Speech, but I see a '1011' error and nothing from my bot. Why?**
+
+**A:** This error indicates a communication problem between the bot and Direct Line Speech. Ensure that you've [connected the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md), [added Streaming protocol support](https://aka.ms/botframework/addstreamingprotocolsupport) to your bot, and then check that your bot is responding to incoming requests from the channel.
+
+**Q: This still doesn't work and/or I'm getting a different error when using a SpeechBotConnector and it's not clear what I should do. What *should* I do?**
 
 **A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, see [how to use file logging](how-to-use-logging.md).
 
