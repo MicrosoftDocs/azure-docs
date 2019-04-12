@@ -76,12 +76,9 @@ You can set up lab policy settings. The following values can be set:
 
 ## Set the lab schedules
 
-You can configure lab policy settings. The following values can be set:
+The sample task in this section configures the lab schedule. 
 
-- **lab_vms_startup** is the lab VMs' startup time
-- **lab_vms_shutdown** is the lab VMs' shutdown time
-
-You must specify **time** and **time_zone_id**.
+In the following code snippet, the **lab_vms_startup** value is used to specify the virtual machines startup time. Likewise, setting the **lab_vms_shutdown** value establishes the lab virtual machine shutdown time.
 
 ```yaml
 - name: Set the lab schedule
