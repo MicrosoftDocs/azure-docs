@@ -17,7 +17,7 @@ The Translator Text API supports the following languages for text to text transl
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
 
-##Translation
+## Translation
 
 **V2 Translator API**
 
