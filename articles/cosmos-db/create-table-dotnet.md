@@ -60,9 +60,6 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    ```bash
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
-   > [!NOTE]
-   > The .NET standard sample described in this doc works with both Azure Cosmos DB Table API and Azure Table Storage. If you are interested in running the sample that works with .NET Framework 4.5, see the [storage-table-dotnet-getting-started](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample. 
-
 
 ## Open the sample application in Visual Studio
 
@@ -89,7 +86,6 @@ Now go back to the Azure portal to get your connection string information and co
       "StorageConnectionString": "<Primary connection string from Azure portal>"
    }
    ```
-   If you are using the [.NET Framework](https://github.com/Azure-Samples/storage-table-dotnet-getting-started) sample, you should update the connection string that’s located in the **App.config** file.
 
 4. Press CTRL+S to save the **Settings.json** file.
 
@@ -102,9 +98,6 @@ You've now updated your app with all the info it needs to communicate with Azure
    ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
 
 2. In the NuGet **Browse** box, type Microsoft.Azure.Cosmos.Table. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Framework and .NET Standard. 
-
-   > [!NOTE]
-   > If you are using the samples that uses .NET Framework, you should install the *Microsoft.Azure.CosmosDB.Table*, NuGet package. If you are using the .NET Framework sample with Azure Table Storage, in addition to the Cosmos DB specific NuGet package you also require the *Microsoft.Azure.Storage.Common* NuGet package. 
    
    ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

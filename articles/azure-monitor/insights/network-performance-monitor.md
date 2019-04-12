@@ -246,13 +246,13 @@ Network Performance Monitor uses the alerting capabilities of [Azure Monitor](ht
 
 This means that all notifications are managed using [action groups](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-If you are an NPM user creating an alert via LAzure Monitor: 
-1. You will see a link that will redirect you to Azure Portal. Click it to access the portal.
+If you are an NPM user creating an alert via Log Analytics: 
+1. You will see a link that will redirect you to Azure portal. Click it to access the portal.
 2. Click the Network Performance Monitor solution tile. 
 3. Navigate to Configure.  
 4. Select the test you want to create an alert on and follow the below mentioned steps.
 
-If you are an NPM user creating an alert via Azure Portal:  
+If you are an NPM user creating an alert via Azure portal:  
 1. You can choose to enter your email directly or you can choose to create alerts via action groups.
 2. If you choose to enter your email directly, an action group with the name **NPM Email ActionGroup** is created and the email id is added to that action group.
 3. If you choose to use action groups, you will have to select an previously created action group. You can learn how to create an action group [here.](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal) 
