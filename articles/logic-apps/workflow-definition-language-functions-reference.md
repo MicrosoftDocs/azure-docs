@@ -14,17 +14,20 @@ ms.date: 08/15/2018
 
 # Reference guide for functions available in Workflow Definition Language for Azure Logic Apps and Microsoft Flow
 
-In [Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
-[Microsoft Flow](https://docs.microsoft.com/flow/getting-started), 
-some [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
+[Microsoft Flow](https://docs.microsoft.com/flow/getting-started) 
+both use the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) 
+for describing the underlying definitions for logic apps and flows. 
+When you're working with these definitions, some 
+[expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
 get their values from runtime actions that might not yet exist 
 when your logic app or flow starts running. To reference these 
-values or process these values in expressions, you can use 
-the *functions* provided by the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md).
-For example, you can use math functions for calculations, such as the
+values or process these values in expressions, you can use the 
+*functions* provided by the Workflow Definition Language. 
+For example, you can calculate values by using math functions, such as the
 [add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
 when you want the sum from integers or floats. 
-Here are a couple more example tasks that you can perform with functions:
+Here are a couple other example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -32,7 +35,7 @@ Here are a couple more example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This article describes the functions that you can use when creating logic apps or flows.
+This article describes the functions that you can use when creating logic apps or flows. 
 To find functions [based on their general purpose](#ordered-by-purpose),
 review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
