@@ -119,7 +119,8 @@ GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 To remove one specific webhook:
 DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-Note that in the example above the region is 'westus'. This should be replaced by the region for which your create your Speech resource in the Azure portal.
+> [!Note] 
+> In the example above, the region is 'westus'. This should be replaced by the region where you've created your Speech Services resource in the Azure portal.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping
 Body: empty
