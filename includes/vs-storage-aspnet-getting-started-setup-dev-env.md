@@ -45,3 +45,4 @@ This section walks through setting up the development environment. This includes
 >
 > You can also create a storage account by using [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), [Azure CLI](../articles/storage/common/storage-azure-cli.md), or [Azure Cloud Shell](../articles/cloud-shell/overview.md).
 
+1. In **Solution Explorer**, right-click on **Dependencies**, choose **Manage NuGet Packages**, and add a NuGet package reference to Microsoft.Azure.ConfigurationManager. Add the latest version.
