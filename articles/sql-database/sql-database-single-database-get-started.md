@@ -44,7 +44,7 @@ To create a single database containing the AdventureWorksLT sample data:
 
    - **Database name**: Enter `mySampleDatabase`.
    - **Server**: Select **Create new** and enter the following values and then select **Select**. 
-       - **Server name**: Type `mysqlserver`.
+       - **Server name**: Type `mysqlserver`; along with some numbers for uniqueness. 
        - **Server admin login**: Type `azureuser`.
        - **Password**: Type a complex password that meets password requirements. 
        - **Location**: Choose a location from the drop-down, such as `West US 2`. 
