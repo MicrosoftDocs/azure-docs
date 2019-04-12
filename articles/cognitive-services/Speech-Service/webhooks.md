@@ -56,7 +56,7 @@ All POST requests to the Batch Transcription API require a `name`. The `descript
 
 The 'Active' property is used to switch calling back into your URL on and off without having to delete and re-create the webhook registration. If you are looking to be called once when the is completed then Delete the webhook and switch the 'Active' property to false.
 
-The event type TranscriptionCompletion is provided in the events arrray. It will call your Endpoint back when a transcription gets into a terminal state (Succeeded or Failed). When calling back into the registered URL, the request will contain a X-MicrosoftSpeechServices-Event header containing one of the registered event types. There will be one request per registered event type. 
+The event type `TranscriptionCompletion` is provided in the events array. It will callback to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type. 
 
 There is one additional event type that you cannot subscribe to. It is the Ping event type and a request with that type is sent to the URL when finishing to create the web hook and when using the ping URL (see below). 
 
