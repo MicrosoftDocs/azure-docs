@@ -159,7 +159,7 @@ sections:
     - title: Frequently asked questions
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
     - title: Community channel
-      html: '<a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql Community (Managed Instance)</a>
+      html: <p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql Community (Managed Instance)</a></p>
     - title: Training materials
       html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Hands-on labs</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruction led labs</a></p>
 
