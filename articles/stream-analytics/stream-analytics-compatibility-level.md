@@ -10,13 +10,13 @@ ms.date: 04/12/2019
 
 # Compatibility level for Azure Stream Analytics jobs
 
-Compatibility level refers to the release-specific behaviors of an Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually updates are automatically made available to end users. However, some new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. A compatibility level is used to represent a major change introduced in Stream Analytics. Major changes are always introduced with a new compatibility level.
+Compatibility level refers to the release-specific behaviors of an Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually updates are automatically made available to end users. However, some new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. A compatibility level is used to represent a major change introduced in Stream Analytics.
 
-Compatibility level makes sure existing jobs run without any failure. When you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level.
+With compatibility level, you can keep existing jobs running without any major change. When you are ready for the latest behavior, you can opt in by raising the compatibility level on the streaming job. Whenever you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level to move forward.
 
-## Set a compatibility level
+## Choose a compatibility level
 
-Compatibility level controls the runtime behavior of a stream analytics job. You can set the compatibility level for a Stream Analytics job by using portal or by using the [create job REST API call](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job).
+Compatibility level controls the runtime behavior of a stream analytics job. You can set the compatibility level for a Stream Analytics job by using the Azure portal or by using the [create job REST API call](/rest/api/streamanalytics/stream-analytics-job).
 
 Azure Stream Analytics currently supports three compatibility levels:
 
@@ -24,8 +24,9 @@ Azure Stream Analytics currently supports three compatibility levels:
 * 1.1
 * 1.0 (default)
 
-The original compatibility level 1.0 was introduced during general availability of Azure Stream Analytics several years ago.
+The original 1.0 compatibility level 1.0 was introduced during general availability of Azure Stream Analytics several years ago.
 
+## Set the compatibility level
 To update the **Compatibility level** of your job:
 
 1. Use the [Azure portal](https://portal.azure.com) to locate to your Stream Analytics job.
