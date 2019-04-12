@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create labs in Azure DevTest Labs using Ansible | Microsoft Docs
-description: Learn how to use Ansible to create and configure an Azure DevTest Labs instance
+description: Learn how to configure a lab in Azure DevTest Labs using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
 author: TomArcherMsft
@@ -24,9 +24,6 @@ In this article, you create and manage labs in Azure DevTest Labs using Ansible.
 - [!INCLUDE [open-source-devops-create-sp.md](../../includes/open-source-devops-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.8 is required to run the following the sample playbooks in this tutorial. 
-
 ## Create resource group
 
 The sample playbook snippet creates an Azure resource group. A resource group is a logical container in which Azure resources are deployed and managed.
@@ -38,12 +35,12 @@ The sample playbook snippet creates an Azure resource group. A resource group is
       location: "{{ location }}"
 ```
 
-## Create a lab
+## Create the lab
 
-The next task creates an instance of DevTest Labs.
+The next task creates the sample lab.
 
 ```yaml
-- name: Create instance of Lab
+- name: Create the lab
   azure_rm_devtestlab:
     resource_group: "{{ resource_group }}"
     name: "{{ lab_name }}"
@@ -55,7 +52,7 @@ The next task creates an instance of DevTest Labs.
 
 ## Set the lab policies
 
-You can set up DevTest Labs policy settings. The following values can be set:
+You can set up lab policy settings. The following values can be set:
 
 - **user_owned_lab_vm_count** is the number of VMs a user can own
 - **user_owned_lab_premium_vm_count** is the number of premium VMs a user can own
@@ -67,7 +64,7 @@ You can set up DevTest Labs policy settings. The following values can be set:
 - **lab_target_cost** is the target cost of the lab
 
 ```yaml
-- name: Create instance of DevTest Lab Policy
+- name: Set the lab policies
   azure_rm_devtestlabpolicy:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -79,15 +76,15 @@ You can set up DevTest Labs policy settings. The following values can be set:
 
 ## Set the lab schedules
 
-You can configure DevTest Labs policy settings. The following values can be set:
+You can configure lab policy settings. The following values can be set:
 
 - **lab_vms_startup** is the lab VMs' startup time
 - **lab_vms_shutdown** is the lab VMs' shutdown time
 
-You must specify time and time zone id.
+You must specify **time** and **time_zone_id**.
 
 ```yaml
-- name: Create instance of DevTest Lab Schedule
+- name: Set the lab schedule
   azure_rm_devtestlabschedule:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -97,27 +94,27 @@ You must specify time and time zone id.
   register: output
 ```
 
-## Set up a virtual network
+## Create the lab virtual network
 
-This task creates the default DevTest Labs virtual network.
+This following task creates the default lab virtual network.
 
 ```yaml
-- name: Create instance of DevTest Labs virtual network
+- name: Create the lab virtual network
   azure_rm_devtestlabvirtualnetwork:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
     name: "{{ vn_name }}"
     location: "{{ location }}"
-    description: My DevTest Lab Virtual Network
+    description: My lab virtual network
   register: output
 ```
 
 ## Define an artifact source for the lab
 
-DevTest Lab artifacts source is a properly structured GitHub repository that contains artifact definition and ARM templates. Note that every lab comes with predefined public artifacts. The follow tasks shows you how to create the DevTest Labs artifact source.
+An artifacts source in Azure DevTest Labs is a properly structured GitHub repository that contains artifact definition and ARM templates. Note that every lab comes with predefined public artifacts. The follow tasks shows you how to create the DevTest Labs artifact source.
 
 ```yaml
-- name: Create instance of DevTest Labs artifacts source
+- name: Define the lab artifacts source
   azure_rm_devtestlabartifactsource:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -128,12 +125,12 @@ DevTest Lab artifacts source is a properly structured GitHub repository that con
     security_token: "{{ github_token }}"
 ```
 
-## Create virtual machine within the lab
+## Create a virtual machine within the lab
 
-Next, create the DevTest Labs virtual machine.
+Create a virtual machine within the lab.
 
 ```yaml
-- name: Create instance of DTL Virtual Machine
+- name: Create a virtual machine within the lab
   azure_rm_devtestlabvirtualmachine:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -165,7 +162,7 @@ Next, create the DevTest Labs virtual machine.
 To list all default and custom artifacts sources in the lab, use the following task:
 
 ```yaml
-- name: List all artifact sources
+- name: List the artifact sources
   azure_rm_devtestlabartifactsource_facts:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -177,7 +174,7 @@ To list all default and custom artifacts sources in the lab, use the following t
 The following task lists all the artifacts:
 
 ```yaml
-- name: Get artifacts source facts
+- name: List the artifact facts
   azure_rm_devtestlabartifact_facts:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -189,10 +186,10 @@ The following task lists all the artifacts:
 
 ## Get Azure Resource Manager information for the artifact sources
 
-To list all the ARM templates in **public environment repository**, the predefined repository with templates:
+To list all the Azure Resource Manager templates in **public environment repository**, the predefined repository with templates:
 
 ```yaml
-- name: List all artifact sources
+- name: List the Azure Resource Manager template facts
   azure_rm_devtestlabartifactsource_facts:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -201,10 +198,10 @@ To list all the ARM templates in **public environment repository**, the predefin
     var: output
 ```
 
-And the following task retrieves details of a specific ARM template from the repository:
+And the following task retrieves details of a specific Azure Resource Manager template from the repository:
 
 ```yaml
-- name: Get ARM Template facts
+- name: Get Azure Resource Manager template facts
   azure_rm_devtestlabarmtemplate_facts:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -215,12 +212,12 @@ And the following task retrieves details of a specific ARM template from the rep
     var: output
 ```
 
-## Create a DevTest Labs environment
+## Create the lab environment
 
-Finally, the following task creates the DevTest Lab environment based on one of the templates from public environment repository.
+Finally, the following task creates the lab environment based on one of the templates from public environment repository.
 
 ```yaml
-- name: Create instance of DevTest Lab Environment
+- name: Create the lab environment
       azure_rm_devtestlabenvironment:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -231,12 +228,12 @@ Finally, the following task creates the DevTest Lab environment based on one of 
       register: output
 ```
 
-## Create a DevTest Labs image
+## Create the lab image
 
 Another useful task is to create a DevTest Labs image based on an existing DevTest Labs virtual machine. That way, it can be used for creating new DevTest Labs virtual machines.
 
 ```yaml
-- name: Create instance of DevTest Lab Image
+- name: Create the lab image
   azure_rm_devtestlabcustomimage:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -250,7 +247,7 @@ Another useful task is to create a DevTest Labs image based on an existing DevTe
 To delete the instance, use the following task:
 
 ```yaml
-- name: Delete instance of Lab
+- name: Delete the lab
   azure_rm_devtestlab:
     resource_group: "{{ resource_group }}"
     name: "{{ lab_name }}"
@@ -287,7 +284,7 @@ There are two ways to get the complete sample playbook:
         name: "{{ resource_group }}"
         location: "{{ location }}"
 
-    - name: Create instance of Lab
+    - name: Create the lab
       azure_rm_devtestlab:
         resource_group: "{{ resource_group }}"
         name: "{{ lab_name }}"
@@ -296,7 +293,7 @@ There are two ways to get the complete sample playbook:
         premium_data_disks: no
       register: output_lab
 
-    - name: Create instance of DevTest Lab Policy
+    - name: Set the lab policies
       azure_rm_devtestlabpolicy:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -305,7 +302,7 @@ There are two ways to get the complete sample playbook:
         fact_name: user_owned_lab_vm_count
         threshold: 5
 
-    - name: Create instance of DevTest Lab Schedule
+    - name: Set the lab schedule
       azure_rm_devtestlabschedule:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -314,7 +311,7 @@ There are two ways to get the complete sample playbook:
         time_zone_id: "UTC+12"
       register: output
 
-    - name: Create instance of DevTest Labs virtual network
+    - name: Create the lab virtual network
       azure_rm_devtestlabvirtualnetwork:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -323,7 +320,7 @@ There are two ways to get the complete sample playbook:
         description: My DevTest Lab
       register: output
 
-    - name: Create instance of DevTest Labs artifacts source
+    - name: Define the lab artifacts source
       azure_rm_devtestlabartifactsource:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -345,7 +342,7 @@ There are two ways to get the complete sample playbook:
         artifact_source: null
       when: "github_token | length == 0"
 
-    - name: Create instance of DTL Virtual Machine
+    - name: Create a virtual machine within the lab
       azure_rm_devtestlabvirtualmachine:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -371,7 +368,7 @@ There are two ways to get the complete sample playbook:
         allow_claim: no
         expiration_date: "2029-02-22T01:49:12.117974Z"
 
-    - name: List all artifact sources
+    - name: List the artifact sources
       azure_rm_devtestlabartifactsource_facts:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -379,7 +376,16 @@ There are two ways to get the complete sample playbook:
     - debug:
         var: output
 
-    - name: List ARM Template facts
+    - name: List the artifact facts
+      azure_rm_devtestlabartifact_facts:
+        resource_group: "{{ resource_group }}"
+        lab_name: "{{ lab_name }}"
+        artifact_source_name: public repo
+      register: output
+    - debug:
+        var: output
+
+    - name: List the Azure Resource Manager template facts
       azure_rm_devtestlabarmtemplate_facts:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -388,7 +394,7 @@ There are two ways to get the complete sample playbook:
     - debug:
         var: output
 
-    - name: Get ARM Template facts
+    - name: Get Azure Resource Manager template facts
       azure_rm_devtestlabarmtemplate_facts:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -398,7 +404,7 @@ There are two ways to get the complete sample playbook:
     - debug:
         var: output
 
-    - name: Create instance of DevTest Lab Environment
+    - name: Create the lab environment
       azure_rm_devtestlabenvironment:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -407,7 +413,7 @@ There are two ways to get the complete sample playbook:
         location: eastus
         deployment_template: "{{ output_lab.id }}/artifactSources/public environment repo/armTemplates/WebApp"
 
-    - name: Create instance of DevTest Lab Image
+    - name: Create the lab image
       azure_rm_devtestlabcustomimage:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
@@ -415,7 +421,7 @@ There are two ways to get the complete sample playbook:
         source_vm: "{{ vm_name }}"
         linux_os_state: non_deprovisioned
 
-    - name: Delete instance of Lab
+    - name: Delete the lab
       azure_rm_devtestlab:
         resource_group: "{{ resource_group }}"
         name: "{{ lab_name }}"
