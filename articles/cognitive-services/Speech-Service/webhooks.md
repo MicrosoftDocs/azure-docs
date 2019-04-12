@@ -102,7 +102,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-In the above code snippet we decode the secret and validate it. In addition we switch on the web hook event type.
+In this code snippet, the `secret` is decoded and validated. You'll also notice that the webhook event type has been switched.
 
 Currently there is one event per completed transcription.
 
