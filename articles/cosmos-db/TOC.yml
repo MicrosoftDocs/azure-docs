@@ -608,6 +608,10 @@
         href: bulk-executor-java.md
     - name: Troubleshoot
       items:
+      - name: Troubleshoot Change Feed
+        items:
+          - name: Troubleshoot Azure Cosmos DB Trigger
+            href: troubleshoot-changefeed-functions.md
       - name: Troubleshoot Java Async SDK
         href: troubleshoot-java-async-sdk.md
       - name: Troubleshoot .NET SDK
