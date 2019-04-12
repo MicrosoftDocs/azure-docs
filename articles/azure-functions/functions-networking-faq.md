@@ -52,7 +52,7 @@ For scenarios where you only need one-way access to VNET resources, or less comp
 
 ## Next Steps
 
-To learn more about networking and Functions, see the following articles: 
+To learn more about networking and Functions: 
 
 * [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
 * [Learn more about the networking options in functions here](./functions-networking-options.md)
