@@ -48,7 +48,7 @@ Premium Storage Caching:  Not Supported
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs / Expected network bandwidth (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0 <sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
+| Standard_A0&nbsp;<sup>1</sup> |1 |0.768 |20 |1 |1x500 |2 / 100 |
 | Standard_A1 |1 |1.75 |70 |2 |2x500 |2 / 500  |
 | Standard_A2 |2 |3.5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8x500 |2 / 1000 |
@@ -75,8 +75,8 @@ The A8-A11 and H-series sizes are also known as *compute-intensive instances*. T
 
 | Size | vCPU | Memory: GiB | Temp storage (HDD): GiB | Max data disks | Max data disk throughput: IOPS | Max NICs|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
-| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
+| Standard_A8&nbsp;<sup>1</sup> |8 |56 |382 |32 |32x500 |2 |
+| Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32x500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
