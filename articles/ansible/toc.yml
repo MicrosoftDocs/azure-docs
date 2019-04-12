@@ -48,7 +48,7 @@
       href: ./ansible-aks-configure-cni-networking.md
     - name: Configure kubenet networking
       href: ./ansible-aks-configure-kubenet-networking.md
-    - name: Configure RBAC role in AKS cluster
+    - name: Configure RBAC roles in AKS cluster
       href: ./ansible-aks-configure-rbac.md
   - name: Azure HDInsight
     items:
