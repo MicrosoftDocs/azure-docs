@@ -54,7 +54,7 @@ Configuration parameters for the request are provided as JSON:
 ```
 All POST requests to the Batch Transcription API require a `name`. The `description` and `properties` parameters are optional.
 
-The 'Active' property is used to switch calling back into your URL on and off without having to delete and re-create the web hook registration. IF you are looking to be called once when the is completed then Delete the webhook and switch the 'Active' property to false.
+The 'Active' property is used to switch calling back into your URL on and off without having to delete and re-create the webhook registration. If you are looking to be called once when the is completed then Delete the webhook and switch the 'Active' property to false.
 
 The event type TranscriptionCompletion is provided in the events arrray. It will call your Endpoint back when a transcription gets into a terminal state (Succeeded or Failed). When calling back into the registered URL, the request will contain a X-MicrosoftSpeechServices-Event header containing one of the registered event types. There will be one request per registered event type. 
 
