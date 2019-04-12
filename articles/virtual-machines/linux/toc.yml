@@ -262,11 +262,11 @@
         href: troubleshooting-shared-images.md
     - name: Image builder (preview)
       items:
-      - name: Imag ebuilder overview
+      - name: Overview
         href: image-builder-overview.md
-      - name: Use Image builder with CLI
+      - name: Use CLI
         href: image-builder.md
-      - name: Image builder .json reference
+      - name: .json reference
         href: image-builder-json.md
     - name: Find and use images
       href: cli-ps-findimage.md
