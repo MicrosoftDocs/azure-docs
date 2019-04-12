@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploy an app in the LUIS Portal" 
+title: "Quickstart: Deploy an app with the LUIS Portal" 
 titleSuffix: Language Understanding - Azure Cognitive Services
 description: Once the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. In this quickstart, you learn to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 services: cognitive-services
@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Quickstart: Deploy an app in the LUIS portal
 
-Once the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. 
+After the app is ready to return utterance predictions to a client application, such as a chat bot, you need to deploy the app to the prediction endpoint. 
 
 In this quickstart, you learn to deploy an application by creating a prediction endpoint resource, assigning the resource to the app, training the app, and publishing the app. 
 
@@ -25,9 +25,9 @@ In this quickstart, you learn to deploy an application by creating a prediction 
 * Complete the [previous portal quickstart](get-started-portal-build-app.md) or [download and import the app](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/in-portal/build-portal-app.json). 
 
 
-## Create endpoint resource
+## Create the endpoint resource
 
-The prediction endpoint resource is created in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app. 
+You create the prediction endpoint resource in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app. 
 
 1. Sign in to the **[Azure portal](https://ms.portal.azure.com/)**. 
 
