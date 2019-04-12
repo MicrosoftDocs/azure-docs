@@ -59,7 +59,7 @@ To complete this tutorial, you need to:
 - Enable binary logging in the my.ini (Windows) or my.cnf (Unix) file in source database by using the  following configuration:
 
     - **server_id** = 1 or greater (relevant only for MySQL 5.6)
-    - **log-bin** =<path> (relevant only for MySQL 5.6)
+    - **log-bin** =\<path> (relevant only for MySQL 5.6)
 
         For example: log-bin = E:\MySQL_logs\BinLog
     - **binlog_format** = row

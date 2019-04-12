@@ -130,7 +130,7 @@ At the level of the Azure DNS REST API, Etags are specified using HTTP headers. 
 | Header | Behavior |
 | --- | --- |
 | None |PUT always succeeds (no Etag checks) |
-| If-match <etag> |PUT only succeeds if resource exists and Etag matches |
+| If-match \<etag> |PUT only succeeds if resource exists and Etag matches |
 | If-match * |PUT only succeeds if resource exists |
 | If-none-match * |PUT only succeeds if resource does not exist |
 
