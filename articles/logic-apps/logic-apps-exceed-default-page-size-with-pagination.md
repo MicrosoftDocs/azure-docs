@@ -36,7 +36,7 @@ For example, when using the SQL Server **Get rows** action, which supports pagin
 * The action's default page size is 2048 records per page.
 * Suppose you have 10,000 records and specify 5000 records as the minimum.
 * Pagination gets pages of records, so to get at least the specified minimum, 
-the action returns 6136 records (3 pages x 2048 records), not 5000 records.
+the action returns 6144 records (3 pages x 2048 records), not 5000 records.
 
 Here's a list with just some of the connectors where you 
 can exceed the default page size for specific actions:
