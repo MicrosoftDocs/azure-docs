@@ -22,6 +22,7 @@ The Azure Active Directory application gallery provides a listing of application
 
 These capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/). 
 
+- Self-service integration of an application that use a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users and otain tokens for [Microsoft Graph](https://graph.microsoft.com).
 - Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
 - Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
@@ -32,6 +33,12 @@ This can include not only SaaS applications that you use but have not yet been o
 These capabilities, also known as *app integration templates*, provide standards-based connection points for apps that support SAML, SCIM, or forms-based authentication, and include flexible options and settings for compatibility with a broad number of applications. 
 
 ## Adding an unlisted application
+The Microsoft Identity platform provides two mechanisms to register applications. 
+
+An application that uses a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users is registered using the [Application registration Portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-register-an-app). 
+
+Registration of applications utilizing all other types of [supported authentication mechanisms](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/what-is-single-sign-on) like the (SAML)[https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol] protocol use the **Enterprise Applications** blade to connect themselves with the Microsoft IDentity Platform.
+
 To connect an application using an app integration template, sign in to the Azure portal using your Azure Active Directory administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
 
   ![Add application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
