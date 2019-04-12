@@ -13,7 +13,7 @@ ms.author: travisw
 ms.custom: 
 ---
 
-# Quickstart: Use a voice-first virtual assistant from a UWP app with the Speech SDK
+# Quickstart: Use a voice-first virtual assistant (Preview) from a UWP app with the Speech SDK
 
 In this article, you develop a C# Universal Windows Platform (UWP; Windows version 1709 later) application by using the [Cognitive Services Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 

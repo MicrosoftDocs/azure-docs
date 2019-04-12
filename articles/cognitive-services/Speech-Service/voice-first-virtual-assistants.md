@@ -13,7 +13,7 @@ ms.author: travisw
 ms.custom: 
 ---
 
-# About Custom Voice-First Virtual Assistants
+# About Custom Voice-First Virtual Assistants (Preview)
 
  Custom virtual assistants that use Azure Speech Services empower developers to create natural, human-like conversational interfaces for their applications and experiences. The Bot Framework's Direct Line Speech channel enhances these capabilities by providing a coordinated, orchestrated entry point to a compatible bot that enables voice in, voice out interaction with low latency and high reliability.
 
