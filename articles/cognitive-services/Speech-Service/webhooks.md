@@ -113,7 +113,7 @@ We are retrying 5 times for each event (with a delay of 1s) before we give up.
 To get all registered webhooks:
 GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 
-To get one specific web hook
+To get one specific webhook:
 GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 To remove one specific web hook
