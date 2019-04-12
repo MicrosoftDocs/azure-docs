@@ -129,7 +129,7 @@ Sends a POST request to the registered URL. The request will contain a X-Microso
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test
 Body: empty
 
-Sends a POST request to the registered URL, if an entity for the subscribed event type (transcription) is present in the system and in the appropriate state. The payload will be generated from the last entity that would have invoked the web hook. If no entity is present, the POST will respond with 204. If a test request can be made, it will respond with 200. The request body is of the same shape as in the GET request for a specific entity the web hook has subscribed for (for instance transcription). The request will have the X-MicrosoftSpeechServices-Event and X-MicrosoftSpeechServices-Signature headers as described before.
+Sends a POST request to the registered URL if an entity for the subscribed event type (transcription) is present in the system and is in the appropriate state. The payload will be generated from the last entity that would have invoked the web hook. If no entity is present, the POST will respond with 204. If a test request can be made, it will respond with 200. The request body is of the same shape as in the GET request for a specific entity the web hook has subscribed for (for instance transcription). The request will have the `X-MicrosoftSpeechServices-Event` and `X-MicrosoftSpeechServices-Signature` headers as described before.
 
 ### Run a test
 
