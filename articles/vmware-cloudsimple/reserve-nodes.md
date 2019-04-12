@@ -1,6 +1,6 @@
 ---
 title: Azure VMware Solutions by CloudSimple - reserve nodes 
-description: Learn how to reserve VMware Solutions by CloudSimple - Nodes on Azure portal 
+description: Learn how to reserve nodes on the Azure portal. 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/11/2019 

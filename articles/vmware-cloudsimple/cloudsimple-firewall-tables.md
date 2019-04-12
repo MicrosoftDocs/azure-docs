@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Firewall tables overview
 
-You can filter network traffic to and from Private Cloud resources using a firewall table. A firewall table provides rules to apply to a VLAN/subnet to allow or deny network traffic. The combination of rules in the table allow you to can control network traffic between a source network or IP address, and a destination network or IP address.
+You can filter network traffic to and from Private Cloud resources using a firewall table. A firewall table provides rules to apply to a VLAN/subnet to allow or deny network traffic. The combination of rules in the table allows you to can control network traffic between a source network or IP address, and a destination network or IP address.
 
 ## Firewall rules
 

@@ -1,6 +1,6 @@
 ---
 title: CloudSimple account management - Azure 
-description: Learn about managing CloudSimple account 
+description: Learn about managing CloudSimple accounts 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/10/2019 

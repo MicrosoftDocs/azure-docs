@@ -41,7 +41,7 @@ After creating a private cloud, create a VLAN in which to deploy your workload/a
     > [!NOTE]
     > If you want the subnet created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
 
-## Connect  your environment to an Azure virtual network
+## Connect your environment to an Azure virtual network
 
 CloudSimple provides you with an ExpressRoute circuit for your private cloud. You can connect your virtual network on Azure to the ExpressRoute circuit. For full details on setting up the connection, follow the steps in [Azure Virtual Network Connection using ExpressRoute](https://docs.azure.cloudsimple.com/azure-er-connection)
 
@@ -51,7 +51,11 @@ You can now sign in to vCenter to set up virtual machines and policies.
 
 1. To access vCenter, start from the CloudSimple Portal. On the Home page, under **Common Tasks**, click **Launch vSphere Client** and then click **Launch vSphere Client**.
 
-2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The default user name is **CloudOwner@cloudsimple.local** and the default password is **CloudSimple123!**.  If your private cloud was created in link mode, sign in as your on-premises administrator user or as a user who is a member of the administrator group.
+2. Select your preferred vSphere client to access vCenter and sign in with your username and password.  The defaults are:
+    * User name: **CloudOwner@cloudsimple.local**
+    * Password: **CloudSimple123!**  
+
+    If your private cloud was created in link mode, sign in as your on-premises administrator user or as a user who is a member of the administrator group.
 
 > [!NOTE]
 > The vCenter screens in the next procedures are from the vSphere (HTML5) client.
@@ -76,16 +80,16 @@ Example: CC or CCC is acceptable as a part of the password, but CCCC isn't.
 > [!NOTE]
 > The vSphere Flash Client reports an error if you set a password that doesn’t meet the requirements. However, the HTML5 client does NOT report an error. With the HTML5 client, if you enter a password that doesn’t meet the requirements, the client doesn't accept the change and the old password continues to work.
 
-## Add Users and Identity Sources to vCenter
+## Add users and identity sources to vCenter
 
-CloudSimple assigns a default vCenter user account with username **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started. However, you can request additional user accounts and permission to add identity sources.
+CloudSimple assigns a default vCenter user account with username: **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started. However, you can request additional user accounts and permission to add identity sources.
 
-* If you require additional user accounts, provide the user information to[CloudSimple Support](http://support.cloudsimple.com). Support will set up the user accounts for you.
+* If you require additional user accounts, provide the user information to [CloudSimple Support](http://support.cloudsimple.com). Support will set up the user accounts for you.
 * CloudSimple normally assigns administrators the privileges they need to do normal operations, but restricts doing operations such as adding identity sources. If you want to add an identity source, you can temporarily [escalate your privileges](https://docs.azure.cloudsimple.com/vsphere-access/#escalate-privileges).
 
 ## Create a port group
 
-To create a distributed port group in vSphere, follow the instructions in 'Add a distributed port group,' in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf). When setting up the distributed port group, provide the VLAN ID used in [Create a VLAN for your Workload VMs](#create-a-vlan-for-your-workload-vms).
+To create a distributed port group in vSphere, follow the instructions in "Add a distributed port group," in the [vSphere Networking Guide](https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf). When setting up the distributed port group, provide the VLAN ID used in [Create a VLAN for your Workload VMs](#create-a-vlan-for-your-workload-vms).
 
 ## Upload an ISO or vSphere template
 
@@ -135,7 +139,7 @@ The following sections contain optional information about setting up DNS and DHC
 
 Applications and workloads running in a private cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your private cloud environment.
 
-Prerequisites
+### Prerequisites
 
 * A distributed port group with VLAN configured
 
@@ -143,19 +147,19 @@ Prerequisites
 
 * Virtual machine template or ISO to create a virtual machine
 
-The following links provide guidance on setting up DHCP and DNS servers on Linux and Windows.
+The following sections provide guidance on setting up DHCP and DNS servers on Linux and Windows.
 
 ### Linux-based DNS server setup
 
-Linux offers various packages for setting up DNS servers.  The following link provides instructions for setting up an open source BIND DNS server. [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7).
+Linux offers various packages for setting up DNS servers. For instructions setting up an open source BIND DNS server, refer to [Example setup](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7).
 
-#### Windows-based setup
+### Windows-based setup
 
-These Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
+The following Microsoft topics describe how to set up a Windows server as a DNS server and as a DHCP server.
 
-[Windows Server as DNS Server](https://docs.microsoft.com/en-us/windows-server/networking/dns/dns-top)
+* [Windows Server as DNS Server](https://docs.microsoft.com/windows-server/networking/dns/dns-top)
 
-[Windows Server as DHCP Server](https://docs.microsoft.com/en-us/windows-server/networking/technologies/dhcp/dhcp-top)
+* [Windows Server as DHCP Server](https://docs.microsoft.com/windows-server/networking/technologies/dhcp/dhcp-top)
 
 ## Customize networking configuration (Optional)
 
@@ -176,7 +180,7 @@ The task of allocating the public IP address begins. You can check the status of
 
 The VM to which this IP address must be mapped needs to be configured with the local address specified above. The procedure to configure an IP address is specific to the VM operating system. Consult the documentation for your VM operating system for the correct procedure.
 
-#### Example
+### Example
 
 For example, here are the details for Ubuntu 16.04.
 
@@ -189,7 +193,7 @@ Add the static method to the inet address family configuration in the file /etc/
 
 For your environment, the available subnet information is provided in the welcome email.
 
-### sudo vi /etc/network/interfaces
+#### sudo vi /etc/network/interfaces
 
 auto eth0
 Iface eth0 inet static
@@ -203,27 +207,27 @@ dns-search acme.com
 
 Manually disable the interface.
 
-### sudo ifdown eth0
+#### sudo ifdown eth0
 
 Manually enable the interface again.
 
-### sudo ifup eth0
+#### sudo ifup eth0
 
 By default, all incoming traffic from the Internet is **denied**. If you would like to open any other port, file a ticket with CloudSimple Support.
 
 After configuring an internal IP address as the static IP address, verify that you can reach the Internet from within the VM.
 
-### ping 8.8.8.8
+#### ping 8.8.8.8
 
 Also verify that you can reach the VM from the Internet using the public IP address.
 
 * Ensure that any iptable rules on the VM aren't blocking port 80 inbound.
 
-### netstat -an | grep 80
+#### netstat -an | grep 80
 
 * Start an http server that listens on port 80.
 
-### python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
+#### python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
 
 * Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM.
 

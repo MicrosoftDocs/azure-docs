@@ -1,6 +1,6 @@
 ---
-title: Public IP address in VMware Solutions by CloudSimple - Azure
-description: Learn about Public IP addresses their benefits on VMware Solutions by CloudSimple 
+title: VMware Solutions by CloudSimple - Azure Public IP address  
+description: Learn about Public IP addresses and their benefits on VMware Solutions by CloudSimple 
 author: sharaths-cs 
 ms.author: dikamath 
 ms.date: 04/10/2019 

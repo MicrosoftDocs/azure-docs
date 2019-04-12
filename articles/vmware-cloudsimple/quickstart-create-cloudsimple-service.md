@@ -13,6 +13,12 @@ manager: dikamath
 
 To get started with Azure VMware Solutions by CloudSimple, first create the Azure VMware Solutions by CloudSimple in the Azure portal.
 
+## VMware Solutions by CloudSimple - Service overview
+
+The CloudSimple service allows you to consume Azure VMware solutions by CloudSimple.  Creating the service allows you to purchase nodes, reserve nodes, and create private clouds.  You add the CloudSimple service in each Azure region where the CloudSimple service is available.  The service defines the edge network of Azure VMware solutions by CloudSimple.  This edge network is used for services that include VPN, ExpressRoute, and Internet connectivity to your private clouds.
+
+Adding the CloudSimple service requires creation of a gateway subnet.  The gateway subnet is used when creating the edge network and requires a /28 CIDR block.  The gateway subnet address space must be unique. It cannot overlap with any of your on-premises network address spaces or Azure virtual network address space.
+
 ## Create the service
 
 1. Sign in to the [Azure portal](https://portal.azure.com).

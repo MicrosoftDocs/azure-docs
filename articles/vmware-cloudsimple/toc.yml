@@ -1,4 +1,4 @@
-- name: CloudSimple on Azure Documentation
+- name: CloudSimple on Azure documentation
 - name: Overview
   items:
   - name: What is VMware Solutions on Azure by CloudSimple?
@@ -6,8 +6,6 @@
 - name: Quickstart guides
   expanded: true
   items:
-  - name: Azure VMware Solutions by CloudSimple at a glance
-    href: quickstart-glance.md 
   - name: Create service
     href: quickstart-create-cloudsimple-service.md 
   - name: Configure private cloud environment
@@ -16,8 +14,6 @@
     href: quickstart-create-vmware-virtual-machine.md 
 - name: Concepts
   items:
-  - name: Service 
-    href: cloudsimple-service.md
   - name: Nodes
     href: cloudsimple-node.md
   - name: Private cloud
