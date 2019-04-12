@@ -98,11 +98,10 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using
 psql, you can complete some basic tasks.
 
-First let's create tables for a hypothetical advertising application.
-Multiple companies can all use the app to track advertising campaigns,
-recording clicks and ad impressions.
+First let's create tables for a hypothetical advertising web application.
+Multiple companies can use the app to track their advertising campaigns.
 
-In the psql client, run these commands:
+In the psql client, create a table to hold companies and their campaigns:
 
 ```sql
 CREATE TABLE companies (
@@ -126,7 +125,11 @@ CREATE TABLE campaigns (
 
   PRIMARY KEY (company_id, id)
 );
+```
 
+Each campaign will pay to run ads, so add a table for those too:
+
+```sql
 CREATE TABLE ads (
   id bigserial,
   company_id bigint,
@@ -143,7 +146,11 @@ CREATE TABLE ads (
   FOREIGN KEY (company_id, campaign_id)
     REFERENCES campaigns (company_id, id)
 );
+```
 
+Finally, we'll track statistics about clicks and impressions for each ad:
+
+```sql
 CREATE TABLE clicks (
   id bigserial,
   company_id bigint,
@@ -186,10 +193,9 @@ which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
-Azure Database for PostgreSQL – Hyperscale (Citus) stores table
-rows on different nodes based on the value of a user-designated
-column called the "distribution column." This column marks which
-tenant owns which rows.
+A hyperscale deployment stores distributed table rows on different nodes based
+on the value of a user-designated column called the "distribution column." This
+column marks which tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
 identifier. In psql, run these functions:
