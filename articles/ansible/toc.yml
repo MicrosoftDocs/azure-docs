@@ -22,16 +22,24 @@
       href: ./ansible-run-playbook-in-cloudshell.md
 - name: Tutorials 
   items:
+  - name: Azure Application Gateway
+    items:
+    - name: Manage web traffic
+      href: ./ansible-create-configure-application-gateway.md
   - name: Azure App Service
     items:
     - name: Configure web apps
       href: ./ansible-create-configure-azure-web-apps.md
     - name: Scale web apps
       href: ./ansible-scale-azure-web-apps.md
-  - name: Azure Application Gateway
+  - name: Azure Cache for Redis
     items:
-    - name: Manage web traffic
-      href: ./ansible-create-configure-application-gateway.md
+    - name: Configure caches
+      href: ./ansible-azure-cache-for-redis-create-configure.md
+  - name: Azure DevTest Labs
+    items:
+    - name: Configure labs
+      href: ./ansible-devtest-labs-create-configure.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
@@ -42,10 +50,6 @@
       href: ./ansible-aks-configure-kubenet-networking.md
     - name: Configure RBAC role in AKS cluster
       href: ./ansible-aks-configure-rbac.md
-  - name: Azure Cache for Redis
-    items:
-    - name: Configure caches
-      href: ./ansible-azure-cache-for-redis-create-configure.md
   - name: Azure HDInsight
     items:
     - name: Configure clusters
@@ -56,27 +60,17 @@
       href: ./ansible-azure-service-bus-configure-queues.md
     - name: Configure topics
       href: ./ansible-azure-service-bus-configure-topics.md
-  - name: Databases
+  - name: Database
     items:
     - name: Configure databases in Azure Database for MySQL
       href: ./ansible-create-configure-mysql.md
     - name: Configure Azure Cosmos DB accounts
       href: ./ansible-cosmos-db-configure.md
-  - name: DevTest Labs
-    items:
-    - name: Configure labs
-      href: ./ansible-devtest-labs-create-configure.md
   - name: Dynamic inventory
     items:
     - name: Manage your Azure resources
       href: ./ansible-manage-azure-dynamic-inventories.md
-  - name: Virtual network
-    items:
-    - name: Configure route tables
-      href: ./ansible-create-configure-route-table.md
-    - name: Configure Azure VNet peering
-      href: ./ansible-vnet-peering-create-configure.md
-  - name: Virtual Machines Scale Sets
+  - name: Virtual machines scale sets
     items:
     - name: Configure virtual machine scale sets
       href: ./ansible-create-configure-vmss.md
@@ -84,6 +78,12 @@
       href: ./ansible-deploy-app-vmss.md
     - name: Autoscale virtual machine scale sets
       href: ./ansible-auto-scale-vmss.md
+  - name: Virtual network
+    items:
+    - name: Configure route tables
+      href: ./ansible-create-configure-route-table.md
+    - name: Configure Azure VNet peering
+      href: ./ansible-vnet-peering-create-configure.md
 - name: Reference
   items:
   - name: Playbook roles
