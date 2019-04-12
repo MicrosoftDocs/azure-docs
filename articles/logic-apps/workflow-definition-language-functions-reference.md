@@ -1,7 +1,6 @@
 ---
-# required metadata
-title: Reference for functions in Workflow Definition Language - Azure Logic Apps
-description: Reference guide to functions in Workflow Definition Language for Azure Logic Apps
+title: Reference for functions in Workflow Definition Language - Azure Logic Apps and Microsoft Flow
+description: Reference guide for functions in expressions created with Workflow Definition Language for Azure Logic Apps and Microsoft Flow
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,22 +11,25 @@ ms.topic: reference
 ms.date: 08/15/2018
 ---
 
-# Reference guide for functions available in Workflow Definition Language for Azure Logic Apps and Microsoft Flow
+# Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) and 
-[Microsoft Flow](https://docs.microsoft.com/flow/getting-started) 
-both use the [Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md) 
-for describing the underlying definitions for logic apps and flows. 
-When you're working with these definitions, some 
+For workflow definitions in [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
+and [Microsoft Flow](https://docs.microsoft.com/flow/getting-started), some 
 [expressions](../logic-apps/logic-apps-workflow-definition-language.md#expressions) 
-get their values from runtime actions that might not yet exist 
-when your logic app or flow starts running. To reference these 
-values or process these values in expressions, you can use the 
-*functions* provided by the Workflow Definition Language. 
+get their values from runtime actions that might not yet exist when your 
+workflow starts running. To reference these values or process the values 
+in these expressions, you can use *functions* provided by the 
+[Workflow Definition Language](../logic-apps/logic-apps-workflow-definition-language.md). 
+
+> [!NOTE]
+> This reference page applies to both Azure Logic Apps and Microsoft Flow, 
+> but appears in the Azure Logic Apps documention. Although this page refers 
+> specifically to logic apps, these functions work for both flows and logic apps.
+
 For example, you can calculate values by using math functions, such as the
 [add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
-when you want the sum from integers or floats. 
-Here are a couple other example tasks that you can perform with functions:
+when you want the sum from integers or floats. Here are a couple other 
+example tasks that you can perform with functions:
 
 | Task | Function syntax | Result |
 | ---- | --------------- | ------ |
@@ -35,7 +37,8 @@ Here are a couple other example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This article describes the functions that you can use when creating logic apps or flows. 
+This reference describes the functions that you can use 
+in workflow definitions for either logic apps or flows. 
 To find functions [based on their general purpose](#ordered-by-purpose),
 review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
@@ -278,7 +281,7 @@ For the full reference about each function, see the
 | [items](../logic-apps/workflow-definition-language-functions-reference.md#items) | When inside a for-each or do-until-loop, return the current item from the specified loop.|
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
-| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your logic app or flow definition. |
+| [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Return a single value matching a key name in *form-data* or *form-encoded* trigger outputs. |
@@ -2874,7 +2877,7 @@ Check whether an expression is false.
 Return true when the expression is false,
 or return false when true.
 
-```
+```json
 not(<expression>)
 ```
 
@@ -2892,7 +2895,7 @@ not(<expression>)
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(false)
 not(true)
 ```
@@ -2906,7 +2909,7 @@ And return these results:
 
 These examples check whether the specified expressions are false:
 
-```
+```json
 not(equals(1, 2))
 not(equals(1, 1))
 ```
@@ -2942,7 +2945,7 @@ or(<expression1>, <expression2>, ...)
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(true, false)
 or(false, false)
 ```
@@ -2956,7 +2959,7 @@ And return these results:
 
 These examples check whether at least one expression is true:
 
-```
+```json
 or(equals(1, 1), equals(1, 2))
 or(equals(1, 2), equals(1, 3))
 ```
@@ -2971,7 +2974,7 @@ And return these results:
 ### parameters
 
 Return the value for a parameter that is
-described in your logic app or flow definition.
+described in your workflow definition.
 
 ```
 parameters('<parameterName>')

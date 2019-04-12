@@ -1,6 +1,6 @@
 ---
-title: Reference for trigger and action types in the Workflow Definition Language - Azure Logic Apps
-description: This reference describes the trigger and action types used by the Workflow Definition Language in Azure Logic Apps
+title: Reference for trigger and action types in Workflow Definition Language - Azure Logic Apps
+description: Reference guide for trigger and action types in Workflow Definition Language for Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 author: ecfan
@@ -11,15 +11,14 @@ ms.topic: reference
 ms.date: 06/22/2018
 ---
 
-# Reference for trigger and action types described by the Workflow Definition Language schema
+# Reference for trigger and action types in Workflow Definition Language for Azure Logic Apps
 
-The Workflow Definition Language schema describes the underlying definition 
-for logic apps that you create with [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
-and for flows that you create with [Microsoft Flow](https://docs.microsoft.com/flow/getting-started). 
-This schema organizes triggers and actions into specific types. 
-For information about the actual connectors that provide the 
-triggers and actions you can use in Azure Logic Apps, 
-Microsoft Flow and other services, see the list under the 
+This reference covers the general types that identify triggers 
+and actions in the Workflow Definition Language for 
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md). 
+For information about specific connectors that offer 
+triggers and actions that you can use in workflow definitions 
+for Azure Logic Apps, see the list under the 
 [Connectors overview](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
