@@ -21,7 +21,7 @@ The Speech Services offer a Swagger specification to interact with a handful of 
 
 ## Generating code from the Swagger specification
 
-The [Swager specification](https://cris.ai/swagger/ui/index) has options that allow you to quickly test for various path. However, sometimes it's desirable to generate code fo all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
+The [Swager specification](https://cris.ai/swagger/ui/index) has options that allow you to quickly test for various paths. However, sometimes it's desirable to generate code for all paths, creating a single library of calls that you can base future solutions on. Let's take a look at the process to generate a Python library.
 
 You'll need to set Swagger to the same region as your Speech Service subscription. You can confirm your region in the Azure portal under your Speech Services resource. For a complete list of supported regions, see [Regions](regions.md).
 
