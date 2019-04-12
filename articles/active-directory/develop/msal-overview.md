@@ -1,6 +1,6 @@
 ---
 title: Learn about Microsoft Authentication Library (MSAL) | Azure
-description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third party Web APIs, or your own Web API. MSAL supports multiple application architectures and platforms.
+description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -22,16 +22,16 @@ ms.collection: M365-identity-device-management
 ---
 
 # Overview of Microsoft Authentication Library (MSAL)
-Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](active-directory-dev-glossary.md#security-token) from Azure AD in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, 3rd party Web APIs, or your own Web API. MSAL SDKs are available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
+Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](active-directory-dev-glossary.md#security-token) from Azure AD in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL SDKs are available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
 
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 
 * No need to directly use the OAuth libraries or code against the protocol in your application.
 * Acquires tokens on behalf of a user or on behalf of an application.
 * Maintains a token cache and refreshes tokens for you when they are close to expire. You don't need to handle token expiration on your own.
-* Helps you specify which audience you want your application to sign-in (your org, several orgs, work and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign and national clouds).
+* Helps you specify which audience you want your application to sign in (your org, several orgs, work, and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign, and national clouds).
 * Helps you set up your application from configuration files.
-* Helps you troubleshoot your app by exposing actionable exceptions, logging and telemetry.
+* Helps you troubleshoot your app by exposing actionable exceptions, logging, and telemetry.
 
 ## Supported scenarios
 MSAL can be used in many scenarios, including the following:

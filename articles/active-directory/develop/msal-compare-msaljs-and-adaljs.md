@@ -34,7 +34,7 @@ v2.0: scope = https://graph.microsoft.com/User.Read
 
 You can request scopes for any resource API using URI of the API in this format: appidURI/scope For example: https://mytenant.onmicrosoft.com/myapi/api.read
 
-Note: For the MS Graph API, a scope value user.read maps to https://graph.microsoft.com/User.Read and can be used interchangeably.
+Note: For the MS Graph API, a scope value `user.read` maps to https://graph.microsoft.com/User.Read and can be used interchangeably.
 
 * Dynamic scopes for incremental consent.
 
@@ -47,7 +47,7 @@ Note: For the MS Graph API, a scope value user.read maps to https://graph.micros
 
 * Scopes for V1.0 APIs
 
-    When getting tokens for V1.0 APIs using MSAL.js, you can request all the static scopes registered on the API by appending .default to the App ID URI of the API as scope. For example:
+    When getting tokens for V1.0 APIs using MSAL.js, you can request all the static scopes registered on the API by appending default to the App ID URI of the API as scope. For example:
 
     ```javascript
     var scopes = [ appidURI + "/.default"];

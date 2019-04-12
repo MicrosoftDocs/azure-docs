@@ -58,7 +58,7 @@ It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes 
 
 ADAL.NET manipulated users. However, a user is a human or a software agent, but it can possess/own/be responsible for one or more accounts in the Microsoft identity system (several Azure AD accounts, Azure AD B2C, Microsoft personal accounts). 
 
-MSAL.NET 2.x now defines the notion of Account (through the IAccount interface). This breaking change provides the right semantics: the fact that the same user can have several accounts, in different Azure AD directories. Also MSAL.NET provides better information in the case of guest scenarios, as home account information is provided.
+MSAL.NET 2.x now defines the notion of Account (through the IAccount interface). This breaking change provides the right semantics: the fact that the same user can have several accounts, in different Azure AD directories. Also MSAL.NET provides better information in guest scenarios, as home account information is provided.
 
 For more information about the differences between IUser and IAccount see https://aka.ms/msal-net-2-released
 
@@ -97,7 +97,7 @@ catch(MsalUiRequiredException exception)
 ###### How ADAL.NET does it?
 
 - ``AdalClaimChallengeException`` is an exception (deriving from ``AdalServiceException``) thrown by the service in case a resource requires more claims from the user (for instance two-factors authentication). The ``Claims`` member contains some json fragment with the claims, which are expected.
-- Still in ADAL.NET, the public client application receiving this exception needs to call the ``AcquireTokenAsync`` override having a claims parameter. This override of ``AcquireTokenAsync`` does not even try to hit the cache, it’s necessarily interactive. The reason is that the token in the cache does not have the right claims (otherwise an ``AdalClaimChallengeException`` would not have been thrown). Therefore, there is no need looking at the cache. Note that the ``ClaimChallengeException`` can be received in a WebAPI doing OBO, whereas the ``AcquireTokenAsync`` needs to be called in a public client application calling this Web API.
+- Still in ADAL.NET, the public client application receiving this exception needs to call the ``AcquireTokenAsync`` override having a claims parameter. This override of ``AcquireTokenAsync`` does not even try to hit the cache, it’s necessarily interactive. The reason is that the token in the cache does not have the right claims (otherwise an ``AdalClaimChallengeException`` would not have been thrown). Therefore, there is no need looking at the cache. The ``ClaimChallengeException`` can be received in a WebAPI doing OBO, whereas the ``AcquireTokenAsync`` needs to be called in a public client application calling this Web API.
 - for details, including samples see Handling [AdalClaimChallengeException](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Exceptions-in-ADAL.NET#handling-adalclaimchallengeexception)
 
 ###### How to handle claim challenge exceptions in MSAL.NET?
@@ -132,7 +132,7 @@ Web App | Auth Code | [Acquiring tokens with authorization codes on web apps wit
 
 #### Cache persistence
 
-ADAL.NET allows you to extend the ``TokenCache`` class to implement the desired persistence functionality on platforms without a secure storage (.NET Framework and .NET core) by using the ``BeforeAccess``, ``AfterAccess`` and ``BeforeWrite`` methods. For details, see [Token Cache Serialization in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
+ADAL.NET allows you to extend the ``TokenCache`` class to implement the desired persistence functionality on platforms without a secure storage (.NET Framework and .NET core) by using the ``BeforeAccess``,  , and ``BeforeWrite`` methods. For details, see [Token Cache Serialization in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
 
 MSAL.NET makes the token cache a sealed class, removing the ability to extend it. Therefore, your implementation of token cache persistence must be in the form of a helper class that interacts with the sealed token cache. This interaction is described in [Token Cache Serialization in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization)
 
