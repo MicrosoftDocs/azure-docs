@@ -1,6 +1,6 @@
 ---
 title: Delete an Azure AD directory - Azure Active Directory | Microsoft Docs
-description: Explains how to prepare an Azure AD tenant directory for deletion
+description: Explains how to prepare an Azure AD directory for deletion, including self-service directories
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/15/2019
 ms.author: curtand
 
 ms.reviewer: elkuzmen
@@ -66,7 +66,7 @@ You can put a subscription into the Deprovisoned state to be deleted in three da
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a global administrator in your organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign in with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Go to the **Billing** tab and select **Products and Services**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
+2. Select **Billing** and select **Subscriptions**, then choose the subscription you want to cancel. After you click **Cancel**, refresh the page.
   
    ![Delete link for deleting subscription](./media/directory-delete-howto/delete-command.png)
   
@@ -100,13 +100,13 @@ Product state | Data | Access to data
 Active (30 days for trial) | Data accessible to all | Users have normal access to self-service sign-up product, files, or apps<br>Admins have normal access to Microsoft 365 admin center and resources
 Deleted | Data deleted | Users can’t access self-service sign-up product, files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
 
-## How can I delete the self-service sign-up product in the Azure portal?
+## How can I delete a self-service sign-up product in the Azure portal?
 
 You can put a self-service sign-up product like Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
 
-1. Sign in to the Azure AD Portal with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Go to the **Licenses** page and select **Self-service sign-up products**. You will see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Power BI:
+2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Power BI:
 
     ![the username is mistyped or not found](./media/directory-delete-howto/licenses-page.png)
 
