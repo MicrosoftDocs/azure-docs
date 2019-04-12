@@ -1,6 +1,6 @@
 ---
 title: Authenticate access to blob and queue data with Azure Active Directory managed identities for Azure resources - Azure Storage | Microsoft Docs
-description: Azure Blob and Queue storage supports Azure Active Directory authentication with managed identities for Azure resources. You can use managed identities for Azure resources to authenticate access to blobs and queues from applications running in Azure virtual machines, function apps, virtual machine scale sets, and others. By using managed identities for Azure resources and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+description: Azure Blob and Queue storage supports Azure Active Directory authentication with managed identities for Azure resources. By using managed identities for Azure resources and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 services: storage
 author: tamram
 
@@ -39,8 +39,6 @@ To authenticate with a managed identity, your application or script must acquire
 
 The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
 
-For more information about the App Authentication library, see [Service-to-service authentication to Azure Key Vault using .NET](../..key-vault/service-to-service-authentication.md). While this article discusses the App Authentication library in the context of Azure Key Vault, the concepts are applicable to Azure Storage.
-
 To use the App Authentication library in an Azure Storage application, install the latest preview package from [Nuget]((https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)), as well as the latest version of the [Azure Storage client library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/). Add the following **using** statements to your code:
 
 ```csharp
@@ -49,64 +47,72 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-The App Authentication library provides the **AzureServiceTokenProvider** class. 
+The App Authentication library provides the **AzureServiceTokenProvider** class. An instance of this class can be passed to a callback that gets a token and then renews the token before it expires. 
+
+The following example gets a token and uses it to create a new blob, then uses the same token to read the blob.
+
+```csharp
+// Get the initial access token and the interval at which to refresh it.
+AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider, 
+                                            CancellationToken.None).GetAwaiter().GetResult();
+
+// Create storage credentials using the initial token, and connect the callback function 
+// to renew the token just before it expires
+TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token, 
+                                                        TokenRenewerAsync,
+                                                        azureServiceTokenProvider, 
+                                                        tokenAndFrequency.Frequency.Value);
+
+StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
+
+// Create a blob using the storage credentials.
+CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/blob1.txt"),
+                                        storageCredentials);
+
+// Upload text to the blob.
+blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+
+// Continue to make requests against Azure Storage. The token is automatically refreshed as needed in the background.
+do
+{
+    // Read blob contents
+    Console.WriteLine("Time accessed: {0} Blob Content: {1}", 
+                        DateTimeOffset.UtcNow, 
+                        blob.DownloadTextAsync().Result);
+
+    // Sleep for ten seconds, then read the contents of the blob again.
+    Thread.Sleep(TimeSpan.FromSeconds(10));
+} while (true);
+```
+
+The callback method checks the expiration time of the token and renews it as needed:
 
 ```csharp
 private static async Task<NewTokenAndFrequency> TokenRenewerAsync(Object state, CancellationToken cancellationToken)
 {
-    const string StorageResource = "https://storage.azure.com/";  // Resource ID for requesting AAD tokens for Azure Storage
+    // Specify the resource ID for requesting Azure AD tokens for Azure Storage.
+    const string StorageResource = "https://storage.azure.com/";  
 
-    // Use the same token provider to request a new token
-    //var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource/*, pass cancellationToken here*/);
-    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource/*, pass cancellationToken here*/);
+    // Use the same token provider to request a new token.
+    var authResult = await ((AzureServiceTokenProvider)state).GetAuthenticationResultAsync(StorageResource);
 
-    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);   // Renew 5 minutes before expiration
-    if (next.Ticks < 0) next = default(TimeSpan);
+    // Renew the token 5 minutes before it expires.
+    var next = (authResult.ExpiresOn - DateTimeOffset.UtcNow) - TimeSpan.FromMinutes(5);
+    if (next.Ticks < 0)
+    {
+        next = default(TimeSpan);
+        Console.WriteLine("Renewing token...");
+    }
 
-    // Return new token and next refresh time to refreshing TokenCredential
+    // Return the new token and the next refresh time.
     return new NewTokenAndFrequency(authResult.AccessToken, next);
 }
 ```
-  
 
-The App Authentication library 
-
-[Service-to-service authentication to Azure Key Vault using .NET](https://docs.microsoft.com/azure/key-vault/service-to-service-authentication)
+For more information about the App Authentication library, see [Service-to-service authentication to Azure Key Vault using .NET](../../key-vault/service-to-service-authentication.md). 
 
 To learn more about how to acquire an access token, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
-
-## .NET code example: Create a block blob
-
-The code example assumes that you have a managed identity access token. The access token is used to authorize the managed identity to create a block blob.
-
-To authorize blob and queue operations with an OAuth token, you must use HTTPS.
-
-### Add references and using statements  
-
-In Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **Nuget Package Manager**, then **Package Manager Console**. Type the following command into the console:
-
-```powershell
-Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
-```
-
-Add the following using statements to your code:
-
-```dotnet
-using Microsoft.WindowsAzure.Storage.Auth;
-```
-
-### Create credentials from the managed identity access token
-
-To create the block blob, use the **TokenCredentials** class. Construct a new instance of **TokenCredentials**, passing in the managed identity access token that you obtained previously:
-
-```dotnet
-// Create storage credentials from your managed identity access token.
-TokenCredential tokenCredential = new TokenCredential(accessToken);
-StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
-
-// Create a block blob using the credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
-``` 
 
 > [!NOTE]
 > Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
