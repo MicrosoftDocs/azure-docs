@@ -14,7 +14,7 @@ manager: carmonm
 
 An Automation credential asset holds an object, which contains security credentials such as a username and password. Runbooks and DSC configurations may use cmdlets that accept a PSCredential object for authentication, or they may extract the username and password of the PSCredential object to provide to some application or service requiring authentication. The properties for a credential are stored securely in Azure Automation and can be accessed in the runbook or DSC configuration with the [Get-AutomationPSCredential](#activities) activity.
 
-[!INCLUDE [gdpr-dsr-and-stp-note.md](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note.md](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 > [!NOTE]
 > Secure assets in Azure Automation include credentials, certificates, connections, and encrypted variables. These assets are encrypted and stored in Azure Automation using a unique key that is generated for each automation account. This key is stored in Key Vault. Before storing a secure asset, the key is loaded from Key Vault and then used to encrypt the asset.
@@ -103,7 +103,7 @@ $securePassword = $myCredential.Password
 $password = $myCredential.GetNetworkCredential().Password
 ```
 
-You can also use a credential to authenticate to Azure with [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Under most circumstances, you should use a [Run As account](manage-runas-account.md) and retrieve it with [Get-AutomationConnection](automation-connections.md).
+You can also use a credential to authenticate to Azure with [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Under most circumstances, you should use a [Run As account](../manage-runas-account.md) and retrieve it with [Get-AutomationConnection](../automation-connections.md).
 
 ```azurepowershell
 $myCred = Get-AutomationPSCredential -Name 'MyCredential`
@@ -122,13 +122,13 @@ You add a **Get-AutomationPSCredential** activity to a graphical runbook by righ
 
 ![Add credential to canvas](../media/credentials/credential-add-canvas.png)
 
-The following image shows an example of using a credential in a graphical runbook.  In this case, it's being used to provide authentication for a runbook to Azure resources as described in [Authenticate Runbooks with Azure AD User account](automation-create-aduser-account.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  A [pipeline link](automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
+The following image shows an example of using a credential in a graphical runbook.  In this case, it's being used to provide authentication for a runbook to Azure resources as described in [Authenticate Runbooks with Azure AD User account](../automation-create-aduser-account.md).  The first activity retrieves the credential that has access to the Azure subscription.  The **Add-AzureAccount** activity then uses this credential to provide authentication for any activities that come after it.  A [pipeline link](../automation-graphical-authoring-intro.md#links-and-workflow) is here since **Get-AutomationPSCredential** is expecting a single object.  
 
 ![Add credential to canvas](../media/credentials/get-credential.png)
 
 ## Using a PowerShell credential in DSC
 
-While DSC configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if wanted. For more information, see [Compiling configurations in Azure Automation DSC](automation-dsc-compile.md#credential-assets).
+While DSC configurations in Azure Automation can reference credential assets using **Get-AutomationPSCredential**, credential assets can also be passed in via parameters, if wanted. For more information, see [Compiling configurations in Azure Automation DSC](../automation-dsc-compile.md#credential-assets).
 
 ## Using credentials in Python2
 
@@ -146,8 +146,8 @@ print cred["password"]
 
 ## Next steps
 
-* To learn more about links in graphical authoring, see [Links in graphical authoring](automation-graphical-authoring-intro.md#links-and-workflow)
-* To understand the different authentication methods with Automation, see [Azure Automation Security](automation-security-overview.md)
-* To get started with Graphical runbooks, see [My first graphical runbook](automation-first-runbook-graphical.md)
-* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](automation-first-runbook-textual.md) 
-* To get started with Python2 runbooks, see [My first Python2 runbook](automation-first-runbook-textual-python2.md) 
+* To learn more about links in graphical authoring, see [Links in graphical authoring](../automation-graphical-authoring-intro.md#links-and-workflow)
+* To understand the different authentication methods with Automation, see [Azure Automation Security](../automation-security-overview.md)
+* To get started with Graphical runbooks, see [My first graphical runbook](../automation-first-runbook-graphical.md)
+* To get started with PowerShell workflow runbooks, see [My first PowerShell workflow runbook](../automation-first-runbook-textual.md)
+* To get started with Python2 runbooks, see [My first Python2 runbook](../automation-first-runbook-textual-python2.md) 
