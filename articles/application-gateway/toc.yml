@@ -175,7 +175,7 @@
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers in existing gateway
+  - name: Rewrite HTTP headers
     items:
     - name: Azure portal
       href: rewrite-http-headers-portal.md    
