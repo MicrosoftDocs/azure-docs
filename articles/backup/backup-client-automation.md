@@ -82,7 +82,7 @@ Before you install the Azure Backup agent, you need to have the installer downlo
 Alternatively, use PowerShell to get the downloader:
  
  ```powershell
- $MarsAURL = 'Http://Aka.Ms/Azurebackup_Agent'
+ $MarsAURL = 'https://aka.ms/Azurebackup_Agent'
  $WC = New-Object System.Net.WebClient
  $WC.DownloadFile($MarsAURL,'C:\downloads\MARSAgentInstaller.EXE')
  C:\Downloads\MARSAgentInstaller.EXE /q

@@ -46,7 +46,7 @@ You will not be able to deploy models on FPGAs until you have requested and been
 ## Automated machine learning
 
 Tensor Flow
-Automated machine learning does not currently support tensor flow version 1.13. Installing this will cause package dependencies to stop working. We are working to fix this in a future release. 
+Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
 
 
 ## Databricks
@@ -92,7 +92,7 @@ If you see this error when you use automated machine learning:
 
 1. Detach and then reattach the cluster to your notebook. 
 
-If this doesnt solve the issue, try restarting the cluster.
+If these steps don't solve the issue, try restarting the cluster.
 
 ## Azure portal
 
@@ -100,7 +100,7 @@ If you go directly to view your workspace from a share link from the SDK or the 
 
 ## Diagnostic logs
 
-Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workpsace and select **Workspace > Experiment > Run > Logs**.
+Sometimes it can be helpful if you can provide diagnostic information when asking for help. To see some logs, visit [Azure portal](https://portal.azure.com) and  go to your workspace and select **Workspace > Experiment > Run > Logs**.
 
 ## Resource quotas
 
@@ -119,7 +119,3 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
-
-## Get more support
-
-You can submit requests for support and get help from technical support, forums, and more. [Learn more...](support-for-aml-services.md)

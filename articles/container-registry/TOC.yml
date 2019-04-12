@@ -7,13 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Container Registry - CLI
+  - name: Create a container registry - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry - Portal
+  - name: Create a container registry - Portal
     href: container-registry-get-started-portal.md
-  - name: Container Registry - PowerShell
+  - name: Create a container registry - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Events with Event Grid - CLI
+  - name: Build and run image - CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Send events to Event Grid - CLI
     href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
@@ -88,10 +90,8 @@
     items:
       - name: ACR Tasks
         href: container-registry-tasks-overview.md
-      - name: Multi-step tasks (preview)
+      - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
-      - name: Multi-step task reference (preview)
-        href: container-registry-tasks-reference-yaml.md
   - name: Registries and other Azure services
     items:
       - name: Azure Container Instances
@@ -118,6 +118,8 @@
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: ACR Tasks YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: Webhook schema
     href: container-registry-webhook-reference.md
   - name: Event Grid schema

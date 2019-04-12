@@ -24,6 +24,8 @@ You should use the Azure AD service principal authentication to connect to the A
 * Resource URI for REST Media Services
 * Azure AD application values: the client ID and client secret
 
+For more information, see [Developing with Media Services v3 APIs](media-services-apis-overview.md).
+
 This article shows you how to use the Azure CLI to create an Azure AD application and service principal and get the values that are needed to access Azure Media Services resources.
 
 ## Prerequisites 

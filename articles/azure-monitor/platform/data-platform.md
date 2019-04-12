@@ -53,7 +53,7 @@ Read more about Azure Monitor Logs including their sources of data in [Logs in A
 ### Distributed traces
 Traces are series of related events that follow a user request through a distributed system. They can be used to determine behavior of application code and the performance of different transactions. While logs will often be created by individual components of a distributed system, a trace measures the operation and performance of your application across the entire set of components.
 
-Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](../app/distributed-tracing.md), and trace data is stored with logs in a Log Analytics workspace. This makes it available to the same analysis tools as other log data including log queries, dashboards, and alerts.
+Distributed tracing in Azure Monitor is enabled with the [Application Insights SDK](../app/distributed-tracing.md), and trace data is stored with other application log data collected by Application Insights. This makes it available to the same analysis tools as other log data including log queries, dashboards, and alerts.
 
 Read more about distributed tracing at [What is Distributed Tracing?](../app/distributed-tracing.md).
 
