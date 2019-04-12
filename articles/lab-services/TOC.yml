@@ -238,6 +238,12 @@
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot VM and environment creation failures
+        href: troubleshoot-vm-environment-creation-failures.md
+      - name: Troubleshoot issues with using artifacts
+        href: troubleshoot-artifacts.md
 - name: Reference
   items:
   - name: Classroom Labs
