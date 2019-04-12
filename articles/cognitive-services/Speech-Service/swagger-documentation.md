@@ -31,7 +31,7 @@ You'll need to set Swagger to the same region as your Speech Service subscriptio
 4. Click **Generate Client** and select Python
 5. Save the client library
 
-You can use the Python library that you generated with the Batch Transcription sample on GitHub. Samples, including Batch Transcription, can be explored in our [samples](https://aka.ms/csspeech/samples) repository. 
+You can use the Python library that you generated with the [Speech Services samples on GitHub](https://aka.ms/csspeech/samples).
 
 ## Reference docs
 
@@ -41,5 +41,5 @@ You can use the Python library that you generated with the Batch Transcription s
 
 ## Next steps
 
-* [Explore C# samples on GitHub](https://aka.ms/csspeech/samples)
+* [Speech Services samples on GitHub](https://aka.ms/csspeech/samples).
 * [Get a Speech Services subscription key for free](get-started.md)
