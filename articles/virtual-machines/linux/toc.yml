@@ -260,6 +260,14 @@
         href: shared-images.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Imag ebuilder overview
+        href: image-builder-overview.md
+      - name: Use Image builder with CLI
+        href: image-builder.md
+      - name: Image builder .json reference
+        href: image-builder-json.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
