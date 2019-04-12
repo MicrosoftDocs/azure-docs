@@ -8,7 +8,7 @@ manager:
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 4/5/2019
+ms.date: 05/06/2019
 ms.author: travisw
 ms.custom: 
 ---
@@ -26,7 +26,12 @@ This quickstart requires:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
+* A previously created bot configured with the [Direct Line Speech channel](../../bot-service/bot-service-channel-connect-directlinespeech.md)
+    > [!NOTE]
+    > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
+
+    > [!NOTE]
+    > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
 
 ## Create a Visual Studio project
 
@@ -69,13 +74,13 @@ This quickstart requires:
     public sealed partial class MainPage : Page
     {
         private SpeechBotConnector botConnector;
-    
+
         public MainPage()
         {
             this.InitializeComponent();
             InitializeBotConnector();
         }
-    
+
         private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
         {
             bool isMicAvailable = true;
@@ -124,7 +129,7 @@ This quickstart requires:
 1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the connection ID and subscription key with your own. Replace the strings `YourBotConnectionId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
-    > The Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
+    > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
     ```csharp
     // create a BotConnectorConfig by providing bot connection id and Cognitive Services subscription key

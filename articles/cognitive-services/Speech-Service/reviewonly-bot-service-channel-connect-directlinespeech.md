@@ -8,15 +8,15 @@ manager:
 ms.service: bot-service
 ms.subservice: bot-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 05/06/2019
 ms.author: travisw
 ms.custom: 
 ---
 
 > [!NOTE]
-> **PRE-PUBLISH NOTE TODO:** remove this note prior to actual publishing! This page will be published to the bot framework docs as a peer to [the Direct Line page](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directline?view=azure-bot-service-3.0). It's included here only to put it in preliminary source control/review.
+> **PRE-PUBLISH NOTE TODO:** remove this note prior to actual publishing! This page will be published to the bot framework docs as a peer to [the Direct Line page](../../bot-service/bot-service-channel-connect-directline?view=azure-bot-service-3.0). It's included here only to put it in preliminary source control/review.
 
-# Connect a bot to Direct Line Speech
+# Connect a bot to Direct Line Speech (Preview)
 
 You can configure your bot to allow client applications to communicate with it through the Direct Line Speech channel.
 

@@ -18,41 +18,15 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 ## General
 
+**Q: How do I get started?**
+
+**A:** The best way to begin with creating a voice-first virtual assistant is to start with [creating a basic Bot Framework bot](../../bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Next, connect your bot to the [Direct Line Speech channel](../../bot-service/bot-service-channel-connect-directlinespeech.md).
+
 ## Debugging
 
 **Q: I'm getting an error when using a SpeechBotConnector and it's not clear what I should do. What *should* I do?**
 
-**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, add a property to the `BotConnectorConfig` for your `SpeechBotConnector` named `SPEECH-LogFilename` with a value pointing to a full, writeable path:
-
-```csharp
-var config = BotConnectorConfig.FromBotConnectionId(connectionId, subscriptionKey, region);
-...
-// Add this property to enable file-based logging
-config.SetProperty("SPEECH-LogFilename", "fullPathToLogTo");
-...
-var connector = new SpeechBotConnector(config);
-```
-
-```java
-SpeechBotConfig botConfig = BotConnectorConfig.fromBotConnectionId(botId, key, region);
-...
-// Add this property to enable file-based logging 
-botConfig.setProperty("SPEECH-LogFileName", "fullPathToLogTo");
-... 
-SpeechBotConnector connector = new SpeechBotConnector(botConfig, null);
-```
-
-```cpp
-auto botConfig = BotConnectorConfig::FromBotConnectionId(botId, key, region);
-...
-// Addition to include file logging
-botConfig->SetProperty("SPEECH-LogFileName", "fullPathToLogTo");
-... 
-auto connector = SpeechBotConnector::FromConfig(botConfig);
-```
-
-> [!NOTE]
-> File-based logging requires write access to the location specified from the client application. This includes isolated storage restrictions for Universal Windows Applications. Please consult the documentation for your platform if logs don't appear.
+**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, see [how to use file logging](how-to-use-file-logging.md).
 
 ## Next steps
 
