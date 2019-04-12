@@ -210,6 +210,8 @@
     - name: Webhooks
       href: webhooks.md
       displayName: Webhooks
+  - name: Swagger documentation
+    href: swagger.md
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell
@@ -220,8 +222,6 @@
     href: language-support.md
   - name: Regions
     href: regions.md
-  - name: Swagger
-    href: swagger.md
 - name: Resources
   items:
   - name: FAQ
