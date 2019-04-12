@@ -179,7 +179,7 @@ To shut down the container, in the command-line environment where the container 
 
 ## Troubleshooting
 
-If you run the container with an output [mount](#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](personalizer-container-configuration.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
 ## Container's API documentation
 
