@@ -26,7 +26,7 @@ Our service supports web hooks for all long running operations. Each of the oper
         EndpointDeploymentCompletion
         EndpointDataCollectionCompletion
 
-Let's see how you create a web hook.
+Next, let's create a webhook.
 
 ## Creating a web hook
 
