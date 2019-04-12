@@ -31,7 +31,7 @@
   - name: DevTest Labs
     items:
     - name: Resource Manager templates
-      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
     - name: Azure PowerShell
       href: samples-powershell.md
     - name: Azure CLI
