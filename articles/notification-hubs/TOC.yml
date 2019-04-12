@@ -14,58 +14,58 @@
   items:
   - name: Android 
     items:
-    - name: Push notifications to Android devices by using Firebase Cloud Messaging
+    - name: Push notifications using Firebase Cloud Messaging
       href: notification-hubs-android-push-notification-google-fcm-get-started.md
-    - name: Push notifications to Android devices by using Google Cloud Messaging 
+    - name: Push notifications using Google Cloud Messaging 
       href: notification-hubs-android-push-notification-google-gcm-get-started.md      
+    - name: Push notifications to specific devices
+      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
+    - name: Push notification to specific users
+      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
     - name: Push notifications to Xamarin Android apps 
       href: xamarin-notification-hubs-push-notifications-android-gcm.md
-    - name: Push notifications to specific Android devices
-      href: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-    - name: Push notification to specific Android application users
-      href: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
-  - name: iOS
-    items:
-    - name: Push notifications to iOS apps
-      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
-    - name: Push notifications to Xamarin iOS apps
-      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
-    - name: Push notifications to specific devices
-      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-    - name: Push localized notifications to iOS devices
-      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-    - name: Push notifications to specific users
-      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
-  - name: Windows Phone
-    items:
-    - name: Push notifications to Windows Phone apps
-      href: notification-hubs-windows-mobile-push-notifications-mpns.md          
-    - name: Push notifications to specific Windows Phone devices
-      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
-  - name: Windows
-    items:
-    - name: Push notifications to Universal Windows Platform apps
-      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-    - name: Push notifications to specific Windows devices
-      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
-    - name: Push localized notifications to Windows apps
-      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md      
-    - name: Push notifications to specific users
-      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md 
-    - name: Push location-based notifications
-      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md 
   - name: Baidu
     items:
-    - name: Push notifications by using Baidu cloud push
+    - name: Push notifications using Baidu cloud push
       href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Chrome
     items:
     - name: Push notifications to Chrome apps
       href: notification-hubs-chrome-push-notifications-get-started.md
+  - name: iOS
+    items:
+    - name: Push notifications to iOS apps
+      href: notification-hubs-ios-apple-push-notification-apns-get-started.md
+    - name: Push notifications to specific devices
+      href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+    - name: Push notifications to specific users
+      href: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+    - name: Push notifications to Xamarin iOS apps
+      href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
+    - name: Push localized notifications to iOS devices
+      href: notification-hubs-ios-xplat-localized-apns-push-notification.md
   - name: Kindle
     items:
-    - name: Push notifications to a Kindle application by using Amazon Device Messaging  
-      href: notification-hubs-kindle-amazon-adm-push-notification.md          
+    - name: Push notifications using Amazon Device Messaging  
+      href: notification-hubs-kindle-amazon-adm-push-notification.md 
+  - name: Windows Phone
+    items:
+    - name: Push notifications to apps
+      href: notification-hubs-windows-mobile-push-notifications-mpns.md          
+    - name: Push notifications to specific devices
+      href: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
+  - name: Windows
+    items:
+    - name: Push notifications to Universal Windows Platform apps
+      href: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
+    - name: Push notifications to specific devices
+      href: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
+    - name: Push localized notifications to apps
+      href: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md      
+    - name: Push notifications to specific users
+      href: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md 
+    - name: Push location-based notifications
+      href: notification-hubs-push-bing-spatial-data-geofencing-notification.md               
 - name: Samples
   items:
   - name: Code samples
@@ -139,7 +139,7 @@
     href: /dotnet/api/microsoft.azure.notificationhubs
   - name: PowerShell
     href: /powershell/module/az.notificationhubs
-  - name: REST API
+  - name: REST
     href: /rest/api/notificationhubs/
   - name: Resource Manager template
     href: /azure/templates/microsoft.notificationhubs/allversions
@@ -147,6 +147,8 @@
   items:
   - name: FAQ
     href: notification-hubs-push-notification-faq.md
+  - name: Google GCM to FCM Migration
+    href: notification-hubs-gcm-to-fcm.md
   - name: SDKs
     href: notification-hubs-sdks.md
   - name: Azure Roadmap

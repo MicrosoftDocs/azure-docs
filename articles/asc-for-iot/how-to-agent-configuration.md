@@ -1,7 +1,8 @@
 ---
-title: Configure an ASC for IoT agent Preview| Microsoft Docs
-description: Learn how to configure agents for use with ASC for IoT.
-services: ascforiot
+title: Configure Azure Security Center for IoT agent Preview| Microsoft Docs
+description: Learn how to configure agents for use with Azure Security Center for IoT.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -20,11 +21,11 @@ ms.author: mlottner
 # Tutorial: Configure security agents
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains ASC for IoT security agent, how to change them configure ASC for IoT security agents.
+This article explains Azure Security Center (ASC) for IoT security agent, how to change them configure ASC for IoT security agents.
 
 > [!div class="checklist"]
 > * Configure security agents

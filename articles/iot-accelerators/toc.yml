@@ -15,7 +15,7 @@
   - name: Overview
     href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
-    - name: Architecural choices
+    - name: Architectural choices
       href: iot-accelerators-remote-monitoring-architectural-choices.md
 
   - name: Quickstarts
@@ -136,39 +136,71 @@
     - name: Remote Monitoring FAQ
       href: iot-accelerators-faq-rm-v2.md
 
-- name: Connected Factory
+- name: Industrial IoT
   items:
   - name: Overview
-    href: iot-accelerators-connected-factory-features.md
-    items:
-    - name: Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
-
+    items: 
+    - name: What is industrial IoT
+      href: overview-iot-industrial.md 
+    - name: OPC Twin
+      items:
+        - name: What is OPC Twin
+          href: overview-opc-twin.md
+        - name: OPC Twin Architecture
+          href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+        - name: What is OPC Vault
+          href: overview-opc-vault.md 
+    - name: Connected Factory
+      items:
+      - name: Connected Factory Overview
+        href: iot-accelerators-connected-factory-features.md
+      - name: Connected Factory Architecture
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Quickstarts
     items:
     - name: Try a connected factory solution
       href: quickstart-connected-factory-deploy.md
-
   - name: How-to guides
     items:
-    - name: Use the dashboard
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Deploy a gateway
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Use the OPC publisher
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configure the solution accelerator
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Customize the solution accelerator
-      href: iot-accelerators-connected-factory-customize.md
-
+    - name: Connected Factory
+      items:
+      - name: Use the dashboard
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Deploy a gateway
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: Use the OPC publisher
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: Configure the solution accelerator
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Customize the solution accelerator
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: Deploy OPC Twin services
+        href: howto-opc-twin-deploy-existing.md
+      - name: Deploy OPC Twin module to IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Deploy OPC Twin dependencies only
+        href: howto-opc-twin-deploy-dependencies.md 
+    - name: OPC Vault
+      items:
+      - name: Deploy OPC Vault to an existing project
+        items: 
+        - name: Secure communication of OPC client and OPC PLC
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Secure OPC UA client and OPC UA server applications
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: Deploy OPC Vault from scratch
+        href: howto-opc-vault-deploy-scratch.md
   - name: Resources
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
     - name: Connected Factory FAQ
       href: iot-accelerators-faq-cf.md
-
+      
 - name: Device Simulation
   items:
   - name: Overview

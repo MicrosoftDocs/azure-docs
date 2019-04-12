@@ -82,7 +82,7 @@ To create the East US Traffic Manager profile, there are several steps: create p
     |-RelativeDnsName|luis-dns-eastus|This is the subdomain for the service: luis-dns-eastus.trafficmanager.net|
     |-Ttl|30|Polling interval, 30 seconds|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Replace <appIdLuis> and <subscriptionKeyLuis> with your own values.|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-east`|Replace `<appIdLuis>` and `<subscriptionKeyLuis>` with your own values.|
     
     A successful request has no response.
 
@@ -150,7 +150,7 @@ To create the West US Traffic Manager profile, follow the same steps: create pro
     |-RelativeDnsName|luis-dns-westus|This is the subdomain for the service: luis-dns-westus.trafficmanager.net|
     |-Ttl|30|Polling interval, 30 seconds|
     |-MonitorProtocol<BR>-MonitorPort|HTTPS<br>443|Port and protocol for LUIS is HTTPS/443|
-    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Replace <appId> and <subscriptionKey> with your own values. Remember this endpoint key is different than the east endpoint key|
+    |-MonitorPath|`/luis/v2.0/apps/<appIdLuis>?subscription-key=<subscriptionKeyLuis>&q=traffic-manager-west`|Replace `<appId>` and `<subscriptionKey>` with your own values. Remember this endpoint key is different than the east endpoint key|
     
     A successful request has no response.
 

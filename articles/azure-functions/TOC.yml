@@ -72,6 +72,8 @@ items:
     - name: Compare versions 1.x and 2.x
       href: functions-versions.md
       displayName: migrate, migration
+    - name: Premium plan
+      href: functions-premium-plan.md
     - name: Scale and hosting
       href: functions-scale.md
     - name: Triggers and bindings
@@ -110,6 +112,8 @@ items:
       href: functions-best-practices.md 
     - name: Functions Proxies
       href: functions-proxies.md 
+    - name: Networking options
+      href: functions-networking-options.md
     - name: IP addresses
       href: ip-addresses.md 
     - name: On-premises functions
@@ -270,6 +274,8 @@ items:
         href: functions-host-json.md  
       - name: Functions 1.x
         href: functions-host-json-v1.md    
+    - name: Networking FAQ
+      href: functions-networking-faq.md
     - name: OpenAPI reference
       href: functions-api-definition.md
   - name: Resources
