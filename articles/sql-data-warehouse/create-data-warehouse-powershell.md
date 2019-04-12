@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date:4/11/2019
+ms.date: 4/11/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
