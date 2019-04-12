@@ -125,14 +125,11 @@
         href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
         maintainContext: true
       - name: Use SDK for .NET
-        href: ../hdinsight-sdk-dotnet-samples.md
-        maintainContext: true
-      - name: Use SDK for Java
-        href: ../hdinsight-sdk-java-samples.md
-        maintainContext: true
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
       - name: Use SDK for Python
-        href: ../hdinsight-sdk-python-samples.md
-        maintainContext: true
+        href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python#create-a-cluster
+      - name: Use SDK for Java
+        href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
       - name: Use Azure PowerShell
         href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
         maintainContext: true
@@ -150,11 +147,11 @@
     maintainContext: true
     items:
     - name: Use SDK for .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
     - name: Use SDK for Python
       href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
     - name: Use SDK for Java
-      href: https://docs.microsoft.com/java/api/overview/azure/hdinsight
+      href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
     - name: Use SDK for Go (Preview)
       href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
     - name: Use Azure PowerShell
@@ -259,7 +256,7 @@
   - name: SDK for Python
     href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
   - name: SDK for Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
   - name: SDK for Go
     href: ../hdinsight-go-sdk-overview.md
   - name: REST
