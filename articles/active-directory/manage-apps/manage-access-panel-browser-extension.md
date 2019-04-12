@@ -35,25 +35,25 @@ To download and install the diagnostic tool:
 
 1. [Select this link to download the diagnostic tool.](https://account.activedirectory.windowsazure.com/applications/AccessPanelExtensionDiagnosticTool/AccessPanelExtensionDiagnosticTool.zip)
 
-2. Open the file, and then extract the contents to your computer.
+2. Open the file and extract the contents to your computer.
    
-3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js*, and then select **Open with** > **Microsoft Windows Based Script Host**.
+3. To run the tool, right-click the file named *AccessPanelExtensionDiagnosticTool.js* and select **Open with** > **Microsoft Windows Based Script Host**.
    
     ![Open with > Microsoft Windows Based Script Host](./media/manage-access-panel-browser-extension/open-access-panel-extension-diagnostic-tool.png)
 
-4. Review the diagnostic results that appear, and select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
+4. Review the diagnostic results that appear and select **Yes** to fix the issues. The **Check Results** dialog box appears with information about what to do if the extension doesn't work.  
 
 5. Read the message and select **OK**.
 
 ## Check that the Access Panel Extension is enabled
 
-To verify that the Access Panel Extension is enabled in Internet Explorer:
+To verify that you've enabled the Access Panel Extension in Internet Explorer:
 
-1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window and select **Internet options**.
    
 2. Go to the **Programs** tab and select **Manage add-ons**.
    
-3. Select **Access Panel Extension** in the **Microsoft Corporation** section, and then select **Enable**.
+3. Select **Access Panel Extension** in the **Microsoft Corporation** section and select **Enable**.
    
 4. To save the changes, close all of the Internet Explorer browsers you have open. The change takes effect the next time you open an Internet Explorer browser.
 
@@ -61,7 +61,7 @@ To verify that the Access Panel Extension is enabled in Internet Explorer:
 
 To enable extensions for InPrivate Browsing:
 
-1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window, and then select **Internet options**.
+1. In Internet Explorer, select the **Gear icon** on the upper-right corner of the window and select **Internet options**.
    
 2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
@@ -77,7 +77,7 @@ To uninstall the Access Panel Extension from your computer:
    
     ![Search for uninstall program.](./media/manage-access-panel-browser-extension/uninstall-program-control-panel.png)
 
-3. From the list, select **Access Panel Extension**, and then select **Uninstall**.
+3. From the list, select **Access Panel Extension** and select **Uninstall**.
 
     ![Uninstall the Access Panel Extension.](./media/manage-access-panel-browser-extension/uninstall-access-panel-extension.png)
    
