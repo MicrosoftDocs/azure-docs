@@ -82,13 +82,13 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
    ```bash
-   psql --host=<myserver> --username=citus --dbname=citus
+   psql --host=<myserver> --username=myadmin --dbname=citus
    ```
 
    For example, the following command connects to the default database called **citus** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
 
    ```bash
-   psql --host=mydemoserver.postgres.database.azure.com --username=citus --dbname=citus
+   psql --host=mydemoserver.postgres.database.azure.com --username=myadmin --dbname=citus
    ```
 
 ## Use psql utility to create a schema
