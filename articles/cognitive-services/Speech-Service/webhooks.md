@@ -62,7 +62,7 @@ There is one event type that you cannot subscribe to. It is the `Ping` event typ
 
 In the configuration, the `url` property is required. POST requests are sent to this URL. The `secret` is used to create a SHA256 hash of the payload, with the secret as an HMAC key. The hash is set as the `X-MicrosoftSpeechServices-Signature` header when calling back to the registered URL. This header is Base64 encoded.
 
-Look at the sample C# code that shows how to validate the payload. 
+This sample illustrates how to validate a payload using C#:
 
 ```csharp
 
