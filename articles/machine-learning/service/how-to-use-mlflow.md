@@ -20,7 +20,7 @@ ms.custom: seodec18
 [Azure Machine Learning service Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, scalable location to store your metrics and models, manage your computes, and deploy models. 
 This how-to demonstrates how to use MLflow Tracking with Azure Machine Learning service to view and track the experiment metrics and artifacts in your workspace.
 
-![mlflow with azure machine learning diagram](./media/how-to-use-mlflow-with-azureml/mlflow_diagram.PNG)
+![mlflow with azure machine learning diagram](./media/how-to-use-mlflow/mlflow-diagram.PNG)
 
 ## Prerequisites
 
