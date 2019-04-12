@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -118,6 +118,25 @@ The availability of your incurred usage data in Cost Management depends on a cou
 - The time taken to process the usage data through the rating engine and cost management pipelines.
 
 Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
+
+## Historical data might not match invoice
+
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure Pay-As-You-Go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. As a result, the historical data shown for the following offers may not match exactly with your invoice.
+
+-	MS-AZR-0029P
+-	MS-AZR-0064P
+-	MS-AZR-0170P
+-	MS-AZR-0062P
+-	MS-AZR-0123P
+-	MS-AZR-0129P
+-	MS-AZR-0044P
+-	MS-AZR-0128P
+-	MS-AZR-0120P
+-	MS-AZR-0125P
+-	MS-AZR-0059P
+-	MS-AZR-0063P
+-	MS-AZR-0060P
+-	MS-AZR-0111P
 
 ## See also
 
