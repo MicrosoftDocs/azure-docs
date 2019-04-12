@@ -29,13 +29,13 @@ In a typical send notification flow, the message is sent from the *application b
 
 With the targets established, Notification Hubs pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple and Firebase Cloud Messaging (FCM) for Google. Notification Hubs pushes notifications split across multiple batches of registrations. It authenticates with the respective push notification service, based on the credentials you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*.
 
-The final leg of notification delivery is between the platform's push notification service and the device. Any of the four major components in the push notification process might cause notifications to be dropped. (These components are the client, the application back end, Notification Hubs, and the platform's push notification service.) For more information about the Notification Hubs architecture, see [Notification Hubs Overview].
+The final leg of notification delivery is between the platform's push notification service and the device. Any of the four major components in the push notification process might cause notifications to be dropped. (These components are the client, the application back end, Notification Hubs, and the platform's push notification service.) For more information about the Notification Hubs architecture, see [Notification Hubs overview].
 
-A failure to deliver notifications might occur during the initial test/staging phase. Dropped notifications at this stage might indicate a configuration issue. If a failure to deliver notifications occurs in production, some or all of the notifications may be dropped. A deeper application or messaging pattern issue is indicated in this case.
+A failure to deliver notifications might occur during the initial test/staging phase. Dropped notifications at this stage might indicate a configuration issue. If a failure to deliver notifications occurs in production, some or all of the notifications might be dropped. A deeper application or messaging pattern issue is indicated in this case.
 
 The next section looks at scenarios in which notifications might be dropped, ranging from common to rare.
 
-## Notification Hubs misconfiguration
+## Notification Hubs misconfiguration ##
 
 To send notifications to the respective push notification service, Notification Hubs needs to authenticate itself in the context of your application. You must create a developer account with the respective platform (Google, Apple, Windows, and so on). Then, you must register your application with the platform where you get credentials.
 
@@ -45,7 +45,7 @@ For step-by-step instructions to complete this process, see [Get started with Az
 
 Here are some common misconfigurations to check for:
 
-**General**
+### General ###
 
 Ensure that your notification hub name (without typos) is the same in each of these locations:
    * Where you register from the client
@@ -54,13 +54,13 @@ Ensure that your notification hub name (without typos) is the same in each of th
 
 Ensure you use the correct shared access signature configuration strings on the client and the application back end. Generally, you must use **DefaultListenSharedAccessSignature** on the client and **DefaultFullSharedAccessSignature** on the application back end. This grants permissions to send notifications to Notification Hubs.
 
-**APNs configuration**
+### APN configuration ###
 
-You must maintain two different hubs: one for production and another for testing. You must upload the certificate you use in a sandbox environment to a separate hub than the certificate/hub you'll use in production. Don't try to upload different types of certificates to the same hub; it could cause notification failures.
+You must maintain two different hubs: one for production and another for testing. You must upload the certificate you use in a sandbox environment to a separate hub than the certificate/hub you'll use in production. Don't try to upload different types of certificates to the same hub. It can cause notification failures.
 
 If you inadvertently upload different types of certificates to the same hub, you should delete the hub and start fresh with a new hub. If for some reason you can't delete the hub, you must at least delete all the existing registrations from the hub.
 
-**FCM configuration**
+### FCM configuration ###
 
 1. Ensure that the *server key* you obtained from Firebase matches the server key you registered in the Azure portal.
 
@@ -70,9 +70,9 @@ If you inadvertently upload different types of certificates to the same hub, you
 
    ![Firebase Project ID][1]
 
-## Application issues
+## Application issues ##
 
-**Tags and tag expressions**
+### Tags and tag expressions ###
 
 If you use tags or tag expressions to segment your audience, it's possible that when you send the notification, no target is found. This error is based on the specified tags or tag expressions in your send call.
 
@@ -80,11 +80,11 @@ Review your registrations to ensure the tags match when you send a notification.
 
 For example, suppose all your registrations with Notification Hubs use the tag "Politics." If you then send a notification with the tag "Sports," the notification won't be sent to any device. A complex case might involve tag expressions where you registered by using "Tag A" *or* "Tag B," but you targeted "Tag A && Tag B." The self-diagnosis tips section later in the article shows you how to review your registrations and their tags.
 
-**Template issues**
+### Template issues ###
 
 If you use templates, ensure that you follow the guidelines described in [Templates].
 
-**Invalid registrations**
+### Invalid registrations ###
 
 If the notification hub was configured correctly and tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. Notification Hubs then fires off several processing batches in parallel. Each batch sends messages to a set of registrations.
 
@@ -105,9 +105,9 @@ After the push notification service receives the notification, it delivers the n
 
 Because platform notification services are robust, notifications tend to reach devices in a few seconds. If the push notification service is throttling, Notification Hubs applies an exponential back-off strategy. If the push notification service remains unreachable for 30 minutes, there's a policy in place to expire and drop the messages permanently.
 
-If a push notification service attempts to deliver a notification but the device is offline, the notification is stored by the push notification service. It is stored for only a limited period of time. The notification is delivered to the device when the device becomes available.
+If a push notification service attempts to deliver a notification but the device is offline, the notification is stored by the push notification service. It's stored for only a limited period of time. The notification is delivered to the device when the device becomes available.
 
-Each app stores only one recent notification. If multiple notifications are sent while a device is offline, each new notification causes the last one to be discarded. Keeping only the newest notification is called *coalescing* in APNs and *collapsing* in FCM. (FCM uses a collapsing key). When the device remains offline for a long time, notifications that were stored for the device are discarded. For more information, see [APNs Overview] and [About FCM messages].
+Each app stores only one recent notification. If multiple notifications are sent while a device is offline, each new notification causes the last one to be discarded. Keeping only the newest notification is called *coalescing* in APNs and *collapsing* in FCM. (FCM uses a collapsing key.) When the device remains offline for a long time, notifications that were stored for the device are discarded. For more information, see [APNs Overview] and [About FCM messages].
 
 With Notification Hubs, you can pass a coalescing key via an HTTP header by using the generic SendNotification API. For example, for the .NET SDK, you'd use `SendNotificationAsync`. The SendNotification API also takes HTTP headers that are passed as is to the respective push notification service.
 
@@ -115,13 +115,13 @@ With Notification Hubs, you can pass a coalescing key via an HTTP header by usin
 
 Here are paths to diagnose the root cause of dropped notifications in Notification Hubs.
 
-### Verify credentials
+### Verify credentials ###
 
-**Push notification service developer portal**
+#### Push notification service developer portal ####
 
 Verify credentials in the respective push notification service developer portal (APNs, FCM, Windows Notification Service, and so on). For more information, see [Tutorial: Send notifications to Universal Windows Platform apps by using Azure Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
 
-**Azure portal**
+#### Azure portal ####
 
 To review and match the credentials with those you obtained from the push notification service developer portal, go to the **Access Policies** tab in the Azure portal.
 
@@ -129,7 +129,7 @@ To review and match the credentials with those you obtained from the push notifi
 
 ### Verify registrations
 
-**Visual Studio**
+#### Visual Studio ####
 
 In Visual Studio, you can connect to Azure through Server Explorer to view and manage multiple Azure services, including Notification Hubs. This shortcut is primarily useful for your development/test environment.
 
@@ -137,11 +137,11 @@ In Visual Studio, you can connect to Azure through Server Explorer to view and m
 
 You can view and manage all the registrations in your hub. The registrations can be categorized by platform, native or template registration, tag, push notification service identifier, registration ID, and expiration date. You can also edit a registration on this page. It's especially useful for editing tags.
 
-Right-click on your notification hub in **Server Explorer**, and select **Diagnose**. 
+Right-click your notification hub in **Server Explorer**, and select **Diagnose**. 
 
 ![Visual Studio Server Explorer: Diagnose menu](./media/notification-hubs-diagnosing/diagnose-menu.png)
 
-You'll see the following page:
+You see the following page:
 
 ![Visual Studio: Diagnose page](./media/notification-hubs-diagnosing/diagnose-page.png)
 
@@ -156,19 +156,19 @@ You can use **Test Send** page to send a test notification message:
 > [!NOTE]
 > Use Visual Studio to edit registrations only during development/test, and with a limited number of registrations. If you need to edit your registrations in bulk, consider using the export and import registration functionality described in [How To: Export and Modify Registrations in Bulk](https://msdn.microsoft.com/library/dn790624.aspx).
 
-**Service Bus Explorer**
+#### Service Bus Explorer ####
 
 Many customers use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) to view and manage their notification hubs. Service Bus Explorer is an open-source project. 
 
 ### Verify message notifications
 
-**Azure portal**
+#### Azure portal ####
 
 To send a test notification to your clients without having a service back end up and running, under **SUPPORT + TROUBLESHOOTING**, select **Test Send**.
 
 ![Test Send functionality in Azure][7]
 
-**Visual Studio**
+#### Visual Studio ####
 
 You can also send test notifications from Visual Studio.
 
@@ -182,11 +182,11 @@ For more information about using Notification Hubs with Visual Studio Server Exp
 
 ### Debug failed notifications and review notification outcome
 
-**EnableTestSend property**
+#### EnableTestSend property ####
 
 When you send a notification via Notification Hubs, the notification is initially queued. Notification Hubs determines the correct targets, and then sends the notification to the push notification service. If you're using the REST API or any of the client SDKs, the return of your send call means only that the message is queued with Notification Hubs. It doesn't provide insight into what happened when Notification Hubs eventually sent the notification to the push notification service.
 
-If your notification doesn't arrive at the client device, an error may have occurred when Notification Hubs tried to deliver it to the push notification service. For example, the payload size might exceed the maximum allowed by the push notification service, or the credentials configured in Notification Hubs might be invalid.
+If your notification doesn't arrive at the client device, an error might have occurred when Notification Hubs tried to deliver it to the push notification service. For example, the payload size might exceed the maximum allowed by the push notification service, or the credentials configured in Notification Hubs might be invalid.
 
 To get insight into push notification service errors, you can use the [EnableTestSend] property. This property is automatically enabled when you send test messages from the portal or Visual Studio client. You can use this property to see detailed debugging information and also via APIs. Currently, you can use it in the .NET SDK. It will be added to all client SDKs eventually.
 
@@ -196,7 +196,7 @@ To use the `EnableTestSend` property with the REST call, append a query string p
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-**.NET SDK example**
+#### .NET SDK example ####
 
 Here's an example of using the .NET SDK to send a native pop-up (toast) notification:
 
@@ -223,7 +223,7 @@ Next, you can use the `EnableTestSend` Boolean property. Use the `EnableTestSend
     }
 ```
 
-**Sample output**
+#### Sample output ####
 
 ```text
 DetailedStateAvailable
@@ -232,14 +232,14 @@ windows
 The Token obtained from the Token Provider is wrong
 ```
 
-This message indicates either that the credentials configured in Notification Hubs are invalid or that there's an issue with the registrations in the hub. Delete this registration and let the client recreate the registration before sending the message.
+This message indicates either that the credentials configured in Notification Hubs are invalid or that there's an issue with the registrations in the hub. Delete this registration and let the client re-create the registration before sending the message.
 
 > [!NOTE]
 > Use of the `EnableTestSend` property is heavily throttled. Use this option only in a development/test environment and with a limited set of registrations. Debug notifications are sent to only 10 devices. There's also a limit on processing debug sends, at 10 per minute.
 
-### Review telemetry
+### Review telemetry ###
 
-**Azure portal**
+#### Azure portal ####
 
 In the portal, you can get a quick overview of all the activity in your notification hub.
 
@@ -255,9 +255,9 @@ In the portal, you can get a quick overview of all the activity in your notifica
 
 4. If the authentication settings for your notification hub are incorrect, the message **PNS Authentication Error** appears. It's a good indication to check the push notification service credentials.
 
-**Programmatic access**
+#### Programmatic access ####
 
-For more information about programmatic access, see [Programmatic access].
+For more information about programmatic access, see [Programmatic access](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Several telemetry-related features, like exporting and importing registrations and telemetry access via APIs, are available only on the Standard service tier. If you attempt to use these features from the Free or Basic service tier, you'll get an exception message if you use the SDK. You'll get an HTTP 403 (Forbidden) error if you use the features directly from the REST APIs.
