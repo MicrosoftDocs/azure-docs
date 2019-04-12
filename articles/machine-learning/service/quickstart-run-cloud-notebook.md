@@ -1,5 +1,5 @@
 ---
-title: "Quickstart run a notebook in the cloud"
+title: "Quickstart: Run a notebook in the cloud"
 titleSuffix: Azure Machine Learning service
 description: Get started with Azure Machine Learning service. Use a managed notebook server in the cloud to try out your workspace.  Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models.  
 services: machine-learning
@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
-ms.date: 03/21/2019
+ms.date: 05/06/2019
 ms.custom: seodec18
 
 ---
 
 # Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning
 
-Create a cloud-based notebook server, then use it to run code that logs values in the Azure Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). Your workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
+Create a cloud-based notebook server, then use it.  In this quickstart, you run Python code that logs values in the [Azure Machine Learning service workspace](concept-azure-machine-learning-architecture.md). The workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. 
 
 This quickstart shows how to create a cloud resource in your Azure Machine Learning workspace, configured with the Python environment necessary to run Azure Machine Learning. To use your own environment instead, see [Quickstart: Use your own notebook server to get started with Azure Machine Learning](quickstart-run-local-notebook.md).  
  
@@ -31,13 +31,13 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-1. [Create an Azure Machine Learning workspace](setup-create-workspace.md#portal) if you don't have one.
-
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
+- An Azure Machine Learning workspace.  [Create your workspace](setup-create-workspace.md#portal) now if you don't have one.
 
 ## Create a cloud-based notebook server
 
-A notebook workstation gives you a cloud-based platform for Jupyter Notebooks that is preconfigured with everything you need to run Azure Machine Learning service. From your workspace, you can create this platform to get started using Jupyter notebooks.
+ From your workspace, you create a cloud resource to get started using Jupyter notebooks. This resource gives you a cloud-based platform pre-configured with everything you need to run Azure Machine Learning service.
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
 
 1. On your workspace page in Azure portal, select **Notebook Workstation** on the left.
 
@@ -45,13 +45,13 @@ A notebook workstation gives you a cloud-based platform for Jupyter Notebooks th
 
    ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore-aml.png)
 
-1. The **Notebook Workstations** section shows a list of all the cloud-based notebook servers available in your workspace.  From here you can also manage these resources and delete them when they are no longer needed. 
+1. The **Notebook Workstations** section shows a list of all the cloud-based notebook servers available in your workspace.  This section is where you manage these resources and delete them when they are no longer needed.
 
 1. Select **Add Workstation** to create a notebook workstation.
 
      ![Select Add Workstation](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. On the Add Notebook Workstation section, give your workstation a **Compute name** and select a **Compute type**. Then select **Create**.
+1. On the Add Notebook Workstation section, provide a name. Then select **Create**.
 
     ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
@@ -66,7 +66,7 @@ After your workstation is created, use the Notebook Workstations section to laun
 
     ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
 
-    This starts your notebook server and opens the server homepage in a new browser tab.  Your server shows sample notebooks for you to use to get started with Azure Machine Learning service.
+    The link starts your notebook server and opens the server homepage in a new browser tab.  Your server shows sample notebooks for you to use to get started with Azure Machine Learning service.
 
 ### Run the notebook
 
@@ -105,7 +105,7 @@ You can also keep the resource group but delete a single workspace. Display the 
 
 ## Next steps
 
-In this quickstart, you completed the following:
+In this quickstart, you completed these tasks:
 
 * Create a workstation
 * Start a Jupyter Notebook server on your workstation
