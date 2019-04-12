@@ -49,6 +49,9 @@ ms.custom: H1Hack27Feb2017
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
 [sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
+[high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -220,6 +223,10 @@ The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_L
 
 * ![Linux][Logo_Linux] [Prepare Azure infrastructure for SAP high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp files][sap-suse-ascs-ha-setting-ha-anf]
 
+* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up GlusterFS on RHEL][high-availability-guide-rhel-glusterfs]
+
+* ![RHEL][Logo_Linux] [Prepare Azure infrastructure for SAP ASCS/SCS high availability - set up Pacemaker on RHEL][high-availability-guide-rhel-pacemaker]
+
 ## Installation of an SAP NetWeaver high availability system in Azure
 
 **Summary:** The articles listed here present step-by-step examples of the installation and configuration of a high-availability SAP system in a Windows Server Failover Clustering cluster and Linux cluster framework in Azure.
@@ -233,3 +240,5 @@ The article covers both ![Windows][Logo_Windows] **Windows** and ![Linux][Logo_L
 * ![Linux][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances][sap-suse-ascs-ha-sap-installation]
 
 * ![Linux][Logo_Linux] [Install SAP NetWeaver high availability by using a SUSE Linux Enterprise Server cluster framework for SAP ASCS/SCS instances with Azure NetApp Files][sap-suse-ascs-ha-sap-installation-anf]
+
+* ![RHEL][Logo_Linux] [Install SAP NetWeaver ASCS/SCS in high availability configuration on RHEL][sap-rhel-ascs-ha]

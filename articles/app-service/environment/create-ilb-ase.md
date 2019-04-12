@@ -170,9 +170,9 @@ To upload your own certificates and test access:
 
 	b. To test web deployment publishing or access to the advanced console, create a record for _mytestapp.scm.ilbase.com_.
 
-5. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your app name is with your domain.)
+5. Use a browser on that VM and go to https://mytestapp.ilbase.com. (Or go to whatever your app name is with your domain.)
 
-6. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
+6. Use a browser on that VM and go to https://mytestapp.ilbase.com. If you use a self-signed certificate, accept the lack of security.
 
 	The IP address for your ILB is listed under **IP addresses**. This list also has the IP addresses used by the external VIP and for inbound management traffic.
 
