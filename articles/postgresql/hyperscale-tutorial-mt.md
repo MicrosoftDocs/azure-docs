@@ -214,7 +214,7 @@ done
 
 Back inside psql, bulk load the data:
 
-```postgresql
+```sql
 \copy companies from 'companies.csv' with csv
 \copy campaigns from 'campaigns.csv' with csv
 \copy ads from 'ads.csv' with csv
@@ -275,7 +275,7 @@ SELECT create_reference_table('geo_ips');
 
 Load it with example data:
 
-```postgresql
+```sql
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
