@@ -60,9 +60,6 @@
     - name: Develop script actions
       href: ../hdinsight-hadoop-script-actions-linux.md
       maintainContext: true
-    - name: Install or update Mono
-      href: ../hdinsight-hadoop-install-mono.md
-      maintainContext: true
     - name: Build HDInsight applications
       items:
       - name: Install custom apps
