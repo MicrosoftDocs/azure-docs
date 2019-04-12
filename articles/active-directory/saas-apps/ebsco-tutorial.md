@@ -51,7 +51,7 @@ To configure the integration of EBSCO into Azure AD, you need to add EBSCO from 
 
 **To add EBSCO from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -59,11 +59,11 @@ To configure the integration of EBSCO into Azure AD, you need to add EBSCO from 
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add new application, click **New application** button on the top of dialog.
+3. To add a new application, click the **New application** button at the top of the dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **EBSCO**, select **EBSCO** from result panel then click **Add** button to add the application.
+4. In the search box, type **EBSCO**, select **EBSCO** from the result panel then click the **Add** button to add the application.
 
 	 ![EBSCO in the results list](common/search-new-app.png)
 
@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with EBSCO, perform the following steps:
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set up Single Sign-On with SAML** page, click the **Edit** icon to open the **Basic SAML Configuration** dialog.
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -241,15 +241,15 @@ For more information about the Access Panel, see [Introduction to the Access Pan
 
 2. Once you login to the application, click on the **sign in** button in the top right corner.
 
-	![The EBSCO signin in the Applications list](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
+	![The EBSCO sign-in in the Applications list](./media/ebsco-tutorial/tutorial_ebsco_signin.png)
  
 3. You will receive a one-time prompt to pair the institutional/SAML login with an **Link your existing MyEBSCOhost account to your institution account now** OR **Create a new MyEBSCOhost account and link it to your institution account**. The account is used for personalization on the EBSCOhost application. Select the option **Create a new account** and  you will see that the form for personalization is pre-completed with the values from the saml response as shown in the screenshot below. Click **‘Continue’** to save this selection.
 	
 	 ![The EBSCO user in the Applications list](./media/ebsco-tutorial/tutorial_ebsco_user.png)
 
-1. After completing the above setup, clear cookies/cache and login again. You won’t have to manually signin again and the personalization settings are remembered
+1. After completing the above setup, clear cookies/cache and login again. You won’t have to manually sign in again and the personalization settings are remembered
 
-## Additional Resources
+## Additional sesources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
