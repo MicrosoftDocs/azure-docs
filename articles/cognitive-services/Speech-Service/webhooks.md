@@ -1,3 +1,5 @@
+---
+title: Webhooks - Speech Services
 titlesuffix: Azure Cognitive Services
 description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests, or transcriptions of long running files.
 services: cognitive-services
@@ -6,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 04/11/2019
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -15,7 +17,7 @@ ms.custom: seodec18
 
 Webhooks are like HTTP callbacks that allow your application to accept data from the Speech Services when it becomes available. Using webhooks, you can optimize your use of our REST APIs by eliminating the need to continuously poll for a response. In the next few sections, you'll learn how to use webhooks with the Speech Services.
 
-## Supported Operations
+## Supported operations
 
 The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion. 
 
