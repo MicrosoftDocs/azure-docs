@@ -31,7 +31,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-1. An Azure Machine Learning workspace.  [Create your workspace](setup-create-workspace.md#portal) now if you don't have one.
+- An Azure Machine Learning workspace.  [Create your workspace](setup-create-workspace.md#portal) now if you don't have one.
 
 ## Create a cloud-based notebook server
 
