@@ -24,7 +24,7 @@ MSAL.js integrates with the Azure AD v2.0 endpoint, whereas ADAL.js integrates w
 
 ## Key differences in authentication with v1.0 versus v2.0 endpoint
 
-### Scope instead of resource parameter in authentication requests
+* Scope instead of resource parameter in authentication requests
 
 Azure AD v2.0 protocol uses scopes instead of resource in the requests. In other words, when your application needs to request tokens with permissions for a resource such as MS Graph, the difference in values passed to the library methods is as follows:
 
@@ -36,17 +36,23 @@ You can request scopes for any resource API using URI of the API in this format:
 
 Note: For the MS Graph API, a scope value user.read maps to https://graph.microsoft.com/User.Read and can be used interchangeably.
 
-### Dynamic scopes for incremental consent.
+* Dynamic scopes for incremental consent.
 
-When building applications using Azure AD v1.0, you needed to register the full set of permissions(static scopes) required by the application for the user to consent to at the time of login. In Azure AD v2.0, you can use the scope parameter to request the permissions at the time you want them. These are called dynamic scopes. This allows the user to provide incremental consent to scopes. So if at the beginning you just want the user to sign in to your application and you don’t need any kind of access, you can do so. If later you need the ability to read the calendar of the user, you can then request the calendar scope in the acquireToken methods and get the user's consent. For example:
+    When building applications using Azure AD v1.0, you needed to register the full set of permissions(static scopes) required by the application for the user to consent to at the time of login. In Azure AD v2.0, you can use the scope parameter to request the permissions at the time you want them. These are called dynamic scopes. This allows the user to provide incremental consent to scopes. So if at the beginning you just want the user to sign in to your application and you don’t need any kind of access, you can do so. If later you need the ability to read the calendar of the user, you can then request the calendar scope in the acquireToken methods and get the user's consent. For example:
 
-var scopes = ["https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"];
-acquireTokenPopup(scopes);
+    ```javascript
+    var scopes = ["https://graph.microsoft.com/User.Read", "https://graph.microsoft.com/Calendar.Read"];
+    acquireTokenPopup(scopes);
+    ```
 
-### Scopes for V1.0 APIs
+* Scopes for V1.0 APIs
 
-When getting tokens for V1.0 APIs using MSAL.js, you can request all the static scopes registered on the API by appending .default to the App ID URI of the API as scope. For example:
+    When getting tokens for V1.0 APIs using MSAL.js, you can request all the static scopes registered on the API by appending .default to the App ID URI of the API as scope. For example:
 
-var scopes = [ appidURI + "/.default"];
-acquireTokenPopup(scopes);
-Refer Azure AD v1.0 and v2.0 comparison for more details.
+    ```javascript
+    var scopes = [ appidURI + "/.default"];
+    acquireTokenPopup(scopes);
+    ```
+
+## Next steps
+Refer to [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md) for more details.

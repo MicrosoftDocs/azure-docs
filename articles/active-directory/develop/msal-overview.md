@@ -37,12 +37,12 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 
 | Library | Supported platforms and frameworks|
 | --- | --- | 
-| [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
-| [MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
-| [MSAL for Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
-| [MSAL for Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
-| [MSAL for Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python) | |)
-| [MSAL for Java (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-java) ||
+| ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
+| ![MSAL.js](media/sample-v2-code/logo_js.png)[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
+| ![MSAL for Android](media/sample-v2-code/logo_Android.png)[MSAL for Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| ![MSAL for iOS](media/sample-v2-code/logo_iOS.png)[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
+| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/>[MSAL.Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python) | |)
+| ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/>[MSAL.Java (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-java) ||
 
 ## Differences between ADAL and MSAL
 Active Directory Authentication Library (ADAL) integrates with the Azure AD v1.0 endpoint, where MSAL integrates with the Azure AD v2.0 endpoint. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.

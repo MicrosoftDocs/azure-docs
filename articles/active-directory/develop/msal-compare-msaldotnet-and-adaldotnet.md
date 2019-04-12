@@ -70,7 +70,7 @@ MSAL.NET has more explicit [exceptions](exceptions). For example: when silent au
 
 ADAL.NET:
 
-```CSharp
+```csharp
 catch(AdalException exception)
 {
  if (exception.ErrorCode == ““user_interaction_required”)
@@ -85,7 +85,7 @@ See details in [The recommended pattern to acquire a token](https://github.com/A
 
 In MSAL.NET, you can catch ``MsalUiRequiredException`` as described in [AcquireTokenSilentAsync](AcquireTokenSilentAsync)
 
-```CSharp
+```csharp
 catch(MsalUiRequiredException exception)
 {
  Try {“try to authenticate interactively”}
@@ -163,13 +163,13 @@ if you want to acquire tokens for specific scopes of a v1.0 application (for ins
 
 For instance, to access, in the name of the user, a v1.0 Web API which App ID URI is `ResourceId`, you'd want to use:
 
-```CSharp
+```csharp
 var scopes = new [] {  ResourceId+"/user_impersonation"};
 ```
 
 If you want to read and write with MSAL.NET Azure Active Directory using the AAD graph API (https://graph.windows.net/), you would create a list of scopes like in the following snippet:
 
-```CSharp
+```csharp
 ResourceId = "https://graph.windows.net/";
 var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directory.Write”}
 ```
@@ -178,7 +178,7 @@ var scopes = new [] { ResourceId + “Directory.Read”, ResourceID + “Directo
 
 If you want to write the scope corresponding to the Azure Resource Manager API (https://management.core.windows.net/) , you'll notice that you'll need to request the following scope (note the two slashes) 
 
-```CSharp
+```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
 var result = await app.AcquireTokenAsync(scopes);
 
@@ -197,7 +197,7 @@ The logic used by Azure AD is the following:
 
 For instance, if you want to acquire a token for all the static scopes of a v1.0 application, one would need to use
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -217,7 +217,7 @@ This is not the case with MSAL 2.x however as we no longer recommend utilizing r
 
 Fortunately, MSAL now has an API that allows you to migrate your previous refresh tokens into the ConfidentialClientApplication. 
 
-```CSharp
+```csharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
 /// the application user token cache, where it will be available for further AcquireTokenSilentAsync calls.
@@ -237,7 +237,7 @@ As this method is intended for scenarios that are not typical, it is not readily
 
 This code snippet shows some migration code in a confidential client application. `GetCachedRefreshTokenForSignedInUser` retrieve the refresh token that was stored in some storage by a previous version of the application that used to leverage ADAL 2.x. `GetTokenCacheForSignedInUser` deserializes a cache for the signed-in user (as confidential client applications should have one cache per user)
 
-```CSharp
+```csharp
 TokenCache userCache = GetTokenCacheForSignedInUser();
 string rt = GetCachedRefreshTokenForSignedInUser();
 ClientCredential cc = new ClientCredential(ClientSecret);
