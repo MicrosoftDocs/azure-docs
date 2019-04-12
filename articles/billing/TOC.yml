@@ -73,7 +73,7 @@
         href: billing-understand-cosmosdb-reservation-charges.md
       - name: SQL Database reserved capacity
         href: billing-understand-reservation-charges.md
-      - name: SUSE Linux software plans
+      - name: Software plan discount
         href: billing-understand-suse-reservation-charges.md
     - name: Software costs not included
       href: billing-reserved-instance-windows-software-costs.md
@@ -81,8 +81,6 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
-    - name: Reservation exchanges and refunds
-      href: billing-azure-reservations-self-service-exchange-and-refund.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
     - name: View Reservations

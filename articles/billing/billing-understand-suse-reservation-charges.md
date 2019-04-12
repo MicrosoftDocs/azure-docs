@@ -1,25 +1,41 @@
 ---
-title: Understand SUSE reservation plan discount and usage - Azure | Microsoft Docs
+title: Software plan discount - Azure | Microsoft Docs
 description: Learn how SUSE plan discounts are applied to SUSE software on virtual machines.
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2018
+ms.date: 04/12/2019
 ms.author: banders
 ---
-# Understand how the SUSE Linux Enterprise software reservation plan discount is applied for Azure
+# Azure software plan discount
 
-After you buy a SUSE Linux plan, the discount is automatically applied to deployed SUSE virtual machines (VMs) that match the reservation. A SUSE Linux plan covers the cost of running the SUSE software on an Azure VM.
+Azure software plans for SUSE and RedHat are reservations that apply to deployed VMs. The software plan discount is applied to the software usage of deployed VMs that match the reservation.
 
-To buy the right SUSE Linux plan, you need to understand what SUSE VMs you run and the number of vCPUs on those VMs. Use the following sections to help identify from your usage CSV file what plan to buy.
+When you shut down a VM, the discount is automatically applied to another matching VM, if available. A software plan covers the cost of running the software on a VM. Other charges such as compute, storage, and networking are charged separately.
+
+To buy the right plan, you need to understand your VM usage and the number of vCPUs on those VMs. Use the following sections to help identify what plan to buy, based on your usage data.
+
+## Review RedHat VM usage before you buy
+
+Get the product name from your usage data and buy the RedHat plan with the same type and size.
+
+For example, if your usage has product **Red Hat Enterprise Linux - 1-4 vCPU VM License**, you should purchase **Red Hat Enterprise Linux** for **1-4 vCPU VM**.
+
+ADD RHEL SCREENSHOT
+
+## Review SUSE VM usage before you buy
+
+Get the product name from your usage data and buy the SUSE plan with the same type and size.
+
+For example, if your usage is for product **SUSE Linux Enterprise Server Priority - 2-4 vCPU VM Support**, you should purchase **SUSE Linux Enterprise Server Priority** for **2-4 vCPU**.
+
 
 ## Discount applies to different VM sizes
 
@@ -33,9 +49,7 @@ For example, if you buy a plan for SUSE Linux Enterprise Server for HPC Priority
 - 1 deployed VM with 3 or 4 vCPUs,
 - or 0.77 or about 77% of a VM with 5 or more vCPUs.
 
-The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers an only portion of the software cost, which is about 77%.
-
-## Understand SUSE VM usage before you buy
+The ratio for 5 or more vCPUs is 2.6. So a reservation for SUSE with a VM with 5 or more vCPUs covers a only portion of the software cost, which is about 77%.
 
 The following tables show the software plans you can buy a reservation for, their associated usage meters, and the ratios for each.
 
@@ -117,6 +131,10 @@ Azure portal marketplace names:
 |SLES 3-4 cores vCPUs |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5+ vCPUs |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
+## Need help? Contact us
+
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## Next steps
 
 To learn more about reservations, see the following articles:
@@ -127,7 +145,3 @@ To learn more about reservations, see the following articles:
 - [Manage Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
-
-## Need help? Contact us
-
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
