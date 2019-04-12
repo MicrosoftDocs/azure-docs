@@ -18,9 +18,7 @@ ms.author: robinsh
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
-Azure Logic Apps can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
-
-OLDER STUFF: Azure Logic Apps provides a way to automate processes as a series of steps. A Logic Apps workflow can connect across various services and protocols. A logic app instance begins with a trigger such as 'When an account is added', which is followed by a one or more actions; for example, 'sending a push notification'. This trigger-response mechanism makes Logic Apps an ideal IoT solution for IoT monitoring, such as staying alert for anomalies.
+[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can help you orchestrate workflows across on-premises and cloud services, one or more enterprises, and across various protocols. A logic app begins with a trigger, which is then followed by one or more actions that can be sequenced using built-in controls, such as conditions and iterators. This flexibility makes Logic Apps an ideal IoT solution for IoT monitoring scenarios. For example, the arrival of telemetry data from a device at an IoT Hub endpoint can initiate logic app workflows to warehouse the data in an Azure Storage blob, send email alerts to warn of data anomalies, schedule a technician visit if a device reports a failure, and so on.
 
 ## What you learn
 
@@ -34,7 +32,7 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
 ## What you need
 
-* Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
