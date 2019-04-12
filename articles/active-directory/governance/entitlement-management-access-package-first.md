@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.subservice: compliance
-ms.date: 04/06/2019
+ms.date: 04/11/2019
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -44,10 +44,10 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- Global administrator or User administrator
-    - Directories that are deployed in Azure Government, China, or other specialized clouds are not currently available for use in this preview.
+To use Azure AD entitlement management (Preview), you must have one of the following licenses:
+
 - Azure AD Premium P2
-    - The directory where the preview is being configured must have a license for Azure AD Premium P2, or a license that contains Azure AD Premium P2 such as EMS E5. If you don't have an Azure subscription, sign up for an [EMS E5 trial](https://www.microsoft.com/en-us/cloud-platform/enterprise-mobility-security-trial) before you begin. (Note that a directory can only activate an EMS E5 trial once per directory).
+- Enterprise Mobility + Security (EMS) E5 license
 
 ## Step 1: Set up users and group
 

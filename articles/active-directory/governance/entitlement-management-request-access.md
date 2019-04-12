@@ -80,6 +80,8 @@ Once you have found the access package in the My Access portal, you can submit a
 
 If you submit an access request and the request is still in the **pending approval** state, you can cancel the request.
 
+**Prerequisite role:** Requestor
+
 1. In the My Access portal, on the left, click **Request history** to see a list of your requests and the status.
 
 1. Click the **View** link for the request you want to cancel.
@@ -93,6 +95,8 @@ If you submit an access request and the request is still in the **pending approv
 ## Select a policy
 
 If you are requesting access to an access package that has multiple policies that apply, you might be asked to select a policy. For example, an access package manager might configure an access package with two policies for two groups of internal employees. The first policy might allow access for 60 days and require approval. The second policy might allow access for 2 days and not require approval. If you encounter this scenario, you must select the policy you want to use.
+
+**Prerequisite role:** Requestor
 
 ## Next steps
 
