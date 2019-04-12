@@ -111,7 +111,7 @@ This following task creates the default lab virtual network.
 
 ## Define an artifact source for the lab
 
-An artifacts source in Azure DevTest Labs is a properly structured GitHub repository that contains artifact definition and ARM templates. Note that every lab comes with predefined public artifacts. The follow tasks shows you how to create the DevTest Labs artifact source.
+An artifacts source is a properly structured GitHub repository that contains artifact definition and Azure Resource Manager templates. Every lab comes with predefined public artifacts. The follow tasks shows you how to create an artifact source for a lab.
 
 ```yaml
 - name: Define the lab artifacts source
@@ -230,7 +230,7 @@ Finally, the following task creates the lab environment based on one of the temp
 
 ## Create the lab image
 
-Another useful task is to create a DevTest Labs image based on an existing DevTest Labs virtual machine. That way, it can be used for creating new DevTest Labs virtual machines.
+Another useful task is to create an image based on an existing lab virtual machine. The image then allows you to create identical virtual machines.
 
 ```yaml
 - name: Create the lab image
