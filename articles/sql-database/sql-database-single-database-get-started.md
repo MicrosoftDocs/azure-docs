@@ -65,6 +65,9 @@ To create a single database containing the AdventureWorksLT sample data:
       > [!IMPORTANT]
       > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
+    
+    ![SQL Database details](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
 
 1. Select the **Additional settings** tab. 
 1. In the **Data source** section, under **Use existing data**, select `Sample`. 
