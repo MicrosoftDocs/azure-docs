@@ -41,9 +41,9 @@ Static routing requires additional configuration to the border devices. It requi
 
 To integrate Azure Stack into your networking environment using static routing, all four physical links between the border and the TOR device must be connected and high availability cannot be guaranteed because of how static routing works.
 
-The border device must be configured with static routes pointing to the TOR devices P2P for traffic destined to the *External* network or Public VIPs and the *Infrastructure* network. It will require static routes to the *BMC* and the *External* networks for the deployment. Operators can choose to leave static routes in the border to access management resources that reside on the *BMC* network. Adding static routes to *switch infrastructure* and *switch management* networks is optional.
+The border device must be configured with static routes pointing to each one of the four P2P IP's set between the TOR and the Border for traffic destined to any network inside Azure Stack but only the *External* or Public VIP network is required for operation. Static routes to the *BMC* and the *External* networks are required for initial deployment. Operators can choose to leave static routes in the border to access management resources that reside on the *BMC*  and the *Infrastructure* network. Adding static routes to *switch infrastructure* and *switch management* networks is optional.
 
-The TOR devices come configured with a static default route sending all traffic to the border devices. The one traffic exception to the default rule is for the private space, which is blocked using an Access Control List applied on the TOR to border connection.
+The TOR devices are configured with a static default route sending all traffic to the border devices. The one traffic exception to the default rule is for the private space, which is blocked using an Access Control List applied on the TOR to border connection.
 
 Static routing applies only to the uplinks between the TOR and border switches. BGP dynamic routing is used inside the rack because it is an essential tool for the SLB and other components and can’t be disabled or removed.
 
