@@ -227,7 +227,7 @@ The following task creates the lab environment based on one of the templates fro
 
 ## Create the lab image
 
-The following task creates an image based on an existing lab virtual machine. The image then allows you to create identical virtual machines.
+An image is based on an existing lab virtual machine. Once created, the image allows you to create identical virtual machines.
 
 ```yaml
 - name: Create the lab image
@@ -241,7 +241,7 @@ The following task creates an image based on an existing lab virtual machine. Th
 
 ## Delete the lab
 
-To delete the instance, use the following task:
+To delete the lab, use the following task:
 
 ```yaml
 - name: Delete the lab
