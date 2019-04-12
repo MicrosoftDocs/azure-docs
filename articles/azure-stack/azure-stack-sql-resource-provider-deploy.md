@@ -101,11 +101,22 @@ Change the default account information and passwords as needed for your Azure St
 
 
 ```powershell
-# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+# Azure Stack version 1901 or later, only install the two modules below:
+# Install and import the API Version Modules required by Azure Stack into the current PowerShell session.
+
+Install-Module AzureRM -RequiredVersion 2.4.0
+Install-Module -Name AzureStack -RequiredVersion 1.7.1
+```
+
+```powershell   
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module for Azure Stack version 1811 or earlier.
 # Note that this might not be the most currently available version of Azure Stack PowerShell
 Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
 Install-Module -Name AzureStack -RequiredVersion 1.6.0
+```
+> [!Note]  
+    > Please install the correct Azure Resource Manager PowerShell modules by only choosing from one of the above options. If you are using Azure Stack version 1901 or later, please use AzureRM 2.4.0. If you are using Azure Stack version 1811 or earlier, please use AzureRM.Bootstrapper to install the Profile.
 
 # Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
 $domain = "AzureStack"

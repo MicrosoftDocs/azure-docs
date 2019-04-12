@@ -22,9 +22,9 @@ ms.lastreviewed: 02/08/2019
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-To work with your cloud, you must install Azure Stack compatible PowerShell modules. Compatibility is enabled through a feature called *API profiles*.
+To work with your cloud, you must install Azure Stack compatible PowerShell modules. Compatibility is enabled through a feature called *API profiles* and AzureRM modules.
 
-API profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of Azure Resource Manager PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific profile version such as **2018-03-01-hybrid**. When you install a profile, the Azure Resource Manager PowerShell modules that correspond to the specified profile are installed.
+API profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of Azure Resource Manager PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific profile version such as **2018-03-01-hybrid**. When you install a profile, the Azure Resource Manager PowerShell modules that correspond to the specified profile are installed. Profiles are used for Azure Stack version 1811 or earlier. For Azure Stack version 1901 or later, developers can use AzureRM modules such as **2.4.0** to install the correct Azure Resource Manager PowerShell modules.
 
 You can install Azure Stack compatible PowerShell modules in Internet connected, partially connected, or disconnected scenarios. This article walks through the detailed instructions to install PowerShell for Azure Stack for these scenarios.
 
@@ -83,7 +83,7 @@ Before installing the required version, make sure that you uninstall any previou
 
 ## 4. Connected: Install PowerShell for Azure Stack with Internet connectivity
 
-Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 or later. The profile is available by installing the **AzureRM.BootStrapper** module. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
+Azure Stack requires the **2018-03-01-hybrid** API version profile for Azure Stack version 1808 to 1811. The profile is available by installing the **AzureRM.BootStrapper** module. For Azure Stack version 1901 or later, please use AzureRM version 2.4.0. **AzureRM.Bootstrapper** is not needed to install the modules for Azure stack version 1901 or later. In addition, to the AzureRM modules, you should also install the Azure Stack-specific PowerShell modules. The API version profile and Azure Stack PowerShell modules you require will depend on the version of Azure Stack your are running.
 
 Installation has three steps:
 
@@ -95,7 +95,7 @@ Installation has three steps:
 
 Run the following PowerShell script to install these modules on your development workstation:
 
-- Azure Stack 1901 or later:
+- Azure Stack version 1901 or later, only install the two modules below:
 
     ```powershell
     # Install and import the API Version Profile required by Azure Stack into the current PowerShell session.
@@ -108,7 +108,7 @@ Run the following PowerShell script to install these modules on your development
     > The Azure Stack module version 1.7.1 is a breaking change release. To migrate from Azure Stack 1.6.0 please refer to the [migration guide](https://aka.ms/azspshmigration171).
     > The AzureRm module version 2.4.0 comes with a breaking change for the cmdlet Remove-AzureRmStorageAccount. This cmdlet expects -Force parameter to be specified for removing the storage account without confirmation.
 
-- Azure Stack 1811:
+- Azure Stack version 1811, install the profile using **AzureRM.Bootstrapper**:
 
     ```powershell
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
@@ -120,7 +120,7 @@ Run the following PowerShell script to install these modules on your development
     Install-Module -Name AzureStack -RequiredVersion 1.6.0
     ```
 
-- Azure Stack 1810 or earlier:
+- Azure Stack 1810 or earlier, install the profile using **AzureRM.Bootstrapper**:
 
     ```powershell
     # Install the AzureRM.BootStrapper module. Select Yes when prompted to install NuGet
