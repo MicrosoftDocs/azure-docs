@@ -69,7 +69,7 @@
       href: sql-database-connect-query-ruby.md
   - name: Machine Learning Services
     items:
-    - name: Create an R script
+    - name: Create R scripts
       href: sql-database-quickstart-r-create-script.md
     - name: Train and score a model
       href: sql-database-quickstart-r-train-score-model.md
