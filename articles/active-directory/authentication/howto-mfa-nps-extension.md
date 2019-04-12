@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -139,6 +139,14 @@ Your users also need to follow these steps to enroll before they can authenticat
 1. [Download the NPS Extension](https://aka.ms/npsmfa) from the Microsoft Download Center.
 2. Copy the binary to the Network Policy Server you want to configure.
 3. Run *setup.exe* and follow the installation instructions. If you encounter errors, double-check that the two libraries from the prerequisite section were successfully installed.
+
+#### Upgrade the NPS extension
+
+When upgrading an existing NPS exstension install, to avoid a reboot of the underlying server complete the following steps:
+
+1. Uninstall the existing version
+1. Run the new installer
+1. Restart the Network Policy Server (IAS) service
 
 ### Run the PowerShell script
 
