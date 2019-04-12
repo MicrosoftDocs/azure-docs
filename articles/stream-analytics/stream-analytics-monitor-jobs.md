@@ -17,7 +17,7 @@ This article demonstrates how to enable monitoring for a Stream Analytics job. S
 
 ## Prerequisites
 
-Before you begin this process, you must have the following:
+Before you begin this process, you must have the following prerequisites:
 
 * Visual Studio 2017 or 2015
 * [Azure .NET SDK](https://azure.microsoft.com/downloads/) downloaded and installed
@@ -132,7 +132,7 @@ The following code will set up the necessary variables and management clients.
 
 ## Enable monitoring for an existing Stream Analytics job
 
-The following code enables monitoring for an **existing** Stream Analytics job. The first part of the code performs a GET request against the Stream Analytics service to retrieve information about the particular Stream Analytics job. It uses the *Id* property (retrieved from the GET request) as a parameter for the Put method in the second half of the code, which sends a PUT request to the Insights service to enable monitoring for the Stream Analytics job.
+The following code enables monitoring for an **existing** Stream Analytics job. The first part of the code performs a GET request against the Stream Analytics service to retrieve information about the particular Stream Analytics job. It uses the *ID* property (retrieved from the GET request) as a parameter for the Put method in the second half of the code, which sends a PUT request to the Insights service to enable monitoring for the Stream Analytics job.
 
 > [!WARNING]
 > If you have previously enabled monitoring for a different Stream Analytics job, either through the Azure portal or programmatically via the below code, **we recommend that you provide the same storage account name that you used when you previously enabled monitoring.**
