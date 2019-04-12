@@ -242,8 +242,8 @@
       items:
       - name: Troubleshoot VM and environment creation failures
         href: troubleshoot-vm-environment-creation-failures.md
-      - name: Troubleshoot issues with using artifacts
-        href: troubleshoot-artifacts.md
+      - name: Troubleshoot artifact failures
+        href: devtest-lab-troubleshoot-artifact-failure.md
 - name: Reference
   items:
   - name: Classroom Labs
