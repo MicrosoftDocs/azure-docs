@@ -49,7 +49,7 @@ To configure the integration of Coralogix into Azure AD, first add Coralogix fro
 
 To add Coralogix from the gallery, take the following steps:
 
-1. In the **[Azure portal](https://portal.azure.com)**, in the left pane, select the **Azure Active Directory** icon.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -61,7 +61,7 @@ To add Coralogix from the gallery, take the following steps:
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Coralogix**. Select **Coralogix** from results pane, and then select the **Add** button to add the application.
+4. In the search box, enter **Coralogix**. Select **Coralogix** from the results pane, and then select the **Add** button to add the application.
 
 	 ![Coralogix in the results list](common/search-new-app.png)
 
@@ -72,12 +72,12 @@ For single sign-on to work, you need to establish a link  between an Azure AD us
 
 To configure and test Azure AD single sign-on with Coralogix, first complete the following building blocks:
 
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
-2. **[Configure Coralogix single sign-on](#configure-coralogix-single-sign-on)** to configure the single sign-on settings on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create a Coralogix test user](#create-a-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
+1. [Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on) to enable your users to use this feature.
+2. [Configure Coralogix single sign-on](#configure-coralogix-single-sign-on) to configure the single sign-on settings on the application side.
+3. [Create an Azure AD test user](#create-an-azure-ad-test-user) to test Azure AD single sign-on with Britta Simon.
+4. [Assign the Azure AD test user](#assign-the-azure-ad-test-user) to enable Britta Simon to use Azure AD single sign-on.
+5. [Create a Coralogix test user](#create-a-coralogix-test-user) to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
+6. [Test single sign-on](#test-single-sign-on) to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
 
@@ -101,10 +101,10 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
     ![Coralogix Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	a. In the **Sign on URL** box, type a URL using the following pattern:
+	a. In the **Sign on URL** box, enter a URL with the following pattern:
     `https://<SUBDOMAIN>.coralogix.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL, such as:
+    b. In the **Identifier (Entity ID)** text box, enter a URL, such as:
 	
 	`https://api.coralogix.com/saml/metadata.xml`
 
@@ -167,9 +167,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field, type **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **brittasimon@contoso.com**. 
+    b. In the **User name** field, enter **brittasimon@yourcompanydomain.extension.** For example, in this case, you might type **brittasimon@contoso.com.**
 
     c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box.
 
