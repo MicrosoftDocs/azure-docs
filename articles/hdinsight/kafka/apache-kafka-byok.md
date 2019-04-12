@@ -67,6 +67,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
         ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
    
     4. Add managed identity to the key vault access policy.
+
         a. Create a new Azure Key Vault access policy.
 
         ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
