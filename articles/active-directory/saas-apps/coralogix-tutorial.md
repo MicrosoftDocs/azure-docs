@@ -27,7 +27,7 @@ Integrating Coralogix with Azure AD provides you with the following benefits:
 * You can enable your users to be automatically signed in to Coralogix (single sign-on) with their Azure AD accounts.
 * You can manage your accounts in one central location: the Azure portal.
 
-If you want  more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+For more information about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
@@ -76,7 +76,7 @@ To configure and test Azure AD single sign-on with Coralogix, first complete the
 2. **[Configure Coralogix single sign-on](#configure-coralogix-single-sign-on)** to configure the single sign-on settings on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create a Coralogix test user](#create-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
+5. **[Create a Coralogix test user](#create-a-coralogix-test-user)** to have a counterpart of Britta Simon in Coralogix that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -197,7 +197,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog box, select **Britta Simon** in the users list. Then click the **Select** button at the bottom of the screen.
 
-6. If you are expecting a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
+6. If you're expecting a role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog box, select the **Assign** button.
 

@@ -81,7 +81,7 @@ To configure and test Azure AD single sign-on with Trello, you need to complete 
 2. **[Configure Trello single sign-on](#configure-trello-single-sign-on)** to configure the single sign-on settings on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create a Trello test user](#create-trello-test-user)** to have a counterpart of Britta Simon in Trello that is linked to the Azure AD representation of the user.
+5. **[Create a Trello test user](#create-a-trello-test-user)** to have a counterpart of Britta Simon in Trello that is linked to the Azure AD representation of the user.
 6. **[Test single sign-on](#test-single-sign-on)** to verify that the configuration works.
 
 ### Configure Azure AD single sign-on
