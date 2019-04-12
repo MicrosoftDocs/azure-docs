@@ -51,7 +51,7 @@ FROM    [dbo].[FactInternetSales]
 ```
 
 > [!NOTE]
-> If you're only trying to change the index in your `CTAS` operation, and the source table is hash distributed, maintain the same distribution column and data type. This avoids cross-distribution data movement during the operation, which is more efficient.
+> If you're only trying to change the index in your CTAS operation, and the source table is hash distributed, maintain the same distribution column and data type. This avoids cross-distribution data movement during the operation, which is more efficient.
 
 ## Use CTAS to copy a table
 
@@ -175,7 +175,7 @@ AND    [acs].[CalendarYear]                = [fis].[CalendarYear]
 
 SQL Data Warehouse doesn't support ANSI joins in the `FROM` clause of an `UPDATE` statement, so you can't use the previous example without modifying it.
 
-You can use a combination of a `CTAS` and an implicit join to replace the previous example:
+You can use a combination of a CTAS and an implicit join to replace the previous example:
 
 ```sql
 -- Create an interim table
@@ -327,8 +327,7 @@ The reason we see a disparity between the two results is due to implicit type ca
 
 Notice also that the column in the second example has been defined as a NULLable column, whereas in the first example it has not. When the table was created in the first example, column nullability was explicitly defined. In the second example, it was left to the expression, and by default would result in a NULL definition.
 
-To resolve these issues, you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You can't set these properties in the create table part.
-
+To resolve these issues, you must explicitly set the type conversion and nullability in the SELECT portion of the CTAS statement. You can't set these properties in 'CREATE TABLE'.
 The following example demonstrates how to fix the code:
 
 ```sql
