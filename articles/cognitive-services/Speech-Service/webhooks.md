@@ -17,7 +17,7 @@ Webhooks are like HTTP callbacks that allow your application to accept data from
 
 ## Supported Operations
 
-Our service supports web hooks for all long running operations. Each of the operations listed below can trigger an http call back upon completion. The respective operations (event types) are:
+The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion. 
 
         DataImportCompletion
         ModelAdaptationCompletion
