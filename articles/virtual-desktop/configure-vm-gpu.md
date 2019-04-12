@@ -6,7 +6,7 @@ author: denisgun
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 04/07/2019
+ms.date: 04/12/2019
 ms.author: denisgun
 ---
 
@@ -46,7 +46,7 @@ After driver installation, a VM restart is required. Use the verification steps 
 
 ## Configure GPU-accelerated app rendering
 
-By default, apps and desktops running in remote sessions do not leverage available GPUs for rendering and are rendered with the CPU. Configure the session host's Group Policy to enable GPU-accelerated rendering:
+By default, apps and desktops running in multi-session configurations do not leverage available GPUs for rendering and are rendered with the CPU. Configure the session host's Group Policy to enable GPU-accelerated rendering:
 
 1. Connect to the desktop of the VM using an account with local administrator privileges.
 2. Open the Start menu and type "gpedit.msc" to open the Group Policy Editor.
