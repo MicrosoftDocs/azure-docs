@@ -26,7 +26,7 @@ ms.custom:
 |Keyword activation | Direct Line Speech includes both on-device and cloud-based wake word verification. This allows users to begin conversations with bots using a custom keyword like "Hey Cortana." For more information on choosing and creating a wake word, see the [custom wake word page](speech-devices-sdk-create-kws.md).
 |[Speech to text](speech-to-text.md) | The Direct Line Speech channel includes real-time transcription of audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available to both your bot and your client application as it is transcribed.
 |[Text to speech](text-to-speech.md) | Textual responses from your bot will be synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This will then be made available to your client application as an audio stream.
-|Direct Line Speech | As a channel within the Bot Framework, Direct Line Speech enables a smooth and seamless connection between your client application, a compatible bot, and the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, see [its page in the Bot Framework documentation](../../bot-service/bot-service-channel-connect-directlinespeech.md).
+|Direct Line Speech | As a channel within the Bot Framework, Direct Line Speech enables a smooth and seamless connection between your client application, a compatible bot, and the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, see [its page in the Bot Framework documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
 ## Sample code
 
@@ -50,4 +50,4 @@ Voice-first virtual assistants built using Azure Speech Services can use the ful
 
 * [Get a Speech Services subscription key for free](get-started.md)
 * [Get the Speech SDK](speech-sdk.md)
-* [Create and deploy a basic bot](../../bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+* [Create and deploy a basic bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)

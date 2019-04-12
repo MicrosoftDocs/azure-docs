@@ -20,13 +20,13 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: How do I get started?**
 
-**A:** The best way to begin with creating a voice-first virtual assistant is to start with [creating a basic Bot Framework bot](../../bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Next, connect your bot to the [Direct Line Speech channel](../../bot-service/bot-service-channel-connect-directlinespeech.md).
+**A:** The best way to begin with creating a voice-first virtual assistant is to start with [creating a basic Bot Framework bot](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0). Next, connect your bot to the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
 ## Debugging
 
 **Q: I'm getting an error when using a SpeechBotConnector and it's not clear what I should do. What *should* I do?**
 
-**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, see [how to use file logging](how-to-use-file-logging.md).
+**A:** File-based logging provides substantially more detail and can help accelerate support requests. To enable this, see [how to use file logging](how-to-use-logging.md).
 
 ## Next steps
 

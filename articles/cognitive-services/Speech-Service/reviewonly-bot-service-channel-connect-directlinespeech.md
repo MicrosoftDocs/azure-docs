@@ -14,7 +14,7 @@ ms.custom:
 ---
 
 > [!NOTE]
-> **PRE-PUBLISH NOTE TODO:** remove this note prior to actual publishing! This page will be published to the bot framework docs as a peer to [the Direct Line page](../../bot-service/bot-service-channel-connect-directline?view=azure-bot-service-3.0). It's included here only to put it in preliminary source control/review.
+> **PRE-PUBLISH NOTE TODO:** remove this note prior to actual publishing! This page will be published to the bot framework docs as a peer to [the Direct Line page](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directline?view=azure-bot-service-3.0). It's included here only to put it in preliminary source control/review.
 
 # Connect a bot to Direct Line Speech (Preview)
 

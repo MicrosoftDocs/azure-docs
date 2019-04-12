@@ -26,7 +26,7 @@ This quickstart requires:
 
 * [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
-* A previously created bot configured with the [Direct Line Speech channel](../../bot-service/bot-service-channel-connect-directlinespeech.md)
+* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md)
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
@@ -126,18 +126,21 @@ This quickstart requires:
     }
     ```
 
-1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the connection ID and subscription key with your own. Replace the strings `YourBotConnectionId`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
+1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the strings `YourBotSecretKey`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
-    ```csharp
-    // create a BotConnectorConfig by providing bot connection id and Cognitive Services subscription key
-    string botConnectionId = "YourBotConnectionId"; // Speech channel secret;
-    string speechSubscriptionKey = "YourSpeechSubscriptionKey";
-    string region = "YourServiceRegion";
+    > [!NOTE]
+    > For information on configuring your bot and retrieving a secret key, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
-    var botConnectorConfig = BotConnectorConfig.FromBotConnectionId(botConnectionId, speechSubscriptionKey, region);
+    ```csharp
+    // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
+    string botSecret = "YourBotSecretKey";
+    string speechSubscriptionKey = "YourSpeechSubscriptionKey";
+    string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
+
+    var botConnectorConfig = BotConnectorConfig.FromBotConnectionId(botSecret, speechSubscriptionKey, region);
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 
@@ -160,7 +163,7 @@ This quickstart requires:
     botConnector.Synthesizing += BotConnector_Synthesizing;
     ```
 
-1. These event handlers that were just referenced don't exist yet. Add the following to implement them.
+1. These event handlers that were just referenced don't exist yet. Add the following to the end of your `MainPage` class to implement them.
 
     > [!NOTE]
     > PREPUBLISH TODO: Complete/revise these handlers
@@ -215,9 +218,6 @@ This quickstart requires:
     ```
 
 1. With the configuration established and the event handlers registered, the `SpeechBotConnector` now just needs to listen. Add the following to the end of the `MainPage` class.
-
-    > [!NOTE]
-    > PREPUBLISH TODO: Add once minimal UI XAML is finalized
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
