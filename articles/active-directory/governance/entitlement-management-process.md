@@ -1,5 +1,5 @@
 ---
-title: How access requests are fulfilled in Azure AD entitlement management (Preview)
+title: Request process and email notifications in Azure AD entitlement management (Preview)
 description: #Required; article description that is displayed in search results.
 services: active-directory
 documentationCenter: ''
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 
 ---
-# How access requests are fulfilled in Azure AD entitlement management (Preview)
+# Request process and email notifications in Azure AD entitlement management (Preview)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) entitlement management is currently in public preview.
@@ -32,7 +32,7 @@ When a user submits a request to an access package, a process is started to fulf
 
 This article describes the fulfillment process, and the email notifications that are sent.
 
-## Fulfillment process
+## Request process
 
 A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states.
 
