@@ -132,7 +132,7 @@
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Automate training in Python
+    - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Automate training in portal
@@ -140,7 +140,8 @@
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Auto-train forecast models
+    - name: Auto-train a forecast model
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: Deploy models
     items:

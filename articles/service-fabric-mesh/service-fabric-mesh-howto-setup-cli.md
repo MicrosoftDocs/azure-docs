@@ -21,7 +21,7 @@ There are three types of CLI that can be used and they are summarized in the tab
 |---|---|---|
 | az mesh | Azure Service Fabric Mesh | The primary CLI which allows you to deploy your applications and manage resources against the Azure Service Fabric Mesh environment. 
 | sfctl | Local clusters | Service Fabric CLI that allows deployment and testing of Service Fabric resources against local clusters.  
-| Maven CLI | Local clusters & Azure Service Fabric Mesh | A wrapper around 'az mesh' and 'sfctl' that allows Java developers to use a familiar command line experience for local and Azure development experience.  
+| Maven CLI | Local clusters & Azure Service Fabric Mesh | A wrapper around `az mesh` and `sfctl` that allows Java developers to use a familiar command line experience for local and Azure development experience.  
 
 For the preview, Azure Service Fabric Mesh CLI is written as an extension to Azure CLI. You can install it in the Azure Cloud Shell or a local installation of Azure CLI. 
 
