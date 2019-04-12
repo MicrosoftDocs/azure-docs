@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/15/2019
 
 ms.custom: seodec18
 ---
@@ -97,7 +97,7 @@ Before you start, review the [Prerequisites](azure-security-disk-encryption-prer
 - **List all disk encryption secrets used for encrypting VMs in a key vault** 
 
      ```azurepowershell-interactive
-     Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
+     Get-AzKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
 ### <a name="bkmk_prereq-script"></a> Using the Azure Disk Encryption prerequisites PowerShell script
@@ -544,7 +544,7 @@ When encrypting using an Azure AD app (previous release), the disk-encryption se
 ``` 
 
 ### <a name="bkmk_SecretnoKEK"></a> Disk encryption secret not encrypted with a KEK
-To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). If you have a Windows virtual machine, the bek file is encoded as a base64 string and then uploaded to your key vault using the `Set-AzureKeyVaultSecret` cmdlet. For Linux, the passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
+To set up the secret in your key vault, use [Set-AzKeyVaultSecret](/powershell/module/az.keyvault/set-azkeyvaultsecret). If you have a Windows virtual machine, the bek file is encoded as a base64 string and then uploaded to your key vault using the `Set-AzKeyVaultSecret` cmdlet. For Linux, the passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
 
 #### Windows BEK file
 ```powershell
@@ -567,7 +567,7 @@ $FileContentEncoded = [System.convert]::ToBase64String((Get-Content -Path $BEKFi
 
 $SecretName = [guid]::NewGuid().ToString()
 $SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
-$Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
+$Secret = Set-AzKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
 
 # Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzVMOSDisk when you attach your OS disk. 
 $SecretUrl=$secret.Id
@@ -585,7 +585,7 @@ $SecretUrl
  $secretValue = [Convert]::ToBase64String([System.Text.Encoding]::ASCII.GetBytes($passphrase))
  $secureSecretValue = ConvertTo-SecureString $secretValue -AsPlainText -Force
 
- $secret = Set-AzureKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
+ $secret = Set-AzKeyVaultSecret -VaultName $KeyVaultName -Name $secretName -SecretValue $secureSecretValue -tags $tags
  $secretUrl = $secret.Id
 ```
 
@@ -599,8 +599,8 @@ Before you upload the secret to the key vault, you can optionally encrypt it by 
     # This is the passphrase that was provided for encryption during the distribution installation
     $passphrase = "contoso-password"
 
-    Add-AzureKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
-    $KeyEncryptionKey = Get-AzureKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
+    Add-AzKeyVaultKey -VaultName $KeyVaultName -Name "keyencryptionkey" -Destination Software
+    $KeyEncryptionKey = Get-AzKeyVaultKey -VaultName $KeyVault.OriginalVault.Name -Name "keyencryptionkey"
 
     $apiversion = "2015-06-01"
 
@@ -683,7 +683,7 @@ Before you upload the secret to the key vault, you can optionally encrypt it by 
     $secretUrl = $response.id
 ```
 
-Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#BKMK_URLKEK).
+Use `$KeyEncryptionKey` and `$secretUrl` in the next step for [attaching the OS disk using KEK](#bkmk_URLKEK).
 
 ##  <a name="bkmk_SecretURL"></a> Specify a secret URL when you attach an OS disk
 

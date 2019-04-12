@@ -4,8 +4,8 @@ description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: SyntaxC4
+author: msangapu
+manager: jeconnoc
 editor: ''
 
 ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/24/2017
-ms.author: cfowler
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 ---
@@ -201,7 +201,7 @@ To create an app that uses the image you just pushed, you run Azure CLI commands
 
 ### Create a web app
 
-In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _<appname>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
+In the Cloud Shell, create a [web app](app-service-linux-intro.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) command. Don't forget to replace _\<app_name>_ with a unique app name, and _\<docker-ID>_ with your Docker ID.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --deployment-container-image-name <docker-ID>/mydockerimage:v1.0.0
@@ -305,7 +305,7 @@ SSH enables secure communication between a container and a client. In order for 
     EXPOSE 8000 2222
     ```
 
-* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) by using a shell script in the /bin directory.
+* Make sure to [start the ssh service](https://github.com/Azure-App-Service/node/blob/master/8.9/startup/init_container.sh#L18) by using a shell script in the /bin directory.
  
 	```bash
 	#!/bin/bash

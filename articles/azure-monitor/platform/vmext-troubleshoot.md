@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Log Analytics VM Extension | Microsoft Docs
+title: Troubleshoot Azure Log Analytics VM Extension in Azure Monitor | Microsoft Docs
 description: Describe the symptoms, causes, and resolution for the most common issues with the Log Analytics VM extension for Windows and Linux Azure VMs.
 services: log-analytics
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.date: 01/08/2018
 ms.author: magoedte
 ---
 
-# Troubleshooting the Log Analytics VM extension
+# Troubleshooting the Log Analytics VM extension in Azure Monitor
 This article provides help troubleshooting errors you might experience with the Log Analytics VM extension for Windows and Linux virtual machines running on Microsoft Azure, and suggests possible solutions to resolve them.
 
 To verify the status of the extension, perform the following steps from the Azure portal.
@@ -48,7 +48,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 3. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Ensure the virtual machine can run PowerShell scripts
 5. Ensure permissions on C:\Windows\temp haven’t been changed
-6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+6. View the status of the Microsoft Monitoring Agent by typing the following in an elevated PowerShell window on the virtual machine `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
 7. Review the Microsoft Monitoring Agent setup log files in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 For more information, see [troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).

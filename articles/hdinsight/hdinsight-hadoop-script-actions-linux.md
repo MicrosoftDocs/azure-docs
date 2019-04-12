@@ -329,7 +329,6 @@ Microsoft provides sample scripts to install components on an HDInsight cluster.
 
 * [Install and use Hue on HDInsight clusters](hdinsight-hadoop-hue-linux.md)
 * [Install and use Apache Giraph on HDInsight clusters](hdinsight-hadoop-giraph-install-linux.md)
-* [Install or upgrade Mono on HDInsight clusters](hdinsight-hadoop-install-mono.md)
 
 ## Troubleshooting
 

@@ -6,14 +6,14 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ---
 # Set environment variables
 
 Setting environment variables in your container instances allows you to provide dynamic configuration of the application or script run by the container. To set environment variables in a container, specify them when you create a container instance. You can set environment variables when you start a container with the [Azure CLI](#azure-cli-example), [Azure PowerShell](#azure-powershell-example), and the [Azure portal](#azure-portal-example).
 
-For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
+For example, if you run the Microsoft [aci-wordcount][aci-wordcount] container image, you can modify its behavior by specifying the following environment variables:
 
 *NumWords*: The number of words sent to STDOUT.
 
@@ -21,15 +21,17 @@ For example, if you run the [microsoft/aci-wordcount][aci-wordcount] container i
 
 If you need to pass secrets as environment variables, Azure Container Instances supports [secure values](#secure-values) for both Windows and Linux containers.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Azure CLI example
 
-To see the default output of the [microsoft/aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
+To see the default output of the [aci-wordcount][aci-wordcount] container, run it first with this [az container create][az-container-create] command (no environment variables specified):
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer1 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure
 ```
 
@@ -39,7 +41,7 @@ To modify the output, start a second container with the `--environment-variables
 az container create \
     --resource-group myResourceGroup \
     --name mycontainer2 \
-    --image microsoft/aci-wordcount:latest \
+    --image mcr.microsoft.com/azuredocs/aci-wordcount:latest \
     --restart-policy OnFailure \
     --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
@@ -78,13 +80,13 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
 
 Setting environment variables in PowerShell is similar to the CLI, but uses the `-EnvironmentVariable` command-line argument.
 
-First, launch the [microsoft/aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
+First, launch the [aci-wordcount][aci-wordcount] container in its default configuration with this [New-AzContainerGroup][new-Azcontainergroup] command:
 
 ```azurepowershell-interactive
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer1 `
-    -Image microsoft/aci-wordcount:latest
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest
 ```
 
 Now run the following [New-AzContainerGroup][new-Azcontainergroup] command. This one specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
@@ -94,7 +96,7 @@ $envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
-    -Image microsoft/aci-wordcount:latest `
+    -Image mcr.microsoft.com/azuredocs/aci-wordcount:latest `
     -RestartPolicy OnFailure `
     -EnvironmentVariable $envVars
 ```
@@ -138,7 +140,7 @@ To set environment variables when you start a container in the Azure portal, spe
 
 When you deploy with the portal, you're currently limited to three variables, and you must enter them in this format: `"variableName":"value"`
 
-To see an example, start the [microsoft/aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
+To see an example, start the [aci-wordcount][aci-wordcount] container with the *NumWords* and *MinLength* variables.
 
 1. In **Configuration**, set the **Restart policy** to *On failure*
 2. Enter `"NumWords":"5"` for the first variable, select **Yes** under **Add additional environment variables**, and enter `"MinLength":"8"` for the second variable. Select **OK** to verify and then deploy the container.
@@ -241,7 +243,7 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [portal-env-vars-02]: ./media/container-instances-environment-variables/portal-env-vars-02.png
 
 <!-- LINKS - External -->
-[aci-wordcount]: https://hub.docker.com/r/microsoft/aci-wordcount/
+[aci-wordcount]: https://hub.docker.com/_/microsoft-azuredocs-aci-wordcount
 
 <!-- LINKS Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
@@ -250,6 +252,6 @@ Task-based scenarios, such as batch processing a large dataset with several cont
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

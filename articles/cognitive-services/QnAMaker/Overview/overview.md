@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 04/05/2019
 ms.author: tulasim
 #customer intent: As a developer, I want to know how to use QnA Maker for my FAQs and product manuals so that I can enable conversational question and answer sessions for my customers.
 ---
@@ -62,10 +62,9 @@ The QnA Maker architecture consists of the following two components:
 
 ## Service highlights
 
-- A complete **no-code** experience to [create a FAQ bot](https://aka.ms/qnamaker-docs-create-faqbot).
+- A complete **no-code** experience to [create a bot](../Quickstarts/create-publish-knowledge-base.md#create-a-bot) from a knowledge base.
 - **No network throttling for predictions**. Pay for hosting the service and not for the number of transactions. See the [pricing page](https://aka.ms/qnamaker-docs-pricing) for more details.
 - **Scale as needed**. Choose the appropriate SKUs of the individual components that suit your scenario. See how to [choose capacity](https://aka.ms/qnamaker-docs-capacity) for your QnA Maker service.
-- **Full data compliance**. The prediction service components are deployed in your Azure subscription and within the compliance boundary.
 
 
 ## Next steps

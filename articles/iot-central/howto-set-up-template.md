@@ -74,6 +74,8 @@ For example, you can add a new temperature telemetry measurement:
 
 After you select **Save**, the **Temperature** measurement appears in the list of measurements. In a short while, you see the visualization of the temperature data from the simulated device.
 
+When displaying telemetry, you can choose from the following aggregation options: Average, Minimum, Maximum, Sum, and Count. **Average** is selected as the default aggregation on the chart. 
+
 > [!NOTE]
 > The data type of the telemetry measurement is a floating point number.
 
@@ -274,3 +276,5 @@ Now that you've learned how to set up a device template in your Azure IoT Centra
 
 > [!div class="nextstepaction"]
 > [Create a new device template version](howto-version-devicetemplate.md)
+> [Connect an MXChip IoT DevKit device to your Azure IoT Central application](howto-connect-devkit.md)
+> [Connect a generic client application to your Azure IoT Central application (Node.js)](howto-connect-nodejs.md)

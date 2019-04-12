@@ -27,9 +27,9 @@ This article shows you how to back up a SQL Server database running on an Azure 
 
 Before you back up your SQL Server database, check the following conditions:
 
-1. Identify or [create](backup-azure-sql-database.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
-2. [Check the VM permissions](#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
-3. Verify that the  VM has [network connectivity](backup-azure-sql-database.md#establish-network-connectivity).
+1. Identify or [create](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) a Recovery Services vault in the same region or locale as the VM hosting the SQL Server instance.
+2. [Check the VM permissions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) needed to back up the SQL databases.
+3. Verify that the  VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
 4. Check that the SQL Server databases are named in accordance with [naming guidelines](#verify-database-naming-guidelines-for-azure-backup) for Azure Backup.
 5. Verify that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you set up this scenario. You can enable Azure Backup for an Azure VM along with Azure Backup for a SQL Server database running on the VM without any conflict.
 
@@ -56,7 +56,7 @@ Azure Backup does a number of things when you configure backup for a SQL Server 
 - To discover databases on the virtual machine, Azure Backup creates the account **NT SERVICE\AzureWLBackupPluginSvc**. This account is used for backup and restore, and requires SQL sysadmin permissions.
 - Azure Backup leverages the **NT AUTHORITY\SYSTEM** account for database discovery/inquiry, so this account need to be a public login on SQL.
 
-If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](#fix-sql-sysadmin-permissions).
+If you didn't create the SQL Server VM from the Azure Marketplace, you might receive an error **UserErrorSQLNoSysadminMembership**. If this occurs [follow these instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
 
 ### Verify database naming guidelines for Azure Backup
 
@@ -65,6 +65,7 @@ Avoid the following for database names:
   * Trailing/Leading spaces
   * Trailing ‘!’
   * Close square bracket ‘]’
+  * Databases names starting with ‘F:\’
 
 We do have aliasing for Azure table unsupported characters, but we recommend avoiding them. [Learn more](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
@@ -141,7 +142,7 @@ Configure backup as follows:
 
    - Select the default policy: HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
-   - [Define a new policy](#configure-a-backup-policy) based on your RPO and retention range.
+   - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
