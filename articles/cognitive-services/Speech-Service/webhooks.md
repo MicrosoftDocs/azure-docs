@@ -19,12 +19,12 @@ Webhooks are like HTTP callbacks that allow your application to accept data from
 
 The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion. 
 
-        DataImportCompletion
-        ModelAdaptationCompletion
-        AccuracyTestCompletion
-        TranscriptionCompletion
-        EndpointDeploymentCompletion
-        EndpointDataCollectionCompletion
+* DataImportCompletion
+* ModelAdaptationCompletion
+* AccuracyTestCompletion
+* TranscriptionCompletion
+* EndpointDeploymentCompletion
+* EndpointDataCollectionCompletion
 
 Next, let's create a webhook.
 
