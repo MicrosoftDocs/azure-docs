@@ -24,9 +24,11 @@ ms.collection: M365-identity-device-management
 # Overview of Microsoft Authentication Library (MSAL)
 Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](active-directory-dev-glossary.md#security-token) from Azure AD in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, 3rd party Web APIs, or your own Web API. MSAL SDKs are available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
 
+MSAL provides added value over the OAuth libraries or coding directly against the protocol. it is perfectly possible to code all of these token-requestor tasks directly in your application.   However, unless some special circumstances exist (for example, you need to write an app on a development stack that does not offer any library for the protocol of choice), you will rarely want to do that.  Rewriting the same logic from scratch every time does not make sense, and using a library is a great way to avoid that.  Writing custom security code is dangerous. It requires you to have deep knowledge of the protocols involved and to operate at a low level.
+
 MSAL is a token acquisition library, it is not used to protect a Web API. The token can be acquired from a number of different application types: Web applications, Mobile or Desktop applications, Web APIs, and application running on devices that don't have a browser (or iOT). 
 
-Depending on your scenario it provides you with various way of getting a token, with a consistent API for a number of platforms. It also adds value by:
+Depending on your scenario it provides you with various way of getting a token, with a consistent API for a number of platforms. MSAL provides the following benefits:
 
 * acquires tokens on behalf of a user or on behalf of an application
 * maintains a token cache and refreshes tokens for you when they are close to expire. you don't need to handle expiration on your own.
@@ -44,7 +46,7 @@ For more specific information, read about the differences between [ADAL.NET and 
 ## Ways to authenticate (interactive, integrated Windows, username/pw, device code flow)
 
 ## Client applications
-Contrary to ADAL.NET (which proposes the notion of [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD), which is a connection to Azure AD), MSAL.NET, proposes a clean separation between public client applications, and [confidential client applications](https://tools.ietf.org/html/rfc6749):
+Contrary to ADAL (which proposes the notion of authentication context, a connection to Azure AD), MSAL provides a clean separation between public client applications and [confidential client applications](https://tools.ietf.org/html/rfc6749):
 
 * **Confidential client applications** are applications which run on servers (Web Apps, Web API, or even service/daemon applications). They are considered difficult to access, and therefore capable of keeping an application secret. Confidential clients are able to hold configuration time secrets. Each instance of the client has a distinct configuration (including clientId and secret). These values are difficult for end users to extract. A web app is the most common confidential client. The clientId is exposed through the web browser, but the secret is passed only in the back channel and never directly exposed. 
 
@@ -62,7 +64,7 @@ Contrary to ADAL.NET (which proposes the notion of [AuthenticationContext](https
 ## Acquiring and caching tokens
 There are many ways of acquiring a token. They are detailed in the next topics. Some require user interactions through a web browser. Some don't require any user interactions. In general the way to acquire a token is different depending on if the application is a public client application (Desktop / Mobile) or a confidential client application (Web App, Web API, daemon application like a windows service).
 
-For both public client and confidential client applications, MSAL.NET maintains a token cache (or two caches in the case of confidential client applications), and applications should try to get a token from the cache first before any other means, except in the case of Client Credentials, which does look at the application cache by itself.
+For both public client and confidential client applications, MSAL maintains a token cache (or two caches in the case of confidential client applications), and applications should try to get a token from the cache first before any other means, except in the case of Client Credentials, which does look at the application cache by itself.
 
 ## Exceptions and errors
 Exceptions in MSAL are intended for app developers to troubleshoot and not for displaying to end-users. Exception messages are not localized.
