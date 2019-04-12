@@ -11,7 +11,7 @@ ms.author: panosper
 ms.custom: seodec18
 ---
 
-# Web hooks
+# Webhooks for Speech Services
 
 Webhooks are like HTTP callbacks that allow your application to accept data from the Speech Services when it becomes available. Using webhooks, you can optimize your use of our REST APIs by eliminating the need to continuously poll for a response. In the next few sections, you'll learn how to use webhooks with the Speech Services.
 
