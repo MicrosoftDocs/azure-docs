@@ -209,7 +209,7 @@
       displayName: Batch transcription, transcription, custom models, customization, model management
     - name: Webhooks
       href: webhooks.md
-      displayName: Web hooks
+      displayName: Webhooks
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell
