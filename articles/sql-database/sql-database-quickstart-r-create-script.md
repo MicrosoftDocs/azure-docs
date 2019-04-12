@@ -37,11 +37,21 @@ In this quickstart you'll create and run a set of simple R scripts using the pub
 
 To run an R script, you'll pass it as an argument to the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
+This is the R script you'll run in your SQL database.
+
+```r
+a <- 1
+b <- 2
+c <- a/b
+d <- a*b
+print(c(c, d))
+```
+
 1. Open **SQL Server Management Studio** and connect to your SQL database.
 
    If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
-1. Pass a complete R script to [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
+1. Pass a complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
    The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
 
@@ -60,7 +70,8 @@ To run an R script, you'll pass it as an argument to the system stored procedure
    If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See [Prerequisites](#prerequisites) above.
 
    > [!NOTE]
-   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command: `GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>`.
+   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command:
+   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>*.
 
 2. The correct result is calculated and the R `print` function returns the result to the **Messages** window.
 
@@ -69,16 +80,17 @@ To run an R script, you'll pass it as an argument to the system stored procedure
     **Results**
 
     ```text
-    STDOUT message(s) from external script: 
+    STDOUT message(s) from external script:
     0.5 2
     ```
 
 ## Use inputs and outputs
 
 By default, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepts a single dataset as input, which typically you supply in the form of a valid SQL query. It then returns a single R data frame as output.
-But other types of input can be passed as SQL variables, and you can output scalars and models as variables.
 
-For now, let's use the default input and output variables of [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): `InputDataSet` and `OutputDataSet`.
+Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results.
+
+For now, let's use the default input and output variables of [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): **InputDataSet** and **OutputDataSet**.
 
 1. Create a small table of test data.
 
@@ -114,7 +126,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     ![Output from R script that returns data from a table](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
-1. Change the names of the input and output variables. The default input and output variable names are `InputDataSet` and `OutputDataSet`, this script changes the names to `SQL_in` and `SQL_out`:
+1. Now let's change the names of the input and output variables. The default input and output variable names are **InputDataSet** and **OutputDataSet**, this script changes the names to **SQL_in** and **SQL_out**:
 
     ```sql
     EXECUTE sp_execute_external_script
@@ -196,8 +208,8 @@ To see a list of which R packages are installed, including version, dependencies
     EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
     OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
-    WITH result sets((Package NVARCHAR(255), Version NVARCHAR(100), Depends NVARCHAR(4000)
-        , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
+    WITH result sets((Package NVARCHAR(255),  Version NVARCHAR(100), Depends NVARCHAR(4000)
+                    , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
     ```
 
 The output is from `installed.packages()` in R and is returned as a result set.
@@ -210,7 +222,7 @@ The output is from `installed.packages()` in R and is returned as a result set.
 
 If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
 
-Follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
+For example, follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
 
 1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
 
@@ -223,7 +235,7 @@ Follow the steps below to install the **[glue](https://cran.r-project.org/web/pa
 
 1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
 
-1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
+1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip

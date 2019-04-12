@@ -19,7 +19,7 @@ ms.date: 04/11/2019
 
 In this quickstart, you'll create and train a predictive model using R, save the model to a table in your SQL database, then use the model to predict values from new data using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). 
 
-The model you'll use in this quickstart is a simple regression model that predicts the stopping distance of a car based on speed. You'll use the `cars` dataset included with R, because it's small and easy to understand.
+The model you'll use in this quickstart is a simple regression model that predicts the stopping distance of a car based on speed. You'll use the **cars** dataset included with R, because it's small and easy to understand.
 
 > [!TIP]
 > Many datasets, small and large, are included with the R runtime. To get a list of datasets installed with R, type `library(help="datasets")` from an R command prompt.
@@ -38,10 +38,10 @@ The model you'll use in this quickstart is a simple regression model that predic
 
 ## Create and train a predictive model
 
-The car speed data in the `cars` dataset contains two columns, both numeric: `dist` and`speed`. The data includes multiple stopping observations at different speeds. From this data, you'll create a linear regression model that describes the relationship between car speed and the distance required to stop a car.
+The car speed data in the **cars** dataset contains two columns, both numeric: **dist** and **speed**. The data includes multiple stopping observations at different speeds. From this data, you'll create a linear regression model that describes the relationship between car speed and the distance required to stop a car.
 
 The requirements of a linear model are simple:
-- Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
+- Define a formula that describes the relationship between the dependent variable *speed* and the independent variable *distance*.
 - Provide input data to use in training the model.
 
 > [!TIP]
@@ -53,7 +53,7 @@ In the following steps you'll set up the training data, create a regression mode
 
    If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
-1. Create the `CarSpeed` table to save the training data.
+1. Create the **CarSpeed** table to save the training data.
 
     ```sql
     CREATE TABLE dbo.CarSpeed (speed INT NOT NULL, distance INT NOT NULL)
@@ -69,7 +69,7 @@ In the following steps you'll set up the training data, create a regression mode
 
 1. Create a regression model using `rxLinMod`. 
 
-   To build the model you define the formula inside the R code and then pass the training data `CarSpeed` as an input parameter.
+   To build the model you define the formula inside the R code and then pass the training data **CarSpeed** as an input parameter.
 
      ```sql
      DROP PROCEDURE IF EXISTS generate_linear_model;
@@ -156,7 +156,7 @@ VALUES ('latest model', @model)
 
 *Scoring* is a term used in data science to mean generating predictions, probabilities, or other values based on new data fed into a trained model. You'll use the model you created in the previous section to score predictions against new data.
 
-Did you notice that the original training data stops at a speed of 25 miles per hour? That's because the original data was based on an experiment from 1920! You might wonder, how long would it take an automobile from the 1920s to stop if it could get going as fast as 60 mph or even 100 mph? To answer this question, you must provide some new speed values.
+Did you notice that the original training data stops at a speed of 25 miles per hour? That's because the original data was based on an experiment from 1920! You might wonder, how long would it take an automobile from the 1920s to stop if it could get going as fast as 60 mph or even 100 mph? To answer this question, you can provide some new speed values to your model.
 
 1. Create a table with new speed data.
 
