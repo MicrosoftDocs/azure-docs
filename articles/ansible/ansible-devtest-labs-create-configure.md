@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of virtual machine environments for their apps. These environments can be configured for app developing, testing, and training. 
+[Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of VM environments for their apps. These environments can be configured for app developing, testing, and training. 
 
 In this article, you create and manage labs in Azure DevTest Labs using Ansible.
 
@@ -78,7 +78,7 @@ You can set up lab policy settings. The following values can be set:
 
 The sample task in this section configures the lab schedule. 
 
-In the following code snippet, the **lab_vms_startup** value is used to specify the virtual machines startup time. Likewise, setting the **lab_vms_shutdown** value establishes the lab virtual machine shutdown time.
+In the following code snippet, the **lab_vms_startup** value is used to specify the VM startup time. Likewise, setting the **lab_vms_shutdown** value establishes the lab VM shutdown time.
 
 ```yaml
 - name: Set the lab schedule
@@ -122,12 +122,12 @@ An artifacts source is a properly structured GitHub repository that contains art
     security_token: "{{ github_token }}"
 ```
 
-## Create a virtual machine within the lab
+## Create a VM within the lab
 
-Create a virtual machine within the lab.
+Create a VM within the lab.
 
 ```yaml
-- name: Create a virtual machine within the lab
+- name: Create a VM within the lab
   azure_rm_devtestlabvirtualmachine:
     resource_group: "{{ resource_group }}"
     lab_name: "{{ lab_name }}"
@@ -227,7 +227,7 @@ The following task creates the lab environment based on one of the templates fro
 
 ## Create the lab image
 
-The following task creates an image from a virtual machine. The image allows you to create identical virtual machines.
+The following task creates an image from a VM. The image allows you to create identical VMs.
 
 ```yaml
 - name: Create the lab image
@@ -339,7 +339,7 @@ There are two ways to get the complete sample playbook:
         artifact_source: null
       when: "github_token | length == 0"
 
-    - name: Create a virtual machine within the lab
+    - name: Create a VM within the lab
       azure_rm_devtestlabvirtualmachine:
         resource_group: "{{ resource_group }}"
         lab_name: "{{ lab_name }}"
