@@ -54,6 +54,8 @@ To create a single database containing the AdventureWorksLT sample data:
         > [!IMPORTANT]
         > Remember to record the server admin login and password so you can log in to the server and databases for this and other quickstarts. If you forget your login or password, you can get the login name or reset the password on the **SQL server** page. To open the **SQL server** page, select the server name on the database **Overview** page after database creation.
 
+      ![SQL Database details](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
    - **Want to use SQL elastic pool**: Select the **No** option. 
    - **Compute + storage**: Select **Configure database** and for this quickstart, select the **Standard** service tier, and then use the slider to select **10 DTUs (S0)** and **1** GB of storage. Select **Apply**. 
 
@@ -66,7 +68,7 @@ To create a single database containing the AdventureWorksLT sample data:
       > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
     
-    ![SQL Database details](media/sql-database-get-started-portal/sql-db-basic-db-details.png)
+
 
 
 1. Select the **Additional settings** tab. 
