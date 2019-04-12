@@ -13,6 +13,8 @@ manager: dikamath
 
 Reserving nodes for a fixed term is a cost-effective alternative to pay-as-you-go node provisioning. You can reserve capacity for your base needs at reduced prices, and keep the ability to add additional capacity on a pay-as-you-go basis.
 
+## Set up a reserved node in your CloudSimple private cloud
+
 1. In the [Azure portal](https://portal.azure.com) left navigation menu, select **Dedicated VMware Cloud Nodes**.
 2. Select **Reservations** > **Purchase**.  TODO any guidance needed on these settings?
 3. On the **Create Reserved Dedicated VMware Cloud Nodes** page, select a name for the dedicated node.

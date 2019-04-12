@@ -15,7 +15,7 @@ To create a virtual machine in the Azure portal, use Virtual Machine templates t
 
 ## CloudSimple VM creation on Azure requires a VM template
 
-The VM template should exist on your private cloud vCenter.  Create a virtual machine on your private cloud from vCenter UI with the desired operating system and configurations.  to create a template, follow the instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc).
+The VM template should exist on your private cloud vCenter.  Create a virtual machine on your private cloud from vCenter UI with the desired operating system and configurations.  to create a template, follow the instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE.html).
 
 ## Create a virtual machine in the Azure portal
 

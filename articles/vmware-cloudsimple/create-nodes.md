@@ -9,9 +9,11 @@ ms.service: vmware
 ms.reviewer: cynthn
 manager: dikamath
 ---
-# Purchase nodes for VMware solutions by CloudSimple - Azure
+# Purchase nodes for VMware Solution by CloudSimple - Azure
 
 Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity for your CloudSimple private cloud environment. For instructions on reserving capacity for a fixed term, see [Reserve nodes for VMware Solutions by CloudSimple - Azure](create-nodes.md).
+
+## Add a purchased node to your CloudSimple private cloud
 
 1. In the [Azure portal](https://portal.azure.com) left navigation menu, select **Dedicated VMware Cloud Nodes**.
 2. Select **Add Node**.
