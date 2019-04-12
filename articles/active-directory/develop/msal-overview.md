@@ -33,14 +33,25 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 * Helps you set up your application from configuration files.
 * Helps you troubleshoot your app by exposing actionable exceptions, logging and telemetry.
 
+## Supported scenarios
+MSAL can be used in many scenarios, including the following:
+
+* Web Application signing in a user and calling a Web API in the name of the user
+* Mobile application calling a Web API in the name of the user who's signed-in interactively.
+* Desktop/service daemon application calling Web API in without a user (in its own name)
+* Desktop application calling a Web API in the name of the signed-in user
+* Application without a browser, or iOT application calling an API in the name of the user
+* Web API calling another downstream Web API in the name of the user for whom it was called
+* Web API calling another API in its own name.
+
 ## Supports multiple languages and frameworks
 
 | Library | Supported platforms and frameworks|
 | --- | --- | 
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/>[MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)| .NET Framework, .NET Core, Xamarin Android, Xamarin iOS, Universal Windows Platform|
-| ![MSAL.js](media/sample-v2-code/logo_js.png)[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
-| ![MSAL for Android](media/sample-v2-code/logo_Android.png)[MSAL for Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
-| ![MSAL for iOS](media/sample-v2-code/logo_iOS.png)[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
+| ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
+| ![MSAL for Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL for Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
+| ![MSAL for iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
 | ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/>[MSAL.Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python) | |)
 | ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/>[MSAL.Java (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-java) ||
 
