@@ -51,16 +51,16 @@ To complete this article, you need:
 
 ## Create a health check service
 
-To test the health check function, you need a health check service. An easy solution is to create an [Azure Function](/azure/azure-functions/). The function takes two parameters - application name, and status, and returns the two values. Your Azure Deployment Manager template uses the status value to determine the action. The knowledge of Azure Function is not required to complete this tutorial.
+To test the health check function, you need a health check service. An easy solution is to create an [Azure Function](/azure/azure-functions/). The function takes a status, and returns the value. Your Azure Deployment Manager template uses the status value to determine the action. The knowledge of Azure Function is not required to complete this tutorial.
 
 Two files are used for deploying the Azure Function:
 
 * A resource manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.  
-* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
+* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0412.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
 
-You don't need to download these two files, but it is helpful to review the files.
+You don't need to download these two files.
 
-To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window.
+To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. The project name is used as a prefix to generate unique resource names.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter an application name used to create Azure resource names"
@@ -82,20 +82,15 @@ To verify and test the Azure function:
 1. Select **Copy** to copy the URL to the clipboard.  The URL is similar to:
 
     ```url
-    https://johndole0411webapp.azurewebsites.net/api/applications/{applicationName}/healthStatus/{healthStatus}?code=YQEoeUSinBs49zZ9pgfjqQ3xzJ8BXlLavlL0sEbpeLr2uRIhO49JuA==
+    https://johndole0412webapp.azurewebsites.net/api/HttpTrigger1?code=AYNGhKjJVKF4WYPkKs/s9T56YpMxjBhgTDnkvSZVnYGL8hud8wGelQ==
     ```
 
-    The code value is the Azure function authorization key. You need the key later in the tutorial.
+    The code value is the Azure function authorization key. You need both the URL (before **?**), and the code when you deploy rollout.
 
-1. Update the URL with the application name and the health status filled, such as:
-
-    ```url
-    https://johndole0411webapp.azurewebsites.net/api/applications/johndoleapp1/healthStatus/healthy?code=YQEoeUSinBs49zZ9pgfjqQ3xzJ8BXlLavlL0sEbpeLr2uRIhO49JuA==
-    ```
-1. Open the URL from a browser.  The result shall be similar to:
+1. Open the URL with **&status=healthy** from a browser.  The result shall be similar to:
 
     ```xml
-    <string xmlns="http://schemas.microsoft.com/2003/10/Serialization/">AppName: johndoleapp1 Status: healthy</string>
+    Status: healthy
     ```
 
 ## Revise the rollout template
@@ -115,8 +110,8 @@ bla, bla, bla ...
         "stepType": "healthCheck",
         "attributes": {
           "waitDuration": "PT1M",
-          "maxElasticDuration": "PT2M",
-          "healthyStateDuration": "PT2M",
+          "maxElasticDuration": "PT0M",
+          "healthyStateDuration": "PT1M",
           "type": "REST",
           "properties": {
             "healthChecks": [
@@ -167,21 +162,42 @@ bla, bla, bla ...
         }
     }
     ```
-1. Update **stepGroup1** with the following.
+1. Update **stepGroups** with the following.
 
+    ```json
+    "stepGroups": [
+        {
+            "name": "stepGroup1",
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
+            "postDeploymentSteps": []
+        },
+        {
+            "name": "stepGroup2",
+            "dependsOnStepGroups": ["stepGroup1"],
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
+            "postDeploymentSteps": [
+                {
+                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'HealthCheckStep1')]"
+                }
+            ]
+        },
+        {
+            "name": "stepGroup3",
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit2.name)]",
+            "postDeploymentSteps": []
+        },
+        {
+            "name": "stepGroup4",
+            "dependsOnStepGroups": ["stepGroup3"],
+            "preDeploymentSteps": [],
+            "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceEUS.name,  variables('serviceTopology').serviceEUS.serviceUnit1.name)]",
+            "postDeploymentSteps": []
+        }
+    ]
     ```
-    {
-        "name": "stepGroup1",
-        "preDeploymentSteps": [
-            {
-                "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'HealthCheckStep')]"
-            }
-        ],
-        "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit2.name)]",
-        "postDeploymentSteps": []
-    },
-
-
 
 ## Deploy the topology
 
