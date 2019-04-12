@@ -87,7 +87,7 @@ Configuration parameters are provided as JSON:
 
 Batch transcription supports [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) for reading audio and writing transcriptions to storage.
 
-## Web hooks 
+## Webhooks 
 
 Polling transcription status may not be the most performant or offer the best user experience. In addition however to poll for status a user can register callbacks, when their long-running transcription tasks complete.
 
