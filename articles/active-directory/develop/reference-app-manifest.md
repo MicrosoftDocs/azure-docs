@@ -113,8 +113,10 @@ _Please refer the [Manifest reference](#manifet-reference) above for the descrip
 > - "**Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. [].**"
 > - "**Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property is not allowed for this application. Use 'replyUrlsWithType' property instead. [].**"
 > - "**Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []**"
-> 
->When you see one of these errors, we recommend you to directly edit the attributes one by one in the manifest editor instead of uploading a previously downloaded manifest. The [Manifest reference](#manifest-reference) table can help you understand the syntax and semantics of old and new attributes so that you can edit the attributes you are interested in successfully.
+>
+>When you see one of these errors, we recommend the following:
+>1. Directly edit the attributes one by one in the manifest editor instead of uploading a previously downloaded manifest. The [Manifest reference](#manifest-reference) table can help you understand the syntax and semantics of old and new attributes so that you can edit the attributes you are interested in successfully. 
+>2. If your workflow requires you to save the manifests in your source repository and use it later, you may want to rebaseline the saved manifests in your repository with the one you see in the App Registration Preview experience.
 
 ## Next steps
 
