@@ -25,7 +25,7 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media Services API requires that the user or application that makes the REST API requests have access to the Azure Media Services account resource (typically either the **Contributor** or **Owner** role). For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
-Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure Active Directory (Azure AD) authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
+Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ### Azure AD service principal 
 
@@ -50,10 +50,6 @@ see [Access Azure Media Services API with the Azure CLI](access-api-cli-how-to.m
 2. The Azure AD access token is sent to the middle tier.
 4. The middle tier sends request to the Azure Media REST API with the Azure AD token.
 5. The middle tier gets back the data from Media Services.
-
-###  Managed identities for Azure resources
-
-You can use the managed identities for Azure resources option instead of a service principal to access your Media Services account via Azure resources from your Azure VMs. For more information, see [What is managed identities for Azure resources?](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## Naming conventions
 
