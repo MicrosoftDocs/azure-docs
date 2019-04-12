@@ -51,7 +51,7 @@ This table lists the core features for text-to-speech:
 \* *These services are available using the cris.ai endpoint. See [Swagger reference](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> The text-to-speech endpoint implements throttling that limits requests to 25 per 5 seconds. When throttling occurs, you'll be notified via message headers.
+> The custom voice endpoints implement throttling that limits requests to 25 per 5 seconds. When throttling occurs, you'll be notified via message headers.
 
 ## Get started with text to speech
 
