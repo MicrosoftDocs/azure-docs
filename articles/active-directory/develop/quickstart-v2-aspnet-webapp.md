@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
@@ -130,7 +130,7 @@ public void Configuration(IAppBuilder app)
             // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
             TokenValidationParameters = new TokenValidationParameters()
             {
-                ValidateIssuer = false
+                ValidateIssuer = false // Simplification (see note below)
             },
             // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
             Notifications = new OpenIdConnectAuthenticationNotifications
@@ -152,6 +152,11 @@ public void Configuration(IAppBuilder app)
 > | `ResponseType`     | Request that the response from authentication contains an ID token |
 > | `TokenValidationParameters`     | A list of parameters for token validation. In this case, `ValidateIssuer` is set to `false` to indicate that it can accept sign-ins from any personal, or work or school account types |
 > | `Notifications`     | A list of delegates that can be executed on different *OpenIdConnect* messages |
+
+
+> [!NOTE]
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> See the samples to understand how to do that.
 
 ### Initiate an authentication challenge
 

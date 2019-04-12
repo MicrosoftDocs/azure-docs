@@ -6,7 +6,7 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
@@ -49,3 +49,11 @@ You can only trigger a function from a resource in a VNET by deploying your func
 Deploying to an App Service Environment is the only way to create a function app that is wholly inside a VNET For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 For scenarios where you only need one-way access to VNET resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
+
+## Next Steps
+
+1. [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+1. [Learn more about the networking options in functions here](./functions-networking-options.md)
+1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
