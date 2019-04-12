@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 # Web hooks
 
-Web hooks are essentially http call backs which can be used to optimize the use of our REST APIs. In this page we explain how to use them.
+Webhooks are like HTTP callbacks that allow your application to accept data from the Speech Services when it becomes available. Using webhooks, you can optimize your use of our REST APIs by eliminating the need to continuously poll for a response. In the next few sections, you'll learn how to use webhooks with the Speech Services.
 
 ## Supported Operations
 
