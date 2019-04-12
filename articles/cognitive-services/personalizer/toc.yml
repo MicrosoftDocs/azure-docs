@@ -17,8 +17,8 @@
     href: how-personalizer-works.md
   - name: Use of Personalizer
     items: 
-    - name: Assessing your Scenario
-      href: scenario-assessment.md
+    - name: Where can you use Personalizer?
+      href: where-can-you-use-personalizer.md
     - name: Ethics & Responsible use
       href: ethics-and-responsible-use.md
 - name: How-to guides
