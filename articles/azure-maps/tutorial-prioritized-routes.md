@@ -278,11 +278,11 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-You can access the code sample for this tutorial here:
+> [!div class="nextstepaction"]
+> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Multiple routes with Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[See the sample live here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
 
