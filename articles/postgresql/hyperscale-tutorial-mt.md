@@ -35,33 +35,33 @@ Log in to the [Azure portal](https://portal.azure.com).
 Follow these steps to create an Azure Database for PostgreSQL server:
 1. Click **Create a resource**  in the upper left-hand corner of the Azure portal.
 2. Select **Databases** from the **New** page, and select **Azure Database for PostgreSQL** from the **Databases** page.
-3. For the deployment option, click the **Create** button under "Hyperscale (Citus) server group - PREVIEW."
+3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group - PREVIEW.**
 4. Fill out the new server details form with the following information:
-   - Subscription: be sure to select the subscription which was whitelisted for hyperscale public preview.
-   - Resource group: click the "Create new" link below the text box for this field. Enter a name such as **myresourcegroup**.
+   - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
    - Server group name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique).
-   - Password: pick the password of your choice. The username is "citus" and cannot be changed.
-   - Location: **East US 2**
+   - Admin username: **myadmin** (this will be used later to connect to the database).
+   - Password: must be at least 8 characters in length and must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
+   - Location: use the location that is closest to your users to give them the fastest access to the data.
 
    > [!IMPORTANT]
    > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
 
 5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
 6. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
-7. The page will redirect to monitor deployment. When the live status changes from "Your deployment is underway" to "Your deployment is complete," click the **Outputs** menu item on the left of the page.
+7. The page will redirect to monitor deployment. When the live status changes from **Your deployment is underway** to **Your deployment is complete**, click the **Outputs** menu item on the left of the page.
 8. The outputs page will contain a coordinator hostname with a button next to it to copy the value to the clipboard. Record this information for later use.
 
 ## Configure a server-level firewall rule
 
 The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
 
-1. From the "Outputs" section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
+1. From the **Outputs** section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
 
 2. Find the scaling group for your deployment in the list of resources and click it. (Its name will be prefixed with "sg-".)
 
-3. Click **Firewall** under "Security" in the left hand menu.
+3. Click **Firewall** under **Security** in the left hand menu.
 
-4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the "Save" button. 
+4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
 
 4. Click **Save**.
 
