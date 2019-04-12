@@ -116,7 +116,7 @@ GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
 To get one specific webhook:
 GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-To remove one specific web hook
+To remove one specific webhook:
 DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
 Note that in the example above the region is 'westus'. This should be replaced by the region for which your create your Speech resource in the Azure portal.
