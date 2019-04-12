@@ -1,6 +1,6 @@
 ---
 title: Get more data, items, or records with pagination - Azure Logic Apps
-description: Set up pagination to exceed the default page size limit for some connector actions in Azure Logic Apps
+description: Set up pagination to exceed the default page size limit for connector actions in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 04/11/2019
 ---
 
 # Get more data, items, or records by using pagination in Azure Logic Apps
@@ -21,26 +21,25 @@ connector's default page size. In this case, the action returns only the
 first page of results. For example, the default page size for the SQL Server 
 connector's **Get rows** action is 2048, but might vary based on other settings.
 
-Some actions support *pagination* so that your logic app can retrieve 
-more results up to the pagination limit, but return those results as 
-a single message when the action finishes. When you use pagination, 
-you must specify the *minimum number* of results that you want the 
-action to return. The action retrieves results until reaching 
-*at least* your specified minimum. When your total number of items 
-is less than your specified minimum, the action retrieves all the results. 
+Some actions let you turn on a *pagination* setting so that your logic 
+app can retrieve more results up to the pagination limit, but return those 
+results as a single message when the action finishes. When you use pagination, 
+you must specify a *minimum number* of results that you want the action to return. 
+The action retrieves results until reaching your specified threshold. When your 
+total number of items is less than the specified threshold, the action retrieves 
+all the results. 
 
-Pagination retrieves pages of results based on a connector's page size. 
-This behavior means that you might get more results than your specified 
-minimum. For example, when using the SQL Server **Get rows** action, 
-which supports pagination: 
+Turning on the pagination setting retrieves pages of results based on a connector's page size. 
+This behavior means that sometimes, you might get more results than your specified threshold. 
+For example, when using the SQL Server **Get rows** action, which supports pagination setting:
 
 * The action's default page size is 2048 records per page.
 * Suppose you have 10,000 records and specify 5000 records as the minimum.
 * Pagination gets pages of records, so to get at least the specified minimum, 
 the action returns 6136 records (3 pages x 2048 records), not 5000 records.
 
-Here's a list with just some of the connectors where 
-you can turn on pagination for specific actions:
+Here's a list with just some of the connectors where you 
+can exceed the default page size for specific actions:
 
 * <a href="https://docs.microsoft.com/connectors/azureblob/" target="_blank">Azure Blob Storage</a>
 * <a href="https://docs.microsoft.com/connectors/dynamicscrmonline/" target="_blank">Dynamics 365</a>
@@ -77,8 +76,8 @@ ellipses (**...**) button, and select **Settings**.
    the action shows the **Pagination** setting.
 
 1. Change the **Pagination** setting from **Off** to **On**. 
-In the **Limit** property, specify the *minimum number* of 
-results that you want the action to return.
+In the **Limit** property, specify an integer value for the 
+*minimum number* of results that you want the action to return.
 
    ![Specify minimum number of results to return](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
