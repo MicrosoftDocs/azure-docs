@@ -1,0 +1,17 @@
+- name: Immersive Reader Documentation
+- name: Overview
+  items:
+  - name: About Immersive Reader
+    href: Overview.md
+- name: Quickstarts
+  items:
+  - name: Create a web app that launches the Immersive Reader (C#)
+    href: Quickstart.md
+- name: Tutorials
+  items:
+  - name: Launch the Immersive Reader (Node.js)
+    href: tutorial.md
+- name: Reference
+  items:
+  - name: SDK Reference
+    href: reference.md
