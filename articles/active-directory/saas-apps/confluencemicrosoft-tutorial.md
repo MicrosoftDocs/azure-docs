@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/10/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -32,7 +33,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Description:
 
-Use your Microsoft Azure Active Directory account with Atlassian Confluence server to enable single sign-on. This way all your organization users can use the Azure AD credentials to login into the Confluence application. This plugin uses SAML 2.0 for federation.
+Use your Microsoft Azure Active Directory account with Atlassian Confluence server to enable single sign-on. This way all your organization users can use the Azure AD credentials to signin into the Confluence application. This plugin uses SAML 2.0 for federation.
 
 ## Prerequisites
 
@@ -74,6 +75,9 @@ As of now, following versions of Confluence are supported:
 - Confluence: 6.11.0
 - Confluence: 6.12.0
 
+> [!NOTE]
+> Please note that Confluence also supports Linux Ubuntu version 16.04
+
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
@@ -100,7 +104,7 @@ To configure the integration of Confluence SAML SSO by Microsoft into Azure AD, 
 
 4. In the search box, type **Confluence SAML SSO by Microsoft**, select **Confluence SAML SSO by Microsoft** from result panel then click **Add** button to add the application.
 
-	 ![Confluence SAML SSO by Microsoft in the results list](common/search-new-app.png)
+	![Confluence SAML SSO by Microsoft in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -156,7 +160,7 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 ### Configure Confluence SAML SSO by Microsoft Single Sign-On
 
-1. In a different web browser window, log in to your Confluence instance as an administrator.
+1. In a different web browser window, sign in to your Confluence instance as an administrator.
 
 2. Hover on cog and click the **Add-ons**.
 
@@ -183,18 +187,18 @@ To configure Azure AD single sign-on with Confluence SAML SSO by Microsoft, perf
 
 	c. In **Login Button Name** type the name of button your organization wants the users to see on login screen.
 
-	d. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user id. If the user id is not matched, then system will not allow users to log in. 
+	d. In **SAML User ID Locations**, select either **User ID is in the NameIdentifier element of the Subject statement** or **User ID is in an Attribute element**.  This ID has to be the Confluence user ID. If the user ID is not matched, then system will not allow users to sign in. 
 
 	> [!Note]
 	> Default SAML User ID location is Name Identifier. You can change this to an attribute option and enter the appropriate attribute name.
 	
-	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User Id is expected. 
+	e. If you select **User ID is in an Attribute element** option, then in **Attribute name** textbox type the name of the attribute where User ID is expected. 
 
 	f. If you are using the federated domain (like ADFS etc.) with Azure AD, then click on the **Enable Home Realm Discovery** option and configure the **Domain Name**.
 	
 	g. In **Domain Name** type the domain name here in case of the ADFS-based login.
 
-	h. Check **Enable Single Sign out** if you wish to log out from Azure AD when a user logs out from Confluence. 
+	h. Check **Enable Single Sign out** if you wish to sign out from Azure AD when a user signs out from Confluence. 
 
 	i. Click **Save** button to save the settings.
 
@@ -219,8 +223,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -254,11 +257,11 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Confluence SAML SSO by Microsoft test user
 
-To enable Azure AD users to log in to Confluence on-premises server, they must be provisioned into Confluence SAML SSO by Microsoft. For Confluence SAML SSO by Microsoft, provisioning is a manual task.
+To enable Azure AD users to sign in to Confluence on-premises server, they must be provisioned into Confluence SAML SSO by Microsoft. For Confluence SAML SSO by Microsoft, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Confluence on-premises server as an administrator.
+1. Sign in to your Confluence on-premises server as an administrator.
 
 2. Hover on cog and click the **User management**.
 
