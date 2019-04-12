@@ -84,7 +84,7 @@ The solution does import alerts from System Center Operations Manager and create
 
 | Property | Description |
 |:--- |:--- |
-| `Type |*Alert* |
+| `Type` |*Alert* |
 | `SourceSystem` |*OpsManager* |
 | `AlertContext` |Details of the data item that caused the alert to be generated in XML format. |
 | `AlertDescription` |Detailed description of the alert. |
