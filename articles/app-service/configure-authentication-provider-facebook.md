@@ -44,7 +44,7 @@ To complete the procedure in this topic, you must have a Facebook account that h
    > The app secret is an important security credential. Do not share this secret with anyone or distribute it within a client application.
    > 
    > 
-9. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make <your-app-name> public** to enable general public access using Facebook authentication.
+9. The Facebook account which was used to register the application is an administrator of the app. At this point, only administrators can sign into this application. To authenticate other Facebook accounts, click **App Review** and enable **Make \<your-app-name> public** to enable general public access using Facebook authentication.
 
 ## <a name="secrets"> </a>Add Facebook information to your application
 1. Back in the [Azure portal], navigate to your application. Click **Settings** > **Authentication / Authorization**, and make sure that **App Service Authentication** is **On**.
