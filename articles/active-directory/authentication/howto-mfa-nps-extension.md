@@ -142,7 +142,7 @@ Your users also need to follow these steps to enroll before they can authenticat
 
 #### Upgrade the NPS extension
 
-When upgrading an existing NPS exstension install, to avoid a reboot of the underlying server complete the following steps:
+When upgrading an existing NPS extension install, to avoid a reboot of the underlying server complete the following steps:
 
 1. Uninstall the existing version
 1. Run the new installer
@@ -236,7 +236,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-Once you run this command, go to your C drive, locate the file and double click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
+Once you run this command, go to your C drive, locate the file and double-click on it. Go to details and scroll down to "thumbprint", compare the thumbprint of the certificate installed on the server to this one. The certificate thumbprints should match.
 
 Valid-From and Valid-Until timestamps, which are in human-readable form, can be used to filter out obvious misfits if the command returns more than one cert.
 
@@ -244,7 +244,7 @@ Valid-From and Valid-Until timestamps, which are in human-readable form, can be 
 
 ### Why cant I sign in?
 
-Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Please contact your organization's IT Staff for further assistance.
+Check that your password hasn't expired. The NPS Extension does not support changing passwords as part of the sign-in workflow. Contact your organization's IT Staff for further assistance.
 
 -------------------------------------------------------------
 
@@ -275,7 +275,7 @@ Verify that https://adnotifications.windowsazure.com is reachable from the serve
 
 If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
-To check if you have a valid certificate, check the local Computer Account's Certificate Store using MMC, and ensure the certificate has not passed its expiry date. To generate a newly valid certificate, re-run the steps under the section "[Run the PowerShell script](#run-the-powershell-script)"
+To check if you have a valid certificate, check the local Computer Account's Certificate Store using MMC, and ensure the certificate has not passed its expiry date. To generate a newly valid certificate, rerun the steps under the section "[Run the PowerShell script](#run-the-powershell-script)"
 
 ## Managing the TLS/SSL Protocols and Cipher Suites
 
