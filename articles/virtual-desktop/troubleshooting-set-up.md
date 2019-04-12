@@ -17,7 +17,7 @@ This article describes some common issues you may encounter when setting up a Wi
 
 Windows Virtual Desktop (WVD) is a multi-tenant service hosted by Microsoft that manages connections between RD clients and isolated Windows Virtual Desktop tenant environments. A tenant environment lets end users connect to published apps and desktops.
 
-Each WVD tenant environment consists of one or more host pools. Each host pool consists of one or more identical session hosts. The session hosts are virtual machines (VMs) running different Windows operating systems. Each session host must have a WVD host agent installed and registered with the Windows Virtual Desktop service.
+Each Windows Virtual Desktop tenant environment consists of one or more host pools. Each host pool consists of one or more identical session hosts. The session hosts are virtual machines (VMs) running different Windows operating systems. Each session host must have a Windows Virtual Desktop host agent installed and registered with the Windows Virtual Desktop service.
 
 >[!NOTE]
 > Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment.
@@ -30,7 +30,7 @@ Each host pool may have one or more app groups. An app group is a logical groupi
 - Desktop
 - RemoteApp
 
-A desktop app group publishes the full desktop and provides access to all the apps installed on the session hosts in the host pool. A RemoteApp app group publishes one or more RemoteApps that display on the Remote Desktop client as the application window on the desktop of a local Remote Desktop client.
+A desktop app group publishes the full desktop and provides access to all the apps installed on the session hosts in the host pool. A RemoteApp group contains one or more applications that are published from remote VMs. Individual applications from the appgroup show in the Remote Desktop client.
 
 ## Escalation tracks
 
@@ -38,15 +38,15 @@ Use the following table to identify and resolve issues you may encounter when se
 
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
-| Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **RDS/WVD support**.|
-| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace WVD templates are freely available.|
-| Accessing ARM templates via GitHub                                   | If the issue is not covered in **Creating WVD session host VMs**, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
+| Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **Remote Desktop Services/Windows Virtual Desktop support**.|
+| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
+| Accessing ARM templates via GitHub                                   | If the issue is not covered in **Creating Windows Virtual Desktop session host VMs**, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
 | Session host pool VNET and Express Route settings                    | Contact **Azure Support (Networking)**. |
-| Session host pool VM creation when ARM templates provided with WVD are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the ARM templates provided with WVD, see **Creating WVD tenant**. |
-| Managing WVD session host environment from the Azure management portal                | Contact **Azure Support**. <br> <br> For management issues when using **RDS/WVD PowerShell**, troubleshoot using **Management with PowerShell** or contact the **RDS/WVD support team**. |
-| Managing WVD configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **RDS/WVD support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **RDS/WVD support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
-| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> <br> If your users have been assigned to an appgroup, escalate to the **RDS/WVD support team**. |
+| Session host pool VM creation when ARM templates provided with Windows Virtual Desktop are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the ARM templates provided with Windows Virtual Desktop, see **Creating Windows Virtual Desktop tenant**. |
+| Managing Windows Virtual Desktop session host environment from the Azure management portal                | Contact **Azure Support**. <br> <br> For management issues when using **Remote Desktop Services/Windows Virtual Desktop PowerShell**, troubleshoot using **Management with PowerShell** or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
+| Managing Windows Virtual Desktop configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
+| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
+| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> <br> If your users have been assigned to an appgroup, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | Troubleshoot using **Session host VMs configuration** and **Client connection issues**. |
 | Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. <br> <br> If issues are tied to a specific application or product, contact the team responsible for that product. |
@@ -54,21 +54,21 @@ Use the following table to identify and resolve issues you may encounter when se
 
 ## Setup issues
 
-This section covers potential issues during the initial setup of the WVD tenant and the related session host pool infrastructure.
+This section covers potential issues during the initial setup of the Windows Virtual Desktop tenant and the related session host pool infrastructure.
 
 ### Acquiring the Windows 10 Enterprise multi-session image
 
-To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from [Azure Marketplace](https://azuremarketplace.microsoft.com/).
+To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from the Azure Marketplace.
 
-### Creating WVD tenant
+### Creating Windows Virtual Desktop tenant
 
-During the private and public preview creation of the WVD, the tenant will be completed by the RDS/WVD team.
+During the private and public preview creation of the Windows Virtual Desktop, the tenant will be completed by the Remote Desktop Services/Windows Virtual Desktop team.
 
-### Creating WVD session host VMs
+### Creating Windows Virtual Desktop session host VMs
 
-Session host VMs can be created using multiple methods but RDS/WVD teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
-### Issues executing “Windows Virtual Desktop – Provision a host pool”
+### Issues executing “WVD – Provision a host pool”
 
 **Error** When using the link from GitHub, the message “Create a free account" appears.
 
@@ -80,7 +80,7 @@ Session host VMs can be created using multiple methods but RDS/WVD teams only su
 
 **Cause 2** The subscription being used is part of a CSP tenant.
 
-**Fix 2** Go to the GitHub location for **Create and provision new WVD host pool** and perform the following steps:
+**Fix 2** Go to the GitHub location for **Create and provision new Windows Virtual Desktop host pool** and perform the following steps:
 
 1. Right click on **Deploy to Azure** and select **Copy link address**.
 2. Open **Notepad** and paste the link.
@@ -128,11 +128,11 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 ![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/7aaf15615309c18a984673be73ac969a.png)
 
-**Cause 1** Transient error with the WVD environment.
+**Cause 1** Transient error with the Windows Virtual Desktop environment.
 
 **Cause 2** Transient error with connection.
 
-**Fix** Confirm WVD environment is healthy by signing in using PowerShell. Complete the manual VM registration steps in **Create a host pool with PowerShell.**
+**Fix** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration steps in **Create a host pool with PowerShell.**
 
 **Error** The Admin Username specified is not allowed.
 
@@ -309,7 +309,7 @@ Use the following information if you're having issues joining VMs to the domain.
 
 1. Manually add the VMs to a domain.
 2. Redeploy once credentials have been confirmed. See **Create a host pool with PowerShell.**
-3. Use DSC to join VMs to a domain [BROKEN LINK](https://blogs.technet.microsoft.com/automagically/2015/08/05/domain-join-using-azure-automation-dsc-2/).
+3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
 
 **Error** Timeout waiting for user input.
 
@@ -341,7 +341,7 @@ Use the following information if you're having issues joining VMs to the domain.
 
 ### Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are not installed
 
-The recommended way to provision VMs is using the **Create and provision WVD host pool** ARM template. Installing the RD Infra Agent and RD Agent Boot Loader is part of the template functionality.
+The recommended way to provision VMs is using the **Create and provision Windows Virtual Desktop host pool** ARM template. Installing the RD Infra Agent and RD Agent Boot Loader is part of the template functionality.
 
 Use these steps to confirm the components are installed and to check for error messages.
 
@@ -355,21 +355,21 @@ Use these steps to confirm the components are installed and to check for error m
 
 **Fix 1** Manually add the missing components to the VMs using **Create a host pool with PowerShell**.
 
-**Cause 2** DSC was able to start and execute but failed to complete as it was not able to sign in to WVD infra and obtain needed information.
+**Cause 2** DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
 
-**Fix 2** Step through the following list. - Make sure account does not have MFA. - Confirm tenant name is accurate and tenant exists in WVD. - Confirm account has at least RDS Contributor permissions.
+**Fix 2** Step through the following list. - Make sure account does not have MFA. - Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop. - Confirm account has at least Remote Desktop Services Contributor permissions.
 
 **Error** Authentication failed, Error in C:\\Windows\\Temp\\scriptlogs.log
 
-**Cause** DSC was able to execute but could not connect to WVD.
+**Cause** DSC was able to execute but could not connect to Windows Virtual Desktop.
 
 **Fix** Check the following list:
 
-- Manually register the VMs with the WVD service.
-- Confirm account used for connecting to WVD has permissions on the tenant to create host pools.
+- Manually register the VMs with the Windows Virtual Desktop service.
+- Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
 - Confirm account does not have MFA.
 
-### Remote Desktop (RD) Agent not registering with the WVD service
+### Remote Desktop (RD) Agent not registering with the Windows Virtual Desktop service
 
 When the RD Agent is first installed on the session host VM (either manually or through ARM template/DSC), a registration token must be provided. The following section covers common troubleshooting steps applicable to the RD Agent.
 
@@ -440,7 +440,7 @@ The side-by-side (SxS) stack gets installed with a Microsoft Installer (MSI) on 
 
 There are three main ways SxS gets installed or enabled on session host pool VMs:
 
-- With the **Create and provision new WVD hostpool** ARM template
+- With the **Create and provision new Windows Virtual Desktop hostpool** ARM template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions / PS)
 
@@ -450,7 +450,7 @@ If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-
 
 ![SxS stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your WVD tenant** on how to reinstall the SxS stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your Windows Virtual Desktop tenant** on how to reinstall the SxS stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
@@ -474,7 +474,7 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ### How to re-install SxS stack
 
-For steps on uninstalling the SxS stack, see the **Fix crashed SxS stack** document.
+For steps on uninstalling the SxS stack, see **How to fix an SxS stack that malfunctions**.
 
 ### How to fix an SxS stack that malfunctions
 
@@ -488,8 +488,6 @@ There are known circumstance that can cause the side-by-side (SxS) stack to malf
 
 The steps outlined in this section can help to uninstall the SxS stack. Once SxS has been uninstalled, follow steps in “Register the VM with the Windows Virtual Desktop host pool” in **Create a host pool with PowerShell** to install SxS stack.
 
-### Remediation
-
 The VM used to run the remediation steps must be on the same subnet and part of the same domain as the VM with the crashed SxS stack.
 
 1. Connect via standard RDP to the VM from where fix will be applied 
@@ -499,13 +497,13 @@ The VM used to run the remediation steps must be on the same subnet and part of 
 5. Navigate to folder where PsExec was unzipped
 6. From command prompt, use the following command:
 
-```
+```cmd
 psexec.exe \\<VMname> cmd
 ```
 >[!Note]
 >VMname is the machine name of the VM with the chased SxS stack.
 
-7. Accept the PsExec License Agreement.
+7. Accept the PsExec License Agreement by clicking Agree.
 
 ![Software license agreement screenshot.](media/SoftwareLicenseTerms.png)
 
@@ -518,21 +516,19 @@ psexec.exe \\<VMname> cmd
 
 9. Run the following command. It will list Microsoft components installed on the VM with the malfunctioning SxS stack.
 
-```
+```cmd
 wmic product get name
 ```
 
 10. Run the command below with product names from step above.
 
-```
+```cmd
 wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
 ```
 
 11. Uninstall all products that start with “Remote Desktop.”
 
-12. If the operating system is Windows Server, once all WVD components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool).
-
-If the operating system is Windows 10, perform the following steps.
+12. If the operating system is Windows Server, once all Windows Virtual Desktop components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool). <br> If the operating system is Windows 10, perform the following steps.
 
 1. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned SxS stack.
 
@@ -551,11 +547,11 @@ Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinSta
 Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
 ```
 
-Once the cmdlets have completed, restart the VM with malfunctioning SxS.
+3. Once the cmdlets have completed, restart the VM with malfunctioning SxS.
 
 ## Client connection issues
 
-Needs an intro
+If you are having client connection issues, use the following troubleshooting information.
 
 ### Web client cannot be opened
 
@@ -563,7 +559,9 @@ Confirm there is internet connectivity by opening another web site; for example,
 
 Use **nslookup** to confirm DNS can resolve the FQDN:
 
-> nslookup rdweb.wvd.microsoft.com
+```
+nslookup rdweb.wvd.microsoft.com
+```
 
 Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10.
 
@@ -605,7 +603,7 @@ Try connecting using another browser or client.
 If the Web client keeps prompting for credentials, use the following steps:
 
 1. Confirm web client URL is correct.
-2. Confirm that credentials are for the WVD environment tied to the URL.
+2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
 3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 4. Clear browser cache. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
 5. Open browser in Private mode.
@@ -639,7 +637,7 @@ In scenarios where users can obtain their feed and see the resource provided to 
 Follow these general troubleshooting steps for common error codes.
 
 1. Confirm user name and time when issue was experienced.
-2. Open **PowerShell** and establish connection to the WVD tenant where the issue was reported.
+2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
 3. Confirm connection to the correct tenant with **Get-RdsTenant.**
 4. If needed set the tenant group context with **Set-RdsContext –TenantGroupt\<TenantGroup\>**.
 5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
@@ -703,7 +701,7 @@ If the web client is being used, confirm that there are no cached credentials is
 
 ## Management with PowerShell
 
-This section covers common errors and issues reported when using PowerShell. For more information on RDS PowerShell, please see the **PowerShell Reference(WVD)** document.
+This section covers common errors and issues reported when using PowerShell. For more information on Remote Desktop Services PowerShell, please see **PowerShell Reference (Windows Virtual Desktop)**.
 
 ### Add-RdsAppGroupUser
 
@@ -725,13 +723,13 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Error** The specified UserPrincipalName does not exist in the Azure AD associated with the RD tenant.
 
-**Cause** The user specified by the -UserPrincipalName cannot be found in the Azure AD tied to the WVD tenant.
+**Cause** The user specified by the -UserPrincipalName cannot be found in the Azure AD tied to the Windows Virtual Desktop tenant.
 
 **Fix** Confirm the following:
 
 - User has synched to Azure AD.
 - User is not B2C or B2B.
-- WVD tenant is tied to correct Azure AD.
+- Windows Virtual Desktop tenant is tied to correct Azure AD.
 
 ### Get-RdsDiagnosticActivities
 
@@ -741,7 +739,7 @@ Get-RdsDiagnosticActivities -ActivityId \<ActivityId\>
 
 **Error** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
 
-**Cause** -TenantName switch is not specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire WVD service, which is not allowed.
+**Cause** -TenantName switch is not specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire Windows Virtual Desktop service, which is not allowed.
 
 **Fix** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName\>.
 
@@ -753,7 +751,7 @@ Get-RdsDiagnosticActivities -Deployment -username \<username\>
 
 **Cause** Using -Deployment switch.
 
-**Fix** -Deployment switch can be used by deployment administrators only. These are usually members of the RDS/WVD team. Replace -Deployment with -TenantName \<TenantName\>
+**Fix** -Deployment switch can be used by deployment administrators only. These are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace -Deployment with -TenantName \<TenantName\>
 
 ### New-RdsRoleAssignment
 
@@ -761,13 +759,13 @@ New-RdsRoleAssignment cannot give permissions to a user that does not exist in t
 
 **Error** New-RdsRoleAssignment : User is not authorized to query the management service.
 
-**Cause** Account being used does not have RDS Owner permissions on the tenant.
+**Cause** Account being used does not have Remote Desktop Services Owner permissions on the tenant.
 
-**Fix** A user with RDS Owner permission needs to execute the role assignment.
+**Fix** A user with Remote Desktop Services Owner permission needs to execute the role assignment.
 
 **Error** New-RdsRoleAssignment : User is not authorized to query the management service.
 
-**Cause** Account being used does have RDS Owner permissions but is not part of Active Directory (AD) or does not have permission to query AD where the user is located.
+**Cause** Account being used does have Remote Desktop Services Owner permissions but is not part of Active Directory (AD) or does not have permission to query AD where the user is located.
 
 **Fix** User with AD permissions needs to execute the role assignment.
 
