@@ -141,7 +141,7 @@ The following design elements should increase the success of your pilot implemen
 
 * Your workforce is most likely to remember an external URL is familiar and relevant. Avoid publishing your application using our pre-defined msappproxy.net or onmicrosoft.com suffixes. Instead, provide a familiar top-level verified domain, prefixed with a logical hostname such as *intranet.<customers_domain>.com*.
 
-* Restrict visibility of the pilot application’s icon to a a pilot group by hiding its launch icon form the Azure MyApps portal. When ready for production you can scope the app to its respective targeted audience, either in the same pre-production tenant, or by also publishing the  application in your production tenant.
+* Restrict visibility of the pilot application’s icon to a pilot group by hiding its launch icon form the Azure MyApps portal. When ready for production you can scope the app to its respective targeted audience, either in the same pre-production tenant, or by also publishing the  application in your production tenant.
 
 **Single sign-on settings**:
 Some SSO settings have specific dependencies that can take time to set up, so avoid change control delays by ensuring dependencies are addressed ahead of time. This includes domain joining connector hosts to perform SSO using Kerberos Constrained Delegation (KCD) and taking care of other time-consuming activities. For example, Setting up a PING Access instance, if needing header-based SSO.
@@ -288,7 +288,7 @@ Azure AD can provide additional insights into your organization’s user provisi
 
 #### Application audit logs
 
-These logs detail logins to applications configured with Application Proxy, as well as information about the device and the user accessing the application. They are located in the Azure management portal and in Audit API.
+These logs detail logins to applications configured with Application Proxy, as well as information about the device and the user accessing the application. They are located in the Azure portal and in Audit API.
 
 #### Windows event logs and performance counters
 
