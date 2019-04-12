@@ -1,5 +1,5 @@
 titlesuffix: Azure Cognitive Services
-description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests or transcritpion of long running files.
+description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests, or transcriptions of long running files.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -54,9 +54,9 @@ Configuration parameters for the request are provided as JSON:
 ```
 All POST requests to the Batch Transcription API require a `name`. The `description` and `properties` parameters are optional.
 
-The 'Active' property is used to switch calling back into your URL on and off without having to delete and re-create the webhook registration. If you are looking to be called once when the is completed then Delete the webhook and switch the 'Active' property to false.
+The `Active` property is used to switch calling back into your URL on and off without having to delete and re-create the webhook registration. If you only need to call back once after the process has complete, then delete the webhook and switch the `Active` property to false.
 
-The event type `TranscriptionCompletion` is provided in the events array. It will callback to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type. 
+The event type `TranscriptionCompletion` is provided in the events array. It will call back to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type. 
 
 There is one event type that you cannot subscribe to. It is the `Ping` event type. A request with this type is sent to the URL when finished creating a webhook when using the ping URL (see below).  
 
@@ -102,11 +102,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
 }
 
 ```
-In this code snippet, the `secret` is decoded and validated. You'll also notice that the webhook event type has been switched.
-
-Currently there is one event per completed transcription.
-
-We are retrying 5 times for each event (with a delay of 1s) before we give up.
+In this code snippet, the `secret` is decoded and validated. You'll also notice that the webhook event type has been switched. Currently there is one event per completed transcription. The code retries five times for each event (with a one second delay) before giving up.
 
 ### Other webhook operations
 
@@ -125,7 +121,7 @@ DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping
 Body: empty
 
-Sends a POST request to the registered URL. The request contains an `X-MicrosoftSpeechServices-Event` header with a value ping. If the webhook was registered with a secret it will contain an `X-MicrosoftSpeechServices-Signature` header with an SHA256 hash of the payload with the secret as HMAC key. The hash is Base64 encoded. 
+Sends a POST request to the registered URL. The request contains an `X-MicrosoftSpeechServices-Event` header with a value ping. If the webhook was registered with a secret, it will contain an `X-MicrosoftSpeechServices-Signature` header with an SHA256 hash of the payload with the secret as HMAC key. The hash is Base64 encoded. 
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test
 Body: empty
@@ -134,7 +130,7 @@ Sends a POST request to the registered URL if an entity for the subscribed event
 
 ### Run a test
 
-A quick test can be done using the website https://bin.webhookrelay.com. From there you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
+A quick test can be done using the website https://bin.webhookrelay.com. From there, you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
 
 ## Next steps
 
