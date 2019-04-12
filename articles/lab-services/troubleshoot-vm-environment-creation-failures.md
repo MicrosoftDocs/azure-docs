@@ -30,14 +30,13 @@ Look at activity logs if you're investigating a failure sometime after attemptin
 
 ## Activity logs for virtual machines
 
-- On the home page for your lab, select the VM to launch the **Virtual Machine** page.
-- On the **Virtual Machine** page, in the **MONITORING** section of the left menu, select **Activity log** to see all logs associated with the VM.  
-- In the activity log items, select the operation that failed. Typically, the failed operation is called `Write Virtualmachines`.   
-- In the right pane, switch to the JSON tab. You see the details in the JSON view of the log.
+1. On the home page for your lab, select the VM to launch the **Virtual Machine** page.
+2. On the **Virtual Machine** page, in the **MONITORING** section of the left menu, select **Activity log** to see all logs associated with the VM.  
+3. In the activity log items, select the operation that failed. Typically, the failed operation is called `Write Virtualmachines`.   
+4. In the right pane, switch to the JSON tab. You see the details in the JSON view of the log.
 
     ![Activity log for a VM](./media/troubleshoot-vm-environment-creation-failures/vm-activity-log.png)
-
-    Look through the JSON log until you find the `statusMessage` property. It gives you the main error message and further detail information, if applicable. The following JSON is an example for the core quoted exceeded error seen earlier in this article.
+5. Look through the JSON log until you find the `statusMessage` property. It gives you the main error message and further detail information, if applicable. The following JSON is an example for the core quoted exceeded error seen earlier in this article.
 
     ```json
     "properties": { 
@@ -51,7 +50,7 @@ Look at activity logs if you're investigating a failure sometime after attemptin
 To see the activity log for an environment creation, follow these steps:
 
 1. On the home page for your lab, select **Configuration and policies** on the left menu.
-2. on the **Configuration and policies** page, select **Activity sign in the menu. 
+2. on the **Configuration and policies** page, select **Activity logs** on the menu. 
 3. Look for the failure in the activity list in the log and select it. 
 4. In the right pane, switch to the JSON tab, and look for the **statusMessage**. 
 
