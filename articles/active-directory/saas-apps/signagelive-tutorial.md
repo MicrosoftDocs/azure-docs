@@ -64,7 +64,7 @@ To configure the integration of Signagelive into Azure AD, first add Signagelive
 
 	 ![Signagelive in the results list](common/search-new-app.png)
 
-5. Select **Signagelive** from results pane, and then then select the **Add** button to add the application.
+5. Select **Signagelive** from results pane, and then select the **Add** button to add the application.
 
 ## Configure and test Azure AD single sign-on
 
@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with Signagelive, take the following steps:
 
 	![The Certificate download link](common/certificateraw.png)
 
-6. In the **Set up Signagelive** section, copy the the URL(s) that you need.
+6. In the **Set up Signagelive** section, copy the URL(s) that you need.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
