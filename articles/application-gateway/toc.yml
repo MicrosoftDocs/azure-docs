@@ -17,8 +17,6 @@
     href: quick-create-cli.md
 - name: Tutorials
   items:
-  - name: Host single site
-    href: quick-create-portal.md
   - name: Enable web application firewall
     href: application-gateway-web-application-firewall-portal.md
   - name: Secure with SSL
