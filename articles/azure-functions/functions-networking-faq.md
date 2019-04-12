@@ -3,14 +3,14 @@ title: Frequently Asked Questions about Networking in Azure Functions
 description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche
+ms.author: alkarche, glenga
 
 ---
-# Frequently Asked Questions about Networking in Azure Functions
+# Frequently asked questions about networking in Azure Functions
 
 Below is a list of frequently asked networking questions. For a more comprehensive overview, read the [Functions networking options document](functions-networking-options.md)
 
@@ -18,7 +18,7 @@ Below is a list of frequently asked networking questions. For a more comprehensi
 
 Deploying a function in an App Service Environment (ASE) is currently the only way to have a static inbound and outbound IP for your function. For details on using an ASE, start with the article here: [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
 
-## How do I restrict Internet Access to my Function?
+## How do I restrict internet access to my Function?
 
 You can restrict internet access in a number of ways, listed below.
 
@@ -52,8 +52,10 @@ For scenarios where you only need one-way access to VNET resources, or less comp
 
 ## Next Steps
 
-1. [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
-1. [Learn more about the networking options in functions here](./functions-networking-options.md)
-1. [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
-1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
-1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
+To learn more about networking and Functions, see the following articles: 
+
+* [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+* [Learn more about the networking options in functions here](./functions-networking-options.md)
+* [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
