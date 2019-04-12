@@ -220,6 +220,8 @@
     href: language-support.md
   - name: Regions
     href: regions.md
+  - name: Swagger
+    href: swagger.md
 - name: Resources
   items:
   - name: FAQ
