@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 
 	d. Select **Save**.
 
-7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options as per your requirement. Then save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options according to your requirements. Then save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
