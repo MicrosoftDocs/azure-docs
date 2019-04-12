@@ -8,7 +8,7 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: absha
 ---
-# Rewrite HTTP headers in an existing Application gateway
+# Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell
 
 This article shows you how to use Azure PowerShell to configure an [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>)  to rewrite the HTTP headers in the requests and responses.
 
