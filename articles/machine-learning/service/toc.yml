@@ -129,6 +129,8 @@
       href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
+    - name: Track experiments with MLflow
+      href: how-to-use-mlflow-with-azureml.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
