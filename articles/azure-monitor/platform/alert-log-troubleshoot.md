@@ -98,7 +98,7 @@ Listed below are some reasons due to which [log alert rule in Azure Monitor](../
 
 Log alert rules created in Azure Monitor target-specific resource like an Azure Log Analytics workspace, Azure Application Insights app, and Azure resource. And the log alert service will then run analytics query provided in the rule for the specified target. But after the rule creation, often user's go on to delete from Azure or move inside Azure - the target of the alert rule. Due to which the log alert rule no longer runs correctly, as the analytics query fails to execute for the specified target.
 
-In such cases, Azure Monitor will disable the log alert and ensure customers are not billed unnecessarily, when the rule itself is not able to execute continually for sizeable period like a week. User's can find out on the exact time at which the log alert rule was disabled by Azure Monitor via [Azure Activity Log](../azure-resource-manager/resource-group-audit.md). In Azure Activity Log, when the log alert rule is disabled by Azure - an event is added in Azure Activity Log.
+In such cases, Azure Monitor will disable the log alert and ensure customers are not billed unnecessarily, when the rule itself is not able to execute continually for sizeable period like a week. User's can find out on the exact time at which the log alert rule was disabled by Azure Monitor via [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). In Azure Activity Log, when the log alert rule is disabled by Azure - an event is added in Azure Activity Log.
 
 A sample event in Azure Activity Log for alert rule disabling due to its continual failure; is shown below.
 
@@ -169,11 +169,11 @@ Each log alert rule created in Azure Monitor as part of its configuration must s
 
 - Query is written to [run across multiple resources](../log-query/cross-workspace-query.md) and one or more of the resources mentioned now no longer exist
 - There has been no data flow to the analytics platform, due to which the [query execution gives error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) as there is no data for the provided query
-- Changes in [Query Language](../../kusto/query/best-practices.md) have occurred where-in commands and functions have a revised format. Hence the earlier provided query in alert rule is no longer valid.
+- Changes in [Query Language](https://docs.microsoft.com/azure/kusto/query/) have occurred where-in commands and functions have a revised format. Hence the earlier provided query in alert rule is no longer valid.
 
 The user shall be warned of this behavior first via [Azure Advisor](../../advisor/advisor-overview.md). A recommendation would be added for the specific log alert rule on Azure Advisor, under the category of High Availability with medium impact and description as "Repair your log alert rule to ensure monitoring". If after seven days of the recommendation, the specified log alert rule is not altered and the alert query rectified. Then Azure Monitor will disable the log alert and ensure customers are not billed unnecessarily, when the rule itself is not able to execute continually for sizeable period like a week.
 
-User's can find out on the exact time at which the log alert rule was disabled by Azure Monitor via [Azure Activity Log](../azure-resource-manager/resource-group-audit.md). In Azure Activity Log, when the log alert rule is disabled by Azure - an event is added in Azure Activity Log.
+User's can find out on the exact time at which the log alert rule was disabled by Azure Monitor via [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). In Azure Activity Log, when the log alert rule is disabled by Azure - an event is added in Azure Activity Log.
 
 ## Next steps
 
