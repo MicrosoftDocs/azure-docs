@@ -118,7 +118,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
        | Certificate store location | The path on your computer where you have stored the certificate. This is indicated by the store location and the certificate ID generated in the first step. For example: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
        When prompted, use the following credentials to connect to the privilege endpoint. 
-        - User name: Specify the CloudAdmin account, in the format <Azure Stack domain>\cloudadmin. (For ASDK, the user name is azurestack\cloudadmin.)
+        - User name: Specify the CloudAdmin account, in the format `<Azure Stack domain>\cloudadmin`. (For ASDK, the user name is azurestack\cloudadmin.)
         - Password: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
     - Run the following script with the parameters updated to your values:
