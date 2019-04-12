@@ -3,21 +3,21 @@
 - name: Overview
   items:
   - name: What is Azure Stack?
-    href: azure-stack-poc.md
-  - name: Key features and concepts
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Comparing the Azure ecosystem
+    href: compare-azure-azure-stack.md
   - name: Release notes
     items:
     - name: Recent updates
       href: azure-stack-servicing-policy.md
+    - name: 1903 update
+      href: azure-stack-update-1903.md
     - name: 1902 update
       href: azure-stack-update-1902.md      
     - name: 1901 update 
       href: azure-stack-update-1901.md      
     - name: 1811 update 
       href: azure-stack-update-1811.md
-    - name: 1809 update 
-      href: azure-stack-update-1809.md 
 - name: Quickstarts
   expanded: true
   items:
@@ -232,6 +232,8 @@
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Offer a Kubernetes Cluster
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Create a site-to-site VPN connection
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Offer services
     href: azure-stack-offer-services-overview.md
   - name: Offer SQL as PaaS
@@ -401,4 +403,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Training and certification
-    href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
+    href: azure-stack-train-and-cert.md

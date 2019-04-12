@@ -15,6 +15,9 @@ ms.author: helohr
 
 A downloadable client is available that provides access to Windows Virtual Desktop Preview resources from devices running Windows 7 and Windows 10.
 
+> [!IMPORTANT]
+> Don't use **RemoteApp and Desktop Connections (RADC)** or **Remote Desktop Connection (MSTSC)** to access Windows Virtual Desktop resources because Windows Virtual Desktop doesn't support either client.
+
 ## Install the client
 
 [Download](https://go.microsoft.com/fwlink/?linkid=2068602) and install the client to your local PC. This requires admin rights.
@@ -26,18 +29,14 @@ Get the list of managed resources available to you from your local PC by subscri
 To subscribe to a feed:
 
 1. Start the client from the All Apps List, look for **Remote Desktop**.
-2. Select either a work or school account on the main page. This will subscribe with the default feed URL.
-   - You can also provide a different URL if needed with the **Use a URL instead** option.
-3. Sign in with your user account.
-
-> [!NOTE]
-> If your admin has set up email discovery, the client will automatically look up your feed URL when you enter your email address.
+1. Select **Subscribe** on the main page to connect to the service and retrieve your resources.
+1. **Sign in** with your user account when prompted.
 
 After successfully authenticating, you should now see a list of resources available to you.
 
 You can launch resources by one of two methods.
 
-- Go to the client's main page and select a resource.
+- From the client's main page, double-click a resource to launch it.
 - Launch a resource as you normally would other apps from the Start Menu.
   - You can also search for the apps in the search bar.
 

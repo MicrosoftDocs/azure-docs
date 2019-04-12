@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to create an Azure Analysis Services server by using the Azure portal.
@@ -41,7 +41,7 @@ This quickstart describes how to create an Analysis Services server resource in 
    * **Backup Storage setting**: Optional. If you already have a [storage account](../storage/common/storage-introduction.md), you can specify it as the default for model database backup. You can also specify [backup and restore](analysis-services-backup.md) settings later.
    * **Storage key expiration**: Optional. Specify a storage key expiration period.
 
-Creating the server usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready.
+Creating the server usually takes under a minute. If you selected **Add to Portal**, navigate to your portal to see your new server. Or, navigate to **All services** > **Analysis Services** to see if your server is ready. Servers support tabular models at the 1200 and higher compatibility levels. Model compatibility level is specified in SSDT or SSMS.
 
 ## Clean up resources
 

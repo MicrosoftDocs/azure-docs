@@ -4,7 +4,7 @@ description: Learn how to package an existing application as a guest executable,
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d799c1c6-75eb-4b8a-9f94-bf4f3dadf4c3
@@ -250,7 +250,7 @@ Log files are saved in one of the service's working directories. To determine wh
 ## Deployment
 The last step is to [deploy your application](service-fabric-deploy-remove-applications.md). The following PowerShell script shows how to deploy your application to the local development cluster, and start a new Service Fabric service.
 
-```PowerShell
+```powershell
 
 Connect-ServiceFabricCluster localhost:19000
 

@@ -192,7 +192,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **The Funding Portal**.
 
-	![The The Funding Portal link in the Applications list](common/all-applications.png)
+	![The Funding Portal link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -210,18 +210,18 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create The Funding Portal test user
 
-In this section, you create a user called Britta Simon in The Funding Portal. Work with [The Funding Portal support team](mailto:info@regenteducation.com) to add the users in the The Funding Portal platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in The Funding Portal. Work with [The Funding Portal support team](mailto:info@regenteducation.com) to add the users in The Funding Portal platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the The Funding Portal tile in the Access Panel, you should be automatically signed in to the The Funding Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click The Funding Portal tile in the Access Panel, you should be automatically signed in to The Funding Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

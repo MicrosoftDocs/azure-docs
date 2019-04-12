@@ -25,7 +25,7 @@ Before you begin to set up a geo-filter policy, set up your PowerShell environme
 ### Set up your PowerShell environment
 Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) model for managing your Azure resources. 
 
-You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
+You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install the Az PowerShell module.
 
 #### Connect to Azure with an interactive dialog for sign-in
 ```
@@ -37,6 +37,11 @@ Make sure you have the current version of PowerShellGet installed. Run below com
 ```
 Install-Module PowerShellGet -Force -AllowClobber
 ``` 
+#### Install Az.FrontDoor module 
+
+```
+Install-Module -Name Az.FrontDoor
+```
 
 ### Create a Front Door profile
 Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md).
@@ -70,7 +75,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ## Add rules to a policy
 Find the name of the resource group that contains the Front Door profile using `Get-AzResourceGroup`. Next, create a `geoPolicy` policy object containing `nonUSBlockRule`  using [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) in the specified resource group that contains the Front Door profile. You must provide a unique name for the geo policy. 
 
-The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article.
+The below example uses the Resource Group name *myResourceGroupFD1* with the assumption that you have created the Front Door profile using instructions provided in the [Quickstart: Create a Front Door](quickstart-create-front-door.md) article. In the below example, replace the policy name *geoPolicyAllowUSOnly* with a unique policy name.
 
 ```
 $geoPolicy = New-AzFrontDoorFireWallPolicy `

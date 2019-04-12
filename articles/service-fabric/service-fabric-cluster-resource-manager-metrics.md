@@ -4,7 +4,7 @@ description: Learn about how to configure and use metrics in Service Fabric to m
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 0d622ea6-a7c7-4bef-886b-06e6b85a97fb
