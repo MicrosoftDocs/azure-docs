@@ -21,3 +21,11 @@
       href: scenario-assessment.md
     - name: Ethics & Responsible use
       href: ethics-and-responsible-use.md
+- name: How-to guides
+  items: 
+  - name: Use containers
+    items: 
+    - name: Install and run containers
+      href: personalizer-container-howto.md
+    - name: Configure containers
+      href: personalizer-container-configuration.md      
