@@ -125,7 +125,7 @@ DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping
 Body: empty
 
-Sends a POST request to the registered URL. The request will contain a X-MicrosoftSpeechServices-Event header with the value ping. If the web hook was registered with a secret it will contain a X-MicrosoftSpeechServices-Signature header with an SHA256 hash of the payload with the secret as HMAC key. The hash is base64 encoded. The request body is of the same shape as in the GET request for a specific hook.
+Sends a POST request to the registered URL. The request contains an `X-MicrosoftSpeechServices-Event` header with a value ping. If the webhook was registered with a secret it will contain an `X-MicrosoftSpeechServices-Signature` header with an SHA256 hash of the payload with the secret as HMAC key. The hash is Base64 encoded. 
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test
 Body: empty
