@@ -314,7 +314,7 @@ There are two ways to get the complete sample playbook:
         lab_name: "{{ lab_name }}"
         name: "{{ vn_name }}"
         location: eastus
-        description: My DevTest Lab
+        description: My lab virtual network
       register: output
 
     - name: Define the lab artifacts source
