@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ms.service: cognitive-services
 ---
@@ -64,7 +64,7 @@ The text is highlighted in blue, indicating an entity.
 
 ## Add a prebuilt entity
 
-For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-prebuilt-entity).
+For information, see [Prebuilt entity](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app).
 
 ## Using the contextual toolbar
 
