@@ -29,17 +29,17 @@ Language support is initially rolled out in preview, graduating to generally ava
 
 | Language    | Language code | Sentiment | Key phrases | Named Entity Recognition |   Notes  |
 |:----------- |:-------------:|:---------:|:-----------:|:-----------:|:-----------:
-| Arabic      | `ar`          |           |             | ✔ \*\*                     | |
-| Czech       | `cs`          |           |             | ✔ \*\*                     | |
-| Chinese-Simplified | `zh-CN`|           |             | ✔ \*\*        |    |
+| Arabic      | `ar`          |           |             | ✔ \*                     | |
+| Czech       | `cs`          |           |             | ✔ \*                     | |
+| Chinese-Simplified | `zh-CN`|           |             | ✔ \*        |    |
 | Danish      | `da`          | ✔ \*     | ✔           | ✔ \*            |     |
 | Dutch       | `nl`          | ✔ \*     | ✔          |  ✔ \*           |     |
-| English     | `en`          | ✔        | ✔           |  ✔      |      |
+| English     | `en`          | ✔        | ✔           |  ✔ \*\*     |      |
 | Finnish     | `fi`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | French      | `fr`          | ✔        | ✔           |  ✔ \*           |     |
 | German      | `de`          | ✔ \*     | ✔           |  ✔ \*          |     |
 | Greek       | `el`          | ✔ \*     |             |            |     |
-| Hungarian   | `hu`          |           |             |  ✔ \*\*          |     | 
+| Hungarian   | `hu`          |           |             |  ✔ \*          |     | 
 | Italian     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | Japanese    | `ja`          |          | ✔           |  ✔ \*          |     |
 | Korean      | `ko`          |          | ✔           |  ✔ \*          |     |
@@ -52,9 +52,9 @@ Language support is initially rolled out in preview, graduating to generally ava
 | Swedish     | `sv`          | ✔ \*     | ✔           |   ✔ \*          |     |
 | Turkish     | `tr`          | ✔ \*     |             |   ✔ \*          |  |
 
-\* indicates language support in preview
+\* Language support is in preview
 
-\*\* Only [Named Entity Recognition](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) is available for this language.    
+\*\* Named Entity Recognition and [Entity linking](how-tos/text-analytics-how-to-entity-linking.md) are both available for this language.    
 
 ## See also
 
