@@ -4,7 +4,7 @@ description: Describes the relationship between replicas (or instances) of a dep
 services: service-fabric
 documentationcenter: .net
 author: harahma
-manager: timlt
+manager: chackdan
 
 ms.service: service-fabric
 ms.devlang: dotnet

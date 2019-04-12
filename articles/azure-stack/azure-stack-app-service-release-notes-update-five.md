@@ -62,6 +62,7 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
+  - Added ASP.NET Core 2.1.6 and 2.2.0
   - Added NodeJS 10.14.1
   - Added NPM 6.4.1
   - Updated Kudu to 79.20129.3767
@@ -72,7 +73,7 @@ Azure App Service on Azure Stack Update 5 includes the following improvements an
 ### Post-deployment Steps
 
 > [!IMPORTANT]  
-> If you have provided the App Service RP with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
+> If you have provided the App Service resource provider with a SQL Always On Instance you MUST [add the appservice_hosting and appservice_metering databases to an availability group](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database) and synchronize the databases to prevent any loss of service in the event of a database failover.
 
 ### Post-update steps
 

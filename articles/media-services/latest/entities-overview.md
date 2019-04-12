@@ -1,7 +1,7 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Filtering, ordering, paging of Azure Media Services entities - Azure | Microsoft Docs
-description: This article discusses filtering, ordering, paging of Azure Media Services entities.  
+title: Filtering, ordering, paging of Media Services entities - Azure | Microsoft Docs
+description: This article discusses filtering, ordering, paging of Azure Media Services entities. 
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,15 +11,13 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
 
 ---
 
 # Filtering, ordering, paging of Media Services entities
-
-## Overview
 
 Media Services supports the following OData query options for Media Services v3 entities: 
 
@@ -183,7 +181,6 @@ The following table shows how these options may be applied to the [Jobs](https:/
 | properties.created      | gt, ge, lt, le| ascending and descending|
 | properties.lastModified | gt, ge, lt, le | ascending and descending| 
 
-
 ### Pagination
 
 Jobs pagination is supported in Media Services v3.
@@ -292,7 +289,6 @@ while (currentPage.NextPageLink != null)
 ```
 
 For REST examples, see [Streaming Policies - List](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-
 
 ## Transform
 

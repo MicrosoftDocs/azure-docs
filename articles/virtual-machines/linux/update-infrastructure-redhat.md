@@ -85,6 +85,8 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 # Azure US Government
 13.72.186.193
+13.72.14.155
+52.244.249.194
 
 # Azure Germany
 51.5.243.77
@@ -104,6 +106,11 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Alternatively, running `sudo yum update` may also update the client certificate package (depending on your RHEL version), despite "expired SSL certificate" errors you will see for other repositories. If this update is successful, normal connectivity to other RHUI repositories should be restored, so you will be able to run `sudo yum update` successfully.
 
+If you run into a 404 error while running a `yum update`, try the following to refresh your yum cache:
+```bash
+sudo yum clean all;
+sudo yum makecache
+```
 
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:

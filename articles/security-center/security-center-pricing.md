@@ -41,6 +41,7 @@ To get the Standard tier:
 4. Select **Standard** to upgrade.
 5. Click **Save**.
 
+(Prices in the image are for example purposes only.)
 ![Security Center Pricing](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]

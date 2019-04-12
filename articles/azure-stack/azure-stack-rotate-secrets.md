@@ -60,13 +60,13 @@ Azure Stack supports secret rotation with external certificates from a new Certi
 
 |Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
 |-----|-----|-----|-----|
-|From Self-Signed|To Enterprise|Not Supported||
+|From Self-Signed|To Enterprise|Supported|1903 & Later|
 |From Self-Signed|To Self-Signed|Not Supported||
 |From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Enterprise|To Enterprise|Supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Enterprise|Supported. From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
 |From Enterprise|To Self-Signed|Not Supported||
 |From Enterprise|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Public<sup>*</sup>|To Enterprise|Not Supported|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|Supported|1903 & Later|
 |From Public<sup>*</sup>|To Self-Signed|Not Supported||
 |From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
 
@@ -119,7 +119,7 @@ Running secret rotation using the instructions below will remediate these alerts
 > **.\Certificates\AAD** or ***.\Certificates\ADFS*** depending on your Identity Provider used for Azure Stack
 >
 > It is of utmost importance that your folder structure ends with **AAD** or **ADFS** folders and all subdirectories are within this structure; otherwise, **Start-SecretRotation** will come up with:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -144,7 +144,7 @@ To rotate external secrets:
 1. Within the newly created **\Certificates\\\<IdentityProvider>** directory created in the Pre-steps, place the new set of replacement external certificates in the directory structure according to the format outlined in the Mandatory Certificates section of the [Azure Stack PKI certificate requirements](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Example of folder structure for the AAD Identity Provider:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -206,7 +206,7 @@ To rotate external secrets:
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and re-run **Start-SecretRotation** with the **-ReRun** Parameter.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Contact Support if you experience repeated secret rotation failures.
@@ -217,7 +217,7 @@ To rotate external secrets:
 
 The following PowerShell example demonstrates the cmdlets and parameters to run in order to rotate your secrets.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -253,7 +253,7 @@ When secret rotation successfully completes, your console will display **Overall
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -267,25 +267,25 @@ Rotates the secrets of an Azure Stack System. Only executed against the Azure St
 
 #### For external secret rotation
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### For internal secret rotation
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### For external secret rotation rerun
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### For internal secret rotation rerun
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -297,11 +297,11 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 
 | Parameter | Type | Required | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
-| CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
-| Internal | String | False | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
-| PathAccessCredential | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
-| ReRun | SwitchParameter | False  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
+| `PfxFilesPath` | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
+| `Internal` | String | False | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
+| `PathAccessCredential` | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
+| `ReRun` | SwitchParameter | False  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
 
 ### Examples
 
@@ -309,7 +309,7 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 
 This must be run via your Azure Stack [environment's privileged endpoint](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -317,7 +317,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 
 #### Rotate only external infrastructure secrets  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -343,7 +343,7 @@ This command rotates the TLS certificates used for Azure Stack's external networ
 >
 > **From *1811+* you cannot rotate both internal and external certificates any more!!!**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -366,11 +366,11 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 
 The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components on a regular basis.
 
-1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user account name and password for each BMC in your environment must be the same.
+1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. Note that BMC user names can't exceed 16 characters.
 2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. For example:
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -388,7 +388,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
 
     You can also use the static PowerShell version with the Passwords as code lines:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

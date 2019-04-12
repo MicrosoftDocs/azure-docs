@@ -53,6 +53,14 @@
       href: event-hubs-node-get-started-receive.md    
     - name: Apache Storm
       href: event-hubs-storm-getstarted-receive.md
+  - name: Capture events
+    items:
+    - name: Use the Azure portal to enable Event Hubs Capture
+      href: event-hubs-capture-enable-through-portal.md
+    - name: Use a Resource Manager template to enable Event Hubs Capture
+      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
+    - name: Capture Event Hubs data using Python
+      href: event-hubs-capture-python.md      
   - name: Stream into Event Hubs for Apache Kafka
     href: event-hubs-quickstart-kafka-enabled-event-hubs.md
 - name: Tutorials
@@ -115,14 +123,6 @@
         href: event-hubs-create-kafka-enabled.md    
       - name: Process Apache Kafka for Event Hubs events using Stream analytics
         href: event-hubs-kafka-stream-analytics.md
-  - name: Capture events
-    items:
-    - name: Use the Azure portal to enable Event Hubs Capture
-      href: event-hubs-capture-enable-through-portal.md
-    - name: Use a Resource Manager template to enable Event Hubs Capture
-      href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-    - name: Capture Event Hubs data using Python
-      href: event-hubs-capture-python.md
   - name: Manage
     items:
     - name: Monitor Event Hubs with Azure Monitoring
