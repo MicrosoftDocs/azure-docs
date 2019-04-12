@@ -156,7 +156,7 @@ VALUES ('latest model', @model)
 
 *Scoring* is a term used in data science to mean generating predictions, probabilities, or other values based on new data fed into a trained model. You'll use the model you created in the previous section to score predictions against new data.
 
-Did you notice that the original training data stops at a speed of 25 miles per hour? That's because the original data was based on an experiment from 1920! You might wonder, how long would it take an automobile from the 1920s to stop, assuming it could get going as fast as 60 mph or even 100 mph? To answer this question, you must provide some new speed values.
+Did you notice that the original training data stops at a speed of 25 miles per hour? That's because the original data was based on an experiment from 1920! You might wonder, how long would it take an automobile from the 1920s to stop if it could get going as fast as 60 mph or even 100 mph? To answer this question, you must provide some new speed values.
 
 1. Create a table with new speed data.
 
@@ -172,6 +172,17 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 2. Predict stopping distance from these new speed values.
 
    Because your model is based on the **rxLinMod** algorithm provided as part of the **RevoScaleR** package, you call the [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) function, rather than the generic R `predict` function.
+
+   This example script performs the following steps:
+
+   1. Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
+
+   1. Call the `unserialize` function on the model.
+
+      > [!TIP]
+      > For real-time scoring, see [Serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR.
+
+   1. Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
 
    ```sql
    DECLARE @speedmodel varbinary(max) = 
@@ -197,20 +208,10 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 
    ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
-   The preceding script performs the following steps:
-
-   1. Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
-
-   1. Call the `unserialize` function on the model.
-
-      > [!TIP]
-      > For real-time scoring, see [Serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR.
-
-   1. Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
-
-   In this example script, the `str` function is added during the testing phase to check the schema of data being returned from R. You can remove the statement later.
-
-   The column names used in the R script are not necessarily passed to the stored procedure output. Here the WITH RESULTS clause defines some new column names.
+> [!NOTE]
+> In this example script, the `str` function is added during the testing phase to check the schema of data being returned from R. You can remove the statement later.
+>
+> The column names used in the R script are not necessarily passed to the stored procedure output. Here the WITH RESULTS clause defines some new column names.
 
 ## Next steps
 

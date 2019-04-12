@@ -60,7 +60,7 @@ To run an R script, you'll pass it as an argument to the system stored procedure
    If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See [Prerequisites](#prerequisites) above.
 
    > [!NOTE]
-   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command: `GRANT EXECUTE ANY EXTERNAL SCRIPT TO ` *username*.
+   > If you're an administrator, you can run external code automatically. You can grant permission to other users using the command: `GRANT EXECUTE ANY EXTERNAL SCRIPT TO <username>`.
 
 2. The correct result is calculated and the R `print` function returns the result to the **Messages** window.
 
@@ -126,7 +126,7 @@ For now, let's use the default input and output variables of [sp_execute_externa
       WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-    Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined in `@input_data_1_name` and `@output_data_1_name`, including case. 
+    Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined with `@input_data_1_name` and `@output_data_1_name`, including case. 
 
     <!--    
     Also, the order of the parameters is important - you must specify the required parameters `@input_data_1` and `@output_data_1` first, in order to use the optional parameters `@input_data_1_name` and `@output_data_1_name`.
@@ -202,17 +202,15 @@ To see a list of which R packages are installed, including version, dependencies
 
 The output is from `installed.packages()` in R and is returned as a result set.
 
-    **Results**
+**Results**
 
-    ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
+![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
 ## Add a package
 
-If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). 
+If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
 
-Follow the steps below to install the packages **RODBCext** and **sqlmlutils** (**RODBCext** is a prerequisite for **sqlmlutils**).
-
-1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
+Follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
 
 1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
 
@@ -220,9 +218,12 @@ Follow the steps below to install the packages **RODBCext** and **sqlmlutils** (
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file ", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
+    > [!TIP]
+    > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file ", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
 
-1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the folder where you downloaded the zip file and the name of the zip file. For example:
+1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
+
+1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
 
     ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
@@ -236,7 +237,7 @@ Follow the steps below to install the packages **RODBCext** and **sqlmlutils** (
     package 'sqlmlutils' successfully unpacked and MD5 sums checked
     ```
 
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using `sqlmlutils`. In the example below, you install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string.
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install the **glue** package using `sqlmlutils`.
 
     ```R
     library(sqlmlutils) 
@@ -290,14 +291,14 @@ Once the package is installed, you can use it in an R script through **sp_execut
     My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
     ```
 
-1. If you would like to remove the package, run the following R script in **RStudio** on your local computer.
+If you would like to remove the package, run the following R script in **RStudio** on your local computer.
 
-    ```R
-    library(sqlmlutils) 
-    connection <- connectionInfo(server= "yourserver.database.windows.net", 
-        database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
-    sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
-    ```
+```R
+library(sqlmlutils) 
+connection <- connectionInfo(server= "yourserver.database.windows.net", 
+    database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
+```
 
 > [!TIP]
 > Another way to install an R package to your SQL database is to upload the R package with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
