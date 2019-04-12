@@ -60,7 +60,7 @@ To configure the integration of Signagelive into Azure AD, first add Signagelive
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Signagelive**. 
+4. In the search box, enter **Signagelive**. 
 
 	 ![Signagelive in the results list](common/search-new-app.png)
 
@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Signagelive, take the following steps:
 
     ![Signagelive Domain and URLs single sign-on information](common/sp-signonurl.png)
 
-    In the **Sign-on URL** box, type a URL that uses the following pattern:
+    In the **Sign-on URL** box, enter a URL that uses the following pattern:
     `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
 	> [!NOTE]
@@ -142,9 +142,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field, type **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, type **brittasimon@yourcompanydomain.extension**. For example, in this case, you might type **BrittaSimon@contoso.com**.
+    b. In the **User name** field, enter **brittasimon@yourcompanydomain.extension**. For example, in this case, you might enter **BrittaSimon@contoso.com**.
 
     c. Select the **Show password** check box, and then note the value that's displayed in the Password box.
 
@@ -166,7 +166,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Select the **Add user** button. Then, in the **Add Assignment** dialog box, select **Users and groups** .
+4. Select the **Add user** button. Then, in the **Add Assignment** dialog box, select **Users and groups**.
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
@@ -184,7 +184,7 @@ In this section, you create a user called Britta Simon in Signagelive. Work with
 
 In this section, you test your Azure AD single sign-on configuration by using the MyApps portal.
 
-When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+When you select the **Signagelive** tile in the MyApps portal, you should be automatically signed in. For more information about the MyApps portal, see [What is the MyApps portal?](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
