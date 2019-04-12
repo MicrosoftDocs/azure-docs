@@ -30657,6 +30657,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/b2b/b2b-tutorial-bulk-invite.md",
+      "redirect_url": "/azure/active-directory/b2b/tutorial-bulk-invite",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
@@ -36909,6 +36914,11 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
       "redirect_document_id": true
     }
   ]
