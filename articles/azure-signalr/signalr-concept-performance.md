@@ -265,7 +265,7 @@ The broadcasting clients that post messages are no more than four. They need few
 
 #### Send to group
 
-The **send to group** use case has a similar traffic pattern except that after clients establish WebSocket connections with Azure SignalR Service, they must join groups before they can send a message to a specific group. The following diagram illustrates the traffic flow.
+The **send to group** use case has a similar traffic pattern to **broadcast**. The difference is that after clients establish WebSocket connections with Azure SignalR Service, they must join groups before they can send a message to a specific group. The following diagram illustrates the traffic flow.
 
 ![Traffic for the send-to-group use case](./media/signalr-concept-performance/sendtogroup.png)
 
