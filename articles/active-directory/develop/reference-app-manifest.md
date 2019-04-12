@@ -91,7 +91,8 @@ An application manifest has multiple attributes which are referred to as collect
 > In case you try to add more than 1200 entries in the application manifest . You may recieve an error **"Failed to update application xxxxxx . Error details: The size of the manifest has exceeded its limit. Please reduce the number of values and retry your request.**"
 
 ### Unsupported attributes
-The application manifest represents the schema of underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result you may notice new attributes showing up in the application manifest. In rare occasions you may notice a syntactic or semantic change in the existing attributes or you may find attribute that existed previously are not supported any more. For example, you will see new attributes in the [App Registrations (Preview)]((https://developer.microsoft.com/en-us/graph/blogs/new-app-registration/)) in the Azure portal which are known with a different name in the App Registrations (GA) experience.
+The application manifest represents the schema of the underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App Registrations (Preview)]((https://developer.microsoft.com/en-us/graph/blogs/new-app-registration/)) which are known with a different name in the App Registrations (GA) experience.
+
 
 | App Registrations (GA)    | App Registrations (Preview) |
 |---------------------------|-----------------------------|
@@ -105,8 +106,15 @@ The application manifest represents the schema of underlying application model i
 
 _Please refer the [Manifest reference](#manifet-reference) above for the descriptions for these attributes._
 
-> [!NOTE]
-> When you try to upload a previously downloaded manifest. You may receive an error **"Failed to update application xxxxxx . Error detail: One or more property values specified are invalid. [].**". When this happens you may want to compare the manifest you are trying to upload with the one seen in manifest editor to check the attribute differences. You can look up the manifest reference to learn what changes you need to make to your manifest before you can upload.
+> [!NOTE] When you try to upload a previously downloaded manifest, you may receive one of the following errors. This is likely because the manifest editor supports a newer version of the schema now which does not match with the one you are trying to upload.
+>
+> - "**Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. [].**"
+> - "**Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. [].**"
+> - "**Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. [].**"
+> - "**Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property is not allowed for this application. Use 'replyUrlsWithType' property instead. [].**"
+> - "**Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []**"
+> 
+>When you see one of these errors, we recommend you to directly edit the attributes one by one in the manifest editor instead of uploading a previously downloaded manifest. The [Manifest reference](#manifest-reference) table can help you understand the syntax and semantics of old and new attributes so that you can edit the attributes you are interested in successfully.
 
 ## Next steps
 
