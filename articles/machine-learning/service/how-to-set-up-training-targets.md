@@ -381,6 +381,13 @@ After you create a run configuration, you use it to run your experiment.  The co
 1. Submit the run.
 1. Wait for the run to complete.
 
+> [!IMPORTANT]
+> When you submit the training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace.
+>
+> To prevent files from being included in the snapshot, create an `.amlignore` file in the directory and add the files to it. The `.amlignore` file is a text file, and uses the same syntax and patterns as a [.gitignore](https://git-scm.com/docs/gitignore) file.
+> 
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
+
 ### Create an experiment
 
 First, create an experiment in your workspace.
@@ -394,8 +401,6 @@ Submit the experiment with a `ScriptRunConfig` object.  This object includes the
 * **source_directory**: The source directory that contains your training script
 * **script**: Identify the training script
 * **run_config**: The run configuration, which in turn defines where the training will occur.
-
-When you submit a training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 For example, to use [the local target](#local) configuration:
 
