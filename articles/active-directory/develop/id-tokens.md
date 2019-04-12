@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory ID token reference | Microsoft Docs
-description: Learn how to use id_tokens emitted by the v1.0 and v2.0 endpoints of Azure AD. 
+title: Microsoft identity platform ID token reference | Microsoft Docs
+description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -21,7 +21,7 @@ ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ---
 
-# ID tokens
+# Microsoft identity platform ID tokens
 
 `id_tokens` are sent to the client application as part of an [OpenID Connect](v1-protocols-openid-connect-code.md) flow. They can be sent along side or instead of an access token, and are used by the client to authenticate the user.
 
@@ -98,5 +98,5 @@ To manually validate the token, see the steps details in [validating an access t
 
 ## Next steps
 
-* Learn about [Azure AD access tokens](access-tokens.md)
+* Learn about [access tokens](access-tokens.md)
 * Customize the claims in your id_token using [optional claims](active-directory-optional-claims.md).
