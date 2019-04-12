@@ -57,8 +57,10 @@ To create an HDInsight cluster with an Azure Resource Manager template, add an `
     "name": "workernode",
     "targetInstanceCount": 4,
     "autoscale": {
-        "minInstanceCount": 2,
-        "maxInstanceCount": 10
+        "capacity": {
+            "minInstanceCount": 2,
+            "maxInstanceCount": 10
+        }        
     },
     "hardwareProfile": {
         "vmSize": "Standard_D13_V2"
