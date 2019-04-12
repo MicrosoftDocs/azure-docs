@@ -37,11 +37,11 @@ The scenario outlined in this tutorial assumes that you have:
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Cornerstone OnDemand web service](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf). This service is available to Cornerstone OnDemand teams.
 
-## Add Cornerstone OnDemand from the gallery
+## Add Cornerstone OnDemand from the Azure Marketplace
 
-Before you configure Cornerstone OnDemand for automatic user provisioning with Azure AD, add Cornerstone OnDemand from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Cornerstone OnDemand for automatic user provisioning with Azure AD, add Cornerstone OnDemand from the Marketplace to your list of managed SaaS applications.
 
-To add Cornerstone OnDemand from the Azure AD application gallery, follow these steps.
+To add Cornerstone OnDemand from the Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 

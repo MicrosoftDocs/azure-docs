@@ -37,11 +37,11 @@ The scenario outlined in this tutorial assumes that you have:
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction). This API is available to Zendesk teams on the Enterprise plan or better.
 
-## Add Zendesk from the gallery
+## Add Zendesk from the Azure Marketplace
 
-Before you configure Zendesk for automatic user provisioning with Azure AD, add Zendesk from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Zendesk for automatic user provisioning with Azure AD, add Zendesk from the Azure Marketplace to your list of managed SaaS applications.
 
-To add Zendesk from the Azure AD application gallery, follow these steps.
+To add Zendesk from the Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 

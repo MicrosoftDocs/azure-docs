@@ -37,11 +37,11 @@ The scenario outlined in this tutorial assumes that you have:
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/). This API is available to Samanage developers for accounts with the Professional package.
 
-## Add Samanage from the gallery
+## Add Samanage from the Azure Marketplace
 
-Before you configure Samanage for automatic user provisioning with Azure AD, add Samanage from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Samanage for automatic user provisioning with Azure AD, add Samanage from the Azure Marketplace to your list of managed SaaS applications.
 
-To add Samanage from the Azure AD application gallery, follow these steps.
+To add Samanage from the Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 

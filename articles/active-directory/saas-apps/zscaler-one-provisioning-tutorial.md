@@ -39,11 +39,11 @@ The scenario outlined in this tutorial assumes that you have:
 > [!NOTE]
 > The Azure AD provisioning integration relies on the Zscaler One SCIM API. This API is available to Zscaler One developers for accounts with the Enterprise package.
 
-## Add Zscaler One from the gallery
+## Add Zscaler One from the Azure Marketplace
 
-Before you configure Zscaler One for automatic user provisioning with Azure AD, add Zscaler One from the Azure AD application gallery to your list of managed SaaS applications.
+Before you configure Zscaler One for automatic user provisioning with Azure AD, add Zscaler One from the Azure Marketplace to your list of managed SaaS applications.
 
-To add Zscaler One from the Azure AD application gallery, follow these steps.
+To add Zscaler One from the Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 

@@ -37,10 +37,10 @@ The scenario outlined in this tutorial assumes that you have:
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Tableau Online Rest API](https://onlinehelp.tableau.com/current/api/rest_api/en-us/help.htm). This API is available to Tableau Online developers.
 
-## Add Tableau Online from the gallery
-Before you configure Tableau Online for automatic user provisioning with Azure AD, add Tableau Online from the Azure AD application gallery to your list of managed SaaS applications.
+## Add Tableau Online from the Azure Marketplace
+Before you configure Tableau Online for automatic user provisioning with Azure AD, add Tableau Online from the Azure Marketplace to your list of managed SaaS applications.
 
-To add Tableau Online from the Azure AD application gallery, follow these steps.
+To add Tableau Online from the Marketplace, follow these steps.
 
 1. In the [Azure portal](https://portal.azure.com), in the navigation pane on the left, select **Azure Active Directory**.
 
