@@ -37,8 +37,6 @@ example tasks that you can perform with functions:
 | Return a globally unique identifier (GUID). | guid() |"c2ecc88d-88c8-4096-912c-d6f2e2b138ce" |
 ||||
 
-This reference describes the functions that you can use 
-in workflow definitions for either logic apps or flows. 
 To find functions [based on their general purpose](#ordered-by-purpose),
 review the following tables. Or, for detailed information about each function,
 see the [alphabetical list](#alphabetical-list).
