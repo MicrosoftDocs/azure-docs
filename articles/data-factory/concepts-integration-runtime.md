@@ -3,7 +3,7 @@ title: Integration runtime in Azure Data Factory | Microsoft Docs
 description: 'Learn about integration runtime in Azure Data Factory.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: jingwang
+ms.author: abnarain
 
 ---
 

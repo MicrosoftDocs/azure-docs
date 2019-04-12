@@ -85,7 +85,7 @@ To authorize blob and queue operations with an OAuth token, you must use HTTPS.
 
 In Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **Nuget Package Manager**, then **Package Manager Console**. Type the following command into the console:
 
-```
+```powershell
 Install-Package https://www.nuget.org/packages/WindowsAzure.Storage  
 ```
 

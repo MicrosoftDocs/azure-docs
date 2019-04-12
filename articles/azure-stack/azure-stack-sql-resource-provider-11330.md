@@ -47,7 +47,7 @@ This version of the Azure Stack SQL resource provider includes the following imp
 - **Previous SQL resource provider (1.1.30.0) deployment could fail if TLS 1.2 is not enabled**. Updated the SQL resource provider 1.1.33.0 to enable TLS 1.2 when deploying the resource provider, updating the resource provider, or rotating secrets. 
 
 - **SQL resource provider secret rotation fails**. Fixed issue resulting in the following error code when rotating secrets:
-` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## Known issues 
 

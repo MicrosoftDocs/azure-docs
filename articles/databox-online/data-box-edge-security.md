@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
 ---
 # Data Box Edge security and data protection
@@ -30,6 +30,7 @@ The Data Box Edge/Data Box Gateway service is a management service hosted in Mic
 
 - Access to the Data Box Edge/Data Box Gateway service requires your organization to have an Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) subscription. For more information, go to [Sign up for an Azure subscription](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Because your management service is hosted in Azure, it is protected by the Azure security features. For more information about the security features provided by Microsoft Azure, go to the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/).
+- For SDK management operations, encryption key is available for your Data Box Edge/ Data Box Gateway resource under **Device properties**. You can view the encryption key only if you have permissions for the Resource Graph API.
 
 ## Data Box Edge device protection
 
@@ -39,7 +40,8 @@ The Data Box Edge device is an on-premises device that helps transform the data 
 - Is protected at all times by a device password.
 - Is a locked-down device. The device BMC and BIOS are password-protected with limited user-access for the BIOS.
 - Has secure boot enabled.
-- Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies. 
+- Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.
+- Has a key inside of the front cover that can be used to lock the device. We recommend that after you configure the device, open the cover. Locate the key, and then lock the cover to prevent any unauthorized access to data disks located in the front of the device.
 
 ### Protect the device via activation key
 

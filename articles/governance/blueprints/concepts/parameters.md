@@ -1,7 +1,6 @@
 ---
 title: Use parameters to creating dynamic blueprints
 description: Learn about static and dynamic parameters and how using them creates dynamic blueprints.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -97,11 +96,11 @@ be selective in what you define as required vs what can be changed during assign
 
 1. Artifacts added to the blueprint that have parameter options display **X of Y parameters populated** in the **Parameters** column. Click on the artifact row to edit the artifact parameters.
 
-   ![Blueprint parameters](../media/parameters/parameter-column.png)
+   ![Blueprint parameters on a blueprint definition](../media/parameters/parameter-column.png)
 
 1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to make it a **static parameter**. In the example below, only _Location_ is a **static parameter** as it's unchecked and _Resource Group Name_ is checked.
 
-   ![Blueprint static parameters](../media/parameters/static-parameter.png)
+   ![Blueprint static parameters on a blueprint artifact](../media/parameters/static-parameter.png)
 
 #### Setting static parameters from REST API
 
@@ -222,7 +221,7 @@ different name for every assignment of the blueprint.
 
 1. On the **Assign blueprint** page, find the **Artifact parameters** section. Each artifact with at least one **dynamic parameter** displays the artifact and the configuration options. Provide required values to the parameters before assigning the blueprint. In the example below, _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
 
-   ![Blueprint dynamic parameter](../media/parameters/dynamic-parameter.png)
+   ![Blueprint dynamic parameter during blueprint assignment](../media/parameters/dynamic-parameter.png)
 
 #### Setting dynamic parameters from REST API
 

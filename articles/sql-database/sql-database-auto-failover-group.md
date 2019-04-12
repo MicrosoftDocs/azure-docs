@@ -338,11 +338,11 @@ As discussed previously, auto-failover groups and active geo-replication can als
 
 | API | Description |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Removes a failover group|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |This command creates a failover group and registers it on both primary and secondary servers|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifies the configuration of the failover group|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Retrieves the failover group configuration|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Triggers failover of the failover group to the secondary server|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Removes a failover group|
 
 ### REST API: Manage SQL database failover groups with single and pooled databases
 

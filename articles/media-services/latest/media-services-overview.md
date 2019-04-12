@@ -41,30 +41,11 @@ Media Services enables you to build a variety of media workflows in the cloud, t
 * Use Azure Media Services together with [Azure Cognitive Services APIs](https://docs.microsoft.com/azure/#pivot=products&panel=ai) to add subtitles and captions to videos to cater to a broader audience (for example, people with hearing disabilities or people who want to read along in a different language).
 * Enable Azure CDN to achieve large scaling to better handle instantaneous high loads (for example, the start of a product launch event). 
 
-## Naming conventions
-
-Azure Media Services v3 resource names (for example, Assets, Jobs, Transforms) are subject to Azure Resource Manager naming constraints. In accordance with Azure Resource Manager, the resource names are always unique. Thus, you can use any unique identifier strings (for example, GUIDs) for your resource names. 
-
-Media Services resource names cannot include: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', the single quote character, or any control characters. All other characters are allowed. The max length of a resource name is 260 characters. 
-
-For more information about Azure Resource Manager naming, see: [Naming requirements](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) and [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## v3 API design principles
-
-One of the key design principles of the v3 API is to make the API more secure. v3 APIs do not return secrets or credentials on a **Get** or **List** operation. The keys are always null, empty, or sanitized from the response. You need to call a separate action method to get secrets or credentials. Separate actions enable you to set different RBAC security permissions in case some APIs do retrieve/display  secrets while other APIs do not. For information on how to manager access using RBAC, see [Use RBAC to manage access](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest).
-
-Examples of this include 
-
-* not returning ContentKey values in the Get of the StreamingLocator, 
-* not returning the restriction keys in the get of the ContentKeyPolicy, 
-* not returning the query string part of the URL (to remove the signature) of Jobs' HTTP Input URLs.
-
-See the [Get content key policy - .NET](get-content-key-policy-dotnet-howto.md) example.
-
-
 ## How can I get started with v3? 
 
 Learn how to encode and package content, stream videos on-demand, broadcast live, analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+
+Before you start developing, review [Fundamental concepts](concepts-overview.md)<br/>
 
 ### Quickstarts  
 
@@ -94,7 +75,7 @@ Articles contain code samples that demonstrate how to complete a task. In this s
 * [Encode with HTTPS as job input - .NET](job-input-from-http-how-to.md)  
 * [Monitor events - Portal](monitor-events-portal-how-to.md)
 * [Encrypt dynamically with multi-DRM - .NET](protect-with-drm.md) 
-* [How to encode with a custom transform by using CLI](custom-preset-cli-howto.md)
+* [How to encode with a custom transform - CLI](custom-preset-cli-howto.md)
 
 ## Next steps
 
