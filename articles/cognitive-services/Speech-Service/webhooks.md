@@ -108,7 +108,7 @@ Currently there is one event per completed transcription.
 
 We are retrying 5 times for each event (with a delay of 1s) before we give up.
 
-### Other Web Hook operations
+### Other webhook operations
 
 To get all registered web hooks
 GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks
