@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # What is Custom Speech?
 
-[Custom Speech](https://customspeech.ai) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
+[Custom Speech](https://portal.cris.ai/customspeech.html) is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
 
 ## What's in Custom Speech?
 
@@ -34,7 +34,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 << **Archer/Ed/Mark** - What is an accuracy measurement? It's unclear from this description. >>
 
-5. [Train the model](placeholder) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
+5. [Train the model](placeholder) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (<50 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
 
 << **Archer/Ed/Mark** - Can you clarify what the difference is between human transcripts and related text? By transcripts, are you speaking about raw audio? It's unclear here. >>
 
