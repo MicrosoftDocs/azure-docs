@@ -1,5 +1,5 @@
 ---
-title: 'Design a Multi-Tenant Database'
+title: 'Design a Multi-Tenant Database with Azure Database for PostgreSQL – Hyperscale (Citus) Preview tutorial'
 description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -10,21 +10,19 @@ ms.topic: tutorial
 ms.date: 04/09/2019
 ---
 
-# Tutorial: Design a Multi-Tenant Database
+# Tutorial: Design a Multi-Tenant Database by using Azure Database for PostgreSQL – Hyperscale (Citus) Preview
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) to
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) Preview to
 learn how to:
 
 > [!div class="checklist"]
-> * Provision a Hyperscale (Citus) server group
+> * Create a Hyperscale (Citus) server group
 > * Use psql utility to create a schema
 > * Shard tables across nodes
 > * Ingest sample data
 > * Query tenant data
 > * Share data between tenants
 > * Customize the schema per-tenant
-
-## Prerequisites
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
@@ -71,7 +69,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
    > Azure PostgreSQL server communicates over port 5432. If you are trying to connect from within a corporate network, outbound traffic over port 5432 may not be allowed by your network's firewall. If so, you cannot connect to your Azure SQL Database server unless your IT department opens port 5432.
    >
 
-## Connect to PostgreSQL database using psql in Cloud Shell
+## Connect to the database using psql in Cloud Shell
 
 Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
@@ -95,13 +93,9 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using
-psql, you can complete some basic tasks.
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
-First let's create tables for a hypothetical advertising web application.
-Multiple companies can use the app to track their advertising campaigns.
-
-In the psql client, create a table to hold companies and their campaigns:
+Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns:
 
 ```sql
 CREATE TABLE companies (
@@ -350,16 +344,8 @@ SELECT id
 
 ## Next steps
 
-In this tutorial, you learned how to:
+In this tutorial, you learned how to provision a Hyperscale (Citus) server group, connect to it with psql, create a schema, and distribute data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
-> [!div class="checklist"]
-> * Provision a Hyperscale (Citus) server group
-> * Use psql utility to create a schema
-> * Shard tables across nodes
-> * Ingest sample data
-> * Query tenant data
-> * Share data between tenants
-> * Customize the schema per-tenant
-
-Next, learn about the concepts of hyperscale, like [nodes](TODO), including the
-[coordinator](TODO).
+Next, learn about the concepts of hyperscale.
+> [!div class="nextstepaction"]
+> [Hyperscale node types](TODO)
