@@ -132,4 +132,8 @@ Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@mic
 
 ## Next steps
 
-After learning about the capability to rewrite HTTP headers, go to [Create an autoscaling and zone-redundant application gateway that rewrites HTTP headers](tutorial-http-header-rewrite-powershell.md) or [Rewrite HTTP headers in existing autoscaling and zone-redundant application gateway](add-http-header-rewrite-rule-powershell.md)
+To learn how to rewrite HTTP headers, see
+
+-  [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+
+-  [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
