@@ -342,6 +342,10 @@ SELECT id
    AND company_id = 5;
 ```
 
+## Clean up resources
+
+In the preceding steps you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+
 ## Next steps
 
 In this tutorial, you learned how to provision a Hyperscale (Citus) server group, connect to it with psql, create a schema, and distribute data. You learned to query data both within and between tenants, and to customize the schema per tenant.
