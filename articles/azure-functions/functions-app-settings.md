@@ -101,7 +101,7 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 
 ## FUNCTION\_APP\_EDIT\_MODE
 
-Valid values are "readwrite" and "readonly".
+Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
 
 |Key|Sample value|
 |---|------------|
