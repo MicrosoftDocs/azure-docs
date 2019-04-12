@@ -121,6 +121,7 @@ HTTP headers allow the client and server to pass additional information with the
 - Adding security-related header fields like HSTS/ X-XSS-Protection.
 - Removing response header fields that can reveal sensitive information.
 - Stripping port information from X-Forwarded-For headers.
+
 Application Gateway supports the capability to add, remove, or update HTTP request and response headers, while the request and response packets move between the client and back-end pools. It also provides you with the capability to add conditions to ensure the specified headers are rewritten only when certain conditions are met.
 
 For more information about this public preview feature, see [Rewrite HTTP headers](rewrite-http-headers.md).
