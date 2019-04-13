@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Import Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn  how to use the Import Data module in Azure Machine Learning service to load data into a machine learning experiment from existing cloud data services.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,11 +9,10 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Import Data
-
 
 *Loads data from external sources on the web; from various forms of cloud-based storage in Azure such as tables, blobs, and SQL  databases; and from on-premises SQL Server databases*
 
@@ -21,7 +20,7 @@ Category: Data Input and Output
 
 ## Module overview
 
-This article describes how to use the [Import Data](./import-data.md) module in Azure Machine Learning to load data into a machine learning experiment from existing cloud data services.  
+This article describes how to use the **Import Data** module in Azure Machine Learning service to load data into a machine learning experiment from existing cloud data services.  
 
 The module now features a wizard to help you choose a storage option and select from among existing subscriptions and accounts to quickly configure all options. Need to edit an existing data connection? No problem; the wizard loads all previous configuration details so that you don't have to start again from scratch. 
   

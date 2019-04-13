@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Split Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Split Data module in Azure Machine Learning service to divide a dataset into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Split Data
@@ -20,7 +20,7 @@ Category: Data Transformation / Sample and Split
 
 ## Module overview
 
-This topic describes how to use the [Split Data](./split-data.md) module in Azure Machine Learning to divide a dataset into two distinct sets.
+This topic describes how to use the **Split Data** module in Azure Machine Learning service to divide a dataset into two distinct sets.
 
 This module is particularly useful when you need to separate data into training and testing sets. You can customize the way that data is divided as well. Some options support randomization of data; others are tailored for a certain data type or model type.
 

@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Two-Class Support Vector Machine: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning service to create a model that is based on the support vector machine algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,19 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
+
 # Two-Class Support Vector Machine
+
 *Creates a binary classification model using the Support Vector Machine algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning to create a model that is based on the support vector machine algorithm. 
+This article describes how to use the **Two-Class Support Vector Machine** module in Azure Machine Learning service to create a model that is based on the support vector machine algorithm. 
 
 Support vector machines (SVMs) are a well-researched class of supervised learning methods. This particular implementation is suited to prediction of two possible outcomes, based on either continuous or categorical variables.
 

@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Algorithm & module reference overview
@@ -22,6 +22,10 @@ Each module represents a set of code that can run independently and perform a ma
 > If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 Modules are organized by functionality:
+
+**Data format conversions**
+
+  + [Convert to CSV ](convert-to-csv.md)
 
 **Data input and output modules**  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
 
@@ -70,7 +74,7 @@ Modules are organized by functionality:
 
   + [Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
 
-  + [Two-class Boosted Decision Tree](two-class-boosted-decision-tree.md)
+  + [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)
 
   + [Two-Class Logistic Regression](two-class-logistic-regression.md)
 
@@ -92,6 +96,4 @@ Modules are organized by functionality:
 **Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
 
-**Data Format Conversions**
 
-  + [Convert to CSV ](convert-to-csv.md)

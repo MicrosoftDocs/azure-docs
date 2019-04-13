@@ -217,12 +217,16 @@
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk
-  - name: Visual interface algorithm & modules (Preview)
+  - name: Visual interface modules (Preview)
     displayName: module reference
     items:
     - name: Overview
       href: ../algorithm-module-reference/module-reference.md
-    - name: Input & Output
+    - name: Data format conversions
+      items:
+      - name: Convert to CSV
+        href: ../algorithm-module-reference/convert-to-csv.md
+    - name: Data input & output
       items:
       - name: Import Data
         href: ../algorithm-module-reference/import-data.md
@@ -230,7 +234,7 @@
         href: ../algorithm-module-reference/export-data.md
       - name: Enter Data Manually
         href: ../algorithm-module-reference/enter-data-manually.md
-    - name: Data transformation
+    - name: Data transformations
       items:
       - name: Select Columns in Dataset
         href: ../algorithm-module-reference/select-columns-in-dataset.md
@@ -250,7 +254,7 @@
         href: ../algorithm-module-reference/normalize-data.md
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
-    - name: Machine learning algorithms
+    - name: Machine learning
       items:  
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
@@ -286,6 +290,10 @@
         href: ../algorithm-module-reference/two-class-neural-network.md
       - name: Two-Class Support Vector Machine
         href: ../algorithm-module-reference/two-class-support-vector-machine.md
+    - name: Python language modules
+      items:  
+      - name: Execute Python Script
+        href: ../algorithm-module-reference/execute-python-script.md
     - name: Error messages & codes
       href: ../algorithm-module-reference/machine-learning-module-error-codes.md
 - name: Resources

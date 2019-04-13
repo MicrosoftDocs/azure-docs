@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Two-Class Decision Forest: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Two-Class Decision Forest module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Two-Class Decision Forest
+
 *Creates a two-class classification model using the decision forest algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification  
   
 ## Module overview
 
-This article describes how to use the **Two-Class Decision Forest** module in Azure Machine Learning to create a machine learning model based on the decision forests algorithm.  
+This article describes how to use the **Two-Class Decision Forest** module in Azure Machine Learning service to create a machine learning model based on the decision forests algorithm.  
 
 Decision forests are fast, supervised ensemble models. This module is a good choice if you want to predict a target with a maximum of two outcomes. 
 

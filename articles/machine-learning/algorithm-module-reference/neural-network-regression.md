@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Neural Network Regression: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Neural Network Regression module in Azure Machine Learning service to create a regression model using a customizable neural network algorithm..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Neural Network Regression
+
 *Creates a regression model using a neural network algorithm*  
   
  Category: Machine Learning / Initialize Model / Regression
   
 ## Module overview  
 
-This article describes how to use the **Neural Network Regression** module in Azure Machine Learning to create a regression model using a customizable neural network algorithm.
+This article describes how to use the **Neural Network Regression** module in Azure Machine Learning service to create a regression model using a customizable neural network algorithm.
   
  Although neural networks are widely known for use in deep learning and modeling complex problems such as image recognition, they are easily adapted to regression problems. Any class of statistical models can be termed a neural network if they use adaptive weights and can approximate non-linear functions of their inputs. Thus neural network regression is suited to problems where a more traditional regression model cannot fit a solution.
   
