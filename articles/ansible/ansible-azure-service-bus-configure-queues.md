@@ -90,8 +90,8 @@ Save the following playbook as `servicebus_queue_policy.yml`:
           var: policy
 ```
 
-Before running the playbook, make the following changes:
-- The `rights` key represents the privilege a user has with the queue. Specify one of the following: `manage`, `listen`, `send` or `listen_send`.
+Before running the playbook, see the following notes:
+- The `rights` value represents the privilege a user has with the queue. Specify one of the following: `manage`, `listen`, `send` or `listen_send`.
 
 Run the playbook using the **ansible-playbook** command:
 
@@ -101,10 +101,9 @@ ansible-playbook servicebus_queue_policy.yml
 
 ## Retrieve namespace information
 
-The sample playbook code queries the namespace information
+The sample playbook code queries the namespace information.
 
-> [!Tip]
-> The **show_sas_policies** field indicates whether to show the SAS policies under this namespace. This field is set to `False` by default to avoid additional network overhead.
+Save the following playbook as `servicebus_namespace_info.yml`:
 
 ```yaml
 ---
@@ -124,7 +123,10 @@ The sample playbook code queries the namespace information
           var: ns
 ```
 
-Save this playbook as *servicebus_namespace_info.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, see the following notes:
+- The **show_sas_policies** value indicates whether to show the SAS policies under the specified namespace. By default, the value is `False` to avoid additional network overhead.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -132,10 +134,10 @@ ansible-playbook servicebus_namespace_info.yml
 
 ## Retrieve queue information
 
-This section shows you how to query a queue's information. 
+The sample playbook code queries queue information. 
 
-> [!Tip] 
-> The **show_sas_policies** field indicates whether to show the SAS policies under this queue. This field is set to `False` to avoid additional network overhead by default.
+
+Save the following playbook as `servicebus_queue_info.yml`:
 
 ```yaml
 ---
@@ -157,7 +159,10 @@ This section shows you how to query a queue's information.
           var: queue
 ```
 
-Save this playbook as *servicebus_queue_info.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, see the following notes:
+- The `show_sas_policies` value indicates whether to show the SAS policies under the specified queue. By default, this value is set to `False` to avoid additional network overhead.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
@@ -165,7 +170,9 @@ ansible-playbook servicebus_queue_info.yml
 
 ## Revoke the queue SAS policy
 
-This playbook shows you how to delete a SAS policy for a queue.
+The sample playbook code deletes a queue SAS policy.
+
+Save the following playbook as `servicebus_queue_policy_delete.yml`:
 
 ```yaml
 ---
@@ -184,7 +191,7 @@ This playbook shows you how to delete a SAS policy for a queue.
           state: absent
 ```
 
-Save this playbook as *servicebus_queue_policy_delete.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -192,7 +199,9 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following playbook.
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 ---
@@ -220,12 +229,12 @@ If you don't need these resources, you can delete them by running the following 
           force_delete_nonempty: yes
 ```
 
-Save the preceding playbook as **rg_delete.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Create an Azure Service Bus topic by using Ansible](https://docs.microsoft.com/azure/ansible/ansible-service-bus-create-topics)
+> [Tutorial: Configure a topic in Azure Service Bus using Ansible](/azure/ansible/ansible-service-bus-create-topics)
