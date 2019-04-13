@@ -136,7 +136,7 @@ Data is ingested via localhost port 9999 and read into a Spark DataFrame.
 To generate data for the Spark stream that you have just created, do the following:
 
 1. Open another terminal on the same Spark cluster
-1. At the command prompt, type `nc -lk 9999` 
+1. At the command prompt, type `nc -lk 9999`
 1. Type the words that you would like the Spark stream to ingest, followed by carriage return. These words are inserted into a hive table.
 
 Hive table is created, and data is inserted.
@@ -146,7 +146,7 @@ Hive table is created, and data is inserted.
 ![creating hive table from spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-hive-table-create.png)
 
 >[!Note]
-> There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastoreUri and database options manually. For more information, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460) for more details. As soon as this issue is resolved, both metastoreUri and the database can be omitted likewise.
+> There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastore Uri and database options manually. For more information, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460) for more details. As soon as this issue is resolved, both metastore Uri and the database can be omitted likewise.
 
 ### Use cases in HDInsight 4.0 with Enterprise Security Package
 
