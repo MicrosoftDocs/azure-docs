@@ -1,5 +1,5 @@
 ---
-title: Connect to Windows Virtual Desktop Preview from Windows 10 or Windows 7
+title: Connect to Windows Virtual Desktop Preview from Windows 10 or Windows 7 - Azure
 description: How to connect to the Windows Virtual Desktop Preview from Windows 10 or Windows 7.
 services: virtual-desktop
 author: Heidilohr
@@ -20,11 +20,11 @@ A downloadable client is available that provides access to Windows Virtual Deskt
 
 ## Install the client
 
-[Download](https://go.microsoft.com/fwlink/?linkid=2068602) and install the client to your local PC. This requires admin rights.
+[Download](https://go.microsoft.com/fwlink/?linkid=2068602) and install the client to your local PC. The installation requires admin rights.
 
 ## Subscribe to a feed
 
-Get the list of managed resources available to you from your local PC by subscribing to the feed provided by your admin.
+Get the list of managed resources available to you by subscribing to the feed provided by your admin. Subscribing makes the resources available on your local PC.
 
 To subscribe to a feed:
 
@@ -40,19 +40,32 @@ You can launch resources by one of two methods.
 - Launch a resource as you normally would other apps from the Start Menu.
   - You can also search for the apps in the search bar.
 
+Once subscribed to a feed, the content of the feed is updated automatically on a regular basis. Resources may be added, changed, or removed based on changes made by your administrator.
+
 ## View the details of a feed
 
-After subscribing to a feed, you can view additional information about the feed by accessing the details panel.
+After subscribing, you can view additional information about the feed by accessing the details panel.
 
-- From the main page of the client, click the ellipsis (**...**) to the right of the feed name.
+- From the client's main page, click the ellipsis (**...**) to the right of the feed name.
 - From the dropdown menu, select **Details**.
 - The Details panel shows up on the right side of the client.
 
-The Details panel contains useful information about the feed including the URL and username used for the feed, the content of the feed and information about the last update attempt.
+The Details panel contains useful information about the feed:
+
+- The URL and username used to subscribe
+- The number of apps and desktops
+- The date/time of the last update
+- The status of the last update
+
+If needed, you can start a manual update by clicking on **Update now**.
 
 ## Unsubscribe from a feed
 
-Get the list of resources available to you from your local PC by subscribing to the feed provided by your admin.
+When needed, follow the steps below to unsubscribe from a feed. Unsubscribing can be used to subscribe with a different account or to remove your resources from the system.
+
+- From the client's main page, click the ellipsis (**...**) to the right of the feed name.
+- From the dropdown menu, select **Unsubscribe**.
+- Review and select **Continue** from the dialog.
 
 ## Update the client
 
