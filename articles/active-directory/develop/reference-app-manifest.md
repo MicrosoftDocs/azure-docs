@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/18/2018
+ms.date: 04/13/2019
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
@@ -106,7 +106,7 @@ The application manifest represents the schema of the underlying application mod
 | `publicClient`            | `allowPublicClient`         |
 | `replyUrls`               | `replyUrlsWithType`         |
 
-_Please refer the [Manifest reference](#manifet-reference) above for the descriptions for these attributes._
+For descriptions for these attributes, see the the [manifest reference](#manifet-reference) section.
 
 > [!NOTE] When you try to upload a previously downloaded manifest, you may receive one of the following errors. This is likely because the manifest editor supports a newer version of the schema now which does not match with the one you are trying to upload.
 >
@@ -122,8 +122,8 @@ _Please refer the [Manifest reference](#manifet-reference) above for the descrip
 
 ## Next steps
 
-* For more info on the relationship between an app's Application and Service Principal object(s), see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
-* See the [Azure AD developer glossary](developer-glossary.md) for definitions of some of the core Azure Active Directory (AD) developer concepts.
+* For more info on the relationship between an app's application and service principal object(s), see [Application and service principal objects in Azure AD](app-objects-and-service-principals.md).
+* See the [Microsoft identity platform developer glossary](developer-glossary.md) for definitions of some of the core Microsoft identity platform developer concepts.
 
 Use the following comments section to provide feedback that helps refine and shape our content.
 
