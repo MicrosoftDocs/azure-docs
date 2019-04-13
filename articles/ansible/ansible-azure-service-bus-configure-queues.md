@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Configure a queue in Azure Service Bus using Ansible | Microsoft Docs
+title: Tutorial - Configure queues in Azure Service Bus using Ansible | Microsoft Docs
 description: Learn how to use Ansible to create an Azure Service Bus queue
 keywords: ansible, azure, devops, bash, playbook, service bus, queue
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Configure a queue in Azure Service Bus using Ansible
+# Tutorial: Configure queues in Azure Service Bus using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
