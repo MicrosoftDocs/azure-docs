@@ -26,7 +26,7 @@ This article shows you how to create a new Azure Active Directory (Azure AD) app
 > [!IMPORTANT]
 > Instead of creating a service principal, consider using managed identities for Azure resources for your application identity. If your code runs on a service that supports managed identities and accesses resources that support Azure AD authentication, managed identities are a better option for you. To learn more about managed identities for Azure resources, including which services currently support it, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).
 
-## Create an Azure AD application
+## Create an Azure Active Directory application
 
 Let's jump straight into creating the identity. If you run into a problem, check the [required permissions](#required-permissions) to make sure your account can create the identity.
 
