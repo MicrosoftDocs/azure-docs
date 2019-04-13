@@ -1,6 +1,6 @@
 ---
-title: 'Design a Multi-Tenant Database with Azure Database for PostgreSQL – Hyperscale (Citus) Preview tutorial'
-description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus).
+title: 'Design a Multi-Tenant Database with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
+description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -10,10 +10,9 @@ ms.topic: tutorial
 ms.date: 04/09/2019
 ---
 
-# Tutorial: Design a Multi-Tenant Database by using Azure Database for PostgreSQL – Hyperscale (Citus) Preview
+# Tutorial: Design a Multi-Tenant Database by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
-In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) Preview to
-learn how to:
+In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
 
 > [!div class="checklist"]
 > * Create a Hyperscale (Citus) server group
@@ -93,7 +92,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 ## Use psql utility to create a schema
 
-Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
+Once connected to the Azure Database for PostgreSQL - Hyperscale (Citus) (preview) using psql, you can complete some basic tasks. This tutorial walks you through creating a web app that allows advertisers to track their campaigns.
 
 Multiple companies can use the app, so let's create a table to hold companies and another for their campaigns:
 
