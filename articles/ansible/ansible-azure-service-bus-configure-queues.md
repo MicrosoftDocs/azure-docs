@@ -91,7 +91,7 @@ Save the following playbook as `servicebus_queue_policy.yml`:
 ```
 
 Before running the playbook, see the following notes:
-- The `rights` value represents the privilege a user has with the queue. Specify one of the following: `manage`, `listen`, `send` or `listen_send`.
+- The `rights` value represents the privilege a user has with the queue. Specify one of the following values: `manage`, `listen`, `send`, or `listen_send`.
 
 Run the playbook using the **ansible-playbook** command:
 
