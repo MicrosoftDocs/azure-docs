@@ -1,11 +1,11 @@
 ---
 title: Manage indexing policies in Azure Cosmos DB
 description: Learn how to manage indexing policies in Azure Cosmos DB
-author: markjbrown
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
 ms.date: 04/08/2019
-ms.author: mjbrown
+ms.author: thweiss
 ---
 
 # Manage indexing policies in Azure Cosmos DB
@@ -46,7 +46,7 @@ await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 
 ## Use the Java SDK
 
-The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods.
+The `DocumentCollection` object from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) (see [this quickstart](create-sql-api-java.md) regarding its usage) exposes `getIndexingPolicy()` and `setIndexingPolicy()` methods. The `IndexingPolicy` object they manipulate lets you change the indexing mode and add or remove included and excluded paths.
 
 ```java
 Observable<ResourceResponse<DocumentCollection>> containerResponse = client.readCollection(collectionLink, null);

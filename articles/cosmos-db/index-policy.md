@@ -48,7 +48,14 @@ Taking the same example again:
 - the `locations`' `country` path is `/locations/[]/country/?`
 - the path to anything under `headquarters` is `/headquarters/*`
 
-When a path is explicitly included in the indexing policy, it also has to define which index types (`Range` or `Spatial`) should be applied to that path and for each index type, the data type this index applies to (`String` or `Number` for the range type, `Point`, `LineString` or `Polygon` for the spatial type). For example, we could add the `/headquarters/employees/?` path to our policy and specify that a `Range` index should be applied on that path for both `String` and `Number` values.
+When a path is explicitly included in the indexing policy, it also has to define which index types should be applied to that path and for each index type, the data type this index applies to:
+
+| Index type | Allowed target data types |
+| --- | --- |
+| Range | String or Number |
+| Spatial | Point, LineString or Polygon |
+
+For example, we could include the `/headquarters/employees/?` path and specify that a `Range` index should be applied on that path for both `String` and `Number` values.
 
 ### Include/exclude strategy
 
@@ -69,8 +76,8 @@ If the new indexing policy's mode is set to consistent, no other indexing policy
 
 The [time-to-live (TTL) feature](time-to-live.md) requires indexing to be active on the container it is turned on. This means that:
 
-- it is not possible to activate TTL on a container where the indexing mode is set to `None`,
-- it is not possible to set the indexing mode to `None` on a container where TTL is activated.
+- it is not possible to activate TTL on a container where the indexing mode is set to none,
+- it is not possible to set the indexing mode to none on a container where TTL is activated.
 
 For scenarios where no property path needs to be indexed but TTL is required, you can use an indexing policy with:
 
