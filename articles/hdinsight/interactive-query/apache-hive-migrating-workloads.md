@@ -11,7 +11,7 @@ ms.date: 04/11/2019
 ---
 # Migrating HDInsight 3.6 Hive workloads to HDInsight 4.0
 
-This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 3.6 uses Hive 2 with Hortonworks Data Platform (HDP) 2.6. HDInsight 4.0, however, uses Hive 3 with HDP 3. Migrating your workloads to HDInsight 4.0 will allow you to use many new Hive and LLAP features including materialized views and query result caching.
+This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6 which runs on Hive 2.
 
 This article covers the following subjects:
 
