@@ -36,7 +36,7 @@ The compute target you created here **automatically autoscales** to zero nodes 
 
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 
-![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)
+    ![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)
 
 1. In the **Compute** section of your workspace, select the resource.
 
