@@ -1,7 +1,6 @@
 ---
 title: Software plan discount - Azure | Microsoft Docs
 description: Learn how software plan discounts are applied to software on virtual machines.
-services: 'billing'
 documentationcenter: ''
 author: yashesvi
 manager: yashar
@@ -22,13 +21,19 @@ When you shut down a VM, the discount is automatically applied to another matchi
 
 To buy the right plan, you need to understand your VM usage and the number of vCPUs on those VMs. Use the following sections to help identify what plan to buy, based on your usage data.
 
+## How reservation discount is applied
+
+A reservation discount is "*use-it-or-lose-it*". So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
+
+When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
+
 ## Review RedHat VM usage before you buy
 
 Get the product name from your usage data and buy the RedHat plan with the same type and size.
 
 For example, if your usage has product **Red Hat Enterprise Linux - 1-4 vCPU VM License**, you should purchase **Red Hat Enterprise Linux** for **1-4 vCPU VM**.
 
-ADD RHEL SCREENSHOT
+<!--ADD RHEL SCREENSHOT -->
 
 ## Review SUSE VM usage before you buy
 
