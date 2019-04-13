@@ -41,6 +41,6 @@ The following examples show how the SQL Data Warehouse reserved capacity discoun
 To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [View reservation transactions](billing/billing-view-reservations.md)
+- [View reservation transactions](billing-view-reservations.md)
 - [Get reservation transactions and utilization through API](billing-reservation-apis.md)
-- [Manage reservations](billing/billing-manage-reserved-vm-instance.md)
+- [Manage reservations](billing-manage-reserved-vm-instance.md)

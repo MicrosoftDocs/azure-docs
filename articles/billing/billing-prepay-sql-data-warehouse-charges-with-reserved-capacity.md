@@ -71,7 +71,7 @@ If you have questions or need help, [create a support request](https://portal.az
 
 ## Next steps
 
-- To learn how to manage the SQL Data Warehouse reserved capacity, see [LINK manage Reservations for Azure resources](LINK.md).
+- To learn more about how reservation discounts apply to Azure SQL Data Warehouse, see [How reservation discounts apply to Azure SQL Data Warehouse](billing-prepay-sql-data-warehouse-charges-with-reserved-capacity.md).
 
 - To learn more about Azure Reservations, see the following articles:
   - [What are Azure Reservations?](billing-save-compute-costs-reservations.md)

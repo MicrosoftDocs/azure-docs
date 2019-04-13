@@ -49,7 +49,7 @@ A reservation scope determines the resources to which the reservation discount a
 
 **Single subscription** - The reservation discount is applied to the matching resources in the selected subscription.
 
-You can [update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-scope-for-a-reservation).
+You can [update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
 
 ## Discounted subscription and offer types
 
