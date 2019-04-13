@@ -22,9 +22,9 @@ Azure Stream Analytics currently supports three compatibility levels:
 
 * 1.0 - default level
 * 1.1
-* 1.2 (preview) - newest behavior with most recent improvements
+* 1.2 (preview) - newest behavior with most recent improvements. Not yet generally available. 
 
-The original 1.0 compatibility level 1.0 was introduced during general availability of Azure Stream Analytics several years ago.
+The original 1.0 compatibility level was introduced during general availability of Azure Stream Analytics several years ago.
 
 ## Set the compatibility level
 
