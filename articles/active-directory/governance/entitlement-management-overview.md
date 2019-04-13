@@ -151,7 +151,7 @@ The following table lists the permissions for each of these roles.
 | Specify who can request an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | View who has an assignment to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | View an access package's requests | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| View a request's fulfillment errors | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| View a request's delivery errors | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | Cancel a pending request | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | Hide an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | Approve an access request |  |  |  |  | :heavy_check_mark: |

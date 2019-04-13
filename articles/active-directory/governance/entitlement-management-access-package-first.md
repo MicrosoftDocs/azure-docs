@@ -260,7 +260,7 @@ In this step, you sign in as the **approver** user and approve the access reques
 
 1. In the left menu, click **Requests**.
 
-    You should see Requestor1 and the Internal requestor policy with a status of **Fulfilled**.
+    You should see Requestor1 and the Internal requestor policy with a status of **Delivered**.
 
 1. Click the request to see the request details.
 

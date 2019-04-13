@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/11/2019
+ms.date: 04/12/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -28,15 +28,15 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-When a user submits a request to an access package, a process is started to fulfill that request. Azure AD entitlement management also sends email notifications to approvers and requestors when key events occur during the process.
+When a user submits a request to an access package, a process is started to deliver that request. Azure AD entitlement management also sends email notifications to approvers and requestors when key events occur during the process.
 
-This article describes the fulfillment process, and the email notifications that are sent.
+This article describes the request process, and the email notifications that are sent.
 
 ## Request process
 
 A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states.
 
-![Approval process diagram](./media/entitlement-management-process/fulfillment-process.png)
+![Approval process diagram](./media/entitlement-management-process/request-process.png)
 
 | State | Description |
 | --- | --- |
@@ -45,8 +45,8 @@ A user that needs access to an access package can submit an access request. Depe
 | Expired | If no approvers review a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
 | Denied | Approver denies a request. |
 | Approved | Approver approves a request. |
-| Partially fulfilled | User has **not** been assigned access to all the resources in the access package. If the this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
-| Fulfilled | User has been assigned access to all the resources in the access package. |
+| Delivering | User has **not** been assigned access to all the resources in the access package. If the this is an external user, the user has not yet accessed the resource directory and accepted the permissions prompt. |
+| Delivered | User has been assigned access to all the resources in the access package. |
 | Access extended | If extensions are allowed in the policy, the user extended the assignment. |
 | Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
 

@@ -100,5 +100,5 @@ If you are requesting access to an access package that has multiple policies tha
 
 ## Next steps
 
-- [How access requests are fulfilled](entitlement-management-process.md)
+- [Request process and email notifications](entitlement-management-process.md)
 - [Approve or deny access requests](entitlement-management-request-approve.md)

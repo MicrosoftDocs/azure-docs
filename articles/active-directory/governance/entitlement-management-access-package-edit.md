@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -263,9 +263,9 @@ You can directly assign specific users to an access package if you do not need t
 
 1. Click a specific assignment to see additional details.
 
-1. To see a list of assignments that did not have all resource roles properly provisioned, click the filter status and select **Partially fulfilled**.
+1. To see a list of assignments that did not have all resource roles properly provisioned, click the filter status and select **Delivering**.
 
-    You can see additional details on fulfillment errors by locating the user's corresponding request on the **Requests** page.
+    You can see additional details on delivery errors by locating the user's corresponding request on the **Requests** page.
 
 1. To see expired assignments, click the filter status and select **Expired**.
 
@@ -283,7 +283,7 @@ You can directly assign specific users to an access package if you do not need t
 
 1. Click a specific request to see additional details.
 
-## View a request's fulfillment errors
+## View a request's delivery errors
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -295,15 +295,15 @@ You can directly assign specific users to an access package if you do not need t
 
 1. Select the request you want to view.
 
-    If the request has any fulfillment errors, the request status will be **Unfulfilled** and the substatus will be **Partially fulfilled**.
+    If the request has any delivery errors, the request status will be **Undelivered** and the substatus will be **Partially delivered**.
 
-    If there are any fulfillment errors, in the request's detail pane, there will be a count of fulfillment errors.
+    If there are any delivery errors, in the request's detail pane, there will be a count of delivery errors.
 
-1. Click the count to see all of the request's fulfillment errors.
+1. Click the count to see all of the request's delivery errors.
 
 ## Cancel a pending request
 
-You can only cancel a pending request that has not yet been fulfilled.
+You can only cancel a pending request that has not yet been delivered.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -353,4 +353,5 @@ An access package can only be deleted if it has no active user assignments.
 
 ## Next steps
 
+- [Request process and email notifications](entitlement-management-process.md)
 - [Manage access for external users](entitlement-management-external-users.md)
