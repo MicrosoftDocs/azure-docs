@@ -14,18 +14,20 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise [integration](https://azure.microsoft.com/en-us/product-categories/integration/) message broker. Messages are sent to and received from queues. Queues enable you to store messages until the receiving application is available to receive and process them.
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Queues support asynchronous communications between applications. An app sends messages to a queue, which stores the messages. The receiving application then connects to and reads the messages from the queue.
 
-This tutorial shows you how to create a Service Bus queue.
+In this tutorial, an Azure Service Bus queue is created using Ansible.
 
 ## Prerequisites
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-## Create a service bus queue
+## Create the service bus queue
 
-The code in this section presents a sample Ansible playbook to create a resource group, and a Service Bus namespace in this resource group. Finally create a queue under this namespace
+The sample playbook code creates a resource group and a Service Bus namespace within the resource group. The code then creates a queue within the namespace.
+
+Save the following playbook as `servicebus_queue.yml`:
 
 ```yml
 ---
@@ -54,18 +56,19 @@ The code in this section presents a sample Ansible playbook to create a resource
           var: queue
 ```
 
-Save this playbook as *servicebus_queue.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_queue.yml
 ```
 
-## Create a Shared Access Signatures(SAS) policy for the Service Bus topic
+## Create the SAS policy
 
-Shared Access Signatures(SAS) are a claims-based authorization mechanism using simple tokens. This section shows you how to create two SAS policies for a Service Bus topic with different privileges.
+A [Shared Access Signature (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) is a claims-based authorization mechanism using tokens. 
 
-> [!Tip] 
-> The **rights** field represents the privilege a user have with the topic. The value can be one of `manage`, `listen`, `send` or `listen_send`
+The sample playbook code creates two SAS policies for a Service Bus queue with different privileges.
+
+Save the following playbook as `servicebus_queue_policy.yml`:
 
 ```yaml
 ---
@@ -87,15 +90,18 @@ Shared Access Signatures(SAS) are a claims-based authorization mechanism using s
           var: policy
 ```
 
-Save this playbook as *servicebus_queue_policy.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, make the following changes:
+- The `rights` key represents the privilege a user has with the queue. Specify one of the following: `manage`, `listen`, `send` or `listen_send`.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
 ```
 
-## Retrieve information about a namespace
+## Retrieve namespace information
 
-This section shows you how to query a namespace.
+The sample playbook code queries the namespace information
 
 > [!Tip]
 > The **show_sas_policies** field indicates whether to show the SAS policies under this namespace. This field is set to `False` by default to avoid additional network overhead.
@@ -124,7 +130,7 @@ Save this playbook as *servicebus_namespace_info.yml*. To run this Ansible playb
 ansible-playbook servicebus_namespace_info.yml
 ```
 
-## Retrieve the information about a queue
+## Retrieve queue information
 
 This section shows you how to query a queue's information. 
 
@@ -157,7 +163,7 @@ Save this playbook as *servicebus_queue_info.yml*. To run this Ansible playbook,
 ansible-playbook servicebus_queue_info.yml
 ```
 
-## Revoke a SAS policy for a queue
+## Revoke the queue SAS policy
 
 This playbook shows you how to delete a SAS policy for a queue.
 
@@ -184,7 +190,7 @@ Save this playbook as *servicebus_queue_policy_delete.yml*. To run this Ansible 
 ansible-playbook servicebus_queue_policy_delete.yml
 ```
 
-## Clean up
+## Clean up resources
 
 If you don't need these resources, you can delete them by running the following playbook.
 
