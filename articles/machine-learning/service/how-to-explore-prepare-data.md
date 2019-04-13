@@ -32,10 +32,63 @@ When dealing with big data, it is common practice to sample your data before pre
 
 ```Python
 from azureml.core import Dataset
+import random
 
 # create an in-memory Dataset from a local file
 dataset = Dataset.auto_read_files('./data/crime.csv')
+
+# create seed for Simple Random and Stratified sampling
+seed = random.randint(0, 4294967295)
 ```
+
+Top N sampling will keep the number of records specified from the top of your Dataset and return a modified Dataset.
+
+```python
+top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
+top_n_sample_dataset.to_pandas_dataframe()
+```
+
+||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+-|--|-----------|----|-----|----|------------|---
+0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|...
+1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
+3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|...
+4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+
+Simple Random sampling will keep the records from your Dataset based on the probability specified and return a modified Dataset. The seed parameter is optional.
+
+```python
+simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.3, 'seed': seed})
+simple_random_sample_dataset.to_pandas_dataframe()
+```
+
+||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+-|--|-----------|----|-----|----|------------|---
+0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|...
+2|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+3|10525877|HZ268138|4/15/2016 15:00|023XX W EASTWOOD AVE|1153|DECEPTIVE PRACTICE|...
+
+Stratified sampling will keep the records from your Dataset based on the strata, strata weights and the probability to sample each stratum with. For all records, we will group each record by the columns specified to stratify and based on the stratum X weight information in fractions, include said record. If a stratum is not specified or the record cannot be grouped by said stratum, the default weight to sample is 0.
+
+```python
+# we will take 50% of records with `Primary Type` as `THEFT` and 20% of records with `Primary Type` as `DECEPTIVE PRACTICE` into sample Dataset
+fractions = {}
+fractions[('THEFT',)] = 0.5
+fractions[('DECEPTIVE PRACTICE',)] = 0.2
+
+sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fractions': fractions, 'seed': seed})
+      
+sample_dataset.to_pandas_dataframe()
+```
+
+||ID|Case Number|Date|Block|IUCR|Primary Type|...|
+-|--|-----------|----|-----|----|------------|---
+0|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT|...
+1|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|...
+2|10535059|HZ278872|4/15/2016 4:30|004XX S KILBOURN AVE|810|THEFT|...
+3|10525877|HZ268138|4/15/2016 15:00|023XX W EASTWOOD AVE|1153|DECEPTIVE PRACTICE|...
 
 
 ## Explore data through summary statistics
@@ -665,69 +718,14 @@ ds_def = dataset.get_definition()
 ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 ds_def.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Arrest</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>False</td>
-      <td>41.692834</td>
-      <td>-87.604319</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>False</td>
-      <td>41.744107</td>
-      <td>-87.664494</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||ID|Arrest| Latitude|Longitude|
+-|---------|-----|---------|----------|
+|0|10498554|False|41.692834|-87.604319|
+|1|10516598|False| 41.744107 |-87.664494|
+|2|10519196|False| NaN|NaN|
+|3|10519591|False| NaN|NaN|
+|4|10534446|False| NaN|NaN|
 
 Some records miss latitude and longitude values. To impute those missing values, you use `ImputeMissingValuesBuilder` to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 Check the `MEAN` value of the latitude column using the `summarize()` function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
@@ -741,37 +739,10 @@ lat_mean = ds_def.summarize(group_by_columns=['Arrest'],
 lat_mean = lat_mean.filter(dprep.col('Arrest') == False)
 lat_mean.head(1)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Arrest</th>
-      <th>Latitude_MEAN</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>False</td>
-      <td>41.780049</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||Arrest|Latitude_MEAN|
+--|-----|--------|
+|0|False|41.780049|
 
 The `MEAN` value of latitudes looks accurate. The `ImputeColumnArguments` function accepts a column_id string, and a ReplaceValueFunction to specify the impute type. For the missing longitude value, impute it with -87 based on external knowledge.
 Impute steps can be chained together into a ImputeMissingValuesBuilder object, using the builder function impute_missing_values(). The impute_columns parameter accepts an array of ImputeColumnArguments objects. Call the learn() function to store the impute steps, and then apply to a dataflow object using to_dataflow().
@@ -791,69 +762,14 @@ impute_builder.learn()
 ds_def = impute_builder.to_dataflow()
 ds_def.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Arrest</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>False</td>
-      <td>41.692834</td>
-      <td>-87.604319</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>False</td>
-      <td>41.744107</td>
-      <td>-87.664494</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||ID|Arrest|Latitude|Longitude
+-|---------|-----|---------|----------
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
+3|10519591|False|41.780049|-87.000000
+4|10534446|False|41.780049|-87.000000
 
 As shown in the result above, the missing latitude was imputed with the `MEAN` value of `Arrest==False` group. The missing longitude was imputed with -87.
 
@@ -862,69 +778,14 @@ As shown in the result above, the missing latitude was imputed with the `MEAN` v
 dataset = dataset.update_definition(ds_def, 'Impute Missing')
 dataset.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Arrest</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>False</td>
-      <td>41.692834</td>
-      <td>-87.604319</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>False</td>
-      <td>41.744107</td>
-      <td>-87.664494</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>False</td>
-      <td>41.780049</td>
-      <td>-87.000000</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||ID|Arrest|Latitude|Longitude
+-|---------|-----|---------|----------
+0|10498554|False|41.692834|-87.604319
+1|10516598|False|41.744107|-87.664494
+2|10519196|False|41.780049|-87.000000
+3|10519591|False|41.780049|-87.000000
+4|10534446|False|41.780049|-87.000000
 
 ## How to use assertion rules for anomalies
 
@@ -1107,172 +968,14 @@ from azureml.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/crime.csv')
 dataset.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Case Number</th>
-      <th>Date</th>
-      <th>Block</th>
-      <th>IUCR</th>
-      <th>Primary Type</th>
-      <th>Description</th>
-      <th>Location Description</th>
-      <th>Arrest</th>
-      <th>Domestic</th>
-      <th>...</th>
-      <th>Ward</th>
-      <th>Community Area</th>
-      <th>FBI Code</th>
-      <th>X Coordinate</th>
-      <th>Y Coordinate</th>
-      <th>Year</th>
-      <th>Updated On</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>HZ239907</td>
-      <td>2016-04-04 23:56:00</td>
-      <td>007XX E 111TH ST</td>
-      <td>1153</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FINANCIAL IDENTITY THEFT OVER $ 300</td>
-      <td>OTHER</td>
-      <td>False</td>
-      <td>False</td>
-      <td>...</td>
-      <td>9</td>
-      <td>50</td>
-      <td>11</td>
-      <td>1183356.0</td>
-      <td>1831503.0</td>
-      <td>2016</td>
-      <td>2016-05-11 15:48:00</td>
-      <td>41.692834</td>
-      <td>-87.604319</td>
-      <td>(41.692833841, -87.60431945)</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>HZ258664</td>
-      <td>2016-04-15 17:00:00</td>
-      <td>082XX S MARSHFIELD AVE</td>
-      <td>890</td>
-      <td>THEFT</td>
-      <td>FROM BUILDING</td>
-      <td>RESIDENCE</td>
-      <td>False</td>
-      <td>False</td>
-      <td>...</td>
-      <td>21</td>
-      <td>71</td>
-      <td>6</td>
-      <td>1166776.0</td>
-      <td>1850053.0</td>
-      <td>2016</td>
-      <td>2016-05-12 15:48:00</td>
-      <td>41.744107</td>
-      <td>-87.664494</td>
-      <td>(41.744106973, -87.664494285)</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>HZ261252</td>
-      <td>2016-04-15 10:00:00</td>
-      <td>104XX S SACRAMENTO AVE</td>
-      <td>1154</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FINANCIAL IDENTITY THEFT $300 AND UNDER</td>
-      <td>RESIDENCE</td>
-      <td>False</td>
-      <td>False</td>
-      <td>...</td>
-      <td>19</td>
-      <td>74</td>
-      <td>11</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2016</td>
-      <td>2016-05-12 15:50:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>HZ261534</td>
-      <td>2016-04-15 09:00:00</td>
-      <td>113XX S PRAIRIE AVE</td>
-      <td>1120</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FORGERY</td>
-      <td>RESIDENCE</td>
-      <td>False</td>
-      <td>False</td>
-      <td>...</td>
-      <td>9</td>
-      <td>49</td>
-      <td>10</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2016</td>
-      <td>2016-05-13 15:51:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>HZ277630</td>
-      <td>2016-04-15 10:00:00</td>
-      <td>055XX N KEDZIE AVE</td>
-      <td>890</td>
-      <td>THEFT</td>
-      <td>FROM BUILDING</td>
-      <td>SCHOOL, PUBLIC, BUILDING</td>
-      <td>False</td>
-      <td>False</td>
-      <td>...</td>
-      <td>40</td>
-      <td>13</td>
-      <td>6</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>2016</td>
-      <td>2016-05-25 15:59:00</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 22 columns</p>
-</div>
+||ID|Case Number|Date|Block|...|
+-|---------|-----|---------|----|---
+0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|...
+1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|...
+2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|...
+3|10519591|HZ261534|2016-04-15 09:00:00|113XX S PRAIRIE AVE|...
+4|10534446|HZ277630|2016-04-15 10:00:00|055XX N KEDZIE AVE|...
 
 Assuming that you need to transform the date and time format to '2016-04-04 10PM-12AM', you can achieve it through `derive_column_by_example`. In `example_data` argument, you need to pass value pairs of original record in `source_columns` and the expected value for the derived column.
 
@@ -1285,63 +988,14 @@ ds_def = ds_def.derive_column_by_example(
     )
 ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Date</th>
-      <th>Date_Time_Range</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>2016-04-04 23:56:00</td>
-      <td>2016-04-04 10PM-12AM</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>2016-04-15 17:00:00</td>
-      <td>2016-04-15 4PM-6PM</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>2016-04-15 10:00:00</td>
-      <td>2016-04-15 10AM-12PM</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>2016-04-15 09:00:00</td>
-      <td>2016-04-15 8AM-10AM</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>2016-04-15 10:00:00</td>
-      <td>2016-04-15 10AM-12PM</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||ID|Date|Date_Time_Range
+-|--------|-----|----
+0|10498554|2016-04-04 23:56:00|2016-04-04 10PM-12AM
+1|10516598|2016-04-15 17:00:00|2016-04-15 4PM-6PM
+2|10519196|2016-04-15 10:00:00|2016-04-15 10AM-12PM
+3|10519591|2016-04-15 09:00:00|2016-04-15 8AM-10AM
+4|10534446|2016-04-15 10:00:00|2016-04-15 10AM-12PM
 
 ```Python
 # update Dataset definition to keep the transformation steps performed. 
@@ -1359,147 +1013,14 @@ from azureml.dataset import Dataset
 dataset = Dataset.auto_read_files('./data/city.json')
 dataset.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>inspections.business.business_id</th>
-      <th>inspections.business.name</th>
-      <th>inspections.business.address</th>
-      <th>inspections.business.city</th>
-      <th>inspections.business.postal_code</th>
-      <th>inspections.business.latitude</th>
-      <th>inspections.business.longitude</th>
-      <th>inspections.business.phone_number</th>
-      <th>inspections.business.TaxCode</th>
-      <th>inspections.business.business_certificate</th>
-      <th>inspections.business.application_date</th>
-      <th>inspections.business.owner_name</th>
-      <th>inspections.business.owner_address</th>
-      <th>inspections.Score</th>
-      <th>inspections.date</th>
-      <th>inspections.type</th>
-      <th>inspections.violations</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>16162</td>
-      <td>Quick-N-Ezee Indian Foods</td>
-      <td>3861 24th St</td>
-      <td>SF</td>
-      <td>94114</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>H34</td>
-      <td>467114.0</td>
-      <td>May  9 2005 12:00AM</td>
-      <td>Jagpreet Enterprises</td>
-      <td>23682 Clawiter Road\n Hayward\n CA\n 94545</td>
-      <td>100.0</td>
-      <td>20130223</td>
-      <td>Routine - Unscheduled</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>67565</td>
-      <td>King of Thai Noodles Cafe</td>
-      <td>1541 TARAVAL St</td>
-      <td>SAN FRANCISCO</td>
-      <td>94116</td>
-      <td>37.7427</td>
-      <td>-122.483</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>NaN</td>
-      <td>Oct 12 2011 12:00AM</td>
-      <td>Royal Thai Noodles, Inc</td>
-      <td>2410 19th Ave\n SF\n CA\n 94116</td>
-      <td>79.0</td>
-      <td>20130225</td>
-      <td>Routine - Unscheduled</td>
-      <td>[{"description":"103139: Improper food storage...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>67565</td>
-      <td>King of Thai Noodles Cafe</td>
-      <td>1541 TARAVAL St</td>
-      <td>SAN FRANCISCO</td>
-      <td>94116</td>
-      <td>37.7427</td>
-      <td>-122.483</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>NaN</td>
-      <td>Oct 12 2011 12:00AM</td>
-      <td>Royal Thai Noodles, Inc</td>
-      <td>2410 19th Ave\n SF\n CA\n 94116</td>
-      <td>NaN</td>
-      <td>20130225</td>
-      <td>Complaint</td>
-      <td>[{"description":"103139: Improper food storage...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>68701</td>
-      <td>Grindz</td>
-      <td>832 Clement St</td>
-      <td>SF</td>
-      <td>94118</td>
-      <td>37.7828</td>
-      <td>-122.468</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>467498.0</td>
-      <td>Mar 16 2012 12:00AM</td>
-      <td>Ono Grindz, LLC</td>
-      <td>1055 Granada St.\n Vallejo\n CA\n 94591</td>
-      <td>100.0</td>
-      <td>20130225</td>
-      <td>Routine - Unscheduled</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>69186</td>
-      <td>Premier Catering &amp; Events, Inc.</td>
-      <td>1255 22nd St</td>
-      <td>S.F.</td>
-      <td>94107</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.415553e+10</td>
-      <td>H30</td>
-      <td>362812.0</td>
-      <td>Apr 30 2012 12:00AM</td>
-      <td>Premier Catering &amp; Events, Inc.</td>
-      <td>298 Magellan Ave.\n SF\n CA\n 94116</td>
-      <td>NaN</td>
-      <td>20130225</td>
-      <td>Reinspection/Followup</td>
-      <td>[]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||inspections.business.business_id|inspections.business_name|inspections.business.address|inspections.business.city|...|
+-|-----|-------------------------|------------|--|---
+0|16162|Quick-N-Ezee Indian Foods|3861 24th St|SF|...
+1|67565|King of Thai Noodles Cafe|1541 TARAVAL St|SAN FRANCISCO|...
+2|67565|King of Thai Noodles Cafe|1541 TARAVAL St|SAN FRANCISCO|...
+3|68701|Grindz|832 Clement St|SF|...
+4|69186|Premier Catering & Events, Inc.|1255 22nd St|S.F.|...
 
 As you can see above, the column `inspections.business.city` contains several forms of the city name "San Francisco". Let's add a column with values replaced by the automatically detected canonical form. To do so, call `fuzzy_group_column()` on Dataset definition:
 
@@ -1512,159 +1033,14 @@ ds_def = ds_def.fuzzy_group_column(source_column='inspections.business.city',
                                        similarity_score_column_name='similarity_score')
 ds_def.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>inspections.business.business_id</th>
-      <th>inspections.business.name</th>
-      <th>inspections.business.address</th>
-      <th>inspections.business.city</th>
-      <th>city_grouped</th>
-      <th>similarity_score</th>
-      <th>inspections.business.postal_code</th>
-      <th>inspections.business.latitude</th>
-      <th>inspections.business.longitude</th>
-      <th>inspections.business.phone_number</th>
-      <th>inspections.business.TaxCode</th>
-      <th>inspections.business.business_certificate</th>
-      <th>inspections.business.application_date</th>
-      <th>inspections.business.owner_name</th>
-      <th>inspections.business.owner_address</th>
-      <th>inspections.Score</th>
-      <th>inspections.date</th>
-      <th>inspections.type</th>
-      <th>inspections.violations</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>16162</td>
-      <td>Quick-N-Ezee Indian Foods</td>
-      <td>3861 24th St</td>
-      <td>SF</td>
-      <td>San Francisco</td>
-      <td>0.814806</td>
-      <td>94114</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>H34</td>
-      <td>467114.0</td>
-      <td>May  9 2005 12:00AM</td>
-      <td>Jagpreet Enterprises</td>
-      <td>23682 Clawiter Road\n Hayward\n CA\n 94545</td>
-      <td>100.0</td>
-      <td>20130223</td>
-      <td>Routine - Unscheduled</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>67565</td>
-      <td>King of Thai Noodles Cafe</td>
-      <td>1541 TARAVAL St</td>
-      <td>SAN FRANCISCO</td>
-      <td>San Francisco</td>
-      <td>1.000000</td>
-      <td>94116</td>
-      <td>37.7427</td>
-      <td>-122.483</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>NaN</td>
-      <td>Oct 12 2011 12:00AM</td>
-      <td>Royal Thai Noodles, Inc</td>
-      <td>2410 19th Ave\n SF\n CA\n 94116</td>
-      <td>79.0</td>
-      <td>20130225</td>
-      <td>Routine - Unscheduled</td>
-      <td>[{"description":"103139: Improper food storage...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>67565</td>
-      <td>King of Thai Noodles Cafe</td>
-      <td>1541 TARAVAL St</td>
-      <td>SAN FRANCISCO</td>
-      <td>San Francisco</td>
-      <td>1.000000</td>
-      <td>94116</td>
-      <td>37.7427</td>
-      <td>-122.483</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>NaN</td>
-      <td>Oct 12 2011 12:00AM</td>
-      <td>Royal Thai Noodles, Inc</td>
-      <td>2410 19th Ave\n SF\n CA\n 94116</td>
-      <td>NaN</td>
-      <td>20130225</td>
-      <td>Complaint</td>
-      <td>[{"description":"103139: Improper food storage...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>68701</td>
-      <td>Grindz</td>
-      <td>832 Clement St</td>
-      <td>SF</td>
-      <td>San Francisco</td>
-      <td>0.814806</td>
-      <td>94118</td>
-      <td>37.7828</td>
-      <td>-122.468</td>
-      <td>NaN</td>
-      <td>H25</td>
-      <td>467498.0</td>
-      <td>Mar 16 2012 12:00AM</td>
-      <td>Ono Grindz, LLC</td>
-      <td>1055 Granada St.\n Vallejo\n CA\n 94591</td>
-      <td>100.0</td>
-      <td>20130225</td>
-      <td>Routine - Unscheduled</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>69186</td>
-      <td>Premier Catering &amp; Events, Inc.</td>
-      <td>1255 22nd St</td>
-      <td>S.F.</td>
-      <td>San Francisco</td>
-      <td>0.814806</td>
-      <td>94107</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.415553e+10</td>
-      <td>H30</td>
-      <td>362812.0</td>
-      <td>Apr 30 2012 12:00AM</td>
-      <td>Premier Catering &amp; Events, Inc.</td>
-      <td>298 Magellan Ave.\n SF\n CA\n 94116</td>
-      <td>NaN</td>
-      <td>20130225</td>
-      <td>Reinspection/Followup</td>
-      <td>[]</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+||inspections.business.business_id|inspections.business_name|inspections.business.address|inspections.business.city|city_grouped|similarity_score|...|
+-|-----|-------------------------|------------|--|---|---|---
+0|16162|Quick-N-Ezee Indian Foods|3861 24th St|SF|San Francisco|0.814806|...
+1|67565|King of Thai Noodles Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1.000000|...
+2|67565|King of Thai Noodles Cafe|1541 TARAVAL St|SAN FRANCISCO|San Francisco|1.000000|...
+3|68701|Grindz|832 Clement St|SF|San Francisco|0.814806|...
+4|69186|Premier Catering & Events, Inc.|1255 22nd St|S.F.|San Francisco|0.814806|...
 
 The arguments `source_column` and `new_column_name` are required, whereas the others are optional. If `similarity_threshold` is provided, it will be used to control the required similarity level for the values to be grouped together. If `similarity_score_column_name` is provided, a second new column will be added to show similarity score between every pair of original and canonical values.
 
