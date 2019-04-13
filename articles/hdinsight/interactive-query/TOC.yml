@@ -236,6 +236,9 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
+    - name: Migrate Hive workloads to HDInsight 4.0
+      href: ../apache-hive-migrating-workloads.md
+      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true

@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/11/2019
 ---
-# Migrating HDInsight 3.6 Hive Workloads to HDInsight 4.0
+# Migrating HDInsight 3.6 Hive workloads to HDInsight 4.0
 
 This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 3.6 uses Hive 2 with Hortonworks Data Platform (HDP) 2.6. HDInsight 4.0, however, uses Hive 3 with HDP 3. Migrating your workloads to HDInsight 4.0 will allow you to use many new Hive and LLAP features including materialized views and query result caching.
 
@@ -20,7 +20,7 @@ This article covers the following subjects:
 * Preservation of Hive security policies across HDI versions
 * Query execution and debugging from HDInsight 3.6 to HDInsight 4.0
 
-## Migrating Apache Hive Metadata to HDInsight 4.0
+## Migrating Apache Hive metadata to HDInsight 4.0
 
 One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. The metastore database schema differs between Hive versions. Do the following to upgrade a HDInsight 3.6 Hive Metastore so that it is compatible with HDInsight 4.0.
 
@@ -30,7 +30,7 @@ One advantage of Hive is the ability to export metadata to an external database 
 > [!Warning]
 > The upgrade which converts the HDInsight 3.6 metadata schema to the HDInsight 4.0 schema, cannot be reversed.
 
-## Migrating Hive Tables to HDInsight 4.0
+## Migrating Hive tables to HDInsight 4.0
 
 After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster (see the final section of this article for query execution in HDInsight 4.0 clusters). However, the artifacts will not yet be accessible. To access these artifacts in HDInsight 4.0,  the cluster must have access to the necessary storage accounts. To make sure that your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
 
@@ -48,7 +48,7 @@ alter table myacidtable compact 'major';
 
 This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables understand ACID deltas different. Compaction enforces a clean slate that guarantees table consistency. Once the compaction is complete, the previous steps regarding metastore and table migration will be enough to use any HDInsight 3.6 ACID tables in HDInsight 4.0. Further details regarding Hive ACID table compaction is available at the end of this article.
 
-## Secure Hive across HDI versions
+## Secure Hive across HDInsight versions
 
 Since HDInsight 3.6, HDInsight integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
