@@ -125,7 +125,7 @@
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
     - name: Assign roles with PowerShell
-      href: roles-add-roles-powershell.md
+      href: roles-assign-powershell.md
     - name: Delegate app admin roles
       href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   
