@@ -26,7 +26,7 @@ As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest
 > [!NOTE]
 > The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
 
-This topic provides links to the SDKs, tools, other documentaion.
+This topic provides links to the SDKs, tools, how-to guides.
 
 ## Prerequisites
 
