@@ -225,7 +225,9 @@ Since you made changes to the modules in your experiment, the status has changed
 
 1. Click on different columns in the cleaned data window to see how data has changed.  
 
-    There are 193 rows and 25 columns.
+    ![Visualize Clean Data](media/ui-quickstart-run-experiment/visualize-result.png)
+
+    There are now 193 rows and 25 columns.
 
     When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values.  
 
