@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 04/11/2019
 ---
 # Migrating HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -85,6 +85,6 @@ Once DAS is installed, if you do not see your queries in the queries viewer, do 
 
 ## Next steps
 
-* [HDInsight 4.0 Announcement](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release): 
+* [HDInsight 4.0 Announcement](../../hdinsight/hdinsight-version-release.md)
 * [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
 * [Hive 3 ACID Tables](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)
