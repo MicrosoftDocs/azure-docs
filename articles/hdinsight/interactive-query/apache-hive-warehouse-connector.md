@@ -132,8 +132,12 @@ We will demonstrate a sample spark streaming example by ingesting data into hive
 Data is ingested via localhost port 9999 and read into a Spark DataFrame.
 
 ![starting spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-start-spark-stream.png)
- 
-To ingest the data in another terminal on spark cluster run `nc -lk 9999` and keep typing random words followed by carriage return. These words are inserted into a hive table.
+
+To generate data for the Spark stream that you have just created, do the following:
+
+1. Open another terminal on the same Spark cluster
+1. At the command prompt, type `nc -lk 9999` 
+1. Type the words that you would like the Spark stream to ingest, followed by carriage return. These words are inserted into a hive table.
 
 Hive table is created, and data is inserted.
 
@@ -144,16 +148,16 @@ Hive table is created, and data is inserted.
 >[!Note]
 > There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastoreUri and database options manually. For more information, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460) for more details. As soon as this issue is resolved, both metastoreUri and the database can be omitted likewise.
 
-### Use cases in HDInsight 4.0 with Enterprise Security Package.
+### Use cases in HDInsight 4.0 with Enterprise Security Package
 
-Hive warehouse connector is the bridge that helps Apache Spark to use the advanced security of Hive. Without HWC, spark cannot provide fine grained security. 
-
-We will demonstrate the use case by with a short demo below.
+The Hive Warehouse Connector allows Apache Spark to use the advanced security features of Apache Hive.
 
 #### Setup
 
-HDInsight 4.0 Spark and InteractiveQuery Cluster with ESP package within the same subnet.
-Update the DNS entries of Spark Cluster with DNS entries on InteractiveQuery cluster so that Spark Cluster can resolve IP addresses of the nodes in InteractiveQuery cluster. 
+Do the following to
+
+Create a HDInsight 4.0 Spark and Interactive Query cluster with Enterprise Security Package (ESP) within the same subnet.
+Update the DNS entries of Spark Cluster with DNS entries on Interactive Query cluster so that Spark Cluster can resolve IP addresses of the nodes in Interactive Query cluster. 
 
 ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
