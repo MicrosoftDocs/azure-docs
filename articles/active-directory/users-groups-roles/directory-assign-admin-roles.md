@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -93,7 +93,7 @@ The following administrator roles are available:
 
 * **[Device Administrators](#device-administrators)**: This role is available for assignment only as an additional local administrator in [Device settings](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Users with this role become local machine administrators on all Windows 10 devices that are joined to Azure Active Directory. They do not have the ability to manage devices objects in Azure Active Directory. 
 
-* **[Directory Readers](#directory-readers)**: This is a legacy role that is to be assigned to applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). It should not be assigned to any users.
+* **[Directory Readers](#directory-readers)**: This is a role that should be assigned only to legacy applications that do not support the [Consent Framework](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Don't assign it to users.
 
 * **[Directory Synchronization Accounts](#directory-synchronization-accounts)**: Do not use. This role is automatically assigned to the Azure AD Connect service, and is not intended or supported for any other use.
 
