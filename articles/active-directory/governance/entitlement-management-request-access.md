@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/11/2019
+ms.date: 04/12/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -34,21 +34,13 @@ The first step is to open the My Access portal where you can request access to a
 
 **Prerequisite role:** Requestor
 
-1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link will have the following format:
+1. Look for an email or a message from the project or business manager you are working with. The email should include a link to the access package you will need access to. The link will start with:
 
-    `https://myaccess.microsoft.com/@[organization]#/access-packages/[unique-id]`
+    `https://myaccess.microsoft.com`
 
 1. Open the link.
 
 1. Sign in to the My Access portal.
-
-If you did not receive an email or message, you can try to find the access packages by following these steps.
-
-1. Sign in to the My Access portal at [https://myaccess.microsoft.com](https://myaccess.microsoft.com).
-
-1. On the left, click **Access packages** to see the list of access packages you can request.
-
-1. Try to find the access package you want to request. If necessary, in the **Details** column, click the chevron to view details about the access package.
 
 ## Request an access package
 
