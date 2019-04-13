@@ -39,13 +39,13 @@ To update the **Compatibility level** of your job:
 
 When you update the compatibility level, the T-SQL compiler validates the job with the syntax that corresponds to the selected compatibility level.
 
-## Major changes in the latest compatibility level (1.2)
+## Compatibility level 1.2
 
 The following major changes are introduced in compatibility level 1.2:
 
 ### Geospatial functions
 
-**previous levels:** Azure Stream Analytics used Geography calculations.
+**Previous levels:** Azure Stream Analytics used Geography calculations.
 
 **1.2 level:** Azure Stream Analytics allows you to compute Geometric projected geo coordinates. There's no change in the signature of the geospatial functions. However, their semantics is slightly different, allowing more precise computation than before.
 
@@ -57,13 +57,13 @@ For more information, see [Updates to geospatial features in Azure Stream Analyt
 
 ### Parallel query execution for input sources with multiple partitions
 
-**previous levels:** Azure Stream Analytics queries required the use of PARTITION BY clause to parallelize query processing across input source partitions.
+**Previous levels:** Azure Stream Analytics queries required the use of PARTITION BY clause to parallelize query processing across input source partitions.
 
 **1.2 level:** If query logic can be parallelized across input source partitions, Azure Stream Analytics creates separate query instances and runs computations in parallel.
 
 ### Native Bulk API integration with CosmosDB output
 
-**previous levels:** The upsert behavior was *insert or merge*.
+**Previous levels:** The upsert behavior was *insert or merge*.
 
 **1.2 level:** Native Bulk API integration with CosmosDB output maximizes throughput and efficiently handles throttling requests.
 
@@ -71,13 +71,13 @@ The upsert behavior is *insert or replace*.
 
 ### DateTimeOffset when writing to SQL output
 
-**previous levels:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
+**Previous levels:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) types were adjusted to UTC.
 
 **1.2 level:** DateTimeOffset is no longer adjusted.
 
 ### Strict validation of prefix of functions
 
-**previous levels:** There was no strict validation of function prefixes.
+**Previous levels:** There was no strict validation of function prefixes.
 
 **1.2 level:** Azure Stream Analytics has a strict validation of function prefixes. Adding a prefix to a built-in function causes an error. For example,`myprefix.ABS(…)` isn't supported.
 
@@ -87,11 +87,11 @@ Using the prefix "system" for any user-defined functions results in error.
 
 ### Disallow Array and Object as key properties in Cosmos DB output adapter
 
-**previous levels:** Array and Object types were supported as a key property.
+**Previous levels:** Array and Object types were supported as a key property.
 
 **1.2 level:** Array and Object types are no longer supported as a key property.
 
-## Major changes in compatibility level (1.1)
+## Compatibility level 1.1
 
 The following major changes are introduced in compatibility level 1.1:
 
