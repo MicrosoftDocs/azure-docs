@@ -31,9 +31,6 @@
     href: apache-kafka-producer-consumer-api.md
   - name: 4 - Develop app with Apache Kafka Streams API
     href: apache-kafka-streams-api.md
-  - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Concepts
   items:
   - name: Capacity planning
@@ -158,6 +155,9 @@
         maintainContext: true
       - name: Use Apache Ambari REST API
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
+        maintainContext: true
+      - name: Monitor cluster availability with Azure Monitor logs
+        href: ../hdinsight-cluster-availability.md
         maintainContext: true
     - name: Manage logs for an HDInsight cluster
       href: ../hdinsight-log-management.md
