@@ -31,7 +31,7 @@
   - name: Use Apache Hadoop for interactive queries
     items:
     - name: Apache Hive with Apache Spark
-      href: ../apache-hive-warehouse-connector.md
+      href: apache-hive-warehouse-connector.md
       maintainContext: true
     - name: Apache Hive with Hadoop
       href: ../hadoop/hdinsight-use-hive.md

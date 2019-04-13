@@ -56,8 +56,9 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
         ```scala
         spark.sql.hive.hiveserver2.jdbc.url = jdbc:hive2://hwcllapdemo.azurehdinsight.net:443/;user=admin;password=H@doop1234;ssl=true;transportMode=http;httpPath=/hive2
         ```
-        
-        >[!Note] JDBC URL should contain credentials for connecting to Hiveserver2.
+
+        >[!Note] 
+        > JDBC URL should contain credentials for connecting to Hiveserver2.
 
     1. Set `spark.datasource.hive.warehouse.load.staging.dir` is pointed into a suitable HDFS-compatible staging directory. In our case since these are two different clusters, this should be set to folder with the staging directory inside LLAP cluster’s container so that HiveServer2 has access to it. For example,
 
