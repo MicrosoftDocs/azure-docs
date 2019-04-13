@@ -25,8 +25,8 @@ for Azure Logic Apps, see the list under the
 
 ## Triggers overview
 
-All workflows start with a trigger, which defines the 
-calls that instantiate and start thes workflow. 
+Every workflow includes a trigger, which defines the 
+calls that instantiate and start the workflow. 
 Here are the general trigger categories:
 
 * A *polling* trigger, which checks a service's endpoint at regular intervals

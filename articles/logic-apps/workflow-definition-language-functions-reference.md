@@ -23,7 +23,7 @@ in these expressions, you can use *functions* provided by the
 
 > [!NOTE]
 > This reference page applies to both Azure Logic Apps and Microsoft Flow, 
-> but appears in the Azure Logic Apps documention. Although this page refers 
+> but appears in the Azure Logic Apps documentation. Although this page refers 
 > specifically to logic apps, these functions work for both flows and logic apps.
 
 For example, you can calculate values by using math functions, such as the
