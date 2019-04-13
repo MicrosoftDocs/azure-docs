@@ -1,12 +1,10 @@
 ---
 title: Run Apache Sqoop jobs with Azure HDInsight (Apache Hadoop) 
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between a Hadoop cluster and an Azure SQL database.
-ms.reviewer: jasonh
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/12/2019
 ---
@@ -18,7 +16,7 @@ Learn how to use Apache Sqoop in HDInsight to import and export data between an 
 
 Although Apache Hadoop is a natural choice for processing unstructured and semi-structured data, such as logs and files, there may also be a need to process structured data that is stored in relational databases.
 
-[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Apache Hive, and then export the data back into an RDBMS. In this tutorial, you are using a SQL Server database for your relational database.
+[Apache Sqoop](https://sqoop.apache.org/docs/1.99.7/user.html) is a tool designed to transfer data between Hadoop clusters and relational databases. You can use it to import data from a relational database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop distributed file system (HDFS), transform the data in Hadoop with MapReduce or Apache Hive, and then export the data back into an RDBMS. In this article, you are using a SQL Server database for your relational database.
 
 > [!IMPORTANT]  
 > This article sets up a test environment to perform the data transfer. You then choose a data transfer method for this environment from one of the methods in section [Run Sqoop jobs](#run-sqoop-jobs), further below.
@@ -30,11 +28,13 @@ For Sqoop versions that are supported on HDInsight clusters, see [What's new in 
 HDInsight cluster comes with some sample data. You use the following two samples:
 
 * An Apache Log4j log file, which is located at `/example/data/sample.log`. The following logs are extracted from the file:
-  
-        2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
-        2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
-        2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
-        ...
+
+```text
+2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
+2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
+2012-02-03 18:35:34 SampleClass3 [DEBUG] detail for id 1304807656
+...
+```
 
 * A Hive table named `hivesampletable`, which references the data file located at `/hive/warehouse/hivesampletable`. The table contains some mobile device data.
   
@@ -52,7 +52,7 @@ HDInsight cluster comes with some sample data. You use the following two samples
   | sessionid |bigint |
   | sessionpagevieworder |bigint |
 
-In this tutorial, you use these two datasets to test Sqoop import and export.
+In this article, you use these two datasets to test Sqoop import and export.
 
 ## <a name="create-cluster-and-sql-database"></a>Set up test environment
 The cluster, SQL database, and other objects are created through the Azure portal using an Azure Resource Manager template. The template can be found in [Azure quickstart templates](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-with-sql-database/). The Resource Manager template calls a bacpac package to deploy the table schemas to a SQL database.  The bacpac package is located in a public blob container, https://hditutorialdata.blob.core.windows.net/usesqoop/SqoopTutorial-2016-2-23-11-2.bacpac. If you want to use a private container for the bacpac files, use the following values in the template:
