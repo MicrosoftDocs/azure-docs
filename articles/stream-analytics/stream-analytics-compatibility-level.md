@@ -10,9 +10,9 @@ ms.date: 04/12/2019
 
 # Compatibility level for Azure Stream Analytics jobs
 
-Compatibility level refers to the release-specific behaviors of an Azure Stream Analytics service. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually updates are automatically made available to end users. However, some new features may introduce major changes such as- change in the behavior of an existing job, change in the processes consuming data from these jobs etc. A compatibility level is used to represent a major change introduced in Stream Analytics.
+This article describes the compatibility level option in Azure Stream Aalytics. Azure Stream Analytics is a managed service, with regular feature updates, and performance improvements. Usually runtimes updates are automatically made available to end users. However, some new features may introduce a major change, such as a change in the behavior of an existing job, or a change in the way data is consumed in running jobs. 
 
-With compatibility level, you can keep existing jobs running without any major change. When you are ready for the latest behavior, you can opt in by raising the compatibility level on the streaming job. Whenever you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level to move forward.
+With the compatibility level option, you can keep existing jobs running without those major changes. When you are ready for the latest runtime behaviors, you can opt in by raising the compatibility level on the streaming job. Whenever you create a new Stream Analytics job, it's a best practice to create it by using the latest compatibility level to move forward.
 
 ## Choose a compatibility level
 
@@ -20,9 +20,9 @@ Compatibility level controls the runtime behavior of a stream analytics job. You
 
 Azure Stream Analytics currently supports three compatibility levels:
 
-* 1.2 (preview)
+* 1.0 - default level
 * 1.1
-* 1.0 (default)
+* 1.2 (preview) - newest behavior with most recent improvements
 
 The original 1.0 compatibility level 1.0 was introduced during general availability of Azure Stream Analytics several years ago.
 
