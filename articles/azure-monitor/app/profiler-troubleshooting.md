@@ -65,7 +65,7 @@ For Profiler to work properly:
 
     |App Setting    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for you Application Insights resource    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -77,7 +77,7 @@ For Profiler to work properly:
    
       ![profiler-webjob]   
    
-   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler2** link.  
+   1. To view the details of the webjob, including the log, select the **ApplicationInsightsProfiler3** link.  
      The **Continuous WebJob Details** pane opens.
 
       ![profiler-webjob-log]
@@ -86,7 +86,7 @@ If you can't figure out why Profiler isn't working for you, you can download the
     
 ### Manual installation
 
-When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually, do the following:
+When you configure Profiler, updates are made to the web app's settings. If your environment requires it, you can apply the updates manually. An example might be that your application is running in a Web Apps environment for PowerApps. To apply updates manually:
 
 1. In the **Web App Control** pane, open **Settings**.
 
@@ -97,7 +97,7 @@ When you configure Profiler, updates are made to the web app's settings. If your
 
     |App Setting    | Value    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for you Application Insights resource    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey for your Application Insights resource    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

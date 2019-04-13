@@ -16,7 +16,7 @@ ms.subservice: diagnostic-extension
 > Fabric, and Cloud Services.  This page is only relevant if you are using one of these services.
 >
 
-Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, Application Insights, and Log Analytics.
+Azure Diagnostics is used with other Microsoft diagnostics products like Azure Monitor, which includes Application Insights and Log Analytics.
 
 This schema defines the possible values you can use to initialize diagnostic configuration settings when the diagnostics monitor starts.  
 

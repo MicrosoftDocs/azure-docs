@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Indexing semi-strutured data in JSON blobs - Azure Search'
-description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search and Postman.
+description: Learn how to index and search semi-structured Azure JSON blobs using Azure Search REST APIs and Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -12,7 +12,7 @@ ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction the indexing Azure blob data for Azure Search.
 ---
 
-# Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
+# REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search
 
 Azure Search can index JSON documents and arrays in Azure blob storage using an [indexer](search-indexer-overview.md) that knows how to read semi-structured data. Semi-structured data contains tags or markings which separate content within the data. It splits the difference between unstructured data, which must be fully indexed, and formally structured data that adheres to a data model, such as a relational database schema, that can be indexed on a per-field basis.
 
@@ -33,9 +33,9 @@ The following services, tools, and data are used in this quickstart.
 
 [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this tutorial. 
 
-[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) is used for storing the sample data.
+[Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) for storing the sample data.
 
-[Postman desktop app](https://www.getpostman.com/) is used for sending requests to Azure Search.
+[Postman desktop app](https://www.getpostman.com/) for sending requests to Azure Search.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip) contains the data used in this tutorial. Download and unzip this file to its own folder. Data originates from [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results), converted to JSON for this tutorial.
 
@@ -55,9 +55,7 @@ All requests require an api-key on every request sent to your service. Having a 
 
 1. [Sign in to the Azure portal](https://portal.azure.com), navigate to your Azure storage account, click **Blobs**, and then click **+ Container**.
 
-1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. Because you will be using a key and storage account name for the connection, make sure the container's Public Access Level is set to "Container (anonymous read access for container)".
-
-   ![Set public access level](media/search-semi-structured-data/container-public-access-level.png "Set public access level")
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain sample data. You can set the Public Access Level to any of its valid values.
 
 1. After the container is created, open it and select **Upload** on the command bar.
 
@@ -291,7 +289,7 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 
 ## Next steps
 
-You can attach AI-powered Cognitive Services algorithms to an indexer pipeline. As a next step, continue on with the following tutorial.
+There are several approaches and multiple options for indexing JSON blobs. As a next step, review and test the various options to see what works best for your scenario.
 
 > [!div class="nextstepaction"]
-> [Indexing with AI](cognitive-search-tutorial-blob.md)
+> [How to index JSON blobs using Azure Search Blob indexer](search-howto-index-json-blobs.md)
