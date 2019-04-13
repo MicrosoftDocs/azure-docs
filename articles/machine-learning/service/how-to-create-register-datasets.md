@@ -16,7 +16,7 @@ ms.date: 04/09/19
 
 # Create and register Datasets with your workspace 
 
-In Azure Machine Learning service, Datasets are first-class entities which manage data in various machine learning scenarios such as model training and pipeline creation. With Datasets, you can access the underlying storage, explore and prepare data, manage the lifecycle of different Dataset definitions, and compare the difference between Datasets used in training and in production.
+In Azure Machine Learning service, Datasets are first-class entities which manage data in various machine learning scenarios such as model training and pipeline creation. With Datasets,  you can access the underlying storage,explore and prepare data, manage the lifecycle of different Dataset definitions, and compare the difference between Datasets used in training and in production.
 
 Datasets can be created from local files, [Azure Datastores](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data). We support delimited, Excel, Parquet, binary, and json file formats.
 
@@ -75,172 +75,14 @@ dataset = Dataset.from_delimited_files(datapath)
 # head() method returns the first N rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
 ```
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>ID</th>
-      <th>Case Number</th>
-      <th>Date</th>
-      <th>Block</th>
-      <th>IUCR</th>
-      <th>Primary Type</th>
-      <th>Description</th>
-      <th>Location Description</th>
-      <th>Arrest</th>
-      <th>Domestic</th>
-      <th>...</th>
-      <th>Ward</th>
-      <th>Community Area</th>
-      <th>FBI Code</th>
-      <th>X Coordinate</th>
-      <th>Y Coordinate</th>
-      <th>Year</th>
-      <th>Updated On</th>
-      <th>Latitude</th>
-      <th>Longitude</th>
-      <th>Location</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>10498554</td>
-      <td>HZ239907</td>
-      <td>4/4/2016 23:56</td>
-      <td>007XX E 111TH ST</td>
-      <td>1153</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FINANCIAL IDENTITY THEFT OVER $ 300</td>
-      <td>OTHER</td>
-      <td>FALSE</td>
-      <td>FALSE</td>
-      <td>...</td>
-      <td>9</td>
-      <td>50</td>
-      <td>11</td>
-      <td>1183356</td>
-      <td>1831503</td>
-      <td>2016</td>
-      <td>5/11/2016 15:48</td>
-      <td>41.69283384</td>
-      <td>-87.60431945</td>
-      <td>(41.692833841, -87.60431945)</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>10516598</td>
-      <td>HZ258664</td>
-      <td>4/15/2016 17:00</td>
-      <td>082XX S MARSHFIELD AVE</td>
-      <td>890</td>
-      <td>THEFT</td>
-      <td>FROM BUILDING</td>
-      <td>RESIDENCE</td>
-      <td>FALSE</td>
-      <td>FALSE</td>
-      <td>...</td>
-      <td>21</td>
-      <td>71</td>
-      <td>6</td>
-      <td>1166776</td>
-      <td>1850053</td>
-      <td>2016</td>
-      <td>5/12/2016 15:48</td>
-      <td>41.74410697</td>
-      <td>-87.66449429</td>
-      <td>(41.744106973, -87.664494285)</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>10519196</td>
-      <td>HZ261252</td>
-      <td>4/15/2016 10:00</td>
-      <td>104XX S SACRAMENTO AVE</td>
-      <td>1154</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FINANCIAL IDENTITY THEFT $300 AND UNDER</td>
-      <td>RESIDENCE</td>
-      <td>FALSE</td>
-      <td>FALSE</td>
-      <td>...</td>
-      <td>19</td>
-      <td>74</td>
-      <td>11</td>
-      <td></td>
-      <td></td>
-      <td>2016</td>
-      <td>5/12/2016 15:50</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>10519591</td>
-      <td>HZ261534</td>
-      <td>4/15/2016 9:00</td>
-      <td>113XX S PRAIRIE AVE</td>
-      <td>1120</td>
-      <td>DECEPTIVE PRACTICE</td>
-      <td>FORGERY</td>
-      <td>RESIDENCE</td>
-      <td>FALSE</td>
-      <td>FALSE</td>
-      <td>...</td>
-      <td>9</td>
-      <td>49</td>
-      <td>10</td>
-      <td></td>
-      <td></td>
-      <td>2016</td>
-      <td>5/13/2016 15:51</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>10534446</td>
-      <td>HZ277630</td>
-      <td>4/15/2016 10:00</td>
-      <td>055XX N KEDZIE AVE</td>
-      <td>890</td>
-      <td>THEFT</td>
-      <td>FROM BUILDING</td>
-      <td>SCHOOL, PUBLIC, BUILDING</td>
-      <td>FALSE</td>
-      <td>FALSE</td>
-      <td>...</td>
-      <td>40</td>
-      <td>13</td>
-      <td>6</td>
-      <td></td>
-      <td></td>
-      <td>2016</td>
-      <td>5/25/2016 15:59</td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<p>5 rows × 22 columns</p>
-</div>
+||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
+|--|--|---|---|---|---|----|------|-------|------|-----|---|----|----|-----|-----|------|----|-----|----|----|-----
+|0|10498554|HZ239907|4/4/2016 23:56|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT OVER $ 300|OTHER|FALSE|FALSE|...|9|50|11|1183356|1831503|2016|5/11/2016 15:48|41.69283384|-87.60431945|(41.692833841, -87.60431945)|
+1|10516598|HZ258664|4/15/2016 17:00|082XX S MARSHFIELD AVE|890|THEFT| FROM BUILDING|RESIDENCE|FALSE|FALSE|...|21|71|6|1166776|1850053|2016|5/12/2016 15:48	|41.74410697|	-87.66449429|	(41.744106973, -87.664494285)
+2|10519196|HZ261252|4/15/2016 10:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT $300 AND UNDER|RESIDENCE|FALSE|FALSE|...|19|	74|	11|||2016	|5/12/2016 15:50
+3|10519591|HZ261534|4/15/2016 9:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|FORGERY|RESIDENCE|FALSE|FALSE|...|9|49|10|||2016|5/13/2016 15:51
+4|10534446|HZ277630|4/15/2016 10:00|055XX N KEDZIE AVE|890|THEFT|	FROM BUILDING|SCHOOL, PUBLIC, BUILDING|FALSE|FALSE|	...	|40|13|6|||2016|	5/25/2016 15:59|
 
 ## Register your datasets with workspace
 
@@ -255,7 +97,4 @@ Dataset.list(workspace)
 ```
 
 
-
-
-    [Dataset(Name: dataset_crime,
-     Workspace: your_workspace_name)]
+[Dataset(Name: dataset_crime,Workspace: your_workspace_name)]
