@@ -1,27 +1,25 @@
 ---
 title: Authenticate access to blob and queue data with Azure Active Directory managed identities for Azure resources - Azure Storage | Microsoft Docs
-description: Azure Blob and Queue storage supports Azure Active Directory authentication with managed identities for Azure resources. By using managed identities for Azure resources and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+description: Azure Blob and Queue storage support Azure Active Directory authentication with managed identities for Azure resources. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: tamram
 ms.subservice: common
 ---
 
 # Authenticate access to blob and queue data with managed identities for Azure Resources
 
-Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authenticate access to blobs and queues using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and others. By using managed identities for Azure resources and leveraging the power of Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
+Azure Blob and Queue storage support Azure Active Directory (Azure AD) authentication with [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities for Azure resources can authorize access to blob and queue data using Azure AD credentials from applications running in Azure virtual machines (VMs), function apps, virtual machine scale sets, and other services. By using managed identities for Azure resources together with Azure AD authentication, you can avoid storing credentials with your applications that run in the cloud.  
 
-To grant permissions to a managed identity for a blob container or queue, assign a role-based access control (RBAC) role to the managed identity that encompasses permissions for that resource at the appropriate scope. For more information about RBAC roles in storage, see [Manage access rights to storage data with RBAC](storage-auth-aad-rbac.md). 
-
-This article shows how to authenticate access to blob or queue data with a managed identity from an Azure VM.  
+This article shows how to authorize access to blob or queue data with a managed identity from an Azure VM.  
 
 ## Enable managed identities on a VM
 
-Before you can use managed identities for Azure Resources to authenticate access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
+Before you can use managed identities for Azure Resources to authorize access to blobs and queues from your VM, you must first enable managed identities for Azure Resources on the VM. To learn how to enable managed identities for Azure Resources, see one of these articles:
 
 - [Azure portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
@@ -31,11 +29,11 @@ Before you can use managed identities for Azure Resources to authenticate access
 
 ## Assign an RBAC role to an Azure AD managed identity
 
-To authenticate a managed identity from your Azure Storage application, first configure role-based access control (RBAC) settings for that managed identity. Azure Storage defines RBAC roles that encompass permissions for blob and queue data. When the RBAC role is assigned to a managed identity, the managed identity is granted those permissions to the container or queue. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
+To authorize a request from a managed identity in your Azure Storage application, first configure role-based access control (RBAC) settings for that managed identity. Azure Storage defines RBAC roles that encompass permissions for blob and queue data. When the RBAC role is assigned to a managed identity, the managed identity is granted those permissions to blob or queue data at the appropriate scope. For more information about assigning RBAC roles, see [Manage access rights to Azure Blob and Queue data with RBAC](storage-auth-aad-rbac.md).
 
-## Get a managed identity access token
+## Authorize with a managed identity access token
 
-To authenticate with a managed identity, your application or script must acquire an OAuth token. The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code.
+To authorize requests against Blob and Queue storage with a managed identity, your application or script must acquire an OAuth token. The [Microsoft Azure App Authentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) client library for .NET (preview) simplifies the process of acquiring and renewing a token from your code.
 
 The App Authentication client library manages authentication automatically. The library uses the developer's credentials to authenticate during local development. Using developer credentials during local development is more secure because you do not need to create Azure AD credentials or share credentials between developers. When the solution is later deployed to Azure, the library automatically switches to using application credentials.
 
@@ -47,11 +45,13 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using Microsoft.WindowsAzure.Storage.Auth;
 ```
 
-The App Authentication library provides the **AzureServiceTokenProvider** class. An instance of this class can be passed to a callback that gets a token and then renews the token before it expires. 
+The App Authentication library provides the **AzureServiceTokenProvider** class. An instance of this class can be passed to a callback that gets a token and then renews the token before it expires.
 
 The following example gets a token and uses it to create a new blob, then uses the same token to read the blob.
 
 ```csharp
+const string blobName = "https://storagesamples.blob.core.windows.net/sample-container/blob1.txt";
+
 // Get the initial access token and the interval at which to refresh it.
 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
 var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider, 
@@ -67,13 +67,14 @@ TokenCredential tokenCredential = new TokenCredential(tokenAndFrequency.Token,
 StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 
 // Create a blob using the storage credentials.
-CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/blob1.txt"),
-                                        storageCredentials);
+CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName), 
+                                            storageCredentials);
 
 // Upload text to the blob.
 blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
 
-// Continue to make requests against Azure Storage. The token is automatically refreshed as needed in the background.
+// Continue to make requests against Azure Storage. 
+// The token is automatically refreshed as needed in the background.
 do
 {
     // Read blob contents
@@ -115,7 +116,7 @@ For more information about the App Authentication library, see [Service-to-servi
 To learn more about how to acquire an access token, see [How to use managed identities for Azure resources on an Azure VM to acquire an access token](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 > [!NOTE]
-> Azure AD integration with Azure Storage requires that you use HTTPS for Azure Storage operations.
+> To authorize requests against blob or queue data with Azure AD, you must use HTTPS for those requests.
 
 ## Next steps
 
