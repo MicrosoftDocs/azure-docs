@@ -32,7 +32,7 @@ ms.collection: M365-identity-device-management
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Open the **Entitlement management** page at [https://aka.ms/elm](https://aka.ms/elm).
+1. Click **Azure Active Directory** and then click **Identity governance**.
 
 1. Click **User assignments report**.
 
