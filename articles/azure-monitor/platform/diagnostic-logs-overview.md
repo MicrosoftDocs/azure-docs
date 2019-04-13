@@ -11,13 +11,12 @@ ms.subservice: logs
 ---
 # Collect and consume log data from your Azure resources
 
-## What are Azure Monitor diagnostic logs
+**Diagnostic logs** provide rich, frequent data about the operation of an Azure resource. Azure Monitor makes available two types of diagnostic logs:
 
-**Azure Monitor diagnostic logs** are logs emitted by an Azure service that provide rich, frequent data about the operation of that service. Azure Monitor makes available two types of diagnostic logs:
 * **Tenant logs** - these logs come from tenant-level services that exist outside of an Azure subscription, such as Azure Active Directory logs.
 * **Resource logs** - these logs come from Azure services that deploy resources within an Azure subscription, such as Network Security Groups or Storage Accounts.
 
-    ![Resource diagnostics logs vs other types of logs](./media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
+    ![Resource diagnostics logs vs other types of logs](media/diagnostic-logs-overview/Diagnostics_Logs_vs_other_logs_v5.png)
 
 The content of these logs varies by the Azure service and resource type. For example, Network Security Group rule counters and Key Vault audits are two types of diagnostic logs.
 
@@ -49,12 +48,12 @@ Resource diagnostic logs are configured using resource diagnostic settings. Tena
 
 * Where diagnostic logs and metrics are sent (Storage Account, Event Hubs, and/or Azure Monitor).
 * Which log categories are sent and whether metric data is also sent.
-* How long each log category should be retained in a storage account
+* How long each log category should be retained in a storage account.
     - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
-These settings are easily configured from the diagnostic settings in the portal, with Azure PowerShell and CLI commands, or using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
+These settings are configured from the diagnostic settings in the portal, with Azure PowerShell and CLI commands, or using the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/).
 
 > [!NOTE]
 > Sending multi-dimensional metrics via diagnostic settings is not currently supported. Metrics with dimensions are exported as flattened single dimensional metrics, aggregated across dimension values.

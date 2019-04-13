@@ -47,7 +47,7 @@ Telemetry related to the health and operation of Azure itself includes data abou
 |:---|:---|:---|
 | Azure Service Health | Activity Log<br>Logs | [Azure Service Health](service-notifications.md) provides information about the health of the Azure services in your subscription that your application and resources rely on. Service Health records are stored in the [Azure Activity log](activity-logs-overview.md), so you can view them in the Activity Log Explorer or copy them into Azure Monitor Logs. |
 | Azure Activity Log   | Activity Log<br>Logs | The [Azure Activity Log](activity-logs-overview.md) includes service health records along with records on any configuration changes made to your Azure resources. The Activity log is available to all Azure resources and represents their _external_ view.<br><br>The Activity Log is collected  its own store that you can view from the Azure Monitor menu, use for Activity Log alerts, or stream it to other locations using [Event Hubs](activity-logs-stream-event-hubs.md). Copy the Activity Log to Azure Monitor Logs to analyze it with other monitoring data. |
-| Billing data |  | You can [Use Azure Billing APIs to programmatically get insight into your Azure usage](/azure/billing/billing-usage-rate-card-overview). |
+| Billing data |  | You can use [Azure Billing APIs](/azure/billing/billing-usage-rate-card-overview) to programmatically get insight into your Azure usage. |
 
 
 
@@ -59,14 +59,18 @@ Metrics and resource level diagnostic logs provide information about the _intern
 
 | Data Source | Destination | Description |
 |:---|:---|:---|
-| Platform metrics | Metrics | Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md).  Access platform metrics from [metrics explorer](metrics-getting-started.md).  |
-|                  | Logs | [Copy platform metrics to Logs](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) for trending and other analysis using Log Analytics. |
-| Resource diagnostic logs | Logs<br>Storage<br>EventHubs | [Diagnostic logs](diagnostic-logs-overview.md) provide insights into the internal operation of an Azure resource.   The configuration requirements and content of these logs [varies by resource type](diagnostic-logs-schema.md).<br><br>You can't directly view diagnostic logs in the Azure portal, but you can [send them to Azure storage for archiving](archive-diagnostic-logs.md) or [to Azure Monitor](diagnostic-logs-stream-log-store.md) for analysis. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Log Analytics](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).<br>Export dialog logs to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services. |
-| Storage accounts | Metrics<br>Storage  | Metrics for storage accounts are collected in Azure Monitor along with other resources, but logs are [written to the storage account](../../storage/common/storage-metrics-in-azure-monitor.md). You can import these logs into a Log Analytics workspace in Azure Monitor, but this [requires custom configurmation](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/). You can also retrieve this data with the [Storage Analytics API|( /rest/api/storageservices/storage-analytics).
-
-
-### Monitoring Solutions
- [Monitoring solutions](../../azure-monitor/insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Azure Monitor logs where it may be analyzed using the [query language](../../azure-monitor/log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution.
+| Platform metrics | | Most Azure services will generate [platform metrics](data-platform-metrics.md) that reflect their performance and operation. The specific [metrics will vary for each type of resource](metrics-supported.md). 
+| | Metrics | Platform metrics will automatically write to the Azure Monitor metrics database. Access platform metrics from [metrics explorer](metrics-getting-started.md).  |
+| | Logs | [Copy platform metrics to Logs](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) for trending and other analysis using Log Analytics. |
+| Resource diagnostic logs | | [Diagnostic logs](diagnostic-logs-overview.md) provide insights into the internal operation of an Azure resource. The configuration requirements and content of these logs [varies by resource type](diagnostic-logs-schema.md). Diagnostic logs are not enabled by default. You must enable them and specify a destination for each resource. |
+| | Storage | Send Diagnostic logs to [Azure storage](archive-diagnostic-logs.md) for archiving. 
+| | Logs | Send Diagnostic Logs [to Azure Monitor Logs](diagnostic-logs-stream-log-store.md) for analysis with other collected log data. Some resources can write directly to Azure Monitor while others write to a storage account before being [imported into Log Analytics](azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
+| | EventHubs | Export Diagnostic logs to [Event Hub](../../event-hubs/event-hubs-about.md) for redirection to other services. | |
+| Storage accounts | | Metrics for storage accounts are collected in Azure Monitor along with other resources, but logs are [written to the storage account](../../storage/common/storage-metrics-in-azure-monitor.md). |
+| | Metrics  | Automatically collected like other Azure resources. | 
+| | Storage  |  You can import these logs into a Log Analytics workspace in Azure Monitor, but this [requires custom configuration](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/). You can also retrieve this data with the [Storage Analytics API|( /rest/api/storageservices/storage-analytics).
+| Monitoring Solutions | | [Monitoring solutions](../insights/solutions.md) collect data to provide additional insight into the operation of a particular service or application. |
+| | Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the [query language](../log-query/log-query-overview.md) or [views](view-designer.md) that are typically included in the solution. |
 
 
 ## Guest operating system
@@ -74,15 +78,17 @@ Compute resources in Azure, in other clouds, and on-premises have a guest operat
 
 ![Azure compute resource collection](media/data-sources/compute-resource-collection.png)
 
-### Azure Diagnostic extension
-With the Azure Diagnostics extension, it provides a basic level of monitoring by collecting logs and performance data from the client operating system of Azure compute resources.   
-
-### Log Analytics agent
-Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from [data sources](agent-data-sources.md) that you configure or from [monitoring solutions](../../azure-monitor/insights/solutions.md) that provide additional insights into applications running on the virtual machine.
-
-
-### Dependency agent
-[Service Map](../insights/service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Azure Monitor and visualizes the discovered interconnected components.  
+| Data Source | Destination | Description |
+|:---|:---|:---|
+| Azure Diagnostic extension | | Enabling the Azure Diagnostics extension for Azure Virtual machines allows you to collect logs and metrics from Azure compute resources including Azure Cloud Service (classic) Web and Worker Roles, Virtual Machines, Virtual Machine scale sets, and Service Fabric. |
+| | Storage | When you enable the Diagnostics Extension, it will [write to a storage account](diagnostics-extension-stream-event-hubs.md) by default. |
+| | Event Hubs | Configure the Diagnostics Extension to [send to Event Hubs](diagnostics-extension-stream-event-hubs.md) to stream the data to other locations.  |
+| | Application Insights |  |
+| | Metrics | When you configure the Diagnostics Extension to collect performance counters, they are written to the Azure Monitor metrics database.   |
+| Log Analytics agent | | Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises. |
+| | Logs | The Log Analytics agent connects to Azure Monitor either directly or through System Center Operations Manager and allows you to collect data from [data sources](agent-data-sources.md) that you configure or from [monitoring solutions](../insights/solutions.md) that provide additional insights into applications running on the virtual machine.
+| Dependency agent | | [Azure Monitor for VMs](../insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. |
+| | Logs | It stores this data in Azure Monitor Logs and visualizes the discovered interconnected components. |
 
 To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](agents-overview.md).
 
