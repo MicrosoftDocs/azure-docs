@@ -45,7 +45,7 @@ Search is available in both the Free tier and Standard tier of Security Center. 
 
    SecurityEvent | where EventID == 4625 | summarize count() by TargetAccount
 
-   Result shows all accounts that failed to logon (event 4625).
+   Result shows all accounts that failed to sign in (event 4625).
 
    ![Search results][3]
 
