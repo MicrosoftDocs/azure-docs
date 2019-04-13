@@ -25,8 +25,8 @@ the schema defines elements in your workflow definition.
 
 ## Workflow definition structure
 
-A workflow definition always has a trigger for instantiating your 
-logic app, plus one or more actions that runs following the trigger.
+A workflow definition always includes a trigger for instantiating your 
+logic app, plus one or more actions that run after the trigger fires.
 
 Here is the high-level structure for a workflow definition:
 
