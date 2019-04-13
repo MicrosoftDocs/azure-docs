@@ -13,12 +13,12 @@ ms.date: 05/06/2019
 ---
 # Algorithm & module reference overview
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning. 
+This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning service. 
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
 
 > [!TIP]
-> If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
+> In any experiment in the visual interface, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 Modules are organized by functionality:
 
