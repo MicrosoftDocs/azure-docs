@@ -25,9 +25,9 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
 
-## Log in to the Azure portal
+## Sign in to the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create an Azure Database for PostgreSQL
 
@@ -37,9 +37,9 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 3. For the deployment option, click the **Create** button under **Hyperscale (Citus) server group - PREVIEW.**
 4. Fill out the new server details form with the following information:
    - Resource group: click the **Create new** link below the text box for this field. Enter a name such as **myresourcegroup**.
-   - Server group name: **mydemoserver** (name of a server maps to DNS name and is thus required to be globally unique).
-   - Admin username: **myadmin** (this will be used later to connect to the database).
-   - Password: must be at least 8 characters in length and must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
+   - Server group name: **mydemoserver** (name of a server, which maps to DNS name, and is required to be globally unique).
+   - Admin username: **myadmin** (it will be used later to connect to the database).
+   - Password: must be at least eight characters in length and must contain characters from three of the following categories – English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, etc.)
    - Location: use the location that is closest to your users to give them the fastest access to the data.
 
    > [!IMPORTANT]
@@ -52,13 +52,13 @@ Follow these steps to create an Azure Database for PostgreSQL server:
 
 ## Configure a server-level firewall rule
 
-The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, this firewall prevents all external applications and tools from connecting to the server and any databases on the server unless a firewall rule is created to open the firewall for a specific IP address range. 
+The Azure Database for PostgreSQL service uses a firewall at the server-level. By default, the firewall prevents all external applications and tools from connecting to the server and any databases on the server. We must add a rule to open the firewall for a specific IP address range.
 
 1. From the **Outputs** section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
 
 2. Find the scaling group for your deployment in the list of resources and click it. (Its name will be prefixed with "sg-".)
 
-3. Click **Firewall** under **Security** in the left hand menu.
+3. Click **Firewall** under **Security** in the left-hand menu.
 
 4. Click the link **+ Add firewall rule for current client IP address**. Finally, click the **Save** button.
 
@@ -120,7 +120,7 @@ CREATE TABLE campaigns (
 );
 ```
 
-Each campaign will pay to run ads, so add a table for those too:
+Each campaign will pay to run ads, so add a table for ads too:
 
 ```sql
 CREATE TABLE ads (
@@ -186,9 +186,7 @@ which is why all primary and foreign keys include the company ID.
 
 ## Shard tables across nodes
 
-A hyperscale deployment stores distributed table rows on different nodes based
-on the value of a user-designated column called the "distribution column." This
-column marks which tenant owns which rows.
+A hyperscale deployment stores table rows on different nodes based on the value of a user-designated column. This "distribution column" marks which tenant owns which rows.
 
 Let's set the distribution column to be company\_id, the tenant
 identifier. In psql, run these functions:
@@ -343,11 +341,11 @@ SELECT id
 
 ## Clean up resources
 
-In the preceding steps you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group, connect to it with psql, create a schema, and distribute data. You learned to query data both within and between tenants, and to customize the schema per tenant.
+In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data. You learned to query data both within and between tenants, and to customize the schema per tenant.
 
 Next, learn about the concepts of hyperscale.
 > [!div class="nextstepaction"]
