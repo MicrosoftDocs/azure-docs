@@ -52,6 +52,8 @@
       href: signalr-concept-disaster-recovery.md  
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
+  - name: Performance considerations
+    href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
 

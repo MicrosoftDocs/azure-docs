@@ -81,7 +81,6 @@ Once you have defined a set of filters, you can pin a query to your Azure dashbo
 
 For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Collect and analyze Activity Logs solution](../../azure-monitor/platform/collect-activity-logs.md). The Activity Log blade offers a basic filter/browse experience on logs, but the Azure Monitor logs feature enables you to pivot, query, and visualize your data in more powerful ways.
 
-
 ## Next Steps
 
 * [Create a log profile to export the Azure Activity Log](activity-logs-profile.md)
