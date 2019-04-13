@@ -18,13 +18,14 @@ ms.collection: M365-identity-device-management
 ---
 # Assign Azure Active Directory admin roles using PowerShell
 
-Automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https:/docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
+You can automate how you assign roles to user accounts using Azure PowerShell. This article uses the [Azure Active Directory PowerShell Version 2](https:/docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
 ## Prepare PowerShell
 
 First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## Install the Azure AD PowerShell module
+
 To install the Azure AD PowerShell module, use the following commands:
 
 ```powershell
@@ -43,7 +44,7 @@ get-module azuread
 
 Now you can start using the cmdlets in the module. For a full description of the cmdlets in the Azure AD module, please refer to the online reference documentation for [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#directory_roles).
 
-### Permissions required
+## Permissions required
 
 Connect to your Azure AD tenant using a global administrator account to assign or remove roles.
 
