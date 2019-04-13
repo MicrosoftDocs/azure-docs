@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the Azure Access Panel Extension for IE | Microsoft Docs
+title: Troubleshoot the Azure Access Panel Extension for IE | Microsoft Docs
 description: How to use group policy to deploy the Internet Explorer add-on for the My Apps portal.
 services: active-directory
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 
 ms.collection: M365-identity-device-management
 ---
-# Troubleshooting the Access Panel Extension for Internet Explorer
+# Troubleshoot the Access Panel Extension for Internet Explorer
 
 This article helps you troubleshoot the following problems:
 
@@ -55,7 +55,7 @@ To verify that you've enabled the Access Panel Extension in Internet Explorer:
    
 3. Select **Access Panel Extension** in the **Microsoft Corporation** section and select **Enable**.
    
-4. To save the changes, close all of the Internet Explorer browsers you have open. The change takes effect the next time you open an Internet Explorer browser.
+4. To save the changes, close all of the Internet Explorer browser windows you have open. The change takes effect the next time you open Internet Explorer.
 
 ## Enable extensions for InPrivate Browsing
 
@@ -65,13 +65,13 @@ To enable extensions for InPrivate Browsing:
    
 2. Go to the **Privacy** tab and verify that the **Disable toolbars and extensions when InPrivate Browsing starts** check box is clear.
    
-3.  To save the changes, close all of the Internet Explorer browsers you have open. The change takes effect the next time you open an Internet Explorer browser.
+3.  To save the changes, close all of the Internet Explorer browser windows you have open. The change takes effect the next time you open Internet Explorer.
 
 ## Uninstall the Access Panel Extension
 
 To uninstall the Access Panel Extension from your computer:
 
-1. In Control Panel, search for **uninstall**. 
+1. In Control Panel, search for *uninstall*. 
 
 2. In the search results, select **Uninstall a program**.
    
