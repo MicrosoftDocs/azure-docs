@@ -11,7 +11,7 @@ ms.author: junhan
 ---
 # Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub
 
-![End-to-end diagram](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/2-to-2-diagram.png)
+![End-to-end diagram](./media/iot-hub-vscode-iot-toolkit-cloud-device-messaging/e-to-e-diagram.png)
 
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) is a useful Visual Studio Code extension that makes IoT Hub management and IoT application development easier. This article focuses on how to use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and your IoT hub.
 
