@@ -101,7 +101,7 @@ To configure Azure AD single sign-on with Supermood, perform the following steps
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Supermood Domain and URLs single sign-on information](common/idp-reply.png)
+    ![Supermood Domain and URLs single sign-on information](common/idp-preintegrated-relay.png)
 
     a. Check **Set additional URLs**.
 
