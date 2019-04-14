@@ -17,7 +17,7 @@ ms.date: 04/11/2019
 
 # Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)
 
-In this quickstart you'll create and run a set of simple R scripts using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
+In this quickstart, you'll create and run a set of simple R scripts using the public preview of [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). You'll learn how to wrap a well-formed R script in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) and execute the script in a SQL database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
@@ -51,7 +51,7 @@ print(c(c, d))
 
    If you need help connecting, see [Quickstart: Use SQL Server Management Studio to connect and query an Azure SQL database](sql-database-connect-query-ssms.md).
 
-1. Pass a complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
+1. Pass the complete R script to the [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) stored procedure.
 
    The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
 
@@ -348,7 +348,7 @@ sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLI
 To create a machine learning model using R in SQL Database, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
+> [Create and train a predictive model in R</br>with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
 
 For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
 
