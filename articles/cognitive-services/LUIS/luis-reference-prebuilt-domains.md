@@ -26,7 +26,7 @@ LUIS offers 20 prebuilt domains.
 | [Calendar](#calendar) | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.|
 | [Communication](#communication) | Sending messages and making phone calls.| 
 | [Email](#email)|Send email.|
-| [HomeAutomation](#omeAutomation) | Controlling smart home devices like lights and appliances.| 
+| [HomeAutomation](#homeAutomation) | Controlling smart home devices like lights and appliances.| 
 | [Note](#note) | The Note domain provides intents and entities related to creating, editing, and finding notes.|
 | [Places](#places)  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| 
 | [RestaurantReservation](#restaurantreservation) | Handling requests to manage restaurant reservations.| 
