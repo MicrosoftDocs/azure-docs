@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with Screencast-O-Matic, perform the follow
 
 ### Configure Screencast-O-Matic Single Sign-On
 
-1. In a different web browser window, signin to Screencast-O-Matic as an Administrator.
+1. In a different web browser window, sign in to Screencast-O-Matic as an Administrator.
 
 2. Click on **Subscription**.
 
