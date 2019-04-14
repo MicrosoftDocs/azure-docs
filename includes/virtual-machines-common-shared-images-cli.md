@@ -34,7 +34,7 @@ az sig create -g myGalleryRG --gallery-name myGallery
 
 ## Create an image definition
 
-Image definitions create a logical grouping for images. They are used to keep manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes, and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/shared-image-galleries#image-definitions).
 
 Create an initial image definition in the gallery using [az sig image-definition create](/cli/azure/sig/image-definition#az-sig-image-definition-create).
 
@@ -57,7 +57,7 @@ Create versions of the image as needed using [az image gallery create-image-vers
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US* and East US 2* regions. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US*, and East US 2* regions. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
 
 ```azurecli-interactive 
 az sig image-version create \

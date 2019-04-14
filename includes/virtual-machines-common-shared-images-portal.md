@@ -10,9 +10,9 @@
  ms.custom: include file
 ---
 
-## Log in to Azure 
+## Sign in to Azure 
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an image gallery
 
@@ -32,12 +32,12 @@ The following example creates a gallery named *myGallery* in the *myGalleryRG* r
    
 ## Create an image definition 
 
-Image definitions create a logical grouping for images. They are used to keep manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
+Image definitions create a logical grouping for images. They are used to manage information about the image versions that are created within them. Image definition names can be made up of uppercase or lowercase letters, digits, dots, dashes and periods. For more information about the values you can specify for an image definition, see [Image definitions](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries#image-definitions).
 
 Create the gallery image definition inside of your gallery. In this example, the gallery image is named *myImageDefinition*.
 
 1. On the page for your new image gallery, select **Add a new image definition** from the top of the page. 
-1. For **Image definintion name**, type *myImageDefinition*.
+1. For **Image definition name**, type *myImageDefinition*.
 1. For **Operating system**, select the correct option based on your source image.
 1. For **Publisher**, type *myPublisher*. 
 1. For **Offer**, type *myOffer*.
@@ -56,7 +56,7 @@ Allowed characters for image version are numbers and periods. Numbers must be wi
 
 1. In the page for your image definition, select **Add version** from the top of the page.
 1. In **Region**, leave the default value.
-1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using intergers. 
+1. For **Name**, type *1.0.0*. The image version name should follow *major*.*minor*.*patch* format using integers. 
 1. In **Source image**, select your source managed image from the drop-down.
 1. In **Exclude from latest**, leave the default value of *No*.
 1. For **End of life date**, select a date from the calendar that is a couple of months in the future.

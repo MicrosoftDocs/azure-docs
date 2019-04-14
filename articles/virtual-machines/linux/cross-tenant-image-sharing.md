@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ## Create a VM using Azure CLI
 
-Log in the service principal for tenant 1 using the appID, the app key and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
+Sign in the service principal for tenant 1 using the appID, the app key, and the ID of tenant 1. You can use `az account show --query "tenantId"` to get the tenant IDs if needed.
 
 ```azurecli-interactive
 az account clear
@@ -27,7 +27,7 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Log in the service principal for tenant 2 using the appID, the app key and the ID of tenant 2:
+Sign in the service principal for tenant 2 using the appID, the app key, and the ID of tenant 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'

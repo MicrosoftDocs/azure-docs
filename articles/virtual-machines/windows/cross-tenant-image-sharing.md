@@ -33,7 +33,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred  -Tenant "<Tenant 1 ID>"
 Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant "<Tenant 2 ID>"
 ```
 
-Create the VM in thr resource group that has permission on the app registration. Replace the information in this example with your own.
+Create the VM in the resource group that has permission on the app registration. Replace the information in this example with your own.
 
 ```azurepowershell-interactive
 $resourceGroup = "myResourceGroup"

@@ -15,7 +15,7 @@ Shared Image Gallery is a service that helps you build structure and organizatio
 * Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
 * Managed global replication of images.
 * Versioning and grouping of images for easier management.
-* Higher scaling lmits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
+* Higher scaling limits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
 * Sharing across subscriptions, and even between tenants, using RBAC.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
@@ -40,7 +40,7 @@ The Shared Image Gallery feature has multiple resource types:
 
 ## Image definitions
 
-Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and information about using the image. An image definition is like a plan for all of the details around creating an specific image. You don't deploy a VM from an image definition, but from the image versio n created from the definition.
+Image definitions are a logical grouping for versions of an image. The image definition holds information about why the image was created, what OS it is for, and information about using the image. An image definition is like a plan for all of the details around creating a specific image. You don't deploy a VM from an image definition, but from the image version created from the definition.
 
 
 For customers planning on implementing shared images, **in an upcoming release**, you'll be able to use your personally defined **Publisher**, **Offer** and **SKU** values to find and specify an image definition, then create a VM using latest image version from the matching image definition.
@@ -71,10 +71,10 @@ The following are other parameters that can be set on your image definition so t
 * Operating system - this can be either Windows or Linux.
 * Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
 * Eula - this can be used to point to an end-user license agreement specific to this image definition.
-* Privacy Statement and Release notes - store release notes and privacy statements in Azure sotrage and provide a URI for accessing them as part of the image definition.
+* Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition in order to be able to use automation to delete old image definitions.
 * Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
-* Minimum and maximum VCPU and memory recommendations - if the your image has vCPU and memory recommendations, you can attach that information to your image definition.
+* Minimum and maximum VCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
 
 
@@ -123,7 +123,7 @@ Shared Image Gallery allows you to specify the number of replicas you want Azure
 ## Replication
 Shared Image Gallery also allows you to replicate your images to other Azure regions automatically. Each Shared Image version can be replicated to different regions depending on what makes sense for your organization. One example is to always replicate the latest image in multi-regions while all older versions are only available in 1 region. This can help save on storage costs for Shared Image versions. 
 
-The regions a Shared Image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or VMSS using that image version in the region.
+The regions a Shared Image version is replicated to can be updated after creation time. The time it takes to replicate to different regions depends on the amount of data being copied and the number of regions the version is replicated to. This can take a few hours in some cases. While the replication is happening, you can view the status of replication per region. Once the image replication is complete in a region, you can then deploy a VM or scale-set using that image version in the region.
 
 ![Graphic showing how you can replicate images](./media/shared-image-galleries/replication.png)
 
