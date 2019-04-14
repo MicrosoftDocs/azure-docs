@@ -90,7 +90,7 @@ Take note of the `"modelId"` value; you will need it for the following steps.
 Next, you will analyze a document and extract key value pairs and tables from it. Call the **model analyze** API by executing the following cURL command. Before running the command replace the following: 
 * Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
 * Replace `<modelID>` with the modelID you received in the previous step of training the model.
-* Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analze from the sample data. 
+* Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analyze from the sample data. 
 * Replace `<pdf>` with the file type you are analyzing supported options are - pdf, image/jpeg, image/png. 
 
 ```bash
