@@ -1,7 +1,7 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 3/22/2019
+ms.date: 04/14/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: jeconnoc
@@ -32,21 +32,13 @@ The Azure Image Builder Service will be available for preview in these regions, 
 ## Pipeline
 
 
-The Azure Image Builder is a fully managed Azure service that is accessible by an Azure first party resource provider.  
- 
-The diagram below shows the end to end Azure Image Builder pipeline, where you can see the three main components, source, customize and distribute, with their inputs and outputs. 
-
-![Conceptual drawing of the image builder pipeline](./media/virtual-machines-image-builder-overview/pipelines.png)
-
-The pipeline steps are defined in a configuration template that is used by the service, then stored as an ImageTemplate. 
+The Azure Image Builder is a fully managed Azure service that is accessible by an Azure first party resource provider. The Azure Image Builder pipeline has three main components: source, customize and distribute. The pipeline steps are defined in a configuration template that is used by the service, then stored as an ImageTemplate. 
  
 For the Azure Image Builder to stand up the pipeline requires an invocation call into the Azure Image Builder service referencing a stored template.
 
-![Conceptual drawing of the submit and run command processes](./media/virtual-machines-image-builder-overview/submit-run.png)
-
 1. Create the Image Template. 
-1. Submit the Image Template. Azure Image Builder will download the RHEL ISO, and shell scripts needed, and store these in a resource group that is automatically created in your subscription, in this format: ‘IT_<DestinationResourceGroup>_<TemplateName>’. This will be removed when the Image Template artifact is deleted. You will also see the template artifact, that references these in the resource group referenced when creating the image template.
-1. Create the image. Azure Image Builder will take the template, then stand up a pipeline to create it, by standing up a VM, network, and storage in the automatically created resource group, ‘IT_<DestinationResourceGroup>_<TemplateName>’. 
+1. Submit the Image Template. Azure Image Builder will download the source file, and scripts as needed. These are stored in a resource group that is automatically created in your subscription, in this format: ‘IT_<DestinationResourceGroup>_<TemplateName>’. This resource group will be removed when the Image Template artifact is deleted. 
+1. Create the image. Azure Image Builder will take the template, stand up a pipeline to create it, by standing up a VM, network, and storage in the automatically created resource group, ‘IT_<DestinationResourceGroup>_<TemplateName>’. 
 
 
 ## Costs
