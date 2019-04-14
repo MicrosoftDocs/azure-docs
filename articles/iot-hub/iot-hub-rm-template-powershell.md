@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
-<!-- robinsh -- update this -->
+# robinsh -- update this
 ---
 # Create an IoT hub using Azure Resource Manager template (PowerShell)
 
