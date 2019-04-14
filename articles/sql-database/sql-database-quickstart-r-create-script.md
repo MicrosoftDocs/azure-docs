@@ -37,7 +37,7 @@ In this quickstart you'll create and run a set of simple R scripts using the pub
 
 To run an R script, you'll pass it as an argument to the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
-This is the R script you'll run in your SQL database.
+In the following steps, you'll run this example R script in your SQL database:
 
 ```r
 a <- 1
