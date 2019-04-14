@@ -15,13 +15,13 @@ manager: cgronlun
 ms.date: 04/11/2019
 ---
 
-# Quickstart: Handle data types and objects using R in SQL Database
+# Work with R and SQL data in Azure SQL Database Machine Learning Services (preview)
 
-Learn about the common issues that occur when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
+This article discusses some of the common issues you may encounter when moving data between R and SQL Database in [Machine Learning Services (with R) in Azure SQL Database](sql-database-machine-learning-services-overview.md). The experience you gain through this exercise provides essential background when working with data in your own script.
 
 Common issues that you may encounter include:
 
-- Data types sometimes do not match
+- Data types sometimes don't match
 - Implicit conversions might take place
 - Cast and convert operations are sometimes required
 - R and SQL use different data objects

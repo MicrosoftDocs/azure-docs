@@ -17,7 +17,7 @@ ms.date: 04/11/2019
 
 # Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)
 
-Learn how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
+This articles describes how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
 
 ## Prerequisites
 
@@ -96,4 +96,5 @@ EXECUTE sp_execute_external_script
 WITH RESULT SETS (([Col1] int not null));
 ```
 
-Many users like to use the system timing functions in R, such as `system.time` and `proc.time`,  to capture the time used by R processes and analyze performance issues.
+> [!TIP]
+> Many users like to use the system timing functions in R, such as `system.time` and `proc.time`,  to capture the time used by R processes and analyze performance issues.
