@@ -124,7 +124,6 @@ To configure Azure AD single sign-on with Coralogix, take the following steps:
 	a. Select the **Edit icon** to open the **Manage user claims** dialog box.
 
 	![image](./media/coralogix-tutorial/tutorial_usermail.png)
-
 	![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
 	b. From the **Choose name identifier format** list, select **Email address**.
@@ -169,7 +168,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, enter **brittasimon@yourcompanydomain.extension.** For example, in this case, you might type **brittasimon@contoso.com.**
+    b. In the **User name** field, enter "brittasimon@yourcompanydomain.extension." For example, in this case, you might enter "brittasimon@contoso.com."
 
     c. Select the **Show password** check box, and then note the value that's displayed in the **Password** box.
 
