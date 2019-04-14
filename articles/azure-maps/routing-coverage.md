@@ -45,7 +45,7 @@ The following table provides coverage information for Azure Maps routing.
 | Burkina Faso                   |        ✓       |                       |             |
 | Burundi                        |        ✓       |                       |             |
 | Cameroon                       |        ✓       |                       |             |
-| Cape Verde                     |        ✓       |                       |             |
+| Cabo Verde                     |        ✓       |                       |             |
 | Congo- Brazzaville Kinshasa    |        ✓       |                       |             |
 | Congo- Kinshasa                |        ✓       |                       |             |
 | côte d’ivoire                  |        ✓       |                       |             |

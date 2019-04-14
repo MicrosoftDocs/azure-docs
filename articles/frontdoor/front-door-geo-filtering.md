@@ -67,7 +67,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | CO | Colombia|
 | CR | Costa Rica|
 | CU | Cuba|
-| CV | Cape Verde|
+| CV | Cabo Verde|
 | CY | Cyprus|
 | CZ | Czech Republic|
 | DE | Germany|
