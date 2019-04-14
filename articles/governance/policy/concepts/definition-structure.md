@@ -257,6 +257,10 @@ supported conditions are:
 - `"notIn": ["value1","value2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
+- `"less": "value"`
+- `"lessOrEquals": "value"`
+- `"greater": "value"`
+- `"greaterOrEquals": "value"`
 - `"exists": "bool"`
 
 When using the **like** and **notLike** conditions, you provide a wildcard `*` in the value.
@@ -484,6 +488,11 @@ use within a policy rule, except the following functions:
 - reference()
 - resourceId()
 - variables()
+
+The following functions are available to use in a policy rule:
+
+- addDays(dateTime, numberOfDaysToAdd)
+- utcNow() - Unlike a Resource Manager template, this can be used outside defaultValue
 
 Additionally, the `field` function is available to policy rules. `field` is primarily used with
 **AuditIfNotExists** and **DeployIfNotExists** to reference fields on the resource that are being
