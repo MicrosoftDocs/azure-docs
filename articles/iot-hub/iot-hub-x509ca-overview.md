@@ -56,19 +56,27 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub would like to ascertain that you really own the CA certificate.  It shall do so by generating a random challenge that you must sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as earlier advised, then only you will possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, complete this step by uploading a file containing the results.
 
-##Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#registercerts).
+<!-- Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#registercerts).
+--> robinsh
 
-try 1 - Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x.509-ca-certificates).
+try 1 with dot - Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x.509-ca-certificates).
 
-try 2 - Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x-509-ca-certificates).
+try 2 with dash - Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x-509-ca-certificates).
+
+try 3 with no punc  - Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x-509-ca-certificates).
 
 ## How to create a device on IoT Hub
 
 To preclude device impersonation, IoT Hub requires you to let it know what devices to expect.  You do this by creating a device entry in the IoT Hub's device registry.  This process is automated when using IoT Hub [Device Provisioning Service](https://azure.microsoft.com/blog/azure-iot-hub-device-provisioning-service-preview-automates-device-connection-configuration/). 
 
-try 1 - Learn here how to [manually create a device in IoT Hub]F(iot-hub-security-x509-get-started.md#create-an-x.509-device-for-your-iot-hub).
+robinsh 
 
-try 2 - Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x-509-device-for-your-iot-hub).
+try 1 with dot - Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x.509-device-for-your-iot-hub).
+
+try 2 with dash - Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x-509-device-for-your-iot-hub).
+
+
+try 3 with no punc - Learn here how to [manually create a device in IoT Hub](iot-hub-security-x509-get-started.md#create-an-x509-device-for-your-iot-hub).
 
 Create an X.509 device for your IoT hub
 
