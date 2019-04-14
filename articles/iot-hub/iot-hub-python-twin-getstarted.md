@@ -146,7 +146,7 @@ In this section, you create a Python console app that adds location metadata to 
 
     You should see one device in the results for the query asking for all devices located in **Redmond43** and none for the query that restricts the results to devices that use a cellular network.
 
-    ![first query showing all devices in Redmond](./media/1-device-twins-python-service-sample.png)
+    ![first query showing all devices in Redmond](./media/iot-hub-python-twin-getstarted/1-device-twins-python-service-sample.png)
 
 In the next section, you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
@@ -251,7 +251,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     You should see confirmation the device twins were updated.
 
-    ![update twins](./media/2-python-client-sample.png)
+    ![update twins](./media/iot-hub-python-twin-getstarted/2-python-client-sample.png)
 
 8. Now that the device reported its connectivity information, it should appear in both queries. Go back and run the queries again:
 
@@ -261,7 +261,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query](./media/3_device-twins-python-service-sample.png)
+    ![second query](./media/iot-hub-python-twin-getstarted/3_device-twins-python-service-sample.png)
 
 ## Next steps
 
