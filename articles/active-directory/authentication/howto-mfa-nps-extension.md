@@ -76,7 +76,7 @@ The NPS server needs to be able to communicate with the following URLs over port
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
 
-Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#Run-the-PowerShell-script)
+Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
 - https://login.microsoftonline.com
 - https://provisioningapi.microsoftonline.com
