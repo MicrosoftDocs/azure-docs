@@ -243,7 +243,7 @@ In this section, you create a Python console app that connects to your hub as yo
         iothub_client_sample_run()
     ```
 
-7. Run the device app
+7. Run the device app:
 
     ```cmd/sh
     python ReportConnectivity.py

@@ -71,7 +71,7 @@ The following items are optional:
 * A diffused 10-mm LED.
 
 > [!NOTE]
-> These items are optional because the code sample support simulated sensor data.
+> These items are optional because the code sample supports simulated sensor data.
 >
 
 ## Create an IoT hub
