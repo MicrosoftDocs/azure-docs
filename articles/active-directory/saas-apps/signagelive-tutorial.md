@@ -46,9 +46,9 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 To configure the integration of Signagelive into Azure AD, first add Signagelive from the gallery to your list of managed SaaS apps.
 
-**To add Signagelive from the gallery, take the following steps:**
+To add Signagelive from the gallery, take the following steps:
 
-1. In the [Azure portal](https://portal.azure.com), on the left pane, select the **Azure Active Directory** icon.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, select the **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -64,7 +64,7 @@ To configure the integration of Signagelive into Azure AD, first add Signagelive
 
 	 ![Signagelive in the results list](common/search-new-app.png)
 
-5. Select **Signagelive** from results pane, and then select the **Add** button to add the application.
+5. Select **Signagelive** from the results pane, and then select the **Add** button to add the application.
 
 ## Configure and test Azure AD single sign-on
 
@@ -144,7 +144,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field, enter **brittasimon@yourcompanydomain.extension**. For example, in this case, you might enter **BrittaSimon@contoso.com**.
+    b. In the **User name** field, enter "brittasimon@yourcompanydomain.extension". For example, in this case, you might enter "BrittaSimon@contoso.com".
 
     c. Select the **Show password** check box, and then note the value that's displayed in the Password box.
 
