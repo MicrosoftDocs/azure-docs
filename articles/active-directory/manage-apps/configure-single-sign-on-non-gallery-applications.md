@@ -16,12 +16,15 @@ ms.collection: M365-identity-device-management
 
 # Configure single sign-on to non-gallery applications in Azure Active Directory
 
-This article is about a feature that enables administrators to configure single sign-on to applications not present in the Azure Active Directory app gallery *without writing code*. If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
+This article is about a feature that enables administrators to configure single sign-on for applications not present in the Azure Active Directory app gallery *without writing code*.
+
+If you are instead looking for developer guidance on how to integrate custom apps with Azure AD through code, see [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md).
 
 The Azure Active Directory application gallery provides a listing of applications that are known to support a form of single sign-on with Azure Active Directory, as described in [this article](what-is-single-sign-on.md). Once you (as an IT specialist or system integrator in your organization) have found the application you want to connect, you can get started by following the step-by-step instructions presented in the Azure portal to enable single sign-on.
 
-These capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/). 
+These capabilities are also available, according to your license agreement. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
+- Self-service integration of an application that use a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users and obtain tokens for [Microsoft Graph](https://graph.microsoft.com).
 - Self-service integration of any application that supports SAML 2.0 identity providers (SP-initiated or IdP-initiated)
 - Self-service integration of any web application that has an HTML-based sign-in page using [password-based SSO](what-is-single-sign-on.md#password-based-sso)
 - Self-service connection of applications that use the SCIM protocol for user provisioning ([described here](use-scim-to-provision-users-and-groups.md))
@@ -29,14 +32,21 @@ These capabilities are also available, according to your license agreement. For 
 
 This can include not only SaaS applications that you use but have not yet been on-boarded to the Azure AD application gallery, but third-party web applications that your organization has deployed to servers you control, either in the cloud or on-premises.
 
-These capabilities, also known as *app integration templates*, provide standards-based connection points for apps that support SAML, SCIM, or forms-based authentication, and include flexible options and settings for compatibility with a broad number of applications. 
+These capabilities, also known as *app integration templates*, provide standards-based connection points for apps that support SAML, SCIM, or forms-based authentication, and include flexible options and settings for compatibility with a broad number of applications.
 
 ## Adding an unlisted application
+
+The Microsoft Identity platform provides two mechanisms to register applications.
+
+An application that uses a modern protocol like [OpenId Connect/OAuth](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-protocols) to authenticate its users is registered using the [Application registration Portal](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-v2-register-an-app).
+
+Registration of applications utilizing all other types of [supported authentication mechanisms](what-is-single-sign-on) like the [SAML](https://docs.microsoft.com/en-us/azure/active-directory/develop/single-sign-on-saml-protocol) protocol use the **Enterprise Applications** blade to connect themselves with the Microsoft Identity Platform.
+
 To connect an application using an app integration template, sign in to the Azure portal using your Azure Active Directory administrator account. Browse to the **Active Directory > Enterprise Applications > New application > Non-gallery application** section, select **Add**, and then **Add an application from the gallery**.
 
   ![Add application](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
 
-In the app gallery, you can add an unlisted app by selecting the **Non-gallery application** tile that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior. 
+In the app gallery, you can add an unlisted app by selecting the **Non-gallery application** tile that is shown in the search results if your desired app wasn't found. After entering a Name for your application, you can configure the single sign-on options and behavior.
 
 **Quick tip**:  As a best practice, use the search function to check to see if the application already exists in the application gallery. If the app is found and its description mentions single sign-on, then the application is already supported for federated single sign-on.
 
@@ -44,7 +54,7 @@ In the app gallery, you can add an unlisted app by selecting the **Non-gallery a
 
 Adding an application this way provides a similar experience to the one available for pre-integrated applications. To start, select **Configure Single Sign-On** or click on **Single sign-on** from the application’s left-hand navigation menu. The next screen presents the options for configuring single sign-on. The options are described in the next sections of this article.
   
-![Configuration options](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
+  ![Configuration options](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## SAML-based single sign-on
 Select this option to configure SAML-based authentication for the application. This requires that the application support SAML 2.0. You should collect information on how to use the SAML capabilities of the application before continuing. Complete the following sections to configure single sign-on between the application and Azure AD.
