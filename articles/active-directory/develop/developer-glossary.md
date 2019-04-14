@@ -38,7 +38,7 @@ See [Microsoft identity platform Token Reference][AAD-Tokens-Claims] for more de
 
 ## application ID (client ID)
 
-The unique identifier Azure AD issues to an application registration that identifies a specific application and the associated configurations. This application id ([client ID](https://tools.ietf.org/html/rfc6749#page-15)) is used when performing authentication requests and is provided to the authentication libraries in development time. The application id (client ID) is not a secret.
+The unique identifier Azure AD issues to an application registration that identifies a specific application and the associated configurations. This application ID ([client ID](https://tools.ietf.org/html/rfc6749#page-15)) is used when performing authentication requests and is provided to the authentication libraries in development time. The application ID (client ID) is not a secret.
 
 ## application manifest
 
