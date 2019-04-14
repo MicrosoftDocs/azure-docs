@@ -1,11 +1,11 @@
 ---
 title: Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure| Microsoft Docs
 description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
 
 ---
@@ -14,7 +14,7 @@ This article is the Azure Site Recovery Deployment Planner user guide for VMware
 
 
 ## Modes of running deployment planner
-You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following four modes:
+You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
 
 1.	[Profiling](#profile-vmware-vms)
 2.	[Report generation](#generate-report)
