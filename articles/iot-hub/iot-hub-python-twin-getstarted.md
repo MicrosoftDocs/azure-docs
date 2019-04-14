@@ -261,7 +261,7 @@ In this section, you create a Python console app that connects to your hub as yo
 
     This time your **{Device ID}** should appear in both query results.
 
-    ![second query](./media/iot-hub-python-twin-getstarted/3_device-twins-python-service-sample.png)
+    ![second query](./media/iot-hub-python-twin-getstarted/3-device-twins-python-service-sample.png)
 
 ## Next steps
 
