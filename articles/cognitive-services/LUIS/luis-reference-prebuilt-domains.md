@@ -35,6 +35,8 @@ LUIS offers 20 prebuilt domains.
 | [Weather](#weather) | Getting weather reports and forecasts.| 
 | [Web](#web) | Navigating to a website.|
 
+<!-- this section generated from https://github.com/diberry/swagger-tools/blob/master/luis-app.js -->
+
 ## Calendar
 
 ### Supported languages
