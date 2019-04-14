@@ -41,7 +41,7 @@ Decision trees in general have many advantages for classification tasks:
 - They can capture non-linear decision boundaries.
 - You can train and predict on lots of data, as they are efficient in computation and memory usage.
 - Feature selection is integrated in the training and classification processes.  
-- Trees can acommodate noisy data and many features.  
+- Trees can accommodate noisy data and many features.  
 - They are non-parametric models, meaning they can handle data with varied distributions. 
 
 However, simple decision trees can overfit on data, and are less generalizable than tree ensembles.
