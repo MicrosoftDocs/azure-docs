@@ -76,6 +76,12 @@ The NPS server needs to be able to communicate with the following URLs over port
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
 
+Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#Run-the-PowerShell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
+
 ## Prepare your environment
 
 Before you install the NPS extension, you want to prepare you environment to handle the authentication traffic.
