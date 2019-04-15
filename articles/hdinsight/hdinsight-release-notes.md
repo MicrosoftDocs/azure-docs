@@ -88,7 +88,7 @@ For HDInsight 4.0, do the following steps:
     ```
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
     ```
-1. Type the command `sudo kinit <domainuser>`
+1. Type the command `sudo kinit <domainuser>`.
 1. Type the following command to run the script:
 
     ```
@@ -101,7 +101,7 @@ For HDInsight 3.6, do the following:
     ```
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
     ```
-1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`
+1. Type the command `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`.
 1. Type the following command:
 
     ```bash
