@@ -382,7 +382,7 @@ After you create a run configuration, you use it to run your experiment.  The co
 1. Wait for the run to complete.
 
 > [!IMPORTANT]
-> When you submit the training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace.
+> When you submit the training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the run again, only the changed files will be uploaded.
 >
 > To prevent files from being included in the snapshot, create an `.amlignore` file in the directory and add the files to it. The `.amlignore` file is a text file, and uses the same syntax and patterns as a [.gitignore](https://git-scm.com/docs/gitignore) file.
 > 
