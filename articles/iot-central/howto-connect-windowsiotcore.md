@@ -18,68 +18,66 @@ This article describes how, as a device developer, to connect a Windows IoT Core
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
-2. A device running the Windows 10 IoT Core operating system. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+- An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
-## **Sample Devkits** application
+- A device running the Windows 10 IoT Core operating system. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+
+- A development machine with [Node.js](https://nodejs.org/) version 8.0.0 or later installed. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+
+## The Sample Devkits application
 
 An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
 
-- Telemetry which contains the measurements for the device **Humidity**, **Temperature**, and **Pressure**.
-- Settings controlling **Fan Speed**.
-- Properties including the device property **Die number** and the cloud property **Location**.
+- Telemetry measurements for the device: **Humidity**, **Temperature**, and **Pressure**.
+- Setting to control **Fan Speed**.
+- A device property **Die number** and a cloud property **Location**.
 
 For full details on the configuration of the device template, see [Windows IoT Core Device template details](#windows-iot-core-device-template-details).
 
 ## Add a real device
 
-In your Azure IoT Central application, add a real device from the **Windows IoT Core** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**). For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
+In your Azure IoT Central application, use the **Device Explorer** page to add a real device from the **Windows 10 IoT Core** device template. Make a note of the device connection details (**Scope ID**, **Device ID**, and **Primary key**). For more information, see [get connection information](howto-generate-connection-string.md#get-connection-information).
 
-## Prepare the Windows 10 IoT Core device
+## Prepare the device
 
-### What you'll need
+For the device to connect to IoT Central, it needs a connection string.
 
-To set up a real Windows 10 IoT Core device, you need a device running Windows 10 IoT Core. For more information, see [Setting up your Windows 10 IoT Core device](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup).
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-You also need a client application that can communicate with Azure IoT Central. You can either build your own custom application using the Azure SDK and deploy it to your device using Visual Studio, or you can download a [pre-built sample](https://developer.microsoft.com/windows/iot/samples) and to deploy and run on the device.
+For the device code to access the connection string, save it in a file called **connection.string.iothub** in the folder `C:\Data\Users\DefaultAccount\Documents\` on your Windows 10 IoT Core device.
 
-### Deploying the sample client application
+To copy the **connection.string.iothub** file from your desktop machine to the `C:\Data\Users\DefaultAccount\Documents\` folder on your device, you can use the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-To deploy the client application from the previous step to your Windows 10 IoT device in order to prepare it:
+1. Use your web browser to navigate to the Windows Device Portal on your device.
+1. To browse the files on your device, choose **Apps > File explorer**.
+1. Navigate to **User Folders\Documents**. Then upload the **connection.string.iothub** file:
 
-**Ensure the connection string is stored on the device for the client application to use**
-* On the desktop, save the connection string in a text file named connection.string.iothub.
-* Copy the text file to the device’s document folder: 
-`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+    ![Upload connection string](media/howto-connect-windowsiotcore/deviceportal.png)
 
-Once you've done that, you'll need to open the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) by typing in http://[device-IP-address]:8080 into any browser.
+## Deploy and run
 
-From there and, as shown in the if below, you'll want to:
-1. Expand the **Apps** node on the left.
-2. Select **Quick-run samples**.
-3. Select **Azure IoT Hub Client**.
-4. Select **Deploy and run**.
+To deploy and run the sample application on your device, you can use the [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal):
 
-![Gif of Azure IoT Hub Client on Windows Device Portal](./media/howto-connect-windowsiotcore/iothubapp.gif)
+1. Use your web browser to navigate to the Windows Device Portal on your device.
+1. To deploy and run the **Azure IoT Hub Client** application, choose **Apps > Quick-run samples**. Then choose **Azure IoT Hub Client**.
+1. Then choose **Deploy and run**.
 
-When successful, the application will launch on the device and look like this:
+    ![Deploy and run](media/howto-connect-windowsiotcore/quickrun.png)
 
-![Screenshot of Azure IoT Hub Client app](./media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.png)
+After a couple of minutes, you can view the telemetry from your device in your IoT Central application.
 
-In Azure IoT Central, you can see how the code running on the Raspberry Pi interacts with the application:
+The [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) includes tools that you can use to troubleshoot your device:
 
-* On the **Measurements** page for your real device, you can see the telemetry.
-* On the **Properties** page, you can see the value of the reported Die Number property.
-* On the **Settings** page, you can change various settings on the Raspberry Pi such as voltage and fan speed.
+- The **Apps manager** page lets you control the apps running on your device.
+- If you don't have a monitor connected to your device, you can use the **Device Settings** page to capture screenshots from your device. For example:
+
+    ![App screenshot](media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.jpg)
 
 ## Download the source code
 
-If you want to explore and modify the source code for the client application, you can download it from GitHub [here](https://github.com/Microsoft/Windows-iotcore-samples/tree/develop/Samples/Azure/IoTHubClients). If you plan to modify the code, you should follow these instructions in the readme file [here](https://github.com/Microsoft/Windows-iotcore-samples) for your desktop operating system.
+If you want to explore and modify the source code for the client application, you can download it from the [Windows-iotcore-samples GitHub repository](https://github.com/Microsoft/Windows-iotcore-samples/blob/master/Samples/Azure/IoTHubClients).
 
-> [!NOTE]
-> If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
-
-## Windows IoT Core Device template details
+## Device template details
 
 An application created from the **Sample Devkits** application template includes a **Windows IoT Core** device template with the following characteristics:
 
@@ -99,10 +97,13 @@ Numeric settings
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-
 ### Properties
 
 | Type            | Display name | Field name | Data type |
 | --------------- | ------------ | ---------- | --------- |
 | Device property | Die number   | dieNumber  | number    |
 | Text            | Location     | location   | N/A       |
+
+## Next steps
+
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [setup a custom device template](howto-setup-template.md) for your own IoT device.
