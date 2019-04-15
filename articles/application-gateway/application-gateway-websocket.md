@@ -26,7 +26,7 @@ To establish a WebSocket connection, a specific HTTP-based handshake is exchange
 
 ### Listener configuration element
 
-An existing HTTP listener can be used to support WebSocket traffic. The following is a snippet of an httpListeners element from a sample template file. You would need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly you can use the [portal](application-gateway-create-gateway-portal.md) or [PowerShell](application-gateway-create-gateway-arm.md) to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
+An existing HTTP listener can be used to support WebSocket traffic. The following is a snippet of an httpListeners element from a sample template file. You would need both HTTP and HTTPS listeners to support WebSocket and secure WebSocket traffic. Similarly you can use the portal or Azure PowerShell to create an application gateway with listeners on port 80/443 to support WebSocket traffic.
 
 ```json
 "httpListeners": [
@@ -117,5 +117,4 @@ Another reason for this is that application gateway backend health probe support
 
 ## Next steps
 
-After learning about WebSocket support, go to [create an application gateway](application-gateway-create-gateway-arm.md) to get started with a WebSocket enabled web application.
-
+After learning about WebSocket support, go to [create an application gateway](quick-create-powershell.md) to get started with a WebSocket enabled web application.
