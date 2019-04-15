@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: alkohli
 ---
 # Monitor your Azure Data Box Edge
@@ -17,9 +17,9 @@ This article describes how to monitor your Azure Data Box Edge. To monitor your 
 In this article, you learn how to:
 
 > [!div class="checklist"]
-> * View device events
-> * View hardware status
-> * View metrics
+> * View device events and the corresponding alerts
+> * View hardware status of device components
+> * View capacity and transaction metrics for your device
 > * Configure and manage alerts
 
 ## View device events
@@ -65,7 +65,7 @@ Take the following steps in the Azure portal to create a chart for selected devi
     |**Available capacity**               | Refers to the size of the data that can be written to the device. In other words, this is the capacity that can be made available on the device. <br></br>You can free up the device capacity by deleting the local copy of files that have a copy on both the device as well as the cloud.        |
     |**Total capacity**                   | Refers to the total bytes on the device to write data to. This is also referred to as the total size of the local cache. <br></br> You can now increase the capacity of an existing virtual device by adding a data disk. Add a data disk through the hypervisor management for the VM and then restart your VM. The local storage pool of the Gateway device will expand to accommodate the newly added data disk. <br></br>For more information, go to [Add a hard drive for Hyper-V virtual machine](https://www.youtube.com/watch?v=EWdqUw9tTe4). |
     
-    |**Transaction metrics**              | Description         |
+    |Transaction metrics              | Description         |
     |-------------------------------------|---------|
     |**Cloud bytes uploaded (device)**    | Sum of all the bytes uploaded across all the shares on your device        |
     |**Cloud bytes uploaded (share)**     | Bytes uploaded per share. This can be: <br></br> Avg, which is the (Sum of all the bytes uploaded per share / Number of shares),  <br></br>Max, which is the maximum number of bytes uploaded from a share <br></br>Min, which is the minimum number of bytes uploaded from a share      |
@@ -97,7 +97,7 @@ Take the following steps in the Azure portal to create a chart for selected devi
 
     ![Export data](media/data-box-edge-monitor/view-metrics-8.png)
 
-## Configure and manage alerts
+## Manage alerts
 
 Configure alert rules to inform you of alert conditions related to the consumption of resources on your device. You can configure alert rules to monitor your device for alert conditions. For more detailed information on alerts, go to [Create, view, and manage metric alerts in Azure monitor](../azure-monitor/platform/alerts-metric.md).
 
