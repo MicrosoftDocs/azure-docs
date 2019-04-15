@@ -63,9 +63,9 @@ In the default mode of Azure SignalR Service, app server VMs are deployed in the
 
 Theoretically, Azure SignalR Service capacity is limited by computation resources: CPU, memory, and network. For example, more connections to Azure SignalR Service cause the service to use more memory. For larger message traffic (for example, every message is larger than 2,048 bytes), Azure SignalR Service needs to spend more CPU cycles to process traffic. Meanwhile, Azure network bandwidth also imposes a limit for maximum traffic.
 
-The transport type is another factor that affects performance. The three types are [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Sever-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events), and [Long-Polling](https://en.wikipedia.org/wiki/Push_technology). 
+The transport type is another factor that affects performance. The three types are [WebSocket](https://en.wikipedia.org/wiki/WebSocket), [Server-Sent-Event](https://en.wikipedia.org/wiki/Server-sent_events), and [Long-Polling](https://en.wikipedia.org/wiki/Push_technology). 
 
-WebSocket is a bidirectional and full-duplex communication protocol over a single TCP connection. Sever-Sent-Event is a unidirectional protocol to push messages from server to client. Long-Polling requires the clients to periodically poll information from the server through an HTTP request. For the same API under the same conditions, WebSocket has the best performance, Sever-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
+WebSocket is a bidirectional and full-duplex communication protocol over a single TCP connection. Server-Sent-Event is a unidirectional protocol to push messages from server to client. Long-Polling requires the clients to periodically poll information from the server through an HTTP request. For the same API under the same conditions, WebSocket has the best performance, Server-Sent-Event is slower, and Long-Polling is the slowest. Azure SignalR Service recommends WebSocket by default.
 
 The message routing cost also limits performance. Azure SignalR Service plays a role as a message router, which routes the message from a set of clients or servers to other clients or servers. A different scenario or API requires a different routing policy. 
 
@@ -87,7 +87,7 @@ In summary, the following factors affect the inbound and outbound capacity:
 
 -   Message send rate
 
--   Transport type (WebSocket, Sever-Sent-Event, or Long-Polling)
+-   Transport type (WebSocket, Server-Sent-Event, or Long-Polling)
 
 -   Use-case scenario (routing cost)
 
