@@ -35,18 +35,28 @@ LUIS offers 20 prebuilt domains.
 | [Weather](#weather) | Getting weather reports and forecasts.| 
 | [Web](#web) | Navigating to a website.|
 
-<!-- this section generated from https://github.com/diberry/swagger-tools/blob/master/luis-app.js -->
+## Supported domains across cultures
+
+The table below summarizes the currently supported domains. Support for English is usually more complete than others.
+
+| Entity Type       | EN-US      | ZH-CN   | DE    | FR     | ES    | IT      | PT-BR |  JP  |      KO |        NL |    TR |
+|:-----------------:|:-------:|:-------:|:-----:|:------:|:-----:|:-------:| :-------:| :-------:| :-------:| :-------:|  :-------:| 
+| Calendar    | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | -      | -    | -    | -     | -  |
+| Communication   | ✓    | -       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| Email           | ✓    | ✓       | ✓   | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| HomeAutomation           | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| Notes      | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| Places    | ✓    | -       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| RestaurantReservation   | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| ToDo     | ✓    | ✓       | ✓    | ✓     | ✓     | ✓  | -  | -      | -    | -    | -     | -  |
+| ToDo_IPA        | ✓    | ✓       | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
+| Utilities          | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
+| Weather        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
+| Web    | ✓    | -        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
+
+<!-- this section (below this comment) generated from https://github.com/diberry/swagger-tools/blob/master/luis-app.js -->
 
 ## Calendar
-
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
 
 ### Intents 
 
@@ -108,14 +118,6 @@ LUIS offers 20 prebuilt domains.
 
 
 ## Communication
-
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
 
 ### Intents 
 
@@ -191,14 +193,6 @@ LUIS offers 20 prebuilt domains.
 
 ## Email
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
 
 ### Intents 
 
@@ -251,15 +245,6 @@ LUIS offers 20 prebuilt domains.
 
 ## HomeAutomation
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
-
 ### Intents 
 
 * None
@@ -295,15 +280,6 @@ LUIS offers 20 prebuilt domains.
 
 ## Note
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
-
 ### Intents 
 
 * AddToNote
@@ -338,14 +314,6 @@ LUIS offers 20 prebuilt domains.
 * ordinal
 
 ## Places
-
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
 
 ### Intents 
 
@@ -390,15 +358,6 @@ LUIS offers 20 prebuilt domains.
 
 ## RestaurantReservation
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
-
 ### Intents 
 
 * ChangeReservation
@@ -428,15 +387,6 @@ LUIS offers 20 prebuilt domains.
 * MealType
 
 ## ToDo
-
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
 
 ### Intents 
 
@@ -469,14 +419,6 @@ LUIS offers 20 prebuilt domains.
 
 ## Utilities
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-* zh-cn
 
 ### Intents 
 
@@ -512,14 +454,6 @@ LUIS offers 20 prebuilt domains.
 
 ## Weather
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-
 ### Intents 
 
 * ChangeTemperatureUnit
@@ -553,14 +487,6 @@ LUIS offers 20 prebuilt domains.
 
 ## Web
 
-### Supported languages
-
-* de-de
-* en-us
-* es-es
-* fr-fr
-* it-it
-
 ### Intents 
 
 * None
@@ -580,9 +506,4 @@ LUIS offers 20 prebuilt domains.
 ### Prebuilt entities 
 
 * url
-
-
-
-
-
 
