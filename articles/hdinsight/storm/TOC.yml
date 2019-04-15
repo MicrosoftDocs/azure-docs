@@ -277,4 +277,4 @@
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
   - name: Changes coming to cluster configuration access
-    hfef: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
