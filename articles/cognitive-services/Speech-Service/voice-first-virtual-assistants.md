@@ -23,9 +23,9 @@ ms.custom:
 
 | Category | Features |
 |----------|----------|
-|Keyword activation | Direct Line Speech includes both on-device and cloud-based wake word verification. This allows users to begin conversations with bots using a custom keyword like "Hey Cortana." For more information on choosing and creating a wake word, see the [custom wake word page](speech-devices-sdk-create-kws.md).
+|Custom wake word | You can enable users to begin conversations with bots using a custom keyword like "Hey Contoso". It does so by providing a custom wake word engine as part of the Speech SDK, which can be configured with the custom wake word [you can generate here](speech-devices-sdk-create-kws.md). This is also backed in the Direct Line Speech channel by a wake word verification service that improves the accuracy of the wake word activation versus the device alone.
 |[Speech to text](speech-to-text.md) | The Direct Line Speech channel includes real-time transcription of audio into recognized text using [Speech-to-text](speech-to-text.md) from Azure Speech Services. This text is available to both your bot and your client application as it is transcribed.
-|[Text to speech](text-to-speech.md) | Textual responses from your bot will be synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This will then be made available to your client application as an audio stream.
+|[Text to speech](text-to-speech.md) | Textual responses from your bot will be synthesized using [Text-to-speech](text-to-speech.md) from Azure Speech Services. This will then be made available to your client application as an audio stream. Microsoft offers the ability to build your own [custom, high-quality Neural TTS voice](https://aka.ms/customneuraltts) that gives a voice to your brand.
 |Direct Line Speech | As a channel within the Bot Framework, Direct Line Speech enables a smooth and seamless connection between your client application, a compatible bot, and the capabilities of Azure Speech Services. For more information on configuring your bot to use the Direct Line Speech channel, see [its page in the Bot Framework documentation](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
 ## Sample code
