@@ -13,17 +13,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/15/2019
 ms.author: juliako
 
 ---
 # Using Azure Media Packager to accomplish static packaging tasks  
+
 > [!NOTE]
-> The end of life date for Microsoft Azure Media Packager and Microsoft Azure Media Encryptor has been extended to March 1, 2017. Before that date, the functionalities of these processors will be added to Media Encoder Standard (MES). Customers are provided with instructions on how to migrate their workflows to send Jobs to MES. Format conversion and encryption capabilities may also be available through dynamic packaging and dynamic encryption.
-> 
-> 
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+
 
 ## Overview
+
 In order to deliver digital video over the internet, you must compress the media. Digital video files are large and may be too large to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded, it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. 
 
 Media Services supports dynamic and static packaging. When using static packaging, you need to create a copy of your content in each format required by your customers. With dynamic packaging all, you need is to create an asset that contains a set of adaptive bitrate MP4 or Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server ensures that your users receive the stream in the protocol they have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
