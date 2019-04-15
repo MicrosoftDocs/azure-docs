@@ -49,7 +49,7 @@ To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www
 
 ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for **scopes**. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(``IEnumerable<string> scopes``). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
 
-It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes for a v1.0 application](#scopes-for-a-web-api-accepting-v1.0-tokens).
+It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes for a v1.0 application](#scopes-for-a-web-api-accepting-v10-tokens). 
 
 ### Core classes
 
@@ -84,7 +84,7 @@ catch(AdalException exception)
 
 See details in [The recommended pattern to acquire a token](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET
 
-Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireTokenSilentAsync](AcquireTokenSilentAsync)
+Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireTokenSilentAsync](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token).
 
 ```csharp
 catch(MsalUiRequiredException exception)
@@ -119,7 +119,7 @@ Grant | ADAL.NET | MSAL.NET
 Interactive | [Interactive Auth](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquiring tokens interactively in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
 Integrated Windows Authentication | [AcquireTokenSilentAsync using Integrated authentication on Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Integrated Windows Authentication](https://aka.ms/msal-net-iwa)
 Username / Password | [Acquiring tokens with username and password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Username Password Authentication](https://aka.ms/msal-net-up)
-Device code flow | [Device profile for devices without web browsers](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Device Code flow](Device-Code-Flow)
+Device code flow | [Device profile for devices without web browsers](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Device Code flow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Device-Code-Flow)
 
 #### Confidential client applications
 
@@ -253,4 +253,4 @@ Note: You can also use this method for various integration scenarios where you h
 
 ## Next steps
 
-You can find more information about the scopes in [Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint](v2-permissions-and-consent#accessing-v10-resources.md)
+You can find more information about the scopes in [Scopes, permissions, and consent in the Azure Active Directory v2.0 endpoint](v2-permissions-and-consent.md)
