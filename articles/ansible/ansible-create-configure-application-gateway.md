@@ -12,13 +12,16 @@ ms.date: 04/04/2019
 
 # Tutorial: Manage web traffic with Azure Application Gateway by using Ansible
 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
 [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications.
 
 Ansible helps automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an application gateway. It also teaches you how to use the gateway to manage traffic to two web servers that run in Azure container instances.
 
-This tutorial shows you how to:
+In this tutorial, Ansible is used to:
 
 > [!div class="checklist"]
+>
 > * Set up the network
 > * Create two Azure container instances with HTTPD images
 > * Create an application gateway that works with the Azure container instances in the server pool
@@ -27,9 +30,6 @@ This tutorial shows you how to:
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-
-> [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. 
 
 ## Create a resource group
 

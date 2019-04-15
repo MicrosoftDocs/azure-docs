@@ -10,6 +10,17 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
+ 
+Old names:
+azure_rm_virtualmachine_extension
+azure_rm_virtualmachine_scaleset
+azure_rm_virtualmachine_scaleset_facts
+ 
+New names:
+azure_rm_virtualmachineextension
+azure_rm_virtualmachinescaleset
+azure_rm_virtualmachinescaleset_facts
+
 # Tutorial: Update Virtual Machine Scale Sets in Azure with custom image using Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
