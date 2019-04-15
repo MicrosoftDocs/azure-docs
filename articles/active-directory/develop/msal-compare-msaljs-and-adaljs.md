@@ -1,9 +1,9 @@
 ---
-title: Differences between MSAL JS and ADAL JS | Azure
-description: Learn about the differences between the MSAL JS and ADAL JS libraries.
+title: Differences between MSAL.js and ADAL.js | Azure
+description: Learn about the differences between Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) and how to choose which to use.
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: navyasric
 manager: celested
 editor: ''
 
@@ -14,13 +14,23 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
-ms.author: ryanwi
+ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ---
 
 # Differences between MSAL JS and ADAL JS
-MSAL.js integrates with the Azure AD v2.0 endpoint, whereas ADAL.js integrates with the Azure AD v1.0 endpoint. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL.js you can also get authentications for Azure AD B2C.
+Both Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) are used to authenticate Azure AD entities and request tokens from Azure AD. Up until now, most developers have worked with Azure AD v1.0 platform to authenticate Azure AD identities (work and school accounts) by requesting tokens using Azure AD Authentication Library (ADAL). Now, using MSAL.js, you can authenticate a broader set of Microsoft identities (Azure AD identities and Microsoft accounts, and social and local accounts through Azure AD B2C) through what has been known as the Azure AD v2.0 endpoint. 
+
+This article describes how to choose between the Microsoft Authentication Library for JavaScript (MSAL.js) and Azure AD Authentication Library for JavaScript (ADAL.js) and compares the two libraries.
+
+## Choosing between ADAL.js and MSAL.js
+
+In most cases you want to use MSAL.js and the Azure AD v2.0 endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.js, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
+
+If you are already familiar with the v1.0 endpoint (and ADAL.js), you might want to read [What's different about the v2.0 endpoint?](active-directory-v2-compare.md).
+
+However, you still need to use ADAL.js if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
 ## Key differences in authentication with v1.0 versus v2.0 endpoint
 
@@ -55,4 +65,4 @@ Note: For the MS Graph API, a scope value `user.read` maps to https://graph.micr
     ```
 
 ## Next steps
-Refer to [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md) for more details.
+For more information, refer to [Azure AD v1.0 and v2.0 comparison](active-directory-v2-compare.md).
