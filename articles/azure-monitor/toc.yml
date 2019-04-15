@@ -303,8 +303,6 @@
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Previews
-          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
