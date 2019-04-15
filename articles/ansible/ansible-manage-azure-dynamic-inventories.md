@@ -20,7 +20,7 @@ Ansible can be used to pull inventory information from various sources (includin
 - [!INCLUDE [open-source-devops-prereqs-create-sp.md](../../includes/open-source-devops-prereqs-create-sp.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - 
-## Create the test virtual machines
+## Create the test VMs
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
@@ -53,7 +53,7 @@ Ansible can be used to pull inventory information from various sources (includin
                      --image UbuntuLTS --generate-ssh-keys
         ```
 
-## Tag a virtual machine
+## Tag a VM
 
 You can [use tags to organize your Azure resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) by user-defined categories. 
 
@@ -141,7 +141,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
     ```
 
-## Enable the virtual machine tag
+## Enable the VM tag
 Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
 
 ```azurecli-interactive
