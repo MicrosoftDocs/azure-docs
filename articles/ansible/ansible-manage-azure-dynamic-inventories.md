@@ -144,16 +144,13 @@ Once you've set the desired tag, you need to "enable" the tag. One way to enable
 export AZURE_TAGS=nginx
 ```
 
-Once the tag has been exported, you can try the `ansible` command again:
-
-- For Ansible < 2.8
+- If you are using Ansible < 2.8, run the following command:
 
     ```bash
-    azurecli-interactive
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping
     ```
 
-- For Ansible >=  2.8
+- If you are using Ansible >=  2.8, run the following command:
   
     ```bash
     ansible all -m ping -i ./myazure_rm.yml
@@ -199,13 +196,13 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Run the `nginx.yml` playbook:
 
-   - for ansible < 2.8 
+   - If you are using Ansible < 2.8, run the following command:
 
     ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-   - for ansible >=2.8
+   - If you are using Ansible >= 2.8, run the following command:
 
     ```bash
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml
