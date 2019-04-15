@@ -34,7 +34,7 @@
       href: virtual-machines-windows-sql-automated-backup-v2.md
   - name: Management
     items:
-    - name: Extending support for SQL 2008 & R2
+    - name: Extend support for SQL 2008 & R2
       href: virtual-machines-windows-sql-server-2008-end-of-support-migration.md
     - name: Connect to a VM
       href: virtual-machines-windows-sql-connect.md
