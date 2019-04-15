@@ -45,7 +45,7 @@ Azure AD supports two signing algorithms, or secure hash algorithms (SHAs), to s
 
 * **SHA-1**. This algorithm is older, and it's treated as less secure than SHA-256. If an application supports only this signing algorithm, you can select this option in the **Signing Algorithm** drop-down list. Azure AD then signs the SAML response with the SHA-1 algorithm.
 
-## Change the certificate signing options and certificate signing algorithm
+## Change certificate signing options and signing algorithm
 
 To change an application's SAML certificate signing options and the certificate signing algorithm, select the application in question:
 
