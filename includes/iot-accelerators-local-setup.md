@@ -54,7 +54,7 @@ If you've not yet created the required Azure resources, follow these steps:
 
      The script creates resource group in Azure with your solution name. This resource group contains the Azure resources the solution accelerator uses. You can delete this resource group once you no longer need the corresponding resources.
 
-     The script also adds a set of environment variables with a prefix **PCS** to your local machine. These environment variables provide the details for Remote Monitoring to be able to read from an Azure Key Vault resource.  When you launch the Docker containers or microservice projects locally, this Key Vault resource is where Remote Monitoring will read its configuration values from.
+     The script also adds a set of environment variables with a prefix **PCS** to your local machine. These environment variables provide the details for Remote Monitoring to be able to read from an Azure Key Vault resource. This Key Vault resource is where Remote Monitoring will read its configuration values from.
 
      > [!TIP]
      > When the script completes, it also saves the environment variables to a file called **\<your home folder\>\\.pcs\\\<solution name\>.env**. You can use them for future solution accelerator deployments. Note that any environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
@@ -69,6 +69,6 @@ Set the environment variables for the following:
 * **PCS_AAD_APPID** - The AAD application ID
 * **PCS_AAD_APPSECRET** - The AAD application secret
 
-Configuration values will be read from this Azure Key Vault resource. These may be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+Configuration values will be read from this Azure Key Vault resource. These environment variables may be saved in the saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
 Some of the configuration needed by the microservice is stored in an instance of **Key Vault** that was created on initial deployment. The corresponding variables in keyvault should be modified as needed.
