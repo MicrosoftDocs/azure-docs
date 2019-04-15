@@ -14,7 +14,7 @@ ms.author: spelluru
 ---
 
 # Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic
-In this quick start, you use the Azure portal to create a Service Bus topic and then create subscriptions to that topic. 
+In this quickstart, you use the Azure portal to create a Service Bus topic and then create subscriptions to that topic. 
 
 ## What are Service Bus topics and subscriptions?
 Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with
@@ -34,7 +34,7 @@ Service Bus topics and subscriptions enable you to scale to process a large numb
 
 
 ## Next steps
-To learn how to send messages to a topic and reiceve those message via a subscription, see the following article: select the programming language in the TOC. 
+To learn how to send messages to a topic and reiceve those messages via a subscription, see the following article: select the programming language in the TOC. 
 
 > [!div class="nextstepaction"]
 > [Publish and subscribe for messages](service-bus-dotnet-how-to-use-topics-subscriptions.md)
