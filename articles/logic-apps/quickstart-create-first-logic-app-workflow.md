@@ -148,7 +148,7 @@ specify the data that you want the email to include.
       you can include as inputs in your workflow. 
 
    2. In the **Subject** box, enter this text 
-   with a trailing blank space: ```New RSS item: ```
+   with a trailing blank space: ```New RSS item:```
 
       ![Enter the email subject](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

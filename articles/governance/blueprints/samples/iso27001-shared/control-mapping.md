@@ -1,15 +1,14 @@
 ---
-title: Sample - ISO 27001 blueprint - Control mapping
-description: Control mapping of the ISO 27001 blueprint sample.
-services: blueprints
+title: Sample - ISO 27001 Shared Services blueprint - Control mapping
+description: Control mapping of the ISO 27001 Shared Services blueprint sample to Azure Policy and RBAC.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
-# Control mapping of the Azure Blueprints ISO 27001 blueprint sample
+# Control mapping of the ISO 27001 Shared Services blueprint sample
 
 The following article details how the Azure Blueprints ISO 27001 Shared Services blueprint sample
 maps to the ISO 27001 controls. For more information about the controls, see [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
