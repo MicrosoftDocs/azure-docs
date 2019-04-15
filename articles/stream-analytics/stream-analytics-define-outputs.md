@@ -156,7 +156,7 @@ Power BI output from Stream Analytics is currently not available in the Azure Ch
 ### Configure the Power BI output properties
 After you have the Power BI account authenticated, you can configure the properties for your Power BI output. The following table lists property names and their descriptions to configure your Power BI output.
 
-| Property name | description |
+| Property name | Description |
 | --- | --- |
 | Output alias |Provide a friendly name that's used in queries to direct the query output to this Power BI output. |
 | Group workspace |To enable sharing data with other Power BI users, you can select groups inside your Power BI account or choose **My Workspace** if you don't want to write to a group. Updating an existing group requires renewing the Power BI authentication. |
@@ -215,7 +215,7 @@ To resolve this issue, stop your running job and go to your Power BI output. Sel
 
 The following table lists the property names and their descriptions for creating a table output.
 
-| Property name | description |
+| Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this table storage. |
 | Storage account |The name of the storage account where you're sending your output. |
@@ -230,7 +230,7 @@ The following table lists the property names and their descriptions for creating
 
 The following table lists the property names and their descriptions for creating a queue output.
 
-| Property name | description |
+| Property name | Description |
 | --- | --- |
 | Output alias |A friendly name used in queries to direct the query output to this Service Bus queue. |
 | Service Bus namespace |A container for a set of messaging entities. |
@@ -275,7 +275,7 @@ Azure Cosmos DB output from Stream Analytics is currently not available in the A
 
 The following table describes the properties for creating an Azure Cosmos DB output.
 
-| Property name | description |
+| Property name | Description |
 | --- | --- |
 | Output alias | An alias to refer this output in your Stream Analytics query. |
 | Sink | Azure Cosmos DB. |
@@ -294,7 +294,7 @@ Azure Functions output from Stream Analytics is currently not available in the A
 
 Azure Stream Analytics invokes Azure Functions via HTTP triggers. The Azure Functions output adapter is available with the following configurable properties:
 
-| Property name | description |
+| Property name | Description |
 | --- | --- |
 | Function app |The name of your Azure Functions app. |
 | Function |The name of the function in your Azure Functions app. |
