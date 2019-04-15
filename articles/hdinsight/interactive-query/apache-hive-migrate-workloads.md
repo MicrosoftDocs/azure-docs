@@ -11,7 +11,7 @@ ms.date: 04/15/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
-This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6, which runs on Hive 2.
+This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. When you migrate your workloads to HDInsight 4.0, you can use many newer features of Hive 3 that are not available on HDInsight 3.6.
 
 This article covers the following subjects:
 
