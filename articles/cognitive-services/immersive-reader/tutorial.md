@@ -77,7 +77,7 @@ router.get('/token', function(req, res, next) {
 });
 ```
 
-Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key, and replace `YOUR_ENDPOINT` with your endpoint. This API endpoint should be secured behind some form of authentication (e.g. [OAuth](https://oauth.net/2/)); that work is beyond the scope of this tutorial.
+Replace `YOUR_SUBSCRIPTION_KEY` with your subscription key, and replace `YOUR_ENDPOINT` with your endpoint. This API endpoint should be secured behind some form of authentication (for example, [OAuth](https://oauth.net/2/)); that work is beyond the scope of this tutorial.
 
 ## Launch the Immersive Reader with sample content
 
