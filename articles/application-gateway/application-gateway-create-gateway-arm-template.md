@@ -4,6 +4,7 @@ description: This article provides instructions to create an Azure application g
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
+ms.topic: conceptual
 ms.date: 4/15/2019
 ms.author: victorh
 ---
