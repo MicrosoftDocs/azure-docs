@@ -16,8 +16,8 @@ This document shows you how to migrate Apache Hive and LLAP workloads on HDInsig
 This article covers the following subjects:
 
 * Migration of Hive metadata to HDInsight 4.0
-* Safe migration of tables and ACID tables
-* Preservation of Hive security policies across HDI versions
+* Safe migration of ACID and non-ACID tables
+* Preservation of Hive security policies across HDInsight versions
 * Query execution and debugging from HDInsight 3.6 to HDInsight 4.0
 
 ## Migrating Apache Hive metadata to HDInsight 4.0
@@ -32,7 +32,9 @@ One advantage of Hive is the ability to export metadata to an external database 
 
 ## Migrating Hive tables to HDInsight 4.0
 
-After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster (see the final section of this article for query execution in HDInsight 4.0 clusters). However, the artifacts will not yet be accessible. To access these artifacts in HDInsight 4.0,  the cluster must have access to the necessary storage accounts. To make sure that your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
+After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster. See [Query execution across HDInsight versions](#query-execution-across-hdinsight-versions) for information on query execution in HDInsight 4.0 clusters.
+
+The actual data from the tables, however, is not accessible until the cluster has access to the necessary storage accounts. To make sure that your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
 
 1. Determine the Azure storage account of your table or database using describe formatted
 2. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you have not yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) for further guidance related to storage accounts and HDInsight.
@@ -52,12 +54,11 @@ This compaction is required because HDInsight 3.6 and HDInsight 4.0 ACID tables 
 
 Since HDInsight 3.6, HDInsight integrates with Azure Active Directory using HDInsight Enterprise Security Package (ESP). ESP uses Kerberos and Apache Ranger to manage the permissions of specific resources within the cluster. Ranger policies deployed against Hive in HDInsight 3.6 can be migrated to HDInsight 4.0 with the following steps:
 
-1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster
-2. Navigate to the policy named HIVE and export the policy to a json file
-3. Make sure that all users referred to in the exported policy json exist in the new cluster.
-If a user is referred to in the policy json but does not exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
-4. Navigate to the Ranger Service Manager panel in your HDInsight 4.0 cluster
-5. Navigate to the policy named HIVE and import the ranger policy json from step 2
+1. Navigate to the Ranger Service Manager panel in your HDInsight 3.6 cluster.
+2. Navigate to the policy named **HIVE** and export the policy to a json file.
+3. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but does not exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
+4. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
+5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2
 
 ## Query execution across HDInsight versions
 
@@ -67,16 +68,16 @@ In HDInsight 4.0, HiveCLI has been replaced with Beeline. HiveCLI is a thrift cl
 In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari Hive View. HDInsight 4.0 replaces the Hive View with Hortonworks Data Analytics Studio (DAS). DAS does not ship with HDInsight clusters out-of-box and is not an officially supported package. However, DAS can be installed on the cluster as follows:
 
 1. Download the [DAS package installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) and run it on both cluster headnodes. Do not execute this script as a script action.
-2. Download the [DAS service installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) and run it as a script action (select “Headnodes” as the node type of choice from the script action interface).
-3. Once the script action is complete, navigate to Ambari and select **Data Analytics Studio** from the list of services. You will see that all DAS services are stopped. In the top-right corner select “Actions” and “Start”. You will now be able to execute and debug queries with DAS.
+2. Download the [DAS service installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) and run it as a script action (select **Headnodes** as the node type of choice from the script action interface).
+3. Once the script action is complete, navigate to Ambari and select **Data Analytics Studio** from the list of services. You will see that all DAS services are stopped. In the top-right corner select **Actions** and **Start**. You will now be able to execute and debug queries with DAS.
 
-Once DAS is installed, it is possible that you will not see your queries in the queries viewer. If you do not see the queries you’ve ran, complete the following steps:
+Once DAS is installed, it is possible that you will not see your queries in the queries viewer. If you do not see the queries you’ve run, do the following steps:
 
-1. Make sure the necessary Hive, Tez and DAS configurations are set as described in [this guide](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)
-2. Make sure that the following Azure storage directory configs are Page blobs, and are listed under fs.azure.page.blob.dirs:
+1. Make sure the necessary Hive, Tez and DAS configurations are set as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)
+2. Make sure that the following Azure storage directory configs are Page blobs, and that they are listed under `fs.azure.page.blob.dirs`:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
-3.	Restart HDFS, Hive, Tez, and DAS on both Head nodes.
+3. Restart HDFS, Hive, Tez, and DAS on both headnodes.
 
 ## Next steps
 
