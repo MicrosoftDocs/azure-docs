@@ -314,9 +314,9 @@ You are now ready to run the applications.
 
 3. You see the device responses to the direct method and device twins update in the console.
 
-    ![IoT Hub Job sample 1 -- device output](./media/iot-hub-python-python-schedule-jobs/sample1_deviceoutput.png)
+    ![IoT Hub Job sample 1 -- device output](./media/iot-hub-python-python-schedule-jobs/sample1-deviceoutput.png)
 
-    ![IoT Hub Job sample 2-- device output](./media/iot-hub-python-python-schedule-jobs/sample2_deviceoutput.png)
+    ![IoT Hub Job sample 2-- device output](./media/iot-hub-python-python-schedule-jobs/sample2-deviceoutput.png)
 
 ## Next steps
 

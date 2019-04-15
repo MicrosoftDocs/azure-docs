@@ -86,9 +86,9 @@ The following items are optional:
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
-## Setup Raspberry Pi
+## Set up Raspberry Pi
 
-Now setup the Raspberry Pi.
+Now set up the Raspberry Pi.
 
 ### Install the Raspbian operating system for Pi
 
@@ -116,7 +116,7 @@ Prepare the microSD card for installation of the Raspbian image.
 
 ### Enable SSH and SPI
 
-1. Connect Pi to the monitor, keyboard and mouse, start Pi and then log in Raspbian by using `pi` as the user name and `raspberry` as the password.
+1. Connect Pi to the monitor, keyboard and mouse, start Pi and then sign in to Raspbian by using `pi` as the user name and `raspberry` as the password.
  
 2. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
@@ -163,10 +163,9 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
 
 ![Connected to wired network](./media/iot-hub-raspberry-pi-kit-c-get-started/5-power-on-pi.png)
 
-
 ## Run a sample application on Pi
 
-### Login to your Raspberry Pi
+### Sign into your Raspberry Pi
 
 1. Use one of the following SSH clients from your host computer to connect to your Raspberry Pi.
    
@@ -175,9 +174,9 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    1. Copy the IP address of your Pi into the Host name (or IP address) section and select SSH as the connection type.
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7-putty-windows.png)
-   
+
    **Mac and Ubuntu Users**
-   
+
    Use the built-in SSH client on Ubuntu or macOS. You might need to run `ssh pi@<ip address of pi>` to connect Pi via SSH.
    > [!NOTE]
    > The default username is `pi` , and the password is `raspberry`.
