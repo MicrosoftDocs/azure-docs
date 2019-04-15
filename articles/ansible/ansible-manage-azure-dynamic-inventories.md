@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure dynamics inventories of your Azure resources using Ansible
 
-Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one of those virtual machines, and install Nginx on the tagged virtual machine.
+Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use Ansible to configure two virtual machines. You then tag and install Nginx on one of the virtual machines. Finally, you configure a dynamic inventory that includes the Azure resources you've configured.
 
 ## Prerequisites
 
@@ -68,7 +68,7 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
 
 ## Using Ansible version < 2.8
 
-Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
+Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
@@ -118,22 +118,28 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
 
 1. Run the following command to ping VMs in the resource group:
 
-  ```bash
-  ansible all -m ping -i ./myazure_rm.yml
-  ```
+    ```bash
+    ansible all -m ping -i ./myazure_rm.yml
+    ```
 
-1. If you receive an error such as **Failed to connect to the host via ssh: Host key verification failed.**, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
-  
-  ```bash
-  host_key_checking = False
-  ```
+1. When running the preceding command, you could receive the following error:
+
+    ```Output
+    Failed to connect to the host via ssh: Host key verification failed.
+    ```
+    
+    If you do receive the "host-key verication" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
+
+    ```bash
+    host_key_checking = False
+    ```
 
 1. When you run the playbook, you see results similar to the following output:
   
-  ```Output
-  ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-  ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-  ```
+    ```Output
+    ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+    ```
 
 ## Enable the virtual machine tag
 Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
