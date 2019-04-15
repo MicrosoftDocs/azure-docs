@@ -24,7 +24,7 @@ ms.date: 04/04/2019
 
 ## Create a managed AKS cluster
 
-The sample playbook creates a resource group and an AKS cluster that resides in the resource group.
+The sample playbook creates a resource group and an AKS cluster within the resource group.
 
 Save the following playbook as `azure_create_aks.yml`:
 
@@ -159,7 +159,7 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ## Delete a managed AKS cluster
 
-The sample playbook delete an AKS cluster.
+The sample playbook deletes an AKS cluster.
 
 Save the following playbook as `azure_delete_aks.yml`:
 
