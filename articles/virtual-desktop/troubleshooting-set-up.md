@@ -58,6 +58,8 @@ This section covers potential issues during the initial setup of the Windows Vir
 
 ### Acquiring the Windows 10 Enterprise multi-session image
 
+test
+
 To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from the Azure Marketplace.
 
 ### Creating Windows Virtual Desktop tenant
