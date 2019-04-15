@@ -56,7 +56,7 @@ Next, write a backend API to retrieve an access token using your subscription ke
 
 Once you have your subscription key and endpoint, open the _routes\index.js_ file and the following import at the top of the file:
 
-```typescript
+```javascript
 var request = require('request');
 ```
 
@@ -151,7 +151,7 @@ By default, the language of the Immersive Reader interface matches the browser's
 
 1. In _views\index.pug_, replace the call to `ImmersiveReader.launchAsync(token, content)` with the code below.
 
-```typescript
+```javascript
 const options = {
     uiLang: 'fr',
 }
@@ -166,7 +166,7 @@ You can include math content in the Immersive Reader by using [MathML](https://d
 
 1. Modify _views\index.pug_ to include the following code above the call to `ImmersiveReader.launchAsync`:
 
-```typescript
+```javascript
 const mathML = '<math xmlns="http://www.w3.org/1998/Math/MathML" display="block"> \
   <munderover> \
     <mo>∫</mo> \
