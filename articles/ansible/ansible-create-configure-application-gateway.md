@@ -156,7 +156,9 @@ ansible-playbook aci_create.yml
 
 ## Create the application gateway
 
-The following example creates an application gateway named `myAppGateway` with configurations for back end, front end, and HTTP.  
+The sample playbook creates an application gateway named `myAppGateway`.  
+
+The following list explains the key values specified in the playbook:
 
 * `appGatewayIP` is defined in the `gateway_ip_configurations` block. A subnet reference is required for IP configuration of the gateway.
 * `appGatewayBackendPool` is defined in the `backend_address_pools` block. An application gateway must have at least one back-end address pool.
