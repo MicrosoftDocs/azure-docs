@@ -95,7 +95,16 @@ vmname="ultravm1"
 zone=123
 
 #create an Ultra SSD disk
-az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 4 --location $location --zone $zone --sku UltraSSD_LRS --disk-iops-read-write 1000 --disk-mbps-read-write 50
+az disk create `
+--subscription $subscription `
+-n $diskname `
+-g $rgname `
+--size-gb 4 `
+--location $location `
+--zone $zone `
+--sku UltraSSD_LRS `
+--disk-iops-read-write 1000 `
+--disk-mbps-read-write 50
 ```
 
 ### Adjust the performance of an ultra SSD using CLI
@@ -103,7 +112,12 @@ az disk create --subscription $subscription -n $diskname -g $rgname --size-gb 4 
 Ultra SSDs offer a unique capability that allows you to adjust their performance, the following command depicts how to use this feature:
 
 ```azurecli-interactive
-az disk update --subscription $sub --resource-group $resourceGroup --name $diskName --set diskIopsReadWrite=80000 --set diskMbpsReadWrite=800
+az disk update `
+--subscription $subscription `
+--resource-group $rgname `
+--name $diskName `
+--set diskIopsReadWrite=80000 `
+--set diskMbpsReadWrite=800
 ```
 
 ## Deploy an ultra SSD using PowerShell
@@ -126,8 +140,19 @@ New-AzVm `
 Now that you have a VM that is capable of using ultra SSDs, you can create and attach an ultra SSD to it:
 
 ```powershell
-New-AzDiskConfig -Location 'EastUS2' -DiskSizeGB 8 -DiskIOPSReadWrite 1000 -DiskMBpsReadWrite 100 -AccountType UltraSSD_LRS -CreateOption Empty -zone $zone;
-New-AzDisk -ResourceGroupName $resourceGroup -DiskName 'Disk02' -Disk $diskconfig;
+New-AzDiskConfig `
+-Location 'EastUS2' `
+-DiskSizeGB 8 `
+-DiskIOPSReadWrite 1000 `
+-DiskMBpsReadWrite 100 `
+-AccountType UltraSSD_LRS `
+-CreateOption Empty `
+-zone $zone;
+
+New-AzDisk `
+-ResourceGroupName $resourceGroup `
+-DiskName 'Disk02' `
+-Disk $diskconfig;
 ```
 
 ### Adjust the performance of an ultra SSD using PowerShell
