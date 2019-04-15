@@ -168,10 +168,6 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined with `@input_data_1_name` and `@output_data_1_name`, including case.
 
-    <!--    
-    Also, the order of the parameters is important - you must specify the required parameters `@input_data_1` and `@output_data_1` first, in order to use the optional parameters `@input_data_1_name` and `@output_data_1_name`.
-    -->
-
    > [!TIP]
    > Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results.
 
