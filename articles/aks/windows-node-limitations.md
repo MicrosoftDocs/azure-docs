@@ -1,6 +1,6 @@
 ---
-title: Limitations and issues for Windows node pools in Azure Kubernetes Service (AKS)
-description: Learn about the known limitations and issues when you run Windows node pools and application workloads in Azure Kubernetes Service (AKS)
+title: Limitations for Windows node pools in Azure Kubernetes Service (AKS)
+description: Learn about the known limitations when you run Windows node pools and application workloads in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 05/06/2019
 ms.author: iainfou
 
-#Customer intent: As a cluster operator, I want to understand the current limitations and known issues when running Windows node pools and application workloads.
+#Customer intent: As a cluster operator, I want to understand the current limitations when running Windows node pools and application workloads.
 ---
 
-# Current limitations and known issues for Windows node pools and application workloads in Azure Kubernetes Service (AKS)
+# Current limitations for Windows node pools and application workloads in Azure Kubernetes Service (AKS)
 
 In Azure Kubernetes Service (AKS), you can create a node pool that runs Windows as the guest OS on the nodes. These nodes can run native Windows applications, such as those built on the .NET Framework. As there are major differences in how the Linux and Windows OS provides container support, some common Kubernetes and pod-related features are not currently available Windows node pools. This article outlines some of the limitations and OS concepts for Windows nodes in AKS. Node pools for Windows are currently in preview.
 
