@@ -14,9 +14,9 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. 
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. 
 
-When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. In this article, you will create an autoscale setting and associate it to an existing virtual machine scale set. In the autoscale setting, you can configure a rule to scale out or scale in as you want.
+In this article, you create an autoscale setting and associate the setting with an existing virtual machine scale set.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ If your application demand increases, the load on the VM instances in your scale
 
 The following playbook checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
 
-Based on the CPU percentage metrics, the playbook performs one of the following actions:
+Based on the CPU percentage metrics, the playbook does one of the following actions:
 
 - Scales out the number of VM instances to four
 - Scales in the number of VM instances to one
