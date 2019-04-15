@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/15/2019
 ms.author: alkohli
 ---
 # Data Box Edge security and data protection

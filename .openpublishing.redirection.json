@@ -36931,6 +36931,11 @@
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
       "redirect_document_id": true
+    },
+	{
+      "source_path": "articles/azure-monitor/app/previews.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
     }
   ]
 }
