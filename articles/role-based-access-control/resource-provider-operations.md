@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/24/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -76,8 +76,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/addsservices/dimensions/read | Gets the domains and sites details for the forest. Example- health status, active alerts, resolved alerts, properties like Domain Functional Level, Forest, Infrastructure Master, PDC, RID master etc.  |
 > | Action | Microsoft.ADHybridHealthService/addsservices/features/userpreference/read | Gets the user preference setting for the forest.<br>Example- MetricCounterName like ldapsuccessfulbinds, ntlmauthentications, kerberosauthentications, addsinsightsagentprivatebytes, ldapsearches.<br>Settings for the UI Charts etc. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/forestsummary/read | Gets forest summary for the given forest like forest name, number of domains under this forest, number of sites and sites details etc. |
-> | Action | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Gets the list of supported metrics for a given service.<br>For example Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFS service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomainService.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for ADSync service. |
-> | Action | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/addsservices/metricmetadata/read | Gets the list of supported metrics for a given service.<br>For example Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFS service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomainService.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for ADSync service. |
+> | Action | Microsoft.ADHybridHealthService/addsservices/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/premiumcheck/read | This API gets the list of all onboarded ADDomainServices for a premium tenant. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/read | Gets Service details for the specified service name. |
 > | Action | Microsoft.ADHybridHealthService/addsservices/replicationdetails/read | Gets replication details for all the servers for the specified service name. |
@@ -97,12 +97,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/reports/availabledeployments/read | Gets list of available regions, used by DevOps to support customer incidents. |
 > | Action | Microsoft.ADHybridHealthService/reports/badpassword/read | Gets the list of bad password attempts for all the users in Active Directory Federation Service. |
 > | Action | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | Gets Blob SAS URI containing status and eventual result of newly enqueued report job for frequency of Bad Username/Password attempts per UserId per IPAddress per Day for a given Tenant. |
+> | Action | Microsoft.ADHybridHealthService/reports/blobUris/read | Gets all Risky IP report URIs for the last 7 days. |
 > | Action | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | Gets the list of DevOps consented tenants. Typically used for customer support. |
+> | Action | Microsoft.ADHybridHealthService/reports/generateBlobUri/action | Generates Risky IP report and returns a URI pointing to it. |
 > | Action | Microsoft.ADHybridHealthService/reports/isdevops/read | Gets a value indicating whether the tenant is DevOps Consented or not. |
-> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/blobUri/action | Generates Risky IP report and returns a URI pointing to it. |
-> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/blobUris/read | Gets all Risky IP report URIs for the last 7 days. |
-> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/GetAllBlobUri/read | Gets all the blob uri for the risky ip download report requested for a given service for last 7 days. |
-> | Action | Microsoft.ADHybridHealthService/reports/riskyIp/GetBlobUri/read | Gets only the current requested risky ip download report for a given service. |
 > | Action | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | Updates userid(objectid) for the selected dev ops tenant. |
 > | Action | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | Gets selected deployment for the given tenant. |
 > | Action | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | Given a tenant id gets the tenant storage location. |
@@ -115,10 +113,10 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/services/exporterrors/read | Gets the export errors for a given sync service. |
 > | Action | Microsoft.ADHybridHealthService/services/exportstatus/read | Gets the export status for a given service. |
 > | Action | Microsoft.ADHybridHealthService/services/feedbacktype/feedback/read | Gets alerts feedback for a given service and server. |
-> | Action | Microsoft.ADHybridHealthService/services/metricmetadata/read | Gets the list of supported metrics for a given service.<br>For example Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFS service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomainService.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for ADSync service. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Given a service, this API gets the average for metrics for a given service.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
-> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Given a service, this API gets the aggregated view for metrics for a given service.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/services/metricmetadata/read | Gets the list of supported metrics for a given service.<br>For example Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFS service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomainService.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for ADSync service. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/average/read | Given a service, this API gets the average for metrics for a given service.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/services/metrics/groups/sum/read | Given a service, this API gets the aggregated view for metrics for a given service.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfiguration/write | Add or updates monitoring configuration for a service. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfigurations/read | Gets the monitoring configurations for a given service. |
 > | Action | Microsoft.ADHybridHealthService/services/monitoringconfigurations/write | Add or updates monitoring configurations for a service. |
@@ -131,7 +129,8 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/datafreshness/read | For a given server, this API gets a list of  datatypes that are being uploaded by the servers and the latest time for each upload. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/delete | Deletes a server instance in the service. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/exportstatus/read | Gets the Sync Export Error details for a given Sync Service. |
-> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc. for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc. for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/groups/read | Given a service, this API gets the metrics information.<br>For example, this API can be used to get information related to: Extranet Account Lockouts, Total Failed Requests, Outstanding Token Requests (Proxy), Token Requests /sec etc for ADFederation service.<br>NTLM Authentications/sec, LDAP Successful Binds/sec, LDAP Bind Time, LDAP Active Threads, Kerberos Authentications/sec, ATQ Threads Total etc for ADDomain Service.<br>Run Profile Latency, TCP Connections Established, Insights Agent Private Bytes,Export Statistics to Azure AD for Sync Service. |
+> | Action | Microsoft.ADHybridHealthService/services/servicemembers/metrics/read | Gets the list of connectors and run profile names for the given service and service member. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/read | Reads the server instance in the service. |
 > | Action | Microsoft.ADHybridHealthService/services/servicemembers/serviceconfiguration/read | Gets service configuration for a given tenant. |
 > | Action | Microsoft.ADHybridHealthService/services/tenantwhitelisting/read | Gets feature whitelisting status for a given tenant. |
@@ -176,6 +175,9 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AlertsManagement/alertsSummaryList/read | Get the summary of alerts across subscriptions |
 > | Action | Microsoft.AlertsManagement/Operations/read | Reads the operations provided |
 > | Action | Microsoft.AlertsManagement/register/action | Registers the subscription for the Microsoft Alerts Management |
+> | Action | Microsoft.AlertsManagement/smartDetectorAlertRules/delete | Delete Smart Detector alert rule in a given subscription |
+> | Action | Microsoft.AlertsManagement/smartDetectorAlertRules/read | Get all the Smart Detector alert rules for the input filters |
+> | Action | Microsoft.AlertsManagement/smartDetectorAlertRules/write | Create or update Smart Detector alert rule in a given subscription |
 > | Action | Microsoft.AlertsManagement/smartGroups/changestate/action | Change the state of the smart group |
 > | Action | Microsoft.AlertsManagement/smartGroups/history/read | Get history of the smart group |
 > | Action | Microsoft.AlertsManagement/smartGroups/read | Get all the smart groups for the input filters |
@@ -552,6 +554,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/delete | Delete B2C Directory resource |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/read | View B2C Directory resource |
 > | Action | Microsoft.AzureActiveDirectory/b2cDirectories/write | Create or update B2C Directory resource |
+> | Action | Microsoft.AzureActiveDirectory/b2ctenants/read | Lists all B2C tenants where the user is a member |
 > | Action | Microsoft.AzureActiveDirectory/operations/read | Read all API operations available for Microsoft.AzureActiveDirectory resource provider |
 > | Action | Microsoft.AzureActiveDirectory/register/action | Register subscription for Microsoft.AzureActiveDirectory resource provider |
 
@@ -643,6 +646,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Read any blueprint artifacts |
 > | Action | Microsoft.Blueprint/blueprintAssignments/delete | Delete any blueprint artifacts |
 > | Action | Microsoft.Blueprint/blueprintAssignments/read | Read any blueprint artifacts |
+> | Action | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Get Azure Blueprints service principal object Id. |
 > | Action | Microsoft.Blueprint/blueprintAssignments/write | Create or update any blueprint artifacts |
 > | Action | Microsoft.Blueprint/blueprints/artifacts/delete | Delete any blueprint artifacts |
 > | Action | Microsoft.Blueprint/blueprints/artifacts/read | Read any blueprint artifacts |
@@ -720,6 +724,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.Capacity/register/action | Registers the Capacity resource provider and enables the creation of Capacity resources. |
 > | Action | Microsoft.Capacity/reservationorders/action | Update any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/availablescopes/action | Find any Available Scope |
+> | Action | Microsoft.Capacity/reservationorders/calculaterefund/action | Computes the refund amount and price of new purchase and returns policy Errors. |
 > | Action | Microsoft.Capacity/reservationorders/delete | Delete any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/merge/action | Merge any Reservation |
 > | Action | Microsoft.Capacity/reservationorders/read | Read All Reservations |
@@ -1084,57 +1089,43 @@ The resource provider operations are always evolving. To get the latest operatio
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/delete | Delete a specified face list. The related face images in the face list will be deleted, too. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/delete | Delete a face from a face list by specified faceListId and persisitedFaceId. The related face image will be deleted, too. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/persistedfaces/write | Add a face to a specified face list, up to 1,000 faces. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Retrieve a face list's faceListId, name, userData and faces in the face list.
-List face lists' faceListId, name and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Create an empty face list with user-specified faceListId, name and an optional userData. Up to 64 face lists are allowed
-Update information of a face list, including name and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/read | Retrieve a face list's faceListId, name, userData and faces in the face list. List face lists' faceListId, name and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/facelists/write | Create an empty face list with user-specified faceListId, name and an optional userData. Up to 64 face lists are allowed Update information of a face list, including name and userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/findsimilars/action | Given query face's faceId, to search the similar-looking faces from a faceId array, a face list or a large face list. faceId |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/group/action | Divide candidate faces into groups based on face similarity. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/identify/action | 1-to-many identification to find the closest matches of the specific query person face from a person group or large person group. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/delete | Delete a specified large face list. The related face images in the large face list will be deleted, too. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/delete | Delete a face from a large face list by specified largeFaceListId and persisitedFaceId. The related face image will be deleted, too. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Retrieve persisted face in large face list by largeFaceListId and persistedFaceId.
-List faces' persistedFaceId and userData in a specified large face list. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Add a face to a specified large face list, up to 1,000,000 faces.
-Update a specified face's userData field in a large face list by its persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Retrieve a large face list's largeFaceListId, name, userData.
-List large face lists' information of largeFaceListId, name and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Submit a large face list training task. Training is a crucial step that only a trained large face list can be used by |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/read | Retrieve persisted face in large face list by largeFaceListId and persistedFaceId. List faces' persistedFaceId and userData in a specified large face list. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/persistedfaces/write | Add a face to a specified large face list, up to 1,000,000 faces. Update a specified face's userData field in a large face list by its persistedFaceId. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Retrieve a large face list's largeFaceListId, name, userData. List large face lists' information of largeFaceListId, name and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Submit a large face list training task. Training is a crucial step that only a trained large face list can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | To check the large face list training status completed or still ongoing. LargeFaceList Training is an asynchronous operation |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Create an empty large face list with user-specified largeFaceListId, name and an optional userData.
-Update information of a large face list, including name and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Create an empty large face list with user-specified largeFaceListId, name and an optional userData. Update information of a large face list, including name and userData. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/delete | Delete an existing large person group with specified personGroupId. Persisted data in this large person group will be deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/action | Create a new person in a specified large person group. To add face to this person, please call |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/delete | Delete an existing person from a large person group. All stored person data, and face images in the person entry will be deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/delete | Delete a face from a person in a large person group. Face data and image related to this face entry will be also deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/read | Retrieve person face information. The persisted person face is specified by its largePersonGroupId, personId and persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Add a face image to a person into a large person group for face identification or verification. To deal with the image of
-Update a person persisted face's userData field. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face image.
-List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/persistedfaces/write | Add a face image to a person into a large person group for face identification or verification. To deal with the image of Update a person persisted face's userData field. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face image. List all persons' information in the specified large person group, including personId, name, userData and persistedFaceIds. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Update name or userData of a person. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Retrieve the information of a large person group, including its name and userData. This API returns large person group information
-List all existing large person groups's largePesonGroupId, name, and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Submit a large person group training task. Training is a crucial step that only a trained large person group can be used |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Retrieve the information of a large person group, including its name and userData. This API returns large person group information List all existing large person groups's largePesonGroupId, name, and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Submit a large person group training task. Training is a crucial step that only a trained large person group can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | To check large person group training status completed or still ongoing. LargePersonGroup Training is an asynchronous operation |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Create a new large person group with user-specified largePersonGroupId, name, and optional userData.
-Update an existing large person group's name and userData. The properties keep unchanged if they are not in request body. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Create a new large person group with user-specified largePersonGroupId, name, and optional userData. Update an existing large person group's name and userData. The properties keep unchanged if they are not in request body. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/delete | Delete an existing person group with specified personGroupId. Persisted data in this person group will be deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/action | Create a new person in a specified person group. To add face to this person, please call |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/delete | Delete an existing person from a person group. All stored person data, and face images in the person entry will be deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/delete | Delete a face from a person in a person group. Face data and image related to this face entry will be also deleted. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/read | Retrieve person face information. The persisted person face is specified by its personGroupId, personId and persistedFaceId. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Add a face image to a person into a person group for face identification or verification. To deal with the image of multiple
-Update a person persisted face's userData field. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face image.
-List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/persistedfaces/write | Add a face image to a person into a person group for face identification or verification. To deal with the image of multiple Update a person persisted face's userData field. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/read | Retrieve a person's name and userData, and the persisted faceIds representing the registered person face image. List all persons' information in the specified person group, including personId, name, userData and persistedFaceIds of registered. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Update name or userData of a person. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Retrieve person group name and userData. To get person information under this personGroup, use
-List person groups's pesonGroupId, name, and userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Submit a person group training task. Training is a crucial step that only a trained person group can be used by |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Retrieve person group name and userData. To get person information under this personGroup, use List person groups's pesonGroupId, name, and userData. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Submit a person group training task. Training is a crucial step that only a trained person group can use. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | To check person group training status completed or still ongoing. PersonGroup Training is an asynchronous operation triggered |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Create a new person group with specified personGroupId, name, and user-provided userData.
-Update an existing person group's name and userData. The properties keep unchanged if they are not in request body. |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Create a new person group with specified personGroupId, name, and user-provided userData. Update an existing person group's name and userData. The properties keep unchanged if they are not in request body. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/verify/action | Verify whether two faces belong to a same person or whether one face belongs to a person. |
 > | Action | Microsoft.CognitiveServices/accounts/listKeys/action | List Keys |
 > | DataAction | Microsoft.CognitiveServices/accounts/LUIS/predict/action | Gets the published endpoint prediction for the given query. |
@@ -1144,7 +1135,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/entities/action | The API returns a list of known entities and general named entities (\"Person\", \"Location\", \"Organization\" etc) in a given document. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/keyphrases/action | The API returns a list of strings denoting the key talking points in the input text. |
 > | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/languages/action | The API returns the detected language and a numeric score between 0 and 1. Scores close to 1 indicate 100% certainty that the identified language is true. A total of 120 languages are supported. |
-> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | The API returns a numeric score between 0 and 1.<br>Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.<br>A score of 0.5 indicates the lack of sentiment (e.g. a factoid statement). |
+> | DataAction | Microsoft.CognitiveServices/accounts/TextAnalytics/sentiment/action | The API returns a numeric score between 0 and 1.<br>Scores close to 1 indicate positive sentiment, while scores close to 0 indicate negative sentiment.<br>A score of 0.5 indicates the lack of sentiment (e.g.<br>a factoid statement). |
 > | Action | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
 > | Action | Microsoft.CognitiveServices/accounts/write | Writes API Accounts. |
 > | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for an subscription. |
@@ -1221,6 +1212,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Compute/snapshots/endGetAccess/action | Revoke the SAS URI of the Snapshot |
 > | Action | Microsoft.Compute/snapshots/read | Get the properties of a Snapshot |
 > | Action | Microsoft.Compute/snapshots/write | Create a new Snapshot or update an existing one |
+> | Action | Microsoft.Compute/unregister/action | Unregisters Subscription with Microsoft.Compute resource provider |
 > | Action | Microsoft.Compute/virtualMachines/capture/action | Captures the virtual machine by copying virtual hard disks and generates a template that can be used to create similar virtual machines |
 > | Action | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Converts the blob based disks of the virtual machine to managed disks |
 > | Action | Microsoft.Compute/virtualMachines/deallocate/action | Powers off the virtual machine and releases the compute resources |
@@ -1347,6 +1339,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.ContainerRegistry/locations/operationResults/read | Gets an async operation result |
 > | Action | Microsoft.ContainerRegistry/operations/read | Lists all of the available Azure Container Registry REST API operations |
 > | Action | Microsoft.ContainerRegistry/register/action | Registers the subscription for the container registry resource provider and enables the creation of container registries. |
+> | Action | Microsoft.ContainerRegistry/registries/artifacts/delete | Delete artifact in a container registry. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/cancel/action | Cancels an existing build. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/getLogLink/action | Gets a link to download the build logs. |
 > | Action | Microsoft.ContainerRegistry/registries/builds/read | Gets the properties of the specified build or lists all the builds for the specified container registry. |
@@ -1422,11 +1415,11 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Reset the service principal profile of a managed cluster |
 > | Action | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Gets the upgrade profile of the cluster |
 > | Action | Microsoft.ContainerService/managedClusters/write | Creates a new managed cluster or updates an existing one |
-> | Action | Microsoft.ContainerService/openShiftClusters/delete | Delete a Open Shift Cluster |
-> | Action | Microsoft.ContainerService/openShiftClusters/read | Get a Open Shift Cluster |
+> | Action | Microsoft.ContainerService/openShiftClusters/delete | Delete an Open Shift Cluster |
+> | Action | Microsoft.ContainerService/openShiftClusters/read | Get an Open Shift Cluster |
 > | Action | Microsoft.ContainerService/openShiftClusters/write | Creates a new Open Shift Cluster or updates an existing one |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | Delete a Open Shift Managed Cluster |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/read | Get a Open Shift Managed Cluster |
+> | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | Delete an Open Shift Managed Cluster |
+> | Action | Microsoft.ContainerService/openShiftManagedClusters/read | Get an Open Shift Managed Cluster |
 > | Action | Microsoft.ContainerService/openShiftManagedClusters/write | Creates a new Open Shift Managed Cluster or updates an existing one |
 > | Action | Microsoft.ContainerService/operations/read | Lists operations available on Microsoft.ContainerService resource provider |
 > | Action | Microsoft.ContainerService/register/action | Registers Subscription with Microsoft.ContainerService resource provider |
@@ -1597,10 +1590,11 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/delete | Deletes the Data Box Edge devices |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/downloadUpdates/action | Download Updates in device |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/extendedInformation/action | Retrieves resource extended information |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | ArmApiDesc_action_getExtendedInformation_dataBoxEdgeDevices |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/getExtendedInformation/action | Retrieves resource extended information |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/installUpdates/action | Install Updates on device |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/jobs/read | Lists or gets the jobs |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/networkSettings/read | Lists or gets the Device network settings |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/operationsStatus/read | Lists or gets the operation status |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/delete | Deletes the orders |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Lists or gets the orders |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/orders/read | Lists or gets the orders |
@@ -1617,7 +1611,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Deletes the shares |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Lists or gets the shares |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Lists or gets the shares |
-> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | ArmApiDesc_action_refresh_shares |
+> | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Refresh the share metadata with the data from the cloud |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Creates or updates the shares |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Deletes the storage account credentials |
 > | Action | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Lists or gets the storage account credentials |
@@ -1701,6 +1695,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataFactory/datafactories/tables/write | Creates or Updates any Dataset. |
 > | Action | Microsoft.DataFactory/datafactories/write | Creates or Updates the Data Factory. |
 > | Action | Microsoft.DataFactory/factories/cancelpipelinerun/action | Cancels the pipeline run specified by the run ID. |
+> | Action | Microsoft.DataFactory/factories/createdataflowdebugsession/action | Creates a data flow debug session. |
 > | Action | Microsoft.DataFactory/factories/dataflows/delete | Deletes data flow. |
 > | Action | Microsoft.DataFactory/factories/dataflows/read | Reads data flow. |
 > | Action | Microsoft.DataFactory/factories/dataflows/write | Create or update data flow |
@@ -1708,6 +1703,11 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataFactory/factories/datasets/read | Reads any Dataset. |
 > | Action | Microsoft.DataFactory/factories/datasets/write | Creates or Updates any Dataset. |
 > | Action | Microsoft.DataFactory/factories/delete | Deletes Data Factory. |
+> | Action | Microsoft.DataFactory/factories/deletedataflowdebugsession/action | Deletes a data flow debug session. |
+> | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/action | Gets access to ADF DataPlane service. |
+> | Action | Microsoft.DataFactory/factories/getDataPlaneAccess/read | Reads access to ADF DataPlane service. |
+> | Action | Microsoft.DataFactory/factories/getFeatureValue/action | Get exposure control feature value for the specific location. |
+> | Action | Microsoft.DataFactory/factories/getFeatureValue/read | Reads exposure control feature value for the specific location. |
 > | Action | Microsoft.DataFactory/factories/getGitHubAccessToken/action | Gets GitHub access token. |
 > | Action | Microsoft.DataFactory/factories/integrationruntimes/delete | Deletes any Integration Runtime. |
 > | Action | Microsoft.DataFactory/factories/integrationruntimes/getconnectioninfo/read | Reads Integration Runtime Connection Info. |
@@ -1749,6 +1749,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/action | Queries the Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/querytriggerruns/read | Reads the Result of Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/read | Reads Data Factory. |
+> | Action | Microsoft.DataFactory/factories/startdataflowdebugsession/action | Starts a data flow debug session. |
 > | Action | Microsoft.DataFactory/factories/triggerruns/read | Reads the Trigger Runs. |
 > | Action | Microsoft.DataFactory/factories/triggers/delete | Deletes any Trigger. |
 > | Action | Microsoft.DataFactory/factories/triggers/read | Reads any Trigger. |
@@ -1758,8 +1759,6 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataFactory/factories/triggers/write | Creates or Updates any Trigger. |
 > | Action | Microsoft.DataFactory/factories/write | Create or Update Data Factory |
 > | Action | Microsoft.DataFactory/locations/configureFactoryRepo/action | Configures the repository for the factory. |
-> | Action | Microsoft.DataFactory/locations/getDataPlaneAccess/action | Gets access to ADF DataPlane service. |
-> | Action | Microsoft.DataFactory/locations/getDataPlaneAccess/read | Reads access to ADF DataPlane service. |
 > | Action | Microsoft.DataFactory/locations/getFeatureValue/action | Get exposure control feature value for the specific location. |
 > | Action | Microsoft.DataFactory/locations/getFeatureValue/read | Reads exposure control feature value for the specific location. |
 > | Action | Microsoft.DataFactory/operations/read | Reads all Operations in Microsoft Data Factory Provider. |
@@ -1839,7 +1838,9 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataMigration/locations/operationResults/read | Get the status of a long-running operation related to a 202 Accepted response |
 > | Action | Microsoft.DataMigration/locations/operationStatuses/read | Get the status of a long-running operation related to a 202 Accepted response |
 > | Action | Microsoft.DataMigration/register/action | Registers the subscription with the Azure Database Migration Service provider |
+> | Action | Microsoft.DataMigration/services/addWorker/action | Adds a DMS worker to the Service's availiable workers |
 > | Action | Microsoft.DataMigration/services/checkStatus/action | Check whether the service is deployed and running |
+> | Action | Microsoft.DataMigration/services/configureWorker/action | Configures a DMS worker to the Service's availiable workers |
 > | Action | Microsoft.DataMigration/services/delete | Deletes a resource and all of its children |
 > | Action | Microsoft.DataMigration/services/projects/accessArtifacts/action | Generate a URL that can be used to GET or PUT project artifacts |
 > | Action | Microsoft.DataMigration/services/projects/delete | Deletes a resource and all of its children |
@@ -1855,6 +1856,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DataMigration/services/projects/tasks/write | Run tasks Azure Database Migration Service tasks |
 > | Action | Microsoft.DataMigration/services/projects/write | Run tasks Azure Database Migration Service tasks |
 > | Action | Microsoft.DataMigration/services/read | Read information about resources |
+> | Action | Microsoft.DataMigration/services/removeWorker/action | Removes a DMS worker to the Service's availiable workers |
 > | Action | Microsoft.DataMigration/services/slots/delete | Deletes a resource and all of its children |
 > | Action | Microsoft.DataMigration/services/slots/read | Read information about resources |
 > | Action | Microsoft.DataMigration/services/slots/write | Create or update resources and their properties |
@@ -2049,7 +2051,6 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.DevSpaces/controllers/delete | Delete Azure Dev Spaces Controller and dataplane services |
 > | Action | Microsoft.DevSpaces/controllers/listConnectionDetails/action | List connection details for the Azure Dev Spaces Controller's infrastructure |
 > | Action | Microsoft.DevSpaces/controllers/read | Read Azure Dev Spaces Controller properties |
-> | Action | Microsoft.DevSpaces/controllers/rotateAuthKey/action | Rotate auth key for the Azure Dev Spaces Controller and redeploy the services |
 > | Action | Microsoft.DevSpaces/controllers/write | Create or Update Azure Dev Spaces Controller properties |
 > | Action | Microsoft.DevSpaces/register/action | Register Microsoft Dev Spaces resource provider with a subscription |
 
@@ -2239,13 +2240,20 @@ Update an existing person group's name and userData. The properties keep unchang
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Delete a eventSubscription |
+> | Action | Microsoft.EventGrid/domains/delete | Delete a domain |
+> | Action | Microsoft.EventGrid/domains/listKeys/action | List keys for a domain |
+> | Action | Microsoft.EventGrid/domains/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for domains |
+> | Action | Microsoft.EventGrid/domains/read | Read a domain |
+> | Action | Microsoft.EventGrid/domains/regenerateKey/action | Regenerate key for a domain |
+> | Action | Microsoft.EventGrid/domains/topics/read | Read a domain topic |
+> | Action | Microsoft.EventGrid/domains/write | Create or update a domain |
+> | Action | Microsoft.EventGrid/eventSubscriptions/delete | Delete an eventSubscription |
 > | Action | Microsoft.EventGrid/eventSubscriptions/getFullUrl/action | Get full url for the event subscription |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for event subscriptions |
 > | Action | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for eventSubscriptions |
-> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read a eventSubscription |
-> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update a eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/read | Read an eventSubscription |
+> | Action | Microsoft.EventGrid/eventSubscriptions/write | Create or update an eventSubscription |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for topics |
 > | Action | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for topics |
@@ -2362,13 +2370,16 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.HDInsight/clusters/applications/write | Create or Update Application for HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/changerdpsetting/action | Change RDP setting for HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/configurations/action | Update HDInsight Cluster Configuration |
+> | Action | Microsoft.HDInsight/clusters/configurations/action | Get HDInsight Cluster Configurations |
 > | Action | Microsoft.HDInsight/clusters/configurations/read | Get HDInsight Cluster Configurations |
 > | Action | Microsoft.HDInsight/clusters/delete | Delete a HDInsight Cluster |
+> | Action | Microsoft.HDInsight/clusters/getGatewaySettings/action | Get gateway settings for HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/read | Get details about HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/roles/resize/action | Resize a HDInsight Cluster |
+> | Action | Microsoft.HDInsight/clusters/updateGatewaySettings/action | Update gateway settings for HDInsight Cluster |
 > | Action | Microsoft.HDInsight/clusters/write | Create or Update HDInsight Cluster |
 > | Action | Microsoft.HDInsight/locations/capabilities/read | Get Subscription Capabilities |
 > | Action | Microsoft.HDInsight/locations/checkNameAvailability/read | Check Name Availability |
@@ -2640,6 +2651,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Insights/MetricDefinitions/providers/Microsoft.Insights/Read | Read metric definitions |
 > | Action | Microsoft.Insights/MetricDefinitions/Read | Read metric definitions |
 > | Action | Microsoft.Insights/Metrics/Action | Metric Action |
+> | Action | Microsoft.Insights/Metrics/Microsoft.Insights/Read | Read metrics |
 > | Action | Microsoft.Insights/Metrics/providers/Metrics/Read | Read metrics |
 > | Action | Microsoft.Insights/Metrics/Read | Read metrics |
 > | DataAction | Microsoft.Insights/Metrics/Write | Write metrics |
@@ -2713,6 +2725,9 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.KeyVault/vaults/accessPolicies/write | Update an existing access policy by merging or replacing, or add a new access policy to a vault. |
 > | Action | Microsoft.KeyVault/vaults/delete | Delete a key vault |
 > | Action | Microsoft.KeyVault/vaults/deploy/action | Enables access to secrets in a key vault when deploying Azure resources |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/delete | Notifies Microsoft.KeyVault that an EventGrid Subscription for Key Vault is being deleted |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/read | Notifies Microsoft.KeyVault that an EventGrid Subscription for Key Vault is being viewed |
+> | Action | Microsoft.KeyVault/vaults/eventGridFilters/write | Notifies Microsoft.KeyVault that a new EventGrid Subscription for Key Vault is being created |
 > | Action | Microsoft.KeyVault/vaults/read | View the properties of a key vault |
 > | Action | Microsoft.KeyVault/vaults/secrets/read | View the properties of a secret, but not its value |
 > | Action | Microsoft.KeyVault/vaults/secrets/write | Create a new secret or update the value of an existing secret |
@@ -2726,13 +2741,14 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Kusto/Clusters/Activate/action | Starts the cluster. |
 > | Action | Microsoft.Kusto/Clusters/CheckNameAvailability/action | Checks the cluster name availability. |
 > | Action | Microsoft.Kusto/Clusters/Databases/AddPrincipals/action | Adds database principals. |
+> | Action | Microsoft.Kusto/Clusters/Databases/CheckNameAvailability/action | Checks name availability for a given type. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/delete | Deletes a data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/read | Reads a data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnections/write | Writes an data connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/DataConnectionValidation/action | Validates database data connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/delete | Deletes a database resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes a Event Hub connections resource. |
-> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads a Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/delete | Deletes an Event Hub connections resource. |
+> | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/read | Reads an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnections/write | Writes an Event Hub connections resource. |
 > | Action | Microsoft.Kusto/Clusters/Databases/EventHubConnectionValidation/action | Validates database Event Hub connection. |
 > | Action | Microsoft.Kusto/Clusters/Databases/ListPrincipals/action | Lists database principals. |
@@ -2777,12 +2793,12 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/environments/write | Add or modify environments. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Publish/action | Provisions/deprovisions required resources for an environment setting based on current state of the lab/environment setting. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/read | Read environment setting. |
+> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/SaveImage/action | Saves current template image to the shared gallery in the lab account |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/delete | Delete schedules. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/read | Read schedules. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/schedules/write | Add or modify schedules. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Start/action | Starts a template by starting all resources inside the template. |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Stop/action | Stops a template by stopping all resources inside the template. |
-> | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/Upload/action | Uploads current template image to the shared gallery in the lab account |
 > | Action | Microsoft.LabServices/labAccounts/labs/environmentSettings/write | Add or modify environment setting. |
 > | Action | Microsoft.LabServices/labAccounts/labs/read | Read labs. |
 > | Action | Microsoft.LabServices/labAccounts/labs/Register/action | Register to managed lab. |
@@ -2805,6 +2821,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.LabServices/users/GetOperationBatchStatus/action | Get batch operation status |
 > | Action | Microsoft.LabServices/users/GetOperationStatus/action | Gets the status of long running operation |
 > | Action | Microsoft.LabServices/users/GetPersonalPreferences/action | Get personal preferences for a user |
+> | Action | Microsoft.LabServices/users/ListAllEnvironments/action | List all Environments for the user |
 > | Action | Microsoft.LabServices/users/ListEnvironments/action | List Environments for the user |
 > | Action | Microsoft.LabServices/users/ListLabs/action | List labs for the user. |
 > | Action | Microsoft.LabServices/users/Register/action | Register a user to a managed lab |
@@ -3229,6 +3246,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Maps/accounts/read | Get a Maps Account. |
 > | Action | Microsoft.Maps/accounts/regenerateKey/action | Generate new Maps Account primary or secondary key |
 > | Action | Microsoft.Maps/accounts/write | Create or update a Maps Account. |
+> | Action | Microsoft.Maps/operations/read | Read the provider operations |
 > | Action | Microsoft.Maps/register/action | Register the provider |
 
 ## Microsoft.Marketplace
@@ -3552,9 +3570,6 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/delete | Deletes a Web Application Firewall Policy |
 > | Action | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/read | Gets a Web Application Firewall Policy |
 > | Action | Microsoft.Network/frontDoorWebApplicationFirewallPolicies/write | Creates or updates a Web Application Firewall Policy |
-> | Action | Microsoft.Network/interfaceEndpoints/delete | Deletes an interface endpoint resource. |
-> | Action | Microsoft.Network/interfaceEndpoints/read | Gets an interface endpoint resource. |
-> | Action | Microsoft.Network/interfaceEndpoints/write | Creates a new interface endpoint, or updates an existing interface endpoint. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joins a load balancer backend address pool. Not Alertable. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | Gets a load balancer backend address pool definition |
 > | Action | Microsoft.Network/loadBalancers/delete | Deletes a load balancer |
@@ -3578,6 +3593,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Network/localnetworkgateways/read | Gets LocalNetworkGateway |
 > | Action | Microsoft.Network/localnetworkgateways/write | Creates or updates an existing LocalNetworkGateway |
 > | Action | Microsoft.Network/locations/availableDelegations/read | Gets Available Delegations |
+> | Action | Microsoft.Network/locations/availablePrivateEndpointResources/read | Gets available Private Endpoint resources |
 > | Action | Microsoft.Network/locations/bareMetalTenants/action | Allocates or validates a Bare Metal Tenant |
 > | Action | Microsoft.Network/locations/checkAcceleratedNetworkingSupport/action | Checks Accelerated Networking support |
 > | Action | Microsoft.Network/locations/checkDnsNameAvailability/read | Checks if dns label is available at the specified location |
@@ -3659,10 +3675,13 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Gets a P2S Vpn Connection health for P2SVpnGateway |
 > | Action | Microsoft.Network/p2sVpnGateways/read | Gets a P2SVpnGateway. |
 > | Action | Microsoft.Network/p2sVpnGateways/write | Puts a P2SVpnGateway. |
+> | Action | Microsoft.Network/privateEndpoints/delete | Deletes an private endpoint resource. |
+> | Action | Microsoft.Network/privateEndpoints/read | Gets an private endpoint resource. |
+> | Action | Microsoft.Network/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
 > | Action | Microsoft.Network/privateLinkServices/delete | Deletes an private link service resource. |
-> | Action | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/delete | Deletes an interface endpoint connection. |
-> | Action | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/read | Gets an interface endpoint connection definition. |
-> | Action | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/write | Creates a new interface endpoint connection, or updates an existing interface endpoint connection. |
+> | Action | Microsoft.Network/privateLinkServices/privateEndpointConnections/delete | Deletes an private endpoint connection. |
+> | Action | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | Gets an private endpoint connection definition. |
+> | Action | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | Creates a new private endpoint connection, or updates an existing private endpoint connection. |
 > | Action | Microsoft.Network/privateLinkServices/read | Gets an private link service resource. |
 > | Action | Microsoft.Network/privateLinkServices/write | Creates a new private link service, or updates an existing private link service. |
 > | Action | Microsoft.Network/publicIPAddresses/delete | Deletes a public Ip address. |
@@ -3740,6 +3759,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Lists Supported Vpn Devices |
 > | Action | Microsoft.Network/virtualNetworkGateways/write | Creates or updates a VirtualNetworkGateway |
 > | Action | Microsoft.Network/virtualNetworks/BastionHosts/action | Gets Bastion Host references in a Virtual Network. |
+> | Action | Microsoft.Network/virtualNetworks/bastionHosts/default/action | Gets Bastion Host references in a Virtual Network. |
 > | Action | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Check if Ip Address is available at the specified virtual network |
 > | Action | Microsoft.Network/virtualNetworks/delete | Deletes a virtual network |
 > | Action | Microsoft.Network/virtualNetworks/peer/action | Peers a virtual network with another virtual network |
@@ -3915,6 +3935,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.OperationalInsights/workspaces/notificationSettings/delete | Delete the user's notification settings for the workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Get the user's notification settings for the workspace. |
 > | Action | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Set the user's notification settings for the workspace. |
+> | Action | microsoft.operationalinsights/workspaces/operations/read | Gets the status of an OperationalInsights workspace operation. |
 > | Action | Microsoft.OperationalInsights/workspaces/purge/action | Delete specified data from workspace |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Read data from the ADAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Read data from the ADReplicationResult table |
@@ -3993,19 +4014,25 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | Read data from the MADriverInstanceReadiness table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | Read data from the MADriverReadiness table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | Read data from the MAOfficeAddin table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinEntityHealth/read | Read data from the MAOfficeAddinEntityHealth table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | Read data from the MAOfficeAddinHealth table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthEventNRT/read | Read data from the MAOfficeAddinHealthEventNRT table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | Read data from the MAOfficeAddinHealthIssues table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | Read data from the MAOfficeAddinInstance table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | Read data from the MAOfficeAddinInstanceReadiness table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | Read data from the MAOfficeAddinReadiness table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | Read data from the MAOfficeApp table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppCrashesNRT/read | Read data from the MAOfficeAppCrashesNRT table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | Read data from the MAOfficeAppHealth table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | Read data from the MAOfficeAppInstance table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstanceHealth/read | Read data from the MAOfficeAppInstanceHealth table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | Read data from the MAOfficeAppReadiness table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppSessionsNRT/read | Read data from the MAOfficeAppSessionsNRT table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | Read data from the MAOfficeBuildInfo table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Read data from the MAOfficeCurrencyAssessment table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Read data from the MAOfficeCurrencyAssessmentDailyCounts table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Read data from the MAOfficeDeploymentStatus table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroErrorNRT/read | Read data from the MAOfficeMacroErrorNRT table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Read data from the MAOfficeMacroHealth table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Read data from the MAOfficeMacroHealthIssues table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Read data from the MAOfficeMacroIssueInstanceReadiness table |
@@ -4047,6 +4074,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Read data from the SPAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Read data from the SQLAssessmentRecommendation table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Read data from the SQLQueryPerformance table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SqlThreatProtectionLoginAudits/read | Read data from the SqlThreatProtectionLoginAudits table |
+> | Action | Microsoft.OperationalInsights/workspaces/query/SqlVulnerabilityAssessmentResult/read | Read data from the SqlVulnerabilityAssessmentResult table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Read data from the Syslog table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Read data from the SysmonEvent table |
 > | Action | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Reading data from any custom log |
@@ -4144,21 +4173,23 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.PolicyInsights/remediations/listDeployments/read | Lists the deployments required by a policy remediation. |
 > | Action | Microsoft.PolicyInsights/remediations/read | Get policy remediations. |
 > | Action | Microsoft.PolicyInsights/remediations/write | Create or update policy remediations. |
+> | Action | Microsoft.PolicyInsights/unregister/action | Unregisters the policy insights resource provider. |
 
 ## Microsoft.Portal
 
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Portal/consoles/delete | Removes the cloud shell instance. |
-> | Action | Microsoft.Portal/consoles/write | Create or update a cloud shell instance. |
+> | Action | Microsoft.Portal/consoles/delete | Removes the Cloud Shell instance. |
+> | Action | Microsoft.Portal/consoles/read | Reads the Cloud Shell instance. |
+> | Action | Microsoft.Portal/consoles/write | Create or update a Cloud Shell instance. |
 > | Action | Microsoft.Portal/dashboards/delete | Removes the dashboard from the subscription. |
 > | Action | Microsoft.Portal/dashboards/read | Reads the dashboards for the subscription. |
 > | Action | Microsoft.Portal/dashboards/write | Add or modify dashboard to a subscription. |
 > | Action | Microsoft.Portal/register/action | Register to Portal |
-> | Action | Microsoft.Portal/usersettings/delete | Removes the cloud shell user settings. |
-> | Action | Microsoft.Portal/usersettings/read | Reads the cloud shell user settings. |
-> | Action | Microsoft.Portal/usersettings/write | Create or update cloud shell user setting. |
+> | Action | Microsoft.Portal/usersettings/delete | Removes the Cloud Shell user settings. |
+> | Action | Microsoft.Portal/usersettings/read | Reads the Cloud Shell user settings. |
+> | Action | Microsoft.Portal/usersettings/write | Create or update Cloud Shell user setting. |
 
 ## Microsoft.PowerBIDedicated
 
@@ -4186,6 +4217,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Action | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
 > | Action | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Create a backup Protected Item |
+> | Action | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Returns the list of all Protected Items. |
 > | Action | Microsoft.RecoveryServices/Locations/backupStatus/action | Check Backup Status for Recovery Services Vaults |
 > | Action | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validate Features |
 > | Action | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability is an API to check if resource name is available |
@@ -4677,8 +4710,10 @@ Update an existing person group's name and userData. The properties keep unchang
 > | --- | --- | --- |
 > | Action | Microsoft.SignalRService/locations/checknameavailability/action | Checks if a name is available for use with a new SignalR service |
 > | Action | Microsoft.SignalRService/locations/operationresults/signalr/read | Query the status of an asynchorous operation |
+> | Action | Microsoft.SignalRService/locations/operationstatus/operationId/read |  |
 > | Action | Microsoft.SignalRService/locations/usages/read | Get the quota usages for Azure SignalR service |
 > | Action | Microsoft.SignalRService/operationresults/read | Query the status of an asynchorous operation |
+> | Action | Microsoft.SignalRService/operationstatus/read |  |
 > | Action | Microsoft.SignalRService/register/action | Registers the 'Microsoft.SignalRService' resource provider with a subscription |
 > | Action | Microsoft.SignalRService/SignalR/delete | Delete the entire SignalR service |
 > | Action | Microsoft.SignalRService/SignalR/listFeatures/read | List customized FeatureFlags of a SignalR service. Default ones excluded. |
@@ -4695,17 +4730,22 @@ Update an existing person group's name and userData. The properties keep unchang
 > [!div class="mx-tdCol2BreakAll"]
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
+> | Action | Microsoft.Solutions/applicationDefinitions/applicationArtifacts/read | Lists application artifacts of application definition. |
 > | Action | Microsoft.Solutions/applicationDefinitions/delete | Removes an application definition. |
 > | Action | Microsoft.Solutions/applicationDefinitions/read | Retrieves a list of application definitions. |
 > | Action | Microsoft.Solutions/applicationDefinitions/write | Add or modify an application definition. |
+> | Action | Microsoft.Solutions/applications/applicationArtifacts/read | Lists application artifacts. |
 > | Action | Microsoft.Solutions/applications/delete | Removes an application. |
 > | Action | Microsoft.Solutions/applications/read | Retrieves a list of applications. |
+> | Action | Microsoft.Solutions/applications/refreshPermissions/action | Refreshes application permission(s). |
+> | Action | Microsoft.Solutions/applications/updateAccess/action | Updates application access. |
 > | Action | Microsoft.Solutions/applications/write | Creates an application. |
 > | Action | Microsoft.Solutions/jitRequests/delete | Remove a JitRequest |
 > | Action | Microsoft.Solutions/jitRequests/read | Retrieves a list of JitRequests |
 > | Action | Microsoft.Solutions/jitRequests/write | Creates a JitRequest |
 > | Action | Microsoft.Solutions/locations/operationStatuses/read | Reads the operation status for the resource. |
 > | Action | Microsoft.Solutions/register/action | Register to Solutions. |
+> | Action | Microsoft.Solutions/unregister/action | Unregisters from Solutions. |
 
 ## Microsoft.Sql
 
@@ -4715,7 +4755,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/checkNameAvailability/action | Verify whether given server name is available for provisioning worldwide for a given subscription. |
 > | Action | Microsoft.Sql/instancePools/delete | Deletes an instance pool |
 > | Action | Microsoft.Sql/instancePools/read | Gets an instance pool |
-> | Action | Microsoft.Sql/instancePools/usages/read | Gets an instance pool usages info. |
+> | Action | Microsoft.Sql/instancePools/usages/read | Gets an instance pool's usage info |
 > | Action | Microsoft.Sql/instancePools/write | Creates or updates an instance pool |
 > | Action | Microsoft.Sql/locations/auditingSettingsAzureAsyncOperation/read | Retrieve result of the extended server blob auditing policy Set operation |
 > | Action | Microsoft.Sql/locations/auditingSettingsOperationResults/read | Retrieve result of the server blob auditing policy Set operation |
@@ -4728,6 +4768,8 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/locations/deletedServers/recover/action | Recover a deleted server |
 > | Action | Microsoft.Sql/locations/elasticPoolAzureAsyncOperation/read | Gets the azure async operation for an elastic pool async operation |
 > | Action | Microsoft.Sql/locations/elasticPoolOperationResults/read | Gets the result of an elastic pool operation. |
+> | Action | Microsoft.Sql/locations/encryptionProtectorAzureAsyncOperation/read | Gets in-progress operations on transparent data encryption encryption protector |
+> | Action | Microsoft.Sql/locations/encryptionProtectorOperationResults/read | Gets in-progress operations on transparent data encryption encryption protector |
 > | Action | Microsoft.Sql/locations/extendedAuditingSettingsAzureAsyncOperation/read | Retrieve result of the extended server blob auditing policy Set operation |
 > | Action | Microsoft.Sql/locations/extendedAuditingSettingsOperationResults/read | Retrieve result of the extended server blob auditing policy Set operation |
 > | Action | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | Gets the status of a firewall rule operation. |
@@ -4736,9 +4778,9 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/failover/action | Executes planned failover in an existing instance failover group. |
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Executes forced failover in an existing instance failover group. |
 > | Action | Microsoft.Sql/locations/instanceFailoverGroups/read | Returns the list of instance failover groups or gets the properties for the specified instance failover group. |
-> | Action | Microsoft.Sql/locations/instanceFailoverGroups/write | Creates a instance failover group with the specified parameters or updates the properties or tags for the specified instance failover group. |
-> | Action | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Gets the status of an instance pool operation. |
-> | Action | Microsoft.Sql/locations/instancePoolOperationResults/read | Gets the result of an instance pool operation. |
+> | Action | Microsoft.Sql/locations/instanceFailoverGroups/write | Creates an instance failover group with the specified parameters or updates the properties or tags for the specified instance failover group. |
+> | Action | Microsoft.Sql/locations/instancePoolAzureAsyncOperation/read | Gets the status of an instance pool operation |
+> | Action | Microsoft.Sql/locations/instancePoolOperationResults/read | Gets the result for an instance pool operation |
 > | Action | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Returns the details of a specific interface endpoint Azure async operation |
 > | Action | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | Returns the details of the specified interface endpoint profile operation |
 > | Action | Microsoft.Sql/locations/jobAgentAzureAsyncOperation/read | Gets the status of an job agent operation. |
@@ -4748,9 +4790,15 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Deletes a long term retention backup |
 > | Action | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Lists the long term retention backups for a database |
 > | Action | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Completes managed database restore operation |
+> | Action | Microsoft.Sql/locations/managedInstanceEncryptionProtectorAzureAsyncOperation/read | Gets in-progress operations on transparent data encryption managed instance encryption protector |
+> | Action | Microsoft.Sql/locations/managedInstanceEncryptionProtectorOperationResults/read | Gets in-progress operations on transparent data encryption managed instance encryption protector |
+> | Action | Microsoft.Sql/locations/managedInstanceKeyAzureAsyncOperation/read | Gets in-progress operations on transparent data encryption managed instance keys |
+> | Action | Microsoft.Sql/locations/managedInstanceKeyOperationResults/read | Gets in-progress operations on transparent data encryption managed instance keys |
 > | Action | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | Gets in-progress operations on managed database transparent data encryption |
 > | Action | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | Gets in-progress operations on managed database transparent data encryption |
 > | Action | Microsoft.Sql/locations/read | Gets the available locations for a given subscription |
+> | Action | Microsoft.Sql/locations/serverKeyAzureAsyncOperation/read | Gets in-progress operations on transparent data encryption server keys |
+> | Action | Microsoft.Sql/locations/serverKeyOperationResults/read | Gets in-progress operations on transparent data encryption server keys |
 > | Action | Microsoft.Sql/locations/syncAgentOperationResults/read | Retrieve result of the sync agent resource operation |
 > | Action | Microsoft.Sql/locations/syncDatabaseIds/read | Retrieve the sync database ids for a particular region and subscription |
 > | Action | Microsoft.Sql/locations/syncGroupOperationResults/read | Retrieve result of the sync group resource operation |
@@ -4770,12 +4818,15 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for managed instance databases |
 > | Action | Microsoft.Sql/managedInstances/databases/read | Gets existing managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | List sensitivity labels of a given database |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/read | Get a managed database schema. |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | Get a managed database column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | Delete the sensitivity label of a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | Disable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | Enable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | Get the sensitivity label of a given column |
 > | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | Create or update the sensitivity label of a given column |
-> | Action | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Retrieve details of the database threat detection policy configured on a given managed database |
+> | Action | Microsoft.Sql/managedInstances/databases/schemas/tables/read | Get a managed database table |
+> | Action | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | Retrieve a list of managed database threat detection policies configured for a given server |
 > | Action | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | Change the database threat detection policy for a given managed database |
 > | Action | Microsoft.Sql/managedInstances/databases/securityEvents/read | Retrieves the managed database security events |
 > | Action | Microsoft.Sql/managedInstances/databases/sensitivityLabels/read | List sensitivity labels of a given database |
@@ -4808,7 +4859,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/read | Gets a short term retention policy for a dropped managed database |
 > | Action | Microsoft.Sql/managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies/write | Updates a short term retention policy for a dropped managed database |
 > | Action | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | Returns a list of restorable dropped managed databases. |
-> | Action | Microsoft.Sql/managedInstances/securityAlertPolicies/read | Retrieve details of the managed server threat detection policy configured on a given managed server |
+> | Action | Microsoft.Sql/managedInstances/securityAlertPolicies/read | Retrieve a list of managed server threat detection policies configured for a given server |
 > | Action | Microsoft.Sql/managedInstances/securityAlertPolicies/write | Change the managed server threat detection policy for a given managed server |
 > | Action | Microsoft.Sql/managedInstances/tdeCertificates/action | Create/Update TDE certificate |
 > | Action | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | Remove the vulnerability assessment for a given managed instance |
@@ -4879,7 +4930,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/servers/databases/maintenanceWindows/write | Sets maintenance windows settings for a selected database. |
 > | Action | Microsoft.Sql/servers/databases/metricDefinitions/read | Return types of metrics that are available for databases |
 > | Action | Microsoft.Sql/servers/databases/metrics/read | Return metrics for databases |
-> | Action | Microsoft.Sql/servers/databases/move/action | Rename Azure SQL Database |
+> | Action | Microsoft.Sql/servers/databases/move/action | Change the name of an existing database. |
 > | Action | Microsoft.Sql/servers/databases/operationResults/read | Gets the status of a database operation. |
 > | Action | Microsoft.Sql/servers/databases/operations/cancel/action | Cancels Azure SQL Database pending asynchronous operation that is not finished yet. |
 > | Action | Microsoft.Sql/servers/databases/operations/read | Return the list of operations performed on the database |
@@ -4903,17 +4954,17 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/servers/databases/restorePoints/delete | Deletes a restore point for the database. |
 > | Action | Microsoft.Sql/servers/databases/restorePoints/read | Returns restore points for the database. |
 > | Action | Microsoft.Sql/servers/databases/resume/action | Resume Azure SQL Datawarehouse Database |
-> | Action | Microsoft.Sql/servers/databases/schemas/read | Retrieve list of schemas of a database |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Retrieve list of columns of a table |
+> | Action | Microsoft.Sql/servers/databases/schemas/read | Get a database schema. |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/read | Get a database column. |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | Delete the sensitivity label of a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | Disable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | Enable sensitivity recommendations on a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | Get the sensitivity label of a given column |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | Create or update the sensitivity label of a given column |
-> | Action | Microsoft.Sql/servers/databases/schemas/tables/read | Retrieve list of tables of a database |
+> | Action | Microsoft.Sql/servers/databases/schemas/tables/read | Get a database table. |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | Retrieve list of index recommendations on a database |
 > | Action | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | Apply index recommendation |
-> | Action | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Retrieve details of the database threat detection policy configured on a given database |
+> | Action | Microsoft.Sql/servers/databases/securityAlertPolicies/read | Retrieve a list of database threat detection policies configured for a given server |
 > | Action | Microsoft.Sql/servers/databases/securityAlertPolicies/write | Change the database threat detection policy for a given database |
 > | Action | Microsoft.Sql/servers/databases/securityMetrics/read | Gets a collection of database security metrics |
 > | Action | Microsoft.Sql/servers/databases/sensitivityLabels/read | List sensitivity labels of a given database |
@@ -4998,7 +5049,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/servers/importExportOperationResults/read | Gets in-progress import/export operations |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Deletes the specified interface endpoint profile |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Returns the properties for the specified interface endpoint profile |
-> | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Creates a interface endpoint profile with the specified parameters or updates the properties or tags for the specified interface endpoint |
+> | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Creates an interface endpoint profile with the specified parameters or updates the properties or tags for the specified interface endpoint |
 > | Action | Microsoft.Sql/servers/jobAgents/delete | Deletes an Azure SQL DB job agent |
 > | Action | Microsoft.Sql/servers/jobAgents/read | Gets an Azure SQL DB job agent |
 > | Action | Microsoft.Sql/servers/jobAgents/write | Creates or updates an Azure SQL DB job agent |
@@ -5014,7 +5065,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Sql/servers/replicationLinks/read | Return the list of replication links or gets the properties for the specified replication links. |
 > | Action | Microsoft.Sql/servers/restorableDroppedDatabases/read | Get a list of databases that were dropped on a given server that are still within retention policy. |
 > | Action | Microsoft.Sql/servers/securityAlertPolicies/operationResults/read | Retrieve results of the server threat detection policy write operation |
-> | Action | Microsoft.Sql/servers/securityAlertPolicies/read | Retrieve details of the server threat detection policy configured on a given server |
+> | Action | Microsoft.Sql/servers/securityAlertPolicies/read | Retrieve a list of server threat detection policies configured for a given server |
 > | Action | Microsoft.Sql/servers/securityAlertPolicies/write | Change the server threat detection policy for a given server |
 > | Action | Microsoft.Sql/servers/serviceObjectives/read | Retrieve list of service level objectives (also known as performance tiers) available on a given server |
 > | Action | Microsoft.Sql/servers/syncAgents/delete | Deletes an existing sync agent. |
@@ -5050,8 +5101,11 @@ Update an existing person group's name and userData. The properties keep unchang
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Returns the result of adding blob content |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returns the result of deleting a blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Returns the result of deleting an automatic snapshot |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Returns the list of blobs under an account with matching tags filter |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returns a blob or a list of blobs |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Returns the result of the blob command |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Returns the result of reading blob tags |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Returns the result of writing blob tags |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returns the result of writing a blob |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Clear blob container legal hold |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returns the result of deleting a container |
@@ -5070,12 +5124,17 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.Storage/storageAccounts/blobServices/read | Returns blob service properties or statistics |
 > | Action | Microsoft.Storage/storageAccounts/blobServices/write | Returns the result of put blob service properties |
 > | Action | Microsoft.Storage/storageAccounts/delete | Deletes an existing storage account. |
+> | Action | Microsoft.Storage/storageAccounts/failover/action | Customer is able to control the failover in case of availability issues |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | Allows user to delete fileshare |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | Allows user to read fileshare |
 > | Action | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | Allows user to write to a fileshare |
+> | Action | Microsoft.Storage/storageAccounts/fileServices/read | Get file service properties |
 > | Action | Microsoft.Storage/storageAccounts/listAccountSas/action | Returns the Account SAS token for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/listkeys/action | Returns the access keys for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/listServiceSas/action | Returns the Service SAS token for the specified storage account. |
+> | Action | Microsoft.Storage/storageAccounts/managementPolicies/delete | Delete storage account management policies |
+> | Action | Microsoft.Storage/storageAccounts/managementPolicies/read | Get storage management account policies |
+> | Action | Microsoft.Storage/storageAccounts/managementPolicies/write | Put storage account management policies |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/delete | Returns the result of deleting a queue |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Returns the result of adding a message |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Returns the result of deleting a message |
@@ -5084,12 +5143,14 @@ Update an existing person group's name and userData. The properties keep unchang
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Returns the result of writing a message |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/read | Returns a queue or a list of queues. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/write | Returns the result of writing a queue |
+> | Action | Microsoft.Storage/storageAccounts/queueServices/read | Get Queue service properties |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/read | Returns queue service properties or statistics. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/write | Returns the result of setting queue service properties |
 > | Action | Microsoft.Storage/storageAccounts/read | Returns the list of storage accounts or gets the properties for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/regeneratekey/action | Regenerates the access keys for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Revokes all the user delegation keys for the specified storage account. |
 > | Action | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Create/Update storage account diagnostic settings. |
+> | Action | Microsoft.Storage/storageAccounts/tableServices/read | Get Table service properties |
 > | Action | Microsoft.Storage/storageAccounts/write | Creates a storage account with the specified parameters or update the properties or tags or adds custom domain for the specified storage account. |
 > | Action | Microsoft.Storage/usages/read | Returns the limit and the current usage count for resources in the specified subscription |
 
@@ -5464,6 +5525,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | microsoft.web/hostingenvironments/detectors/read | Get Hosting Environments Detectors. |
 > | Action | microsoft.web/hostingenvironments/diagnostics/read | Get Hosting Environments Diagnostics. |
 > | Action | microsoft.web/hostingenvironments/inboundnetworkdependenciesendpoints/read | Get the network endpoints of all inbound dependencies. |
+> | Action | Microsoft.Web/hostingEnvironments/Join/Action | Joins an App Service Environment |
 > | Action | microsoft.web/hostingenvironments/metricdefinitions/read | Get Hosting Environments Metric Definitions. |
 > | Action | microsoft.web/hostingenvironments/multirolepools/metricdefinitions/read | Get Hosting Environments MultiRole Pools Metric Definitions. |
 > | Action | microsoft.web/hostingenvironments/multirolepools/metrics/read | Get Hosting Environments MultiRole Pools Metrics. |
@@ -5584,6 +5646,9 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | microsoft.web/sites/diagnostics/workerprocessrecycle/read | Get Web Apps Diagnostics Worker Process Recycle. |
 > | Action | microsoft.web/sites/domainownershipidentifiers/read | Get Web Apps Domain Ownership Identifiers. |
 > | Action | microsoft.web/sites/domainownershipidentifiers/write | Update Web Apps Domain Ownership Identifiers. |
+> | Action | microsoft.web/sites/extensions/delete | Delete Web Apps Site Extensions. |
+> | Action | microsoft.web/sites/extensions/read | Get Web Apps Site Extensions. |
+> | Action | microsoft.web/sites/extensions/write | Update Web Apps Site Extensions. |
 > | Action | microsoft.web/sites/functions/action | Functions Web Apps. |
 > | Action | microsoft.web/sites/functions/delete | Delete Web Apps Functions. |
 > | Action | microsoft.web/sites/functions/listsecrets/action | List Secrets Web Apps Functions. |
@@ -5623,6 +5688,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | microsoft.web/sites/migratemysql/action | Migrate MySql Web Apps. |
 > | Action | microsoft.web/sites/migratemysql/read | Get Web Apps Migrate MySql. |
 > | Action | microsoft.web/sites/networktrace/action | Network Trace Web Apps. |
+> | Action | microsoft.web/sites/networktraces/operationresults/read | Get Web Apps Network Trace Operation Results. |
 > | Action | microsoft.web/sites/newpassword/action | Newpassword Web Apps. |
 > | Action | microsoft.web/sites/operationresults/read | Get Web Apps Operation Results. |
 > | Action | microsoft.web/sites/operations/read | Get Web Apps Operations. |
@@ -5631,7 +5697,9 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | microsoft.web/sites/premieraddons/read | Get Web Apps Premier Addons. |
 > | Action | microsoft.web/sites/premieraddons/write | Update Web Apps Premier Addons. |
 > | Action | microsoft.web/sites/privateaccess/read | Get data around private site access enablement and authorized Virtual Networks that can access the site. |
+> | Action | microsoft.web/sites/processes/modules/read | Get Web Apps Processes Modules. |
 > | Action | microsoft.web/sites/processes/read | Get Web Apps Processes. |
+> | Action | microsoft.web/sites/processes/threads/read | Get Web Apps Processes Threads. |
 > | Action | microsoft.web/sites/publiccertificates/delete | Delete Web Apps Public Certificates. |
 > | Action | microsoft.web/sites/publiccertificates/read | Get Web Apps Public Certificates. |
 > | Action | microsoft.web/sites/publiccertificates/write | Update Web Apps Public Certificates. |
@@ -5723,6 +5791,7 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | microsoft.web/sites/slots/metrics/read | Get Web Apps Slots Metrics. |
 > | Action | microsoft.web/sites/slots/migratemysql/read | Get Web Apps Slots Migrate MySql. |
 > | Action | microsoft.web/sites/slots/networktrace/action | Network Trace Web Apps Slots. |
+> | Action | microsoft.web/sites/slots/networktraces/operationresults/read | Get Web Apps Slots Network Trace Operation Results. |
 > | Action | microsoft.web/sites/slots/newpassword/action | Newpassword Web Apps Slots. |
 > | Action | microsoft.web/sites/slots/operationresults/read | Get Web Apps Slots Operation Results. |
 > | Action | microsoft.web/sites/slots/operations/read | Get Web Apps Slots Operations. |

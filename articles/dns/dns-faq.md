@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
 ---
 
@@ -75,7 +75,7 @@ The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to
 
 ### Does Azure DNS support zone transfers (AXFR/IXFR)?
 
-No. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
+No. Azure DNS doesn't currently support zone transfers. DNS zones can be [imported into Azure DNS by using the Azure CLI](dns-import-export.md). DNS records are managed via the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
 
 The zone transfer feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -98,9 +98,11 @@ This support currently isn't available for TXT records created from the Azure po
 ## Alias records
 
 ### What are some scenarios where alias records are useful?
+
 See the scenarios section in the [Azure DNS alias records overview](dns-alias.md).
 
 ### What record types are supported for alias record sets?
+
 Alias record sets are supported for the following record types in an Azure DNS zone:
  
 - A 
@@ -111,32 +113,38 @@ Alias record sets are supported for the following record types in an Azure DNS z
 
 - **Point to a public IP resource from a DNS A/AAAA record set.** You can create an A/AAAA record set and make it an alias record set to point to a public IP resource.
 - **Point to a Traffic Manager profile from a DNS A/AAAA/CNAME record set.** You can point to the CNAME of a Traffic Manager profile from a DNS CNAME record set. An example is contoso.trafficmanager.net. Now, you also can point to a Traffic Manager profile that has external endpoints from an A or AAAA record set in your DNS zone.
+- **Point to an Azure Content Delivery Network (CDN) endpoint**. This is useful when you create static websites using Azure storage and Azure CDN.
 - **Point to another DNS record set within the same zone.** Alias records can reference to other record sets of the same type. For example, you can have a DNS CNAME record set be an alias to another CNAME record set of the same type. This arrangement is useful if you want some record sets to be aliases and some non-aliases.
 
 ### Can I create and update alias records from the Azure portal?
+
 Yes. You can create or manage alias records in the Azure portal along with the Azure REST APIs, PowerShell, the CLI, and SDKs.
 
 ### Will alias records help to make sure my DNS record set is deleted when the underlying public IP is deleted?
+
 Yes. This feature is one of the core capabilities of alias records. It helps you avoid potential outages for users of your application.
 
 ### Will alias records help to make sure my DNS record set is updated to the correct IP address when the underlying public IP address changes?
+
 Yes. This feature is one of the core capabilities of alias records. It helps you avoid potential outages or security risks for your application.
 
 ### Are there any restrictions when using alias record sets for A or AAAA records to point to Traffic Manager?
+
 Yes. To point to a Traffic Manager profile as an alias from an A or AAAA record set, the Traffic Manager profile must use only external endpoints. When you create the external endpoints in Traffic Manager, provide the actual IP addresses of the endpoints.
 
 ### Is there an additional charge to use alias records?
+
 Alias records are a qualification on a valid DNS record set. There's no additional billing for alias records.
 
 ## Use Azure DNS
 
-### Can I cohost a domain by using Azure DNS and another DNS provider?
+### Can I co-host a domain by using Azure DNS and another DNS provider?
 
-Yes. Azure DNS supports cohosting domains with other DNS services.
+Yes. Azure DNS supports co-hosting domains with other DNS services.
 
-To set up cohosting, modify the NS records for the domain to point to the name servers of both providers. The name server (NS) records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
+To set up co-hosting, modify the NS records for the domain to point to the name servers of both providers. The name server (NS) records control which providers receive DNS queries for the domain. You can modify these NS records in Azure DNS, in the other provider, and in the parent zone. The parent zone is typically configured via the domain name registrar. For more information on DNS delegation, see [DNS domain delegation](dns-domain-delegation.md).
 
-Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/azurerm.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
+Also, make sure that the DNS records for the domain are in sync between both DNS providers. Azure DNS doesn't currently support DNS zone transfers. DNS records must be synchronized by using either the [Azure DNS management portal](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlets](dns-operations-recordsets.md), or the [CLI tool](dns-operations-recordsets-cli.md).
 
 ### Do I have to delegate my domain to all four Azure DNS name servers?
 
@@ -266,10 +274,9 @@ Private zones that are already created via APIs, PowerShell, the CLI, and SDKs a
 ## Next steps
 
 - [Learn more about Azure DNS](dns-overview.md).
-<br>
-- [Learn more about how to use Azure DNS for private domains](private-dns-overview.md).
-<br>
-- [Learn more about DNS zones and records](dns-zones-records.md).
-<br>
-- [Get started with Azure DNS](dns-getstarted-portal.md).
 
+- [Learn more about how to use Azure DNS for private domains](private-dns-overview.md).
+
+- [Learn more about DNS zones and records](dns-zones-records.md).
+
+- [Get started with Azure DNS](dns-getstarted-portal.md).

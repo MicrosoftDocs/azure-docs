@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/15/2019
+ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
 ---
@@ -35,16 +35,12 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
-[Public West Central US](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure China](https://www.azure.cn/)                                                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
 
 This table is updated when there are service updates and or new supported versions are available.
-
-> [!NOTE]
-> 2018-10-01 is currently getting rolled out and will be available in other shortly. 
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
 
@@ -97,6 +93,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > All instance metadata queries are case-sensitive.
 
 ### Data output
+
 By default, the Instance Metadata Service returns data in JSON format (`Content-Type: application/json`). However, different APIs return data in different formats if requested.
 The following table is a reference of other data formats APIs may support.
 
@@ -112,6 +109,9 @@ To access a non-default response format, specify the requested format as a query
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
+> [!NOTE]
+> For leaf nodes the `format=json` doesn't work. For these queries `format=text` needs to be explicitly specified if the default format is json.
+
 ### Security
 
 The Instance Metadata Service endpoint is accessible only from within the running virtual machine instance on a non-routable IP address. In addition, any request with a `X-Forwarded-For` header is rejected by the service.
@@ -124,8 +124,8 @@ If there is a data element not found or a malformed request, the Instance Metada
 HTTP Status Code | Reason
 ----------------|-------
 200 OK |
-400 Bad Request | Missing `Metadata: true` header
-404 Not Found | The requested element doesn't exist 
+400 Bad Request | Missing `Metadata: true` header or missing the format when querying a leaf node
+404 Not Found | The requested element doesn't exist
 405 Method Not Allowed | Only `GET` and `POST` requests are supported
 429 Too Many Requests | The API currently supports a maximum of 5 queries per second
 500 Service Error     | Retry after some time
@@ -217,7 +217,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "resourceGroupName": "myrg",
     "sku": "rs4-pro",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
     "version": "17134.345.59",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
@@ -295,7 +295,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "resourceGroupName": "myrg",
     "sku": "Enterprise",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "13.0.400110",
     "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
     "vmScaleSetName": "",
@@ -353,7 +353,7 @@ resourceGroupName | [Resource group](../../azure-resource-manager/resource-group
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its an Azure Marketplace Image, contains name, product and publisher | 2018-04-02
 provider | Provider of the VM | 2018-10-01
-publicKeys | Collection of Public Keys[<https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey>] assigned to the VM and paths | 2018-04-02
+publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 ipv4/privateIpAddress | Local IPv4 address of the VM | 2017-04-02
@@ -505,13 +505,29 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure has various sovereign clouds like [Azure Government](https://azure.microsoft.com/overview/clouds/government/). Sometimes you need the Azure Environment to make some runtime decisions. The following sample shows you how you can achieve this behavior.
 
 **Request**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Response**
-```
+```bash
 AZUREPUBLICCLOUD
+```
+
+### Getting the tags for the VM
+
+Tags may have been applied to your Azure VM to logically organize them into a taxonomy. The tags assigned to a VM can be retrieved by using the request below.
+
+**Request**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+```
+
+**Response**
+
+```text
+Department:IT;Environment:Test;Role:WebRole
 ```
 
 ### Validating that the VM is running in Azure

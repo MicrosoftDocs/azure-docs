@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 03/15/2019
 ---
 # Resource limits for elastic pools using the vCore-based purchasing model limits
 
@@ -102,7 +102,7 @@ You can set the service tier, compute size, and storage amount using the [Azure 
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Target IOPS (64 KB)|500|1000|1500|2000|2500|3000|3500|
-|Log rate limits (MBps)|2.5|56|7.5|10|12.5|15|17.5|
+|Log rate limits (MBps)|2.5|5.6|7.5|10|12.5|15|17.5|
 |Max concurrent workers per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) *|210|420|630|840|1050|1260|1470|
 |Max allowed sessions|30000|30000|30000|30000|30000|30000|30000|

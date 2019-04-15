@@ -6,13 +6,20 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 04/08/2019
 ms.author: sogup
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups (Limited Public Preview)
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
+
+> [!NOTE]
+> To move a Recovery Services vault and its associated resources to different resource group, you should first [register the source subscription](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+## Supported geos
+
+Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US2, South central US, West Central US, West Central US2, West US, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, UK West, UAE Central and UAE North.
 
 ## Prerequisites for moving a vault
 
@@ -24,15 +31,15 @@ This article explains how to move a Recovery Services vault configured for Azure
 - Currently you can move one Recovery Services vault, per region, at a time.
 - If a VM doesn’t move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points remain intact in the vault until they expire.
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
--   The Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
--   To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
--   The options for moving resources deployed through the Classic model differ depending on whether you are moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
--   Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
--   Currently, you cannot move vaults containing the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups. Support for these scenarios will be added in future releases.
--   If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>
+- The Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
+- To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- The options for moving resources deployed through the Classic model differ depending on whether you are moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
+- Currently, you cannot move vaults containing the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups.
+- If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>
 
 > [!NOTE]
-> 
+>
 > Recovery Services vaults configured to use with **Azure Site Recovery** can’t move, yet. If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using the **Azure Site Recovery**, the move operation will be blocked. The resource move feature for Site Recovery service is not yet available.
 
 ## Register the source subscription to Move your Recovery Services vault

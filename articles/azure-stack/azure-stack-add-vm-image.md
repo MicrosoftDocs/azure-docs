@@ -1,6 +1,6 @@
 ---
-title: Add and remove a VM image to Azure Stack | Microsoft Docs
-description: Add or remove your organization's custom Windows or Linux VM image for tenants to use.
+title: Add a VM image to Azure Stack | Microsoft Docs
+description: Add a VM image or remove an image to your organization's custom Windows or Linux VM image for tenants to use.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 06/08/2018
 
 ---
-# Make a virtual machine image available in Azure Stack
+# Add a VM image to offer in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-In Azure Stack, you can make virtual machine images available to your users. These images can be used by Azure Resource Manager templates. You can also add them to the Azure Marketplace UI as a Marketplace item. Use either an image form the global Azure Marketplace or your own custom image. The image can be added using the portal or Windows PowerShell.
+In Azure Stack, you can add a virtual machine (VM) image to the marketplace to make  available to your users. You can add VM images by using Azure Resource Manager templates for Azure Stack. You can also add VM images to the Azure Marketplace UI as a Marketplace item. Use either an image from the global Azure Marketplace or your own custom VM image. You can add VM image using the Administration portal or Windows PowerShell.
 
 ## Add a VM image through the portal
 
@@ -80,7 +80,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 3. Open PowerShell with an elevated prompt, and run:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
@@ -115,15 +115,11 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
  
 1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).
 
-   ```PowerShell  
+   ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint $ArmEndpoint
-
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience $GraphAudience
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
     $TenantID = Get-AzsDirectoryTenantId `
       -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -136,7 +132,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 2. If using **Active Directory Federation Services**, use the following cmdlet:
 
-   ```PowerShell
+   ```powershell
    # For Azure Stack Development Kit, this value is set to https://adminmanagement.local.azurestack.external. To get this value for Azure Stack integrated systems, contact your service provider.
    $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
@@ -144,9 +140,9 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
    $GraphAudience = "<GraphAudience endpoint for your environment>"
 
    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
     ```
 
 3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).
@@ -155,7 +151,7 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 5. Prepare a Windows or Linux operating system image in VHD format (not VHDX), upload the image to your storage account, and get the URI where the VM image can be retrieved by PowerShell.  
 
-   ```PowerShell  
+   ```powershell
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
@@ -163,14 +159,14 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
 6. (Optionally) You can upload an array of data disks as part of the VM image. Create your data disks using the New-DataDiskObject cmdlet. Open PowerShell from an elevated prompt, and run:
 
-   ```PowerShell  
+   ```powershell
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
    ```
 
 7. Open PowerShell with an elevated prompt, and run:
 
-   ```PowerShell  
+   ```powershell
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
    ```
 
@@ -186,7 +182,7 @@ When you no longer need the virtual machine image that you uploaded, you can del
 
 3. Open PowerShell with an elevated prompt, and run:
 
-   ```PowerShell  
+   ```powershell  
    Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `

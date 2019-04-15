@@ -9,12 +9,14 @@ ms.date: 12/03/2018
 ms.author: iainfou
 ---
 
-# Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
+# Preview - Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
 
 To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 > [!IMPORTANT]
-> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
+>
+> If you encounter issues with preview features, [open an issue on the AKS GitHub repo][aks-github] with the name of the preview feature in the bug title.
 
 ## Before you begin
 
@@ -40,9 +42,9 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## Preview limitations
+## Regional availability
 
-While this feature is in preview, the following regions are supported for deployments:
+The following regions are supported for virtual node deployments:
 
 * Australia East (australiaeast)
 * East US (eastus)
@@ -155,13 +157,7 @@ az aks create \
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## Enable virtual nodes
-
-To provide additional functionality, the virtual nodes connector uses an Azure CLI extension. Before you can enable the virtual nodes connector, first install the extension using the [az extension add][az-extension-add] command:
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## Enable virtual nodes addon
 
 To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step:
 
@@ -172,6 +168,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> If you receive an error about virtual-node not being found, you may need to install its CLI extension 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## Connect to the cluster
 
@@ -324,12 +325,17 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa]
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler]
+- [Check out the Autoscale sample for Virtual Nodes][virtual-node-autoscale]
+- [Read more about the Virtual Kubelet open source library][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

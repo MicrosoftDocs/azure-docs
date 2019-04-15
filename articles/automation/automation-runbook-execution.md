@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/05/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -16,24 +16,20 @@ When you start a runbook in Azure Automation, a job is created. A job is a singl
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-The following diagram shows the lifecycle of a runbook job for [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
+The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks), [Graphical runbooks](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow runbooks](automation-runbook-types.md#powershell-workflow-runbooks).
 
 ![Job Statuses - PowerShell Workflow](./media/automation-runbook-execution/job-statuses.png)
-
-The following diagram shows the lifecycle of a runbook job for [PowerShell runbooks](automation-runbook-types.md#powershell-runbooks).
-
-![Job Statuses - PowerShell Script](./media/automation-runbook-execution/job-statuses-script.png)
 
 Your jobs have access to your Azure resources by making a connection to your Azure subscription. They only have access to resources in your data center if those resources are accessible from the public cloud.
 
 ## Where to run your runbooks
 
-Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs. Jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can be used to run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be ran in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
+Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md). A sandbox is a shared environment in Azure that can be used by multiple jobs. Jobs using the same sandbox are bound by the resource limitations of the sandbox. Hybrid Runbook Workers can run runbooks directly on the computer that's hosting the role and against resources in the environment to manage those local resources. Runbooks are stored and managed in Azure Automation and then delivered to one or more assigned computers. Most runbooks can easily be run in the Azure sandboxes. There are specific scenarios where choosing a Hybrid Runbook over an Azure sandbox to execute your runbook may be recommended. See the following table for a list of some example scenarios:
 
 |Task|Best Choice|Notes|
 |---|---|---|
 |Integrate with Azure resources|Azure Sandbox|Hosted in azure, authentication is simpler. If you are using a Hybrid Runbook Worker on an Azure VM, you can use [managed identities for Azure resources](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)|
-|Optimal performance to manage azure resources|Azure Sandbox|Script is ran in the same environment, which in turn has less latency|
+|Optimal performance to manage azure resources|Azure Sandbox|Script is run in the same environment, which in turn has less latency|
 |Minimize operational costs|Azure Sandbox|There is no compute overhead, no need for a VM|
 |Long running script|Hybrid Runbook Worker|Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Interact with Local services|Hybrid Runbook Worker|Can have access directly to host machine|
@@ -41,13 +37,16 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
 |Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Using modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependency on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
-|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
+|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be copiable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
-|Scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. To solve this use a Hybrid Runbook Worker and you can turn off UAC and use `Invoke-Command` when running the command that requires elevation|
+|Scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. To solve this, use a Hybrid Runbook Worker and you can turn off UAC and use `Invoke-Command` when running the command that requires elevation|
+|Scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud [do not have access to the WMI](#device-and-application-characteristics)|
 
 ## Runbook behavior
 
 Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted if there were transient issues.
+
+PowerShell jobs started from a Runbook ran in an Azure sandbox may not run in the Full language mode. To learn more about PowerShell language modes, see [PowerShell language modes](/powershell/module/microsoft.powershell.core/about/about_language_modes). For additional details on how to interact with jobs in Azure Automation, see [Retrieving job status with PowerShell](#retrieving-job-status-using-powershell)
 
 ### Creating resources
 
@@ -72,11 +71,11 @@ else
 
 ### Time dependant scripts
 
-Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are ran only during specific times.
+Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
 
 ### Tracking progress
 
-It is a good practice to author runbooks to be modular in nature. This means structuring the logic in the runbook such that it can be reused and restarted easily. Tracking progress in a runbook is a good way to ensure that the logic in a runbook is executed correctly if there were issues. Some possible ways to track the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally, you can create logic in your runbook to first check the state of the last action the runbook took and based off the results either skip or continue specific tasks in the runbook.
+It is a good practice to author runbooks to be modular in nature. This means structuring the logic in the runbook such that it can be reused and restarted easily. Tracking progress in a runbook is a good way to ensure that the logic in a runbook executes correctly if there were issues. Some possible ways to track the progress of the runbook is by using an external source such as storage accounts, a database, or shared files. By tracking the state externally, you can create logic in your runbook to first check the state of the last action the runbook took. Then based off the results, either skip or continue specific tasks in the runbook.
 
 ### Prevent concurrent jobs
 
@@ -110,7 +109,7 @@ If (($jobs.status -contains "Running" -And $runningCount -gt 1 ) -Or ($jobs.Stat
 
 ### Working with multiple subscriptions
 
-When authoring runbooks that deal with multiple subscriptions your runbook needs use the [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet to ensure that your authentication context is not retrieved from another runbook that may be running in the same sandbox. You then need to use the `-AzureRmContext` parameter on your `AzureRM` cmdlets and pass it your proper context.
+When authoring runbooks that deal with multiple subscriptions, your runbook needs use the [Disable-AzureRmContextAutosave](/powershell/module/azurerm.profile/disable-azurermcontextautosave) cmdlet to ensure that your authentication context is not retrieved from another runbook that may be running in the same sandbox. You then need to use the `-AzureRmContext` parameter on your `AzureRM` cmdlets and pass it your proper context.
 
 ```powershell
 # Ensures you do not inherit an AzureRMContext in your runbook
@@ -135,9 +134,59 @@ Start-AzureRmAutomationRunbook `
     -DefaultProfile $context
 ```
 
+### Handling exceptions
+
+When authoring scripts, it is important to be able to handle exceptions and potential intermittent failures. The following are some different ways to handle exceptions or intermittent issues with your runbooks:
+
+#### $ErrorActionPreference
+
+The [$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable determines how PowerShell responds to a non-terminating error. Terminating errors are not affected by `$ErrorActionPreference`, they always terminate. By using `$ErrorActionPreference`, a normally non-terminating error like `PathNotFound` from the `Get-ChildItem` cmdlet will stop the runbook from completing. The following example shows using `$ErrorActionPreference`. The final `Write-Output` line will never execute as the script will stop.
+
+```powershell-interactive
+$ErrorActionPreference = 'Stop'
+Get-Childitem -path nofile.txt
+Write-Output "This message will not show"
+```
+
+#### Try Catch Finally
+
+[Try Catch](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) is used in PowerShell scripts to help you handle terminating errors. By using Try Catch, you can catch specific exceptions or general exceptions. The Catch statement should be used to track errors or used to try to handle the error. The following example tries to download a file that does not exist. It catches the `System.Net.WebException` exception, if there was another exception the last value is returned.
+
+```powershell-interactive
+try
+{
+   $wc = new-object System.Net.WebClient
+   $wc.DownloadFile("http://www.contoso.com/MyDoc.doc")
+}
+catch [System.Net.WebException]
+{
+    "Unable to download MyDoc.doc from http://www.contoso.com."
+}
+catch
+{
+    "An error occurred that could not be resolved."
+}
+```
+
+#### Throw
+
+[Throw](/powershell/module/microsoft.powershell.core/about/about_throw) can be used to generate a terminating error. This can be useful when defining your own logic in a runbook. If a certain criteria is met that should stop the script, you can use `throw` to stop the script. The following example shows machine a function parameter required by using `throw`.
+
+```powershell-interactive
+function Get-ContosoFiles
+{
+  param ($path = $(throw "The Path parameter is required."))
+  Get-ChildItem -Path $path\*.txt -recurse
+}
+```
+
 ### Using executables or calling processes
 
-Runbooks ran in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is because Azure sandboxes are shared processes ran in containers, which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+Runbooks run in Azure sandboxes do not support calling processes (such as an .exe or subprocess.call). This is because Azure sandboxes are shared processes run in containers, which may not have access to all the underlying APIs. For scenarios where you require 3rd party software or calling of sub processes, it is recommended you execute the runbook on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
+
+### Device and application characteristics
+
+Runbook jobs run in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access to the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
 
 ## Job statuses
 
@@ -193,9 +242,9 @@ You can use the following steps to view the jobs for a runbook.
 3. On the page for the selected runbook, click the **Jobs** tile.
 4. Click one of the jobs in the list and on the runbook job details page you can view its detail and output.
 
-## Retrieving job status using Windows PowerShell
+## Retrieving job status using PowerShell
 
-You can use the [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), then it returns the resulting job. Use [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get a job’s output.
+You can use the [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), then it returns the resulting job. Use [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get a job’s output.
 
 The following sample commands retrieve the last job for a sample runbook and display its status, the values provided for the runbook parameters, and the output from the job.
 
@@ -232,21 +281,39 @@ Other details such as the person or account that started the runbook can be retr
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$RunbookName = "Test-Runbook"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    { 
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## Fair share
 
-To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has been running for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
+To share resources among all runbooks in the cloud, Azure Automation temporarily unloads or stops any job that has run for more than three hours. Jobs for [PowerShell-based runbooks](automation-runbook-types.md#powershell-runbooks) and [Python runbooks](automation-runbook-types.md#python-runbooks) are stopped and not restarted, and the job status shows Stopped.
 
-For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks ran on them should still be developed to support restart behaviors from unexpected local infrastructure issues.
+For long running tasks, it's recommended to use a [Hybrid Runbook Worker](automation-hrw-run-runbooks.md#job-behavior). Hybrid Runbook Workers aren't limited by fair share, and don't have a limitation on how long a runbook can execute. The other job [limits](../azure-subscription-service-limits.md#automation-limits) apply to both Azure sandboxes and Hybrid Runbook Workers. While Hybrid Runbook Workers aren't limited by the 3 hour fair share limit, runbooks run on them should be developed to support restart behaviors from unexpected local infrastructure issues.
 
-Another option is to optimize the runbook by using child runbooks. If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a [child runbook](automation-child-runbooks.md) and call it with the [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Each of these child runbooks executes in parallel in separate processes decreasing the total amount of time for the parent runbook to complete. You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in your runbook to check the job status for each child if there are operations that perform after the child runbook completes.
+Another option is to optimize the runbook by using child runbooks. If your runbook loops through the same function on several resources, such as a database operation on several databases, you can move that function to a [child runbook](automation-child-runbooks.md) and call it with the [Start-AzureRMAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook) cmdlet. Each of these child runbooks executes in parallel in separate processes. This behavior decreases the total amount of time for the parent runbook to complete. You can use the [Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/Get-AzureRmAutomationJob) cmdlet in your runbook to check the job status for each child if there are operations that perform after the child runbook completes.
 
 ## Next steps
 

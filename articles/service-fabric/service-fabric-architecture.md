@@ -4,7 +4,7 @@ description: Service Fabric is a distributed systems platform used to build scal
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e

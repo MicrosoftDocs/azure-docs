@@ -57,7 +57,8 @@ When you have those three requirements ready, follow these steps to set up your 
 
 6. Upload the PFX certificate and enter the password for the certificate. 
 7. Select **Save** to save your changes. 
-8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain. 
+8. Add a [DNS record](../../dns/dns-operations-recordsets-portal.md) that redirects the new external URL to the msappproxy.net domain.
+9. Check that the DNS record is configured correctly by using the [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) command to see if your external URL is reachable and the msapproxy.net domain shows up as an alias.
 
 >[!TIP] 
 >You only need to upload one certificate per custom domain. Once you upload a certificate, you can choose the custom domain when you publish a new app and not have to do additional configuration except for the DNS record. 

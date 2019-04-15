@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -108,12 +108,12 @@ Checking connectivity... done.
 
 Change to the directory that contains the sample code and run the `az webapp up` command.
 
-In the following example, replace <app_name> with a unique app name.
+In the following example, replace `<app-name>` with a unique app name.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 This command may take a few minutes to run. While running, it displays information similar to the following example:
@@ -124,15 +124,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -150,7 +150,7 @@ All done.
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 The Python sample code is running in App Service on Linux with a built-in image.
@@ -173,10 +173,10 @@ return "Hello Azure!"
 
 Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
 
-You'll now redeploy the app. Substitute `<app_name>` with your app.
+You'll now redeploy the app. Substitute `<app-name>` with your app.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
@@ -204,13 +204,10 @@ The left menu provides different pages for configuring your app.
 The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom startup command](how-to-configure-python.md#customize-startup-command)
+> [Configure Python app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Troubleshooting](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Use custom images](tutorial-custom-docker-image.md)
+> [Tutorial: Run Python app in custom container](tutorial-custom-docker-image.md)

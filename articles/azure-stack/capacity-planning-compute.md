@@ -13,11 +13,11 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
+ms.lastreviewed: 04/03/2019
+ms.custom: 
 
 ---
 
@@ -42,7 +42,7 @@ The following calculation results in the total, available memory that can be use
 
   Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Memory used by running VMs - Azure Stack Infrastructure Overhead <sup>1</sup>
 
-  Resiliency reserve = H + R * (N-1) + V * (N-2)
+  Resiliency reserve = H + R * ((N-1) * H) + V * (N-2)
 
 > Where:
 > -	H = Size of single server memory
@@ -50,7 +50,7 @@ The following calculation results in the total, available memory that can be use
 > -	R = Operating system reserve for OS overhead<sup>2</sup>
 > -	V = Largest VM in the scale unit
 
-  <sup>1</sup> Azure Stack Infrastructure Overhead = 208 GB
+  <sup>1</sup> Azure Stack Infrastructure Overhead = 230 GB
 
   <sup>2</sup> Operating system reserve for overhead = 15% of node memory. The operating system reserve value is an estimate and will vary based on the physical memory capacity of the server and general operating system overhead.
 

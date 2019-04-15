@@ -42,7 +42,7 @@ To troubleshoot a probe failure, you need a tool that shows the HTTP status code
 
 Also, you can use the Network tab of the F12 Debugging Tools in Internet Explorer to view the HTTP responses.
 
-For this example we want to see the response from our probe URL: http://watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
+For this example we want to see the response from our probe URL: http:\//watestsdp2008r2.cloudapp.net:80/Probe. The following PowerShell example illustrates the problem.
 
 ```powershell
 Invoke-WebRequest 'http://watestsdp2008r2.cloudapp.net/Probe' -MaximumRedirection 0 -ErrorAction SilentlyContinue | Select-Object StatusCode,StatusDescription
@@ -87,4 +87,4 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Azure Traffic Manager Cmdlets][1]
 
-[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
+[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager
