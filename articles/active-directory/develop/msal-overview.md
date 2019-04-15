@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Overview of Microsoft Authentication Library (MSAL)
-Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](active-directory-dev-glossary.md#security-token) from Azure AD in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL SDKs are available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
+Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from Azure AD in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL SDKs are available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
 
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 
@@ -60,8 +60,4 @@ Active Directory Authentication Library (ADAL) integrates with the Azure AD v1.0
 
 For more specific information, read about the differences between [ADAL.NET and MSAL.NET](msal-compare-msaldotnet-and-adaldotnet.md) and [ADAL.js and MSAL.js](msal-compare-msaljs-and-adaljs.md).
 
-             
-
-
-## Next steps
-* Learn about the [application scenarios](v2-scenarios-overview.md) where you can use MSAL.
+            
