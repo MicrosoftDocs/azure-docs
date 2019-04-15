@@ -32,6 +32,9 @@ For customers with Software Assurance, Azure Hybrid Benefit for Windows Server a
 > For classic VMs, only deploying new VM from on premises custom images is supported. To take advantage of the capabilities supported in this article, you must first migrate classic VMs to Resource Manager model.
 >
 
+> [!NOTE]
+> If you already have your SQL VMS on Azure and they are converted from Payasyougo to AHUB and if there is a requirement to add this machines to Availability Set, then you can redeploy the VMS and attach existing disks. This will change your license back to payasyougo so you need to again change back to AHUB post redeployment
+>
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
 ## Ways to use Azure Hybrid Benefit for Windows Server
