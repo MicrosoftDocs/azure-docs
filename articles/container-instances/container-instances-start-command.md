@@ -1,18 +1,18 @@
 ---
 title: Use a starting command line in Azure Container Instances
-description: Override the command line in a container image when you run a container in Azure Container Instances
+description: Override the entrypoint configured in a container image when you deploy an Azure container instance
 services: container-instances
 author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: danlep
 ---
 
-# Set a command line in a container instance to override the default container command line
+# Set the command line in a container instance to override the default command line operation
 
-When you create a container instance, optionally specify a command line to override the command line baked into the container image. This behavior is similar to the `--entrypoint` command-line argument to `docker run`.
+When you create a container instance, optionally specify a command to override the default command line instruction baked into the container image. This behavior is similar to the `--entrypoint` command-line argument to `docker run`.
 
 Like setting [environment variables](container-instances-environment-variables.md) for container instances, specifying a starting command line is useful for batch jobs where you need to prepare each container dynamically with task-specific configuration.
 
@@ -24,7 +24,7 @@ Like setting [environment variables](container-instances-environment-variables.m
 
 * Depending on the container configuration, you might need to set a full path to the command line executable or arguments.
 
-* Set an appropriate [restart policy](container-instances-restart-policy.md) for the container instance, depending on whether the command-line specifies a long-running task or a run-once task.
+* Set an appropriate [restart policy](container-instances-restart-policy.md) for the container instance, depending on whether the command-line specifies a long-running task or a run-once task. For example, a restart policy of `Never` or `OnFailure` is recommended for a run-once task. 
 
 * If you need information about the default entrypoint set in a container image, use the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command.
 
