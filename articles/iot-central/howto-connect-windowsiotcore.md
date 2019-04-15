@@ -32,7 +32,7 @@ An application created from the **Sample Devkits** application template includes
 - Setting to control **Fan Speed**.
 - A device property **Die number** and a cloud property **Location**.
 
-For full details on the configuration of the device template, see [Windows IoT Core Device template details](#windows-iot-core-device-template-details).
+For full details on the configuration of the device template, see [Windows IoT Core Device template details](#device-template-details).
 
 ## Add a real device
 
