@@ -169,7 +169,7 @@ You can find more detailed information about Azure Search's [index attributes he
 
 The attributes you select have an impact on storage. The following screenshot illustrates index storage patterns resulting from various combinations of attributes.
 
-The index is based on the [built-in realestate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
+The index is based on the [built-in real estate sample](search-get-started-portal.md) data source, which you can index and query in the portal. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the **searchable** attribute selected and nothing else, *realestate-retrievable* index has the **retrievable** attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 

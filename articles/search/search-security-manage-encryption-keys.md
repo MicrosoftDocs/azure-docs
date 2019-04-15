@@ -22,7 +22,7 @@ Azure Search service encryption is integrated with Azure Key Vault, so that you 
 > **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
 
 ## Get started with customer-managed keys
-To create an Azure search index or synonym-map that is encrypted with a customer-managed key, you can either create a new Azure Key vault and key or use an existing key vault and key. Note that different indexes\synonym-maps in the same search service may use different keys from different Key vaults, or may not be encrypted using customer managed keys at all, if not required.  
+To create an Azure search index or synonym-map that is encrypted with a customer-managed key, you can either create a new Azure Key vault and key or use an existing key vault and key. Notice that different indexes\synonym-maps in the same search service may use different keys from different Key vaults, or may not be encrypted using customer managed keys at all, if not required.  
 
 >[!Note] 
 > Encryption with customer managed keys is configured at the index or synonym-map level, and not on the search service level. This means a single search service can host multiple encrypted indexes\synonym-maps, each encrypted potentially using a different customer managed key, alongside indexes\synonym-maps that are not encrypted using customer managed keys   
@@ -83,7 +83,7 @@ In some topologies using a managed system assigned identity is not possible, for
 To accommodate such topologies, Azure search supports using Azure Active Directory (AAD) applications for authentication between your search service and Key Vault.    
 To create an AAD application in the portal:
 1. Create a new application [Create an Azure Active Directory application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application)
-2. Make a note of the **application Id** and **authentication key** [Get application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) as those will be required for creating an encrypted index.
+2. Make a note of the **application ID** and **authentication key** [Get application ID and authentication key](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-application-id-and-authentication-key) as those will be required for creating an encrypted index.
 
 >[!Note]
 > When deciding to use an AAD application of authentication instead of using a system assigned identity, consider the fact that Azure search is not authorized to manage your AAD application on your behalf, and it is up to you to manage your AAD application, like periodically rotating the application authentication key.
@@ -99,7 +99,7 @@ To grant access permissions in the portal:
 1. Sign in to [Azure portal](https://portal.azure.com) and open your key vault overview page. Select the **Access policies** setting from the left navigation pane, and click **+Add new**
 ![Add new key vault access policy](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Add new key vault access policy")
 
-2. Click **Select principal** and select your Azure Search service. You can search it by name or by the object id that was displayed after enabling MSI
+2. Click **Select principal** and select your Azure Search service. You can search it by name or by the object ID that was displayed after enabling MSI
 ![Select key vault access policy principal](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Select key vault access policy principal")
 
 3. Next, click on **Key permissions** and select *Get*, *Unwrap Key* and *Wrap Key*. You can use the *Azure Data Lake Storage or Azure Storage* template to quickly select the required permissions.
@@ -131,7 +131,8 @@ Using the **key vault Uri**, **key name** and the **key version** of your Key va
   }
 }
 ```
-> Note that none of these key vault details is considered a secret and could be easily retrieved by browsing to the relevant Azure Key vault key page in Azure portal.
+> [!Note] 
+> None of these key vault details are considered secret and could be easily retrieved by browsing to the relevant Azure Key vault key page in Azure portal.
 
 If you are using an AAD application for Key Vault authentication instead of using a managed system assigned identity, add the AAD application **access credentials** to your encryption key: 
 ```json
