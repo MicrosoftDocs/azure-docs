@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 02/15/2019
+ms.date: 04/15/2019
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -44,7 +44,7 @@ If you specify an image that Azure Container Instances doesn't support, an `OsVe
 
 This error is most often encountered when deploying Windows images that are based on a Semi-Annual Channel (SAC) release. For example, Windows versions 1709 and 1803 are SAC releases, and generate this error upon deployment.
 
-Azure Container Instances currently supports Windows images based only on the **Windows Server 2016 Long-Term Servicing Channel (LTSC)** release. To mitigate this issue when deploying Windows containers, always deploy Windows Server 2016 (LTSC)-based images. Images based on Windows Server 2019 (LTSC) are not supported.
+Azure Container Instances currently supports Windows images based only on the **Windows Server 2019 or 2016 Long-Term Servicing Channel (LTSC)** releases. To mitigate this issue when deploying Windows containers, always deploy Windows Server 2019 or 2016 (LTSC)-based images.
 
 For details about the LTSC and SAC versions of Windows, see [Windows Server Semi-Annual Channel overview][windows-sac-overview].
 
@@ -98,7 +98,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image mcr.microsoft.com/windows/servercore:ltsc2019
  --command-line "ping -t localhost"
 ```
 
@@ -176,9 +176,11 @@ Another way to reduce the impact of the image pull on your container's startup t
 
 Azure Container Instances uses a caching mechanism to help speed container startup time for images based on common Windows and Linux images. For a detailed list of cached images and tags, use the [List Cached Images][list-cached-images] API.
 
-To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following **two images** as the base image:
+To ensure the fastest Windows container startup time, use one of the **three most recent** versions of the following images as the base image:
 
+* [Windows Server Core 2019][docker-hub-windows-core] (LTSC only)
 * [Windows Server Core 2016][docker-hub-windows-core] (LTSC only)
+* [Windows Server 2019 Nano Server][docker-hub-windows-nano]
 * [Windows Server 2016 Nano Server][docker-hub-windows-nano]
 
 ### Windows containers slow network readiness
