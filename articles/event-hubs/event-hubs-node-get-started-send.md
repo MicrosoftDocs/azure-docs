@@ -1,5 +1,5 @@
 ---
-title: Send events using Node.js - Azure Event Hubs | Microsoft Docs
+title: Send and receive events using Node.js - Azure Event Hubs | Microsoft Docs
 description: This article provides a walkthrough for creating a Node.js application that sends events from Azure Event Hubs.
 services: event-hubs
 author: spelluru
@@ -9,16 +9,16 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.custom: seodec18
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.author: spelluru
 
 ---
 
-# Send events to Azure Event Hubs using Node.js
+# Send events to or receive events from Azure Event Hubs using Node.js
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service that can receive and process millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-This tutorial describes how to send events to an event hub from an application written in Node.js.
+This tutorial describes how to create Node.js applications to send events to or receive events from an event hub.
 
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
@@ -35,7 +35,7 @@ To complete this tutorial, you need the following prerequisites:
 
 
 ## Send events
-
+This section shows you how to create a Node.js application that sends events to an event hub. 
 
 ### Install Node.js package
 Install Node.js package for Azure Event Hubs on your machine. 

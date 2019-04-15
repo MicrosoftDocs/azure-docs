@@ -1,5 +1,5 @@
 ---
-title: Send events using the .NET Framework - Azure Event Hubs | Microsoft Docs
+title: Send and receive events using the .NET Framework - Azure Event Hubs | Microsoft Docs
 description: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
@@ -18,10 +18,10 @@ ms.date: 04/15/2019
 ms.author: shvija
 
 ---
-# Send events to Azure Event Hubs using the .NET Framework
+# Send events to or receive events from Azure Event Hubs using .NET Framework
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-This tutorial shows how to send events to an event hub using a console application written in C# using the .NET Framework. 
+This tutorial shows how to create .NET Framework console applications in C# to send events to or receive events from an eventhub. 
 
 ## Prerequisites
 To complete this tutorial, you need the following prerequisites:
@@ -30,6 +30,7 @@ To complete this tutorial, you need the following prerequisites:
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the event hub namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
 
 ## Send events 
+This section shows you how to create a .NET Framework console application to send events to an event hub. 
 
 ### Create a console application
 

@@ -1,5 +1,5 @@
 ---
-title: Send events using Python - Azure Event Hubs | Microsoft Docs
+title: Send or receive events using Python - Azure Event Hubs | Microsoft Docs
 description: This article provides a walkthrough for creating a Python application that sends events to Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
@@ -8,16 +8,16 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 04/15/2019
 ms.author: shvija
 
 ---
 
-# Send events to Event Hubs using Python
+# Send events to or receive events from Event Hubs using Python
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-This tutorial describes how to send events to an event hub from an application written in Python. 
+This tutorial describes how to create Python applications to send events to or reecive events from an event hub. 
 
 > [!NOTE]
 > You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
