@@ -21,7 +21,7 @@ You can host function apps in a couple of ways:
 * There's a set of plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The Consumption plan, which scales dynamically in response to load and offers minimal network isolation options.
     * The Premium plan, which also scales dynamically, while offering more comprehensive network isolation.
-    * The App Service plan, which operates at a fixed scale and offers similar network isolation to the Premium plan.
+    * The Azure App Service plan, which operates at a fixed scale and offers similar network isolation to the Premium plan.
 * You can run functions on an App Service Environment. This method deploys your function into your virtual network and offers full network control and isolation.
 
 ## Matrix of networking features
@@ -29,9 +29,9 @@ You can host function apps in a couple of ways:
 |                |[Consumption plan](functions-scale.md#consumption-plan)|⚠ [Premium plan](functions-scale.md##premium-plan-public-preview)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Virtual network integration](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Preview of virtual network integration (Azure ExpressRoute and service endpoints)](#preview-vnet-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
-|[Hybrid connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Virtual network integration](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
+|[Preview of virtual network integration (Azure ExpressRoute and service endpoints)](#preview-version-of-virtual-network-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
+|[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[Private site access](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ This preview feature is not for production use.
@@ -79,7 +79,7 @@ To learn more about using the preview version of virtual network integration, se
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application, as long as you're accessing a TCP listening port. The Hybrid Connections feature does not know or care what the application protocol is, or what you're accessing. It simply provides network access.
 
-To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports both Functions and Web Apps.
+To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports both Functions and the Web Apps feature of App Service.
 
 ## Private site access
 
