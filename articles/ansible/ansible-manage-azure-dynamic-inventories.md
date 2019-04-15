@@ -128,7 +128,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    If you do receive the "host-key verication" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
+    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
 
     ```bash
     host_key_checking = False
@@ -148,13 +148,13 @@ Once you've set the desired tag, you need to "enable" the tag. One way to enable
 export AZURE_TAGS=nginx
 ```
 
-- If you are using Ansible < 2.8, run the following command:
+- If you're using Ansible < 2.8, run the following command:
 
     ```bash
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping
     ```
 
-- If you are using Ansible >=  2.8, run the following command:
+- If you're using Ansible >=  2.8, run the following command:
   
     ```bash
     ansible all -m ping -i ./myazure_rm.yml
@@ -200,13 +200,13 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 
 1. Run the `nginx.yml` playbook:
 
-   - If you are using Ansible < 2.8, run the following command:
+   - If you're using Ansible < 2.8, run the following command:
 
     ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-   - If you are using Ansible >= 2.8, run the following command:
+   - If you're using Ansible >= 2.8, run the following command:
 
     ```bash
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml
@@ -260,7 +260,7 @@ This section illustrates one technique to test that Nginx is installed on your v
 
 1. Press the **&lt;Ctrl>D** keyboard combination to disconnect the SSH session.
 
-1. Performing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
+1. Doing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
 
     ```Output
     tom@ansible-inventory-test-vm2:~$ nginx -v
