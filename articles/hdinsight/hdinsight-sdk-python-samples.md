@@ -4,7 +4,7 @@ description: Find Python examples on GitHub for common tasks using the HDInsight
 author: hrasheed-msft
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/05/2018
+ms.date: 04/15/2019
 ms.author: hrasheed
 
 ---

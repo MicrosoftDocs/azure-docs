@@ -4,7 +4,7 @@ description: Find Java examples on GitHub for common tasks using the HDInsight S
 author: hrasheed-msft
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 03/10/2018
+ms.date: 04/15/2019
 ms.author: hrasheed
 
 ---

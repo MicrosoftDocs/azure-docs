@@ -2,7 +2,7 @@
 author: tylerfox
 ms.service: hdinsight
 ms.topic: include
-ms.date: 04/10/20190
+ms.date: 04/15/2019
 ms.author: tyfox
 ---
 ## Additional SDK functionality
