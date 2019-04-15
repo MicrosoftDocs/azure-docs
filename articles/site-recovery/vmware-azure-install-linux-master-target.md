@@ -259,7 +259,7 @@ Use the following steps to create a retention disk:
 	
 	Select **Insert** to begin editing the file. Create a new line, and then insert the following text. Edit the disk multipath ID based on the highlighted multipath ID from the previous command.
 
-	**/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+	**/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
 	Select **Esc**, and then type **:wq** (write and quit) to close the editor window.
 

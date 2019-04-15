@@ -36,7 +36,7 @@ Then, use the following syntax to add a reference to the image in your article:
 
 These command examples use the following variables:
 
-$FriendlyName"<Describe value>"
+$FriendlyName"\<Describe value>"
 
 <!-- if it makes more sense to present this in a table, use this. Otherwise, delete. The table won't render until it's in GitHub or published to Sandbox.-->
 
