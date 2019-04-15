@@ -69,6 +69,6 @@ Set the environment variables for the following:
 * **PCS_AAD_APPID** - The AAD application ID
 * **PCS_AAD_APPSECRET** - The AAD application secret
 
-Configuration values will be read from this Azure Key Vault resource. These environment variables may be saved in the saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
+Configuration values will be read from this Azure Key Vault resource. These environment variables may be saved in the**\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
 
 Some of the configuration needed by the microservice is stored in an instance of **Key Vault** that was created on initial deployment. The corresponding variables in keyvault should be modified as needed.
