@@ -57,7 +57,7 @@ You can set [Time To Live (TTL)](time-to-live.md) on selected items within an Az
 
 By using [Change Feed](change-feed.md), you can subscribe to the operations log that is managed for each of the logical partitions of your container. The Change Feed provides the log of all the updates performed on the container along with the before and the after images of the items. See [How to build reactive applications using Change Feed](serverless-computing-database.md). You can also configure the retention duration for the Change Feed by using the change feed policy on the container. 
 
-You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md) and [merge procedures](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) with your Azure Cosmos container. 
+You can register [stored procedures, triggers, user-defined functions (UDFs)](stored-procedures-triggers-udfs.md) and [merge procedures](how-to-manage-conflicts.md) with your Azure Cosmos container. 
 
 You can specify a [unique key constraint](unique-keys.md) on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate the values specified by the unique key constraint. To learn more, see [Unique key constraints](unique-keys.md).
 
