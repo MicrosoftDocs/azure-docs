@@ -4,10 +4,11 @@ description: Learn how to create your first PowerShell function in Azure using t
 services: functions
 keywords:
 author: joeyaiello
-ms.author: jaiello
+manager: jeconnoc
+ms.author: jaiello, glenga
 ms.date: 02/04/2019
 ms.topic: quickstart
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: powershell
 ---
 
@@ -33,7 +34,7 @@ To run and debug functions locally, you will need to:
 
 To publish and run in Azure:
 
-* Install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
+* Install [Azure PowerShell](/powershell/azure/install-az-ps)
   OR install the [Azure CLI](cli/azure/install-azure-cli) version 2.x or later.
 * You need an active Azure subscription.
   [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -41,7 +42,7 @@ To publish and run in Azure:
 ## Create a local Functions project
 
 You can now create a local Functions project.
-This directory is the equivalent of a Function App in Azure.
+This directory is the equivalent of a function app in Azure.
 It can contain multiple functions that share the same local and hosting configuration.
 
 In the terminal window or from a command prompt, run the following commands:
@@ -71,7 +72,7 @@ A function will contain the actual script of yours that will get executed.
 To create a function, run the following command:
 
 ```powershell
-func new -l powershell -t HttpTrigger -n MyHttpTrigger
+func new -t HttpTrigger -n MyHttpTrigger
 ```
 
 > [!NOTE]
@@ -82,7 +83,7 @@ func new -l powershell -t HttpTrigger -n MyHttpTrigger
 You should see something like:
 
 ```output
-PS > func new -l powershell -t HttpTrigger -n MyHttpTrigger
+PS > func new -t HttpTrigger -n MyHttpTrigger
 Select a template: HttpTrigger
 Function name: [HttpTrigger] Writing .../MyFunctionProj/MyHttpTrigger/run.ps1
 Writing .../MyFunctionProj/MyHttpTrigger/sample.dat
@@ -91,7 +92,7 @@ The function "MyHttpTrigger" was created successfully from the "HttpTrigger" tem
 PS >
 ```
 
-Here we are using the "HttpTrigger" template.
+Here we are using the [HttpTrigger template](functions-bindings-http-webhook.md).
 It's a simple template that allows you to trigger your function using an HTTP request.
 
 Our directory structure should look like this:
@@ -133,9 +134,9 @@ Let's run through what each of these files do:
 * _sample.dat_ - Contains the sample data that will be displayed in the Azure Portal for testing purposes
 
 > [!NOTE]
-> For more information on input and output bindings, checkout the [Binding usage guide here]().
+> For more information about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
-We now have a function inside of a function app and are ready to run and test it out!
+Now that you have a function in your function app, you are ready to run it!
 
 ## Run the function locally
 

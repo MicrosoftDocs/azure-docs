@@ -70,13 +70,13 @@ func host start
 ```
 
 > [!NOTE]
-> If you're using VSCode to debug, make sure you run the Function App in a different console than the PowerShell Integrated Console.
+> If you're using Visual Studio Code to debug, make sure you run the function app in a different console than the PowerShell Integrated Console.
 
 From here, we're ready to either use VSCode, or a PowerShell Console, to debug our Function.
 
 ## Debugging a PowerShell Function App with Visual Studio Code
 
-With Visual Studio Code (or VSCode for short) and the PowerShell extension, you can debug local PowerShell Azure Functions with ease - right from your text editor. For more information on how to install VSCode and the PowerShell extension, see the docs [here](/powershell/scripting/components/vscode/using-vscode).
+With Visual Studio Code and the PowerShell extension, you can debug local PowerShell Azure Functions with ease - right from your text editor. For more information on how to install VSCode and the PowerShell extension, see the docs [here](/powershell/scripting/components/vscode/using-vscode).
 
 > [!ATTENTION]
 > Currently, PowerShell Function Apps are not integrated into the [Azure Functions extension for VSCode](functions-create-first-function-vs-code). You may still use it to manage your PowerShell Function Apps running in Azure, but the local create and debug experience is not available at this time.
