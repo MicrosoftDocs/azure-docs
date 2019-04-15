@@ -4,7 +4,7 @@ description: Describes the health reports sent by Azure Service Fabric component
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 52574ea7-eb37-47e0-a20a-101539177625
@@ -636,7 +636,7 @@ Other API calls that can get stuck are on the **IReplicator** interface. For exa
 
 - **IReplicator.CatchupReplicaSet**: This warning indicates one of two things. There are insufficient up replicas. To see if this is the case, look at the replica status of the replicas in the partition or the System.FM health report for a stuck reconfiguration. Or the replicas are not acknowledging operations. The PowerShell cmdlet `Get-ServiceFabricDeployedReplicaDetail` can be used to determine the progress of all the replicas. The problem lies with replicas whose `LastAppliedReplicationSequenceNumber` value is behind the primary's `CommittedSequenceNumber` value.
 
-- **IReplicator.BuildReplica(<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
+- **IReplicator.BuildReplica(\<Remote ReplicaId>)**: This warning indicates a problem in the build process. For more information, see [Replica lifecycle](service-fabric-concepts-replica-lifecycle.md). It might be due to a misconfiguration of the replicator address. For more information, see [Configure stateful Reliable Services](service-fabric-reliable-services-configuration.md) and [Specify resources in a service manifest](service-fabric-service-manifest-resources.md). It might also be a problem on the remote node.
 
 ### Replicator system health reports
 **Replication queue full:**

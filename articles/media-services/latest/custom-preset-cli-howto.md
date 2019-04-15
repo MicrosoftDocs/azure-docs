@@ -16,7 +16,7 @@ ms.author: juliako
 
 ---
 
-# How to encode with a custom transform by using CLI
+# How to encode with a custom transform - CLI
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart. You can also build a custom preset to target your specific scenario or device requirements.
 

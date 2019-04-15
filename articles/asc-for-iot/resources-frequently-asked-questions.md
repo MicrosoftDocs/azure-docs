@@ -1,7 +1,8 @@
 ---
-title: Frequently asked questions for ASC for IoT Preview| Microsoft Docs
-description: Find answers to the most frequently asked questions about ASC for IoT features and service.
-services: ASCforiot
+title: Frequently asked questions for Azure Security Center for IoT Preview| Microsoft Docs
+description: Find answers to the most frequently asked questions about Azure Security Center for IoT features and service.
+services: asc-for-iot
+ms.service: asc-for-iot
 documentationcenter: na
 author: mlottner
 manager: barbkess
@@ -17,14 +18,14 @@ ms.date: 03/25/2019
 ms.author: mlottner
 
 ---
-# ASC for IoT frequently asked questions  
+# Azure Security Center for IoT frequently asked questions  
 
 > [!IMPORTANT]
-> ASC for IoT is currently in public preview.
+> Azure Security Center for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article provides a list of frequently asked questions and answers about ASC for IoT. 
+This article provides a list of frequently asked questions and answers about Azure Security Center (ASC) for IoT. 
 
 ## Does Azure provide support for IoT security?
 
@@ -74,7 +75,7 @@ Detailed installation and agent deployment information can be found in GitHub: h
 
 ## What are the dependencies and prerequisites of the agent?
 
-ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](select-deploy-agent.md) to verify support for your specific devices. 
+ASC for IoT supports a wide variety of platforms. See [Supported Device platforms](how-to-deploy-agent.md) to verify support for your specific devices. 
 
 ## Which data is collected by the agent?
 
@@ -94,9 +95,9 @@ Yes. Agent transmitted data is counted in your IoT Hub quota.
 
 ## What next? I've installed an agent and don't see any activities or logs
 
-1. Check the [agent type fits the designated OS platform of your device](select-deploy-agent.md)
+1. Check the [agent type fits the designated OS platform of your device](how-to-deploy-agent.md)
 
-1. Confirm the [agent is running on the device](concept-agent-configuration.md).
+1. Confirm the [agent is running on the device](how-to-agent-configuration.md).
 
 2. Check the [service was enabled successfully](quickstart-onboard-iot-hub.md) to **Security** in your IoT Hub. 
 

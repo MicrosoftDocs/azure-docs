@@ -26,6 +26,8 @@ All of your users have a single *home* directory for authentication. However, yo
 
 > [!Important]
 > When you associate a subscription to a different directory, users that have roles assigned using [role-based access control (RBAC)](../../role-based-access-control/role-assignments-portal.md) will lose their access. Classic subscription administrators (Service Administrator and Co-Administrators) will also lose access.
+> 
+> Additionally, moving your Azure Kubernetes Service (AKS) cluster to a different subscription, or moving the cluster-owning subscription to a new tenant, causes the cluster to lose functionality due to lost role assignments and service principals rights. For more information about AKS, see [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## Before you begin
 
@@ -63,15 +65,16 @@ Before you can associate or add your subscription, you must perform the followin
 
     ![Directory switcher page, with sample information](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md). 
+Changing the subscription directory is a service-level operation, so it doesn't affect subscription billing ownership. The Account Admin can still change the Service Admin from the [Account Center](https://account.azure.com/subscriptions). To delete the original directory, you must transfer the subscription billing ownership to a new Account Admin. To learn more about transferring billing ownership, see [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md).
 
 ## Post association steps
-
 After you associate a subscription to a different directory, there might be additional steps that you must perform to resume operations.
 
 1. If you have any key vaults, you must change the key vault tenant ID. For more information, see [Change a key vault tenant ID after a subscription move](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](../../azure-stack/azure-stack-registration.md).
+2. If you have registered an Azure Stack using this subscription, you must re-register. For more information, see [Register Azure Stack with Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## Next steps
 

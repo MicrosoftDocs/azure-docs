@@ -48,28 +48,6 @@ Azure Stack has the following resource hierarchy:
 
 Access that you grant at a parent scope is inherited at child scopes. For example:
 
-* You assign the Reader role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
-* You assign the Contributor role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
-
-### Assigning roles
-
-You can assign more than one role to a user and each role can be associated with a different scope. For example:
-
-* You assign TestUser-A the Reader role to Subscription-1.
-* You assign TestUser-A the Owner role to TestVM-1.
-
-The Azure [role assignments](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) article provides detailed information about viewing, assigning, and deleting roles.
-
-### Resource hierarchy and inheritance
-
-Azure Stack has the following resource hierarchy:
-
-* Each subscription belongs to one directory.
-* Each resource group belongs to one subscription.
-* Each resource belongs to one resource group.
-
-Access that you grant at a parent scope is inherited at child scopes. For example:
-
 * You assign the **Reader** role to an Azure AD group at the subscription scope. The members of that group can view every resource group and resource in the subscription.
 * You assign the **Contributor** role to an application at the resource group scope. The application can manage resources of all types in that resource group, but not other resource groups in the subscription.
 

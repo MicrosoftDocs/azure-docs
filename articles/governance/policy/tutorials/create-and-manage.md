@@ -1,13 +1,11 @@
 ---
 title: Create and manage policies to enforce compliance
 description: Use Azure Policy to enforce standards, meet regulatory compliance and audit requirements, control costs, maintain security and performance consistency, and impose enterprise wide design principles.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.custom: mvc
 manager: carmonm
 ---
 # Create and manage policies to enforce compliance
@@ -36,15 +34,15 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Launch the Azure Policy service in the Azure portal by clicking **All services**, then searching for and selecting **Policy**.
 
-   ![Search for policy](../media/create-and-manage/search-policy.png)
+   ![Search for Policy in All Services](../media/create-and-manage/search-policy.png)
 
 1. Select **Assignments** on the left side of the Azure Policy page. An assignment is a policy that has been assigned to take place within a specific scope.
 
-   ![Select assignments](../media/create-and-manage/select-assignments.png)
+   ![Select Assignments from Policy Overview page](../media/create-and-manage/select-assignments.png)
 
 1. Select **Assign Policy** from the top of the **Policy - Assignments** page.
 
-   ![Assign a policy definition](../media/create-and-manage/select-assign-policy.png)
+   ![Assign a policy definition from Assignments page](../media/create-and-manage/select-assign-policy.png)
 
 1. On the **Assign Policy** page, select the **Scope** by clicking the ellipsis and selecting either a management group or subscription. Optionally, select a resource group. A scope determines what resources or grouping of resources the policy assignment gets enforced on.  Then click **Select** at the bottom of the **Scope** page.
 
@@ -56,7 +54,7 @@ the condition that all SQL Server databases must be v12.0 to be compliant.
 
 1. Select **Require SQL Server version 12.0**. If you can't find it right away, type **require sql server** into the search box and then press ENTER or click out of the search box. Click **Select** at the bottom of the **Available Definitions** page once you have found and selected the policy definition.
 
-   ![Locate a policy](../media/create-and-manage/select-available-definition.png)
+   ![Use search filter to locate a policy](../media/create-and-manage/select-available-definition.png)
 
 1. The **Assignment name** is automatically populated with the policy name you selected, but you can change it. For this example, leave *Require SQL Server version 12.0*. You can also add an optional **Description**. The description provides details about this policy assignment.  **Assigned by** is automatically filled based on who is logged in. This field is optional, so custom values can be entered.
 
@@ -73,7 +71,7 @@ series, the request is denied.
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   ![Definition under authoring](../media/create-and-manage/definition-under-authoring.png)
+   ![Definition page under Authoring group](../media/create-and-manage/definition-under-authoring.png)
 
 1. Select **+ Policy definition** at the top of the page. This button opens to the **Policy definition** page.
 
@@ -127,7 +125,7 @@ You can create a policy with the REST API for Policy Definitions. The REST API e
 create and delete policy definitions, and get information about existing definitions. To create a
 policy definition, use the following example:
 
-```http-interactive
+```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
@@ -166,8 +164,7 @@ Include a request body similar to the following example:
 ## Create a policy definition with PowerShell
 
 Before proceeding with the PowerShell example, make sure you've installed the latest version of
-Azure PowerShell. Policy parameters were added in version 3.6.0. If you have an earlier version,
-the examples return an error indicating the parameter can't be found.
+the Azure PowerShell Az module. 
 
 You can create a policy definition using the `New-AzPolicyDefinition` cmdlet.
 
@@ -345,11 +342,11 @@ overview](../overview.md).
 
 1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
 
-   ![Select definitions](../media/create-and-manage/definition-under-authoring.png)
+   ![Select definition from the Definitions page](../media/create-and-manage/definition-under-authoring.png)
 
 1. Select **+ Initiative Definition** at the top of the page to open the **Initiative definition** page.
 
-   ![Initiative definition](../media/create-and-manage/initiative-definition.png)
+   ![Review initiative definition page](../media/create-and-manage/initiative-definition.png)
 
 1. Use the **Definition location** ellipsis to select a management group or subscription to store the definition. If the previous page was scoped to a single management group or subscription, **Definition location** is automatically populated.
 
@@ -369,11 +366,11 @@ overview](../overview.md).
 
    After selecting the policy definition from the list, it's added under **Policies and Parameters**.
 
-   ![Initiative definitions](../media/create-and-manage/initiative-definition-2.png)
+   ![Review initiative definition parameters](../media/create-and-manage/initiative-definition-2.png)
 
 1. If a policy definition being added to the initiative has parameters, they're shown under the policy name in the **Policies and Parameters** area. The _value_ can be set to either 'Set value' (hard coded for all assignments of this initiative) or 'Use Initiative Parameter' (set during each initiative assignment). If 'Set value' is selected, the drop-down to the right of _Values_ allows entering or selecting the value(s). If 'Use Initiative Parameter' is selected, a new **Initiative parameters** section is displayed allowing you to define the parameter that is set during initiative assignment. The allowed values on this initiative parameter can further restrict what may be set during initiative assignment.
 
-   ![Initiative definition parameters](../media/create-and-manage/initiative-definition-3.png)
+   ![Change initiative definition parameters from allowed values](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > In the case of some `strongType` parameters, the list of values cannot be automatically
@@ -391,11 +388,11 @@ overview](../overview.md).
 
 1. Locate the **Get Secure** initiative definition you previously created and click it. Select **Assign** at the top of the page to open to the **Get Secure: Assign initiative** page.
 
-   ![Assign a definition](../media/create-and-manage/assign-definition.png)
+   ![Assign a definition from Initiative definition page](../media/create-and-manage/assign-definition.png)
 
    You can also right-click on the selected row or left-click on the ellipsis at the end of the row for a contextual menu.  Then select **Assign**.
 
-   ![Right-click a row](../media/create-and-manage/select-right-click.png)
+   ![Alternative options for an initiative](../media/create-and-manage/select-right-click.png)
 
 1. Fill out the **Get Secure: Assign Initiative** page by entering the following example information. You can use your own information.
 
@@ -415,11 +412,11 @@ overview](../overview.md).
 
 1. Locate the **Get Source** initiative. It's likely still in _Compliance state_ of **Not started**. Click on the initiative to get full details on the progress of the assignment.
 
-   ![Compliance - not started](../media/create-and-manage/compliance-status-not-started.png)
+   ![Initiative compliance page - evaluations not started](../media/create-and-manage/compliance-status-not-started.png)
 
 1. Once the initiative assignment has been completed, the compliance page is updated with the _Compliance state_ of **Compliant**.
 
-   ![Compliance - compliant](../media/create-and-manage/compliance-status-compliant.png)
+   ![Initiative compliance page- resources compliant](../media/create-and-manage/compliance-status-compliant.png)
 
 1. Clicking on any policy on the initiative compliance page opens the compliance details page for the policy. This page provides details at the resource level for compliance.
 
@@ -455,7 +452,7 @@ it an exception to this policy assignment.
 
 1. Set the **Exclusion** by clicking the ellipsis and selecting the resource group to exclude, *SQLServers_Excluded* in this example.
 
-   ![Request exclusion](../media/create-and-manage/request-exclusion.png)
+   ![Add an excluded resource group to the policy assignment](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Depending on the policy and its effect, the exclusion could also be granted to specific resources within a resource group inside the scope of the assignment. As a **Deny** effect was used in this tutorial, it would not make sense to set the exclusion on a specific resource that already exists.
