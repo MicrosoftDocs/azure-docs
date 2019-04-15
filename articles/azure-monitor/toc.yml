@@ -347,9 +347,7 @@
       - name: Java apps
         items:
         - name: Web apps
-          href: app/java-get-started.md
-        - name: Web apps - runtime
-          href: app/java-live.md
+          href: app/java-get-started.md        
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
