@@ -41,8 +41,8 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
  |Event Name|Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Raised when a blob is created or replaced. |
- |**Microsoft.Storage.BlobDeleted** |Raised when a blob is deleted. |
+ |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. |
+ |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. |
 
 ## List of the events for Azure Data Lake Gen 2
 
@@ -50,47 +50,20 @@ These events are available to storage accounts that have a hierarchical namespac
 
  |Event Name|Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated**|Raised when a blob is created or replaced. |
- |**Microsoft.Storage.BlobDeleted**|Raised when a blob is deleted. |
- |**Microsoft.Storage.BlobRenamed**|Raised when a blob is renamed. |
- |**Microsoft.Storage.DirectoryCreated**|Raised when a directory is created. |
- |**Microsoft.Storage.DirectoryRenamed**|Raised when a directory is renamed. |
- |**Microsoft.Storage.DirectoryDeleted**|Raised when a directory is deleted. |
+ |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. |
+ |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. |
+ |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. |
+ |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. |
 
 ## The contents of an event response
 
-When an event is raised, the Event Grid service sends data about that event to subscribing endpoint. For example, if you've subscribed an endpoint to the **Microsoft.Storage.BlobCreated** event, and a file is uploaded to the account, then that endpoint would receive data similar to the following:
+When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint.
 
-```json
-[{
-  "topic": "/subscriptions/319a9601-1ec0-0000-aebc-8fe82724c81e/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myaccount",
-  "subject": "/blobServices/default/containers/testcontainer/blobs/file1.txt",
-  "eventType": "Microsoft.Storage.BlobCreated",
-  "eventTime": "2017-08-16T01:57:26.005121Z",
-  "id": "602a88ef-0001-00e6-1233-1646070610ea",
-  "data": {
-    "api": "PutBlockList",
-    "clientRequestId": "799304a4-bbc5-45b6-9849-ec2c66be800a",
-    "requestId": "602a88ef-0001-00e6-1233-164607000000",
-    "eTag": "0x8D4E44A24ABE7F1",
-    "contentType": "text/plain",
-    "contentLength": 447,
-    "blobType": "BlockBlob",
-    "url": "https://myaccount.blob.core.windows.net/testcontainer/file1.txt",
-    "sequencer": "00000000000000EB000000000000C65A",
-  },
-  "dataVersion": "",
-  "metadataVersion": "1"
-}]
-```
-
-Like other json files, this file is a collection of keys and values. 
-
-To learn more about each key and their associated value, see the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article.
+To see an example of the data the Event Grid would send for each of these events, and to understand the purpose of each key value pair that appears in the data, see the [Blob storage events schema](../../event-grid/event-schema-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) article.
 
 ## Filtering events
 
-Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Subject filters in Event Grid work based on "begins with" and "ends with" matches, so that events with a matching subject are delivered to the subscriber. 
+Blob event subscriptions can be filtered based on the event type and by the container name and blob name of the object that was created or deleted.  Filters can be applied to event subscriptions either during the [creation](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest) of the event subscription or [at a later time](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest). Subject filters in Event Grid work based on "begins with" and "ends with" matches, so that events with a matching subject are delivered to the subscriber.
 
 The subject of Blob storage events uses the format:
 
