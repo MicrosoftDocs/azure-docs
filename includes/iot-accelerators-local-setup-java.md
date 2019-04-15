@@ -67,7 +67,7 @@ If you've not yet created the required Azure resources, follow these steps:
 If you've already created the required Azure resources, create the corresponding environment variables on your local machine.
 Set the environment variables for the following:
 * **PCS_KEYVAULT_NAME** - Name of the Azure Key Vault resource
-* **PCS_AAD_APPID** - The AAD application Id
+* **PCS_AAD_APPID** - The AAD application ID
 * **PCS_AAD_APPSECRET** - The AAD application secret
 
 Configuration values will be read from this Azure Key Vault resource. These may be saved in the **\<your home folder\>\\.pcs\\\<solution name\>.env** file from the deployment. Note that environment variables set on your local machine override values in the **services\\scripts\\local\\.env** file when you run **docker-compose**.
