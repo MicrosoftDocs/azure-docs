@@ -31,16 +31,19 @@ This article focuses on the following environments and tools:
 
 * [Azure Databricks](#aml-databricks): A popular data analytics platform that's based on Apache Spark. Learn how to get the Azure Machine Learning SDK onto your cluster so that you can deploy models.
 
+* [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service that's hosted in the Azure cloud. Also an easy way to get started, because the Azure Machine Learning SDK is already installed.  
+
 If you already have a Python 3 environment, or just want the basic steps for installing the SDK, see the [Local computer](#local) section.
 
 ## Prerequisites
 
 - An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
 
-- Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
+A workspace is all you need to get started with your [Azure Notebooks](#aznotebooks), a [DSVM](#dsvm), or [Azure Databricks](#aml-databricks).
 
-    > [!IMPORTANT]
-    > Anaconda and Miniconda are not required when you're using Azure Notebooks.
+To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
+
+- Either the [Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
 
 - On Linux or macOS, you need the bash shell.
 
@@ -51,14 +54,15 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 ## <a id="aznotebooks"></a>Azure Notebooks
 
-[Azure Notebooks](https://notebooks.azure.com) (preview) is an interactive development environment in the Azure cloud. It's the easiest way to get started with Azure Machine Learning development.
+[Azure Notebooks](https://notebooks.azure.com) (preview) is an interactive development environment in the Azure cloud. It's an easy way to get started with Azure Machine Learning development.
 
 * The Azure Machine Learning SDK is already installed.
 * After you create an Azure Machine Learning service workspace in the Azure portal, you can click a button to automatically configure your Azure Notebook environment to work with the workspace.
 
-To get started developing with Azure Notebooks, see [Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+Use the [Azure portal](https://portal.azure.com) to get started with Azure Notebooks.  Open your workspace and  from the  **Overview** section, select **Get Started in Azure Notebooks**.
 
-By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+By default, Azure Notebooks uses a free service tier that is limited to 4GB of memory and 1GB of data. You can, however, remove these limits by attaching a Data Science Virtual Machine instance to the Azure Notebooks project. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).	
+
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -311,8 +315,8 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
       
    Also consider:
    + In Automl config, when using Azure Databricks please add the following parameters:
-    1. ```max_concurrent_iterations``` based on number of worker nodes in your cluster. 
-    2. ```spark_context=sc``` #databricks/spark default spark context. 
+        1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster. 
+        2. ```spark_context=sc``` is based on the default spark context. 
    + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
 If install was successful, the imported library should look like one of these:
@@ -343,7 +347,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 }
 ```
 
-This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 To use this file from your code, use `ws=Workspace.from_config()`. This code loads the information from the file and connects to your workspace.
 
@@ -372,7 +376,8 @@ You can create the configuration file in three ways:
         print('Workspace not found')
     ```
 
-    This code writes the configuration file to the *aml_config/config.json* file.
+    This code writes the configuration file to the *.azureml/config.json* file.
+
 
 ## Next steps
 

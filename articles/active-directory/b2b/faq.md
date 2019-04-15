@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/02/2019
+ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
@@ -51,13 +51,13 @@ Yes. Guest objects aren't visible in your organization's global address list (GA
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
 
 ### Does Azure AD B2B collaboration allow B2B users to access the Azure portal?
-Unless a user is assigned the role of limited administrator or global administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator or global administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
+Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
 ### Can I block access to the Azure portal for guest users?
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
 To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
-   ![Screenshot showing All Users group where UserType is not equal Guest ](media/faq/modify-all-users-group.png)
+   ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
    ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
 3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:

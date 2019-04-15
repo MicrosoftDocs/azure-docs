@@ -34,7 +34,7 @@ The following table lists the different ways that you can use metric data in Azu
 | Alert | Configure a [metric alert rule](alerts-metric.md) that sends a notification or takes [automated action](action-groups.md) when the metric value crosses a threshold. |
 | Automate |  Use [Autoscale](autoscale-overview.md) to increase or decrease resources based on a metric value crossing a threshold. |
 | Export | [Route Metrics to Logs](diagnostic-logs-stream-log-store.md) to analyze data in Azure Monitor Metrics together with data in Azure Monitor Logs and to store metric values for longer than 93 days.<br>Stream Metrics to an [Event Hub](stream-monitoring-data-event-hubs.md) to route them to external systems. |
-| Retrieve | Access metric values from a command line using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/azure/monitor/metrics). |
+| Retrieve | Access metric values from a command line using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Access metric values from custom application using [REST API](rest-api-walkthrough.md).<br>Access metric values from a command line using  [CLI](/cli/azure/monitor/metrics). |
 | Archive | [Archive](..//learn/tutorial-archive-data.md) the performance or health history of your resource for compliance, auditing, or offline reporting purposes. |
 
 
