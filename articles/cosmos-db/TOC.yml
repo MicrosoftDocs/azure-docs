@@ -606,6 +606,10 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
+    - name: Change Feed
+      items:
+      - name: Independent Azure Cosmos DB Trigger
+        href: how-to-multiple-triggers.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK
