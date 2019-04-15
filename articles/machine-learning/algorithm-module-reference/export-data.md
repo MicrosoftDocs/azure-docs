@@ -25,7 +25,7 @@ This article describes how to use the  **Export Data** module in Azure Machine L
 This module supports exporting or saving your data to the following cloud data services:
 
 
-- **Export to Azure Blob Storage**: Saves data to the Blob service in Azure. This option is useful for images, unstructured text, or binary data. Data in the Blob service can be shared publicly or saved in secured application data stores.
+- **Export to Azure Blob Storage**: Saves data to the Blob service in Azure. Data in the Blob service can be shared publicly or saved in secured application data stores.
 
   
 ## How to configure Export Data

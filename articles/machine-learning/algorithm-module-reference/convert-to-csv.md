@@ -25,7 +25,7 @@ This article describes how to use the **Convert to CSV** module in Azure Machine
 
 ### More about the CSV format 
 
-The CSV format, which stands for "comma-separated values", is a file format used by many external machine learning tools. Although the native dataset format used by Azure Machine Learning is based on the .NET datatable and thus can be read by .NET libraries, CSV is a common interchange format when working with open-source languages such as R or Python.
+The CSV format, which stands for "comma-separated values", is a file format used by many external machine learning tools. CSV is a common interchange format when working with open-source languages such as R or Python.
 
 Even if you do must of your work In Azure Machine Learning, there are times when you might find it handy to convert your dataset to CSV to use in external tools. For example:
 

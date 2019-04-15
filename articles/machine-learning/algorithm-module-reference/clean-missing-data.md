@@ -39,7 +39,7 @@ This module also outputs a definition of the transformation used to clean the mi
 
 This module lets you define a cleaning operation. You can also save the cleaning operation so that you can apply it later to new data. See the following links for a description of how to create and save a cleaning process: 
  
-+ To replace missing values]
++ To replace missing values
   
 + To apply a cleaning transformation to new data
  
@@ -82,8 +82,7 @@ Each time that you apply the  [Clean Missing Data](./clean-missing-data.md) modu
   
     You define the number as the ratio of missing values to all values in the column. By default, the **Maximum missing value ratio** is set to 1. This means that missing values are cleaned even if 100% of the values in the column are missing.  
   
-    > [!NOTE]
-    > When you set a threshold using the options  **Minimum missing value ratio** or **Maximum missing value ratio**, the cleaning operation cannot be performed if even one of the selected columns does not meet the criteria.
+   
   
 5. For **Cleaning Mode**, select one of the following options for replacing or removing missing values:  
   
@@ -138,7 +137,7 @@ If you need to repeat cleaning operations often, we recommend that you save your
   
 4.  Connect the saved transformation to the left input port of [Apply Transformation](./apply-transformation.md). 
 
-    When you apply a saved transformation, you cannot select the columns to which the transformation are applied. That is because the transformation has been already defined and applies automatically to the data types specified in the original operation.
+    When you apply a saved transformation, you cannot select the columns to which the transformation are applied. That is because the transformation has been already defined and applies automatically to the columns specified in the original operation.
 
     However, suppose you created a transformation on a subset of numeric columns. You can apply this transformation to a dataset of mixed column types without raising an error, because the missing values are changed only in the matching numeric columns.
 

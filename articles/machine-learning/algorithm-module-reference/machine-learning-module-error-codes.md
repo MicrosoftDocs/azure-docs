@@ -2094,7 +2094,7 @@ Resolution:
  This error in Azure Machine Learning occurs when there are not enough unique values in the selected column to perform the operation.  
   
 **Resolution:**
- Some operations perform statistical operations on feature and categorical columns, and if there are not enough values, the operation might fail or return an invalid result. Check your dataset to see how many values there are in the feature and label columns, and determine whether the operation you are trying to perform is statistically valid.  
+ Some operations perform statistical operations on feature and categorical columns, and if there are not enough values, the operation might fail or return an invalid result. Check your dataset to see how many values there are in the fature and label columns, and determine whether the operation you are trying to perform is statistically valid.  
   
  If the source dataset is valid, you might also check whether some upstream data manipulation or metadata operation has changed the data and removed some values.  
   
