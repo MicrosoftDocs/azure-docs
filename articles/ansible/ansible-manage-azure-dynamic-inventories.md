@@ -12,8 +12,6 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure dynamics inventories of your Azure resources using Ansible
 
-[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
-
 Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use the [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) to configure an Ansible Azure Dynamic Inventory in which you create two virtual machines, tag one of those virtual machines, and install Nginx on the tagged virtual machine.
 
 ## Prerequisites
@@ -64,12 +62,13 @@ Enter the following [az resource tag](/cli/azure/resource?view=azure-cli-latest.
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
-
 ## Generate a dynamic inventory
 
-### For usere using Ansible version < 2.8
+Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory.
 
-Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory. Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
+## Using Ansible version < 2.8
+
+Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources by making API requests to the Azure Resource Manager. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
@@ -104,11 +103,11 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
     }
     ```
 
-### For user using Ansible version >= 2.8
+### Ansible version >= 2.8
 
-From Ansible 2.8, Ansible provides [Azure dynamic inventory plugin](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). Please  follow below instruction if you're using Ansible >=2.8.
+Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](https://github.com/ansible/ansible/blob/devel/lib/ansible/plugins/inventory/azure_rm.py). The following steps walk you through using the plugin:
 
-- Prepare configuration file. The inventory plugin requires a YAML configuration file whose name ends with `azure_rm.(yml|yaml)`. Sample configuration file as below:
+1. The inventory plugin requires a configuration file. The configuration file must end in `azure_rm` and have an extension of either `yml` or `yaml`. For this tutorial example, save the following playbook as `myazure_rm.yml`:
 
     ```yaml
     plugin: azure_rm
@@ -117,21 +116,19 @@ From Ansible 2.8, Ansible provides [Azure dynamic inventory plugin](https://gith
     auth_source: auto
     ```
 
-  save it as `myazure_rm.yml`.
-
-- Run below command to ping VMs in your resource group created above:
+1. Run the following command to ping VMs in the resource group:
 
   ```bash
   ansible all -m ping -i ./myazure_rm.yml
   ```
 
-  If you meet error like `Failed to connect to the host via ssh: Host key verification failed.`.  Pls do below configuration line in `/etc/ansible/ansible.cfg`
+1. If you receive an error such as **Failed to connect to the host via ssh: Host key verification failed.**, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
   
   ```bash
   host_key_checking = False
   ```
 
-- Once connected,  you see reuslts similiar to the following output:
+1. When you run the playbook, you see results similar to the following output:
   
   ```Output
   PLAY RECAP ***********************************************************************************************************************************************************************************
@@ -277,4 +274,4 @@ This section illustrates one technique to test that Nginx is installed on your v
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Create a basic virtual machine in Azure with Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Quickstart: Configure Linux virtual machines in Azure using Ansible](/azure/virtual-machines/linux/ansible-create-vm)
