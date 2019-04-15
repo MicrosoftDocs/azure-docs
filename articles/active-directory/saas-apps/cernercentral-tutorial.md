@@ -180,7 +180,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Cerner Central test user
 
-**Cerner Central** application allows authentication from any federated identity provider. If a user is able to log in to the application home page, they are federated and have no need for any manual provisioning. You can find more details [here](cernercentral-provisioning-tutorial.md) on how to configure automatic user provisioning.
+**Cerner Central** application allows authentication from any federated identity provider. If a user is able to sign in to the application home page, they are federated and have no need for any manual provisioning. You can find more details [here](cernercentral-provisioning-tutorial.md) on how to configure automatic user provisioning.
 
 ### Test single sign-on
 
