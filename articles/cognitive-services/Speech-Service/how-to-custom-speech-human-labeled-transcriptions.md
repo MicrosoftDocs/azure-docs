@@ -14,10 +14,4 @@ ms.author: erhopf
 
 # How to create human-labeled transcriptions
 
-Content to be added...
-
-## Next steps
-
-* [Inspect and evaluate your data quality](placeholder)
-* [Train your model](placeholder)
-* [Deploy your model](placeholder)
+Add all contents from the appendix of the Custom portal docs...
