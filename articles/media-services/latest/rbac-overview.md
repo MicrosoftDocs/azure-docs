@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 # Role-based access control (RBAC) for Media Services accounts
 
-Currently, Azure Media Services does not define any custom roles specific to the service. Customers can use the built-in roles of **Owner** or **Contributor** to get full access to a Media Services account. The main difference between these roles is: the **Owner** can control who has access to a resource and the **Contributor** cannot. The built-in **Reader** account only has read access to the Media Services account. 
+Currently, Azure Media Services does not define any custom roles specific to the service. To get full access to the Media Services account, customers can use the built-in roles of **Owner** or **Contributor**. The main difference between these roles is: the **Owner** can control who has access to a resource and the **Contributor** cannot. The built-in **Reader** role can also be used but the user or application will only have read access to the Media Services APIs. 
 
 ## Design principles
 
