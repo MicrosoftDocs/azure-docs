@@ -169,7 +169,7 @@ To run the script, open a command prompt that has Python in its path, and then r
 start python recv.py
 ```
  
-# Next steps
+## Next steps
 Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
