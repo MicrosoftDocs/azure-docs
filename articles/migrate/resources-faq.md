@@ -58,7 +58,7 @@ The connection can be over the internet or use ExpressRoute with public peering.
 
 ### What network connectivity requirements are needed for Azure Migrate?
 
-We have the following URLs and ports needed for Azure Migrate to communicate with Azure documented [here](https://docs.microsoft.com/en-us/azure/migrate/concepts-collector#urls-for-connectivity).
+For the URLs and ports needed for Azure Migrate to communicate with Azure, see [URLs for connectivity](https://docs.microsoft.com/azure/migrate/concepts-collector#urls-for-connectivity).
 
 ### Can I harden the VM set up with the OVA template?
 
