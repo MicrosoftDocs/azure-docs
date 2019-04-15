@@ -16,25 +16,30 @@ This article provides the properties and schema for blob storage events. For an
 
 For a list of sample scripts and tutorials, see [Storage event source](event-sources.md#storage).
 
-## Available event types
+## List of events
 
  The following events are available to all storage accounts.  
 
- |Event type |Description|
+ |Event name |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. |
 
 ## List of the events for Azure Data Lake Gen 2
 
-These events are available to storage accounts that have a hierarchical namespace.
+These events are available in public preview to storage accounts that have a hierarchical namespace.
 
- |Event type|Description|
+> [!NOTE]
+> These events are available only the **West US 2** and **West Central US** regions.
+
+ |Event name|Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. |
  |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. |
  |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. |
  |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. |
+
+<a id="example-event" />
 
 ## The contents of an event response
 
@@ -72,14 +77,16 @@ This section contains an example of what that data would look like for each blob
 
 ### Microsoft.Storage.BlobCreated event (Data Lake Storage Gen2)
 
-If the blob storage accounts that have a hierarchical namespace enabled, and a file is uploaded to the account, then that endpoint would receive a version of the data similar to the previous example, but with these differences:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
 
 * The `dataVersion` key is set to a value of `2`.
+
 * The `data.api` key is set to the string `CreateFile`.
+
 * The `contentOffset` key is included in the data set.
 
 > [!NOTE]
-> If applications or tools use the `PutBlockList` operation to upload a new blob to the account, the Event Grid service sends data to the subscribing endpoint in a form similar to the previous example.
+> If applications use the `PutBlockList` operation to upload a new blob to the account, the data won't contain these changes.  
 
 ```json
 [{
@@ -135,14 +142,16 @@ If the blob storage accounts that have a hierarchical namespace enabled, and a f
 
 ### Microsoft.Storage.BlobDeleted event (Data Lake Storage Gen2)
 
-If the blob storage accounts that have a hierarchical namespace enabled, and a file is deleted from the account, then that endpoint would receive a version of the data similar to the previous example, but with these differences:
+If the blob storage account has a hierarchical namespace, the data looks similar to the previous example with the exception of the these changes:
 
 * The `dataVersion` key is set to a value of `2`.
+
 * The `data.api` key is set to the string `DeleteFile`.
+
 * The `url` key contains the path `dfs.core.windows.net`.
 
 > [!NOTE]
-> If applications or tools use the `DeleteBlob` operation to delete a blob from the account, the Event Grid service sends data to the subscribing endpoint in a form similar to the previous example.
+> If applications use the `DeleteBlob` operation to delete a blob from the account, the data won't contain these changes.
 
 ```json
 [{
@@ -293,11 +302,11 @@ The data object has the following properties:
 | contentType | string | The content type specified for the blob. |
 | contentLength | integer | The size of the blob in bytes. |
 | blobType | string | The type of blob. Valid values are either "BlockBlob" or "PageBlob". |
-| contentOffset | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
-| destinationUrl |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `data.destinationUrl` property contains the url of the new file name. Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
-| data.sourceUrl |string | The url of the file that exists prior to the operation. For example, if a file is renamed, the `data.sourceUrl` contains the url of the original file name prior to the rename operation. Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
+| contentOffset | number | The offset in bytes of a write operation taken at the point where the event-triggering application completed writing to the file. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
+| destinationUrl |string | The url of the file that will exist after the operation completes. For example, if a file is renamed, the `data.destinationUrl` property contains the url of the new file name. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace.|
+| data.sourceUrl |string | The url of the file that exists prior to the operation. For example, if a file is renamed, the `data.sourceUrl` contains the url of the original file name prior to the rename operation. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | url | string | The path to the blob. |
-| recursive| string| `True` to perform the operation on all child directories; otherwise `False`. Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
+| recursive| string| `True` to perform the operation on all child directories; otherwise `False`. <br>Appears only for events triggered on blob storage accounts that have a hierarchical namespace. |
 | sequencer | string | An opaque string value representing the logical sequence of events for any particular blob name.  Users can use standard string comparison to understand the relative sequence of two events on the same blob name. |
 | storageDiagnostics | object | Diagnostic data occasionally included by the Azure Storage service. When present, should be ignored by event consumers. |
 

@@ -46,7 +46,10 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
 ## List of the events for Azure Data Lake Gen 2
 
-These events are available to storage accounts that have a hierarchical namespace.
+These events are available in public preview to storage accounts that have a hierarchical namespace..
+
+> [!NOTE]
+> These events are available only the **West US 2** and **West Central US** regions.
 
  |Event Name|Description|
  |----------|-----------|
