@@ -10,7 +10,6 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: kgremban
 ---
-
 # Get started with device twins (Python)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
