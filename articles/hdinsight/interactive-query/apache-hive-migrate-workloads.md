@@ -11,7 +11,7 @@ ms.date: 04/15/2019
 ---
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
-This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6 which runs on Hive 2.
+This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6, which runs on Hive 2.
 
 This article covers the following subjects:
 
@@ -42,7 +42,7 @@ The actual data from the tables, however, is not accessible until the cluster ha
 > [!Note]
 > Tables are treated differently in HDInsight 3.6 and HDInsight 4.0. For this reason, you cannot share the same tables for clusters of different versions. If you want to use HDInsight 3.6 at the same time as HDInsight 4.0, you must have separate copies of the data for each version.
 
-Your Hive workload may include a mix of ACID and non-ACID tables. One key difference between Hive on HDInsight 3.6 (Hive 2) and Hive on HDInsight 4.0 (Hive 3) is that in HDInsight 3.6, enabling Hive ACID compliance requires additional configuration whereas Hive 3 (HDInsight 4.0) tables are ACID compliant by default. The only action required before migration is to run a major compaction against the ACID table on the 3.6 cluster: From the Hive view or from Beeline, run the following query:
+Your Hive workload may include a mix of ACID and non-ACID tables. One key difference between Hive on HDInsight 3.6 (Hive 2) and Hive on HDInsight 4.0 (Hive 3) is that in HDInsight 3.6, enabling Hive ACID compliance requires additional configuration whereas Hive 3 (HDInsight 4.0) tables are ACID-compliant by default. The only action required before migration is to run a major compaction against the ACID table on the 3.6 cluster: From the Hive view or from Beeline, run the following query:
 
 ```bash
 alter table myacidtable compact 'major';
@@ -69,11 +69,11 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 1. Download the [DAS package installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-mpack.sh) and run it on both cluster headnodes. Do not execute this script as a script action.
 2. Download the [DAS service installation script](https://hdiconfigactions.blob.core.windows.net/dasinstaller/install-das-component.sh) and run it as a script action (select **Headnodes** as the node type of choice from the script action interface).
-3. Once the script action is complete, navigate to Ambari and select **Data Analytics Studio** from the list of services. You will see that all DAS services are stopped. In the top-right corner select **Actions** and **Start**. You will now be able to execute and debug queries with DAS.
+3. Once the script action is complete, navigate to Ambari and select **Data Analytics Studio** from the list of services. You will see that all DAS services are stopped. In the top-right corner, select **Actions** and **Start**. You can now execute and debug queries with DAS.
 
 Once DAS is installed, it is possible that you will not see your queries in the queries viewer. If you do not see the queries you’ve run, do the following steps:
 
-1. Make sure the necessary Hive, Tez and DAS configurations are set as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
+1. Make sure the necessary Hive, Tez, and DAS configurations are set as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
 2. Make sure that the following Azure storage directory configs are Page blobs, and that they are listed under `fs.azure.page.blob.dirs`:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
