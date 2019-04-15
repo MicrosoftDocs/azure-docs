@@ -59,7 +59,7 @@ The proof of possession step involves a cryptographic challenge and response pro
 <!-- Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#registercerts).
 -->
 
-Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x-509-ca-certificates).
+Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x509-ca-certificates).
 
 ## How to create a device on IoT Hub
 
