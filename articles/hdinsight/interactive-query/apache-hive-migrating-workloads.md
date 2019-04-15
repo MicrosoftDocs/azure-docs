@@ -35,7 +35,7 @@ One advantage of Hive is the ability to export metadata to an external database 
 After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster (see the final section of this article for query execution in HDInsight 4.0 clusters). However, the artifacts will not yet be accessible. To access these artifacts in HDInsight 4.0,  the cluster must have access to the necessary storage accounts. To make sure that your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
 
 1. Determine the Azure storage account of your table or database using describe formatted
-2. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you have not yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. Use [this document](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-add-storage) for further guidance related to storage accounts and HDInsight.
+2. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you have not yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) for further guidance related to storage accounts and HDInsight.
 
 > [!Note]
 > Tables are treated differently in HDInsight 3.6 and HDInsight 4.0. For this reason, you cannot share the same tables for clusters of different versions. If you want to use HDInsight 3.6 at the same time as HDInsight 4.0, you must have separate copies of the data for each version.
@@ -80,6 +80,6 @@ Once DAS is installed, it is possible that you will not see your queries in the 
 
 ## Next steps
 
-* [HDInsight 4.0 Announcement](https://docs.microsoft.com/azure/hdinsight/hdinsight-version-release): 
+* [HDInsight 4.0 Announcement](../hdinsight-version-release.md)
 * [HDInsight 4.0 deep dive](https://azure.microsoft.com/blog/deep-dive-into-azure-hdinsight-4-0/)
 * [Hive 3 ACID Tables](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.1.0/using-hiveql/content/hive_3_internals.html)
