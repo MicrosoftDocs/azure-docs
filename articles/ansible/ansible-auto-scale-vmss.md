@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure virtual machine scale sets](/virtual-machine-scale-sets/overview) let you configure a group of identical, load balanced VMs. The number of VM instances can automatically change in response to demand or on a defined schedule. This automated and elastic behavior is called [autoscale](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Autoscale reduces the management overhead to monitor and optimize the performance of your application. Using Ansible, you can specify the autoscale rules that define the acceptable performance for a positive customer experience.
+[Azure virtual machine scale sets](/virtual-machine-scale-sets/overview) let you configure a group of identical, load balanced VMs. The number of VM instances can automatically change in response to demand or on a defined schedule. This feature is called [autoscale](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Autoscale reduces the management overhead to monitor and optimize the performance of your application. Using Ansible, you can specify the autoscale rules that define the acceptable performance for a positive customer experience.
 
 In this article, you use Ansible to create an autoscale setting and associate the setting with an existing virtual machine scale set.
 
