@@ -66,7 +66,7 @@ az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resou
 
 Once you have your virtual machines defined (and tagged), it's time to generate the dynamic inventory.
 
-## Using Ansible version < 2.8
+### Using Ansible version < 2.8
 
 Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
