@@ -58,9 +58,9 @@ This section covers potential issues during the initial setup of the Windows Vir
 
 ### Acquiring the Windows 10 Enterprise multi-session image
 
-test
+To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select Get Started > Microsoft Windows 10 > and [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
-To use the Windows 10 Enterprise multi-session image, select [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice) from the Azure Marketplace.
+![A screenshot of selecting Windows 10 Enterprise for Virtual Desktops Preview, Version 1809.](media/AzureMarketPlace.png)
 
 ### Creating Windows Virtual Desktop tenant
 
@@ -446,7 +446,7 @@ There are three main ways SxS gets installed or enabled on session host pool VMs
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions / PS)
 
-If you're having issues with the the SxS stack, confirm the SxS stack is installed or enabled by issuing **qwinsta** command from **Command Prompt**.
+If you're having issues with the the SxS stack, confirm the SxS stack is installed or enabled by issuing the **qwinsta** command from **Command Prompt**.
 
 If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
 
@@ -466,9 +466,13 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ![O_REVERSE_CONNECT_STACK_FAILURE error code.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Cause** The SxS stack is not installed on the session host VM.
+**Cause** The side-by-side stack is not installed on the session host VM.
 
-**Fix** RDP directly into the session host VM as local administrator. Install the SxS stack using **Create a host pool with PowerShell**.
+**Fix** Use the following steps to install the side-by-side stack on the session host VM.
+
+1. RDP directly into the session host VM as local administrator.
+2. Download and import [the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
+3. Install the side-by-side stack using [Create a host pool with PowerShell](https://https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
 **Error** TBD
 
