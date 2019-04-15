@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -137,6 +137,10 @@ Second, you can create and run an unattended deployment script. This is useful w
 3. Go to **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** and run the following script using the `$cred` object that you created:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+## Step 5: Configure Smart Lockout capability
+
+Smart Lockout assists in locking out bad actors who are trying to guess your users’ passwords or using brute-force methods to get in. By configuring Smart Lockout settings in Azure AD and / or appropriate lockout settings in on-premises Active Directory, attacks can be filtered out before they reach Active Directory. Read [this article](../authentication/howto-password-smart-lockout.md) to learn more on how to configure Smart Lockout settings on your tenant to protect your user accounts.
 
 ## Next steps
 - [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoptadp) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
