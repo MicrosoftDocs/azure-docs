@@ -14,15 +14,15 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can have Ansible modify the number of VM instances based on run-time characteristics. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. 
+[Azure virtual machine scale sets](/virtual-machine-scale-sets/overview) let you configure a group of identical, load balanced VMs. The number of VM instances can automatically change in response to demand or on a defined schedule. This automated and elastic behavior is called [autoscale](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Autoscale reduces the management overhead to monitor and optimize the performance of your application. Using Ansible, you can specify the autoscale rules that define the acceptable performance for a positive customer experience.
 
-In this article, you create an autoscale setting and associate the setting with an existing virtual machine scale set.
+In this article, you use Ansible to create an autoscale setting and associate the setting with an existing virtual machine scale set.
 
 ## Prerequisites
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- An existing Azure virtual machine scale set. - If you don't have a one, [Create virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
+- An existing Azure virtual machine scale set. - If you don't have a one, [Create virtual machine scale sets in Azure using Ansible](/azure/ansible/ansible-create-configure-vmss).
 
 ## Autoscale based on a schedule
 
