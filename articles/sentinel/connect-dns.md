@@ -1,6 +1,6 @@
 ---
-title: Collect DNS data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect DNS data in Azure Sentinel.
+title: Connect DNS data in Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect DNS data in Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
@@ -26,7 +26,7 @@ ms.author: rkarlin
 
 You can connect any Domain Name Server (DNS) running on Windows to Azure Sentinel. This is done by installing an agent on the DNS machine. Using DNS logs, you can gain security, performance, and operations-related insights into the DNS infrastructure of your organization by collecting, analyzing, and correlating analytic and audit logs and other related data from the DNS servers.
 
-When you enable DNS log collection you can:
+When you enable DNS log connection you can:
 - Identify clients that try to resolve malicious domain names
 - Identify stale resource records
 - Identify frequently queried domain names and talkative DNS clients
@@ -35,11 +35,11 @@ When you enable DNS log collection you can:
 
 ## How it works
 
-DNS collection is accomplished by installing an agent on the DNS machine. The agent pulls events from the DNS and passes them to Log Analytics.
+DNS connection is accomplished by installing an agent on the DNS machine. The agent pulls events from the DNS and passes them to Log Analytics.
 
 ## Connect your DNS appliance
 
-1. In the Azure Sentinel portal, select **Data collection** and choose the **DNS** tile.
+1. In the Azure Sentinel portal, select **Data connectors** and choose the **DNS** tile.
 1. If your DNS machines are in Azure:
     1. Click **Download & install agent for Windows virtual machines**.
     1. In the **Virtual machines** list, select the DNS machine you want to stream into Azure Sentinel. Make sure this is a Windows VM.

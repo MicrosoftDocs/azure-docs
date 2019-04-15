@@ -83,6 +83,22 @@
       href: service-fabric-tutorial-standalone-install-an-application.md
     - name: 4- Clean up your cluster and delete the infrastructure
       href: service-fabric-tutorial-standalone-clean-up.md
+- name: Best practices
+  items:
+  - name: Service Fabric best practices overview
+    href: service-fabric-best-practices-overview.md
+  - name: Security
+    href: service-fabric-best-practices-security.md
+  - name: Networking 
+    href: service-fabric-best-practices-networking.md
+  - name: Compute planning and scaling  
+    href: service-fabric-best-practices-capacity-scaling.md
+  - name: Infrastructure as code
+    href: service-fabric-best-practices-infrastructure-as-code.md
+  - name: Monitoring and diagnostics
+    href: service-fabric-best-practices-monitoring.md
+  - name: Production readiness checklist
+    href: service-fabric-production-readiness-checklist.md  
 - name: Samples
   items:
   - name: Code samples
@@ -111,20 +127,6 @@
       href: service-fabric-cluster-security.md
     - name: Azure Common Security Attributes
       href: service-fabric-security-attributes.md
-  - name: Best practices
-    items:
-    - name: Service Fabric best practices overview
-      href: service-fabric-best-practices-overview.md
-    - name: Networking 
-      href: service-fabric-best-practices-networking.md
-    - name: Compute planning and scaling  
-      href: service-fabric-best-practices-capacity-scaling.md
-    - name: Infrastructure as code
-      href: service-fabric-best-practices-infrastructure-as-code.md
-    - name: Monitoring and diagnostics
-      href: service-fabric-best-practices-monitoring.md
-    - name: Production readiness checklist
-      href: service-fabric-production-readiness-checklist.md  
   - name: Terminology
     href: service-fabric-technical-overview.md
   - name: Building applications

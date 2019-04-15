@@ -18,9 +18,6 @@ Azure SQL Data Warehouse provides a rich monitoring experience within the Azure 
 ## Resource Utilization 
 The following metrics are available in the Azure portal for SQL Data Warehouse. These metrics are surfaced through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
-> [!NOTE]
-> As of November 2018, the engineering team is addressing an issue causing CPU percentage and Data IO percentage to underreport. This causes DWU Used and percentage to underreport as well. 
-
 | Metric Name                           | Description     | Aggregation Type |
 | --------------------------------------- | ---------------- | --------------------------------------- |
 | CPU percentage                          | CPU utilization across all nodes for the data warehouse | Maximum      |
