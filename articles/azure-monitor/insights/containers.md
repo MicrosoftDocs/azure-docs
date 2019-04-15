@@ -231,7 +231,7 @@ In this section we cover the steps required to install the Log Analytics agent a
 If you want to use secrets to secure your Log Analytics Workspace ID and Primary Key when using the Log Analytics agent daemon-set yaml file, perform the following steps.
 
 1. Sign on to the OpenShift master node and copy the yaml file [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) and secret generating script [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) from GitHub.  This script will generate the secrets yaml file for Log Analytics Workspace ID and Primary Key to secure your secrete information.  
-2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID <WSID> and Primary Key <KEY> and upon completion, it creates the ocp-secret.yaml file.  
+2. Run the following commands to create a project for Azure Monitor and set the user account. The secret generating script asks for your Log Analytics Workspace ID `<WSID>` and Primary Key `<KEY>` and upon completion, it creates the ocp-secret.yaml file.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  

@@ -67,7 +67,7 @@ Locate the `StorageConnectionString` property, and set the value to be the same 
 
 ## Next steps
 
-In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about the Azure Spatial Anchors library, continue to our guide on how to create and locate anchors.
+In this tutorial, you've used Azure Cosmos DB to share anchor identifiers across devices. To learn more about how to use Azure Spatial Anchors in a new Android app, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Create and locate anchors using Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Starting a new Android app](./tutorial-new-android-app.md)
