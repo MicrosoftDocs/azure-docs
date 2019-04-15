@@ -5,8 +5,8 @@ keywords: powershell dsc, desired state configuration, powershell dsc azure, com
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm

@@ -106,7 +106,9 @@ We've now added all components needed to start off an orchestration and chain to
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
-1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. On a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage account. You create a storage account later in this article.
+1. On a Windows computer, start the Azure Storage Emulator and make sure that the **AzureWebJobsStorage** property of local.settings.json is set to `UseDevelopmentStorage=true`. 
+
+    For Storage Emulator 5.8 make sure that the **AzureWebJobsSecretStorageType** property of local.settings.json is set to `files`. On     a Mac or Linux computer, you must set the **AzureWebJobsStorage** property to the connection string of an existing Azure storage         account. You create a storage account later in this article.
 
 2. To test your function, set a breakpoint in the function code and press F5 to start the function app project. Output from Core Tools is displayed in the **Terminal** panel. If this is your first time using Durable Functions, the Durable Functions extension is installed and the build might take a few seconds.
 
@@ -121,11 +123,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 5. Using a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/), send a HTTP POST request to the URL endpoint.
 
-    The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully.  It is not yet the end result of the orchestration.  The response includes a few useful URLs.  For now, let's query the status of the orchestration.
+   The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully. It is not yet the end result of the orchestration. The response includes a few useful URLs. For now, let's query the status of the orchestration.
 
-6. Copy the URL value for `statusQueryGetUri`, paste it in the browser's address bar and execute the request.
+6. Copy the URL value for `statusQueryGetUri` and paste it in the browser's address bar and execute the request. Alternatively you can also continue to use Postman to issue the GET request.
 
-    The request will query the orchestration instance for the status. You should get an eventual response that looks like the following.  This shows us the instance has completed, and includes the outputs or results of the durable function.
+   The request will query the orchestration instance for the status. You should get an eventual response which shows us the instance has completed, and includes the outputs or results of the durable function. It looks like: 
 
     ```json
     {

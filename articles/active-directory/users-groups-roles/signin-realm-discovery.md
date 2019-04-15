@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/15/2019
 ms.author: curtand
 ms.reviewer: kexia
 ms.custom: it-pro
@@ -17,15 +17,15 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Home realm discovery during sign-in for Microsoft 365 services
+# Home realm discovery for Azure Active Directory sign-in pages
 
 We are changing our Azure Active Directory (Azure AD) sign-in behavior to make room for new authentication methods and improve usability. During sign-in, Azure AD determines where a user needs to authenticate. Azure AD makes intelligent decisions by reading organization and user settings for the username entered on the sign-in page. This is a step towards a password-free future that enables additional credentials like FIDO 2.0.
 
 ## Home realm discovery behavior
 
-Historically, home realm discovery was governed by the domain that is provided at sign-in or by a Home Realm Discovery policy for some legacy applications. For example, in the old discovery behavior an Azure Active Directory user could mistype their username but would still arrive at their organization's credential collection screen. This occurs when the user correctly provides the organization's domain name “contoso.com”. This behavior does not allow the granularity to customize experiences for an individual user.
+Historically, home realm discovery was governed by the domain that is provided at sign-in or by a Home Realm Discovery policy for some legacy applications. For example, in our discovery behavior an Azure Active Directory user could mistype their username but would still arrive at their organization's credential collection screen. This occurs when the user correctly provides the organization's domain name “contoso.com”. This behavior does not allow the granularity to customize experiences for an individual user.
 
-To support a wider range of credentials and increase usability, Azure Active Directory’s username lookup behavior during the sign-in process is now updated. The new behavior makes intelligent decisions by reading tenant and user level settings based on the username entered on the sign-in page. To make this possible, Azure Active Directory will check to see if the username that is entered on the sign-in page exists in their specified domain or redirects the user to provide their credentials. 
+To support a wider range of credentials and increase usability, Azure Active Directory’s username lookup behavior during the sign-in process is now updated. The new behavior makes intelligent decisions by reading tenant and user level settings based on the username entered on the sign-in page. To make this possible, Azure Active Directory will check to see if the username that is entered on the sign-in page exists in their specified domain or redirects the user to provide their credentials.
 
 An additional benefit of this work is improved error messaging. Here are some examples of the improved error messaging when signing in to an application that supports Azure Active Directory users only.
 
@@ -45,18 +45,12 @@ An additional benefit of this work is improved error messaging. Here are some ex
   
     ![password is mistyped with good username](./media/signin-realm-discovery/incorrect-password.png)
   
-## Additional info
-
-In addition to the improved sign-in user experience, this change includes mechanisms that can help mitigate the abuse of large-scale username enumeration.
-
-This change is initially targeted for managed domains and begins rolling out in May 2019, but won't start rolling out to federated domains by the end of 2019. The exact roll-out dates for federated domains depends on customer feedback.
-
 > [!IMPORTANT]
-> This feature will have significant impact on federated domains relying on the old domain level Home Realm Discovery to force federation. Some organizations have trained their employees to sign in with a username that doesn’t exist in Azure Active Directory but contains the proper domain name, because the domain names routes users currently to their organization's domain endpoint. The new sign-in behavior doesn't allow this. The user is notified to correct the user name, and they aren't allowed to sign in with a username that does not exist in Azure Active Directory.
+> This feature might have an impact on federated domains relying on the old domain level Home Realm Discovery to force federation. For updates on when federated domain support will be added, see [Home realm discovery during sign-in for Microsoft 365 services](https://azure.microsoft.com/en-us/updates/signin-hrd/). In the meantime, some organizations have trained their employees to sign in with a username that doesn’t exist in Azure Active Directory but contains the proper domain name, because the domain names routes users currently to their organization's domain endpoint. The new sign-in behavior doesn't allow this. The user is notified to correct the user name, and they aren't allowed to sign in with a username that does not exist in Azure Active Directory.
 >
 > If you or your organization have practices that depend on the old behavior, it is important for organization administrators to update employee sign-in and authentication documentation and to train employees to use their Azure Active Directory username to sign in.
   
-If you have concerns with the new behavior, please leave your remarks in the **Feedback** section of this article.  
+If you have concerns with the new behavior, leave your remarks in the **Feedback** section of this article.  
 
 ## Next steps
 
