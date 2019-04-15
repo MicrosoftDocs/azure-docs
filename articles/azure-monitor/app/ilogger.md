@@ -431,7 +431,8 @@ public class MyController : ApiController
 }
 ```
 
-Please note that, if the package Microsoft.ApplicationInsights.AspNetCore package is used to enable Application Insights, then the above example should be modified to get `TelemetryClient` directly in the constructor. See [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) for full example.
+> [!NOTE]
+> Please note that, if the package Microsoft.ApplicationInsights.AspNetCore package is used to enable Application Insights, then the above example should be modified to get `TelemetryClient` directly in the constructor. See [this](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core-no-visualstudio#frequently-asked-questions) for full example.
 
 
 *6. What Application Insights telemetry type is produced from `ILogger` logs? or Where can I see `ILogger` logs in Application Insights?*
