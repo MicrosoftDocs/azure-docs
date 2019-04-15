@@ -1,5 +1,5 @@
 ---
-title: Migrate HDInsight 3.6 Hive workloads to HDInsight 4.0
+title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
 services: hdinsight
 ms.service: hdinsight
@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/15/2019
 ---
-# Migrate HDInsight 3.6 Hive workloads to HDInsight 4.0
+# Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 
 This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6 which runs on Hive 2.
 
@@ -36,7 +36,7 @@ After completing the previous set of steps to migrate the Hive Metastore to HDIn
 
 The actual data from the tables, however, is not accessible until the cluster has access to the necessary storage accounts. To make sure that your HDInsight 4.0 cluster can access the same data as your old HDInsight 3.6 cluster, complete the following steps:
 
-1. Determine the Azure storage account of your table or database using describe formatted
+1. Determine the Azure storage account of your table or database using describe formatted.
 2. If your HDInsight 4.0 cluster is already running, attach the Azure storage account to the cluster via Ambari. If you have not yet created the HDInsight 4.0 cluster, make sure the Azure storage account is specified as either the primary or a secondary cluster storage account. See [Add additional storage accounts to HDInsight](../hdinsight-hadoop-add-storage.md) for further guidance related to storage accounts and HDInsight.
 
 > [!Note]
@@ -58,7 +58,7 @@ Since HDInsight 3.6, HDInsight integrates with Azure Active Directory using HDIn
 2. Navigate to the policy named **HIVE** and export the policy to a json file.
 3. Make sure that all users referred to in the exported policy json exist in the new cluster. If a user is referred to in the policy json but does not exist in the new cluster, either add the user to the new cluster or remove the reference from the policy.
 4. Navigate to the **Ranger Service Manager** panel in your HDInsight 4.0 cluster.
-5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2
+5. Navigate to the policy named **HIVE** and import the ranger policy json from step 2.
 
 ## Query execution across HDInsight versions
 
@@ -73,7 +73,7 @@ In HDInsight 3.6, the GUI client for interacting with Hive server is the Ambari 
 
 Once DAS is installed, it is possible that you will not see your queries in the queries viewer. If you do not see the queries you’ve run, do the following steps:
 
-1. Make sure the necessary Hive, Tez and DAS configurations are set as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)
+1. Make sure the necessary Hive, Tez and DAS configurations are set as described in [this guide for troubleshooting DAS installation](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html).
 2. Make sure that the following Azure storage directory configs are Page blobs, and that they are listed under `fs.azure.page.blob.dirs`:
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
