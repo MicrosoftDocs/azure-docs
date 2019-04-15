@@ -98,7 +98,7 @@ The PowerShell console will be our client. We'll use `Invoke-RestMethod` (or `ir
 irm "http://localhost:7071/api/MyHttpTrigger?Name=Functions"
 ```
 
-You'll notice that it doesn't return a response, that's because of our `Wait-Debugger`! Since the debugger is attached, it will break as soon as PowerShell can break. This is because of the [BreakAll concept](breakall-might-cause-your-debugger-to-break-in-an-unexpected-place) which is explained below. Once you hit the `continue` button, the debugger will break on the line right after our `Wait-Debugger`.
+You'll notice that it doesn't return a response, that's because of our `Wait-Debugger`! Since the debugger is attached, it will break as soon as PowerShell can break. This is because of the [BreakAll concept](#breakall-might-cause-your-debugger-to-break-in-an-unexpected-place) which is explained below. Once you hit the `continue` button, the debugger will break on the line right after our `Wait-Debugger`.
 
 From here, we can do all the normal debugger operations. For more information on using the debugger in VSCode, take a look at the [VSCode official documentation](https://code.visualstudio.com/Docs/editor/debugging#_debug-actions).
 
