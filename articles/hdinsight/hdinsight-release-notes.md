@@ -1,6 +1,6 @@
 ---
 title: Release notes for Azure HDInsight 
-description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive and more.
+description: Latest release notes for Azure HDInsight. Get development tips and details for Hadoop, Spark, R Server, Hive, and more.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -23,11 +23,11 @@ Azure HDInsight is one of the most popular services among enterprise customers f
 
 ## New features
 
-For more information on important changes with HDInsight 4.0. see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md#whats-new-in-hdi-40).
+For more information on important changes with HDInsight 4.0., see [What's new in HDI 4.0?](../hdinsight/hdinsight-version-release.md#whats-new-in-hdi-40).
 
 ## Component versions
 
-The official Apache versions of all HDInsight 4.0 components are listed below. All components listed here are official Apache releases of the most recent stable versions available.
+The official Apache versions of all HDInsight 4.0 components are given below. The components listed are releases of the most recent stable versions available.
 
 - Apache Ambari 2.7.1
 - Apache Hadoop 3.1.1
@@ -47,7 +47,7 @@ The official Apache versions of all HDInsight 4.0 components are listed below. A
 - Apache Zeppelin 0.8.0
 - Apache ZooKeeper 3.4.6
 
-Later versions of a few Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
+Later versions of Apache components are sometimes bundled in the HDP distribution in addition to the versions listed above. In this case, these later versions are listed in the Technical Previews table and should not substitute for the Apache component versions of the above list in a production environment.
 
 ## Apache patch information
 
@@ -73,16 +73,16 @@ For more information on patches available in HDInsight 4.0, see the patch listin
 
 ## Fixed Common Vulnerabilities and Exposures
 
-See Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html) for more information on security issues resolved in this release.
+For more information on security issues resolved in this release, see Hortonworks' [Fixed Common Vulnerabilities and Exposures for HDP 3.0.1](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html).
 
 ## Known issues
 
 ### Replication is broken for Secure HBase with default installation
 
-For HDInsight 4.0, do the following:
+For HDInsight 4.0, do the following steps:
 
 1. Enable inter-cluster communication.
-1. Login to the active headnode.
+1. Sign in to the active headnode.
 1. Download a script to enable replication with the following command:
 
     ```
@@ -96,7 +96,7 @@ For HDInsight 4.0, do the following:
     ```
 For HDInsight 3.6, do the following:
 
-1. Signin to active HMaster ZK.
+1. Sign in to active HMaster ZK.
 1. Download a script to enable replication with the following command:
     ```
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
@@ -110,7 +110,7 @@ For HDInsight 3.6, do the following:
 
 ### Phoenix Sqlline stops working after migrating HBase cluster to HDInsight 4.0
 
-Please do the following:
+Do the following steps:
 
 1. Drop the following Phoenix tables:
     1. `SYSTEM.FUNCTION`
@@ -124,9 +124,9 @@ Please do the following:
 
 ### Phoenix Sqlline stops working after replicating HBase Phoenix metadata from HDInsight 3.6 to 4.0
 
-Please do the following:
+Do the following steps:
 
-1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
+1. Before doing the replication, go to the destination 4.0 cluster and execute `sqlline.py`. This command will generate Phoenix tables like `SYSTEM.MUTEX` and `SYSTEM.LOG` that only exist in 4.0.
 1. Drop the following tables:
     1. `SYSTEM.FUNCTION`
     1. `SYSTEM.SEQUENCE`
@@ -136,4 +136,4 @@ Please do the following:
 
 ## Deprecation
 
-Apache Storm and ML services are not available in HDInsight 4.0.
+Apache Storm and ML services aren't available in HDInsight 4.0.
