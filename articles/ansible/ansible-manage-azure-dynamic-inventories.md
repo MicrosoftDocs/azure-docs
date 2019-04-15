@@ -142,7 +142,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     ```
 
 ## Enable the virtual machine tag
-Once you've set the desired tag, you need to "enable" the tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
+Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
