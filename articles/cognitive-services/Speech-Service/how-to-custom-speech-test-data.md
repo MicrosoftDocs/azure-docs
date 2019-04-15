@@ -54,27 +54,12 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
 
-If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading sox to check or convert the audio. Below are some examples of how each of these activities can be done through the command line for Windows, macOS, or Linux.
+If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading sox to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
-### How to check the audio format of a file
-
-These commands demonstrate how to check the audio format of a file.
-
-| Platform | Command |
-|----------|---------|
-| Windows | TBD |
-| Linux | TBD |
-| macOS | TBD |
-
-### How to convert an audio file
-
-These commands demonstrate how to down sample from 16KHz to 8KHz.
-
-| Platform | Command |
-|----------|---------|
-| Windows | TBD |
-| Linux | TBD |
-| macOS | TBD |
+| Activity | Description | Sox command |
+|----------|-------------|-------------|
+| Check audio format | Use this command to check the audio file format. | `sox <filename>.wav` |
+| Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 48KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
 
 ## Audio + human-labeled transcript data for testing/training
 
