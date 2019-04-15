@@ -207,6 +207,11 @@
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
       displayName: Batch transcription, transcription, custom models, customization, model management
+    - name: Webhooks
+      href: webhooks.md
+      displayName: Webhooks
+  - name: Swagger documentation
+    href: swagger-documentation.md
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell
