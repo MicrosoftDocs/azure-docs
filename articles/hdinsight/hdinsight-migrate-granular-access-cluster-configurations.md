@@ -1,5 +1,5 @@
 ---
-title: Changes coming to cluster configuration access - Azure HDInsight
+title: Changes to cluster configuration access - Azure HDInsight
 description: Learn about the changes to accessing sensitive cluster configuration fields.
 author: tylerfox
 ms.author: tyfox
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 04/12/2019
 ---
     
-# Changes coming to cluster configuration access
+# Changes to cluster configuration access
 
 The latest release of the Azure HDInsight SDK brings some important changes to support more fine-grained role-based access to obtain sensitive information. As part of these changes, some **action may be required**  if you are using one of the affected methods.
 
