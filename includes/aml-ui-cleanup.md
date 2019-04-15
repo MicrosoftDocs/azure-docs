@@ -16,27 +16,27 @@ ms.date: 05/06/2019
 
 ### Delete everything
 
-If you don't plan to use anything you created, delete the entire resource group so you don't incur any charges:
+If you don't plan to use anything that you created, delete the entire resource group so you don't incur any charges:
 
-1. In the Azure portal, select **Resource groups** on the far left.
+1. In the Azure portal, select **Resource groups** on the left side of the window.
  
-   ![Delete in the Azure portal](./media/aml-ui-cleanup/delete-resources.png)
+   ![Delete resource group in the Azure portal](./media/aml-ui-cleanup/delete-resources.png)
 
-1. From the list, select the resource group you created.
+1. In the list, select the resource group that you created.
 
-1. On the far right, select the **ellipsis (...)**.
+1. On the right side of the window, select the ellipsis button (**...**).
 
 1. Select **Delete resource group**.
 
-Deleting the resource group also deletes all resources you created in the visual interface.  
+Deleting the resource group also deletes all resources that you created in the visual interface.  
 
-### Delete only compute target
+### Delete only the compute target
 
-The compute target you created here **automatically autoscales** to zero nodes when not in use to minimize charges.  But, if you want to delete the compute target, use these steps:
+The compute target that you created here *automatically autoscales* to zero nodes when it's not being used. This is to minimize charges. If you want to delete the compute target, take these steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your workspace.
 
-    ![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)
+    ![Delete the compute target](./media/aml-ui-cleanup/delete-compute-target.png)
 
 1. In the **Compute** section of your workspace, select the resource.
 
@@ -44,6 +44,6 @@ The compute target you created here **automatically autoscales** to zero nodes 
 
 ### Delete individual assets
 
-In the visual interface where you created your experiment, delete individual assets by selecting them, and then selecting the delete button.
+In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
 
 ![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
