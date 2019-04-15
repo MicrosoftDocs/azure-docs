@@ -31,7 +31,7 @@ Learn how to build a web app signing-in users on the Microsoft identity platform
 
 You add authentication to your Web App, which can therefore sign in users and calls a web API on behalf of the signed-in user.
 
-![Daemon apps](./media/scenario-webapp/web-app.svg)
+![Web app calling web apis](./media/scenario-webapp/web-app.svg)
 
 Web Apps calling Web APIs:
 
@@ -176,9 +176,57 @@ private IConfidentialClientApplication BuildConfidentialClientApplication(HttpCo
 }
 ```
 
-AcquireTokenByAuthorizationCode really redeems the authorization code requested by ASP.NET and gets the tokens that are added to MSAL.NET user token cache. From there, they are then, used, in the ASP.NET Core controllers.
+`AcquireTokenByAuthorizationCode` really redeems the authorization code requested by ASP.NET and gets the tokens that are added to MSAL.NET user token cache. From there, they are then, used, in the ASP.NET Core controllers.
 
 # [ASP.NET](#tab/aspnet)
+
+The way ASP.NET handles things is similar, except that the configuration of OpenIdConnect and the subscription to the `OnAuthorizationCodeReceived` event happens in the `App_Start\Startup.Auth.cs` file:
+
+```CSharp
+private void ConfigureAuth(IAppBuilder app)
+{
+ app.SetDefaultSignInAsAuthenticationType(CookieAuthenticationDefaults.AuthenticationType);
+
+ app.UseCookieAuthentication(new CookieAuthenticationOptions { });
+
+ app.UseOpenIdConnectAuthentication(
+ new OpenIdConnectAuthenticationOptions
+ {
+  Authority = Globals.Authority,
+  ClientId = Globals.ClientId,
+  RedirectUri = Globals.RedirectUri,
+  PostLogoutRedirectUri = Globals.RedirectUri,
+  Scope = Globals.BasicSignInScopes, // a basic set of permissions for user sign in & profile access
+  TokenValidationParameters = new TokenValidationParameters
+  {
+  // We'll inject our own issuer validation logic below.
+  ValidateIssuer = false,
+  NameClaimType = "name",
+  },
+  Notifications = new OpenIdConnectAuthenticationNotifications()
+  {
+   AuthorizationCodeReceived = OnAuthorizationCodeReceived,
+  }
+ });
+}
+```
+
+```CSharp
+private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotification context)
+{
+ // Upon successful sign in, get & cache a token using MSAL
+ string userId = context.AuthenticationTicket.Identity.FindFirst(ClaimTypes.NameIdentifier).Value;
+ IConfidentialClientApplication clientapp;
+ clientApp = ConfidentialClientApplicationBuilder.Create(Globals.ClientId)
+                  .WithClientSecret(Globals.ClientSecret)
+                  .WithRedirectUri(Globals.RedirectUri)
+                  .WithAuthority(new Uri(Globals.Authority))
+                  .Build();
+
+ AuthenticationResult result = await clientapp.AcquireTokenByAuthorizationCode(scopes, context.Code)
+                                              .ExecuteAsync();
+}
+```
 
 ___
 
@@ -206,7 +254,7 @@ Here is a simplified code of the action of the HomeController, which gets a toke
 ```CSharp
 public async Task<IActionResult> Profile()
 {
- var application = BuildConfidentialClientApplication(context, context.User);
+ var application = BuildConfidentialClientApplication(HttpContext, HttpContext.User);
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
@@ -254,5 +302,19 @@ There are numerous additional complexities such as:
 
 # [ASP.NET](#tab/aspnet)
 
+Things are similar in ASP.NET:
+
+- A controller action protected by an [Authorize] attribute, will extract the tenant Id and userId of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`)
+- from there it builds an MSAL.NET `IConfidentialClientApplication`
+- IT call the `AcquireTokenSilent` method of the confidential client application 
+
+the code is similar to the code shown for ASP.NET Core
+
 ___
 
+## Next steps
+
+See the full ASP.NET Core Web app progressive tutorial, which shows how to sign in users with multiple audiences, call Microsoft Graph, call several Microsoft APIs, handle incremental consent, call you own Web API, sign-in users from national clouds, or with social identities.
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial)

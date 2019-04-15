@@ -278,13 +278,13 @@ The code related to authentication is located in the `App_Start/Startup.Auth.cs`
 
 # [REST](#tab/other)
 
-No application show how to use the protocol directly
+No application shows how to use the protocol directly
 
 ___
 
 ## Sign-out
 
-Once the user has signed-in to your app, you probably want them to be able to sign out. ASP.NET core handles this for you.
+Once the user has signed-in to your app, you probably want them to be able to sign out. ASP.NET core handles sign-out for you.
 
 ### What sign out involves
 
@@ -325,7 +325,7 @@ else
 
 ### `Signout()` action of the `AccountController`
 
-Pressing the **Sign out** button on the web app, triggers the `SignOut` action on the `Account` controller. In previous versions of the ASP.NET core templates, this controller
+Pressing the **Sign out** button on the web app, triggers the `SignOut` action on the `Account` controller. In previous versions of the ASP.NET core templates, this Account controller
 was embedded with the Web App, but this is no longer the case as it's now part of the ASP.NET Core framework itself. The code for the `AccountController` is available from the ASP.NET core repository at
 from <https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs>, and what it does is:
 
@@ -401,15 +401,23 @@ ___
 
 Here are a few links to learn more:
 
-# [.NET](#tab/aspnetcore)
+# [ASP.NET Core](#tab/aspnetcore)
 
 To learn more:
 
 - Try the quickstart: [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quickstart-v2-aspnet-core-webapp.md)
 - Tutorial: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) is a progressive tutorial with production ready code for a Web app including how to add sign-in
-  ![Tutorial overview](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial/raw/master/ReadmeFiles/Tutorial-overview.svg)
+  ![Tutorial overview](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial)
 
-# [.NET](#tab/aspnet)
+Once your web app signs-in users, it can now call Web APIs on behalf of the signed-in users. This is the topic of the following scenario.
+
+> [!div class="nextstepaction"]
+> [Web app calls web APIs](scenario-webapp-calls-webapi.md)
+
+# [ASP.NET](#tab/aspnet)
+
+- If you have not already, try the quickstart [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp)
+- Tutorial: [Add sign-in with Microsoft to an ASP.NET web app]tutorial-v2-asp-webapp)
 
 # [REST](#tab/other)
 
@@ -421,4 +429,3 @@ The protocol documentation is available from [Open ID Connect](./v2-protocols-oi
 
 ___
 
-Once your web app signs-in users, it can now call Web APIs on behalf of the signed-in users. This is the topic of the following scenario [Web app calls web APIs](scenario-webapp-calls-webapi.md)

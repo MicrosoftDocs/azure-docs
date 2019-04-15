@@ -96,7 +96,7 @@
       - name: Sign-in audience
         href: v2-supported-account-types.md
       - name: Web apps signing-in users
-        href: scenario-webapp-calls-webapi.md
+        href: scenario-webapp-signs-in-users.md
       - name: Web apps calling Web APIs
         href: scenario-webapp-calls-webapi.md
     - name: Authentication
