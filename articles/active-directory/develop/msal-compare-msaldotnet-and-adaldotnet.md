@@ -37,7 +37,7 @@ However, you still need to use ADAL.NET if your application needs to sign in use
 ## Differences between ADAL.NET and MSAL.NET apps
 
 The following picture summarizes some of the differences between ADAL.NET and MSAL.NET
-![Side-by-side code](./media/msal-comapare-msaldotnet-and-adaldotnet/Differences.png)
+![Side-by-side code](./media/msal-compare-msaldotnet-and-adaldotnet/Differences.png)
 
 ### NuGet packages and Namespaces
 
