@@ -26,19 +26,19 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 1. [Subscribe and create a project](#set-up-your-azure-account) - Create an Azure account and subscribe the Speech Services. This unified subscription gives you access to speech-to-text, text-to-speech, speech translation, and the custom speech portal. Then, using your Speech Services subscription, create your first Custom Speech project.
 
-2. [Upload test data](placeholder) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
+2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
 
-3. [Inspect recognition quality](placeholder) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
+3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
 
-4. [Evaluate accuracy](placeholder) - Provide written transcripts with your test audio and an accuracy measurement, *Word Error Rate* (WER) will be calculated. If you want to increase accuracy by 5%-20% relative on average go to Training page. If accuracy is good enough, use the Speech Service API directly.
+4. [Evaluate accuracy](how-to-custom-speech-test-data.md) - Provide written transcripts with your test audio and an accuracy measurement, *Word Error Rate* (WER) will be calculated. If you want to increase accuracy by 5%-20% relative on average go to Training page. If accuracy is good enough, use the Speech Service API directly.
 
-<< **Archer/Ed/Mark** - What is an accuracy measurement? It's unclear from this description. >>
+<< **Archer/Ed/Mark** - What is an accuracy measurement? It's unclear from this description. THIS IS UNCLEAR. >>
 
-5. [Train the model](placeholder) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
+5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
 
 << **Archer/Ed/Mark** - Can you clarify what the difference is between human transcripts and related text? By transcripts, are you speaking about raw audio? It's unclear here. >>
 
-6. [Deploy the model](placeholder) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
+6. [Deploy the model](how-to-custom-speech-deploy-model.md) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
 
 ## Set up your Azure account
 
