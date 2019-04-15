@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2018
+ms.date: 04/15/201
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
@@ -60,8 +60,10 @@ If your Azure Stack uses Azure AD as the identity store, you can create a servic
 To create a service principal for your application:
 
 1. Sign in to your Azure Account through the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory** > **App registrations** > **Add**.
-3. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
+2. Select **Azure Active Directory** > **App registrations** > **New registration**.
+3. Provide a name.
+4. Select the **Supported account types**.
+5.  Add a URI for the application. Select **Web**  for the type of application you want to create. After setting the values, select **Register**.
 
 ### Get credentials
 
@@ -72,12 +74,13 @@ When logging in programmatically, use the ID for your application and an authent
 2. Copy the **Application ID** and store it in your application code. The applications in the sample applications use **client id** when referring to the **Application ID**.
 
      ![Application ID for the application](./media/azure-stack-create-service-principals/image12.png)
-3. To generate an authentication key, select **Keys**.
+3. To generate an authentication key, select **Certificates & Secrets**.
 
-4. Provide a description of the key, and a duration for the key. When done, select **Save**.
+4. Select **New client secret**.
 
-> [!IMPORTANT]
-> After you save the key, the key **VALUE** is displayed. Write down this value because you can't retrieve the key later. Store the key value where your application can retrieve it.
+5. Provide a description of the key, select a duration for the key, and select **Add**. 
+
+6. When done, the value of the secret is displayed. Write down this value because you can't retrieve the key later. Store the key value where your application can retrieve it.
 
 ![Key value warning for saved key.](./media/azure-stack-create-service-principals/image15.png)
 
