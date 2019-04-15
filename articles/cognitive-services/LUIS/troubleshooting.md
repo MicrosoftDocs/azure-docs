@@ -9,7 +9,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -276,6 +276,13 @@ Use the LUIS sample to [find region](https://github.com/Azure-Samples/cognitive-
 
 Yes, you can use the LUIS [container](luis-container-howto.md) for these scenarios if you have the necessary connectivity to meter usage. 
 
+## Migrating to the next version
+
+### How do I migrate to version 3? 
+
+See [API v2 to v3 Migration guide for LUIS apps](luis-migration-api-v2-to-v3.md)
+
+<!--
 ### At the Build 2018 Conference, I heard about a Language Understanding feature or demo but I don't remember what it was called?
 
 The following features were released at the Build 2018 Conference:
@@ -297,7 +304,7 @@ Videos:
 
 Projects:
 * [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) demo - source code on GitHub
-
+-->
 ## Next steps
 
 To learn more about LUIS, see the following resources:
