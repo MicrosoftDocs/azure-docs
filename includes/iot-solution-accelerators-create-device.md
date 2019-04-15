@@ -95,8 +95,6 @@ Open the **remote-monitoring-services-dotnet-master\storage-adapter** folder in 
 
 Open the **storage-adapter/WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentDBConnectionString**  variable.
 
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
-
 To run the microservice locally, click **Debug > Start Debugging**.
 
 The **Terminal** window in Visual Studio Code shows output from the running microservice including a URL for the web service health check: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). When you navigate to this address, the status should be "OK: Alive and well".
@@ -412,9 +410,7 @@ In this section, you test the device types you created in the previous sections 
 
 Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
-Open the **WebService.Test/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring**  variable.
-
-Open the **WebService/appsettings.ini** file and modify the settings as follows:
+Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** variable and also modify the settings as follows:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
