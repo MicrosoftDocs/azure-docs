@@ -91,6 +91,10 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
+    - name: Microsoft Authentication Library (MSAL)
+      items:
+        - name: Handling errors and exceptions
+          href: msal-handling-exceptions.md
     - name: Authentication
       items:
       - name: Authentication basics
