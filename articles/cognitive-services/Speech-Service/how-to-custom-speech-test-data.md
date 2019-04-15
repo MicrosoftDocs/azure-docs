@@ -111,6 +111,28 @@ Additionally, you'll want to account for the following restrictions:
 
 ### Guidelines to create a pronunciation file
 
+If there are uncommon terms without standard pronunciations that your users will encounter or use, you can provide a custom pronunciation file to improve recognition.
+
+> [!IMPORTANT]
+> It is not recommended to use this feature to alter the pronunciation of common words.
+
+This includes examples of a spoken utterance, and a custom pronunciation for each:
+
+| Spoken form | Recognized/displayed form |
+|--------------|--------------------------|
+| three c p o | 3CPO |  
+| c n t k | CNTK |
+| i triple e | IEE |
+
+The spoken form is the phonetic sequence spelled out. It can be composed of letter, words, syllables, or a combination of all three.
+
+Customized pronunciation is available in English (en-US) and German (de-DE). This table shows supported characters by language:
+
+| Language | Locale | Characters |
+|----------|--------|------------|
+| English | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| German | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+
 ## Next steps
 
 * [Inspect and evaluate your data quality](how-to-custom-speech-inspect-data.md)
