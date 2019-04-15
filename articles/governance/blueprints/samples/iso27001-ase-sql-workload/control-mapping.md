@@ -1,15 +1,14 @@
 ---
-title: Sample - ISO 27001 blueprint - Control mapping
-description: Control mapping of the ISO 27001 blueprint sample.
-services: blueprints
+title: Sample - ISO 27001 ASE/SQL workload blueprint - Control mapping
+description: Control mapping of the ISO 27001 App Service Environment/SQL Database workload blueprint sample to Azure Policy and RBAC.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
-# Control mapping of the Azure Blueprints ISO 27001 blueprint sample
+# Control mapping of the ISO 27001 ASE/SQL workload blueprint sample
 
 The following article details how the Azure Blueprints ISO 27001 ASE/SQL Workload blueprint sample
 maps to the ISO 27001 controls. For more information about the controls, see [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
@@ -170,7 +169,7 @@ unencrypted Service Fabric communication.
 ## A.12.4.1 Event Logging
 
 This blueprint helps you ensure system events are logged by assigning seven [Azure
-Policy](../../../policy/overview.md) definitions that that audit log settings on Azure resources. An
+Policy](../../../policy/overview.md) definitions that audit log settings on Azure resources. An
 assigned policy also audits if virtual machines aren't sending logs to a specified log analytics
 workspace.
 

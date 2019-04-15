@@ -131,7 +131,7 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 | Copy data from any source data store to Azure Table storage |4 |
 | All other copy scenarios |1 |
 
-[!TIP]
+> [!TIP]
 > When copying data between file-based stores, the default behavior (auto determined) usually give you the best throughput. 
 
 To control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be an integer greater than or equal to 1. At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.

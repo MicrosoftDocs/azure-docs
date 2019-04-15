@@ -48,7 +48,7 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full PowerShell script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-ps.ps1). Follow the steps below to change the script to work in your environment.
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
 
 	```powershell
 	$location              = "West US"

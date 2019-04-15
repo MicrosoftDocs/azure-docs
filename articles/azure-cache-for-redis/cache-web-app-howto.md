@@ -95,7 +95,7 @@ Next, you create the cache for the app.
 
 In this section, you update the application to support a new view that displays a simple test against Azure Cache for Redis.
 
-* [Update the web.config file with an app setting for the cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Update the web.config file with an app setting for the cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configure the application to use the StackExchange.Redis client
 * Update the HomeController and Layout
 * Add a new RedisCache view
@@ -114,7 +114,7 @@ Because the file *CacheSecrets.config* isn't deployed to Azure with your applica
 2. In the *web.config* file, find the `<appSetting>` element. Then add the following `file` attribute. If you used a different file name or location, substitute those values for the ones that are shown in the example.
 
 * Before: `<appSettings>`
-* After: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* After:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 

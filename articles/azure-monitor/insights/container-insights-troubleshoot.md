@@ -11,13 +11,27 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2018
+ms.date: 03/27/2018
 ms.author: magoedte
 ---
 
 # Troubleshooting Azure Monitor for containers
 
 When you configure monitoring of your Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers, you may encounter an issue preventing data collection or reporting status. This article details some common issues and troubleshooting steps.
+
+## Authorization error during onboarding or update operation
+While enabling Azure Monitor for containers or updating a cluster to support collecting metrics, you may receive an error resembling the following - *The client <user’s Identity>' with object id '<user’s objectId>' does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope*
+
+During the onboarding or update process, granting the **Monitoring Metrics Publisher** role assignment is attempted on the cluster resource. The user initiating the process to enable Azure Monitor for containers or the update to support the collection of metrics must have access to the **Microsoft.Authorization/roleAssignments/write** permission on the AKS cluster resource scope. Only members of the **Owner** and **User Access Administrator** built-in roles are granted access to this permission. If your security policies require assigning granular level permissions, we recommend you view [custom roles](../../role-based-access-control/custom-roles.md) and assign it to the users who require it. 
+
+You can also manually grant this role from the Azure portal by performing the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com). 
+2. In the Azure portal, click **All services** found in the upper left-hand corner. In the list of resources, type **Kubernetes**. As you begin typing, the list filters based on your input. Select **Azure Kubernetes**.
+3. In the list of Kubernetes clusters, select one from the list.
+2. From the left-hand menu, click **Access control (IAM)**.
+3. Select **+ Add** to add a role assignment and select the **Monitoring Metrics Publisher** role and under the **Select** box type **AKS** to filter the results on just the clusters service principals defined in the subscription. Select the one from the list that is specific to that cluster.
+4. Select **Save** to finish assigning the role. 
 
 ## Azure Monitor for containers is enabled but not reporting any information
 If Azure Monitor for containers is successfully enabled and configured, but you cannot view status information or no results are returned from a log query, you diagnose the problem by following these steps: 

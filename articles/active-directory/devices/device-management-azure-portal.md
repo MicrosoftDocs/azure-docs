@@ -3,7 +3,7 @@ title: How to manage devices using the Azure portal | Microsoft Docs
 description: Learn how to use the Azure portal to manage devices.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: jairoc
 
 #Customer intent: As an IT admin, I want to manage all devices related tasks from a central location

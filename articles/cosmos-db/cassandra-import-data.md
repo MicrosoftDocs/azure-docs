@@ -51,7 +51,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
     foreach (string key in insertResult.Info.IncomingPayload)
       {
          byte[] valueInBytes = customPayload[key];
-         string value = Encoding.UTF8.GetString(valueInBytes);
+         double value = Encoding.UTF8.GetString(valueInBytes);
          Console.WriteLine($"CustomPayload:  {key}: {value}");
       }
     ```
