@@ -58,7 +58,7 @@ You can name feature namespaces following your own conventions as long as they a
 
 ## Features are represented in JSON format
 
-Features are represented in JSON format. Features for [**actions**](concepts-actions.md) and [**context**](concepts-context.md) are sent following the same conventions. 
+Features are represented in JSON format. Features for **actions** and **context** are sent following the same conventions. 
 
 The following example shows some common ways to represent features:
 
@@ -93,7 +93,7 @@ The following example shows some common ways to represent features:
 
 A good feature set for actions and context helps Personalizer learn how to predict the action that will drive the highest reward. 
 
-Analyze the user behavior by doing an [Offline Evaluation](concepts-offline-evaluation.md). This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. See [How To Start an Offline Evaluation](how-to-offline-evaluation.md).
+Analyze the user behavior by doing an Offline Evaluation. This allows you to look at past data to see what features are heavily contributing to positive rewards versus those that are contributing less. <!--See [How To Start an Offline Evaluation](how-to-offline-evaluation.md).-->
 
 Consider sending features to the Personalizer Rank API that follow these recommendations:
 
@@ -106,7 +106,7 @@ Having features of high density helps the Personalizer extrapolate learning from
 
 ## Improving feature sets 
 
-After you run an [Offline Evaluation](concepts-offline-evaluation.md), you can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
+After you run an Offline Evaluation, you can see what features are helping, and it will be up to you and your application to find better features to send to Personalizer to improve results even further.
 
 These following sections are common practices for improving features sent to Personalizer.
 

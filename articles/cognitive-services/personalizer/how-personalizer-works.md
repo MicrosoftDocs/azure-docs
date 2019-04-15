@@ -20,7 +20,7 @@ Personalizer uses machine learning to discover what action to use in a context. 
 When calling **Rank**, the Personalizer service decides to use either:
 
 * The current model to decide the best action based on past data.
-* Or perform [exploration](concepts-exploration.md).
+* Or perform exploration.
 
 When calling **Reward**, the Personalizer service:
 
