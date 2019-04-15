@@ -91,6 +91,14 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
+   - name: Authentication scenarios
+      items:
+        - name: Sign-in audience
+          href: v2-supported-account-types.md
+        - name: Web apps signing-in users
+          href: scenario-webapp-calls-webapi.md
+        - name: Web apps calling Web APIs
+          href: scenario-webapp-calls-webapi.md
     - name: Authentication
       items:
       - name: Authentication basics

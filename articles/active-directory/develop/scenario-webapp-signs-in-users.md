@@ -1,4 +1,28 @@
+---
+title: Web app sign-ins users scenario landing page | Azure
+description: Scenario landing page for a Web app signing-in users
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: celested
+editor: ''
+
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: overview
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/10/2019
+ms.author: ryanwi
+ms.reviewer: saeeda
+ms.custom: aaddev
+ms.collection: M365-identity-device-management
+---
+
 # Scenario - Sign-in users in a Web App
+
+Build a web app signing-in users with the Microsoft identity platform
 
 ## Scenario
 

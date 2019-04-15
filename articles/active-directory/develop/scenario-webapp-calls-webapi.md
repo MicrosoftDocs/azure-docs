@@ -1,4 +1,29 @@
+---
+title: Web app calling Web APIs - scenario landing page | Azure
+description: Learn how to build a web app signing-in users and calling web apis on behalf of the signed-in user
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: CelesteDG
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/15/2019
+ms.author: jmprieur
+ms.custom: aaddev 
+#Customer intent: As an application developer, I want to know how to write a web app that can sign users on the Microsoft identity platform for developers.
+ms.collection: M365-identity-device-management
+---
+
 # Scenarios - Sign-in users to a Web App. Web App calling Web APIs on behalf of the signed-in user
+
+Learn how to build a web app signing-in users on the Microsoft identity platform and calling Web APIs on behalf of the signed-in user.
 
 ## Scenario
 
