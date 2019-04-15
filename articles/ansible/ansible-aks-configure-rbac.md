@@ -30,6 +30,7 @@ In this article, you use Ansible to create an Azure AD-enabled AKS cluster. Once
 When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-server-application). 
 
 From the Azure tenant administrator, get the following values:
+
 - Server app secret
 - Server app ID
 - Client app ID 
@@ -42,8 +43,10 @@ These values are needed to run the sample playbook.
 In this section, you create an AKS with the [Azure AD application](#configure-azure-ad-for-aks-authentication).
 
 Here are some key notes to consider when working with the sample playbook:
+
 - The playbook loads `ssh_key` from `~/.ssh/id_rsa.pub`. If you modify it, use the single-line format - starting with "ssh-rsa" (without the quotes).
 - The `client_id` and `client_secret` values are loaded from `~/.azure/credentials`, which is the default credential file. You can set these values to your service principal or load these values from environment variables:
+
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
     client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"

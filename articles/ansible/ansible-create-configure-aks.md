@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your Azure Kubernetes Service (AKS). This article shows you how to use Ansible to create and configure an AKS cluster.
+[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes service that allows you to configure clusters. A cluster consists of a single master node and one or more worker nodes. In this article, Ansible is used to create and configure an AKS cluster.
 
 ## Prerequisites
 
@@ -24,10 +24,9 @@ Ansible allows you to automate the deployment and configuration of resources in 
 
 ## Create a managed AKS cluster
 
-The code in this section presents a sample Ansible playbook to create a resource group, and an AKS cluster that resides in the resource group.
+The sample playbook creates a resource group and an AKS cluster that resides in the resource group.
 
-> [!Tip]
-> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
+Save the following playbook as `azure_create_aks.yml`:
 
 ```yaml
 - name: Create Azure Kubernetes Service
@@ -66,17 +65,19 @@ The code in this section presents a sample Ansible playbook to create a resource
         Environment: Production
 ```
 
-The following bullets help to explain the preceding Ansible playbook code:
+Before running the playbook, see the following notes:
+
 - The first section within **tasks** defines a resource group named **myResourceGroup** within the **eastus** location.
 - The second section within **tasks** defines an AKS cluster named **myAKSCluster** within the **myResourceGroup** resource group.
+- For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
-To create the AKS cluster with Ansible, save the preceding sample playbook as `azure_create_aks.yml`, and run the playbook with the following command:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook azure_create_aks.yml
 ```
 
-The output from the **ansible-playbook* command looks similar to the following showing that the AKS cluster has been successfully created:
+Running the playbook shows results similar to the following output:
 
 ```Output
 PLAY [Create AKS] ****************************************************************************************
@@ -96,10 +97,9 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## Scale AKS nodes
 
-The sample playbook in the previous section defines two nodes. If you need fewer or more container workloads on your cluster, you can easily adjust the number of nodes. The sample playbook in this section increases the number of nodes from two nodes to three. Modifying the node count is done by changing the **count** value in the **agent_pool_profiles** block.
+The sample playbook in the previous section defines two nodes. You adjust the number of nodes by modifying the **count** value in the **agent_pool_profiles** block.
 
-> [!Tip]
-> For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
+Save the following playbook as `azure_configure_aks.yml`:
 
 ```yaml
 - name: Scale AKS cluster
@@ -132,13 +132,17 @@ The sample playbook in the previous section defines two nodes. If you need fewer
             vm_size: Standard_D2_v2
 ```
 
-To scale the AKS cluster with Ansible, save the preceding playbook as *azure_configure_aks.yml*, and run the playbook as follows:
+Before running the playbook, see the following notes:
+
+- For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook azure_configure_aks.yml
 ```
 
-The following output shows that the AKS cluster has been successfully created:
+Running the playbook shows results similar to the following output:
 
 ```Output
 PLAY [Scale AKS cluster] ***************************************************************
@@ -155,7 +159,10 @@ localhost                  : ok=2    changed=1    unreachable=0    failed=0
 
 ## Delete a managed AKS cluster
 
-The following sample Ansible playbook section illustrates how to delete an AKS cluster:
+The sample playbook delete an AKS cluster.
+
+Save the following playbook as `azure_delete_aks.yml`:
+
 
 ```yaml
 - name: Delete a managed Azure Container Services (AKS) cluster
@@ -172,13 +179,13 @@ The following sample Ansible playbook section illustrates how to delete an AKS c
       state: absent
   ```
 
-To delete the AKS cluster with Ansible, save the preceding playbook as *azure_delete_aks.yml*, and run the playbook as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook azure_delete_aks.yml
 ```
 
-The following output shows that the AKS cluster has been successfully deleted:
+Running the playbook shows results similar to the following output:
 
 ```Output
 PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
