@@ -1,5 +1,5 @@
 ---
-title: 'Load data into Azure Data Explorer by using Azure Data Factory'
+title: 'Copy data from Azure Data Factory to Azure Data Explorer'
 description: 'In this topic, you learn to ingest (load) data into Azure Data Explorer by using Azure Data Factory copy tool'
 services: data-explorer
 author: orspod
@@ -7,12 +7,12 @@ ms.author: orspodek
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/15/2019
 
 #Customer intent: I want to use Azure Data Factory to load data into Azure Data Explorer so that I can analyze it later.
 ---
 
-# Load data into Azure Data Explorer using Azure Data Factory
+# Copy data from Azure Data Factory to Azure Data Explorer
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes. Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
 
@@ -94,7 +94,7 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
     * Select **Test Connection** to test the linked service connection you created.
     * Select **Finish**.
 
-1. In the **Source data store** page, you will see your new AmazonS31 connection. Select **Next**.
+1. In the **Source data store** page, you'll see your new AmazonS31 connection. Select **Next**.
 
    ![Source data store created connection](media/data-factory-load-data/source-data-store-created-connection.png)
 
@@ -152,22 +152,20 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![Destination dataset table mapping](media/data-factory-load-data/destination-dataset-table-mapping.png)
 
-1. In the **Column mapping** page,
-    * The first schema mapping is performed by ADF according to [ADF schema mapping](/azure/data-factory/copy-activity-schema-and-type-mapping)
+1. In the **Column mapping** page:
+    * The first mapping is performed by ADF according to [ADF schema mapping](/azure/data-factory/copy-activity-schema-and-type-mapping)
         * Set the **Column mappings** for the Azure Data Factory destination table. The default mapping is displayed from source to ADF destination table.
-        * Unselect the columns that you do not need to define your column mapping.
-
-    * The second stage occurs when this tabular data is ingested into Azure Data Explorer with mapping according to [CSV mapping rules](/azure/kusto/management/mappings#csv-mapping). Note that even if the source data was not in CSV format, ADF has converted the data into a tabular format, therefore, CSV mapping is the only relevant mapping at this stage.
+        * Unselect the columns that you don't need to define your column mapping.
+    * The second mapping occurs when this tabular data is ingested into Azure Data Explorer. Mapping is performed according to [CSV mapping rules](/azure/kusto/management/mappings#csv-mapping). Note that even if the source data was not in CSV format, ADF has converted the data into a tabular format, therefore, CSV mapping is the only relevant mapping at this stage.
         * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional) so that column mapping can be used.
-        * If **Ingestion mapping name** is not specified, “by-name” mapping order defined in **Column mappings** section will occur. If "by-name" mapping fails, Azure Data Explorer will try to ingest the data in a “by-column position” order (maps by-position as a default).
-
+        * If **Ingestion mapping name** isn't specified, “by-name” mapping order defined in **Column mappings** section will occur. If "by-name" mapping fails, Azure Data Explorer will try to ingest the data in a “by-column position” order (maps by-position as default).
     * Select **Next**
 
     ![Destination dataset column mapping](media/data-factory-load-data/destination-dataset-column-mapping.png)
 
 1. In the **Settings** page:
     * Set the relevant **fault tolerance settings**.
-    * **Performance settings**: Enable staging is not applicable. **Advanced settings** include cost considerations. Leave as is if no specific needs.
+    * **Performance settings**: Enable staging isn't applicable. **Advanced settings** include cost considerations. Leave as is if no specific needs.
     * Select **Next**.
 
     ![Copy data settings](media/data-factory-load-data/copy-data-settings.png)
