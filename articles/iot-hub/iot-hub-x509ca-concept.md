@@ -51,7 +51,7 @@ The use of X.509 CA is best understood in relation to a concrete example. Consid
 
 Company-X has the option of purchasing an X.509 CA certificate from a public root certificate authority or creating one through a self-signed process. One option would be optimal over the other depending on the application scenario. Regardless of the option, the process entails two fundamental steps, generating a public/private key pair and signing the public key into a certificate.
 
-![Flow for generating an X509CA certificates](./media/iot-hub-x590ca-concept/csr-flow.png)
+![Flow for generating an X509CA certificates](./media/iot-hub-x509ca-concept/csr-flow.png)
 
 Details on how to accomplish these steps differ with various service providers.
 
