@@ -24,7 +24,7 @@ When you create a scale set, you define the number of VM instances that you wish
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 - An existing Azure virtual machine scale set. - If you don't have a one, [Create virtual machine scale sets in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-create-configure-vmss).
 
-## Auto scale based on a schedule   
+## Auto scale based on a schedule
 
 To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
 
@@ -71,11 +71,13 @@ ansible-playbook vmss-auto-scale.yml
 ```
 
 ## Auto scale based on performance data
+
 If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. Ansible allows you to control what metrics to monitor, such as CPU usage, disk usage, and app-load time. You can scale in and scale out in virtual machine scale sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
 
 The following playbook checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
 
 Based on the CPU percentage metrics, the playbook performs one of the following actions:
+
 - Scales out the number of VM instances to four
 - Scales in the number of VM instances to one
 
@@ -180,9 +182,9 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
         var: autoscale_query.autoscales[0]
 ```
 
-## Disable the autoscale settings
+## Disable autoscale settings
 
-You can disable the autoscale setting by changing `enabled: true` to `enabled: false`, or deleting the autoscale settings with the playbook as follows:
+There are two ways to disable autoscale settings. One way is to change the `enabled` key from `true` to `false`. The second way - as shown in the following playbook is to deletes the autoscale setting. 
 
 ```yml
 - hosts: localhost
