@@ -38,8 +38,8 @@ If you're unsure, select the **Create One** command in the account prompt. You c
 
 ![Command to create a new Microsoft account](media/accounts/create-new-microsoft-account.png)
 
-    > [!Note]
-    > If you attempt to create a new account with an email address that already has an account associated with it, you may see the message, "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." In that case, try signing in with the work email address without creating a new account.
+> [!Note]
+> If you attempt to create a new account with an email address that already has an account associated with it, you may see the message, "You can't sign up here with a work or school email address. Use a personal email, such as Gmail or Yahoo!, or get a new Outlook email." In that case, try signing in with the work email address without creating a new account.
 
 For child accounts, access to Azure Notebooks is blocked by default. Signing in with a child account displays the error shown below:
 
