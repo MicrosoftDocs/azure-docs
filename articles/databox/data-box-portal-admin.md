@@ -127,12 +127,12 @@ Perform the following steps to download the order history.
        Microsoft Data Box Order Report
        -------------------------------
        Name                                               : DataBoxTestOrder                              
-       StartTime(UTC)                                     : 11/19/2018 8:49:23 AM +00:00                       
+       StartTime(UTC)                                     : 10/31/2018 8:49:23 AM +00:00                       
        DeviceType                                         : DataBox                                           
        -------------------
        Data Box Activities
        -------------------
-       Time(UTC)                 | Activity                       | Status          | Description                                              11/19/2018 8:49:26 AM      | OrderCreated                   | Completed       |                                                          11/2/2018 7:32:53 AM      | DevicePrepared                 | Completed       |                                                          11/3/2018 1:36:43 PM      | ShippingToCustomer             | InProgress      | Shipment picked up. Local Time : 11/3/2018 1:36:43        PM at AMSTERDAM-NLD                                                                                
+       Time(UTC)                 | Activity                       | Status          | Description                                              10/31/2018 8:49:26 AM     | OrderCreated                   | Completed       |                                                          11/2/2018 7:32:53 AM      | DevicePrepared                 | Completed       |                                                          11/3/2018 1:36:43 PM      | ShippingToCustomer             | InProgress      | Shipment picked up. Local Time : 11/3/2018 1:36:43        PM at AMSTERDAM-NLD                                                                                
        11/4/2018 8:23:30 PM      | ShippingToCustomer             | InProgress      | Processed at AMSTERDAM-NLD. Local Time : 11/4/2018        8:23:30 PM at AMSTERDAM-NLD                                                                        
        11/4/2018 11:43:34 PM     | ShippingToCustomer             | InProgress      | Departed Facility in AMSTERDAM-NLD. Local Time :          11/4/2018 11:43:34 PM at AMSTERDAM-NLD                                                               
        11/5/2018 1:38:20 AM      | ShippingToCustomer             | InProgress      | Arrived at Sort Facility LEIPZIG-DEU. Local Time :        11/5/2018 1:38:20 AM at LEIPZIG-DEU                                                                
