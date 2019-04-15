@@ -17,7 +17,7 @@ ms.date: 04/11/2019
 
 # Write advanced R functions in Azure SQL Database using Machine Learning Services (preview)
 
-This articles describes how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
+This article describes how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ This articles describes how to embed R mathematical and utility functions in a S
 
 ## Create a stored procedure to generate random numbers
 
-For simplicity, let's use the R `stats` package which is installed and loaded by default with Azure SQL Database using Machine Learning Services (preview). The package contains hundreds of functions for common statistical tasks, among them the `rnorm` function. This function generates a specified number of random numbers using the normal distribution, given a standard deviation and mean.
+For simplicity, let's use the R `stats` package that's installed and loaded by default with Azure SQL Database using Machine Learning Services (preview). The package contains hundreds of functions for common statistical tasks, among them the `rnorm` function. This function generates a specified number of random numbers using the normal distribution, given a standard deviation and means.
 
 For example, the following R code returns 100 numbers on a mean of 50, given a standard deviation of 3.
 
@@ -81,7 +81,7 @@ EXEC MyRNorm @param1 = 100,@param2 = 50, @param3 = 3
 
 ## Use R utility functions for troubleshooting
 
-The `utils` package, installed by default, provides a variety of utility functions for investigating the current R environment. This can be useful if you're finding discrepancies in the way your R code performs in SQL and in outside environments. For example, you might use the R `memory.limit()` function to get memory for the current R environment. 
+The `utils` package, installed by default, provides a variety of utility functions for investigating the current R environment. These functions can be useful if you're finding discrepancies in the way your R code performs in SQL and in outside environments. For example, you might use the R `memory.limit()` function to get memory for the current R environment.
 
 Because the `utils` package is installed but not loaded by default, you must use the `library()` function to load it first.
 
