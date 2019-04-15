@@ -19,7 +19,7 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 ## Summary
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. With the [plus 50 percent price cut on HDInsight](https://azure.microsoft.com/blog/azure-hdinsight-announcements-significant-price-reduction-and-amazing-new-capabilities/#_blank), customers moving to the cloud are reaping more savings than ever.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure.
 
 ## New features
 
