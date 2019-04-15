@@ -19,17 +19,17 @@ ms.author: vturecek
 
 # ASP.NET Core in Service Fabric Reliable Services
 
-ASP.NET Core is a new open-source, cross-platform framework for building modern internet-connected applications in the cloud, such as web apps, IoT apps, and mobile back ends.
+ASP.NET Core is a new open-source and cross-platform framework for building modern cloud-based Internet-connected applications, such as web apps, IoT apps, and mobile backends. 
 
-This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services by using the **Microsoft.ServiceFabric.AspNetCore.** set of NuGet packages.
+This article is an in-depth guide to hosting ASP.NET Core services in Service Fabric Reliable Services using the **Microsoft.ServiceFabric.AspNetCore.*** set of NuGet packages.
 
 For an introductory tutorial on ASP.NET Core in Service Fabric and instructions on getting your development environment setup, see [Create a .NET application](service-fabric-tutorial-create-dotnet-app.md).
 
-The rest of this article assumes you're already familiar with ASP.NET Core. If not, please read through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
+The rest of this article assumes you are already familiar with ASP.NET Core. If not, we recommend reading through the [ASP.NET Core fundamentals](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
 ## ASP.NET Core in the Service Fabric environment
 
-Both ASP.NET Core and Service Fabric apps can run on either .NET Core or full .NET Framework. ASP.NET Core can be used in two different ways in Service Fabric:
+Both ASP.NET Core and Service Fabric apps can run on .NET Core as well as full .NET Framework. ASP.NET Core can be used in two different ways in Service Fabric:
  - **Hosted as a guest executable**. This is primarily used to run existing ASP.NET Core applications on Service Fabric with no code changes.
  - **Run inside a Reliable Service**. This allows better integration with the Service Fabric runtime and allows stateful ASP.NET Core services.
 
