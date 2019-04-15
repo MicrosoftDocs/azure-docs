@@ -62,6 +62,10 @@ See [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quicks
 
 See [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](./quickstart-v2-aspnet-webapp.md)
 
+# [REST](#tab/other)
+
+No quickstart uses the protocol directly. We advise that you use Microsoft authentication libraries.
+
 ___
 
 ### Register an app using Azure portal
@@ -271,6 +275,11 @@ The code related to authentication is located in the `App_Start/Startup.Auth.cs`
 
 # [Node.JS](#tab/node.js)
 -->
+
+# [REST](#tab/other)
+
+No application show how to use the protocol directly
+
 ___
 
 ## Sign-out
@@ -381,6 +390,10 @@ public static IServiceCollection AddMsal(this IServiceCollection services, IEnum
 # [ASP.NET](#tab/aspnet)
 
 needs write-up
+
+# [REST](#tab/other)
+
+The protocol documentation is available from [Open ID Connect](./v2-protocols-oidc.md).
 
 ___
 

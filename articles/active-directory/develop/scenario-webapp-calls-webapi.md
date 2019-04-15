@@ -48,7 +48,7 @@ Web Apps calling Web APIs:
 The end to end experience of developers for this scenario has, therefore, specific aspects as:
 
 - During the [Application registration](#app-registration-specifics), you'll need to provide one, or several (if you deploy your app to several locations) Reply URIs, secrets, or certificates need to be shared with Azure AD.
-- The [Application configuration](#msal-libraries-applications-code-configuration) needs to provide client credentials as shared with Azure AD during the application registration
+- The [Application configuration](#app-registration-specifics) needs to provide client credentials as shared with Azure AD during the application registration
 
 ## Libraries supporting Web App scenarios
 
