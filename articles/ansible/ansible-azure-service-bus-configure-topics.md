@@ -67,7 +67,7 @@ ansible-playbook servicebus_topic.yml
 
 ## Create the subscription
 
-The sample playbook code creates the subscription under a Service Bus topic. Azure Service Bus topics can have multiple subscriptions. A subscriber to a topic can receives a copy of each message sent to the topic. Subscriptions are named entities, which are durably created, but can optionally expire or auto-delete.
+The sample playbook code creates the subscription under a Service Bus topic. Azure Service Bus topics can have multiple subscriptions. A subscriber to a topic can receives a copy of each message sent to the topic. Subscriptions are named entities, which are durably created, but can optionally expire.
 
 ```yml
 ---
