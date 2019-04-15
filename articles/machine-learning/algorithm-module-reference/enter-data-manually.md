@@ -16,7 +16,7 @@ ROBOTS: NOINDEX
 
 *Enables entering and editing small datasets by typing values*  
   
- Category: Data Transformation / Manipulation
+ Category: Data Input and Output
   
 ## Module overview  
 

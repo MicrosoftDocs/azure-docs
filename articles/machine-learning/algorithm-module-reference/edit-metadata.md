@@ -20,8 +20,8 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Edit Metadata** module in Azure Machine Learning service to change metadata that is associated with columns in a dataset. The values and the data types in the dataset are not altered; what changes is the metadata inside Azure Machine Learning that tells downstream components how to use the column.
-
+This article describes how to use the  **Edit Metadata** module in Azure Machine Learning service to change metadata that is associated with columns in a dataset. The value and data type of the dataset will be changed after using the **Edit Metadata** module. 
+ 
 Typical metadata changes might include:
   
 + Treating Boolean or numeric columns as categorical values  
@@ -46,13 +46,13 @@ Typical metadata changes might include:
   
 3.  Select the **Data type** option if you need to assign a different data type to the selected columns. Changing the data type might be needed for certain operations: for example, if your source dataset has numbers handled as text, you must change them to a numeric data type before using math operations. 
 
-    + The data types supported are `String`, `Integer`, `Double`, `Boolean`, `DateTime`, and `TimeSpan`. 
+    + The data types supported are `String`, `Integer`, `Double`, `Boolean`, `DateTime`. 
 
     + If multiple columns are selected, you must apply the metadata changes to **all** selected columns. For example, let's say you choose 2-3 numeric columns. You could change them all to a string data type, and rename them in one operation. However, you can't change one column to a string data type and another column from a float to an integer.
   
     + If you do not specify a new data type, the column metadata is unchanged. 
     
-    + Changes of data type affect only the metadata that is associated with the dataset and how the data is handled in downstream operations. The actual column values are not altered unless you perform a different operation (such as rounding) on the column. You can recover the original data type at any time by using [Edit Metadata](./edit-metadata.md) to reset the column data type.  
+    + The column type and values will be changed after perform the [Edit Metadata](./edit-metadata.md) operation. You can recover the original data type at any time by using [Edit Metadata](./edit-metadata.md) to reset the column data type.  
 
     > [!NOTE]
     > If you change any type of number to the **DateTime** type, leave the **DateTime Format** field blank. Currently, it is not possible to specify the target data format.  
@@ -70,7 +70,7 @@ Typical metadata changes might include:
     
         In many cases, Azure Machine Learning can infer that a column contains a class label, but by setting this metadata you can ensure that the column is identified correctly. Setting this option does not change data values, only the way that some machine learning algorithms handle the data.
   
-    + **Weight**: Use this option with numeric data to indicate that column values represent weights for use in machine learning scoring or training operations. Only one weight column can be present in a dataset, and the column must be numeric.
+
   
     > [!TIP]
     >  Have data that doesn't fit into these categories?  For example, your dataset might contain values such as unique identifiers that are not useful as variables. Sometimes IDs can cause problems when used in a model. 
@@ -89,7 +89,6 @@ Typical metadata changes might include:
   
          Currently the ability to explicitly mark a column as a score is not available in Azure Machine Learning. However, some operations result in a column being flagged as a score internally. Also, a custom R module might output score values.
   
-    + **Clear weight**: Use this option to remove the **weight** metadata from the specified column.  
   
 7.  For **New column names**, type the new name of the selected column or columns.  
   

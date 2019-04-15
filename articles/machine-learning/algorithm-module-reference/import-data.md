@@ -14,7 +14,7 @@ ROBOTS: NOINDEX
 ---
 # Import Data
 
-*Loads data from external sources on the web; from various forms of cloud-based storage in Azure such as tables, blobs, and SQL  databases; and from on-premises SQL Server databases*
+*Loads data from external sources on the web; from various forms of cloud-based storage in Azure such as tables, blobs, and SQL  databases.*
 
 Category: Data Input and Output
 
