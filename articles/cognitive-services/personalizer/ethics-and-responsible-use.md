@@ -10,7 +10,7 @@ ms.topic: overview
 ms.date: 05/07/2019
 ms.author: edjez
 ---
-
+     
 # Guidelines for responsible implementation of Personalizer
 
 These guidelines help you implement personalization in a way that builds trust in your company and service. Be sure to research, learn and deliberate on the impact of personalization on people’s lives. When in doubt, seek guidance. 
