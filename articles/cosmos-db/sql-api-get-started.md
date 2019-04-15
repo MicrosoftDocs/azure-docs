@@ -1,16 +1,16 @@
 ---
-title: 'Azure Cosmos DB: SQL API get started tutorial'
+title: Build a .NET console app to manage data in Azure Cosmos DB SQL API account
 description: A tutorial that creates an online database and C# console app using the SQL API.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: sngun
 
 ---
-# Azure Cosmos DB: SQL API get started tutorial
+# Build a .NET console app to manage data in Azure Cosmos DB SQL API account
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -28,13 +28,13 @@ This tutorial shows you how to:
 
 > [!div class="checklist"]
 >
-> - Create and connect to an Azure Cosmos DB account
+> - Create an Azure Cosmos DB account and connect to it
 > - Configure a Visual Studio solution
-> - Create an online database
+> - Create a database
 > - Create a collection
 > - Create JSON documents
 > - Query the collection
-> - Update and replace a document
+> - Update a JSON document
 > - Delete a document
 > - Delete the database
 
@@ -46,10 +46,9 @@ Visual Studio 2017 with the Azure development workflow installed:
 An Azure subscription or free Cosmos DB trial account:
 - [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 - [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]  
-  
-  If you're using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then start the tutorial at [Set up the Visual Studio solution](#SetupVS).
+- If you're using the Azure Cosmos DB Emulator, follow the steps at [Azure Cosmos DB Emulator](local-emulator.md) to set up the emulator. Then start the tutorial at [Set up the Visual Studio solution](#SetupVS).
 
-## Get the complete solution
+## Get the completed solution
 
 If you don't have time to complete the tutorial, or just want the code samples, you can download the complete solution from [GitHub](https://github.com/Azure-Samples/documentdb-dotnet-getting-started). 
 
@@ -429,7 +428,7 @@ The following diagram illustrates how the Azure Cosmos DB SQL query syntax calls
 
 The [FROM](how-to-sql-query.md#FromClause) keyword in the SQL query is optional, because Azure Cosmos DB queries are already scoped to a single collection. You can swap `FROM Families f` with `FROM root r`, or any other variable name you choose. Azure Cosmos DB will infer that `Families`, `root`, or the variable name you choose refers to the current collection.
 
-## <a id="ReplaceDocument"></a>Update and replace a JSON document
+## <a id="ReplaceDocument"></a>Update a JSON document
 
 Azure Cosmos DB SQL API supports updating and replacing JSON documents.  
 
@@ -499,7 +498,7 @@ You've successfully deleted the Azure Cosmos DB database. You can see in the **D
 
 Press **F5** in Visual Studio to build and run the complete C# console app in debug mode. You should see the following output in the console window:
 
-```
+```bash
 Created Family AndersenFamily
 Press any key to continue ...
  Created Family WakefieldFamily
