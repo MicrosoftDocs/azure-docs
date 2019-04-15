@@ -1,6 +1,6 @@
 ---
 title: Create shared VM images using the Azure portal | Microsoft Docs
-description: Learn how to use Azure portal to create a shared virtual machine images.
+description: Learn how to use Azure portal to create and share virtual machine images.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn

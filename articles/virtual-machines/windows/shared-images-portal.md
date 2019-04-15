@@ -1,6 +1,6 @@
 ---
 title: Create shared VM images using the Azure portal | Microsoft Docs
-description: Learn how to use Azure portal to create a shared virtual machine images.
+description: Learn how to use Azure portal to create and share virtual machine images.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
@@ -68,6 +68,8 @@ This example creates a VM named *myVMfromImage*, in the *myResourceGroup* in the
 ## Clean up resources
 
 When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+
+If you want to delete individual resources, you need to delete them in reverse order. For example, to delete an image definition, you need to delete all of the image versions created from that image.
 
 ## Next steps
 
