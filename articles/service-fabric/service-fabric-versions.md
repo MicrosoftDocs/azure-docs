@@ -42,7 +42,7 @@ Here are the list of the Service Fabric versions that are supported and their su
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31,2019  |
 | 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |Current version and so no end date |
 
-## Supported Operating System for Service Fabric versions
+# Supported Operating System for Service Fabric versions
 
 | **Operating System** | **Earliest Supported Service Fabric Version** |
 | --- | --- |
