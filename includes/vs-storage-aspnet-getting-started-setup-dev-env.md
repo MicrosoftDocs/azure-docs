@@ -40,7 +40,7 @@ This section walks through setting up the development environment. This includes
 
 1. In the **Azure Storage** dialog box, select the Azure storage account to be used for this tutorial. To create a new Azure storage account, select **Create a New Storage Account**, and complete the form. After selecting either an existing storage account or creating a new one, select **Add**. Visual Studio installs the NuGet package for Azure Storage and a storage connection string to **Web.config**.
 
-1. In **Solution Explorer**, right-click on **Dependencies**, choose **Manage NuGet Packages**, and add a NuGet package reference to Microsoft.Azure.ConfigurationManager. Add the latest version.
+1. In **Solution Explorer**, right-click on **Dependencies**, choose **Manage NuGet Packages**, and add a NuGet package reference to the latest version of Microsoft.Azure.ConfigurationManager.
 
 > [!TIP]
 > To learn how to create a storage account with the [Azure portal](https://portal.azure.com), see [Create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
