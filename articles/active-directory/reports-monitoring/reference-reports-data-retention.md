@@ -66,7 +66,7 @@ For security signals, the collection process starts when you opt-in to use the *
 | :--                    | :--           | :--            | :--                 | :--                 |
 | Audit logs             | 7 days        |  7 days        | 30 days             | 30 days             |
 | Sign-ins               | N/A           |  N/A           | 30 days             | 30 days             |
-| Azure MFA Usage        | 30 days       |  30 days       | 30 days             | 30 days             |
+| Azure MFA usage        | 30 days       |  30 days       | 30 days             | 30 days             |
 
 You can retain the audit and sign-in activity data for longer than the default retention period outlined above by routing it to an Azure storage account using Azure Monitor. For more information, see [Archive Azure AD logs to an Azure storage account](quickstart-azure-monitor-route-logs-to-storage-account.md).
 
