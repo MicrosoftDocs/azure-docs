@@ -21,7 +21,7 @@ Learn how to use Apache Sqoop to import and export between an Apache Hadoop clus
 
 ## Prerequisites
 
-* Completion of [Set up test environment](./hdinsight-use-sqoop.md#set-up-test-environment) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 * A client to query the Azure SQL database. Consider using [SQL Server Management Studio](../../sql-database/sql-database-connect-query-ssms.md) or [Visual Studio Code](../../sql-database/sql-database-connect-query-vscode.md).
 
