@@ -29,6 +29,7 @@ For more information on important changes with HDInsight 4.0. see [What's new in
 
 The official Apache versions of all HDInsight 4.0 components are listed below. All components listed here are official Apache releases of the most recent stable versions available.
 
+- Apache Ambari 2.7.1
 - Apache Hadoop 3.1.1
 - Apache HBase 2.0.0
 - Apache Hive 3.1.0
@@ -50,8 +51,11 @@ Later versions of a few Apache components are sometimes bundled in the HDP distr
 
 ## Apache patch information
 
+For more information on patches available in HDInsight 4.0, see the patch listing for each product in the table below.
+
 | Product name | Patch information |
 |---|---|
+| Ambari | [Ambari patch information](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
 | Hadoop | [Hadoop patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
 | HBase | [HBase patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
 | Hive  | This release provides Hive 3.1.0 with no additional Apache patches.  |
