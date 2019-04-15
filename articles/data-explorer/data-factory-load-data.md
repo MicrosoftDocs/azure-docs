@@ -18,12 +18,12 @@ Azure Data Explorer is a fast, fully managed data analytics service for real-tim
 
 Azure Data Factory offers the following benefits for loading data into Azure Data Explorer:
 
-* **Easy to set up**: An intuitive 5-step wizard with no scripting required.
+* **Easy to set up**: An intuitive five-step wizard with no scripting required.
 * **Rich data store support**: Built-in support for a rich set of on-premises and cloud-based data stores. For a detailed list, see the table of [Supported data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats).
 * **Secure and compliant**: Data is transferred over HTTPS or ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
 * **High performance**: Up to 1-GB/s data loading speed into Azure Data Explorer. For details, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
 
-This article shows you how to use the Data Factory Copy Data tool to load data from Amazon S3 into Azure Data Explorer. You can follow similar steps to copy data from other types of data stores such as [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage), [Azure SQL Database](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), and [File system](/azure/data-factory/connector-file-system).
+This article shows you how to use the Data Factory Copy Data tool to load data from Amazon S3 into Azure Data Explorer. You can follow similar steps to copy data from other data stores such as [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage), [Azure SQL Database](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), and [File system](/azure/data-factory/connector-file-system).
 
 ## Prerequisites
 
@@ -122,7 +122,7 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![Select Azure Data Explorer - new linked service](media/data-factory-load-data/adx-select-new-linked-service.png)
 
-1. In the **New Linked Service (Azure Data Explorer)** page, do the following:
+1. In the **New Linked Service (Azure Data Explorer)** page, do the following steps:
 
     ![ADX new linked service](media/data-factory-load-data/adx-new-linked-service.png)
 
@@ -152,13 +152,18 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![Destination dataset table mapping](media/data-factory-load-data/destination-dataset-table-mapping.png)
 
-1. In the **Column mapping** page:
-    * Set the column mapping for the Azure Data Factory destination table. The default mapping is displayed.
-    * Unselect the columns that you do not need.
-    * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional)
+1. In the **Column mapping** page,
+    * The first schema mapping is performed by ADF according to [ADF schema mapping](/azure/data-factory/copy-activity-schema-and-type-mapping)
+        * Set the column mapping for the Azure Data Factory destination table. The default mapping is displayed.
+        * Unselect the columns that you do not need to define your needed column mapping.
+
+    * The second stage occurs when this tabular data is ingested into Azure Data Explorer with mapping according to [CSV mapping rules]
+        * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional)
     * Select **Next**
 
     ![Destination dataset column mapping](media/data-factory-load-data/destination-dataset-column-mapping.png)
+
+
 
 1. In the **Settings** page:
     * Set the relevant **fault tolerance settings**.
@@ -172,7 +177,7 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
     ![Copy data summary](media/data-factory-load-data/copy-data-summary.png)
 
 1. In the **Deployment page**:
-    * Select **Monitor** to switch to the **Monitor** tab and see the status of the pipeline (progress, errors and data flow).
+    * Select **Monitor** to switch to the **Monitor** tab and see the status of the pipeline (progress, errors, and data flow).
     * Select **Edit Pipeline** to edit linked services, datasets, and pipelines.
     * Select **Finish** to complete copy data task
 
