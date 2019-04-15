@@ -89,6 +89,8 @@
       href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Run from package
       href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Zero downtime deployment
+      href: durable-functions-zero-downtime-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
   - name: Manage
     items:
     - name: Instance management
