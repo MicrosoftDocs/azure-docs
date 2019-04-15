@@ -20,9 +20,9 @@ ms.collection: M365-identity-device-management
 ---
 # Delete a directory in Azure Active Directory
 
-When an Azure AD directory is deleted, all resources that are contained in the directory are also deleted. You should prepare your organization by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD directory from the portal.
+When an Azure AD directory is deleted, all resources that are contained in the directory are also deleted. Prepare your organization by minimizing its associated resources before you delete. Only an Azure Active Directory (Azure AD) global administrator can delete an Azure AD directory from the portal.
 
-## Prepare your organization for deletion
+## Prepare the directory
 
 You can't delete a directory in Azure AD until it passes several checks. These checks reduce risk that deleting an Azure AD directory negatively impacts user access, such as the ability to sign in to Office 365 or access resources in Azure. For example, if the directory associated with a subscription is unintentionally deleted, then users can't access the Azure resources for that subscription. The following conditions are checked:
 
@@ -31,7 +31,7 @@ You can't delete a directory in Azure AD until it passes several checks. These c
 * There can be no multi-factor authentication providers linked to the directory.
 * There can be no subscriptions for any Microsoft Online Services such as Microsoft Azure, Office 365, or Azure AD Premium associated with the directory. For example, if a default directory was created for you in Azure, you cannot delete this directory if your Azure subscription still relies on this directory for authentication. Similarly, you can't delete a directory if another user has associated a subscription with it.
 
-## Delete an Azure AD directory
+## Delete the directory
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is the Global Administrator for your organization.
 
@@ -47,9 +47,9 @@ You can't delete a directory in Azure AD until it passes several checks. These c
 
 5. If your directory does not pass one or more checks, you're provided with a link to more information on how to pass. After you pass all checks, select **Delete** to complete the process.
 
-## I have an expired subscription but I can't delete the directory
+## If you can't delete the directory
 
-When you configured your Azure AD directory, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a drectory until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow directory deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisoned** state.
+When you configured your Azure AD directory, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a directory until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow directory deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisoned** state.
 
 For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -60,7 +60,7 @@ Expired (30 days) | Data accessible to all| Users have normal access to Office 3
 Disabled (30 days) | Data accessible to admin only | Users can’t access Office 365 files, or apps<br>Admins can access the Microsoft 365 admin center but can’t assign licenses to or update users
 Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if no other services are in use) | Users can’t access Office 365 files, or apps<br>Admins can access the Microsoft 365 admin center to purchase and manage other subscriptions
 
-## Delete a subscription in the Microsoft 365 admin center
+## Delete a subscription
 
 You can put a subscription into the Deprovisoned state to be deleted in three days using the Microsoft 365 admin center.
 
@@ -80,16 +80,16 @@ You can put a subscription into the Deprovisoned state to be deleted in three da
   
    ![pass subscription check at deletion screen](./media/directory-delete-howto/delete-checks-passed.png)
 
-## I have a trial subscription product like PowerBI or Rights Management Services that is blocking directory deletion
+## I have a trial subscription that blocks deletion
 
-There are [self-service sign-up products](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Office 365, which also creates a guest user for authentication in your Azure AD directory. These self-service products block directory deletions until they are fully deleted from the directory, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
+There are [self-service sign-up products](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) like Microsoft Power BI, Rights Management Services, Microsoft Power Apps, or Dynamics 365, individual users can sign up via Office 365, which also creates a guest user for authentication in your Azure AD directory. These self-service products block directory deletions until they are fully deleted from the directory, to avoid data loss. They can be deleted only by the Azure AD admin whether the user signed up individually or was assigned the product.
 
 There are two types of self-service sign-up products in how they are assigned: 
 
 * Org-level assignment: An Azure AD admin assigns the product to the entire organization and a user can be actively using the service with this org-level assignment even if they are not licensed individually.
 * User level assignment: An individual user during self-service sign-up essentially assigns the product to themselves without an admin. Once the organization becomes managed by an admin (see [Administrator takeover of an unmanaged directory](domains-admin-takeover.md), then the admin can directly assign the product to users without self-service sign-up.  
 
-When you begin the deletion of the self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user that was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with the self-service sign-up product like [Power BI dashboards](https://docs.microsoft.com/power-bi/service-export-to-pbix) or [Rights Management Services policy configuration](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
+When you begin the deletion of the self-service sign-up product, the action permanently deletes the data and removes all user access to the service. Any user that was assigned the offer individually or on the organization level is then blocked from signing in or accessing any existing data. If you want to prevent data loss with the self-service sign-up product like [Microsoft Power BI dashboards](https://docs.microsoft.com/power-bi/service-export-to-pbix) or [Rights Management Services policy configuration](https://docs.microsoft.com/azure/information-protection/configure-policy#how-to-configure-the-azure-information-protection-policy), ensure that the data is backed up and saved elsewhere.
 
 For more information about currently available self-service sign-up products and services, see [Available self-service programs](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
@@ -102,11 +102,11 @@ Deleted | Data deleted | Users can’t access self-service sign-up product, file
 
 ## How can I delete a self-service sign-up product in the Azure portal?
 
-You can put a self-service sign-up product like Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
+You can put a self-service sign-up product like Microsoft Power BI or Azure Rights Management Services into a **Delete** state to be immediately deleted in the Azure AD portal.
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with an account that is a Global administrator in the organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign on with a UPN such as admin@contoso.onmicrosoft.com.
 
-2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Power BI:
+2. Select **Licenses**, and then select **Self-service sign-up products**. You can see all the self-service sign-up products separately from the seat-based subscriptions. Choose the product you want to permanently delete. Here's an example in Microsoft Power BI:
 
     ![the username is mistyped or not found](./media/directory-delete-howto/licenses-page.png)
 
@@ -118,7 +118,7 @@ You can put a self-service sign-up product like Power BI or Azure Rights Managem
 
     ![the username is mistyped or not found](./media/directory-delete-howto/progress-message.png)
 
-5. Now the self-service sign-up product state has changed to **Deleted**. When ypu refresh the page, the product should be removed from the **Self-service sign-up products** page.  
+5. Now the self-service sign-up product state has changed to **Deleted**. When you refresh the page, the product should be removed from the **Self-service sign-up products** page.  
 
     ![the username is mistyped or not found](./media/directory-delete-howto/product-deleted.png)
 
