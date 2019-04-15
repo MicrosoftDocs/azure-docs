@@ -608,7 +608,7 @@
         href: bulk-executor-java.md
     - name: Change Feed
       items:
-      - name: Independent Azure Cosmos DB Trigger
+      - name: Multiple Cosmos DB Triggers
         href: how-to-multiple-triggers.md
     - name: Troubleshoot
       items:
