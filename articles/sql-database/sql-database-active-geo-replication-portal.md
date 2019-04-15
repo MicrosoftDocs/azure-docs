@@ -67,7 +67,7 @@ The secondary database can be switched to become the primary.
     ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Click **Yes** to begin the failover.
 
-The command immediately switches the secondary database into the primary role.
+The command immediately switches the secondary database into the primary role. This process normally should complete within 30 sec or less.
 
 There is a short period during which both databases are unavailable (on the order of 0 to 25 seconds) while the roles are switched. If the primary database has multiple secondary databases, the command automatically reconfigures the other secondaries to connect to the new primary. The entire operation should take less than a minute to complete under normal circumstances.
 
