@@ -1,6 +1,6 @@
 ---
 title: Send events using the .NET Framework - Azure Event Hubs | Microsoft Docs
-description: This article provides a walkthrough for creating a .NET Fraemwork application that sends events to Azure Event Hubs.
+description: This article provides a walkthrough for creating a .NET Framework application that sends events to Azure Event Hubs.
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -26,12 +26,8 @@ This tutorial shows how to send events to an event hub using a console applicati
 ## Prerequisites
 To complete this tutorial, you need the following prerequisites:
 
-* [Microsoft Visual Studio 2017 or higher](https://visualstudio.com).
-
-## Create an Event Hubs namespace and an event hub
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
-
-Get the connection string for the event hub namespace by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
+- [Microsoft Visual Studio 2017 or higher](https://visualstudio.com).
+- **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the **connection string for the event hub namespace** by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the connection string later in this tutorial.
 
 ## Send events 
 
