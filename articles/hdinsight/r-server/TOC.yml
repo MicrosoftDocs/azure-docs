@@ -255,8 +255,6 @@
       - name: Optimize Apache Hive queries
         href: ../hdinsight-hadoop-optimize-hive-query.md
         maintainContext: true
-      - name: Changes to cluster configuration access
-        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
 - name: Enterprise readiness
   items:
   - name: Securing data
@@ -309,10 +307,9 @@
   - name: R developer's guide 
     href: ../../machine-learning/r-developers-guide.md
   - name: Release notes
+    href: ../hdinsight-release-notes.md
+    maintainContext: true
     items:
-    - name: Current release notes
-      href: ../hdinsight-release-notes.md
-      maintainContext: true
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
