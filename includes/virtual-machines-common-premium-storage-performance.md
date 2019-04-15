@@ -257,6 +257,7 @@ High Scale VMs that leverage Azure Premium Storage have a multi-tier caching tec
 
 > [!WARNING]
 > Disk Caching is only supported for disk sizes up to 4 TiB.
+> If you have multiple disks which comprise an entire volume and all disks are 4TiB, then caching is supported for your entire volume.
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
