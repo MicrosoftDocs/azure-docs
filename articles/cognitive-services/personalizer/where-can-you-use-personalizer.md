@@ -17,7 +17,7 @@ Use Personalizer in any situation where your application needs to select the rig
 
 Personalizer uses machine learning to select which action to show the user. The selection can vary drastically depending on the quantity, quality, and distribution of data sent to the service.
 
-### Checklist for Applying Personalizer
+### Checklist for applying Personalizer
 
 
 You can apply Personalizer in situations where:
@@ -33,7 +33,7 @@ You can apply Personalizer in situations where:
 * You have information about each content choice, _action_, as a list of at least 5 [features](concepts-features.md) that you think will help Personalizer make the right choice.
 * Your application can retain data for long enough to accumulate a history of at least 100,000 interactions.
 
-## Machine Learning Considerations for Applying Personalizer
+## Machine learning considerations for applying Personalizer
 
 Personalizer is based on reinforcement learning, an approach to machine learning that is taught by feedback you give it. 
 
@@ -44,11 +44,11 @@ Personalizer will learn best in situations where:
 * There are less than 50 [actions](concepts-actions.md) to rank per call.
 * Your data retention [settings](how-to-configure.md) allow Personalizer to collect enough data to perform offline evaluations and policy optimization. This is typically at least 50,000 data points.
 
-## monitor effectiveness of Personalizer
+## Monitor effectiveness of Personalizer
 
 You can monitor the effectiveness of Personalizer periodically by performing [offline evaluations](how-to-offline-evaluation.md).
 
-## Using Personalizer with Recommendation Engines
+## Using Personalizer with Recommendation engines
 
 Many companies use recommendation engines, marketing and campaigning tools, audience segmentation and clustering, collaborative filtering, and other means to recommend products from a large catalog to customers.
 

@@ -17,7 +17,7 @@ The Personalizer Service has the following container(s):
 
 |Function|Features|
 |-|-|
-|personalizer|tbd|
+|personalizer|Determine best action from current context of content and user.|
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -29,7 +29,7 @@ You must meet the following prerequisites before using Personalizer Service cont
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Personalizer Service resource |In order to use these containers, you must have:<br><br>A _Personalizer Service_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Personalizer Service Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/sts/v1.0`|
+|Personalizer Service resource |In order to use these containers, you must have:<br><br>A _Personalizer Service_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Personalizer Service Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/`|
 
 
 
