@@ -79,7 +79,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ## Create a custom conflict resolution policy with a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
+These samples show how to set up a container with a custom conflict resolution policy using a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
