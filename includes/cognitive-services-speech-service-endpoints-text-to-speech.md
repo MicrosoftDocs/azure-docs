@@ -2,7 +2,7 @@
 author: wolfma61
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 12/11/2018
+ms.date: 05/06/2019
 ms.author: wolfma
 ---
 
@@ -13,7 +13,6 @@ Use this table to determine availability of standard and neural voices by region
 | Region | Endpoint | Standard Voices | Neural Voices |
 |--------|----------|-----------------|---------------|
 | Australia East | https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | Yes |
-| Brazil South | https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | No |
 | Canada Central | https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | Yes |
 | Central US | https://centralus.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | No |
 | East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | No |
@@ -42,7 +41,6 @@ If you've created a custom voice font, use the endpoint that you've created, not
 | Region | Endpoint |
 |--------|----------|
 | Australia East | https://australiaeast.voice.speech.microsoft.com |
-| Brazil South | https://brazilsouth.voice.speech.microsoft.com |
 | Canada Central | https://canadacentral.voice.speech.microsoft.com |
 | Central US | https://centralus.voice.speech.microsoft.com |
 | East Asia | https://eastasia.voice.speech.microsoft.com |
