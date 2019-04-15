@@ -21,16 +21,11 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In this quickstart, you take the following steps: 
-
-- Create a topic by using the Azure portal
-- Create three subscriptions for the topic by using the Azure portal
-- Write Java code to send messages to the topic
-- Write Java code to receive messages from subscriptions
+In this quickstart, you write Java code to send messages to a Service Bus topic and then receive messages from subscriptions to that topic. 
 
 ## Prerequisites
 
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
     1. Create a Service Bus **namespace**.
     2. Get the **connection string**.
