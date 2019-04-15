@@ -56,10 +56,7 @@ The upload process entails uploading a file that contains your certificate.  Thi
 
 The proof of possession step involves a cryptographic challenge and response process between you and IoT Hub.  Given that digital certificate contents are public and therefore susceptible to eavesdropping, IoT Hub would like to ascertain that you really own the CA certificate.  It shall do so by generating a random challenge that you must sign with the CA certificate's corresponding private key.  If you kept the private key secret and protected as earlier advised, then only you will possess the knowledge to complete this step. Secrecy of private keys is the source of trust in this method.  After signing the challenge, complete this step by uploading a file containing the results.
 
-<!-- Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#registercerts).
--->
-
-Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#get-x509-ca-certificates).
+Learn here how to [register your CA certificate](iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub)
 
 ## How to create a device on IoT Hub
 
