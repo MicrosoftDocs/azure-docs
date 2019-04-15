@@ -14,18 +14,36 @@ ms.date: 05/06/2019
 >You can use the resources that you created as prerequisites for other Azure Machine Learning service tutorials and how-to articles.
 
 
-If you don't plan to use the resources that you created, delete them so you don't incur any charges.
+### Delete everything
 
-### Delete resources
+If you don't plan to use anything you created, delete the entire resource group so you don't incur any charges:
 
-To delete experiments, web services, or datasets that you created, select them, and then select **Delete**.
+1. In the Azure portal, select **Resource groups** on the far left.
+ 
+   ![Delete in the Azure portal](./media/aml-ui-cleanup/delete-resources.png)
+
+1. From the list, select the resource group you created.
+
+1. On the far right, select the **ellipsis (...)**.
+
+1. Select **Delete resource group**.
+
+Deleting the resource group also deletes all resources you created in the visual interface.  
+
+### Delete only compute target
+
+The compute target you created here **automatically autoscales** to zero nodes when not in use to minimize charges.  But, if you want to delete the compute target, use these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your workspace.
+
+    ![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)
+
+1. In the **Compute** section of your workspace, select the resource.
+
+1. Select **Delete**.
+
+### Delete individual assets
+
+In the visual interface where you created your experiment, delete individual assets by selecting them, and then selecting the delete button.
 
 ![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
-
-### Delete the compute target
-
-To avoid extra charges, the compute target used to run experiments automatically scales to `0` nodes when it's not being used.
-
-To delete the compute resource altogether, select it in the **Compute** section of your workspace in the [Azure portal](https://portal.azure.com) and then select **Delete**.
-
-![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)

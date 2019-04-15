@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Multiclass Neural Network: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Multiclass Neural Network module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Multiclass Neural Network
@@ -20,7 +20,7 @@ Category: Machine Learning / Initialize Model / Classification
 
 ## Module overview
 
-This article describes how to use the **Multiclass Neural Network** module in Azure Machine Learning to create a neural network model that can be used to predict a target that has multiple values. 
+This article describes how to use the **Multiclass Neural Network** module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has multiple values. 
 
 For example, neural networks of this kind might be used in complex computer vision tasks, such as digit or letter recognition, document classification, and pattern recognition.
 

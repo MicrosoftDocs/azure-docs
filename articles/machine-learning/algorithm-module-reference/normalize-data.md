@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Normalize Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Normalize Data module in Azure Machine Learning service to transform a dataset through *normalization*..
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Normalize Data
@@ -20,7 +20,7 @@ Category: Data Transformation / Scale and Reduce
 
 ## Module overview
 
-This article describes how to use the **Normalize Data** module in Azure Machine Learning to transform a dataset through *normalization*.
+This article describes how to use the **Normalize Data** module in Azure Machine Learning service to transform a dataset through *normalization*.
 
 Normalization is a technique often applied as part of data preparation for machine learning. The goal of normalization is to change the values of numeric columns in the dataset to use a common scale, without distorting differences in the ranges of values or losing information. Normalization is also required for some algorithms to model the data correctly.
 

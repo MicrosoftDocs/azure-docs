@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Import from Web URL via HTTP: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Import from Web URL via HTTP module in Azure Machine Learning service to read data from a public Web page for use in a machine learning experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Import from Web URL via HTTP
 
-This article describes how to use the [Import Data](./import-data.md) module in Azure Machine Learning to read data from a public Web page for use in a machine learning experiment.
+This article describes how to use the **Import from Web URL via HTTP** module in Azure Machine Learning service to read data from a public Web page for use in a machine learning experiment.
 
 The following restrictions apply to data published on a web page:
 

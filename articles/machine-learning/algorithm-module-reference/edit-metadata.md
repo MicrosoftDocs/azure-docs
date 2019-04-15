@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Edit Metadata: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Edit Metadata module in Azure Machine Learning service to change metadata that is associated with columns in a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Edit Metadata
+
 *Edits metadata associated with columns in a dataset*  
   
  Category: Data Transformation / Manipulation 
   
 ## Module overview  
 
-This article describes how to use the [Edit Metadata](./edit-metadata.md) module in Azure Machine Learning to change metadata that is associated with columns in a dataset. The values and the data types in the dataset are not altered; what changes is the metadata inside Azure Machine Learning that tells downstream components how to use the column.
+This article describes how to use the **Edit Metadata** module in Azure Machine Learning service to change metadata that is associated with columns in a dataset. The values and the data types in the dataset are not altered; what changes is the metadata inside Azure Machine Learning that tells downstream components how to use the column.
 
 Typical metadata changes might include:
   

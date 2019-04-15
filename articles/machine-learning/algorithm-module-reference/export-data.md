@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Export Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Export Data module in Azure Machine Learning service to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Export Data
@@ -20,7 +20,7 @@ Category: Data Input and Output
 
 ## Module overview
 
-This article describes how to use the  [Export Data](./export-data.md) module in Azure Machine Learning to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
+This article describes how to use the  **Export Data** module in Azure Machine Learning service to save results, intermediate data, and working data from your experiments into cloud storage destinations outside Azure Machine Learning.
 
 This module supports exporting or saving your data to the following cloud data services:
 

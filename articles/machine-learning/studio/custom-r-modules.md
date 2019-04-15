@@ -1,7 +1,7 @@
 ---
 title: Define custom R modules
 titleSuffix: Azure Machine Learning Studio
-description: This topic describes how to author and deploy a custom R module in Azure Machine Learning Studio. It explains what custom R modules are and what files are used to define them. 
+description: This topic describes how to author and deploy a custom R Studio. It explains what custom R modules are and what files are used to define them. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -14,7 +14,7 @@ ms.date: 11/29/2017
 ---
 # Define custom R modules for Azure Machine Learning Studio
 
-This topic describes how to author and deploy a custom R module in Azure Machine Learning Studio. It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
+This topic describes how to author and deploy a custom R Studio. It explains what custom R modules are and what files are used to define them. It illustrates how to construct the files that define a module and how to register the module for deployment in a Machine Learning workspace. The elements and attributes used in the definition of the custom module are then described in more detail. How to use auxiliary functionality and files and multiple outputs is also discussed. 
 
 
 
@@ -154,7 +154,7 @@ Optional **DataTable** ports that are not passed as input in an experiment have 
             <Description>Zip files to be extracted to the R working directory.</Description>
            </Input>
 
-For custom R modules, the id for a Zip port does not have to match any parameters of the R function. This is because the zip file is automatically extracted to the R working directory.
+For custom R modules, the ID for a Zip port does not have to match any parameters of the R function. This is because the zip file is automatically extracted to the R working directory.
 
 **Input Rules:**
 
@@ -222,7 +222,7 @@ You can also specify an output port of type *Visualization*, which displays the 
 ### Arguments
 Additional data can be passed to the R function via module parameters which are defined in the **Arguments** element. These parameters appear in the rightmost properties pane of the Machine Learning UI when the module is selected. Arguments can be any of the supported types or you can create a custom enumeration when needed. Similar to the **Ports** elements, **Arguments** elements can have an optional **Description** element that specifies the text that appears when you hover the mouse over the parameter name.
 Optional properties for a module, such as defaultValue, minValue, and maxValue can be added to any argument as attributes to a **Properties** element. Valid properties for the **Properties** element depend on the argument type and are described with the supported argument types in the next section. Arguments with the **isOptional** property set to **"true"** do not require the user to enter a value. If a value is not provided to the argument, then the argument is not passed to the entry point function. Arguments of the entry point function that are optional need to be explicitly handled by the function, e.g. assigned a default value of NULL in the entry point function definition. An optional argument will only enforce the other argument constraints, i.e. min or max, if a value is provided by the user.
-As with inputs and outputs, it is critical that each of the parameters have unique id values associated with them. In our quick start example the associated id/parameter was *swap*.
+As with inputs and outputs, it is critical that each of the parameters have unique ID values associated with them. In our quickstart example the associated id/parameter was *swap*.
 
 ### Arg element
 A module parameter is defined using the **Arg** child element of the **Arguments** section of the XML definition file. As with the child elements in the **Ports** section, the ordering of parameters in the **Arguments** section defines the layout encountered in the UX. The parameters appear from top down in the UI in the same order in which they are defined in the XML file. The types supported by Machine Learning for parameters are listed here. 
@@ -267,7 +267,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
 
 * *Optional Properties*: **default** and **isOptional**
 
-**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the id of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection is passed to the R function as a list of strings containing the selected column names. 
+**ColumnPicker**: a column selection parameter. This type renders in the UX as a column chooser. The **Property** element is used here to specify the ID of the port from which columns are selected, where the target port type must be *DataTable*. The result of the column selection is passed to the R function as a list of strings containing the selected column names. 
 
         <Arg id="colset" name="Column set" type="ColumnPicker">      
           <Properties portId="datasetIn1" allowedTypes="Numeric" default="NumericAll"/>
@@ -275,7 +275,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
         </Arg>
 
 
-* *Required Properties*: **portId** - matches the id of an Input element with type *DataTable*.
+* *Required Properties*: **portId** - matches the ID of an Input element with type *DataTable*.
 * *Optional Properties*:
   
   * **allowedTypes** - Filters the column types from which you can pick. Valid values include: 
@@ -324,7 +324,7 @@ A module parameter is defined using the **Arg** child element of the **Arguments
     </Arg>    
 
 * *Optional Properties*:
-  * **default** - The value for the default property must correspond with an id value from one of the **Item** elements.
+  * **default** - The value for the default property must correspond with an ID value from one of the **Item** elements.
 
 ### Auxiliary Files
 Any file that is placed in your custom module ZIP file is going to be available for use during execution time. Any directory structures present are preserved. This means that file sourcing works the same locally and in Azure Machine Learning Studio execution. 

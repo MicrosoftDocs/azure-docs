@@ -52,7 +52,7 @@ Using entity linking in various languages requires using a corresponding knowled
 | Quantity      | Temperature   | "32 degrees"    |
 | DateTime      | N/A\*         | "6:30PM February 4, 2012"      | 
 | DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   | 
-| Date Time     | Time          | "8am", "8:00"  | 
+| DateTime      | Time          | "8am", "8:00"  | 
 | DateTime      | DateRange     | "May 2nd to May 5th"    | 
 | DateTime      | TimeRange     | "6pm to 7pm"     | 
 | DateTime      | Duration      | "1 minute and 45 seconds"   | 
