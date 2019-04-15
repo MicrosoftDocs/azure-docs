@@ -83,6 +83,8 @@
       href: billing-understand-reserved-instance-usage.md
     - name: Usage for Enterprise
       href: billing-understand-reserved-instance-usage-ea.md
+    - name: Reservation exchanges and refunds
+      href: billing-azure-reservations-self-service-exchange-and-refund.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
     - name: View Reservations
