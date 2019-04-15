@@ -70,6 +70,6 @@ Currently, the `Microsoft.ContainerService/openShiftManagedClusters` resource th
 
 In this part of the tutorial, you learned how to:
 > [!div class="checklist"]
-> * Delete an Azure Red Hat OpenShiftRO cluster
+> * Delete an Azure Red Hat OpenShift cluster
 
 Now that you've completed this tutorial, learn more about Red Hat OpenShift at [Red Hat OpenShift dedicated documentation](https://access.redhat.com/documentation/openshift_dedicated/3/)
