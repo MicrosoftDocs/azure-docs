@@ -49,7 +49,7 @@ The following steps describe the process required to create a virtual machine by
 
 The following script creates a key vault, and stores a password in the key vault as a secret. Use the `-EnabledForDeployment` parameter when you're creating the key vault. This parameter makes sure that the key vault can be referenced from Azure Resource Manager templates.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -114,7 +114,7 @@ Update the azuredeploy.parameters.json file with the KeyVault URI, secretName, a
 
 Now deploy the template by using the following PowerShell script:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

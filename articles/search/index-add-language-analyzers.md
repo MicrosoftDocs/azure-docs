@@ -86,7 +86,7 @@ For more information about index properties, see [Create Index &#40;Azure Search
 |Irish||ga.lucene|  
 |Italian|it.microsoft|it.lucene|  
 |Japanese|ja.microsoft|ja.lucene|  
-|Kannada|ka.microsoft||  
+|Kannada|kn.microsoft||  
 |Korean|ko.microsoft|ko.lucene|  
 |Latvian|lv.microsoft|lv.lucene|  
 |Lithuanian|lt.microsoft||  

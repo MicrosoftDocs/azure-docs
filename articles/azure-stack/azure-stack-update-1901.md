@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
+ms.lastreviewed: 03/27/2019
 ---
 
 # Azure Stack 1901 update
@@ -52,18 +52,20 @@ Azure Stack hotfixes are only applicable to Azure Stack integrated systems; do n
 
 ### Azure Stack hotfixes
 
+If you already have 1901 and you have not installed any hotfixes yet, you can [install 1902 directly](azure-stack-update-1902.md), without first installing the 1901 hotfix.
+
 - **1809**: [KB 4481548 – Azure Stack hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: No current hotfix available.
-- **1901**: [KB 4481548 – Azure Stack hotfix 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – Azure Stack hotfix 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## Prerequisites
 
 > [!IMPORTANT]
-> - Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901.
+> Install the [latest Azure Stack hotfix](#azure-stack-hotfixes) for 1811 (if any) before updating to 1901. If you already have 1901 and you have not installed any hotfixes yet, you can install 1902 directly, without first installing the 1901 hotfix.
 
 - Before you start installation of this update, run [Test-AzureStack](azure-stack-diagnostic-test.md) with the following parameters to validate the status of your Azure Stack and resolve any operational issues found, including all warnings and failures. Also review active alerts, and resolve any that require action:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -89,8 +91,8 @@ This update includes the following new features and improvements for Azure Stack
    * **AzureRm.Insights**  
          AzureRm rollup module now includes the already published version 5.1.5 supporting the **api-version 2018-01-01** for metrics, metric definitions resource types.
 
-- **AzureStack 1.7.0**
-   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1**
+   This a breaking change release. For details on the breaking changes, refer to https://aka.ms/azspshmigration171
    * **Azs.Backup.Admin Module**  
          Breaking change: Backup changes to cert-based encryption mode. Support for symmetric keys is deprecated.  
    * **Azs.Fabric.Admin Module**  
@@ -114,9 +116,6 @@ To review the reference for the updated modules, see [Azure Stack Module Referen
 
 - <!-- 3235634 – IS, ASDK -->
   Fixed an issue in which deploying VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, required specifying the suffix as **Standard_A2_v2** (lowercase v). As with global Azure, you can now use **Standard_A2_V2** (uppercase V).
-
-<!-- 2869209 – IS, ASDK --> 
-- Fixed an issue when using the [Add-AzsPlatformImage cmdlet](/powershell/module/azs.compute.admin/add-azsplatformimage), in which you had to use the **-OsUri** parameter as the storage account URI where the disk is uploaded. You can now also use the local path to the disk.
 
 <!--  2795678 – IS, ASDK --> 
 - Fixed an issue that produced a warning when you used the portal to create virtual machines (VMs) in a premium VM size (DS,Ds_v2,FS,FSv2). The VM was created in a standard storage account. Although this did not affect functionally, IOPs, or billing, the warning has been fixed.
@@ -313,6 +312,10 @@ The following are post-installation known issues for this build version.
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### Syslog
+
+- The syslog configuration is not persisted through an update cycle, causing the syslog client to lose its configuration, and the syslog messages to stop being forwarded. This issue applies to all versions of Azure Stack since the GA of the syslog client (1809). To work around this issue, reconfigure the syslog client after applying an Azure Stack update.
 
 ## Download the update
 

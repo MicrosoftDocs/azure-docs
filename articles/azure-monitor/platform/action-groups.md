@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/29/2019
+ms.date: 4/12/2019
 ms.author: dukek
 ms.subservice: alerts
 ---
@@ -95,6 +95,9 @@ Source IP address ranges
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 51.4.138.199
+ - 51.5.148.86
+ - 51.5.149.19
 
 To receive updates about changes to these IP addresses we recommend you configure a [Service Health alert, which monitors for Informational notifications about the Action Groups service.
 

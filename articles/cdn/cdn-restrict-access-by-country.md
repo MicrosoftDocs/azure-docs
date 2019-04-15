@@ -55,8 +55,8 @@ From the **ACTION** list, select **Allow** or **Block**:
 - **Block**: Users from the specified countries are denied access to the assets requested from the recursive path. If no other country filtering options have been configured for that location, then all other users will be allowed access.
 
 For example, a geo-filtering rule for blocking the path */Photos/Strasbourg/* filters the following files:     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### Define the countries
 From the **COUNTRY CODES** list, select the countries that you want to block or allow for the path. 
@@ -106,5 +106,5 @@ In the country filtering rules table, select the delete icon next to a rule to d
 
 * Only one rule can be applied to the same relative path. That is, you cannot create multiple country filters that point to the same relative path. However, because country filters are recursive, a folder can have multiple country filters. In other words, a subfolder of a previously configured folder can be assigned a different country filter.
 
-* The geo-filtering feature uses country codes to define the countries from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country codes, there are a few differences. For more information, see [Azure CDN country codes](https://msdn.microsoft.com/library/mt761717.aspx). 
+* The geo-filtering feature uses country codes to define the countries from which a request is allowed or blocked for a secured directory. Although Akamai and Verizon profiles support most of the same country codes, there are a few differences. For more information, see [Azure CDN country codes](/previous-versions/azure/mt761717(v=azure.100)). 
 
