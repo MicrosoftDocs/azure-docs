@@ -11,19 +11,11 @@ ms.date: 04/11/2019
 ---
 # Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
 
-Apache Hive offers ACID support, detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. Apache Spark, on the other hand, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning in Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs which can make interoperability difficult.
+Apache Hive offers ACID support, detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. Apache Spark, on the other hand, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs which can make interoperability difficult.
 
-The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Spark and Hive by supporting scenarios such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables.
+The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Spark and Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables.
 
 ![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
-
-The Hive Warehouse Connector supports the following interaction modes:
-
-* Spark shell
-* PySpark
-* spark-submit
-* Zeppelin 
-* Livy
 
 Some of the operations supported by the Hive Warehouse Connector are the following:
 
@@ -41,45 +33,40 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
 
 1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet).
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
-1. Configure the Spark cluster by adding the following properties under **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
+1. Configure the Spark cluster by setting the following config properties under **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
 
-    1. Set the config property `spark.hadoop.hive.llap.daemon.service.hosts` to the value corresponding to **LLAP app name** under **Advanced hive-interactive-env**. For example,
+    1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
 
-        ```scala
-        spark.hadoop.hive.llap.daemon.service.hosts = @llap0
-        ```
-
-    1. Set the config property `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string which connects to Hiveserver2 on the Interactive Query cluster.
-
-        ```scala
-        spark.sql.hive.hiveserver2.jdbc.url = jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
-        ```
+    1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like `jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`, where `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
 
         >[!Note] 
         > The JDBC URL should contain credentials for connecting to Hiveserver2 including a username and password.
 
-    1. Set the config property `spark.datasource.hive.warehouse.load.staging.dir` to a suitable HDFS-compatible staging directory. If you have two different clusters, this should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it. For example,
+    1. Set `spark.datasource.hive.warehouse.load.staging.dir` to a suitable HDFS-compatible staging directory. If you have two different clusters, this should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it. For example, `wasb://CLUSTERNAME@hwcdemostorage.blob.core.windows.net/tmp`
 
-        ```scala
-        spark.datasource.hive.warehouse.load.staging.dir = 'wasb://CLUSTERNAME@hwcdemostorage.blob.core.windows.net/tmp'
+    1. Set `spark.datasource.hive.warehouse.metastoreUri` with the value of the metastore URI of the Interactive Query cluster.
+
+        ```
+        thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
+        thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083
         ```
 
-    1. Set `spark.datasource.hive.warehouse.metastoreUri` with the value of the metastore URI of the Interactive Query cluster. For example, 
+    1. Set `spark.security.credentials.hiveserver2.enabled` to `false` for YARN client deploy mode
+    1. Set `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of LLAP Cluster.
 
-        ```scala
-        spark.datasource.hive.warehouse.metastoreUri  = 'thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083'
         ```
-
-    1. Set the config property `spark.security.credentials.hiveserver2.enabled` to `false` for YARN client deploy mode
-    1. Set the config property `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of LLAP Cluster.
-
-        ```scala
-        spark.hadoop.hive.zookeeper.quorum  = 'zk0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk2-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk3-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181'
+        zk0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk2-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk3-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
         ```
 
 ## Use-cases and scenarios with examples
 
-You can choose between a few different methods to connect to your LLAP cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following: park-shell, pyspark, spark-submit, and Zeppelin.  
+You can choose between a few different methods to connect to your Interactive Query cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following:
+
+* [spark-shell](../spark/apache-spark-shell.md)
+* PySpark
+* spark-submit
+* [Zeppelin](spark/apache-spark-zeppelin-notebook.md)
+* [Livy](../spark/apache-spark-livy-rest-interface.md)
 
 All examples provided in this article will be executed through spark-shell.
 
