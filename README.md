@@ -4,7 +4,7 @@ Welcome to the open source [documentation](https://docs.microsoft.com/azure) of 
 
 ## Getting Started
 
-Contributing to open source is more than just providing updates, it's also letting us know when there is an issue. Read our [Contributing guidance](.github/CONTRIBUTING.md) to find out more.
+Contributing to open source is more than just providing updates, it's also letting us know when there is an issue. Read our [Contributing guidance](CONTRIBUTING.md) to find out more.
 
 ### Prerequisites
 
