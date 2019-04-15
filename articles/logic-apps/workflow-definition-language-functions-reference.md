@@ -24,7 +24,9 @@ in these expressions, you can use *functions* provided by the
 > [!NOTE]
 > This reference page applies to both Azure Logic Apps and Microsoft Flow, 
 > but appears in the Azure Logic Apps documentation. Although this page refers 
-> specifically to logic apps, these functions work for both flows and logic apps.
+> specifically to logic apps, these functions work for both flows and logic apps. 
+> For more information about functions and expressions in Microsoft Flow, see 
+> [Use expressions in conditions](https://docs.microsoft.com/flow/use-expressions-in-conditions).
 
 For example, you can calculate values by using math functions, such as the
 [add() function](../logic-apps/workflow-definition-language-functions-reference.md#add), 
