@@ -13,7 +13,7 @@ ms.date: 04/03/2019
 
 # Tutorial: Work with Azure storage queues
 
-Queues let your application scale automatically and immediately when demand changes. This makes them useful for critical business data that would be damaging to lose. A queue increases app's resilience by temporarily storing waiting messages. At times of low or normal demand, the size of the queue remains small because the destination component removes messages from the queue faster than they are added. At times of high demand, the queue may increase in size, but messages are not lost. The destination component can catch up and empty the queue as demand returns to normal. This article demonstrates the basic steps for working with an Azure storage queue.
+Azure queue storage implements cloud-based queues to facilitate communication between components of a distributed application. Each queue maintains a list of messages that can be added by a sender component and processed by a receiver component. With a queue, your application can scale immediately to meet demand, improving resiliency. This article demonstrates the basic steps for working with an Azure storage queue.
 
 In this tutorial, you learn how to:
 
@@ -29,22 +29,18 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 - Get your free copy of the cross platform [Visual Studio Code](https://code.visualstudio.com/download) editor.
-- If you don't already have the .NET SDK installed by installing Visual Studio, download and install the [.NET Core SDK](https://dotnet.microsoft.com/download).
-- If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-### Sign in to Azure
-
-Sign in to the [Azure portal](https://portal.azure.com/).
+- Download and install the [.NET Core SDK](https://dotnet.microsoft.com/download).
+- If you don’t have a current Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create an Azure storage account
 
-The first step in creating a queue is to create the Azure Storage Account that will store our data. There are several options you can supply when you create the account, most of which you can use the default selection. See the [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart for a step-by-step guide to creating a storage account.
+First, create an Azure storage account. For a step-by-step guide to creating a storage account, see the [Create a storage account](../common/storage-quickstart-create-account.md?toc=%2Fazure%2Fstorage%2Fqueues%2Ftoc.json) quickstart.
 
 ## Create the app
 
-We'll create a .NET Core application that you can run on Linux, macOS, or Windows. Let's name it **QueueApp**. For simplicity, we'll use a single app that will both send and receive messages through our queue.
+Create a .NET Core application named **QueueApp**. For simplicity, this will be a single app that both sends and receives messages through the queue.
 
-1. Use the `dotnet new` command to create a new console app with the name **QueueApp**. You can type commands into the Cloud Shell on the right, or if you are working locally, in a terminal/console window. This command creates a simple app with a single source file: **Program.cs**.
+1. In a console window, use the `dotnet new` command to create a new console app with the name **QueueApp**. This command creates a simple app with a single source file: **Program.cs**.
 
 ```console
 dotnet new console -n QueueApp
@@ -196,9 +192,9 @@ static async Task<string> ReceiveMessageAsync()
 
 ## Update Main
 
-Now we'll update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string. Then, add this string to our message queue by calling the **SendMessageAsync** method we added earlier.
+Now, update the **Main** method to check for command line arguments. If there are any, assume they are the message and join them together to make a string. Then, add this string to our message queue by calling the **SendMessageAsync** method we added earlier.
 
-If there are no command line arguments, the app will instead retrieve the last message from the queue and delete it by calling the **ReceiveMessageAsync** method.
+If there are no command line arguments, the app will instead retrieve the first message in the queue and delete it by calling the **ReceiveMessageAsync** method.
 
 Update **Main** to look like this:
 
@@ -216,6 +212,8 @@ static async Task Main(string[] args)
         string value = await ReceiveMessageAsync();
         Console.WriteLine($"Received {value}");
     }
+
+    Console.ReadLine();
 }
 ```
 
@@ -294,11 +292,7 @@ namespace QueueApp
 
 ## Add support for asynchronous code
 
-Since our app uses cloud resources, we've created our code to run asynchronously by using the **await** keyword when we make a asynchronous calls. In order to support this, we need to specify that our app uses C# 7.1.
-
-### Switch to C# 7.1
-
-C#'s **async** and **await** keywords were not valid keywords in **Main** methods until C# 7.1. We can easily switch to that compiler through a flag in the .csproj file.
+Since our app uses cloud resources, we've created our code to run asynchronously. However, C#'s **async** and **await** keywords were not valid keywords in **Main** methods until C# 7.1. We can easily switch to that compiler through a flag in the .csproj file.
 
 1. Open the **QueueApp.csproj** file in the editor.
 
