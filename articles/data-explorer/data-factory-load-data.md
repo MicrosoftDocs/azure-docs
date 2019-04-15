@@ -154,16 +154,16 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
 1. In the **Column mapping** page,
     * The first schema mapping is performed by ADF according to [ADF schema mapping](/azure/data-factory/copy-activity-schema-and-type-mapping)
-        * Set the column mapping for the Azure Data Factory destination table. The default mapping is displayed.
-        * Unselect the columns that you do not need to define your needed column mapping.
+        * Set the **Column mappings** for the Azure Data Factory destination table. The default mapping is displayed from source to ADF destination table.
+        * Unselect the columns that you do not need to define your column mapping.
 
-    * The second stage occurs when this tabular data is ingested into Azure Data Explorer with mapping according to [CSV mapping rules]
-        * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional)
+    * The second stage occurs when this tabular data is ingested into Azure Data Explorer with mapping according to [CSV mapping rules](/azure/kusto/management/mappings#csv-mapping). Note that even if the source data was not in CSV format, ADF has converted the data into a tabular format, therefore, CSV mapping is the only relevant mapping at this stage.
+        * Under **Azure Data Explorer (Kusto) sink properties** add the relevant **Ingestion mapping name** (optional) so that column mapping can be used.
+        * If **Ingestion mapping name** is not specified, “by-name” mapping order defined in **Column mappings** section will occur. If "by-name" mapping fails, Azure Data Explorer will try to ingest the data in a “by-column position” order (maps by-position as a default).
+
     * Select **Next**
 
     ![Destination dataset column mapping](media/data-factory-load-data/destination-dataset-column-mapping.png)
-
-
 
 1. In the **Settings** page:
     * Set the relevant **fault tolerance settings**.
@@ -188,3 +188,8 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 * Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)
 
 * Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
+
+> [!TIP]
+> Optional information to help a user be more successful
+
+
