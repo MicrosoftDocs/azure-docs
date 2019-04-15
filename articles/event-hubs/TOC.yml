@@ -32,11 +32,7 @@
       - name: Receive event from an event hub
         href: event-hubs-dotnet-standard-getstarted-receive-eph.md        
     - name: .NET Framework
-      items:
-      - name: Send events to an event hub
-        href: event-hubs-dotnet-framework-getstarted-send.md
-      - name: Receive events from an event hub
-        href: event-hubs-dotnet-framework-getstarted-receive-eph.md        
+      href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
       items:
       - name: Send events to an event hub
