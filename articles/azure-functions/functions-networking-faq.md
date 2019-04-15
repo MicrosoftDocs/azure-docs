@@ -35,11 +35,11 @@ For details on using an App Service Environment, start with the article [Create 
 
 ## How can I access resources in a virtual network from a function app?
 
-You can access resources in a virtual network from a running function by using virtual network integration. For more information, see [Virtual network integration](functions-networking-options.md#vnet-integration).
+You can access resources in a virtual network from a running function by using virtual network integration. For more information, see [Virtual network integration](functions-networking-options.md#virtual-network-integration).
 
 ## How do I access resources protected by service endpoints?
 
-By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-vnet-integration).
+By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
 
 ## How can I trigger a function from a resource in a virtual network?
 
