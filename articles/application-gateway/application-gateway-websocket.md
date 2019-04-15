@@ -1,7 +1,7 @@
 ---
 title: WebSocket support in Azure Application Gateway | Microsoft Docs
 description: This page provides an overview of the Application Gateway WebSocket support.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
