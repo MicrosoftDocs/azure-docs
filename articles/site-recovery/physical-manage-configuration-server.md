@@ -13,6 +13,8 @@ ms.author: mayg
 
 You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of physical servers to Azure. The configuration server coordinates communications between on-premises machines and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 The table summarizes the prerequisites for deploying the on-premises configuration server machine.
@@ -45,7 +47,7 @@ The latest version of the configuration server installation file is available in
 4. On the **Add Server** page, click the Download button to download the Registration key. You need this key during the Configuration Server installation to register it with Azure Site Recovery service.
 5. Click the **Download the Microsoft Azure Site Recovery Unified Setup** link to download the latest version of the Configuration Server.
 
-  ![Download Page](./media/physical-manage-configuration-server/downloadcs.png)
+   ![Download Page](./media/physical-manage-configuration-server/downloadcs.png)
 
 
 ## Install and register the server
@@ -144,44 +146,44 @@ ProxyPassword="Password"
 You can modify proxy settings for the configuration server machine as follows:
 
 1. Log on to the configuration server.
-2. Launch the cspsconfigtool.exe using the shortcut on your.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
 3. Click the **Vault Registration** tab.
 4. Download a new vault registration file from the portal, and provide it as input to the tool.
 
-  ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+   ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
 5. Provide the new proxy details and click the **Register** button.
 6. Open an Admin PowerShell command window.
 7. Run the following command:
 
-  ```PowerShell
-  $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-  Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-  net stop obengine
-  net start obengine
-  ```
+   ```powershell
+   $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+   net stop obengine
+   net start obengine
+   ```
 
-  >[!WARNING]
-  If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in your deployment.
+   > [!WARNING]
+   > If you have additional process servers attached to the configuration server, you need to [fix the proxy settings on all the scale-out process servers](vmware-azure-manage-process-server.md#modify-proxy-settings-for-an-on-premises-process-server) in your deployment.
 
 ## Reregister a configuration server with the same vault
-  1. Log in to your Configuration Server.
-  2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
-  3. Click the **Vault Registration** tab.
-  4. Download a new registration file from the portal and provide it as input to the tool.
-        ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
-  5. Provide the Proxy Server details and click the **Register** button.  
-  6. Open an Admin PowerShell command window.
-  7. Run the following command
+1. Log in to your Configuration Server.
+2. Launch the cspsconfigtool.exe using the shortcut on your desktop.
+3. Click the **Vault Registration** tab.
+4. Download a new registration file from the portal and provide it as input to the tool.
+      ![register-configuration-server](./media/physical-manage-configuration-server/register-csconfiguration-server.png)
+5. Provide the Proxy Server details and click the **Register** button.  
+6. Open an Admin PowerShell command window.
+7. Run the following command
 
-      ```PowerShell
-      $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
-      net stop obengine
-      net start obengine
-      ```
+    ```powershell
+    $Pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber –ProxyUserName domain\username -ProxyPassword $Pwd
+    net stop obengine
+    net start obengine
+    ```
 
-  >[!WARNING]
-  If you have multiple process server, you need to [reregister them](vmware-azure-manage-process-server.md#reregister-a-process-server).
+   > [!WARNING]
+   > If you have multiple process server, you need to [reregister them](vmware-azure-manage-process-server.md#reregister-a-process-server).
 
 ## Register a configuration server with a different vault
 
@@ -241,47 +243,47 @@ Upgrade the server as follows:
 4. Click **Yes** to confirm the deletion of the server.
 
 ### Uninstall the configuration server and its dependencies
-  > [!TIP]
-  If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
+> [!TIP]
+>   If you plan to reuse the Configuration Server with Azure Site Recovery again, then you can skip to step 4 directly
 
 1. Log on to the Configuration Server as an Administrator.
 2. Open up Control Panel > Program > Uninstall Programs
 3. Uninstall the programs in the following sequence:
-  * Microsoft Azure Recovery Services Agent
-  * Microsoft Azure Site Recovery Mobility Service/Master Target server
-  * Microsoft Azure Site Recovery Provider
-  * Microsoft Azure Site Recovery Configuration Server/Process Server
-  * Microsoft Azure Site Recovery Configuration Server Dependencies
-  * MySQL Server 5.5
+   * Microsoft Azure Recovery Services Agent
+   * Microsoft Azure Site Recovery Mobility Service/Master Target server
+   * Microsoft Azure Site Recovery Provider
+   * Microsoft Azure Site Recovery Configuration Server/Process Server
+   * Microsoft Azure Site Recovery Configuration Server Dependencies
+   * MySQL Server 5.5
 4. Run the following command from and admin command prompt.
-  ```
-  reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
-  ```
+   ```
+   reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+   ```
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell module
+1. [Install](https://docs.microsoft.com/powershell/azure/install-Az-ps) Azure PowerShell module
 2. Login into to your Azure account using the command
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Select the subscription under which the vault is present
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Now set up your vault context
     
-    ```PowerShell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    ```powershell
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Get select your configuration server
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Delete the Configuration Server
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force] `
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> The **-Force** option in the Remove-AzureRmSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
+> The **-Force** option in the Remove-AzSiteRecoveryFabric can be used to force the removal/deletion of the Configuration server.
 
 ## Renew SSL certificates
 The configuration server has an inbuilt web server, which orchestrates activities of the Mobility service, process servers, and master target servers connected to it. The web server uses an SSL certificate to authenticate clients. The certificate expires after three years, and can be renewed at any time.

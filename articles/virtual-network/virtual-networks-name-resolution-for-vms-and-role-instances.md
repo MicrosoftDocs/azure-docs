@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
-ms.author: subsarma
+ms.date: 3/25/2019
+ms.author: rohink
 ---
 
 # Name resolution for resources in Azure virtual networks
@@ -69,6 +69,7 @@ Points to consider when you are using Azure-provided name resolution:
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and cannot start or end with a '-'.
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
+* The Azure DNS IP address is 168.63.129.16. This is a static IP address and will not change.
 
 ## DNS client configuration
 

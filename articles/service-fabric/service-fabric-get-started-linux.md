@@ -4,7 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: d552c8cd-67d1-45e8-91dc-871853f44fc6
@@ -159,7 +159,7 @@ After you update your sources, you can install the SDK. Install the Service Fabr
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   The following commands automate accepting the license for Service Fabric packages:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections

@@ -7,21 +7,26 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 
 # Choose a pricing tier for Azure Search
 
-In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, or **Standard**, where **Standard** is available in several configurations and capacities. Most customers start with the **Free** tier for evaluation and then graduate to **Standard** for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search. 
+In Azure Search, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that is fixed for the lifetime of the service. Tiers include **Free**, **Basic**, **Standard**, or **Storage Optimized**.  **Standard** and **Storage Optimized** are available in several configurations and capacities. 
+
+Most customers start with the **Free** tier for evaluation and then graduate to one of the higher paid tiers for development and production deployments. You can complete all quickstarts and tutorials on the **Free** tier, including those for resource-intensive cognitive search.
+
+> [!NOTE]
+> The Storage Optimized service tiers are currently available as a preview at discounted pricing for testing and experimentation purposes with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
 
 Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
 + Number of indexes you can create
 + Size and speed of partitions (physical storage)
 
-Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [cognitive search](cognitive-search-concept-intro.md) indexing has long-running skills that time out on a free service unless the data set happens to be small.
+Although all tiers, including the **Free** tier, generally offer feature parity, larger workloads can dictate requirements for higher tiers. For example, [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the data set happens to be small.
 
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3HD.
@@ -37,11 +42,16 @@ The following table lists the available tiers. Other sources of tier information
 |-----|-------------|
 |Free | Shared with other subscribers. Non-scalable, limited to 3 indexes and 50 MB storage. |
 |Basic | Dedicated computing resources for production workloads at a smaller scale. One 2 GB partition and up to three replicas. |
-|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB documents per service) for S1. |
-|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB documents per service) |
-|Standard 3 (S3) | 200 GB/partition (max 2.4 TB documents per service). |
+|Standard 1 (S1) | From S1 on up, dedicated machines with more storage and processing capacity at every level. Partition size is 25 GB/partition (max 300 GB per service) for S1. |
+|Standard 2 (S2) | Similar to S1 but with 100 GB/partitions (max 1.2 TB per service) |
+|Standard 3 (S3) | 200 GB/partition (max 2.4 TB per service) |
 |Standard 3 High-density (S3-HD) | High density is a *hosting mode* for S3. The underlying hardware is optimized for a large number of smaller indexes, intended for multitenancy scenarios. S3-HD has the same per-unit charge as S3 but the hardware is optimized for fast file reads on a large number of smaller indexes.|
+|Storage Optimized 1 (L1) | 1 TB/partition (max 12 TB per service) |
+|Storage Optimized 2 (L2) | 2 TB/partition (max 24 TB per service) |
 
+> [!NOTE] 
+> The Storage Optimized tiers offer larger storage capacity at a lower price per TB than the Standard tiers. The primary tradeoff is higher query latency, which you should validate for your specific application requirements.  To learn more about performance considerations of this tier, see [Performance and optimization considerations](search-performance-optimization.md).
+>
 
 ## How billing works
 
@@ -51,23 +61,33 @@ In Azure Search, there are three ways to incur costs in Aure Search, and there a
 
 For the service itself, the minimum charge is the first search unit (1 replica x 1 partition), and this amount is constant for the lifetime of the service because the service cannot run on anything less than this configuration. 
 
-In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2 and S3 are not shown). If you created a basic service or a standard service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tiers.
+In the following screenshot, per unit pricing is indicated for Free, Basic, and S1 (S2, S3, L1, and L2 are not shown). If you created a **Basic**, **Standard**, or **Storage Optimized** service, your monthly cost would average the value that appears for *price-1* and *price-2* respectively. Unit costs go up for each tier because the computational power and storage capacity is greater at each consecutive tier.
 
 ![Per unit pricing](./media/search-sku-tier/per-unit-pricing.png "Per unit pricing")
 
 Additional replicas and partitions are an add-on to the initial charge. A search service requires a replica and partition so the minimum configuration is one of each. Beyond the minimum, you add replicas and partitions independently. For example, you could add only replicas or only partitions. 
 
-Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Additional replicas and partitions are charged based on a [formula](#search-units). The costs are not linear (doubling capacity more than doubles the cost). For an example of how of the formula works, see ["How to allocate replicas and partitions"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### 2. Data egress charges during indexing
 
-When pulling data from an Azure SQL Database or Cosmos DB data source, you will see charges for the transaction in the bill for those resources. Those charges are not Azure Search meters, but they are mentioned here because if you are using indexers to pull data from Azure SQL Database or Azure Cosmos DB, you'll see that charge in your bill.
+Use of [Azure Search indexers](search-indexer-overview.md) can result in billing impact depending where the services are located. You can eliminate data egress charges entirely if you create the Azure Search service in the same region as your data.
+
++ No charges for any inbound data to any service on Azure.
+
++ No charges for any outbound data from Azure Search.
+
++ No charges for data or files outbound from SQL DB, Cosmos, Blob storage (inbound to Azure Search) as long as all services are in the same region.
+
++ Charges do apply for outbound data or files if storage and Azure Search are in different regions.
+
+When routing data across Azure regions, you will see bandwidth charges in the bill for those resources. Those charges are not part of your Azure Search bill, but they are mentioned here because if you are using indexers to pull data or files over the wire, you'll see that charge in your overall bill.
+
+If you are not using indexers, there are no bandwidth charges. 
 
 ### 3. AI-enriched indexing using Cognitive Services
 
-For [cognitive search](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
-
-If you are not using [cognitive search](cognitive-search-concept-intro.md) or [Azure Search indexers](search-indexer-overview.md), your only costs are related to replicas and partitions in active use, for regular indexing and query workloads.
+For [AI-indexing with Cognitive Services](cognitive-search-concept-intro.md) only, image extraction during document cracking is billed based on the number of images extracted from your documents. Text extraction is currently free. Other enrichments, such as natural language processing, are based on [built-in cognitive skills](cognitive-search-predefined-skills.md) are billed against a Cognitive Services resource. Enrichments are billed at the same rate as if you had performed the task using Cognitive Services directly.
 
 <a name="search-units"></a>
 
@@ -112,7 +132,7 @@ In Azure Search, capacity is structured as *replicas* and *partitions*.
 + Partitions store indexes and automatically split searchable data: two partitions split your index in half, three partitions into thirds, and so forth. In terms of capacity, *partition size* is the primary differentiating feature across tiers.
 
 > [!NOTE]
-> All **Standard** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple subscribers.
+> All **Standard** and **Storage Optimized** tiers support [flexible combinations replica and partitions](search-capacity-planning.md#chart) so that you can [weight your system for speed or storage](search-performance-optimization.md) by changing the balance. **Basic** offers up three replicas for high availability but has only one partition. **Free** tiers do not provide dedicated resources: computing resources are shared by multiple subscribers.
 
 ### More about service limits
 
@@ -120,7 +140,7 @@ Services host resources, such as indexes, indexers, and so forth. Each tier impo
 
 ## Consumption patterns
 
-Most customers start with the **Free** service, which they keep indefinitely, and then choose one of the **Standard** tiers for serious development or production workloads. 
+Most customers start with the **Free** service, which they keep indefinitely, and then choose one of the **Standard** or **Storage Optimized** tiers for serious development or production workloads. 
 
 ![Azure search tiers](./media/search-sku-tier/tiers.png "Azure search pricing tiers")
 
@@ -142,6 +162,15 @@ Portal and pricing pages put the focus on partition size and storage, but for ea
 > [!NOTE]
 > Previously, document limits were a consideration but are no longer applicable for new services. For more information about conditions under which document limits still apply, see [Service limits: document limits](search-limits-quotas-capacity.md#document-limits).
 >
+
+Storage Optimized tiers, **L1-L2**, are ideal for applications with large data requirements, but a relatively low number of end users where minimizing query latency is not the top priority.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| partition size|  1 TB | 2 TB |  |  |  |  |  |
+| index and indexer limits| 10 | 10 |  |  |  |  |  |
+
+*L2* offers twice the overall storage capacity to an *L1*.  Choose your tier based on the maximum amount of data you think your index needs.  The *L1* tier partitions scale up in 1 TB increments to a maximum of 12 TB, while the *L2* increase by 2 TBs per partition up to a maximum of 24 TB.
 
 ## Evaluate capacity
 
@@ -169,16 +198,17 @@ Assuming the sample was both representative and ten percent of the entire data s
 
 Some customers prefer to start with dedicated resources that can accommodate larger sampling and processing times, and then develop realistic estimates of index quantity, size, and query volumes during development. Initially, a service is provisioned based on a best-guess estimate, and then as the development project matures, teams usually know whether the existing service is over or under capacity for projected production workloads. 
 
-1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**- **S2** tiers, index limits are 15-50-200, respectively.
+1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the quantity of indexes you need. Across the **Basic**-**S1**-**S2** tiers, index limits are 15-50-200, respectively.  The **Storage Optimized** tier has a limit of 10 indexes since it is designer to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
     + Start low, on **Basic** or **S1** if you are at the beginning of your learning curve.
     + Start high, at **S2** or even **S3**, if large-scale indexing and query loads are self-evident.
+    + Storage optimized, at **L1** or **L2**, if you are indexing a large amount of data and query load is relatively low, such as an internal business application.
 
 1. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
-1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency; all of which can help you decide if you are at the right tier. Aside from portal metrics, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
+1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency; all of which can help you decide if you selected the right tier. Aside from portal metrics, you can configure deep monitoring, such as clickthrough analysis, by enabling [search traffic analytics](search-traffic-analytics.md). 
 
 Index number and size are equally relevant to your analysis because maximum limits are reached through full utilization of storage (partitions) or by maximum limits on resources (indexes, indexers, and so forth), whichever comes first. The portal helps you keep track of both, showing current usage and maximum limits side by side on the Overview page.
 
@@ -192,8 +222,9 @@ Queries-per-second (QPS) is a metric that gains prominence during performance tu
 
 The standard tiers can deliver a balance of replicas to partitions, supporting faster query turnaround through additional replicas for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
 
-Customer who expect strong sustained query volumes from the outset should consider higher tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
+Customers who expect strong sustained query volumes from the outset should consider higher **Standard** tiers, backed by more powerful hardware. You can then take partitions and replicas offline, or even switch to a lower tier service, if those query volumes fail to materialize. For more information on how to calculate query throughput, see [Azure Search performance and optimization](search-performance-optimization.md).
 
+The storage optimized tiers lean toward large data workloads, supporting more overall index storage available, where query latency requirements are somewhat relaxed.  Additional replicas should still be leveraged for loading balancing and additional partitions for parallel processing. You can tune for performance after the service is provisioned.
 
 **Service level agreements**
 
@@ -211,7 +242,7 @@ The **Free** tier and preview features do not come with [service level agreement
 
 Start with a **Free** tier and build an initial index using a subset of your data to understand its characteristics. The data structure in Azure Search is an inverted index, where size and complexity of an inverted index is determined by content. Remember that highly redundant content tends to result in a smaller index than highly irregular content. As such, it is content characteristics rather than the size of the data set that determines index storage requirements.
 
-Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic** or a **Standard** tier. Relax any artificial constraints on data subsets and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
+Once you have an initial idea of index size, [provision a billable service](search-create-service-portal.md) at one of the tiers discussed in this article, either **Basic**, **Standard**, or **Storage Optimized** tier. Relax any artificial constraints on data sizing and [rebuild your index](search-howto-reindex.md) to include all of the data you actually want to be searchable.
 
 [Allocate partitions and replicas](search-capacity-planning.md) as needed to get the performance and scale you require.
 

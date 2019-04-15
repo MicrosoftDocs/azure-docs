@@ -45,7 +45,7 @@ To complete this quickstart:
 In a terminal window on your machine, create a directory named `hellodotnetcore` and change the current directory to it.
 
 ```bash
-md hellodotnetcore
+mkdir hellodotnetcore
 cd hellodotnetcore
 ```
 

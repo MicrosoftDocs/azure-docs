@@ -30,13 +30,13 @@ Before using these instructions to register the ASDK with Azure, ensure that you
 
 In addition, the PowerShell language mode must be set to **FullLanguageMode** on the computer used to register the ASDK with Azure. To verify that the current language mode is set to full, open an elevated PowerShell window and run the following PowerShell commands:
 
-```PowerShell  
+```powershell  
 $ExecutionContext.SessionState.LanguageMode
 ```
 
 Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another computer or the language mode will need to be set to **FullLanguageMode** before continuing.
 
-The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](..\azure-stack-registration-role.md) rather than using global administrator credentials.
+The Azure AD account used for registration needs to have access to the Azure subscription and have permissions to create identity applications and service principals in the directory associated with that subscription. We recommend that you register Azure Stack with Azure using least-privilege administration by [creating a service account to use for registration](../azure-stack-registration-role.md) rather than using global administrator credentials.
 
 ## Register Azure Stack with Azure
 Follow these steps to register the ASDK with Azure.
@@ -48,7 +48,7 @@ Follow these steps to register the ASDK with Azure.
 
 2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure billing Subscription ID and the local ASDK installation. If you don’t have an Azure billing Subscription ID yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>Set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
 
-    ```PowerShell  
+    ```powershell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
     Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -87,7 +87,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 ### Get a registration token from the Azure Stack environment
 On the ASDK host computer, start PowerShell as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Get-AzsRegistrationToken** cmdlet to get the registration token:  
 
-   ```PowerShell  
+   ```powershell  
    # Import the registration module that was downloaded with the GitHub tools
    Import-Module C:\AzureStack-Tools-master\Registration\RegisterWithAzure.psm1
 
@@ -108,7 +108,7 @@ Save this registration token for use on the internet-connected computer. You can
 ### Connect to Azure and register
 On the internet connected computer, use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Register-AzsEnvironment** cmdlet to register with Azure using the registration token you just created and a unique registration name:  
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -132,7 +132,7 @@ On the internet connected computer, use the following PowerShell commands to imp
 
 Alternatively, you can use the **Get-Content** cmdlet to point to a file that contains your registration token:
 
-  ```PowerShell  
+  ```powershell  
   # Add the Azure cloud subscription environment name. 
   # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
   Add-AzureRmAccount -EnvironmentName "<environment name>"

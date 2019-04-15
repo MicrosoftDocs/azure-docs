@@ -61,7 +61,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 3. Create a folder named **hivescripts**.
 4. Upload the **hivescript.hql** file to the **hivescripts** subfolder.
 
- ​
+  
 
 ## Create a data factory
 

@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with ClickTime, perform the following steps
     `https://app.clicktime.com/sp/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+    
 	| |
 	|--|
 	| `https://app.clicktime.com/Login/` |

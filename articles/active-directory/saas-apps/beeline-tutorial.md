@@ -105,6 +105,7 @@ To configure Azure AD single sign-on with BeeLine, perform the following steps:
     `https://projects.beeline.net/<instancename>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
+	
 	| |
 	|--|
 	| `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
@@ -198,8 +199,8 @@ When you click the BeeLine tile in the Access Panel, you should be automatically
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

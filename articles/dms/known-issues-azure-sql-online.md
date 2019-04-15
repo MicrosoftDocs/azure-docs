@@ -3,19 +3,22 @@ title: Article about known issues/migration limitations with online migrations t
 description: Learn about known issues/migration limitations with online migrations to Azure SQL Database.
 services: database-migration
 author: HJToland3
-ms.author: rajpo
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 04/09/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure SQL DB
 
 Known issues and limitations associated with online migrations from SQL Server to Azure SQL Database are described below.
+
+> [!IMPORTANT]
+> With online migrations of SQL Server to Azure SQL Database, migration of SQL_variant data types is not supported.
 
 ### Migration of temporal tables not supported
 
@@ -57,17 +60,20 @@ You may see a SQL Exception suggesting “ntext is incompatible with hierarchyid
       select object_name(object_id) 'Table name' from sys.columns where system_type_id =240 and object_id in (select object_id from sys.objects where type='U')
       ``` 
 
- 2.	Exclude these tables from the **Configure migration settings** blade, on which you specify tables for migration.
+2. Exclude these tables from the **Configure migration settings** blade, on which you specify tables for migration.
 
- 3.	Rerun the migration activity.
+3. Rerun the migration activity.
 
 ### Migration failures with various integrity violations with active triggers in the schema during “Full data load” or “Incremental data sync”
 
 **Workaround**
+
 1. Find the triggers that are currently active in the source database using the query below:
+
      ```
      select * from sys.triggers where is_disabled =0
      ```
+
 2. Disable the triggers on your source database using the steps provided in the article [DISABLE TRIGGER (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/disable-trigger-transact-sql?view=sql-server-2017).
 
 3. Re-Run the migration activity.
@@ -96,11 +102,11 @@ DMS doesn't migrate the source timestamp value; instead, DMS generates a new tim
 
 If you need DMS to migrate the exact timestamp value stored in the source table, contact the engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
-### Data migration errors do not provide additional details on the Database detailed status blade.
+### Data migration errors don't provide additional details on the Database detailed status blade.
 
 **Symptom**
 
-When you encounter the migration failures in the Databases details status view, selecting the **Data migration errors** link on the top ribbon may not provide  additional details specific to the migration failures.
+When you come across migration failures in the Databases details status view, selecting the **Data migration errors** link on the top ribbon may not provide  additional details specific to the migration failures.
 
 ![data migration errors no details example](media/known-issues-azure-sql-online/dms-data-migration-errors-no-details.png)
 

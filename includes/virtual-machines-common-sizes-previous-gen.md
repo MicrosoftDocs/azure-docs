@@ -126,6 +126,7 @@ Premium Storage Caching:  Not Supported
 | Standard_A5 |2 |14 |135 |4 |4x500 |2 / 500 |
 | Standard_A6 |4 |28 |285 |8 |8x500 |2 / 1000 |
 | Standard_A7 |8 |56 |605 |16 |16x500 |4 / 2000 |
+
 <br>
 
 <sup>1</sup> The A0 size is over-subscribed on the physical hardware. For this specific size only, other customer deployments may impact the performance of your running workload. The relative performance is outlined below as the expected baseline, subject to an approximate variability of 15 percent.

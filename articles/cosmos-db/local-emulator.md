@@ -68,7 +68,7 @@ The Azure Cosmos Emulator is installed to `C:\Program Files\Azure Cosmos DB Emul
 
 ## Start Data Explorer
 
-When the Azure Cosmos  Emulator launches, it automatically opens the Azure Cosmos Data Explorer in your browser. The address appears as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos Emulator in the Windows Tray Icon as shown below.
+When the Azure Cosmos  Emulator launches, it automatically opens the Azure Cosmos Data Explorer in your browser. The address appears as `https://localhost:8081/_explorer/index.html`. If you close the explorer and would like to reopen it later, you can either open the URL in your browser or launch it from the Azure Cosmos Emulator in the Windows Tray Icon as shown below.
 
 ![Azure Cosmos local emulator data explorer launcher](./media/local-emulator/database-local-emulator-data-explorer-launcher.png)
 
@@ -117,7 +117,7 @@ DocumentClient client = new DocumentClient(
 
 ### Azure Cosmos DB's API for MongoDB
 
-If you're using [Azure Cosmos DB for MongoDB](mongodb-introduction.md), use the following connection string:
+If you're using [Azure Cosmos DB's API for MongoDB](mongodb-introduction.md), use the following connection string:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true

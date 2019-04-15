@@ -26,7 +26,7 @@ If you have already installed **Elastic Database jobs** through the Portal from 
 ## Prerequisites
 * An Azure subscription. For a free trial, see [Free trial](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Install the latest version using the [Web Platform Installer](https://go.microsoft.com/fwlink/p/?linkid=320376). For detailed information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-* [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet Command-line Utility](https://nuget.org/nuget.exe) is used to install the Elastic Database jobs package. For more information, see https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## Download and import the Elastic Database jobs PowerShell package
 1. Launch Microsoft Azure PowerShell command window and navigate to the directory where you downloaded NuGet Command-line Utility (nuget.exe).
@@ -81,12 +81,12 @@ The parameters provided on this sample invocation can be modified for your desir
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of ../../A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of ../../A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. For more information on worker role sizes, see <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Provides the compute size for a Standard edition. This parameter defaults to S0. Parameter values of ../../../../S9/S12 are accepted which cause the Azure SQL Database to use the respective compute size. For more information on SQL Database compute sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the compute size for a Standard edition. This parameter defaults to S0. Parameter values of ../../../../S9/S12 are accepted which cause the Azure SQL Database to use the respective compute size. For more information on SQL Database compute sizes, see <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 <tr>
@@ -131,7 +131,7 @@ To update the VM size of an installation, run the following script with paramete
 
 <tr>
     <td>ServiceVmSize</td>
-    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of ../../A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. Fo more information on worker role sizes, see [Elastic Database jobs components and pricing](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Provides the VM size for usage within the Cloud Service. This parameter defaults to A0. Parameters values of ../../A3 are accepted which cause the worker role to use an ExtraSmall/Small/Medium/Large size, respectively. For more information on worker role sizes, see <a href="https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview#components-and-pricing">Elastic Database jobs components and pricing</a>.</td>
 </tr>
 
 </table>

@@ -9,14 +9,19 @@
   - name: What happened to Workbench
     displayName: desktop ui Workbench upgrade update transfer
     href: overview-what-happened-to-workbench.md
+- name: Setup
+  items:
+  - name: Create a workspace
+    displayName: install sdk workspace
+    href: setup-create-workspace.md
 - name: Quickstarts
   items:
-  - name: Get started - Portal
-    displayName: install sdk workspace
-    href: quickstart-get-started.md
-  - name: Get started - Python
-    displayName: create workspace install sdk
-    href: quickstart-create-workspace-with-python.md
+  - name: Experiment with a cloud notebook
+    displayName: workspace
+    href: quickstart-run-cloud-notebook.md
+  - name: Experiment with a local notebook
+    displayName: workspace, install, sdk
+    href: quickstart-run-local-notebook.md
 - name: Tutorials
   items:
   - name: Image classification (MNIST data)
@@ -35,7 +40,7 @@
       displayName: automl, automated, auto ml,
       href: tutorial-auto-train-models.md
 - name: Samples
-  displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
   href: samples-notebooks.md
 - name: Concepts
   items:
@@ -48,6 +53,9 @@
   - name: Model management
     displayName: deploy, deployment
     href: concept-model-management-and-deployment.md
+  - name: Model interpretability
+    displayName: explainability
+    href: machine-learning-interpretability-explainability.md
   - name: Accelerate with FPGAs
     href: concept-accelerate-with-fpgas.md
   - name: Machine learning pipelines
@@ -57,6 +65,8 @@
     - name: Enterprise security overview
       displayName: authorization authentication encryption
       href: concept-enterprise-security.md
+    - name: Manage users and roles
+      href: how-to-assign-roles.md
     - name: Use virtual networks
       displayName: vnet
       href: how-to-enable-virtual-network.md
@@ -70,36 +80,37 @@
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
       href: how-to-create-workspace-template.md
-    - name: Manage users and roles
-      href: how-to-assign-roles.md
   - name: Set up development environment 
     items:
     - name: Configure dev environments
-      displayName: local, remote, azure notebooks, notebook, jupyter, dsvm, Databricks, ADB
+      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
     - name: Visual Studio Code extension
-      displayName: Visual Studio Code, vscode, tools, ai, vs
+      displayName: Visual Studio Code, VSCode, tools, ai, vs
       items:
       - name: Get started
         href: how-to-vscode-tools.md
       - name: Train and deploy
         href: how-to-vscode-train-deploy.md
-  - name: Prepare data
-    displayName: data prep, etl, elt, data preparation
+  - name: Work with data
+    displayName: data prep, ETL, ELT, data preparation
     items:
-    - name: Load data
-      href: how-to-load-data.md
-    - name: Transform data
-      href: how-to-transform-data.md
-    - name: Write data
-      href: how-to-write-data.md
-  - name: Access data
-    displayName: blob get fileshare
+    - name: Explore and prep data
+      displayName: data prep, ETL, ELT, data preparation
+      items:
+      - name: Load data
+        href: how-to-load-data.md
+      - name: Transform data
+        href: how-to-transform-data.md
+      - name: Write data
+        href: how-to-write-data.md
+  - name: Get data in datastore
+    displayName: blob get fileshare access storage
     href: how-to-access-data.md
   - name: Train models
     items:
     - name: Set up training environments
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, aci, container instance, Databricks, data lake, lake, hdi, hdinsights
+      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
       href: how-to-set-up-training-targets.md
     - name: Create estimators in training
       href: how-to-train-ml-models.md
@@ -110,12 +121,18 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
-    - name: Track experiments and metrics
+  - name: Track and monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
+    - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Configure auto training
+    - name: Automate training in Python
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
@@ -160,7 +177,7 @@
     displayName: cli extension command line command-line az ci/cd automate automated
     href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
-    displayName: gdpr
+    displayName: GDPR
     href: how-to-export-delete-data.md
 - name: Reference
   items:
@@ -187,7 +204,10 @@
   - name: Known issues
     displayName: bugs errors troubleshoot
     href: resource-known-issues.md
-  - name: Get support
-    href: support-for-aml-services.md
+  - name: User forum
+    href: https://aka.ms/aml-forum-service
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
   - name: Compare our ML products
-    href: overview-more-machine-learning.md
+    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+    maintainContext: true

@@ -52,7 +52,7 @@ On the VM where you installed the OpenBSD operating system 6.1, which added Hype
     echo "https://ftp.openbsd.org/pub/OpenBSD" > /etc/installurl
     ```
    
-4. By default, the `root` user is disabled on virtual machines in Azure. Users can run commands with elevated privileges by using the `doas` command on OpenBSD VM. Doas is enabled by default. For more information, see [doas.conf](http://man.openbsd.org/doas.conf.5). 
+4. By default, the `root` user is disabled on virtual machines in Azure. Users can run commands with elevated privileges by using the `doas` command on OpenBSD VM. Doas is enabled by default. For more information, see [doas.conf](https://man.openbsd.org/doas.conf.5). 
 
 5. Install and configure prerequisites for the Azure Agent as follows:
 
@@ -171,6 +171,6 @@ ssh azureuser@<ip address>
 
 
 ## Next steps
-If you want to know more about Hyper-V support on OpenBSD6.1, read [OpenBSD 6.1](https://www.openbsd.org/61.html) and [hyperv.4](http://man.openbsd.org/hyperv.4).
+If you want to know more about Hyper-V support on OpenBSD6.1, read [OpenBSD 6.1](https://www.openbsd.org/61.html) and [hyperv.4](https://man.openbsd.org/hyperv.4).
 
 If you want to create a VM from managed disk, read [az disk](/cli/azure/disk). 
