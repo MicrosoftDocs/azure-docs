@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Enter Data Manually: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Enter Data Manually module in Azure Machine Learning service to create a small dataset by typing values. The dataset can have multiple columns.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Enter Data Manually
+
 *Enables entering and editing small datasets by typing values*  
   
  Category: Data Transformation / Manipulation
   
 ## Module overview  
 
-This article describes how to use the [Enter Data Manually](./enter-data-manually.md) module in Azure Machine Learning to create a small dataset by typing values. The dataset can have multiple columns.
+This article describes how to use the **Enter Data Manually** module in Azure Machine Learning service to create a small dataset by typing values. The dataset can have multiple columns.
   
 This module can be helpful in scenarios such as these:  
   

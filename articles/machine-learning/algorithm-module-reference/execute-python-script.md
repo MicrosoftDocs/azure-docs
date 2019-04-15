@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Execute Python Script: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Execute Python Script module in Azure Machine Learning service to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Execute Python Script
@@ -20,7 +20,7 @@ Category: Python Language Modules
 
 ## Module overview
 
-This article describes how to use the **Execute Python Script** module in Azure Machine Learning to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+This article describes how to use the **Execute Python Script** module in Azure Machine Learning service to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
 With Python, you can perform tasks that aren't currently supported by existing modules such as:
 

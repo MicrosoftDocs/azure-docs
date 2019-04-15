@@ -9,19 +9,22 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
-ROBOTS: NOINDEX
+ms.date: 05/06/2019
 ---
 # Algorithm & module reference overview
 
-This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning. 
+This reference content provides the technical background on each of the machine learning algorithms and modules available in the visual interface of Azure Machine Learning service. 
 
 Each module represents a set of code that can run independently and perform a machine learning task, given the required inputs. A module might contain a particular algorithm, or perform a task that is important in machine learning, such as missing value replacement, or statistical analysis. 
 
 > [!TIP]
-> If you are signed in to the visual interface and have created an experiment, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
+> In any experiment in the visual interface, you can get information about a specific module. Select the module, then select the **more help** link in the **Quick Help** pane.
 
 Modules are organized by functionality:
+
+**Data format conversions**
+
+  + [Convert to CSV ](convert-to-csv.md)
 
 **Data input and output modules**  do the work of moving data from cloud sources into your experiment. You can write your results or intermediate data to Azure Storage, a SQL database, or Hive, while running an experiment, or use cloud storage to exchange data between experiments.  
 
@@ -70,7 +73,7 @@ Modules are organized by functionality:
 
   + [Boosted Decision Tree Regression](boosted-decision-tree-regression.md)
 
-  + [Two-class Boosted Decision Tree](two-class-boosted-decision-tree.md)
+  + [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md)
 
   + [Two-Class Logistic Regression](two-class-logistic-regression.md)
 
@@ -92,6 +95,4 @@ Modules are organized by functionality:
 **Python module** makes it easy to run a custom function. You write the code, and embed it in a module, to integrate Python with an experiment service.
   + [Execute Python Script](execute-python-script.md)
 
-**Data Format Conversions**
 
-  + [Convert to CSV ](convert-to-csv.md)

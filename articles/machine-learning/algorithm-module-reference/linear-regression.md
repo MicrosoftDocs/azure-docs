@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Linear Regression: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Linear Regression module in Azure Machine Learning service to create a linear regression model for use in an experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Linear Regression
@@ -20,7 +20,7 @@ Category: Machine Learning / Initialize Model / Regression
 
 ## Module overview
 
-This article describes how to use the **Linear Regression** module in Azure Machine Learning to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
+This article describes how to use the **Linear Regression** module in Azure Machine Learning service to create a linear regression model for use in an experiment.  Linear regression attempts to establish a linear relationship between one or more independent variables and a numeric outcome, or dependent variable. 
 
 You use this module to define a linear regression method, and then train a model using a labeled dataset. The trained model can then be used to make predictions.
 

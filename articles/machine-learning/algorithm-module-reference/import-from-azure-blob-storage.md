@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Import from Azure Blob Storage: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn This topic describes how to use the Import from Azure Blob Storage module in Azure Machine Learning service to read data from Azure blob storage, so that you can use the data in a machine learning experiment.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Import from Azure Blob Storage
 
-This topic describes how to use the [Import Data](./import-data.md) module in Azure Machine Learning, to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
+This topic describes how to use the **Import from Azure Blob Storage** module in Azure Machine Learning service to read data from Azure blob storage, so that you can use the data in a machine learning experiment.  
 
 The Azure Blob Service is for storing large amounts of data, including binary data. Azure blobs can be accessed from anywhere, by using either HTTP or HTTPS. Authentication might be required depending on the type of blob storage. 
 
