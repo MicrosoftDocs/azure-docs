@@ -1,7 +1,7 @@
 ---
 title: Create shared VM images using the Azure portal | Microsoft Docs
 description: Learn how to use Azure portal to create and share virtual machine images.
-services: virtual-machines-linux
+services: virtual-machine-scale-sets
 documentationcenter: virtual-machines
 author: cynthn
 manager: jeconnoc
@@ -9,10 +9,10 @@ editor: tysonn
 tags: azure-resource-manager
 
 ms.assetid: 
-ms.service: virtual-machines-linux
+ms.service: virtual-machine-scale-sets
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/05/2019
 ms.author: cynthn
@@ -21,7 +21,7 @@ ms.custom:
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Preview: Create a shared image gallery using the Azure portal
+# Create a shared image gallery using the Azure portal
 
 A [Shared Image Gallery](shared-image-galleries.md) simplifies custom image sharing across your organization. Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap deployment tasks like preloading applications, application configurations, and other OS configurations. 
 
@@ -43,9 +43,9 @@ The Shared Image Gallery feature has multiple resource types. We will be using o
 
 To complete the example in this article, you must have an existing managed image. You can follow [Tutorial: Create a custom image of an Azure VM with Azure PowerShell](tutorial-custom-images.md) to create one if needed. When working through this article, replace the resource group and VM names where needed.
 
- 
-[!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
 
+[!INCLUDE [virtual-machines-common-shared-images-portal](../../../includes/virtual-machines-common-shared-images-portal.md)]
+ 
 ## Create VMs from an image
 
 Once the image version is complete, you can create one or more new VMs. 

@@ -213,13 +213,17 @@
         href: virtual-machine-scale-sets-manage-cli.md
       - name: Use Azure PowerShell
         href: virtual-machine-scale-sets-manage-powershell.md
-    - name: Shared image galleries (preview)
+    - name: Shared image galleries 
       href: shared-image-galleries.md
       items:
       - name: CLI
         href: shared-images-cli.md
       - name: PowerShell
         href: shared-images-powershell.md
+      - name: Portal
+        href: shared-images-portal.md
+      - name: Share images across tenants
+        href: cross-tenant-image-sharing.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Vertical scaling in a scale set
