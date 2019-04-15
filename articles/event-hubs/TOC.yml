@@ -20,39 +20,53 @@
     - name: Azure PowerShell
       href: event-hubs-quickstart-powershell.md
     - name: Azure Resource Manager template
-      href: event-hubs-resource-manager-namespace-event-hub.md
-  - name: Send events to event hub 
+      href: event-hubs-resource-manager-namespace-event-hub.md  
+  - name: Send and receive events
     items:
     - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-send.md
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-dotnet-standard-getstarted-send.md
+      - name: Receive event from an event hub
+        href: event-hubs-dotnet-standard-getstarted-receive-eph.md        
     - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-send.md
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-dotnet-framework-getstarted-send.md
+      - name: Receive events from an event hub
+        href: event-hubs-dotnet-framework-getstarted-receive-eph.md        
     - name: Java
-      href: event-hubs-java-get-started-send.md
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-java-get-started-send.md
+      - name: Receive events from an event hub
+        href: event-hubs-java-get-started-receive-eph.md
+    - name: Go 
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-go-get-started-send.md 
+      - name: Receive events from an event hub
+        href: event-hubs-go-get-started-receive-eph.md     
+    - name: Python
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-python-get-started-send.md
+      - name: Receive events from an event hub
+        href: event-hubs-python-get-started-receive.md
+    - name: Node.js
+      items: 
+      - name: Send events to an event hub      
+        href: event-hubs-node-get-started-send.md
+      - name: Receive event from an event hub
+        href: event-hubs-node-get-started-receive.md    
     - name: C
-      href: event-hubs-c-getstarted-send.md
-    - name: Go 
-      href: event-hubs-go-get-started-send.md 
-    - name: Python
-      href: event-hubs-python-get-started-send.md
-    - name: Node.js
-      href: event-hubs-node-get-started-send.md
-  - name: Receive events from event hub
-    items:
-    - name: .NET Core
-      href: event-hubs-dotnet-standard-getstarted-receive-eph.md
-    - name: .NET Framework
-      href: event-hubs-dotnet-framework-getstarted-receive-eph.md
-    - name: Java
-      href: event-hubs-java-get-started-receive-eph.md
-    - name: Go 
-      href: event-hubs-go-get-started-receive-eph.md 
-    - name: Python
-      href: event-hubs-python-get-started-receive.md
-    - name: Node.js
-      href: event-hubs-node-get-started-receive.md    
+      items:
+      - name: Send events to an event hub
+        href: event-hubs-c-getstarted-send.md
     - name: Apache Storm
-      href: event-hubs-storm-getstarted-receive.md
+      items: 
+      - name: Receive events from an event hub
+        href: event-hubs-storm-getstarted-receive.md
   - name: Capture events
     items:
     - name: Use the Azure portal to enable Event Hubs Capture
