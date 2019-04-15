@@ -25,7 +25,7 @@ This article discusses the options available for extending support for SQL Serve
 If you're still using SQL Server 2008 and/or SQL Server 2008 R2, you have three options to continue receiving support past the end of the product life cycle. Extending support helps reduce security risk, and ensures getting regular security updates. 
 
 ### Move to Azure SQL VM - IaaS option
-You can choose to either upgrade to a new version on an Azure VM, or move "as-is" to a SQL Server 2008 / 2008 R2 Azure VM. Extended security updates for Windows Server and for SQL Server 2008/2008R2 images will be offered on Azure Infrastructure-as-a-Service (IaaS) at no additional charge above the standard pricing for Azure VMs. Customers that migrate workloads to Azure VMs will receive security updates and bulletins rated "Critical" and "Important" for EOS Windows Servers, and "Critical" for EOS SQL Server. 
+You can choose to either upgrade to a new version on an Azure VM, or move "as-is" to a SQL Server 2008 / 2008 R2 Azure VM. Extended security updates for Windows Server and for SQL Server 2008/2008R2 images are offered on Azure Infrastructure-as-a-Service (IaaS) at no additional charge above the standard pricing for Azure VMs. Customers that migrate workloads to Azure VMs will receive security updates and bulletins rated "Critical" and "Important" for EOS Windows Servers, and "Critical" for EOS SQL Server. 
 
 Some of the benefits to migrating to an Azure VM: 
 - Free and automated security patching.
@@ -33,10 +33,10 @@ Some of the benefits to migrating to an Azure VM:
 - One-click migration to an Azure SQL Database Managed Instance. 
 
 ### Move to Azure SQL Database Managed Instance - PaaS option 
-Azure SQL Database Managed Instance combines the rich SQL surface area with the operational and functional benefits of a fully managed service. You can lift and shift you SQL Server databases without rearchitecting your applications. This option gives you full compatibility with EOS SQL Server instances, while leveraging the  benefits of a fully managed solution. This option also provides a version-less experience that takes away the need for manual security patching and upgrades, while reducing cost with compute and networking. 
+Azure SQL Database Managed Instance combines the rich SQL surface area with the operational and functional benefits of a fully managed service. You can lift and shift you SQL Server databases without rearchitecting your applications. This option gives you full compatibility with EOS SQL Server instances, while leveraging the  benefits of a fully managed solution. This option also provides a version-free experience that takes away the need for manual security patching and upgrades, while reducing cost with compute and networking. 
 
 ### Stay on-premises option
-If you choose to stay on-premises, you can either upgrade to a newer version of Windows Server and SQL Server, or  purchase extended support. If you are not able to certify your applications for the newer version of SQL Server, you have three more years to do that after purchasing extended security updates with active Software Assurance (SA). Extended security updates patches can be paid through the Volume Licensing Service Center (VLSC) site yearly and will be available through Microsoft Update. 
+If you choose to stay on-premises, you can either upgrade to a newer version of Windows Server and SQL Server, or purchase extended support. If you are not able to certify your applications for the newer version of SQL Server, you have three more years to do so after purchasing extended security updates with active Software Assurance (SA). Extended security updates patches can be paid through the Volume Licensing Service Center (VLSC) site yearly and will be available through Microsoft Update. 
 
 
 ## Provisioning 
@@ -51,10 +51,10 @@ If you're still using Windows Server 2008, you have two options to migrate to Az
 Images deployed through the Marketplace come with the SQL IaaS extension pre-installed. The SQL IaaS extension is a requirement for flexible licensing and automated patching. Customers deploying EOS SQL Server VMs with custom VHDs will be able to manually install the SQL IaaS extension to gain access to the same benefits of flexible licensing and automated patching.
 
   > [!NOTE]
-  > While the SQL Server `Create` and `Manage` blades will work with an EOS image in the Azure portal, the following features are _not supported_: Automatic backups, Azure Key Vault integration, R Services, and Storage configuration.
+  > While the SQL Server `Create` and `Manage` blades will work with a SQL 2008/2008R2 image in the Azure portal, the following features are _not supported_: Automatic backups, Azure Key Vault integration, R Services, and Storage configuration.
 
 ## Licensing
-Pay-as-you-go SQL Server EOS deployments can convert to [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/).
+Pay-as-you-go SQL Server 2008/2008R2 deployments can convert to [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/en-us/pricing/hybrid-benefit/).
 
 To convert a Software Assurance (SA) based license to pay-as-you-go, customers should register with the SQL VM [resource provider](virtual-machines-windows-sql-ahb.md#register-sql-server-vm-with-sql-resource-provider). The SQL VM resource provider will also support self-installed EOS SQL Server on Windows Server 2008 and Windows Server 2008 R2. Once registered with the SQL VM resource provider, the SQL license type will be interchangeable between AHB and pay-as-you-go. 
 
