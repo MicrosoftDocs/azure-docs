@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Quickstart: Check spelling with the Bing Spell Check REST API and Java
