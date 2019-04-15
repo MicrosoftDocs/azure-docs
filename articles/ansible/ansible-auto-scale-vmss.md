@@ -14,9 +14,9 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. 
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. 
 
-When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application performance changes throughout the lifecycle of your app. In this article, you will create an autoscale setting and associate it to an existing virtual machine scale set. In the autoscale setting, you can configure a rule to scale out or scale in as you want.
+When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. In this article, you will create an autoscale setting and associate it to an existing virtual machine scale set. In the autoscale setting, you can configure a rule to scale out or scale in as you want.
 
 ## Prerequisites
 
@@ -28,7 +28,9 @@ When you create a scale set, you define the number of VM instances that you wish
 
 To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
 
-You can scale in and scale out in Virtual Machine Scale Sets by a recurring schedule, or by a particular date. This section presents a sample Ansible playbook that creates an autoscale setting that increases the number of VM instances to three in your scale sets on 10:00 of every Monday, Pacific Time zone. 
+Ansible allows you to scale your virtual machine scale sets on a specific date or recurring schedule.
+
+The following playbook increases the number of VM instances to three at 10:00 every Monday:
 
 ```yml
 ---
@@ -69,9 +71,13 @@ ansible-playbook vmss-auto-scale.yml
 ```
 
 ## Auto scale based on performance data
-If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. You control what metrics to monitor, such as CPU or disk, how long the application load must meet a given threshold, and how many VM instances to add to the scale set.
+If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. Ansible allows you to control what metrics to monitor, such as CPU usage, disk usage, and app-load time. You can scale in and scale out in virtual machine scale sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
 
-You can scale in and scale out in Virtual Machine Scale Sets based on performance metric thresholds, by a recurring schedule, or by a particular date. This section presents a sample Ansible playbook that checks the workload in the past 10 minutes on 18:00 of every Monday, Pacific timezone, and scales out the number of VM instances in your scale sets to four or scales in to one instance according to the CPU percentage metrics. 
+The following playbook checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
+
+Based on the CPU percentage metrics, the playbook performs one of the following actions:
+- Scales out the number of VM instances to four
+- Scales in the number of VM instances to one
 
 ```yml
 ---
