@@ -13,7 +13,7 @@ ms.author: edjez
 ---
 # Features
 
-Personalizer uses information about **actions** and **current context** to make better ranking suggestions. The information about these actions and context are attributes or properties that are referred to as **features**.
+Personalizer uses information about **actions** and **current context** to make better ranking suggestions. The information about these actions and context are properties known as **features**.
 
 Features can be very generic, or specific to an item. For example, you may have a feature about a user which is a `UserID`. You may also have a feature about content which says, for example, if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
 
@@ -60,7 +60,7 @@ You can name feature namespaces following your own conventions as long as they a
 
 Features are represented in JSON format. Features for [**actions**](concepts-actions.md) and [**context**](concepts-context.md) are sent following the same conventions. 
 
-The following example show some common ways to represent features:
+The following example shows some common ways to represent features:
 
 ```JSON
 {
@@ -119,7 +119,7 @@ For example, a timestamp down to the second is a very sparse feature. It could b
 
 ### Expanding feature sets with extrapolated information
 
-You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example in a fictitious movie list personalization, is it possible that a weekend vs weekday elicit different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
+You can also get more features by thinking of unexplored attributes that can be derived from information you already have. For example, in a fictitious movie list personalization, is it possible that a weekend vs weekday elicit different behavior from users? Time could be expanded to have a "weekend" or "weekday" attribute. Do national cultural holidays drive attention to certain movie types? For example, a "Halloween" attribute is useful in places where it is relevant. Is it possible that rainy weather has significant impact on the choice of a movie for many people? With time and place, a weather service could provide that information and you can add it as an extra feature. 
 
 ### Expanding feature sets with artificial intelligence and cognitive services
 
@@ -133,7 +133,7 @@ For example:
 * Images can be run through object detection, faces through sentiment, etc.
 * Information in text can be augmented by extracting entities, sentiment, expanding entities with Bing knowledge graph, etc.
 
-You can use several other [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services), like
+You can use several other [Azure Cognitive Services](https://www.microsoft.com/cognitive-services), like
 [Entity Linking](../entitylinking/home.md),
 [Text Analytics](../text-analytics/overview.md),
 [Emotion](../emotion/home.md), and
