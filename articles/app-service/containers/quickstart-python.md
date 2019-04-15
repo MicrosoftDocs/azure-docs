@@ -33,7 +33,7 @@ To complete this quickstart:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Install Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
-* An Azure subscription. If you don't have one already, create a <a href="https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio">free account</a> before you begin.
+* An Azure subscription. If you don't have one already, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
 ## Download the sample locally
 

@@ -8,11 +8,11 @@ ms.author: cynthn
 
 ## Open Azure Cloud Shell
 
-Azure Cloud Shell is a free, interactive command-line interface in which you can run the steps in this article. Cloud Shell comes pre-configured for you to use with your Azure subscription. Open the Cloud Shell using any of the options listed in the following table. In the remaining steps of this article, you can then select **Copy** to copy a command, paste the text into Cloud Shell, and press Enter to run the command.
+Azure Cloud Shell is a free, interactive shell that you can use to run the steps in this article. Common Azure tools are preinstalled and configured in Cloud Shell for you to use with your account. Select **Copy** to copy the code, paste it in Cloud Shell, and then press Enter to run it. There are a few ways to open Cloud Shell:
 
 |  |   |
 |-----------------------------------------------|---|
-| On Azure CLI code blocks in this article, select **Try It** in the upper-right corner. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
-| On the [Azure portal](https://portal.azure.com), select the **Cloud Shell** button on the top menu bar (to the right of the search box). | ![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
-| In a browser, navigate to [https://shell.azure.com/](https://shell.azure.com/) |
-Open Cloud Shell in your browser. | [![Launch Azure Cloud Shell button](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| Select **Try It** in the upper-right corner of a code block. | ![Example of Try It for Azure Cloud Shell](./media/cloud-shell-try-it/cli-try-it.png) |
+| Open Cloud Shell in your browser. | [![Launch Azure Cloud Shell button](./media/cloud-shell-try-it/launchcloudshell.png)](https://shell.azure.com/bash) |
+| Select the **Cloud Shell** button on the menu in the upper-right corner of the [Azure portal](https://portal.azure.com). |	![Cloud Shell button in the Azure portal](./media/cloud-shell-try-it/cloud-shell-menu.png) |
+|  |  |
