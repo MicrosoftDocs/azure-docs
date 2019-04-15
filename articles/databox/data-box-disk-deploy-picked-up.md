@@ -104,7 +104,7 @@ Azure datacenters in Australia have an additional security notification. All the
     - Indicate the reference number on the Chakubarai connote remark column that Japan Post will bring.
     - Enter the delivery address as shown below:   
         ```
-        3F N7 Prologis Park Tokyo Ohta, 1-4-3 Tokai Ohta-ku, Tokyo 143-0001
+        3F N7 Prologis Park Tokyo Ohta, 1-3-6 Tokai Ohta-ku, Tokyo 143-0001
         Microsoft Service Center c/o Quantium Solutions Japan
         TEL: 03-5755-0150
         ```
