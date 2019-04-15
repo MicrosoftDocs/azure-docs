@@ -57,7 +57,7 @@ Make sure your new query is selected, then click **Advanced Editor**.
 
 Within the Advanced Editor, use the following Power Query M snippet to extract the columns from the table and send it to the API. Afterwards, the query will create a table from the JSON response, and return it. Replace the `apiKey` variable with your valid Anomaly Detector API key, and `endpoint` with your endpoint. After you've entered the query into the Advanced Editor, click **Done**.
 
-```Power Query M
+```M
 (table as table) => let
 
     apikey     = "your api key",
@@ -99,24 +99,15 @@ Invoke the query on your data sheet by selecting `Sheet1` below **Enter Paramete
 
 ![An image of the "Advanced Editor" button](../media/tutorials/invoke-function-screenshot.png)
 
-## Privacy and authentication
-
 You may get a warning message when you attempt to run the query because Power BI doesn't let you combine an external data source with another query. 
 
 ![An image showing a warning created by Power BI](../media/tutorials/blocked-function.png)
 
 To fix this, click **File**, and **Options and settings**. Then click **Options**. Below **Current File**, select **Privacy**, and **Ignore the Privacy Levels and potentially improve performance**. 
-<!--
-If you get a warning message to specify how you connect to the API, click **Edit Credentials**. In the windows that appears, click **Anonymous** and apply it to the Anomaly Detector URL.
 
-![An image of the credentials warning message](../media/tutorials/credentials-warning-message.png)
+> [NOTE]
+> Be aware of your organization's policies for data privacy and access. See [Power BI Desktop privacy levels](https://docs.microsoft.com/en-us/power-bi/desktop-privacy-levels) for more information.
 
-If you see the message even after choosing anonymous access, you may have forgotten to paste your API key into the code above. Because the function created earlier transfers data to the API, you may appear asking you to provide information about your data sources' privacy. Click **Continue** and choose `Public` for each of the data sources in the dialog. Then click Save.
-
-![An image of the privacy levels warning message](../media/tutorials/privacy-levels-screen.png)
-
-Selecting the privacy levels should let your function be invoked on the time series data. Click **Close and upload**
--->
 ## Visualize the Anomaly Detector API response
 
 Use the screenshot below to help build your chart.
