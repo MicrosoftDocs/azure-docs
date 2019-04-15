@@ -78,7 +78,7 @@ if err != nil {
 }
 ```
 
-## Create Event Hubs client
+### Create Event Hubs client
 
 The following code creates an Event Hubs client:
 
@@ -264,7 +264,7 @@ if err != nil {
 }
 ```
 
-## Write code to receive messages
+### Write code to receive messages
 
 With everything set up, you can start the Event Processor Host with `Start(context)` to keep it permanently running, or with `StartNonBlocking(context)` to run only as long as messages are available.
 

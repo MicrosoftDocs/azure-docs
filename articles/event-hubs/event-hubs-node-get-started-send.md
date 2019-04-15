@@ -142,7 +142,7 @@ The SDK you have cloned contains multiple samples that show you how to receive e
     node dist/examples/singleEph.js
     ```
 
-## Review the sample code 
+### Review the sample code 
 Here is the sample code to receive events from an event hub using node.js. You can manually create a sampleEph.js file, and run it to receive events to an event hub. 
 
   ```javascript
