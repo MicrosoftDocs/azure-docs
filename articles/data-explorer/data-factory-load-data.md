@@ -186,8 +186,3 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 * Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)
 
 * Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
-
-> [!TIP]
-> Optional information to help a user be more successful
-
-
