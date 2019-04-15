@@ -104,10 +104,10 @@ To configure Azure AD single sign-on with Apex Portal, perform the following ste
     ![Apex Portal Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<customer name>.apexanalytix.net/saml/sso.aspx`
+    `https://<customer name>.apexportal.net/saml/sso.aspx`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://<customer name>.apexanalytix.net/saml/sso.aspx`
+    `https://<customer name>.apexportal.net/saml/sso.aspx`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Apex Portal Client support team](mailto:support@apexanalytix.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
