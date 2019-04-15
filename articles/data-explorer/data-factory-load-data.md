@@ -23,7 +23,7 @@ Azure Data Factory offers the following benefits for loading data into Azure Dat
 * **Secure and compliant**: Data is transferred over HTTPS or ExpressRoute. The global service presence ensures that your data never leaves the geographical boundary.
 * **High performance**: Up to 1-GB/s data loading speed into Azure Data Explorer. For details, see [Copy activity performance](/azure/data-factory/copy-activity-performance).
 
-This article shows you how to use the Data Factory Copy Data tool to load data from Amazon S3 into Azure Data Explorer. You can follow similar steps to copy data from other types of data stores.
+This article shows you how to use the Data Factory Copy Data tool to load data from Amazon S3 into Azure Data Explorer. You can follow similar steps to copy data from other types of data stores such as [Azure Blob Storage](/azure/data-factory/connector-azure-blob-storage), [Azure SQL Database](/azure/data-factory/connector-azure-sql-database), [Azure SQL Data Warehouse](/azure/data-factory/connector-azure-sql-data-warehouse), [Google BigQuery](/azure/data-factory/connector-google-bigquery),[Oracle](/azure/data-factory/connector-oracle), and [File system](/azure/data-factory/connector-file-system).
 
 ## Prerequisites
 
@@ -57,6 +57,8 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 1. Select the **Author & Monitor** tile to launch the application in a separate tab.
 
 ## Load data into Azure Data Explorer
+
+Data can be loaded from many types of [data stores](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) into Azure Data Explorer. This topic details loading data from Amazon S3.
 
 There are two ways to load data into Azure Data Explorer using Azure Data Factory:
 
