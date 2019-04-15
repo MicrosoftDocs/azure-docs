@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can automatically increase or decrease the number of VM instances. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. 
+Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set in Azure, the same as you would manage any other Azure resource. When you create a scale set, you define the number of VM instances that you wish to run. As your application demand changes, you can have Ansible modify the number of VM instances based on run-time characteristics. The ability to autoscale lets you keep up with customer demand or respond to application-performance changes throughout the lifecycle of your app. 
 
 In this article, you create an autoscale setting and associate the setting with an existing virtual machine scale set.
 
@@ -184,7 +184,7 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
 
 ## Disable autoscale settings
 
-There are two ways to disable autoscale settings. One way is to change the `enabled` key from `true` to `false`. The second way - as shown in the following playbook is to deletes the autoscale setting. 
+There are two ways to disable autoscale settings. One way is to change the `enabled` key from `true` to `false`. The second way - as shown in the following playbook is to delete the autoscale setting. 
 
 ```yml
 - hosts: localhost
