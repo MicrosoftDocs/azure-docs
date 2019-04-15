@@ -43,7 +43,7 @@ For example, if your usage is for product **SUSE Linux Enterprise Server Priorit
 
 ![Example of selecting the product to purchase](./media/billing-understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png)
 
-## Discount applies to different VM sizes
+## Discount applies to different VM sizes for SUSE plans
 
 Like Reserved VM Instances, SUSE plan purchases offer instance size flexibility. This means that your discount applies even when you deploy a VM with a different vCPU count. The discount applies to different VM sizes within the software plan.
 

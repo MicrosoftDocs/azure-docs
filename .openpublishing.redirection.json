@@ -2874,7 +2874,7 @@
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
@@ -4680,7 +4680,7 @@
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path": "articles/automation/automation-credentials.md",
       "redirect_url": "/azure/automation/shared-resources/credentials",
@@ -36925,6 +36925,11 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/prepay-rhel-software-charges.md",
+      "redirect_url": "/azure/virtual-machines/linux/prepay-suse-software-charges",
       "redirect_document_id": true
     },
     {

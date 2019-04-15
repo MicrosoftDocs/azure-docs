@@ -76,6 +76,7 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
     |Term        |One year or three years.|
     |Quantity    |The number of instances being purchased within the reservation. The quantity is the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
 
+![Animated image showing reserved vm instance purchase](./media/virtual-machines-common-prepay-reserved-vm-instance/buy-reserved-instance.gif)  
 
 ## Change a reservation after purchase
 

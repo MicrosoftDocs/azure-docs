@@ -46,9 +46,12 @@ The reservation discount is automatically applied to the software meter that you
 
 Like reserved VM instances, SUSE Linux plans offer instance size flexibility. Your discount applies even when you deploy a VM that's a different size from the SUSE plan you bought. For more information, see [Understand how the software plan discount is applied](../../billing/billing-understand-suse-reservation-charges.md).
 
-## Discount applies to VM sizes
+## RedHat plan discount
 
-The RedHat plan discount only applies to VM sizes. For example, you might scale-up or downsize your VM to a size that's not covered by the purchased plan. In this example, the discount won't apply to the RedHat usage of the resized VM.
+Plans are available only for Red Hat Enterprise Linux virtual machines. The discount doesn't apply to RedHat Enterprise Linux SAP HANA VMs or RedHat Enterprise Linux SAP Business Apps VMs.
+
+RedHat plan discounts apply only to the VM size that you select at the time of purchase. RHEL plans can't be refunded or exchanged after purchase.
+
 
 ## Cancellation and exchanges not allowed
 
