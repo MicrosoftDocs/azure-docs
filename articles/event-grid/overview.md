@@ -18,7 +18,7 @@ Azure Event Grid allows you to easily build applications with event-based archit
 
 You can use filters to route specific events to different endpoints, multicast to multiple endpoints, and make sure your events are reliably delivered.
 
-Currently, Azure Event Grid is available in all public regions. It isn't yet available in the Azure Germany, Azure China, or Azure Government clouds.
+Currently, Azure Event Grid is available in all public regions. It isn't yet available in the Azure Germany, Azure China 21Vianet, or Azure Government clouds.
 
 This article provides an overview of Azure Event Grid. If you want to get started with Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md). 
 
