@@ -19,7 +19,7 @@ This tutorial shows you how to set up disaster recovery for Azure VMs by replica
 > [!div class="checklist"]
 > * Create a Recovery Services vault
 > * Verify target resource settings
-> * Set up outbound access for VMs
+> * Set up outbound network connectivity for VMs
 > * Enable replication for a VM
 
 > [!NOTE]
@@ -32,7 +32,7 @@ To complete this tutorial:
 - Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
 - Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) before you start.
 
-## Create a vault
+## Create a Recovery Services vault
 
 Create the vault in any region, except the source region.
 
@@ -50,13 +50,13 @@ Create the vault in any region, except the source region.
 
    The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
-## Verify target resources
+## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
 2. Make sure your subscription has enough resources to support VM sizes that match your source
    VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
-## Configure outbound network connectivity
+## Set up outbound network connectivity for VMs
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity from the VMs that you want to replicate.
 
@@ -117,7 +117,7 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
 
 Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
 
-## Enable replication
+## Enable replication for a VM
 
 ### Select the source
 
