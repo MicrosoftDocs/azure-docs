@@ -68,7 +68,7 @@ The following list of disks is supported for use with the Import/Export service.
 
 |Disk type  |Size  |Supported |Not supported  |
 |---------|---------|---------|---------|
-|SSD    |   2.5"      |SATA II, SATA III          |         |
+|SSD    |   2.5"      |SATA III          |  USB 3.0       |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |External HDD with built-in USB adaptor <br> Disk inside the casing of an external HDD         |
 
 
