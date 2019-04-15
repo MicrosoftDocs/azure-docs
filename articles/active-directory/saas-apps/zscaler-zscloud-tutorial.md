@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 
 ---
@@ -277,6 +277,9 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 7. In the **Add Assignment** dialog select the **Assign** button.
 
 	![image](./media/zscaler-zscloud-tutorial/tutorial_zscalerzscloud_assign.png)
+
+	>[!NOTE]
+	>Default access role is not supported as this will break provisioning, so the default role cannot be selected while assigning user.
 
 ### Create Zscaler ZSCloud test user
 
