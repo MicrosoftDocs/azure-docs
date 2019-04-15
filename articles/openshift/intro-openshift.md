@@ -13,17 +13,21 @@ ms.custom: mvc
 
 # Microsoft Azure Red Hat OpenShift Service
 
-Microsoft Azure Red Hat OpenShift provides a self-service deployment of fully managed OpenShift clusters that allows you to maintain regulatory compliance while focusing on your application development. Azure Red Hat OpenShift is jointly engineered, operated, and supported by both Microsoft and Red Hat. It provides an integrated support experience. Clusters are deployed into your Azure subscription and are included on your Azure bill.
+Microsoft Azure Red Hat OpenShift provides a self-service deployment of fully managed OpenShift clusters that allows you to maintain regulatory compliance while focusing on your application development. Azure Red Hat OpenShift is jointly engineered, operated, and supported by Microsoft and Red Hat. It provides an integrated support experience. Clusters are deployed into your Azure subscription and are included on your Azure bill.
+
+OpenShift is an open and extensible container application platform that brings Docker and Kubernetes to the enterprise.
+OpenShift includes Kubernetes for container orchestration and management. It adds developer-centric and operations-centric tools that enable:
+- Rapid application development.
+- Easy deployment and scaling.
+- Long-term lifecycle maintenance for teams and applications.
+
+Running containers in production with Kubernetes requires additional tools and resources, such as an image registry, storage management, networking solutions, and logging and monitoring tools, all of which must be versioned and tested together. Building container-based applications requires even more integration work with middleware, frameworks, databases, and CI/CD tools.
+
+Azure Red Hat OpenShift combines these into a single platform, bringing ease of operations to IT teams while giving application teams what they need to execute.
 
 Master, infrastructure and application nodes are patched, updated, and monitored by Microsoft and Red Hat. Choose your own registry, networking, storage, or CI/CD solutions. Or get going with immediately using built-in solutions automated source code management, container and application builds, deployments, scaling, health management, and more.
 
 There are no virtual machines to operate. No patching is required. Azure Red Hat OpenShift provides an integrated sign-on experience through Azure Active Directory and regulatory compliance with SOC, ISO, PCI DSS, and HIPAA.
-
-Azure Red Hat OpenShift extends Kubernetes. Running containers in production with Kubernetes requires additional tools and resources, such as an image registry, storage management, networking solutions, and logging and monitoring tools, all of which must be versioned and tested together.
-
-Building container-based applications requires even more integration work with middleware, frameworks, databases, and CI/CD tools.
-
-Azure Red Hat OpenShift combines these into a single platform, bringing ease of operations to IT teams while giving application teams what they need to execute.
 
 To get started, complete the [Deploy a Microsoft Red Hat OpenShift cluster on Azure](tutorial-create-cluster.md) tutorial.
 
