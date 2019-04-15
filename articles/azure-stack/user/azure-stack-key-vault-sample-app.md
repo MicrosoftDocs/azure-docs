@@ -74,10 +74,6 @@ Add-AzureRMEnvironment `
   -Name "AzureStackUser" `
   -ArmEndpoint $tenantARM
 
-Set-AzureRmEnvironment `
-  -Name "AzureStackAdmin" `
-  -GraphAudience "https://graph.windows.net/"
-
 $TenantID = Get-AzsDirectoryTenantId `
   -AADTenantName $aadTenantName `
   -EnvironmentName AzureStackUser
