@@ -49,7 +49,7 @@ You can't delete a directory in Azure AD until it passes several checks. These c
 
 ## If you can't delete the directory
 
-When you configured your Azure AD directory, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a directory until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow directory deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisoned** state.
+When you configured your Azure AD directory, you may have also activated license-based subscriptions for your organization like Azure AD Premium P2, Office 365 Business Premium, or Enterprise Mobility + Security E5. To avoid accidental data loss, you can't delete a directory until the subscriptions are fully deleted. The subscriptions must be in a **Deprovisioned** state to allow directory deletion. An **Expired** or **Canceled** subscription moves to the **Disabled** state, and the final stage is the **Deprovisioned** state.
 
 For what to expect when a trial Office 365 subscription expires (not including paid Partner/CSP, Enterprise Agreement, or Volume Licensing), see the following table. For more information on Office 365 data retention and subscription lifecycle, see [What happens to my data and access when my Office 365 for business subscription ends?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
@@ -62,7 +62,7 @@ Deprovisioned  (30 days after Disabled) | Data deleted (automatically deleted if
 
 ## Delete a subscription
 
-You can put a subscription into the Deprovisoned state to be deleted in three days using the Microsoft 365 admin center.
+You can put a subscription into the Deprovisioned state to be deleted in three days using the Microsoft 365 admin center.
 
 1. Sign in to the [Microsoft 365 admin center](https://admin.microsoft.com) with an account that is a global administrator in your organization. If you are trying to delete the “Contoso” directory that has the initial default domain contoso.onmicrosoft.com, sign in with a UPN such as admin@contoso.onmicrosoft.com.
 
