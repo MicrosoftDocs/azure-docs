@@ -1,5 +1,5 @@
 ---
-title: Configure pre and post scripts on your Update Management deployment in Azure (Preview)
+title: Configure pre and post scripts on your Update Management deployment in Azure
 description: This article describes how to configure and manage pre and post scripts for update deployments
 services: automation
 ms.service: automation
@@ -10,7 +10,7 @@ ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm 
 ---
-# Manage pre and post scripts (Preview)
+# Manage pre and post scripts
 
 Pre and post scripts let you run PowerShell runbooks in your Automation Account before (pre-task) and after (post-task) an update deployment. Pre and post scripts run in the Azure context and not locally. Pre-scripts run at the beginning of the update deployment. Post scripts run at the end of the deployment and after any reboots that are configured.
 
@@ -20,7 +20,7 @@ For a runbook to be used as a pre or post script, the runbook needs to be import
 
 ## Using a pre/post script
 
-To use a pre and or post script in an Update Deployment, start by creating an Update Deployment. Select **Pre-scripts + Post Scripts (Preview)**. This action opens the **Select Pre-scripts + Post-scripts** page.  
+To use a pre and or post script in an Update Deployment, start by creating an Update Deployment. Select **Pre-scripts + Post Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.  
 
 ![Select scripts](./media/pre-post-scripts/select-scripts.png)
 
