@@ -22,7 +22,7 @@ Before you begin this tutorial, you must have the following items:
 
 * A workstation with Azure PowerShell [AZ Module](https://docs.microsoft.com/powershell/azure/overview) installed.
 
-* Completion of [Set up test environment](./hdinsight-use-sqoop.md#set-up-test-environment) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
+* Completion of [Set up test environment](./hdinsight-use-sqoop.md#create-cluster-and-sql-database) from [Use Apache Sqoop with Hadoop in HDInsight](./hdinsight-use-sqoop.md).
 
 
 ## Run Apache Sqoop by using PowerShell
