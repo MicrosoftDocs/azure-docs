@@ -1,7 +1,7 @@
 ---
 title:  "Decision Forest Regression: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Two-Class Averaged Perceptron module in Azure Machine Learning service to create a machine learning model based on the averaged perceptron algorithm.  
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Two-Class Averaged Perceptron
@@ -19,7 +19,7 @@ ROBOTS: NOINDEX
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Averaged Perceptron** module in Azure Machine Learning to create a machine learning model based on the averaged perceptron algorithm.  
+This article describes how to use the **Two-Class Averaged Perceptron** module in Azure Machine Learning service to create a machine learning model based on the averaged perceptron algorithm.  
   
 This classification algorithm is a supervised learning method, and requires a *tagged dataset*, which includes a label column. You can train the model by providing the model and the tagged dataset as an input to [Train Model](./train-model.md). The trained model can then be used to predict values for the new input examples.  
 

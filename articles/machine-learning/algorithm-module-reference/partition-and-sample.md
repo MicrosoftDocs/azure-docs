@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Partition and Sample: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Partition and Sample module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Partition and Sample
@@ -20,7 +20,7 @@ Category: Data Transformation / Sample and Split
 
 ## Module overview
 
-This article describes how to use the **Partition and Sample** module in Azure Machine Learning to perform sampling on a dataset or to create partitions from your dataset.
+This article describes how to use the **Partition and Sample** module in Azure Machine Learning service to perform sampling on a dataset or to create partitions from your dataset.
 
 Sampling is an important tool in machine learning because it lets you reduce the size of a dataset while maintaining the same ratio of values. This module supports several related tasks that are important in  machine learning: 
 

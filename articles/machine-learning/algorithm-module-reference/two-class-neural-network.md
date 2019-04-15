@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Two-Class Neural Network: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Two-Class Neural Network module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has only two values.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,19 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
+
 # Two-Class Neural Network
+
 *Creates a binary classifier using a neural network algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification  
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Neural Network** module in Azure Machine Learning to create a neural network model that can be used to predict a target that has only two values.
+This article describes how to use the **Two-Class Neural Network** module in Azure Machine Learning service to create a neural network model that can be used to predict a target that has only two values.
 
 Classification using neural networks is a supervised learning method, and therefore requires a *tagged dataset*, which includes a label column. For example, you could use this neural network model to predict binary outcomes such as whether or not a patient has a certain disease, or whether a machine is likely to fail within a specified window of time.  
 
