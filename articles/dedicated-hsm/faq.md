@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -151,6 +151,10 @@ Yes. Each HSM appliance is fully dedicated to one single customer and no one els
 ### Q: What level of access does Microsoft have to my HSM?
 
 Microsoft does not have any administrative or cryptographic control over the HSM. Microsoft does have monitor level access via serial port connection to retrieve basic telemetry such as temperature and component health. This allows Microsoft to provide proactive notification of health issues. If required, the customer can disable this account.
+
+### Q: What is the tenantadmin account Microsoft uses, I am used to the admin user being "admin" on SafeNet HSMs?
+
+The HSM device ships with a default user of admin with its usual default password. Microsoft did not want to have default passwords in use while any device is in a pool waiting to be provisioned by customers. This would not meet our strict security requirements. For this reason we set a strong password which is discarded at provisioning time. Also at provisioning time, we create a new user in the admin role called tenantadmin. This user has the default password and customers change this as the first action when first logging into the newly provisioned device. This process ensures high degress of security and maintains our promise of sole administrative control for our customers. It should be noted that the tenantadmin user can be used to reset the admin user password if a customer prefers to use that account. 
 
 ### Q: Can Microsoft or anyone at Microsoft access keys in my Dedicated HSM?
 
