@@ -24,10 +24,10 @@ connector's **Get rows** action is 2048, but might vary based on other settings.
 Some actions let you turn on a *pagination* setting so that your logic 
 app can retrieve more results up to the pagination limit, but return those 
 results as a single message when the action finishes. When you use pagination, 
-you must specify a *minimum number* of results that you want the action to return. 
-The action retrieves results until reaching your specified threshold. When your 
-total number of items is less than the specified threshold, the action retrieves 
-all the results. 
+you must specify a *threshold* value, which is the target number of results you 
+want the action to return. The action retrieves results until reaching your 
+specified threshold. When your total number of items is less than the specified 
+threshold, the action retrieves all the results.
 
 Turning on the pagination setting retrieves pages of results based on a connector's page size. 
 This behavior means that sometimes, you might get more results than your specified threshold. 
@@ -76,8 +76,8 @@ ellipses (**...**) button, and select **Settings**.
    the action shows the **Pagination** setting.
 
 1. Change the **Pagination** setting from **Off** to **On**. 
-In the **Limit** property, specify an integer value for the 
-*minimum number* of results that you want the action to return.
+In the **Threshold** property, specify an integer value for 
+the target number of results that you want the action to return.
 
    ![Specify minimum number of results to return](./media/logic-apps-exceed-default-page-size-with-pagination/sql-action-settings-pagination.png)
 
