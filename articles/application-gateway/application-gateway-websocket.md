@@ -117,5 +117,5 @@ Another reason for this is that application gateway backend health probe support
 
 ## Next steps
 
-After learning about WebSocket support, go to [create an application gateway](application-gateway-create-gateway.md) to get started with a WebSocket enabled web application.
+After learning about WebSocket support, go to [create an application gateway](application-gateway-create-gateway-arm.md) to get started with a WebSocket enabled web application.
 

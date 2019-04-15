@@ -22,8 +22,7 @@ ms.author: victorh
 
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
-> * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
+> * [Azure PowerShell](application-gateway-create-gateway-arm.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
 
