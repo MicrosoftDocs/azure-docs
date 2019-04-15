@@ -13,10 +13,9 @@ ms.date: 04/30/2018
 
 # Schema reference for Workflow Definition Language in Azure Logic Apps
 
-When you create a logic app workflow in 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-the underlying definition for that workflow describes 
-the actual logic that runs in your logic app. 
+When you create a logic app in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
+your logic app has an underlying workflow definition that 
+describes the actual logic that runs in your logic app. 
 That workflow definition uses [JSON](https://www.json.org/) 
 and follows a structure that's validated by the 
 Workflow Definition Language schema. This reference 
