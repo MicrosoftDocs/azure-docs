@@ -26,11 +26,7 @@
   - name: Send and receive events
     items:
     - name: .NET Core
-      items:
-      - name: Send events to an event hub
-        href: event-hubs-dotnet-standard-getstarted-send.md
-      - name: Receive event from an event hub
-        href: event-hubs-dotnet-standard-getstarted-receive-eph.md        
+      href: event-hubs-dotnet-standard-getstarted-send.md
     - name: .NET Framework
       href: event-hubs-dotnet-framework-getstarted-send.md
     - name: Java
