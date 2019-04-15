@@ -87,7 +87,7 @@ To create an AAD application in the portal:
 
 >[!Note]
 > When deciding to use an AAD application of authentication instead of using a system assigned identity, consider the fact that Azure search is not authorized to manage your AAD application on your behalf, and it is up to you to manage your AAD application, like periodically rotating the application authentication key.
-> When changing an AAD application or its authentication key, any Azure search index or synonym-map that uses that application must first be updated to use the new application id\key, **before** deleting the previous application or its authorization key, and before revoking your Key Vault access to it.
+> When changing an AAD application or its authentication key, any Azure search index or synonym-map that uses that application must first be updated to use the new application ID\key, **before** deleting the previous application or its authorization key, and before revoking your Key Vault access to it.
 > Failing to do so will render the index\synonym-map unusable, at it won't be able to decrypt the index\synonym-map data once key access is lost.   
 
 ### Step 2: Grant your Azure Search service access to the Azure key vault
