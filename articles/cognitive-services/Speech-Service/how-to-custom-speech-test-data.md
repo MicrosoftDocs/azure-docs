@@ -84,10 +84,10 @@ After you've gathered your audio files and corresponding transcriptions, they sh
 
 If you have product names or features that are unique, and you want to make sure they are recognized correctly, it is important to include related text data for training. Two types of related text data can be provided to improve recognition:
 
-| Data type | How this improves recognition | Links |
-|-----------|-------------------------------|-------|
-| Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. | <li>[Samples](placeholder)</li><li>[File format guidelines](placeholder)</li> |
-| Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. | <li>[Samples](placeholder)</li><li>[File format guidelines](placeholder)</li> |
+| Data type | How this improves recognition |
+|-----------|-------------------------------|
+| Utterances and/or sentences | These can improve accuracy when recognizing product names, or industry-specific vocabulary within the context of a sentence. |
+| Pronunciations | These can improve pronunciation of uncommon terms, acronyms, or other words with undefined pronunciations. |
 
 Utterances can be provided as a single or multiple text files. The closer the text data is to what will be spoken, the greater the likelihood that accuracy is improved. Pronunciations should be provided as a single text file. Everything can be packaged as a single zip file and uploaded to the Custom Speech portal.
 
@@ -132,6 +132,14 @@ Customized pronunciation is available in English (en-US) and German (de-DE). Thi
 |----------|--------|------------|
 | English | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | German | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+
+Use this table to ensure that your related data file for pronunciations is formatted correctly. Pronunciation files are generally small, and should not exceed a few KBs.
+
+| Property | Value |
+|----------|-------|
+| Text encoding | UTF-8 BOM (ANSI is also supported for English) |
+| # of pronunciations per line | 1 |
+| Maximum file size | 1 MB (1 KB for free tier) |
 
 ## Next steps
 
