@@ -351,3 +351,25 @@ azds controller create --name <cluster name> -g <resource group name> -tn <clust
 ```
 
 After your controller is reinstalled, redeploy your pods.
+
+## Incorrect RBAC permissions for calling Dev Spaces controller and APIs
+
+### Reason
+The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* RBAC role for the controller.
+
+### Try
+More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+To update the user's RBAC role for the controller:
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Navigate to the Resource Group containing the controller, which is usually the same as your AKS cluster.
+1. Enable the *Show hidden types* checkbox.
+1. Click on the controller.
+1. Open the *Access Control (IAM)* pane.
+1. Click on the *Role Assignments* tab.
+1. Click *Add* then *Add role assignment*.
+    * For *Role* select either *Contributor* or *Owner*.
+    * For *Assign access to* select *Azure AD user, group, or service principal*.
+    * For *Select* search for the user you want to give permissions.
+1. Click *Save*.

@@ -18,6 +18,13 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-04-15
+
+### Azure Portal
+  + You can now resubmit an existing Script run on an existing remote compute cluster. 
+  + You can now run a published pipeline with new parameters on the Pipelines tab. 
+  + Run details now supports a new Snapshot file viewer. You can view a snapshot of the directory when you submitted a specific run. You can also download the notebook that was submitted to start the run.
+
 ## 2019-04-08
 
 ### Azure Machine Learning SDK for Python v1.0.23
@@ -47,6 +54,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
   + Column type detection now supports columns of type Long.
   + Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
   + Fixed a bug where some type counts were being displayed as doubles instead of integers.
+
   
 ## 2019-03-25
 
