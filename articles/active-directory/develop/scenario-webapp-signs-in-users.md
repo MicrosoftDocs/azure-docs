@@ -416,7 +416,7 @@ Once your web app signs-in users, it can now call Web APIs on behalf of the sign
 
 # [ASP.NET](#tab/aspnet)
 
-- If you have not already, try the quickstart [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp)
+- If you have not already, try the quickstart [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)
 - Tutorial: [Add sign-in with Microsoft to an ASP.NET web app]tutorial-v2-asp-webapp)
 
 # [REST](#tab/other)
