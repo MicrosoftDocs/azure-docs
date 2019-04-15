@@ -1651,6 +1651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/support-for-aml-services.md",
+      "redirect_url": "https://aka.ms/aml-forum-service",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/preview/model-management-service-deploy.md",
       "redirect_url": "/azure/machine-learning/desktop-workbench/model-management-service-deploy",
       "redirect_document_id": true
@@ -2865,6 +2870,11 @@
       "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
+      "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
@@ -4426,6 +4436,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway.md",
+      "redirect_url": "/azure/application-gateway/quick-create-powershell",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/application-gateway/application-gateway-create-gateway-arm.md",
+        "redirect_url": "/azure/application-gateway/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
       "redirect_document_id": false
@@ -4668,6 +4688,12 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    
+    {
+      "source_path": "articles/automation/automation-credentials.md",
+      "redirect_url": "/azure/automation/shared-resources/credentials",
       "redirect_document_id": false
     },
     {
@@ -10866,6 +10892,11 @@
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-install-mono.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
       "redirect_document_id": false
     },
     {
@@ -30537,6 +30568,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/saas-apps/alibaba-cloud-service-(role-based-sso)-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/alibaba-cloud-service-role-based-sso-tutorial",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/saas-apps/index.md",
       "redirect_url": "/azure/active-directory/saas-apps/tutorial-list",
       "redirect_document_id": false
@@ -30640,6 +30676,11 @@
       "source_path": "articles/active-directory/active-directory-b2b-what-is-azure-ad-b2b.md",
       "redirect_url": "/azure/active-directory/b2b/what-is-b2b",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/b2b/b2b-tutorial-bulk-invite.md",
+      "redirect_url": "/azure/active-directory/b2b/tutorial-bulk-invite",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/security/manage-personal-data-azure.md",
@@ -35386,6 +35427,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
+      "redirect_url": "/azure/storage/common/storage-metrics-in-azure-monitor",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
       "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
       "redirect_document_id": false
@@ -36788,8 +36834,28 @@
     },
     {
       "source_path": "articles/cognitive-services/Custom-Vision-Service/rest-api-tutorial.md",
-	  "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
+      "redirect_url": "/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-prerequisites.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-release-notes.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-whats-new.md",
+	    "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-catalog/data-catalog-what-is-data-catalog.md",
+	    "redirect_url": "/azure/data-catalog/overview",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/biztalk-services/biztalk-backup-restore.md",
@@ -36864,6 +36930,21 @@
     {
       "source_path": "articles/biztalk-services/integration-hybrid-connection-overview.md",
       "redirect_url": "/azure/logic-apps/logic-apps-move-from-mabs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
+      "redirect_document_id": true
+    },
+	{
+      "source_path": "articles/azure-monitor/app/previews.md",
+      "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
     },
     {

@@ -93,10 +93,9 @@ Learn about multi-step tasks in [Run multi-step build, test, and patch tasks in 
 
 ## Next steps
 
-When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part ACR Tasks tutorial series.
+When you're ready to automate OS and framework patching by building your container images in the cloud, check out the three-part [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Build container images in the cloud with Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/
