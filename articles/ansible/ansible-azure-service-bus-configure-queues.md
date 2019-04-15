@@ -139,7 +139,6 @@ ansible-playbook servicebus_namespace_info.yml
 
 The sample playbook code queries queue information. 
 
-
 Save the following playbook as `servicebus_queue_info.yml`:
 
 ```yaml
