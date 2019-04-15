@@ -44,7 +44,7 @@ sections:
       - title: Create storage account
         values:
         - href: /azure/storage/common/storage-quickstart-create-account?tabs=portal
-        - href: /azure/storage/common/storage-quickstart-create-account?tabs=powershell
+        - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-powershell
         - href: /azure/storage/common/storage-quickstart-create-account?tabs=azure-cli
         - href: 
         - href: 
