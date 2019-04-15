@@ -54,7 +54,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-Quickstart`.
 >    - In **Redirect URI**, add `https://localhost:44321/`, and select **Register**.
 > 1. Select the **Authentication** menu, and then add the following information:
->    - In **Redirect URIs**, add `https://localhost:44321/signin-oidc`,  and select **Register**.
+>    - In **Redirect URIs**, add `https://localhost:44321/signin-oidc`,  and select **Save**.
 >    - In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit grant**, check **ID tokens**.
 >    - Select **Save**.
