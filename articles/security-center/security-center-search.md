@@ -20,7 +20,7 @@ ms.author: rkarlin
 # Azure Security Center search
 
 > [!NOTE]
-> Security Center's Search dashboard will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_search) to learn on alternative services.
+> Security Center's Search dashboard will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_search).
 
 Azure Security Center uses [Azure Monitor logs search](../log-analytics/log-analytics-log-searches.md) to retrieve and analyze your security data. Azure Monitor logs includes a query language to quickly retrieve and consolidate data. From Security Center, you can leverage Azure Monitor logs search to construct queries and analyze collected data.
 
