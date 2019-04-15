@@ -28,10 +28,7 @@ In this tutorial, you learn how to:
 
 ## Before you start
 
-We recommend you do the following before you start:
 
-- Review the [new features and limitations](migrate-overview.md#azure-migrate-services-public-preview) for Server Assessment.
-- Learn about [VMware](migrate-overview.md#vmware-architecture) assessment architecture and processes.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
