@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: BradleyB
+manager: femila
 editor: 
 tags: 
 
@@ -41,7 +41,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. More details can be found in the steps below.
 * Azure Stack does not support cloud-init. Your VM must be configured with a supported version of the Windows Azure Linux Agent (WALA).
 
-### Prepare a RHEL 7 virtual machine from Hyper-V Manager
+### Prepare an RHEL 7 virtual machine from Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -280,7 +280,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. This is an example where we download "2.2.20" version from the github repo. Download and unzip the 2.2.20 version of the agent from our github. 
+   b. This is an example where we download "2.2.20" version from the GitHub repo. Download and unzip the 2.2.20 version of the agent from our GitHub. 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
@@ -371,7 +371,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 * Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
 * When you create the virtual hard disk, select **Store virtual disk as a single file**.
 
-### Prepare a RHEL 7 virtual machine from VMware
+### Prepare an RHEL 7 virtual machine from VMware
 
 1. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
