@@ -30,7 +30,7 @@ To explore and manipulate a dataset, it must first be downloaded from the blob s
 1. Download the data from Azure blob with the following Python code sample using blob service. Replace the variable in the following code with your specific values:
 
 ```python
-from azure.storage.blob import BlobService
+from azure.storage.blob import BlockBlobService
 import tables
 
 STORAGEACCOUNTNAME= <storage_account_name>
@@ -41,13 +41,13 @@ BLOBNAME= <blob_name>
 
 #download from blob
 t1=time.time()
-blob_service=BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
+blob_service=BlockBlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
 blob_service.get_blob_to_path(CONTAINERNAME,BLOBNAME,LOCALFILENAME)
 t2=time.time()
 print(("It takes %s seconds to download "+blobname) % (t2 - t1))
 ```
 
-2. Read the data into a pandas DataFrame from the downloaded file.
+1. Read the data into a pandas DataFrame from the downloaded file.
 
 ```python
 #LOCALFILE is the file path
@@ -65,7 +65,7 @@ Here are a few examples of ways to explore data using pandas:
 print 'the size of the data is: %d rows and  %d columns' % dataframe_blobdata.shape
 ```
 
-2. **Inspect** the first or last few **rows** in the following dataset:
+1. **Inspect** the first or last few **rows** in the following dataset:
 
 ```python
 dataframe_blobdata.head(10)
@@ -73,33 +73,33 @@ dataframe_blobdata.head(10)
 dataframe_blobdata.tail(10)
 ```
 
-3. Check the **data type** each column was imported as using the following sample code
+1. Check the **data type** each column was imported as using the following sample code
 
 ```python
 for col in dataframe_blobdata.columns:
     print dataframe_blobdata[col].name, ':\t', dataframe_blobdata[col].dtype
 ```
 
-4. Check the **basic stats** for the columns in the data set as follows
+1. Check the **basic stats** for the columns in the data set as follows
 
 ```python
 dataframe_blobdata.describe()
 ```
 
-5. Look at the number of entries for each column value as follows
+1. Look at the number of entries for each column value as follows
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts()
 ```
 
-6. **Count missing values** versus the actual number of entries in each column using the following sample code
+1. **Count missing values** versus the actual number of entries in each column using the following sample code
 
 ```python
 miss_num = dataframe_blobdata.shape[0] - dataframe_blobdata.count()
 print miss_num
 ```
 
-7. If you have **missing values** for a specific column in the data, you can drop them as follows:
+1. If you have **missing values** for a specific column in the data, you can drop them as follows:
 
 ```python
 dataframe_blobdata_noNA = dataframe_blobdata.dropna()
@@ -112,7 +112,7 @@ Another way to replace missing values is with the mode function:
 dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})
 ```
 
-8. Create a **histogram** plot using variable number of bins to plot the distribution of a variable
+1. Create a **histogram** plot using variable number of bins to plot the distribution of a variable
 
 ```python
 dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
@@ -120,7 +120,7 @@ dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')
 np.log(dataframe_blobdata['<column_name>']+1).hist(bins=50)
 ```
 
-9. Look at **correlations** between variables using a scatterplot or using the built-in correlation function
+1. Look at **correlations** between variables using a scatterplot or using the built-in correlation function
 
 ```python
 #relationship between column_a and column_b using scatter plot

@@ -38,10 +38,7 @@ There are two types of assessments you can run.
 
 ## Before you start
 
-- Before you begin this tutorial you should deployed the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-appliance-hyper-v.md) to set up the appliance, before you begin the assessment.
-- To learn more about this preview:
-    - Review the [preview features and limitations](migrate-overview.md#azure-migrate-services-public-preview).
-    - Learn about [Hyper-V](migrate-overview.md#hyper-v-architecture) assessment architecture and processes.
+Before you begin this tutorial you should have deployed the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-appliance-hyper-v.md) to set up the appliance, before you begin the assessment.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 

@@ -1,6 +1,6 @@
 ---
-title: Activate my Azure AD directory roles in PIM | Microsoft Docs
-description: Learn how to activate Azure AD directory roles in Azure AD Privileged Identity Management (PIM).
+title: Activate my Azure AD roles in PIM - Azure Active Directory | Microsoft Docs
+description: Learn how to activate Azure AD roles in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,36 +11,36 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 03/05/2019
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
-# Activate my Azure AD directory roles in PIM
+# Activate my Azure AD roles in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifies how enterprises manage privileged access to resources in Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.  
 
 If you have been made eligible for an administrative role, that means you can activate that role when you need to perform privileged actions. For example, if you occasionally manage Office 365 features, your organization's privileged role administrators may not make you a permanent Global Administrator, since that role impacts other services, too. Instead, they make you eligible for Azure AD roles such as Exchange Online Administrator. You can request to activate that role when you need its privileges, and then you'll have administrator control for a predetermined time period.
 
-This article is for administrators who need to activate their Azure AD directory role in PIM.
+This article is for administrators who need to activate their Azure AD role in PIM.
 
 ## Activate a role
 
-When you need to take on an Azure AD directory role, you can request activation by using the **My roles** navigation option in PIM.
+When you need to take on an Azure AD role, you can request activation by using the **My roles** navigation option in PIM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. Open **Azure AD Privileged Identity Management**. For information about how to add the PIM tile to your dashboard, see [Start using PIM](pim-getting-started.md).
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
-1. Click **My roles** to see a list of your eligible Azure AD directory roles.
+1. Click **My roles** to see a list of your eligible Azure AD roles.
 
-    ![Azure AD directory roles - My roles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Azure AD roles - My roles](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Find a role that you want to activate.
 
-    ![Azure AD directory roles - My roles list](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Azure AD roles - My roles list](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Click **Activate** to open the Role activation details pane.
 
@@ -82,11 +82,11 @@ You can view the status of your pending requests to activate.
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **My requests** to see a list of your requests.
 
-    ![Azure AD directory roles - My requests](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Azure AD roles - My requests](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## Deactivate a role
 
@@ -96,7 +96,7 @@ If you complete your administrator tasks early, you can also deactivate a role m
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **My roles**.
 
@@ -110,7 +110,7 @@ If you do not require activation of a role that requires approval, you can cance
 
 1. Open Azure AD Privileged Identity Management.
 
-1. Click **Azure AD directory roles**.
+1. Click **Azure AD roles**.
 
 1. Click **My requests**.
 

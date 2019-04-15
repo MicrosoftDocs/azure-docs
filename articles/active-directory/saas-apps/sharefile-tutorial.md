@@ -116,6 +116,7 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 	| |
 	
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|---|
 	| `https://<tenant-name>.sharefile.com/saml/acs`|

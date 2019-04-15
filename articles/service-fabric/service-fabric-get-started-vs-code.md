@@ -3,8 +3,8 @@ title: Azure Service Fabric with VS Code Getting Started | Microsoft Docs
 description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: JimacoMS2
-manager: timlt
+author: peterpogorski
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
-ms.author: v-jamebr
+ms.author: pepogors
 
 ---
 
@@ -103,9 +103,9 @@ The **Service Fabric: Publish Application** command deploys your Service Fabric 
 ### Service Fabric: Deploy Application (Localhost)
 The **Service Fabric: Deploy Application** command deploys your Service Fabric application to your local cluster. Make sure your local cluster is running before using the command. 
 
-1.  Select the **Service Fabric: Deploy Application** command
-2.  View the local cluster with Service Fabric Explorer (http://localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
-3.  You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
+1. Select the **Service Fabric: Deploy Application** command
+2. View the local cluster with Service Fabric Explorer (http:\//localhost:19080/Explorer) to confirm that the application has been installed. This may take some time, so be patient.
+3. You can also use **Service Fabric: Publish Application** command with no parameters set in the Cloud.json file to deploy to a local cluster.
 
 > [!NOTE]
 > Deploying Java applications to the local cluster is not supported on Windows machines.
@@ -117,7 +117,7 @@ The **Service Fabric: Remove Application** command removes a Service Fabric appl
 2.  View the cluster with Service Fabric Explorer to confirm that the application has been removed. This may take some time, so be patient.
 
 ### Service Fabric: Build Application
-The **Service Fabric: Remove Application** command can build either Java or C# Service Fabric applications. 
+The **Service Fabric: Build Application** command can build either Java or C# Service Fabric applications. 
 
 1.  Make sure you are in the application root folder before executing this command. The command identifies the type of application (C# or Java) 
     and builds your application accordingly.

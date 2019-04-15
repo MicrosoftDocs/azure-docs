@@ -123,6 +123,7 @@ To configure Azure AD single sign-on with eKincare, perform the following steps:
 	| employeeid | *user.extensionattribute1* |
 	| organizationid | *"uniquevalue"* |
 	| organizationname | *user.companyname* |
+	
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
 	![image](common/new-save-attribute.png)

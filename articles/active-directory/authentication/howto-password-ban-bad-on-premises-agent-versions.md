@@ -1,5 +1,5 @@
 ---
-title: On-premises Azure AD Password Protection agent version release history
+title: On-premises Azure AD Password Protection agent version release history - Azure Active Directory
 description: Documents version release and behavior change history
 
 services: active-directory
@@ -15,12 +15,17 @@ ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ---
 
-# Preview:  Azure AD Password Protection agent version history
+# Azure AD Password Protection agent version history
 
-|     |
-| --- |
-| Azure AD Password Protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+## 1.2.125.0
+
+Release date: 3/22/2019
+
+* Fix minor typo errors in event log messages
+* Update EULA agreement to final General Availability version
+
+> [!NOTE]
+> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
 
 ## 1.2.116.0
 
@@ -34,7 +39,7 @@ Release date: 3/13/2019
   * On Server Core systems it may be necessary to pass the /q flag to the .NET 4.7 installer to get it to succeed.
 * The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default.
 * Automatic upgrade can be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
-* The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
+* The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe.
 * The service binary for the Proxy service has been renamed to AzureADPasswordProtectionProxy.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
   * NOTE: if an http proxy config file was being used in a previous Proxy install, it will need to be renamed (from *proxyservice.exe.config* to *AzureADPasswordProtectionProxy.exe.config*) after this upgrade.
 * All time-limited functionality checks have been removed from the DC agent.

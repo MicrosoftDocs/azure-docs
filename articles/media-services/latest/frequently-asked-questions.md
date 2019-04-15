@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 04/10/2019
 ms.author: juliako
 ---
 
@@ -20,6 +20,10 @@ ms.author: juliako
 This article gives answers to Azure Media Services (AMS) v3 frequently asked questions.
 
 ## v3 APIs
+
+### What Azure roles can perform actions on Azure Media Services resources? 
+
+See [Role-based access control (RBAC) for Media Services accounts](rbac-overview.md).
 
 ### How do I configure Media Reserved Units?
 
@@ -70,7 +74,7 @@ For more information, see:
 
 ### Can I use the Azure portal to manage v3 resources?
 
-Not yet. You can use one of the supported SDKs. See tutorials and samples in this doc set.
+Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](developers-guide.md).
 
 ### Is there an AssetFile concept in v3?
 

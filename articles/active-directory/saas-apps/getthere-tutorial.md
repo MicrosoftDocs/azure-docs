@@ -101,12 +101,14 @@ To configure Azure AD single sign-on with GetThere, perform the following steps:
     ![GetThere Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL:
+
 	| |
 	|--|
 	| `getthere.com` |
 	| `http://idp.getthere.com` |
 
     b. In the **Reply URL** text box, type any one of the below URLs:
+	
 	| |
 	|--|
 	| `https://wx1.getthere.net/login/saml/post.act` |
@@ -224,9 +226,9 @@ When you click the GetThere tile in the Access Panel, you should be automaticall
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

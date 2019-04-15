@@ -46,16 +46,16 @@ Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-
 
 ## Create the image search client
 
-3. Create an instance of `CognitiveServicesCredentials`, and use it to instantiate the client:
+1. Create an instance of `CognitiveServicesCredentials`, and use it to instantiate the client:
 
     ```python
     client = ImageSearchAPI(CognitiveServicesCredentials(subscription_key))
     ```
-4. Send a search query to the Bing Image Search API:
+1. Send a search query to the Bing Image Search API:
     ```python
     image_results = client.images.search(query=search_term)
     ```
-## Process and view the results
+   ## Process and view the results
 
 Parse the image results returned in the response.
 

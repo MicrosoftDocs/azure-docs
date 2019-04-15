@@ -30,9 +30,7 @@ In this tutorial, you:
 Before you begin this tutorial you should:
 - Deploy the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-discover-vmware.md) to set up the appliance.
 - Assess the VMs you want to migrate. You don't have to do this, but you can migrate more confidently if you've assessed the VMs to check that they're suitable for running in Azure, and to get estimates for Azure VM sizing, and monthly Azure costs. If you run an assessment, you can use the recommended sizes when you migrate the VMs.
-- To learn more about this preview:
-    - Review the [preview features and limitations](migrate-overview.md#azure-migrate-services-public-preview).
-    - Learn about [VMware](migrate-overview.md#vmware-architecture) assessment and migration architecture.
+
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 

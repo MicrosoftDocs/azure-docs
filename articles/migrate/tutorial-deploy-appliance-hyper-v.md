@@ -26,12 +26,7 @@ In this tutorial, you learn how to:
 > * Set up the appliance for the first time, and start discovery. Verify that the discovered VMs appear in the Azure portal.
 
 
-## Before you start
 
-We recommend you do the following before you start:
-
-- Review the [new features and limitations](migrate-overview.md#azure-migrate-services-public-preview) for Server Assessment.
-- Learn about [Hyper-V](migrate-overview.md#hyper-v-architecture) assessment architecture and processes.
 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.

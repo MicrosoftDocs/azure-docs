@@ -166,36 +166,36 @@ This table provides details about job-related fields.
 
 This table provides details about policy-related fields.
 
-| Field | Data Type | Description |
-| --- | --- | --- |
-| EventName_s |Text |This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
-| State_s |Text |Current state of the policy object, for example, Active, Deleted |
-| BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
-| OperationName |Text |This field represents name of the current operation - Policy |
-| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
-| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
-| PolicyUniqueId_g |Text |Unique Id to identify the policy |
-| PolicyName_s |Text |Name of the policy defined |
-| BackupFrequency_s |Text |Frequency with which backups are run, for example, daily, weekly |
-| BackupTimes_s |Text |Date and time when backups are scheduled |
-| BackupDaysOfTheWeek_s |Text |Days of the week when backups have been scheduled |
-| RetentionDuration_s |Whole Number |Retention duration for configured backups |
-| DailyRetentionDuration_s |Whole Number |Total retention duration in days for configured backups |
-| DailyRetentionTimes_s |Text |Date and time when daily retention was configured |
-| WeeklyRetentionDuration_s |Decimal Number |Total weekly retention duration in weeks for configured backups |
-| WeeklyRetentionTimes_s |Text |Date and time when weekly retention is configured |
-| WeeklyRetentionDaysOfTheWeek_s |Text |Days of the week selected for weekly retention |
-| MonthlyRetentionDuration_s |Decimal Number |Total retention duration in months for configured backups |
-| MonthlyRetentionTimes_s |Text |Date and time when monthly retention is configured |
-| MonthlyRetentionFormat_s |Text |Type of configuration for monthly retention, for example, daily for day based, weekly for week based |
-| MonthlyRetentionDaysOfTheWeek_s |Text |Days of the week selected for monthly retention |
-| MonthlyRetentionWeeksOfTheMonth_s |Text |Weeks of the month when monthly retention is configured, for example, First, Last etc. |
-| YearlyRetentionDuration_s |Decimal Number |Total retention duration in years for configured backups |
-| YearlyRetentionTimes_s |Text |Date and time when yearly retention is configured |
-| YearlyRetentionMonthsOfTheYear_s |Text |Months of the year selected for yearly retention |
-| YearlyRetentionFormat_s |Text |Type of configuration for yearly retention, for example, daily for day based, weekly for week based |
-| YearlyRetentionDaysOfTheMonth_s |Text |Dates of the month selected for yearly retention |
+| Field | Data Type | Versions Applicable | Description |
+| --- | --- | --- | --- |
+| EventName_s |Text ||This field represents name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text ||This field denotes current version of the schema, it is **V2** |
+| State_s |Text ||Current state of the policy object, for example, Active, Deleted |
+| BackupManagementType_s |Text ||Provider type for server doing backup job, for example, IaaSVM, FileFolder |
+| OperationName |Text ||This field represents name of the current operation - Policy |
+| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Resource |Text ||This is the resource for which data is being collected, it shows Recovery Services vault name |
+| PolicyUniqueId_g |Text ||Unique Id to identify the policy |
+| PolicyName_s |Text ||Name of the policy defined |
+| BackupFrequency_s |Text ||Frequency with which backups are run, for example, daily, weekly |
+| BackupTimes_s |Text ||Date and time when backups are scheduled |
+| BackupDaysOfTheWeek_s |Text ||Days of the week when backups have been scheduled |
+| RetentionDuration_s |Whole Number ||Retention duration for configured backups |
+| DailyRetentionDuration_s |Whole Number ||Total retention duration in days for configured backups |
+| DailyRetentionTimes_s |Text ||Date and time when daily retention was configured |
+| WeeklyRetentionDuration_s |Decimal Number ||Total weekly retention duration in weeks for configured backups |
+| WeeklyRetentionTimes_s |Text ||Date and time when weekly retention is configured |
+| WeeklyRetentionDaysOfTheWeek_s |Text ||Days of the week selected for weekly retention |
+| MonthlyRetentionDuration_s |Decimal Number ||Total retention duration in months for configured backups |
+| MonthlyRetentionTimes_s |Text ||Date and time when monthly retention is configured |
+| MonthlyRetentionFormat_s |Text ||Type of configuration for monthly retention, for example, daily for day based, weekly for week based |
+| MonthlyRetentionDaysOfTheWeek_s |Text ||Days of the week selected for monthly retention |
+| MonthlyRetentionWeeksOfTheMonth_s |Text ||Weeks of the month when monthly retention is configured, for example, First, Last etc. |
+| YearlyRetentionDuration_s |Decimal Number ||Total retention duration in years for configured backups |
+| YearlyRetentionTimes_s |Text ||Date and time when yearly retention is configured |
+| YearlyRetentionMonthsOfTheYear_s |Text ||Months of the year selected for yearly retention |
+| YearlyRetentionFormat_s |Text ||Type of configuration for yearly retention, for example, daily for day based, weekly for week based | |
+| YearlyRetentionDaysOfTheMonth_s |Text ||Dates of the month selected for yearly retention |
 | SynchronisationFrequencyPerDay_s |Whole Number |v2|Number of times in a day a file backup is synchronized for SC DPM and MABS |
 | DiffBackupFormat_s |Text |v2|Format for Differential backups for SQL in Azure VM backup |
 | DiffBackupTime_s |Time |v2|Time for Differential backups for SQL in Azure VM Backup|
@@ -203,35 +203,35 @@ This table provides details about policy-related fields.
 | LogBackupFrequency_s |Decimal Number |v2|Frequency for Log backups for SQL|
 | LogBackupRetentionDuration_s |Decimal Number |v2|Retention duration for Log backups for SQL in Azure VM Backup|
 | DiffBackupDaysofTheWeek_s |Text |v2|Days of the week for Differential backups for SQL in Azure VM Backup|
-| SourceSystem |Text |Source system of the current data - Azure |
-| ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource id |
-| SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
-| ResourceGroup |Text |Resource group of the resource (ex. Recovery Services vault) for which data is collected |
-| ResourceProvider |Text |Resource provider for which data is collected. For example, Microsoft.RecoveryServices |
-| ResourceType |Text |Resource type for which data is collected. For example, Vaults |
+| SourceSystem |Text ||Source system of the current data - Azure |
+| ResourceId |Text ||Resource identifier for data being collected. For example, Recovery Services vault resource id |
+| SubscriptionId |Text ||Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
+| ResourceGroup |Text ||Resource group of the resource (ex. Recovery Services vault) for which data is collected |
+| ResourceProvider |Text ||Resource provider for which data is collected. For example, Microsoft.RecoveryServices |
+| ResourceType |Text ||Resource type for which data is collected. For example, Vaults |
 
 ### PolicyAssociation
 
 This table provides details about policy associations with various entities.
 
-| Field | Data Type | Description |
-| --- | --- | --- |
-| EventName_s |Text |This field represents name of this event, it is always AzureBackupCentralReport |
-| SchemaVersion_s |Text |This field denotes current version of the schema, it is **V2** |
-| State_s |Text |Current state of the policy object, for example, Active, Deleted |
-| BackupManagementType_s |Text |Provider type for server doing backup job, for example, IaaSVM, FileFolder |
-| OperationName |Text |This field represents name of the current operation - PolicyAssociation |
-| Category |Text |This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
-| Resource |Text |This is the resource for which data is being collected, it shows Recovery Services vault name |
-| PolicyUniqueId_g |Text |Unique Id to identify the policy |
-| VaultUniqueId_s |Text |Unique Id of the vault to which this policy belongs to |
+| Field | Data Type | Versions Applicable | Description |
+| --- | --- | --- | --- |
+| EventName_s |Text ||This field represents name of this event, it is always AzureBackupCentralReport |
+| SchemaVersion_s |Text ||This field denotes current version of the schema, it is **V2** |
+| State_s |Text ||Current state of the policy object, for example, Active, Deleted |
+| BackupManagementType_s |Text ||Provider type for server doing backup job, for example, IaaSVM, FileFolder |
+| OperationName |Text ||This field represents name of the current operation - PolicyAssociation |
+| Category |Text ||This field represents category of diagnostics data pushed to Azure Monitor logs, it is AzureBackupReport |
+| Resource |Text ||This is the resource for which data is being collected, it shows Recovery Services vault name |
+| PolicyUniqueId_g |Text ||Unique Id to identify the policy |
+| VaultUniqueId_s |Text ||Unique Id of the vault to which this policy belongs to |
 | BackupManagementServerUniqueId_s |Text |v2 |Field to uniquely identify the Backup Management Server the Backup Item is protected through, if applicable        |
-| SourceSystem |Text |Source system of the current data - Azure |
-| ResourceId |Text |Resource identifier for data being collected. For example, Recovery Services vault resource id |
-| SubscriptionId |Text |Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
-| ResourceGroup |Text |Resource group of the resource (ex. Recovery Services vault) for which data is collected |
-| ResourceProvider |Text |Resource provider for which data is collected. For example, Microsoft.RecoveryServices |
-| ResourceType |Text |Resource type for which data is collected. For example, Vaults |
+| SourceSystem |Text ||Source system of the current data - Azure |
+| ResourceId |Text ||Resource identifier for data being collected. For example, Recovery Services vault resource id |
+| SubscriptionId |Text ||Subscription identifier of the resource (ex. Recovery Services vault) for which data is collected |
+| ResourceGroup |Text ||Resource group of the resource (ex. Recovery Services vault) for which data is collected |
+| ResourceProvider |Text ||Resource provider for which data is collected. For example, Microsoft.RecoveryServices |
+| ResourceType |Text ||Resource type for which data is collected. For example, Vaults |
 
 ### Protected Container
 
@@ -349,7 +349,7 @@ This table provides basic protected instances related fields.
 This table provides basic recovery point related fields.
 
 | Field | Data Type | Description |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | BackupItemUniqueId_s |Text |Unique Id used to identify the backup item for VMs backed up using DPM, MABS|
 | OldestRecoveryPointTime_s |Text |Date time of the oldest recovery point for the backup item|
 | OldestRecoveryPointLocation_s |Text |Location of the oldest recovery point for the backup item|
