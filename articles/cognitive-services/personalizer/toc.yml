@@ -21,6 +21,12 @@
       href: where-can-you-use-personalizer.md
     - name: Ethics & Responsible use
       href: ethics-and-responsible-use.md
+  - name: Fundamental concepts
+    items:
+    - name: Features
+      href: concepts-features.md
+    - name: Reinforcement learning
+      href: concepts-reinforcement-learning.md
 - name: How-to guides
   items: 
   - name: Use containers
