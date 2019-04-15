@@ -18,7 +18,7 @@ Linux-based HDInsight clusters use [Mono (https://mono-project.com)](https://mon
 
 ## Mono compatibility with .NET
 
-Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md). To install a specific version of Mono, see the [Install or update Mono](hdinsight-hadoop-install-mono.md) document.
+Mono version 4.2.1 is included with HDInsight version 3.6. For more information on the version of Mono included with HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md).
 
 For more information on compatibility between Mono and .NET, see the [Mono compatibility (https://www.mono-project.com/docs/about-mono/compatibility/)](https://www.mono-project.com/docs/about-mono/compatibility/) document.
 

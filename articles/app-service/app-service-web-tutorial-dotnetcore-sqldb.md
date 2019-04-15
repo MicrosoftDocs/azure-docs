@@ -1,5 +1,5 @@
 ---
-title: Build .NET Core app with SQL Database - Azure App Service | Microsoft Docs 
+title: ASP.NET Core with SQL Database - Azure App Service | Microsoft Docs 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to a SQL Database.
 services: app-service\web
 documentationcenter: dotnet
@@ -18,7 +18,7 @@ ms.custom: mvc
 ms.custom: seodec18
 
 ---
-# Tutorial: Build a .NET Core and SQL Database app in Azure App Service
+# Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service
 
 > [!NOTE]
 > This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Build a .NET Core and SQL Database app in Azure App Service on Linux](./containers/tutorial-dotnetcore-sqldb-app.md).
