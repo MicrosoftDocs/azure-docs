@@ -107,19 +107,12 @@ To configure Azure AD single sign-on with Rackspace SSO, perform the following s
 
 	![image](common/browse-upload-metadata.png)
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Rackspace SSO section textbox:
+	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
 
-	![image](common/idp-intiated.png)
-
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values are do not get auto polulated, then fill in the values manually according to your requirement.
-
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
-
-    ![Rackspace SSO Domain and URLs single sign-on information](common/sp-signonurl.png)
-
-    In the **Sign-on URL** text box, type a URL:
+	d. In the **Sign-on URL** text box, type a URL:
     `https://login.rackspace.com/federate/`
+
+    ![Rackspace SSO Domain and URLs single sign-on information](common/sp-signonurl.png)   
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
