@@ -24,7 +24,7 @@ For each loop, **call the Rank API with** base on the current context, with:
 * List of [context features](concepts-features.md): data about user, content, and context. 
 * List of actions to ignore.  
 
-The service returns the top action, the _Reward Action_,  to show to your users. Your client application will write business logic that measures the user behavior and derives a [reward score](reward-concept.md). You will then send the Reward score to Personalizer via the **Reward API**.
+The service returns the top action, the _Reward Action_,  to show to your users. Your client application will write business logic that measures the user behavior and derives a reward score. You will then send the Reward score to Personalizer via the **Reward API**.
 
 <!-- this returned action needs a name - personalized action, primary action, returned action, suggested action -->
 
