@@ -131,10 +131,8 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
 1. When you run the playbook, you see results similar to the following output:
   
   ```Output
-  PLAY RECAP ***********************************************************************************************************************************************************************************
   ansible-inventory-test-vm1_0324 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
   ansible-inventory-test-vm2_8971 : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
-
   ```
 
 ## Enable the virtual machine tag
