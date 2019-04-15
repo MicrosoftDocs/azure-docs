@@ -23,9 +23,12 @@ In this tutorial, an Azure Service Bus queue is created using Ansible.
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-## Create the service bus queue
+## Create the Service Bus queue
 
-The sample playbook code creates a resource group and a Service Bus namespace within the resource group. The code then creates a queue within the namespace.
+The sample playbook code creates the following resources:
+- Azure resource group
+- Service Bus namespace within the resource group
+- Service Bus queue with the namespace
 
 Save the following playbook as `servicebus_queue.yml`:
 

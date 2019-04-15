@@ -14,24 +14,23 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Queues support asynchronous communications between applications. An app sends messages to a queue, which stores the messages. The receiving application then connects to and reads the messages from the queue.
+[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Topics support the publish-subscribe pattern, which enables a one-to-many relationship between the message originator and the messager receiver(s). 
 
-[Azure Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview) is a fully managed enterprise [integration](https://azure.microsoft.com/en-us/product-categories/integration/) message broker. You can use topics to send and receive messages. While a queue is often used for point-to-point communication, topics are useful in publish/subscribe scenarios.
-
-This tutorial shows you how to create an Azure Service Bus topic and a subscription for the topic. It also shows you how to get the connection string using Ansible.
+In this tutorial, you learn how to use Ansible to create a topic and a subscription to the topic.
 
 ## Prerequisites
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-## Create an Azure Service Bus topic
+## Create the Service Bus topic
 
-The first sample Ansible playbook creates:
+The sample playbook code creates the following resources:
+- Azure resource group
+- Service Bus namespace within the resource group
+- Service Bus topic with the namespace
 
-- a resource group
-- a Service Bus namespace in this resource group
-- a Service Bus topic under this namespace.
+Save the following playbook as `servicebus_topic.yml`:
 
 ```yml
 ---
@@ -60,15 +59,15 @@ The first sample Ansible playbook creates:
           var: topic
 ```
 
-Save this playbook as *servicebus_topic.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_topic.yml
 ```
 
-## Create a subscription
+## Create the subscription
 
-The second sample Ansible playbook creates a subscription under a Service Bus topic. Azure Service Bus Topics can have multiple, independent subscriptions. A subscriber to a topic can receive a copy of each message sent to that topic. Subscriptions are named entities, which are durably created but can optionally expire or auto-delete.
+The sample playbook code creates the subscription under a Service Bus topic. Azure Service Bus topics can have multiple subscriptions. A subscriber to a topic can receives a copy of each message sent to the topic. Subscriptions are named entities, which are durably created, but can optionally expire or auto-delete.
 
 ```yml
 ---
@@ -91,18 +90,21 @@ The second sample Ansible playbook creates a subscription under a Service Bus to
           var: subs
 ```
 
-Save this playbook as *servicebus_subscription.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Save the following playbook as `servicebus_subscription.yml`:
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_subscription.yml
 ```
 
-## Create a Shared Access Signatures(SAS) policy for the Service Bus topic
+## Create the SAS policy
 
-Shared Access Signatures(SAS) are a claims-based authorization mechanism using simple tokens. This section shows you how to create two SAS policies for a Service Bus topic with different privileges.
+A [Shared Access Signature (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) is a claims-based authorization mechanism using tokens. 
 
-> [!Tip]
-> The **rights** field represents the privilege a user have with the Service Bus topic. The value can be one of `manage`, `listen`, `send` or `listen_send`
+The sample playbook code creates two SAS policies for a Service Bus queue with different privileges.
+
+Save the following playbook as `servicebus_topic_policy.yml`:
 
 ```yaml
 ---
@@ -127,18 +129,17 @@ Shared Access Signatures(SAS) are a claims-based authorization mechanism using s
           var: policy
 ```
 
-Save this playbook as *servicebus_topic_policy.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_topic_policy.yml
 ```
 
-## Retrieve information about a namespace
+## Retrieve namespace information
 
-This section shows you how to query a namespace.
+The sample playbook code queries the namespace information.
 
-> [!Tip] 
-> The **show_sas_policies** field indicates whether to show the SAS policies under this namespace. This field is set to `False` by default to avoid additional network overhead.
+Save the following playbook as `servicebus_namespace_info.yml`:
 
 ```yaml
 ---
@@ -158,20 +159,22 @@ This section shows you how to query a namespace.
           var: ns
 ```
 
-Save this playbook as *servicebus_info.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, see the following notes:
+- The **show_sas_policies** value indicates whether to show the SAS policies under the specified namespace. By default, the value is `False` to avoid additional network overhead.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook servicebus_info.yml
+ansible-playbook servicebus_namespace_info.yml
 ```
 
-## Retrieve the information about a Service Bus topic or subscription
+## Retrieve topic and subscription information
 
-This playbook shows you how to:
-- query a Service Bus topic's information
-- list all subscription details under this Service Bus topic
+The sample playbook code queries for the following information:
+- Service Bus topic information
+- List of subscription details for the topic
  
-> [!Tip] 
-> The **show_sas_policies** field indicates whether to show the SAS policies under this queue. This field is set to `False` to avoid additional network overhead by default.
+Save the following playbook as `servicebus_list.yml`:
 
 ```yaml
 ---
@@ -203,15 +206,20 @@ This playbook shows you how to:
         - subs_fact.servicebuses
 ```
 
-Save this playbook as *servicebus_list.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, see the following notes:
+- The `show_sas_policies` value indicates whether to show the SAS policies under the specified queue. By default, this value is set to `False` to avoid additional network overhead.
+
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_list.yml
 ```
 
-## Revoke a SAS policy for the Service Bus topic
+## Revoke the queue SAS policy
 
-Here's a playbook for deleting a SAS policy for a Service Bus topic.
+The sample playbook code deletes a queue SAS policy.
+
+Save the following playbook as `servicebus_queue_policy_delete.yml`:
 
 ```yaml
 ---
@@ -230,15 +238,17 @@ Here's a playbook for deleting a SAS policy for a Service Bus topic.
           state: absent
 ```
 
-Save this playbook as *servicebus_topic_policy_delete.yml*. To run this Ansible playbook, use the `ansible-playbook` command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
 ansible-playbook servicebus_topic_policy_delete.yml
 ```
 
-## Clean up
+## Clean up resources
 
-If you don't need these resources, you can delete them by running the following playbook.
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 ---
@@ -274,12 +284,12 @@ If you don't need these resources, you can delete them by running the following 
           force_delete_nonempty: yes
 ```
 
-Save the preceding playbook as **rg_delete.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)
