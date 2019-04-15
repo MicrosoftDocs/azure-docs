@@ -74,7 +74,7 @@ To configure and test Azure AD single sign-on with TurboRater, you need to compl
 1. **[Configure TurboRater single sign-on](#configure-turborater-single-sign-on)** to configure the single sign-on settings on the application side.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create a TurboRater test user](#create-turborater-test-user)** so that there's a user named Britta Simon in TurboRater who's linked to the Azure AD user named Britta Simon.
+1. **[Create a TurboRater test user](#create-a-turborater-test-user)** so that there's a user named Britta Simon in TurboRater who's linked to the Azure AD user named Britta Simon.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on

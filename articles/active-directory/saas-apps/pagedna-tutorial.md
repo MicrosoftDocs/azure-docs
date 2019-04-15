@@ -80,7 +80,7 @@ To configure and test Azure AD single sign-on with PageDNA, you need to complete
 1. **[Configure PageDNA single sign-on](#configure-pagedna-single-sign-on)** to configure the single sign-on settings on the application side.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create a PageDNA test user](#create-pagedna-test-user)** so that there's a user named Britta Simon in PageDNA who's linked to the Azure AD user named Britta Simon.
+1. **[Create a PageDNA test user](#create-a-pagedna-test-user)** so that there's a user named Britta Simon in PageDNA who's linked to the Azure AD user named Britta Simon.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on

@@ -75,7 +75,7 @@ To configure and test Azure AD single sign-on with TigerText Secure Messenger, y
 1. **[Configure TigerText Secure Messenger single sign-on](#configure-tigertext-secure-messenger-single-sign-on)** to configure the single sign-on settings on the application side.
 1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
 1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
-1. **[Create a TigerText Secure Messenger test user](#create-tigertext-secure-messenger-test-user)** so that there's a user named Britta Simon in TigerText Secure Messenger who's linked to the Azure AD user named Britta Simon.
+1. **[Create a TigerText Secure Messenger test user](#create-a-tigertext-secure-messenger-test-user)** so that there's a user named Britta Simon in TigerText Secure Messenger who's linked to the Azure AD user named Britta Simon.
 1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
