@@ -70,13 +70,17 @@ Before you start, make sure you have the following:
 
     ![Cosmos DB account keys page](./media/service-endpoint-cosmosdb/cosmos-keys.png)
 
+6. Select **Data Explorer** and **New Collection** to add a new database and collection to your Cosmos DB account.
+
+    ![Cosmos DB new collection](./media/service-endpoint-cosmosdb/new-collection.png)
+
 ## Upload data to Cosmos DB
 
 1. Open the graphical interface version of the data migration tool for Cosmos DB, **Dtui.exe**.
 
     ![Cosmos DB Data Migration Tool](./media/service-endpoint-cosmosdb/cosmos-data-migration-tool.png)
 
-2. On the **Source Information** tab, select **CSV File(s)** in the **Import from** dropdown. Then select **Add Files** and add the storm data csv you downloaded as a prerequisite.
+2. On the **Source Information** tab, select **CSV File(s)** in the **Import from** dropdown. Then select **Add Files** and add the storm data CSV you downloaded as a prerequisite.
 
     ![Cosmos DB Data Migration Tool source information](./media/service-endpoint-cosmosdb/cosmos-source-information.png)
 
@@ -84,9 +88,7 @@ Before you start, make sure you have the following:
 
     ![Cosmos DB Data Migration Tool target information](./media/service-endpoint-cosmosdb/cosmos-target-information.png)
 
-4. Select **Next** until you get to the Summar page. Then, select **Import**.
-
-    ![Cosmos DB Data Migration Tool sumary](./media/service-endpoint-cosmosdb/cosmos-import-summary.png)
+4. Select **Next** until you get to the Summary page. Then, select **Import**.
 
 ## Create a cluster and add library
 
@@ -112,15 +114,15 @@ Before you start, make sure you have the following:
 
     ![Create new Databricks notebook](./media/service-endpoint-cosmosdb/new-python-notebook.png)
 
-2. Run the following python code to set the Cosmos DB connection configuration.
+2. Run the following python code to set the Cosmos DB connection configuration. Change the **Endpoint**, **Masterkey**, **Database**, and **Collection** accordingly.
 
     ```python
     connectionConfig = {
-      "Endpoint" : "https://db-vnet-service-endpoint.documents.azure.com:443/",
-      "Masterkey" : "JASrT4VNsRP9XZxuiZ63W6nU5enosq9q7JRVrOqGKJtDu66vn0iD5LbmDDfziZ7yeZfHP9OEBfQDaJLQtOyL6Q==",
-      "Database" : "User",
+      "Endpoint" : "https://<your Cosmos DB account name.documents.azure.com:443/",
+      "Masterkey" : "<your Cosmos DB primary key",
+      "Database" : "<your database name>",
       "preferredRegions" : "West US 2",
-      "Collection": "UserCollection",
+      "Collection": "<your collection name>",
       "schema_samplesize" : "1000",
       "query_pagesize" : "200000",
       "query_custom" : "SELECT * FROM c"
@@ -131,14 +133,14 @@ Before you start, make sure you have the following:
 
     ```python
     users = spark.read.format("com.microsoft.azure.cosmosdb.spark").options(**connectionConfig).load()
-    users.createOrReplaceTempView("users")
+    users.createOrReplaceTempView("storm")
     ```
 
 4. Use the following magic command to execute a SQL statement that returns data.
 
     ```python
     %sql
-    select * from users
+    select * from storm
     ```
 
     You have successfully connected your VNet-injected Databricks workspace to a service-endpoint enabled Cosmos DB resource. To read more about how to connect to Cosmos DB, see [Azure Cosmos DB Connector for Apache Spark](https://github.com/Azure/azure-cosmosdb-spark).
