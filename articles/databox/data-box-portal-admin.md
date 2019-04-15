@@ -168,7 +168,9 @@ Perform the following steps to download the order history.
        1/29/2019 3:49:50 PM      | DeviceBoot                     | Completed       | Appliance booted up successfully                  
        1/29/2019 3:49:51 PM      | AnomalyDetection               | Completed       | No anomaly detected.                               
        1/29/2019 4:55:00 PM      | DataCopy                       | Started         |                                                 
-       2/2/2019 7:07:34 PM       | DataCopy                       | Completed       | Copy Completed.                                          2/4/2019 7:47:32 PM       | SecureErase                    | Started         |                                                          2/4/2019 8:01:10 PM      | SecureErase                    | Completed       | Azure Data Box:DEVICESERIALNO has been sanitized          according to NIST 800-88 Rev 1.                                                                       
+       2/2/2019 7:07:34 PM       | DataCopy                       | Completed       | Copy Completed.                                   
+       2/4/2019 7:47:32 PM       | SecureErase                    | Started         |                                                  
+       2/4/2019 8:01:10 PM      | SecureErase                    | Completed       | Azure Data Box:DEVICESERIALNO has been sanitized          according to NIST 800-88 Rev 1.                                                                       
 
        ------------------
        Data Box Log Links
