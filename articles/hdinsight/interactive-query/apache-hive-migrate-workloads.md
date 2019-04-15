@@ -1,5 +1,5 @@
 ---
-title: Migrating HDInsight 3.6 Hive workloads to HDInsight 4.0
+title: Migrate HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
 services: hdinsight
 ms.service: hdinsight
@@ -7,9 +7,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: howto
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ---
-# Migrating HDInsight 3.6 Hive workloads to HDInsight 4.0
+# Migrate HDInsight 3.6 Hive workloads to HDInsight 4.0
 
 This document shows you how to migrate Apache Hive and LLAP workloads on HDInsight 3.6 to HDInsight 4.0. HDInsight 4.0 provides newer Hive and LLAP features such as materialized views and query result caching. Because Hive for HDInsight 4.0 runs on Hive 3, migrating your workloads to HDInsight 4.0 will allow you to use many newer features not available on Hive for HDInsight 3.6 which runs on Hive 2.
 
@@ -20,7 +20,7 @@ This article covers the following subjects:
 * Preservation of Hive security policies across HDInsight versions
 * Query execution and debugging from HDInsight 3.6 to HDInsight 4.0
 
-## Migrating Apache Hive metadata to HDInsight 4.0
+## Migrate Apache Hive metadata to HDInsight 4.0
 
 One advantage of Hive is the ability to export metadata to an external database (referred to as the Hive Metastore). The **Hive Metastore** is responsible for storing table statistics, including the table storage location, column names, and table index information. The metastore database schema differs between Hive versions. Do the following to upgrade a HDInsight 3.6 Hive Metastore so that it is compatible with HDInsight 4.0.
 
@@ -30,7 +30,7 @@ One advantage of Hive is the ability to export metadata to an external database 
 > [!Warning]
 > The upgrade which converts the HDInsight 3.6 metadata schema to the HDInsight 4.0 schema, cannot be reversed.
 
-## Migrating Hive tables to HDInsight 4.0
+## Migrate Hive tables to HDInsight 4.0
 
 After completing the previous set of steps to migrate the Hive Metastore to HDInsight 4.0, the tables and databases recorded in the metastore will be visible from within the HDInsight 4.0 cluster by executing `show tables` or `show databases` from within the cluster. See [Query execution across HDInsight versions](#query-execution-across-hdinsight-versions) for information on query execution in HDInsight 4.0 clusters.
 
