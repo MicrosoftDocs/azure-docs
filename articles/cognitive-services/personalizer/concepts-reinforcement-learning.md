@@ -14,7 +14,7 @@ ms.author: edjez
 # What is Reinforcement Learning
 
 
-Reinforcement Learning is an approach to machine learning that learns behaviors by getting feedback from it's use.
+Reinforcement Learning is an approach to machine learning that learns behaviors by getting feedback from its use.
  
 Reinforcement Learning works by:
 
@@ -28,7 +28,7 @@ While there are many subtypes and styles of reinforcement learning, you can see 
 * Your application provides information about each alternative and the context of the user.
 * Your application computes a _reward score_.
 
-Unlike some approaches to reinforcement learning, Personalizer does not require a simulation to work in. It's learning algorithms are designed to react to an outside world (versus control it) and learn from each data point with an understanding that it is a unique opportunity that cost time and money to create, and that there is a non-zero regret (loss of possible reward) if sub-optimal performance happens.
+Unlike some approaches to reinforcement learning, Personalizer does not require a simulation to work in. Its learning algorithms are designed to react to an outside world (versus control it) and learn from each data point with an understanding that it is a unique opportunity that cost time and money to create, and that there is a non-zero regret (loss of possible reward) if sub-optimal performance happens.
 
 ## What type of reinforcement learning algorithms does Personalizer use?
 
