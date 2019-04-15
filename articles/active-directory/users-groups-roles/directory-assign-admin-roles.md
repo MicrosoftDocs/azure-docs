@@ -332,7 +332,7 @@ Can perform common billing related tasks like updating payment information.
 | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
 
 ### Desktop Analytics Administrator
-Can access and manage Desktop management tools and services including Intune.
+Can manage the Desktop Analytics and Office Customization & Policy Service. For Desktop Analytics, this includes the ability to view asset inventory, create deployment plans, view deployment and health status. For Office Customization & Policies Services, this role will enable users to manage Office policies. 
 
   > [!NOTE]
   > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
