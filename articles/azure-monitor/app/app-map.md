@@ -230,7 +230,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 ### Too many nodes on the map
 
-Application Map constructs an application node for each unique cloud role name present in your request telemetry and a dependency node for each unique combination of type, target, and cloud role name in your dependency telemetry. If there are more than 10,000 nodes in your telemetry, Application Map will not be able to fetch all the nodes and edges, so your map will be incomplete. If this happens, a warning message will appear when viewing the map.
+Application Map constructs an application node for each unique cloud role name present in your request telemetry and a dependency node for each unique combination of type, target, and cloud role name in your dependency telemetry. If there are more than 10,000 nodes in your telemetry, Application Map will not be able to fetch all the nodes and links, so your map will be incomplete. If this happens, a warning message will appear when viewing the map.
 
 In addition, Application Map only supports up to 1000 separate ungrouped nodes rendered at once. Application Map reduces visual complexity by grouping dependencies together that have the same type and callers, but if your telemetry has too many unique cloud role names or too many dependency types, that grouping will be insufficient, and the map will be unable to render.
 
