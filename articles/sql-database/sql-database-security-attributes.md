@@ -33,22 +33,22 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
 | Service Endpoint support| Yes |  |
-| vNET Injection support| Yes | Applies to Azure SQL Database Managed Instance only. |
-| Network Isolation / Firewalling support| Yes | Firewall at both database- and server-level. Network isolation (based on how we understand network isolation) for Azure SQL Database Managed instance only |
-| Support for forced tunneling | Yes | Azure SQL DB Managed Instance via Express Route/VPN |
+| vNET Injection support| Yes | Applies to [Azure SQL Database Managed Instance](sql-database-managed-instance.md) only. |
+| Network Isolation / Firewalling support| Yes | Firewall at both database- and server-level. Network isolation for [Azure SQL Database Managed Instance](sql-database-managed-instance.md) only |
+| Support for forced tunneling | Yes | [Azure SQL Database Managed Instance](sql-database-managed-instance.md) via [Azure Express Route](../expressroute.yml) VPN |
 
 ## Detection
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| Yes | We also support 3rd party SIEM solution from Imperva (SecureSphere) through EventHub integration (via SQL Audit) |
+| Azure monitoring support (Log analytics, App insights, etc.)| Yes | The third-party SIEM solution from Imperva (SecureSphere) is also supported, through [Azure Event Hubs](../event-hubs/index.yml) integration via [SQL audit](sql-database-auditing.md). |
 
 ## IAM Support
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
 | Access management - Authentication| Yes | Azure Active Directory. |
-| Access management - Authorization| XXX |  |
+| Access management - Authorization| Yes |  |
 
 
 ## Audit Trail
