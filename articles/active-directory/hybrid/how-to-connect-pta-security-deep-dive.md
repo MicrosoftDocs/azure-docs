@@ -179,7 +179,7 @@ To renew an Authentication Agent's trust with Azure AD:
 
 ## Auto-update of the Authentication Agents
 
-The Updater application automatically updates the Authentication Agent when a new version is released. The application does not handle any password validation requests for your tenant. 
+The Updater application automatically updates the Authentication Agent when a new version (with bug fixes or performance enhancements) is released. The Updater application does not handle any password validation requests for your tenant.
 
 Azure AD hosts the new version of the software as a signed **Windows Installer package (MSI)**. The MSI is signed by using [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) with SHA256 as the digest algorithm. 
 
@@ -201,7 +201,7 @@ To auto-update an Authentication Agent:
     - Restarts the Authentication Agent service
 
 >[!NOTE]
->If you have multiple Authentication Agents registered on your tenant, Azure AD does not renew their certificates or update them at the same time. Instead, Azure AD does so gradually to ensure the high availability of sign-in requests.
+>If you have multiple Authentication Agents registered on your tenant, Azure AD does not renew their certificates or update them at the same time. Instead, Azure AD does so one at a time to ensure the high availability of sign-in requests.
 >
 
 
