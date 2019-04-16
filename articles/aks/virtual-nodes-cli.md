@@ -11,7 +11,9 @@ ms.author: iainfou
 
 # Create and configure an Azure Kubernetes Services (AKS) cluster to use virtual nodes using the Azure CLI
 
-To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
+To rapidly scale application workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have quick provisioning of pods, and only pay per second for their execution time. You don't need to wait for Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. Virtual nodes are only supported with Linux pods and nodes.
+
+This article shows you how to create and configure the virtual network resources and AKS cluster, then enable virtual nodes.
 
 ## Before you begin
 
