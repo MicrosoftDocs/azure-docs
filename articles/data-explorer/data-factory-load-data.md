@@ -108,7 +108,7 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 1. In the **file formats settings** page select the relevant settings for your file and click **Next**.
 
- ![Choose input file or folder](media/data-factory-load-data/source-file-format-settings.png)
+   ![Choose input file or folder](media/data-factory-load-data/source-file-format-settings.png)
 
 ### Copy data into Azure Data Explorer (Destination)
 
