@@ -179,7 +179,8 @@ var myMSALObj = new Msal.UserAgentApplication(config);
 > |`authority`    | (Optional) It is the authority URL as described in the configuration section above to support account types. The default authority is `https://login.microsoftonline.com/common`. |
 > |`cacheLocation`  | (Optional) This sets the browser storage for the auth state. The default is sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Optional) The library will store the auth request state required for validation of the auth flows in the browser cookies. This is set for IE and Edge browsers to mitigate certain [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
-> See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the configurable options available.
+
+ See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the configurable options available.
 
 ### Sign in users
 

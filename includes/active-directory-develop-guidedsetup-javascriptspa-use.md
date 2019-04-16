@@ -21,124 +21,135 @@ ms.custom: include file
 
 1. Add the following code to your `index.html` file within the `<script></script>` tags:
 
-```javascript
-
-var config = {
-    auth: {
-        clientId: applicationConfig.clientID,
-        authority: applicationConfig.authority,
-        validateAuthority: true
-    },
-    cache: {
-        cacheLocation: "localStorage",
-        storeAuthStateInCookie: true
-    }
-};
-var myMSALObj = new Msal.UserAgentApplication(config);
-myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
-
-function signIn() {
-    let loginRequest = {
-        scopes: applicationConfig.graphScopes
-    };
-    myMSALObj.loginPopup(loginRequest).then(function (loginResponse) {
-        //Login Success
-        showWelcomeMessage();
-        acquireTokenPopupAndCallMSGraph();
-    }).catch(function (error) {
-        console.log(error);
-    });
-}
-
-function acquireTokenPopupAndCallMSGraph() {
-    //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-    let tokenRequest = {
-        scopes: applicationConfig.graphScopes
-    };
-    myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
-        console.log(tokenResponse.scopes);
-        callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
-    }).catch(function (error) {
-        console.log(error);
-        // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
-        if (requiresInteraction(error.errorMessage)) {
-            myMSALObj.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
-                callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
-            }).catch(function (error) {
-                console.log(error);
-            });
+    ```javascript
+    var config = {
+        auth: {
+            clientId: applicationConfig.clientID,
+            authority: applicationConfig.authority,
+            validateAuthority: true
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
         }
-    });
-}
+    };
 
-function graphAPICallback(data) {
-    document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
-}
+    var myMSALObj = new Msal.UserAgentApplication(config);
+    myMSALObj.handleRedirectCallbacks(acquireTokenRedirectCallBack, acquireTokenErrorRedirectCallBack);
 
-function showWelcomeMessage() {
-    var divWelcome = document.getElementById('WelcomeMessage');
-    divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
-    var loginbutton = document.getElementById('SignIn');
-    loginbutton.innerHTML = 'Sign Out';
-    loginbutton.setAttribute('onclick', 'signOut();');
-}
 
-function acquireTokenRedirectAndCallMSGraph() {
-     //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
-     let tokenRequest = {
-         scopes: applicationConfig.graphScopes
-     };
-     myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
-         callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
-     }).catch(function (error) {
-         console.log(error);
-         //Call acquireTokenRedirect in case of acquireToken Failure
-         if (requiresInteraction(error.errorMessage)) {
-             myMSALObj.acquireTokenRedirect(tokenRequest);
-         }
-     });
- }
-
-function acquireTokenRedirectCallBack(response) {
-    if (response.tokenType === "access_token") {
-        callMSGraph(applicationConfig.graphEndpoint, response.accessToken, graphAPICallback);
-    } else {
-        console.log("token type is:" + response.tokenType);
-    }
-}
-function  acquireTokenErrorRedirectCallBack(error) {
-    console.log(error);
-}
-function requiresInteraction(errorMessage) {
-    if (!errorMessage || !errorMessage.length) {
-        return false;
-    }
-    return errorMessage.indexOf("consent_required") !== -1 ||
-        errorMessage.indexOf("interaction_required") !== -1 ||
-        errorMessage.indexOf("login_required") !== -1;
-}
-
-if (applicationConfig.loginType === 'POPUP') {
-    if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
-        showWelcomeMessage();
-        acquireTokenPopupAndCallMSGraph();
-    }
-}
-else if (applicationConfig.loginType === 'REDIRECT') {
-    document.getElementById("SignIn").onclick = function () {
-        let redirectTokenRequest = {
+    function signIn() {
+        let loginRequest = {
             scopes: applicationConfig.graphScopes
         };
-        myMSALObj.loginRedirect(redirectTokenRequest);
-    };
-    if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
-        showWelcomeMessage();
-        acquireTokenRedirectAndCallMSGraph();
+        myMSALObj.loginPopup(loginRequest).then(function (loginResponse) {
+            //Login Success
+            showWelcomeMessage();
+            acquireTokenPopupAndCallMSGraph();
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
-} else {
-    console.error('Please choose a valid login type');
-}
-```
+
+
+    function acquireTokenPopupAndCallMSGraph() {
+        //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
+        let tokenRequest = {
+            scopes: applicationConfig.graphScopes
+        };
+        myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+            console.log(tokenResponse.scopes);
+            callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
+        }).catch(function (error) {
+            console.log(error);
+            // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
+            if (requiresInteraction(error.errorMessage)) {
+                myMSALObj.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+                    callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
+        });
+    }
+
+
+    function graphAPICallback(data) {
+        document.getElementById("json").innerHTML = JSON.stringify(data, null, 2);
+    }
+
+
+    function showWelcomeMessage() {
+        var divWelcome = document.getElementById('WelcomeMessage');
+        divWelcome.innerHTML = 'Welcome ' + myMSALObj.getAccount().userName + "to Microsoft Graph API";
+        var loginbutton = document.getElementById('SignIn');
+        loginbutton.innerHTML = 'Sign Out';
+        loginbutton.setAttribute('onclick', 'signOut();');
+    }
+
+
+    function acquireTokenRedirectAndCallMSGraph() {
+         //Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
+         let tokenRequest = {
+             scopes: applicationConfig.graphScopes
+         };
+         myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
+             callMSGraph(applicationConfig.graphEndpoint, tokenResponse.accessToken, graphAPICallback);
+         }).catch(function (error) {
+             console.log(error);
+             //Call acquireTokenRedirect in case of acquireToken Failure
+             if (requiresInteraction(error.errorMessage)) {
+                 myMSALObj.acquireTokenRedirect(tokenRequest);
+             }
+         });
+     }
+
+
+    function acquireTokenRedirectCallBack(response) {
+        if (response.tokenType === "access_token") {
+            callMSGraph(applicationConfig.graphEndpoint, response.accessToken, graphAPICallback);
+        } else {
+            console.log("token type is:" + response.tokenType);
+        }
+    }
+
+
+    function  acquireTokenErrorRedirectCallBack(error) {
+        console.log(error);
+    }
+
+
+    function requiresInteraction(errorMessage) {
+        if (!errorMessage || !errorMessage.length) {
+            return false;
+        }
+        return errorMessage.indexOf("consent_required") !== -1 ||
+            errorMessage.indexOf("interaction_required") !== -1 ||
+            errorMessage.indexOf("login_required") !== -1;
+    }
+
+
+    if (applicationConfig.loginType === 'POPUP') {
+        if (myMSALObj.getAccount()) {// avoid duplicate code execution on page load in case of iframe and popup window.
+            showWelcomeMessage();
+            acquireTokenPopupAndCallMSGraph();
+        }
+    }
+    else if (applicationConfig.loginType === 'REDIRECT') {
+        document.getElementById("SignIn").onclick = function () {
+            let redirectTokenRequest = {
+                scopes: applicationConfig.graphScopes
+            };
+            myMSALObj.loginRedirect(redirectTokenRequest);
+        };
+        if (myMSALObj.getAccount() && !myMSALObj.isCallback(window.location.hash)) {// avoid duplicate code execution on page load in case of iframe and popup window.
+            showWelcomeMessage();
+            acquireTokenRedirectAndCallMSGraph();
+        }
+    } else {
+        console.error('Please choose a valid login type');
+    }
+    ```
 
 <!--start-collapse-->
 ### More Information
