@@ -42,7 +42,7 @@ In addition to the list and trial publishing options, the transact publishing op
 
 When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher must consider the billing of Azure infrastructure fees, and the publisher’s own software licensing fees, when selecting a billing model and offer type in Azure Marketplace. 
 
-The Transact publishing option in Azure Marketplace is currently supported for the following offer types: Virtual Machines, Azure Applications, or SaaS Apps.
+The Transact publishing option in Azure Marketplace is currently supported for the following offer types: Virtual Machines, Azure Applications.
 
 ![[Transacting Enterprise Deals in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
