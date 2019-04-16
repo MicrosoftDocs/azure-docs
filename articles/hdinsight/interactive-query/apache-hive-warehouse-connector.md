@@ -33,7 +33,7 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
 
 1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet).
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
-1. Configure the Spark cluster by setting the following config properties under **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
+1. Configure the Spark cluster by setting the following config properties under **SPARK2** > **CONFIGS** > **Custom spark2-defaults**. **Help Needed**: can we verify that these steps are exact, or provide a cluster so that they can be verified?
 
     1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
 
@@ -52,7 +52,7 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
         ```
 
     1. Set `spark.security.credentials.hiveserver2.enabled` to `false` for YARN client deploy mode
-    1. Set `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of LLAP Cluster.
+    1. Set `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of LLAP Cluster. **Help Needed**: Steps for finding the Zookeeper quorum.
 
         ```
         zk0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk2-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,zk3-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
@@ -162,37 +162,52 @@ The following steps demonstrate ingesting data from a Spark stream on localhost 
 
 ### Use cases in HDInsight 4.0 with Enterprise Security Package
 
-The Hive Warehouse Connector allows Apache Spark to use the advanced security features of Apache Hive.
+The Hive Warehouse Connector allows Apache Spark to use the advanced security features of Apache Hive. Hive Warehouse Connector provides row filtering and column masking using Apache Ranger policies on an Interactive Query cluster. The following example will help you create a table `demo` with column masking policy that only shows the last 4 characters.
 
 #### Setup
 
 Do the following to setup your Spark and Interactive Query clusters:
 
-1. Create a HDInsight 4.0 Spark and Interactive Query cluster with Enterprise Security Package (ESP) within the same subnet.
+1. Create a HDInsight 4.0 Spark and Interactive Query cluster with Enterprise Security Package (ESP) within the same subnet. For more information on creating ESP clusters, see [Create a HDInsight cluster with ESP](../domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-hdinsight-cluster-with-esp).
 1. Update the DNS entries of the Spark cluster with DNS entries on Interactive Query cluster so that the Spark cluster can resolve IP addresses of the nodes in Interactive Query cluster.
+
+ **Help Needed** #1: The commands used in the below screenshot as well as their purpose are bit unclear.
 
 ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 #### Execute Queries
 
-Connect to spark-shell as shown in example
+To execute queries on your ESP cluster with Hive Warehouse Connector, do the following:
 
-![executing queries in spark shell](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-shell-execute-query.png)
- 
-> [!Note] 
-> The config for spark-shell can be populated by finding the related config on Interactive Query cluster.
+1. Connect to spark-shell as shown in example.
 
-Hive Warehouse Connector also provides row filtering and column masking using Apache Ranger policies on an Interactive Query cluster.
+     **Help Needed** #2: **What are the commands/parameters used in the below screenshot and what are they for?** It seems like we **need to provide customers with an example that is parsed** so that they understand what parts to customize to their cluster and environment.
+    
+    ![executing queries in spark shell](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-shell-execute-query.png)
+     
+    > [!Note] 
+    > The config for spark-shell can be populated by finding the related config on Interactive Query cluster.
 
-We have a table `demo` with column masking policy that only shows the last 4 characters.
+1. Start a Hive Warehouse Connector session with the following commands:
 
-Before applying the policy, `demo` table shows full table.
+    ```scala
+    import com.hortonworks.hwc.HiveWarehouseSession
+    val hive = HiveWarehouseSession.session(spark).build()
+    ```
 
-![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+1. Create a table `demo` with some sample data.  **Help Needed**: **What are the steps and commands for this?**
+1. View the table's contents with the following command. Note that before applying the policy, `demo` table shows the full column.
 
-After applying the ranger policy, we can see only last four characters on the column.
+    ```scala
+    hive.executeQuery("SELECT * FROM demo").show()
+    ```
 
-![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    ![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+
+1. Apply a column masking policy that only shows the last 4 characters.  **Help Needed**: how do customers create and assign this policy?
+1. View the table's contents again. Note that after applying the ranger policy, we can see only last four characters on the column.
+
+    ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 ## Next steps
 
