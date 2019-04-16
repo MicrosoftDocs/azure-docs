@@ -1,6 +1,6 @@
 ---
-title: Configure replication for Azure disk encryption (ADE)-enabled VMs in Azure Site Recovery | Microsoft Docs
-description: This article describes how to configure replication for ADE VMs from one Azure region to another by using Site Recovery.
+title: Configure replication for Azure Disk Encryption-enabled VMs in Azure Site Recovery | Microsoft Docs
+description: This article describes how to configure replication for Azure Disk Encryption-enabled VMs from one Azure region to another by using Site Recovery.
 services: site-recovery
 author: sujayt
 manager: rochakm
@@ -13,7 +13,7 @@ ms.author: sutalasi
 
 # Replicate Azure Disk Encryption-enabled virtual machines to another Azure region
 
-This article describes how to replicate Azure Disk Encryption (ADE)-enabled VMs from one Azure region to another.
+This article describes how to replicate Azure Disk Encryption-enabled VMs from one Azure region to another.
 
 >[!NOTE]
 >Azure Site Recovery currently supports only Azure VMs that run a Windows OS and that are [enabled for encryption with Azure Active Directory (Azure AD)](https://aka.ms/ade-aad-app).
@@ -21,7 +21,7 @@ This article describes how to replicate Azure Disk Encryption (ADE)-enabled VMs 
 ## Required user permissions
 Site Recovery requires the user to have permissions to create the key vault in the target region and copy keys to the region.
 
-To enable replication of ADE VMs from the Azure portal, the user needs the following permissions:
+To enable replication of Disk Encryption-enabled VMs from the Azure portal, the user needs the following permissions:
 
 - Key vault permissions
     - List
@@ -57,7 +57,7 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 >[!NOTE]
 >To enable replication of ADE VMs from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
 
-## Copy ADE keys to the DR region by using PowerShell script
+## Copy ADE keys to the DR region by using the PowerShell script
 
 1. [Open the "CopyKeys" raw script code](https://aka.ms/ade-asr-copy-keys-code).
 2. Copy the script to a file, and name it **Copy-keys.ps1**.
