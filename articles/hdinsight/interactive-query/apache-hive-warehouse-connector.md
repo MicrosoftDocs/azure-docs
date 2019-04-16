@@ -107,7 +107,7 @@ val hive = HiveWarehouseSession.session(spark).build()
 
 ![Creating and reading spark dataframes](./media/apache-hive-warehouse-connector/hive-warehouse-connector-creating-dataframes.png)
 
-Results of the query are Spark DataFrames, which can be used with Spark libraries like MLIB and SparkSQL.
+The results of the query are Spark DataFrames, which can be used with Spark libraries like MLIB and SparkSQL.
 
 ###	Scenario 2: Writing out Spark DataFrames to Hive tables
 
@@ -115,7 +115,7 @@ As described, Spark doesn’t natively support writing to Hive’s managed ACID 
 
 Sample DataFrame write is shown in the pictures below.
 
-Firstly, we create a table called `sampletable_colorado` and filter column where state is `Colorado` from `hivesampletable` and save it in `sampletable_colorado`
+Firstly, we create a table called `sampletable_colorado` and filter column where state is `Colorado` from `hivesampletable` and save it in `sampletable_colorado`.
  
 ![create hive table, filter column and save table](./media/apache-hive-warehouse-connector/hive-warehouse-connector-create-hive-table.png)
 
@@ -125,17 +125,18 @@ Firstly, we create a table called `sampletable_colorado` and filter column where
 
 Using Hive Warehouse Connector, you can use Spark streaming to write data into Hive tables.
 
-We will demonstrate a sample spark streaming example by ingesting data into hive table.
+The following steps demonstrate ingesting data from a Spark stream on localhost port 9999 into a Hive table.
 
-Data is ingested via localhost port 9999 and read into a Spark DataFrame.
-
-![starting spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-start-spark-stream.png)
-
-To generate data for the Spark stream that you have just created, do the following:
-
-1. Open another terminal on the same Spark cluster
-1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
-1. Type the words that you would like the Spark stream to ingest, followed by carriage return. These words are inserted into a Hive table.
+1. Open a terminal on your Spark cluster
+1. Begin the spark stream with the following command:
+    ```scala
+    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
+    ```
+1. Generate data for the Spark stream that you have just created, by doing the following:
+    1. Open another terminal on the same Spark cluster
+    1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
+    1. Type the words that you would like the Spark stream to ingest, followed by carriage return.
+1. Create a new Hive table to hold the streaming data. At the spark-shell, type `hive.createTable("stream_table").column("value","string").create()`
 
 A Hive table is created, and data is inserted.
 
