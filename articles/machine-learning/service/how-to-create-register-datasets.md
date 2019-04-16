@@ -18,7 +18,7 @@ ms.date: 05/06/19
 
 Azure Machine Learning Datasets manage data in various scenarios such as, model training and pipeline creation. With the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between datasets used in training and in production.
 
-In this article, you learn how to create and register Datasets for data preparation.
+In this article, you learn the Azure Machine Learning workflows to create and register Datasets for data preparation.
 
 ## Prerequisites
 
@@ -30,8 +30,6 @@ To create and register Datasets you need:
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
->[!NOTE]
-> Dataset creation, exploration and preparation can all be done locally without an Azure subscription, however a subscription is needed for reuse, sharing and training.
 
 ## Create Datasets from local files
 
@@ -50,7 +48,7 @@ dataset = Dataset.auto_read_files('./data/crime.csv')
 
 Alternatively, use the file-specific functions to explicitly control the parsing of your file. Currently the Datasets SDK supports  delimited, Excel,Parquet, binary, and json file formats.
 
-### Create Datasets from Azure Datastores
+## Create Datasets from Azure Datastores
 
 To create Datasets from an Azure Datastore, be sure to:
 
@@ -70,14 +68,14 @@ datastore_name = 'your datastore name'
 # get existing workspace
 workspace = Workspace(subscription_id, resource_group, workspace_name)
 
-# get a Datastore that has already been created in the workspace
+# get a datastore that has already been created in the workspace
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
 Use the `from_delimited_files()` method to read in delimited files and create in-memory Datasets.
 
 ```Python
-# create an in-memory Dataset
+# create an in-memory Dataset on your local machine
 datapath = dstore.path('data/src/crime.csv')
 dataset = Dataset.from_delimited_files(datapath)
 
@@ -95,35 +93,42 @@ dataset.head(5)
 
 ## Register your datasets with workspace
 
-Use the `register()` method to register Datasets to your workspace. This allows you to share and reuse Datasets within your organization and across various experiments.
+Use the `register()` method to register Datasets to your workspace. This allows you to share and reuse Datasets within your organization and across various experiments. 
 
 ```Python
-dataset = dataset.register(workspace=workspace, name = "dataset_crime", description = 'Training data', exist_ok = False)
+dataset = dataset.register(workspace = 'workspace_name',
+                           name = "dataset_crime",
+                           description = 'Training data',
+                           exist_ok = False
+                           )
+```
+
+>[!NOTE]
+> The default parameter setting for `register()` is `exist_ok = False`, which results in an error if you try to register a Dataset with the same name.
+
+The `register()` method updates the definition of an already registered Dataset when the parameter setting, `exist_ok = True`.
+
+```Python
+dataset = dataset.register(workspace = workspace_name,
+                           name = "dataset_crime",
+                           description = 'Training data',
+                           exist_ok = True)
 ```
 
 Use `list()` to see all of the registered Datasets in your workspace.
 
 ```Python
-Dataset.list(workspace)
+Dataset.list(workspace_name)
 ```
 
 The preceding code results in the following:
 
 ```Python
 [Dataset(Name: dataset_crime,
-         Workspace: your_workspace_name)]
+         Workspace: workspace_name)]
 ```
-
-To update the definition of an already registered Dataset,
-set the  `exist_ok` parameter equal to `True`.
-
-```Python
-dataset = dataset.register(workspace=workspace, name = "dataset_crime", description = 'Training data', exist_ok = True)
-```
-
->[!NOTE]
-> The default setting for the `register()` method is `exist_ok=False`, which results in an error if you try to register a Dataset with the same name.
 
 ## Next Steps
 
+* [Explore and prepare Datasets] (how-to-explore)
 * [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md)
