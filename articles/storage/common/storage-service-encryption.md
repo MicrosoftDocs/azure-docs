@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/16/2019
 ms.author: tamram
 ms.subservice: common
 ---
@@ -25,30 +25,28 @@ For more information about the cryptographic modules underlying Azure Storage en
 
 You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys, together with Azure Key Vault.
 
-### Microsoft-managed encryption keys
+### Microsoft-managed keys
 
 By default, your storage account uses Microsoft-managed encryption keys. You can see the encryption settings for your storage account in the **Encryption** section of the [Azure portal](https://portal.azure.com), as shown in the following image.
 
 ![View account encrypted with Microsoft-managed keys](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
-### Custom encryption keys
+### Customer-managed keys
 
-You can manage Azure Storage encryption for blobs and files with custom keys. Custom keys give you more flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. 
+You can manage Azure Storage encryption with customer-managed keys. Customer-managed keys give you more flexibility to create, rotate, disable, and revoke access controls. You can also audit the encryption keys used to protect your data. 
 
-Use Azure Key Vault to manage your custom encryption keys. With Azure Key Vault, you can manage and control your keys and audit your key usage. You can either create your own encryption keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate the encryption keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-To revoke access to custom keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all blobs in the storage account, as the account encryption key is inaccessible by Azure Storage.
+To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-To learn how to manage custom keys for Azure Storage, see [Manage custom keys for Azure Storage encryption with Key Vault](storage-service-encryption-customer-managed-keys.md).
+To learn how to use customer-managed keys with Azure Storage, see [Manage custom keys for Azure Storage encryption with Key Vault](storage-service-encryption-customer-managed-keys.md).
 
 > [!NOTE]  
 > Customer-managed keys are not supported for [Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
-## Native storage encryption versus disk encryption
+## Azure Storage encryption versus disk encryption
 
-Azure Storage encryption is native to the Azure Storage service. All Azure Storage accounts and the resources they contain are encrypted, including the page blobs that back Azure virtual machine disks. 
-
-Additionally, Azure virtual machine disks may be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
+With Azure Storage encryption, all Azure Storage accounts and the resources they contain are encrypted, including the page blobs that back Azure virtual machine disks. Additionally, Azure virtual machine disks may be encrypted with [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption uses industry-standard [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) on Windows and [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) on Linux to provide operating system-based encryption solutions that are integrated with Azure Key Vault.
 
 ## Next steps
 
