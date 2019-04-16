@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ---
 
@@ -79,7 +79,7 @@ The JSON body has several settings:
 |`top`|optional|integer|The number of ranked results to include in the output. The default value is 1.|
 |`userId`|optional|string|A unique ID to identify the user. This ID will be recorded in the chat logs.|
 |`isTest`|optional|boolean|If set to true, returns results from `testkb` Search index instead of published index.|
-|`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata.|
+|`strictFilters`|optional|string|If specified, tells QnA Maker to return only answers that have the specified metadata. Use `none` to indicate response should have no metadata filters. |
 
 An example JSON body looks like:
 
