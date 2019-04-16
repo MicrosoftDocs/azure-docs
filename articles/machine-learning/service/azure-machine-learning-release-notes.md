@@ -18,12 +18,24 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-04-15
+
+### Azure Portal
+  + You can now resubmit an existing Script run on an existing remote compute cluster. 
+  + You can now run a published pipeline with new parameters on the Pipelines tab. 
+  + Run details now supports a new Snapshot file viewer. You can view a snapshot of the directory when you submitted a specific run. You can also download the notebook that was submitted to start the run.
+
 ## 2019-04-08
 
 ### Azure Machine Learning SDK for Python v1.0.23
 
 + **New features**
   + The Azure Machine Learning SDK now supports Python 3.7.
+  + Azure Machine Learning DNN Estimators now provide built-in multi-version support. For example,
+  `TensorFlow` estimator now accepts a `framework_version` parameter, and users can specify
+  version '1.10' or '1.12'. For a list of the versions supported by your current SDK release, call 
+  `get_supported_versions()` on the desired framework class (e.g. `TensorFlow.get_supported_versions()`).
+  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### Azure Machine Learning Data Prep SDK v1.1.1
 
@@ -42,6 +54,7 @@ In this article, learn about the Azure Machine Learning service releases.  For a
   + Column type detection now supports columns of type Long.
   + Fixed a bug where some date values were being displayed as timestamps instead of Python datetime objects.
   + Fixed a bug where some type counts were being displayed as doubles instead of integers.
+
   
 ## 2019-03-25
 
