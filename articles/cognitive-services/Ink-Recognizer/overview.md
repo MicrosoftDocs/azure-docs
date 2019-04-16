@@ -33,12 +33,14 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 
 The Ink Recognizer API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 After signing up:
 
-1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
-1. Send a request to the Anomaly Detector API with your data.
+1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/recommended-calling-patterns.md) when preparing your data to get the best results.
+1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
 ## Next steps
+
+Try a [quickstart](quickstarts/csharp.md) to begin making calls to the Ink Recognizer API.
