@@ -37,7 +37,7 @@ AMS | Amsterdam, Netherlands | Europe
 ARN | Stockholm, Sweden | Europe
 ATL | Atlanta, Georgia, USA | North America: East Coast U.S.
 BAQ | Barranquilla, Colombia | Latin America
-BLR | Bangalore, India | Asia
+BLR | Bengaluru (Bangalore), India | Asia
 BNJ | Newark, New Jersey, USA | North America: East Coast U.S.
 BOS | Boston, Massachusetts, USA | North America: East Coast U.S.
 BTH | Batam, Indonesia | Asia
