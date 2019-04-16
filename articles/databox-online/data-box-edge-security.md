@@ -1,6 +1,6 @@
 ---
-title: Data Box Edge security | Microsoft Docs
-description: Describes the security and privacy features that protect your Data Box Edge device, service, and data on premises and in the cloud.
+title: Azure Data Box Edge security | Microsoft Docs
+description: Describes the security and privacy features that protect your Azure Data Box Edge device, service, and data on premises and in the cloud.
 services: Data Box Edge
 author: alkohli
 
@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 04/15/2019
 ms.author: alkohli
 ---
-# Data Box Edge security and data protection
+# Azure Data Box Edge security and data protection
 
 Security is a major concern when adopting a new technology, especially if the technology is used with confidential or proprietary data. Microsoft Azure Data Box Edge solution helps ensure that only authorized entities can view, modify, or delete your data.
 
