@@ -86,7 +86,7 @@ To view active alerts and the underlying rules that cause the alerts to be trigg
 
 ![Screenshot of analytics experience](media/app-map/alerts-view.png)
 
-## Set cloud_RoleName
+## Set cloud role name
 
 Application Map uses the **cloud role name** property to identify the components on the map. The Application Insights SDK automatically adds the cloud role name property to the telemetry emitted by components. For example, the SDK will add a web site name or service role name to the cloud role name property. However, there are cases where you may want to override the default value. To override cloud role name and change what gets displayed on the Application Map:
 
@@ -240,7 +240,7 @@ To fix this, you'll need to change your instrumentation to properly set the clou
 
 * Dependency type should represent the logical type of a dependency. For example, HTTP, SQL or Azure Blob are typical dependency types. It should not contain unique IDs.
 
-* The purpose of cloud role name is described in the [above section](app-map.md#set-cloud-rolename).
+* The purpose of cloud role name is described in the [above section](app-map.md#set-cloud-role-name).
 
 ## Portal feedback
 
