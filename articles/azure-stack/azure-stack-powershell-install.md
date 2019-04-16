@@ -170,7 +170,7 @@ If the installation is successful, the AzureRM and AzureStack modules are displa
 
 In a disconnected scenario, you must first download the PowerShell modules to a machine that has Internet connectivity, and then transfer them to the Azure Stack Development Kit for installation.
 
-Sign in to a computer with Internet connectivity and use the following scripts to download the Azure Resource Manager and AzureStack packages, depending on your version of Azure Stack.
+Sign in to a computer with Internet connectivity and use the following scripts to download the Azure Resource Manager and Azure Stack packages, depending on your version of Azure Stack.
 
 Installation has four steps:
 
