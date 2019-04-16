@@ -104,8 +104,7 @@ At this stage, users from all the managed domains in your tenant can sign in by 
 If you plan to deploy Pass-through Authentication in a production environment, you should install additional standalone Authentication Agents. Install these Authentication Agent(s) on server(s) _other_ than the one running Azure AD Connect. This setup provides you with high availability for user sign-in requests.
 
 >[!IMPORTANT]
->In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 40
-> Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+>In production environments, we recommend that you have a minimum of 3 Authentication Agents running on your tenant. There is a system limit of 40 Authentication Agents per tenant. And as best practice, treat all servers running Authentication Agents as Tier 0 systems (see [reference](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 
 Follow these instructions to download the Authentication Agent software:
 
@@ -137,6 +136,9 @@ Second, you can create and run an unattended deployment script. This is useful w
 3. Go to **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** and run the following script using the `$cred` object that you created:
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
+
+>[!IMPORTANT]
+>If an Authentication Agent is installed on a Virtual Machine, you can't clone the Virtual Machine to setup another Authentication Agent. This method is **unsupported**.
 
 ## Step 5: Configure Smart Lockout capability
 
