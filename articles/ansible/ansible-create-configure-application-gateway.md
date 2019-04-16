@@ -31,9 +31,9 @@ In this tutorial, Ansible is used to:
 
 ## Create a resource group
 
-A resource group is a logical container into which Azure resources are deployed and managed.  
+The playbook code in this section creates an Azure resource group. A resource group is a logical container in which Azure resources are configured.  
 
-The following example creates a resource group named `myResourceGroup` in the `eastus` location.
+Save the following playbook as `rg.yml`:
 
 ```yml
 - hosts: localhost
@@ -47,7 +47,12 @@ The following example creates a resource group named `myResourceGroup` in the `e
         location: "{{ location }}"
 ```
 
-Save this playbook as *rg.yml*. To run the playbook, use the `ansible-playbook` command as follows:
+Before running the playbook, see the following notes:
+
+- The resource group name is `myResourceGroup`. If you use a different value for this playbook, you'll need to use that value for all of the playbooks in this tutorial.
+- The resource group is created in the `eastus` location.
+
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook rg.yml
