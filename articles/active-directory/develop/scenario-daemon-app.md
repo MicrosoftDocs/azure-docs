@@ -60,7 +60,7 @@ The end to end experience of developers for this scenario has, therefore, specif
 - Daemon applications can only work in Azure AD tenants. This does not make sense to build a daemon application that attempts to manipulate Microsoft personal accounts. If you are a Line of business (LOB) developer, you'll create your daemon app in your tenant. If you are an ISV, you might want to create a multi-tenant daemon application. It will need to be consented by each tenant admin.
 - During the [Application registration](#app-registration-specifics), the Reply URI is not needed, you need to share secrets or certificates with Azure AD, and you need to request applications permissions and grant admin consent to use those app permissions.
 - The [Application configuration](#msal-libraries-applications-code-configuration) needs to provide client credentials as shared with Azure AD during the application registration
-- The [scope](#scopes-to-request) used to acquire a token with client credentials needs to be a static scope.
+- The [scope](#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
 
 ## App registration specifics
 
@@ -83,7 +83,7 @@ A daemon application can only request application permissions to APIs (not deleg
 
 Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
 
-If you are an ISV building a multi-tenant application, you'd want to check the [Deployment - Case of multi-tenant daemon apps](#Deployment---Case-of-multi-tenant-daemon-apps) paragraph.
+If you are an ISV building a multi-tenant application, you'd want to check the [Deployment - Case of multi-tenant daemon apps](#deployment---case-of-multi-tenant-daemon-apps) paragraph.
 
 ### Registration of secrets or certificates
 
@@ -107,9 +107,9 @@ Alternatively, you can register your application with Azure AD using command-lin
 - For details on how to register an application secret, see [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)
 - For details on how to register a certificate with the application, see [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)
 
-## MSAL Libraries supporting client credentials
+## MSAL Libraries supporting daemon apps
 
-The libraries supporting client credentials are:
+The libraries supporting daemon apps are:
 
   MSAL library | Description
   ------------ | ----------
@@ -127,7 +127,7 @@ Therefore the authority specified in the application configuration should be ten
 
 ### Application configuration and instantiation
 
-In MSAL libraries, the Client Credentials (secret or certificate) are passed as a parameter of the ``ConfidentialClientApplication`` construction.
+In MSAL libraries, the client credentials (secret or certificate) are passed as a parameter of the ``ConfidentialClientApplication`` construction.
 
 # [.NET](#tab/dotnet)
 
