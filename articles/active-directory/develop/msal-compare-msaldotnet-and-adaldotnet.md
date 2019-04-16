@@ -41,21 +41,21 @@ The following picture summarizes some of the differences between ADAL.NET and MS
 
 ### NuGet packages and Namespaces
 
-ADAL.NET is consumed from the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package. the namespace to use is ``Microsoft.IdentityModel.Clients.ActiveDirectory``.
+ADAL.NET is consumed from the [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory) NuGet package. the namespace to use is `Microsoft.IdentityModel.Clients.ActiveDirectory`.
 
-To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package (for the moment in Preview), and use the ``Microsoft.Identity.Client`` namespace
+To use MSAL.NET you will need to add the [Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package (for the moment in Preview), and use the `Microsoft.Identity.Client` namespace
 
 ### Scopes not resources
 
-ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for **scopes**. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(``IEnumerable<string> scopes``). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
+ADAL.NET acquires tokens for *resources*, but MSAL.NET acquires tokens for *scopes*. A number of MSAL.NET AcquireToken overrides require a parameter called scopes(`IEnumerable<string> scopes`). This parameter is a simple list of strings that declare the desired permissions and resources that are requested. Well known scopes are the [Microsoft Graph's scopes](/graph/permissions-reference).
 
 It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes for a v1.0 application](#scopes-for-a-web-api-accepting-v10-tokens). 
 
 ### Core classes
 
-- ADAL.NET uses [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) as the representation of your connection to the Security Token Service (STS) or authorization server, through an Authority. On the contrary, MSAL.NET is designed around [client applications](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). It provides two separate classes: ``PublicClientApplication`` and ``ConfidentialClientApplication``
+- ADAL.NET uses [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) as the representation of your connection to the Security Token Service (STS) or authorization server, through an Authority. On the contrary, MSAL.NET is designed around [client applications](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). It provides two separate classes: `PublicClientApplication` and `ConfidentialClientApplication`
 
-- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (``AcquireTokenAsync`` and  ``AcquireTokenSilentAsync``) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the ``ClientID`` of your application in every AcquireTokenXX call. Indeed, the ``ClientID`` is set only  once when calling the constructor of the (``PublicClientApplication`` or ``ConfidentialClientApplication``.
+- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (`AcquireTokenAsync` and  `AcquireTokenSilentAsync` for ADAL.NET, and `AqquireTokenInteractive` and `AcquireTokenSilent` in MSAL.NET) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the `ClientID` of your application in every AcquireTokenXX call. Indeed, the `ClientID` is set only once when building the (`IPublicClientApplication` or `IConfidentialClientApplication`).
 
 ### IAccount not IUser
 
@@ -84,12 +84,12 @@ catch(AdalException exception)
 
 See details in [The recommended pattern to acquire a token](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token#recommended-pattern-to-acquire-a-token) with ADAL.NET
 
-Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireTokenSilentAsync](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token).
+Using MSAL.NET, you catch `MsalUiRequiredException` as described in [AcquireTokenSilent](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-a-cached-token).
 
 ```csharp
 catch(MsalUiRequiredException exception)
 {
- Try {“try to authenticate interactively”}
+ try {“try to authenticate interactively”}
 }
 ```
 
@@ -97,14 +97,14 @@ catch(MsalUiRequiredException exception)
 
 In ADAL.NET, claim challenge exceptions are handled in the following way:
 
-- `AdalClaimChallengeException` is an exception (deriving from `AdalServiceException`) thrown by the service in case a resource requires more claims from the user (for instance two-factors authentication). The `Claims` member contains some json fragment with the claims, which are expected.
-- Still in ADAL.NET, the public client application receiving this exception needs to call the `AcquireTokenAsync` override having a claims parameter. This override of `AcquireTokenAsync` does not even try to hit the cache, it’s necessarily interactive. The reason is that the token in the cache does not have the right claims (otherwise an `AdalClaimChallengeException` would not have been thrown). Therefore, there is no need looking at the cache. The `ClaimChallengeException` can be received in a WebAPI doing OBO, whereas the `AcquireTokenAsync` needs to be called in a public client application calling this Web API.
+- `AdalClaimChallengeException` is an exception (deriving from `AdalServiceException`) thrown by the service in case a resource requires more claims from the user (for instance two-factors authentication). The `Claims` member contains some JSON fragment with the claims, which are expected.
+- Still in ADAL.NET, the public client application receiving this exception needs to call the `AcquireTokenInteractive` override having a claims parameter. This override of `AcquireTokenInteractive` does not even try to hit the cache as it is not necessary. The reason is that the token in the cache does not have the right claims (otherwise an `AdalClaimChallengeException` would not have been thrown). Therefore, there is no need to look at the cache. Note that the `ClaimChallengeException` can be received in a WebAPI doing OBO, whereas the `AcquireTokenInteractive` needs to be called in a public client application calling this Web API.
 - for details, including samples see Handling [AdalClaimChallengeException](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Exceptions-in-ADAL.NET#handling-adalclaimchallengeexception)
 
 In MSAL.NET, claim challenge exceptions are handled in the following way:
 
 - The `Claims` are surfaced in the `MsalServiceException`.
-- Almost all the `AcquireTokenAsync` overrides in MSAL.NET all have `extraQueryParameters` parameter. The way to go today is to add `$"&claims={msalServiceException.Claims}”` to the current `extraQueryParameters`.
+- There is a `.WithClaim(claims)` method that can apply to the `AcquireTokenInteractive` builder. 
 
 ### Supported grants
 
@@ -117,7 +117,7 @@ Here are the grants supported in ADAL.NET and MSAL.NET for Desktop and Mobile ap
 Grant | ADAL.NET | MSAL.NET
 ----- |----- | -----
 Interactive | [Interactive Auth](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-interactively---Public-client-application-flows) | [Acquiring tokens interactively in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively)
-Integrated Windows Authentication | [AcquireTokenSilentAsync using Integrated authentication on Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Integrated Windows Authentication](https://aka.ms/msal-net-iwa)
+Integrated Windows Authentication | [Integrated authentication on Windows (Kerberos)](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AcquireTokenSilentAsync-using-Integrated-authentication-on-Windows-(Kerberos)) | [Integrated Windows Authentication](https://aka.ms/msal-net-iwa)
 Username / Password | [Acquiring tokens with username and password](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Acquiring-tokens-with-username-and-password)| [Username Password Authentication](https://aka.ms/msal-net-up)
 Device code flow | [Device profile for devices without web browsers](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Device-profile-for-devices-without-web-browsers) | [Device Code flow](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Device-Code-Flow)
 
@@ -133,7 +133,7 @@ Web App | Auth Code | [Acquiring tokens with authorization codes on web apps wit
 
 ### Cache persistence
 
-ADAL.NET allows you to extend the ``TokenCache`` class to implement the desired persistence functionality on platforms without a secure storage (.NET Framework and .NET core) by using the ``BeforeAccess``, and ``BeforeWrite`` methods. For details, see [Token Cache Serialization in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
+ADAL.NET allows you to extend the `TokenCache` class to implement the desired persistence functionality on platforms without a secure storage (.NET Framework and .NET core) by using the `BeforeAccess`, and `BeforeWrite` methods. For details, see [Token Cache Serialization in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization).
 
 MSAL.NET makes the token cache a sealed class, removing the ability to extend it. Therefore, your implementation of token cache persistence must be in the form of a helper class that interacts with the sealed token cache. This interaction is described in [Token Cache Serialization in MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/token-cache-serialization).
 
@@ -141,7 +141,7 @@ MSAL.NET makes the token cache a sealed class, removing the ability to extend it
 
 In v1.0, if you use the https://login.microsoftonline.com/common authority, you will allow users to sign in with any AAD account (for any organization). See [Authority Validation in ADAL.NET](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD#authority-validation)
 
-If you use the https://login.microsoftonline.com/common authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). In MSAL.NET, if you want to restrict login to any AAD account (same behavior as with ADAL.NET), you need to use https://login.microsoftonline.com/organizations. For details, see the ``authority`` parameter in [public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
+If you use the https://login.microsoftonline.com/common authority in v2.0, you will allow users to sign in with any AAD organization or a Microsoft personal account (MSA). In MSAL.NET, if you want to restrict login to any AAD account (same behavior as with ADAL.NET), you need to use https://login.microsoftonline.com/organizations. For details, see the `authority` parameter in [public client application](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications#publicclientapplication).
 
 ## v1.0 and v2.0 Tokens
 
@@ -161,7 +161,7 @@ OAuth2 permissions are permission scopes that a v1.0 web API (resource) applicat
 
 ### Scopes to request access to specific OAuth2 permissions of a v1.0 application
 
-If you want to acquire tokens for specific scopes of a v1.0 application (for instance the AAD graph, which is https://graph.windows.net), you'd need to create ``scopes`` by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
+If you want to acquire tokens for specific scopes of a v1.0 application (for instance the AAD graph, which is https://graph.windows.net), you'd need to create `scopes` by concatenating a desired resource identifier with a desired OAuth2 permission for that resource.
 
 For instance, to access in the name of the user a v1.0 Web API which App ID URI is `ResourceId`, you'd want to use:
 
@@ -182,7 +182,7 @@ If you want to write the scope corresponding to the Azure Resource Manager API (
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
-var result = await app.AcquireTokenAsync(scopes);
+var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 
 // then call the API: https://management.azure.com/subscriptions?api-version=2016-09-01
 ```
@@ -215,14 +215,14 @@ Some of those solutions were used in scenarios such as:
 * Long running services that do actions including refreshing dashboards on behalf of the users whereas the users are no longer connected. 
 * WebFarm scenarios for enabling the client to bring the RT to the web service (caching is done client side, encrypted cookie, and not server side)
 
-This is not the case with MSAL 2.x however as we no longer recommend utilizing refresh tokens in this manner for security reasons. This would make it difficult to migrate to MSAL 2.x as the API does not provide a way to pass in previously acquired refresh tokens. 
+This is not the case with MSAL.NET, however as we no longer recommend utilizing refresh tokens in this manner for security reasons. This would make it difficult to migrate to MSAL 3.x as the API does not provide a way to pass in previously acquired refresh tokens. 
 
-Fortunately, MSAL now has an API that allows you to migrate your previous refresh tokens into the ConfidentialClientApplication. 
+Fortunately, MSAL.NET now has an API that allows you to migrate your previous refresh tokens into the `IConfidentialClientApplication` 
 
-```csharp
+```CSharp
 /// <summary>
 /// Acquires an access token from an existing refresh token and stores it and the refresh token into 
-/// the application user token cache, where it will be available for further AcquireTokenSilentAsync calls.
+/// the application user token cache, where it will be available for further AcquireTokenSilent calls.
 /// This method can be used in migration to MSAL from ADAL v2 and in various integration 
 /// scenarios where you have a RefreshToken available. 
 /// (see https://aka.ms/msal-net-migration-adal2-msal2)
@@ -230,23 +230,32 @@ Fortunately, MSAL now has an API that allows you to migrate your previous refres
 /// <param name="scopes">Scope to request from the token endpoint. 
 /// Setting this to null or empty will request an access token, refresh token and ID token with default scopes</param>
 /// <param name="refreshToken">The refresh token from ADAL 2.x</param>
-async Task<AuthenticationResult> IByRefreshToken.AcquireTokenByRefreshTokenAsync(IEnumerable<string> scopes, string refreshToken);
+IByRefreshToken.AcquireTokenByRefreshToken(IEnumerable<string> scopes, string refreshToken);
 ```
  
 With this method, you can provide the previously used refresh token along with any scopes (resources) you desire. The refresh token will be exchanged for a new one and cached into your application.  
 
-As this method is intended for scenarios that are not typical, it is not readily accessible with the ConfidentialClientApplication without first casting it to IByRefreshToken.
+As this method is intended for scenarios that are not typical, it is not readily accessible with the `IConfidentialClientApplication` without first casting it to `IByRefreshToken`.
 
 This code snippet shows some migration code in a confidential client application. `GetCachedRefreshTokenForSignedInUser` retrieve the refresh token that was stored in some storage by a previous version of the application that used to leverage ADAL 2.x. `GetTokenCacheForSignedInUser` deserializes a cache for the signed-in user (as confidential client applications should have one cache per user)
 
 ```csharp
 TokenCache userCache = GetTokenCacheForSignedInUser();
 string rt = GetCachedRefreshTokenForSignedInUser();
-ClientCredential cc = new ClientCredential(ClientSecret);
-ConfidentialClientApplication app = new ConfidentialClientApplication(serviceBundle, ClientId, Authority, RedirectUri, cc, userCache, null);
+
+IConfidentialClientApplication app;
+app = ConfidentialClientApplicationBuilder.Create(clientId)
+ .WithAuthority(Authority)
+ .WithRedirectUri(RedirectUri)
+ .WithClientSecret(ClientSecret)
+ .Build();
+IByRefreshToken appRt = app as IByRefreshToken;
          
-AuthenticationResult result = await (app as IByRefreshToken).AcquireTokenByRefreshTokenAsync(null, rt).ConfigureAwait(false);
+AuthenticationResult result = await appRt.AcquireTokenByRefreshToken(null, rt)
+                                         .ExecuteAsync()
+                                         .ConfigureAwait(false);
 ```
+
 You will see an access token and ID token returned in your AuthenticationResult while your new refresh token is stored in the cache.
 
 Note: You can also use this method for various integration scenarios where you have a refresh token available.
