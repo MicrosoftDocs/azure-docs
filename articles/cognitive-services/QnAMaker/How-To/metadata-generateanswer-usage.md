@@ -41,7 +41,7 @@ You use the GenerateAnswer API in your Bot or application to query your knowledg
 Once you publish your knowledge base, either from the [QnA Maker portal](https://www.qnamaker.ai), or using the [API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff), you can get the details of your GenerateAnswer endpoint.
 
 To get your endpoint details:
-1. Log in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
+1. Sign in to [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. In **My knowledge bases**, click on **View Code** for your knowledge base.
     ![my knowledge bases](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Get your GenerateAnswer endpoint details.
