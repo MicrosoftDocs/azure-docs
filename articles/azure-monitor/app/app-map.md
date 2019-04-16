@@ -224,7 +224,7 @@ If you're having trouble getting Application Map to work as expected, try these 
 
 3. If you're using Azure Functions with C#, upgrade to [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirm [cloud_RoleName](#set-cloud_rolename) is correctly configured.
+4. Confirm [cloud role name](#set-cloud-role-name) is correctly configured.
 
 5. If you're missing a dependency, make sure it's in the list of [auto-collected dependencies](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). If not, you can still track it manually with a [track dependency call](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
