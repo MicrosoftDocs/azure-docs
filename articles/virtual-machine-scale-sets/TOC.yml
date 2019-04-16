@@ -220,8 +220,6 @@
         href: shared-images-cli.md
       - name: PowerShell
         href: shared-images-powershell.md
-      - name: Portal
-        href: shared-images-portal.md
       - name: Share images across tenants
         href: cross-tenant-image-sharing.md
       - name: Troubleshoot shared images

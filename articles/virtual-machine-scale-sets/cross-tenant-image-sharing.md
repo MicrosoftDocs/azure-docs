@@ -14,7 +14,7 @@ ms.author: cynthn
 ---
 # Share gallery VM images across Azure tenants
 
-[!INCLUDE [virtual-machines-cross-tenant-image-sharing](../includes/virtual-machines-cross-tenant-image-sharing.md)]
+[!INCLUDE [virtual-machines-cross-tenant-image-sharing](../../includes/virtual-machines-cross-tenant-image-sharing.md)]
 
 
 ## Create a scale set using Azure CLI
