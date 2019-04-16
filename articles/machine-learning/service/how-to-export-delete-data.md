@@ -237,7 +237,7 @@ In the visual interface where you created your experiment, delete individual ass
 
 1. In the list, select the individual assets to delete.
 
-1. On the bottom, select **Delete**
+1. On the bottom, select **Delete**.
 
 ## Export visual interface data
 
@@ -249,4 +249,6 @@ In the visual interface where you created your experiment, export data you have 
 
     ![Download data](media/how-to-export-delete-data.md/download-data.png)
 
-1. On the bottom, select **Download**
+1. In the list, select the individual datasets to export.
+
+1. On the bottom, select **Download**.
