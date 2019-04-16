@@ -18,21 +18,33 @@ After you've uploaded and inspected data, evaluated accuracy, and trained a cust
 
 ## Create a custom endpoint
 
-To create a new custom endpoint, select Deployment on the Custom Speech menu at the top of the page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title.
+To create a new custom endpoint, select **Deployment** from the Custom Speech menu at the top of the page. If this is your first run, you'll notice that there are no endpoints listed in the table. After you've created an endpoint, you'll use this page to track each deployed endpoint.
 
-To create a new endpoint, select Add endpoint., Enter information in the Name and Description boxes of your custom deployment, and select the custom model you want to deploy
+Next, select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom model that you'd like to associate with this endpoint. From this page you can also enable logging. This allows you to monitor endpoint traffic. If disabled, traffic will not be stored.
+
+> [!NOTE]
+> Don't forget to accept the terms of use and pricing details.
+
+Next, select **Create**. This action returns you to the **Deployment** page. The table now includes an entry that corresponds to your custom endpoint. The endpoint’s status shows its current state. It can take up to 30 minutes to instantiate a new endpoint using your custom models. When the status of the deployment changes to **Complete**, the endpoint is ready to use.
+
+**<<MARK/ARCHER/ED - A screenshot that shows adding, naming, and selecting a model could be useful >>**
+
+After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code for your custom endpoint.
+
+## View logging data
+
+Earlier, it was mentioned that you can enable and access logging/traffic data for your custom endpoint. Logging data is available for download under **Endpoint > Details**.
+
+**<<MARK/ARCHER/ED - Can you provide an image that shows how to navigate to logging?>>**
+
 
 You can also select whether content logging is switched on or off. That is, you're selecting whether the endpoint traffic is stored. If it is not selected, storing the traffic will be suppressed. For all logged content you can find download links under Endpoint-> Details view
 
- Note
-
-Be sure to accept the terms of use and pricing information by selecting the check box.
-After you have selected your data, select Create. This action returns you to the Deployment page. The table now includes an entry that corresponds to your new endpoint. The endpoint’s status reflects its current state while it is being created. It can take up to 30 minutes to instantiate a new endpoint with your custom models. When the status of the deployment is Complete, the endpoint is ready for use.
-
-When the deployment is ready, the endpoint name becomes a link. Selecting the link displays the Endpoint Information page, which displays the endpoint key, endpoint URLs, together with some sample code of your custom endpoint.
-
-
 ## Next steps
+
+**<<MARK/ED/ARCHER - Is there a guide for how to use this endpoint>>**
+
+## Useful links
 
 * [Prepare and test your data](how-to-custom-speech-test-data.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
