@@ -36948,7 +36948,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/app-service/app-service-jre-support.md ",
+      "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "articles/app-service/configure-language-java.md",
       "redirect_document_id": false
     }
