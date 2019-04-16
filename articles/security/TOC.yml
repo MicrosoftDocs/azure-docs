@@ -194,6 +194,10 @@
       href: ./blueprints/fedramp-iaaswa-overview.md
     - name: PaaS web application
       href: ./blueprints/fedramp-paaswa-overview.md
+  - name: SCCA 
+    items:
+    - name: Secure Azure Computing Architecture 
+      href: ./compliance/Secure-Azure-Computing-Architecture.md
   - name: TIC
     items:
     - name: Trusted Internet Connection with Azure
