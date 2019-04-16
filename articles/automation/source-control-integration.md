@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -41,7 +41,7 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 |Property  |Description  |
 |---------|---------|
-|Source control name     | A friendly name for the source control        |
+|Source control name     | A friendly name for the source control. *This name must contain only letters and numbers.*        |
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
 |Branch     | The branch to pull the source files from. Branch targeting isn't available for the TFVC source control type.          |
