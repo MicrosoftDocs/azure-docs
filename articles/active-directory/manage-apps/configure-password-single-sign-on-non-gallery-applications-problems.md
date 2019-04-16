@@ -139,7 +139,7 @@ check the following if you encounter any of these issues:
 
 -   Try the manual capture process again, ensuring the red markers are over the correct fields.
 
--   If the manual capture process seems to hang, or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But, this time after completing the process, press the **F12** button to open your browser’s developer console. Once there, open the **console** and type **window.location="&lt;enter the sign-in url you specified when configuring the app&gt;"** and then press **Enter**. This forces a page redirect that ends the capture process and stores the fields that have been captured.
+-   If the manual capture process seems to stop responding, or the sign-in page doesn’t do anything (case 3 above), try the manual capture process again. But, this time after completing the process, press the **F12** button to open your browser’s developer console. Once there, open the **console** and type **window.location="&lt;enter the sign-in url you specified when configuring the app&gt;"** and then press **Enter**. This forces a page redirect that ends the capture process and stores the fields that have been captured.
 
 If none of these approaches work for you, support can help. Open a support case with the details of what you tried, as well as the information gathered in the [How to see the details of a portal notification](#i-cannot-manually-detect-sign-in-fields-for-my-application) and [How to get help by sending notification details to a support engineer](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) sections (if applicable).
 
