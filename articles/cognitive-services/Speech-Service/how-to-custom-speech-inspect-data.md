@@ -1,5 +1,5 @@
 ---
-title: "Inspect and evaluate data quality for Custom Speech - Speech Services"
+title: "Inspect data quality for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Inspect data
+# Inspect Custom Speech data
 
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.
@@ -51,16 +51,9 @@ If you have selected two models to test, you will see two columns of machine tra
 
 Inspecting quality testing is useful in doing a sanity check to validate the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, you will need to transcribe some audio and follow the instructions found in Testing: Evaluate Accuracy.
 
-## Test and evaluate accuracy
-
-In this section you'll learn how to quantitatively measure the quality of Microsoft's speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
-
-The industry standard to measure model accuracy is *Word Error Rate* (WER). WER counts the number of incorrect words identified during recognition, then divides by the total number of word provided in the human-labeled transcript. Finally, that number is multiplied by 100% to calculate the WER.
-
-![WER formula](./media/custom-speech/custom-speech-wer-formula.png)
-
 ## Next steps
 
+* [Evaluate accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train your model](placeholder)
 * [Deploy your model](placeholder)
 

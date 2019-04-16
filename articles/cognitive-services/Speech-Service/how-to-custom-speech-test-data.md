@@ -143,6 +143,7 @@ Use this table to ensure that your related data file for pronunciations is forma
 
 ## Next steps
 
-* [Inspect and evaluate your data quality](how-to-custom-speech-inspect-data.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train your model](how-to-custom-speech-train-model.md)
 * [Deploy your model](how-to-custom-speech-deploy-model.md)

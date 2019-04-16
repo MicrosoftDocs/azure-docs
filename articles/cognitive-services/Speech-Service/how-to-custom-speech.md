@@ -30,7 +30,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
 
-4. [Evaluate accuracy](how-to-custom-speech-train-model.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
+4. [Evaluate accuracy](how-to-custom-speech-evaluate-data.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
 
 5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
 
@@ -57,6 +57,7 @@ To create your first project, select the **Speech-to-text/Custom speech**, then 
 ## Next steps
 
 * [Prepare and test your data](how-to-custom-speech-test-data.md)
-* [Inspect and evaluate your data quality](how-to-custom-speech-inspect-data.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
 * [Train your model](how-to-custom-speech-train-model.md)
 * [Deploy your model](how-to-custom-speech-deploy-model.md)

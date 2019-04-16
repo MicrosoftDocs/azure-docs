@@ -18,6 +18,8 @@ Content to be added...
 
 ## Next steps
 
-* [Inspect and evaluate your data quality](placeholder)
-* [Train your model](placeholder)
-* [Deploy your model](placeholder)
+* [Prepare and test your data](how-to-custom-speech-test-data.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Train your model](how-to-custom-speech-train-model.md)
+* [Deploy your model](how-to-custom-speech-deploy-model.md)

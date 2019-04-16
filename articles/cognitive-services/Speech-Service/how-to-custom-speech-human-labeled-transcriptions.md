@@ -15,3 +15,11 @@ ms.author: erhopf
 # How to create human-labeled transcriptions
 
 Add all contents from the appendix of the Custom portal docs...
+
+## Next Steps
+
+* [Prepare and test your data](how-to-custom-speech-test-data.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Train your model](how-to-custom-speech-train-model.md)
+* [Deploy your model](how-to-custom-speech-deploy-model.md)
