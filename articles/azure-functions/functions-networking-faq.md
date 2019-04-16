@@ -1,51 +1,63 @@
 ---
-title: Frequently Asked Questions about Networking in Azure Functions
+title: Frequently asked questions about networking in Azure Functions
 description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
 
 ---
-# Frequently Asked Questions about Networking in Azure Functions
+# Frequently asked questions about networking in Azure Functions
 
-Below is a list of frequently asked networking questions. For a more comprehensive overview, read the [Functions networking options document](functions-networking-options.md)
+This article lists frequently asked questions about networking in Azure Functions. For a more comprehensive overview, see [Functions networking options](functions-networking-options.md).
 
 ## How do I set a static IP in Functions?
 
-Deploying a function in an App Service Environment (ASE) is currently the only way to have a static inbound and outbound IP for your function. For details on using an ASE, start with the article here: [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
+Deploying a function in an App Service Environment is currently the only way to have a static inbound and outbound IP for your function. For details on using an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-## How do I restrict Internet Access to my Function?
+## How do I restrict internet access to my function?
 
-You can restrict internet access in a number of ways, listed below.
+You can restrict internet access in a couple of ways:
 
-* [IP Restrictions](../app-service/app-service-ip-restrictions.md): restrict inbound traffic to your function app by IP range.
-* Remove all HTTP triggers. For some applications, it is sufficient to simply avoid HTTP triggers and use any other event source to trigger your function.
+* [IP restrictions](../app-service/app-service-ip-restrictions.md): Restrict inbound traffic to your function app by IP range.
+* Removal of all HTTP triggers. For some applications, it's enough to simply avoid HTTP triggers and use any other event source to trigger your function.
 
-The most important consideration when doing so is to keep in mind that the Azure portal editor requires direct access to your running Function to use. Any code changes through the Azure portal will require the device you're using to browse the portal to have its IP whitelisted. You can still, however, use anything under the platform features tab with network restrictions in place.
+Keep in mind that the Azure portal editor requires direct access to your running function. Any code changes through the Azure portal will require the device you're using to browse the portal to have its IP whitelisted. But you can still use anything under the platform features tab with network restrictions in place.
 
-## How do I restrict my function app to a VNET?
+## How do I restrict my function app to a virtual network?
 
-The only way to totally restrict a Function such that all traffic flows through a VNET is to use an internally load balanced (ILB) App Service Environment (ASE). This option deploys your site on dedicated infrastructure inside a VNET and sends all triggers and traffic through the VNET. For details on using an ASE, start with the article here: [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
+The only way to totally restrict a function such that all traffic flows through a virtual network is to use an internally load-balanced App Service Environment. This option deploys your site on a dedicated infrastructure inside a virtual network and sends all triggers and traffic through the virtual network. 
 
-## How can I access resources in a VNET from a function app?
+For details on using an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-You can access resources in a VNET from a running function using VNET Integration. For more information, see [VNET integration](functions-networking-options.md#vnet-integration)
+## How can I access resources in a virtual network from a function app?
 
-## How do I access resources protected by Service Endpoints?
+You can access resources in a virtual network from a running function by using virtual network integration. For more information, see [Virtual network integration](functions-networking-options.md#virtual-network-integration).
 
-Using the new VNET integration (currently in preview), you can access Service Endpoint secured resources from a running function. For more information, see [preview VNET integration](functions-networking-options.md#preview-vnet-integration).
+## How do I access resources protected by service endpoints?
 
-## How can I trigger a Function from a resource in a VNET?
+By using virtual network integration (currently in preview), you can access service-endpoint-secured resources from a running function. For more information, see [Preview virtual network integration](functions-networking-options.md#preview-version-of-virtual-network-integration).
 
-You can only trigger a function from a resource in a VNET by deploying your function app to an App Service Environment. For details on using an ASE, see [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
+## How can I trigger a function from a resource in a virtual network?
+
+You can trigger a function from a resource in a virtual network only by deploying your function app to an App Service Environment. For details on using an App Service Environment, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 
-## How can I deploy my function app in a VNET?
+## How can I deploy my function app in a virtual network?
 
-Deploying to an App Service Environment is the only way to create a function app that is wholly inside a VNET For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+Deploying to an App Service Environment is the only way to create a function app that's wholly inside a virtual network. For details on using an internal load balancer with an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
-For scenarios where you only need one-way access to VNET resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
+For scenarios where you need only one-way access to virtual network resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
+
+## Next steps
+
+To learn more about networking and functions: 
+
+* [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
+* [Learn more about the networking options in Azure Functions](./functions-networking-options.md)
+* [Learn more about virtual network integration with App Service and Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

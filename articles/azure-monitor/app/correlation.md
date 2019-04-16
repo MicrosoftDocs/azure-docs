@@ -178,6 +178,11 @@ The [Application Insights SDK for Java](../../azure-monitor/app/java-get-started
 
 Currently, automatic context propagation across messaging technologies (such Kafka, RabbitMQ, or Azure Service Bus) isn't supported. However, it's possible to code such scenarios manually by using the `trackDependency` and `trackRequest` APIs. In these APIs, a dependency telemetry represents a message being enqueued by a producer, and the request represents a message being processed by a consumer. In this case, both `operation_id` and `operation_parentId` should be propagated in the message's properties.
 
+### Telemetry correlation in Asynchronous Java Application
+
+In order to correlate telemetry in Asynchronous Spring Boot application, please follow [this](https://github.com/Microsoft/ApplicationInsights-Java/wiki/Distributed-Tracing-in-Asynchronous-Java-Applications) in-depth article. It provides guidance for instrumenting Spring's [ThreadPoolTaskExecutor](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskExecutor.html) as well as [ThreadPoolTaskScheduler](https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/scheduling/concurrent/ThreadPoolTaskScheduler.html). 
+
+
 <a name="java-role-name"></a>
 ## Role name
 
@@ -206,7 +211,7 @@ At times, you might want to customize the way component names are displayed in t
 ## Next steps
 
 - Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md).
-- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) for other SDKs.
+- Learn more about [setting cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) for other SDKs.
 - Onboard all components of your microservice on Application Insights. Check out the [supported platforms](../../azure-monitor/app/platforms.md).
 - See the [data model](../../azure-monitor/app/data-model.md) for Application Insights types.
 - Learn how to [extend and filter telemetry](../../azure-monitor/app/api-filtering-sampling.md).

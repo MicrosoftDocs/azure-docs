@@ -3,14 +3,14 @@ title: Azure Functions Networking Options
 description: An overview of all networking options available in Azure Functions
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 1/14/2019
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
-# Azure Functions Networking Options
+# Azure Functions networking options
 
 This document describes the suite of networking features available across the Azure Functions hosting options. All of the following networking options provide some ability to access resources without using internet routable addresses, or restrict internet access to a Function App. The hosting models all have different levels of network isolation available, and choosing the correct one will allow you to meet your network isolation requirements.
 
@@ -22,28 +22,28 @@ Function Apps can be hosted in several different ways.
     1. The App Service Plan, which operates at a fixed scale, and offers similar network isolation to the Premium plan.
 * Functions can also be run on an App Service Environment (ASE) which deploys your function into your VNet and offers full network control and isolation.
 
-## Networking Feature Matrix
+## Networking feature matrix
 
 |                |[Consumption Plan](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inbound IP Restrictions**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET Integration**](#vnet-integration)|❌No|⚠ Yes|✅Yes|✅Yes|
-|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠ Yes|⚠ Yes|✅Yes|
+|[**VNET Integration**](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-version-of-virtual-network-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
 |[**Hybrid Connections**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Private Site Access**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
 ⚠ Preview feature, not for production use
 
-## Inbound IP Restrictions
+## Inbound IP restrictions
 
 IP Restrictions allow you to define a priority ordered allow/deny list of IP addresses that are allowed to access your app. The allow list can include IPv4 and IPv6 addresses. When there are one or more entries, there is then an implicit deny all that exists at the end of the list. The IP Restrictions capability works with all function hosting options.
 
-> ![IMPORTANT]
+> [!NOTE]
 > To be able to use the Azure portal editor, the portal must be able to directly access your running function app, and the device you're using to access the portal must have its IP whitelisted. With network restrictions in place, you can still access any features in the **Platform features** tab.
 
 [Learn more here](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## VNET Integration
+## Virtual network integration
 
 VNET integration allows your function app to access resources inside a VNET. VNET integration is available in both the Premium plan and App Service plan. If your app is in an App Service Environment, then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet.
 
@@ -53,7 +53,7 @@ VNet Integration is often used to enable access from apps to a databases and web
 
 The generally available version of VNET integration relies on a VPN gateway to connect Function Apps to a virtual network. It is available in Functions hosted in an app service plan. To learn how to configure this feature, see the [App Service document for the same feature](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
 
-### Preview VNET Integration
+### Preview version of virtual network integration
 
 There is a new version of the VNet Integration feature that is in preview. It doesn't depend on point-to-site VPN and also supports accessing resources across ExpressRoute or Service Endpoints. This feature is available in the Premium plan, and in App Service plans scaled to PremiumV2.
 
@@ -71,7 +71,7 @@ The new version of VNet Integration, which is currently in preview, provides the
 
 To learn more about using preview VNET integration, see [Integrate a function app with an Azure Virtual Network](functions-create-vnet.md).
 
-## Hybrid Connections
+## Hybrid connections
 
 [Hybrid Connections](../service-bus-relay/relay-hybrid-connections-protocol.md) is a feature of Azure Relay that can be used to access application resources in other networks. It provides access from your app to an application endpoint. It cannot be used to access your application. Hybrid Connections is available to functions running in an [App Service plan](functions-scale.md#app-service-plan) and an [App Service Environment](../app-service/environment/intro.md).
 
@@ -79,8 +79,18 @@ As used in Functions, each Hybrid Connection correlates to a single TCP host and
 
 To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports both Functions and Web Apps.
 
-## Private Site Access
+## Private site access
 
 Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. Private site access is only available with an ASE configured with an Internal Load Balancer (ILB). For details on using an ILB ASE, see [Creating and using an ILB ASE](../app-service/environment/create-ilb-ase.md).
 
 There are many ways to access VNET resources in other hosting options, but an ASE is the only way to allow triggers for a function to occur over a VNET.
+
+## Next steps
+To learn more about networking and Functions: 
+
+* [Follow our getting started VNET integration tutorial](./functions-create-vnet.md)
+* [Read the Functions networking FAQ here](./functions-networking-faq.md)
+* [Learn more about VNET integration with App Service / Functions here](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
+* [Connect to individual on-premises resources without firewall changes using Hybrid Connections](../app-service/app-service-hybrid-connections.md)

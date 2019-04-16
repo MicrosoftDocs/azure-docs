@@ -333,6 +333,8 @@
         href: azure-security-threat-modeling-tool-releases-71510231.md
       - name: Threat Modeling Tool update release 7.1.60126.1 - 1/29/2019
         href: azure-security-threat-modeling-tool-releases-71601261.md
+      - name: Threat Modeling Tool update release 7.1.60408.1 - 4/09/2019
+        href: azure-security-threat-modeling-tool-releases-71604081.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
       items:
