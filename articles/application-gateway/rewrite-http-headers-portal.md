@@ -119,8 +119,8 @@ In this example, we will modify the redirection URL by rewriting the location he
 
    ![Modify location header](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
-   ## Next steps
+## Next steps
 
-   To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
    

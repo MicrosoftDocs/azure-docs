@@ -31,7 +31,7 @@
   - name: DevTest Labs
     items:
     - name: Resource Manager templates
-      href: https://github.com/Azure/azure-devtestlab/tree/master/Samples
+      href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates 
     - name: Azure PowerShell
       href: samples-powershell.md
     - name: Azure CLI
@@ -110,6 +110,8 @@
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
+      - name: Reference architecture
+        href: devtest-lab-reference-architecture.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
@@ -210,16 +212,14 @@
         href: devtest-lab-manage-formulas.md
     - name: Manage artifacts
       items: 
-      - name: Specify mandatory artifacts 
-        href: devtest-lab-mandatory-artifacts.md
       - name: Add artifacts to a VM
         href: add-artifact-vm.md
       - name: Create custom artifacts
         href: devtest-lab-artifact-author.md
       - name: Add an artifact repository to a lab
         href: add-artifact-repository.md
-      - name: Diagnose artifact failures
-        href: devtest-lab-troubleshoot-artifact-failure.md
+      - name: Specify mandatory artifacts 
+        href: devtest-lab-mandatory-artifacts.md
     - name: Manage virtual networks
       items:
       - name: Configure virtual networks
@@ -238,6 +238,12 @@
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Create or modify labs using Resource Manager template
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
+    - name: Troubleshoot
+      items:
+      - name: Troubleshoot VM and environment creation failures
+        href: troubleshoot-vm-environment-creation-failures.md
+      - name: Troubleshoot artifact failures
+        href: devtest-lab-troubleshoot-artifact-failure.md
 - name: Reference
   items:
   - name: Classroom Labs
