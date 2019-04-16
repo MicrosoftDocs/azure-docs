@@ -19,7 +19,9 @@ ms.author: tylerleonhardt
 
 This guide contains information about the intricacies of writing Azure Functions with PowerShell.
 
-A PowerShell function is represented as a PowerShell script that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
+A PowerShell function is represented as a PowerShell script that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)).
+The PowerShell script takes in parameters that match the names of all the input bindings.
+In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
 
 This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md) and completed the Functions quickstart to create your first function, using [the Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) or [the Azure portal](functions-create-first-azure-function.md).
 
@@ -59,7 +61,10 @@ In PowerShell Function Apps, you may optionally have a `profile.ps1` which will 
 
 By default, the Functions runtime looks for your function in `run.ps1`, where `run.ps1` shares the same parent directory as its corresponding `function.json`.
 
-Your script is passed a number of arguments on execution. The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function. To handle these parameters, add a `param` block to the top of your script like so:
+Your script is passed a number of arguments on execution.
+The PowerShell script takes in parameters that match the names of all the input bindings.
+In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
+To handle these parameters, add a `param` block to the top of your script like so:
 
 ```powershell
 # $TriggerMetadata is optional here. If you don't need it, you can safely remove it from the param block
@@ -543,7 +548,7 @@ There's immense value in concurrency with Azure PowerShell since some operations
 
 By default, a PowerShell function is executed from `run.ps1`, a file that shares the same parent directory as its corresponding `function.json`.
 
-`scriptFile` can be used to get a folder structure that looks like the following example:
+The `scriptFile` property in the `function.json` can be used to get a folder structure that looks like the following example:
 
 ```
 FunctionApp
