@@ -108,12 +108,16 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 
 [Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
-For users who prefer a drag-and-drop experience, there is a visual interface (Preview) for Azure Machine Learning service, which allows you to build experiments, similar to Studio.  The preview release of the visual interface:
+For users who prefer a drag-and-drop experience, there is a visual interface (Preview) for Azure Machine Learning service, which allows you to build experiments, similar to Studio.  The preview release of the visual interface is fully integrated with Azure Machine Learning service.  
 
-* Fully integrates with Azure Machine Learning service.
-* Includes a small initial set of the most popular built-in modules from Studio.
-* Uses Azure Machine Learning compute for training, supporting autoscaled CPU and GPU clusters.
-* Uses Azure Kubernetes Service for deployment with enterprise ready security.
+Here is a quick comparison.
+
+| | Azure Machine Learning Studio | Azure Machine Learning service 
+| --- | --- | --- |
+| Modules | Large number of modules | Small initial set of most popular modules |
+| Training | Proprietary compute target, CPU support only | Train on Azure Machine Learning compute, autoscaled CPU and GPU clusters.
+| Deployed models | Proprietary webservice, not customizable | Deploy on Azure Kubernetes Service with enterprise ready security |
+
 
 Try out the preview interface with the [Quickstart: Prepare and visualize data without writing code](../service/ui-quickstart-run-experiment.md).
 
