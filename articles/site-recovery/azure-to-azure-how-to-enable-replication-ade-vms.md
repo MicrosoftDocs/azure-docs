@@ -44,11 +44,11 @@ To manage permissions, go to the key vault resource in the portal. Add the requi
 
 1. Go to **Home** > **Keyvaults** > **ContosoWeb2KeyVault > Access policies**.
 
-   ![key vault permissions window](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
+   ![Key vault permissions window](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-1.png)
 
 2. You can see that there are no user permissions. Select **Add new**. Enter the user and permissions information.
 
-   ![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
+   ![Keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 If the user who's enabling disaster recovery (DR) doesn't have permissions to copy the keys, a security administrator who has appropriate permissions can use the following script to copy the encryption secrets and keys to the target region.
 
