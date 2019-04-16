@@ -58,7 +58,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 * If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You are prompted to add this site to the trusted sites list when you are prompted for an MFA challenge and it has not added before. You can use Internet Explorer to add it to your trusted sites.
 * Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
 
-* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups
+* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups.
 
 To learn more, see: 
 
