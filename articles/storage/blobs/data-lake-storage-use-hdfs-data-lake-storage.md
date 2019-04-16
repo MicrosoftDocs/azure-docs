@@ -12,14 +12,14 @@ ms.subservice: data-lake-storage-gen2
 
 # Using the HDFS CLI with Data Lake Storage Gen2
 
-You can access and manage data by using a command line interface just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). This article provides some examples that will help you get started.
+You can access and manage the data in your storage account by using a command line interface just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). This article provides some examples that will help you get started.
 
-HDInsight provides access to the distributed file system that is locally attached to the compute nodes. This file system can be accessed by using the shell that directly interacts with the HDFS and other file systems that Hadoop supports.
+HDInsight provides access to the distributed file system that is locally attached to the compute nodes. You can access this file system by using the shell that directly interacts with the HDFS and the other file systems that Hadoop supports.
+
+For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
 >If you're using Azure Databricks instead of HDInsight, and you want to interact with your data by using a command line interface, you can use the Databricks CLI to interact with the Databricks file system. See [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
-
-For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 ## Use the HDFS CLI with an HDInsight Hadoop cluster on Linux
 
