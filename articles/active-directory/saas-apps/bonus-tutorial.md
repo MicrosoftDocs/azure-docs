@@ -141,10 +141,10 @@ To configure Azure AD single sign-on with Bonusly, perform the following steps:
 
     a. In the **IdP SSO target URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    b. In the **IdP Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+    b. In the **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-    c. In the **IdP Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
-
+    c. In the **IdP Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+    
     d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
 
 1. Click **Save**.
