@@ -13,11 +13,7 @@ ms.author: aahi
 
 # Quickstart: Recognize digital ink with the Ink Recognizer REST API and Java
 
-Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This Java application sends an API request containing JSON-formatted ink stroke data, and gets the responses.
-
-| API request                                        | Application output                                                                                                                         |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Recognize example digital ink strokes                         | The JSON response containing ... |
+Use this quickstart to begin using the Ink Recognizer API on digital ink strokes. This Java application sends an API request containing JSON-formatted ink stroke data, and gets the response.
 
  While this application is written in Java, the API is a RESTful web service compatible with most programming languages.
 
