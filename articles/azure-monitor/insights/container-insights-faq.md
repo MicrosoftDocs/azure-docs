@@ -8,7 +8,7 @@ editor: tysonn
 ms.service:  azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/15/2019
 ms.author: magoedte
 
 ---
@@ -59,6 +59,9 @@ For a detailed look at the issue, review the following [github link](https://git
 
 ## How do I resolve Azure Active Directory errors when I enable live logs? 
 You may see the following error: **The reply url specified in the request does not match the reply urls configured for the application: '<application ID\>'**. The solution to solve it can be found in the article [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md#configure-aks-with-azure-active-directory). 
+
+## Unable to upgrade cluster after Azure Monitor for containers is enabled
+If after you enable Azure Monitor for containers for an AKS cluster, you delete the Log Analytics workspace the cluster was sending its data to, when attempting to upgrade the cluster it will fail. To work around this, you will have to disable monitoring and then re-enable it referencing a different valid workspace in your subscription. When you try to perform the cluster upgrade again, it should process and complete successfully.  
 
 ## Next steps
 To begin monitoring your AKS cluster, review [How to onboard the Azure Monitor for containers](container-insights-onboard.md) to understand the requirements and available methods to enable monitoring. 
