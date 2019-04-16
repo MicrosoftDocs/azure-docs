@@ -130,5 +130,5 @@ The preceding code results in the following:
 
 ## Next Steps
 
-* [Explore and prepare Datasets] (how-to-explore)
+* [Explore and prepare Datasets](how-to-explore-prepare-data.md)
 * [Manage the life cycle of Dataset definitions](how-to-manage-dataset-definitions.md)
