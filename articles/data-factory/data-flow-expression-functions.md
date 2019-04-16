@@ -147,7 +147,7 @@ Concatenates a variable number of strings together. Same as the + operator with 
 <code><b>concatWS(<i>&lt;separator&gt;</i> : string, <i>&lt;this&gt;</i> : string, <i>&lt;that&gt;</i> : string, ...) => string</b></code><br/><br/>
 Concatenates a variable number of strings together with a separator. The first parameter is the separator
 * ``concatWS(' ', 'Awesome', 'Cool', 'Product') -> 'Awesome Cool Product'``
-* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) -> ``
+* ``concatWS(' ' , addrLine1, addrLine2, city, state, zip) ->``
 * ``concatWS(',' , toString(order_total), toString(order_discount))``
 *********************************
 <code>cos</code>
@@ -967,14 +967,14 @@ Gets the aggregate sum of distinct values of a numeric column
 <code><b>sumDistinctIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumDistinctIf(true, sales) -> SUM(sales) ``
+* ``sumDistinctIf(true, sales) -> SUM(sales)``
 *********************************
 <code>sumIf</code>
 ==============================
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
-* ``sumIf(true, sales) -> SUM(sales) ``
+* ``sumIf(true, sales) -> SUM(sales)``
 *********************************
 <code>tan</code>
 ==============================
