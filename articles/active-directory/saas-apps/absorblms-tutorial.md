@@ -167,7 +167,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
     d. In the **Mode** box, select **Identity Provider Initiated**.
 
-	e. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *userPrincipalName* is selected in Azure AD, select **Username**.
+	e. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *nameidentifier* is selected in Azure AD, select **Username**.
 
     f. Select **Sha256** as a **Signature Type**.
 
