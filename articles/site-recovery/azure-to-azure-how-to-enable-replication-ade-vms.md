@@ -131,7 +131,7 @@ In the following scenarios, you'll be required to update the target VM encryptio
 
 You can use [a script](#copy-ade-keys-to-the-dr-region-by-using-powershell-script) to copy the encryption keys to the target region and then update the target encryption settings in **Recovery services vault** > *replicated item* > **Properties** > **Compute and Network**.
 
-![update ADE settings dialog window](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
+![Update ADE settings dialog window](./media/azure-to-azure-how-to-enable-replication-ade-vms/update-ade-settings.png)
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
 
