@@ -5,8 +5,8 @@ metadata:
   title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Logic Apps simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Learn how to create, design, and deploy logic apps that automate business processes with our quickstarts, tutorials, templates, and APIs.
   services: logic-apps
-  author: czeumault
-  manager: estfan
+  author: ecfan
+  manager: carmonm
   ms.service: logic-apps
   ms.tgt_pltfrm: na
   ms.devlang: na

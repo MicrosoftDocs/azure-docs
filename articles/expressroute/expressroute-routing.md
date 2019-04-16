@@ -150,47 +150,47 @@ Refer to the [ExpressRoute partners and peering locations](expressroute-location
 
 You can purchase more than one ExpressRoute circuit per geopolitical region. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the Microsoft peering and public peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause suboptimal routing decisions to be made within your network. As a result, you may experience suboptimal connectivity experiences to different services. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to users](expressroute-optimize-routing.md).
 
-| **Microsoft Azure region** | **BGP community value** |
-| --- | --- |
+| **Microsoft Azure region** | **Regional BGP community** | **Storage BGP community** | **SQL BGP community** | 
+| --- | --- | --- | --- |
 | **North America** | |
-| East US | 12076:51004 |
-| East US 2 | 12076:51005 |
-| West US | 12076:51006 |
-| West US 2 | 12076:51026 |
-| West Central US | 12076:51027 |
-| North Central US | 12076:51007 |
-| South Central US | 12076:51008 |
-| Central US | 12076:51009 |
-| Canada Central | 12076:51020 |
-| Canada East | 12076:51021 |
+| East US | 12076:51004 | 12076:52004 | 12076:53004 |
+| East US 2 | 12076:51005 | 12076:52005 | 12076:53005 |
+| West US | 12076:51006 | 12076:52006 | 12076:53006 |
+| West US 2 | 12076:51026 | 12076:52026 | 12076:53026 |
+| West Central US | 12076:51027 | 12076:52027 | 12076:53027 |
+| North Central US | 12076:51007 | 12076:52007 | 12076:53007 |
+| South Central US | 12076:51008 | 12076:52008 | 12076:53008 |
+| Central US | 12076:51009 | 12076:52009 | 12076:53009 |
+| Canada Central | 12076:51020 | 12076:52020 | 12076:53020 |
+| Canada East | 12076:51021 | 12076:52021 | 12076:53021 |
 | **South America** | |
-| Brazil South | 12076:51014 |
+| Brazil South | 12076:51014 | 12076:52014 | 12076:53014 |
 | **Europe** | |
-| North Europe | 12076:51003 |
-| West Europe | 12076:51002 |
-| UK South | 12076:51024 |
-| UK West | 12076:51025 |
-| France Central | 12076:51030 |
-| France South | 12076:51031 |
+| North Europe | 12076:51003 | 12076:52003 | 12076:53003 |
+| West Europe | 12076:51002 | 12076:52002 | 12076:53002 |
+| UK South | 12076:51024 | 12076:52024 | 12076:53024 |
+| UK West | 12076:51025 | 12076:52025 | 12076:53025 |
+| France Central | 12076:51030 | 12076:52030 | 12076:53030 |
+| France South | 12076:51031 | 12076:52031 | 12076:53031 |
 | **Asia Pacific** | |
-| East Asia | 12076:51010 |
-| Southeast Asia | 12076:51011 |
+| East Asia | 12076:51010 | 12076:52010 | 12076:53010 |
+| Southeast Asia | 12076:51011 | 12076:52011 | 12076:53011 |
 | **Japan** | |
-| Japan East | 12076:51012 |
-| Japan West | 12076:51013 |
+| Japan East | 12076:51012 | 12076:52012 | 12076:53012 |
+| Japan West | 12076:51013 | 12076:52013 | 12076:53013 |
 | **Australia** | |
-| Australia East | 12076:51015 |
-| Australia Southeast | 12076:51016 |
+| Australia East | 12076:51015 | 12076:52015 | 12076:53015 |
+| Australia Southeast | 12076:51016 | 12076:52016 | 12076:53016 |
 | **Australia Government** | |
-| Australia Central | 12076:51032 |
-| Australia Central 2 | 12076:51033 |
+| Australia Central | 12076:51032 | 12076:52032 | 12076:53032 |
+| Australia Central 2 | 12076:51033 | 12076:52033 | 12076:53033 |
 | **India** | |
-| India South | 12076:51019 |
-| India West | 12076:51018 |
-| India Central | 12076:51017 |
+| India South | 12076:51019 | 12076:52019 | 12076:53019 |
+| India West | 12076:51018 | 12076:52018 | 12076:53018 |
+| India Central | 12076:51017 | 12076:52017 | 12076:53017 |
 | **Korea** | |
-| Korea South | 12076:51028 |
-| Korea Central | 12076:51029 |
+| Korea South | 12076:51028 | 12076:52028 | 12076:53028 |
+| Korea Central | 12076:51029 | 12076:52029 | 12076:53029 |
 
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
