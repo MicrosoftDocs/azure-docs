@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/25/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 
 ---
@@ -97,7 +97,30 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+
+    > [!NOTE]
+    > You will get the **Service Provider metadata file** explained later in this tutorial.
+
+	a. Click **Upload metadata file**.
+
+    ![image](common/upload-metadata.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![image](common/browse-upload-metadata.png)
+
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
+
+	![image](common/sp-identifier-reply.png)
+
+	> [!Note]
+	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
+
+    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.silkroad-eng.com/Authentication/`
+
+5. On the **Basic SAML Configuration** section, if you do not have **Service Provider metadata file**, perform the following steps:
 
     ![SilkRoad Life Suite Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
@@ -105,14 +128,14 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
     `https://<subdomain>.silkroad-eng.com/Authentication/`
 
     b. In the **Identifier** box, type a URL using the following pattern:
-    
+
 	| |
 	|--|
 	| `https://<subdomain>.silkroad-eng.com/Authentication/SP`|
 	| `https://<subdomain>.silkroad.com/Authentication/SP`|
 
     c. In the **Reply URL** text box, type a URL using the following pattern:
-	
+
 	| |
 	|--|
 	| `https://<subdomain>.silkroad-eng.com/Authentication/`|
@@ -121,11 +144,11 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL, Identifier and Reply URL. Contact [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up SilkRoad Life Suite** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up SilkRoad Life Suite** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -146,7 +169,7 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
     ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
-1. Click **Download Federation Metadata**, and then save the metadata file on your computer.
+1. Click **Download Federation Metadata**, and then save the metadata file on your computer. Use Downloaded Federation Metadata as a **Service Provider metadata file** in the **Basic SAML Configuration** section in the Azure portal.
 
     ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
@@ -247,7 +270,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create SilkRoad Life Suite test user
 
-In this section, you create a user called Britta Simon in SilkRoad Life Suite. Work with [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to add the users in the SilkRoad Life Suite platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in SilkRoad Life Suite. Work with [SilkRoad Life Suite Client support team](https://www.silkroad.com/locations/) to add the users in the SilkRoad Life Suite platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
