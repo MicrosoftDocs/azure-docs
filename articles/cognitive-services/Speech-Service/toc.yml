@@ -136,8 +136,10 @@
         href: how-to-custom-speech.md
       - name: Prepare data
         href: how-to-custom-speech-test-data.md
-      - name: Inspect and evaluate data
+      - name: Inspect data
         href: how-to-custom-speech-inspect-data.md
+      - name: Evaluate accuracy
+        href: how-to-custom-speech-evaluate-data.md
       - name: Train a custom model
         href: how-to-custom-speech-train-model.md
       - name: Deploy a custom model

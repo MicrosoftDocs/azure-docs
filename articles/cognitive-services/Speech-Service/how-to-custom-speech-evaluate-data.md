@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Evaluate Custom Speech accuracy
 
-In this section you'll learn how to quantitatively measure the quality of Microsoft's speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
+In this document you'll learn how to quantitatively measure the quality of Microsoft's speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided.
 
 ## What is Word Error Rate (WER)?
 
