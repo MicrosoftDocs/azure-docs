@@ -12,7 +12,7 @@ ms.author: alkarche
 ---
 # Integrate a function app with an Azure virtual network
 
-This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network.
+This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network.
 
 For this tutorial, we'll deploy a WordPress site on a VM in a virtual network that's not accessible from the internet. We'll then deploy a function with access to both the internet and the virtual network. We'll use that function to access resources from the WordPress site deployed inside the virtual network.
 
