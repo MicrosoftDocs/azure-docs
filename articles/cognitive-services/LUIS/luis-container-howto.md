@@ -216,7 +216,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 | Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | This key is used to start the container. Do not use the starter key. |
-|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's `Cognitive Services` Overview page.|
+|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's `Cognitive Services` Overview page. You need to add the `luis/v2.0` routing to the endpoint URI as shown in the following example: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 

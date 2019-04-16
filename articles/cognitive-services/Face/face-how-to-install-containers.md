@@ -81,8 +81,10 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | This key is used to start the container, and is available on the Azure portal's Face API Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Face API Overview page.|
+|{BILLING_KEY} | This key is used to start the container, and is available on the Azure `Cognitive Services` Keys page.  |
+|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure `Cognitive Services` Overview page. Example is: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+
+You need to add the `face/v1.0` routing to the endpoint URI as shown in the preceding BILLING_ENDPOINT_URI example. 
 
 Replace these parameters with your own values in the following example `docker run` command.
 
