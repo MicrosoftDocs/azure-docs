@@ -79,6 +79,7 @@
     - name: Use portal for workspaces
       href: how-to-manage-workspace.md
     - name: Use a Resource Manager template
+      displayName: arm
       href: how-to-create-workspace-template.md
   - name: Set up development environment 
     items:
