@@ -72,18 +72,13 @@ A function will contain the actual script of yours that will get executed.
 To create a function, run the following command:
 
 ```powershell
-func new -t HttpTrigger -n MyHttpTrigger
+func new -template HttpTrigger -name MyHttpTrigger
 ```
-
-> [!NOTE]
-> * The `-l` stands for the _language_ you would like to use
-> * The `-t` stands for the _template_ you would like to generate
-> * The `-n` stands for the _name_ of the function you are creating
 
 You should see something like:
 
 ```output
-PS > func new -t HttpTrigger -n MyHttpTrigger
+PS > func new -template HttpTrigger -name MyHttpTrigger
 Select a template: HttpTrigger
 Function name: [HttpTrigger] Writing .../MyFunctionProj/MyHttpTrigger/run.ps1
 Writing .../MyFunctionProj/MyHttpTrigger/sample.dat
@@ -121,6 +116,7 @@ Mode                LastWriteTime         Length Name
 ------           11/1/18  5:41 PM             27 sample.dat
 ```
 
+TODO: move to non-quickstart
 Let's run through what each of these files do:
 
 * _.vscode_ - A folder that recommends VS Code extensions to the user
@@ -172,6 +168,7 @@ Http Functions:
         HttpTrigger: http://localhost:7071/api/HttpTrigger
 ```
 
+TODO: move to non-quickstart
 If you access `http://localhost:7071/api/MyHttpTrigger` using `Invoke-RestMethod`, you should get:
 
 ```output
@@ -193,6 +190,7 @@ PS > Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger?Name=PowerShell
 Hello PowerShell
 ```
 
+TODO: move to non-quickstart
 You can also copy the URL of your function from the output and paste it into your browser's address bar.
 Append the query string `?name=<yourname>` to this URL and execute the request:
 
@@ -214,22 +212,24 @@ There are two ways to create a new Function App in Azure:
 
 ### Creating the Function App
 
-1. Navigate to the Azure Portal using [this special link containing a feature flag](https://portal.azure.com/?websitesextension_powershell=true#create/Microsoft.FunctionApp).
+1. Navigate to the [Azure Portal](https://portal.azure.com).
 2. Click on "+ Create a resource":
 
-![create a resource](https://user-images.githubusercontent.com/2644648/47879512-0455a500-ddde-11e8-89dc-09ac187d2a24.png)
+![create a resource](./media/functions-create-first-function-powershell/azure-portal-create-resource.png)
 
-3. Enter "Function App" in the search box and hit Enter, or select "Serverless Function App" if it's in the Popular section:
+3. Enter "Function App" in the search box and hit Enter:
 
-![search for "Function App"](https://user-images.githubusercontent.com/2644648/47879643-60b8c480-ddde-11e8-8e46-c8662148b0f1.png)
+![search for "Function App"](./media/functions-create-first-function-powershell/azure-portal-search-function-app.png)
 
 4. Select "Function App" in the search results:
 
-![select "Function App" in the search results](https://user-images.githubusercontent.com/2644648/47879805-c5741f00-ddde-11e8-9c3c-eb9cd52690fd.png)
+![select "Function App" in the search results](./media/functions-create-first-function-powershell/azure-portal-search-results-function-app.png)
+
 
 5. Click "Create" at the bottom:
 
-![Click "Create"](https://user-images.githubusercontent.com/2644648/47879839-e0469380-ddde-11e8-8135-6a6c60d784f0.png)
+![Click "Create"](./media/functions-create-first-function-powershell/azure-portal-create-function-app.png)
+
 
 6. Fill in the following for the form and then click "Create":
 
@@ -248,11 +248,12 @@ There are two ways to create a new Function App in Azure:
 > Currently Linux is also supported, but is limited to the dedicated plan as opposed to the consumption plan.
 For more information on the different plans, see the [official hosting documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
 
-![form](https://user-images.githubusercontent.com/2644648/47880194-d40f0600-dddf-11e8-96fa-0e598e2bf4f4.png)
+![form](./media/functions-create-first-function-powershell/azure-portal-create-details-function-app.png)
 
 As soon as it's deployed, you now have a function app configured to run PowerShell!
 Now you need to [publish a local PowerShell function app](#Deploy-the-function-app-project-to-Azure) to this deployed function app.
 
+TODO: move out to `azure-quickstart-templates`
 ## ARM Template
 
 You can also deploy the following ARM template with
@@ -264,6 +265,7 @@ This ARM template will:
 - Create an Azure Storage Account if it does not exist
 - Create an Azure Function App with the correct Application and Container settings
 
+TODO: move out
 ### Windows Consumption `template.json`
 
 First, save the following file as something like `template.json`:
@@ -416,6 +418,7 @@ $TemplateParams = @{"functionAppName" = "contosofunctionapp"}
 New-AzResourceGroupDeployment -ResourceGroupName “ContosoGroup” -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
 ```
 
+TODO: move out
 ### Linux Dedicated `template.json`
 
 _template.json_
@@ -612,6 +615,7 @@ Login-AzAccount
 
 Once you login, you're ready to publish!
 
+TODO: move out
 #### Azure CLI
 
 You can also login using the Azure CLI instead of Azure PowerShell:
