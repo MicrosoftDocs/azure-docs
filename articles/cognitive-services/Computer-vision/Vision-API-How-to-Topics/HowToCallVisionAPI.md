@@ -43,8 +43,7 @@ Features are broken down on:
 
 Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
 
-To obtain a subscription key, see [How to Obtain Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md
-).
+To obtain a free trial key, see [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 1. Passing the subscription key through a query string, see below as a Computer Vision API example:
 
