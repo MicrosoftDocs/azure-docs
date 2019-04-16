@@ -23,12 +23,12 @@ Reader role. We will also be introducing a new ‘HDInisght Cluster Operator’ 
 that will be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
-| Role                                  | Previously                                                                                       | Now       |   |   |
-|---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|---|---|
+| Role                                  | Previously                                                                                       | Now       |
+|---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
 | Reader                                | - Read access, including secrets                                                                   | - Read access, **excluding** secrets |           |   |   |
 | HDInsight Cluster Operator<br>(New Role) | N/A                                                                                              | - Read/write access, including secrets         |   |   |
-| Contributor                           | - Read/write access, including secrets<br>- Create and manage all of types of Azure resources.     | No change |   |   |
-| Owner                                 | - Read/write access including secrets<br>- Full access to all resources<br>- Delegate access to others | No change |   |   |
+| Contributor                           | - Read/write access, including secrets<br>- Create and manage all of types of Azure resources.     | No change |
+| Owner                                 | - Read/write access including secrets<br>- Full access to all resources<br>- Delegate access to others | No change |
 
 ## Am I affected by these changes?
 
