@@ -10,13 +10,13 @@
     href: data-lake-store-comparison-with-blob-storage.md
   - name: Processing big data
     href: data-lake-store-data-scenarios.md
-  - name: Working with open source applications
+  - name: Working with open-source applications
     href: data-lake-store-compatible-oss-other-applications.md
   - name: Best practices
     href: data-lake-store-best-practices.md
 - name: Get started
   items:
-  - name: Using Azure Portal
+  - name: Using Azure portal
     href: data-lake-store-get-started-portal.md
   - name: Using Azure PowerShell
     href: data-lake-store-get-started-powershell.md
