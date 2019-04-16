@@ -27,7 +27,7 @@ Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](d
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 
 * No need to directly use the OAuth libraries or code against the protocol in your application.
-* Acquires tokens on behalf of a user or on behalf of an application.
+* Acquires tokens on behalf of a user or on behalf of an application (when applicable to the platform).
 * Maintains a token cache and refreshes tokens for you when they are close to expire. You don't need to handle token expiration on your own.
 * Helps you specify which audience you want your application to sign in (your org, several orgs, work, and school and Microsoft personal accounts, social identities with Azure AD B2C, users in sovereign, and national clouds).
 * Helps you set up your application from configuration files.
@@ -38,12 +38,12 @@ Using MSAL, a token can be acquired from a number of application types: web appl
 
 MSAL can be used in many authentication scenarios, including the following:
 
-* Web Application signing in a user and calling a Web API in the name of the user
-* Mobile application calling a Web API in the name of the user who's signed-in interactively.
+* Web Application signing in a user and calling a Web API on behalf of the user
+* Mobile application calling a Web API on behalf of the user who's signed-in interactively.
 * Desktop/service daemon application calling Web API in without a user (in its own name)
-* Desktop application calling a Web API in the name of the signed-in user
-* Application without a browser, or iOT application calling an API in the name of the user
-* Web API calling another downstream Web API in the name of the user for whom it was called
+* Desktop application calling a Web API on behalf of the signed-in user
+* Application without a browser, or iOT application calling an API on behalf of the user
+* Web API calling another downstream Web API on behalf of the user for whom it was called
 * Web API calling another API in its own name.
 
 ## Supports multiple languages and frameworks
