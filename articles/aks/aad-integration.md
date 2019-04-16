@@ -145,15 +145,17 @@ First, use the [az aks get-credentials][az-aks-get-credentials] command with the
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-Next, use the following manifest to create a ClusterRoleBinding for an Azure AD account. This example gives the account full access to all namespaces of the cluster. 
+Next, create a ClusterRoleBinding for an Azure AD account that you want to grant access to the AKS cluster. The following example gives the account full access to all namespaces in the cluster.
 
-Get the *objectId* of the required user account using the [az ad user show][az-ad-user-show] command. Provide the user principal name (UPN) of the required account:
+- If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the user principal name (UPN). Move on to the step to create the YAML manifest for the ClusterRuleBinding.
 
-```azurecli-interactive
-az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
-```
+- If the user is in a different Azure AD tenant, query for and use the *objectId* property instead. If needed, get the *objectId* of the required user account using the [az ad user show][az-ad-user-show] command. Provide the user principal name (UPN) of the required account:
 
-Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. Update the user name with the object ID of your user account from Azure AD obtained in the previous step :
+    ```azurecli-interactive
+    az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
+    ```
+
+Create a file, such as *rbac-aad-user.yaml*, and paste the following contents. On the last line, replace *userPrincipalName_or_objectId*  with the UPN or object ID depending on if the user is the same Azure AD tenant or not.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -167,7 +169,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: "947026ec-9463-4193-c08d-4c516e1f9f52"
+  name: userPrincipalName_or_objectId
 ```
 
 Apply the binding using the [kubectl apply][kubectl-apply] command as shown in the following example:

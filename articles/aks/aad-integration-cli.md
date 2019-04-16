@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/16/2019
 ms.author: iainfou
 ---
 
@@ -155,13 +155,16 @@ az aks get-credentials --resource-group myResourceGroup --name $aksname --admin
 
 Before an Azure Active Directory account can be used with the AKS cluster, a role binding or cluster role binding needs to be created. *Roles* define the permissions to grant, and *bindings* apply them to desired users. These assignments can be applied to a given namespace, or across the entire cluster. For more information, see [Using RBAC authorization][rbac-authorization].
 
-Get the object ID for the user currently logged in using the [az ad signed-in-user show][az-ad-signed-in-user-show] command. This user account is enabled for Azure AD integration in the next step.
+Get the user principal name (UPN) for the user currently logged in using the [az ad signed-in-user show][az-ad-signed-in-user-show] command. This user account is enabled for Azure AD integration in the next step.
 
 ```azurecli-interactive
-az ad signed-in-user show --query objectId -o tsv
+az ad signed-in-user show --query userPrincipalName -o tsv
 ```
 
-Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace *userObjectId*  with the user object ID output from the previous command:
+> [!IMPORTANT]
+> If the user you grant the RBAC binding for is in the same Azure AD tenant, assign permissions based on the *userPrincipalName*. If the user is in a different Azure AD tenant, query for and use the *objectId* property instead.
+
+Create a YAML manifest named `basic-azure-ad-binding.yaml` and paste the following contents. On the last line, replace *userPrincipalName_or_objectId*  with the UPN or object ID output from the previous command:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -175,7 +178,7 @@ roleRef:
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
-  name: userObjectId
+  name: userPrincipalName_or_objectId
 ```
 
 Create the ClusterRoleBinding using the [kubectl apply][kubectl-apply] command and specify the filename of your YAML manifest:
