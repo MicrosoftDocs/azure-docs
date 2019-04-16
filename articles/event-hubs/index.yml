@@ -43,6 +43,10 @@ sections:
         src: /azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/event-hubs/event-hubs-quickstart-powershell
+    - image:
+        src: /azure/event-hubs/media/index/logo_arm.svg
+      text: Azure Resource Manager template
+      href: /azure/event-hubs/event-hubs-resource-manager-namespace-event-hub
   - type: paragraph
     text: 'Learn how to <b>send events to</b> and <b>receive events from</b> an event hub:'
   - type: list
@@ -102,7 +106,7 @@ sections:
     - title: Enable reliable messaging for Big Data Applications using Azure Event Hubs
       href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
       image: 
-        src: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
+        src: https://docs.microsoft.com/learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
         href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-event-hubs">More interactive learning...</a>
