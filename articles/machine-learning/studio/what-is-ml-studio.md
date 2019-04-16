@@ -24,7 +24,7 @@ Machine Learning Studio is where data science, predictive analytics, cloud resou
 
 
 ## The Machine Learning Studio interactive workspace
-To develop a predictive analysis model, you typically use data from one or more sources, transform and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
+To develop a predictive analysis model, you typically use data from one or more sources, transform, and analyze that data through various data manipulation and statistical functions, and generate a set of results. Developing a model like this is an iterative process. As you modify the various functions and their parameters, your results converge until you are satisfied that you have a trained, effective model.
 
 **Azure Machine Learning Studio** gives you an interactive, visual workspace to easily build, test, and iterate on a predictive analysis model. You drag-and-drop ***datasets*** and analysis ***modules*** onto an interactive canvas, connecting them together to form an ***experiment***, which you run in Machine Learning Studio. To iterate on your model design, you edit the experiment, save a copy if desired, and run it again. When you're ready, you can convert your ***training experiment*** to a ***predictive experiment***, and then publish it as a ***web service*** so that your model can be accessed by others.
 
@@ -39,7 +39,7 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## Get started with Machine Learning Studio
-When you first enter [Machine Learning Studio](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
+When you first enter Machine Learning Studio,](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
 
 Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
 ### Azure Machine Learning Studio
@@ -82,7 +82,7 @@ A dataset is data that has been uploaded to Machine Learning Studio so that it c
 * **Breast cancer data** - Breast cancer diagnosis data.
 * **Forest fires data** - Forest fire sizes in northeast Portugal.
 
-As you build an experiment you can choose from the list of datasets available to the left of the canvas.
+As you build an experiment, you can choose from the list of datasets available to the left of the canvas.
 
 For a list of sample datasets included in Machine Learning Studio, see [Use the sample data sets in Azure Machine Learning Studio](use-sample-datasets.md).
 
@@ -108,9 +108,7 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 
 [Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
-There is also a visual interface for Azure Machine Learning service (Public Preview), which allows you to build experiments with a drag-and-drop interface similar to Studio.  The visual interface fully integrates with Azure Machine Learning service.
-
-The visual interface for Azure Machine Learning service starts with the some of the most popular built-in modules from Studio. Additional modules will be added over time. Expanding from what Studio has, there will be new modules added such as deep learning. Modules that are rarely used in Studio may not show up in Azure Machine Learning service.
+For users who prefer a drag-and-drop experience, there is a visual interface (Preview) for Azure Machine Learning service, which allows you to build experiments.  The interface is similar to Studio.  The visual interface fully integrates with Azure Machine Learning service. The first preview release of the visual interface includes an initial set of the most popular built-in modules from Studio. 
 
 Here is a quick comparison:
 
