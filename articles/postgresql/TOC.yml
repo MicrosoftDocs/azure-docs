@@ -31,17 +31,23 @@
       href: connect-go.md
 - name: Tutorials
   items:
-  - name: 1 - Design a Database
+  - name: Single server
     items:
-    - name: Azure portal
-      href: tutorial-design-database-using-azure-portal.md
-    - name: Azure CLI
-      href: tutorial-design-database-using-azure-cli.md
-  - name: 2 - Design Web App - Python
-    href: ../app-service/containers/tutorial-python-postgresql-app.md
-    maintainContext: true
-  - name: 3 - Monitor and tune
-    href: tutorial-monitor-and-tune.md
+    - name: 1 - Design a Database
+      items:
+      - name: Azure portal
+        href: tutorial-design-database-using-azure-portal.md
+      - name: Azure CLI
+        href: tutorial-design-database-using-azure-cli.md
+    - name: 2 - Design Web App - Python
+      href: ../app-service/containers/tutorial-python-postgresql-app.md
+      maintainContext: true
+    - name: 3 - Monitor and tune
+      href: tutorial-monitor-and-tune.md
+  - name: Hyperscale (Citus)
+    items:
+    - name: Design a real-time dashboard
+      href: hyperscale-tutorial-rt.md
 - name: Samples
   items:
   - name: Azure CLI
