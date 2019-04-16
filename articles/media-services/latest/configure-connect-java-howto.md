@@ -121,6 +121,6 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 ## Next steps
 
-You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` and start manipulating entities.<br/>
+You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` and start manipulating entities.<br/>
 For example get all assets in your account: `Observable<Asset> asyncAssets = 
                     manager.assets().listAsync(groupId, accountId).last();`
