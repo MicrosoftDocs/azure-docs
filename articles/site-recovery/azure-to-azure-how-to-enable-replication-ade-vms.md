@@ -55,9 +55,9 @@ If the user who's enabling disaster recovery (DR) doesn't have permissions to co
 To troubleshoot permissions, refer to [key vault permission issues](#trusted-root-certificates-error-code-151066) later in this article.
 
 >[!NOTE]
->To enable replication of ADE VMs from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
+>To enable replication of Disk Encryption-enabled VMs from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
 
-## Copy ADE keys to the DR region by using the PowerShell script
+## Copy Disk Encryption keys to the DR region by using the PowerShell script
 
 1. [Open the "CopyKeys" raw script code](https://aka.ms/ade-asr-copy-keys-code).
 2. Copy the script to a file, and name it **Copy-keys.ps1**.
