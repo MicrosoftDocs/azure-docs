@@ -134,7 +134,7 @@ To configure Azure AD single sign-on with Kantega SSO for JIRA, perform the foll
 
 ### Configure Kantega SSO for JIRA Single Sign-On
 
-1. In a different web browser window, log in to your JIRA on-premises server as an administrator.
+1. In a different web browser window, sign in to your JIRA on-premises server as an administrator.
 
 1. Hover on cog and click the **Add-ons**.
 
