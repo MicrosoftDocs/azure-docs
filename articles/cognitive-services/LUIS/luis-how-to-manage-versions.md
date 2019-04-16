@@ -19,7 +19,7 @@ Versions allow you to build and publish different models. A good practice is to 
 
 To work with versions, open your app by selecting its name on **My Apps** page, and then select **Manage** in the top bar, then select **Versions** in the left navigation. 
 
-The list of versions show which versions are published, where they are published, and which version is currently active. 
+The list of versions shows which versions are published, where they are published, and which version is currently active. 
 
 [![Manage section, versions page](./media/luis-how-to-manage-versions/versions-import.png "Manage section, versions page")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
