@@ -109,7 +109,7 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 }
 ```
 
-## Detect anomalies as a batch
+## Send an ink recognition request
 
 1. Create a method called `recognizeInk()` to detect recognize your ink stroke data. Call the `sendRequest()` method created above with your endpoint, url, subscription key, and json data. Get the result, and print it to the console.
 
@@ -121,7 +121,7 @@ static void recognizeInk(String requestData) {
 }
 ```
 
-## Load your time series data and send the request
+## Load your digital ink data and send the request
 
 1. In the main method of your application, read in the JSON file containing the data that will be added to the requests.
 

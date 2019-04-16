@@ -90,17 +90,7 @@ static async Task<string> Request(string baseAddress, string endpoint, string su
 }
 ```
 
-## Detect anomalies as a batch
-
-1. Create a new function called `detectAnomaliesBatch()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for batch anomaly detection, and the time series data.
-
-2. Deserialize the JSON object, and write it to the console.
-
-3. Find the positions of anomalies in the data set. The response's `isAnomaly` field contains an array of boolean values, each of which indicates whether a data point is an anomaly. Convert this to a string array with the response object's `ToObject<bool[]>()` function.
-
-4. Iterate through the array, and print the index of any `true` values. These values correspond to the index of anomalous data points, if any were found.
-
-## Detect the anomaly status of the latest data point
+## Send an ink recognition request
 
 1. Create a new function called `recognizeInk()`. Construct the request and send it by calling the `Request()` function with your endpoint, subscription key, the URL for the API, and the digital ink stroke data.
 
