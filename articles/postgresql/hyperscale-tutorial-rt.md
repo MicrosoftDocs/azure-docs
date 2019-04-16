@@ -1,5 +1,5 @@
 ---
-title: 'Design a Real-Time Dashboards with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
+title: 'Design a Real-Time Dashboard with Azure Database for PostgreSQL – Hyperscale (Citus) (preview) tutorial'
 description: This tutorial shows how to create, populate, and query distributed tables on Azure Database for PostgreSQL Hyperscale (Citus) (preview).
 author: craigkerstiens
 ms.author: craigkerstiens
@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 04/09/2019
 ---
 
-# Tutorial: Design a Real-Time Analytics Dashboards by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
+# Tutorial: Design a Real-Time Analytics Dashboard by using Azure Database for PostgreSQL – Hyperscale (Citus) (preview)
 
 In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (preview) to learn how to:
 
@@ -18,7 +18,7 @@ In this tutorial, you use Azure Database for PostgreSQL - Hyperscale (Citus) (pr
 > * Create a Hyperscale (Citus) server group
 > * Use psql utility to create a schema
 > * Shard tables across nodes
-> * Ingest sample data
+> * Generate sample data
 > * Perform rollups
 > * Query raw and aggregated data
 > * Expire data
@@ -110,7 +110,7 @@ CREATE TABLE http_request (
 );
 ```
 
-We're also going to create a table that will hold our minutely aggregates, and a table that maintains the position of our last rollup:
+We're also going to create a table that will hold our per-minute aggregates, and a table that maintains the position of our last rollup:
 
 ```sql
 CREATE TABLE http_request_1min (
@@ -152,11 +152,10 @@ SELECT create_distributed_table('http_request',      'site_id');
 SELECT create_distributed_table('http_request_1min', 'site_id');
 ```
 
-## Ingest sample data
+## Generate sample data
 
 Now our server group should be ready to ingest some data. We can run the 
-following locally from our `psql` connection to continuously insert data
-every few seconds:
+following locally from our `psql` connection to continuously insert data.
 
 ```sql
 DO $$
@@ -182,14 +181,20 @@ DO $$
 END $$;
 ```
 
-This data will now be spread across worker nodes.
+The query adds a row approximately every quarter second. The rows are stored on different worker nodes as directed by the distribution column, `site_id`.
 
-## Query tenant data
+   > [!NOTE]
+   > Leave the data generation query running, and open a second psql
+   > connection for the remaining commands in this tutorial.
+   >
 
-When the application requests data for a single tenant, the database
-can execute the query on a single worker node. Single-tenant queries
-filter by a single tenant ID. For example, the following query
-filters `company_id = 5` for ads and impressions:
+## Query 
+
+The hyperscale hosting option allows multiple nodes to process queries in
+parallel for speed. For instance, the database calculates aggregates like SUM
+and COUNT on worker nodes, and combines the results into a final answer.
+
+Here's a query to count web requests per minute along with a few statistics:
 
 ```sql
 SELECT
@@ -207,14 +212,17 @@ ORDER BY minute ASC;
 
 ## Performing rollups
 
-The above queries work fine in early stages, but as your data scales the 
-performance will decrease. We can ensure our dashboard stays performant by 
-regularly rolling up the raw data into our aggregate table. In this case we 
-will roll up into our one minute aggregation table, but you could also have 
-aggregations of 5 minutes, 15 minutes, one hour, and so on. 
+The above query works fine in the early stages, but its performance
+will decrease as your data scales. Even with distributed processing
+it's faster to pre-compute this data than recalculate it repeatedly.
 
-Because we will continually run this roll up we're going to create a function
-to perform it:
+We can ensure our dashboard stays fast by regularly rolling up the
+raw data into an aggregate table. In this case we will roll up into
+our one minute aggregation table, but you could also have aggregations
+of 5 minutes, 15 minutes, one hour, and so on.
+
+Because we will continually run this roll-up we're going to create
+a function to perform it:
 
 ```sql
 -- initialize to a time long ago
