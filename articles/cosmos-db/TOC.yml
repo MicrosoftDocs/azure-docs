@@ -487,6 +487,10 @@
         items:
         - name: Manage indexing
           href: how-to-manage-indexing-policy.md
+    - name: Change Feed
+      items:
+      - name: Multiple Cosmos DB Triggers
+        href: how-to-create-multiple-cosmosdb-triggers.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
@@ -606,10 +610,6 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-    - name: Change Feed
-      items:
-      - name: Multiple Cosmos DB Triggers
-        href: how-to-multiple-triggers.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK
