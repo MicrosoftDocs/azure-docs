@@ -26,8 +26,8 @@
       href: quickstart-run-local-notebook.md
   - name: Visual interface
     items:
-    - name: Create an experiment
-      displayName: visualize drag-and-drop
+    - name: Prepare and visualize data
+      displayName: experiment drag-and-drop
       href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
