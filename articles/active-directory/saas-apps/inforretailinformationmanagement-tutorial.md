@@ -103,8 +103,9 @@ To configure Azure AD single sign-on with Infor Retail – Information Managemen
     ![Infor Retail – Information Management Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	|	|
-	| -- |
+	
+	| |
+	|--|
 	| `https://<company name>.mingle.infor.com` |
 	| `http://<company name>.mingledev.infor.com` |
 
