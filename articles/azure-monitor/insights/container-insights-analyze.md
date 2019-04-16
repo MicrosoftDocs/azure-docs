@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: magoedte
 ---
 
@@ -35,8 +35,9 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-1. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
-1. How many nodes, user and system pods are deployed per cluster.  
+2. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
+3. How many nodes, user and system pods are deployed per cluster?
+4. How much disk space is available and is there a capacity issue?
 
 The health statuses included are: 
 
@@ -128,7 +129,7 @@ When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatic
 
 As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
-Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
+Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
 ![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
