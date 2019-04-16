@@ -68,7 +68,7 @@ The zone redundant version of the high availability architecture is illustrated 
 
 ## Conclusion
 
-Azure SQL Database features a built-in high availability solution, that is deeply integration with the Azure platform. It is dependent on Service Fabric for failure detection and recovery, on Azure Blob storage for data protection and on Availability Zones for higher fault tolerance. In addition, Azure SQL database leverages the Always On Availability Group technology from SQL Server product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs.
+Azure SQL Database features a built-in high availability solution, that is deeply integration with the Azure platform. It is dependent on Service Fabric for failure detection and recovery, on Azure Blob storage for data protection, and on Availability Zones for higher fault tolerance. In addition, Azure SQL database leverages the Always On Availability Group technology from SQL Server product for replication and failover. The combination of these technologies enables the applications to fully realize the benefits of a mixed storage model and support the most demanding SLAs.
 
 ## Next steps
 
