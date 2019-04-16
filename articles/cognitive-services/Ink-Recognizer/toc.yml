@@ -10,9 +10,9 @@
   - name: Quickstarts
     items:
     - name: C#
-      href: quickstart-ink-recognizer-csharp.md
-    - name: Javascript
-      href: quickstart-ink-recognizer-javascript.md
+      href: quickstarts/csharp.md
+    - name: Java
+      href: quickstarts/java.md
   - name: Concepts
     items:
     - name: Send ink data to the Ink Recognizer API 

@@ -14,7 +14,9 @@ ms.author: erhopf
 
 # What is the Ink Recognizer API?
 
+
 The Ink Recognizer Cognitive Service provides cloud-based REST APIs to analyze and recognize digital ink content. Unlike services that provide Optical Character Recognition (OCR), this service requires digital ink stroke data as input. Digital ink strokes are time-ordered sets of 2D points (X,Y coordinates) that represent the motion of input tools such as digital pen, fingers or stylus. It then recognizes the shapes and handwritten content from the input and provides a document structure with all recognized entities as the output.
+
 
 ![A flowchart describing sending an ink stroke input to the API](media/ink-recognizer-pen-graph.png)
 
@@ -33,12 +35,15 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 
 The Ink Recognizer API is a RESTful web service, making it easy to call from any programming language that can make HTTP requests and parse JSON.
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
 After signing up:
 
-1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/anomaly-detection-best-practices.md) when preparing your data to get the best results.
-1. Send a request to the Anomaly Detector API with your data.
+1. Take your time series data and convert it into a valid JSON format. Use [best practices](concepts/recommended-calling-patterns.md) when preparing your data to get the best results.
+1. Send a request to the Ink Recognizer API with your data.
 1. Process the API response by parsing the returned JSON message.
 
 ## Next steps
+
+Try a [quickstart](quickstarts/csharp.md) to begin making calls to the Ink Recognizer API.
+
