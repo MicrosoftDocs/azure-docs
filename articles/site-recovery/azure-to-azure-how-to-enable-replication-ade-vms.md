@@ -48,7 +48,7 @@ To manage permissions, go to the key vault resource in the portal. Add the requi
 
 2. You can see that there are no user permissions. Select **Add new**. Enter the user and permissions information.
 
-![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
+   ![keyvault permissions](./media/azure-to-azure-how-to-enable-replication-ade-vms/key-vault-permission-2.png)
 
 If the user who's enabling disaster recovery (DR) doesn't have permissions to copy the keys, a security administrator who has appropriate permissions can use the following script to copy the encryption secrets and keys to the target region.
 
@@ -82,7 +82,7 @@ For this example, the primary Azure region is East Asia, and the secondary regio
 2. Note the following fields.
     - **Source**: The point of origin of the VMs, which in this case is **Azure**.
     - **Source location**: The Azure region where you want to protect your virtual machines. For this example, the source location is "East Asia."
-    - **Deployment model**: Azure deployment model of the source machines.
+    - **Deployment model**: The Azure deployment model of the source machines.
     - **Source subscription**: The subscription to which your source virtual machines belong. It can be any subscription that's in the same Azure Active Directory tenant as your recovery services vault.
     - **Resource Group**: The resource group to which your source virtual machines belong. All the VMs in the selected resource group are listed for protection in the next step.
 
@@ -135,14 +135,14 @@ You can use [a script](#copy-ade-keys-to-the-dr-region-by-using-powershell-scrip
 
 ## <a id="trusted-root-certificates-error-code-151066"></a>Troubleshoot key vault permission issues during  Azure-to-Azure VM replication
 
-**Cause 1:** You might have selected from the target region an already-created key vault that doesn't have the required permissions instead of Site Recovery creating one. Make sure that the key vault has the require permissions, as described earlier.
+**Cause 1:** You might have selected from the target region an already-created key vault that doesn't have the required permissions instead of letting Site Recovery create one. Make sure that the key vault has the require permissions, as described earlier.
 
 *For example*: You try to replicate a VM that has key vault *ContososourceKeyvault* on a source region.
 You have all the permissions on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions. An error occurs.
 
 **How to fix:** Got to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
 
-**Cause 2:** You might have selected an already-created key vault from the target region that doesn't have decrypt-encrypt permissions instead of letting Site Recovery create one. Make sure that you have decrypt-encrypt permissions if you're also encrypting the key on the source region.</br>
+**Cause 2:** You might have selected from the target region an already-created key vault that doesn't have decrypt-encrypt permissions instead of letting Site Recovery create one. Make sure that you have decrypt-encrypt permissions if you're also encrypting the key on the source region.</br>
 
 *For example*: You try to replicate a VM that has a key vault *ContososourceKeyvault* on the source region. You have all the necessary permission on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions to decrypt and encrypt. An error occurs.</br>
 
