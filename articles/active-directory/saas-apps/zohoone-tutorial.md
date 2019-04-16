@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: jeedes
 
 ---
@@ -107,6 +107,9 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://accounts.zoho.com/samlresponse/<saml-identifier>`
 
+	> [!NOTE]
+	> The preceding **Reply URL** value is not real. You will get the `<saml-identifier>` value from #step4 of **Configure Zoho One Single Sign-On** section , which is explained later in the tutorial.
+
 	c. Click **Set additional URLs**.
 
 	d. In the **Relay State** text box, type a URL:
@@ -121,7 +124,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
     `https://accounts.zoho.com/samlauthrequest/<domain_name>?serviceurl=https://one.zoho.com` 
 
     > [!NOTE] 
-	> The preceding **Reply URL** and **Sign-on URL** value is not real. You will update the value with the actual Reply URL and Sign-On URL which is explained later in the tutorial. 
+	> The preceding **Sign-on URL** value is not real. You will update the value with the actual Sign-On URL from the **Configure Zoho One Single Sign-On** section, which is explained later in the tutorial. 
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -157,7 +160,7 @@ To configure Azure AD single sign-on with Zoho One, perform the following steps:
 
 	d. Click **Save**.
 
-4. After saving the SAML Authentication setup, copy the **SAML-Identfier** value and use this value in the **Reply URL** in the Azure portal, under **Basic SAML Configuration** section.
+4. After saving the SAML Authentication setup, copy the **SAML-Identfier** value and append it with the **Reply URL** in place of `<saml-identifier>`, like `https://accounts.zoho.com/samlresponse/one.zoho.com` and paste the generated value in the **Reply URL** textbox under **Basic SAML Configuration** section.
 
 	![Zoho One saml](./media/zohoone-tutorial/tutorial_zohoone_samlidenti.png)
 
@@ -194,7 +197,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
