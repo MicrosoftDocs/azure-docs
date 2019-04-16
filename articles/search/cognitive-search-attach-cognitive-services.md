@@ -59,7 +59,7 @@ You are only charged for skills that call the Cognitive Services APIs. Non-API-b
 
 1. In Pricing tier, choose **S0** to get the all-in-one collection of Cognitive Services features, including the Vision and Language features that back the predefined skills used by Azure Search. 
 
-   For the S0 tier, you can find rates for specific workloads on the [Cognitive Services pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/).
+   For the S0 tier, you can find rates for specific workloads on the [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
   
    + In **Select Offer**, make sure that *Cognitive Services* is selected.
    + Under Language features, the rates for *Text Analytics Standard* apply to AI indexing. 
