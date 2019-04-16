@@ -347,7 +347,7 @@ It would also be worth checking that you can actually see some disks after conne
 
 * Use the following command to rescan the SCSI bus:
   
-    `$ rescan-scsi-bus.sh `(part of sg3_utils package)
+    `$ rescan-scsi-bus.sh` (part of sg3_utils package)
 * Type the following commands:
   
     `$ dmesg | grep sd*`

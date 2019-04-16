@@ -7,6 +7,7 @@ metadata:
   meta.description: Learn how to use a managed instance in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
+  ms.reviewer: carlrab
   manager: craigg
   requires-business-manager-approval: false
   ms.service: sql-database
@@ -14,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: A managed instance in Azure SQL Database is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to the cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
@@ -78,6 +79,7 @@ sections:
     - html: Managed instances are protected with <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">built-in firewall</a>.
     - html: (Preview) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Re-create dropped databases using PowerShell</a> 
     - html: Geo-restore functionality enables you to <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restore your database to another data center using PowerShell</a>.
+    - html: (Preview) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Configure time zone</a> during instance creation.
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -114,7 +116,7 @@ sections:
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
+          - href: 
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
       - title: Point in time restore
         values:
@@ -126,7 +128,7 @@ sections:
         values:
           - href: 
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance/
+          - href: https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Recreate-dropped-database-on-Azure-SQL-Managed-Instance/ba-p/386285
           - href: 
 - title: Step-by-Step tutorials and learning materials
   items:
@@ -139,11 +141,11 @@ sections:
     - html: Learn about <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware characteristics and limitations</a>, <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">Transact-SQL language differences</a>, and <a href="/azure/sql-database/sql-database-managed-instance-create-manage">Transact-SQL, PowerShell, Azure CLI API for configuring managed instance<a/>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configure</a> Azure VNet where the managed instance will be deployed.
     - html: <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#validate-and-modify-an-existing-virtual-network">Validate</a> that your existing Azure VNet can be used to deploy managed instances.
-    - html: Connect to your instance using <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> or <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Point-to-site connection</a>, or <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Applications</a>.
+    - html: Connect to your instance using <a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-easiest-way-to-create-Azure-VM-that-can-access-your-Azure/ba-p/386247">Azure Virtual Machine</a> or <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Point-to-site connection</a>, or <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connect-app">Applications</a>.
     - html: Verify that your database can be migrated using <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Assistant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/20../../release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
     - html: Bring your databases to managed instance using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Native restore</a> or <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Move your SSIS packages to <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tabular models to <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, and SSRS reports to <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: Learn about the storage layer in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">General Purpose tier</a> and apply <a href="https://blogs.msdn.microsoft.com/sqlcat/20../../storage-performance-best-practices-and-considerations-for-azure-sql-db-managed-instance-general-purpose">storage performance best practices and considerations for General Purpose service tier</a>.
+    - html: Learn about the storage layer in <a href="https://medium.com/azure-sqldb-managed-instance/file-layout-in-general-purpose-azure-sql-managed-instance-cf21fff9c76c">General Purpose tier</a> and apply <a href="https://techcommunity.microsoft.com/t5/DataCAT/Storage-performance-best-practices-and-considerations-for-Azure/ba-p/305525">storage performance best practices and considerations for General Purpose service tier</a>.
     - html: Find the best practices and recommendations for <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">securing your instance</a>.
     - html: Find more <a href="sql-database-howto-managed-instance.md">How-to guides</a> that can help you configure your managed instance.
 - title: Reference
@@ -153,9 +155,11 @@ sections:
     className: cardsD
     items:
     - title: Blogs
-      html: '<p><a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/tag/managed-instance/">MSDN</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Medium</a></p>'
+      html: '<p><a href="https://techcommunity.microsoft.com/t5/Azure-SQL-Database/bg-p/Azure-SQL-Database/label-name/SQLServerStorageEngine">Techcommunity</a></p><p><a href="https://medium.com/azure-sqldb-managed-instance">Medium</a></p>'
     - title: Frequently asked questions
       html: <p><a href="https://stackoverflow.com/questions/tagged/azure-sql-managed-instance">Stack Overflow</a></p>
+    - title: Community channel
+      html: <p><a href="https://sqlcommunity.slack.com/messages/CH854GD7D/">Sql Community (Managed Instance)</a></p>
     - title: Training materials
       html: <p><a href="https://www.microsoft.com/handsonlabs/selfpacedlabs">Hands-on labs</a></p><p><a href="https://www.microsoft.com/handsonlabs/instructorledlabs">Instruction led labs</a></p>
 

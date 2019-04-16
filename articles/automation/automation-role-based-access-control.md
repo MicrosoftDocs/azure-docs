@@ -311,7 +311,7 @@ You can remove the access permission for a user who is not managing the Automati
 
 Role-based access can also be configured to an Automation account using the following [Azure PowerShell cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
+[Get-AzureRmRoleDefinition](/previous-versions/azure/mt603792(v=azure.100)) lists all RBAC roles that are available in Azure Active Directory. You can use this command along with the **Name** property to list all the actions that can be performed by a specific role.
 
 ```azurepowershell-interactive
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
@@ -330,7 +330,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) lists Azure AD RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments for the specified user as well as the groups the user is a member of.
+[Get-AzureRmRoleAssignment](/previous-versions/azure/mt619413(v=azure.100)) lists Azure AD RBAC role assignments at the specified scope. Without any parameters, this command returns all the role assignments made under the subscription. Use the **ExpandPrincipalGroups** parameter to list access assignments for the specified user as well as the groups the user is a member of.
     **Example:** Use the following command to list all the users and their roles within an automation account.
 
 ```azurepowershell-interactive
@@ -351,7 +351,7 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) to assign access to users, groups, and applications to a particular scope.
+[New-AzureRmRoleAssignment](/previous-versions/azure/mt603580(v=azure.100)) to assign access to users, groups, and applications to a particular scope.
     **Example:** Use the following command to assign the "Automation Operator" role for a user in the Automation account scope.
 
 ```azurepowershell-interactive
@@ -372,7 +372,7 @@ ObjectId           : f5ecbe87-1181-43d2-88d5-a8f5e9d8014e
 ObjectType         : User
 ```
 
-Use [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) to remove access of a specified user, group, or application from a particular scope.
+Use [Remove-AzureRmRoleAssignment](/previous-versions/azure/mt603781(v=azure.100)) to remove access of a specified user, group, or application from a particular scope.
     **Example:** Use the following command to remove the user from the “Automation Operator” role in the Automation account scope.
 
 ```azurepowershell-interactive

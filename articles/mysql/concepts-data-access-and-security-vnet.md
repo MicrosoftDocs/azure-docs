@@ -102,6 +102,8 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 
 For Azure Database for MySQL, the virtual network rules feature has the following limitations:
 
+- A Web App can be mapped to a private IP in a VNet/subnet. Even if service endpoints are turned ON from the given VNet/subnet, connections from the Web App to the server will have an Azure public IP source, not a VNet/subnet source. To enable connectivity from a Web App to a server that has VNet firewall rules, you must Allow Azure services to access server on the server.
+
 - In the firewall for your Azure Database for MySQL, each virtual network rule references a subnet. All these referenced subnets must be hosted in the same geographic region that hosts the Azure Database for MySQL.
 
 - Each Azure Database for MySQL server can have up to 128 ACL entries for any given virtual network.

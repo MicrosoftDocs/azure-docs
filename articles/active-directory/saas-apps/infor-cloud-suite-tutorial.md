@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	
 	| | |
 	|-|-|
-	| `	http://mingle-sso.inforcloudsuite.com`|
+	| `http://mingle-sso.inforcloudsuite.com`|
 	| `http://mingle-sso.se1.inforcloudsuite.com`|
 	| `http://mingle-sso.eu1.inforcloudsuite.com`|
 	| `http://mingle-sso.se2.inforcloudsuite.com`|
@@ -126,9 +126,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	| | |
 	|-|-|
-	| `	https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-	| `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-	| `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
+	| `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
+	| `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
+	| `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
 	| `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
 	| |
 
@@ -142,7 +142,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|-|-|
 	| `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
 	| `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-	| `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
+	| `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
 	| `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
 
 	> [!NOTE]

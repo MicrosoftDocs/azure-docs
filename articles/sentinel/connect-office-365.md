@@ -1,6 +1,6 @@
 ---
-title: Collect Office 365 data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Office 365 data in Azure Sentinel.
+title: Connect Office 365 data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Office 365 data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Office 365 Logs
+# Connect data from Office 365 Logs
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -30,11 +30,11 @@ You can stream audit logs from [Office 365](https://docs.microsoft.com/office365
 ## Prerequisites
 
 - You must be a global administrator or security administrator on your tenant
-- On your computer, from which you logged into Azure Sentinel to create the connection, make suretha port 4433 is open to web traffic.
+- On your computer, from which you logged into Azure Sentinel to create the connection, make sure that port 4433 is open to web traffic.
 
 ## Connect to Office 365
 
-1. In Azure Sentinel, select **Data collection** and then click the **Office 365** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Office 365** tile.
 
 2. If you have not already enabled it, under **Connection** use the **Enable** button to enable the Office 365 solution. If it was already enabled, it will be identified in the connection screen as already enabled.
 1. Office 365 enables you to stream data from multiple tenants to Azure Sentinel. For each tenant you want to connect to, add the tenant under **Connect tenants to Azure Sentinel**. 

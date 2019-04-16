@@ -13,10 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 03/29/2019
+ms.lastreviewed: 04/03/2019
 ms.custom: 
 
 ---
@@ -42,7 +42,7 @@ The following calculation results in the total, available memory that can be use
 
   Available Memory for VM placement = Total Server Memory – Resiliency Reserve – Memory used by running VMs - Azure Stack Infrastructure Overhead <sup>1</sup>
 
-  Resiliency reserve = H + R * (N-1) + V * (N-2)
+  Resiliency reserve = H + R * ((N-1) * H) + V * (N-2)
 
 > Where:
 > -	H = Size of single server memory

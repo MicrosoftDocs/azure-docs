@@ -88,7 +88,7 @@ If the set-up succeeds, you should see **azurestack** in your list of VPN connec
 
 Connect to the Azure Stack instance by using either of the following two methods:  
 
-* By using the `Connect-AzsVpn ` command: 
+* By using the `Connect-AzsVpn` command: 
     
   ```powershell
   Connect-AzsVpn `

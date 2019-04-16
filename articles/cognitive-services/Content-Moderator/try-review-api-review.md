@@ -146,7 +146,7 @@ Enter the REST call parameters as in the above section. For this step, **reviewI
 
 ![Review - Create console Get results](images/test-drive-review-3.PNG)
   
-Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the the review details in JSON format, like the following:
+Select **Send**. If the operation succeeds, the **Response status** is `200 OK`, and the **Response content** box displays the review details in JSON format, like the following:
 
 ```json
 {  
