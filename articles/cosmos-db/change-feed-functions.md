@@ -9,13 +9,13 @@ ms.author: rimman
 ms.reviewer: sngun
 ---
 
-# Serverless event-based flows with Azure Functions and Azure Cosmos DB
+# Serverless event-based architectures with Azure Cosmos DB and Azure Functions
 
-Azure Functions provides the simplest way to connect to the Change Feed. You can create small reactive Functions that will be automatically triggered on each new event in your Azure Cosmos DB container’s Change Feed.
+Azure Functions provides the simplest way to connect to the Change Feed. You can create small reactive Azure Functions that will be automatically triggered on each new event in your Azure Cosmos container's Change Feed.
 
 ![Serverless event-based Functions working with the Azure Cosmos DB Trigger](./media/change-feed-functions/functions.png)
 
-With the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), you can leverage the Change Feed Processor scalability and reliable event detection without the need to maintain any worker infrastructure. Just focus on what you want your Function to do and leave the heavy lifting to us. You can even mix the Trigger with any other [Azure Functions bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+With the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), you can leverage the [Change Feed Processor](./change-feed-processor.md) scalability and reliable event detection without the need to maintain any [worker infrastructure](./change-feed-processor.md#implementing-the-change-feed-processor-library). Just focus on your Azure Function's logic without worrying about the rest of the event-sourcing pipeline. You can even mix the Trigger with any other [Azure Functions bindings](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
 > Currently, the Azure Cosmos DB trigger is supported for use with the SQL(Core) API only.
@@ -24,12 +24,12 @@ With the [Azure Cosmos DB Trigger](../azure-functions/functions-bindings-cosmosd
 
 To implement a serverless event-based flow, you need:
 
-* **The monitored container**: The monitored container has the data from which the change feed is generated. Any inserts and changes to the monitored container are reflected in the change feed of the container.
-* **The lease container**: The lease container maintains state across multiple and dynamic serverless Function instances and enables dynamic scaling. This lease container can be pre-created or automatically created by the Azure Cosmos DB Trigger if you set the *CreateLeaseCollectionIfNotExists* flag in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Partitioned lease containers are required to have a `/id` Partition Key definition.
+* **The monitored container**: The monitored container is the Azure Cosmos container being monitored, and it stores the data from which the change feed is generated. Any inserts and changes (e.g., CRUD) to the monitored container are reflected in the change feed of the container.
+* **The lease container**: The lease container maintains state across multiple and dynamic serverless Azure Function instances and enables dynamic scaling. This lease container can be pre-created or automatically created by the Azure Cosmos DB Trigger, if you set the *CreateLeaseCollectionIfNotExists* flag in the [configuration](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Partitioned lease containers are required to have a `/id` partition key definition.
 
 ## Creating your Azure Cosmos DB Trigger
 
-Creating your Function with an Azure Cosmos DB Trigger is now supported across all Azure Functions IDE and CLI integrations:
+Creating your Azure Function with an Azure Cosmos DB Trigger is now supported across all Azure Functions IDE and CLI integrations:
 
 * [Visual Studio Extension](../azure-functions/functions-develop-vs.md) for Visual Studio users.
 * [Visual Studio Core Extension](https://code.visualstudio.com/tutorials/functions-extension/create-function) for Visual Studio Code users.
@@ -37,9 +37,9 @@ Creating your Function with an Azure Cosmos DB Trigger is now supported across a
 
 ## Running your Azure Cosmos DB Trigger locally
 
-You can run your [Azure Function locally](../azure-functions/functions-develop-local.md) with the [Azure Cosmos DB Emulator](./local-emulator.md) to create and develop your serverless event-based flows without an Azure Subscription.
+You can run your [Azure Function locally](../azure-functions/functions-develop-local.md) with the [Azure Cosmos DB Emulator](./local-emulator.md) to create and develop your serverless event-based flows without an Azure Subscription or incurring any costs.
 
-And if you want to test live scenarios, you can [Try Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without any credit card or Azure subscription required.
+If you want to test live scenarios in the cloud, you can [Try Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without any credit card or Azure subscription required.
 
 ## Next steps
 
