@@ -20,7 +20,7 @@ Resource move for Recovery Services vault is supported in Australia East, Austra
 
 ## Prerequisites for moving Recovery Services vault
 
-- During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](azure-resource-manager.md#resource-group-move-resources).
+- During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Only admin subscription has the permissions to move a vault.
 - For moving vault across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state should be enabled.
 - You must have permission to perform write operations on the target resource group.
