@@ -40,7 +40,7 @@ Switching between the two license models incurs **no downtime**, does not restar
  - Changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
  - Changing the licensing model is only enabled for Public Cloud installations.
  - Changing the licensing model is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you will run into an error similar to the following: 
-   ` The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the licensing mode, operations done through the SQL configuration blade, like automatic patching and backup, will no longer be considered supported.
+   `The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the licensing mode, operations done through the SQL configuration blade, like automatic patching and backup, will no longer be considered supported.
 
 ## Prerequisites
 
