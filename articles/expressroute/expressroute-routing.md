@@ -157,7 +157,7 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 | East US 2 | 12076:51005 | 12076:52005 | 12076:53005 |
 | West US | 12076:51006 | 12076:52006 | 12076:53006 |
 | West US 2 | 12076:51026 | 12076:52026 | 12076:53026 |
-| West Central US | 12076:51027 | 12076:520027 | 12076:53027 |
+| West Central US | 12076:51027 | 12076:52027 | 12076:53027 |
 | North Central US | 12076:51007 | 12076:52007 | 12076:53007 |
 | South Central US | 12076:51008 | 12076:52008 | 12076:53008 |
 | Central US | 12076:51009 | 12076:52009 | 12076:53009 |
