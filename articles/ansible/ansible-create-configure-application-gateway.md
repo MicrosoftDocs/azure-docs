@@ -14,9 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/) is a web traffic load balancer that enables you to manage traffic to your web applications.
-
-Ansible helps automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create an application gateway. It also teaches you how to use the gateway to manage traffic to two web servers that run in Azure container instances.
+[Azure Application Gateway](azure/application-gateway/overview) is a web traffic load balancer that enables you to manage traffic to your web applications. Based on the source IP address and port, traditional load balancers route traffic to a destination IP address and port. Application Gateway gives you a finer level of control where traffic can be routed based on the URL. For example, you could define that if `images` is URL's path, traffic is routed to a specific set of servers (known as a pool) configured for images.
 
 In this tutorial, Ansible is used to:
 
@@ -162,7 +160,7 @@ The following list explains the key values specified in the playbook:
 
 * `appGatewayIP` is defined in the `gateway_ip_configurations` block. A subnet reference is required for IP configuration of the gateway.
 * `appGatewayBackendPool` is defined in the `backend_address_pools` block. An application gateway must have at least one back-end address pool.
-* `appGatewayBackendHttpSettings` is defined in the `backend_http_settings_collection` block. It specifies that port 80 and an HTTP protocol is used for communication.
+* `appGatewayBackendHttpSettings` is defined in the `backend_http_settings_collection` block. It specifies that port 80 and an HTTP protocol are used for communication.
 * `appGatewayHttpListener` is defined in the `backend_http_settings_collection` block. It's the default listener associated with appGatewayBackendPool.
 * `appGatewayFrontendIP` is defined in the `frontend_ip_configurations` block. It assigns myAGPublicIPAddress to appGatewayHttpListener.
 * `rule1` is defined in the `request_routing_rules` block. It's the default routing rule associated with appGatewayHttpListener.
@@ -287,4 +285,4 @@ ansible-playbook rg_delete.yml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ansible on Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible on Azure](/azure/ansible/)
