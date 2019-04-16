@@ -19,6 +19,7 @@ In this tutorial, you learn how to:
 > * Create a self-signed certificate
 > * Create an application gateway with the certificate
 > * Create the virtual machines used as backend servers
+> * Test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
