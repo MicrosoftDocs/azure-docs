@@ -198,9 +198,6 @@ virtual-node-aci-linux        Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0      Ready     agent     32m       v1.11.2
 ```
 
-> [!NOTE]
-> [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) do not create pods on the virtual node.
-
 ## Deploy a sample app
 
 Create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined.
@@ -319,6 +316,16 @@ az resource delete --ids $SAL_ID --api-version 2018-07-01
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myVirtualNodeSubnet --remove delegations 0
 ```
+
+## Known limitations
+Virtual Nodes functionality is heavily dependent on ACI's feature set. The following scenarios are not yet supported with Virtual Nodes
+
+* Using service principal to pull ACR images. [Workaround](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is to use [Kubernetes secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtual Network Limitations](../container-instances/container-instances-vnet) including VNet peering, Kubernetes network policies, and outbound traffic to the internet with network security groups.
+* Init containers
+* [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Arguments](../container-instances/container-instances-exec#restrictions) for exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
 
 ## Next steps
 
