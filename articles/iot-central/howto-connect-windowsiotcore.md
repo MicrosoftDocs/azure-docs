@@ -52,7 +52,7 @@ To copy the **connection.string.iothub** file from your desktop machine to the `
 1. To browse the files on your device, choose **Apps > File explorer**.
 1. Navigate to **User Folders\Documents**. Then upload the **connection.string.iothub** file:
 
-    ![Upload connection string](media/howto-connect-windowsiotcore/deviceportal.png)
+    ![Upload connection string](media/howto-connect-windowsiotcore/device-portal.png)
 
 ## Deploy and run
 
@@ -62,7 +62,7 @@ To deploy and run the sample application on your device, you can use the [Window
 1. To deploy and run the **Azure IoT Hub Client** application, choose **Apps > Quick-run samples**. Then choose **Azure IoT Hub Client**.
 1. Then choose **Deploy and run**.
 
-    ![Deploy and run](media/howto-connect-windowsiotcore/quickrun.png)
+    ![Deploy and run](media/howto-connect-windowsiotcore/quick-run.png)
 
 After a couple of minutes, you can view the telemetry from your device in your IoT Central application.
 
@@ -71,7 +71,7 @@ The [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-y
 - The **Apps manager** page lets you control the apps running on your device.
 - If you don't have a monitor connected to your device, you can use the **Device Settings** page to capture screenshots from your device. For example:
 
-    ![App screenshot](media/howto-connect-windowsiotcore/IoTHubForegroundClientScreenshot.jpg)
+    ![App screenshot](media/howto-connect-windowsiotcore/iot-hub-foreground-client.jpg)
 
 ## Download the source code
 
@@ -106,4 +106,4 @@ Numeric settings
 
 ## Next steps
 
-Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [setup a custom device template](howto-set-up-template.md) for your own IoT device.
+Now that you've learned how to connect a Raspberry Pi to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.

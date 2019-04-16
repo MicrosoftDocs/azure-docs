@@ -12,7 +12,7 @@ manager: philmea
 
 # Generate a device connection string to connect to an Azure IoT Central application
 
-This article describes how, as a device developer, to generate a connection string for device that needs to connect to an IoT Central application. The procedure described in this article show you how to quickly connect a single device using a shared access signature (SAS). This approach is useful when you're experimenting with IoT Central or testing devices. For alternative approaches to use in a production environment, see [Device connectivity in Azure IoT Central](concepts-connectivity.md).
+This article describes how, as a device developer, to generate a connection string for device that needs to connect to an IoT Central application. The procedure described in this article shows you how to quickly connect a single device using a shared access signature (SAS). This approach is useful when you're experimenting with IoT Central or testing devices. For alternative approaches to use in a production environment, see [Device connectivity in Azure IoT Central](concepts-connectivity.md).
 
 ## Prerequisites
 
