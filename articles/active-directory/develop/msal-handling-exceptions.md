@@ -95,3 +95,51 @@ When calling an API requiring conditional access, you can receive a claims chall
 ```javascript
 acquireTokenPopup(applicationConfig.graphScopes, null, null, "&claims=" + claims);
 ```
+
+## Retrying after errors and exceptions
+
+### HTTP error codes 500-600
+MSAL.NET implements a simple retry-once mechanism for errors with HTTP error codes 500-600.
+
+### HTTP 429
+When the Service Token Server (STS) is too busy because of “too many requests”, it returns an HTTP error 429 with a hint about when you can try again (the Retry-After response field) as a delay in seconds, or a date. 
+
+#### .NET
+`MsalServiceException` surfaces `System.Net.Http.Headers.HttpResponseHeaders` as a property `namedHeaders`. You can therefore leverage additional information from the error code to improve the reliability of your applications. In the case we just described, you can use the `RetryAfterproperty` (of type `RetryConditionHeaderValue`) and compute when to retry.
+
+Here is an example for a daemon application (using the client credentials flow), but you could adapt that to any of the methods acquiring a token.
+
+```csharp
+do
+{
+ retry = false;
+ TimeSpan? delay;
+ try
+ {
+  result = await publicClientApplication.AcquireTokenForClient(scopes, account)
+                                        .ExecuteAsync();
+ }
+ catch (MsalServiceException serviceException)
+ {
+  if (ex.ErrorCode == "temporarily_unavailable")
+  {
+   RetryConditionHeaderValue retryAfter = serviceException.Headers.RetryAfter;
+   if (retryAfter.Delta.HasValue)
+   {
+    delay = retryAfter.Delta;
+   }
+   else if (retryAfter.Date.HasValue)
+   {
+    delay = retryAfter.Date.Value.Offset;
+   }
+  }
+ }
+    
+    …
+ if (delay.HasValue)
+ {
+  Thread.Sleep((int)delay.Value.TotalMilliseconds); // sleep or other
+  retry = true;
+ }
+} while (retry); 
+```
