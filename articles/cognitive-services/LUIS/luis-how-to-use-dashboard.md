@@ -21,11 +21,13 @@ Find and fix problems with your trained app's intents. The summary dashboard dis
 
 The three problems addressed in the dashboard are:
 
-|Issue|Explanation|
-|--|--|
-|Data imbalance|This occurs when the quantity of example utterances varies beyond a significant percent. All intents need to have about the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app.|
-|Unclear predictions|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data). |
-|Incorrect predictions|This occurs when an utterance is not predicted for the intent it is in.|
+|Issue|Chart color|Explanation|
+|--|--|--|
+|Data imbalance|-|This occurs when the quantity of example utterances varies significantly. All intents need to have _roughly_ the same number of example utterances - except the None intent. It should only have 10%-15% of the total quantity of utterances in the app. <br><br>**Start with this issue - it may be the root cause of the other issues.**|
+|Unclear predictions|Orange|This occurs when the top intent and the next intent's scores are close enough that they may flip on the next training, due to [negative sampling](luis-how-to-train.md#train-with-all-data) or more example utterances added to intent. |
+|Incorrect predictions|Red|This occurs when an example utterance is not predicted for the labeled intent (the intent it is in).|
+
+Correct predictions are represented with the color blue.
 
 The summary dashboard shows these issues and tells you which intents are affected and suggests what you should do to improve the app. 
 
@@ -77,6 +79,8 @@ The analytics page doesn’t indicate when to use [patterns](luis-concept-patter
 
 ### Review data imbalance
 
+Start with this issue - it may be the root cause of the other issues.
+
 The **data imbalance** intent list shows intents that need more utterances in order to correct the data imbalance. 
 
 **To fix this issue**:
@@ -86,7 +90,8 @@ The **data imbalance** intent list shows intents that need more utterances in or
 Do not add utterances to the None intent unless that is suggested on the summary dashboard.
 
 > [!Tip]
-> Use the third section on the page, **Utterances per intent**, as a quick visual guide of which intents need more utterances.  
+> Use the third section on the page, **Utterances per intent** with the **Utterances (number)** setting, as a quick visual guide of which intents need more utterances.  
+    ![Use 'Utterances (number)' to find intents with data imbalance.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### Review incorrect predictions
 
