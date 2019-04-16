@@ -10,17 +10,17 @@ ms.author: thweiss
 
 # Indexing policies in Azure Cosmos DB
 
-In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers enforces range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. This allows you to get high query performance without having to think about indexing upfront.
+In Azure Cosmos DB, every container has an indexing policy that dictates how the container's items should be indexed. The default indexing policy for newly created containers indexes every property of every item, enforcing range indexes for any string or number, and spatial indexes for any GeoJSON object of type Point. This allows you to get high query performance without having to think about indexing and index management upfront.
 
-In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its indexing mode, and include or exclude property paths.
+In some situations, you may want to override this automatic behavior to better suit your requirements. You can customize a container's indexing policy by setting its *indexing mode*, and include or exclude *property paths*.
 
 ## Indexing mode
 
 Azure Cosmos DB supports two indexing modes:
 
-- **Consistent**: If a container's indexing policy is set to consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
+- **Consistent**: If a container's indexing policy is set to Consistent, the index is updated synchronously as you create, update or delete items. This means that the consistency of your read queries will be the [consistency configured for the account](consistency-levels.md).
 
-- **None**: If a container's indexing policy is set to none, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
+- **None**: If a container's indexing policy is set to None, indexing is effectively disabled on that container. This is commonly used when a container is used as a pure key-value store without the need for secondary indexes. It can also help speeding up bulk insert operations.
 
 ## Including and excluding property paths
 
@@ -64,37 +64,39 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Include the root path to selectively exclude paths that don't need to be indexed. This is the recommended approach as it lets Azure Cosmos DB proactively index any new property that may be added to your model.
 - Exclude the root path to selectively include paths that need to be indexed.
 
+See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
+
 ## Modifying the indexing policy
 
-A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The items indexed per the old policy are efficiently transformed per the new policy without affecting the write availability or the throughput provisioned on the container.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container.
 
-Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. While re-indexing is in progress, queries may not return all matching results and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed.
+Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
-If the new indexing policy's mode is set to consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be cancelled by setting the indexing policy's mode to none (which will immediately drop the index).
+If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be cancelled by setting the indexing policy's mode to None (which will immediately drop the index).
 
 ## Indexing policies and TTL
 
-The [time-to-live (TTL) feature](time-to-live.md) requires indexing to be active on the container it is turned on. This means that:
+The [Time-to-Live (TTL) feature](time-to-live.md) requires indexing to be active on the container it is turned on. This means that:
 
-- it is not possible to activate TTL on a container where the indexing mode is set to none,
-- it is not possible to set the indexing mode to none on a container where TTL is activated.
+- it is not possible to activate TTL on a container where the indexing mode is set to None,
+- it is not possible to set the indexing mode to None on a container where TTL is activated.
 
-For scenarios where no property path needs to be indexed but TTL is required, you can use an indexing policy with:
+For scenarios where no property path needs to be indexed, but TTL is required, you can use an indexing policy with:
 
-- an indexing mode set to `consistent`,
-- no included path,
+- an indexing mode set to Consistent, and
+- no included path, and
 - `/*` as the only excluded path.
 
 ## Obsolete attributes
 
 When working with indexing policies, you may encounter the following attributes that are now obsolete:
 
-- `automatic` is a boolean defined at the root of an indexing policy. It is now ignored and can be set to `true` when the tool you are using requires it.
-- `precision` is a number defined at the index level for included paths. It is now ignored and can be set to `-1` when the tool you are using requires it.
+- `automatic` is a boolean defined at the root of an indexing policy. It is now ignored and can be set to `true`, when the tool you are using requires it.
+- `precision` is a number defined at the index level for included paths. It is now ignored and can be set to `-1`, when the tool you are using requires it.
 
 ## Next steps
 
 Read more about the indexing in the following articles:
 
-- [Indexing Overview](index-overview.md)
+- [Indexing overview](index-overview.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)
