@@ -23,7 +23,7 @@ The Microsoft speech recognition API supports the following languages in `intera
 |Code | Language | Code | Language |
 |-----|-----|-----|-----|
 | ar-EG | Arabic (Egypt), modern standard | hi-IN | Hindi (India) |
-| ca-ES | Catalan (Spain) | it-IT | Italian (Italy)  |
+| ca-ES | Catalan | it-IT | Italian (Italy)  |
 | da-DK | Danish (Denmark) | ja-JP | Japanese (Japan) |
 | de-DE | German (Germany) |ko-KR | Korean (Korea) |
 | en-AU | English (Australia) |nb-NO | Norwegian (Bokmål) (Norway)  |

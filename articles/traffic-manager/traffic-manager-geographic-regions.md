@@ -477,8 +477,6 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- CF(Central African Republic)
 
-		- CG(Congo)
-
 		- CI(Côte d’Ivoire)
 
 		- CM(Cameroon)
