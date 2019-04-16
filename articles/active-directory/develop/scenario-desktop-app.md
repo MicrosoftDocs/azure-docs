@@ -87,11 +87,15 @@ Again the redirect URIs to use in desktop application will depend on the flow yo
 
 ## Desktop application's code configuration
 
+### MSAL libraries supporting desktop application
+
+The only MSAL library supporting desktop applications today is MSAL.NET
+
+### Building a Public client application
+
 From a code point of view, desktop applications are public client applications, and therefore you will build and manipulate MSAL.NET `IPublicClientApplication`. Again things will be a bit different wether you use interactive authentication or not.
 
 ![IPublicClientApplication](media/scenarios/PublicClientApplication.png)
-
-### Building a Public client application
 
 #### Exclusively by code
 
@@ -718,25 +722,427 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder ](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ### Acquiring a token in a command line tool
 
-If  you are writing a command line tool that does not how Web controls, you need to use `AcquireTokenWithDeviceCode`.
+#### Device code flow Why? and how?
+If  you are writing a command line tool that does not how Web controls, and cannot or don't want to use the previous flows, you'll need to use `AcquireTokenWithDeviceCode`.
+
+Interactive authentication with Azure AD requires a web browser (for details see [Usage of web browsers](MSAL.NET-uses-web-browser)). However, in the case of devices and operating systems that do not provide a Web browser, Device code flow lets the user use another device (for instance another computer or a mobile phone) to sign-in interactively. By using the device code flow, the application obtains tokens through a two-step process especially designed for these devices/OS. Examples of such applications are applications running on iOT, or Command-Line tools (CLI). The idea is that:
+
+1. Whenever user authentication is required, the app provides a code and asks the user to use another device (such as an internet-connected smartphone) to navigate to a URL (for instance, http://microsoft.com/devicelogin), where the user will be prompted to enter the code. That done, the web page will lead the user through a normal authentication experience, including consent prompts and multi-factor authentication if necessary.
+
+2. Upon successful authentication, the command-line app will receive the required tokens through a back channel and will use it to perform the web API calls it needs.
+
+#### Code
+
+`IPublicClientApplication`contains a method named `AcquireTokenWithDeviceCode`
+```CSharp
+ AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
+                            Func<DeviceCodeResult, Task> deviceCodeResultCallback)
+```
+
+This method takes as parameters:
+
+- The `scopes` to request an access token for
+- A callback that will receive the `DeviceCodeResult`
+
+  ![image](https://user-images.githubusercontent.com/13203188/56024968-7af1b980-5d11-11e9-84c2-5be2ef306dc5.png)
+
+The following sample code presents the most current case, with explanations of the kind of exceptions you can get, and their mitigation.
+
+```CSharp
+static async Task<AuthenticationResult> GetATokenForGraph()
+{
+ string authority = "https://login.microsoftonline.com/contoso.com";
+ string[] scopes = new string[] { "user.read" };
+ IPublicClientApplication pca = PublicClientApplicationBuilder
+      .Create(clientId)
+      .WithAuthority(authority)
+      .Build();
+
+ AuthenticationResult result = null;
+ var accounts = await app.GetAccountsAsync();
+
+ // All AcquireToken* methods store the tokens in the cache, so check the cache first
+ try
+ {
+  result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
+       .ExecuteAsync();
+ }
+ catch (MsalUiRequiredException ex)
+ {
+  // A MsalUiRequiredException happened on AcquireTokenSilent. 
+  // This indicates you need to call AcquireTokenInteractive to acquire a token
+  System.Diagnostics.Debug.WriteLine($"MsalUiRequiredException: {ex.Message}");
+ }
+
+ try
+ {
+  result = await app.AcquireTokenWithDeviceCode(scopes,
+      deviceCodeCallback =>
+  {
+       // This will print the message on the console which tells the user where to go sign-in using 
+       // a separate browser and the code to enter once they sign in.
+       // The AcquireTokenWithDeviceCode() method will poll the server after firing this
+       // device code callback to look for the successful login of the user via that browser.
+       // This background polling (whose interval and timeout data is also provided as fields in the 
+       // deviceCodeCallback class) will occur until:
+       // * The user has successfully logged in via browser and entered the proper code
+       // * The timeout specified by the server for the lifetime of this code (typically ~15 minutes) has been reached
+       // * The developing application calls the Cancel() method on a CancellationToken sent into the method.
+       //   If this occurs, an OperationCanceledException will be thrown (see catch below for more details).
+       Console.WriteLine(deviceCodeResult.Message);
+       return Task.FromResult(0);
+  }).ExecuteAsync();
+
+  Console.WriteLine(result.Account.Username);
+  return result;
+ }
+ catch (MsalServiceException ex)
+ {
+  // Kind of errors you could have (in ex.Message)
+
+  // AADSTS50059: No tenant-identifying information found in either the request or implied by any provided credentials.
+  // Mitigation: as explained in the message from Azure AD, the authoriy needs to be tenanted. you have probably created
+  // your public client application with the following authorities:
+  // https://login.microsoftonline.com/common or https://login.microsoftonline.com/organizations
+
+  // AADSTS90133: Device Code flow is not supported under /common or /consumers endpoint.
+  // Mitigation: as explained in the message from Azure AD, the authority needs to be tenanted
+
+  // AADSTS90002: Tenant <tenantId or domain you used in the authority> not found. This may happen if there are 
+  // no active subscriptions for the tenant. Check with your subscription administrator.
+  // Mitigation: if you have an active subscription for the tenant this might be that you have a typo in the 
+  // tenantId (GUID) or tenant domain name.
+ }
+ catch (OperationCanceledException ex)
+ {
+  // If you use a CancellationToken, and call the Cancel() method on it, then this may be triggered
+  // to indicate that the operation was cancelled. 
+  // See https://docs.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads 
+  // for more detailed information on how C# supports cancellation in managed threads.
+ }
+ catch (MsalClientException ex)
+ {
+  // Verification code expired before contacting the server
+  // This exception will occur if the user does not manage to sign-in before a time out (15 mins) and the
+  // call to `AcquireTokenWithDeviceCode` is not cancelled in between
+ }
+}
+```
 
 ## File based token cache
 
+In MSAL.NET, an in-memory token cache is provided by default.
+
+### Serialization is customizable in Windows desktop apps and Web apps / Web Apis
+
+In the case of .NET Framework and .NET core, if you don't do anything extra, the in-memory token cache lasts for the duration of the application. To understand why serialization is not provided out of the box, remember MSAL .NET desktop/core applications can be console or Windows applications (which would have access to the file system), **but also** Web applications or Web API, which might use some specific cache mechanisms like databases, distributed caches, redis caches etc .... To have a persistent token cache application in .NET Desktop or Core, you will need to customize the serialization.
+
+The classes and interfaces involved in token cache serialization are the following:
+
+- ``ITokenCache``, which defines events to subscribe to token cache serialization requests, as well as methods to serialize or de-serialize the cache at various formats (ADAL v3.0, MSAL 2.x and MSAL 3.x = ADAL v5.0)
+- ``TokenCacheCallback`` is a callback passed to the events so that you can handle the serialization. they will be called with arguments of type ``TokenCacheNotificationArgs``.
+- ``TokenCacheNotificationArgs`` only provides the ``ClientId`` of the application and a reference to the user for which the token is available
+
+  ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
+
+**Important**
+MSAL.NET creates token caches for you and provides you with the `IToken` cache when you call an application's `GetUserTokenCache` and `GetAppTokenCache` methods. You are not supposed to implement the interface yourself. Your responsibility, when you implement a custom token cache serialization, is to:
+
+- React to `BeforeAccess` and `AfterAccess` "events". The`BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
+- Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
+
+The strategies are different depending on if you are writing a token cache serialization for a public client application (Desktop), or a confidential client application (Web App / Web API, Daemon app).
+
+Since MSAL V2.x you have several options, depending on if you want to serialize the cache only to the MSAL.NET format (unified format cache which is common with MSAL, but also across the platforms), or if you also want to also support the [legacy](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) Token cache serialization of ADAL V3.
+
+The customization of Token cache serialization to share the SSO state between ADAL.NET 3.x, ADAL.NET 5.x and MSAL.NET is explained in part of the following sample: [active-directory-dotnet-v1-to-v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
+
+### Simple token cache serialization (MSAL only)
+
+Below is an example of a naive implementation of custom serialization of a token cache for desktop applications. Here the user token cache in a file in the same folder as the application.
+
+After you build the application, you enable the serialization by calling ``TokenCacheHelper.EnableSerialization()`` passing the application `UserTokenCache`
+
+```CSharp
+app = PublicClientApplicationBuilder.Create(ClientId)
+    .Build();
+TokenCacheHelper.EnableSerialization(app.UserTokenCache);
+```
+
+This helper class looks like the following:
+
+```CSharp
+static class TokenCacheHelper
+ {
+  public static void EnableSerialization(ITokenCache tokenCache)
+  {
+   tokenCache.SetBeforeAccess(BeforeAccessNotification);
+   tokenCache.SetAfterAccess(AfterAccessNotification);
+  }
+
+  /// <summary>
+  /// Path to the token cache
+  /// </summary>
+  public static readonly string CacheFilePath = System.Reflection.Assembly.GetExecutingAssembly().Location + ".msalcache.bin3";
+
+  private static readonly object FileLock = new object();
+
+
+  private static void BeforeAccessNotification(TokenCacheNotificationArgs args)
+  {
+   lock (FileLock)
+   {
+    args.TokenCache.DeserializeMsalV3(File.Exists(CacheFilePath)
+            ? ProtectedData.Unprotect(File.ReadAllBytes(CacheFilePath),
+                                      null,
+                                      DataProtectionScope.CurrentUser)
+            : null);
+   }
+  }
+
+  private static void AfterAccessNotification(TokenCacheNotificationArgs args)
+  {
+   // if the access operation resulted in a cache update
+   if (args.HasStateChanged)
+   {
+    lock (FileLock)
+    {
+     // reflect changesgs in the persistent store
+     File.WriteAllBytes(CacheFilePath,
+                         ProtectedData.Protect(args.TokenCache.SerializeMsalV3(),
+                                                 null,
+                                                 DataProtectionScope.CurrentUser)
+                         );
+    }
+   }
+  }
+ }
+```
+
+A preview of a product quality token cache file based serializer for public client applications (for desktop applications running on Windows, Mac and linux) is available from the [Microsoft.Identity.Client.Extensions.Msal](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Msal) open source library. You can include it in your applications from the following nuget package: [Microsoft.Identity.Client.Extensions.Msal](https://www.nuget.org/packages/Microsoft.Identity.Client.Extensions.Msal/).
+
+> Disclaimer. The  Microsoft.Identity.Client.Extensions.Msal library is an extension over MSAL.NET. Classes in these libraries might make their way into MSAL.NET in the future, as is or with breaking changes.
+
+### Dual token cache serialization (MSAL unified cache + ADAL V3)
+
+If you want to implement token cache serialization both with the Unified cache format (common to ADAL.NET 4.x and MSAL.NET 2.x, and with other MSALs of the same generation or older, on the same platform), you can get inspired by the following code:
+
+```CSharp
+string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
+string cacheFolder = Path.GetFullPath(appLocation) + @"..\..\..\..");
+string adalV3cacheFileName = Path.Combine(cacheFolder, "cacheAdalV3.bin");
+string unifiedCacheFileName = Path.Combine(cacheFolder, "unifiedCache.bin");
+
+IPublicClientApplication app;
+app = PublicClientApplicationBuilder.Create(clientId)
+                                    .Build();
+FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
+                                               unifiedCacheFileName,
+                                               adalV3cacheFileName);
+
+```
+
+This time the helper class looks like the following:
+
+```CSharp
+using System;
+using System.IO;
+using System.Security.Cryptography;
+using Microsoft.Identity.Client;
+
+namespace CommonCacheMsalV3
+{
+ /// <summary>
+ /// Simple persistent cache implementation of the dual cache serialization (ADAL V3 legacy
+ /// and unified cache format) for a desktop applications (from MSAL 2.x)
+ /// </summary>
+ static class FilesBasedTokenCacheHelper
+ {
+  /// <summary>
+  /// Get the user token cache
+  /// </summary>
+  /// <param name="adalV3CacheFileName">File name where the cache is serialized with the
+  /// ADAL V3 token cache format. Can
+  /// be <c>null</c> if you don't want to implement the legacy ADAL V3 token cache
+  /// serialization in your MSAL 2.x+ application</param>
+  /// <param name="unifiedCacheFileName">File name where the cache is serialized
+  /// with the Unified cache format, common to
+  /// ADAL V4 and MSAL V2 and above, and also across ADAL/MSAL on the same platform.
+  ///  Should not be <c>null</c></param>
+  /// <returns></returns>
+  public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
+  {
+   usertokenCache = cache;
+   UnifiedCacheFileName = unifiedCacheFileName;
+   AdalV3CacheFileName = adalV3CacheFileName;
+
+   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
+   usertokenCache.SetAfterAccess(AfterAccessNotification);
+  }
+
+  /// <summary>
+  /// Token cache
+  /// </summary>
+  static ITokenCache usertokenCache;
+
+  /// <summary>
+  /// File path where the token cache is serialized with the unified cache format
+  /// (ADAL.NET V4, MSAL.NET V3)
+  /// </summary>
+  public static string UnifiedCacheFileName { get; private set; }
+
+  /// <summary>
+  /// File path where the token cache is serialized with the legacy ADAL V3 format
+  /// </summary>
+  public static string AdalV3CacheFileName { get; private set; }
+
+  private static readonly object FileLock = new object();
+
+  public static void BeforeAccessNotification(TokenCacheNotificationArgs args)
+  {
+   lock (FileLock)
+   {
+    args.TokenCache.DeserializeAdalV3(ReadFromFileIfExists(AdalV3CacheFileName));
+    try
+    {
+     args.TokenCache.DeserializeMsalV3(ReadFromFileIfExists(UnifiedCacheFileName));
+    }
+    catch(Exception ex)
+    {
+     // Compatibility with the MSAL v2 cache if you used one
+     args.TokenCache.DeserializeMsalV2(ReadFromFileIfExists(UnifiedCacheFileName));
+    }
+   }
+  }
+
+  public static void AfterAccessNotification(TokenCacheNotificationArgs args)
+  {
+   // if the access operation resulted in a cache update
+   if (args.HasStateChanged)
+   {
+    lock (FileLock)
+    {
+     WriteToFileIfNotNull(UnifiedCacheFileName, args.TokenCache.SerializeMsalV3());
+     if (!string.IsNullOrWhiteSpace(AdalV3CacheFileName))
+     {
+      WriteToFileIfNotNull(AdalV3CacheFileName, args.TokenCache.SerializeAdalV3());
+     }
+    }
+   }
+  }
+
+  /// <summary>
+  /// Read the content of a file if it exists
+  /// </summary>
+  /// <param name="path">File path</param>
+  /// <returns>Content of the file (in bytes)</returns>
+  private static byte[] ReadFromFileIfExists(string path)
+  {
+   byte[] protectedBytes = (!string.IsNullOrEmpty(path) && File.Exists(path))
+       ? File.ReadAllBytes(path) : null;
+   byte[] unprotectedBytes = encrypt ?
+       ((protectedBytes != null) ? ProtectedData.Unprotect(protectedBytes, null, DataProtectionScope.CurrentUser) : null)
+       : protectedBytes;
+   return unprotectedBytes;
+  }
+
+  /// <summary>
+  /// Writes a blob of bytes to a file. If the blob is <c>null</c>, deletes the file
+  /// </summary>
+  /// <param name="path">path to the file to write</param>
+  /// <param name="blob">Blob of bytes to write</param>
+  private static void WriteToFileIfNotNull(string path, byte[] blob)
+  {
+   if (blob != null)
+   {
+    byte[] protectedBytes = encrypt
+      ? ProtectedData.Protect(blob, null, DataProtectionScope.CurrentUser)
+      : blob;
+    File.WriteAllBytes(path, protectedBytes);
+   }
+   else
+   {
+    File.Delete(path);
+   }
+  }
+
+  // Change if you want to test with an un-encrypted blob (this is a json format)
+  private static bool encrypt = true;
+ }
+}
+```
+
 ## Calling an API
+
+Once you have an AuthenticationResult, you need to use it to call the API.
+
+### AuthenticationResult properties in MSAL.NET
+
+In all cases above, methods to acquire tokens return an ``AuthenticationResult`` (or in the case of the async methods a ``Task<AuthenticationResult>``.
+
+In MSAL.NET, AuthenticationResult exposes:
+- ``AccessToken`` for the Web API to access resources. This is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks 
+- ``IdToken`` for the user (this is a JWT)
+- ``ExpiresOn`` tells the date/time when the token expires
+- ``TenantId`` contains the tenant in which the user was found. Note that in the case of guest users (Azure AD B2B scenarios), the TenantId is the guest tenant, not the unique tenant.
+When the token is delivered in the name of a user, ``AuthenticationResult`` also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this User information is null.
+- The ``Scopes`` for which the token was issued.
+- The unique Id for the user.
+
+### IAccount
+
+MSAL.NET now defines the notion of Account (through the `IAccount` interface). This breaking change provides the right semantics: the fact that the same user can have several accounts, in different Azure AD directories. Also MSAL.NET provides better information in the case of guest scenarios, as home account information is provided.
+The following diagram shows the structure of the `IAccount` interface:
+
+![image](https://user-images.githubusercontent.com/13203188/44657759-4f2df780-a9fe-11e8-97d1-1abbffade340.png)
+
+The `AccountId` class identifies an account in a specific tenant. It has the following properties:
+
+Property | Description
+-------- | -----------
+`TenantId` | A string representation for a GUID, which is the ID of the tenant where the account resides
+`ObjectId` | A string representation for a GUID which is the ID of the user who owns the account in the tenant
+`Identifier` | Unique identifier for the account (this is the concatenation of `ObjectId` and `TenantId` separated by a comma and are not base64 encoded)
+
+The `IAccount` interface represents information about a single account. The same user can be present in different tenants, that is, a user can have multiple accounts. Its members are:
+
+Property | Description
+--- | ----
+`Username` | A string containing the displayable value in UserPrincipalName (UPN) format, for example, john.doe@contoso.com. This can be null, whereas the HomeAccountId and HomeAccountId.Identifier won’t be null. This property replaces the `DisplayableId` property of `IUser` in previous versions of MSAL.NET.
+`Environment` | A string containing the identity provider for this account, for example, `login.microsoftonline.com`. This property replaces the `IdentityProvider` property of `IUser`, except that `IdentityProvider` also had information about the tenant (in addition to the cloud environment), whereas here this is only the host.
+`HomeAccountId` | AccountId of the home account for the user. This uniquely identifies the user across AAD tenants.
+
+### Using the token to call a protected API
+
+Once the `AuthenticationResult` has been returned by MSAL (`result`), you need to add it to the HTTP authorization header, before making the call to access the protected Web API.
+
+```CSharp
+httpClient = new HttpClient();
+httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", result.AccessToken);
+
+// Call Web API.
+HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
+...
+}
+```
 
 ## Handling errors in desktop applications
 
+In the different flows above, we've shown how you can handle the errors for the silent flows (in code snippets). There are cases where interaction is needed.
+
 ### Incremental consent
+
+
 
 ### Handling conditional access
 
-## Other specificities
+## Other scenarios
 
-### Have the user consent upfront for several resources
+### How to have  the user consent upfront for several resources
 
 > Note: Getting consent for several resources works for Azure AD v2.0, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
 
@@ -777,7 +1183,7 @@ Then when you need to call the second one, you can call
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-## Microsoft personal account require re-consenting each time the app is run
+### Microsoft personal account require re-consenting each time the app is run
 
 For Microsoft personal accounts users, re-prompting for consent on each native client (desktop/mobile app) call to authorize is the intended behavior. Native client identity is inherently insecure, and the Microsoft identity platform chose to mitigate this insecurity for consumer services by prompting for consent each time the application is authorized.
 
