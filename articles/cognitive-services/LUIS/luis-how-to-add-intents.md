@@ -37,16 +37,25 @@ Example utterances are text examples of user questions or commands. To teach Lan
 
     LUIS converts all utterances to lowercase and adds spaces around tokens such as hyphens.
 
-## Intent prediction discrepancy errors 
+<a name="#intent-prediction-discrepancy-errors"></a>
 
-An utterance in an intent might have an intent prediction discrepancy between the selected intent and the prediction score. LUIS indicates this discrepancy with a red box around the **Labeled intent** on the row of the example utterance. 
+## Intent prediction errors 
 
-![Screenshot of Intents details page, with utterance prediction discrepancy errors](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
+An example utterance in an intent might have an intent prediction error between the intent the example utterance is currently in and the prediction intent determined during training. 
 
-In the top navigation, select **Train**. The prediction discrepancy is now gone.
+To find utterance prediction errors and fix them, use the **Filter** option's **Evaluation** options of Incorrect and Unclear combined with the **View** option of **Detailed view**. 
 
-> [!Note]
-> When a red line is under a word or phrase in the example utterance, an [entity prediction error](luis-how-to-add-example-utterances.md#entity-status-predictions) has occurred. You need to correct it. 
+![To find utterance prediction errors and fix them, use the Filter option.](./media/luis-how-to-add-intents/find-intent-prediction-errors.png)
+
+When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.
+
+![![When the filters and view are applied, and there are example utterances with errors, the example utterance list shows the utterances and the issues.](./media/luis-how-to-add-intents/find-errors-in-utterances.png)](./media/luis-how-to-add-intents/find-errors-in-utterances.png#lightbox)
+
+Each row shows the current training's prediction score for the example utterance, the nearest rival's score, the difference in these two scores, known as the _evaluation_. 
+
+### Fixing intents
+
+To learn how to fix intent prediction errors, use the [Summary Dashboard](luis-how-to-use-dashboard.md). The summary dashboard provides analysis for the active version's last training and offers the top suggestions to fix your model.  
 
 ## Add a custom entity
 
