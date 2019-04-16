@@ -71,11 +71,11 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
 1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
 
-   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-hyperscale-mt/psql-cloud-shell.png)
+   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/quickstart-create-hyperscale-portal/psql-cloud-shell.png)
 
 2. The Azure Cloud Shell opens in your browser, enabling you to type bash commands.
 
-   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/tutorial-hyperscale-mt/psql-bash.png)
+   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/quickstart-create-hyperscale-portal/psql-bash.png)
 
 3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
    ```bash
