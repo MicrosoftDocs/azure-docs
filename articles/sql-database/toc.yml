@@ -649,10 +649,10 @@
           href: saas-multitenantdb-tenant-analytics.md
   - name: Machine Learning Services
     items:
-      - name: Work with R and SQL data
-        href: sql-database-machine-learning-services-data-issues.md
       - name: Write advanced R functions
         href: sql-database-machine-learning-services-functions.md
+      - name: Work with R and SQL data
+        href: sql-database-machine-learning-services-data-issues.md
 - name: Reference
   items:
   - name: Azure PowerShell
