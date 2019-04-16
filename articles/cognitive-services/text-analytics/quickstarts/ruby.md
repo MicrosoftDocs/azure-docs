@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Using Ruby to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
+ms.date: 04/16/2019
 ms.author: aahi
 ---
 # Quickstart: Using Ruby to call the Text Analytics Cognitive Service
@@ -132,7 +132,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Analyze sentiment
 
-The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.

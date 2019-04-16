@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 # Configure Text Analytics docker containers
@@ -94,9 +94,9 @@ Replace {_argument_name_} with your own values:
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](how-tos/text-analytics-how-to-install-containers.md#billing).
 > The ApiKey value is the **Key** from the Azure Text Analytics Resource keys page. 
 
-## Keyphrase extraction container docker examples
+## Key phrase extraction container docker examples
 
-The following docker examples are for the keyphrase extraction container. 
+The following docker examples are for the key phrase extraction container. 
 
 ### Basic example 
 

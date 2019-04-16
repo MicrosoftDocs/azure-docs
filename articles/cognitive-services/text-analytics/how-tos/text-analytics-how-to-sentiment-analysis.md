@@ -32,7 +32,7 @@ Sentiment analysis is performed on the entire document, as opposed to extracting
 
 Sentiment analysis produces a higher quality result when you give it smaller chunks of text to work on. This is opposite from key phrase extraction, which performs better on larger blocks of text. To get the best results from both operations, consider restructuring the inputs accordingly.
 
-You must have JSON documents in this format: id, text, language
+You must have JSON documents in this format: ID, text, language
 
 Document size must be under 5,120 characters per document, and you can have up to 1,000 items (IDs) per collection. The collection is submitted in the body of the request. The following is an example of content you might submit for sentiment analysis.
 
@@ -131,7 +131,7 @@ The following example shows the response for the document collection in this art
 In this article, you learned concepts and workflow for sentiment analysis using Text Analytics in Cognitive Services. In summary:
 
 + [Sentiment analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
-+ JSON documents in the request body include an id, text, and language code.
++ JSON documents in the request body include an ID, text, and language code.
 + POST request is to a `/sentiment` endpoint, using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that is valid for your subscription.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON, including Excel and Power BI, to name a few.
 

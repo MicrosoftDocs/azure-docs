@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
