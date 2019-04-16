@@ -42,7 +42,6 @@ The official Apache versions of all HDInsight 4.0 components are given below. Th
 - Apache Slider 0.92.0
 - Apache Spark 2.3.1
 - Apache Sqoop 1.4.7
-- Apache Storm 1.1.0
 - Apache TEZ 0.9.1
 - Apache Zeppelin 0.8.0
 - Apache ZooKeeper 3.4.6
@@ -66,7 +65,6 @@ For more information on patches available in HDInsight 4.0, see the patch listin
 | Ranger | [Ranger patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
 | Spark | [Spark patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
 | Sqoop | This release provides Sqoop 1.4.7 with no additional Apache patches. |
-| Storm | [Storm patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_storm.html) |
 | Tez | This release provides Tez 0.9.1 with no additional Apache patches. |
 | Zeppelin | This release provides Zeppelin 0.8.0 with no additional Apache patches. |
 | Zookeeper | [Zookeeper patch information](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
