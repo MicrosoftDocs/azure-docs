@@ -186,6 +186,8 @@
       href: sql-database-managed-instance-transact-sql-information.md 
     - name: Time zone in Managed Instance
       href: sql-database-managed-instance-timezone.md
+    - name: Secure public endpoints in managed instance
+      href: sql-database-managed-instance-public-endpoint-securely.md
   - name: Platform as a Service
     items:
     - name: Platform as a Service overview
