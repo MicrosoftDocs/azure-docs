@@ -106,11 +106,32 @@ Once your predictive analytics model is ready, you can deploy it as a web servic
 
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
-[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 
+[Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn.
 
-Use Machine Learning Studio when you want to experiment with machine learning models quickly and easily, and the built-in machine learning algorithms are sufficient for your solutions.
+There is also a visual interface for Azure Machine Learning service (Public Preview), which allows you to build experiments with a drag-and-drop interface similar to Studio.  The visual interface fully integrates with Azure Machine Learning service.
 
-Use Machine Learning service if you work in a Python environment, you want more control over your machine learning algorithms, or you want to use open-source machine learning libraries.
+The visual interface for Azure Machine Learning service starts with the some of the most popular built-in modules from Studio. Additional modules will be added over time. Expanding from what Studio has, there will be new modules added such as deep learning. Modules that are rarely used in Studio may not show up in Azure Machine Learning service.
+
+Here is a quick comparison:
+
+---
+  |Features   |Azure Machine Learning Studio |                         Visual interface  for Azure Machine Learning service (preview)|
+|--------------------|---------------------|-------------------|
+| Drag-n-drop interface|**&check;**|**&check;**|
+|Installation/setup free|**&check;**|**&check;**|
+|Training|  <ul><li>Proprietary compute target</li> <li>Scale (<10-GB training data size) </li> <li> CPU support only</li></ul>|<ul><li>Bring your own compute</li> <li>Scale with compute target size </li> <li> Support CPU and GPU</li></ul>|
+|Inferencing (Web service)|<ul><li>Proprietary, not customizable</li></ul>|<ul><li>Bring your own compute.</li> <li>Scale with inference target size </li> <li>   Support Azure Kubernetes Service</li></ul>|
+|Data input & outputs |<ul><li>8 types of data stores</li></ul>|<ul><li>3 types of data stores</li><li>Other modules to be added over time</li></ul>|
+|Built-in modules|<ul><li>Data format conversions</li><li>Data transformation </li> <li> Classification</li><li> Regression</li><li> Clustering</li><li> Text Analysis</li><li> Anomaly Detection</li></ul> |                                             <ul><li>Data format conversions</li><li>Data transformation </li> <li> Classification</li><li> Regression</li><li> Other modules to be added over time</li></ul>|            
+|Custom modules|<ul><li>Execute Python Script</li> <li>Execute R Script </li> <li>Create R models </li></ul> | <ul><li>Execute Python Script</li> </ul>|
+|Module reference | [See reference](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/) | [See reference](../algorithm-module-reference/module-reference.md)
+|Model Management| <ul><li>Proprietary</li> <li>Model can’t be used outside Studio </li></ul>|  <ul><li>Same as any model in Azure Machine Learning service.</li><li>Model versioning</li></ul>|
+|Role-based access control (RBAC)|Contributor and owner only|Azure standard|
+|Notebook|<ul><li>Python notebook</li><li>R Notebook</li></ul>| Python notebooks <br/> (outside of visual interface) |
+|Collaboration|   Yes. Any liveID can collaborate| Yes, Requires proper permission|
+
+Try out the visual interface for Azure Machine Learning service with the [Quickstart: Prepare and visualize data without writing code](../service/ui-quickstart-run-experiment.md).
+
 
 > [!NOTE]
 > Models created in Azure Machine Learning Studio can't be deployed or managed by Azure Machine Learning service.
