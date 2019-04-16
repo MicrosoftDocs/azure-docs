@@ -1,12 +1,12 @@
 - name: CloudSimple on Azure Documentation
 - name: Overview
   items:
-  - name: Welcome to Azure VMware Solutions by CloudSimple - missing or incorrect url
+  - name: Welcome to Azure VMware Solutions by CloudSimple
     href: index.md
   - name: Overview
     items: 
     - name: What is VMware Solutions on Azure by CloudSimple?
-      href: what-is-solution.md
+      href: https://docs.azure.cloudsimple.com/what-is-solution
     - name: Key concepts for administration
       href: https://docs.azure.cloudsimple.com/key-concepts/
   - name: Quick start
@@ -56,7 +56,7 @@
         href: reserve-nodes.md
     - name: Manage private cloud resources
       items: 
-      - name: Resources overview - missing or incorrect url
+      - name: Resources overview
         href: resources.md
       - name: Create a private cloud
         href: https://docs.azure.cloudsimple.com/create-private-cloud/
@@ -99,45 +99,45 @@
       - name: Edit your user profile
         href: https://docs.azure.cloudsimple.com/editprofile/
     - name: Set up VMware virtual machines for the private cloud
-      items:
-      - name: Getting started - missing or incorrect url
+      items
+      - name: Getting started 
         href: azuregettingstarted.md
       - name: Create a VM in Azure
         href: https://docs.azure.cloudsimple.com/azure-create-vm/
-      - name: View the list of VMs - missing or incorrect url
-        href: azurelistvms.md
-      - name: Manage a VM - missing or incorrect url
-        href: azureoverviewpage.md
-      - name: Network interfaces - missing or incorrect url
-        href: azurenetworkinterfaces.md
-      - name: Disks - missing or incorrect url
-        href: azuredisks.md
-      - name: Size -  missing or incorrect url
-        href: azuresize.md
-      - name: Properties -  missing or incorrect url
-        href: azureproperties.md
-      - name: Automation scripts - missing or incorrect url
-        href: azureautomation.md
-      - name: Other pages -missing or incorrect url
-        href: azureotherpages.md
-      - name: Diagnose and solve problems - missing or incorrect url
-        href: azurediagnose.md
-      - name: New support request - missing or incorrect url
-        href: azuresupportrequest.md
+      - name: View the list of VMs 
+        href: https://docs.azure.cloudsimple.com/azurelistvms/
+      - name: Manage a VM 
+        href: https://docs.azure.cloudsimple.com/azureoverviewpage/
+      - name: Network interfaces 
+        href: https://docs.azure.cloudsimple.com/azurenetworkinterfaces/
+      - name: Disks 
+        href: https://docs.azure.cloudsimple.com/azuredisks/
+      - name: Size
+        href: https://docs.azure.cloudsimple.com/azuresize/
+      - name: Properties 
+        href: https://docs.azure.cloudsimple.com/azureproperties/
+      - name: Automation scripts
+        href: https://docs.azure.cloudsimple.com/azureautomation/
+      - name: Other pages 
+        href: https://docs.azure.cloudsimple.com/azureotherpages/
+      - name: Diagnose and solve problems 
+        href: https://docs.azure.cloudsimple.com/azurediagnose/
+      - name: New support request
+        href: https://docs.azure.cloudsimple.com/azuresupportrequest/
   - name: How to Guides
     items:
-    - name: Secure your environment -stub topic
+    - name: Secure your environment
       href: https://docs.azure.cloudsimple.com/private-cloud-secure/
     - name: Private cloud management
       items:
-      - name: Private cloud privilege escalation - missing or incorrect url
-        href: privilegeescalation.md  
-      - name: On-premises DNS setup - missing or incorrect url
-        href: onpremdnssetup.md
+      - name: Private cloud privilege escalation 
+        href: https://docs.azure.cloudsimple.com/privilegeescalation/
+      - name: On-premises DNS setup 
+        href: https://docs.azure.cloudsimple.com/onpremdnssetup/
       - name: Workload DNS and DHCP setup
         href: https://docs.azure.cloudsimple.com/dns-dhcp-setup/  
-      - name: Updates and upgrades- missing or incorrect url
-        href: updatesupgrades.md
+      - name: Updates and upgrades-
+        href: https://docs.azure.cloudsimple.com/updatesupgrades/
       - name: NSX Layer 2 VPN for migration 
         href: https://docs.azure.cloudsimple.com/migrate-workloads/#migrating-vms-using-nsx-layer-2-vpn
     - name: Private cloud networking
@@ -154,8 +154,8 @@
         href: https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/
       - name: vCenter identity sources
         href: https://docs.azure.cloudsimple.com/set-vcenter-identity/
-      - name: vSAN default storage policy on 1- or 2-node private clouds - missing or incorrect url
-        href: vSANDefaultPolicy.md
+      - name: vSAN default storage policy on 1- or 2-node private clouds
+        href: https://docs.azure.cloudsimple.com/vSANDefaultPolicy
       - name: Azure Public Load Balancer with VMware VMs
         href: https://docs.azure.cloudsimple.com/load-balancers/
       - name: NSX licenses
@@ -178,7 +178,7 @@
         href: https://docs.azure.cloudsimple.com/zerto-solutionguide/
       - name: Veeam solution guide
         href: https://docs.azure.cloudsimple.com/veeam/
-      - name: VMware SRM solution guide - missing or incorrect url
+      - name: VMware SRM solution guide
         href: vmwaresrm.md
       - name: VMware Horizon solution guide
         href: https://docs.azure.cloudsimple.com/horizon-guide/
