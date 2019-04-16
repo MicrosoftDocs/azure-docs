@@ -31,7 +31,11 @@ Use this quickstart to begin using the Ink Recognizer API on digital ink strokes
         3. Search for `Newtonsoft.Json` and install the package
 - If you are using Linux/MacOS, this application can be ran using [Mono](http://www.mono-project.com/).
 
-- A JSON file containing digital ink strokes. The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
+Usually you would call the API from an app that accepts digital inking. This quickstart simulates sending ink stroke data by using a JSON file with the ink strokes for the following drawn square. 
+
+![an image of a drawn square](../media/drawn-square.png)
+
+The example data for this quickstart can be found on [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 
 [!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
 
@@ -60,7 +64,7 @@ Use this quickstart to begin using the Ink Recognizer API on digital ink strokes
     const string endpoint = "[YOUR_ENDPOINT_URL]";
     // Replace the dataPath string with a path to the JSON formatted time series data.
     const string dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    const string latestPointDetectionUrl = "<url>";
+    const string inkRecognitionUrl = "<url>";
     ```
 
 ## Create a function to send requests
