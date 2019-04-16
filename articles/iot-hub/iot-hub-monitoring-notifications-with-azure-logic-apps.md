@@ -22,7 +22,9 @@ ms.author: robinsh
 
 ## What you learn
 
-You learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications. When the temperature is above 30 C, the client application on your device marks `temperatureAlert = "true"` in the message it sends to your IoT hub. The message triggers the logic app to send you an email notification.
+You learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
+
+The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to true (`temperatureAlert : true`); otherwise, it sets the property to false. You set up routing on your IoT hub to send messages in which the `temperatureAlert` property is true to a Service Bus endpoint, where they trigger your logic app to send you an email notification.
 
 ## What you do
 
