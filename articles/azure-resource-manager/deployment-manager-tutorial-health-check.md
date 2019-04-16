@@ -63,7 +63,7 @@ You don't need to download these two files.
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. The project name is used as a prefix to generate unique resource names.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter an application name used to create Azure resource names"
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
 
@@ -75,8 +75,8 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 To verify and test the Azure function:
 
 1. Open the [Azure portal](https://portal.azure.com).
-1. Open the resource group.  The default name is the project name with "rg" appended.
-1. Select the app service from the resource group.  The default name of the app service is the project name with "webapp" appended.
+1. Open the resource group.  The default name is the project name with **rg** appended.
+1. Select the app service from the resource group.  The default name of the app service is the project name with **webapp** appended.
 1. Expand **Functions**, and then select **HttpTriggerCSharp1**. 
 1. Select **&lt;/> Get function URL**.
 1. Select **Copy** to copy the URL to the clipboard.  The URL is similar to:
@@ -85,20 +85,39 @@ To verify and test the Azure function:
     https://johndole0412webapp.azurewebsites.net/api/HttpTrigger1?code=AYNGhKjJVKF4WYPkKs/s9T56YpMxjBhgTDnkvSZVnYGL8hud8wGelQ==
     ```
 
-    The code value is the Azure function authorization key. You need both the URL (before **?**), and the code when you deploy rollout.
+1. Open the URL with **&status=healthy** appended from a browser.  The result shall be similar to:
 
-1. Open the URL with **&status=healthy** from a browser.  The result shall be similar to:
-
-    ```xml
+    ```console
     Status: healthy
     ```
+
+1. You need the following values when you deploy the rollout:
+
+    - The URL: the URL before **?**, such as **https://johndole0412webapp.azurewebsites.net/api/HttpTrigger1** from the previous URL.
+    - The code: the value of the **code**, such as **AYNGhKjJVKF4WYPkKs/s9T56YpMxjBhgTDnkvSZVnYGL8hud8wGelQ==** from the previous URL.
 
 ## Revise the rollout template
 
 bla, bla, bla ...
 
-1. Open Create ADMRollout.json.
-1. Replace the wait step resource definition with the following:
+1. Open **CreateADMRollout.json**.
+1. Add two more parameters:
+
+    ```json
+    "healthCheckUrl": {
+        "type": "string",
+        "metadata": {
+            "description": "Specifies the health check URL."
+        }
+    },
+    "healthCheckAuthAPIKey": {
+        "type": "string",
+        "metadata": {
+            "description": "Specifies the health check Azure Function function authorization key."
+        }
+    }
+    ```
+1. Replace the wait step resource definition with the following JSON:
 
     ```json
     {
@@ -146,23 +165,17 @@ bla, bla, bla ...
       }
     },
     ```
-1. Add two more parameters:
+
+1. Update the **dependsON** of the rollout defintion to:
 
     ```json
-    "healthCheckUrl": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check URL."
-        }
-    },
-    "healthCheckAuthAPIKey": {
-        "type": "string",
-        "metadata": {
-            "description": "Specifies the health check Azure Function function authorization key."
-        }
-    }
+    "dependsOn": [
+        "[resourceId('Microsoft.DeploymentManager/artifactSources', variables('rolloutArtifactSource').name)]",
+        "[resourceId('Microsoft.DeploymentManager/steps/', 'healthCheckStep')]"
+    ],
     ```
-1. Update **stepGroups** with the following.
+
+1. Update **stepGroups** with the following JSON.
 
     ```json
     "stepGroups": [
@@ -201,6 +214,12 @@ bla, bla, bla ...
 
 ## Deploy the topology
 
+To simplify the tutorial, the topology template and artifacts are shared at:
+
+* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+
+To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
 ```azurepowershell-interactive
 
@@ -212,52 +231,42 @@ $artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/Arti
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
-    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json" `
+    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMServiceTopology.json" `
     -namePrefix $projectName `
     -azureResourceLocation $location `
     -artifactSourceSASLocation $artifactLocation
 ```
 
-
-## Deploy the templates
-
-Azure PowerShell can be used to deploy the templates. 
-
-1. Run the script to deploy the service topology.
-
-    ```azurepowershell
-    $resourceGroupName = "<Enter a Resource Group Name>"
-    $location = "Central US"  
-    $filePath = "<Enter the File Path to the Downloaded Tutorial Files>"
-
-    # Create a resource group
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
-
-    # Create the service topology
-    New-AzResourceGroupDeployment `
-        -ResourceGroupName $resourceGroupName `
-        -TemplateFile "$filePath\ADMTemplates\CreateADMServiceTopology.json" `
-        -TemplateParameterFile "$filePath\ADMTemplates\CreateADMServiceTopology.Parameters.json"
-    ```
-
-    > [!NOTE]
-    > `New-AzResourceGroupDeployment` is an asynchronous call. The success message only means the deployment has successfully begun. To verify the deployment, see step 2 and step 4 of this procedure.
-
-2. Verify the service topology and the underlined resources have been created successfully using the Azure portal:
+Verify the service topology and the underlined resources have been created successfully using the Azure portal:
 
     ![Azure Deployment Manager tutorial deployed service topology resources](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
     **Show hidden types** must be selected to see the resources.
 
-3. <a id="deploy-the-rollout-template"></a>Deploy the rollout template:
+## Deploy the rollout
 
-    ```azurepowershell
-    # Create the rollout
-    New-AzResourceGroupDeployment `
-        -ResourceGroupName $resourceGroupName `
-        -TemplateFile "$filePath\ADMTemplates\CreateADMRollout.json" `
-        -TemplateParameterFile "$filePath\ADMTemplates\CreateADMRollout.Parameters.json"
-    ```
+
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name used to generate Azure resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$managedIdentityID = Read-Host -Prompt "Enter a user-assigned managed identity"
+$healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
+$healthCheckAuthAPIKey = Read-Host -Prompt "Enter the Azure Function function authorization key"
+
+$resourceGroupName = "${projectName}rg"
+$artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore" | ConvertTo-SecureString -AsPlainText -Force
+
+# Create the rollout
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json" `
+    -namePrefix $projectName `
+    -azureResourceLocation $location `
+    -artifactSourceSASLocation $artifactLocation `
+    -managedIdentityID $managedIdentityID `
+    -healthCheckUrl $healthCheckUrl `
+    -healthCheckAuthAPIKey healthCheckAuthAPIKey
+```
 
 4. Check the rollout progress using the following PowerShell script:
 
