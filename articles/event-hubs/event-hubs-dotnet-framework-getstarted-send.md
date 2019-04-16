@@ -210,13 +210,11 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
     
 3. Run the program, and ensure that there are no errors.
   
-
-> [!NOTE]
-> This tutorial uses a single instance of [EventProcessorHost](event-hubs-event-processor-host.md). To increase throughput, we recommend that you run multiple instances of [EventProcessorHost](event-hubs-event-processor-host.md), as shown in the [Scaled out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample. In those cases, the multiple instances automatically coordinate with each other to load balance the received events. 
-
 ## Next steps
-Read the following article to learn about Event Hubs features: [Features and terminology in Azure Event Hubs](event-hubs-features.md).
+Read the following articles: 
 
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 <!-- Links -->
 [EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost

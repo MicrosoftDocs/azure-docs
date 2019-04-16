@@ -361,8 +361,6 @@ Add the [**Microsoft.Azure.EventHubs**](https://www.nuget.org/packages/Microsoft
 
 4. Run the program, and ensure that there are no errors.
 
-> [!NOTE]
-> This tutorial uses a single instance of [EventProcessorHost](event-hubs-event-processor-host.md). To increase throughput, we recommend that you run multiple instances of [EventProcessorHost](event-hubs-event-processor-host.md), as shown in the [Scaled out event processing](https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3) sample. In those cases, the multiple instances automatically coordinate with each other to load balance the received events.
 
 ## Next steps
 Read the following articles:

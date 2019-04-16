@@ -419,5 +419,8 @@ The com.microsoft.azure.eventprocessorhost.EventProcessorHost class provides you
 
 
 ## Next steps
-Read the following article to learn about Event Hubs features: [Features and terminology in Azure Event Hubs](event-hubs-features.md).
+Read the following articles: 
+
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
