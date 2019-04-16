@@ -27,7 +27,7 @@ ms.author: juliako
 
 In order to deliver digital video over the internet, you must compress the media. Digital video files are large and may be too large to deliver over the internet or for your customers’ devices to display properly. Encoding is the process of compressing video and audio so your customers can view your media. Once a video has been encoded, it can be placed into different file containers. The process of placing encoded media into a container is called packaging. For example, you can take an MP4 file and convert it into Smooth Streaming or HLS content by using the Azure Media Packager. 
 
-Media Services supports dynamic and static packaging. When using static packaging, you need to create a copy of your content in each format required by your customers. With dynamic packaging all you need is to create an asset that contains a set of adaptive bitrate MP4 or Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server ensures that your users receive the stream in the protocol they have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
+Media Services supports dynamic and static packaging. When using static packaging, you need to create a copy of your content in each format required by your customers. With dynamic packaging, all you need is to create an asset that contains a set of adaptive bitrate MP4 or Smooth Streaming files. Then, based on the specified format in the manifest or fragment request, the On-Demand Streaming server ensures that your users receive the stream in the protocol they have chosen. As a result, you only need to store and pay for the files in single storage format and Media Services service will build and serve the appropriate response based on requests from a client.
 
 > [!NOTE]
 > It is recommended to use [dynamic packaging](media-services-dynamic-packaging-overview.md).
@@ -713,7 +713,7 @@ If you want to encrypt your HLS with AES-128, you have a choice of using dynamic
 > [!NOTE]
 > In order to convert your content into HLS, you must first convert/encode your content into Smooth Streaming.
 > Also, for the HLS to get encrypted with AES make sure to set the following properties in your MediaPackager_SmoothToHLS.xml file: set the encrypt property to true, set the key value, and the keyuri value to point to your authentication\authorization server.
-> Media Services create a key file and place it in the asset container. You should copy the /asset-containerguid/*.key file to your server (or create your own key file) and then delete the *.key file from the asset container.
+> Media Services creates a key file and places it in the asset container. You should copy the /asset-containerguid/*.key file to your server (or create your own key file) and then delete the *.key file from the asset container.
 > 
 > 
 
