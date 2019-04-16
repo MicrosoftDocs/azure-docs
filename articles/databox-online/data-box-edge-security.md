@@ -76,7 +76,6 @@ This section describes the Data Box Edge security features that protect the data
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-protect-data-storage-accounts.md)]
 - Rotate and then [Sync your storage account keys](data-box-edge-manage-shares.md#sync-storage-keys) regularly to help ensure that your storage account is not accessed by unauthorized users.
 
-
 ## Manage personal information
 
 The Data Box Edge service collects personal information in the following key instances:
@@ -90,4 +89,3 @@ For more information, review the Microsoft Privacy policy at [Trust Center](http
 ## Next steps
 
 [Deploy your Data Box Edge device](data-box-edge-deploy-prep.md).
-
