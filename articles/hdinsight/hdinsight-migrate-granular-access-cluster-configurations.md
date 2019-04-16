@@ -1,6 +1,6 @@
 ---
 title: Migrate to granular role-based access for cluster configurations - Azure HDInsight
-description: Learn about the changes to accessing sensitive cluster configuration information.
+description: Learn about the changes needed to migrate to granular role-based access for cluster configurations.
 author: tylerfox
 ms.author: tyfox
 ms.reviewer: jasonh
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ---
     
-# Changes to cluster configuration access
+# Migrate to granular role-based access for cluster configurations
 
 The latest release of the Azure HDInsight SDK brings some important changes to support more fine-grained role-based access to obtain sensitive information. As part of these changes, some **action may be required**  if you are using one of the affected methods.
 
-## What is Changing?
+## What is changing?
 
 Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
@@ -44,6 +44,8 @@ The following entities and scenarios are affected:
 - [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the ConfigurationsOperations class.
 - [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the ConfigurationsInner class.
 - [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the ConfigurationsClient struct.
+
+See the below sections (or use the above links) to see the migration steps for your scenario.
 
 ## API
 
