@@ -88,7 +88,7 @@ Follow these instructions to verify that you have enabled Seamless SSO correctly
 ![Azure portal: Azure AD Connect pane](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> Seamless SSO creates a computer account named `AZUREADSSOACC` in your on-premises Active Directory (AD) in each AD forest. The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access.
+> Seamless SSO creates a computer account named `AZUREADSSOACC` in your on-premises Active Directory (AD) in each AD forest. The `AZUREADSSOACC` computer account needs to be strongly protected for security reasons. Only Domain Admins should be able to manage the computer account. Ensure that Kerberos delegation on the computer account is disabled, and that no other account in Active Directory has delegation permissions on the `AZUREADSSOACC` computer account. Store the computer account in an Organization Unit (OU) where they are safe from accidental deletions and where only Domain Admins have access.
 
 >[!NOTE]
 > If you are using Pass-the-Hash and Credential Theft Mitigation architectures in your on-premises environment, make appropriate changes to ensure that the `AZUREADSSOACC` computer account doesn't end up in the Quarantine container. 
