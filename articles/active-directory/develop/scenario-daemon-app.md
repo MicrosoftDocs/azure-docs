@@ -83,7 +83,7 @@ A daemon application can only request application permissions to APIs (not deleg
 
 Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
 
-If you are an ISV building a multi-tenant application, you'd want to check the [Deployment - Case of multi-tenant daemon apps](#deployment---case-of-multi-tenant-daemon-apps) paragraph.
+If you are an ISV building a multi-tenant application, you'd want to check the [Deployment - case of multi-tenant daemon apps](#deployment---case-of-multi-tenant-daemon-apps) paragraph.
 
 ### Registration of secrets or certificates
 
@@ -368,7 +368,7 @@ Content: {
 }
 ```
 
-## Deployment - Case of multi-tenant daemon apps
+## Deployment - case of multi-tenant daemon apps
 
 If you are an ISV creating a daemon application that can run in several tenants, you will need to make sure that the tenant admins:
 
