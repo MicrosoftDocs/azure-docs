@@ -10,12 +10,9 @@ ms.date: 04/08/2019
 ms.author: sogup
 ---
 
-# Move a Recovery Services vault across Azure Subscriptions and Resource Groups (Limited Public Preview)
+# Move a Recovery Services vault across Azure Subscriptions and Resource Groups
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
-
-> [!NOTE]
-> To move a Recovery Services vault and its associated resources to different resource group, you should first [register the source subscription](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## Supported geos
 
@@ -42,34 +39,6 @@ Resource move for Recovery Services vault is supported in Australia East, Austra
 >
 > Recovery Services vaults configured to use with **Azure Site Recovery** can’t move, yet. If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using the **Azure Site Recovery**, the move operation will be blocked. The resource move feature for Site Recovery service is not yet available.
 
-## Register the source subscription to Move your Recovery Services vault
-
-To register the source subscription to **Move** your Recovery Services vault, run the following cmdlets from PowerShell terminal:
-
-1. Sign in to your Azure account
-
-   ```
-   Connect-AzureRmAccount
-   ```
-
-2. Select the subscription that you want to register
-
-   ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-   ```
-3. Register this subscription
-
-   ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
-   ```
-
-4. Run the command
-
-   ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-   ```
-
-Wait for 30 minutes for the subscription to be whitelisted before you start with the move operation using the Azure portal or PowerShell.
 
 ## Use Azure portal to move a Recovery Services vault to different resource group
 
