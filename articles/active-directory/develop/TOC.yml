@@ -91,6 +91,10 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
+    - name: Authentication scenarios
+      items:
+      - name: Daemon apps
+        href: scenario-daemon-app.md
     - name: Authentication
       items:
       - name: Authentication basics

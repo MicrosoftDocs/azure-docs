@@ -1,10 +1,35 @@
+---
+title: Daemon app calling Web APIs - scenario landing page | Azure
+description: Learn how to build a daemon app calling web apis on behalf of itself
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: CelesteDG
+editor: ''
+
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.subservice: develop
+ms.devlang: na
+ms.topic: conceptual
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/16/2019
+ms.author: jmprieur
+ms.custom: aaddev 
+#Customer intent: As an application developer, I want to know how to write a daemon app that can call Web APIs using the Microsoft identity platform for developers.
+ms.collection: M365-identity-device-management
+---
+
 # Scenario - Daemon application calling an API on behalf of itself
+
+Learn all you need to build a daemon application calling Web APIs
 
 ## Scenario
 
 ### Overview
 
-Your application can acquire a token to call a Web API on behalf of itself (not on behalf of a user). This scenario is useful for daemon applications. This is using the standard [client credentials](v2-oauth2-client-creds-grant-flow.md) grant.
+Your application can acquire a token to call a Web API on behalf of itself (not on behalf of a user). This scenario is useful for daemon applications. It is using the standard OAuth 2 [client credentials](v2-oauth2-client-creds-grant-flow.md) grant.
 
 ![Daemon apps](./media/scenario-daemon-app/daemon-app.svg)
 
@@ -28,30 +53,37 @@ Applications acquiring a token for their own identities:
 >
 > - user interaction is not possible with a daemon application, which requires the application to have its own identity. This type of application requests an access token by using its application identity and presenting its  Application ID, credential (password or certificate), and application ID URI to Azure AD. After successful authentication, the daemon receives an access token (and a refresh token) from the Microsoft identity platform endpoint, which is then used to call the web API (and is refreshed as needed)
 >
-> - because user interaction is not possible, incremental consent won't be possible. Therefore, the API permissions need to be configured at application registration, and the code of the application just requests statically defined permissions.
+> - because user interaction is not possible, incremental consent won't be possible. Therefore, the all the required API permissions need to be configured at application registration, and the code of the application just requests statically defined permissions. This also means that daemon applications won't support incremental consent
 
 The end to end experience of developers for this scenario has, therefore, specific aspects as:
 
 - Daemon applications can only work in Azure AD tenants. This does not make sense to build a daemon application that attempts to manipulate Microsoft personal accounts. If you are a Line of business (LOB) developer, you'll create your daemon app in your tenant. If you are an ISV, you might want to create a multi-tenant daemon application. It will need to be consented by each tenant admin.
-- During the [Application registration](#app-registration-specifics), the Reply URI is not needed, secrets or certificates need to be shared with Azure AD, and API permissions need to be app permissions and admin consent needs to be granted to those app permissions.
+- During the [Application registration](#app-registration-specifics), the Reply URI is not needed, you need to share secrets or certificates with Azure AD, and you need to request applications permissions and grant admin consent to use those app permissions.
 - The [Application configuration](#msal-libraries-applications-code-configuration) needs to provide client credentials as shared with Azure AD during the application registration
 - The [scope](#scopes-to-request) used to acquire a token with client credentials needs to be a static scope.
 
-## MSAL Libraries supporting client credentials
-
-The libraries supporting client credentials are:
-
-  MSAL library | Description
-  ------------ | ----------
-![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications)
-![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Development in progress - in public preview
-![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Development in progress - in public preview
-
 ## App registration specifics
+
+### Supported account types
+
+Given that daemon applications only make sense in Azure AD tenant, when you create the application you will need to choose:
+
+- either **Accounts in this organizational directory only**
+- or **Accounts in any organizational directory**
 
 ### Authentication - No Reply URI needed
 
 In the case where your confidential client application uses **only** the client credentials flow, the reply URL does not need to be registered. It's not needed either for the application configuration/construction. The client credentials flow does not use it.
+
+#### API Permissions - app permissions and admin consent
+
+A daemon application can only request application permissions to APIs (not delegated permissions). In the **API Permission** page for the application registration, after you have selected **Add a permission** and chosen the API family, you'll need to choose **Application permissions**, and then select your permissions
+
+![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
+
+Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
+
+If you are an ISV building a multi-tenant application, you'd want to check the [Deployment - Case of multi-tenant daemon apps](#Deployment---Case-of-multi-tenant-daemon-apps) paragraph.
 
 ### Registration of secrets or certificates
 
@@ -75,13 +107,15 @@ Alternatively, you can register your application with Azure AD using command-lin
 - For details on how to register an application secret, see [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)
 - For details on how to register a certificate with the application, see [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)
 
-#### API Permissions - app permissions and admin consent
+## MSAL Libraries supporting client credentials
 
-A daemon application can only request application permissions to APIs (not delegated permissions). In the **API Permission** page for the application registration, after you have selected **Add a permission** and chosen the API family, you'll need to choose **Application permissions** and then select your permissions
+The libraries supporting client credentials are:
 
-![App permissions and admin consent](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
-
-Daemon applications require have a tenant admin pre-consent to the application calling the Web API. This consent is provided in the same **API Permission** page, by a tenant admin selecting **Grant admin consent to *our organization***
+  MSAL library | Description
+  ------------ | ----------
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Supported platforms to build a daemon application are .NET Framework and .NET Core platforms (not UWP, Xamarin.iOS, and Xamarin.Android as those platforms are used to build public client applications)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL.Python | Development in progress - in public preview
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL.Java | Development in progress - in public preview
 
 ## MSAL libraries: Application's code configuration
 
@@ -97,9 +131,17 @@ In MSAL libraries, the Client Credentials (secret or certificate) are passed as 
 
 # [.NET](#tab/dotnet)
 
-```CSharp
-using Microsoft.Identity.Client.ApiConfig;
+Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application
 
+Use MSAL.NET namespace
+
+```CSharp
+using Microsoft.Identity.Client;
+```
+
+The daemon application will be presented by an `IConfidentialClientApplication`
+
+```CSharp
 IConfidentialClientApplication app;
 ```
 
@@ -207,7 +249,7 @@ ___
 # [.NET](#tab/dotnet)
 
 ```CSharp
-using Microsoft.Identity.Client.ApiConfig;
+using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
 // application permissions need to be set statically (in the portal or by PowerShell), and then granted by
@@ -220,16 +262,22 @@ try
  result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 }
+catch (MsalUiRequiredException ex)
+{
+    // The application does not have sufficient permissions
+    // - did you declare enough app permissions in during the app creation?
+    // - did the tenant admin needs to grant permissions to the application.
+}
 catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 {
     // Invalid scope. The scope has to be of the form "https://resourceurl/.default"
-    // Mitigation: change the scope to be as expected
+    // Mitigation: change the scope to be as expected !
 }
 ```
 
-### Remark
+### Application token cache
 
-In MSAL.NET, `AcquireTokenForClient` uses the **application token cache** (whereas all the other AcquireTokenXX method use the user token cache)
+In MSAL.NET, `AcquireTokenForClient` uses the **application token cache** (whereas all the other AcquireTokenXX method uses the user token cache)
 Don't call `AcquireTokenSilent` before calling `AcquireTokenForClient` as `AcquireTokenSilent` uses the **user** token cache. `AcquireTokenForClient` checks the **application** token cache itself and updates it.
 
 # [Python](#tab/python)
@@ -291,7 +339,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### Learn more
 
-For more details see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
+For more information, see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
 
 ___
 
@@ -303,8 +351,8 @@ If you get an error message telling you that you used an invalid scope this is p
 
 ### Did you forget to provide admin consent? This is needed for daemon apps
 
-If you get an error when calling the API Insufficient privileges to complete the operation., this is because the tenant administrator has not granted permissions to the application. See step 6 of Register the client app above.
-You will typically see and error like the following:
+If you get an error when calling the API **Insufficient privileges to complete the operation**, this is because the tenant administrator has not granted permissions to the application. See step 6 of Register the client app above.
+You will typically see and error like the following error description:
 
 ```JSon
 Failed to call the Web Api: Forbidden
@@ -319,6 +367,15 @@ Content: {
   }
 }
 ```
+
+## Deployment - Case of multi-tenant daemon apps
+
+If you are an ISV creating a daemon application that can run in several tenants, you will need to make sure that the tenant admins:
+
+- provisions a service principal for the application
+- grants consent to the application
+
+You'll need to explain to your customers how to perform these operations. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details
 
 ## Next steps
 
@@ -358,6 +415,6 @@ See [MSAL Java in-repository samples](https://github.com/AzureAD/azure-activedir
 
 # [Other](#tab/other)
 
-No sample use the protocol directly
+No sample uses the protocol directly
 
 ___
