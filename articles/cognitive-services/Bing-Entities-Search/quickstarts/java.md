@@ -210,7 +210,7 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
-[Back to top](#main)
+[Back to top](#quickstart:-Send-a-search-request-to-the-bing-entity-search-rest-api-using-java)
 
 ## Next steps
 
