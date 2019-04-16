@@ -51,7 +51,6 @@ You can choose from many machine learning components available in open-source Py
 - <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK</a>
 - <a href="https://mxnet.io" target="_blank">MXNet</a>
 
 Azure Machine Learning service can also autotrain a model and autotune it for you.
@@ -83,7 +82,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- Create a Machine Learning service workspace to get started [by using the Azure portal](quickstart-get-started.md) (no-install approach) or [in Python](quickstart-create-workspace-with-python.md) (SDK install approach).
+- [Create a Machine Learning service workspace](setup-create-workspace.md) to get started.
 
 - Follow the full-length tutorials: 
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 

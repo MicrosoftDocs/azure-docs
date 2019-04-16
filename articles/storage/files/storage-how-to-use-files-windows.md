@@ -35,6 +35,9 @@ You can use Azure file shares on a Windows installation that is running either i
 > [!Note]  
 > We always recommend taking the most recent KB for your version of Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## Prerequisites 
 * **Storage account name**: To mount an Azure file share, you will need the name of the storage account.
 
@@ -42,13 +45,13 @@ You can use Azure file shares on a Windows installation that is running either i
 
 * **Ensure port 445 is open**: The SMB protocol requires TCP port 445 to be open; connections will fail if port 445 is blocked. You can check to see if your firewall is blocking port 445 with the `Test-NetConnection` cmdlet. You can learn about [various ways to workaround blocked port 445 here](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    The following PowerShell code assumes you have the AzureRM PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
+    The following PowerShell code assumes you have the Azure PowerShell module installed, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) for more information. Remember to replace `<your-storage-account-name>` and `<your-resource-group-name>` with the relevant names for your storage account.
 
-    ```PowerShell
+    ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -82,7 +85,7 @@ A common pattern for lifting and shifting line-of-business (LOB) applications th
 ### Persisting Azure file share credentials in Windows  
 The [cmdkey](https://docs.microsoft.com/windows-server/administration/windows-commands/cmdkey) utility allows you to store your storage account credentials within Windows. This means that when you try to access an Azure file share via its UNC path or mount the Azure file share, you will not need to specify credentials. To save your storage account's credentials, run the following PowerShell commands, replacing `<your-storage-account-name>` and `<your-resource-group-name>` where appropriate.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 
@@ -102,7 +105,7 @@ Invoke-Expression -Command ("cmdkey /add:$([System.Uri]::new($storageAccount.Con
 
 You can verify the cmdkey utility has stored the credential for the storage account by using the list parameter:
 
-```PowerShell
+```powershell
 cmdkey /list
 ```
 
@@ -123,7 +126,7 @@ There are two additional scenarios to consider with cmdkey: storing credentials 
 
 Storing the credentials for another user on the machine is very easy: when logged into your account, simply execute the following PowerShell command:
 
-```PowerShell
+```powershell
 $password = ConvertTo-SecureString -String "<service-account-password>" -AsPlainText -Force
 $credential = New-Object System.Management.Automation.PSCredential -ArgumentList "<service-account-username>", $password
 Start-Process -FilePath PowerShell.exe -Credential $credential -LoadUserProfile
@@ -136,7 +139,7 @@ Storing the credentials on a remote machine using PowerShell remoting is not how
 ### Mount the Azure file share with PowerShell
 Run the following commands from a regular (i.e. not an elevated) PowerShell session to mount the Azure file share. Remember to replace `<your-resource-group-name>`, `<your-storage-account-name>`, `<your-file-share-name>`, and `<desired-drive-letter>` with the proper information.
 
-```PowerShell
+```powershell
 $resourceGroupName = "<your-resource-group-name>"
 $storageAccountName = "<your-storage-account-name>"
 $fileShareName = "<your-file-share-name>"
@@ -167,7 +170,7 @@ New-PSDrive -Name <desired-drive-letter> -PSProvider FileSystem -Root "\\$($file
 
 If desired, you can dismount the Azure file share using the following PowerShell cmdlet.
 
-```PowerShell
+```powershell
 Remove-PSDrive -Name <desired-drive-letter>
 ```
 
@@ -247,7 +250,7 @@ Before removing SMB 1 in your environment, you may wish to audit SMB 1 usage to 
 
 To enable auditing, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Set-SmbServerConfiguration –AuditSmb1Access $true
 ```
 
@@ -256,7 +259,7 @@ Set-SmbServerConfiguration –AuditSmb1Access $true
 
 To remove SMB 1 from a Windows Server instance, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Remove-WindowsFeature -Name FS-SMB1
 ```
 
@@ -270,7 +273,7 @@ To complete the removal process, restart your server.
 
 To remove SMB 1 from your Windows client, execute the following cmdlet from an elevated PowerShell session:
 
-```PowerShell
+```powershell
 Disable-WindowsOptionalFeature -Online -FeatureName SMB1Protocol
 ```
 
@@ -283,7 +286,7 @@ SMB 1 cannot be completely removed on legacy versions of Windows/Windows Server,
 
 You can easily accomplish this with the following PowerShell cmdlet as well:
 
-```PowerShell
+```powershell
 Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" SMB1 -Type DWORD -Value 0 –Force
 ```
 

@@ -1,5 +1,5 @@
 - name: Azure NetApp Files Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: Introduction to Azure NetApp Files
@@ -7,6 +7,7 @@
   - name: Understand the storage hierarchy
     href: azure-netapp-files-understand-storage-hierarchy.md
 - name: Quickstarts
+  expanded: true 
   items:
   - name: Set up Azure NetApp Files and create a volume
     href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
@@ -34,11 +35,11 @@
     href: azure-netapp-files-delegate-subnet.md
   - name: Create a volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
-  - name: Configure export policy for a volume
+  - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes
     href: azure-netapp-files-manage-volumes.md
-  - name: Mount or unmount a volume for virtual machines
+  - name: Mount or unmount a volume for Windows or Linux virtual machines
     href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
   - name: Manage snapshots
     href: azure-netapp-files-manage-snapshots.md

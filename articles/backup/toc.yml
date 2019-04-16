@@ -67,6 +67,8 @@
     href: backup-azure-backup-server-import-export-.md
   - name: Replace your tape library
     href: backup-azure-backup-cloud-as-tape.md
+  - name: Azure Common Security Attributes
+    href: backup-security-attributes.md
 - name: How to
   items:
   - name: Azure Backup Server
@@ -159,7 +161,7 @@
       href: backup-azure-central-reporting-updates.md
   - name: Data Protection Manager
     items:
-    - name: Prepare DPM workloads in Azure portal
+    - name: Prepare DPM workloads in the Azure portal
       href: backup-azure-dpm-introduction.md
     - name: Use DPM to back up Exchange server
       href: backup-azure-backup-exchange-server.md
@@ -171,14 +173,16 @@
       href: backup-azure-backup-sharepoint.md
   - name: Use Azure PowerShell
     items:
-    - name: Azure VMs in Azure portal
+    - name: Azure VMs in the Azure portal
       href: backup-azure-vms-automation.md
-    - name: DPM in Azure portal
+    - name: DPM in the Azure portal
       href: backup-dpm-automation.md
-    - name: Windows Server in Azure portal
+    - name: Windows Server in the Azure portal
       href: backup-client-automation.md
-    - name: Azure File shares in Azure portal
+    - name: Azure File shares in the Azure portal
       href: backup-azure-afs-automation.md
+    - name: SQL in Azure VM backups
+      href: backup-azure-sql-automation.md
   - name: Use Azure Backup REST API
     items:
     - name: Create Recovery Services vault
@@ -194,7 +198,7 @@
   - name: Backup SQL Server databases on Azure VMs
     items:
     - name: About SQL Server Backup in Azure VMs
-      href: backup-sql-server-azure-vms.md
+      href: backup-azure-sql-database.md
     - name: Back up SQL Server databases in Azure VMs
       href: backup-sql-server-database-azure-vms.md
     - name: Restore SQL Server databases in Azure VMs
@@ -243,7 +247,7 @@
       href: backup-sql-server-azure-troubleshoot.md
   - name: Monitor Azure Backup workloads
     items:
-    - name: Using Azure Portal
+    - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor
       href: backup-azure-monitoring-use-azuremonitor.md
@@ -254,7 +258,7 @@
   - name: Azure CLI
     href: /cli/azure/backup?view=azure-cli-latest
   - name: PowerShell
-    href: /powershell/module/azurerm.recoveryservices.backup
+    href: /powershell/module/az.recoveryservices
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
@@ -263,8 +267,6 @@
     href: /azure/templates/microsoft.recoveryservices/allversions
 - name: Resources
   items:
-  - name: Common Security Attributes
-    href: backup-security-attributes.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: MSDN forum
