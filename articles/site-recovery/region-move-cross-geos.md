@@ -1,5 +1,5 @@
 ---
-title: Move Azure IaaS VMs between Azure Government & Public regions using the Azure Site Recovery service | Microsoft Docs
+title: Move Azure IaaS VMs between Azure Government and Public regions with the Azure Site Recovery service | Microsoft Docs
 description: Use Azure Site Recovery to move Azure IaaS VMs between Azure Government & Public regions.
 services: site-recovery
 author: rajani-janaki-ram
@@ -9,13 +9,13 @@ ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
 ---
-# Move Azure VMs between Azure Government & Public regions 
+# Move Azure VMs between Azure Government and Public regions 
 
-You might want to move your IaaS VMs between Azure Government & Public regions for increasing availability of your existing VMs, or to improve manageability or due to governance reasons etc, as detailed [here](azure-to-azure-move-overview.md).
+You might want to move your IaaS VMs between Azure Government and Public regions to increase availability of your existing VMs, improve manageability, or for governance reasons, as detailed [here](azure-to-azure-move-overview.md).
 
 In addition to using the [Azure Site Recovery](site-recovery-overview.md) service to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR), you can also use Site Recovery to manage move Azure VMs to a secondary region.       
 
-This tutorial shows you how to move Azure VMs between Azure Government & Public regions using Azure Site Recovery. The same can be extended to move VMs between region pairs that are not within the same geographic cluster. In this tutorial, you learn how to:
+This tutorial shows you how to move Azure VMs between Azure Government and Public regions using Azure Site Recovery. The same can be extended to move VMs between region pairs that are not within the same geographic cluster. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * [Verify prerequisites](#verify-prerequisites)
@@ -27,12 +27,12 @@ This tutorial shows you how to move Azure VMs between Azure Government & Public 
 > * [Discard the resources in the source region](#discard-the-resource-in-the-source-region) 
 
 > [!IMPORTANT]
-> This tutorial shows you how to move Azure VMs between Azure Government & Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
+> This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
 
 > [!IMPORTANT]
 > It is not advisable to use this method to configure DR between unsupported region pairs as the pairs are defined keeping data latency in mind, which is critical for a DR scenario.
 
-## Verify Prerequisites
+## Verify prerequisites
 
 > [!NOTE]
 > Make sure that you understand the [architecture and components](physical-azure-architecture.md) for this scenario. This architecture will be used to move Azure VMs, **by treating the VMs as physical servers**.
@@ -85,7 +85,7 @@ The Mobility service must be installed on each server you want to replicate. Sit
 
 2. Make sure your subscription has enough resources to support VMs with sizes that match your source VMs. if you are using Site Recovery to copy data to the target, it picks the same size or the closest possible size for the target VM.
 
-3. Ensure that you create a target resource for every component identified in the source networking layout. This is important to ensure that, post cutting over to the target region, your VMs have all the functionality & features that you had in the source.
+3. Ensure that you create a target resource for every component identified in the source networking layout. This is important to ensure that, post cutting over to the target region, your VMs have all the functionality and features that you had in the source.
 
     > [!NOTE]
     > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM, or you can also pre-create a network and assign to the VM in the user flow for enable replication. But for any other resources, as mentioned below, you need to manually create them in the target region.
@@ -191,12 +191,12 @@ The policy is automatically associated with the configuration server. By default
 8. Select **Configure now for selected machines**, to apply the network setting to all machines you select for protection. Select **Configure later** to select the Azure network per machine. 
 9. In **Physical Machines**, and click **+Physical machine**. Specify the name and IP address. Select the operating system of the machine you want to replicate. It takes a few minutes for the servers to be discovered and listed. 
 
-> [!WARNING]
-> You need to enter the IP address of the Azure VM you intend to move
+   > [!WARNING]
+   > You need to enter the IP address of the Azure VM you intend to move
 
 10. In **Properties** > **Configure properties**, select the account that will be used by the process server to automatically install the Mobility service on the machine.
-2. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
-3. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
+11. In **Replication settings** > **Configure replication settings**, verify that the correct replication policy is selected. 
+12. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs the machine is ready for failover.
 
 
 To monitor servers you add, you can check the last discovered time for them in **Configuration Servers** > **Last Contact At**. To add machines without waiting for a scheduled discovery time, highlight the configuration server (don’t click it), and click **Refresh**.
@@ -216,8 +216,8 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 3. Select the target Azure virtual network to which you want to move the Azure VMs to test the configuration. 
 
-> [!IMPORTANT]
-> We recommend that you use a separate Azure VM network for the test failover, and not the production network into which you want to move your VMs eventually that was set up when you enabled replication.
+   > [!IMPORTANT]
+   > We recommend that you use a separate Azure VM network for the test failover, and not the production network into which you want to move your VMs eventually that was set up when you enabled replication.
 
 4. To start testing the move, click **OK**. To track progress, click the VM to open its properties. Or,
    you can click the **Test Failover** job in the vault name > **Settings** > **Jobs** > **Site Recovery jobs**.
@@ -226,7 +226,7 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 ## Perform the move to the target region and confirm.
 
-1.  Navigate to the vault, in **Settings** > **Replicated items**, click on the virtual machine, and then click **Failover**.
+1. Navigate to the vault, in **Settings** > **Replicated items**, click on the virtual machine, and then click **Failover**.
 2. In **Failover**, select **Latest**. 
 3. Select **Shut down machine before beginning failover**. Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page. 
 4. Once the job is complete, check that the VM appears in the target Azure region as expected.
@@ -234,10 +234,10 @@ To monitor servers you add, you can check the last discovered time for them in *
 
 ## Discard the resource in the source region 
 
-1. Navigate to the VM.  Click on **Disable Replication**.  This stops the process of copying the data for the VM.  
+- Navigate to the VM.  Click on **Disable Replication**.  This stops the process of copying the data for the VM.  
 
-> [!IMPORTANT]
-> It is important to perform this step to avoid getting charged for ASR replication.
+   > [!IMPORTANT]
+   > It is important to perform this step to avoid getting charged for ASR replication.
 
 In case you have no plans to reuse any of the source resources please proceed with the next set of steps.
 
