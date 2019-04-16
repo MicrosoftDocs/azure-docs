@@ -14,7 +14,7 @@ ms.author: sogup
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
 
-## Supported Region
+## Supported region
 
 Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US2, South central US, West Central US, West Central US2, West US, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, UK West, UAE Central, and UAE North.
 
@@ -40,7 +40,7 @@ Resource move for Recovery Services vault is supported in Australia East, Austra
 > Recovery Services vaults configured to use with **Azure Site Recovery** can’t move, yet. If you have configured any VMs (Azure IaaS, Hyper-V, VMware) or physical machines for disaster recovery using the **Azure Site Recovery**, the move operation will be blocked. The resource move feature for Site Recovery service is not yet available.
 
 
-## Use Azure portal to move a Recovery Services vault to different resource group
+## Use Azure portal to move Recovery Services vault to different resource group
 
 To move a recovery services vault and its associated resources to different resource group
 
@@ -70,7 +70,7 @@ To move a recovery services vault and its associated resources to different reso
    ![Confirmation Message](./media/backup-azure-move-recovery-services/confirmation-message.png)
 
 
-## Use Azure portal to move a Recovery Services vault to a different subscription
+## Use Azure portal to move Recovery Services vault to a different subscription
 
 You can move a Recovery Services vault and its associated resources to a different subscription
 
@@ -103,7 +103,7 @@ You can move a Recovery Services vault and its associated resources to a differe
 >
 >
 
-## Use PowerShell to move a vault
+## Use PowerShell to move Recovery Services vault
 
 To move a Recovery Services vault to another resource group, use the `Move-AzureRMResource` cmdlet. `Move-AzureRMResource` requires the resource name and type of resource. You can get both from the `Get-AzureRmRecoveryServicesVault` cmdlet.
 
@@ -121,7 +121,7 @@ Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -D
 
 After executing the above cmdlets, you will be asked to confirm that you want to move the specified resources. Type **Y** to confirm. After a successful validation, the resource moves.
 
-## Use CLI to move a vault
+## Use CLI to move Recovery Services vault
 
 To move a Recovery Services vault to another resource group, use the following cmdlet:
 
