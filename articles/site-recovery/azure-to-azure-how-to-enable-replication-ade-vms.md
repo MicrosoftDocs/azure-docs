@@ -116,7 +116,7 @@ Follow these steps to modify the Site Recovery default target settings.
 
 2. Select **Customize** next to "Encryption settings" to modify the following default settings:
    - For **Target disk encryption key vault**, select the target disk encryption key vault from the list of key vaults in the target location of the subscription.
-     - For **Target key encryption key vault**, select the target key encryption key vault from the list of key vaults in the target location of the subscription.
+   - For **Target key encryption key vault**, select the target key encryption key vault from the list of key vaults in the target location of the subscription.
 
 3. Select **Create target resource** > **Enable Replication**.
 4. After the VMs are enabled for replication, you can check VMs' health status health under **Replicated items**
