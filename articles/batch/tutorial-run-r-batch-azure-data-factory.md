@@ -15,7 +15,7 @@ komammas
 Introduction
 ------------
 
-Run your R workloads as part of as part of an Azure Data Factory pipeline. The following example runs a script in R that receives inputs (iris.csv) from an Azure Blob Storage account, performs a data manipulation process and returns the outputs back to the Azure Blob Storage account. In this tutorial you will also learn how to schedule your R workloads, monitor your analytics pipeline and access your logfiles.
+Run your R workloads as part of an Azure Data Factory pipeline. The following example runs a script in R that receives inputs (iris.csv) from an Azure Blob Storage account, performs a data manipulation process and returns the outputs back to the Azure Blob Storage account. In this tutorial you will also learn how to schedule your R workloads, monitor your analytics pipeline and access your logfiles.
 
 Prerequisites
 -------------
