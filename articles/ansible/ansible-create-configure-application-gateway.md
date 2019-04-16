@@ -103,7 +103,7 @@ Save the following playbook as `vnet_create.yml`:
 Before running the playbook, see the following notes:
 
 * The `vars` section contains the values that are used to create the network resources. 
-* You will need to change these values for your specific environment.
+* You'll need to change these values for your specific environment.
 
 Run the playbook using the `ansible-playbook` command:
 
