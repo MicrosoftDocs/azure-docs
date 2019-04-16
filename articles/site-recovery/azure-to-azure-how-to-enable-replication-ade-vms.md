@@ -119,7 +119,7 @@ Follow these steps to modify the Site Recovery default target settings.
    - For **Target key encryption key vault**, select the target key encryption key vault from the list of key vaults in the target location of the subscription.
 
 3. Select **Create target resource** > **Enable Replication**.
-4. After the VMs are enabled for replication, you can check VMs' health status health under **Replicated items**
+4. After the VMs are enabled for replication, you can check the VMs' health status under **Replicated items**.
 
 >[!NOTE]
 >During initial replication, the status might take some time to refresh, without apparent progress. Click **Refresh**  to get the latest status.
@@ -140,7 +140,7 @@ You can use [a script](#copy-ade-keys-to-the-dr-region-by-using-powershell-scrip
 *For example*: You try to replicate a VM that has key vault *ContososourceKeyvault* on a source region.
 You have all the permissions on the source region key vault. But during protection, you select the already-created key vault ContosotargetKeyvault, which doesn't have permissions. An error occurs.
 
-**How to fix:** Got to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
+**How to fix:** Go to **Home** > **Keyvaults** > **ContososourceKeyvault** > **Access policies** and add the appropriate permissions.
 
 **Cause 2:** You might have selected from the target region an already-created key vault that doesn't have decrypt-encrypt permissions instead of letting Site Recovery create one. Make sure that you have decrypt-encrypt permissions if you're also encrypting the key on the source region.</br>
 
