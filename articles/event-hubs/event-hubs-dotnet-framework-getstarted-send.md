@@ -218,10 +218,11 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
 Read the following article to learn about Event Hubs features: [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 
-
-<!-- Images. -->
-[19]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj1.png
-[20]: ./media/event-hubs-csharp-ephcs-getstarted/create-eh-proj2.png
-[21]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs1.png
-[22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
-
+<!-- Links -->
+[EventProcessorHost]: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
+[Event Hubs overview]: event-hubs-about.md
+[Scale out Event Processing with Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-45f43fc3
+[Event Hubs Programming Guide]: event-hubs-programming-guide.md
+[Azure Storage account]:../storage/common/storage-create-storage-account.md
+[Event Processor Host]: event-hubs-event-processor-host.md
+[Azure portal]: https://portal.azure.com

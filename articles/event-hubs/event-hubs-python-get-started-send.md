@@ -44,7 +44,7 @@ pip install azure-eventhub
 
 Next, create a Python application that sends events to an event hub:
 
-1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
+1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a script called **send.py**. This script sends 100 events to your event hub.
 3. Paste the following code into send.py, replacing the ADDRESS, USER, and KEY values with the values you obtained from the Azure portal in the previous section: 
 
@@ -110,7 +110,7 @@ Congratulations! You have now sent messages to an event hub.
 
 Next, create a Python application that receives events from an event hub:
 
-1. Open your favorite Python editor, such as [Visual Studio Code][Visual Studio Code].
+1. Open your favorite Python editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a script called **recv.py**.
 3. Paste the following code into recv.py, replacing the ADDRESS, USER, and KEY values with the values you obtained from the Azure portal in the previous section: 
 
@@ -176,8 +176,3 @@ Read the following articles:
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 - Check out other Node.js samples for Event Hubs on [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/).
 
-
-<!-- Links -->
-[Event Hubs overview]: event-hubs-about.md
-[Visual Studio Code]: https://code.visualstudio.com/
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

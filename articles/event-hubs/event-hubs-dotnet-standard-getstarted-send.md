@@ -40,7 +40,7 @@ This section shows you how to create a .NET Core console application to send eve
 
 Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
 
-![New project][1]
+![New project](./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png)
 
 ### Add the Event Hubs NuGet package
 
@@ -203,7 +203,7 @@ This section shows how to write a .NET Core console application that receives me
 
 Start Visual Studio. From the **File** menu, click **New**, and then click **Project**. Create a .NET Core console application.
 
-![New project][2]
+![New project](./media/event-hubs-dotnet-standard-getstarted-receive-eph/netcorercv.png)
 
 ### Add the Event Hubs NuGet package
 
@@ -371,4 +371,3 @@ Read the following articles:
 - [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 
-[1]: ./media/event-hubs-dotnet-standard-getstarted-send/netcoresnd.png

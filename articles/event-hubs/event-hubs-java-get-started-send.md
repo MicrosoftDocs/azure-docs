@@ -27,7 +27,7 @@ This tutorial shows how to create Java applications to send events to or receive
 
 To complete this tutorial, you need the following prerequisites:
 
-- An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
+- An active Azure account. If you do not have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
 - **Create an Event Hubs namespace and an event hub**. The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Then, get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
 
@@ -175,7 +175,7 @@ The code in this tutorial is based on the [EventProcessorSample code on GitHub](
 
 To use EventProcessorHost, you must have an [Azure Storage account][Azure Storage account]:
 
-1. Log on to the [Azure portal][Azure portal], and click **+ Create a resource** on the left-hand side of the screen.
+1. Log on to the [Azure portal](https://portal.azure.com), and click **+ Create a resource** on the left-hand side of the screen.
 2. Click **Storage**, then click **Storage account**. In the **Create storage account** window, type a name for the storage account. Complete the rest of the fields, select your desired region, and then click **Create**.
    
     ![Create storage account](./media/event-hubs-dotnet-framework-getstarted-receive-eph/create-storage2.png)
@@ -188,7 +188,7 @@ To use EventProcessorHost, you must have an [Azure Storage account][Azure Storag
 
 ### Create a Java project using the EventProcessor Host
 
-The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file: 
+The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22), and can be referenced using the following dependency declaration inside your Maven project file: 
 
 ```xml
 <dependency>
@@ -203,7 +203,7 @@ The Java client library for Event Hubs is available for use in Maven projects fr
 </dependency>
 ```
 
-For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository][Maven Package].  
+For different types of build environments, you can explicitly obtain the latest released JAR files from the [Maven Central Repository][https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22].  
 
 1. For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class is called `ErrorNotificationHandler`.     
    
@@ -420,10 +420,4 @@ The com.microsoft.azure.eventprocessorhost.EventProcessorHost class provides you
 
 ## Next steps
 Read the following article to learn about Event Hubs features: [Features and terminology in Azure Event Hubs](event-hubs-features.md).
-
-
-
-<!-- Links -->
-[Event Hubs overview]: event-hubs-overview.md
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 
