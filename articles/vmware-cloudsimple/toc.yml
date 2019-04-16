@@ -3,19 +3,17 @@
   items:
   - name: Overview
     items: 
-    - name: What is VMware Solutions on Azure by CloudSimple?
-      href: what-is-solution.md
     - name: Key concepts for administration
       href: https://docs.azure.cloudsimple.com/key-concepts/
   - name: Quick start
     expanded: true
     items:
     - name: Create service
-      href: quick-create-cs-service.md
+      href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
-      href: quick-create-private-cloud.md
+      href: quickstart-private-cloud.md
     - name: Consume VMware VMs on Azure
-      href: quick-create-vmware-vm.md
+      href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
     items:
     - name: Nodes
