@@ -35,11 +35,11 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 1. Select the **Create a resource** button (+) in the upper-left corner of the portal > **Analytics** > **Data Factory**.
 
-   ![Create a new data factory](media/data-factory-load-data/select-adf.png)
+   ![Create a new data factory](media/data-factory-load-data/create-adf.png)
 
 1. In the **New data factory** page, provide values for the following fields and then Select **Create**.
 
-    ![New data factory page](media/data-factory-load-data/new-data-factory.png)
+    ![New data factory page](media/data-factory-load-data/my-new-data-factory.png)
 
     **Setting**  | **Field description**
     |---|---|
@@ -81,11 +81,11 @@ There are two ways to load data into Azure Data Explorer using Azure Data Factor
 
 1. Select **Amazon S3**, and then select **Continue**
 
-    ![New linked service](media/data-factory-load-data/as3-select-new-linked-service.png)
+    ![New linked service](media/data-factory-load-data/amazons3-select-new-linked-service.png)
 
 1. In the **New Linked Service (Amazon S3)** page, do the following steps:
 
-    ![Specify Amazon S3 linked service](media/data-factory-load-data/as3-new-linked-service-properties.png)
+    ![Specify Amazon S3 linked service](media/data-factory-load-data/amazons3-new-linked-service-properties.png)
 
     * Specify **Name** of your new linked service.
     * Select **Connect via integration runtime** value from the dropdown.
