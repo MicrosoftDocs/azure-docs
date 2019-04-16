@@ -11,7 +11,7 @@
     - name: Create service
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
-      href: quickstart-private-cloud.md
+      href: quickstart-create-private-cloud.md
     - name: Consume VMware VMs on Azure
       href: quickstart-create-vmware-virtual-machine.md
   - name: Concepts
