@@ -129,20 +129,33 @@ The following steps demonstrate ingesting data from a Spark stream on localhost 
 
 1. Open a terminal on your Spark cluster
 1. Begin the spark stream with the following command:
+
     ```scala
     val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
     ```
+
 1. Generate data for the Spark stream that you have just created, by doing the following:
     1. Open another terminal on the same Spark cluster
     1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
     1. Type the words that you would like the Spark stream to ingest, followed by carriage return.
-1. Create a new Hive table to hold the streaming data. At the spark-shell, type `hive.createTable("stream_table").column("value","string").create()`
+        ![input data to spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+1. Create a new Hive table to hold the streaming data. At the spark-shell, type the following:
 
-A Hive table is created, and data is inserted.
+    ```scala
+    hive.createTable("stream_table").column("value","string").create()
+    ```
 
-![input data to spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
+1. Write the streaming data to the newly created table using the following command:
 
-![creating hive table from spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-hive-table-create.png)
+    ```scala
+    lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
+    ```
+
+1. You can view the data inserted into the table with the following command:
+
+    ```scala
+    hive.table("stream_table").show()
+    ```
 
 >[!Note]
 > There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastore Uri and database options manually. For more information, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460) for more details. As soon as this issue is resolved, both metastore Uri and the database can be omitted likewise.
@@ -153,10 +166,10 @@ The Hive Warehouse Connector allows Apache Spark to use the advanced security fe
 
 #### Setup
 
-Do the following to
+Do the following to setup your Spark and Interactive Query clusters:
 
-Create a HDInsight 4.0 Spark and Interactive Query cluster with Enterprise Security Package (ESP) within the same subnet.
-Update the DNS entries of Spark Cluster with DNS entries on Interactive Query cluster so that Spark Cluster can resolve IP addresses of the nodes in Interactive Query cluster. 
+1. Create a HDInsight 4.0 Spark and Interactive Query cluster with Enterprise Security Package (ESP) within the same subnet.
+1. Update the DNS entries of the Spark cluster with DNS entries on Interactive Query cluster so that the Spark cluster can resolve IP addresses of the nodes in Interactive Query cluster.
 
 ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
