@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/15/2019
 ms.author: alkohli
 ---
 # Data Box Edge security and data protection
@@ -41,7 +41,6 @@ The Data Box Edge device is an on-premises device that helps transform the data 
 - Is a locked-down device. The device BMC and BIOS are password-protected with limited user-access for the BIOS.
 - Has secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.
-- Has a key inside of the front cover that can be used to lock the device. We recommend that after you configure the device, open the cover. Locate the key, and then lock the cover to prevent any unauthorized access to data disks located in the front of the device.
 
 ### Protect the device via activation key
 

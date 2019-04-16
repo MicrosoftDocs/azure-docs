@@ -4436,6 +4436,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/application-gateway/application-gateway-create-gateway.md",
+      "redirect_url": "/azure/application-gateway/quick-create-powershell",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/application-gateway/application-gateway-create-gateway-arm.md",
+        "redirect_url": "/azure/application-gateway/quick-create-powershell",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
       "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
       "redirect_document_id": false
@@ -4678,6 +4688,12 @@
     {
       "source_path": "articles/automation/automation-source-control-integration.md",
       "redirect_url": "/azure/automation/source-control-integration",
+      "redirect_document_id": false
+    },
+    
+    {
+      "source_path": "articles/automation/automation-credentials.md",
+      "redirect_url": "/azure/automation/shared-resources/credentials",
       "redirect_document_id": false
     },
     {
@@ -10799,6 +10815,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-framework-getstarted-send",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-dotnet-standard-getstarted-send",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/event-hubs/event-hubs-go-get-started-receive-eph.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-go-get-started-send",
+      "redirect_document_id": false
+    },        
+    {
       "source_path": "articles/event-hubs/event-hubs-handling-errors-retry.md",
       "redirect_url": "/azure/event-hubs/",
       "redirect_document_id": false
@@ -10814,6 +10845,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/event-hubs/event-hubs-java-get-started-receive-eph.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/event-hubs/event-hubs-java-storm-getstarted.md",
       "redirect_url": "/azure/event-hubs/event-hubs-java-get-started-send",
       "redirect_document_id": false
@@ -10823,6 +10859,16 @@
       "redirect_url": "/azure/event-hubs/event-hubs-quickstart-powershell",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/event-hubs/event-hubs-node-get-started-receive.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-node-get-started-send",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/event-hubs-python-get-started-receive.md",
+      "redirect_url": "/azure/event-hubs/event-hubs-python-get-started-send",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/active-directory/active-directory-saml-protocol-reference.md",
       "redirect_url": "/azure/active-directory/develop/active-directory-saml-protocol-reference",
@@ -10876,6 +10922,11 @@
     {
       "source_path": "articles/data-factory/data-factory-sdks.md",
       "redirect_url": "https://azure.microsoft.com/services/data-factory/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/hdinsight-hadoop-install-mono.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
       "redirect_document_id": false
     },
     {
@@ -30657,6 +30708,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/b2b/b2b-tutorial-bulk-invite.md",
+      "redirect_url": "/azure/active-directory/b2b/tutorial-bulk-invite",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/security/manage-personal-data-azure.md",
       "redirect_url": "/azure/security",
       "redirect_document_id": false
@@ -35401,6 +35457,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/storage/common/storage-enable-and-view-metrics.md",
+      "redirect_url": "/azure/storage/common/storage-metrics-in-azure-monitor",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/azure-stack/partner/azure-stack-vaas-set-up-account.md",
       "redirect_url": "/azure/azure-stack/partner/azure-stack-vaas-set-up-resources",
       "redirect_document_id": false
@@ -36905,6 +36966,16 @@
       "source_path": "articles/cognitive-services/QnAMaker/How-To/publish-knowledge-base.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/quickstarts/create-publish-knowledge-base",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
+      "redirect_document_id": true
+    },
+	{
+      "source_path": "articles/azure-monitor/app/previews.md",
+      "redirect_url": "/azure/azure-monitor/overview",
+      "redirect_document_id": false
     }
   ]
 }

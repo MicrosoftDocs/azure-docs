@@ -120,10 +120,12 @@
       href: licensing-service-plan-reference.md
   - name: Azure AD administrator roles    
     items: 
-    - name: Roles and permissions 
+    - name: Roles and permissions
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Assign roles with PowerShell
+      href: roles-assign-powershell.md
     - name: Delegate app admin roles
       href: roles-delegate-app-roles.md
     - name: Least-privileged roles by task   

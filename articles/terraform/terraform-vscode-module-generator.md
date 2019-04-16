@@ -70,8 +70,8 @@ From a command prompt:
 1. Navigate to the parent directory that you want to contain the new, empty directory we are about to create.
 1. Enter `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Replace <new-directory-name> with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
+    > [!NOTE]
+    > Replace `<new-directory-name>` with the name of your new directory. In this example, we named the new directory `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -247,7 +247,7 @@ All of these items are pre-installed in Cloud Shell.
 
 1. Create the $GOPATH folder, if one does not already exist: Enter `mkdir ~/go`.
 
-1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the <your-module-name> folder we will create in the next step.
+1. Create a folder within the $GOPATH folder: Enter `mkdir ~/go/src`. This folder will be used to hold and organize different project folders you may create, such as the `<your-module-name>` folder we will create in the next step.
 
 1. Create a folder to hold your Terraform module: Enter `mkdir ~/go/src/<your-module-name>`.
 
