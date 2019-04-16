@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: juliako
 
 ---
@@ -56,37 +56,47 @@ Follow the steps in [Writing Python with Visual Studio Code](https://code.visual
 
 ## Connect to the Python client
 
-1. Open `connectwithpython.py` and add the following snippet to import the required modules:
+Open `connectwithpython.py` and add the code that doese the following:
 
-    ```
-    ## Use this for Azure AD authentication
-    from msrestazure.azure_active_directory import AADTokenCredentials
-    from msrest.service_client import SDKClient
+   1. Imports the required modules
+   2. Creates the Active Directory credentials that you need to connect to Madia Services. 
 
-    ## Required for Media Services 
-    ## from azure.mgmt.media import azure_media_services
+   The values used to set the credentials are the values that you got from [Access APIs](access-api-cli-how-to.md)
+   3. Gets Media Services client.
+ 
+ ```
+import adal
+from msrestazure.azure_active_directory import AdalAuthentication
+from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+from azure.mgmt.media import AzureMediaServices
 
-    import adal
-    from azure.mgmt.resource.resources import ResourceManagementClient
-    from azure.mgmt.resource.resources.models import ResourceGroup
+# Tenant ID for your Azure Subscription
+TENANT_ID = 'ABCDEFGH-1234-1234-1234-ABCDEFGHIJKL'
 
-    ## Use these as needed for your application
-    import logging, getpass, pprint, uuid, time
-    ```
-2. To create the Active Directory credentials that you need to make requests, add following code to `connectwithpython.py`  class and set the values that you got from [Access APIs](access-api-cli-how-to.md)
+# Your Service Principal App ID
+CLIENT = 'a2ab11af-01aa-4759-8345-7803287dbd39'
 
-    ```
-    authority_host_uri = 'https://login.microsoftonline.com'
-    tenant = '<TENANT>'
-    authority_uri = authority_host_uri + '/' + tenant
-    RESOURCE = 'https://management.core.windows.net/'
-    client_id = '<CLIENT_ID>'
-    client_secret = '<CLIENT_SECRET>'
-    
-    context = adal.AuthenticationContext(authority_uri, api_version=None)
-    mgmt_token = context.acquire_token_with_client_credentials(RESOURCE, client_id, client_secret)
-    armCreds = AADTokenCredentials(mgmt_token, client_id, resource=RESOURCE)
-    ```
+# Your Service Principal Password
+KEY = 'password'
+
+# Your Azure Subscription ID
+subscription_id = '33333333-3333-3333-3333-333333333333'
+
+LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+
+RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+
+context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
+
+credentials = AdalAuthentication(
+ context.acquire_token_with_client_credentials,
+ RESOURCE,
+ CLIENT,
+ KEY
+)
+
+client = AzureMediaServices(credentials, subscription_id)
+ ```
 
 ## Next steps
 
