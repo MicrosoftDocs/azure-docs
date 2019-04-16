@@ -211,9 +211,9 @@ if err != nil {
 }
 ```
 
-### Create Checkpointer and Leaser 
+### Create a check pointer and a leaser 
 
-Create a **Leaser**, responsible for leasing a partition to a particular receiver, and a **Checkpointer**, responsible for writing checkpoints for the message stream so that other receivers can begin reading from the correct offset.
+Create a **leaser**, responsible for leasing a partition to a particular receiver, and a **check pointer**, responsible for writing checkpoints for the message stream so that other receivers can begin reading from the correct offset.
 
 Currently, a single **StorageLeaserCheckpointer** is available that uses the same Storage container to manage both leases and checkpoints. In addition to the storage account and container names, the **StorageLeaserCheckpointer** needs the credential created in the previous step and the Azure environment struct to correctly access the container.
 
@@ -230,7 +230,7 @@ if err != nil {
 
 ### Construct Event Processor Host
 
-You now have the pieces needed to construct an EventProcessorHost, as follows. The same **StorageLeaserCheckpointer** is used as both a Leaser and Checkpointer, as described previously:
+You now have the pieces needed to construct an EventProcessorHost, as follows. The same **StorageLeaserCheckpointer** is used as both a leaser and check pointer, as described previously:
 
 ```go
 ctx := context.Background()
