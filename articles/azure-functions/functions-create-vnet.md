@@ -46,11 +46,11 @@ We chose WordPress on a VM because it's one of the least expensive resources tha
     
         For this example, we're opting to use the 10.10.0.0/16 network with a subnet of 10.10.1.0/24. We're overprovisioning and using a /16 subnet because it's easy to calculate which subnets are available in the 10.10.0.0/16 network.
         
-        ![Network information](./media/functions-create-vnet/create-vm-2.png)
+        <img src="./media/functions-create-vnet/create-vm-2.png" width="700">
 
 1. Back on the **Networking** tab, set the public IP to **None**. This step will deploy the VM with access to only the virtual network.
        
-    ![Public IP setting](./media/functions-create-vnet/create-vm-2-1.png)
+    <img src="./media/functions-create-vnet/create-vm-2-1.png" width="700">
 
 7. Create the VM. The process will take about 5 minutes.
 8. After the VM is created, go to its **Networking** tab and note the private IP address for later. The VM should not have a public IP.
@@ -71,7 +71,7 @@ With a WordPress site hosting files from within your virtual network, you can no
 
 1.	In the portal for the function app from the previous step, select **Platform features**. Then select **Networking**.
 
-    !["Platform features" and "Networking" selections](./media/functions-create-vnet/networking-0.png)
+    <img src="./media/functions-create-vnet/networking-0.png" width="850">
 
 1.	Select **Click here to configure** under **VNet Integration**.
 
@@ -79,11 +79,11 @@ With a WordPress site hosting files from within your virtual network, you can no
 
 1. On the virtual network integration page, select **Add VNet (preview)**.
 
-    ![Button for adding a virtual network](./media/functions-create-vnet/networking-2.png) 
+    <img src="./media/functions-create-vnet/networking-2.png" width="600"> 
     
 1.  Create a new subnet for your function and App Service plan to use. Note that the subnet size will restrict the total number of VMs that you can add to your App Service plan. Your virtual network will automatically route traffic between the subnets in your virtual network, so it doesn't matter that your function is in a different subnet from your VM. 
     
-    ![Subnet info](./media/functions-create-vnet/networking-3.png)
+    <img src="./media/functions-create-vnet/networking-3.png" width="600">
 
 ## Create a function that accesses a resource in your virtual network
 
@@ -94,18 +94,18 @@ You can just as easily use any other API deployed within a virtual network. You 
 1. In the portal, open the function app from the previous step.
 1. Create a proxy by selecting  **Proxies** > **+**.
 
-    ![Selection for creating a proxy](./media/functions-create-vnet/new-proxy.png)
+    <img src="./media/functions-create-vnet/new-proxy.png" width="250">
 
 1. Configure the proxy name and route. This example uses "/plant" as a route.
 1. Fill in your WordPress site's IP from earlier and set **Backend URL** to `http://{YOUR VM IP}/wp-content/themes/twentyseventeen/assets/images/header.jpg`
     
-    ![Info for a new proxy](./media/functions-create-vnet/create-proxy.png)
+    <img src="./media/functions-create-vnet/create-proxy.png" width="900">
 
 Now, if you try to visit your back-end URL directly by pasting it into a new browser tab, the page should time out. This is because your WordPress site is connected to only your virtual network and not the internet. If you paste your proxy URL into the browser, you should see a plant picture (pulled from your WordPress site) inside your virtual network. 
 
 Your function app is connected to both the internet and your virtual network. The proxy is receiving a request over the public internet, and then acting as a simple HTTP proxy to forward that request along into the virtual network. The proxy then relays the response back to you over the public internet. 
 
-![Plant picture](./media/functions-create-vnet/plant.png)
+<img src="./media/functions-create-vnet/plant.png" width="900">
 
 ## Next steps
 
