@@ -64,6 +64,8 @@ Let's create an Azure Cosmos DB account. If you already have an account you want
 5. In the **NuGet** tab, click **Browse**, and type **azure documentdb** in the search box.
 6. Within the results, find **Microsoft.Azure.DocumentDB** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/).
+   > [!NOTE]
+   > If you are using .NET Core, please see [the .NET Core docs](./sql-api-dotnetcore-get-started.md).
    ![Screenshot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/nosql-tutorial-manage-nuget-pacakges-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
