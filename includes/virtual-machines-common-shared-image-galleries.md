@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/27/2019
+ ms.date: 04/15/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -28,9 +28,9 @@ The Shared Image Gallery feature has multiple resource types:
 
 | Resource | Description|
 |----------|------------|
-| **Managed image** | This is a basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
+| **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. This includes whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. You can include information like whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
 
 <br>
@@ -63,14 +63,14 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus Backend 
 ```
 
-This is similar to how you can currently specify use publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
+The format is similar to how you can currently specify publisher, offer, and SKU for [Azure Marketplace images](../articles/virtual-machines/windows/cli-ps-findimage.md) in Azure PowerShell to get the latest version of a Marketplace image. Each image definition needs to have a unique set of these values.
 
 The following are other parameters that can be set on your image definition so that you can more easily track your resources:
 
 * Operating system state - You can set the OS state to generalized or specialized, but only generalized is currently supported. Images must be created from VMs that have been generalized using Sysprep for Windows or `waagent -deprovision` for Linux.
-* Operating system - this can be either Windows or Linux.
+* Operating system - can be either Windows or Linux.
 * Description - use description to give more detailed information on why the image definition exists. For example, you might have an image definition for your front-end server that has the application pre-installed.
-* Eula - this can be used to point to an end-user license agreement specific to this image definition.
+* Eula - can be used to point to an end-user license agreement specific to the image definition.
 * Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition in order to be able to use automation to delete old image definitions.
 * Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
@@ -141,7 +141,7 @@ As the Shared Image Gallery, Shared Image and Shared Image version are all resou
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
-- Storage costs of storing the Shared Image versions. This depends on the number of replicas of the version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be changed for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+- Storage costs of storing the Shared Image versions. Cost depends on the number of replicas of the image version and the number of regions the version is replicated to. For example, if you have 2 images and both are replicated to 3 regions, then you will be changed for 6 managed disks based on their size. For more information, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Network egress charges for replication of the first image version from the source region to the replicated regions. Subsequent replicas are handled within the region, so there are no additional charges. 
 
 ## Updating resources
@@ -262,7 +262,7 @@ You can create Shared Image Gallery resource using templates. There are several 
 1. The regional replica count which specifies the number of replicas you want to create per region. 
 2. The common replica count which is the default per region count in case regional replica count is not specified. 
 
-To specify the regional replica count, pass the location along with the number of replicas you want to create in that region like this: “South Central US=2”. 
+To specify the regional replica count, pass the location along with the number of replicas you want to create in that region: “South Central US=2”. 
 
 If regional replica count is not specified with each location, then the default number of replicas will be the common replica count that you specified. 
 
@@ -271,7 +271,7 @@ To specify the common replica count in CLI, use the **--replica-count** argument
 
 **Q.** Can I create the shared image gallery in a different location than the one where I want to create the image definition and image version?
 
- A. Yes, this is possible. But as a best practice, we encourage you to keep the resource group, shared image gallery, image definition and image version in the same location.
+ A. Yes, it is possible. But, as a best practice, we encourage you to keep the resource group, shared image gallery, image definition, and image version in the same location.
 
 
 **Q.** What are the charges for using the Shared Image Gallery?
