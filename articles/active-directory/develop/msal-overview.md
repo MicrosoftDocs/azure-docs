@@ -54,7 +54,7 @@ MSAL can be used in many authentication scenarios, including the following:
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/>[MSAL.js (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
 | ![MSAL for Android](media/sample-v2-code/logo_Android.png) <br/>[MSAL for Android (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | ![MSAL for iOS](media/sample-v2-code/logo_iOS.png) <br/>[MSAL.Objective-C (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS|
-| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/>[MSAL.Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python) | |
+| ![MSAL.Python](media/sample-v2-code/logo_python.png) <br/>[MSAL.Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python) | Django, Bottle, Flask, and more.|
 | ![MSAL.Java](media/sample-v2-code/logo_java.png) <br/>[MSAL.Java (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-java) ||
 
 ## Differences between ADAL and MSAL
