@@ -43,7 +43,7 @@ You can use IP restrictions to define a priority-ordered list of IP addresses th
 > [!NOTE]
 > To use the Azure portal editor, the portal must be able to directly access your running function app. Also, the device that you're using to access the portal must have its IP whitelisted. With network restrictions in place, you can still access any features on the **Platform features** tab.
 
-To learn more, see [Azure App Service static access restrictions](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
 ## Virtual network integration
 
