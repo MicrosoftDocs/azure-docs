@@ -4,7 +4,7 @@
   href: https://docs.microsoft.com/azure/storage/data-lake-storage/introduction
 - name: Overview
   items:
-  - name: Overview of Data Lake Storage Gen1
+  - name: What is Data Lake Storage Gen1?
     href: data-lake-store-overview.md
   - name: Compare with Azure Storage
     href: data-lake-store-comparison-with-blob-storage.md
