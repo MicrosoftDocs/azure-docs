@@ -43,6 +43,7 @@ To configure Azure AD integration with Kontiki, you need the following items:
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
 * Kontiki supports **SP** initiated SSO
+* Kontiki supports **Just In Time** user provisioning
 
 ## Adding Kontiki from the gallery
 
@@ -178,10 +179,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Kontiki test user
 
-There is no action item for you to configure user provisioning to Kontiki. When an assigned user tries to sign in to Kontiki using the access panel, Kontiki checks whether the user exists.  
-
-> [!NOTE]
-> If there is no user account available yet, it is automatically created by Kontiki.
+There is no action item for you to configure user provisioning to Kontiki. When an assigned user tries to sign in to Kontiki using the access panel, Kontiki checks whether the user exists. If there is no user account available yet, it is automatically created by Kontiki.
 
 ### Test single sign-on 
 
