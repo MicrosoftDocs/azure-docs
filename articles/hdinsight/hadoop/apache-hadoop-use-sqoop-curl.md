@@ -29,16 +29,16 @@ Curl is used to demonstrate how you can interact with HDInsight by using raw HTT
 
 * [jq](https://stedolan.github.io/jq/). The jq utility is used to process the JSON data returned from REST requests.
 
-## Submit Apache Sqoop jobs by using Curl
+## Submit Apache Sqoop jobs by using Curl from Azure storage to SQL Server
 
 From Azure storage to SQL Server.
 
 > [!NOTE]  
 > When using Curl or any other REST communication with WebHCat, you must authenticate the requests by providing the user name and password for the HDInsight cluster administrator. You must also use the cluster name as part of the Uniform Resource Identifier (URI) used to send the requests to the server.
-> 
-> For the commands in this section, replace `USERNAME` with the user to authenticate to the cluster, and replace `PASSWORD` with the password for the user account. Replace `CLUSTERNAME` with the name of your cluster.
-> 
-> The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
+
+For the commands in this section, replace `USERNAME` with the user to authenticate to the cluster, and replace `PASSWORD` with the password for the user account. Replace `CLUSTERNAME` with the name of your cluster.
+ 
+The REST API is secured via [basic authentication](https://en.wikipedia.org/wiki/Basic_access_authentication). You should always make requests by using Secure HTTP (HTTPS) to help ensure that your credentials are securely sent to the server.
 
 1. From a command line, use the following command to verify that you can connect to your HDInsight cluster:
 
