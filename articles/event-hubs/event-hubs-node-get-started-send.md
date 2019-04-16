@@ -215,5 +215,6 @@ You can find more samples [here](https://github.com/Azure/azure-event-hubs-node/
 Read the following articles:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [Features and terminology in Azure Event Hubs](event-hubs-features.md).
+- [Features and terminology in Azure Event Hubs](event-hubs-features.md)
+- [Event Hubs FAQ](event-hubs-faq.md)
 - Check out other Node.js samples for Event Hubs on [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client/examples/).
