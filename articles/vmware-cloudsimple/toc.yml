@@ -99,7 +99,7 @@
       - name: Edit your user profile
         href: https://docs.azure.cloudsimple.com/editprofile/
     - name: Set up VMware virtual machines for the private cloud
-      items
+      items:
       - name: Getting started 
         href: azuregettingstarted.md
       - name: Create a VM in Azure
