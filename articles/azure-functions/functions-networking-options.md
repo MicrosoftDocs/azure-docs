@@ -79,7 +79,7 @@ To learn more about using the preview version of virtual network integration, se
 
 As used in Azure Functions, each hybrid connection correlates to a single TCP host and port combination. This means that the hybrid connection's endpoint can be on any operating system and any application, as long as you're accessing a TCP listening port. The Hybrid Connections feature does not know or care what the application protocol is, or what you're accessing. It simply provides network access.
 
-To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports both Functions and the Web Apps feature of App Service.
+To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports Functions in an App Service plan.
 
 ## Private site access
 
