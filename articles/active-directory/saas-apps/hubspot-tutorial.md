@@ -109,7 +109,7 @@ To configure Azure AD single sign-on with HubSpot, perform the following steps:
     `https://api.hubspot.com/login-api/v1/saml/acs?portalId=<CUSTOMER ID>`
 
     > [!NOTE]
-	> These values are not real. Update these values with the actual Identifier and Reply URL which is explained later in this tutorial. Contact [HubSpot Client support team](https://help.hubspot.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier and Reply URL which is explained later in this tutorial. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
