@@ -14,7 +14,9 @@ ms.author: erhopf
 
 # What is the Ink Recognizer API?
 
-The Ink Recognizer API is a cloud-based service that analyzes and recognizes digital ink content. Unlike some ink recognition services that interpret ink strokes using Optical Character Recognition(OCR), the Ink Recognizer API accepts the strokes themselves as a time-ordered set of 2D points (X,Y coordinates) to achieve detailed recognition for shapes and handwritten text. These ink stroke data points capture the motion of input tools like digital pens, fingers or styluses.
+
+The Ink Recognizer Cognitive Service provides cloud-based REST APIs to analyze and recognize digital ink content. Unlike services that provide Optical Character Recognition (OCR), this service requires digital ink stroke data as input. Digital ink strokes are time-ordered sets of 2D points (X,Y coordinates) that represent the motion of input tools such as digital pen, fingers or stylus. It then recognizes the shapes and handwritten content from the input and provides a document structure with all recognized entities as the output.
+
 
 ![A flowchart describing sending an ink stroke input to the API](media/ink-recognizer-pen-graph.png)
 
@@ -24,7 +26,7 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 
 |Feature  |Description  |
 |---------|---------|
-| Handwriting recognition | Recognize handwritten content in 67 core languages, and several locales. | 
+| Handwriting recognition | Recognize handwritten content in 63 core languages, and several locales. | 
 | Layout recognition | Get structural information about the digital ink content. Break the content into writing regions, paragraphs, lines, words, bulleted lists. Your applications can then utilize the layout information to build additional features like automatic spacing between words, shape alignment, and text interpretation. |
 | Shape recognition | Recognize the most commonly used geometric shapes when taking notes. |
 | Combined shapes and text recognition | Recognize ink content with shapes and handwritten text. Separately classify which strokes belong to shapes or handwritten content, and recognize them.|
@@ -44,3 +46,4 @@ After signing up:
 ## Next steps
 
 Try a [quickstart](quickstarts/csharp.md) to begin making calls to the Ink Recognizer API.
+
