@@ -21,7 +21,7 @@ You can host function apps in a couple of ways:
 * There's a set of plan options that run on a multitenant infrastructure, with various levels of virtual network connectivity and scaling options:
     * The [Consumption plan](functions-scale.md#consumption-plan), which scales dynamically in response to load and offers minimal network isolation options.
     * The [Premium plan](functions-scale.md#premium-plan-public-preview), which also scales dynamically, while offering more comprehensive network isolation.
-    * The Azure App Service plan, which operates at a fixed scale and offers similar network isolation to the Premium plan.
+    * The Azure [App Service plan](functions-scale.md#app-service-plan), which operates at a fixed scale and offers similar network isolation to the Premium plan.
 * You can run functions on an App Service Environment. This method deploys your function into your virtual network and offers full network control and isolation.
 
 ## Matrix of networking features
