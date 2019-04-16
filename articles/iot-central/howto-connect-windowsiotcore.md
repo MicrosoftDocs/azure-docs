@@ -71,7 +71,7 @@ The [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-y
 - The **Apps manager** page lets you control the apps running on your device.
 - If you don't have a monitor connected to your device, you can use the **Device Settings** page to capture screenshots from your device. For example:
 
-    ![App screenshot](media/howto-connect-windowsiotcore/iot-hub-foreground-client.jpg)
+    ![App screenshot](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
 ## Download the source code
 
