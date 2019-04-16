@@ -52,8 +52,37 @@ catch(MsalUiRequiredException ex)
  app.AcquireTokenInteractive(scopes)
     .WithAccount(account)
     .WithClaims(ex.Claims)
-    .ExcecuteAsync();
+    .ExecuteAsync();
 }
+```
+
+### JavaScript
+When processing exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. The values of `ErrorCode` are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
+
+#### UI required errors
+An error is returned when a UI is required. This means you have attempted to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`), but MSAL could not do it silently. Possible reasons are:
+
+* you need to sign-in
+* you need to consent
+* you need to go through a multi-factor authentication experience.
+
+The remediation is to call the `AcquireTokenPopup` method:
+
+```javascript
+//Call acquireTokenSilent (iframe) to obtain a token for Microsoft Graph
+myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+    callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+}, function (error) {
+    console.log(error);
+    // Call acquireTokenPopup (popup window) in case of acquireTokenSilent failure due to consent or interaction required ONLY
+    if (error.indexOf("consent_required") !== -1 || error.indexOf("interaction_required") !== -1 || error.indexOf("login_required") !== -1) {
+        myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
+            callMSGraph(applicationConfig.graphEndpoint, accessToken, graphAPICallback);
+        }, function (error) {
+            console.log(error);
+        });
+    }
+});
 ```
 
 ## Handling conditional access and claims challenges
