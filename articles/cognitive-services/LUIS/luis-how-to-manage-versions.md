@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/29/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
@@ -62,5 +62,5 @@ Select a version from the list, then select **Make Active** from the toolbar.
 
 * To **delete** a version, select a version from the list, then select **Delete** from the toolbar. Select **Ok**. 
 * To **rename** a version, select a version from the list, then select **Rename** from the toolbar. Enter new name and select **Done**. 
-* To **export** a version, select a version from the list, then select **Export app** from the toolbar. The file is downloaded to your local machine. 
+* To **export** a version, select a version from the list, then select **Export app** from the toolbar. Choose JSON to export for backup, choose **Export for container** to [use this app in a LUIS container](luis-container-howto.md).  
 
