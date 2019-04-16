@@ -1,5 +1,5 @@
 ﻿---
-title: Security attributes for Azure Storage
+title: Common security attributes for Azure Storage
 description: A checklist of common security attributes for evaluating Azure Storage
 services: storage
 documentationcenter: ''
@@ -7,7 +7,7 @@ author: msmbaldwin
 manager: barbkess
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---

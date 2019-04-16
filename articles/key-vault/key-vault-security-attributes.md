@@ -8,7 +8,7 @@ manager: barbkess
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ms.author: mbaldwin
 
 ---
