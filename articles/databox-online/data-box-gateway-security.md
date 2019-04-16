@@ -66,8 +66,6 @@ This section describes the Data Box Gateway security features that protect the d
 
 ### Protect data at rest
 
-For the data-at-rest:
-
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-data-rest.md)]
 
 ### Protect data in flight
@@ -85,7 +83,7 @@ The Data Box Gateway service collects personal information in the following key 
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-    To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Gateway](data-box-gateway-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Gateway](data-box-gateway-manage-shares.md).
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 

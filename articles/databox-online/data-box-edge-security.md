@@ -82,7 +82,7 @@ The Data Box Edge service collects personal information in the following key ins
 
 [!INCLUDE [data-box-edge-gateway-data-rest](../../includes/data-box-edge-gateway-manage-personal-data.md)]
 
-    To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Edge](data-box-edge-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Data Box Edge](data-box-edge-manage-shares.md).
 
 For more information, review the Microsoft Privacy policy at [Trust Center](https://www.microsoft.com/trustcenter).
 
