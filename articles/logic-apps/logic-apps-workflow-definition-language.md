@@ -1,34 +1,31 @@
 ---
-# required metadata
-title: Schema reference for Workflow Definition Language - Azure Logic Apps | Microsoft Docs
-description: Write custom workflow definitions for Azure Logic Apps with the Workflow Definition Language
+title: Schema reference for Workflow Definition Language - Azure Logic Apps
+description: Reference guide for Workflow Definition Language schema in Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-
-# optional metadata
-ms.reviewer: klam, LADocs
-ms.suite: integration
 ---
 
 # Schema reference for Workflow Definition Language in Azure Logic Apps
 
-When you create a logic app workflow with 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
-your workflow's underlying definition describes the actual 
-logic that runs for your logic app. This description 
-follows a structure that's defined and validated 
-by the Workflow Definition Language schema, which uses 
-[JavaScript Object Notation (JSON)](https://www.json.org/).
+When you create a logic app in [Azure Logic Apps](../logic-apps/logic-apps-overview.md), 
+your logic app has an underlying workflow definition that 
+describes the actual logic that runs in your logic app. 
+That workflow definition uses [JSON](https://www.json.org/) 
+and follows a structure that's validated by the 
+Workflow Definition Language schema. This reference 
+provides an overview about this structure and how 
+the schema defines elements in your workflow definition.
 
 ## Workflow definition structure
 
-A workflow definition has at least one trigger that instantiates your logic app, 
-plus one or more actions that your logic app runs.
+A workflow definition always includes a trigger for instantiating your 
+logic app, plus one or more actions that run after the trigger fires.
 
 Here is the high-level structure for a workflow definition:
 
@@ -57,7 +54,7 @@ Here is the high-level structure for a workflow definition:
 ## Parameters
 
 In the `parameters` section, define all the workflow parameters 
-that your logic app uses at deployment for accepting inputs. 
+that your workflow definition uses at deployment for accepting inputs. 
 Both parameter declarations and parameter values are required at deployment. 
 Before you can use these parameters in other workflow sections, 
 make sure that you declare all the parameters in these sections. 
@@ -84,7 +81,7 @@ Here is the general structure for a parameter definition:
 | type | Yes | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Note**: For all passwords, keys, and secrets, use the `securestring` and `secureobject` types because the `GET` operation doesn't return these types. For more information about securing parameters, see [Secure your logic app](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | The type for the parameter |
 | defaultValue | Yes | Same as `type` | The default parameter value when no value is specified when the workflow instantiates |
 | allowedValues | No | Same as `type` | An array with values that the parameter can accept |
-| metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app, or design-time data used by Visual Studio or other tools |
+| metadata | No | JSON object | Any other parameter details, for example, the name or a readable description for your logic app or flow, or the design-time data used by Visual Studio or other tools |
 ||||
 
 ## Triggers and actions
@@ -125,7 +122,7 @@ Here is the general structure for an output definition:
 |||||
 
 To get the output from a workflow run, 
-review the logic app's run history and 
+review your logic app's run history and 
 details in the Azure portal or use the 
 [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
@@ -262,8 +259,8 @@ property or a value in an array.
 
 ## Functions
 
-Some expressions get their values from runtime actions 
-that might not yet exist when a logic app starts to run. 
+Some expressions get their values from runtime actions that might 
+not yet exist when your workflow definition starts to run. 
 To reference or work with these values in expressions, 
 you can use [*functions*](../logic-apps/workflow-definition-language-functions-reference.md) 
 that the Workflow Definition Language provides.
