@@ -18,6 +18,10 @@ ms.date: 02/12/2019
 ms.author: cynthn
 
 ---
+
+> [!NOTE]
+> Adding a SQL Server VM to an availability set frequently requires redeploying the VM and attaching the existing disks. Doing so to a pay-as-you-go image that was converted to the Azure Hybrid Benefit will reset the license back to pay-as-you-go. As such, you will need to change the licensing back to type ‘AHUB’ post redeployment. 
+
 # Change the availability set for a Windows VM
 The following steps describe how to change the availability set of a VM using Azure PowerShell. A VM can only be added to an availability set when it is created. To change the availability set, you need to delete and then recreate the virtual machine. 
 
