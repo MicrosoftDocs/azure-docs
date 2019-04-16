@@ -72,6 +72,10 @@
       href: healthcheck.md
   - name: User Management
     items:
+    - name: User Managemement
+      href: user-management.md
+    - name: Cluster User Access
+      href: user-cluster-access.md
     - name: User Authentication
       href: user-authentication.md
 - name: How-To

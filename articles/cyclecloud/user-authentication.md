@@ -67,7 +67,3 @@ This will not affect accounts that were created within CycleCloud prior to versi
 ## Security Lock Out
 
 Any account that detects 5 authorization failures within 60 seconds of each other will automatically be locked for 5 minutes. Accounts can be unlocked by waiting the five minutes, or manually by an administrator.
-
-## User Management
-
-Administrators create and manage users through the User page, which is accessed through the **User Management** link in the upper-right dropdown menu. Selecting this link will bring up the Users page that lists all known users of the system, their names and their associated roles in the application.
