@@ -34,4 +34,16 @@
     - name: Install and run containers
       href: personalizer-container-howto.md
     - name: Configure containers
-      href: personalizer-container-configuration.md      
+      href: personalizer-container-configuration.md 
+- name: Resources
+  items:
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Azure Roadmap
+    href: https://aka.ms/personalizer-roadmap
+  - name: Pricing 
+    href: https://aka.ms/personalizer-pricing
+  - name: Stack Overflow
+    href: https://aka.ms/personalizer-stackoverflow
+  - name: UserVoice
+    href: https://aka.ms/personalizer-uservoice          
