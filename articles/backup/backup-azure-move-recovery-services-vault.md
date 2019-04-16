@@ -14,25 +14,25 @@ ms.author: sogup
 
 This article explains how to move a Recovery Services vault configured for Azure Backup across Azure subscriptions, or to another resource group in the same subscription. You can use the Azure portal or PowerShell to move a Recovery Services vault.
 
-## Supported geos
+## Supported Region
 
 Resource move for Recovery Services vault is supported in Australia East, Australia South East, Canada Central, Canada East, South East Asia, East Asia, Central US, North Central US, East US, East US2, South central US, West Central US, West Central US2, West US, Central India, South India, Japan East, Japan West, Korea Central, Korea South, North Europe, West Europe, South Africa North, South Africa West, UK South, UK West, UAE Central, and UAE North.
 
-## Prerequisites for moving a vault
+## Prerequisites for moving Recovery Services vault
 
-- When moving between resource groups, both the source resource group and the target resource group are locked during the operation. Until the move completes, write and delete operations are blocked on the resource groups.
-- Only the subscription admin has the permissions to move a vault.
-- When moving a vault across subscriptions, the target subscription must exist in an enabled state, and must be in the same tenant as the source subscription.
+- During vault move across resource groups, both the source and target resource groups are locked preventing the write and delete operations. For more information, see this [article](azure-resource-manager.md#resource-group-move-resources).
+- Only admin subscription has the permissions to move a vault.
+- For moving vault across subscriptions, the target subscription must reside in the same tenant as the source subscription and its state should be enabled.
 - You must have permission to perform write operations on the target resource group.
-- You cannot change the location of the Recovery Services vault. Moving the vault only changes the resource group. The new resource group may be in a different location, but that doesn't change the vault’s location.
-- Currently you can move one Recovery Services vault, per region, at a time.
-- If a VM doesn’t move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points remain intact in the vault until they expire.
+- Moving the vault only changes the resource group. The Recovery Services vault will reside on the same location and it cannot be changed.
+- You can move only one Recovery Services vault, per region, at a time.
+- If a VM doesn’t move with the Recovery Services vault across subscriptions, or to a new resource group, the current VM recovery points will remain intact in the vault until they expire.
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
-- The Azure Disk Encryption requires that your key vault and VMs reside in the same Azure region and subscription.
+- The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
 - To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
 - The options for moving resources deployed through the Classic model differ depending on whether you are moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
-- Currently, you cannot move vaults containing the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups.
+- Moving vault with the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups is not supported.
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>
 
 > [!NOTE]
