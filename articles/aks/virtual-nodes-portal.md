@@ -82,6 +82,9 @@ virtual-node-aci-linux         Ready     agent     28m       v1.11.2
 aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 ```
 
+> [!NOTE]
+> [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) do not create pods on the virtual node.
+
 ## Deploy a sample app
 
 In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined. These settings allow the pod to be scheduled on the virtual node and confirm that the feature is successfully enabled.
