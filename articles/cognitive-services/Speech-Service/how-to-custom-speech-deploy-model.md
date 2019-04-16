@@ -14,7 +14,9 @@ ms.author: erhopf
 
 # Deploy a custom model
 
-**<< TODO - Erik: edit/rephrase >>**
+After you've uploaded and inspected data, evaluated accuracy, and trained a custom model, you can deploy a custom endpoint to use with your apps, tools, and products. In this document, you'll learn how to create and deploy an endpoint using the Custom Speech portal.
+
+## Create a custom endpoint
 
 To create a new custom endpoint, select Deployment on the Custom Speech menu at the top of the page, which contains a table of current custom endpoints. If you have not yet created any endpoints, the table is empty. The current locale is reflected in the table title.
 

@@ -144,7 +144,7 @@
         href: how-to-custom-speech-train-model.md
       - name: Deploy a custom model
         href: how-to-custom-speech-deploy-model.md
-      - name: Guide: Create human-labeled transcriptions
+      - name: "Guide: Create human-labeled transcriptions"
         href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Text-to-speech
       items:
