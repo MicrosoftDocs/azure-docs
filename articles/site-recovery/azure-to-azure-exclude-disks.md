@@ -128,7 +128,7 @@ You can go to the Azure portal and see the replicated VMs under "replicated item
 
 The replication process starts by seeding a copy of the replicating disks of the virtual machine in the recovery region. This phase is called the initial-replication phase.
 
-After initial replication completes, replication moves on to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine to see if any disks are excluded.
+After initial replication finishes, replication moves on to the differential-synchronization phase. At this point, the virtual machine is protected. Select the protected virtual machine to see if any disks are excluded.
 
 ## Next steps
 
