@@ -6,7 +6,7 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/16/2019
 ms.author: raynew
 
 ---
@@ -16,12 +16,12 @@ This article summarizes supported components and settings for disaster recovery 
 
 To start using Azure Site Recovery with the simplest deployment scenario, visit our [tutorials](tutorial-prepare-azure.md). You can learn more about Azure Site Recovery architecture [here](vmware-azure-architecture.md).
 
-## Replication scenario
+## Deployment scenario
 
 **Scenario** | **Details**
 --- | ---
-VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal.
+Disaster recovery of VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
+Disaster recovery of physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal.
 
 ## On-premises virtualization servers
 
@@ -93,7 +93,7 @@ Debian 8 | [9.20][9.20 UR],[9.21][9.21 UR],[9.22][9.22 UR],[9.23][9.23 UR] | 3.1
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.23][9.23 UR] | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.79-default |
+SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4) | [9.23][9.23 UR] | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.79-default</br></br>SP4  4.12.14-94.41-default to 4.12.14-95.6-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.22][9.22 UR] | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.162-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.21][9.21 UR] | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.156-94.72-default |
 SUSE Linux Enterprise Server 12 (SP1,SP2,SP3) | [9.20][9.20 UR] | SP1 3.12.49-11-default to 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default to 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default to 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default to 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default to 4.4.156-94.64-default |
@@ -163,7 +163,6 @@ Host vSAN | Yes for VMware<br/><br/> N/A for physical servers
 Host multipath (MPIO) | Yes, tested with Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 Host Virtual Volumes (VVols) | Yes for VMware<br/><br/> N/A for physical servers
 Guest/server VMDK | Yes
-Guest/server EFI/UEFI| Partial (migration to Azure for Windows Server 2012 and later) <br/><br/> See the note at the end of the table
 Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 Guest/server NFS | No
@@ -177,14 +176,8 @@ Guest/server - Storage Spaces | No
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
+Guest/server EFI/UEFI boot | Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/><br/> You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/><br/> The server shouldn't have more than four partitions on the OS disk.<br/><br/> Requires Mobility Service version 9.13 or later.<br/><br/> Only NTFS is supported.
 
-> [!NOTE]
-> UEFI boot VMware virtual machines running Windows Server 2012 or later can be migrated to Azure. The following restrictions apply:
->
-> - Only migration to Azure is supported. Failback to on-premises VMware site isn't supported.
-> - The server shouldn't have more than four partitions on the OS disk.
-> - Only NTFS is supported
-> - Requires Mobility Service version 9.13 or later.
 
 ## Azure storage
 
