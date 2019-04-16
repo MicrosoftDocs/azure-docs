@@ -17,7 +17,8 @@ ms.date: 04/10/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-
+#Customer intent: As an application developer, I want to learn about the differences between the ADAL.NET and MSAL.NET libraries so I can migrate my applications to MSAL.NET.
+ms.collection: M365-identity-device-management
 ---
 
 # Comparing and choosing between MSAL.NET and ADAL.NET
