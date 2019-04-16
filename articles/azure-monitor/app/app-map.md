@@ -240,7 +240,7 @@ To fix this, you'll need to change your instrumentation to properly set the clou
 
 * Dependency type should represent the logical type of a dependency. For example, HTTP, SQL or Azure Blob are typical dependency types. It should not contain unique IDs.
 
-* The purpose of cloud role name is described in the [above section](app-map.md#set-cloud-role-name).
+* The purpose of cloud role name is described in the [above section](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## Portal feedback
 
