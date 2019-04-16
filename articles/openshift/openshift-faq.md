@@ -62,8 +62,3 @@ No.
 ## Will the master and the infrastructure nodes be abstracted away as with Azure Kubernetes Service?
 
 No. All resources run in the customer subscription. Resources are put in a read-only resource group.
-
-## > Now I have logged with my Azure AD account in the master console but 
-> I’m only a stardard user. How can I become a cluster admin? And how 
-> can I filter administrator ad also stardard user? Now all Azure AD 
-> users can logon through the console.
