@@ -165,7 +165,7 @@ To configure Azure AD single sign-on with SAML SSO for Bamboo by resolution GmbH
 
 	![The identity config](./media/bamboo-tutorial/tutorial_bamboo_identityconfig.png)
 
-1. On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure Portal.
+1. On the **Import SAML Idp Metadata** Page, click **Load File** to upload the **METADATA XML** file which you have downloaded from Azure portal.
 
 	![The idpmetadata](./media/bamboo-tutorial/tutorial_bamboo_idpmetadata.png)
 
