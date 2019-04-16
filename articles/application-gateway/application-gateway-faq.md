@@ -18,7 +18,7 @@ ms.author: victorh
 
 ### What is Application Gateway?
 
-Application Gateway provides an application delivery controller (ADC) as a service. It offers various layer 7 load-balancing capabilities for your applications. This service is highly available, scalable, and fully managed by Azure.
+Azure Application Gateway provides an application delivery controller (ADC) as a service. It offers various layer 7 load-balancing capabilities for your applications. This service is highly available, scalable, and fully managed by Azure.
 
 ### What features does Application Gateway support?
 
