@@ -49,17 +49,16 @@ pip3 install azure-mgmt-media==1.1.1
 ## Create a Python file
 
 1. Create a file with a `.py` extension (we call our file`connectwithpython.py`)
-1. Open Visual Studio Code in the folder where the file is located.
+1. Open Visual Studio Code and then open the folder where the file is located.
 
 ## Connect to the Python client
 
-Click on the `connectwithpython.py` file and add the code that doese the following:
+Click on the `connectwithpython.py` file in VS Code and add the code defined below. The code does the following:
 
    1. Imports the required modules
-   2. Creates the Active Directory credentials that you need to connect to Madia Services. 
+   2. Creates the Active Directory credentials you need to connect to Madia Services
 
-      The values used to set the credentials are the values that you got from [Access APIs](access-api-cli-how-to.md)
-   3. Gets Media Services client.
+      To create the AD credentials you need to make requests, add the following code to your `connectwithpython.py` file and set the values that you got from [Access APIs](access-api-cli-how-to.md)
  
 ```
 import adal
@@ -79,6 +78,8 @@ context = adal.AuthenticationContext(login_endpoint +'/'+ tenant)
 credentials = AdalAuthentication(context.acquire_token_with_client_credentials, resource, client_id, client_secret)
 
 client = AzureMediaServices(credentials, subscription_id)  
+
+# You can now call the Media Services operations
 ```
 
 ## Next steps
