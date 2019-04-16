@@ -235,6 +235,8 @@ In the visual interface where you created your experiment, delete individual ass
 
     ![Delete assets](media/how-to-export-delete-data.md/delete-experiment.png)
 
+1. In the list, select the individual assets to delete.
+
 1. On the bottom, select **Delete**
 
 ## Export visual interface data
