@@ -31,6 +31,31 @@ You can also have a look at the fields of [MsalClientException](/dotnet/api/micr
 
 In the case of `MsalServiceException`, the error code might contain a code which you can find in [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
+#### MsalUiRequiredException
+The `MsalUiRequiredException` exception, a sub-type of `MsalServiceException`, is returned when a UI is required. This means you have attempted to use a non-interactive method of acquiring a token (for example, AcquireTokenSilent), but MSAL could not do it silently. Possible reasons are:
+
+* you need to sign-in
+* you need to consent
+* you need to go through a multi-factor authentication experience.
+
+The remediation is to call the `AcquireTokenInteractive` method:
+
+```csharp
+try
+{ 
+ app.AcquireTokenXXX(scopes, account)
+   .WithYYYY(...)
+   .ExecuteAsync()
+}
+catch(MsalUiRequiredException ex)
+{
+ app.AcquireTokenInteractive(scopes)
+    .WithAccount(account)
+    .WithClaims(ex.Claims)
+    .ExcecuteAsync();
+}
+```
+
 ## Handling conditional access and claims challenges
 When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
 
