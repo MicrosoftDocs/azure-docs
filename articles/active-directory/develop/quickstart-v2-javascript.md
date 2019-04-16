@@ -98,7 +98,8 @@ var applicationConfig = {
     clientID: "Enter_the_Application_Id_here",
     authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
     graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me",
+    loginType: 'POPUP'
 };
 ```
 > [!div renderon="docs"]
@@ -108,10 +109,15 @@ var applicationConfig = {
 > - `Enter_the_Tenant_Info_Here` - is set to one of the following options:
 >   - If your application supports **Accounts in this organizational directory**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
->   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`
+>   - If your application supports **Accounts in any organizational directory and personal Microsoft accounts**, replace this value with `common`. To restrict support to *Personal Microsoft accounts only*, replace this value with `consumers`.
 >
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
+>
+
+> [!TIP]
+> You may want to use the redirect methods in this quickstart to redirect the current page to the sign-in page instead of a popup window. You can enable this option by setting `loginType` to `REDIRECT`. This is recommended when the browser used is Internet Explorer due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to handling of popup windows by Internet Explorer browser.
+
 
 #### Step 4: Run the project
 
@@ -139,13 +145,13 @@ After the browser loads the application, click **Sign In**.  The first time that
 MSAL is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. The quickstart's *index.html* contains a reference to the library:
 
 ```html
-<script src="https://secure.aadcdn.microsoftonline-p.com/lib/0.2.4/js/msal.min.js"></script>
+<script src="https://secure.aadcdn.microsoftonline-p.com/lib/1.0.0-preview/js/msal.min.js"></script>
 ```
 
 Alternatively, if you have Node installed, you can download it through npm:
 
 ```batch
-npm install msal
+npm install msal@1.0.0-preview
 ```
 
 ### MSAL initialization
@@ -153,32 +159,47 @@ npm install msal
 The quickstart code also shows how to initialize the library:
 
 ```javascript
-var myMSALObj = new Msal.UserAgentApplication(applicationConfig.clientID, applicationConfig.authority, acquireTokenRedirectCallBack, {storeAuthStateInCookie: true, cacheLocation: "localStorage"});
+var config = {
+    auth: {
+        clientId: applicationConfig.clientID,
+        authority: applicationConfig.authority
+    },
+    cache: {
+        cacheLocation: "localStorage",
+        storeAuthStateInCookie: true
+    }
+}
+
+var myMSALObj = new Msal.UserAgentApplication(config);
 ```
 
 > |Where  |  |
 > |---------|---------|
 > |`ClientId`     |Application ID from the application registered in the Azure portal|
-> |`authority`    |It is the authority URL. Passing *null* sets the default authority to `https://login.microsoftonline.com/common`. If your app is single-tenant (targeting accounts in one directory only), set this value to `https://login.microsoftonline.com/<tenant name or ID>`|
-> |`tokenReceivedCallback`| Callback method called after the authentication redirects back to the app. Here, `acquireTokenRedirectCallBack` is passed. This is null if using loginPopup.|
-> |`options`  |A collection of optional parameters. In this case `storeAuthStateInCookie` and `cacheLocation` are optional configuration. See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the options. |
+> |`authority`    | (Optional) It is the authority URL as described in the configuration section above to support account types. The default authority is `https://login.microsoftonline.com/common`. |
+> |`cacheLocation`  | (Optional) This sets the browser storage for the auth state. The default is sessionStorage.   |
+> |`storeAuthStateInCookie`  | (Optional) The library will store the auth request state required for validation of the auth flows in the browser cookies. This is set for IE and Edge browsers to mitigate certain [known issues](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+> See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the configurable options available.
 
 ### Sign in users
 
 The following code snippet shows how to sign in users:
 
 ```javascript
-myMSALObj.loginPopup(applicationConfig.graphScopes).then(function (idToken) {
-    //Callback code here
-})
+let loginRequest = {
+    scopes: applicationConfig.graphScopes
+};
+
+myMSALObj.loginPopup(loginRequest).then(function (loginResponse) {
+    //Login Success callback code here
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
 > |---------|---------|
 > | `scopes`   | (Optional) Contains scopes being requested for user consent at login time. For example, `[ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs ( that is, `api://<Application ID>/access_as_user` ). Here, `applicationConfig.graphScopes` is passed. |
-
-> [!TIP]
-> Alternatively, you may want to use the `loginRedirect` method to redirect the current page to the sign-in page instead of a popup window.
 
 ### Request tokens
 
@@ -189,9 +210,16 @@ MSAL has three methods used to acquire tokens: `acquireTokenRedirect`, `acquireT
 The `acquireTokenSilent` method handles token acquisitions and renewal without any user interaction. After the `loginRedirect` or `loginPopup` method is executed for the first time, `acquireTokenSilent` is the method commonly used to obtain tokens that are used to access protected resources for subsequent calls. Calls to request or renew tokens are made silently.
 
 ```javascript
-myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (accessToken) {
+let tokenRequest = {
+    scopes: applicationConfig.graphScopes
+};
+
+myMSALObj.acquireTokenSilent(tokenRequest).then(function (tokenResponse) {
     // Callback code here
-})
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
 ```
 
 > |Where  |  |
@@ -205,18 +233,22 @@ There are situations where you need to force users to interact with Microsoft id
 * Your application is requesting access to additional resource scopes that the user needs to consent to
 * Two factor authentication is required
 
-The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception and then call `acquireTokenRedirect` (or `acquireTokenPopup`) to start an interactive request.
+The usual recommended pattern for most applications is to call `acquireTokenSilent` first, then catch the exception and then call `acquireTokenPopup` (or `acquireTokenRedirect`) to start an interactive request.
 
-Calling the `acquireTokenPopup(scope)` results in a popup window to sign in (or `acquireTokenRedirect(scope)` results in redirecting users to the Microsoft identity platform endpoint) where users need to interact by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
+Calling the `acquireTokenPopup` results in a popup window to sign in (or `acquireTokenRedirect` results in redirecting users to the Microsoft identity platform endpoint) where users need to interact by either confirming their credentials, giving the consent to the required resource, or completing the two factor authentication.
 
 ```javascript
-myMSALObj.acquireTokenPopup(applicationConfig.graphScopes).then(function (accessToken) {
-    // Callback code here
-})
-```
+let tokenRequest = {
+    scopes: applicationConfig.graphScopes
+};
 
-> [!NOTE]
-> This quickstart uses the `loginRedirect` and `acquireTokenRedirect` methods  when the browser used is Internet Explorer due to a [known issue](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues) related to handling of popup windows by Internet Explorer browser.
+myMSALObj.acquireTokenPopup(tokenRequest).then(function (tokenResponse) {
+    // Callback code here
+    console.log(tokenResponse.accessToken);
+}).catch(function (error) {
+    console.log(error);
+});
+```
 
 ## Next steps
 
