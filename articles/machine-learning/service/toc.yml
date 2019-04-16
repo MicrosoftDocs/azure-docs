@@ -105,6 +105,9 @@
     - name: Manage Dataset definitions
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
+    - name: Create Dataset snapshots
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
