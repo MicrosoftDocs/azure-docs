@@ -275,6 +275,8 @@
         href: transparent-data-encryption-azure-sql.md
       - name: TDE with Bring Your Own Key
         href: transparent-data-encryption-byok-azure-sql.md
+    - name: Azure common security attributes
+      href: sql-database-security-attributes.md
   - name: Scalability
     items:
     - name: Scalability overview
