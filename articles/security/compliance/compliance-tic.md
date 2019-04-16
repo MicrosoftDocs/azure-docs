@@ -47,7 +47,7 @@ To enable the connection from the Department or Agency (D/A) to Azure or Office 
 
 O365 is compliant with TIC 2.0 Appendix H using either Express Route with [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) enabled or an internet connection that encrypts all traffic using TLS 1.2.  D/A end users on the D/A network can connect via their agency network and TIC infrastructure through the internet. All remote internet access to O365 is blocked and routed through the agency. The D/A can also connect to O365 over an Express Route connection with Microsoft peering, which is a type of Public Peering, enabled.  
 
-For Azure only, options 2 (VPN) and 3 (ExpressRoute) can meet these requirements when they are used in conjunction with services that limit access to the Internet.
+For Azure only, options 2 (VPN) and 3 (ExpressRoute) can meet these requirements when they are used in conjunction with services that limit access to the Internet. For Azure services that rely on the creation of a Public IP address, Express Route's [Microsoft Peering](https://docs.microsoft.com/azure/expressroute/expressroute-circuit-peerings#expressroute-routing-domains) will ensure traffic flows through the agency's TIC infrastructure. 
 
 ![Microsoft Trusted Internet Connection (TIC) Diagram](media/tic-diagram-a.png)
 
