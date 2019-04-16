@@ -61,8 +61,6 @@ When getting tokens silently, your application may receive errors when a [condit
 
 The pattern to handle this error is to interactively aquire a token using MSAL. This prompts the user and gives them the opportunity to satisfy the required CA policy.
 
-For examples, see how to handle claims challenge exceptions using [MSAL JS](msaljs-handle-conditional-access.md).
-
 In certain cases when calling an API requiring conditional access, you can receive a claims challenge in the error from the API. For instance if the conditional access policy is to have a managed device (Intune) the error will be something like [AADSTS53000: Your device is required to be managed to access this resource](reference-aadsts-error-codes.md) or something similar. In this case, you can pass the claims in the acquire token call so that the user is prompted to satisfy the appropriate policy.
 
 ### .NET
