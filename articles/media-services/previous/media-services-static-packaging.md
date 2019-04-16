@@ -77,7 +77,7 @@ To validate your MP4 files with Media Services Packager, you must create your ow
     </smil>
 ```
 
-Once you have the adaptive bitrate MP4 set you can take advantage of Dynamic Packaging. Dynamic Packaging allows you to deliver streams in the specified protocol without further packaging. For more information, see [dynamic packaging](media-services-dynamic-packaging-overview.md).
+Once you have the adaptive bitrate MP4 set, you can take advantage of Dynamic Packaging. Dynamic Packaging allows you to deliver streams in the specified protocol without further packaging. For more information, see [dynamic packaging](media-services-dynamic-packaging-overview.md).
 
 The following code sample uses Azure Media Services .NET SDK Extensions.  Make sure to update the code to point to the folder where your input MP4 files and .ism file are located. And also to where your MediaPackager_ValidateTask.xml file is located. This XML file is defined in [Task Preset for Azure Media Packager](https://msdn.microsoft.com/library/azure/hh973635.aspx) article.
 
