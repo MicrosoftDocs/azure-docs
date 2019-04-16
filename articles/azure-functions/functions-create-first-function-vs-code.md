@@ -13,8 +13,8 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: glenga
 ms.custom: mvc, devcenter
-
 ---
+
 # Create your first function using Visual Studio Code
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
@@ -29,6 +29,7 @@ The extension currently fully supports C#, JavaScript, and Java functions, with 
 
 To complete this quickstart:
 
+<<<<<<< HEAD
 * Install [Visual Studio Code](https://code.visualstudio.com/) on one of the [supported platforms](https://code.visualstudio.com/docs/supporting/requirements#_platforms). This article was developed and tested on a device running macOS (High Sierra).
 
 * Install version 2.x of the [Azure Functions Core Tools](functions-run-local.md#v2), which is still in preview.
@@ -42,6 +43,9 @@ To complete this quickstart:
     | **JavaScript** | [Node 8.0+](https://nodejs.org/)  |
 
     <sup>*</sup>Also required by Core Tools.
+=======
+[!INCLUDE [Functions extension prerequisites](../../includes/functions-vs-code-prerequisites.md)]
+>>>>>>> 9b4a0c1e291... More in-process updates
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,7 +75,7 @@ You can add input and output bindings to your function by modifying the function
 
 Now that you've created your function project and an HTTP-triggered function, you can test it on your local computer.
 
-## Test the function locally
+## Run the function locally
 
 Azure Functions Core Tools lets you run an Azure Functions project on your local development computer. You're prompted to install these tools the first time you start a function from Visual Studio Code.  
 
@@ -97,7 +101,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 
-## Test your function in Azure
+## Run the function in Azure
 
 1. Copy the URL of the HTTP trigger from the **Output** panel. As before, make sure to add the query string `?name=<yourname>` to the end of this URL and execute the request.
 

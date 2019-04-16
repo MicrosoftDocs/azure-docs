@@ -15,22 +15,20 @@ ms.author: glenga
 
 The [Azure Functions extension for Visual Studio Code] lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
-The Azure Functions Tools provides the following benefits: 
+The Azure Functions extension provides the following benefits: 
 
 * Edit, build, and run functions on your local development computer. 
 * Publish your Azure Functions project directly to Azure. 
-* Use WebJobs attributes to declare function bindings directly in the C# code instead of maintaining a separate function.json for binding definitions.
-* Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
-* Code your functions in C# while having all of the benefits of Visual Studio development. 
+* Write your functions in a variety of languages while having all of the benefits of Visual Studio Code. 
 
-This article provides details about how to use the Azure Functions Tools for Visual Studio 2017 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use the Azure Functions extension to develop functions and publish them to Azure. Before you read this article, you should [Create your first function using Visual Studio Code](functions-create-first-function-vs-code.md).
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
 
 ## Prerequisites
 
-Before you install and run the [Azure Functions extension for Visual Studio Code], you must do the following:
+Before you install and run the [Azure Functions extension][Azure Functions extension for Visual Studio Code], you must do the following:
 
 [!INCLUDE [Functions extension prerequisites](../../includes/functions-vs-code-prerequisites.md)]
 
@@ -42,24 +40,33 @@ Other resources that you need, such as an Azure Storage account, are created in 
 
 [!INCLUDE [functions-create-function-app-vs-code](../../includes/functions-create-function-app-vs-code.md)]
 
-## Create an Azure Functions project
-
-[!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
-
-The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. Functions 1.x targets the .NET Framework, and Functions 2.x targets .NET Standard. The new project has the following files:
+The project template creates a project in your chosen language, installs required dependencies. The new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
-* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used by Azure, they are used by the [Azure Functions Core Tools](functions-run-local.md). Use this file to specify app settings for environment variables required by your functions. Add a new item to the **Values** array for each connection required by the functions bindings in your project. For more information, see [Local settings file](functions-run-local.md#local-settings-file) in the Azure Functions Core Tools article.
+* **local.settings.json**: Maintains settings used when running functions locally. These settings are not used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
-    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control. The **Copy to Output Directory** setting for this file should always be **Copy if newer**. 
+    >Because the local.settings.json file can contain secrets, you must excluded it from your project source control.
 
-For more information, see [Functions class library project](functions-dotnet-class-library.md#functions-class-library-project).
+[!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
+
+By default, these settings are not migrated automatically when the project is published to Azure. Use the `--publish-local-settings` switch [when you publish](#publish) to make sure these settings are added to the function app in Azure. Note that values in **ConnectionStrings** are never published.
+
+The function app settings values can also be read in your code as environment variables. For more information, see the Environment variables section of these language-specific reference topics:
+
+
+* [C# precompiled](functions-dotnet-class-library.md#environment-variables)
+* [C# script (.csx)](functions-reference-csharp.md#environment-variables)
+* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 ## Configure the project for local development
 
 The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. You must change this setting to an actual storage connection before deployment.
+
+This section uses the [Azure Storage extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) with [Microsoft Azure Storage Explorer](https://storageexplorer.com/) to connect to and retrieve the storage connection string.  You can instead 
 
 To set the storage account connection string:
 

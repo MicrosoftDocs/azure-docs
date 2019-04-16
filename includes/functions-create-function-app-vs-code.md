@@ -17,7 +17,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 1. Choose a location for your project workspace and choose **Select**.
 
     > [!NOTE]
-    > This article was designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
+    > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.
 
 1. Select the language for your function app project. In this article, JavaScript is used.
     ![Choose project language](./media/functions-create-function-app-vs-code/create-function-app-project-language.png)
