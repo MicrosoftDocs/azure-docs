@@ -61,7 +61,7 @@ Click on the `connectwithpython.py` file and add the code that doese the followi
       The values used to set the credentials are the values that you got from [Access APIs](access-api-cli-how-to.md)
    3. Gets Media Services client.
  
- ```
+```
 import adal
 from msrestazure.azure_active_directory import AdalAuthentication
 from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
@@ -79,7 +79,7 @@ context = adal.AuthenticationContext(login_endpoint +'/'+ tenant)
 credentials = AdalAuthentication(context.acquire_token_with_client_credentials, resource, client_id, client_secret)
 
 client = AzureMediaServices(credentials, subscription_id)  
- ```
+```
 
 ## Next steps
 
