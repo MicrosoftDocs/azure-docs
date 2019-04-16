@@ -13,5 +13,5 @@ One of the keys is used for authentication when the Data Box Edge device accesse
 For security reasons, many datacenters require key rotation. We recommend that you follow these best practices for key rotation:
 
 - Your storage account key is similar to the root password for your storage account. Carefully protect your account key. Don't distribute the password to other users, hard code it, or save it anywhere in plaintext that is accessible to others.
-- [Regenerate your account key](../storage/common/storage-account-manage.md#regenerate-access-keys) using the Azure portal if you believe it may have been compromised.
+- [Regenerate your account key](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) using the Azure portal if you believe it may have been compromised.
 - Periodically, your Azure administrator should change or regenerate the primary or secondary key by using the Storage section of the Azure portal to directly access the storage account.
