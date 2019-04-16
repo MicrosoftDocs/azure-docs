@@ -84,14 +84,18 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
 |`max_horizon`|Maximum desired forecast horizon in units of time-series frequency.|✓|
+|`target_lags`|*n* periods to forward-lag target forecast values.||
+|`target_rolling_window_size`|*n* historical periods to use to generate forecast, <= training set size. If omitted, *n* is the full training set size.||
 
-Create the time-series settings as a dictionary object. Set the `time_column_name` to the `week_starting` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for our data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set.
+Create the time-series settings as a dictionary object. Set the `time_column_name` to the `day_datetime` field in the data set. Define the `grain_column_names` parameter to ensure that **two separate time-series groups** are created for the data; one for store A and B. Lastly, set the `max_horizon` to 50 in order to predict for the entire test set. Set a forecast window to 10 periods with `target_rolling_window_size`, and lag the forecasted predictions 5 periods ahead with the `target_lags` parameter.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 5,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -145,7 +149,7 @@ rmse
 
 Now that the overall model accuracy has been determined, the most realistic next step is to use the model to forecast unknown future values. Simply supply a data set in the same format as the test set `X_test` but with future datetimes, and the resulting prediction set is the forecasted values for each time-series step. Assume the last time-series records in the data set were for the week starting 12/31/2018. To forecast demand for the next week (or as many periods as you need to forecast, <= `max_horizon`), create a single time series record for each store for the week starting 01/07/2019.
 
-    week_starting,store,week_of_year
+    day_datetime,store,week_of_year
     01/07/2019,A,2
     01/07/2019,A,2
 
