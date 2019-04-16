@@ -35,7 +35,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 | Service Endpoint support| Yes |  |
 | vNET Injection support| Yes | Applies to [Azure SQL Database Managed Instance](sql-database-managed-instance.md) only. |
 | Network Isolation / Firewalling support| Yes | Firewall at both database- and server-level. Network isolation for [Azure SQL Database Managed Instance](sql-database-managed-instance.md) only |
-| Support for forced tunneling | Yes | [Azure SQL Database Managed Instance](sql-database-managed-instance.md) via [Azure Express Route](../expressroute.yml) VPN |
+| Support for forced tunneling | Yes | [Azure SQL Database Managed Instance](sql-database-managed-instance.md) via [Azure Express Route](../expressroute/index.yml) VPN |
 
 ## Detection
 
