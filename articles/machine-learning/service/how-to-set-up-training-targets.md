@@ -372,7 +372,6 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Submit training run
 
 After you create a run configuration, you use it to run your experiment.  The code pattern to submit a training run is the same for all types of compute targets:
@@ -384,7 +383,7 @@ After you create a run configuration, you use it to run your experiment.  The co
 > [!IMPORTANT]
 > When you submit the training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the run again, only the changed files will be uploaded.
 >
-> To prevent files from being included in the snapshot, create an `.amlignore` file in the directory and add the files to it. The `.amlignore` file is a text file, and uses the same syntax and patterns as a [.gitignore](https://git-scm.com/docs/gitignore) file.
+> To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
 > 
 > For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
