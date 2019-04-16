@@ -328,6 +328,8 @@ For more information about these options, see [Configure containers](luis-contai
 
 ## Unsupported dependencies
 
+If your LUIS app has unsupported dependencies, you won't be able to [export for container](#export-packaged-app-from-luis) until you remove the unsupported features. When you attempt to export for container, the LUIS portal reports the unsupported features you need to remove.
+
 You can use a LUIS application if it **doesn't include** any of the following dependencies:
 
 Unsupported app configurations|Details|
