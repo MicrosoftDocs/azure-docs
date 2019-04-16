@@ -2,7 +2,6 @@
 title: "Get started with Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
 description: Custom Speech is a set of online tools that allow you to evaluate and improve Microsoft's speech-to-text accuracy for your applications, tools, and products. All it takes to get started are a handful of test audio files. Follow the links below to start creating a custom speech-to-text experience.
-
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -31,13 +30,9 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
 
-4. [Evaluate accuracy](how-to-custom-speech-test-data.md) - Provide written transcripts with your test audio and an accuracy measurement, *Word Error Rate* (WER) will be calculated. If you want to increase accuracy by 5%-20% relative on average go to Training page. If accuracy is good enough, use the Speech Service API directly.
-
-<< **Archer/Ed/Mark** - What is an accuracy measurement? It's unclear from this description. THIS IS UNCLEAR. >>
+4. [Evaluate accuracy](how-to-custom-speech-train-model.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
 
 5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (10-500 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
-
-<< **Archer/Ed/Mark** - Can you clarify what the difference is between human transcripts and related text? By transcripts, are you speaking about raw audio? It's unclear here. >>
 
 6. [Deploy the model](how-to-custom-speech-deploy-model.md) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
 
