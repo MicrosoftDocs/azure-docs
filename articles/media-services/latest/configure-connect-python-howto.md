@@ -34,7 +34,7 @@ In this article, the Visual Studio Code is used to develop an app.
 
 ## Install the modules
 
-To work with Data Lake Storage Gen1 using Python, you need to install three modules.
+To work with Azure Media Services using Python, you need to install these modules.
 
 * The `azure-mgmt-resource` module, which includes Azure modules for Active Directory.
 * The `azure-mgmt-media` module, which includes the Media Services entities.
@@ -46,22 +46,19 @@ pip3 install azure-mgmt-resource
 pip3 install azure-mgmt-media==1.1.1
 ```
 
-## Create a Python project
+## Create a Python file
 
-Follow the steps in [Writing Python with Visual Studio Code](https://code.visualstudio.com/docs/python/python-tutorial) to
-
-1. Start a project
-1. Select an interpreter
-1. Create a Python source file with `.py` extension. In this example, we call the file `connectwithpython.py`.
+1. Create a file with a `.py` extension (we call our file`connectwithpython.py`)
+1. Open Visual Studio Code in the folder where the file is located.
 
 ## Connect to the Python client
 
-Open `connectwithpython.py` and add the code that doese the following:
+Click on the `connectwithpython.py` file and add the code that doese the following:
 
    1. Imports the required modules
    2. Creates the Active Directory credentials that you need to connect to Madia Services. 
 
-   The values used to set the credentials are the values that you got from [Access APIs](access-api-cli-how-to.md)
+      The values used to set the credentials are the values that you got from [Access APIs](access-api-cli-how-to.md)
    3. Gets Media Services client.
  
  ```
@@ -70,32 +67,18 @@ from msrestazure.azure_active_directory import AdalAuthentication
 from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
 from azure.mgmt.media import AzureMediaServices
 
-# Tenant ID for your Azure Subscription
-TENANT_ID = 'ABCDEFGH-1234-1234-1234-ABCDEFGHIJKL'
+tenant = '00000000-86f1-41af-91ab-2d7cd011db47'
+resource = 'https://management.core.windows.net/'
+client_id = '000000000-3c20-4055-a140-fa9ecf9156a3'
+client_secret = '00000000-06ea-45e2-b011-15b1f3702628'
+subscription_id = '00000000-6753-4ca2-b1ae-193798e2c9d8' 
 
-# Your Service Principal App ID
-CLIENT = 'a2ab11af-01aa-4759-8345-7803287dbd39'
+login_endpoint = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+resource = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+context = adal.AuthenticationContext(login_endpoint +'/'+ tenant)
+credentials = AdalAuthentication(context.acquire_token_with_client_credentials, resource, client_id, client_secret)
 
-# Your Service Principal Password
-KEY = 'password'
-
-# Your Azure Subscription ID
-subscription_id = '33333333-3333-3333-3333-333333333333'
-
-LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-
-RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
-
-context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
-
-credentials = AdalAuthentication(
- context.acquire_token_with_client_credentials,
- RESOURCE,
- CLIENT,
- KEY
-)
-
-client = AzureMediaServices(credentials, subscription_id)
+client = AzureMediaServices(credentials, subscription_id)  
  ```
 
 ## Next steps
