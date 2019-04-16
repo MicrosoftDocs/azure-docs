@@ -42,17 +42,6 @@ The following image shows the architectural flow of calling the Rank and Reward 
 1. The AI model is updated based on the correlation results.
 1. The inference engine is updated with the new model. 
 
-## Asynchronous learning
-The asynchronous learning architecture of Personalizer allows it to scale to high-volume systems, while at the same time allowing developers to choose when new learning models are used.
-
-<!-- implementation details -->
-
-Personalizer uses Azure Event Hubs to send high-volume messages to the learning algorithm:
-1. One message gets sent for a rank event, with the list of actions, and context with their corresponding features, and an eventId (which you provide or gets generated automatically).
-1. One message gets sent with the reward associated with the ranking event.
-
-These messages get correlated in the backend and used to train the model. Then the model gets picked up automatically for use at an interval you specify in settings.
-
 ## Research behind personalizer
 
 Personalizer is based on cutting-edge science and research in the area of [Reinforcement Learning](concepts-reinforcement-learning.md) including papers, research activities, and ongoing areas of exploration in Microsoft Research.

@@ -15,14 +15,18 @@ ms.author: edjez
 
 Personalizer uses information about **actions** and **current context** to make better ranking suggestions. The information about these actions and context are properties known as **features**.
 
-Features can be very generic, or specific to an item. For example, you may have a feature about a user which is a `UserID`. You may also have a feature about content which says, for example, if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
+Features can be very generic, or specific to an item. For example, you may have a feature about:
+
+* The _user_ such as a `UserID`. 
+* The _content_ such as if a video is a `Documentary`, a `Movie`, or a `TV Series`, or whether a retail item is available in store.
+* The _current_ period of time such as which day of the week it is.
 
 Personalizer does not prescribe, limit or fix what features you can send for actions and context:
 
 * You can send some features for some actions and not for others, if you don't have them. For example, TV series may have attributes movies don't have.
 * You may have some features available only some times. For example, a mobile application may provide more information than a web page. 
 * Over time, you may add and remove features about context and actions. Personalizer continues to learn from available information.
-* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions. [what does this last sentence mean? static features are ignored? ]
+* There must be at least one feature for the context. Personalizer does not support an empty context. If you only send a fixed context every time, Personalizer will choose the action for rankings only regarding the features in the actions. Personalizer will try to choose actions that work best for everyone at anytime.
 
 ## Supported feature types
 
@@ -30,15 +34,9 @@ Personalizer supports features of string, numeric, and boolean types.
 
 Features that are not present should be omitted from the request. Avoid sending features with a null value, because it will be processed as existing and with a value of "null" when training the model.
 
-## A feature set 
-
-A feature set is ...
-
 ## Categorize features with namespaces
 
-Personalizer takes in features organized into namespaces. Your application determines if namespaces are used and what they should be. Namespaces are used to group features about a similar topic, or features that come from a certain source.
-
-[How does a feature set relate to a namespace?]
+Personalizer takes in features organized into namespaces. You you determine in your application if namespaces are used and what they should be. Namespaces are used to group features about a similar topic, or features that come from a certain source.
 
 The following are examples of feature namespaces used by applications:
 
@@ -54,7 +52,6 @@ The following are examples of feature namespaces used by applications:
 * NewsArticle_TextAnalytics
 
 You can name feature namespaces following your own conventions as long as they are valid JSON keys.
-
 
 ## Features are represented in JSON format
 
@@ -99,7 +96,7 @@ Consider sending features to the Personalizer Rank API that follow these recomme
 
 * There are enough features to drive personalization. The more precisely targeted the content needs to be, the more features are needed.
 
-* There are enough features of diverse *densities*. A feature is *dense* if a lot of items are grouped in a few buckets. For example, thousands of videos can be classified as "Long" (over 5 min long) and "Short" (under 5 min long). This is a *very dense* feature. On the other hand, the same thousands of items can have an attribute called "Title", which will almost never have the same value from one item to another. This is a very non-dense or *sparse* feature. Because it is sparse. 
+* There are enough features of diverse *densities*. A feature is *dense* if a lot of items are grouped in a few buckets. For example, thousands of videos can be classified as "Long" (over 5 min long) and "Short" (under 5 min long). This is a *very dense* feature. On the other hand, the same thousands of items can have an attribute called "Title", which will almost never have the same value from one item to another. This is a very non-dense or *sparse* feature.  
 
 Having features of high density helps the Personalizer extrapolate learning from one item to another. But if there are only a few features and they are too dense, the Personalizer will try to precisely target content with only a few buckets to choose from.
 
