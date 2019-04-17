@@ -1,7 +1,7 @@
 ---
-title: "Regression: predict price"
+title: "Regression: Predict price"
 titleSuffix: Azure Machine Learning service
-description: This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing and evaluating the model on the Auto Imports dataset.
+description: This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model on the Automobile price data (Raw) dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,74 +12,67 @@ ms.reviewer: sgilley
 ms.date: 05/06/2019
 ---
 
-# Sample 1 - Regression: predict price
+# Sample 1 - Regression: Predict price
 
-This visual interface sample experiment demonstrates how to build a regression model to predict an automobile's price. The process includes training, testing and evaluating the model on the **Automobile price data (Raw)** dataset.
+This visual interface sample experiment shows how to build a regression model to predict an automobile's price. The process includes training, testing, and evaluating the model by using the **Automobile price data (Raw)** dataset.
 
 ## Prerequisites
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-ui-prereq.md)]
+[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Select **+ New** at the bottom-left to open the Sample 1 experiment.
+4. Select the **Open** button for the Sample 1 experiment:
 
     ![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Related sample
 
-[Sample 2 - Regression: Predict automobile(compare algorithms)](sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment solving the same problem using two different regression model. It shows how to quick compare different algorithms with Studio V2. Please check it if you are looking for a more advanced sample.
-
-## Data
-
-In this experiment, we used the **Automobile price data (Raw)** which is sourced from the UCI Machine Learning repository. This dataset contains 26 columns which includes information about automobiles by make, model, price, vehicle features like the number of cylinders, MPG, as well as an insurance risk score. Here the goal is to predict the price of the car.
+[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
 
 ## Experiment summary
 
-Build the experiment in four steps.
+We use these steps to build the experiment:
 
-1. Get data
-1. Data pre-processing
-1. Train the model
-1. Test, evaluate and compare the model
+1. Get the data.
+1. Pre-process the data.
+1. Train the model.
+1. Test, evaluate, and compare the models.
 
-The complete experiment graph is shown below.
+Here's the complete graph of the experiment:
 
-![overall graph of the experiment](media/sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Graph of the experiment](media/sample-regression-predict-automobile-price-basic/overall-graph.png)
 
+## Get the data
 
-## Get data
+In this experiment, we use the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. The dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score. The goal of this experiment is to predict the price of the car.
 
-In this experiment, we used the **Automobile price data (Raw)** which is sourced from the UCI Machine Learning repository. This dataset contains 26 columns which includes information about automobiles by make, model, price, vehicle features like the number of cylinders, MPG, as well as an insurance risk score. Here the goal is to predict the price of the car.
+## Pre-process the data
 
-## Data pre-processing
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure Machine Learning Studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
-The major data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In Azure ML studio, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
+We use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-We use **Select Columns in Dataset** to exclude normalized-losses that has many missing values. Then we use **Clean Missing Data** to remove the rows with missing values. This helps create a clean set of training data.
-
-![data pre-processing](./media/sample-regression-predict-automobile-price-basic/data-processing.png)
-
+![Data pre-processing](./media/sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
-Machine learning problems vary in nature. Common machine learning tasks include classification, clustering, regression, recommender system, each of which might require a different algorithm. Choosing an algorithm often depends on the requirements of the actual use case. After picking an algorithm, the parameters of the algorithm must be tuned in order to train a more accurate model. All models must then be evaluated based on metrics such as accuracy, intelligibility and efficiency.
+Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
-In this experiment, the goal is to predict automobile prices. Since the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features are not sparse, the decision boundary is likely to be nonlinear. So we choose **Decision Forest Regression** in this experiment.
+Because the goal of this experiment is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear. So we use **Decision Forest Regression** for this experiment.
 
-Using the **Split Data** module, we randomly divide the input data such that the training and testing datasets contains 70% and 30% of the original data respectively.
-
+We use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
 ## Test, evaluate, and compare
 
- By splitting the dataset and using different datasets to train and test the model, the result of model evaluation is more objective.
+ We split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
 
-After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and to evaluate the models. 
+After the model is trained, we use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models.
 
-**Score Model** generates predictions for the test dataset using the trained model. To check the result, click the output port of **Score Model** and select **Visualize**.
+**Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
-![score result](./media/sample-regression-predict-automobile-price-basic/score-result.png)
+![Score result](./media/sample-regression-predict-automobile-price-basic/score-result.png)
 
-The scores are then passed to **Evaluate Model** to generate evaluation metrics. To check the result, click the output port of **Evaluate Model** and select **Visualize**.
+We then pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
-![evaluate result](./media/sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Evaluate result](./media/sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## Clean up resources
 

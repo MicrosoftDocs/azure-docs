@@ -19,3 +19,4 @@ ms.date: 05/06/2019
     ![Launch visual interface](./media/aml-ui-prereq/launch-ui.png)
 
     The interface webpage opens in a new browser page.  
+
