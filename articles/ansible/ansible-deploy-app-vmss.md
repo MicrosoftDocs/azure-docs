@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansible | Microsoft Docs
-description: Learn how to use Ansible to configure a virtual machine scale set and deploy application on the virtual machine scale set in Azure
+description: Learn how to use Ansible to configure an Azure virtual machine scale set and deploy application on the scale set
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -22,7 +22,7 @@ In this tutorial, Ansible is used to deploy a Java application to a scale set.
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Virtual machine scale set** - If you don't already have a virtual machine scale set, you can [create a virtual machine scale set with Ansible](ansible-create-configure-vmss.md).
+- **Virtual machine scale set** - If you don't already have a scale set, you can [configure a scale set with Ansible](ansible-create-configure-vmss.md).
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
 - **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
 - **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
@@ -86,23 +86,23 @@ Run the sample Ansible playbook with the following command:
 The output from the ansible-playbook command displays out similar to the following where you see that it built the sample app cloned from GitHub:
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost] 
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts] 
   ok: [localhost]
 
-  TASK [Git Clone sample app] ***************************************************************************
+  TASK [Git Clone sample app] 
   changed: [localhost]
 
-  TASK [Build sample app] ***************************************************
+  TASK [Build sample app] 
   changed: [localhost]
 
-  PLAY RECAP ***************************************************************************
+  PLAY RECAP 
   localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
   ```
 
-## Deploy the application to VMSS
+## Deploy the application to a scale set
 
 The following section in an Ansible playbook installs the JRE (Java Runtime Environment) on a host group named **saclesethosts**, and deploys the Java application to a host group named **saclesethosts**:
 
@@ -112,14 +112,14 @@ The following section in an Ansible playbook installs the JRE (Java Runtime Envi
   - hosts: localhost
     vars:
       resource_group: myResourceGroup
-      scaleset_name: myVMSS
-      loadbalancer_name: myVMSSlb
+      scaleset_name: myScaleSet
+      loadbalancer_name: myScaleSetLb
       admin_username: azureuser
       admin_password: "your_password"
     tasks:
     - include: get-hosts-tasks.yml
 
-  - name: Install JRE on VMSS
+  - name: Install JRE on a scale set
     hosts: scalesethosts
     become: yes
     vars:
@@ -163,48 +163,48 @@ Run the playbook with the following command:
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-The output from running the ansible-playbook command indicates that the sample Java application has been installed to the host group of the virtual machine scale set:
+The output from running the ansible-playbook command indicates that the sample Java application has been installed to the host group of the scale set:
 
   ```Output
-  PLAY [localhost] **********************************************************
+  PLAY [localhost]
 
-  TASK [Gathering Facts] ****************************************************
+  TASK [Gathering Facts]
   ok: [localhost]
 
-  TASK [Get facts for all Public IPs within a resource groups] **********************************************
+  TASK [Get facts for all Public IPs within a resource groups]
   ok: [localhost]
 
-  TASK [Get loadbalancer info] ****************************************************************************
+  TASK [Get loadbalancer info]
   ok: [localhost]
 
-  TASK [Add all hosts] *****************************************************************************
+  TASK [Add all hosts]
   changed: [localhost] ...
 
-  PLAY [Install JRE on VMSS] *****************************************************************************
+  PLAY [Install JRE on scale set]
 
-  TASK [Gathering Facts] *****************************************************************************
+  TASK [Gathering Facts]
   ok: [40.114.30.145_50000]
   ok: [40.114.30.145_50003]
 
-  TASK [Copy app to Azure VM] *****************************************************************************
+  TASK [Copy app to Azure VM]
   changed: [40.114.30.145_50003]
   changed: [40.114.30.145_50000]
 
-  TASK [Start the application] ********************************************************************
+  TASK [Start the application]
   changed: [40.114.30.145_50000]
   changed: [40.114.30.145_50003]
 
-  PLAY RECAP ************************************************************************************************
+  PLAY RECAP
   40.114.30.145_50000        : ok=4    changed=3    unreachable=0    failed=0
   40.114.30.145_50003        : ok=4    changed=3    unreachable=0    failed=0
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Congratulation! Your application is running in Azure now. You can now navigate to the URL of the load balancer for your virtual machine scale set:
+Congratulation! Your application is running in Azure now. You can now navigate to the URL of the load balancer for your scale set:
 
-![Java app running in a virtual machine scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+![Java app running in a scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial - Autoscale a virtual machine scale set in Azure using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial - Autoscale a virtual machine scale set in Azure using Ansible](/azure/ansible/ansible-auto-scale-vmss)

@@ -18,19 +18,19 @@ ms.date: 04/04/2019
 
 The feature of automatically adjusting the number of VM instances is called [autoscale](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). The benefit of autoscale is that it reduces the management overhead to monitor and optimize the performance of your application. Autoscale can be configured in response to demand or on a defined schedule. Using Ansible, you can specify the autoscale rules that define the acceptable performance for a positive customer experience.
 
-In this tutorial, Ansible is used to create an autoscale setting and associate the setting with an existing virtual machine scale set.
+In this tutorial, Ansible is used to create an autoscale setting and associate the setting with an existing scale set.
 
 ## Prerequisites
 
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- An existing Azure virtual machine scale set. - If you don't have a one, [Create virtual machine scale sets in Azure using Ansible](/azure/ansible/ansible-create-configure-vmss).
+- An existing Azure virtual machine scale set. - If you don't have a one, [configure a scale set in Azure using Ansible](/azure/ansible/ansible-create-configure-vmss).
 
 ## Autoscale based on a schedule
 
 To enable autoscale on a scale set, you first define an autoscale profile. This profile defines the default, minimum, and maximum scale set capacity. These limits let you control cost by not continually creating VM instances, and balance acceptable performance with a minimum number of instances that remain in a scale-in event. 
 
-Ansible allows you to scale your virtual machine scale sets on a specific date or recurring schedule.
+Ansible allows you to scale your scale sets on a specific date or recurring schedule.
 
 The following playbook increases the number of VM instances to three at 10:00 every Monday:
 
@@ -39,7 +39,7 @@ The following playbook increases the number of VM instances to three at 10:00 ev
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks: 
     - name: Create autoscaling
@@ -74,7 +74,7 @@ ansible-playbook vmss-auto-scale.yml
 
 ## Autoscale based on performance data
 
-If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. Ansible allows you to control what metrics to monitor, such as CPU usage, disk usage, and app-load time. You can scale in and scale out in virtual machine scale sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
+If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. Ansible allows you to control what metrics to monitor, such as CPU usage, disk usage, and app-load time. You can scale in and scale out in scale sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
 
 The following playbook checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
 
@@ -88,7 +88,7 @@ Based on the CPU percentage metrics, the playbook does one of the following acti
 - hosts: localhost
   vars:
     resource_group: myResourceGroup
-    vmss_name: myVMSS
+    vmss_name: myScaleSet
     name: autoscalesetting
   tasks:
   - name: Get facts of the resource group
@@ -96,7 +96,7 @@ Based on the CPU percentage metrics, the playbook does one of the following acti
       name: "{{ resource_group }}"
     register: rg
 
-  - name: Get VMSS resource uri
+  - name: Get scale set resource uri
     set_fact:
       vmss_id: "{{ rg.ansible_facts.azure_resourcegroups[0].id }}/providers/Microsoft.Compute/virtualMachineScaleSets/{{ vmss_name }}"
     

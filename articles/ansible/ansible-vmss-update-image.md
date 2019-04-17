@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Tutorial: Update Azure virtual machine scale sets with custom images using Ansible
 
-[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
@@ -215,13 +215,13 @@ To run this playbook, use command ansible-playbook as follows:
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 ```
 
-## Create VMSS using Image A
+## Create scale set using Image A
 
 Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) or save below as *create-vmss.yml*. This step creates:
 
 - a public IP address
 - a load balancer
-- a VMSS that refers image A
+- a scel set that references image A
 
 ```yml
 ---
@@ -263,7 +263,7 @@ Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks
         natpool_backend_port: 22
         natpool_protocol: Tcp
 
-    - name: Create VMSS
+    - name: Create a scale set
       azure_rm_virtualmachine_scaleset:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
@@ -284,7 +284,7 @@ Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks
         load_balancer: "{{ vmss_name }}lb"
 
     - debug:
-        msg: "VMSS public IP address: {{ pip_output.state.ip_address }}"
+        msg: "Scale set public IP address: {{ pip_output.state.ip_address }}"
 ```
 
 To run this playbook, use command ansible-playbook as follows:
@@ -298,16 +298,16 @@ Copy the IP address printed out at the end of your output to a browser:
 
 ![Public IP Address](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
-You see Image A deployed to the VMSS:
+You see Image A deployed to the scale set:
 
-![VMSS Image A](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+![Scale set Image A](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
-## Update image referenced in VMSS and upgrade instances
+## Update image referenced in scale set and upgrade instances
 
 The final playbook replaces Image A with Image B. Download the [sample](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) or save below as *update-vmss-image.yml*:
 
 ```yml
-- name: Update VMSS Image Referece
+- name: Update scale set image reference
   hosts: localhost
   connection: local
   vars:
@@ -317,7 +317,7 @@ The final playbook replaces Image A with Image B. Download the [sample](https://
     admin_password: User123!!!abc
   tasks:
 
-  - name: Update VMSS - second image
+  - name: Update scale set - second image
     azure_rm_virtualmachine_scaleset:
       resource_group: "{{ resource_group }}"
       name: "{{ vmss_name }}"
@@ -363,7 +363,7 @@ ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 
 Now press **F5** in your browser to reload the page. You see that image is updated to Image B:
 
-![VMSS Image B](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
+![Scale set Image B](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
 ## Clean up resources
 
@@ -390,4 +390,4 @@ ansible-playbook rg_delete.yml
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Automatically scale a virtual machine scale set using Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial: Autoscale a virtual machine scale set in Azure using Ansible](/azure/ansible/ansible-auto-scale-vmss)
