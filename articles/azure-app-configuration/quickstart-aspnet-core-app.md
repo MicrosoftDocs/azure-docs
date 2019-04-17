@@ -188,4 +188,4 @@ Add the [Secret Manager tool](https://docs.microsoft.com/aspnet/core/security/ap
 In this quickstart, you created a new app configuration store and used it with an ASP.NET Core web app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
