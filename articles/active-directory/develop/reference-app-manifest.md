@@ -22,11 +22,11 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory app manifest
 
-The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more information on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+The application manifest contains a definition of all the attributes of an application object in the Microsoft identity platform. It also serves as a mechanism for updating the application object. For more info on the Application entity and its schema, see the [Graph API Application entity documentation](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
 
 You can configure an app's attributes through the Azure portal or programmatically using [REST API](https://docs.microsoft.com/en-us/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) or [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0#applications). However, there are some scenarios where you'll need to edit the app manifest to configure an app's attribute. These scenarios include:
 
-* If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you cannot change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
+* If you registered the app as Azure AD multi-tenant and personal Microsoft accounts, you can't change the supported Microsoft accounts in the UI. Instead, you must use the application manifest editor to change the supported account type.
 * If you need to define permissions and roles that your app supports, you must modify the application manifest.
 
 ## Configure the app manifest
@@ -86,14 +86,14 @@ To configure the application manifest:
 
 ### Manifest limits
 
-An application manifest has multiple attributes which are referred to as collections for example approles , keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess , oauth2Permissions etc . Within the complete application manifest for any application, the total number of entries in all the collections combined has been capped at 1200. If you already have 100 redirect URI's specified in the application manifest then you are only left with 1100 remaining entries to use across all other collections combined which make up the manifest.
+An application manifest has multiple attributes that are referred to as collections; for example, approles, keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess, and oauth2Permissions. Within the complete application manifest for any application, the total number of entries in all the collections combined has been capped at 1200. If you already have 100 redirect URIs specified in the application manifest, then you're only left with 1100 remaining entries to use across all other collections combined that make up the manifest.
 
 > [!NOTE]
-> In case you try to add more than 1200 entries in the application manifest . You may recieve an error **"Failed to update application xxxxxx . Error details: The size of the manifest has exceeded its limit. Please reduce the number of values and retry your request.**"
+> In case you try to add more than 1200 entries in the application manifest, you may see an error **"Failed to update application xxxxxx. Error details: The size of the manifest has exceeded its limit. Please reduce the number of values and retry your request."**
 
 ### Unsupported attributes
 
-The application manifest represents the schema of the underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App Registrations (Preview)]((https://developer.microsoft.com/en-us/graph/blogs/new-app-registration/)) which are known with a different name in the App Registrations (GA) experience.
+The application manifest represents the schema of the underlying application model in Azure AD. As the underlying schema evolves, the manifest editor will be updated to reflect the new schema from time to time. As a result, you may notice new attributes showing up in the application manifest. In rare occasions, you may notice a syntactic or semantic change in the existing attributes or you may find an attribute that existed previously are not supported anymore. For example, you will see new attributes in the [App registrations (Preview)]((https://developer.microsoft.com/graph/blogs/new-app-registration/)) which are known with a different name in the App registrations (GA) experience.
 
 
 | App Registrations (GA)    | App Registrations (Preview) |
@@ -108,17 +108,18 @@ The application manifest represents the schema of the underlying application mod
 
 For descriptions for these attributes, see the the [manifest reference](#manifest-reference) section.
 
-> [!NOTE] When you try to upload a previously downloaded manifest, you may receive one of the following errors. This is likely because the manifest editor supports a newer version of the schema now which does not match with the one you are trying to upload.
->
-> - "**Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. [].**"
-> - "**Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. [].**"
-> - "**Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. [].**"
-> - "**Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property is not allowed for this application. Use 'replyUrlsWithType' property instead. [].**"
-> - "**Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []**"
->
->When you see one of these errors, we recommend the following:
->1. Directly edit the attributes one by one in the manifest editor instead of uploading a previously downloaded manifest. The [Manifest reference](#manifest-reference) table can help you understand the syntax and semantics of old and new attributes so that you can edit the attributes you are interested in successfully. 
->2. If your workflow requires you to save the manifests in your source repository and use it later, you may want to rebaseline the saved manifests in your repository with the one you see in the App Registration Preview experience.
+When you try to upload a previously downloaded manifest, you may see one of the following errors. This is likely because the manifest editor now supports a newer version of the schema, which doesn't match with the one you're trying to upload.
+
+- "**Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. [].**"
+- "**Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. [].**"
+- "**Failed to update xxxxxx application. Error detail: Not allowed to set availableToOtherTenants in this api version for update. [].**"
+- "**Failed to update xxxxxx application. Error detail: Updates to 'replyUrls' property is not allowed for this application. Use 'replyUrlsWithType' property instead. [].**"
+- "**Failed to update xxxxxx application. Error detail: A value without a type name was found and no expected type is available. When the model is specified, each value in the payload must have a type which can be either specified in the payload, explicitly by the caller or implicitly inferred from the parent value. []**"
+
+When you see one of these errors, we recommend the following:
+
+1. Edit the attributes individually in the manifest editor instead of uploading a previously downloaded manifest. Use the [manifest reference](#manifest-reference) table to understand the syntax and semantics of old and new attributes so that you can successfully edit the attributes you're interested in. 
+1. If your workflow requires you to save the manifests in your source repository for use later, we suggest rebasing the saved manifests in your repository with the one you see in the **App registrations (Preview)** experience.
 
 ## Next steps
 
