@@ -30,7 +30,7 @@ Azure SQL Database runs on the latest stable version of SQL Server Database Engi
 
 These service tiers leverage the standard availability architecture. The following figure shows four different nodes with the separated compute and storage layers.
 
-![Separation of compute and storage](media/sql-database-managed-instance/general-purpose-service-tier.png)
+![Separation of compute and storage](media/sql-database-high-availability/general-purpose-service-tier.png)
 
 The standard availability model includes two layers:
 
