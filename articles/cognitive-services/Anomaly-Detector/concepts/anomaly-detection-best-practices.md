@@ -23,19 +23,19 @@ Use this article to learn about best practices for using the API getting the bes
 
 ## When should I use “Entire” or “Last” API? 
  
-“Entire” detection api is used to find anomalies in given time series. It builds one single anomaly detection model and applies it on each point to perform anomaly detection. It is mainly used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
+“Entire” detection api is used to find anomalies in given time series. It builds one single anomaly detection model and applies it on each point to do anomaly detection. It's mainly used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
 
 1.	A seasonal time series, with occasional anomalies.
 2.	A flat trend time series, with occasional spikes/dips. 
  
-We do not recommend you to use “Entire” API in the real time monitoring scenario or use it on time series don’t have above characteristics, for the following reasons. 
+We don't recommend you to use “Entire” API in the real-time monitoring scenario or use it on time series don’t have above characteristics, for the following reasons. 
 
-1.	Since it use one single model, so each point’s detection will be performed in the context of whole series.
+1.	Since it uses one single model, so each point’s detection will be done in the context of whole series.
 
-*	If the time series trend go up and down without seasonality, the change points might be missed.
-*	Some spikes which is smaller than the spike following might be ignored because it is not significant enough as model takes into account the data before and after the spike or dip point. But in real time monitoring, we hope it is alerted as soon as possible to avoid the bigger spike. 
+*	If the time series trend goes up and down without seasonality, the change points might be missed.
+*	Some spikes or dips, which are less significant than the later spikes or dips might be ignored because they are not significant enough as model takes into account the data before and after the spike or dip points. But in real-time monitoring, we hope they're alerted as soon as possible to avoid the bigger issues. 
 
-2.	It is much slower than the “Last” API in real time monitoring because it performs inferencing for each point while the “Last” API only do it for the last point. 
+2.	It's much slower than the “Last” API in real-time monitoring, because it does inferencing for each point while the “Last” API only does it for the last point. 
  
 So in an online monitoring system, when new data point coming, you should always use the “Last” API to do anomaly detection on current point. 
 
