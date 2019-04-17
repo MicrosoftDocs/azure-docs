@@ -280,7 +280,7 @@ Before you start to install SAP, make sure you include the host names and IP add
 
 ### The /etc/fstab file
 
-It's helpful to add the **nofail** parameter to the fstab file. This way, if something goes wrong with the disks, the VM doesn't hang in the boot process. Remember that additional disk space might not be available, and processes might fill up the root file system. If /hana is missing, SAP HANA won't start.
+It's helpful to add the **nofail** parameter to the fstab file. This way, if something goes wrong with the disks, the VM doesn't stop responding in the boot process. But remember that additional disk space might not be available, and processes might fill up the root file system. If /hana is missing, SAP HANA won't start.
 
 ![Add the nofail parameter to the fstab file](./media/hana-get-started/image000c.jpg)
 
