@@ -1,11 +1,7 @@
 ---
 title: Install Azure CycleCloud Command Line Interface | Microsoft Docs
 description: Install the Azure CycleCloud CLI
-services: azure cyclecloud
 author: adriankjohnson
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

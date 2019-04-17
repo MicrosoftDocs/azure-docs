@@ -1,11 +1,7 @@
 ---
 title: Terminate Clusters in Azure CycleCloud | Microsoft Docs
 description: Free up resources after completing jobs in Azure CycleCloud.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

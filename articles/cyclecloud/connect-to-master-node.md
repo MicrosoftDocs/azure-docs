@@ -1,11 +1,7 @@
 ---
 title: Connect to a Master Node in Azure CycleCloud | Microsoft Docs
 description: Use the CycleCloud web interface and a cloud shell to log into the Master Node to submit jobs.
-services: azure cyclecloud
 author: KimliW
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ---

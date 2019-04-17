@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud Release Notes | Microsoft Docs
 description: Product release notes for previous Azure CycleCloud major release
-services: azure cyclecloud
 author: adriankjohnson
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: adjohnso
 ---

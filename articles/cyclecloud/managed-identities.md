@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud and Managed Identities | Microsoft Docs
 description: How to use Managed Identities with Azure CycleCloud.
-services: azure cyclecloud
 author: rokeptne
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: rokeptne
 ---

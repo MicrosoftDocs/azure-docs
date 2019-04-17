@@ -30,17 +30,26 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-    "brand": "azure",
-    "feedback_system": "None",
-    "titleSuffix": "Azure CycleCloud",
-    "searchScope": ["CycleCloud"],
+      "brand": "azure",
+      "feedback_system": "None",
+      "titleSuffix": "Azure CycleCloud",
+      "searchScope": ["CycleCloud"],
       "breadcrumb_path": "/azure/cyclecloud/breadcrumb/toc.json",
-      "extendBreadcrumb": true
+      "extendBreadcrumb": true,
+      "ms.prod": "cyclecloud",
+      "ms.topic": "conceptual"
     },
     "fileMetadata": {
       "author":
       {
-        "**.md": "KimliW"
+        "**.md": "adriankjohnson"
+      },
+      "ms.topic":
+      {
+        "includes/**/*.md": "include",
+        "**/quickstart-*.md": "quickstart",
+        "tutorials/**/*.md": "tutorial",
+        "**overview.md": "overview"
       }
     },
     "template": [],

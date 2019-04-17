@@ -1,11 +1,8 @@
 ---
 title: Azure CycleCloud API Reference | Microsoft Docs
 description:  Azure CycleCloud REST API Reference.
-services: azure cyclecloud
 author: adriankjohnson
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/08/2018
 ms.author: adjohnso
 ---
