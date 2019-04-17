@@ -42,7 +42,11 @@ Moreover, you may drill down to file details and look at individual files to get
 
 ## Side-by-side comparison
 
-**<< ARCHER/ED/MARK - Will provide updated text >>**
+Choosing two models during accuracy evaluation enables side-by-side comparison of those models, allowing you to compare WER and inspect recognition results. In most cases it is recommended to test between a custom model and a baseline, helping you understand how the custom model benefited from your training data. Side-by-side comparison can also be used between two custom models to determine which is best for certain categories of data.
+
+To create a test that offers side-by-side comparison, start by navigating to the 'Testing' tab and click 'Add test'. Select the 'Evaluate Accuracy' option and enter a name and description for your test. Next, select the appropriate audio + transcription data as your testing data, this will be used as the input audio that the speech-to-text models will attempt to recognize. Finally, select the custom model you want to test, along with a baseline model or another custom model, before creating the test.
+
+Once the test has completed (indicated by the 'Succeeded' status in the table of tests) you will find a WER number for both models included in your test. Click on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. It is recommended to play the associated audio files, especially for long audio files, during your inspection by clicking the 'Play' icon and listening to the original audio. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
 ## Next steps
 
