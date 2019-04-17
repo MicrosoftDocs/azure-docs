@@ -319,7 +319,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-        - name: Store and manage Spring Data 
+        - name: Optimize Gremlin queries
+          href: graph-execution-profile.md
+        - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
     - name: Cassandra API
@@ -604,6 +606,10 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
+    - name: Change feed
+      items:
+      - name: Troubleshoot Azure Cosmos DB Trigger
+        href: troubleshoot-changefeed-functions.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK

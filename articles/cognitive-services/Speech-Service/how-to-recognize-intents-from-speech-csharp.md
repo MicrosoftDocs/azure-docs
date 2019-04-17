@@ -129,19 +129,21 @@ Next, create an intent recognizer using `new IntentRecognizer(config)`. Since th
 
 Now import the model from the LUIS app using `LanguageUnderstandingModel.FromAppId()` and add the LUIS intents that you wish to recognize via the recognizer's `AddIntent()` method. These two steps improve the accuracy of speech recognition by indicating words that the user is likely to use in their requests. It is not necessary to add all the app's intents if you do not need to recognize them all in your application.
 
-Adding intents requires three arguments: the LUIS model (which has just been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
+Adding intents requires three arguments: the LUIS model (which has been created and is named `model`), the intent name, and an intent ID. The difference between the ID and the name is as follows.
 
 |`AddIntent()` argument|Purpose|
 |--------|-------|
 |intentName |The name of the intent as defined in the LUIS app. Must match the LUIS intent name exactly.|
 |intentID    |An ID assigned to a recognized intent by the Speech SDK. Can be whatever you like; does not need to correspond to the intent name as defined in the LUIS app. If multiple intents are handled by the same code, for instance, you could use the same ID for them.|
 
-The Home Automation LUIS app has two intents: one for turning a device on, and another for turning a device off. The lines below add these intents to the recognizer; replace the three `AddIntent` lines in the `RecognizeIntentAsync()` method with this code.
+The Home Automation LUIS app has two intents: one for turning on a device, and another for turning a device off. The lines below add these intents to the recognizer; replace the three `AddIntent` lines in the `RecognizeIntentAsync()` method with this code.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+Instead of adding individual intents, you can also use the `AddAllIntents` method to add all the intents in a model to the recognizer.
 
 ## Start recognition
 

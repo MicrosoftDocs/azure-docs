@@ -131,11 +131,11 @@ See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/
 
 ### <a name="resource-group"></a> Requirements for Resource Group
 -   The Azure-SSIS IR needs to create certain network resources under the same resource group as the virtual network. These resources include the following:
-    -   An Azure load balancer, with the name *<Guid>-azurebatch-cloudserviceloadbalancer*.
-    -   An Azure public IP address, with the name *<Guid>-azurebatch-cloudservicepublicip*.
-    -   A network work security group, with the name *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+    -   An Azure load balancer, with the name *\<Guid>-azurebatch-cloudserviceloadbalancer*.
+    -   An Azure public IP address, with the name *\<Guid>-azurebatch-cloudservicepublicip*.
+    -   A network work security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
--   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or hang. 
+-   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or stop responding. 
 
 -   Make sure that you don't have an Azure policy which prevents the following resources from being created under the Resource Group or Subscription to which the virtual network belongs: 
     -   Microsoft.Network/LoadBalancers 
