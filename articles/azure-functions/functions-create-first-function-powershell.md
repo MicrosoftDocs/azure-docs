@@ -17,7 +17,7 @@ ms.devlang: powershell
 
 [!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
-This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function app running on Windows. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). The function app in Azure is created by using the [Azure portal]. 
+This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function app. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). The function app in Azure is created by using the [Azure portal]. 
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
