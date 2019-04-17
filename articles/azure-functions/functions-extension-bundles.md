@@ -14,7 +14,7 @@ manager: jeconnoc
 
 Extension bundles make all bindings published by the Azure Functions team available to non-.NET functions through a setting in the *host.json* file.
 
-As of Azure Functions version 2.x, bindings are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow non .NET functions access to all bindings through a configuration setting.
+As of Azure Functions version 2.x, bindings are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow non-.NET functions access to all bindings through a configuration setting.
 
 > [!TIP]
 > Now that bindings are available via configuration non-.NET functions no longer need to install .NET Core in order to use bindings.
@@ -32,6 +32,7 @@ To make bindings available to your non-.NET function, ensure you have the latest
     }
 }
 ```
+
 - The `id` property references the namespace for Microsoft Azure Functions extension bundles.
 - The `version` property uses the [interval notation for specifying version ranges](https://docs.microsoft.com/nuget/reference/package-versioning#version-ranges-and-wildcards).
 
