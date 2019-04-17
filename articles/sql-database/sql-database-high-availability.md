@@ -34,8 +34,8 @@ These service tiers leverage the standard availability architecture. The followi
 
 The standard availability model includes two layers:
 
-- A stateless compute layer that runs the `sqlserver.exe` process and contains only transient and cached data (for example – plan cache, buffer pool, column store pool). This stateless node is operated by Azure Service Fabric that initializes `sqlserver.exe`, controls the health of the node, and performs a failover to another node if necessary.
-- A stateful data layer with the database files (.mdf/.ldf) that are stored in Azure Blob storage. Azure Blob storage has built-in data availability/redundancy that ensures every record in the log file, or page in the data file will be preserved even if the SQL Server process crashes.
+- A stateless compute layer that runs the `sqlserver.exe` process and contains only transient and cached data on an attached SSD, such as TempDB, model database, plan cache, buffer pool and column store pool. This stateless node is operated by Azure Service Fabric that initializes `sqlserver.exe`, controls health of the node, and performs failover to another node if necessary.
+- A stateful data layer with the database files (.mdf/.ldf) that are stored in Azure Blob storage. Azure blob storage has built-in data availability and redundancy feature. It guarantees that every record in the log file or page in the data file will be preserved even if SQL Server process crashes.
 
 Whenever the database engine or the operating system is upgraded, or a failure is detected, Azure Service Fabric will move the stateless SQL Server process to another stateless compute node with sufficient free capacity. Data in Azure Blob storage is not affected by the move, and the data/log files are attached to the newly initialized SQL Server process. This process guarantees 99.99% availability, but a heavy workload may experience some performance degradation during the transition since the new SQL Server instance starts with cold cache.
 
