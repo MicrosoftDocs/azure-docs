@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/28/2019
+ms.date: 04/17/2019
 ---
 # Use read-only replicas to load balance read-only query workloads
 
@@ -27,11 +27,12 @@ Each database in the Premium tier ([DTU-based purchasing model](sql-database-ser
 
 The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
-To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) method.
+The Read Scale-Out feature is enabled by default on the new Premium and Business Critical databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-After Read Scale-Out is enabled for a database, applications connecting to that database will be directed by the gateway to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or afterwards by altering its configuration. You can do that by using the PowerShell cmdlets [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) or through the Azure Resource Manager REST API [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) method.
 
-If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
+> [!IMPORTANT]
+> If you downgrade your database to Standard or General Purpose tier, the value of the Read Scale-Out setting is preserved. If it is enabled, the read-only routing will automatically take effect when you upgrade to Premium or Business Critical tier. 
 
 > [!NOTE]
 > Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas. 
