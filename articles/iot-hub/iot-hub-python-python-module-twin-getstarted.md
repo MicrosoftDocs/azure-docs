@@ -82,11 +82,12 @@ This app creates a device identity with ID **myFirstDevice** and a module identi
 
 In this section, you create a Python app on your simulated device that updates the module twin reported properties.
 
-1. **Get your module connection string** -- now if you login to [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
+1. **Get your module connection string** -- now if you sign into the [Azure portal](https://portal.azure.com/). Navigate to your IoT Hub and click IoT Devices. Find myFirstDevice, open it and you see myFirstModule was successfully created. Copy the module connection string. It is needed in the next step.
 
    ![Azure portal module detail](./media/iot-hub-python-python-module-twin-getstarted/module-detail.png)
 
 2. **Create UpdateModuleTwinReportedProperties app**
+
    Add the following `using` statements at the top of the **Program.cs** file:
 
     ```python
