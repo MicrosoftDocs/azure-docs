@@ -169,8 +169,10 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create your first pipeline
-    href: how-to-create-your-first-pipeline.md
+  - name: Create reusable workflows
+    displayName: pipelines
+    - name: Create an ML pipeline
+      href: how-to-create-your-first-pipeline.md  
   - name: Enable logging
     displayName: logging
     href: how-to-enable-logging.md
