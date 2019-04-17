@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
 # Install and run LUIS docker containers
  
-The Language Understanding (LUIS) container loads your trained or published Language Understanding model, also know as a [LUIS app](https://www.luis.ai), into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure Language Understanding model to improve the app's prediction accuracy.
+The Language Understanding (LUIS) container loads your trained or published Language Understanding model, also know as a [LUIS app](https://www.luis.ai), into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the Language Understanding app to improve the app's prediction accuracy.
 
 The following video demonstrates using this container.
 
@@ -31,7 +31,14 @@ In order to run the LUIS container, you must have the following:
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|Language Understanding (LUIS) resource and associated app |In order to use the container, you must have:<br><br>* A [_Language Understanding_ Azure resource](luis-how-to-azure-subscription.md), along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>* A trained or published app packaged as a mounted input to the container with its associated App ID.<br>* The Authoring Key to download the app package, if you are doing this from the API.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
+|Azure `Cognitive Services` resource and LUIS [packaged app](/luis-how-to-start-new-app.md#export-app-for-containers) file |In order to use the container, you must have:<br><br>* A _Cognitive Services_ Azure resource and the associated billing key the billing endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container. You need to add the `luis/v2.0` routing to the endpoint URI as shown in the following BILLING_ENDPOINT_URI example. <br>* A trained or published app packaged as a mounted input to the container with its associated App ID. You can get the packaged file from the LUIS portal or the Authoring APIs. If you are getting LUIS packaged app from the [authoring APIs](#authoring-apis-for-package-file), you will also need your _Authoring Key_.<br><br>These requirements are used to pass command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Cognitive Services_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>The [authoring key and endpoint key](luis-boundaries.md#key-limits) have different purposes. Do not use them interchangeably. |
+
+### Authoring APIs for package file
+
+Authoring APIs for packaged apps:
+
+* [Published package API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
+* [Not-published, trained-only package API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
 
 ### The host computer
 
@@ -109,7 +116,7 @@ Before packaging a LUIS application, you must have the following:
 
 |Packaging Requirements|Details|
 |--|--|
-|Azure _Language Understanding_ resource instance|Supported regions include<br><br>West US (```westus```)<br>West Europe (```westeurope```)<br>Australia East (```australiaeast```)|
+|Azure _Cognitive Services_ resource instance|Supported regions include<br><br>West US (```westus```)<br>West Europe (```westeurope```)<br>Australia East (```australiaeast```)|
 |Trained or published LUIS app|With no [unsupported dependencies](#unsupported-dependencies). |
 |Access to the [host computer](#the-host-computer)'s file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
   
@@ -209,7 +216,7 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 | Placeholder | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | This key is used to start the container. Do not use the starter key. |
-|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|
+|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's `Cognitive Services` Overview page. You need to add the `luis/v2.0` routing to the endpoint URI as shown in the following example: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.|
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -241,7 +248,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
-> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
+> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page.  
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
@@ -320,7 +327,7 @@ If you run the container with an output [mount](luis-container-configuration.md#
 
 ## Billing
 
-The LUIS container sends billing information to Azure, using a _Language Understanding_ resource on your Azure account. 
+The LUIS container sends billing information to Azure, using a _Cognitive Services_ resource on your Azure account. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
