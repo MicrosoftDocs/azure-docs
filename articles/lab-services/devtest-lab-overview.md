@@ -21,7 +21,7 @@ ms.author: spelluru
 # About Azure DevTest Labs
 Azure DevTest Labs enables developers on teams to efficiently self-manage virtual machines (VMs) and PaaS resources without waiting for approvals.
 
-The labs created by using DevTest Labs consist of pre-configured bases or Azure Resource Manager templates. These have all the necessary tools and software that you can use to create environments. As a result, you can create environments in a few minutes, as opposed to hours or days.
+DevTest Labs creates labs consisting of pre-configured bases or Azure Resource Manager templates. These have all the necessary tools and software that you can use to create environments. You can create environments in a few minutes, as opposed to hours or days.
 
 By using DevTest Labs, you can test the latest versions of your applications by doing the following tasks:
 
@@ -37,7 +37,7 @@ DevTest Labs provides the following capabilities to developers working with VMs:
 - Create VMs quickly by following fewer than five simple steps.
 - Choose from a curated list of VM bases that are configured, approved, and authorized by the team lead or central IT.
 - Create VMs from pre-created custom images that have all the software and tools already installed. 
-- Create VMs from formulas that are essentially custom images combined with the latest builds of the software that's installed upon the VMs' creation.
+- Create VMs from formulas that are essentially custom images combined with the latest builds of the software that's installed when the VMs are created. 
 - Install artifacts that are extensions deployed on VMs after they're provisioned.
 - Set auto-shutdown and auto-start schedules on VMs.
 - Claim a pre-created VM without going through the creation process.
@@ -46,9 +46,9 @@ DevTest Labs provides the following capabilities to developers working with PaaS
 
 - Use Resource Manager to quickly create PaaS environments by following fewer than three simple steps.
 - Choose from a curated list of Resource Manager templates, which are configured, and authorized by the team lead or central IT.
-- Spin up an empty resource group (sandbox) using a Resource Manager template to explore Azure within the context of a lab.
+- Spin up an empty resource group (sandbox) by using a Resource Manager template to explore Azure within the context of a lab.
 
-DevTest Labs also enables central IT to control wastefulness, optimize costs on resources, and stay within budgets by doing the following tasks:  
+DevTest Labs also enables central IT to control wastes, optimize costs on resources, and stay within budgets by doing the following tasks:  
 
 - Setting auto-shutdown and auto-start schedules on VMs.
 - Setting policies on the number of VMs that users can create.
@@ -56,30 +56,30 @@ DevTest Labs also enables central IT to control wastefulness, optimize costs on 
 - Tracking costs and setting targets on labs.
 - Getting notified on high projected costs for labs so you can take necessary actions.
 
-DevTest Labs provides the following benefits in creating, configuring, and managing environments in the cloud:
+DevTest Labs provides the following benefits in creating, configuring, and managing environments in the cloud.
 
 ## Cost control and governance
 DevTest Labs makes it easier to control costs by allowing you to do the following tasks:
 
-- Set policies on your labs, such as number of VMs per user or per lab. 
-- Create policies to automatically shut down and start VMs.
-- Track costs on VMs and PaaS resources spun up inside labs to stay within your budget.
+- [Set policies on your labs](devtest-lab-get-started-with-lab-policies.md), such as number of VMs per user or per lab. 
+- Create [policies to automatically shut down](lab-services/devtest-lab-set-lab-policy.md) and start VMs.
+- Track costs on VMs and PaaS resources spun up inside labs to stay within [your budget](devtest-lab-configure-cost-management.md).
 - Stay within the context of your labs so you don't spin up resources outside of them.
 
 ## Quickly get to ready-to-test
-DevTest Labs lets you create pre-provisioned environments equipped with everything your team needs to develop and test applications. Just claim the environments where the last good build of your application is installed and start working right away. Or use containers for even faster, and leaner environment creation.
+DevTest Labs lets you create pre-provisioned environments equipped with everything your team needs to develop and test applications. Just [claim the environments](lab-services/devtest-lab-add-claimable-vm.md) where the last good build of your application is installed and start working. Or use containers for even faster, leaner environment creation.
 
 ## Create once, use everywhere
-Capture and share PaaS environment templates and artifacts within your team or organization—all in source control—to easily create developer and test environments.
+Capture and share PaaS [environment templates](devtest-lab-create-environment-from-arm.md) and [artifacts](add-artifact-repository.md) within your team or organization—all in source control—to easily create developer and test environments.
 
 ## Worry-free self-service
-You can easily create IaaS VMs and PaaS resources by using a set of pre-configured resources.
+DevTest Labs enables your developers and testers quickly and easily [create IaaS VMs](devtest-lab-add-vm.md) and [PaaS resources](devtest-lab-create-environment-from-arm.md) by using a set of pre-configured resources.
 
 ## Use IaaS and PaaS resources 
-Developers can also spin up PaaS resources—such as Microsoft Azure Service Fabric clusters, the Web Apps feature of Microsoft Azure App Service, and SharePoint farms—by using Resource Manager templates. To get started on PaaS in labs, use the templates from our public environment repository or connect the lab to your own Git repository. You can also track costs on these resources to stay within your budget.
+Developers can also spin up PaaS resources, such as Azure Service Fabric clusters, the Web Apps feature of Azure App Service, and SharePoint farms, by using Resource Manager templates. To get started on PaaS in labs, use the templates from the [public environment repository](devtest-lab-configure-use-public-environments.md) or [connect the lab to your own Git repository](devtest-lab-create-environment-from-arm.md#configure-your-own-template-repositories). You can also track costs on these resources to stay within your budget.
 
 ## Integrate with your existing toolchain
-Use pre-made plug-ins or our API to provision developmental testing environments directly from your preferred continuous integration tool, integrated development environment, or automated release pipeline. You can also use our comprehensive command-line tool.
+Use pre-made plug-ins or the API to provision development/testing environments directly from your preferred [continuous integration (CI) tool](devtest-lab-integrate-ci-cd-vsts.md), integrated development environment (IDE), or automated release pipeline. You can also use the comprehensive command-line tool.
 
 ## Next steps
 See the following articles:
