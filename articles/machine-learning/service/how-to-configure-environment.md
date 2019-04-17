@@ -365,7 +365,7 @@ You can create the configuration file in three ways:
 
 * **Follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
-* **Download the file**: In the [Azure Portal](), select  **Download config.json** from the **Overview** section of your workspace.
+* **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
      ![Azure portal](./media/how-to-configure-environment/configure.png)
 
