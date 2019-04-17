@@ -489,8 +489,10 @@
           href: how-to-manage-indexing-policy.md
     - name: Change Feed
       items:
-      - name: Multiple Cosmos DB Triggers
+      - name: Multiple Azure Cosmos DB Triggers
         href: how-to-create-multiple-cosmosdb-triggers.md
+      - name: Troubleshoot Azure Cosmos DB Trigger
+        href: troubleshoot-changefeed-functions.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
@@ -610,10 +612,6 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
-    - name: Change feed
-      items:
-      - name: Troubleshoot Azure Cosmos DB Trigger
-        href: troubleshoot-changefeed-functions.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK
