@@ -19,7 +19,7 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ---
 
-## Handling exceptions and errors using MSAL:
+## Handling exceptions and errors using MSAL
 Exceptions in Microsoft Authentication Library (MSAL) are intended for app developers to troubleshoot and not for displaying to end-users. Exception messages are not localized.
 
 When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
