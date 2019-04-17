@@ -21,7 +21,7 @@ The only requirements for your development environment are Python 3, Anaconda (f
 
 This article focuses on the following environments and tools:
 
-* Your own [cloud-based notebook server](#workstation): Use a compute resource in your workstation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
+* Your own [cloud-based notebook server](#notebookvm): Use a compute resource in your workstation to run Jupyter notebooks. It's the easiest way to get started, because the Azure Machine Learning SDK is already installed.
 
 * [The Data Science Virtual Machine (DSVM)](#dsvm): A pre-configured development or experimentation environment in the Azure cloud that's designed for data science work and can be deployed to either CPU only VM instances or GPU-based instances. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular machine learning and deep learning frameworks, tools, and editors for developing machine learning solutions. It's probably the most complete development environment for machine learning on the Azure platform.
 
@@ -39,7 +39,7 @@ If you already have a Python 3 environment, or just want the basic steps for ins
 
 - An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md).
 
-A workspace is all you need to get started with your own [cloud-based notebook server](#workstation), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
+A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -57,8 +57,8 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 Create a notebook server in your Azure Machine Learning workspace for the easiest way to get started with Azure Machine Learning development.
 
 * The Azure Machine Learning SDK is already installed.
-* The workstation environment is automatically configured to work with your workspace.
-* The resource is available and can be managed in your workspace
+* The notebook VM environment is automatically configured to work with your workspace.
+* The resource is created in your workspace and can be managed there
 
 To get started developing with your cloud-based notebook server, see [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
