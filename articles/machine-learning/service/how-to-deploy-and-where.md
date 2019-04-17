@@ -559,7 +559,7 @@ For more information, see the reference documentation for the [Webservice](https
 
 An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
 
-Azure IoT Edge modules are deployed to your device from a container registry. When you create an image from your model, it is stored in the container registry for your workspace.
+Azure IoT Edge modules are deployed to your device from a container registry. You can use the Azure Machine Learning SDK to create an image from your model. When you create an image from your model, it is stored in the container registry for your workspace.
 
 > [!IMPORTANT]
 > The information in this section assumes that you are already familiar with Azure IoT Hub and Azure IoT Edge modules. While some of the information in this section is specific to Azure Machine Learning service, the majority of the process to deploy to an edge device happens in the Azure IoT service.
@@ -573,6 +573,49 @@ Azure IoT Edge modules are deployed to your device from a container registry. Wh
 * An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
 
 * A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
+
+### Create an image
+
+The [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class is used to create an image configuration. The image configuration is then used to create a new Docker image.
+
+The following code demonstrates how to create a new image configuration:
+
+```python
+from azureml.core.image import ContainerImage
+
+# Image configuration
+image_config = ContainerImage.image_configuration(execution_script = "score.py",
+                                                 runtime = "python",
+                                                 conda_file = "myenv.yml"}
+                                                 )
+```
+
+**Time estimate**: Approximately 10 seconds.
+
+The important parameters in this example described in the following table:
+
+| Parameter | Description |
+| ----- | ----- |
+| `execution_script` | Specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. It is functionally the same as the entry script used by web service deployments. For more information, see the [Entry script](#script) section. |
+| `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
+| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
+
+Once you have created the image configuration, you can use it to register an image. This image is stored in the container registry for your workspace. Once created, you can deploy the same image to multiple services.
+
+```python
+# Register the image from the image configuration
+image = ContainerImage.create(name = "myimage",
+                              models = [model], #this is the model object
+                              image_config = image_config,
+                              workspace = ws
+                              )
+```
+
+**Time estimate**: Approximately 3 minutes.
+
+Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as `myimage` is assigned an ID of `myimage:1`. The next time you register an image as `myimage`, the ID of the new image is `myimage:2`.
+
+For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
 
 ### <a id="getcontainer"></a> Get the container registry credentials
 
@@ -639,9 +682,9 @@ You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/
 
 To delete a deployed web service, use `service.delete()`.
 
-To delete an image, use `image.delete()`.
-
 To delete a registered model, use `model.delete()`.
+
+If you created an image for an IoT Edge module, use `image.delete()` to delete it.
 
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
 
