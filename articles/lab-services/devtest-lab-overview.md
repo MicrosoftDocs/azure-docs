@@ -73,7 +73,7 @@ DevTest Labs lets you create pre-provisioned environments equipped with everythi
 Capture and share PaaS [environment templates](devtest-lab-create-environment-from-arm.md) and [artifacts](add-artifact-repository.md) within your team or organization—all in source control—to easily create developer and test environments.
 
 ## Worry-free self-service
-DevTest Labs enables your developers and testers quickly and easily [create IaaS VMs](devtest-lab-add-vm.md) and [PaaS resources](devtest-lab-create-environment-from-arm.md) by using a set of pre-configured resources.
+DevTest Labs enables your developers and testers to quickly and easily [create IaaS VMs](devtest-lab-add-vm.md) and [PaaS resources](devtest-lab-create-environment-from-arm.md) by using a set of pre-configured resources.
 
 ## Use IaaS and PaaS resources 
 Developers can also spin up PaaS resources, such as Azure Service Fabric clusters, the Web Apps feature of Azure App Service, and SharePoint farms, by using Resource Manager templates. To get started on PaaS in labs, use the templates from the [public environment repository](devtest-lab-configure-use-public-environments.md) or [connect the lab to your own Git repository](devtest-lab-create-environment-from-arm.md#configure-your-own-template-repositories). You can also track costs on these resources to stay within your budget.
