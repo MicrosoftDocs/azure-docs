@@ -1,16 +1,16 @@
 ---
 title: Learn how to manage conflicts between regions in Azure Cosmos DB
 description: Learn how to manage conflicts in Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
+ms.date: 04/15/2019
+ms.author: rimman
 ---
 
 # Manage conflict resolution policies in Azure Cosmos DB
 
-With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies by using different language platforms.
+With multi-region writes, when multiple clients write to the same item, conflicts may occur. When a conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies.
 
 ## Create a custom conflict resolution policy
 
@@ -77,9 +77,9 @@ manual_collection = {
 manual_collection = client.CreateContainer(database['_self'], collection)
 ```
 
-## Create a custom conflict resolution policy with a stored procedure
+## Create a custom conflict resolution policy using a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
+These samples show how to set up a container with a custom conflict resolution policy using a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -157,9 +157,9 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 After your container is created, you must create the `resolver` stored procedure.
 
-## Create a last-writer-wins conflict resolution policy
+## Create a Last-Writer-Wins (LWW) conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. If the path isn't set or it's invalid, it defaults to the `_ts` property. This property is the timestamp field. These conflicts don't show up in the conflict feed.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. If the path isn't set or it's invalid, it defaults to the `_ts` property. This property is the timestamp field. These conflicts do not show up in the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -228,7 +228,7 @@ udp_collection = self.try_create_document_collection(create_client, database, ud
 
 ## Read from conflict feed
 
-These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically.
+These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they were not resolved automatically, e.g., you chose a manual conflict resolution policy and didn't register the stored procedure.
 
 ### <a id="read-from-conflict-feed-dotnet"></a>.NET SDK
 
@@ -280,6 +280,10 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
+* [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)
+* [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to configure multi-master in your applications](how-to-multi-master.md).
 * [Partitioning and data distribution](partition-data.md)
 * [Indexing in Azure Cosmos DB](indexing-policies.md)
