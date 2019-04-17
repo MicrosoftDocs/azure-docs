@@ -8,7 +8,13 @@ ms.author: adjohnso
 
 # Cluster Templates
 
-In Azure CycleCloud, you can create new templates or edit existing ones to take advantage of [interruptible (low-priority)](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) instances, or VPC to extend your own network into the cloud. The Azure CycleCloud CLI tools ship with some cluster templates already defined, located in the `~/.cycle` directory. For example, the file `slurm_template.txt` defines a basic two-node Slurm cluster. To create a new cluster, use the existing information as a template and copy it to a new file. Add your own specifications, and give the file a unique name:
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are [available in GitHub](https://github.com/Azure?q=cyclecloud) and are available in CycleCloud by default. You can create new templates or you can customize existing ones. For instance, you may want to take take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to use a VPC to extend your own network.
+
+## Customized Template Example
+
+Let's customize the default Slurm template that can be found in the [CycleCloud Slurm Repository](https://github.com/Azure/cyclecloud-slurm). The template file __templates/slurm.txt__ defines a Slurm cluster. Copy this template and make the following changes to it and give the file a unique name:
+
+[TODO: need a better example that can be downloaded and modified]
 
 ``` ini
 [cluster CustomSlurm]
@@ -46,7 +52,7 @@ $ cyclecloud start custom_demo_cluster
 
 ## Configuration Notation
 
-Azure CycleCloud cluster templates all have the option of having one or more [[[configuration]]]
+Azure CycleCloud cluster templates all have the option of having one or more **[[[configuration]]]**
 sections which belong to a node or nodearray. These sections specify software configuration
 options about the nodes being started by CycleCloud. Dotted notation is used to specify
 the attributes you wish to configure:
@@ -86,9 +92,7 @@ A node/nodearray can also contain multiple configuration sections if needed:
 
 ## Cluster Template Parameters
 
-Cluster templates can contain parameters that alter the values of certain parts of a cluster
-without having to modify the template itself. This is particularly useful in cases where many similar
-clusters with minor differences are desired such as deploying development and production environments. The syntax for specifying a parameter within a cluster template is to prefix a variable with a '$'. A basic template example (non-functional) with some parameters could look like:
+Cluster templates can contain parameters that alter the values of certain parts of a cluster without having to modify the template itself. This is particularly useful in cases where many similar clusters with minor differences are desired such as deploying development and production environments. The syntax for specifying a parameter within a cluster template is to prefix a variable with a '$'. A basic template example (non-functional) with some parameters could look like:
 
 ``` ini
 # template.txt
