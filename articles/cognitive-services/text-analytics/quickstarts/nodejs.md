@@ -1,21 +1,22 @@
 ---
 title: 'Quickstart: Using Node.js to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
+description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
-author: aahill
+author: raymondl
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
-ms.author: aahi
+ms.date: 04/17/2019
+ms.author: shthowse
 ---
-# Quickstart: Using Node.js to call the Text Analytics Cognitive Service  
+
+# Quickstart: Using Node.js to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Node.JS.
+Use this quickstart to begin analyzing language with the Text Analytics SDK for Node.js. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -23,585 +24,226 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up.
+You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
-<a name="Detect"></a>
+> [!Tip]
+>  While you could call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) directly from Javascript, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
+>
+> A few useful links:
+> - [SDK npm package](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics)
+> - [SDK code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics)
 
-## Detect language
+## Create the solution and install the SDK
 
-The Language Detection API detects the language of a text document, using the [Detect Language method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+- Create node project.
+    - ```mkdir myapp && cd myapp```
+    - Run ```npm init``` and follow the steps
+    - This will create a node application with a packaje.json file
+- Install the `ms-rest-azure` and `azure-cognitiveservices-textanalytics` NPM packages
+    - ```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
+    - This will update the package.json with the dependencies.
 
-1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
-2. Add the code provided below to a new `.js` file.
-3. Replace the `accessKey` value with a subscription key from your Text Analytics resource in Azure.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program from your IDE or command line, for example `npm start` or `node detect.js`.
+## Authenticate your credentials
 
-```javascript
-'use strict';
+1. Create a new file `index.js` in the project root and import the installed libraries
 
-let https = require ('https');
+    ```javascript
+    const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
+    const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
+    ```
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+2. Create a variable for your Text Analytics subscription key.
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
+    ```javascript
+    let credentials = new CognitiveServicesCredentials(
+      "enter-your-key-here"
+    );
+    ```
+> [!Tip]
+> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net)
+>
 
-// Replace or verify the region.
+## Create a Text Analytics client
 
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
+Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use the correct Azure region for your Text Analytics subscription.
 
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/languages';
+   ```javascript
+        let client = new TextAnalyticsAPIClient(
+          credentials,
+          "https://westus.api.cognitive.microsoft.com/"
+        );
+   ```
 
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
+## Sentiment analysis
 
-let get_language = function (documents) {
-	let body = JSON.stringify (documents);
+1. Create a new function called `sentimentAnalysisExample()` that takes the client created earlier. Create a list of objects, containing the documents you want to analyze.
 
-	let request_params = {
-		method : 'POST',
-		hostname : uri,
-		path : path,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : accessKey,
-		}
-	};
+    ```javascript
+    sentimentAnalysisExample(){
 
-	let req = https.request (request_params, response_handler);
-	req.write (body);
-	req.end ();
-}
+        const inputDocuments = {documents:[
+            {language:"en", id:"1", text:"I had the best day of my life."},
+            {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
+            {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
+            {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+          ]}
+    }
+    ```
 
-let documents = { 'documents': [
-	{ 'id': '1', 'text': 'This is a document written in English.' },
-	{ 'id': '2', 'text': 'Este es un document escrito en Español.' },
-	{ 'id': '3', 'text': '这是一个用中文写的文件' }
-]};
+2. In the same function, call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
-get_language (documents);
+    ```javascript
+     const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
+      operation
+        .then(result => {
+          console.log(result.documents);
+        })
+        .catch(err => {
+          throw err;
+        });
+    ```
+
+3. Call your function `sentimentAnalysisExample()` and execute your code by running the app `node index.js`
+### Output
+
+```console
+id: 1, score: 0.87
+id: 2, score: 0.11
+id: 3, score: 0.44
+id: 4, score: 1.00
 ```
 
-**Language detection response**
+## Language detection
 
-A successful response is returned in JSON, as shown in the following example: 
+1. Create a new function called `detectLanguageExample()` that takes the client created earlier. Create a list of Input objects, containing your documents.
 
-```json
+    ```javascript
+    static async Task DetectLanguageExample(TextAnalyticsClient client)
+    {
+        // The documents to be submitted for language detection. The ID can be any value.
+            const inputDocuments = [
+                { id: "1", text: "This is a document written in English." },
+                { id: "2", text: "Este es un document escrito en Español." },
+                { id: "3", text: "这是一个用中文写的文件" }
+            ];
+    }
+    ```
 
-{
-   "documents": [
-      {
-         "id": "1",
-         "detectedLanguages": [
-            {
-               "name": "English",
-               "iso6391Name": "en",
-               "score": 1.0
-            }
-         ]
-      },
-      {
-         "id": "2",
-         "detectedLanguages": [
-            {
-               "name": "Spanish",
-               "iso6391Name": "es",
-               "score": 1.0
-            }
-         ]
-      },
-      {
-         "id": "3",
-         "detectedLanguages": [
-            {
-               "name": "Chinese_Simplified",
-               "iso6391Name": "zh_chs",
-               "score": 1.0
-            }
-         ]
-      }
-   ],
-   "errors": [
+2. In the same function, call `client.DetectLanguageAsync() TODO:check thos` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-   ]
-}
+    ```javascript
+        'code here'
+    ```
 
+4. Call your function `detectLanguageExample()` and execute your code by running the app `node index.js`
 
-```
-<a name="SentimentAnalysis"></a>
+### Output
 
-## Analyze sentiment
-
-The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Sentiment analysis can be used to find out what customers think of your brand or topic by analyzing raw text for clues about positive or negative sentiment. The following example provides scores for two documents, one in English and another in Spanish.
-
-1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
-2. Add the code provided below to a new `.js` file.
-3. Replace the `accessKey` value with a subscription key from your Text Analytics resource in Azure.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program from your IDE or command line, for example `npm start` or `node sentiment.js`.
-
-```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/sentiment';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_sentiments = function (documents) {
-	let body = JSON.stringify (documents);
-
-	let request_params = {
-		method : 'POST',
-		hostname : uri,
-		path : path,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : accessKey,
-		}
-	};
-
-	let req = https.request (request_params, response_handler);
-	req.write (body);
-	req.end ();
-}
-
-let documents = { 'documents': [
-	{ 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-	{ 'id': '2', 'language': 'es', 'text': 'Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.' },
-]};
-
-get_sentiments (documents);
+```console
+===== LANGUAGE EXTRACTION ======
+Document ID: 1 , Language: English
+Document ID: 2 , Language: Spanish
+Document ID: 3 , Language: Chinese_Simplified
 ```
 
-**Sentiment analysis response**
+## Entity recognition
 
-The result is measured as positive if it's scored closer to 1.0 and negative if it's scored closer to 0.0.
-A successful response is returned in JSON, as shown in the following example:
+1. Create a new function called `recognizeEntitiesExample()` that takes the client created earlier. Create a list of objects, containing your documents.
 
-```json
-{
-   "documents": [
-      {
-         "score": 0.99984133243560791,
-         "id": "1"
-      },
-      {
-         "score": 0.024017512798309326,
-         "id": "2"
-      },
-   ],
-   "errors": [   ]
-}
+    ```javascript
+    'TODO: code here'
+    "en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.
+    "es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+    }
+    ```
+
+2. In the same function, call `client.EntitiesAsync() TODO:check` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print it's wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+
+    ```javascript
+    'code here'
+    ```
+
+4. Call your function `recognizeEntitiesExample()` and execute your code by running the app `node index.js`
+
+### Output
+
+```console
+Document ID: 1
+         Entities:
+                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+                        Offset: 0,      Length: 9,      Score: 1.000
+                Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+                        Offset: 25,     Length: 10,     Score: 1.000
+                Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+                        Offset: 40,     Length: 10,     Score: 0.999
+                Name: April 4,  Type: Other,    Sub-Type: N/A
+                        Offset: 54,     Length: 7,      Score: 0.800
+                Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+                        Offset: 54,     Length: 13,     Score: 0.800
+                Name: BASIC,    Type: Other,    Sub-Type: N/A
+                        Offset: 89,     Length: 5,      Score: 0.800
+                Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+                        Offset: 116,    Length: 11,     Score: 0.800
+Document ID: 2
+         Entities:
+                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+                        Offset: 21,     Length: 9,      Score: 1.000
+                Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
+                        Offset: 60,     Length: 7,      Score: 0.991
+                Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
+                        Offset: 71,     Length: 13,     Score: 0.800
+                Name: Seattle,  Type: Location, Sub-Type: N/A
+                        Offset: 88,     Length: 7,      Score: 1.000
 ```
 
-<a name="KeyPhraseExtraction"></a>
+## Key phrase extraction
 
-## Extract key phrases
+1. Create a new function called `keyPhraseExtractionExample()` that takes the client created earlier. Create a list of objects, containing your documents.
 
-The Key Phrase Extraction API extracts key-phrases from a text document, using the [Key Phrases method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Key phrase extraction is used to quickly identify the main points of a document or text. The following example extracts key phrases for both English and Spanish documents.
+    ```javascript
+    TODO: 
+                        "ja", "1", "猫は幸せ"
+                        "de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
+                        "en", "3", "My cat might need to see a veterinarian."
+                        "es", "4", "A mi me encanta el fútbol!"
+    }
+    ```
 
-1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
-2. Add the code provided below to a new `.js` file.
-3. Replace the `accessKey` value with a subscription key from your Text Analytics resource in Azure.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program from your IDE or command line, for example `npm start` or `node key-phrases.js`.
+2. In the same function, call `client.KeyPhrasesAsync() TODO:check` and get the result. Then iterate through the results, and print each document's ID, and any detected key phrases.
 
-```javascript
-'use strict';
+    ```javascript
+        'code here'
+    ```
 
-let https = require ('https');
+4. Call your function `keyPhraseExtractionExample()` and execute your code by running the app `node index.js`
 
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+### Output
 
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.0/keyPhrases';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_key_phrases = function (documents) {
-	let body = JSON.stringify (documents);
-
-	let request_params = {
-		method : 'POST',
-		hostname : uri,
-		path : path,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : accessKey,
-		}
-	};
-
-	let req = https.request (request_params, response_handler);
-	req.write (body);
-	req.end ();
-}
-
-let documents = { 'documents': [
-	{ 'id': '1', 'language': 'en', 'text': 'I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.' },
-	{ 'id': '2', 'language': 'es', 'text': 'Si usted quiere comunicarse con Carlos, usted debe de llamarlo a su telefono movil. Carlos es muy responsable, pero necesita recibir una notificacion si hay algun problema.' },
-	{ 'id': '3', 'language': 'en', 'text': 'The Grand Hotel is a new hotel in the center of Seattle. It earned 5 stars in my review, and has the classiest decor I\'ve ever seen.' }
-]};
-
-get_key_phrases (documents);
+```console
+Document ID: 1
+         Key phrases:
+                幸せ
+Document ID: 2
+         Key phrases:
+                Stuttgart
+                Hotel
+                Fahrt
+                Fu
+Document ID: 3
+         Key phrases:
+                cat
+                rock
+Document ID: 4
+         Key phrases:
+                fútbol
 ```
-
-**Key phrase extraction response**
-
-A successful response is returned in JSON, as shown in the following example: 
-
-```json
-{
-   "documents": [
-      {
-         "keyPhrases": [
-            "HDR resolution",
-            "new XBox",
-            "clean look"
-         ],
-         "id": "1"
-      },
-      {
-         "keyPhrases": [
-            "Carlos",
-            "notificacion",
-            "algun problema",
-            "telefono movil"
-         ],
-         "id": "2"
-      },
-      {
-         "keyPhrases": [
-            "new hotel",
-            "Grand Hotel",
-            "review",
-            "center of Seattle",
-            "classiest decor",
-            "stars"
-         ],
-         "id": "3"
-      }
-   ],
-   "errors": [  ]
-}
-```
-
-<a name="Entities"></a>
-
-## Identify linked entities
-
-The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). [Entities](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extract words from text, like "United States", then give you the type and/or Wikipedia link for this word(s). The type for "United States" is `location`, while the link to Wikipedia is `https://en.wikipedia.org/wiki/United_States`.  The following example identifies entities for English documents.
-
-1. Create a new Node.JS project in your favorite IDE or a folder on your desktop.
-2. Add the code provided below to a new `.js` file.
-3. Replace the `accessKey` value with a subscription key from your Text Analytics resource in Azure.
-4. Replace the location in `uri` (currently `westus`) to the region you signed up for.
-5. Run the program from your IDE or command line, for example `npm start` or `node entities.js`.
-
-```javascript
-'use strict';
-
-let https = require ('https');
-
-// **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
-
-// Replace the accessKey string value with your valid access key.
-let accessKey = 'enter key here';
-
-// Replace or verify the region.
-
-// You must use the same region in your REST API call as you used to obtain your access keys.
-// For example, if you obtained your access keys from the westus region, replace 
-// "westcentralus" in the URI below with "westus".
-
-// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-// a free trial access key, you should not need to change this region.
-let uri = 'westus.api.cognitive.microsoft.com';
-let path = '/text/analytics/v2.1-preview/entities';
-
-let response_handler = function (response) {
-    let body = '';
-    response.on ('data', function (d) {
-        body += d;
-    });
-    response.on ('end', function () {
-		let body_ = JSON.parse (body);
-		let body__ = JSON.stringify (body_, null, '  ');
-        console.log (body__);
-    });
-    response.on ('error', function (e) {
-        console.log ('Error: ' + e.message);
-    });
-};
-
-let get_entities = function (documents) {
-	let body = JSON.stringify (documents);
-
-	let request_params = {
-		method : 'POST',
-		hostname : uri,
-		path : path,
-		headers : {
-			'Ocp-Apim-Subscription-Key' : accessKey,
-		}
-	};
-
-	let req = https.request (request_params, response_handler);
-	req.write (body);
-	req.end ();
-}
-
-let documents = { 'documents': [
-	{ 'id': '1', 'language': 'en', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.' },
-	{ 'id': '2', 'language': 'en', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' }
-]};
-
-get_entities (documents);
-```
-
-**Entity extraction response**
-
-A successful response is returned in JSON, as shown in the following example:
-
-```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
-}
-```
-
-
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also 
+## See also
 
- [Text Analytics overview](../overview.md)  
+ [Text Analytics overview](../overview.md)
  [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
