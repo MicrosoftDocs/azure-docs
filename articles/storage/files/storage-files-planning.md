@@ -87,15 +87,15 @@ Azure Files offers two performance tiers: standard and premium.
 |North Europe  | No |
 |West Europe   | Yes|
 |SE Asia       | Yes|
+|East Asia     | No |
 |Japan East    | No |
+|Japan West    | No |
 |Korea Central | No |
 |Australia East| No |
 
 ### Provisioned shares
 
-Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput. Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase.
-
-Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase , you can decrease the share size as many times until you increase it again. (documentation needs to be updated in 2 places)
+Premium file shares (preview) are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
 
 On a best effort basis, all shares can burst up to three IOPS per GiB of provisioned storage for 60 minutes or longer depending on the size of the share. New shares start with the full burst credit based on the provisioned capacity.
 
@@ -110,7 +110,7 @@ Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next si
 >
 > ingress rate = 40 MiB/s + 0.04 * provisioned GiB
 
-Share size can be increased at any time and decreased anytime but can be decreased once every 24 hours since the last increase. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+Share size can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a size increase, you can decrease the share size as many times until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
@@ -137,7 +137,6 @@ Credits accumulate in a burst bucket whenever traffic for your file share is bel
 
 > [!TIP]
 > Size of the burst bucket = Baseline_IOPS * 2 * 3600.
-> Duration = burst credits accrued / size of burst bucket / 60
 
 Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
 
@@ -147,7 +146,7 @@ Share credits have three states:
 - Declining, when the file share is bursting.
 - Remaining constant, when there are either no credits or baseline IOPS are in use.
 
-New file shares start with the full number of credits in its burst bucket.
+New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
 
 ## File share redundancy
 
