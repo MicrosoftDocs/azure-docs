@@ -19,17 +19,17 @@ ms.author: diberry
 
 Conversational context is the ability to manage a question within the context of questions asked before and after that question. 
 
-When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by selecting child questions.
+When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with follow-up prompts.
 
-When the user asks the question, QnA Maker returns the answer _and_ any child questions. This allows you to present the child questions as choices. 
+When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
 
 ## Example conversational context with chat bot
 
 A chat bot manages the conversation, question by question, with the user to determine the final answer.
 
-![Conversation from parent question to possible child questions in bot](../media/conversational-context/conversation-in-bot.png)
+![Conversation from parent question to possible followup in bot](../media/conversational-context/conversation-in-bot.png)
 
-In the preceding image, the user's question needs to be refined before returning the answer. In the knowledge base, the question (#1), has four child questions, presented in the chat bot as four choices (#2). 
+In the preceding image, the user's question needs to be refined before returning the answer. In the knowledge base, the question (#1), has four follow-up prompts, presented in the chat bot as four choices (#2). 
 
 When the user selects a choice (#3), then the next list of refining choices (#4) is presented. This can continue (#5) until the correct and final answer (#6) is determined.
 
@@ -37,11 +37,11 @@ You need to change your client application to manage the conversational context.
 
 ## Metadata filters are applied first, then context is determined
 
-In the knowledge base, a question can link to contextual child questions and have metadata. When a question has both, the metadata filters are applied first, then the child answers are returned. 
+In the knowledge base, a question-and-answer pair can link to other contextual question-and-answer pairs and have metadata. When a question-and-answer has both, the metadata filters are applied first, then the follow-ups are returned. 
 
-## Add question as child prompt to parent question
+## Add question as follow-up prompt to another question
 
-In the QnA Maker portal, add a child prompt to a question. 
+In the QnA Maker portal, add a follow-up prompt to a question. 
 
 1. In the [QnA Maker](https://http://qnamaker.ai) portal, open your knowledge base. In the **Edit** section, select **Add QnA pair**. 
 1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
@@ -50,8 +50,8 @@ In the QnA Maker portal, add a child prompt to a question.
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
 1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, as a new question. 
-1. Check **Context-only**. The **Context-only** option indicates that the child prompt will only be returned if given from the context of the parent. For this scenario, the child prompt doesn't make any sense as a stand-alone question, it only makes sense from the context of the parent question.
-1. Select **Create new prompt QnA** then select **Save**. This created a new question and linked the question as a child question to the parent question.
+1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood only if given in response to the parent. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the parent question.
+1. Select **Create new prompt QnA** then select **Save**. This created a new question-and-answer pair and linked the selected question as a follow-up prompt.
 
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
@@ -62,7 +62,7 @@ In the QnA Maker portal, add a child prompt to a question.
 1. In the **Answer** column for this question, enter the answer `How would you rate QnA Maker?`. 
     ![![In the Answer column for this question, enter the answer `How would you rate QnA Maker?`. ](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/add-level-2-answer.png)
 
-1. Select **Add follow-up prompt** for the parent question to add another child prompt to the parent question `Give feedback.` 
+1. Select **Add follow-up prompt** for the parent question to add another follow-up prompt to the parent question `Give feedback.` 
 1. Create a new question by entering the text `Feedback on an existing feature`. Select **Create new prompt QnA** and check **Context-only**, then select **Save**. This created a new question and linked the question as a child question to the parent question. 
 1. Add the answer for this new question `Which feature would you like to give feedback on?`.
     
@@ -75,7 +75,7 @@ In the QnA Maker portal, add a child prompt to a question.
 
 ## JSON response for prompts
 
-The QnA Maker _GenerateAnswer_ JSON response includes the child prompts in the `context` property of the first item in the `answers` object. :
+The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in the `context` property of the first item in the `answers` object. :
 
 ```JSON
 {
