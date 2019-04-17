@@ -26,7 +26,7 @@ A serverless database in SQL DB is parameterized by the compute range it can use
 
 ### Performance
 
-- Min vCores and max vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vcore range specified.  
+- Min vCores and max vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
 - The auto-pause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
 
 ### Pricing
@@ -55,7 +55,7 @@ Compute responsiveness|Lower after inactive periods|Immediate|
 
 - Single databases with bursty usage patterns interspersed with periods of inactivity and can benefit from price savings based on billing per second for the amount of compute used.
 - Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
-- Single databases in the provisioned compute tier that frequently change performance levels.
+- Single databases in the provisioned compute tier that frequently changes performance levels.
 
 ### Scenarios well-suited for provisioned compute
 
@@ -187,7 +187,7 @@ Set-AzSqlDatabase
 
 ## Move a database out of serverless
 
-A serverless database can be moved into a provisioned compute compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
+A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
 ## Modify serverless configuration parameters
 
@@ -222,7 +222,7 @@ The user resource pool is the inner most resource management boundary for a data
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
-|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vcore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vcore.|Vcore seconds|
+|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vCore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|Vcore seconds|
 |App package|app_memory_percent|Percentage of memory used by the app relative to max memory allowed for the app.|Percentage|
 |User pool|cpu_percent|Percentage of vCores used by user workload relative to max vCores allowed for user workload.|Percentage|
 |User pool|data_IO_percent|Percentage of data IOPS used by user workload relative to max data IOPS allowed for user workload.|Percentage|
@@ -250,28 +250,28 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [Serverless compute tier](sql-database-vcore-resource-limits-single-databases.md#serverless-compute-tier)
+For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
 
 ## Billing
 
-The amount of compute billed each second is the maximum of CPU used and memory used each second.  If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vcore.
+The amount of compute billed each second is the maximum of CPU used and memory used each second.  If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.
 
 |Resource billed|Amount billed ($)|Billing frequency|
 |---|---|---|
-|CPU and memory|vcore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
+|CPU and memory|vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
 |||
 
 The amount of compute billed is exposed by the following metric:
 
 |Metric|Definition|Reporting frequency|
 |---|---|---|
-|app_cpu_billed (vcore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
+|app_cpu_billed (vCore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
 |||
 \* This quantity is calculated each second and aggregated over 1 minute.
 
-**Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1 hour period:
+**Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1-hour period:
 
-|Time (hours:minutes)|app_cpu_billed (vcore seconds)|
+|Time (hours:minutes)|app_cpu_billed (vCore seconds)|
 |---|---|
 |0:01|63|
 |0:02|123|
@@ -283,12 +283,12 @@ The amount of compute billed is exposed by the following metric:
 
 Suppose the compute unit price is as follows:
 
-|Vcore unit price|$0.2609/vcore/hour|
+|Vcore unit price|$0.2609/vCore/hour|
 |---|---|  
 
-Then the compute billed for this 1 hour period is determined as follows:
+Then the compute billed for this 1-hour period is determined as follows:
 
-|CPU and memory billed|$0.2609/vcore/hour * 1631 vcore seconds * 1 hour/3600 seconds = $0.1232|
+|CPU and memory billed|`$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232`|
 |---|---|
 
 ## Available regions
@@ -297,4 +297,4 @@ The serverless compute tier is available in all regions except the following reg
 
 ## Next steps
 
-For resource limits, see [Serverless compute tier resource limits](sql-database-vcore-resource-limits-single-databases.md#serverless-compute-tier)
+For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
