@@ -36,7 +36,7 @@ ms.date: 04/04/2019
 
 ## Get host information
 
-This section illustrates how to use Ansible to retrieve host information for a group of Azure virtual machines. Below is a sample Ansible playbook. The code gets the public IP addresses and load balancer within specified resource group, and creates a host group named **scalesethosts** in inventory.
+The playbook code in this section retrieves host information for a group of virtual machines. The code gets the public IP addresses and load balancer within a specified resource group and creates a host group named `scalesethosts` in inventory.
 
 Save the following sample playbook as `get-hosts-tasks.yml`:
 
@@ -66,7 +66,9 @@ Save the following sample playbook as `get-hosts-tasks.yml`:
 
 ## Prepare an application for deployment
 
-In this section, you use git to clone a Java sample project from GitHub and build the project. Save the following playbook as `app.yml`:
+The playbook code in this section uses `git` to clone a Java sample project from GitHub and builds the project. 
+
+Save the following playbook as `app.yml`:
 
   ```yml
   - hosts: localhost
@@ -90,7 +92,7 @@ Run the sample Ansible playbook with the following command:
   ansible-playbook app.yml
   ```
 
-The output from the ansible-playbook command displays out similar to the following where you see that it built the sample app cloned from GitHub:
+After running the playbook, you see output similar to the following results:
 
   ```Output
   PLAY [localhost] 
@@ -111,59 +113,76 @@ The output from the ansible-playbook command displays out similar to the followi
 
 ## Deploy the application to a scale set
 
-The following section in an Ansible playbook installs the JRE (Java Runtime Environment) on a host group named **saclesethosts**, and deploys the Java application to a host group named **saclesethosts**:
+> [!Tip]
+> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) for this section.
 
-(Change the `admin_password` to your own password.)
+The playbook code in this section is used to:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      scaleset_name: myScaleSet
-      loadbalancer_name: myScaleSetLb
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-    - include: get-hosts-tasks.yml
+* Install the JRE (Java Runtime Environment) on a host group named `saclesethosts`
+* Deploy the Java application to a host group named **saclesethosts**
 
-  - name: Install JRE on a scale set
-    hosts: scalesethosts
-    become: yes
-    vars:
-      workspace: ~/src/helloworld
-      admin_username: azureuser
+Save the following playbook as `vmss-setup-deploy.yml`:
 
-    tasks:
-    - name: Install JRE
-      apt:
-        name: default-jre
-        update_cache: yes
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    scaleset_name: myScaleSet
+    loadbalancer_name: myScaleSetLb
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+  - include: get-hosts-tasks.yml
 
-    - name: Copy app to Azure VM
-      copy:
-        src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
-        dest: "/home/{{ admin_username }}/helloworld.jar"
-        force: yes
-        mode: 0755
+- name: Install JRE on a scale set
+  hosts: scalesethosts
+  become: yes
+  vars:
+    workspace: ~/src/helloworld
+    admin_username: azureuser
 
-    - name: Start the application
-      shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
-      async: 5000
-      poll: 0
-  ```
+  tasks:
+  - name: Install JRE
+    apt:
+      name: default-jre
+      update_cache: yes
 
-You can save the preceding sample Ansible playbook as `vmss-setup-deploy.yml`, or [download the entire sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss).
+  - name: Copy app to Azure VM
+    copy:
+      src: "{{ workspace }}/complete/target/gs-spring-boot-0.1.0.jar"
+      dest: "/home/{{ admin_username }}/helloworld.jar"
+      force: yes
+      mode: 0755
 
-To use the ssh connection type with passwords, you must install the sshpass program.
-  - For Ubuntu 16.04, run the command `apt-get install sshpass`.
-  - For CentOS 7.4, run the command `yum install sshpass`.
+  - name: Start the application
+    shell: java -jar "/home/{{ admin_username }}/helloworld.jar" >/dev/null 2>&1 &
+    async: 5000
+    poll: 0
+```
 
-In some environments, you may see an error regarding using an SSH password instead of a key. If you do receive that error, you can disable host key checking by adding the following line to `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`:
+Before running the playbook, see the following notes:
 
-  ```bash
-  [defaults]
-  host_key_checking = False
-  ```
+* In the `vars` section, replace the `{{ admin_password }}` placeholder with your own password.
+* To use the ssh connection type with passwords, install the sshpass program:
+
+    Ubuntu:
+
+    ```bash
+    apt-get install sshpass
+    ```
+
+    CentOS:
+
+    ```bash
+    yum install sshpass
+    ```
+
+* In some environments, you may see an error about using an SSH password instead of a key. If you do receive that error, you can disable host key checking by adding the following line to `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`:
+
+    ```bash
+    [defaults]
+    host_key_checking = False
+    ```
 
 Run the playbook with the following command:
 
@@ -208,7 +227,9 @@ The output from running the ansible-playbook command indicates that the sample J
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Congratulation! Your application is running in Azure now. You can now navigate to the URL of the load balancer for your scale set:
+## Verify the results
+
+Verify your results of your work by navigating to the URL of the load balancer for your scale set:
 
 ![Java app running in a scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 

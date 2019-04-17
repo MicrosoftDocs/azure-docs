@@ -284,9 +284,9 @@ PLAY RECAP
 localhost                  : ok=5    changed=1    unreachable=0    failed=0
 ```
 
-## Verify the changes
+## Verify the results
 
-Verify your changes via the Azure portal:
+Verify your results of your work via the Azure portal:
 
 1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
