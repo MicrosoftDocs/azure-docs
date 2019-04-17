@@ -171,5 +171,5 @@ To collect the logs from all the nodes to one central location, you can create a
 ## Next steps
 
 * [Monitoring and Logging Practice for HDInsight](https://msdn.microsoft.com/library/dn749790.aspx)
-* [Access Apache Hadoop YARN application sign in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
+* [Access Apache Hadoop YARN application logs in Linux-based HDInsight](hdinsight-hadoop-access-yarn-app-logs-linux.md)
 * [How to control size of log files for various Apache Hadoop components](https://community.hortonworks.com/articles/8882/how-to-control-size-of-log-files-for-various-hdp-c.html)

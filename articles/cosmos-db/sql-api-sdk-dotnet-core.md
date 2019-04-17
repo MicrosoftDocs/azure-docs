@@ -31,7 +31,7 @@ ms.author: sngun
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
 |**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
 |**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
-|**Get started**|[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnet-core-get-started-preview.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
 |**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 

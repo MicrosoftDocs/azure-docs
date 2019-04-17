@@ -1,14 +1,14 @@
 ---
 title: IoT remote monitoring and notifications with Azure Logic Apps | Microsoft Docs
 description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
-author: rangv
+author: robinsh
 keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 #I think this is out of date. I changed 'click' to select. --RobinShahan
 ---
 
@@ -32,7 +32,7 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
 ## What you need
 
-* Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
 
   * An active Azure subscription.
   * An Azure IoT hub under your subscription.
