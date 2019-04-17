@@ -36976,6 +36976,11 @@
       "source_path": "articles/azure-monitor/app/previews.md",
       "redirect_url": "/azure/azure-monitor/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/data-lake-store/data-lake-storage-use-hdi-cluster.md",
+      "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
+      "redirect_document_id": false
     }
   ]
 }
