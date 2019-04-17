@@ -40,7 +40,9 @@ To enable autoscale on a scale set, you first define an autoscale profile. This 
 
 Ansible allows you to scale your scale sets on a specific date or recurring schedule.
 
-The following playbook increases the number of VM instances to three at 10:00 every Monday:
+The playbook code in this section increases the number of VM instances to three at 10:00 every Monday.
+
+Save the following playbook as `vmss-auto-scale.yml`:
 
 ```yml
 ---
@@ -74,7 +76,7 @@ The following playbook increases the number of VM instances to three at 10:00 ev
               - '10'
 ```
 
-Save this playbook as *vmss-auto-scale.yml*. To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
@@ -84,12 +86,14 @@ ansible-playbook vmss-auto-scale.yml
 
 If your application demand increases, the load on the VM instances in your scale sets increases. If this increased load is consistent, rather than just a brief demand, you can configure autoscale rules to increase the number of VM instances in the scale set. When these VM instances are created and your applications are deployed, the scale set starts to distribute traffic to them through the load balancer. Ansible allows you to control what metrics to monitor, such as CPU usage, disk usage, and app-load time. You can scale in and scale out in scale sets based on performance metric thresholds, by a recurring schedule, or by a particular date. 
 
-The following playbook checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
+The playbook code in this section checks the CPU workload for the previous 10 minutes at 18:00 every Monday. 
 
 Based on the CPU percentage metrics, the playbook does one of the following actions:
 
 - Scales out the number of VM instances to four
 - Scales in the number of VM instances to one
+
+Save the following playbook as `vmss-auto-scale-metrics.yml`:
 
 ```yml
 ---
@@ -166,7 +170,7 @@ Based on the CPU percentage metrics, the playbook does one of the following acti
             value: '1'
 ```
 
-Save this playbook as *vmss-auto-scale-metrics.yml*. To run the Ansible playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
@@ -174,7 +178,9 @@ ansible-playbook vmss-auto-scale-metrics.yml
 
 ## Get autoscale settings information 
 
-You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* module with the playbook as follows:
+The playbook code in this section uses the `azure_rm_autoscale_facts` module to retrieve the details of autoscale setting.
+
+Save the following playbook as `vmss-auto-scale-get-settings.yml`:
 
 ```yml
 - hosts: localhost
@@ -192,9 +198,19 @@ You can get any autoscale setting's detail via the *azure_rm_autoscale_facts* mo
         var: autoscale_query.autoscales[0]
 ```
 
+Run the playbook using the `ansible-playbook` command:
+
+```bash
+ansible-playbook vmss-auto-scale-get-settings.yml
+```
+
 ## Disable autoscale settings
 
-There are two ways to disable autoscale settings. One way is to change the `enabled` key from `true` to `false`. The second way - as shown in the following playbook is to delete the autoscale setting. 
+There are two ways to disable autoscale settings. One way is to change the `enabled` key from `true` to `false`. The second way is to delete the setting.
+
+The playbook code in this section deletes the autoscale setting. 
+
+Save the following playbook as `vmss-auto-scale-delete-setting.yml`:
 
 ```yml
 - hosts: localhost
@@ -207,6 +223,12 @@ There are two ways to disable autoscale settings. One way is to change the `enab
          resource_group: "{{ resource_group }}"
          name: "{{ name }}"
          state: absent
+```
+
+Run the playbook using the `ansible-playbook` command:
+
+```bash
+vmss-auto-scale-delete-setting.yml
 ```
 
 ## Next steps
