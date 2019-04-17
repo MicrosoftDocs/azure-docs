@@ -28,7 +28,7 @@ Security state monitoring and recommendations are available for virtual machines
 
 ## Platforms that support the data collection agent 
 
-This section lists the platforms on which the Azure Security Center agent can run and from which it can gather data.
+The collection agent is called the Microsoft Monitoring Agent (MMA). It is also known as the OMS agent. This section lists the platforms on which the agent can run and from which it can gather data.
 
 ### Supported platforms for Windows computers and VMs
 The following Windows operating systems are supported:
