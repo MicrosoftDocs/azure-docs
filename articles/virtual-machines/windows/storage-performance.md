@@ -32,11 +32,11 @@ Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitec
 
 1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
 
-1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
+1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lsv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lsv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
 
-1. Lv2 user should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
+1. Lsv2 users should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
 
-1. The maximum supported queue depth per I/O queue pair for Lv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
+1. The maximum supported queue depth per I/O queue pair for Lsv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lsv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
 
 ## Utilizing local NVMe storage
 
