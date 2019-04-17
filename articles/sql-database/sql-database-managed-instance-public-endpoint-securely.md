@@ -38,7 +38,7 @@ The following diagram shows recommended security configurations.
 
 ![managed-instance-vnet.png](media/sql-database-managed-instance-public-endpoint-securely/managed-instance-vnet.png)
 
-Managed Instance has [dedicated public endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md). This IP address should be set in outbound firewall and Network security group rules set at the other end to limit outbound connectivity.
+Managed Instance has a [dedicated public endpoint address](sql-database-managed-instance-find-management-endpoint-ip-address.md). This IP address should be set in the client side outbound firewall and Network Security Group rules to limit outbound connectivity.
 
 To ensure traffic to the managed instance is coming from trusted sources, it’s recommended to connect from sources with well-known IP addresses. Limit the access to the managed instance public endpoint on port 3342 using a Network Security Group.
 
