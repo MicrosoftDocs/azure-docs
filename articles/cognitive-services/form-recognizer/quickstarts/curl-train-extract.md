@@ -15,7 +15,7 @@ ms.author: pafarley
 
 # Quickstart: Train a Form Recognizer model and extract form data using cURL
 
-In this quickstart, you will train and score forms to extract key-value pairs and tables using Form Recognizer's REST API with cURL.
+In this quickstart, you will use using Form Recognizer's REST API with cURL to train and score forms to extract key-value pairs and tables.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -23,11 +23,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * You must have [cURL](https://curl.haxx.se/windows/).
 * You must have a subscription key for Form Recognizer. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Form Recognizer and get your key.
-* You must have a set of forms of the same type. You can use a [sample dataset](TBD) for this quickstart.
+* You must have a set of forms of the same type. You can use a [sample dataset](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/curl/form-recognizer/sample_data.zip) for this quickstart.
 
 ## Train a Form Recognizer model
 
-First, you will need a set of training data. You can use the [sample data](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) on GitHub, data in an Azure Blob, or your own training data. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Alternatively, you can use a single empty form, as long as the form's filename includes the word "empty."
+First, you will need a set of training data. You can use data in an Azure Blob or your own local training data. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Alternatively, you can use a single empty form; the form's filename includes the word "empty."
 
 To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the cURL command below. Before running the command, make the following changes:
 
@@ -93,7 +93,7 @@ Next, you will analyze a document and extract key-value pairs and tables from it
 * Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
 * Replace `<modelID>` with the model ID you received in the previous step of training the model.
 * Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analyze from the sample data.
-* Replace `<pdf>` with the file type you are analyzing. Supported values are pdf, image/jpeg, and image/png.
+* Replace `<pdf>` with the file type you are analyzing. Supported values are `pdf`, `image/jpeg`, and `image/png`.
 
 ```bash
 curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
