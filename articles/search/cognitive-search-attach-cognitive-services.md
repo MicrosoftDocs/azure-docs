@@ -22,7 +22,7 @@ If your pipeline consists of skills unrelated to Cognitive Services APIs, you sh
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> Execution of [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, currently offered at preview pricing. For details, see the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400) or [How billing works](search-sku-tier.md#how-billing-works).
+> Execution of [Built-in cognitive skill](cognitive-search-predefined-skills.md) execution is charged at the [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services), at the same rate as if you had performed the task directly. Image extraction is an Azure Search charge, reflected on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## Use Free resources
@@ -49,19 +49,21 @@ For workloads numbering more than 20 enrichments daily, you need to attach a bil
 
 You are only charged for skills that call the Cognitive Services APIs. Non-API-based skills like [custom skills](cognitive-search-create-custom-skill-example.md), [text merger](cognitive-search-skill-textmerger.md), [text splitter](cognitive-search-skill-textsplit.md), and [shaper](cognitive-search-skill-shaper.md) skills are not billed.
 
-1. In the **Import data** wizard in **Attach Cognitive Services**, click **Create new Cognitive Services resource**.
+1. Open the **Import data** wizard, choose a data source, and continue to **Add cognitive search (optional)**. 
 
-1. For **Create new Cognitive Services resource**, a new tab opens so that you can create the resource. Give the resource a unique name.
+1. Expand **Attach Cognitive Services** and then select **Create new Cognitive Services resource**. A new tab opens so that you can create the resource. 
 
-1. If you create a new Cognitive Services resource, **choose the same region** as your Azure Search resource.
+   ![Create a Cognitive Services resource](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Create a Cognitive Services resource")
 
-1. Choose **S0** as the pricing tier to get a large collection of features, including the Vision and Language features that back the predefined skills in cognitive search. 
+1. In Location, choose the same region as Azure Search to avoid outbound bandwidth charges across regions.
 
-  You can find rates for specific workloads on the [Cognitive Services pricing page](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/).
+1. In Pricing tier, choose **S0** to get the all-in-one collection of Cognitive Services features, including the Vision and Language features that back the predefined skills used by Azure Search. 
+
+   For the S0 tier, you can find rates for specific workloads on the [Cognitive Services pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/).
   
-  + In **Select Offer**, make sure that *Cognitive Serivces* is selected.
-  + Under Language features, the rates for Text Analytics Standard apply to AI indexing. 
-  + Under Vision features, see the rates for *Computer Vision S1*.
+   + In **Select Offer**, make sure that *Cognitive Services* is selected.
+   + Under Language features, the rates for *Text Analytics Standard* apply to AI indexing. 
+   + Under Vision features, the rates for *Computer Vision S1* are applied.
 
 1. Click **Create** to provision the new Cognitive Services resource. 
 
