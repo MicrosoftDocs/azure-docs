@@ -99,11 +99,12 @@
     - name: Create Datasets
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
-    - name: Explore & transform data
-      displayName: data, etl, dataset, data preparation, dataprep
-      href: how-to-transform-data.md
-    - name: Write data
-      href: how-to-write-data.md
+    - name: Prepare data
+      displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
+      href: how-to-explore-prepare-data.md
+    - name: Manage Dataset definitions
+      displayName: data, etl, dataset, data preparation, dataprep, version
+      href: how-to-manage-dataset-definitions.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -128,10 +129,12 @@
       href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
+    - name: Track metrics with MLflow
+      href: how-to-use-mlflow.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Automate training in Python
+    - name: Use automated ML (Python)
       displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Automate training in portal
@@ -139,7 +142,8 @@
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Auto-train forecast models
+    - name: Auto-train a forecast model
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: Deploy models
     items:
