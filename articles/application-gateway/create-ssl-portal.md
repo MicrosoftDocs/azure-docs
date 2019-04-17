@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 4/16/2019
+ms.date: 4/17/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to use the Azure portal to configure Application Gateway with SSL termination so I can secure my application traffic.
 ---
@@ -31,7 +31,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create a self-signed certificate
 
-In this section, you use [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) to create a self-signed certificate. You upload to the Azure portal when you create the listener for the application gateway.
+In this section, you use [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) to create a self-signed certificate. You upload the certificate to the Azure portal when you create the listener for the application gateway.
 
 On your local computer, open a Windows PowerShell window as an administrator. Run the following command to create the certificate:
 
@@ -69,7 +69,7 @@ A virtual network is needed for communication between the resources that you cre
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter *myAppGateway* for the name of the application gateway and *myResourceGroupAG* for the new resource group.
 4. Accept the default values for the other settings and then select **OK**.
-5. select **Choose a virtual network**, select **Create new**, and then enter these values for the virtual network:
+5. Select **Choose a virtual network**, select **Create new**, and then enter these values for the virtual network:
 
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.

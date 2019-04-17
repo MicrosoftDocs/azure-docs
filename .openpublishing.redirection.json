@@ -36981,6 +36981,16 @@
       "source_path": "articles/data-lake-store/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/integrate-azure-managed-service-identity.md",
+      "redirect_url": "/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/howto-integrate-ci-cd-pipeline.md",
+      "redirect_url": "/azure/azure-app-configuration/integrate-ci-cd-pipeline",
+      "redirect_document_id": false
     }
   ]
 }

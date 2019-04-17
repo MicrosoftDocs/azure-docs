@@ -169,4 +169,4 @@ In this quickstart, you created a new app configuration store and used it with a
 To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
