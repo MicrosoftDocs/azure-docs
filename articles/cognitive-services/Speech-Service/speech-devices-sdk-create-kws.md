@@ -58,9 +58,7 @@ Before you can use a custom wake word with your device, you must create the wake
 
 1. It might take a few minutes for the files to be generated. You should see a spinning circle in your browser window. After a moment, an information bar appears, asking you to download a .zip file.
 
-1. Save the .zip file to your computer. You need this file to deploy the custom wake word to the development kit. To deploy the custom wake word, follow the instructions in [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md).
-
-1. Select **Sign out.**
+1. Save the .zip file to your computer. You'll need this file to deploy your custom wake word to the development kit. To deploy the custom wake word, follow the instructions in [Get started with the Speech Devices SDK](speech-devices-sdk-qsg.md).
 
 ## Next steps
 
