@@ -6,7 +6,7 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: /11/2019
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
