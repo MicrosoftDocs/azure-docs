@@ -1,7 +1,7 @@
 ---
-title: Conversational context
+title: contextual conversation
 titleSuffix: Azure Cognitive Services
-description: 
+description: Use question & answer prompts to manage the conversation state. This is the ability to manage a question within the context of questions asked before and after that question. When you design your chat bot flow, a user asks a question that needs to be refined in order to determine the correct answer.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -13,65 +13,103 @@ ms.author: diberry
 #
 ---
 
-# Use conversational context to determine the next question
+# Create contextual conversations using follow-up prompts
 
-## What is conversational context?
+Add question-and-answer prompts to manage the contextual conversation from one question to another question. 
 
-Conversational context is the ability to manage a question within the context of questions asked before and after that question. 
+## What is contextual conversational?
+
+contextual conversation is the ability to manage a question within the context of questions asked before and after that question. 
 
 When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with follow-up prompts.
 
 When the user asks the question, QnA Maker returns the answer _and_ any follow-up prompts. This allows you to present the follow-up questions as choices. 
 
-## Example conversational context with chat bot
+## Example contextual conversation with chat bot
 
 A chat bot manages the conversation, question by question, with the user to determine the final answer.
 
-![Conversation from parent question to possible followup in bot](../media/conversational-context/conversation-in-bot.png)
+![Within the conversational flow, manage conversation state in a multi-turn dialog system by providing prompts within the answers presented as options to continue the conversation.](../media/conversational-context/conversation-in-bot.png)
 
 In the preceding image, the user's question needs to be refined before returning the answer. In the knowledge base, the question (#1), has four follow-up prompts, presented in the chat bot as four choices (#2). 
 
 When the user selects a choice (#3), then the next list of refining choices (#4) is presented. This can continue (#5) until the correct and final answer (#6) is determined.
 
-You need to change your client application to manage the conversational context.
-
-## Metadata filters are applied first, then context is determined
-
-In the knowledge base, a question-and-answer pair can link to other contextual question-and-answer pairs and have metadata. When a question-and-answer has both, the metadata filters are applied first, then the follow-ups are returned. 
+You need to change your client application to manage the contextual conversation.
 
 ## Add question as follow-up prompt to another question
 
+You can add a follow-up prompt to an existing question and answer pair as a new question and answer, or as an existing question and answer pair. 
+
+### Filter questions and answers by context
+
 In the QnA Maker portal, add a follow-up prompt to a question. 
 
-1. In the [QnA Maker](https://http://qnamaker.ai) portal, open your knowledge base. In the **Edit** section, select **Add QnA pair**. 
+1. In the [QnA Maker](https://http://qnamaker.ai) portal, open your knowledge base. 
+1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
+
+    ![Filter question and answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
+.  
+### Add new follow-up prompt to question and answer pair
+
+1. Select **Add QnA pair**. 
 1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
 
-    ![![Enter the new question text, `Give feedback.`](../media/conversational-context/add-parent-question-for-conversation-flow.png)](../media/conversational-context/add-parent-question-for-conversation-flow.png#lightbox)
+    ![![Enter the new conversational state follow-up prompt question text, `Give feedback.`](../media/conversational-context/add-parent-question-for-conversation-flow.png)](../media/conversational-context/add-parent-question-for-conversation-flow.png#lightbox)
 
 1. In the **Answer** column for this question, select **Add follow-up prompt**. 
 1. The **Follow-up prompt** pop-up dialog allows you to search for an existing question or enter a new question. In this procedure, enter the text `Feedback on an QnA Maker service`, as a new question. 
-1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood only if given in response to the parent. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the parent question.
+1. Check **Context-only**. The **Context-only** option indicates that this user text will be understood only if given in response to the previous question. For this scenario, the prompt text doesn't make any sense as a stand-alone question, it only makes sense from the context of the previous question.
 1. Select **Create new prompt QnA** then select **Save**. This created a new question-and-answer pair and linked the selected question as a follow-up prompt.
 
     ![Create new prompt QnA](../media/conversational-context/create-child-prompt-from-parent.png)
 
-1. The first child question is available to edit. 
+1. The first follow-up prompt question text is available to edit. 
 
-    ![![The child question is available to edit.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    ![![The follow-up prompt question is available to edit.](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
 
-1. In the **Answer** column for this question, enter the answer `How would you rate QnA Maker?`. 
+1. In the **Answer** column for this follow-up question, enter the answer `How would you rate QnA Maker?`. 
     ![![In the Answer column for this question, enter the answer `How would you rate QnA Maker?`. ](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/add-level-2-answer.png)
 
-1. Select **Add follow-up prompt** for the parent question to add another follow-up prompt to the parent question `Give feedback.` 
-1. Create a new question by entering the text `Feedback on an existing feature`. Select **Create new prompt QnA** and check **Context-only**, then select **Save**. This created a new question and linked the question as a child question to the parent question. 
+1. Select **Add follow-up prompt** for the `Give feedback` question to add another follow-up prompt. 
+1. Create a new question by entering the text `Feedback on an existing feature`. Select **Create new prompt QnA** and check **Context-only**, then select **Save**. This created a new question and linked the question as a follow-up prompt question to the `Give feedback` question. 
 1. Add the answer for this new question `Which feature would you like to give feedback on?`.
     
-    At this point, the top question has two prompts (linked child questions).
+    At this point, the top question has two follow-up prompts liked to the previous question, `Give feedback`.
 
 1. Select **Save and Train** to train the knowledge base. 
-1. Select the **Test** pane and enter the question, `Give feedback`. The test result includes the two child questions. 
+
+## Test the link to the follow-up prompts
+
+In the QnA Maker portal, you can test the link between questions and answer sets. 
+
+### Add metadata to follow-up prompts 
+
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, it is important to understand how and when metadata filtering is applied when a QnA pair also has context. When a question-and-answer has both, the metadata filters are applied first, then the follow-ups are returned.
+
+1. For the two follow-up QnA pairs, add metadata to each one:
+
+    |Question|Add metadata|
+    |--|--|
+    |`Feedback on an QnA Maker service`|"Feature":"all"|
+    |`Feedback on an existing feature`|"Feature":"one"|
+    
+    ![Add metadata to follow-up prompt so it can be filtered in conversation response from service](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
+
+1. Save and train. 
+
+### Test the question and answer to get all the follow-up prompts
+
+Select the **Test** pane and enter the question, `Give feedback`. The test result includes the two follow-up prompts as question IDs.
 
     ![![Select Test pane and enter the question, `Give feedback`. The test result includes the two child questions.](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/test-pane-parent-question-prompts-to-child-questions.png#lightbox)
+
+
+### Add existing follow-up prompt to question and answer pair
+
+1. If you want to link a follow-up prompt to a question and answer pair, select **Add follow-up prompt**.
+
+1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
 
 ## JSON response for prompts
 
