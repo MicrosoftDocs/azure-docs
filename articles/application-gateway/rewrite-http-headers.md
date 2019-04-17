@@ -9,14 +9,16 @@ ms.date: 04/11/2019
 ms.author: absha
 ---
 
-# Rewrite HTTP headers with Application Gateway (public preview)
+# Rewrite HTTP headers with Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields which may reveal sensitive information, stripping port information from X-Forwarded-For headers, etc. Application gateway supports the capability to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. It also provides you the capability to add conditions to ensure that the specified headers are rewritten only when certain conditions are met.
+HTTP headers allow the client and the server to pass additional information with the request or the response. Rewriting these HTTP headers helps you accomplish several important scenarios such as adding security-related header fields like HSTS/ X-XSS-Protection, removing response header fields which may reveal sensitive information, removing port information from X-Forwarded-For headers, etc. Application gateway supports the capability to add, remove, or update HTTP request and response headers while the request and response packets move between the client and backend pools. It provides you the capability to add conditions to ensure that the specified headers are rewritten only when certain conditions are met. The capability also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) which help store additional information about the requests and responses, thereby enabling you to make powerful rewrite rules.
 > [!NOTE]
 >
 > The HTTP header rewrite support is only available for the [new SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
 ## Headers supported for rewrite
 
@@ -119,6 +121,18 @@ This issue can be resolved by setting the hostname in the location header to the
 Several security vulnerabilities can be fixed by implementing necessary headers in the application response. Some of these security headers are X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, etc. You can use application gateway to set these headers for all responses.
 
 ![Security header](media/rewrite-http-headers/security-header.png)
+
+### Delete unwanted headers
+
+You may want to remove those headers from the HTTP response that reveal sensitive information such as backend server name, operating system, library details, etc. You can use the application gateway to remove these.
+
+![Deleting header](media/rewrite-http-headers/remove-headers.png)
+
+### Check presence of a header
+
+You can evaluate the HTTP request or response header for the presence of a header or server variable. This is useful when you intend to perform a header rewrite only when a certain header is present.
+
+![Checking presence of a header](media/rewrite-http-headers/check-presence.png)
 
 ## Limitations
 
