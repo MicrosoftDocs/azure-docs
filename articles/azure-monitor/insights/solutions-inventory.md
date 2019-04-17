@@ -52,8 +52,8 @@ Explanations of the columns are as follows:
 | [Azure SQL Analytics (Preview)](../../azure-monitor/insights/azure-sql.md) | Windows | | | | | | 1 minute |
 | [Backup](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) | Azure |  |  |  |  |  | on notification |
 | [Capacity and Performance (Preview)](../../azure-monitor/insights/capacity-performance.md) |Windows |&#8226; |&#8226; | | |&#8226; |on arrival |
-| [Change Tracking](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |
-| [Change Tracking](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |hourly |
+| [Change Tracking](../../automation/automation-change-tracking.md) |Windows |&#8226; |&#8226; | | |&#8226; |[varies](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
+| [Change Tracking](../../automation/automation-change-tracking.md) |Linux |&#8226; | | | | |[varies](../../automation/automation-change-tracking.md#change-tracking-data-collection-details) |
 | [Containers](../../azure-monitor/insights/containers.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 3 minutes |
 | [Key Vault Analytics](../../azure-monitor/insights/azure-key-vault.md) |Windows | | | | | |on notification |
 | [Malware Assessment](../../security-center/security-center-install-endpoint-protection.md) |Windows |&#8226; |&#8226; | | |&#8226; |hourly |

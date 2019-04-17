@@ -1,20 +1,20 @@
 ---
 title: How to configure multi-master in Azure Cosmos DB
 description: Learn how to configure multi-master in your applications in Azure Cosmos DB
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 2/12/2019
-ms.author: mjbrown
+ms.date: 04/15/2019
+ms.author: rimman
 ---
 
 # How to configure multi-master in your applications that use Azure Cosmos DB
 
-To use multi-master features in your applications you need to enable multi-region writes and configure the multihoming capability. Multihoming is configured by setting the current region where the application is deployed.
+To use multi-master feature in your application, you need to enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. Multi-homing is configured by setting the region where the application is deployed.
 
 ## <a id="netv2"></a>.NET SDK v2
 
-To enable multi-master in your applications set `UseMultipleWriteLocations` to true and configure `SetCurrentLocation` to the region in which the application is being deployed and Azure Cosmos DB is replicated.
+To enable multi-master in your applications set `UseMultipleWriteLocations` to true, and configure `SetCurrentLocation` to the region in which the application is being deployed and Azure Cosmos DB is replicated.
 
 ```csharp
 ConnectionPolicy policy = new ConnectionPolicy
@@ -38,7 +38,7 @@ CosmosClient client = new CosmosClient(config);
 
 ## <a id="java"></a>Java Async SDK
 
-To enable multi-master in your applications set `policy.setUsingMultipleWriteLocations(true)` to true and configure `policy.setPreferredLocations` to the region in which the application is being deployed and Cosmos DB is replicated.
+To enable multi-master in your applications set `policy.setUsingMultipleWriteLocations(true)` and configure `policy.setPreferredLocations` to the region in which the application is being deployed and Cosmos DB is replicated.
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -84,14 +84,14 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ## Next steps
 
-Learn more about multi-master, global distribution and consistency in Azure Cosmos DB. See the following articles:
+Next you can read the following articles:
 
 * [Utilize session tokens for managing consistency in Azure Cosmos DB](how-to-manage-consistency.md#utilize-session-tokens)
-
 * [Conflict types and resolution policies in Azure Cosmos DB](conflict-resolution-policies.md)
-
 * [High availability in Azure Cosmos DB](high-availability.md)
-
+* [Consistency levels in Azure Cosmos DB](consistency-levels.md)
 * [Choosing the right consistency level in Azure Cosmos DB](consistency-levels-choosing.md)
-
 * [Consistency, availability and performance tradeoffs in Azure Cosmos DB](consistency-levels-tradeoffs.md)
+* [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
+* [Globally scaling provisioned throughput](scaling-throughput.md)
+* [Global distribution - under the hood](global-dist-under-the-hood.md)

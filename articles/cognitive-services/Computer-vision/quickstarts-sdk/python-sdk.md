@@ -42,7 +42,7 @@ Create a free key valid for 7 days with the **[Try It][computervision_resource]*
 Keep the following after the key is created:
 
 * Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Key endpoint: the base endpoint URL, https://westcentralus.api.cognitive.microsoft.com
+* Key endpoint: the base endpoint URL, https\://westcentralus.api.cognitive.microsoft.com
 
 ### If you have an Azure Subscription
 
