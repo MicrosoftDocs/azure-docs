@@ -44,20 +44,6 @@ ms.collection: M365-identity-device-management
 
     ![User assignments report](./media/entitlement-management-reports/user-assignments-report.png)
 
-## Download the policies and assignments for an access package
-
-1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
-
-1. In the left menu, click **Access packages** and then open the access package.
-
-1. In the left menu, click **Policies**.
-
-1. Click **Download** to download the polices as a .csv file.
-
-1. In the left menu, click **Assignments**.
-
-1. Click **Download** to download the assignments as a .csv file.
-
 ## Next steps
 
 - [Manage resources](entitlement-management-resources.md)
