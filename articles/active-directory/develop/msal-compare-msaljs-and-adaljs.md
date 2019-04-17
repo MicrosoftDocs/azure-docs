@@ -32,7 +32,7 @@ In most cases you want to use MSAL.js and the Azure AD v2.0 endpoint, which is t
 
 If you are already familiar with the v1.0 endpoint (and ADAL.js), you might want to read [What's different about the v2.0 endpoint?](active-directory-v2-compare.md).
 
-However, you still need to use ADAL.js if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more information, see [ADFS support](https://aka.ms/msal-net-adfs-support).
+However, you still need to use ADAL.js if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). 
 
 ## Key differences in authentication with v1.0 versus v2.0 endpoint
 
