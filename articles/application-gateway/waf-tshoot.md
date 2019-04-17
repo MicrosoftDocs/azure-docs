@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting the web application firewall for Azure Application Gateway
+title: Troubleshoot the web application firewall for Azure Application Gateway
 description: This article provides troubleshooting information for web application firewall (WAF) for Application Gateway
 services: application-gateway
 author: vhorne
@@ -9,7 +9,7 @@ ms.author: ant
 ms.topic: conceptual
 ---
 
-# Troubleshooting web application firewall for Azure Application Gateway
+# Troubleshoot web application firewall for Azure Application Gateway
 
 There are a few things you can do if requests that should pass through your web application firewall (WAF) are blocked.
 
