@@ -171,6 +171,7 @@
       href: how-to-enable-app-insights.md
   - name: Create reusable workflows
     displayName: pipelines
+    items:
     - name: Create an ML pipeline
       href: how-to-create-your-first-pipeline.md  
   - name: Enable logging
