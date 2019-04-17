@@ -12,9 +12,13 @@ ms.date: 04/04/2019
 
 # Ansible module and version matrix
 
+Ansible includes a suite of modules for use in provisioning and configuring Azure resources. These resources include virtual machines, scale sets, networking services, and container services. This article lists the various Ansible modules for Azure and the Ansible versions in which they ship.
+
 ## Ansible modules for Azure
-Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
-This article lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. You can get these modules from the Ansible official release or from the following Microsoft playbook roles.
+
+The following modules can be executed directly on remote hosts or through playbooks.
+
+These modules are available from the Ansible official release and from the following Microsoft playbook roles.
 
 | Ansible module for Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible Role | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
