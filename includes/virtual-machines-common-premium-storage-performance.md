@@ -256,9 +256,7 @@ Remember, the Premium Storage disks have higher performance capabilities compare
 High Scale VMs that leverage Azure Premium Storage have a multi-tier caching technology called BlobCache. BlobCache uses a combination of the Virtual Machine RAM and local SSD for caching. This cache is available for the Premium Storage persistent disks and the VM local disks. By default, this cache setting is set to Read/Write for OS disks and ReadOnly for data disks hosted on Premium Storage. With disk caching enabled on the Premium Storage disks, the high scale VMs can achieve extremely high levels of performance that exceed the underlying disk performance.
 
 > [!WARNING]
-> Disk Caching is only supported for disk sizes up to 4 TiB.
->
-> If you have multiple disks which comprise an entire volume and all disks are 4TiB, then caching is supported for your entire volume.
+> Disk caching is supported for each and every individual disk that has a provisioned capacity of 4 TiB or less.
 >
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
 
