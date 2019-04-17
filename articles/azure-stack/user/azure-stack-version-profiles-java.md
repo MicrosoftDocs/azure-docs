@@ -309,5 +309,5 @@ You can use the following GitHub samples as references for creating solutions wi
 
 For more information about API profiles, see:
 
-- Version profiles in Azure Stack](azure-stack-version-profiles.md)
+- [Version profiles in Azure Stack](azure-stack-version-profiles.md)
 - [Resource provider API versions supported by profiles](azure-stack-profiles-azure-resource-manager-versions.md)
