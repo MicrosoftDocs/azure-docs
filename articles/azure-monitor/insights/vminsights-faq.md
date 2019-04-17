@@ -96,7 +96,7 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 * Monitored VMs are now included in the client group node, and the donut chart shows the proportion of monitored vs unmonitored virtual machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * Monitored virtual machines are now included in the server port group nodes, and the donut chart shows the proportion of monitored vs unmonitored machines in the group.  It can also be used to filter the list of machines when the group is expanded.
 * The map style has been updated to be more consistent with App Map from Application insights.
-* The side panels have been updated, and do not  have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
+* The side panels have been updated, and do not have the full set of integration's that were supported in Service Map - Update Management, Change Tracking, Security, and Service Desk. 
 * The option for choosing groups and machines to map has been updated and now supports Subscriptions, Resource Groups, Azure virtual machine scale sets, and Cloud services.
 * You cannot create new Service Map machine groups in the Azure Monitor for VMs Map feature.  
 
