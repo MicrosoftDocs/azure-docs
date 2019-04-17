@@ -1,44 +1,51 @@
 ---
-title: Implement VNet injected Azure Databricks with Cosmos DB endpoint
-description: This tutorial describes how to implement a VNet injected Databricks environment with a Service Endpoint enabled for Cosmos DB. 
+title: Implement Azure Databricks with a Cosmos DB endpoint
+description: This tutorial describes how to implement Azure Databricks in a virtual network with a Service Endpoint enabled for Cosmos DB. 
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.service: azure-databricks
-ms.topic: conceptual
-ms.date: 04/9/2019
+ms.topic: tutorial
+ms.date: 04/17/2019
+#Customer intent: As a data scientist, I want to use the Cosmos DB Spark connector so that I can access Cosmos DB data from Azure Databricks.
 ---
 
-# Tutorial: Implement VNet injected Azure Databricks with Cosmos DB endpoint
+# Tutorial: Implement Azure Databricks with a Cosmos DB endpoint
 
 This tutorial describes how to implement a VNet injected Databricks environment with a Service Endpoint enabled for Cosmos DB.
 
 In this tutorial you learn how to:
 
+> [!div class="checklist"]
+> * Create an Azure Databricks workspace in a virtual network
+> * Create a Cosmos DB service endpoint
+> * Create a Cosmos DB account and import data
+> * Create an Azure Databricks cluster
+> * Query Cosmos DB from an Azure Databricks notebook
+
 ## Prerequisites
 
-Before you start, make sure you have the following:
+Before you start, do the following:
 
-* Create a [Databricks workspace in a virtual network](quickstart-create-databricks-workspace-vnet-injection.md).
+* Create an [Azure Databricks workspace in a virtual network](quickstart-create-databricks-workspace-vnet-injection.md).
 
-* Download the [spark connector](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
+* Download the [Spark connector](https://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-cosmosdb-spark_2.4.0_2.11/1.3.4/azure-cosmosdb-spark_2.4.0_2.11-1.3.4-uber.jar).
 
 * Download sample data from the [NOAA National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/). Select a state or area and select **Search**. On the next page, accept the defaults and select **Search**. Then select **CSV Download** on the left side of the page to download the results.
 
 * Download the [pre-compiled binary](https://aka.ms/csdmtool) of the Azure Cosmos DB Data Migration Tool.
 
-## Create Cosmos DB service endpoint
+## Create a Cosmos DB service endpoint
 
-1. Once you have deployed an Azure Databricks workspace to a virtual network, navigate to the virtual network. Notice the public and private subnets that were created through the Databricks deployment.
+1. Once you have deployed an Azure Databricks workspace to a virtual network, navigate to the virtual network in the [Azure portal](https://portal.azure.com). Notice the public and private subnets that were created through the Databricks deployment.
 
    ![Virtual network subnets](./media/service-endpoint-cosmosdb/virtual-network-subnets.png)
 
 2. Select the *public-subnet* and create a Cosmos DB service endpoint. Then **Save**.
    
-   ![Add Cosmos DB service endpoint](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
+   ![Add a Cosmos DB service endpoint](./media/service-endpoint-cosmosdb/add-cosmosdb-service-endpoint.png)
 
-## Create Cosmos DB account
+## Create a Cosmos DB account
 
 1. Open the Azure portal. On the upper-left side of the screen, select **Create a resource > Databases > Azure Cosmos DB**.
 
@@ -54,13 +61,16 @@ Before you start, make sure you have the following:
    |Geo-Redundancy|Disable|
    |Multi-region Writes|Enable|
 
-   ![Add Cosmos DB service endpoint](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
+   ![Add a Cosmos DB service endpoint](./media/service-endpoint-cosmosdb/create-cosmosdb-account-basics.png)
 
-3. Select the **Network** tab and configure your virtual network. Choose the virtual network you created as a prerequisite and *public-subnet*. Notice that *private-subnet* has the note *'Microsoft AzureCosmosDB' endpoint is missing'*. This is because you only enabled the Cosmos DB service endpoint on the *public-subnet*. 
+3. Select the **Network** tab and configure your virtual network. 
 
-   Ensure you have *Allow access from Azure Portal* enabled. This setting allows you to access your Cosmos DB account from the Azure portal. If this is disabled you will receive errors when attempting to access your account. 
+   a. Choose the virtual network you created as a prerequisite, and then select *public-subnet*. Notice that *private-subnet* has the note *'Microsoft AzureCosmosDB' endpoint is missing'*. This is because you only enabled the Cosmos DB service endpoint on the *public-subnet*.
 
-   It is not necessary for this tutorial, but you can also enable *Allow access from my IP* if you want the ability to access your Cosmos DB account from your local machine. For example, if you are connecting to your account using the Cosmos DB SDK, you need to enable this setting. If it is disabled, you will receive "Access Denied" errors.
+   b. Ensure you have **Allow access from Azure Portal** enabled. This setting allows you to access your Cosmos DB account from the Azure portal. If this option is set to **Deny**, you will receive errors when attempting to access your account. 
+
+   > [!NOTE]
+   > It is not necessary for this tutorial, but you can also enable *Allow access from my IP* if you want the ability to access your Cosmos DB account from your local machine. For example, if you are connecting to your account using the Cosmos DB SDK, you need to enable this setting. If it is disabled, you will receive "Access Denied" errors.
 
    ![Cosmos DB Account network settings](./media/service-endpoint-cosmosdb/create-cosmosdb-account-network.png)
 
@@ -76,7 +86,7 @@ Before you start, make sure you have the following:
 
 ## Upload data to Cosmos DB
 
-1. Open the graphical interface version of the data migration tool for Cosmos DB, **Dtui.exe**.
+1. Open the graphical interface version of the [data migration tool for Cosmos DB](https://aka.ms/csdmtool), **Dtui.exe**.
 
     ![Cosmos DB Data Migration Tool](./media/service-endpoint-cosmosdb/cosmos-data-migration-tool.png)
 
@@ -92,7 +102,7 @@ Before you start, make sure you have the following:
 
 ## Create a cluster and add library
 
-1. Navigate to your Azure Databricks service in the Azure portal and select **Launch Workspace**.
+1. Navigate to your Azure Databricks service in the [Azure portal](https://portal.azure.com) and select **Launch Workspace**.
 
    ![Launch Databricks workspace](./media/service-endpoint-cosmosdb/launch-workspace.png)
 
@@ -108,7 +118,7 @@ Before you start, make sure you have the following:
 
     ![Databricks cluster Libraries tab](./media/service-endpoint-cosmosdb/installed-library.png)
 
-## Query Cosmos DB from Databricks notebook
+## Query Cosmos DB from a Databricks notebook
 
 1. Navigate to your Azure Databricks workspace and create a new python notebook.
 
@@ -119,7 +129,7 @@ Before you start, make sure you have the following:
     ```python
     connectionConfig = {
       "Endpoint" : "https://<your Cosmos DB account name.documents.azure.com:443/",
-      "Masterkey" : "<your Cosmos DB primary key",
+      "Masterkey" : "<your Cosmos DB primary key>",
       "Database" : "<your database name>",
       "preferredRegions" : "West US 2",
       "Collection": "<your collection name>",
@@ -155,6 +165,7 @@ When no longer needed, delete the resource group, the Azure Databricks workspace
 
 ## Next steps
 
-Advance to the next article to learn how to extract, transform, and load data using Azure Databricks.
+In this tutorial, you've deployed an Azure Databricks workspace to a virtual network, and used the Cosmos DB Spark connector to query Cosmos DB data from Databricks. To learn more about working with Azure Databricks in a virtual network, continue to the tutorial for using SQL Server with Azure Databricks.
+
 > [!div class="nextstepaction"]
-> [Tutorial: Extract, transform, and load data by using Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Tutorial: Query a SQL Server Linux Docker container in a virtual network from an Azure Databricks notebook](vnet-injection-sql-server.md)

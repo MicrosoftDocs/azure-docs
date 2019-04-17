@@ -17,7 +17,7 @@
   items:
   - name: Query SQL Server running in Docker container
     href: vnet-injection-sql-server.md
-  - name: Cosmos DB service endpoint
+  - name: Use Cosmos DB service endpoint
     href: service-endpoint-cosmosdb.md
   - name: Perform ETL operations
     href: databricks-extract-load-sql-data-warehouse.md
