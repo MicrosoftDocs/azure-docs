@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -52,7 +52,7 @@ To configure the integration of GreenOrbit into Azure AD, you need to add GreenO
 
 **To add GreenOrbit from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
 	![The Azure Active Directory button](common/select-azuread.png)
 
@@ -60,11 +60,11 @@ To configure the integration of GreenOrbit into Azure AD, you need to add GreenO
 
 	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add a new application, click the **New application** button at the top of the dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **GreenOrbit**, select **GreenOrbit** from the result panel then click the **Add** button to add the application.
+4. In the search box, type **GreenOrbit**, select **GreenOrbit** from result panel then click **Add** button to add the application.
 
 	![GreenOrbit in the results list](common/search-new-app.png)
 
@@ -105,10 +105,10 @@ To configure Azure AD single sign-on with GreenOrbit, perform the following step
     ![GreenOrbit Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://<SUBDOMAIN>.GreenOrbit.com`
+    `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `http://<SUBDOMAIN>.trial.GreenOrbit.com`
+    `https://<SUBDOMAIN>.yourcompanydomain.extension`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [GreenOrbit Client support team](mailto:support@greenorbit.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -193,7 +193,7 @@ When you click the GreenOrbit tile in the Access Panel, you should be automatica
 
 ## Additional Resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
