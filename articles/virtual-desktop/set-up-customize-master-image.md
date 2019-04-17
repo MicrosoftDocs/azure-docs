@@ -269,7 +269,7 @@ To redirect time zones:
 1. On the Active Directory server, open the **Group Policy Management Console**.
 2. Expand your domain and Group Policy Objects.
 3. Right-click the **Group Policy Object** that you created for the group policy settings and select **Edit**.
-4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Horizon View RDSH Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
+4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 5. Enable the **Allow time zone redirection** setting.
 
 You can also run this command on the master image to redirect time zones:
