@@ -36,7 +36,6 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 6. [Deploy the model](how-to-custom-speech-deploy-model.md) - Create a custom endpoint for your speech-to-text model and use it in your applications, tools, or products.
 
-
 ## Set up your Azure account
 
 A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create an account: [Try Speech Services for free](get-started.md).
