@@ -1,42 +1,34 @@
 ---
 title: Tutorial - Create an application gateway with a web application firewall - Azure portal | Microsoft Docs
-description: Learn how to create an application gateway with a web application firewall by using the Azure portal.
+description: In this tutorial, you learn how to create an application gateway with a web application firewall by using the Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 03/25/2019
+ms.topic: tutorial
+ms.date: 4/16/2019
 ms.author: victorh
-
+#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway with web application firewall so I can protect my applications.
 ---
 
-# Create an application gateway with a web application firewall using the Azure portal
+# Tutorial: Create an application gateway with a web application firewall using the Azure portal
 
-> [!div class="op_single_selector"]
->
-> - [Azure portal](application-gateway-web-application-firewall-portal.md)
-> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
->
-> 
+This tutorial shows you how to use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. After creating the application gateway, you test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool. For the sake of simplicity, this tutorial uses a simple setup with a public front-end IP, a basic listener to host a single site on this application gateway, two virtual machines used for the backend pool, and a basic request routing rule.
 
-This tutorial shows you how to use the Azure portal to create an [application gateway](application-gateway-introduction.md) with a [web application firewall](application-gateway-web-application-firewall-overview.md) (WAF). The WAF uses [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. After creating the application gateway, you test it to make sure it's working correctly. With Azure Application Gateway, you direct your application web traffic to specific resources by assigning listeners to ports, creating rules, and adding resources to a backend pool. For the sake of simplicity, this article uses a simple setup with a public front-end IP, a basic listener to host a single site on this application gateway, two virtual machines used for the backend pool, and a basic request routing rule.
-
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway with WAF enabled
 > * Create the virtual machines used as backend servers
 > * Create a storage account and configure diagnostics
+> * Test the application gateway
 
 ![Web application firewall example](./media/application-gateway-web-application-firewall-portal/scenario-waf.png)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md) or [Azure CLI](tutorial-restrict-web-traffic-cli.md).
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Sign in to Azure
 
@@ -44,7 +36,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ## Create an application gateway
 
-For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, we will create a new virtual network. You can create a virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+For Azure to communicate between resources, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network. You can create a virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
 Select **Create a resource** on the left menu of the Azure portal. The **New** window appears.
 
@@ -68,9 +60,9 @@ Accept the default values for the other settings and then click **OK**.
    - **Subnet name**: Enter *myAGSubnet* for the subnet name.<br>The application gateway subnet can contain only application gateways. No other resources are allowed.
    - **Subnet address range**: Enter *10.0.0.0/24* for the subnet address range.![Create virtual network](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 3. Click **OK** to create the virtual network and subnet.
-4. Choose the **Frontend IP configuration**. Under **Frontend IP configuration**, verify **IP address type** is set to **Public**. Under **Public IP address**, verify **Create new** is selected. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, we will choose a Public Frontend IP. 
-5. Enter *myAGPublicIPAddress* for the public IP address name. 
-6. Accept the default values for the other settings and then select **OK**.<br>We will choose default values in this article for simplicity but you can configure custom values for the other settings depending on your use case 
+4. Choose the **Frontend IP configuration**. Under **Frontend IP configuration**, verify **IP address type** is set to **Public**. Under **Public IP address**, verify **Create new** is selected. <br>You can configure the Frontend IP to be Public or Private as per your use case. Here, you  choose a Public Frontend IP.
+5. Enter *myAGPublicIPAddress* for the public IP address name.
+6. Accept the default values for the other settings and then select **OK**.<br>You choose default values in this tutorial for simplicity but you can configure custom values for the other settings depending on your use case.
 
 ### Summary page
 
@@ -78,12 +70,12 @@ Review the settings on the **Summary** page, and then select **OK** to create th
 
 ## Add backend pool
 
-The backend pool is used to route requests to the backend servers which will be serving the request. Backend pools can be composed of NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. You need to add your backend targets to a backend pool.
+The backend pool is used to route requests to the backend servers, which serve the request. Backend pools can have NICs, virtual machine scale sets, public IPs, internal IPs, fully qualified domain names (FQDN), and multi-tenant back-ends like Azure App Service. Add your backend targets to a backend pool.
 
-In this example, we will use virtual machines as the target backend. We can either use existing virtual machines or create new ones. In this example, we will create two virtual machines that Azure uses as backend servers for the application gateway. To do this, we will:
+In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. Here, you create two virtual machines that Azure uses as backend servers for the application gateway. To do this, you:
 
 1. Create a new subnet, *myBackendSubnet*, in which the new VMs will be created. 
-2. Create 2 new VMS, *myVM* and *myVM2*, to be used as backend servers.
+2. Create two new VMS, *myVM* and *myVM2*, to be used as backend servers.
 3. Install IIS on the virtual machines to verify that the application gateway was created successfully.
 4. Add the backend servers to the backend pool.
 
@@ -110,14 +102,14 @@ Add a subnet to the virtual network you created by following these steps:
    - **Password**: Enter *Azure123456!* for the administrator password.
 4. Accept the other defaults and then select **Next: Disks**.  
 5. Accept the **Disks** tab defaults and then select **Next: Networking**.
-6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but we need to ensure there is IP connectivity. 
+6. On the **Networking** tab, verify that **myVNet** is selected for the **Virtual network** and the **Subnet** is set to **myBackendSubnet**. Accept the other defaults and then select **Next: Management**.<br>Application Gateway can communicate with instances outside of the virtual network that it is in, but you need to ensure there's IP connectivity.
 7. On the **Management** tab, set **Boot diagnostics** to **Off**. Accept the other defaults and then select **Review + create**.
 8. On the **Review + create** tab, review the settings, correct any validation errors, and then select **Create**.
 9. Wait for the virtual machine creation to complete before continuing.
 
 ### Install IIS for testing
 
-In this example, we are installing IIS on the virtual machines only for the purpose of verifying Azure created the application gateway successfully. 
+In this example, you install IIS on the virtual machines only for the purpose of verifying Azure created the application gateway successfully. 
 
 1. Open [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). To do so, select **Cloud Shell** from the top navigation bar of the Azure portal and then select **PowerShell** from the drop-down list. 
 
@@ -185,7 +177,7 @@ Although IIS isn't required to create the application gateway, you installed it 
 
 1. Find the public IP address for the application gateway on its **Overview** page.![Record application gateway public IP address](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)Alternatively, you can select **All resources**, enter *myAGPublicIPAddress* in the search box, and then select it in the search results. Azure displays the public IP address on the **Overview** page.
 2. Copy the public IP address, and then paste it into the address bar of your browser.
-3. Check the response. A valid response verifies that the application gateway was successfully created and it is able to successfully connect with the backend.![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. Check the response. A valid response verifies that the application gateway was successfully created and it can successfully connect with the backend.![Test application gateway](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## Clean up resources
 
@@ -200,11 +192,5 @@ To remove the resource group:
 
 ## Next steps
 
-In this article, you learned how to:
-
-> [!div class="checklist"]
-> * Create an application gateway with WAF enabled
-> * Create the virtual machines used as backend servers
-> * Create a storage account and configure diagnostics
-
-To learn more about application gateways and their associated resources, continue to the how-to articles.
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with Azure Application Gateway](application-gateway-introduction.md)
