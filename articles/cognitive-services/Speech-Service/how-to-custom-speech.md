@@ -28,7 +28,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
 
-3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Evaluate accuracy](placeholder).
+3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inpsect data](placeholder).
 
 4. [Evaluate accuracy](how-to-custom-speech-evaluate-data.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
 
