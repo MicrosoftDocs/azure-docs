@@ -590,7 +590,7 @@
     - name: Integrate with Azure services
       items:
         - name: Use with HDInsight clusters
-          href: ../blobs/data-lake-storage-use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Hadoop File System CLI
           href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Use with Azure Databricks
