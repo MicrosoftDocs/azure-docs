@@ -254,9 +254,8 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
-
 ## Container data-collection details
-Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
+Azure Monitor for containers collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
 
 ### Container records
 
@@ -279,13 +278,13 @@ Examples of records that are collected by Azure Monitor for containers and the d
 | Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 
 ## Search logs to analyze data
-Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
+Azure Monitor Logs can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
 
 You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane. The **Log Search** page appears to the right of the Azure portal page that you were on.
 
 ![Analyze data in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
 
-The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
+The container logs output that's forwarded to your workspace are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
 
 ### Example log search queries
 It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
