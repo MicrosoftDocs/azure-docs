@@ -35,7 +35,7 @@ You also need an active Azure subscription.
 
 ## Create a local Functions project
 
-In the Terminal window or from a command prompt, run the following commands:
+In the terminal window or from a command prompt, run the following commands:
 
 ```powershell
 mkdir MyFunctionProj
