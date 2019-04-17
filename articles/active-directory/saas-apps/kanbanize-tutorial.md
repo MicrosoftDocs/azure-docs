@@ -104,10 +104,10 @@ To configure Azure AD single sign-on with Kanbanize, perform the following steps
     ![Kanbanize Domain and URLs single sign-on information](common/idp-relay.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-    `https://<server-base-url>/plugins/servlet/samlsso`
+    `https://<subdomain>.kanbanize.com/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://www.benselect.com/enroll/login.aspx?Path=<tenant name>`
+    `https://<subdomain>.kanbanize.com/saml/acs`
 
     c. Click **Set additional URLs**.
 
@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Kanbanize, perform the following steps
     ![Kanbanize Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://<server-base-url>/plugins/servlet/samlsso`
+    `https://<subdomain>.kanbanize.com`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Kanbanize Client support team](mailto:support@ms.kanbanize.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
