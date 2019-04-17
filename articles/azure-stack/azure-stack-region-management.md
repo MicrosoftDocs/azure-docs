@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/16/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
@@ -48,7 +48,7 @@ If you click a region in the **Region management** tile, you can access the foll
 
 5. **Infrastructure roles**. The components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By selecting a role, you can view the alerts associated with the role and the role instances where this role is running.
 
-6. **Properties**. The registration status and details of your environment in the region management blade. The status can be **Registered** or **Not registered**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
+6. **Properties**. The registration status and details of your environment in the region management blade. The status can be **Registered**, **Not registered**, or **Expired**. If registered, it also shows the Azure subscription ID that you used to register your Azure Stack, along with the registration resource group and name.
 
 ## Next steps
 
