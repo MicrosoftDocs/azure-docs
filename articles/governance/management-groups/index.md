@@ -58,7 +58,7 @@ This root management group is built into the hierarchy to have all management gr
 subscriptions fold up to it. This root management group allows for global policies and RBAC
 assignments to be applied at the directory level. The [Azure AD Global Administrator needs to elevate
 themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access Administrator role of this
-root group initially. After elevating access, the administrator can assign any RBAC role to other directory users or groups to manage the hierarchy. The administrator can assign his or her own account as owner of the root management group.
+root group initially. After elevating access, the administrator can assign any RBAC role to other directory users or groups to manage the hierarchy. As administrator, you can assign your own account as owner of the root management group.
 
 ### Important facts about the Root management group
 
