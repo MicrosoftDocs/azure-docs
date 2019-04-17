@@ -32,7 +32,7 @@ ms.date: 04/04/2019
 - [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - **git** - [git](https://git-scm.com) is used to download a Java sample used in this tutorial.
 - **Java SE Development Kit (JDK)** - The [JDK](https://aka.ms/azure-jdks) is used to build the sample Java project.
-- **Apache Maven build tools** - The [Apache Maven build tools](https://maven.apache.org/download.cgi) are used to build the sample Java project.
+- **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) is used to build the sample Java project.
 
 ## Get host information
 
@@ -158,7 +158,8 @@ To use the ssh connection type with passwords, you must install the sshpass prog
   - For Ubuntu 16.04, run the command `apt-get install sshpass`.
   - For CentOS 7.4, run the command `yum install sshpass`.
 
-You may see an error like **Using an SSH password instead of a key is not possible because Host Key checking is enabled and sshpass does not support this. Add this host's fingerprint to your known_hosts file to manage this host.** If you see this error, you can disable host key checking by adding the following line to either the `/etc/ansible/ansible.cfg` file or the `~/.ansible.cfg` file:
+In some environments, you may see an error regarding using an SSH password instead of a key. If you do receive that error, you can disable host key checking by adding the following line to `/etc/ansible/ansible.cfg` or `~/.ansible.cfg`:
+
   ```bash
   [defaults]
   host_key_checking = False
