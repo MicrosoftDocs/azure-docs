@@ -30,6 +30,8 @@ Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitec
 
 ## Tips for Maximizing Performance on Lsv2-Series VMs
 
+1. If you are uploading a custom Linux GuestOS for your workload, note that Accelerated Networking will be **OFF** by default. If you intend to enable Accelerated Networking, enable it at the time of VM creation for best performance.
+
 1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
 
 1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.

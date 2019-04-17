@@ -36,4 +36,4 @@ ms.author: jonbeck
 
 Learn more about how [Azure compute units (ACU)](acu.md) can help you compare compute performance across Azure SKUs.
 
-Learn how to [Optimize performance on the Lsv2-series virtual machines](../articles/virtual-machines/windows/storage-performance.md).
+Learn how to [Optimize performance on the Lsv2-series virtual machines](storage-performance.md).
