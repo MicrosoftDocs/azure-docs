@@ -42,7 +42,8 @@ so there's no implicit creation. For more information, see
 [Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs). 
 Here's the URI address for these operations:
 
-https:\//management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+https://\management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
+
 
 ### Job collection management
 
@@ -52,7 +53,7 @@ the maximum number of jobs and smallest recurrence interval.
 For more information, see [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections). 
 Here's the URI address for these operations:
 
-https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
+https://\management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
 
 ### Job history management
 
@@ -62,7 +63,7 @@ Includes query string parameter support for filtering based on state and status.
 For more information, see [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). 
 Here's the URI address for this operation:
 
-https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
+https://\management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
 
 ## Job types
 
