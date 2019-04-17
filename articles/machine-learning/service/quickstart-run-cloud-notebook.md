@@ -39,34 +39,38 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).  If you're not sure how to locate your workspace in the portal, see how to [find your workspace](how-to-manage-workspace.md#view).
 
-1. On your workspace page in Azure portal, select **Notebook Workstation** on the left.
+1. On your workspace page in Azure portal, select **Notebook VMs** on the left.
 
-1. Select **Create Notebooks in an Azure Machine Learning workstation (Preview)**
 
-   ![Explore the workspace](./media/quickstart-run-cloud-notebook/explore-aml.png)
+1. On the left hand side, select **Notebook VMs**.  
 
-1. The **Notebook Workstations** section shows a list of all the cloud-based notebook servers available in your workspace.  This section is where you manage these resources and delete them when they are no longer needed.
+1. Select **+Add** to create a notebook VM.
 
-1. Select **Add Workstation** to create a notebook workstation.
+     ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-     ![Select Add Workstation](./media/quickstart-run-cloud-notebook/add-workstation.png)
-
-1. On the Add Notebook Workstation section, provide a name. Then select **Create**.
+1. Provide a name for your VM. Then select **Create**.
 
     ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
     > [!NOTE]
-    > Your workstation takes approximately two minutes to create. When finished, the status updates to "Running" and links to Jupyter and JupyterLab appear.
+    > Your VM takes approximately five minutes to create. When finished, the status updates to "Running" and links to Jupyter and JupyterLab appear.
 
 ## Launch Jupyter web interface
 
-After your workstation is created, use the Notebook Workstations section to launch the Jupyter web interface.
+After your workstation is created, use the **Notebook VMs** section to launch the Jupyter web interface.
 
 * Select **Jupyter** or **Jupyter Lab** in the **Launch** column for your workstation.
 
     ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
 
-    The link starts your notebook server and opens the server homepage in a new browser tab.  Your server shows sample notebooks for you to use to get started with Azure Machine Learning service.
+    The link starts your notebook server and opens the server homepage in a new browser tab.  
+
+    > [!TIP]
+    > Stop the VM when you are not using it to reduce cost.  Select the resource and select **Stop** at the top of the list.  
+
+* The notebook server opens in a new browser tab.  This URL can only be used by the person who creates the VM.
+
+* Select the **Samples** folder to see the 
 
 ### Run the notebook
 
