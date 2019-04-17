@@ -23,22 +23,29 @@ Use this article to learn about best practices for using the API getting the bes
 
 ## When should I use “Entire” or “Last” API? 
  
-“Entire” detection api is used to find anomalies in given time series. It builds one single anomaly detection model and applies it on each point to do anomaly detection. It's mainly used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
+“Entire” detection api is used to find anomalies in given time series. One single anomaly detection model is built and applied on each point to do anomaly detection. It's used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
 
 1.	A seasonal time series, with occasional anomalies.
 2.	A flat trend time series, with occasional spikes/dips. 
  
 We don't recommend you to use “Entire” API in the real-time monitoring scenario or use it on time series don’t have above characteristics, for the following reasons. 
 
-1.	Since it uses one single model, so each point’s detection will be done in the context of whole series.
+1.	Since it uses one single model, so the detection on each point is done in the context of whole series.
 
 *	If the time series trend goes up and down without seasonality, the change points might be missed.
-*	Some spikes or dips, which are less significant than the later spikes or dips might be ignored because they are not significant enough as model takes into account the data before and after the spike or dip points. But in real-time monitoring, we hope they're alerted as soon as possible to avoid the bigger issues. 
+*	Some spikes or dips, which are less significant than the later spikes or dips might be ignored because they aren't significant enough as model takes into account the data before and after the spike or dip points. But in real-time monitoring, we hope they're alerted immediately to avoid bigger issues. 
 
-2.	It's much slower than the “Last” API in real-time monitoring, because it does inferencing for each point while the “Last” API only does it for the last point. 
+2.	It's much slower than the “Last” API in real-time monitoring, because it does inferencing for each point, while the “Last” API only does it for the last point. 
  
 So in an online monitoring system, when new data point coming, you should always use the “Last” API to do anomaly detection on current point. 
 
+Below is a case using “Entire” API, and you can see some small deviations (yellow rectangles) are ignored as the model factors in the entire time range of this time series.
+
+![entire detection](../media/entire.png "entire detection")
+
+If we use “Last” API with a moving windows of 28 days, you can see the smaller deviations are also marked as anomalies as the model only factors in the data before the point to be detected.
+
+![last detection](../media/last.png "last detection")
 
 ## Data preparation
 
