@@ -101,7 +101,7 @@ Document Id:  4 , Sentiment Score:  1.00
 
 ## Language detection
 
-1. Create a list of dictionaries, containing the documents you want to analyze. Using the client created earlier call `detect_language()`
+1. Create a list of dictionaries, containing the documents you want to analyze.
 
 ``` 
 documents = [
@@ -110,7 +110,7 @@ documents = [
     { 'id': '3', 'text': '这是一个用中文写的文件' }
 ]
 ``` 
-2. Call the `detect_language()` function and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+2. Using the client created earlier, call `detect_language()` function and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
 ```
 response = text_analytics.detect_language(documents=documents)
@@ -128,7 +128,53 @@ Document Id:  3 , Language:  Chinese_Simplified
 
 ## Entity recognition
 
+
+
 ## Key phrase extraction
+
+1. Create a list of dictionaries, containing the documents you want to analyze.
+
+```
+documents = [
+    {"id": "1", "language": "ja", "text": "猫は幸せ"},
+    {"id": "2", "language": "de", "text": "Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
+    {"id": "3", "language": "en", "text": "My cat might need to see a veterinarian."},
+    {"id": "4", "language": "es", "text": "A mi me encanta el fútbol!"}
+            ]
+```
+
+2. Using the client created earlier, call `key_phrases()` function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
+
+```
+response = text_analytics.key_phrases(documents=documents)
+
+for document in response.documents:
+    print("Document Id: ", document.id)
+    print("\tKey Phrases:")
+    for phrase in document.key_phrases:
+        print("\t\t",phrase)
+```
+
+### Output
+
+```
+Document Id:  1
+	Phrases:
+		 幸せ
+Document Id:  2
+	Phrases:
+		 Stuttgart
+		 Hotel
+		 Fahrt
+		 Fu
+Document Id:  3
+	Phrases:
+		 cat
+		 veterinarian
+Document Id:  4
+	Phrases:
+		 fútbol
+```
 
 ## Next steps
 
