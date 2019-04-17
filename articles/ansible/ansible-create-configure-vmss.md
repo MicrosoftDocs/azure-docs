@@ -29,122 +29,128 @@ ms.date: 04/04/2019
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## Create a scale set
+## Configure a scale set
 
-This section presents a sample Ansible playbook that defines the following resources:
-- **Resource group** into which all of your resources will be deployed
-- **Virtual network** in the 10.0.0.0/16 address space
-- **Subnet** within the virtual network
-- **Public IP address** that allows you to access resources across the Internet
-- **Network security group** that controls the flow of network traffic in and out of your scale set
-- **Load balancer** that distributes traffic across a set of defined VMs using load balancer rules
-- **Virtual machine scale set** that uses all the created resources
+> [!Tip]
+> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) for this section.
 
-Enter your own password for the *admin_password* value.
+The playbook code in this section defines the following resources:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myScaleSet
-      vmss_lb_name: myScaleSetLb
-      location: eastus
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-      - name: Create a resource group
-        azure_rm_resourcegroup:
-          name: "{{ resource_group }}"
-          location: "{{ location }}"
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefix: "10.0.1.0/24"
-          virtual_network: "{{ vmss_name }}"
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: "{{ resource_group }}"
-          allocation_method: Static
-          name: "{{ vmss_name }}"
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
+* **Resource group** into which all of your resources will be deployed.
+* **Virtual network** in the 10.0.0.0/16 address space
+* **Subnet** within the virtual network
+* **Public IP address** that allows you to access resources across the Internet
+* **Network security group** that controls the flow of network traffic in and out of your scale set
+* **Load balancer** that distributes traffic across a set of defined VMs using load balancer rules
+* **Virtual machine scale set** that uses all the created resources
 
-      - name: Create a load balancer
-        azure_rm_loadbalancer:
-          name: "{{ vmss_lb_name }}"
-          location: "{{ location }}"
-          resource_group: "{{ resource_group }}"
-          public_ip: "{{ vmss_name }}"
-          probe_protocol: Tcp
-          probe_port: 8080
-          probe_interval: 10
-          probe_fail_count: 3
-          protocol: Tcp
-          load_distribution: Default
-          frontend_port: 80
-          backend_port: 8080
-          idle_timeout: 4
-          natpool_frontend_port_start: 50000
-          natpool_frontend_port_end: 50040
-          natpool_backend_port: 22
-          natpool_protocol: Tcp
+Save the following playbook as `vmss-create.yml`:
 
-      - name: Create Scale Set
-        azure_rm_virtualmachine_scaleset:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          vm_size: Standard_DS1_v2
-          admin_username: "{{ admin_username }}"
-          admin_password: "{{ admin_password }}"
-          ssh_password_enabled: true
-          capacity: 2
-          virtual_network_name: "{{ vmss_name }}"
-          subnet_name: "{{ vmss_name }}"
-          upgrade_policy: Manual
-          tier: Standard
-          managed_disk_type: Standard_LRS
-          os_disk_caching: ReadWrite
-          image:
-            offer: UbuntuServer
-            publisher: Canonical
-            sku: 16.04-LTS
-            version: latest
-          load_balancer: "{{ vmss_lb_name }}"
-          data_disks:
-            - lun: 0
-              disk_size_gb: 20
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-            - lun: 1
-              disk_size_gb: 30
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-  ```
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+    vmss_lb_name: myScaleSetLb
+    location: eastus
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ vmss_name }}"
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ vmss_name }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
 
-To create the scale set environment with Ansible, save the preceding playbook as `vmss-create.yml`, or [download the sample Ansible playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+    - name: Create a load balancer
+      azure_rm_loadbalancer:
+        name: "{{ vmss_lb_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        public_ip: "{{ vmss_name }}"
+        probe_protocol: Tcp
+        probe_port: 8080
+        probe_interval: 10
+        probe_fail_count: 3
+        protocol: Tcp
+        load_distribution: Default
+        frontend_port: 80
+        backend_port: 8080
+        idle_timeout: 4
+        natpool_frontend_port_start: 50000
+        natpool_frontend_port_end: 50040
+        natpool_backend_port: 22
+        natpool_protocol: Tcp
 
-To run the Ansible playbook, use the **ansible-playbook** command as follows:
+    - name: Create Scale Set
+      azure_rm_virtualmachine_scaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        ssh_password_enabled: true
+        capacity: 2
+        virtual_network_name: "{{ vmss_name }}"
+        subnet_name: "{{ vmss_name }}"
+        upgrade_policy: Manual
+        tier: Standard
+        managed_disk_type: Standard_LRS
+        os_disk_caching: ReadWrite
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          version: latest
+        load_balancer: "{{ vmss_lb_name }}"
+        data_disks:
+          - lun: 0
+            disk_size_gb: 20
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+          - lun: 1
+            disk_size_gb: 30
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+```
+
+Before running the playbook, see the following notes:
+
+* In the `vars` section, replace the `{{ admin_password }}` placeholder with your own password.
+
+Run the playbook using the `ansible-playbook` command:
 
   ```bash
   ansible-playbook vmss-create.yml
   ```
 
-After running the playbook, output similar to the following example shows that the scale set has been successfully created:
+After running the playbook, you see output similar to the following results:
 
   ```Output
   PLAY [localhost] 
@@ -178,23 +184,38 @@ After running the playbook, output similar to the following example shows that t
 
   ```
 
-## Scale out a Scale Set
+## View the number of VM instances
 
-The created scale set has two instances. If you navigate to the scale set in the Azure portal, you see **Standard_DS1_v2 (2 instances)**. You can also use the [Azure Cloud Shell](https://shell.azure.com/) by running the following command within the Cloud Shell:
+The [configured scale set](#configure-a-scale-set) currently has two instances. The following steps are used to confirm that value:
+
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Navigate to the scale set you configured.
+
+1. 1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (2 instances)`
+
+1. You can also verify the number of instances with the [Azure Cloud Shell](https://shell.azure.com/) by running the following command:
 
   ```azurecli-interactive
   az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
   ```
 
-You see results similar to the following output:
+  The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
 
-  ```bash
-  {
-    "capacity": 2,
-  }
-  ```
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
-The following Ansible playbook code retrieves information about the scale set and changes its capacity from two to three. 
+## Scale out a scale set
+
+> [!Tip]
+> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) for this section.
+
+The playbook code in this section retrieves information about the scale set and changes its capacity from two to three.
+
+Save the following playbook as `vmss-scale-out.yml`:
 
   ```yml
   - hosts: localhost
@@ -221,15 +242,13 @@ The following Ansible playbook code retrieves information about the scale set an
         azure_rm_virtualmachine_scaleset: "{{ body }}"
   ```
 
-To scale out the scale set you created, save the preceding playbook as `vmss-scale-out.yml` or [download the sample Ansible playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml)). 
-
-The following command will run the playbook:
+Run the playbook using the `ansible-playbook` command:
 
   ```bash
   ansible-playbook vmss-scale-out.yml
   ```
 
-The output from running the Ansible playbook shows that the scale set has been successfully scaled out:
+After running the playbook, you see output similar to the following results:
 
   ```Output
   PLAY [localhost] 
@@ -265,19 +284,29 @@ The output from running the Ansible playbook shows that the scale set has been s
   localhost                  : ok=5    changed=1    unreachable=0    failed=0
   ```
 
-If navigate to the scale set you configured in the Azure portal, you see **Standard_DS1_v2 (3 instances)**. You can also verify the change with the [Azure Cloud Shell](https://shell.azure.com/) by running the following command:
+## Verify the changes
 
-  ```azurecli-interactive
-  az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+Verify your changes via the Azure portal:
 
-The result of running the command in Cloud Shell shows that three instances now exist. 
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-  ```bash
-  {
-    "capacity": 3,
-  }
-  ```
+1. Navigate to the scale set you configured.
+
+1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (3 instances)` 
+
+1. You can also verify the change with the [Azure Cloud Shell](https://shell.azure.com/) by running the following command:
+
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
+
+  The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
+
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
 ## Next steps
 
