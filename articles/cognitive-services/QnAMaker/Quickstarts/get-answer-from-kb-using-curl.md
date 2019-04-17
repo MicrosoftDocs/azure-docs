@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: diberry
 ---
 
@@ -64,9 +64,11 @@ To generate an answer with CURL, complete the following steps:
 
 ## Use staging endpoint with cURL
 
-If you want to get an answer from the staging endpoint, use the querystring boolean parameter `isTest` with the value of `true`.
+If you want to get an answer from the staging endpoint, use the `isTest` body property.
 
-`isTest=true`
+```json
+isTest:true
+```
 
 ## Next steps
 
