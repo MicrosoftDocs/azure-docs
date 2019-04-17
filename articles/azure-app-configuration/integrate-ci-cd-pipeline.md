@@ -89,4 +89,4 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
 ## Next steps
 
-* [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+* [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
