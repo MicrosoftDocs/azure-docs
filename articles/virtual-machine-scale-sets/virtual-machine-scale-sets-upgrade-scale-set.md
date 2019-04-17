@@ -325,7 +325,7 @@ There is one type of modification to global scale set properties that does not f
 - Azure PowerShell with [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
-    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
+    Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "instanceId" -Reimage
     ```
 
 - Azure CLI with [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
