@@ -4,7 +4,7 @@ description: Create an Azure Service Fabric cluster on any machine (physical or 
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 31349169-de19-4be6-8742-ca20ac41eb9e

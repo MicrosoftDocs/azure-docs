@@ -285,6 +285,9 @@
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
           maintainContext: true
+        - name: MongoDB extension commands
+          href: mongodb-custom-commands.md
+          displayName: custom commands
     - name: Gremlin API
       displayName: graph, graph database
       items: 
@@ -316,7 +319,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Graph data partitioning
           href: graph-partitioning.md
-        - name: Store and manage Spring Data 
+        - name: Optimize Gremlin queries
+          href: graph-execution-profile.md
+        - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
     - name: Cassandra API
@@ -459,12 +464,18 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Find request unit charge
+        displayName: request units, RUs, RU, charge, consumption
+        href: find-request-unit-charge.md
     - name: Working with containers and items
       items:
       - name: Create a container
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Data modeling and partitioning - a real-world example
+        displayName: model, partition, example
+        href: how-to-model-partition-example.md
       - name: Configure time to live
         displayName: delete, delete data, ttl
         href: how-to-time-to-live.md
@@ -595,6 +606,10 @@
         href: bulk-executor-dot-net.md
       - name: Bulk executor - Java library
         href: bulk-executor-java.md
+    - name: Change feed
+      items:
+      - name: Troubleshoot Azure Cosmos DB Trigger
+        href: troubleshoot-changefeed-functions.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot Java Async SDK

@@ -17,6 +17,8 @@ ms.author: kumud
 
 Azure Resource Manager is the preferred management interface for services in Azure. Azure Traffic Manager profiles can be managed using Azure Resource Manager-based APIs and tools.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Resource model
 
 Azure Traffic Manager is configured using a collection of settings called a Traffic Manager profile. This profile contains DNS settings, traffic routing settings, endpoint monitoring settings, and a list of service endpoints to which traffic is routed.
@@ -248,10 +250,10 @@ These changes can be made by getting/updating/setting the endpoint or profile re
 
 ### Example 1: Enabling and disabling a Traffic Manager profile
 
-To enable a Traffic Manager profile, use `Enable-AzureRmTrafficManagerProfile`. The profile can be specified using a profile object. The profile object can be passed via the pipeline or by using the '-TrafficManagerProfile' parameter. In this example, we specify the profile by the profile and resource group name.
+To enable a Traffic Manager profile, use `Enable-AzTrafficManagerProfile`. The profile can be specified using a profile object. The profile object can be passed via the pipeline or by using the '-TrafficManagerProfile' parameter. In this example, we specify the profile by the profile and resource group name.
 
 ```powershell
-Enable-AzureRmTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
+Enable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGroup
 ```
 
 To disable a Traffic Manager profile:
@@ -264,13 +266,13 @@ The Disable-AzTrafficManagerProfile cmdlet prompts for confirmation. This prompt
 
 ### Example 2: Enabling and disabling a Traffic Manager endpoint
 
-To enable a Traffic Manager endpoint, use `Enable-AzureRmTrafficManagerEndpoint`. There are two ways to specify the endpoint
+To enable a Traffic Manager endpoint, use `Enable-AzTrafficManagerEndpoint`. There are two ways to specify the endpoint
 
 1. Using a TrafficManagerEndpoint object passed via the pipeline or using the '-TrafficManagerEndpoint' parameter
 2. Using the endpoint name, endpoint type, profile name, and resource group name:
 
 ```powershell
-Enable-AzureRmTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
+Enable-AzTrafficManagerEndpoint -Name MyEndpoint -Type AzureEndpoints -ProfileName MyProfile -ResourceGroupName MyRG
 ```
 
 Similarly, to disable a Traffic Manager endpoint:
