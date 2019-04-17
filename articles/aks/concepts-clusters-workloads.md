@@ -99,6 +99,25 @@ Nodes of the same configuration are grouped together into *node pools*. A Kubern
 
 When you scale or upgrade an AKS cluster, the action is performed against the default node pool. For upgrade operations, running containers are scheduled on other nodes in the node pool until all the nodes are successfully upgraded.
 
+### Node selectors
+
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler where a given resource should run. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters to control where a pod should be scheduled, such as the node OS. The following basic example scheduled an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
+
+```yaml
+kind: Pod
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  containers:
+    - name: myfrontend
+      image: nginx:1.15.12
+  nodeSelector:
+    "beta.kubernetes.io/os": linux
+```
+
+For more information on how to control where pods are scheduled, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+
 ## Pods
 
 Kubernetes uses *pods* to run an instance of your application. A pod represents a single instance of your application. Pods typically have a 1:1 mapping with a container, although there are advanced scenarios where a pod may contain multiple containers. These multi-container pods are scheduled together on the same node, and allow containers to share related resources.
@@ -238,3 +257,4 @@ This article covers some of the core Kubernetes components and how they apply to
 [aks-helm]: kubernetes-helm.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
