@@ -21,7 +21,7 @@ ms.date: 01/25/2019
 
 1. Add a workspace configuration file to the cloned directory using either of these methods:
 
-    * In the [Azure Portal](), select  **Download config.json** from the **Overview** section of your workspace. 
+    * In the [Azure portal](), select  **Download config.json** from the **Overview** section of your workspace. 
 
     ![Download config.json](./media/aml-dsvm-server/download-config.png)
 
