@@ -103,7 +103,7 @@ Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use
         });
     ```
 
-3. Call your function `sentimentAnalysisExample()` and execute your code by running the app `node index.js`
+3. Call your function `sentimentAnalysisExample()` and run your the app by executing `node index.js`
 ### Output
 
 ```console
@@ -129,21 +129,35 @@ id: 4, score: 1.00
     }
     ```
 
-2. In the same function, call `client.DetectLanguageAsync() TODO:check thos` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+2. In the same function, call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
     ```javascript
-        'code here'
+        const operation = client.detectLanguage({
+          languageBatchInput: inputDocuments
+        });
+        operation
+          .then(result => {
+            result.documents.forEach(document => {
+              console.log(
+                `ID: ${document.id}`,
+                `Language ${document.detectedLanguages}`
+              );
+            });
+          })
+          .catch(err => {
+            throw err;
+          });
     ```
 
-4. Call your function `detectLanguageExample()` and execute your code by running the app `node index.js`
+4. Call your function `detectLanguageExample()` and run the app by executing `node index.js`
 
 ### Output
 
 ```console
 ===== LANGUAGE EXTRACTION ======
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
+ID: 1 Language English
+ID: 2 Language Spanish
+ID: 3 Language Chinese_Simplified
 ```
 
 ## Entity recognition
@@ -163,7 +177,7 @@ Document ID: 3 , Language: Chinese_Simplified
     'code here'
     ```
 
-4. Call your function `recognizeEntitiesExample()` and execute your code by running the app `node index.js`
+4. Call your function `recognizeEntitiesExample()` and run your the app by executing `node index.js`
 
 ### Output
 
@@ -215,7 +229,7 @@ Document ID: 2
         'code here'
     ```
 
-4. Call your function `keyPhraseExtractionExample()` and execute your code by running the app `node index.js`
+4. Call your function `keyPhraseExtractionExample()` and run your the app by executing `node index.js`
 
 ### Output
 
