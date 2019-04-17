@@ -22,7 +22,7 @@ ms.date: 04/04/2019
 >
 > * Retrieve host information for a group of Azure VMs
 > * Clone and build the sample app
-> * Installs the JRE (Java Runtime Environment) on a scale set
+> * Install the JRE (Java Runtime Environment) on a scale set
 > * Deploy the Java application to a scale set
 
 ## Prerequisites
@@ -118,7 +118,7 @@ After running the playbook, you see output similar to the following results:
 
 The playbook code in this section is used to:
 
-* Install the JRE (Java Runtime Environment) on a host group named `saclesethosts`
+* Install the JRE on a host group named `saclesethosts`
 * Deploy the Java application to a host group named **saclesethosts**
 
 Save the following playbook as `vmss-setup-deploy.yml`:
@@ -229,7 +229,7 @@ The output from running the ansible-playbook command indicates that the sample J
 
 ## Verify the results
 
-Verify your results of your work by navigating to the URL of the load balancer for your scale set:
+Verify the results of your work by navigating to the URL of the load balancer for your scale set:
 
 ![Java app running in a scale set in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
