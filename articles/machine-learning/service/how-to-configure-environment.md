@@ -52,7 +52,7 @@ To install the SDK environment for your [local computer](#local), [Jupyter Noteb
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
 
-## <a id="workstation"></a>Your own cloud-based notebook server
+## <a id="notebookvm"></a>Your own cloud-based notebook server
 
 Create a notebook server in your Azure Machine Learning workspace for the easiest way to get started with Azure Machine Learning development.
 
