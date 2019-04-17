@@ -213,6 +213,32 @@ The following example shows how LUIS uses **datetimeV2** to resolve the utteranc
   ]
 ```
 
+## Preview V3 JSON
+
+DatetimeV2 JSON response has changed in the API V3.
+
+Changes from API V2:
+* `datetimeV2.timex.type` property is no longer returned because it is returned at the parent level, `datetimev2.type`. 
+* The `datetimeV2.timex` property has been renamed to `datetimeV2.value`.
+
+V3 version of DatetimeV2 is:
+
+```JSON
+"entities": [
+    "datetimeV2": [
+        {
+            "type": "date",
+            "values": [
+                {
+                    "timex": "2019-05-06",
+                    "value": "2019-05-06"
+                }
+            ]
+        }
+    ]
+]
+```
+
 ## Deprecated prebuilt datetime
 
 The `datetime` prebuilt entity is deprecated and replaced by **datetimeV2**. 

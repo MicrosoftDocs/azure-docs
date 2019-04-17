@@ -126,7 +126,7 @@ v3 endpoint success response:
 
 ## Prebuilt domains with new models and language coverage
 
-Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains). These domains are more complete, both in the model, and the language coverage. 
+Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md). These domains are more complete, both in the model, and the language coverage. 
 
 <!--
 
