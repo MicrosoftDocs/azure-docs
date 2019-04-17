@@ -48,49 +48,49 @@ pip3 install azure-mgmt-media==1.1.1
 1. Add the code that follows to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
 
       Set the variables' values to the values you got from [Access APIs](access-api-cli-how-to.md)
- 
-```
-import adal
-from msrestazure.azure_active_directory import AdalAuthentication
-from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
-from azure.mgmt.media import AzureMediaServices
-from azure.mgmt.media.models import MediaService
 
-RESOURCE = 'https://management.core.windows.net/'
-# Tenant ID for your Azure Subscription
-TENANT_ID = '00000000-0000-0000-000000000000'
-# Your Service Principal App ID
-CLIENT = '00000000-0000-0000-000000000000'
-# Your Service Principal Password
-KEY = '00000000-0000-0000-000000000000'
-# Your Azure Subscription ID
-SUBSCRIPTION_ID = '00000000-0000-0000-000000000000'
-# Your Azure Media Service (AMS) Account Name
-ACCOUNT_NAME = 'amsv3account'
-# Your Resource Group Name
-RESOUCE_GROUP_NAME = 'AMSv3ResourceGroup'
+      ```
+      import adal
+      from msrestazure.azure_active_directory import AdalAuthentication
+      from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+      from azure.mgmt.media import AzureMediaServices
+      from azure.mgmt.media.models import MediaService
 
-LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+      RESOURCE = 'https://management.core.windows.net/'
+      # Tenant ID for your Azure Subscription
+      TENANT_ID = '00000000-0000-0000-000000000000'
+      # Your Service Principal App ID
+      CLIENT = '00000000-0000-0000-000000000000'
+      # Your Service Principal Password
+      KEY = '00000000-0000-0000-000000000000'
+      # Your Azure Subscription ID
+      SUBSCRIPTION_ID = '00000000-0000-0000-000000000000'
+      # Your Azure Media Service (AMS) Account Name
+      ACCOUNT_NAME = 'amsv3account'
+      # Your Resource Group Name
+      RESOUCE_GROUP_NAME = 'AMSv3ResourceGroup'
 
-context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
-credentials = AdalAuthentication(
-    context.acquire_token_with_client_credentials,
-    RESOURCE,
-    CLIENT,
-    KEY
-)
+      LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
+      RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
 
-# The AMS Client
-# You can now use this object to perform different operations to your AMS account.
-client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
+      context = adal.AuthenticationContext(LOGIN_ENDPOINT + '/' + TENANT_ID)
+      credentials = AdalAuthentication(
+          context.acquire_token_with_client_credentials,
+          RESOURCE,
+          CLIENT,
+          KEY
+      )
 
-print("signed in")
+      # The AMS Client
+      # You can now use this object to perform different operations to your AMS account.
+      client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
 
-# Now that you are authenticated, you can manipulate the entities.
-# For example, list assets in your AMS account
-print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
-```
+      print("signed in")
+
+      # Now that you are authenticated, you can manipulate the entities.
+      # For example, list assets in your AMS account
+      print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
+      ```
 
 1. Run the file
 
