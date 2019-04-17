@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 04/12/2019
+ms.date: 04/17/2019
 ms.topic: tutorial
 ms.author: jgao
 
@@ -48,6 +48,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete this article, you need:
 
 * Complete [Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+* Download [the templates and the artifacts](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) that is used by this tutorial.
 
 ## Create a health check service
 
@@ -56,11 +57,14 @@ To test the health check function, you need a health check service. An easy solu
 Two files are used for deploying the Azure Function:
 
 * A resource manager template located at [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). You deploy this template to create an Azure Function.  
-* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0412.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
+* A zip file of the Azure Function source code, [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/RestHealthTest.zip). This zip called is called by the resource manager template.
 
 You don't need to download these two files.
 
 To deploy the Azure function, select **Try it** to open the Azure Cloud shell, and then paste the following script into the shell window.  To paste the code, right-click the shell window. The project name is used as a prefix to generate unique resource names.
+
+> [!IMPORTANT]
+> **projectName** in the script is used to generate names for the Azure services. Make sure to use the same projectName through the tutorial.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
@@ -77,30 +81,39 @@ To verify and test the Azure function:
 1. Open the [Azure portal](https://portal.azure.com).
 1. Open the resource group.  The default name is the project name with **rg** appended.
 1. Select the app service from the resource group.  The default name of the app service is the project name with **webapp** appended.
-1. Expand **Functions**, and then select **HttpTriggerCSharp1**. 
+1. Expand **Functions**, and then select **HttpTrigger1**. 
+
+    ![Azure Deployment Manager health check Azure Function](./media/deployment-manager-tutorial-health-check/azure-deployment-manager-hc-function.png)
+
 1. Select **&lt;/> Get function URL**.
 1. Select **Copy** to copy the URL to the clipboard.  The URL is similar to:
 
     ```url
-    https://johndole0412webapp.azurewebsites.net/api/HttpTrigger1?code=AYNGhKjJVKF4WYPkKs/s9T56YpMxjBhgTDnkvSZVnYGL8hud8wGelQ==
+    https://myhc0417webapp.azurewebsites.net/api/healthStatus/{healthStatus}?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
     ```
 
-1. Open the URL with **&status=healthy** appended from a browser.  The result shall be similar to:
+1. Open the URL with a health status populated, such as:
+
+    ```url
+    https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy?code=hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==
+    ```
+
+    The result shall be similar to:
 
     ```console
     Status: healthy
     ```
 
-1. You need the following values when you deploy the rollout:
+1. You need the following values when you deploy the rollout later in this tutorial:
 
-    - The URL: the URL before **?**, such as **https://johndole0412webapp.azurewebsites.net/api/HttpTrigger1** from the previous URL.
-    - The code: the value of the **code**, such as **AYNGhKjJVKF4WYPkKs/s9T56YpMxjBhgTDnkvSZVnYGL8hud8wGelQ==** from the previous URL.
+    - The URL: the URL before **?**, such as **https://myhc0417webapp.azurewebsites.net/api/healthStatus/healthy** from the previous URL.
+    - The code: the value of the **code**, such as **hc4Y1wY4AqsskAkVw6WLAN1A4E6aB0h3MbQ3YJRF3XtXgHvooaG0aw==** from the previous URL.
 
 ## Revise the rollout template
 
-bla, bla, bla ...
+Use the following steps to configure the Azure Deployment Manager rollout template to consume the health check Azure Function.
 
-1. Open **CreateADMRollout.json**.
+1. Open **CreateADMRollout.json**. This JSON file is a part of the download.  See [Prerequisites](#prerequisites).
 1. Add two more parameters:
 
     ```json
@@ -166,6 +179,8 @@ bla, bla, bla ...
     },
     ```
 
+    Based on the definition, the rollout proceeds if the health status is either *healthy* or *warning*. 
+
 1. Update the **dependsON** of the rollout defintion to:
 
     ```json
@@ -192,7 +207,7 @@ bla, bla, bla ...
             "deploymentTargetId": "[resourceId('Microsoft.DeploymentManager/serviceTopologies/services/serviceUnits', variables('serviceTopology').name, variables('serviceTopology').serviceWUS.name,  variables('serviceTopology').serviceWUS.serviceUnit1.name)]",
             "postDeploymentSteps": [
                 {
-                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'HealthCheckStep1')]"
+                    "stepId": "[resourceId('Microsoft.DeploymentManager/steps/', 'HealthCheckStep')]"
                 }
             ]
         },
@@ -212,6 +227,8 @@ bla, bla, bla ...
     ]
     ```
 
+    The health check step is used after rolling out stepGroup1 and stepGroup2. stepGroup3 and stepGroup4 will only be deployed if the healthy status is either *healthy* or *warning*.
+
 ## Deploy the topology
 
 To simplify the tutorial, the topology template and artifacts are shared at:
@@ -219,11 +236,13 @@ To simplify the tutorial, the topology template and artifacts are shared at:
 * Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
 * Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
+If you want to use your own, see [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
 ```azurepowershell-interactive
 
-$projectName = Read-Host -Prompt "Enter a project name used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $resourceGroupName = "${projectName}rg"
 $artifactLocation = "https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore" | ConvertTo-SecureString -AsPlainText -Force
@@ -239,15 +258,23 @@ New-AzResourceGroupDeployment `
 
 Verify the service topology and the underlined resources have been created successfully using the Azure portal:
 
-    ![Azure Deployment Manager tutorial deployed service topology resources](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
+![Azure Deployment Manager tutorial deployed service topology resources](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-deployed-topology-resources.png)
 
-    **Show hidden types** must be selected to see the resources.
+**Show hidden types** must be selected to see the resources.
 
 ## Deploy the rollout
 
+To simplify the tutorial, the revised rollout template is shared at:
+
+* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+
+If you want to use your own, see [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
+
+To test both the healthy and non-healthy scenario, you can first give an error status in **healthCheckUrl**.  After you verify that only the west U.S. resources are deployed, give a healthy status in **healthCheckUrl**. This time, both the west U.S. resource, and the east U.S. resource shall be deployed.
 
 ```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name used to generate Azure resource names"
+$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
 $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
 $managedIdentityID = Read-Host -Prompt "Enter a user-assigned managed identity"
 $healthCheckUrl = Read-Host -Prompt "Enter the health check Azure function URL"
@@ -265,14 +292,17 @@ New-AzResourceGroupDeployment `
     -artifactSourceSASLocation $artifactLocation `
     -managedIdentityID $managedIdentityID `
     -healthCheckUrl $healthCheckUrl `
-    -healthCheckAuthAPIKey healthCheckAuthAPIKey
+    -healthCheckAuthAPIKey $healthCheckAuthAPIKey
 ```
 
-4. Check the rollout progress using the following PowerShell script:
+To check the rollout progress using the following PowerShell script:
 
     ```azurepowershell
+    $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
+    $resourceGroupName = "${projectName}rg"
+    $rolloutName = "${projectName}Rollout"
+
     # Get the rollout status
-    $rolloutname = "<Enter the Rollout Name>" # "adm0925Rollout" is the rollout name used in this tutorial
     Get-AzDeploymentManagerRollout `
         -ResourceGroupName $resourceGroupName `
         -Name $rolloutName `
@@ -346,15 +376,6 @@ New-AzResourceGroupDeployment `
 1. Open the [Azure portal](https://portal.azure.com).
 2. Browse to the newly create web applications under the new resource groups created by the rollout deployment.
 3. Open the web application in a web browser. Verify the location and the version on the index.html file.
-
-## Deploy the revision
-
-When you have a new version (1.0.0.1) for the web application. You can use the following procedure to redeploy the web application.
-
-1. Open CreateADMRollout.Parameters.json.
-2. Update **binaryArtifactRoot** to **binaries/1.0.0.1**.
-3. Redeploy the rollout as instructed in [Deploy the templates](#deploy-the-rollout-template).
-4. Verify the deployment as instructed in [Verify the deployment](#verify-the-deployment). The web page shall show the 1.0.0.1 version.
 
 ## Clean up resources
 
