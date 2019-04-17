@@ -85,39 +85,48 @@ These samples show how to set up a container with a custom conflict resolution p
 
 ### Sample custom conflict resolution stored procedure
 
-Custom conflict resolution stored procedures must be implemented using the function signature shown below. The function name does not need to match the name used when registering the stored procedure with the container but it does simplify naming.
+Custom conflict resolution stored procedures must be implemented using the function signature shown below. The function name does not need to match the name used when registering the stored procedure with the container but it does simplify naming. Here is a description of the parameters that must be implemented for this stored procedure.
+
+- **incomingItem**: The item being inserted or updated in the commit that is generating the conflicts. Is null for delete operations.
+- **existingItem**: The currently committed item. This value is non-null in an update and null for an insert or delete.
+- **isTombstone**: Boolean indicating if the incomingItem is conflicting with a previously deleted item. When true, existingItem is also null.
+- **conflictingItems**: Array of the committed version of all items in the container which are conflicting with incomingItem on id or any other unique index properties.
+
+> [!IMPORTANT]
+> Just as with any stored procedure, a custom conflict resolution procedure can access any data with the same partition key and can perform any insert, update or delete operation to resolve conflicts.
+
 
 This sample stored procedure resolves conflicts by selecting the lowest value from the `/myCustomId` path.
 
 ```javascript
-function resolver(incomingRecord, existingRecord, isTombstone, conflictingRecords) {
+function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
   var collection = getContext().getCollection();
 
-  if (!incomingRecord) {
-      if (existingRecord) {
+  if (!incomingItem) {
+      if (existingItem) {
 
-          collection.deleteDocument(existingRecord._self, {}, function (err, responseOptions) {
+          collection.deleteDocument(existingItem._self, {}, function (err, responseOptions) {
               if (err) throw err;
           });
       }
   } else if (isTombstone) {
       // delete always wins.
   } else {
-      if (existingRecord) {
-          if (incomingRecord.myCustomId > existingRecord.myCustomId) {
-              return; // existing record wins
+      if (existingItem) {
+          if (incomingItem.myCustomId > existingItem.myCustomId) {
+              return; // existing item wins
           }
       }
 
       var i;
-      for (i = 0; i < conflictingRecords.length; i++) {
-          if (incomingRecord.myCustomId > conflictingRecords[i].myCustomId) {
-              return; // existing conflict record wins
+      for (i = 0; i < conflictingItems.length; i++) {
+          if (incomingItem.myCustomId > conflictingItems[i].myCustomId) {
+              return; // existing conflict item wins
           }
       }
 
-      // incoming record wins - clear conflicts and replace existing with incoming.
-      tryDelete(conflictingRecords, incomingRecord, existingRecord);
+      // incoming item wins - clear conflicts and replace existing with incoming.
+      tryDelete(conflictingItems, incomingItem, existingItem);
   }
 
   function tryDelete(documents, incoming, existing) {
