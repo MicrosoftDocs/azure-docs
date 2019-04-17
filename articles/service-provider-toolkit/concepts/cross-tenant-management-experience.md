@@ -96,5 +96,5 @@ With all scenarios, please be aware of the following current limitations:
 
 - While Azure Resource Manager operations are supported, Resource Provider operations (such as KeyVault secrets access, storage data access, VM login, etc.) can’t be performed using Azure Delegated Resource Management.
 - Role assignments with managed identities for Azure resources are not supported in the cross-tenant management experience.
-- Role assignments must use the role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) and not [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators).
+- Role assignments must use role-based access control (RBAC) [built-in roles](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles). Custom roles and [classic subscription administrator roles](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) aren't supported.
 - If a customer has deployed any Azure managed applications to a subscription, that subscription can't be onboarded for Azure Delegated Resource Management.
