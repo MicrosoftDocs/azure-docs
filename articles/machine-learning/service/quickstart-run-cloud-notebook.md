@@ -42,8 +42,6 @@ If you don’t have an Azure subscription, create a free account before you begi
 1. On your workspace page in Azure portal, select **Notebook VMs** on the left.
 
 
-1. On the left hand side, select **Notebook VMs**.  
-
 1. Select **+Add** to create a notebook VM.
 
      ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
