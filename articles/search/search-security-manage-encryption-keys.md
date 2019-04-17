@@ -232,7 +232,7 @@ To create an AAD application in the portal:
 
 ## Next steps
 
-If you are unfamiliar with Azure security architecture, review the [Azure Security documentation](https://docs.microsoft.com/en-us/azure/security/), and in particular, this article:
+If you are unfamiliar with Azure security architecture, review the [Azure Security documentation](https://docs.microsoft.com/azure/security/), and in particular, this article:
 
 > [!div class="nextstepaction"]
 > [Data encryption-at-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
