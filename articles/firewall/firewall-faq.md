@@ -73,14 +73,7 @@ For secure access to PaaS services, we recommend service endpoints. You can choo
 
 ## What is the pricing for Azure Firewall?
 
-Azure Firewall has a fixed cost + variable cost:
-
-* Fixed fee: $1.25/firewall/hour
-* Variable fee: $0.03/GB processed by the firewall (ingress or egress)
-
-There are no costs for a deallocated firewall.
-
-For more information, see [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
+See [Azure Firewall Pricing](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ## How can I stop and start Azure Firewall?
 
@@ -111,7 +104,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 ## What are the known service limits?
 
-For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](/articles/azure-subscription-service-limits.md#azure-firewall-limits)
+For Azure Firewall service limits, see [Azure subscription and service limits, quotas, and constraints](/articles/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Can Azure Firewall in a hub virtual network forward and filter network traffic between two spoke virtual networks?
 
