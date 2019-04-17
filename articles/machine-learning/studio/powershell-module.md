@@ -29,7 +29,7 @@ Check the [support table](#support-table) below to see which resources are suppo
 
 Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features.  Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio "New" web services. 
 
-PowerShell classic can be installed alongside either Az or AzureRM to cover both "new" and "classis" resource types. However, it is not recommended to have Az and AzureRM installed at the same time. To decide between Az and AzureRM, Microsoft recommends Az for all future deployments.  Learn more about Az versus AzureRM and the migration path in [introduction to the Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
+PowerShell classic can be installed alongside either Az or AzureRM to cover both "new" and "classic" resource types. However, it is not recommended to have Az and AzureRM installed at the same time. To decide between Az and AzureRM, Microsoft recommends Az for all future deployments.  Learn more about Az versus AzureRM and the migration path in [introduction to the Azure PowerShell Az](https://docs.microsoft.com/powershell/azure/new-azureps-module-az).
 
 To get started with Az, follow the [installation instructions for Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -41,7 +41,7 @@ However, Microsoft recommends that you use the Resource Manager deployment model
 
 To get started with PowerShell classic, download the [release package](https://github.com/hning86/azuremlps/releases) from GitHub and follow the [instructions for installation](https://github.com/hning86/azuremlps/blob/master/README.md). The instructions explain how to unblock the downloaded/unzipped DLL and then import it into your PowerShell environment.
 
-PowerShell classic can be installed alongside either Az or AzureRM to cover both "new" and "classis" resource types.
+PowerShell classic can be installed alongside either Az or AzureRM to cover both "new" and "classic" resource types.
 
 ## <a name="support-table"></a> PowerShell support table
 
