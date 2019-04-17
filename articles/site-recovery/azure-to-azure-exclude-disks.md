@@ -70,11 +70,11 @@ $OSDiskVhdURI = $VM.StorageProfile.OsDisk.Vhd
 $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 ```
 
-## Replicate Azure virtual machine
+## Replicate an Azure virtual machine
 
-For the following procedure, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
+For the following example, we assume that you already have a cache storage account, replication policy, and mappings. If you don't have these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 
-### Replicate an Azure virtual machine with managed disks
+Replicate an Azure virtual machine with *managed disks*.
 
 ```azurepowershell
 
