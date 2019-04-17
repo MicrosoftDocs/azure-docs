@@ -167,6 +167,8 @@
       href: set-runtime-version.md
     - name: Manually register an extension 
       href: install-update-binding-extensions-manual.md
+    - name: Reference bindings in non-.NET functions 
+      href: functions-extension-bundles.md
     - name: Disable a function 
       href: disable-function.md
   - name: Monitor
