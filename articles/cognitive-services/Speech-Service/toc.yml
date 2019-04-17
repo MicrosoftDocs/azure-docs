@@ -128,7 +128,10 @@
   - name: Enable logging (SDK)
     href: how-to-use-logging.md
     displayName: debug, log, logging
-  - name: Customization
+  - name: Transcribe conversations (SDK)
+    href: how-to-use-conversation-transcription-service.md
+    displayName: conversation, transcription, speech recognition
+ - name: Customization
     items:
     - name: Speech-to-text
       items:
