@@ -62,12 +62,12 @@ DevTest Labs provides the following benefits in creating, configuring, and manag
 DevTest Labs makes it easier to control costs by allowing you to do the following tasks:
 
 - [Set policies on your labs](devtest-lab-get-started-with-lab-policies.md), such as number of VMs per user or per lab. 
-- Create [policies to automatically shut down](lab-services/devtest-lab-set-lab-policy.md) and start VMs.
+- Create [policies to automatically shut down](devtest-lab-set-lab-policy.md) and start VMs.
 - Track costs on VMs and PaaS resources spun up inside labs to stay within [your budget](devtest-lab-configure-cost-management.md).
 - Stay within the context of your labs so you don't spin up resources outside of them.
 
 ## Quickly get to ready-to-test
-DevTest Labs lets you create pre-provisioned environments equipped with everything your team needs to develop and test applications. Just [claim the environments](lab-services/devtest-lab-add-claimable-vm.md) where the last good build of your application is installed and start working. Or use containers for even faster, leaner environment creation.
+DevTest Labs lets you create pre-provisioned environments equipped with everything your team needs to develop and test applications. Just [claim the environments](devtest-lab-add-claimable-vm.md) where the last good build of your application is installed and start working. Or use containers for even faster, leaner environment creation.
 
 ## Create once, use everywhere
 Capture and share PaaS [environment templates](devtest-lab-create-environment-from-arm.md) and [artifacts](add-artifact-repository.md) within your team or organization—all in source control—to easily create developer and test environments.
