@@ -67,6 +67,5 @@ To get started with PowerShell classic, download the [release package](https://g
 
 ## Next steps
 Follow these links for full documentation for the PowerShell modules:
-* [AzureRM](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/#machine_learning)
 * [PowerShell classic](https://aka.ms/amlps)
 * [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
