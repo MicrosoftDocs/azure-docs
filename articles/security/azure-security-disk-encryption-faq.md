@@ -5,7 +5,7 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
 ---
 
@@ -40,6 +40,7 @@ Linux server distributions that are not endorsed by Azure do not support Azure D
 
 | Linux distribution | Version | Volume type supported for encryption|
 | --- | --- |--- |
+| Ubuntu | 18.04| OS and data disk |
 | Ubuntu | 16.04| OS and data disk |
 | Ubuntu | 14.04.5</br>[with Azure tuned kernel updated to 4.15 or later](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS and data disk |
 | RHEL | 7.6 | OS and data disk* |
