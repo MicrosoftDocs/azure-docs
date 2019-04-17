@@ -24,7 +24,9 @@ ms.author: robinsh
 
 You learn how to create a logic app that connects your IoT hub and your mailbox for temperature monitoring and notifications.
 
-The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to true (`temperatureAlert : true`); otherwise, it sets the property to false. You set up routing on your IoT hub to send messages in which the `temperatureAlert` property is true to a Service Bus endpoint, where they trigger your logic app to send you an email notification.
+The client code running on your device sets an application property, `temperatureAlert`, on every telemetry message it sends to your IoT hub. When the client code detects a temperature above 30 C, it sets this property to `true`; otherwise, it sets the property to `false`.
+
+In this topic, you set up routing on your IoT hub to send messages in which `temperatureAlert = true` to a Service Bus endpoint, and you set up a logic app that triggers on the messages arriving at the Service Bus endpoint and sends you an email notification.
 
 ## What you do
 
@@ -74,7 +76,7 @@ Create a Service Bus namespace and queue. Later in this topic, you create a rout
 
 ## Add a custom endpoint and routing rule to your IoT hub
 
-Add a custom endpoint for the Service Bus queue to your IoT hub and create a routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app.
+Add a custom endpoint for the Service Bus queue to your IoT hub and create a message routing rule to direct messages that contain a temperature alert to that endpoint, where they will be picked up by your logic app. The routing rule uses a routing query, `temperatureAlert = "true"`, to forward messages based on the value of the `temperatureAlert` application property set by the client code running on the device. To learn more, see [Message routing query based on message properties](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-properties).
 
 ### Add a custom endpoint
 
@@ -145,13 +147,13 @@ In the preceding section, you set up your IoT hub to route messages containing a
    ![Select the trigger for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/service-bus-trigger.png)
 
 1. Create a service bus connection.
-   1. Enter a connection name and select your Service Bus namespace from the list.
+   1. Enter a connection name and select your Service Bus namespace from the list. The next screen opens.
 
       ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/create-service-bus-connection-1.png)
    1. Select the service bus policy (RootManageSharedAccessKey). Then select  **Create**.
 
       ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
-   1. For **Queue name**, select the queue that you created from the drop-down. Enter `175` for **Maximum message count**
+   1. On the next screen, for **Queue name**, select the queue that you created from the drop-down. Enter `175` for **Maximum message count**
 
       ![Specify the maximum message count for the service bus connection in your logic app](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
    1. Select **Save** on the menu at the top of the Logic Apps Designer to save your changes.
@@ -173,7 +175,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
       > [!NOTE]
       > You may need to disable SSL to establish the connection. If this is the case and you want to re-enable SSL after the connection has been established, see the optional step at the end of this section.
 
-   1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. Click anywhere on the screen to close the selection box.
+   1. From the **Add new parameter** drop-down on the **Send Email** step, select **From**, **To**, **Subject** and **Body**. Click or tap anywhere on the screen to close the selection box.
 
       ![Choose SMTP connection email fields](media/iot-hub-monitoring-notifications-with-azure-logic-apps/smtp-connection-choose-fields.png)
    1. Enter your email address for **From** and **To**, and `High temperature detected` for **Subject** and **Body**. If the **Add dynamic content from the apps and connectors used in this flow** dialog opens, select **Hide** to close it. You do not use dynamic content in this tutorial.
