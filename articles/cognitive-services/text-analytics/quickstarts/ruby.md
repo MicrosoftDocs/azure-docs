@@ -3,19 +3,20 @@ title: 'Quickstart: Using Ruby to call the Text Analytics API'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: aahill
+author: raymondl
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 02/15/2019
-ms.author: aahi
+ms.date: 04/17/2019
+ms.author: tasharm
 ---
 # Quickstart: Using Ruby to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Ruby.
+
+Use this quickstart to begin analyzing language with the Text Analytics APIs with Ruby.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -55,8 +56,6 @@ accessKey = 'enter key here'
 # For example, if you obtained your access keys from the westus region, replace 
 # "westcentralus" in the URI below with "westus".
 #
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.0/languages'
 
@@ -132,7 +131,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Analyze sentiment
 
-The Sentiment Analysis API detexts the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
+The Sentiment Analysis API detects the sentiment of a set of text records, using the [Sentiment method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). The following example scores two documents, one in English and another in Spanish.
 
 1. Create a new Ruby project in your favorite IDE.
 2. Add the code provided below.
@@ -158,8 +157,6 @@ accessKey = 'enter key here'
 # For example, if you obtained your access keys from the westus region, replace 
 # "westcentralus" in the URI below with "westus".
 #
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.0/sentiment'
 
@@ -235,8 +232,6 @@ accessKey = 'enter key here'
 # For example, if you obtained your access keys from the westus region, replace 
 # "westcentralus" in the URI below with "westus".
 #
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.0/keyPhrases'
 
@@ -332,8 +327,6 @@ accessKey = 'enter key here'
 # For example, if you obtained your access keys from the westus region, replace 
 # "westcentralus" in the URI below with "westus".
 #
-# NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
-# a free trial access key, you should not need to change this region.
 uri = 'https://westus.api.cognitive.microsoft.com'
 path = '/text/analytics/v2.1-preview/entities'
 
