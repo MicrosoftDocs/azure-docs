@@ -26,21 +26,21 @@ A serverless database in SQL DB is parameterized by the compute range it can use
 
 ### Performance
 
-- Min vcores and max vcores are configurable parameters which define the range of compute capacity available for the database. Memory and IO limits are proportional to the vcore range specified.  
-- The auto-pause delay is a configurable parameter which defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
+- Min vCores and max vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vcore range specified.  
+- The auto-pause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
 
 ### Pricing
 
 - The total bill for a serverless database is the summation of the compute bill and storage bill. 
-Billing for compute is based on the amount of vcores used and memory used per second.
-- The minimum compute billed is based on min vcores and min memory.
+Billing for compute is based on the amount of vCores used and memory used per second.
+- The minimum compute billed is based on min vCores and min memory.
 - While the database is paused, only storage is billed.
 
 ## Scenarios
 
 Serverless is price-performance optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. The provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
 
-The following table compares serverless compute with provisioned compute:
+The following table compares serverless compute tier with the provisioned compute tier:
 
 ||Serverless compute|Provisioned compute|
 |---|---|---|
@@ -55,7 +55,7 @@ Compute responsiveness|Lower after inactive periods|Immediate|
 
 - Single databases with bursty usage patterns interspersed with periods of inactivity and can benefit from price savings based on billing per second for the amount of compute used.
 - Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
-- Single databases in the provisioned compute tier that frequently change their performance level.
+- Single databases in the provisioned compute tier that frequently change performance levels.
 
 ### Scenarios well-suited for provisioned compute
 
@@ -68,7 +68,7 @@ Compute responsiveness|Lower after inactive periods|Immediate|
 The following features do not support auto-pausing and auto-resuming.  That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
 
 - Geo-replication
-- Long term backup retention (LTR)
+- Long-term backup retention (LTR)
 - The sync database used in SQL data sync.
 
 ## Auto-scaling
@@ -99,7 +99,7 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |Query (performance) data store|Modifying or viewing query store settings; automatic tuning.|
 |Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing.|
 |Database copying|Create database as copy.<br>Export BACPAC|
-|SQL data sync|Synchronization between hub and member databases which can run on a configurable schedule or be performed manually.|
+|SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually.|
 |
 
 ### Scaling responsiveness
@@ -111,7 +111,7 @@ In general, databases are run on a machine with sufficient capacity to satisfy r
 
 ### Memory management
 
-Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This is important to control costs in serverless. The following table illustrates the memory management policy for serverless.
+Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This behavior is important to control costs in serverless. The following table illustrates the memory management policy for serverless.
 
 #### Cache reclaiming
 
@@ -131,7 +131,7 @@ The SQL cache grows as data is fetched from disk in the same way and with the sa
 
 ## On-boarding into the serverless compute tier
 
-Creating a new database or moving an existing database into a serverless SKU (service tier and compute size) follows the same pattern as creating a new database in provisioned compute SKUs and involves the following two steps:
+Creating a new database or moving an existing database into a serverless compute tier follows the same pattern as creating a new database in provisioned compute tier and involves the following two steps:
 
 1. Specify the service objective name. The following table shows the available service tier and compute sizes currently available in the public preview.
 
@@ -158,7 +158,7 @@ See [Quickstart: Create a single database in Azure SQL Database using the Azure 
 
 ### Create new database using PowerShell
 
-The following example creates a new database in the serverless SKU defined by service objective named GP_S_Gen5_4 with default values for the min vCores and auto-pause delay.
+The following example creates a new database in the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and auto-pause delay.
 
 ```Powershell
   New-AzSqlDatabase `
@@ -170,7 +170,7 @@ The following example creates a new database in the serverless SKU defined by se
 
 ## Move existing database into serverless
 
-The following example moves an existing database in SQL DB into the serverless SKU defined by service objective named GP_S_Gen5_4 with default values for the min vCores and auto-pause delay.
+The following example moves an existing database in SQL DB into the serverless compute tier defined by service objective named GP_S_Gen5_4 with default values for the min vCores and auto-pause delay.
 
 ```powershell
 Set-AzSqlDatabase  
@@ -187,7 +187,7 @@ Set-AzSqlDatabase
 
 ## Move a database out of serverless
 
-A serverless database can be moved into a provisioned compute SKU in the same way as moving a provisioned compute database into a serverless SKU.
+A serverless database can be moved into a provisioned compute compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
 ## Modify serverless configuration parameters
 
@@ -211,20 +211,20 @@ The resources of a serverless database are encapsulated by the following entitie
 
 #### App package
 
-The app package is the outer most resource management boundary for a database.  This is the case regardless of whether the database is in a serverless or provisioned compute SKU.  The app package contains the SQL instance and external services which together scope all user and system resources used by a database in SQL DB.  Examples of external services include R and full-text search.  The SQL instance generally dominates the overall resource utilization across the app package.
+The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier.  The app package contains the SQL instance and external services Autop together scope all user and system resources used by a database in SQL DB.  Examples of external services include R and full-text search.  The SQL instance generally dominates the overall resource utilization across the app package.
 
 #### User resource pool
 
-The user resource pool is the inner most resource management boundary for a database.  This is the case regardless of whether the database is in a serverless or provisioned compute SKU.  The user resource pool scopes CPU and IO for user workload generated by DDL queries (e.g., CREATE, ALTER, etc.) and DML queries (e.g., SELECT, INSERT, UPDATE, DELETE, etc.).  These queries generally represent the most substantial proportion of utilization within the app package.
+The user resource pool is the inner most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier.  The user resource pool scopes CPU and IO for user workload generated by DDL queries (for example CREATE, ALTER, etc.) and DML queries (for example SELECT, INSERT, UPDATE, DELETE, etc.).  These queries generally represent the most substantial proportion of utilization within the app package.
 
 ### Metrics
 
 |Entity|Metric|Description|Units|
 |---|---|---|---|
-|App package|app_cpu_percent|Percentage of vcores used by the app relative to max vcores allowed for the app.|Percentage|
-|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vcore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vcores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vcores by rescaling the amount of memory in GB by 3 GB per vcore.|Vcore seconds|
+|App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
+|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vcore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vcore.|Vcore seconds|
 |App package|app_memory_percent|Percentage of memory used by the app relative to max memory allowed for the app.|Percentage|
-|User pool|cpu_percent|Percentage of vcores used by user workload relative to max vcores allowed for user workload.|Percentage|
+|User pool|cpu_percent|Percentage of vCores used by user workload relative to max vCores allowed for user workload.|Percentage|
 |User pool|data_IO_percent|Percentage of data IOPS used by user workload relative to max data IOPS allowed for user workload.|Percentage|
 |User pool|log_IO_percent|Percentage of log MB/s used by user workload relative to max log MB/s allowed for user workload.|Percentage|
 |User pool|workers_percent|Percentage of workers used by user workload relative to max workers allowed for user workload.|Percentage|
@@ -236,7 +236,7 @@ ____
 
 ### Pause and resume status
 
-In the Azure portal, the database status is displayed in the overview pane of the server which lists the databases it contains. The database status is also displayed in the overview pane for the database.
+In the Azure portal, the database status is displayed in the overview pane of the server Autop lists the databases it contains. The database status is also displayed in the overview pane for the database.
 
 Using the following PowerShell command to query the pause and resume status of a database:
 
@@ -254,18 +254,18 @@ For resource limits, see [Serverless compute tier](sql-database-vcore-resource-l
 
 ## Billing
 
-The amount of compute billed each second is the maximum of CPU used and memory used each second.  If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vcores by rescaling the amount of memory in GB by 3 GB per vcore.
+The amount of compute billed each second is the maximum of CPU used and memory used each second.  If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vcore.
 
 |Resource billed|Amount billed ($)|Billing frequency|
 |---|---|---|
-|CPU and memory|vcore unit price * max (min vcores, vcores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
+|CPU and memory|vcore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
 |||
 
 The amount of compute billed is exposed by the following metric:
 
 |Metric|Definition|Reporting frequency|
 |---|---|---|
-|app_cpu_billed (vcore seconds)|max (min vcores, vcores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
+|app_cpu_billed (vcore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
 |||
 \* This quantity is calculated each second and aggregated over 1 minute.
  
@@ -293,7 +293,7 @@ Then the compute billed for this 1 hour period is determined as follows:
 
 ## Available regions
 
-The serverless compute tier is available in all regions except the following: China East, China North, Germany Central, Germany Northeast, UK North, UK South, and West Central US
+The serverless compute tier is available in all regions except the following regions: China East, China North, Germany Central, Germany Northeast, UK North, UK South, and West Central US
 
 ## Next steps
 
