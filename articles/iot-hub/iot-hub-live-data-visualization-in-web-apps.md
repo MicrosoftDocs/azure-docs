@@ -1,13 +1,13 @@
 ---
 title: Real-time data visualization of sensor data from your Azure IoT hub – Web Apps | Microsoft Docs
 description: Use the Web Apps feature of Microsoft Azure App Service to visualize temperature and humidity data that is collected from the sensor and sent to your Iot hub.
-author: rangv
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Visualize real-time sensor data from your Azure IoT hub by using the Web Apps feature of Azure App Service
@@ -30,7 +30,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## What you need
 
-* [Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md), which covers the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
 
   * An active Azure subscription
   * An Iot hub under your subscription

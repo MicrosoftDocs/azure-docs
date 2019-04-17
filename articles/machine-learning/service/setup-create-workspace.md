@@ -37,7 +37,7 @@ When you create a workspace the following Azure resources are added automaticall
 
 
 ## Prerequisites
-To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## <a name="portal"></a> Azure portal
 
@@ -135,7 +135,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
-1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
+1. Find a value for the `<azure-subscription-id>` parameter in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor. For more information on roles, see [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
    ```python
    from azureml.core import Workspace
@@ -156,7 +156,7 @@ Create your workspace in a Jupyter Notebook using the Python SDK.
 
 ### Write a configuration file
 
-Save the details of your workspace in a configuration file to the current directory. This file is called *aml_config/config.json*.  
+Save the details of your workspace in a configuration file to the current directory. This file is called *.azureml/config.json*.  
 
 This workspace configuration file makes it easy to load the same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory using the code `ws=Workspace.from_config()` . 
 
@@ -173,13 +173,14 @@ This `write_config()` API call creates the configuration file in the current dir
 ```
 
 > [!TIP]
-> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+> To use your workspace in Python scripts or Jupyter Notebooks located in other directories, copy this file to that directory. The file can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 ## Resource manager template
 
 To create a workspace with a template, see [Create an Azure Machine Learning service workspace by using a template](how-to-create-workspace-template.md)
 
-## CLI
+<a name="cli"></a>
+## Command-line interface
 
 To create a workspace with the CLI, see [Use the CLI extension for Azure Machine Learning service](reference-azure-machine-learning-cli.md).
 
