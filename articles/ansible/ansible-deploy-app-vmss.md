@@ -16,7 +16,14 @@ ms.date: 04/04/2019
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-In this tutorial, Ansible is used to deploy a Java application to a scale set.
+[!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
+
+> [!div class="checklist"]
+>
+> * Retrieve host information for a group of Azure VMs
+> * Clone and build the sample app
+> * Installs the JRE (Java Runtime Environment) on a scale set
+> * Deploy the Java application to a scale set
 
 ## Prerequisites
 
