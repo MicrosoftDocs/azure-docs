@@ -182,7 +182,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
 
       ![Fill-in SMTP connection email fields](media/iot-hub-monitoring-notifications-with-azure-logic-apps/fill-in-smtp-connection-fields.png)
    1. Select **Save** to save the SMTP connection.
-1. (Optional.) If you had to disable SSL to establish a connection with your email provider and want to re-enable it, follow these steps:
+1. (Optional) If you had to disable SSL to establish a connection with your email provider and want to re-enable it, follow these steps:
    1. On the **Logic app** pane, under **Development Tools**, select **API connections**.
    1. From the list of API connections, select the SMTP connection.
    1. On the **smtp API Connection** pane, under **General**, select **Edit API connection**.
