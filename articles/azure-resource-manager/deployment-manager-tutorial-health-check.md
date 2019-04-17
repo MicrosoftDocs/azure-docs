@@ -297,79 +297,79 @@ New-AzResourceGroupDeployment `
 
 To check the rollout progress using the following PowerShell script:
 
-    ```azurepowershell
-    $projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-    $resourceGroupName = "${projectName}rg"
-    $rolloutName = "${projectName}Rollout"
+```azurepowershell
+$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
+$resourceGroupName = "${projectName}rg"
+$rolloutName = "${projectName}Rollout"
 
-    # Get the rollout status
-    Get-AzDeploymentManagerRollout `
-        -ResourceGroupName $resourceGroupName `
-        -Name $rolloutName `
-        -Verbose
-    ```
+# Get the rollout status
+Get-AzDeploymentManagerRollout `
+    -ResourceGroupName $resourceGroupName `
+    -Name $rolloutName `
+    -Verbose
+```
 
-    The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
+The Deployment Manager PowerShell cmdlets must be installed before you can run this cmdlet. See Prerequisites. The -Verbose switch can be used to see the whole output.
 
-    The following sample shows the running status:
+The following sample shows the running status:
 
-    ```
-    VERBOSE:
+```output
+VERBOSE:
 
-    Status: Succeeded
-    ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
-    BuildVersion: 1.0.0.0
+Status: Succeeded
+ArtifactSourceId: /subscriptions/<AzureSubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+BuildVersion: 1.0.0.0
 
-    Operation Info:
-        Retry Attempt: 0
-        Skip Succeeded: False
-        Start Time: 03/05/2019 15:26:13
-        End Time: 03/05/2019 15:31:26
-        Total Duration: 00:05:12
+Operation Info:
+    Retry Attempt: 0
+    Skip Succeeded: False
+    Start Time: 03/05/2019 15:26:13
+    End Time: 03/05/2019 15:31:26
+    Total Duration: 00:05:12
 
-    Service: adm0925ServiceEUS
-        TargetLocation: EastUS
-        TargetSubscriptionId: <AzureSubscriptionID>
+Service: adm0925ServiceEUS
+    TargetLocation: EastUS
+    TargetSubscriptionId: <AzureSubscriptionID>
 
-        ServiceUnit: adm0925ServiceEUSStorage
-            TargetResourceGroup: adm0925ServiceEUSrg
+    ServiceUnit: adm0925ServiceEUSStorage
+        TargetResourceGroup: adm0925ServiceEUSrg
 
-            Step: Deploy
-                Status: Succeeded
-                StepGroup: stepGroup3
-                Operation Info:
-                    DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
-                    CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
-                    Start Time: 03/05/2019 15:26:32
-                    End Time: 03/05/2019 15:27:41
-                    Total Duration: 00:01:08
-                Resource Operations:
+        Step: Deploy
+            Status: Succeeded
+            StepGroup: stepGroup3
+            Operation Info:
+                DeploymentName: 2F535084871E43E7A7A4CE7B45BE06510adm0925ServiceEUSStorage
+                CorrelationId: 0b6f030d-7348-48ae-a578-bcd6bcafe78d
+                Start Time: 03/05/2019 15:26:32
+                End Time: 03/05/2019 15:27:41
+                Total Duration: 00:01:08
+            Resource Operations:
 
-                    Resource Operation 1:
-                    Name: txq6iwnyq5xle
-                    Type: Microsoft.Storage/storageAccounts
-                    ProvisioningState: Succeeded
-                    StatusCode: OK
-                    OperationId: 64A6E6EFEF1F7755
+                Resource Operation 1:
+                Name: txq6iwnyq5xle
+                Type: Microsoft.Storage/storageAccounts
+                ProvisioningState: Succeeded
+                StatusCode: OK
+                OperationId: 64A6E6EFEF1F7755
 
-    ...
+...
 
-    ResourceGroupName       : adm0925rg
-    BuildVersion            : 1.0.0.0
-    ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
-    TargetServiceTopologyId : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/serviceTopologies/adm0925ServiceTopology
-    Status                  : Running
-    TotalRetryAttempts      : 0
-    OperationInfo           : Microsoft.Azure.Commands.DeploymentManager.Models.PSRolloutOperationInfo
-    Services                : {adm0925ServiceEUS, adm0925ServiceWUS}
-    Name                    : adm0925Rollout
-    Type                    : Microsoft.DeploymentManager/rollouts
-    Location                : centralus
-    Id                      : /subscriptions/<SubscriptionID>/resourcegroups/adm0925rg/providers/Microsoft.DeploymentManager/rollouts/adm0925Rollout
-    Tags                    :
-    ```
+ResourceGroupName       : adm0925rg
+BuildVersion            : 1.0.0.0
+ArtifactSourceId        : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/artifactSources/adm0925ArtifactSourceRollout
+TargetServiceTopologyId : /subscriptions/<SubscriptionID>/resourceGroups/adm0925rg/providers/Microsoft.DeploymentManager/serviceTopologies/adm0925ServiceTopology
+Status                  : Running
+TotalRetryAttempts      : 0
+OperationInfo           : Microsoft.Azure.Commands.DeploymentManager.Models.PSRolloutOperationInfo
+Services                : {adm0925ServiceEUS, adm0925ServiceWUS}
+Name                    : adm0925Rollout
+Type                    : Microsoft.DeploymentManager/rollouts
+Location                : centralus
+Id                      : /subscriptions/<SubscriptionID>/resourcegroups/adm0925rg/providers/Microsoft.DeploymentManager/rollouts/adm0925Rollout
+Tags                    :
+```
 
-    After the rollout is deployed successfully, you shall see two more resource groups created, one for each service.
+After the rollout is deployed successfully, you shall see two more resource groups created, one for each service.
 
 ## Verify the deployment
 
