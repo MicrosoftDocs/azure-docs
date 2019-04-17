@@ -278,7 +278,7 @@ A job recurs if the job's JSON definition includes the **recurrence** object, fo
 | **interval** | No | 1 to 1000 inclusively | A positive integer that determines the number of time units between each occurrence based on **frequency** | 
 | **schedule** | No | Varies | The details for more complex and advanced schedules. See **hours**, **minutes**, **weekDays**, **months**, and **monthDays** | 
 | **hours** | No | 1 to 24 | An array with the hour marks for when to run the job | 
-| **minutes** | No | 1 to 24 | An array with the minute marks for when to run the job | 
+| **minutes** | No | 0 to 59 | An array with the minute marks for when to run the job | 
 | **months** | No | 1 to 12 | An array with the months for when to run the job | 
 | **monthDays** | No | Varies | An array with the days of the month for when to run the job | 
 | **weekDays** | No | "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" | An array with days of the week for when to run the job | 
