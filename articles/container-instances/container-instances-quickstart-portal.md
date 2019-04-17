@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: danlep
 ms.custom: "seodec18, mvc"
 ---
