@@ -103,6 +103,12 @@ A run configuration can be persisted into a file inside the directory that conta
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
 
+## Dataset
+
+Azure Machine Learning Datasets manage data in various scenarios such as, model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between datasets used in training and in production.
+
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
+
 ## Datastore
 
 A datastore is a storage abstraction over an Azure storage account. The datastore can use either an Azure blob container or an Azure file share as the back-end storage. Each workspace has a default datastore, and you can register additional datastores.
