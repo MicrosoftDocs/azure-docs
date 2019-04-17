@@ -25,7 +25,7 @@ This article shows you how to connect to the Azure Media Services v3 Python SDK 
 - Download Python from [python.org](https://www.python.org/downloads/)
 - Make sure to set the `PATH` environment variable
 - [Create a Media Services account](create-account-cli-how-to.md). Be sure to remember the resource group name and the Media Services account name.
-- Follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in the lasta later step.
+- Follow the steps in the [Access APIs](access-api-cli-how-to.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in the later step.
 
 ## Install the modules
 
@@ -45,7 +45,7 @@ pip3 install azure-mgmt-media==1.1.1
 
 1. Create a file with a `.py` extension
 1. Open the file in your favorite editor
-1. Add the code that follows to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Madia Services.
+1. Add the code that follows to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
 
       Set the variables' values to the values you got from [Access APIs](access-api-cli-how-to.md)
  
