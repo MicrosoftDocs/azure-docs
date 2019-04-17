@@ -61,7 +61,7 @@ You now have a WordPress site deployed entirely within your virtual network. Thi
 
 ## Create a function app in a Premium plan
 
-The next step is to create a function app in a premium plan. A premium plan brings serverless scale with all the benefits of a dedicated App Service plan. Function apps created through the Consumption plan don't support virtual network integration.
+The next step is to create a function app in a Premium plan. A Premium plan brings serverless scale with all the benefits of a dedicated App Service plan. Function apps created through the Consumption plan don't support virtual network integration.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
