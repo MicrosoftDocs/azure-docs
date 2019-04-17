@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 04/03/2019
+ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
@@ -34,6 +34,7 @@ These features make up the Azure Speech Services. Use the links in this table to
 
 Learn what's new with the Azure Speech Services.
 
+* May 2019 - Released Speech SDK 1.5.0. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md). 
 * April 2019 - Released Speech SDK 1.4.0 with support for text-to-speech (Beta) for C++, C#, and Java on Windows and Linux. Additionally, the SDK now supports MP3 and Opus/Ogg audio formats for C++ and C# on Linux. For a full list of updates, enhancements, and known issues, see [Release notes](releasenotes.md). 
 * March 2019 - A new endpoint for text-to-speech (TTS) that returns a full list of voices available in a specific region is now available. Additionally, new regions are now supported for TTS. For more information, see [Text-to-speech API reference (REST)](rest-text-to-speech.md).
 * February 2019 - Released Speech SDK 1.3.0 with support for [Unity (beta)](quickstart-csharp-unity.md). Added support for the `AudioInput` class, which enables you to choose the streaming source for audio. For a complete list of enhancements and known issues, see [Release notes](releasenotes.md).

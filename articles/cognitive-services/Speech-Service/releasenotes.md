@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 5/7/2019
+ms.date: 5/6/2019
 ms.author: wolfma
 ms.custom: seodec18
 ---
