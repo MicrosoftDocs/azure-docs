@@ -46,27 +46,58 @@ pip install --upgrade IPython
 1. Add the following import statements to your script:
 
 ```
-ADD CODE
+from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
+from msrest.authentication import CognitiveServicesCredentials
 ```
 
-2. Create a variable for your Text Analytics subscription key.
+2. Create a variable for your Text Analytics subscription key. Then create a `CognitiveServicesCredentials` object. 
 
 ```
-ADD CODE FOR REPLACING SUB KEY 
-```
-
-## Create a Text Analytics client
-
-```
-Code for creating client
+subscription_key = "enter-your-key-here"
+credentials = CognitiveServicesCredentials(subscription_key)
 ```
 
 > [!Tip]
 > For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/quick-create-net)
 >
 
+## Create a Text Analytics client
+
+Create a new `TextAnalyticsClient` object with `credentials` and `text_analytics_url` as a parameter. Use the correct Azure region for your Text Analytics subscription.
+
+```
+text_analytics_url = "https://westus.api.cognitive.microsoft.com/"
+text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=credentials)
+```
 
 ## Sentiment analysis
+
+1. Create a list of dictionaries, each representing a document you want to analyze.
+
+```
+documents = [
+  {"id": "1", "language": "en", "text": "I had the best day of my life."},
+  {"id": "2", "language": "en", "text": "This was a waste of my time. The speaker put me to sleep."},  
+  {"id": "3", "language": "es", "text": "No tengo dinero ni nada que dar..."},  
+  {"id": "4", "language": "it", "text": "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+]
+```
+
+2. Call the `sentiment()` function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+
+```
+response = text_analytics.sentiment(documents=documents)
+for document in response.documents:
+     print("Document Id: ", document.id, ", Sentiment Score: ", "{:.2f}".format(document.score))
+```
+
+### Output
+```
+Document Id:  1 , Sentiment Score:  0.87
+Document Id:  2 , Sentiment Score:  0.11
+Document Id:  3 , Sentiment Score:  0.44
+Document Id:  4 , Sentiment Score:  1.00
+```
 
 ## Language detection
 
