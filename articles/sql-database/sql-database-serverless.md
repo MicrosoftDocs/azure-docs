@@ -211,7 +211,7 @@ The resources of a serverless database are encapsulated by the following entitie
 
 #### App package
 
-The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier.  The app package contains the SQL instance and external services Autop together scope all user and system resources used by a database in SQL DB.  Examples of external services include R and full-text search.  The SQL instance generally dominates the overall resource utilization across the app package.
+The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier.  The app package contains the SQL instance and external services that together scope all user and system resources used by a database in SQL DB.  Examples of external services include R and full-text search.  The SQL instance generally dominates the overall resource utilization across the app package.
 
 #### User resource pool
 
@@ -222,7 +222,7 @@ The user resource pool is the inner most resource management boundary for a data
 |Entity|Metric|Description|Units|
 |---|---|---|---|
 |App package|app_cpu_percent|Percentage of vCores used by the app relative to max vCores allowed for the app.|Percentage|
-|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vCore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|Vcore seconds|
+|App package|app_cpu_billed|The amount of compute billed for the app during the reporting period.  The amount paid during this period is the product of this metric and the vCore unit price.<br>Values of this metric are determined by aggregating over time the maximum of CPU used and memory used each second.<br>If the amount used is less than the minimum amount provisioned as set by the min vCores and min memory, then the minimum amount provisioned is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.|vCore seconds|
 |App package|app_memory_percent|Percentage of memory used by the app relative to max memory allowed for the app.|Percentage|
 |User pool|cpu_percent|Percentage of vCores used by user workload relative to max vCores allowed for user workload.|Percentage|
 |User pool|data_IO_percent|Percentage of data IOPS used by user workload relative to max data IOPS allowed for user workload.|Percentage|
@@ -236,7 +236,7 @@ ____
 
 ### Pause and resume status
 
-In the Azure portal, the database status is displayed in the overview pane of the server Autop lists the databases it contains. The database status is also displayed in the overview pane for the database.
+In the Azure portal, the database status is displayed in the overview pane of the server that lists the databases it contains. The database status is also displayed in the overview pane for the database.
 
 Using the following PowerShell command to query the pause and resume status of a database:
 
@@ -283,7 +283,7 @@ The amount of compute billed is exposed by the following metric:
 
 Suppose the compute unit price is as follows:
 
-|Vcore unit price|$0.2609/vCore/hour|
+|vCore unit price|$0.2609/vCore/hour|
 |---|---|  
 
 Then the compute billed for this 1-hour period is determined as follows:
