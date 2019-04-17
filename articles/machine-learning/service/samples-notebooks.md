@@ -23,7 +23,7 @@ Learn how to use the service with the documentation on this site and use these n
 
 Use one of the paths below to run a notebook server with these sample notebooks.  Once the server is running, find tutorial notebooks in **tutorials** folder, or explore different features in **how-to-use-azureml** folder.
 
-## Use a managed cloud notebook server in your workspace
+## A managed cloud notebook server
 
 It's easy to get started with your own cloud-based notebook server. The sample notebook and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you once you create this cloud resource.  
 
@@ -31,7 +31,7 @@ It's easy to get started with your own cloud-based notebook server. The sample n
 
 * The samples are available on the notebook webpage.
 
-## Use your own Data Science Virtual Machine (DSVM)
+## A Data Science Virtual Machine (DSVM)
 
 The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) and notebook server are already installed and configured for you on a DSVM. 
 
@@ -39,7 +39,7 @@ After you [create a DSVM](how-to-configure-environment.md#dsvm), use these steps
 
 [!INCLUDE [aml-dsvm-server](../../../includes/aml-dsvm-server.md)]
 
-## Use your own Jupyter notebook server
+## Your own Jupyter Notebook server
 
 Use these steps to create a local Jupyter Notebook server on your computer.
 
@@ -47,7 +47,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.
 
 The quickstart instructions will install the packages you need to run the quickstart and tutorial notebooks.  Other sample notebooks may require installation of additional components.  For more information about these components, see [Install the Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/install).
 
-## Try Azure Notebooks: Free Jupyter notebooks in the cloud
+## Azure Notebooks
 
 The sample notebooks and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
 
