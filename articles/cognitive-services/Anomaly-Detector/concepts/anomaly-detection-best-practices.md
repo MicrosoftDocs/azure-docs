@@ -21,6 +21,25 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 
 Use this article to learn about best practices for using the API getting the best results for your data. 
 
+## When should I use “Entire” or “Last” API? 
+ 
+“Entire” detection api is used to find anomalies in given time series. It builds one single anomaly detection model and applies it on each point to perform anomaly detection. It is mainly used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
+
+1.	A seasonal time series, with occasional anomalies.
+2.	A flat trend time series, with occasional spikes/dips. 
+ 
+We do not recommend you to use “Entire” API in the real time monitoring scenario or use it on time series don’t have above characteristics, for the following reasons. 
+
+1.	Since it use one single model, so each point’s detection will be performed in the context of whole series.
+
+*	If the time series trend go up and down without seasonality, the change points might be missed.
+*	Some spikes which is smaller than the spike following might be ignored because it is not significant enough as model takes into account the data before and after the spike or dip point. But in real time monitoring, we hope it is alerted as soon as possible to avoid the bigger spike. 
+
+2.	It is much slower than the “Last” API in real time monitoring because it performs inferencing for each point while the “Last” API only do it for the last point. 
+ 
+So in an online monitoring system, when new data point coming, you should always use the “Last” API to do anomaly detection on current point. 
+
+
 ## Data preparation
 
 The Anomaly Detector API accepts time series data formatted into a JSON request object. A time series can be any numerical data recorded over time in sequential order. You can send windows of your time series data to the Anomaly Detector API endpoint to improve the API's performance. The minimum number of data points you can send is 12, and the maximum is 8640 points. 
