@@ -1,6 +1,6 @@
 ---
-title: Token, session, and single sign-on configuration in Azure Active Directory B2C | Microsoft Docs
-description: Token, session and single sign-on configuration in Azure Active Directory B2C.
+title: Session and single sign-on configuration - Azure Active Directory B2C | Microsoft Docs
+description: Session and single sign-on configuration in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -8,67 +8,17 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ---
 
-# Token, session, and single sign-on configuration in Azure Active Directory B2C
+# Session and single sign-on configuration in Azure Active Directory B2C
 
 This feature gives you fine-grained control, on a [per-user flow basis](active-directory-b2c-reference-policies.md), of:
 
-- Lifetimes of security tokens emitted by Azure Active Directory (Azure AD) B2C.
 - Lifetimes of web application sessions managed by Azure AD B2C.
-- Formats of important claims in the security tokens emitted by Azure AD B2C.
 - Single sign-on (SSO) behavior across multiple apps and user flows in your Azure AD B2C tenant.
-
-You can use this feature on any policy type, but this example show how to use the feature with a sign-up or sign-in user flow. For user flows, you can use this feature in your Azure AD B2C directory as follows:
-
-1. Click **User flows**.
-2. Open a user flow by clicking it. For example, click on **B2C_1_SiUpIn**.
-3. Click **Properties**.
-4. Under **Token compatibility settings**, make your desired changes. Learn about available properties in subsequent sections.
-5. Click **Save** on the top of the menu.
-
-## Token lifetimes configuration
-
-Azure AD B2C supports the [OAuth 2.0 authorization protocol](active-directory-b2c-reference-protocols.md) for enabling secure access to protected resources. To implement this support, Azure AD B2C emits various [security tokens](active-directory-b2c-reference-tokens.md). 
-
-The following properties are used to manage lifetimes of security tokens emitted by Azure AD B2C:
-
-- **Access & ID token lifetimes (minutes)** - The lifetime of the OAuth 2.0 bearer token used to gain access to a protected resource.
-    - Default = 60 minutes.
-    - Minimum (inclusive) = 5 minutes.
-    - Maximum (inclusive) = 1440 minutes.
-- **Refresh token lifetime (days)** - The maximum time period before which a refresh token can be used to acquire a new access or ID token (and optionally, a new refresh token, if your application had been granted the `offline_access` scope).
-    - Default = 14 days.
-    - Minimum (inclusive) = 1 day.
-    - Maximum (inclusive) = 90 days.
-- **Refresh token sliding window lifetime (days)** - After this time period elapses the user is forced to re-authenticate, irrespective of the validity period of the most recent refresh token acquired by the application. It can only be provided if the switch is set to **Bounded**. It needs to be greater than or equal to the **Refresh token lifetime (days)** value. If the switch is set to **Unbounded**, you cannot provide a specific value.
-    - Default = 90 days.
-    - Minimum (inclusive) = 1 day.
-    - Maximum (inclusive) = 365 days.
-
-The following use cases are enabled using these properties:
-
-- Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **Unbounded** in your sign-in user flow.
-- Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
-
-These settings are not available for password reset user flows. 
-
-## Token compatibility settings
-
-The following properties allow customers to opt in as needed:
-
-- **Issuer (iss) claim** - This property identifies the Azure AD B2C tenant that issued the token.
-    - `https://<domain>/{B2C tenant GUID}/v2.0/` - This is the default value.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` - This value includes IDs for both the B2C tenant and the user flow used in the token request. If your app or library needs Azure AD B2C to be compliant with the [OpenID Connect Discovery 1.0 spec](https://openid.net/specs/openid-connect-discovery-1_0.html), use this value.
-- **Subject (sub) claim** - This property identifies the entity for which the token asserts information.
-    - **ObjectID** - This property is the default value. It populates the object ID of the user in the directory into the `sub` claim in the token.
-    - **Not supported** - This property is only provided for backward-compatibility, and we recommend that you switch to **ObjectID** as soon as you are able to.
-- **Claim representing policy ID** - This property identifies the claim type into which the policy ID used in the token request is populated.
-    - **tfp** - This property is the default value.
-    - **acr** - This property is only provided for backward-compatibility.
 
 ## Session behavior
 
@@ -94,7 +44,7 @@ If you have multiple applications and user flows in your B2C tenant, you can man
 - **Tenant** - This setting is the default. Using this setting allows multiple applications and user flows in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
 - **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if the user is already signed into Contoso Shopping, another application on the same B2C tenant. 
 - **Policy** - This setting allows you to maintain a user session exclusively for a user flow, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications as long as the session tied to the user flow doesn't expire.
-- **Disabled** - This setting forces the user to run through the entire user flow on every execution of the policy. For example, this allows multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
+- **Disabled** - This setting forces the user to run through the entire user flow on every execution of the policy.
 
 These settings are not available for password reset user flows. 
 
