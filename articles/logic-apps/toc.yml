@@ -323,7 +323,6 @@
 - name: Reference
   items:
   - name: Architecture patterns
-    href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
     items:
     - name: Basic enterprise integration
       href: /azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration
