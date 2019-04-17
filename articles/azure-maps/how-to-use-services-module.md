@@ -19,17 +19,17 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
 1. Create a new HTML file.
 2. Load in the Azure Maps Services module. This can be done using one of two options;
 
-    a. Use the globally hosted CDN version of the Azure Maps services module by adding a script reference to the <head> element of the file:
+    a. Use the globally hosted CDN version of the Azure Maps services module by adding a script reference to the `<head>` element of the file:
     
 	```html
-	<script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+	<script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
 	```
     
     b. Alternatively, load the Azure Maps Web SDK source code locally using the [azure-maps-rest](https://www.npmjs.com/package/azure-maps-rest) NPM package and host it with your app. This package also includes TypeScript definitions.
     
 	> npm install azure-maps-rest
     
-    Then add a script references to the `<head>` element of the file:
+    Then add a script reference to the `<head>` element of the file:
     
 	```html
 	<script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -67,22 +67,22 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
     // This timeout must be cleared once the TokenCredential object is no longer needed.
     // If the timeout is not cleared the memory used by the TokenCredential will never be reclaimed.
     var renewToken = async () => {
-    	try {
-    		console.log("Renewing token");
-    		var token = await getAadToken();
-    		tokenCredential.token = token;
-    		tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
-    	} catch (error) {
-    		console.log("Caught error when renewing token");
-    		clearTimeout(tokenRenewalTimer);
-    		throw error;
-    	}
+		try {
+			console.log("Renewing token");
+			var token = await getAadToken();
+			tokenCredential.token = token;
+			tokenRenewalTimer = setTimeout(renewToken, getExpiration(token));
+		} catch (error) {
+			console.log("Caught error when renewing token");
+			clearTimeout(tokenRenewalTimer);
+			throw error;
+		}
     }
     tokenRenewalTimer = setTimeout(renewToken, getExpiration(aadToken));
     
     // Use tokenCredential to create a pipeline
     var pipeline = atlas.service.MapsURL.newPipeline(tokenCredential, {
-    	retryOptions: { maxTries: 4 } // Retry options
+		retryOptions: { maxTries: 4 } // Retry options
     });
     
     //Create an instance of the SearchURL client.
@@ -133,12 +133,12 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
       
       for(var i=0;i<response.results.length;i++){
         html.push('<tr><td>', (i+1), '.</td><td>', 
-                  response.results[i].address.freeformAddress, 
-                  '</td><td>', 
-                  response.results[i].position.lat,
-                  '</td><td>', 
-                  response.results[i].position.lon,
-                  '</td></tr>');
+					response.results[i].address.freeformAddress, 
+					'</td><td>', 
+					response.results[i].position.lat,
+					'</td><td>', 
+					response.results[i].position.lon,
+					'</td></tr>');
       }
       
       html.push('</table>');
@@ -149,6 +149,8 @@ The Azure Maps Web SDK provides a services module that is a helper library that 
     ```
 
     Here is the fully running code sample:
+
+<br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Using the Services Module" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>Using the Services Module</a> by Azure Maps

@@ -33,7 +33,7 @@
   items:
   - name: Index Azure SQL Database
     href: search-indexer-tutorial.md
-  - name: Index Azure blobs
+  - name: Index Azure JSON blobs
     href: search-semi-structured-data.md
   - name: Index with AI (Cognitive Services)
     href: cognitive-search-tutorial-blob.md
@@ -203,10 +203,6 @@
       href: search-query-simple-examples.md
     - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
-  - name: Handle results
-    items:
-    - name: Page-related features
-      href: search-pagination-page-layout.md
   - name: Filter and sort data
     items:
     - name: Filter overview
@@ -215,8 +211,12 @@
       href: search-filters-facets.md
     - name: Add faceted navigation
       href: search-faceted-navigation.md
-    - name: Filter and OrderBy expression syntax
+    - name: Filter and OrderBy expression syntax and examples
       href: query-odata-filter-orderby-syntax.md
+  - name: Handle results
+    items:
+    - name: Page-related features
+      href: search-pagination-page-layout.md
   - name: Relevance tuning
     items:
     - name: Add scoring profiles

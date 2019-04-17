@@ -39,10 +39,13 @@
       - name: 'C++ (Linux)'
         href: quickstart-cpp-linux.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
+      - name: 'C++ (macOS)'
+        href: quickstart-cpp-macos.md
+        displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Java (Android)'
         href: quickstart-java-android.md
         displayName: recognize speech, speech recognition, speech-to-text, stt
-      - name: 'Java (Windows, Linux)'
+      - name: 'Java (Windows, macOS, Linux)'
         href: quickstart-java-jre.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, jre, jvm
       - name: 'JavaScript (Browser)'
@@ -52,6 +55,9 @@
         displayName: recognize speech, speech recognition, speech-to-text, stt
       - name: 'Objective-C (iOS)'
         href: quickstart-objectivec-ios.md
+        displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
+      - name: 'Objective-C (macOS)'
+        href: quickstart-objective-c-macos.md
         displayName: recognize speech, speech recognition, speech-to-text, stt, xcode
       - name: 'Python'
         href: quickstart-python.md
@@ -69,10 +75,23 @@
         href: quickstart-translate-speech-cpp-windows.md
       - name: 'Java (Windows, Linux)'
         href: quickstart-translate-speech-java-jre.md
+    - name: Text-to-speech
+      items:
+      - name: 'C# (.NET Framework Windows)'
+        href: quickstart-text-to-speech-dotnet-windows.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C++ (Windows)'
+        href: quickstart-text-to-speech-cpp-windows.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
+      - name: 'C++ (Linux)'
+        href: quickstart-text-to-speech-cpp-linux.md
+        displayName: synthesize speech, speech synthesis, text-to-speech, tts
   - name: REST APIs
     items:
     - name: List supported voices by region
       items:
+      - name: 'Node.js'
+        href: quickstart-nodejs-get-text-to-speech-voices.md
       - name: 'Python'
         href: quickstart-python-get-text-to-speech-voices.md
     - name: Convert text-to-speech
@@ -91,18 +110,27 @@
   - name: Recognize speech intents with LUIS, C#
     href: how-to-recognize-intents-from-speech-csharp.md
     displayName: recognize intent, intent recognition, language understanding service, luis
+  - name: Build a Flask app to translate and synthesize text, REST
+    maintainContext: true
+    href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
 - name: How-to guides
   items:
-  - name: Sign-up for the Speech Services
+  - name: Sign up for the Speech Services
     href: get-started.md
   - name: Batch transcription (REST)
     href: batch-transcription.md
     displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
+  - name: Consume compressed audio input streams (SDK)
+    href: how-to-use-compressed-audio-input-streams.md
+    displayName: mp3, opus, ogg, flac
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
     displayName: audio, microphone, input, device
+  - name: Enable logging (SDK)
+    href: how-to-use-logging.md
+    displayName: debug, log, logging
   - name: Customization
     items:
     - name: Speech-to-text
@@ -159,7 +187,7 @@
       href: https://aka.ms/csspeech/csharpref
     - name: Java/Android
       href: https://aka.ms/csspeech/javaref
-    - name: Javascript/Node.js
+    - name: JavaScript/Node.js
       href: https://aka.ms/csspeech/javascriptref
     - name: Objective-C
       href: https://aka.ms/csspeech/objectivecref
@@ -182,6 +210,11 @@
     - name: Batch transcription & customization
       href: https://westus.cris.ai/swagger/ui/index
       displayName: Batch transcription, transcription, custom models, customization, model management
+    - name: Webhooks
+      href: webhooks.md
+      displayName: Webhooks
+  - name: Swagger documentation
+    href: swagger-documentation.md
   - name: Speech Synthesis Markup Language (SSML)
     href: speech-synthesis-markup.md
   - name: PowerShell

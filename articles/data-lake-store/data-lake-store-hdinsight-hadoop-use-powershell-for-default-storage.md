@@ -3,8 +3,8 @@ title: Create HDInsight clusters with Azure Data Lake Storage Gen1 as default st
 description: Use Azure PowerShell to create and use HDInsight clusters with Azure Data Lake Storage Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Create HDInsight clusters with Azure Data Lake Storage Gen1 as default storage by using PowerShell
@@ -211,7 +211,7 @@ In this section, you create an HDInsight Hadoop Linux cluster with Data Lake Sto
     After the cmdlet has been successfully completed, you should see an output that lists the cluster details.
 
 ## Run test jobs on the HDInsight cluster to use Data Lake Storage Gen1
-After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *<cluster root>/example/data/sample.log*.
+After you have configured an HDInsight cluster, you can run test jobs on it to ensure that it can access Data Lake Storage Gen1. To do so, run a sample Hive job to create a table that uses the sample data that's already available in Data Lake Storage Gen1 at *\<cluster root>/example/data/sample.log*.
 
 In this section, you make a Secure Shell (SSH) connection into the HDInsight Linux cluster that you created, and then you run a sample Hive query.
 

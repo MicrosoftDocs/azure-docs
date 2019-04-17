@@ -1,6 +1,6 @@
 ---
 title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
-description: Reference for the supported VM sizes in Azure Stack.
+description: Reference for the supported Virtual machine sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,7 +11,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
@@ -22,11 +22,11 @@ ms.lastreviewed: 01/11/2019
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-This article lists the virtual machine (VM) sizes that are available in Azure Stack.
+This article lists the virtual machine sizes that are available in Azure Stack.
 
-Disk IOPS (Input/Output Operations Per Second) on Azure Stack is a function of VM size instead of the disk type. This means that for a Standard_Fs series VM, regardless of whether you choose SSD or HDD for the disk type, the IOPS limit for a single additional data disk is 2300 IOPS. The IOPS limits imposed is a cap (maximum possible) to prevent noisy neighbors. It is not an assurance of IOPS that you will get on a specific VM size.
+Disk IOPS (Input/Output Operations Per Second) on Azure Stack is a function of virtual machine (VM) size instead of the disk type. This means that for a Standard_Fs series VM, regardless of whether you choose SSD or HDD for the disk type, the IOPS limit for a single additional data disk is 2300 IOPS. The IOPS limits imposed is a cap (maximum possible) to prevent noisy neighbors. It is not an assurance of IOPS that you will get on a specific VM size.
 
-## General purpose
+## Virtual machine general purpose
 
 General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers. Each data disk is 2300 IOPS for the premium VM sizes, except for the Basic A series. For Basic A, the data disk size is 500 IOPS.
 
