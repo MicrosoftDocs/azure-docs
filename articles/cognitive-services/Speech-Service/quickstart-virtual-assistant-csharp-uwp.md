@@ -126,21 +126,21 @@ This quickstart requires:
     }
     ```
 
-1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the strings `YourBotSecretKey`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
+1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
 
     > [!NOTE]
-    > For information on configuring your bot and retrieving a secret key, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
+    > For information on configuring your bot and retrieving a channel secret, see the Bot Framework documentation for [the Direct Line Speech channel](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-directlinespeech.md).
 
     ```csharp
     // create a BotConnectorConfig by providing a bot secret key and Cognitive Services subscription key
-    string botSecret = "YourBotSecretKey";
+    string channelSecret = "YourChannelSecret";
     string speechSubscriptionKey = "YourSpeechSubscriptionKey";
     string region = "YourServiceRegion"; // note: this is assumed as westus2 for preview
 
-    var botConnectorConfig = BotConnectorConfig.FromBotConnectionId(botSecret, speechSubscriptionKey, region);
+    var botConnectorConfig = BotConnectorConfig.FromBotConnectionId(channelSecret, speechSubscriptionKey, region);
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 

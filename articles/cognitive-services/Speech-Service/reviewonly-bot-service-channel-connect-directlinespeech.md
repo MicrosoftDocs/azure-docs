@@ -62,7 +62,7 @@ With the Direct Line Speech channel connected to your bot, you now need to enabl
 
 ## Manage secret keys
 
-Client applications will need a bot secret key to connect to your bot through the Direct Line Speech channel. Once you've saved your channel selection, you can retrieve these secret keys from the **Configure Direct Line Speech** page in the Azure Portal.
+Client applications will need a channel secret to connect to your bot through the Direct Line Speech channel. Once you've saved your channel selection, you can retrieve these secret keys from the **Configure Direct Line Speech** page in the Azure Portal.
 
 ![getting secret keys for Direct Line Speech](media/voice-first-virtual-assistants/reviewonly-bot-service-channel-directlinespeech-getspeechsecretkeys.png "getting secret keys for Direct Line Speech")
 

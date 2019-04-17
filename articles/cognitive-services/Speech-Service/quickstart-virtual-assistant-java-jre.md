@@ -76,10 +76,10 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 1. In the **main** method, you will first configure your `BotConnectorConfig`.
 
    ```java
-    final String botSecret = "YourBotSecret"; // Your bot channel secret
+    final String channelSecret = "YourChannelSecret"; // Your bot channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
     final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
-    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromBotConnectionId(botSecret, subscriptionKey, region);
+    final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromBotConnectionId(channelSecret, subscriptionKey, region);
     if (botConnectorConfig == null) {
         log.error("BotConnectorConfig should not be null");
     }
@@ -89,7 +89,7 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 
 1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (Currently we are only supporting 'westus2').
 
-1. Replace the string `YourBotSecret` with your direct line speech channel secret.
+1. Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
 1. Enable the audio input by configuring the AudioConfig. In the quick start we use the default microphone input for audio input.
 
