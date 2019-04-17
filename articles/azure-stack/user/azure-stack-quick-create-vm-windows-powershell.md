@@ -1,6 +1,6 @@
 ---
-title: Create a Windows virtual machine by using PowerShell in Azure Stack | Microsoft Docs
-description: Create a Windows virtual machine with PowerShell in Azure Stack.
+title: Create a Windows Server virtual machine by using PowerShell in Azure Stack | Microsoft Docs
+description: Create a Windows Server virtual machine with PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,27 +12,28 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 01/14/2019
+ms.date: 04/09/2019
 ms.author: mabrigg
 ms.custom: mvc
+ms.reviewer: kivenkat
 ms.lastreviewed: 01/14/2019
 
 ---
 
-# Quickstart: create a Windows Server virtual machine by using PowerShell in Azure Stack
+# Quickstart: Create a Windows Server virtual machine by using PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-You can create a Windows Server 2016 virtual machine by using Azure Stack PowerShell. Follow the steps in this article to create and use a virtual machine. This article also gives you the steps to:
+You can create a Windows Server 2016 virtual machine (VM) by using Azure Stack PowerShell. Follow the steps in this article to create and use a VM. This article also gives you the steps to:
 
-* Connect to the virtual machine with a remote client.
+* Connect to the VM with a remote client.
 * Install the IIS web server and view the default home page.
 * Clean up your resources.
 
 > [!NOTE]
 >  You can run the steps described in this article from the Azure Stack Development Kit, or from a Windows-based external client if you are connected over a VPN.
 
-## Prerequisites
+## Prerequisites for Windows Server VM
 
 * Make sure that your Azure Stack operator has added the **Windows Server 2016** image to the Azure Stack marketplace.
 
@@ -74,11 +75,6 @@ Set-AzureRmCurrentStorageAccount `
   -StorageAccountName $storageAccountName `
   -ResourceGroupName $resourceGroupName
 
-# Create a storage container to store the virtual machine image
-$containerName = 'osdisks'
-$container = New-AzureStorageContainer `
-  -Name $containerName `
-  -Permission Blob
 ```
 
 ## Create networking resources
@@ -190,19 +186,14 @@ $VirtualMachine = Set-AzureRmVMSourceImage `
   -Skus "2016-Datacenter" `
   -Version "latest"
 
-$osDiskName = "OsDisk"
-$osDiskUri = '{0}vhds/{1}-{2}.vhd' -f `
-  $StorageAccount.PrimaryEndpoints.Blob.ToString(),`
-  $vmName.ToLower(), `
-  $osDiskName
-
 # Sets the operating system disk properties on a virtual machine.
 $VirtualMachine = Set-AzureRmVMOSDisk `
   -VM $VirtualMachine `
-  -Name $osDiskName `
-  -VhdUri $OsDiskUri `
   -CreateOption FromImage | `
+  Set-AzureRmVMBootDiagnostics -ResourceGroupName $ResourceGroupName `
+  -StorageAccountName $StorageAccountName -Enable |`
   Add-AzureRmVMNetworkInterface -Id $nic.Id
+
 
 # Create the virtual machine.
 New-AzureRmVM `

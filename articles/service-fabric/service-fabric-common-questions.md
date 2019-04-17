@@ -4,7 +4,7 @@ description: Frequently asked questions about Service Fabric and their answers
 services: service-fabric
 documentationcenter: .net
 author: chackdan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
@@ -21,6 +21,9 @@ ms.author: chackdan
 # Commonly asked Service Fabric questions
 
 There are many commonly asked questions about what Service Fabric can do and how it should be used. This document covers many of those common questions and their answers.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Cluster setup and management
 
@@ -130,7 +133,7 @@ No. Low-priority VMs are not supported.
 The following are means for your application to obtain credentials for authenticating to KeyVault:
 
 A. During your applications build/packing job, you can pull a certificate into your SF app's data package, and use this to authenticate to KeyVault.
-B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
 ## Application Design
 
@@ -187,3 +190,4 @@ Follow the [Service Fabric blog](https://blogs.msdn.microsoft.com/azureservicefa
 ## Next steps
 
 Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
+ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
