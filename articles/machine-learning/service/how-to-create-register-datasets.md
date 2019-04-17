@@ -54,7 +54,7 @@ To create Datasets from an Azure Datastore, be sure to:
 
 * Verify you have contributor or owner access to the registered Azure Datastore.
 
-* Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) packages from the SDK.
+* Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) and `Dataset` packages from the SDK.
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -67,8 +67,11 @@ datastore_name = 'your datastore name'
 
 # get existing workspace
 workspace = Workspace(subscription_id, resource_group, workspace_name)
+```
 
-# get a datastore that has already been created in the workspace
+ The `get()` method retrieves an existing datastore in the workspace.
+
+```
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
@@ -79,7 +82,7 @@ Use the `from_delimited_files()` method to read in delimited files and create in
 datapath = dstore.path('data/src/crime.csv')
 dataset = Dataset.from_delimited_files(datapath)
 
-# head() method returns the first N rows of the Dataset as a pandas Dataframe.
+# returns the first 5 rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
 ```
 
@@ -93,7 +96,7 @@ dataset.head(5)
 
 ## Register your datasets with workspace
 
-Use the `register()` method to register Datasets to your workspace. This allows you to share and reuse Datasets within your organization and across various experiments. 
+Use the `register()` method to register Datasets to your workspace for sharing and reuse within your organization and across various experiments.
 
 ```Python
 dataset = dataset.register(workspace = 'workspace_name',
