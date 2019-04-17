@@ -5,10 +5,10 @@
     items: 
     - name: Key concepts for administration
       href: https://docs.azure.cloudsimple.com/key-concepts/
-  - name: Quick start
+  - name: Quickstart
     expanded: true
     items:
-    - name: Initialialize and purchase capacity
+    - name: Initialize and purchase capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
