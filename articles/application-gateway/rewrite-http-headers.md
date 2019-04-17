@@ -159,5 +159,5 @@ Contact us at [AGHeaderRewriteHelp@microsoft.com](mailto:AGHeaderRewriteHelp@mic
 
 To learn how to rewrite HTTP headers, see:
 
--  [Rewrite HTTP headers by using the Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
--  [Rewrite HTTP headers by using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
+-  [Rewrite HTTP headers using Azure portal](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+-  [Rewrite HTTP headers using Azure PowerShell](add-http-header-rewrite-rule-powershell.md)
