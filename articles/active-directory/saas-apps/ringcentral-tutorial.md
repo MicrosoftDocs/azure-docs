@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/26/2019
+ms.date: 04/17/2019
 ms.author: jeedes
 
 ---
@@ -109,15 +109,16 @@ To configure Azure AD single sign-on with RingCentral, perform the following ste
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in **Basic SAML Configuration** section.
 
-	![RingCentral Domain and URLs single sign-on information](common/sp-identifier.png)
+	![RingCentral Domain and URLs single sign-on information](common/sp-identifier-reply.png)
 
 	In the **Sign-on URL** text box, type a URL:
+	
 	| |
 	|--|
-	| `https://service.ringcentral.com` |
-	| `https://service.ringcentral.com.au` |
-	| `https://service.ringcentral.co.uk` |
-	| `https://service.ringcentral.eu` |
+	| `https://service.ringcentral.com`|
+	| `https://service.ringcentral.com.au`|
+	| `https://service.ringcentral.co.uk`|
+	| `https://service.ringcentral.eu`|
 
 	> [!Note]
 	> You get the **Service Provider metadata file** on the RingCentral SSO Configuration page which is explained later in the tutorial.
