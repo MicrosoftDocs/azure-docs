@@ -98,7 +98,7 @@ The most common reason that event data doesn't appear at all is that the storage
 
 Solution: Correct your Diagnostics configuration and reinstall Diagnostics.
 
-If the storage account is configured correctly, remote access into the machine and verify that *DiagnosticsPlugin.exe* and *MonAgentCore.exe* are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnosticsis-not-starting).
+If the storage account is configured correctly, remote access into the machine and verify that *DiagnosticsPlugin.exe* and *MonAgentCore.exe* are running. If they aren't running, follow the steps in [Azure Diagnostics is not starting](#azure-diagnostics-is-not-starting).
 
 If the processes are running, go to [Is data getting captured locally?](#is-data-getting-captured-locally) and follow the instructions there.
 
