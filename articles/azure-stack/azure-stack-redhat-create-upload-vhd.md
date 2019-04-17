@@ -4,7 +4,7 @@ description: Learn to create and upload an Azure virtual hard disk (VHD) that co
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
-manager: BradleyB
+manager: femila
 editor: 
 tags: 
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/15/2019
 ms.author: mabrigg
 ms.reviewer: jeffgo
 ms.lastreviewed: 08/15/2018
@@ -41,7 +41,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
 * All VHDs on Azure must have a virtual size aligned to 1 MB. When converting from a raw disk to VHD, you must ensure that the raw disk size is a multiple of 1 MB before conversion. More details can be found in the steps below.
 * Azure Stack does not support cloud-init. Your VM must be configured with a supported version of the Windows Azure Linux Agent (WALA).
 
-### Prepare a RHEL 7 virtual machine from Hyper-V Manager
+### Prepare an RHEL 7 virtual machine from Hyper-V Manager
 
 1. In Hyper-V Manager, select the virtual machine.
 
@@ -280,7 +280,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. This is an example where we download "2.2.20" version from the github repo. Download and unzip the 2.2.20 version of the agent from our github. 
+   b. This is an example where we download "2.2.20" version from the GitHub repo. Download and unzip the 2.2.20 version of the agent from our GitHub. 
     ```bash
     wget https://github.com/Azure/WALinuxAgent/archive/v2.2.20.zip
     unzip v2.2.20.zip
@@ -371,7 +371,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 * Do not configure a swap partition on the operating system disk. You can configure the Linux agent to create a swap file on the temporary resource disk. You can find more information about this in the steps that follow.
 * When you create the virtual hard disk, select **Store virtual disk as a single file**.
 
-### Prepare a RHEL 7 virtual machine from VMware
+### Prepare an RHEL 7 virtual machine from VMware
 
 1. Create or edit the `/etc/sysconfig/network` file, and add the following text:
 
@@ -679,7 +679,7 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
 In some cases, Linux installers might not include the drivers for Hyper-V in the initial RAM disk (initrd or initramfs) unless Linux detects that it is running in a Hyper-V environment.
 
-When you're using a different virtualization system (that is, Virtualbox, Xen, etc.) to prepare your Linux image, you might need to rebuild initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial RAM disk. This is a known issue at least on systems that are based on the upstream Red Hat distribution.
+When you're using a different virtualization system (that is, Oracle VM VirtualBox, Xen Project, etc.) to prepare your Linux image, you might need to rebuild initrd to ensure that at least the hv_vmbus and hv_storvsc kernel modules are available on the initial RAM disk. This is a known issue at least on systems that are based on the upstream Red Hat distribution.
 
 To resolve this issue, add Hyper-V modules to initramfs and rebuild it:
 
