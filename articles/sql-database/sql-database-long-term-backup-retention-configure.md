@@ -39,7 +39,7 @@ You can configure SQL Database to [retain automated backups](sql-database-long-t
 3. When complete, click **Apply**.
 
 > [!IMPORTANT]
-> After you've enabled a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and availeble to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
+> When you enable a long-term backup retention policy, it may take up to 7 days for the first backup to become visible and availeble to restore. For details of the LTR backup cadance, see [long-term backup retention](sql-database-long-term-retention.md).
 
 ### View backups and restore from a backup using Azure portal
 
