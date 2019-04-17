@@ -158,7 +158,7 @@ To configure Azure AD single sign-on with BlueJeans, perform the following steps
 
 	![Save Changes](./media/bluejeans-tutorial/ic785874.png "Save Changes")
 
-	a. In the **User id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+	a. In the **User Id** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     b. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
@@ -235,7 +235,7 @@ The objective of this section is to create a user called Britta Simon in BlueJea
 
 	a. In **First Name** text box, enter the first name of user like **Britta**.
 
-	b. In **Last Name** text box, enter the last name of user like **simon**.
+	b. In **Last Name** text box, enter the last name of user like **Simon**.
 
 	c. In **Pick a BlueJeans Username** text box, enter the username of user like **Brittasimon**
 
