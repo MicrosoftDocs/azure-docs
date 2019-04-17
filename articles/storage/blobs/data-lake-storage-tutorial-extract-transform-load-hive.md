@@ -343,4 +343,4 @@ All resources used in this tutorial are preexisting. No cleanup is necessary.
 To learn more ways to work with data in HDInsight, see the following article:
 
 > [!div class="nextstepaction"]
-> [Extract, transform, and load data by using Azure Databricks](./data-lake-storage-use-hdi-cluster.md)
+> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
