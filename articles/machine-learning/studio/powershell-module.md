@@ -9,7 +9,7 @@ ms.topic: conceptual
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 01/25/2019
+ms.date: 04/25/2019
 ---
 # PowerShell modules for Azure Machine Learning Studio
 
@@ -35,9 +35,7 @@ To learn more about the differences between Az and AzureRM, as well as our provi
 
 ## <a name="az-rm"></a> Azure PowerShell Az and AzureRM
 
-Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio New web services. To manage resources deployed using the classic deployment model, you should use the PowerShell classic module. If you would like to learn more about the deployment models, see the [Azure Resource Manager vs. classic deployment](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) article.
-
-Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features. While there is an upgrade path from AzureRM, if you encounter problems with Az when working with Studio, report the problem and fall back to using AzureRM.
+Az is now the intended PowerShell module for interacting with Azure and includes all the previous functionality of AzureRM. AzureRM will continue to receive bug fixes, but it will receive no new cmdlets or features.  Az and AzureRM both manage solutions deployed using the **Azure Resource Manager** deployment model. These resources include Studio workspaces and Studio New web services. 
 
 To get started with Az, follow the [installation instructions for Azure Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
@@ -55,11 +53,11 @@ To get started with PowerShell classic, download the [release package](https://g
 | --- | --- | --- | --- |
 | Create/Delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Manage workspace users |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
-| Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |
+| Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
 |||
 | **Web services** | **Az** | **AzureRM** | **PowerShell classic** |
-| Manage web services | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (New web services) | [New-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlwebservice) <br> (New web services) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (classic web services) |
-| Manage endpoints/keys |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (New web services) | [Get-AzureRmMlWebServiceKeys](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservicekeys) <br> (New web services) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (classic web services) |
+| Manage web services | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (New web services) | New-AzureRmMlWebService <br> (New web services) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (classic web services) |
+| Manage endpoints/keys |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (New web services) | Get-AzureRmMlWebServiceKeys <br> (New web services) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (classic web services) |
 |||
 | **User assets** | **Az** | **AzureRM** | **PowerShell classic** |
 | Manage datasets/trained models |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
