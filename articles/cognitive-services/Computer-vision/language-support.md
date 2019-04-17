@@ -8,49 +8,64 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/16/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ---
 
 # Language support for Computer Vision
 
-Computer Vision supports the following languages for . Both the [Read API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) and the [Recognize Text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) only support English. The [OCR API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), however, supports a variety of languages. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality.
+Some features of Computer Vision support multiple languages; any features not mentioned here only support English.
 
-## OCR
+## Text recognition
 
-OCR automatically detects 
+Computer Vision can recognize text in many languages. Specifically, the [OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) API supports a variety of languages, whereas the [Read](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) API and [Recognize Text](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) API only support English. See [Recognize printed and handwritten text](concept-recognizing-text.md) for more information on this functionality and the advantages of each API.
 
-|Language| OCR API |
-|:-----|:-----:|
-|Arabic |✔ |
-|Chinese (Simplified) |✔ |
-|Chinese (Traditional) |✔ |
-|Czech |✔ |
-|Danish |✔ |
-|Dutch |✔ |
-|English |✔ |
-|Finnish |✔ |
-|French |✔ |
-|German |✔ |
-|Greek |✔ |
-|Hungarian |✔ |
-|Italian |✔ |
-|Japanese |✔ |
-|Korean |✔ |
-|Norwegian |✔ |
-|Polish |✔ |
-|Portuguese |✔ |
-|Romanian |✔ |
-|Russian |✔ |
-|Serbian (Cyrillic and Latin) |✔ |
-|Slovak |✔ |
-|Spanish |✔ |
-|Swedish |✔ |
-|Turkish |✔ |
+OCR automatically detects the language of the input material, so there is no need to specify a language code in the API call. However, language codes are always returned as the value of the `"language"` node in the JSON response.
 
-## Access the list on the Microsoft Translator website
+|Language| Language code | OCR API |
+|:-----|:----:|:-----:|
+|Arabic | `ar`|✔ |
+|Chinese (Simplified) | `zh-Hans`|✔ |
+|Chinese (Traditional) | `zh-Hant`|✔ |
+|Czech | `cs` |✔ |
+|Danish | `da` |✔ |
+|Dutch | `nl` |✔ |
+|English | `en` |✔ |
+|Finnish | `fi` |✔ |
+|French | `fr` |✔ |
+|German | `de` |✔ |
+|Greek | `el` |✔ |
+|Hungarian | `hu` |✔ |
+|Italian | `it` |✔ |
+|Japanese | `ja` |✔ |
+|Korean | `ko ` |✔ |
+|Norwegian | `nb` |✔ |
+|Polish | `pl` |✔ |
+|Portuguese | `pt` |✔ |
+|Romanian | `ro` |✔ |
+|Russian | `ru` |✔ |
+|Serbian (Cyrillic) | `sr-Cyrl` |✔ |
+|Serbian (Latin) | `sr-Latn` |✔ |
+|Slovak | `sk` |✔ |
+|Spanish | `es` |✔ |
+|Swedish | `sw` |✔ |
+|Turkish | `tr` |✔ |
 
-For a quick look at the languages
-the Microsoft Translator website shows all the languages supported by the Translator Text and Speech APIs. This list doesn't include developer-specific information such as language codes.
+## Image analysis
 
-[See the list of languages](https://www.microsoft.com/translator/languages.aspx)
+Some actions of the [Analyze - Image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API can return results in other languages, specified with the `language` query parameter. Other actions return results in English regardless of what language is specified, and others throw an exception for unsupported languages. Actions are specified with the `visualFeatures` and `details` query parameters; see the [Overview](home.md) for a list of all the actions you can do with image analysis.
+
+|Language | Language code | Categories | Tags | Description | Adult | Brands | Color | Faces | ImageType | Objects | Celebrities | Landmarks |
+|:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+|Chinese | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
+|English | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|
+|Japanese | `ja`   | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
+|Portuguese | `pt` | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
+|Spanish | `es`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
+
+## Next steps
+
+Get started using the Computer Vision APIs mentioned in this guide.
+
+* [Analyze a local image (REST)](./quickstarts/csharp-analyze)
+* [Extract printed text (REST)](./quickstarts/csharp-print-text)
