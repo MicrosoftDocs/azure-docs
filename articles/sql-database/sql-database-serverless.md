@@ -17,7 +17,7 @@ ms.date: 05/06/2019
 
 ## What is the serverless compute tier
 
-SQL DB serverless is a compute tier that bills for the amount of compute used on a per second basis.  Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. 
+SQL DB serverless is a compute tier that bills for the amount of compute used on a per second basis.  Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
 In contrast, publicly available offers in SQL DB today bill for the amount of compute provisioned on an hourly basis.  This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
 
 A serverless database in SQL DB is parameterized by the compute range it can use and an auto-pause delay.
@@ -31,7 +31,7 @@ A serverless database in SQL DB is parameterized by the compute range it can use
 
 ### Pricing
 
-- The total bill for a serverless database is the summation of the compute bill and storage bill. 
+- The total bill for a serverless database is the summation of the compute bill and storage bill.
 Billing for compute is based on the amount of vCores used and memory used per second.
 - The minimum compute billed is based on min vCores and min memory.
 - While the database is paused, only storage is billed.
@@ -268,7 +268,7 @@ The amount of compute billed is exposed by the following metric:
 |app_cpu_billed (vcore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
 |||
 \* This quantity is calculated each second and aggregated over 1 minute.
- 
+
 **Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1 hour period:
 
 |Time (hours:minutes)|app_cpu_billed (vcore seconds)|
