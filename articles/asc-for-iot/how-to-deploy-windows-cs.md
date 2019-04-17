@@ -86,7 +86,7 @@ For additional help, use the Get-Help command in PowerShell <br>Get-Help example
 ### Verify deployment status
 
 - Check the agent deployment status by running:<br>
-    ```sc.exe query "ASC IoT Agent" ```
+    ```sc.exe query "ASC IoT Agent"```
 
 ### Uninstall the agent
 
