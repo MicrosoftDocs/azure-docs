@@ -6,7 +6,7 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 17/04/2019
 ms.author: trinadhk
 ---
 
@@ -55,7 +55,24 @@ The following table captures the Backup management actions and corresponding min
 | Delete registered on-premises Windows Server/client/SCDPM or Azure Backup Server | Backup Contributor | Recovery vault resource |
 
 > [!IMPORTANT]
-> If you specify VM Contributor at a VM resource scope and click on Backup as part of VM settings, it will open 'Enable Backup' screen even though VM is already backed up as the call to verify backup status works only at subscription level. To avoid this, either go to vault and open the backup item view of the VM or specify VM Contributor role at a subscription level. 
+> If you specify VM Contributor at a VM resource scope and click on Backup as part of VM settings, it will open 'Enable Backup' screen even though VM is already backed up as the call to verify backup status works only at subscription level. To avoid this, either go to vault and open the backup item view of the VM or specify VM Contributor role at a subscription level.
+
+## Minimum role requirements for the Azure File share backup
+The following table captures the Backup management actions and corresponding role required to perform Azure File share operation.
+
+| Management Operation | Role Required | Resources |
+| --- | --- | --- |
+| Enable backup of Azure File shares | Backup Contributor |	Recovery Services vault |
+| |	Storage Account | Contributor	Storage account resource |
+| On-demand backup of VM | Backup Operator | Recovery Services vault |
+| Restore File share | Backup Operator | Recovery Services vault |
+| | Storage Account Contributor | Storage account resources where restore source and Target file shares are present |
+| Restore Individual Files | Backup Operator | Recovery Services vault |
+| |	Storage Account Contributor	|	Storage account resources where restore source and Target file shares are present |
+| Stop protection |	Backup Contributor | Recovery Services vault |		
+| Unregister storage account from vault |	Backup Contributor | Recovery Services vault |
+| |	Storage Account Contributor | Storage account resource|
+
 
 ## Next steps
 * [Role Based Access Control](../role-based-access-control/role-assignments-portal.md): Get started with RBAC in the Azure portal.
