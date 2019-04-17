@@ -1,7 +1,7 @@
 ---
 title: Run Azure IoT Edge on Ubuntu Virtual Machines | Microsoft Docs
 description: Azure IoT Edge setup instructions on Ubuntu 16.04 Azure Marketplace Virtual Machines
-author: gregman
+author: gregman-msft
 manager: arjmands
 # this is the PM responsible
 ms.reviewer: kgremban
