@@ -209,7 +209,7 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
   
 	f. In the **Logout Service URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
 
-	g. In the **sign-on service URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+	g. In the **Sign-on service URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
     h. Click **Save**.
 
