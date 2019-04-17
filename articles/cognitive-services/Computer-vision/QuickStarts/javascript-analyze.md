@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze a remote image - REST, JavaScript"
+title: "Quickstart: Analyze remote image - REST, JavaScript"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze an image using the Computer Vision API with JavaScript.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---

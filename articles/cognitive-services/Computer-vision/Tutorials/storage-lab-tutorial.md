@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Generate metadata for Azure Storage images"
+title: "Tutorial: Generate metadata for Azure images"
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will learn how to integrate the Azure Computer Vision service into a web app to generate metadata for images.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: tutorial 
-ms.date: 01/03/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---

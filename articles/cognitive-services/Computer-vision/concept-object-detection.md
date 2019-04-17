@@ -1,7 +1,7 @@
 ---
 title: Object detection - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Concepts related to object detection using the Computer Vision API.
+description: Learn concepts related to the object detection feature of the Computer Vision API - usage and limits.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
