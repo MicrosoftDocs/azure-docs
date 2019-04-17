@@ -31,7 +31,7 @@ News about Cognitive Services is collected in the [Cognitive Services blog](http
 
 ## Release notes
 
-The [release notes]](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
+The [release notes](https://aka.ms/csspeech/whatsnew) are updated as soon as a new release is available. The notes contain information about new features, improvements, and bug fixes.
 
 ## Search
 

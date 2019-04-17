@@ -52,7 +52,7 @@ The paper complements the SAP installation documentation and SAP Notes, which re
 
 In this document, considerations of running SAP-related DBMS systems in Azure VMs are introduced. There are few references to specific DBMS systems in this chapter. Instead, the specific DBMS systems are handled within this paper, after this document.
 
-## Definitions upfront
+## Definitions
 Throughout the document, these terms are used:
 
 * **IaaS**: Infrastructure as a service.
@@ -68,7 +68,7 @@ Throughout the document, these terms are used:
 
 > [!NOTE]
 > Cross-premises deployments of SAP systems are where Azure virtual machines that run SAP systems are members of an on-premises domain and are supported for production SAP systems. Cross-premises configurations are supported for deploying parts or complete SAP landscapes into Azure. Even running the complete SAP landscape in Azure requires those VMs to be part of an on-premises domain and Active Directory/LDAP. 
-
+>
 > In previous versions of the documentation, hybrid-IT scenarios were mentioned. The term *hybrid* is rooted in the fact that there's a cross-premises connectivity between on-premises and Azure. In this case, hybrid also means that the VMs in Azure are part of the on-premises Active Directory.
 >
 >
@@ -289,20 +289,20 @@ These best practices are the result of hundreds of customer deployments:
 
 > [!IMPORTANT]
 > Configuring [network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and NSG rules](https://docs.microsoft.com/azure/virtual-network/security-overview) if those ASG and NSG rules allow a direct communication path. 
-
+>
 > Other scenarios where network virtual appliances aren't supported are in:
 >
 > * Communication paths between Azure VMs that represent Linux Pacemaker cluster nodes and SBD devices as described in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).
 > * Communication paths between Azure VMs and Windows Server Scale-Out File Server (SOFS) set up as described in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). 
-
+>
 > Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some customer scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail. These are cases where communications between the Linux Pacemaker cluster nodes communicate to their SBD device through a network virtual appliance.
 >
 
 > [!IMPORTANT]
 > Another design that's *not* supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of by using different Azure virtual networks. 
-
+>
 > If you decide not to follow the recommendation and instead segregate the two layers into different virtual networks, the two virtual networks must be [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
-
+>
 > Be aware that network traffic between two [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and the DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks.
 
 Use two VMs for your production DBMS deployment within an Azure availability set. Also use separate routing for the SAP application layer and the management and operations traffic to the two DBMS VMs. See the following image:

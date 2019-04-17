@@ -94,7 +94,7 @@ This article lists the countries and regions used by the **Geographic**  traffic
 
 		- ME(Montenegro)
 
-		- MK(Macedonia, FYRO)
+		- MK(North Macedonia)
 
 		- MT(Malta)
 
