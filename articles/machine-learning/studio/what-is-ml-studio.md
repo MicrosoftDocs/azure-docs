@@ -112,11 +112,11 @@ For users who prefer a drag-and-drop experience, there is a visual interface (Pr
 
 Here is a quick comparison.
 
-| | Azure Machine Learning Studio | Azure Machine Learning service 
-| --- | --- | --- |
-| Modules | Large number of modules | Small initial set of most popular modules |
-| Training | Train on proprietary compute target, CPU support only | Train on Azure Machine Learning compute, autoscaled CPU and GPU clusters.
-| Deployment | Deploy on proprietary webservice, not customizable | Deploy on Azure Kubernetes Service with enterprise ready security |
+| Azure Machine Learning Studio | Azure Machine Learning service 
+| --- | --- |
+ Large number of modules | Small initial set of most popular modules |
+ Train on proprietary compute target, CPU support only | Train on Azure Machine Learning compute, autoscaled CPU and GPU clusters.
+ Deploy on proprietary webservice, not customizable | Deploy on Azure Kubernetes Service with enterprise ready security |
 
 
 Try out the preview interface with the [Quickstart: Prepare and visualize data without writing code](../service/ui-quickstart-run-experiment.md).
