@@ -21,11 +21,7 @@ You can interact with Studio resources using three Powershell modules:
 * [AzureRM](#az-rm) released in 2016, replaced by PowerShell Az
 * [Azure Machine Learning PowerShell classic](#classic) released in 2016
 
-Although these modules have some similarities, each is designed for particular scenarios. This article describes the differences between the PowerShell modules, and helps you decide which ones to choose.
-
-## <a name="choosing-modules"></a> Choosing modules
-
-Choosing between the available PowerShell modules depends on the type of resources you are managing.
+Although these PowerShell modules have some similarities, each is designed for particular scenarios. This article describes the differences between the PowerShell modules, and helps you decide which ones to choose.  
 
 Check the [support table](#support-table) below to see which resources are supported by each module. 
 
@@ -51,7 +47,7 @@ PowerShell classic can be installed alongside either Az or AzureRM to cover both
 
  **Studio workspaces** | **Az** |  **AzureRM** | **PowerShell classic** |
 | --- | --- | --- | --- |
-| Create/Delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Create/delete workspaces | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager templates](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
 | Manage workspace users |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | Manage commitment plans | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | New-AzureRmMlCommitmentPlan |
 |||
@@ -66,6 +62,6 @@ PowerShell classic can be installed alongside either Az or AzureRM to cover both
 
 
 ## Next steps
-Follow these links for full documentation for the PowerShell modules:
+Consult the full documentation these PowerShell module:
 * [PowerShell classic](https://aka.ms/amlps)
 * [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)
