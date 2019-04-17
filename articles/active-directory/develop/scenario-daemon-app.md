@@ -1,6 +1,6 @@
 ---
 title: Daemon app calling Web APIs - scenario landing page | Azure
-description: Learn how to build a daemon app calling web apis on behalf of itself
+description: Learn how to build a daemon app that calls web apis
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -21,9 +21,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Scenario - Daemon application calling an API on behalf of itself
+# Scenario - Daemon application that calls Web APIs
 
-Learn all you need to build a daemon application calling Web APIs
+Learn all you need to build a daemon application that calls Web APIs.
 
 ## Scenario
 
@@ -131,7 +131,7 @@ In MSAL libraries, the client credentials (secret or certificate) are passed as 
 
 # [.NET](#tab/dotnet)
 
-Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application
+Add the [Microsoft.IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet package to your application.
 
 Use MSAL.NET namespace
 
@@ -139,7 +139,7 @@ Use MSAL.NET namespace
 using Microsoft.Identity.Client;
 ```
 
-The daemon application will be presented by an `IConfidentialClientApplication`
+The daemon application will be presented by an `IConfidentialClientApplication`.
 
 ```CSharp
 IConfidentialClientApplication app;
@@ -339,7 +339,7 @@ scope=https%3A%2F%2Fgraph.microsoft.com%2F.default
 
 ### Learn more
 
-For more information, see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md)
+For more information, see the protocol documentation: [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](v2-oauth2-client-creds-grant-flow.md).
 
 ___
 
@@ -375,7 +375,7 @@ If you are an ISV creating a daemon application that can run in several tenants,
 - provisions a service principal for the application
 - grants consent to the application
 
-You'll need to explain to your customers how to perform these operations. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details
+You'll need to explain to your customers how to perform these operations. See [Requesting consent for an entire tenant](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) for details.
 
 ## Next steps
 
