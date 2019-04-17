@@ -24,7 +24,7 @@ To enable custom key management for your storage account, first assign a system-
 To assign a managed identity using PowerShell, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount). Remember to replace the placeholder values in brackets with your own values.
 
 ```powershell
-Set-AzStorageAccount -ResourceGroupName <resource_group> `
+$storageAccount = Set-AzStorageAccount -ResourceGroupName <resource_group> `
     -Name <storage-account> `
     -AssignIdentity
 ```
@@ -38,7 +38,7 @@ To create a new key vault using PowerShell, call [New-AzKeyVault](/powershell/mo
 Remember to replace the placeholder values in brackets with your own values. 
 
 ```powershell
-New-AzKeyVault -Name <key-vault> `
+$keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
     -EnableSoftDelete `
@@ -52,9 +52,6 @@ Next, configure the access policy for the key vault so that the storage account 
 To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Remember to replace the placeholder values in brackets with your own values.
 
 ```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName <resource_group> `
-    -AccountName <storage-account>
-$keyVault = Get-AzKeyVault -VaultName <key-vault>
 Set-AzKeyVaultAccessPolicy `
     -VaultName $keyVault.VaultName `
     -ObjectId $storageAccount.Identity.PrincipalId `
@@ -66,7 +63,6 @@ Set-AzKeyVaultAccessPolicy `
 Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Remember to replace the placeholder values in brackets with your own values.
 
 ```powershell
-$keyVault = Get-AzKeyVault -VaultName $keyVault.VaultName
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
 ```
 

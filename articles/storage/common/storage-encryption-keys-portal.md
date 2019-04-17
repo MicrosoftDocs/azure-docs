@@ -45,7 +45,7 @@ To specify a key as a URI, follow these steps:
 1. In the **Encryption** settings for your storage account, choose the **Enter key URI** option.
 1. In the **Key URI** field, specify the URI.
 
-   ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-encryption-keys-portal/ssecmk2.png)
+   ![Screenshot showing how to enter key URI](./media/storage-encryption-keys-portal/ssecmk2.png)
 
 ### Specify a key from a key vault
 
@@ -55,15 +55,22 @@ To specify a key from a key vault, first make sure that you have a key vault tha
 2. Choose the key vault containing the key you want to use.
 3. Choose the key from the key vault.
 
-   ![Portal Screenshot showing Encryptions use your own key option](./media/storage-encryption-keys-portal/ssecmk3.png)
+   ![Screenshot showing customer-managed key option](./media/storage-encryption-keys-portal/ssecmk3.png)
 
 4. If the storage account does not have access to the key vault, you can run the Azure PowerShell command shown in the following image to grant access.
 
-    ![Portal Screenshot showing access denied for key vault](./media/storage-encryption-keys-portal/ssecmk4.png)
+    ![Screenshot showing access denied for key vault](./media/storage-encryption-keys-portal/ssecmk4.png)
 
 You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account. Be sure to replace the placeholder values shown in angle brackets with your own values:
 
+## Update key version
+
+When you create a new version of a key, you'll need to update the storage account to use the new version. Follow these steps:
+
+1. Navigate to your storage account and display the **Encryption** settings.
+1. Specify the URI for the new key version. Alternately, you can select the key vault and the key again to update the version.
+
 ## Next steps
 
-- [Azure Storage encryption for data at rest](storage-service-encryption.md) 
+- [Azure Storage encryption for data at rest](storage-service-encryption.md)
 - [What is Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)?
