@@ -7,7 +7,7 @@ manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 03/05/2019
+ms.date: 04/16/2019
 ms.author: raynew
 ms.custom: mvc
 ---
