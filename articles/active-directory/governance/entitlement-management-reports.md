@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
@@ -30,19 +30,33 @@ ms.collection: M365-identity-device-management
 
 ## View resources a user has access to
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
 1. Click **Azure Active Directory** and then click **Identity governance**.
 
-1. Click **User assignments report**.
+1. In the left menu, click **User assignments report**.
 
 1. Click **Select users** to open the Select users pane.
 
-1. Find the user in the list that you want to view their resource permissions.
+1. Find the user in the list that you want to view the resources they have access to.
 
 1. Click the user and then click **Select**.
 
     A list of resources that the user has access to is displayed. It includes the access package, policy, and dates.
+
+    ![User assignments report](./media/entitlement-management-reports/user-assignments-report.png)
+
+## Download the policies and assignments for an access package
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. In the left menu, click **Policies**.
+
+1. Click **Download** to download the polices as a .csv file.
+
+1. In the left menu, click **Assignments**.
+
+1. Click **Download** to download the assignments as a .csv file.
 
 ## Next steps
 
