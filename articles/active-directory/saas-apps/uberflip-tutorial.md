@@ -21,187 +21,183 @@ ms.author: jeedes
 # Tutorial: Azure Active Directory integration with Uberflip
 
 In this tutorial, you learn how to integrate Uberflip with Azure Active Directory (Azure AD).
+
 Integrating Uberflip with Azure AD provides you with the following benefits:
 
 * You can control in Azure AD who has access to Uberflip.
-* You can enable your users to be automatically signed-in to Uberflip (Single Sign-On) with their Azure AD accounts.
-* You can manage your accounts in one central location - the Azure portal.
+* You can enable your users to be automatically signed in to Uberflip (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
 To configure Azure AD integration with Uberflip, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
-* Uberflip single sign-on enabled subscription
+* An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Uberflip subscription with single sign-on enabled.
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Uberflip supports **SP** and **IDP** initiated SSO
+Uberflip supports the following features:
 
-* Uberflip supports **Just In Time** user provisioning
+* SP-initiated and IDP-initiated single sign-on (SSO).
+* Just-in-time user provisioning.
 
-## Adding Uberflip from the gallery
+## Add Uberflip from the Azure Marketplace
 
-To configure the integration of Uberflip into Azure AD, you need to add Uberflip from the gallery to your list of managed SaaS apps.
+To configure the integration of Uberflip into Azure AD, you need to add Uberflip from the Azure Marketplace to your list of managed SaaS apps:
 
-**To add Uberflip from the gallery, perform the following steps:**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the left pane, select **Azure Active Directory**.
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
+   ![The Azure Active Directory option](common/select-azuread.png)
 
-	![The Azure Active Directory button](common/select-azuread.png)
+1. Go to **Enterprise Applications**, and then select **All Applications**.
 
-2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
+   ![The Enterprise applications pane](common/enterprise-applications.png)
 
-	![The Enterprise applications blade](common/enterprise-applications.png)
+1. To add a new application, select **+ New application** at the top of the pane.
 
-3. To add new application, click **New application** button on the top of dialog.
+   ![The New application option](common/add-new-app.png)
 
-	![The New application button](common/add-new-app.png)
+1. In the search box, enter **Uberflip**. In the search results, select **Uberflip**, and then select **Add** to add the application.
 
-4. In the search box, type **Uberflip**, select **Uberflip** from result panel then click **Add** button to add the application.
-
-	 ![Uberflip in the results list](common/search-new-app.png)
+   ![Uberflip in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Uberflip based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Uberflip needs to be established.
+In this section, you configure and test Azure AD single sign-on with Uberflip based on a test user named **Britta Simon**. For single sign-on to work, you need to establish a link between an Azure AD user and a related user in Uberflip.
 
 To configure and test Azure AD single sign-on with Uberflip, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Uberflip Single Sign-On](#configure-uberflip-single-sign-on)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Uberflip test user](#create-uberflip-test-user)** - to have a counterpart of Britta Simon in Uberflip that is linked to the Azure AD representation of user.
-6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure Uberflip single sign-on](#configure-uberflip-single-sign-on)** to configure the single sign-on settings on the application side.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Create an Uberflip test user](#create-an-uberflip-test-user)** so that there's a user named Britta Simon in Uberflip who's linked to the Azure AD user named Britta Simon.
+1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Uberflip, perform the following steps:
+To configure Azure AD single sign-on with Uberflip, take the following steps:
 
 1. In the [Azure portal](https://portal.azure.com/), on the **Uberflip** application integration page, select **Single sign-on**.
 
-    ![Configure single sign-on link](common/select-sso.png)
+    ![Configure single sign-on option](common/select-sso.png)
 
-2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
+1. In the **Select a single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
 
     ![Single sign-on select mode](common/select-saml-option.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+1. On the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
 
-	![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
+1. On the **Basic SAML Configuration** pane, do one of the following steps, depending on which SSO mode you want to configure:
 
-    ![Uberflip Domain and URLs single sign-on information](common/both-replyurl.png)
+   * To configure the application in IDP-initiated SSO mode, in the **Reply URL (Assertion Consumer Service URL)** box, enter a URL by using the following pattern:
 
-	In the **Reply URL** text box, type a URL using the following pattern:
-    `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
-	
-	> [!NOTE]
-	> This value is not real. Update this value with the actual Reply URL. Contact [Uberflip Client support team](mailto:support@uberflip.com) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+     `https://app.uberflip.com/sso/saml2/<IDPID>/<ACCOUNTID>`
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+     ![Uberflip domain and URLs single sign-on information](common/both-replyurl.png)
 
-    ![Uberflip Domain and URLs single sign-on information](common/both-signonurl.png)
+     > [!NOTE]
+     > This value isn't real. Update this value with the actual reply URL. To get the actual value, contact the [Uberflip support team](mailto:support@uberflip.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
 
-    In the **Sign-on URL** text box, type a URL:
-    `https://app.uberflip.com/users/login`
+   * To configure the application in SP-initiated SSO mode, select **Set additional URLs**, and in the **Sign-on URL** box, enter this URL:
 
-6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+     `https://app.uberflip.com/users/login`
 
-	![The Certificate download link](common/metadataxml.png)
+     ![Uberflip domain and URLs single sign-on information](common/both-signonurl.png)
 
-7. On the **Set up Uberflip** section, copy the appropriate URL(s) as per your requirement.
+1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options and save it on your computer.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![The Federation Metadata XML download option](common/metadataxml.png)
 
-	a. Login URL
+1. In the **Set up Uberflip** pane, copy the URL or URLS that you need:
 
-	b. Azure AD Identifier
+   * **Login URL**
+   * **Azure AD Identifier**
+   * **Logout URL**
 
-	c. Logout URL
+   ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure Uberflip Single Sign-On
+### Configure Uberflip single sign-on
 
-To configure single sign-on on **Uberflip** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Uberflip support team](mailto:support@uberflip.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the Uberflip side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs from the Azure portal to the [Uberflip support team](mailto:support@uberflip.com). The Uberflip team will make sure the SAML SSO connection is set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
+In this section, you create a test user named Britta Simon in the Azure portal.
 
-1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. In the Azure portal, in the left pane, select **Azure Active Directory** > **Users** > **All users**.
 
-    ![The "Users and groups" and "All users" links](common/users.png)
+    ![The Users and "All users" options](common/users.png)
 
-2. Select **New user** at the top of the screen.
+1. At the top of the screen, select **+ New user**.
 
-    ![New user Button](common/new-user.png)
+    ![New user option](common/new-user.png)
 
-3. In the User properties, perform the following steps.
+1. In the **User** pane, do the following steps:
 
-    ![The User dialog box](common/user-properties.png)
+    ![The User pane](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    1. In the **Name** box, enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    1. In the **User name** box, enter **BrittaSimon\@\<yourcompanydomain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
 
-    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
 
-    d. Click **Create**.
+    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Uberflip.
+In this section, you enable Britta Simon to use Azure single sign-on by granting her access to Uberflip.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Uberflip**.
+1. In the Azure portal, select **Enterprise Applications** > **All applications** > **Uberflip**.
 
-	![Enterprise applications blade](common/enterprise-applications.png)
+    ![Enterprise applications pane](common/enterprise-applications.png)
 
-2. In the applications list, select **Uberflip**.
+1. In the applications list, select **Uberflip**.
 
-	![The Uberflip link in the Applications list](common/all-applications.png)
+    ![Uberflip in the applications list](common/all-applications.png)
 
-3. In the menu on the left, select **Users and groups**.
+1. In the left pane, under **MANAGE**, select **Users and groups**.
 
-    ![The "Users and groups" link](common/users-groups-blade.png)
+    ![The "Users and groups" option](common/users-groups-blade.png)
 
-4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **+ Add user**, and then select **Users and groups** in the **Add Assignment** pane.
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+1. In the **Users and groups** pane, select **Britta Simon** in the **Users** list, and then choose **Select** at the bottom of the pane.
 
-6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting a role value in the SAML assertion, then in the **Select Role** pane, select the appropriate role for the user from the list. At the bottom of the pane, choose **Select**.
 
-7. In the **Add Assignment** dialog click the **Assign** button.
+1. In the **Add Assignment** pane, select **Assign**.
 
-### Create Uberflip test user
+### Create an Uberflip test user
 
-In this section, a user called Britta Simon is created in Uberflip. Uberflip supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Uberflip, a new one is created after authentication.
+A user named Britta Simon is now created in Uberflip. You don't have to do anything to create this user. Uberflip supports just-in-time user provisioning, which is enabled by default. If a user named Britta Simon doesn't already exist in Uberflip, a new one is created after authentication.
 
-> [!Note]
-> If you need to create a user manually, contact [Uberflip support team](mailto:support@uberflip.com).
+> [!NOTE]
+> If you need to create a user manually, contact the [Uberflip support team](mailto:support@uberflip.com).
 
-### Test single sign-on 
+### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you click the Uberflip tile in the Access Panel, you should be automatically signed in to the Uberflip for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select **Uberflip** in the My Apps portal, you should be automatically signed in to the Uberflip subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
-- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [List of tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+* [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
