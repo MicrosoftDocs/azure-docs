@@ -49,7 +49,7 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
-- To use the CLI commands, you must have the [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli).
+- To use the CLI commands, you must have the [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md).
 
 - A trained model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
 
