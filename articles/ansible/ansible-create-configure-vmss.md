@@ -12,9 +12,11 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure virtual machine scale sets in Azure using Ansible
 
-[!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machine scale set (VMSS) in Azure, the same as you would manage any other Azure resource. This article shows you how to use Ansible to create and scale out a virtual machine scale set. 
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+In this tutorial, Ansible is used to create and configure a scale set. 
 
 ## Prerequisites
 

@@ -12,9 +12,11 @@ ms.date: 04/04/2019
 
 # Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible
 
-[!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to deploy your applications to Azure. This article shows you how to deploy a Java application to an Azure virtual machine scale set (VMSS).
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+In this tutorial, Ansible is used to deploy a Java application to a scale set.
 
 ## Prerequisites
 
