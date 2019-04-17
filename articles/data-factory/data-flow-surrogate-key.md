@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ---
 
-# Azure Data Factory Mapping Data Flow Surrogate Key Transformation
+# Mapping Data Flow Surrogate Key Transformation
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -43,7 +43,7 @@ If your previous max value is in a file, you can use your Source transformation 
 
 In both cases, you must Join your incoming new data together with your source that contains the previous max value:
 
-![Surrogate Key Join](media/data-flow/sk004.png "Surrogate Key Join)
+![Surrogate Key Join](media/data-flow/sk004.png "Surrogate Key Join")
 
 ## Next steps
 
