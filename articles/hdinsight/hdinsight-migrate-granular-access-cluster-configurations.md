@@ -34,13 +34,13 @@ permissions of Contributor or Owner. To summarize:
 
 The following entities and scenarios are affected:
 
-- [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints
-- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version ___ and below
-- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version __ and below
-- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) version __ and below
+- [API](#api): Users using the `/configurations` or `/configurations/{configurationName}` endpoints.
+- [Azure HDInsight Tools for Visual Studio Code](#azure-hdinsight-tools-for-visual-studio-code) version ___ and below.
+- [Azure Toolkit for IntelliJ](#azure-toolkit-for-intellij) version __ and below.
+- [Azure Toolkit for Eclipse](#azure-toolkit-for-eclipse) version __ and below.
 - [SDK for .NET](#sdk-for-net)
     - [versions 1.x or 2.x](#versions-1x-and-2x): Users using the `GetClusterConfigurations`, `GetConnectivitySettings`, `ConfigureHttpSettings`, `EnableHttp` or `DisableHttp` methods from the ConfigurationsOperationsExtensions class.
-    - [versions 3.x and up](#versions-3x-and-up): Users using the `EnableHttp`, `DisableHttp`, `Update`, or `Get` methods from the `ConfigurationsOperationsExtensions` class
+    - [versions 3.x and up](#versions-3x-and-up): Users using the `EnableHttp`, `DisableHttp`, `Update`, or `Get` methods from the `ConfigurationsOperationsExtensions` class.
 - [SDK for Python](#sdk-for-python): Users using the `get` or `update` methods from the ConfigurationsOperations class.
 - [SDK for Java](#sdk-for-java): Users using the `update` or `get` methods from the ConfigurationsInner class.
 - [SDK for Go](#sdk-for-go): Users using the `Get` or `Update` methods from the ConfigurationsClient struct.
@@ -49,22 +49,22 @@ See the below sections (or use the above links) to see the migration steps for y
 
 ## API
 
-The following APIs will be changed or deprecated:</span>
+The following APIs will be changed or deprecated:
 
-- **[GET /configurations/{configurationName}](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#get-configuration)** <span style="color:orange">(sensitive information removed)</span>
+- [**GET /configurations/{configurationName}**](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#get-configuration) (sensitive information removed)
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to obtain individual configuration types (including secrets).
     - This API call will now return individual configuration types with secrets omitted. To obtain all configurations, including secrets, use the new [POST /configurations]() call. To obtain just gateway settings, use the new [POST /getGatewaySettings]() call.
-- **[GET /configurations](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#get-configurations)** <span style="color:red">(deprecated)</span>
+- [**GET /configurations**](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#get-configurations) (deprecated)
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
     - Previously used to obtain all configurations (including secrets)
     - This API call will no longer be supported. To obtain all configurations going forward, use the new [POST /configurations]() call. To obtain configurations with sensitive parameters omitted, use the [GET /configurations/{configurationName}]() call.
-- [**POST /configurations/gateway**](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) <span style="color:red">(deprecated)</span>
-https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/gateway?api-version={api-version}
+- [**POST /configurations/{configurationName}**](https://docs.microsoft.com/en-us/rest/api/hdinsight/hdinsight-cluster#change-connectivity-settings) (deprecated)
+https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations/{configurationName}?api-version={api-version}
     - Previously used to update gateway credentials.
     - This API call will be deprecated and no longer supported. Use the new [POST /updateGatewaySettings]() instead.
 
-<span style="color:green">The following replacement APIs have been added:</span>
+The following replacement APIs have been added:</span>
 
 - **POST /configurations**
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/configurations?api-version={api-version}
