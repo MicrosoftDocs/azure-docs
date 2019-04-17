@@ -137,7 +137,7 @@ Sends a POST request to the registered URL if an entity for the subscribed event
 
 A quick test can be done using the website https://bin.webhookrelay.com. From there, you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
 
-Click on 'Create Bucket' and follow the onscreen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a message in response to the completion of a transcription looks as follows
+Click on 'Create Bucket' and follow the on-screen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a relay message -in response to the completion of a transcription- looks as follows:
 
 ```json
 {
