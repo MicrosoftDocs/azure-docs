@@ -1,20 +1,20 @@
 ---
 title: Azure CycleCloud Cluster Templates | Microsoft Docs
 description: Use or Build Cluster Templates within Azure CycleCloud
-author: KimliW
-ms.date: 08/01/2018
+author: adriankjohnson
+ms.date: 07/17/2019
 ms.author: adjohnso
 ---
 
 # Cluster Templates
 
-Azure CycleCloud uses templates to define cluster configurations. A number of templates are [available in GitHub](https://github.com/Azure?q=cyclecloud) and are available in CycleCloud by default. You can create new templates or you can customize existing ones. For instance, you may want to take take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to use a VPC to extend your own network.
+Azure CycleCloud uses templates to define cluster configurations. A number of templates are included in CycleCloud by default and a full list of supported templates is [available in GitHub](https://github.com/Azure?q=cyclecloud). You can create new templates or you can customize existing ones. For instance, you may want to take advantage of [low-priority](https://docs.microsoft.com/en-ca/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) VMs, or you might want to use a VPC to extend your own network.
 
 ## Customized Template Example
 
 Let's customize the default Slurm template that can be found in the [CycleCloud Slurm Repository](https://github.com/Azure/cyclecloud-slurm). The template file __templates/slurm.txt__ defines a Slurm cluster. Copy this template and make the following changes to it and give the file a unique name:
 
-[TODO: need a better example that can be downloaded and modified]
+[//]: # (TODO: need a better example that can be downloaded and modified)
 
 ``` ini
 [cluster CustomSlurm]
