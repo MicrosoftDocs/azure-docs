@@ -13,9 +13,11 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-Quickstart: Run the Speech Devices SDK sample app on Android
+# Quickstart: Run the Speech Devices SDK sample app on Android
 
-This article explains how to configure your machine and a Speech Devices Development Kit for Android to build speech-enabled products with the Speech Devices SDK.
+In this quickstart, you'll learn how to use the Speech Devices SDK for Android to build a speech-enabled product. 
+
+This guide requires an [Azure Cognitive Services](get-started.md) account with a Speech Services resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 The source code for the sample application is included with the Speech Devices SDK. It's also [available on GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -29,9 +31,9 @@ Before you start using the Speech Devices SDK, you'll need to:
    > [!NOTE]
    > The .zip file includes the Android sample app.
 
-* Get a [Speech Services subscription key](get-started.md). Start with a free trial or get a key from your Azure dashboard.
+* To get an [Azure subscription key for Speech Services](get-started.md)
 
-* If you want to use the Speech Services' intent recognition, subscribe to the [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) and [get a subscription key](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription).
+* If you plan to use Speech Services' to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
     You can [create a simple LUIS model](https://docs.microsoft.com/azure/cognitive-services/luis/) or use the sample LUIS model, LUIS-example.json. The sample LUIS model is available from the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/). To upload your model's JSON file to the [LUIS portal](https://www.luis.ai/home), select **Import new app**, and then select the JSON file.
 
@@ -62,7 +64,7 @@ Before you start using the Speech Devices SDK, you'll need to:
     >
     > Some companies might have a time limit on how long a device can be connected to their Wi-Fi system. You might need to extend the dev kit's registration with your Wi-Fi system after a specific number of days.
 
-## Run a sample application
+## Run the sample application
 
 To validate your development kit setup, build and install the sample application:
 
@@ -91,10 +93,10 @@ To validate your development kit setup, build and install the sample application
 
     You can also [create a custom wake word](speech-devices-sdk-create-kws.md).
 
-    To use a new wake word, update the following two lines of MainActivity.java, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
+    To use a new wake word, update the following two lines in `MainActivity.java`, and copy the wake word package to your app. For example, to use the wake word 'Machine' from the wake word package kws-machine.zip:
 
    * Copy the wake word package into the folder “C:\SDSDK\Android-Sample-Release\example\app\src\main\assets\”.
-   * Update the MainActivity.java with the keyword and the package name:
+   * Update the `MainActivity.java` with the keyword and the package name:
 
      ```java
      private static final String Keyword = "Machine";
@@ -108,7 +110,7 @@ To validate your development kit setup, build and install the sample application
    private static final String SelectedGeometry = "Circular6+1";
    ```
 
-   The following table describes the available values:
+   This table lists supported values:
 
    |Variable|Meaning|Available values|
    |--------|-------|----------------|
@@ -131,7 +133,7 @@ To validate your development kit setup, build and install the sample application
 
 1. Experiment!
 
-## Troubleshooting the Android device
+## Troubleshooting
 
 1. If you cannot connect to the Speech Device. Type the following command in a Command Prompt window. It will return a list of devices:
 

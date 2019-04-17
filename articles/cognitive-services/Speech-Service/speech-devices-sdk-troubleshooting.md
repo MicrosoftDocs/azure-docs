@@ -3,22 +3,20 @@ title: Troubleshoot the Speech Devices SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: This article provides information to help you solve issues you might encounter when you use the Speech Devices SDK.
 services: cognitive-services
-author: wolfma61
+author: mswellsi
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: wolfma
-ms.custom: seodec18
+ms.date: 05/06/2019
+ms.author: wellsi
 ---
 # Troubleshoot the Speech Devices SDK
 
 This article provides information to help you solve issues you might encounter when you use the Speech Devices SDK.
 
-## Troubleshooting
 
-### Certificate failures
+## Certificate failures
 
 If you get certificate failures when using the Speech Services, make sure that your device has the correct date and time:
 

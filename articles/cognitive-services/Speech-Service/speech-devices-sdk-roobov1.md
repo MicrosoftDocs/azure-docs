@@ -9,9 +9,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 05/06/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # Device: Roobo Smart Audio Dev Kit
