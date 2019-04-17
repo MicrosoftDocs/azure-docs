@@ -37,9 +37,7 @@ After creating a private cloud, create a VLAN in which to deploy your workload/a
 5. Enter an optional subnet name.
 6. To enable routing on the VLAN (subnet), specify the subnet CIDR range.
 7. Click **Submit**.
-
-    > [!NOTE]
-    > If you want the subnet created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
+8. (Optional) To make the subnet you created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
 
 ## Connect your environment to an Azure virtual network
 
