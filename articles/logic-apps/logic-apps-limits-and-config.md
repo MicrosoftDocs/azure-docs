@@ -221,12 +221,12 @@ This tier restricts throughput and usage, and has no service-level agreement (SL
 | Artifact | Limit | Notes |
 |----------|-------|-------|
 | Assemblies | 50 | |
-| Batch configurations | 5 |
-| Certificates | 50 | |
+| Batch configurations | 50 |
+| Certificates | 500 | |
 | EDI trading agreements | 500 | |
 | EDI trading partners | 500 | |
-| Maps | 500 | |
-| Schemas | 500 |
+| Maps | 1,000 | |
+| Schemas | 1,000 |
 ||||
 
 <a name="artifact-capacity-limits"></a>
