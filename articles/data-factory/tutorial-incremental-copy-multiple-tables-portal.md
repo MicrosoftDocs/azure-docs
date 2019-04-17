@@ -488,11 +488,12 @@ The pipeline takes a list of table names as a parameter. The ForEach activity it
 1. Switch to the **Sink** tab, and select **SinkDataset** for **Sink Dataset**. 
         
     ![Copy Activity - sink settings](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Switch to the **Parameters** tab, and do the following steps:
+1. Do the following steps:
 
-    1. For **Sink Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
-    1. For **Sink Table Type** property, enter `@{item().TableType}`.
-    1. In the **Sink Dataset** section, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. In the **Dataset** property, for **SinkTableName** parameter, enter `@{item().TABLE_NAME}`.
+    1. For **Stored Procedure Name** property, enter `@{item().StoredProcedureNameForMergeOperation}`.
+    1. For **Table Type** property, enter `@{item().TableType}`.
+
 
         ![Copy Activity - parameters](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Drag-and-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. Connect the **Copy** activity to the **Stored Procedure** activity. 
