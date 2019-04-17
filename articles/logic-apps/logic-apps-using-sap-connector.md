@@ -15,18 +15,22 @@ tags: connectors
 # Connect to SAP systems from Azure Logic Apps
 
 This article shows how you can access your on-premises SAP resources from 
-inside a logic app by using the SAP ERP Central Component (ECC) connector. 
+inside a logic app by using the SAP connector. 
 The connector works with both ECC and S/4 HANA systems on-premises. 
-The SAP ECC connector supports message or data integration to and from 
+The SAP connector supports message or data integration to and from 
 SAP Netweaver-based systems through Intermediate Document (IDoc) or 
 Business Application Programming Interface (BAPI) or Remote Function Call (RFC).
 
-The SAP ECC connector uses the 
+The SAP connector uses the 
 <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .NET Connector (NCo) library</a> and provides these operations or actions:
 
 - **Send to SAP**: Send IDoc or call BAPI functions over tRFC in SAP systems.
 - **Receive from SAP**: Receive IDoc or BAPI function calls over tRFC from SAP systems.
 - **Generate schemas**: Generate schemas for the SAP artifacts for IDoc or BAPI or RFC.
+
+For all the above operations, SAP connector supports basic authentication through username and password. 
+The connectors also supports <a href="https://help.sap.com/doc/saphelp_nw70/7.0.31/en-US/e6/56f466e99a11d1a5b00000e835363f/content.htm?no_cache=true"> Secure Network Communications (SNC)</a>, 
+which can be used for SAP Netweaver Single Sign-On or for additional security capabilities provided by an external security product. 
 
 The SAP connector integrates with on-premises SAP systems through the 
 [on-premises data gateway](https://www.microsoft.com/download/details.aspx?id=53127). 
@@ -61,6 +65,13 @@ your gateway in the Azure portal before you continue.
 The gateway helps you securely access data and 
 resources are on premises. For more information, see 
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
+
+* If you are using SNC with Single Sing-On (SSO), then ensure gateway is running as a user thats mapped against the SAP user. To change the default account,
+select Change account and enter the user credentials.
+
+   ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
+
+* If you are enabling SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed.
 
 * Download and install the latest SAP client library, which is currently 
 <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
