@@ -30,11 +30,11 @@ You can buy SUSE and RedHat software plans in the Azure portal. To buy a plan:
 Fill in the required fields. Any SUSE Linux VM or RedHat VM that matches the attributes of what you buy gets the discount. The actual number of deployments that get the discount depend on the scope and quantity selected.
 3. Select a subscription. It's used to pay for the plan.
 The subscription payment method is charged the upfront costs for the reservation. The subscription type must be an Enterprise Agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
-  - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
-  - For a Pay-As-You-Go subscription, the charges are billed to the subscription's credit card or invoice payment method.
+    - For an enterprise subscription, the charges are deducted from the enrollment's monetary commitment balance or charged as overage.
+    - For a Pay-As-You-Go subscription, the charges are billed to the subscription's credit card or invoice payment method.
 4. Select a scope. The scope can cover one subscription or multiple subscriptions (shared scope).
-  - Single subscription - The plan discount is applied to matching usage in the subscription.
-  - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For Pay-As-You-Go customers, the billing context is all Pay-As-You-Go subscriptions created by the account administrator.
+    - Single subscription - The plan discount is applied to matching usage in the subscription.
+    - Shared - The plan discount is applied to matching instances in any subscription in your billing context. For enterprise customers, the billing context is the enrollment and includes all subscriptions in the enrollment. For Pay-As-You-Go customers, the billing context is all Pay-As-You-Go subscriptions created by the account administrator.
 5. Select a product to choose the VM size and the image type. The discount applies to the selected VM size only.
 6. Select a one-year or three-year term.
 7. Choose a quantity, which is the number of prepaid VM instances that can get the billing discount.
