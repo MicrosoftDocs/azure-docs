@@ -24,9 +24,9 @@ You need to have an Application Gateway v2 SKU instance to complete the steps in
 
 ## Create required objects
 
-To configure HTTP header rewrites, you need to complete these steps.
+To configure HTTP header rewrite, you need to complete these steps.
 
-1. Create the objects that are required for HTTP header rewrites:
+1. Create the objects that are required for HTTP header rewrite:
 
    - **Rewrite action**: Used to specify the request and request header fields that you intend to rewrite and the new value for the headers. You can associate one or more rewrite conditions with a rewrite action.
 
@@ -38,7 +38,7 @@ To configure HTTP header rewrites, you need to complete these steps.
 
    - **Rule sequence**: Helps determine the order in which the rewrite rules execute. This configuration is helpful when you have multiple rewrite rules in a rewrite set. A rewrite rule that has a lower rule sequence value runs first. If you assign the same rule sequence value to two rewrite rules, the order of execution is non-deterministic.
 
-   - **Rewrite set**: Contains multiple rewrite rules that will be associated to a request routing rule.
+   - **Rewrite set**: Contains multiple rewrite rules that will be associated with a request routing rule.
 
 2. Attach the rewrite set to a routing rule. The rewrite configuration is attached to the source listener via the routing rule. When you use a basic routing rule, the header rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the header rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site.
 
@@ -48,7 +48,7 @@ You can create multiple HTTP header rewrite sets and apply each rewrite set to m
 
 Sign in to the [Azure portal](https://portal.azure.com/) with your Azure account.
 
-## Configure header rewrites
+## Configure header rewrite
 
 In this example, we'll modify a redirection URL by rewriting the location header in the HTTP response sent by a back-end application.
 
@@ -82,7 +82,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - Select **Add condition** and then select the box containing the **If** instructions to expand it.
 
-     ![Add condition](media/rewrite-http-headers-portal/add-condition.png)
+     ![Add a condition](media/rewrite-http-headers-portal/add-condition.png)
 
    - In the **Type of variable to check** list, select **HTTP header**.
 
@@ -100,7 +100,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - Select **OK**.
 
-     ![Modify location header](media/rewrite-http-headers-portal/condition.png)
+     ![Configure an If condition](media/rewrite-http-headers-portal/condition.png)
 
 7. Add an action to rewrite the location header:
 
@@ -112,22 +112,20 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - In the **Common header** list, select **Location**.
 
-   - Enter the header value. In this example, we will use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This will replace *azurewebsites.net* with *contoso.com* in the location header.
+   - Enter the header value. In this example, we'll use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value will replace *azurewebsites.net* with *contoso.com* in the location header.
 
-   - Click **OK**.
+   - Select **OK**.
 
-     ![Modify location header](media/rewrite-http-headers-portal/action.png)
+     ![Add an action](media/rewrite-http-headers-portal/action.png)
 
-8. Click on **Create** to create the rewrite set.
+8. Select **Create** to create the rewrite set.
 
-   ![Modify location header](media/rewrite-http-headers-portal/create.png)
+   ![Select Create](media/rewrite-http-headers-portal/create.png)
 
-9. You will be navigated to the Rewrite set view. Verify that the rewrite set you created above is present in the list of rewrite sets.
+9. The Rewrite set view will open. Verify that the rewrite set you created is in the list of rewrite sets.
 
-   ![Modify location header](media/rewrite-http-headers-portal/rewrite-set-list.png)
+   ![Rewrite set view](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
 ## Next steps
 
-To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
-
-   
+To learn more about how to set up some common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
