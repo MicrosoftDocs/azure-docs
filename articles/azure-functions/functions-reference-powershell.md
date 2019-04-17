@@ -19,6 +19,8 @@ ms.author: tylerleonhardt
 
 This guide contains information about the intricacies of writing Azure Functions with PowerShell.
 
+[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+
 A PowerShell function is represented as a PowerShell script that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)).
 The PowerShell script takes in parameters that match the names of all the input bindings.
 In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
