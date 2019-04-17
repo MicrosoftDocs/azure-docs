@@ -17,8 +17,8 @@ ms.author: pabouwer
 This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS.
 
 > [!NOTE]
-> These instructions reference Istio version `1.1.2`. The Istio `1.1` release has been tested with Kubernetes versions `1.11`, `1.12`, `1.13`. <br/>
-You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes]. 
+> These instructions reference Istio version `1.1.2`. <br/><br/>
+> The Istio `1.1` release has been tested with Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes]. 
 
 In this article, you learn how to:
 
@@ -28,14 +28,16 @@ In this article, you learn how to:
 > * Install the Istio CRDs on AKS
 > * Install the Istio components on AKS
 > * Validate the Istio installation
+> * Accessing the add-ons
+> * Uninstall Istio from AKS
 
 ## Before you begin
 
 The steps detailed in this article assume that you've created an AKS cluster (Kubernetes `1.11` and above, with RBAC enabled) and have established a `kubectl` connection with the cluster. If you need help with any of these items, then see the [AKS quickstart][aks-quickstart].
 
-You'll need [Helm][helm] in order to follow these instructions and install Istio. It is strongly recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install].
+You'll need [Helm][helm] to follow these instructions and install Istio. It's recommended that you have version `2.12.2` or later correctly installed and configured in your cluster. If you need help with installing Helm, then see the [AKS Helm installation guidance][helm-install].
 
-This article separates the Istio installation guidance into several discrete steps. Each of these steps is described so that you learn how to install Istio, and learn how Istio works with Kubernetes. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
+This article separates the Istio installation guidance into several discrete steps. The end result is the same in structure as the official Istio installation [guidance][istio-install-helm].
 
 ## Download Istio
 
@@ -65,7 +67,7 @@ ISTIO_VERSION=1.1.2
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
 
-Now move onto the section to [Install the Istio client binary](#install-the-istio-client-binary).
+Now move onto the section to [Install the Istio istioctl client binary](#install-the-istio-istioctl-client-binary).
 
 ### PowerShell
 
@@ -80,7 +82,7 @@ $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github
 Expand-Archive -Path "istio-$ISTIO_VERSION.zip" -DestinationPath .
 ```
 
-Now move onto the section to [Install the Istio client binary](#install-the-istio-client-binary).
+Now move onto the section to [Install the Istio istioctl client binary](#install-the-istio-istioctl-client-binary).
 
 ## Install the Istio istioctl client binary
 
@@ -143,7 +145,7 @@ Now move on to the next section to [Install the Istio CRDs on AKS](#install-the-
 
 ### Windows
 
-To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to an Istio folder and make it permanently available via your `PATH`. You do not need elevated (Admin) privileges to run these commands.
+To install the Istio `istioctl` client binary in a **Powershell**-based shell on Windows, use the following commands. These commands copy the `istioctl` client binary to an Istio folder and make it permanently available via your `PATH`. You don't need elevated (Admin) privileges to run these commands.
 
 ```powershell
 cd istio-$ISTIO_VERSION
@@ -160,7 +162,7 @@ Now move on to the next section to [Install the Istio CRDs on AKS](#install-the-
 > [!IMPORTANT]
 > Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
 
-Istio leverages [Custom Resource Definitions (CRDs)][kubernetes-crd] to manage its runtime configuration. We need to install the Istio CRDs first, since the Istio components have a dependency on them. Use Helm and the `istio-init` chart to install the Istio CRDs into the `istio-system` namespace in your AKS cluster:
+Istio uses [Custom Resource Definitions (CRDs)][kubernetes-crd] to manage its runtime configuration. We need to install the Istio CRDs first, since the Istio components have a dependency on them. Use Helm and the `istio-init` chart to install the Istio CRDs into the `istio-system` namespace in your AKS cluster:
 
 ```azurecli
 helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
@@ -175,12 +177,12 @@ kubectl get jobs -n istio-system
 The following example output shows the successfully completed jobs.
 
 ```console
-NAME                          COMPLETIONS   DURATION   AGE
-job.batch/istio-init-crd-10   1/1           16s        38s
-job.batch/istio-init-crd-11   1/1           15s        38s
+NAME                COMPLETIONS   DURATION   AGE
+istio-init-crd-10   1/1           5s         6s
+istio-init-crd-11   1/1           3s         6s
 ```
 
-Now that we have confirmed the successful completion of the jobs, let's verify that we have the correct number of Istio CRDs installed. You can verify that all 53 Istio CRDs have been installed by running the appropriate command for your environment. The command should return the number `53`.
+Now that we've confirmed the successful completion of the jobs, let's verify that we have the correct number of Istio CRDs installed. You can verify that all 53 Istio CRDs have been installed by running the appropriate command for your environment. The command should return the number `53`.
 
 #### Bash
 
@@ -194,16 +196,16 @@ kubectl get crds | grep 'istio.io' | wc -l
 (kubectl get crds | Select-String -Pattern 'istio.io').Count
 ```
 
-If you have got to this point, then that means you have successfully installed the Istio CRDs. Now move on to the next section to [Install the Istio components on AKS](#install-the-istio-components-on-aks).
+If you've got to this point, then that means you have successfully installed the Istio CRDs. Now move on to the next section to [Install the Istio components on AKS](#install-the-istio-components-on-aks).
 
 ## Install the Istio components on AKS
 
 > [!IMPORTANT]
 > Ensure that you run the steps in this section, from the top-level folder of the Istio release that you downloaded and extracted.
 
-As part of our Istio installation, we will be installing [Grafana][grafana] for analytics and monitoring dashboards and [Kiali][kiali] for a service mesh observability dashboard. In our setup, each of these components require credentials that must be provided as a [Secret][kubernetes-secrets].
+We'll be installing [Grafana][grafana] and [Kiali][kiali] as part of our Istio installation. Grafana provides analytics and monitoring dashboards, and Kiali provides a service mesh observability dashboard. In our setup, each of these components requires credentials that must be provided as a [Secret][kubernetes-secrets].
 
-Before we can install the Istio components, we must create the secrets for both Grafana and Kiali. Do this by running the appropriate command for your environment.
+Before we can install the Istio components, we must create the secrets for both Grafana and Kiali. Create these secrets by running the appropriate commands for your environment.
 
 ### Add Grafana Secret
 
@@ -299,16 +301,16 @@ data:
 
 ### Install Istio components
 
-Now that we have successfully created the Grafana and Kiali secrets in our AKS cluster, it is time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster:
+Now that we've successfully created the Grafana and Kiali secrets in our AKS cluster, it's time to install the Istio components. Use Helm and the `istio` chart to install the Istio components into the `istio-system` namespace in your AKS cluster:
 
 > [!NOTE]
-> We are using the following options as part of our installation:<br/>
-> `global.controlPlaneSecurityEnabled=true` - mutual TLS enabled for the control plane<br/>
-> `mixer.adapters.useAdapterCRDs=false` - remove watches on mixer adapter CRDs to improve performance<br/>
-> `grafana.enabled=true` - enable Grafana deployment for analytics and monitoring dashboards<br/>
-> `grafana.security.enabled=true` - enable authentication for Grafana<br/>
-> `tracing.enabled=true` - enable the Jaeger deployment for tracing<br/>
-> `kiali.enabled=true` - enable the Kiali deployment for a service mesh observability dashboard
+> We are using the following options as part of our installation:
+> - `global.controlPlaneSecurityEnabled=true` - mutual TLS enabled for the control plane
+> - `mixer.adapters.useAdapterCRDs=false` - remove watches on mixer adapter CRDs to improve performance
+> - `grafana.enabled=true` - enable Grafana deployment for analytics and monitoring dashboards
+> - `grafana.security.enabled=true` - enable authentication for Grafana
+> - `tracing.enabled=true` - enable the Jaeger deployment for tracing
+> - `kiali.enabled=true` - enable the Kiali deployment for a service mesh observability dashboard
 
 ```azurecli
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
@@ -321,7 +323,7 @@ helm install install/kubernetes/helm/istio --name istio --namespace istio-system
 
 The `istio` Helm chart deploys a large number of objects. You can see the list from the output of your `helm install` command above. The deployment of the Istio components can take 4 to 5 minutes to complete, depending on your cluster environment.
 
-At this point you have deployed Istio to your AKS cluster. To ensure that we have a successful deployment of Istio, let's move on to the next section to [Validate the Istio installation](#validate-the-istio-installation).
+At this point, you've deployed Istio to your AKS cluster. To ensure that we have a successful deployment of Istio, let's move on to the next section to [Validate the Istio installation](#validate-the-istio-installation).
 
 ## Validate the Istio installation
 
@@ -394,7 +396,7 @@ There should be two `istio-init-crd-*` pods with a `Completed` status. These pod
 
 ## Accessing the add-ons
 
-A number of add-ons were installed Istio in our setup above that provide additional functionality. The user interfaces for the add-ons are not exposed publicly via an external ip address. To access the add-on user interfaces, use the [kubectl port-forward][kubectl-port-forward] command. This command creates a secure connection between a local port on your client machine and the relevant pod in your AKS cluster.
+A number of add-ons were installed Istio in our setup above that provide additional functionality. The user interfaces for the add-ons are not exposed publicly via an external ip address. To access the add-on user interfaces, use the [kubectl port-forward][kubectl-port-forward] command. This command creates a secure connection between your client machine and the relevant pod in your AKS cluster.
 
 We added an additional layer of security for Grafana and Kiali by specifying credentials for them earlier in this article.
 
@@ -464,11 +466,48 @@ Forwarding from 127.0.0.1:20001 -> 20001
 Forwarding from [::1]:20001 -> 20001
 ```
 
-You can now reach the Kiali service mesh observability dashboard at the following URL on your client machine - [http://localhost:20001/kiali/console/](http://localhost:20001/kiali/console/. Remember to use the credentials you created via the Kiali secret earlier when prompted.
+You can now reach the Kiali service mesh observability dashboard at the following URL on your client machine - [http://localhost:20001/kiali/console/](http://localhost:20001/kiali/console/). Remember to use the credentials you created via the Kiali secret earlier when prompted.
+
+## Uninstall Istio from AKS
+
+> [!WARNING]
+> Deleting Istio from a running system may result in traffic related issues between your services. Ensure that you have made provisions for your system to still operate correctly without Istio before proceeding.
+
+### Remove Istio components and namespace
+
+To remove Istio from your AKS cluster, use the following commands. The `helm delete` commands will remove the `istio` and `istio-init` charts, and the `kubectl delete ns` command will remove the `istio-system` namespace.
+
+```azurecli
+helm delete --purge istio
+helm delete --purge istio-init
+kubectl delete ns istio-system
+```
+
+### Remove Istio CRDs
+
+The above commands delete all the Istio components and namespace, but we are still left with the Istio CRDs. To delete the CRDs, you can use one the following approaches. 
+
+Approach #1 - This command assumes that you are running this step from the top-level folder of the downloaded and extracted release of Istio that you used to install Istio with.
+
+```azure-cli
+kubectl delete -f install/kubernetes/helm/istio-init/files
+```
+
+Approach #2 - Use one of these commands if you no longer have access to the downloaded and extracted release of Istio that you used to install Istio with.
+
+Bash
+```bash
+kubectl get crds -o name | grep 'istio.io' | xargs -n1 kubectl delete
+```
+
+Powershell
+```powershell
+kubectl get crds -o name | Select-String -Pattern 'istio.io' |% { kubectl delete $_ }
+```
 
 ## Next steps
 
-To see how you can use Istio to provide intelligent routing between multiple versions of your application and to roll out a canary release, see the following documentation:
+The following documentation describes how you can use Istio to provide intelligent routing to roll out a canary release:
 
 > [!div class="nextstepaction"]
 > [AKS Istio intelligent routing scenario][istio-scenario-routing]
