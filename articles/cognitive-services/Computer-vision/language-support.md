@@ -67,5 +67,5 @@ Some actions of the [Analyze - Image](https://westus.dev.cognitive.microsoft.com
 
 Get started using the Computer Vision APIs mentioned in this guide.
 
-* [Analyze a local image (REST)](./quickstarts/csharp-analyze)
-* [Extract printed text (REST)](./quickstarts/csharp-print-text)
+* [Analyze a local image (REST)](./quickstarts/csharp-analyze.md)
+* [Extract printed text (REST)](./quickstarts/csharp-print-text.md)
