@@ -71,7 +71,7 @@ Inbound sync rule means the source for the attribute is a connector space and ta
 
  ![default rules](media/how-to-connect-fix-default-rules/default3a.png)
 
-Follow your own naming convention to name the rule, here we used **Custom In from AD - User**, this means that the rule is a custom rule and is an inbound rule from AD connector space to the Metaverse. 
+Follow your own naming convention to name the rule, here we used **Custom In from AD - User**, this means that the rule is a custom rule and is an inbound rule from AD connector space to the Metaverse.   
 
  ![default rules](media/how-to-connect-fix-default-rules/default3b.png)
 
