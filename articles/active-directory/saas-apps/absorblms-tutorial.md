@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: ba9f1b3d-a4a0-4ff7-b0e7-428e0ed92142
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/02/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -34,7 +35,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Absorb LMS, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Absorb LMS single sign-on enabled subscription
 
 ## Scenario description
@@ -120,17 +121,21 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Absorb LMS Client support team](https://support.absorblms.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Metadata XML** from the given options as per your requirement and save it on your computer.
+5. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**.
+
+	![image](common/edit-attribute.png)
+
+6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Absorb LMS** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up Absorb LMS** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -162,7 +167,7 @@ To configure Azure AD single sign-on with Absorb LMS, perform the following step
 
     d. In the **Mode** box, select **Identity Provider Initiated**.
 
-	e. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *userPrincipalName* is selected in Azure AD, select **Username**.
+	e. In the **Id Property** box, select the attribute that you configured as the user identifier in Azure AD. For example, if *nameidentifier* is selected in Azure AD, select **Username**.
 
     f. Select **Sha256** as a **Signature Type**.
 
@@ -194,7 +199,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -272,7 +277,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Absorb LMS tile in the Access Panel, you should be automatically signed in to the Absorb LMS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 

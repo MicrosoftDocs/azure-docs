@@ -10,7 +10,7 @@ ms.author: mjbrown
 
 # Manage conflict resolution policies in Azure Cosmos DB
 
-With multi-region writes, when a data conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies by using different language platforms.
+With multi-region writes, when multiple clients write to the same item, conflicts may occur. When a conflict occurs, you can resolve the conflict by using different conflict resolution policies. This article describes how to manage conflict resolution policies.
 
 ## Create a last-writer-wins conflict resolution policy
 
@@ -79,7 +79,7 @@ udp_collection = {
 udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
 ```
 
-## Create a custom conflict resolution policy with a stored procedure
+## Create a custom conflict resolution policy using a stored procedure
 
 These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure. After the policy is created with the container you need to create the stored procedure. The .NET SDK sample below shows an example of that. This policy is supported on Core (SQL) Api only.
 
@@ -354,6 +354,10 @@ while conflict:
 
 Learn about the following Azure Cosmos DB concepts:
 
+* [Global distribution - under the hood](global-dist-under-the-hood.md)
+* [How to configure multi-master in your applications](how-to-multi-master.md)
+* [Configure clients for multihoming](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to configure multi-master in your applications](how-to-multi-master.md).
 * [Partitioning and data distribution](partition-data.md)
 * [Indexing in Azure Cosmos DB](indexing-policies.md)
