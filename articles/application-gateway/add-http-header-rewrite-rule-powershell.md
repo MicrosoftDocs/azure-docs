@@ -36,7 +36,7 @@ To configure HTTP header rewrite, you need to complete these steps.
 
    - **Condition**: An optional configuration. Rewrite conditions evaluate the content of HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition.
 
-     If more than one condition is associated with an action, the action occurs only when all the conditions are met. In other words, the operation is a  logical AND operation.
+     If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a  logical AND operation.
 
    - **RewriteRule**: Contains multiple rewrite action / rewrite condition combinations.
 
@@ -69,13 +69,13 @@ $rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionS
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```
 
-## Retrieve the configuration of your existing application gateway
+## Retrieve the configuration of your application gateway
 
 ```azurepowershell
 $appgw = Get-AzApplicationGateway -Name "AutoscalingAppGw" -ResourceGroupName "<rg name>"
 ```
 
-## Retrieve the configuration of your existing request routing rule
+## Retrieve the configuration of your request routing rule
 
 ```azurepowershell
 $reqRoutingRule = Get-AzApplicationGatewayRequestRoutingRule -Name rule1 -ApplicationGateway $appgw

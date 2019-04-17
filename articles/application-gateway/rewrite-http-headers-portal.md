@@ -30,9 +30,9 @@ To configure HTTP header rewrite, you need to complete these steps.
 
    - **Rewrite action**: Used to specify the request and request header fields that you intend to rewrite and the new value for the headers. You can associate one or more rewrite conditions with a rewrite action.
 
-   - **Rewrite condition**: An optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition.
+   - **Rewrite condition**: An optional configuration. Rewrite conditions evaluate the content of HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition.
 
-     If more than one condition is associated with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
+     If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
 
    - **Rewrite rule**: Contains multiple rewrite action / rewrite condition combinations.
 
@@ -56,7 +56,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
 2. Select **Rewrites** in the left pane.
 
-3. Select **Rewrite set**.
+3. Select **Rewrite set**:
 
    ![Add rewrite set](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -96,7 +96,7 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
    - In the **Operator** list, select **equal (=)**.
 
-   - Enter the regular expression pattern. In this example, we'll use the pattern  `(https?):\/\/.*azurewebsites\.net(.*)$`.
+   - Enter a regular expression pattern. In this example, we'll use the pattern  `(https?):\/\/.*azurewebsites\.net(.*)$`.
 
    - Select **OK**.
 
@@ -118,11 +118,11 @@ In this example, we'll modify a redirection URL by rewriting the location header
 
      ![Add an action](media/rewrite-http-headers-portal/action.png)
 
-8. Select **Create** to create the rewrite set.
+8. Select **Create** to create the rewrite set:
 
    ![Select Create](media/rewrite-http-headers-portal/create.png)
 
-9. The Rewrite set view will open. Verify that the rewrite set you created is in the list of rewrite sets.
+9. The Rewrite set view will open. Verify that the rewrite set you created is in the list of rewrite sets:
 
    ![Rewrite set view](media/rewrite-http-headers-portal/rewrite-set-list.png)
 

@@ -20,7 +20,7 @@ Application Gateway allows you to add, remove, or update HTTP request and respon
 Application Gateway also supports several [server variables](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) that help you store additional information about requests and responses. This makes it easier for you to create powerful rewrite rules.
 
 > [!NOTE]
-> HTTP header rewrite is available only for the [new SKU Standard_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
+> HTTP header rewrite is available only in the [new SKU Standard_v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant).
 
 ![Rewriting headers](media/rewrite-http-headers/rewrite-headers.png)
 
@@ -50,7 +50,7 @@ You use rewrite actions to specify the request and response headers that you wan
 
 ## Server variables
 
-Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address or web browser type. These variables change dynamically, for example, when a new page is loaded or when a form is posted. You can use these server variables to evaluate rewrite conditions and rewrite headers.
+Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers.
 
 Application gateway supports these server variables:
 
@@ -59,9 +59,9 @@ Application gateway supports these server variables:
 | add_x_forwarded_for_proxy  | The X-Forwarded-For client request header field with the `client_ip` variable (see explanation later in this table) appended to it in the format IP1, IP2, IP3, and so on. If the X-Forwarded-For field isn't in the client request header, the `add_x_forwarded_for_proxy` variable is equal to the `$client_ip` variable. This variable is particularly useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains only the IP address without the port information. |
 | ciphers_supported          | A list of the ciphers supported by the client.          |
 | ciphers_used               | The string of ciphers used for an established SSL connection. |
-| client_ip                  | The IP address of the client from which the application gateway received the request. If there is a reverse proxy before the application gateway and the originating client, *client_ip* will return the IP address of the reverse proxy. |
+| client_ip                  | The IP address of the client from which the application gateway received the request. If there's a reverse proxy before the application gateway and the originating client, *client_ip* will return the IP address of the reverse proxy. |
 | client_port                | The client port.                                                  |
-| client_tcp_rtt             | Information about the client TCP connection. available on systems that support the TCP_INFO socket option. |
+| client_tcp_rtt             | Information about the client TCP connection. Available on systems that support the TCP_INFO socket option. |
 | client_user                | When HTTP authentication is used, the user name supplied for authentication. |
 | host                       | In this order of precedence: the host name from the request line, the host name from the Host request header field, or the server name matching a request. |
 | cookie_*name*              | The *name* cookie.                                            |
@@ -88,7 +88,7 @@ To configure HTTP header rewrite, you need to complete these steps.
 
    - **Rewrite condition**: An optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action will occur if the HTTP(S) request or response matches the rewrite condition.
 
-     If more than one condition is associated with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
+     If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
 
    - **Rewrite rule**: Contains multiple rewrite action / rewrite condition combinations.
 
@@ -116,7 +116,7 @@ When a back-end application sends a redirection response, you might want to redi
 
 Because App Service is a multitenant service, it uses the host header in the request to route the request to the correct endpoint. App services have a default domain name of *.azurewebsites.net (say contoso.azurewebsites.net) that's different from the application gateway's domain name (say contoso.com). Because the original request from the client has the application gateway's domain name (contoso.com) as the hostname, the application gateway changes the hostname to contoso.azurewebsites.net. It makes this change so that the app service can route the request to the correct endpoint.
 
-When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to contoso.azurewebsites.net/path2 instead of going through the application gateway (contoso.com/path2). Bypassing the application gateway is not desirable.
+When the app service sends a redirection response, it uses the same hostname in the location header of its response as the one in the request it receives from the application gateway. So the client will make the request directly to contoso.azurewebsites.net/path2 instead of going through the application gateway (contoso.com/path2). Bypassing the application gateway isn't desirable.
 
 You can resolve this issue by setting the hostname in the location header to the application gateway's domain name.
 
@@ -135,19 +135,19 @@ You can fix several security vulnerabilities by implementing necessary headers i
 
 ### Delete unwanted headers
 
-You may want to remove those headers from the HTTP response that reveal sensitive information such as backend server name, operating system, library details, etc. You can use the application gateway to remove these.
+You might want to remove headers that reveal sensitive information from an HTTP response. For example, you might want to remove information like the back-end server name, operating system, or library details. You can use the application gateway to remove these headers:
 
 ![Deleting header](media/rewrite-http-headers/remove-headers.png)
 
-### Check presence of a header
+### Check for the presence of a header
 
-You can evaluate the HTTP request or response header for the presence of a header or server variable. This is useful when you intend to perform a header rewrite only when a certain header is present.
+You can evaluate an HTTP request or response header for the presence of a header or server variable. This evaluation is useful when you want to perform a header rewrite only when a certain header is present.
 
 ![Checking presence of a header](media/rewrite-http-headers/check-presence.png)
 
 ## Limitations
 
-- Rewriting the Connection, Upgrade, and Host headers is not currently supported.
+- Rewriting the Connection, Upgrade, and Host headers isn't currently supported.
 
 - Header names can contain any alphanumeric characters and specific symbols as defined in [RFC 7230](https://tools.ietf.org/html/rfc7230#page-27). We don't currently support the underscore (\_) special character in Header names.
 
