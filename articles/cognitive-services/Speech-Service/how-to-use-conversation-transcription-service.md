@@ -1,45 +1,38 @@
 ---
-title: Transcribe conversations with the Speech SDK - Speech Services
+title: Transcribe multi-participant conversations with the Speech SDK - Speech Services
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Conversation Transcription service with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services
-author: jhakulin 
+author: jhakulin, sarahlu 
 manager: Rob Chambers
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: jhakulin
+ms.author: jhakulin, sarahlu
 ---
-# Transcribe conversations with the Speech SDK
+# Transcribe multi-participant conversations with the Speech SDK
 
-The Speech SDK's **Conversation Transcriber** API provides a way to trancript conversation/meeting like scenarios where you can add and remove participants and transcribe their conversations (ie. see textual output what each participant has said in the conversation) by streaming audio to the Speech Service using PullStream or PushStream.
+The Speech SDK's **Conversation Transcriber** API provides a way to transcribe conversation/meeting like scenarios where you can add and remove participants and transcribe their conversations (ie. see textual output what each participant has said in the conversation) by streaming audio to the Speech Service using PullStream or PushStream.
 
-## Limitations & Recommendations
+## Limitations
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux and Android.
+* ROOBO DevKit (add link) is recommended HW environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification. 
 * Support in Speech SDK is limited to use of audio pull and push mode streams with 8-channels of PCM audio.
 * Conversation Transcription service requires a specific endpoint (add link for more information).
-* ROOBO DevKit (add link) is recommended HW environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification.
-* Recommended max amount of participants is 50 in the conversation session.
 
 ## Prerequisites
 
 * Learn how to use Speech-to-text with the Speech SDK (add link to quick start)
-* Get subscription to the specific endpoint for Conversation transcription service (add link)
-* Learn how to create voice signatures used for speaker identification (add link)
+* Get subscription to the specific endpoint for Conversation Transcription service (add link)
 
 ## Create conversation session
 First step in creating conversation/meeting like scenario is by adding participants with the voice signatures. 
 This is what the code may look like:
 
 ### Create voice signatures for Participant(s)
-```csharp
-// <<Add code sample here >>
-```
-
-### Add Participant(s)
 ```csharp
 // <<Add code sample here >>
 ```
@@ -119,3 +112,5 @@ public class MyConversationTranscriber
 
 * [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 * [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
+* Add link to SDK API reference
+* Add link to SDK samples
