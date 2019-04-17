@@ -165,11 +165,6 @@ dataset.delete_snapshot(snapshot_name)
 dataset.get_all_snapshots()
 ```
 
-
-
-
-    []
-
 ## Next steps
 
-* See the automated machine learning [tutorial](tutorial-auto-train-models) for a regression model example
+* See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example
