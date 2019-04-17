@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/16/2019
 ---
 
 # Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
@@ -115,6 +115,9 @@ SET group_concat_max_len = 8192;
  ```
 		
 Run the drop foreign key (which is the second column) in the query result to drop foreign key.
+
+> [!IMPORTANT]
+> Also be sure to remove any DEFINER statements from the schema to prevent a migration failure.
 
 If you have trigger in the data (insert or update trigger), it will enforce data integrity in the target ahead of the replicated data from the source. The recommendation is to disable triggers in all the tables at the target during migration, and then enable the triggers after migration is done.
 
