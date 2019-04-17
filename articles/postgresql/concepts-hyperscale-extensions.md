@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/18/2019
 ---
-# PostgreSQL extensions in Azure Database for PostgreSQL
+# PostgreSQL extensions in Azure Database for PostgreSQL - Hyperscale (Citus) (preview)
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
 
 ## How to use PostgreSQL extensions
@@ -23,7 +23,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > [!div class="mx-tableFixed"]
 > | **Extension** | **Description** |
 > |---|---|
-> | [chkpass](https://www.postgresql.org/docs/9.6/static/chkpass.html) | Provides a data type for auto-encrypted passwords. |
 > | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | Provides a case-insensitive character string type. |
 > | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | Provides a data type for multidimensional cubes. |
 > | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | Provides a data type for storing sets of key/value pairs. |
@@ -66,7 +65,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > | **Extension** | **Description** |
 > |---|---|
 > | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL loadable procedural language. |
-> | [plv8](https://plv8.github.io/) | A Javascript language extension for PostgreSQL that can be used for stored procedures, triggers, etc. |
 
 ### Miscellaneous extensions
 
@@ -90,15 +88,6 @@ The following tables list the standard PostgreSQL extensions that are currently 
 > |---|---|
 > | [PostGIS](http://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | Spatial and geographic objects for PostgreSQL. |
 > | address\_standardizer, address\_standardizer\_data\_us | Used to parse an address into constituent elements. Used to support geocoding address normalization step. |
-> | [pgrouting](https://pgrouting.org/) | Extends the PostGIS / PostgreSQL geospatial database to provide geospatial routing functionality. |
-
-
-### Time-series extensions
-
-> [!div class="mx-tableFixed"]
-> | **Extension** | **Description** |
-> |---|---|
-> | [TimescaleDB](https://docs.timescale.com/latest) | A time-series SQL database that supports automated partitioning for faster ingest and queries. Provides time-oriented analytical functions, optimizations, and scales PostgreSQL for time-series workloads. TimescaleDB is developed by and a registered trademark of [Timescale, Inc.](https://www.timescale.com/) (See below for a note on this extension). |
 
 
 ## pg_stat_statements
@@ -111,45 +100,6 @@ There is a tradeoff between the query execution information pg_stat_statements p
 dblink and postgres_fdw allow you to connect from one PostgreSQL server to another, or to another database in the same server. The receiving server needs to allow connections from the sending server through its firewall. When using these extensions to connect between Azure Database for PostgreSQL servers, this can be done by setting "Allow access to Azure services" to ON. This is also needed if you want to use the extensions to loop back to the same server. The "Allow access to Azure services" setting can be found in the Azure portal page for the Postgres server, under Connection Security. Turning "Allow access to Azure services" ON whitelists all Azure IPs.
 
 Currently, outbound connections from Azure Database for PostgreSQL are not supported, except for connections to other Azure Database for PostgreSQL servers.
-
-## TimescaleDB
-TimescaleDB is a time-series database that is packaged as an extension for PostgreSQL. TimescaleDB provides time-oriented analytical functions, optimizations, and scales Postgres for time-series workloads.
-
-[Learn more about TimescaleDB](https://docs.timescale.com/latest), a registered trademark of [Timescale, Inc.](https://www.timescale.com/)
-
-### Installing TimescaleDB
-To install TimescaleDB, you need to include it in the server's shared preload libraries. A change to Postgres's shared preload libraries requires a **server reboot** to take effect.
-
-> [!NOTE]
-> TimescaleDB can be enabled on Azure Database for PostgreSQL versions 9.6 and 10
-
-Using the [Azure portal](https://portal.azure.com/):
-
-1. Select your Azure Database for PostgreSQL server.
-
-2. On the sidebar, select **Server Parameters**.
-
-3. Search for the `shared_preload_libraries` parameter.
-
-4. Copy and paste the following as the value for `shared_preload_libraries`
-   ```
-   timescaledb
-   ```
-
-5. Select **Save** to preserve your changes. You get a notification once the change is saved. 
-
-6. After the notification, **restart** the server to apply these changes. To learn how to restart a server, see [Restart an Azure Database for PostgreSQL server](howto-restart-server-portal.md).
-
-
-You can now enable TimescaleDB in your Postgres database. Connect to the database and issue the following command:
-```sql
-CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
-```
-> [!TIP]
-> If you see an error, confirm that you [restarted your server](howto-restart-server-portal.md) after saving shared_preload_libraries. 
-
-You can now create a TimescaleDB hypertable [from scratch](https://docs.timescale.com/getting-started/creating-hypertables) or migrate [existing time-series data in PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
-
 
 ## Next steps
 If you don't see an extension that you'd like to use, let us know. Vote for existing requests or create new feedback and requests in our [Customer feedback forum](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
