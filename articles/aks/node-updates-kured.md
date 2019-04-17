@@ -1,6 +1,6 @@
 ---
-title: Update and reboot nodes with kured in Azure Kubernetes Service (AKS)
-description: Learn how to update nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
+title: Update and reboot Linux nodes with kured in Azure Kubernetes Service (AKS)
+description: Learn how to update Linux nodes and automatically reboot them with kured in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
@@ -9,14 +9,16 @@ ms.topic: article
 ms.date: 02/28/2019
 ms.author: iainfou
 
-#Customer intent: As a cluster administrator, I want to know how to automatically apply updates and reboot nodes in AKS for security and/or compliance 
+#Customer intent: As a cluster administrator, I want to know how to automatically apply Linux updates and reboot nodes in AKS for security and/or compliance 
 ---
 
-# Apply security and kernel updates to nodes in Azure Kubernetes Service (AKS)
+# Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)
 
-To protect your clusters, security updates are automatically applied to nodes in AKS. These updates include OS security fixes or kernel updates. Some of these updates require a node reboot to complete the process. AKS doesn't automatically reboot nodes to complete the update process.
+To protect your clusters, security updates are automatically applied to Linux nodes in AKS. These updates include OS security fixes or kernel updates. Some of these updates require a node reboot to complete the process. AKS doesn't automatically reboot these Linux nodes to complete the update process.
 
-This article shows you how to use the open-source [kured (KUbernetes REboot Daemon)][kured] to watch for nodes that require a reboot, then automatically handle the rescheduling of running pods and node reboot process.
+The process to keep Windows Server nodes (currently in preview in AKS) up to date is a little different. Windows Server nodes don't receive daily updates. Instead, you perform an AKS upgrade that deploys new nodes with the latest base Window Server image and patches. For AKS clusters that use Windows Server nodes, see [Upgrade a node pool in AKS][nodepool-upgrade].
+
+This article shows you how to use the open-source [kured (KUbernetes REboot Daemon)][kured] to watch for Linux nodes that require a reboot, then automatically handle the rescheduling of running pods and node reboot process.
 
 > [!NOTE]
 > `Kured` is an open-source project by Weaveworks. Support for this project in AKS is provided on a best-effort basis. Additional support can be found in the #weave-community slack channel,
@@ -103,3 +105,4 @@ This article detailed how to use `kured` to reboot nodes automatically as part o
 [DaemonSet]: concepts-clusters-workloads.md#statefulsets-and-daemonsets
 [aks-ssh]: ssh.md
 [aks-upgrade]: upgrade-cluster.md
+[nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
