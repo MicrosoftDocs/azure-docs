@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
 ---
 
@@ -68,6 +68,9 @@ In addition, when the entire backend pool [probes down](load-balancer-custom-pro
 Review [Load Balancer health probes](load-balancer-custom-probe-overview.md) for details.
 
 ### <a name="az"></a>Availability Zones
+
+>[!IMPORTANT]
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 Standard Load Balancer supports additional abilities in regions where Availability Zones are available.  These features are incremental to all Standard Load Balancer provides.  Availability Zones configurations are available for public and internal Standard Load Balancer.
 

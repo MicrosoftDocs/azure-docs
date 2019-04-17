@@ -97,7 +97,7 @@ azcopy \
 	--source-key <key> 
 ```
 
-If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt ` into the new folder. 
+If the folder `/mnt/myfiles` does not exist, AzCopy creates it and downloads `abc.txt` into the new folder. 
 
 ### Download single blob from secondary region
 

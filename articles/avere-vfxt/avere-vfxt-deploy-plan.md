@@ -126,6 +126,17 @@ When creating the cluster, you can choose whether or not to create a public IP a
 * If you create a new vnet or a new subnet, the cluster controller will be assigned a public IP address.
 * If you select an existing vnet and subnet, the cluster controller will have only private IP addresses. 
 
+## VM access roles 
+
+Azure uses [role-based access control](../role-based-access-control/index.yml) (RBAC) to authorize the cluster VMs to perform certain tasks. For example, the cluster controller needs authorization to create and configure the cluster node VMs. The cluster nodes need to be able to assign or reassign IP addresses to other cluster nodes.
+
+Two built-in Azure roles are used for the Avere vFXT virtual machines: 
+
+* The cluster controller uses the built-in role [Avere Contributor](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Cluster nodes use the built-in role [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator)
+
+If you need to customize access roles for Avere vFXT components, you must define your own role and then assign it to the VMs at the time they are created. You cannot use the deployment template in the Azure Marketplace. Consult Microsoft Customer Service and Support by opening a ticket in the Azure portal as described in [Get help with your system](avere-vfxt-open-ticket.md). 
+
 ## Next step: Understand the deployment process
 
 [Deployment overview](avere-vfxt-deploy-overview.md) gives the big picture of all of the steps needed to create an Avere vFXT for Azure system and get it ready to serve data.  

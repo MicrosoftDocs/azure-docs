@@ -291,7 +291,7 @@
   - name: REST
     href: /rest/api/aks
   - name: PowerShell
-    href: /powershell/module/azurerm.aks#aks
+    href: /powershell/module/az.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python
@@ -310,6 +310,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback

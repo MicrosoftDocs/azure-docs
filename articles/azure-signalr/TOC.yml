@@ -52,11 +52,17 @@
       href: signalr-concept-disaster-recovery.md  
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
+  - name: Performance considerations
+    href: signalr-concept-performance.md
   - name: Authentication
     href: signalr-concept-authenticate-oauth.md
 
 - name: How-to guides
   items:
+  - name: Scale
+    items:
+    - name: Multiple instances
+      href: signalr-howto-scale-multi-instances.md
   - name: Secure
     items:
     - name: Access key rotation
