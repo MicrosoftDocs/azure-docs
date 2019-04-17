@@ -21,7 +21,7 @@ This article explains how to provision throughput on a container (collection, gr
 1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
 
    * Indicate whether you are creating a new database or using an existing one.
-   * Enter a Collection Id (or table or graph).
+   * Enter a Container (or Table or Graph) ID.
    * Enter a partition key value (for example, `/userid`).
    * Enter a throughput that you want to provision (for example, 1000 RUs).
    * Select **OK**.

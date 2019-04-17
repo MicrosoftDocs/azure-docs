@@ -4,7 +4,7 @@ description: Learn how to create a container in Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ---
 
@@ -74,7 +74,7 @@ This article explains the different ways to create an Azure Cosmos container (co
 1. Open the **Data Explorer** pane, and select **New Graph**. Next, provide the following details:
 
    * Indicate whether you are creating a new database, or using an existing one.
-   * Enter a Graph Id.
+   * Enter a Graph ID.
    * Select **Unlimited** storage capacity.
    * Enter a partition key for vertices.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
@@ -90,7 +90,7 @@ This article explains the different ways to create an Azure Cosmos container (co
 
 1. Open the **Data Explorer** pane, and select **New Table**. Next, provide the following details:
 
-   * Enter a Table Id.
+   * Enter a Table ID.
    * Enter a throughput to be provisioned (for example, 1000 RUs).
    * Select **OK**.
 

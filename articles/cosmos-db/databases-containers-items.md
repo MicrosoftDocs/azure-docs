@@ -4,7 +4,7 @@ description: This article describes how to create and use Azure Cosmos DB databa
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
 
@@ -113,7 +113,7 @@ Every Azure Cosmos item has the following system defined properties. Depending o
 |_etag | System generated | Entity tag used for optimistic concurrency control | Yes | No | No | No | No |
 |_ts | System generated | The timestamp of the last update of the item | Yes | No | No | No | No |
 |_self | System generated | Addressable URI of the item | Yes | No | No | No | No |
-|id | Either | User-defined unique name within a logical partition. If the user doesn’t specify the id, the system will automatically generate one. | Yes | Yes | Yes | Yes | Yes |
+|id | Either | User-defined unique name within a logical partition. If the user doesn’t specify the ID, the system will automatically generate one. | Yes | Yes | Yes | Yes | Yes |
 |Arbitrary user-defined properties | User-defined | User-defined properties represented in API-native representation (JSON, BSON, CQL, etc.) | Yes | Yes | Yes | Yes | Yes |
 
 ### Operations on items

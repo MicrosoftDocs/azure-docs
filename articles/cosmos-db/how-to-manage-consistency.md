@@ -4,7 +4,7 @@ description: Learn how to manage consistency in Azure Cosmos DB
 author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ---
 
@@ -54,7 +54,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -Properties $CosmosDBProperties
 ```
 
-### Azure Portal
+### Azure portal
 
 To view or modify the default consistency level, sign in to the Azure portal. Find your Azure Cosmos account, and open the **Default consistency** pane. Select the level of consistency you want as the new default, and then select **Save**.
 
@@ -219,6 +219,6 @@ Learn more about how to manage data conflicts, or move on to the next key concep
 * [Consistency Levels in Azure Cosmos DB](consistency-levels.md)
 * [Manage conflicts between regions](how-to-manage-conflicts.md)
 * [Partitioning and data distribution](partition-data.md)
-- [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
-- [High availability](high-availability.md)
-- [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)
+* [Consistency tradeoffs in modern distributed database systems design](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
+* [High availability](high-availability.md)
+* [Azure Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -10,7 +10,7 @@ ms.author: rimman
 
 # How to configure multi-master in your applications that use Azure Cosmos DB
 
-To use multi-master feature in your application you need to enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. Multi-homing is configured by setting the current region, where the application is deployed.
+To use multi-master feature in your application, you need to enable multi-region writes and configure the multi-homing capability in Azure Cosmos DB. Multi-homing is configured by setting the region where the application is deployed.
 
 ## <a id="netv2"></a>.NET SDK v2
 
