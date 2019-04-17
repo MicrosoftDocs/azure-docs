@@ -195,20 +195,20 @@ To install SAP HANA, create two additional subnets within the Azure virtual netw
 
 > [!IMPORTANT]
 > Configuring [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of a SAP NetWeaver-, Hybris-, or S/4HANA-based SAP system isn't supported. This restriction is for functionality and performance reasons. The communication path between the SAP application layer and the DBMS layer must be a direct one. The restriction doesn't include [application security group (ASG) and network security group (NSG) rules](https://docs.microsoft.com/azure/virtual-network/security-overview) if those ASG and NSG rules allow a direct communication path. 
-
+>
 > Other scenarios where network virtual appliances aren't supported are in: 
-
+>
 > - Communication paths between Azure VMs that represent Linux Pacemaker cluster nodes and SBD devices as described in [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP Applications](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse).
 > - Communication paths between Azure VMs and Windows Server Scale-Out File Server set up as described in [Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share). 
-
+>
 > Network virtual appliances in communication paths can easily double the network latency between two communication partners. They also can restrict throughput in critical paths between the SAP application layer and the DBMS layer. In some customer scenarios, network virtual appliances can cause Pacemaker Linux clusters to fail. These are cases where communications between the Linux Pacemaker cluster nodes communicate to their SBD device through a network virtual appliance.  
 > 
 
 > [!IMPORTANT]
 > Another design that's *not* supported is the segregation of the SAP application layer and the DBMS layer into different Azure virtual networks that aren't [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) with each other. We recommend that you segregate the SAP application layer and DBMS layer by using subnets within an Azure virtual network instead of by using different Azure virtual networks. 
-
+>
 >If you decide not to follow the recommendation and instead segregate the two layers into different virtual networks, the two virtual networks must be [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). 
-
+>
 > Be aware that network traffic between two [peered](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) Azure virtual networks is subject to transfer costs. Huge data volume that consists of many terabytes is exchanged between the SAP application layer and DBMS layer. You can accumulate substantial costs if the SAP application layer and DBMS layer are segregated between two peered Azure virtual networks. 
 
 When you install the VMs to run SAP HANA, the VMs need:
@@ -232,7 +232,7 @@ For more information on the virtual datacenter approach and related Azure virtua
 
 >[!NOTE]
 >Traffic that flows between a hub virtual network and a spoke virtual network by using [Azure virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) is subject to additional [costs](https://azure.microsoft.com/pricing/details/virtual-network/). Based on those costs, you might need to make compromises between running a strict hub-and-spoke network design and running multiple [Azure ExpressRoute gateways](https://docs.microsoft.com/azure/expressroute/expressroute-about-virtual-network-gateways) that you connect to spokes in order to bypass virtual network peering. 
-
+>
 > Azure ExpressRoute gateways introduce additional [costs](https://azure.microsoft.com/pricing/details/vpn-gateway/) too. You also might encounter additional costs for third-party software you use to log, audit, and monitor network traffic. Consider the costs for data exchange through virtual network peering versus the costs created by additional ExpressRoute gateways and software licenses. You might decide on micro-segmentation within one virtual network by using subnets as isolation units instead of virtual networks.
 
 
