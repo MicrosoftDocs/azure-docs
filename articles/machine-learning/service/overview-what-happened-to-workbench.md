@@ -81,7 +81,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 
 The models that you registered in your old model registry must be migrated to your new workspace if you want to continue to use them. To migrate your models, download the models and re-register them in your new workspace. 
 
-The images that you created in your old image registry must be re-created in the new workspace to continue to use them. You can re-create these images by following the [Configure and create image](how-to-deploy-and-where.md#configureimage) sections. 
+The images that you created in your old image registry cannot be directly migrated to the new workspace. In most cases, the model can be deployed without having to create an image. If needed, you can create an image for the model in the new workspace. For more information, see [Manage, register, deploy, and monitor machine learning models](concept-model-management-and-deployment.md).
 
 ## What about deployed web services?
 
