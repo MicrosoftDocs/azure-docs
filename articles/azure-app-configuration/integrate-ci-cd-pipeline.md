@@ -1,6 +1,6 @@
 ---
-title: Integrate with a continuous integration and delivery pipeline by using Azure App Configuration | Microsoft Docs
-description: Learn how to generate a configuration file by using data in Azure App Configuration during continuous integration and delivery
+title: Tutorial for integrating with a continuous integration and delivery pipeline by using Azure App Configuration | Microsoft Docs
+description: In this tutorial, you learn how to generate a configuration file by using data in Azure App Configuration during continuous integration and delivery
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: 
 ms.service: azure-app-configuration
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
----
 
+#Customer intent: I want to use Azure managed identities to simplify secrets management for my app.
+---
 # Integrate with a CI/CD pipeline
 
 You can enhance the resiliency of your application against the remote possibility of not being able to reach Azure App Configuration. To do so, package the current configuration data into a file that's deployed with the application and loaded locally during its startup. This approach guarantees that your application has default setting values at least. These values are overwritten by any newer changes in an app configuration store when it's available.
@@ -88,4 +89,4 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 
 ## Next steps
 
-* [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+* [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
