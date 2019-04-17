@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/16/2019
 ms.author: juliako
 
 ---
@@ -20,7 +20,7 @@ ms.author: juliako
 
 This article shows you how to connect to the Azure Media Services v3 Java SDK using the service principal sign in method.
 
-In this article, the Visual Studio Code is used to develop an app.
+In this article, the Visual Studio Code is used to develop the sample app.
 
 ## Prerequisites
 
@@ -50,9 +50,9 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
 
 ## Add dependencies
 
-1. In Visual Studio Code, open the folder where your project is. 
-1. Find and open the `pom.xml`. 
-1. Add the needed dependencies. One of them is [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar).
+1. In Visual Studio Code, open the folder where your project is
+1. Find and open the `pom.xml`
+1. Add the needed dependencies
 
     ```xml
     <dependency>
@@ -70,7 +70,6 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
       <artifactId>azure-client-authentication</artifactId>
       <version>1.6.5</version>
     </dependency>
-    </dependency>
     ```
 
 ## Connect to the Java client
@@ -80,7 +79,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
     ```java
     package com.azure.ams;
     ```
-2. Under the package statement, add these import statements:
+1. Under the package statement, add these import statements:
    
    ```java
    import com.microsoft.azure.AzureEnvironment;
@@ -88,7 +87,7 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
    import com.microsoft.azure.management.mediaservices.v2018_07_01.implementation.MediaManager;
    import com.microsoft.rest.LogLevel;
    ```
-2. To create the Active Directory credentials that you need to make requests, add following code to the main method of the App class and set the values that you got from [Access APIs](access-api-cli-how-to.md):
+1. To create the Active Directory credentials that you need to make requests, add following code to the main method of the App class and set the values that you got from [Access APIs](access-api-cli-how-to.md):
    
    ```java
    final String clientId = "00000000-0000-0000-0000-000000000000";
@@ -111,16 +110,15 @@ When you run the command, the `pom.xml`, `App.java`, and other files are created
       System.out.println(e.toString());
    }
    ```
+1. Run the app.
 
 ## See also
 
 - [Media Services concepts](concepts-overview.md)
 - [Java SDK](https://aka.ms/ams-v3-java-sdk)
 - [Java reference](https://aka.ms/ams-v3-java-ref)
-- [https://search.maven.org/](https://search.maven.org/)
+- [com.microsoft.azure.mediaservices.v2018_07_01:azure-mgmt-media](https://search.maven.org/artifact/com.microsoft.azure.mediaservices.v2018_07_01/azure-mgmt-media/1.0.0-beta/jar)
 
 ## Next steps
 
-You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.Asset;` and start manipulating entities.<br/>
-For example get all assets in your account: `Observable<Asset> asyncAssets = 
-                    manager.assets().listAsync(groupId, accountId).last();`
+You can now include `import com.microsoft.azure.management.mediaservices.v2018_07_01.*;` and start manipulating entities.
