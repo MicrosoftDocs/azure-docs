@@ -3,14 +3,14 @@ title: Overview of Azure Data Lake Storage Gen1 | Microsoft Docs
 description: Understand what Data Lake Storage Gen1 is (previously known as Azure Data Lake Store) and the value it provides over other data stores
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Overview of Azure Data Lake Storage Gen1

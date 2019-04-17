@@ -3,8 +3,8 @@ title: Integrating Azure Data Lake Storage Gen1 with other Azure Services | Micr
 description: Understand how Azure Data Lake Storage Gen1 integrates with other Azure services
 documentationcenter: ''
 services: data-lake-store
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 48a5d1f4-3850-4c22-bbc4-6d1d394fba8a
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Integrating Azure Data Lake Storage Gen1 with other Azure services

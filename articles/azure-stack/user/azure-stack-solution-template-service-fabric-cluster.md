@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a secured Service Fabric cluster in Azure Stack | Microsoft Docs
 description: Learn how to deploy a secured Service Fabric cluster in Azure Stack
 services: azure-stack
@@ -43,7 +43,7 @@ The following are required to deploy the Service Fabric cluster:
 
 1. **The following items must be available in the Azure Stack Marketplace:**
     - **Windows Server 2016** – The template uses the Windows Server 2016 image to create the cluster.  
-    - **Customer Script Extension** - Virtual Machine Extension from Microsoft.  
+    - **Custom Script Extension** - Virtual Machine Extension from Microsoft.  
     - **PowerShell Desired Stage Configuration** - Virtual Machine Extension from Microsoft.
 
 
@@ -58,7 +58,7 @@ Use the following script to create the KeyVault and add the *cluster certificate
 > [!TIP]  
 > Before the script can succeed, there must be a public offer that includes the services for Compute, Network, Storage, and KeyVault. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -209,7 +209,7 @@ You can access the Service Fabric cluster by using either the Service Fabric Exp
 
 1. After changing the order of the environment variables, restart PowerShell and then run the following PowerShell script to gain access to the Service Fabric cluster:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
