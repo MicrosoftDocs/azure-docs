@@ -1,19 +1,10 @@
 ---
-title: Azure Australia VPN Gateway Quickstart Guide | Microsoft Docs
+title: Azure Australia VPN Gateway Quickstart Guide
 description: Implementing VPN Gateway on Azure Australia Quickstart
-services: azure-australia
-cloud: public
-documentationcenter: ''
-author: grgale
-manager: liki
-
-ms.assetid: 
+author: galey801
 ms.service: azure-australia
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-australia
-ms.date: 04/17/19
+ms.date: 04/25/19
 ms.author: grgale
 ---
 
@@ -23,9 +14,9 @@ ms.author: grgale
 
 ### Purpose
 
-A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service which provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This guide outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
+A critical service with any public cloud is the secure connection of cloud resources and services to existing on-premises systems.  The service that provides this capability in Azure is the Azure VPN Gateway (VPN Gateway). This guide outlines the key considerations with configuring the VPN Gateway to comply with the Australian Signals Directorate’s (ASD) [Information Security Manual Controls](https://acsc.gov.au/infosec/ism/) (ISM).
 
-A VPN Gateway is used to send encrypted traffic between an Azure virtual network (VNet) and another network.  There are 3 scenarios addressed by VPN Gateways:
+A VPN Gateway is used to send encrypted traffic between an Azure virtual network (VNet) and another network.  There are three scenarios addressed by VPN Gateways:
 
 - **Site-to-Site** (S2S)
 - **Point-to-Site** (P2S)
@@ -38,7 +29,7 @@ This guide will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-Si
 
 ## Key Design Considerations
 
-There are 3 networking options to connect Azure to Australian Government customers:
+There are three networking options to connect Azure to Australian Government customers:
 
 - **ICON**
 - **ExpressRoute**
@@ -54,7 +45,7 @@ VPN Gateways can control encryption and integrity by configuring a custom IPsec/
 
 ### Resource operations
 
-VPN Gateways create a connection between Azure and non-Azure environments over the public internet.  The ISM has controls which relate to the explicit authorization of connections.  By default, it is possible to use VPN Gateways to create unauthorized tunnels into secure environments.  Therefore, it is critical that organizations use Azure Role Based Access Control (RBAC) to control who can create and modify VPN Gateways and their connections.  Azure has no “built-in” role to manage VPN Gateways therefore this will require a custom role.
+VPN Gateways create a connection between Azure and non-Azure environments over the public internet.  The ISM has controls that relate to the explicit authorization of connections.  By default, it is possible to use VPN Gateways to create unauthorized tunnels into secure environments.  Therefore, it is critical that organizations use Azure Role Based Access Control (RBAC) to control who can create and modify VPN Gateways and their connections.  Azure has no “built-in” role to manage VPN Gateways therefore this will require a custom role.
 
 Access to “Owner”, “Contributor” and “Network Contributor” roles is tightly controlled.  It is also recommended that Azure AD Privileged Identity Management is used for more granular access control.
 
@@ -62,16 +53,16 @@ Access to “Owner”, “Contributor” and “Network Contributor” roles is 
 
 Azure VPN Gateways can have multiple connections (see Diagram 1) and support multiple on-premises VPN devices to the same on-premises environment.  
 
-Azure VNets can have multiple VPN Gateways which can be deployed in independent, active-passive or active-active configurations.
+Azure VNets can have multiple VPN Gateways that can be deployed in independent, active-passive, or active-active configurations.
 
-It is recommended that all VPN Gateways are deployed in a [highly available configuration](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable): e.g. 2 on-premises VPN devices connected to 2 VPN Gateways in either active-passive or active-active  mode (See Diagram 2).
+It is recommended that all VPN Gateways are deployed in a [highly available configuration](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable): for example, two on-premises VPN devices connected to two VPN Gateways in either active-passive or active-active  mode (See Diagram 2).
 
 ![VPN Gateway redundant connections](images/dual-redundancy.png)
-*Diagram 2 – Active-active VPN Gateways and 2 VPN devices*
+*Diagram 2 – Active-active VPN Gateways and two VPN devices*
 
-### Forced tunnelling
+### Forced tunneling
 
-Forced tunnelling redirects or "forces" all Internet-bound traffic back to the on-premises environment via the VPN Gateway for inspection and auditing. Without forced tunnelling, Internet-bound traffic from VMs in Azure traverse the Azure network infrastructure directly out to the public internet, without the option to inspect or audit the traffic.  This is critical when organization is required to use a Secure Internet Gateway (SIG) for an environment.
+Forced tunneling redirects or "forces" all Internet-bound traffic back to the on-premises environment via the VPN Gateway for inspection and auditing. Without forced tunneling, Internet-bound traffic from VMs in Azure traverses the Azure network infrastructure directly out to the public internet, without the option to inspect or audit the traffic.  This is critical when organization is required to use a Secure Internet Gateway (SIG) for an environment.
 
 ## Detailed Configuration
 
@@ -90,11 +81,11 @@ Attribute | SHOULD | MUST
 vpnType | | “RouteBased”
 vpnClientConfiguration/vpnClientProtocols | | “IkeV2”
 
-Azure VPN Gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards.  The default policy sets were chosen to maximize interoperability with a wide range of third-party VPN devices.  As a result, it is possible that during the IKE handshake that a non-compliant configuration is negotiated.  Therefore, it is highly recommended that [custom IPsec/IKE policy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters  are applied to vpnClientConfiguration in VPN Gateways to ensure the connections meet the ISM controls for on-premise environment connections to Azure.  The key attributes are:
+Azure VPN Gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards.  The default policy sets maximise interoperability with a wide range of third-party VPN devices.  As a result, it is possible that during the IKE handshake a non-compliant configuration is negotiated.  It is, therefore, highly recommended that [custom IPsec/IKE policy](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters are applied to vpnClientConfiguration in VPN Gateways to ensure the connections meet the ISM controls for on-premise environment connections to Azure.  The key attributes are:
 
 Attribute | SHOULD | MUST
 --- | --- | ---
-saLifeTimeSeconds | < 14400 secs | > 300 secs (min)
+saLifeTimeSeconds | < 14,400 secs | > 300 secs (min)
 saDataSizeKilobytes | | > 1024 Kbytes (min)
 ipsecEncryption | | AES256|GCMAES256
 ipsecIntegrity | | SHA256|GCMAES256
@@ -118,7 +109,7 @@ Subnet | A subnet of the VNet needs to be created for the VPN Gateway.
 
 ### Role-Based Access Control (RBAC)
 
-1. Create custom role (e.g. virtualNetworkGateway contributor).  Create a role to be assign to users who will be allowed to create and modify VPN Gateways. The custom role should allow the following operations:
+1. Create custom role (for example, virtualNetworkGateway contributor).  Create a role to be assigned to users who will be allowed to create and modify VPN Gateways. The custom role should allow the following operations:
 
    Microsoft.Network/virtualNetworkGateways/*  
    Microsoft.Network/connections/*  
@@ -140,9 +131,9 @@ Subnet | A subnet of the VNet needs to be created for the VPN Gateway.
 6. Create an IPsec Policy (assuming using custom IPsec/IKE policies)
 7. Create connection between VPN Gateway and Local Network Gateway using IPsec Policy
 
-### Enforce tunnelling
+### Enforce tunneling
 
-If forced tunnelling is required, prior to creating the VPN Gateway:
+If forced tunneling is required, prior to creating the VPN Gateway:
 
 1. Create route table and route rule(s)
 2. Associate route table with the appropriate subnets
@@ -153,16 +144,16 @@ After creating the VPN Gateway:
 
 ### Example PowerShell Script
 
-An example PowerShell Script for creating a custom IPSEC/IKE policy which complies with ISM controls for Australian PROTECTED security classification.
+An example PowerShell Script for creating a custom IPSEC/IKE policy that complies with ISM controls for Australian PROTECTED security classification.
 
-It assumes that the VNET, VPN Gateway and Local Gateways exist.
+It assumes that the VNET, VPN Gateway, and Local Gateways exist.
 
 #### Create an IPsec/IKE policy
 
 The following sample script creates an IPsec/IKE policy with the following algorithms and parameters:
 
 - IKEv2: AES256, SHA256, DHGroup ECP256
-- IPsec: AES256, SHA256, PFS ECP256, SA Lifetime 14400 seconds & 102400000KB
+- IPsec: AES256, SHA256, PFS ECP256, SA Lifetime 14,400 seconds & 102400000 KB
 
 ```powershell
 $custompolicy = New-AzIpsecPolicy `
@@ -205,4 +196,4 @@ New-AzVirtualNetworkGatewayConnection `
 [Create and manage a VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-tutorial-create-gateway-powershell)
 
 <a name="footnote1"><sup>1</sup></a> Use of Elliptic Curve encryption algorithms are preferred [>](#fn1ref)  
-<a name="fn2"><sup>2</sup></a> Assuming VNet has previous been created [>](#fn2ref)
+<a name="fn2"><sup>2</sup></a> Assuming VNet has previously been created [>](#fn2ref)

@@ -1,8 +1,18 @@
-# Azure Perimeter Protection Guide – Controlling Ingress Traffic
+---
+title: Controlling ingress traffic in Azure
+description: A guide for controlling ingress traffic in Azure to meet Australian Government requirements for Secure Internet Gateways
+author: galey801
+ms.service: azure-australia
+ms.topic: conceptual
+ms.date: 04/25/19
+ms.author: grgale
+---
+
+# Controlling ingress traffic in Azure
 
 ## Introduction
 
-A fundamental component of securing ICT systems is controlling network traffic. Restricting communication to only the traffic necessary for a system to function reduces the potential for compromise. This guide provides information on how inbound (ingress) network traffic works within Azure and provides recommendations for implementing network security controls for an internet accessible system that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
+A core element of securing ICT systems is controlling network traffic. Restricting communication to only the traffic necessary for a system to function reduces the potential for compromise. This guide provides information on how inbound (ingress) network traffic works within Azure and provides recommendations for implementing network security controls for an internet accessible system that aligns with the Australian Cyber Security Centre (ACSC) Consumer Guidance and the intent of the ACSC’s Information Security Manual (ISM).
 
 ## Requirements
 
@@ -14,13 +24,13 @@ The following key requirements have been identified in the publications from the
 
 |Description|Source|
 |---|---|
-|**Implement Network Segmentation and Segregation** e.g. n-tier architecture, using host-based firewalls and CSP’s network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.| _Cloud Computing for Tenants_|
+|**Implement Network Segmentation and Segregation, for example, n-tier architecture, using host-based firewalls and CSP’s network access controls to limit inbound and outbound VM network connectivity to only required ports/protocols.| _Cloud Computing for Tenants_|
 |**Implement adequately high bandwidth, low latency, reliable network connectivity** between the tenant (including the tenant’s remote users) and the cloud service to meet the tenant’s availability requirements  | _Cloud Computing for Tenants_|
-|**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, this applies from the data link layer up to and including the application layer; however, in particularly sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. It is not sufficient to simply implement a firewall or security appliance as the only security measure. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn’t need to communicate with another host, service or network, it should not be allowed to. If a host, service or network only needs to talk to another host, service or network on a specific port or protocol, and nothing else, it should be restricted to this. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Separate hosts and networks based on their sensitivity or criticality to business operations**. This may include using different hardware or platforms depending on different security classifications, security domains or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Identify, authenticate and authorise access by all entities to all other entities**. All users, hosts and services should have their access to all other users, hosts and services restricted to only those required to perform their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication and authorisation services should be disabled wherever possible and have their use closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
-|**Implement whitelisting of network traffic instead of blacklisting**. Only permit access for known good network traffic (i.e. that which is identified, authenticated and authorised), rather than denying access to known bad network traffic (e.g. blocking a specific address or service). Not only will whitelisting result in a superior security policy to blacklisting, it will also significantly improve an organisation’s capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Apply technologies at more than just the network layer**. Each host and network should be segmented and segregated, where possible, at the lowest level that can be practically managed. In most cases, this applies from the data link layer up to and including the application layer; however, in particularly sensitive environments, physical isolation may be appropriate. Host-based and network-wide measures should be deployed in a complementary manner and be centrally monitored. It is not sufficient to implement a firewall or security appliance as the only security measure. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Use the principles of least privilege and need‐to‐know**. If a host, service or network doesn’t need to communicate with another host, service, or network, it should not be allowed to. If a host, service, or network only needs to talk to another host, service, or network on a specific port or protocol, and nothing else, it should be restricted to this. Adopting these principles across a network will complement the minimisation of user privileges and significantly increase the overall security posture of the environment. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Separate hosts and networks based on their sensitivity or criticality to business operations**. This may include using different hardware or platforms depending on different security classifications, security domains, or availability/integrity requirements for certain hosts or networks. In particular, separate management networks and consider physically isolating out-of-band management networks for sensitive environments. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Identify, authenticate, and authorise access by all entities to all other entities**. All users, hosts, and services should have their access to all other users, hosts, and services restricted to only those required to perform their designated duties or functions. All legacy or local services which bypass or downgrade the strength of identification, authentication, and authorisation services should be disabled wherever possible and have their use closely monitored. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
+|**Implement whitelisting of network traffic instead of blacklisting**. Only permit access for known good network traffic (that is, that which is identified, authenticated, and authorised), rather than denying access to known bad network traffic (for example, blocking a specific address or service). Whitelisting results in a superior security policy to blacklisting, and significantly improves an organisation’s capacity to detect and assess potential network intrusions. |_ACSC Protect: Implementing Network Segmentation and Segregation_|
 |
 
 The _Azure Perimeter Protection Guide – Controlling Ingress Traffic_ (this document) provides information and recommendations on how these requirements can be met for systems deployed in Azure using both Infrastructure as a Service (IaaS) and Platform as a Service (PaaS). This document should be read in conjunction with the _Azure Perimeter Protection Guide – Controlling Egress Traffic_ to fully understand controlling network traffic within Azure.
@@ -31,7 +41,7 @@ To implement the necessary security controls for ingress traffic, individuals in
 
 ### Architecture Components
 
-The architectural diagram shown here depicts the possible paths that network traffic can take to connect into a service hosted in Azure. These components are divided into Azure, IaaS Ingress, PaaS Ingress and Security Control, depending on the function that they provide for ingress traffic.
+The architectural diagram shown here depicts the possible paths that network traffic can take to connect into a service hosted in Azure. These components are divided into Azure, IaaS Ingress, PaaS Ingress, and Security Control, depending on the function that they provide for ingress traffic.
 
 ![Architecture](images/IngressTraffic.png)
 
@@ -43,7 +53,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 | **Traffic Manager** | Azure Traffic Manager is a DNS-based traffic load balancer that can distribute traffic optimally to services across Azure regions, while providing high availability and responsiveness. Traffic Manager uses DNS to direct client requests to the most appropriate endpoint based on a traffic-routing method and the health of the endpoints.|
 | **ExpressRoute** | ExpressRoute is a dedicated network connection for consuming Microsoft cloud services. It is provisioned through a connectivity provider and offers more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. An ExpressRoute circuit represents the logical connection between the on-premises infrastructure and Microsoft cloud services through a connectivity provider.|
 | **ExpressRoute Private Peering** | ExpressRoute Private Peering is a connection between the on-premises environment and private Azure virtual networks. Private Peering enables access to Azure services such as Virtual Machines, that are deployed within a virtual network. The resources and virtual networks accessed via private peering are considered an extension of an organisation’s core network. Private Peering provides bi-directional connectivity between the on-premises network and Azure virtual networks using private IP addresses.|
-| **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Office 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organisation or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organisation must specifically opt-in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
+| **ExpressRoute Microsoft Peering** | ExpressRoute Microsoft Peering is a connection between the on-premises environment and Microsoft and Azure public services. This includes connectivity to Office 365, Dynamics 365, and Azure PaaS services. Peering is established over public IP addresses that are owned by the organisation or connectivity provider. No services are accessible via ExpressRoute Microsoft Peering by default and an organisation must opt-in to the services that are required. This process then provides connectivity to the same endpoints that are available on the Internet.|
 |
 
 ### IaaS Ingress Components
@@ -56,7 +66,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 | **VNet Peering** | VNet Peering is an Azure configuration option that enables direct communication between two VNets without the need for a Virtual Network Gateway. Once peered, the two VNets can communicate directly and additional configuration can control the use of Virtual Network Gateways and other transit options.|
 | **Public IP** | A Public IP is a resource that reserves one of the Microsoft owned Public, Internet-Routable IP Addresses from the specified region for use within the virtual network. It can be associated with a specific Network Interface, which enables the resource to be accessible from the Internet, ExpressRoute and PaaS systems.|
 | **ExpressRoute Gateway** | An ExpressRoute Gateway is an object in a Virtual Network provides connectivity and routing from the Virtual Network to on-premises networks over Private Peering on an ExpressRoute Circuit.|
-| **VPN Gateway** | A VPN Gateway is an object in a Virtual Network that provides an encrypted tunnel from a Virtual Network to an external network. The encrypted tunnel can be Site-to-Site for bi-directional communication with an on-premises environment, other virtual network or cloud environment or Point-to-Site for communication with a single end point.|
+| **VPN Gateway** | A VPN Gateway is an object in a Virtual Network that provides an encrypted tunnel from a Virtual Network to an external network. The encrypted tunnel can be Site-to-Site for bi-directional communication with an on-premises environment, other virtual network, or cloud environment or Point-to-Site for communication with a single end point.|
 | **PaaS VNet Integration** | Many PaaS capabilities can be deployed into, or integrated with, a Virtual Network. Some PaaS capabilities can be fully integrated with a VNet and be accessible via only private IP addresses. Others, such as Azure Load Balancer and Azure Application Gateway, can have an external interface with a public IP address and an internal interface with a private IP address inside the virtual network. In this instance, traffic can ingress into the Virtual Network via the PaaS capability.|
 |
 
@@ -66,7 +76,7 @@ The architectural diagram shown here depicts the possible paths that network tra
 |---|---|
 |**Hostname** | Azure PaaS capabilities are identified by a unique public hostname that is assigned when the resource is created. This hostname is then registered into a public Domain Name System (DNS) domain, where it can be resolved to a Public IP address.|
 |**Public IP** | Unless deployed in a VNet integrated configuration, Azure PaaS capabilities are accessed via a Public, Internet-routable IP address. This address can be dedicated to the specific resources, such as a Public Load Balancer, or could be associated with a specific capability that has a shared entry point for multiple instances, such as Storage or SQL. This Public IP addressed can be accessed from the Internet, ExpressRoute or from IaaS public IP addresses through the Azure backbone network.|
-|**Service endpoints** | Service endpoints provide a direct, private connection from a Virtual Network to a specific PaaS capability. Service endpoints, which are only available for a subset of PaaS capabilities, provides increased performance and security for resources in a VNet accessing PaaS.|
+|**Service endpoints** | Service endpoints provide a direct, private connection from a Virtual Network to a specific PaaS capability. Service endpoints, which are only available for a subset of PaaS capabilities, provide increased performance and security for resources in a VNet accessing PaaS.|
 |
 
 ### Security Controls
@@ -76,23 +86,23 @@ The architectural diagram shown here depicts the possible paths that network tra
 |**Network Security Groups (NSGs)** | NSGs control traffic into and out of virtual network resources in Azure. NSGs apply rules for the traffic flows that are permitted or denied, which includes traffic within Azure and between Azure and external networks such as on-premises or the Internet. NSGs are applied to subnets within a virtual network or to individual network interfaces.|
 |**PaaS Firewall** | Many PaaS capabilities, such as Storage and SQL have an inbuilt Firewall for controlling ingress network traffic to the specific resource. Rules can be created to allow or deny connections from specific IP Addresses and/or Virtual Networks.|
 |**PaaS Authentication and Access Control** | As part of a layered approach to security, PaaS capabilities provide multiple mechanisms for authenticating users and controlling privileges and access.|
-|**Azure Policy** | Azure Policy is a service in Azure for creating, assigning and managing policies. These policies use rules to control the types of resources that can be deployed and the configuration of those resources. Policies can be used to enforce compliance by preventing resources from being deployed if they do not meet requirements or can be used for monitoring to report on compliance status.|
+|**Azure Policy** | Azure Policy is a service in Azure for creating, assigning, and managing policies. These policies use rules to control the types of resources that can be deployed and the configuration of those resources. Policies can be used to enforce compliance by preventing resources from being deployed if they do not meet requirements or can be used for monitoring to report on compliance status.|
 |
 
 ## General Guidance
 
-To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance and the specific component guidance in later section is to describe the tools and services that can be utilised to apply the principles outlined in the _ACSC Protect: Implementing Network Segmentation and Segregation_ across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
+To design and build secure solutions within Azure, it is critical to understand and control the network traffic so that only identified and authorised communication can occur. The intent of this guidance, and the specific component guidance in later sections, is to describe the tools and services that can be utilised to apply the principles outlined in the _ACSC Protect: Implementing Network Segmentation and Segregation_ across Azure workloads. This includes detailing how to create a virtual architecture for securing resources when it is not possible to apply the same traditional physical and network controls that are possible in an on-premises environment.
 
 ### Specific focus areas
 
 * Limit the number of entry points to virtual networks
 * Limit the number of Public IP addresses
 * Consider utilising a Hub and Spoke Network Design for Virtual Networks as discussed in the Microsoft Virtual Data Centre (VDC) documentation
-* Utilise products with inbuilt security capabilities for inbound connections from the Internet (e.g. Application Gateway, API Gateway, Network Virtual Appliances)
+* Utilise products with inbuilt security capabilities for inbound connections from the Internet (for example, Application Gateway, API Gateway, Network Virtual Appliances)
 * Restrict communication flows to PaaS capabilities to only those necessary for system functionality
 * Deploy PaaS in a VNet integrated configuration for increased segregation and control
 * Configure systems to use encryption mechanisms in line with the ACSC Consumer Guidance and ISM
-* Use identity based protections such as authentication and role based access control in addition to traditional network controls
+* Use identity-based protections such as authentication and role-based access control in addition to traditional network controls
 * Implement ExpressRoute for connectivity with on-premises networks
 * Implement VPNs for administrative traffic and integration with external networks
 * Utilise Azure Policy to restrict the regions and resources to only those that are necessary for system functionality
@@ -133,7 +143,7 @@ Standard provides additional mitigation capabilities over the Basic service tier
 
 ### Traffic Manager
 
-Traffic Manager is used to manage ingress traffic by controlling which endpoints of an application receive connections. To protect against a loss of availability of systems or applications due to cyber security attack, or to recover services in the event of system compromise, Traffic Manager can be used to redirect traffic to functioning, available application instances.
+Traffic Manager is used to manage ingress traffic by controlling which endpoints of an application receive connections. To protect against a loss of availability of systems or applications due to cyber security attack, or to recover services after a system compromise, Traffic Manager can be used to redirect traffic to functioning, available application instances.
 
 |Resource|Link|
 |---|---|
@@ -143,7 +153,7 @@ Traffic Manager is used to manage ingress traffic by controlling which endpoints
 
 ### ExpressRoute
 
-ExpressRoute can be used to establish a private path from an on-premises environment through to systems hosted in Azure. This connection can provide greater reliability and guaranteed performance with enhanced privacy for network communications. Through this mechanism commonwealth entities can control inbound traffic from the on-premises environment and define dedicated addresses specific to the organisation to use for inbound firewall rules and access control lists.
+ExpressRoute can be used to establish a private path from an on-premises environment to systems hosted in Azure. This connection can provide greater reliability and guaranteed performance with enhanced privacy for network communications. Express Route allows commonwealth entities to control inbound traffic from the on-premises environment and define dedicated addresses specific to the organisation to use for inbound firewall rules and access control lists.
 
 |Resource | Link|
 |---|---|
@@ -163,11 +173,11 @@ Private peering provides a mechanism for extending an on-premises environment in
 
 ### ExpressRoute Microsoft Peering
 
-ExpressRoute Microsoft Peering provides a high-speed, low latency connection to Microsoft Public Services without needing to traverse the Internet. This provides greater reliability, performance and privacy for connections. By using Route Filters, commonwealth entities can restrict communications to only the Azure Regions that they require, but this includes services hosted by other organisations and may necessitate additional filtering or inspection capabilities between the on-premises environment and Microsoft.
+Microsoft Peering provides a high-speed, low latency connection to Microsoft Public Services without needing to traverse the Internet. This provides greater reliability, performance, and privacy for connections. By using Route Filters, commonwealth entities can restrict communications to only the Azure Regions that they require, but this includes services hosted by other organisations and may necessitate additional filtering or inspection capabilities between the on-premises environment and Microsoft.
 
 Commonwealth entities can use the dedicated Public IP addresses established through the peering relationship to uniquely identify the on-premises environment for use in firewalls and access control lists within PaaS capabilities.
 
-As an alternative, commonwealth entities can use ExpressRoute Microsoft peering as an underlay network for establishing VPN connectivity through Azure VPN Gateway. In this model there is no active communication from the internal on-premises network to Azure public services over ExpressRoute, but secure connectivity through to private Virtual Networks is achieved in compliance with the ACSC consumer guidance.
+As an alternative, commonwealth entities can use ExpressRoute Microsoft peering as an underlay network for establishing VPN connectivity through Azure VPN Gateway. In this model, there is no active communication from the internal on-premises network to Azure public services over ExpressRoute, but secure connectivity through to private Virtual Networks is achieved in compliance with the ACSC consumer guidance.
 
 |Resource | Link|
 |---|---|
@@ -181,7 +191,7 @@ This section provides the component guidance for controlling Ingress traffic to 
 
 ### Network Interface
 
-Network interfaces are the ingress points for all traffic to a Virtual Machine. Network Interfaces enable the configuration of IP Addressing, and can be used to apply NSGs or for routing traffic through an Network Virtual Appliance. The Network Interfaces for Virtual Machines should be planned and configured appropriately to align with overall network segmentation and segregation objectives.
+Network interfaces are the ingress points for all traffic to a Virtual Machine. Network Interfaces enable the configuration of IP Addressing, and can be used to apply NSGs or for routing traffic through a Network Virtual Appliance. The Network Interfaces for Virtual Machines should be planned and configured appropriately to align with overall network segmentation and segregation objectives.
 
 |Resource | Link|
 |---|---|
@@ -231,7 +241,7 @@ Public IP addresses are used to provide an ingress communication path to service
 
 ### ExpressRoute Gateway
 
-ExpressRoute Gateways provide an ingress point from the on-premises environment and should be deployed to meet security, availability, financial and performance requirements. ExpressRoute Gateways provide a defined network bandwidth and incur usage costs after deployment. Virtual Networks can have only one ExpressRoute Gateway, but this can be connected to multiple ExpressRoute circuits and can be leveraged by multiple Virtual Networks through VNet Peering, allowing multiple Virtual Networks to share bandwidth and connectivity. Care should be taken to configure routing between on-premises environments and Virtual Networks using ExpressRoute Gateways to ensure end to end connectivity using known, controlled network ingress points. Commonwealth entities using ExpressRoute Gateway must also deploy Network Virtual Appliances to establish VPN connectivity to the on-premises environment for compliance with the ACSC consumer guidance.
+ExpressRoute Gateways provide an ingress point from the on-premises environment and should be deployed to meet security, availability, financial, and performance requirements. ExpressRoute Gateways provide a defined network bandwidth and incur usage costs after deployment. Virtual Networks can have only one ExpressRoute Gateway, but this can be connected to multiple ExpressRoute circuits and can be leveraged by multiple Virtual Networks through VNet Peering, allowing multiple Virtual Networks to share bandwidth and connectivity. Care should be taken to configure routing between on-premises environments and Virtual Networks using ExpressRoute Gateways to ensure end to end connectivity using known, controlled network ingress points. Commonwealth entities using ExpressRoute Gateway must also deploy Network Virtual Appliances to establish VPN connectivity to the on-premises environment for compliance with the ACSC consumer guidance.
 
 |Resource | Link|
 |---|---|
@@ -247,7 +257,7 @@ Azure VPN Gateway provides an ingress network point from an external network for
 |---|---|
 |VPN Gateway Overview | [https://docs.microsoft.com/en-au/azure/vpn-gateway/](https://docs.microsoft.com/en-au/azure/vpn-gateway/)|
 |Planning and design for VPN Gateway | [https://docs.microsoft.com/en-au/azure/vpn-gateway/vpn-gateway-plan-design](https://docs.microsoft.com/en-au/azure/vpn-gateway/vpn-gateway-plan-design)|
-|VPN Gateway Quick Start Guide|[VPN Gateway QSG](documentation-australia-getting-started-vpn-gateway.md)|
+|VPN Gateway quickstart Guide|[VPN Gateway QSG](documentation-australia-getting-started-vpn-gateway.md)|
 |
 
 ### PaaS VNet Integration
@@ -256,7 +266,7 @@ Leveraging PaaS can provide enhanced functionality and availability and reduce m
 
 To provide a secure entry point, PaaS capabilities such as Application Gateway can be configured with an external, public facing interface and an internal, private interface for communicating with application services. This prevents the need to configure application servers with Public IP addresses and expose them to external networks.
 
-To leverage PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed instances and more.
+To use PaaS as an integrated part of system or application architecture, Microsoft provides multiple mechanisms to deploy PaaS into a Virtual Network. The deployment methodology restricts the inbound access from external networks such as the Internet while providing connectivity and integration with internal systems and applications. Examples include App Service Environments, SQL Managed instances and more.
 
 |Resource | Link|
 |---|---|
@@ -266,7 +276,7 @@ To leverage PaaS as an integrated part of system or application architecture, Mi
 
 ## PaaS Ingress
 
-PaaS capabilities provide opportunities for increased capability and simplified management, but introduce complexities in addressing requirements for network segmentation and segregation. PaaS capabilities are typically configured with Public IP addresses and are accessible from the Internet.  When building systems using PaaS capabilities, care should be taken to identify all the necessary communication flows between components within the system and network security rules created to allow only this communication. As part of a defence-in-depth approach to security, PaaS capabilities should be configured with encryption, authentication and appropriate access controls and permissions.  
+PaaS capabilities provide opportunities for increased capability and simplified management, but introduce complexities in addressing requirements for network segmentation and segregation. PaaS capabilities are typically configured with Public IP addresses and are accessible from the Internet.  When building systems using PaaS capabilities, care should be taken to identify all the necessary communication flows between components within the system and network security rules created to allow only this communication. As part of a defence-in-depth approach to security, PaaS capabilities should be configured with encryption, authentication, and appropriate access controls and permissions.  
 
 ### Hostname
 
@@ -302,7 +312,7 @@ Virtual Network Service endpoints provide a high-speed, private ingress network 
 
 Implementing network segmentation and segregation controls on IaaS and PaaS capabilities is achieved through securing the capabilities themselves and by implementing controlled communication paths from the systems that will be communicating with the capability.
 
-Designing and building solutions in Azure is a process of creating a logical architecture to understand, control and monitor network resources across the entire Azure presence. This logical architecture is software defined within the Azure platform and takes the place of a physical network topology that is implemented in traditional network environments.
+Designing and building solutions in Azure is a process of creating a logical architecture to understand, control, and monitor network resources across the entire Azure presence. This logical architecture is software defined within the Azure platform and takes the place of a physical network topology that is implemented in traditional network environments.
 
 The logical architecture that is created must provide the functionality necessary for usability, but must also provide the visibility and control needed for security and integrity.
 
@@ -312,7 +322,7 @@ The information provided in this guide can be used to help identify the sources 
 
 ### Network Security Groups (NSGs)
 
-NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a whitelisting approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. Care must be taken when planning and configuring NSGs to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within Azure Virtual Networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of Network Security Groups should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service and application specific security rules.
+NSGs are used to specify the inbound and outbound traffic permitted for a subnet or a specific network interface. When configuring NSGs, commonwealth entities should use a whitelisting approach where rules are configured to permit the necessary traffic with a default rule configured to deny all traffic that does not match a specific permit statement. Care must be taken when planning and configuring NSGs to ensure that all necessary inbound and outbound traffic is captured appropriately. This includes identifying and understanding all private IP address ranges utilised within Azure Virtual Networks and the on-premises environment, and specific Microsoft services such as Azure Load Balancer and PaaS management requirements. Individuals involved in the design and implementation of Network Security Groups should also understand the use of Service Tags and Application Security Groups for creating fine-grained, service, and application-specific security rules.
 
 |Resource | Link|
 |---|---|
@@ -332,7 +342,7 @@ A PaaS Firewall is a network access control capability that can be applied to ce
 
 ## PaaS Authentication and Access Control
 
-Depending on the PaaS capability and its purpose, using network controls to restrict access may not be possible or practical. As part of the layered security model for PaaS, Azure provides a variety of authentication and access control mechanisms to restrict access to a service, even if network traffic is allowed. Typical authentication mechanisms for PaaS capabilities include Azure Active Directory, Application level authentication and Shared Keys or access signatures. Once a user is securely identified, roles can be utilised to control the actions that the user can perform. These tools can be utilised as an alternative or as a complimentary measure to restrict access into services.
+Depending on the PaaS capability and its purpose, using network controls to restrict access may not be possible or practical. As part of the layered security model for PaaS, Azure provides a variety of authentication and access control mechanisms to restrict access to a service, even if network traffic is allowed. Typical authentication mechanisms for PaaS capabilities include Azure Active Directory, Application level authentication, and Shared Keys or access signatures. Once a user is securely identified, roles can be utilised to control the actions that the user can perform. These tools can be utilised as an alternative or as a complimentary measure to restrict access into services.
 
 |Resource | Link|
 |---|---|
