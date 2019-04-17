@@ -27,7 +27,7 @@ You have two options:
 * [Upload a VHD](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [Copy the VHD of an existing Azure VM](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 
 ## Option 1: Upload a specialized VHD

@@ -23,7 +23,7 @@ ms.subservice: disks
 
 There are four options for Azure managed disks: Azure Ultra Disk Storage, Premium SSD, Standard SSD, and Standard HDD. You can switch between these storage types based on your performance needs with little downtime. This functionality is not supported for unmanaged disks. But you can easily [convert an unmanaged disk to a managed disk](convert-unmanaged-to-managed-disks.md) to be able to switch between disk types.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## Prerequisites
 
