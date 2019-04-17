@@ -13,7 +13,7 @@ ms.author: tamram
 
 # Quickstart: Upload, download, and list blobs with Python
 
-In this quickstart, you'll see how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
+In this quickstart, you see how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold any amount of text or binary data (such as images, documents, streaming media, archive data, etc.), and are distinct in Azure Storage from file shares, schemaless tables, and message queues. (For more information, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction.md).)
 
 ## Prerequisites
 
@@ -65,7 +65,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 Before you continue, look in your *Documents* folder for the two files. You can open them and see they're the same.
 
-You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
+You can also use a tool such as the [Azure Storage Explorer](https://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
 After you've verified the files, press any key to finish the demo and delete the test files. Now that you know what the sample does, open the *example.py* file to look at the code. 
 

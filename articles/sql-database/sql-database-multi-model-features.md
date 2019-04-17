@@ -23,7 +23,7 @@ Azure SQL Database is designed to work with the relational model that provides t
 You should consider using multi-model capabilities of Azure SQL Database in the following cases:
 - You have some information or structures that are better fit for NoSQL models and you don't want to use separate NoSQL database.
 - A majority of your data is suitable for relational model, and you need to model some parts of your data in NoSQL style.
-- You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and aplications that can use SQL language.
+- You want to leverage rich Transact-SQL language to query and analyze both relational and NoSQL data, and integrate it with a variety of tools and applications that can use SQL language.
 - You want to apply database features such as [in-memory technologies](sql-database-in-memory.md) to improve performance of your analytic or processing of your NoSQL data strucutres, use [transactional replication](sql-database-managed-instance-transactional-replication.md) or [readable replicas](sql-database-read-scale-out.md) to create copy of your data on the other place and offload soem analytic workloads from the primary database.
 
 ## Overview
@@ -61,7 +61,7 @@ There is nothing a graph database can achieve, which cannot be achieved using a 
 
 ## JSON features
 
-Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](http://www.json.org/) format, and export your relational data as JSON text.
+Azure SQL Database lets you parse and query data represented in JavaScript Object Notation [(JSON)](https://www.json.org/) format, and export your relational data as JSON text.
 
 JSON is a popular data format used for exchanging data in modern web and mobile applications. JSON is also used for storing semi-structured data in log files or in NoSQL databases like [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Many REST web services return results formatted as JSON text or accept data formatted as JSON. Most Azure services such as [Azure Search](https://azure.microsoft.com/services/search/), [Azure Storage](https://azure.microsoft.com/services/storage/), and [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) have REST endpoints that return or consume JSON.
 

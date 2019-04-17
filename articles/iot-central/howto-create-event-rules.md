@@ -54,15 +54,15 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Optionally, you can also set **Count** as **Aggregation** and provide the corresponding threshold.
 
-    - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if you configure the rule's condition to trigger when a **Fan Motor Error** event occurs then the rule triggers almost immediately when the device reports that event.
-    - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule triggers only if the aggregated event count matches the threshold.
+   - Without aggregation, the rule triggers for each event data point that meets the condition. For example, if you configure the rule's condition to trigger when a **Fan Motor Error** event occurs then the rule triggers almost immediately when the device reports that event.
+   - If Count is used as an aggregate function, then you have to  provide a **Threshold** and an **Aggregate time window** over which the condition needs to be evaluated. In this case, the count of events is aggregated and the rule triggers only if the aggregated event count matches the threshold.
 
-    For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes.
+     For example, if you want to alert when there are more than three device events within 5 minutes, then select the event and set the aggregate function as "count",  operator as "greater than", and "threshold" as 3. Set "Aggregation time period" as "5 minutes". The rule triggers when more than three events are sent by the device within 5 minutes. The rule evaluation frequency is the same as the **Aggregate time window**, which means, in this example, the rule is  evaluated once every 5 minutes.
 
-    ![Add Event Condition](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
+     ![Add Event Condition](media/howto-create-event-rules/Aggregate_Condition_Filled_Out.png)
 
-    >[!NOTE]
-    >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
+     >[!NOTE]
+     >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
 ### Configure actions
 
@@ -108,4 +108,5 @@ Now that you have learned how to create rules in your Azure IoT Central applicat
 
 - [Add Microsoft Flow action in rules](howto-add-microsoft-flow.md)
 - [Add Webhook action in rules](howto-create-webhooks.md)
+- [Group multiple actions to run from one or more rules](howto-use-action-groups.md)
 - [How to manage your devices](howto-manage-devices.md)

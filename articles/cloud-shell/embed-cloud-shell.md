@@ -44,6 +44,7 @@ The HTML to embed a pop-up Cloud Shell is below:
 ## Customize experience
 
 Set a specific shell experience by augmenting your URL.
+
 |Experience   |URL   |
 |---|---|
 |Most recently used shell   |[shell.azure.com](https://shell.azure.com)           |

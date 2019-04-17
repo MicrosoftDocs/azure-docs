@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: cforbe
-ms.author: cforbe
+author: sihhu
+ms.author: MayMSFT
 ms.reviewer: trbye
-ms.date: 02/04/2019
+ms.date: 03/29/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
@@ -55,7 +55,7 @@ After you complete the steps below, run the **tutorials/regression-part1-data-pr
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the [Azure Machine Learning Python quickstart](quickstart-create-workspace-with-python.md) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. Complete the installation steps in [[Azure Machine Learning Python quickstart](quickstart-run-local-notebook.md)](setup-create-workspace.md#python) to create a Miniconda environment.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
 1. Install the Data Prep SDK in your environment using `pip install azureml-dataprep`.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
@@ -67,6 +67,7 @@ Use these steps to create a local Jupyter Notebook server on your computer.  Aft
 
     ```shell
     jupyter notebook
+    ```
 
 ## <a name="start"></a>Set up your development environment
 
@@ -80,7 +81,7 @@ All the setup for your development work can be accomplished in a Python notebook
 Use the following to install necessary packages if you don't already have them.
 
 ```shell
-pip install azureml-dataprep
+pip install "azureml-dataprep>=1.1.0,<1.2.0"
 ```
 
 Import the SDK.
@@ -88,6 +89,9 @@ Import the SDK.
 ```python
 import azureml.dataprep as dprep
 ```
+
+> [!IMPORTANT]
+> Ensure you install the latest version. This tutorial will not work with version number lower than 1.1.0
 
 ## Load data
 
@@ -1087,10 +1091,9 @@ You now have a fully transformed and prepared dataflow object to use in a machin
 
 ```python
 import os
-file_path = os.path.join(os.getcwd(), "dflows.dprep")
 
-package = dprep.Package([final_df])
-package.save(file_path)
+file_path = os.path.join(os.getcwd(), "dflows.dprep")
+final_df.save(file_path)
 ```
 
 ## Clean up resources

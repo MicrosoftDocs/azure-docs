@@ -102,6 +102,7 @@ To configure Azure AD single sign-on with Mimecast Admin Console, perform the fo
     ![Mimecast Admin Console Domain and URLs single sign-on information](common/sp-signonurl.png)
 
     In the **Sign-on URL** textbox, type the URL:
+	
 	| |
 	| -- |
 	| `https://webmail-uk.mimecast.com`|

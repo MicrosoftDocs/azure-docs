@@ -57,7 +57,7 @@ Check that your machine meets the following criteria:
 1. Open Windows PowerShell in an elevated prompt on the machine you will use to run the tests.
 2. Run the following command to download the local agent:
 
-    ```PowerShell
+    ```powershell
     Invoke-WebRequest -Uri "https://storage.azurestackvalidation.com/packages/Microsoft.VaaSOnPrem.TaskEngineHost.latest.nupkg" -outfile "OnPremAgent.zip"
     Expand-Archive -Path ".\OnPremAgent.zip" -DestinationPath VaaSOnPremAgent -Force
     Set-Location VaaSOnPremAgent\lib\net46
@@ -65,7 +65,7 @@ Check that your machine meets the following criteria:
 
 3. Run the following command to install the local agent dependencies:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -113,14 +113,15 @@ The tests run remote operations. The machine that runs the tests must have acces
 
 2. Run the following command:
 
-    ```PowerShell
+    ```powershell
     .\Microsoft.VaaSOnPrem.TaskEngineHost.exe -u <VaaSUserId> -t <VaaSTenantId>
     ```
 
       **Parameters**  
+
     | Parameter | Description |
     | --- | --- |
-    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName@Contoso.com) |
+    | VaaSUserId | User ID used to sign in to the VaaS Portal (for example, UserName\@Contoso.com) |
     | VaaSTenantId | Azure AD tenant ID for the Azure account registered with Validation as a Service. |
 
     > [!Note]  

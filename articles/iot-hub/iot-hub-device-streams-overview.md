@@ -97,7 +97,7 @@ The output is a JSON object of all endpoints that your hub's device and service 
 
 ## Whitelist Device Streaming Endpoints
 
-As mentioned [earlier](#Overview), your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
+As mentioned [earlier](#overview), your device creates an outbound connection to IoT Hub streaming endpoint during device streams initiation process. Your firewalls on the device or its network must allow outbound connectivity to the streaming gateway over port 443 (note that communication takes place over a WebSocket connection that is encrypted using TLS).
 
 The hostname of device streaming endpoint can be found on the Azure IoT Hub portal under the Overview tab.
 ![Alt text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Device stream endpoints")
@@ -120,7 +120,7 @@ Follow the steps below to configure Azure Monitor logs for your IoT Hub's device
 
 1. Navigate to the *Diagnostic settings* tab in your IoT Hub, and click on *Turn on diagnostics* link.
 
-  ![Alt text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Enabling disgnostics logs")
+   ![Alt text](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings.PNG "Enabling disgnostics logs")
 
 
 2. Provide a name for your diagnostics settings, and choose *Send to Log Analytics* option. You will be guided to choose an existing Log Analytics workspace resource or create a new one. Additionally, check the *DeviceStreams* from the list.

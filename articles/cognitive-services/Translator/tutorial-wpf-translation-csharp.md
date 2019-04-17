@@ -235,7 +235,7 @@ All of our project is encapsulated in the `MainWindow : Window` class. Let's sta
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Add your Cognitive Services subscription key and save.
+   1. Add your Cognitive Services subscription key and save.
 
 In this code block, we've declared two member variables that contain information about available languages for translation:
 

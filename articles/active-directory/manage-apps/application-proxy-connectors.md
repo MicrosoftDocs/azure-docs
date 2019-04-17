@@ -70,6 +70,8 @@ You may experience downtime when your connector updates if:
 - You only have one connector we recommend you install a second connector and [create a connector group](application-proxy-connector-groups.md). This will avoid downtime and provide higher availability.  
 - A connector was in the middle of a transaction when the update began. Although the initial transaction is lost, your browser should automatically retry the operation or you can refresh your page. When the request is resent, the traffic is routed to a backup connector.
 
+To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](application-proxy-release-version-history.md).
+
 ## Creating connector groups
 
 Connector groups enable you to assign specific connectors to serve specific applications. You can group a number of connectors together, and then assign each application to a group. 
@@ -88,6 +90,7 @@ It is important to make sure you have planned enough capacity between connectors
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
+
 \* This machine used a custom setting to raise some of the default connection limits beyond .NET recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]

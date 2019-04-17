@@ -1,6 +1,6 @@
 ---
-title: Collecting Azure AD Identity Protection data in Azure Sentinel Preview| Microsoft Docs
-description: Learn how to collect Azure AD Identity Protection data in Azure Sentinel.
+title: Connecting Azure AD Identity Protection data to Azure Sentinel Preview| Microsoft Docs
+description: Learn how to connect Azure AD Identity Protection data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
 
 ---
-# Collect data from Azure AD Identity Protection
+# Connect data from Azure AD Identity Protection
 
 > [!IMPORTANT]
 > Azure Sentinel is currently in public preview.
@@ -39,7 +39,7 @@ If you already have Azure AD Identity Protection, make sure it is [enabled on yo
 If Azure AD Identity Protection is deployed and getting data, the alert data can easily be streamed into Azure Sentinel.
 
 
-1. In Azure Sentinel, select **Data collection** and then click the **Azure AD Identity Protection** tile.
+1. In Azure Sentinel, select **Data connectors** and then click the **Azure AD Identity Protection** tile.
 
 2. Click **Connect** to start streaming Azure AD Identity Protection events into Azure Sentinel.
 

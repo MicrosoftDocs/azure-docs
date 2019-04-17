@@ -3,11 +3,11 @@ title: How to provision devices for multitenancy in the Azure IoT Hub Device Pro
 description: How to provision devices for multitenancy with your device provisioning service instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ---
 
 
@@ -204,7 +204,7 @@ In this section, you will clone the Azure IoT C SDK on each VM. The SDK contains
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+    You should expect this operation to take several minutes to complete.
 
 1. For both VMs, create a new **cmake** folder inside the repository and change to that folder.
 
@@ -416,7 +416,7 @@ To delete the resource group by name:
 
 ## Next steps
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
 - To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 

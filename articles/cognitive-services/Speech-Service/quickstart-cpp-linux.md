@@ -26,7 +26,7 @@ You need a Speech Services subscription key to complete this Quickstart. You can
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.3.1`.
+The current version of the Cognitive Services Speech SDK is `1.4.0`.
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tar file from https://aka.ms/csspeech/linuxbinary.
 
@@ -117,7 +117,7 @@ Download and install the SDK as follows:
    ./helloworld
    ```
 
-1.  In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
+1. In the console window, a prompt appears, requesting that you say something. Speak an English phrase or sentence. Your speech is transmitted to the Speech Services and transcribed to text, which appears in the same window.
 
    ```text
    Say something...

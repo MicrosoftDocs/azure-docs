@@ -2,7 +2,7 @@
 title: Index JSON blobs from Azure Blob indexer for full text search - Azure Search
 description: Crawl Azure JSON blobs for text content using the Azure Search Blob indexer. Indexers automate data ingestion for selected data sources like Azure Blob storage.
 
-ms.date: 02/28/2019
+ms.date: 04/11/2019
 author: HeidiSteen
 manager: cgronlun
 ms.author: heidist
@@ -37,14 +37,15 @@ We recommend using the same Azure subscription for both Azure Search and Azure s
 
 ### 1 - Prepare source data
 
-You should have an Azure storage account, with Blob storage, and a container of JSON documents. If you are unfamiliar with any of these requirements, review "Set up Azure Blob service and load sample data" in the [cognitive search-quickstart](cognitive-search-quickstart-blob.md#set-up-azure-blob-service-and-load-sample-data).
+1. [Sign in to the Azure portal](https://portal.azure.com/).
 
-> [!Important]
-> On the container, be sure that **Public access level** is set to "Container (anonymous read access for containers and blobs)". Azure storage and Azure Search should be under the same subscription, and if possible, in the same region. 
+1. [Create a Blob container](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) to contain your data. The Public Access Level can be set to any of its valid values.
+
+You will need the storage account name, container name, and an access key to retrieve your data in the **Import data** wizard.
 
 ### 2 - Start Import data wizard
 
-You can [start the wizard](search-import-data-portal.md) from the command bar in the Azure Search service page, or by clicking **Add Azure Search** in the **Blob service** section of your storage account's left navigation pane.
+In the Overview page of your Azure Search service, you can [start the wizard](search-import-data-portal.md) from the command bar, or by clicking **Add Azure Search** in the **Blob service** section of your storage account's left navigation pane.
 
    ![Import data command in portal](./media/search-import-data-portal/import-data-cmd2.png "Start the Import data wizard")
 
@@ -208,7 +209,7 @@ Indexer configuration is in the body of the request. It requires a data source a
 
 Schedule and parameters are optional. If you omit them, the indexer runs immediately, using `json` as the parsing mode.
 
-This particular indexer does not include [field mappings](#field-mappings). Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
+This particular indexer does not include field mappings. Within the indexer definition, you can leave out **field mappings** if the properties of the source JSON document match the fields of your target search index. 
 
 
 ### REST Example
@@ -250,7 +251,7 @@ All indexers require a target index that receives the data. The body of the requ
 
 ### Indexer request
 
-This request shows a fully-specified indexer. It includes [field mappings](#field-mappings), which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
+This request shows a fully-specified indexer. It includes field mappings, which were omitted in previous examples. Recall that "schedule", "parameters", and "fieldMappings" are optional as long as there is an available default. Omitting "schedule" causes the indexer to run immediately. Omitting "parsingMode" causes the index to use the "json" default.
 
 Creating the indexer on Azure Search triggers data import. It runs immediately, and thereafter on a schedule if you've provided one.
 

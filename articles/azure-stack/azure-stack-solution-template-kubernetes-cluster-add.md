@@ -75,7 +75,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
     - Open PowerShell with an elevated prompt. Run the following script with the parameters updated to your values:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -103,7 +103,7 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
 
 2.  Make a note of the new certificate ID displayed in your PowerShell session, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. The ID will be used when creating the service principal.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -118,12 +118,12 @@ If you use Active Directory Federated Services (AD FS) for your identity managem
        | Certificate store location | The path on your computer where you have stored the certificate. This is indicated by the store location and the certificate ID generated in the first step. For example: `Cert:\LocalMachine\My\1C2ED76081405F14747DC3B5F76BB1D83227D824` |
 
        When prompted, use the following credentials to connect to the privilege endpoint. 
-        - User name: Specify the CloudAdmin account, in the format <Azure Stack domain>\cloudadmin. (For ASDK, the user name is azurestack\cloudadmin.)
+        - User name: Specify the CloudAdmin account, in the format `<Azure Stack domain>\cloudadmin`. (For ASDK, the user name is azurestack\cloudadmin.)
         - Password: Enter the same password that was provided during installation for the AzureStackAdmin domain administrator account.
 
     - Run the following script with the parameters updated to your values:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -217,12 +217,12 @@ Add the Kubernetes from the Marketplace:
 1. Enter `Custom Script for Linux`.
 
 1. Select the script with the following profile:
-    - **Offer**: Custom Script for Linux 2.0
-    - **Version**: 2.0.6 (or latest version)
-    - **Publisher**: Microsoft Corp
+   - **Offer**: Custom Script for Linux 2.0
+   - **Version**: 2.0.6 (or latest version)
+   - **Publisher**: Microsoft Corp
 
-    > [!Note]  
-    > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
+     > [!Note]  
+     > More than one version of Custom Script for Linux may be listed. You will need to add the last version of the item.
 
 1. Select **Download.**
 
@@ -256,7 +256,7 @@ To remove the Kubernetes item:
 
 2. Find the current Kubernetes Cluster item in the gallery.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -264,7 +264,7 @@ To remove the Kubernetes item:
 
 4. Use the following PowerShell cmdlet to remove the item:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

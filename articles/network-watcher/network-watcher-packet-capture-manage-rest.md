@@ -37,6 +37,9 @@ This article takes you through the different management tasks that are currently
 - [**Stop a packet capture**](#stop-packet-capture)
 - [**Delete a packet capture**](#delete-packet-capture)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 
 In this scenario, you call the Network Watcher Rest API to run IP Flow Verify. ARMclient is used to call the REST API using PowerShell. ARMClient is found on chocolatey at [ARMClient on Chocolatey](https://chocolatey.org/packages/ARMClient)
@@ -47,7 +50,7 @@ This scenario assumes you have already followed the steps in [Create a Network W
 
 ## Log in with ARMClient
 
-```PowerShell
+```powershell
 armclient login
 ```
 
@@ -57,7 +60,7 @@ Run the following script to return a virtual machine. This information is needed
 
 The following code needs variables:
 
-- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzureRMSubscription** cmdlet.
+- **subscriptionId** - The subscription id can also be retrieved with the **Get-AzSubscription** cmdlet.
 - **resourceGroupName** - The name of a resource group that contains virtual machines.
 
 ```powershell

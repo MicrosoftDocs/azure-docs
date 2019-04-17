@@ -19,13 +19,13 @@ You can use the [Azure Site Recovery](site-recovery-overview.md) service to mana
 In this tutorial, you will:
 
 > [!div class="checklist"]
-
+> 
 > * Verify prerequisites for the move
 > * Prepare the source VMs and the target region
 > * Copy the data and enable replication
 > * Test the configuration and perform the move
 > * Delete the resources in the source region
-
+> 
 > [!NOTE]
 > This tutorial shows you how to move Azure VMs from one region to another as is. If you need to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, see the [Move Azure VMs into Availability Zones tutorial](move-azure-vms-avset-azone.md).
 
@@ -67,9 +67,9 @@ In this tutorial, you will:
 
      To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
 
-    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+   - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+   - [Public IP](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
     
      For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 

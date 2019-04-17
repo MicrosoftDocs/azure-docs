@@ -5,7 +5,7 @@ title: Azure Monitor Application insights Documentation - Tutorials, API Referen
 description: Azure Monitor Application Insights provides deep code-level application performance monitoring.
 services: application-insights
 author: mrbullwinkle
-manager: carmonmills
+manager: carmonm
 ms.service: application-insights
 ms.topic: landing-page
 ms.date: 01/15/2019

@@ -50,7 +50,7 @@ There are two ways to generate your own campaign.
 For example you can use:
 <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-2. (Advanced): Use one of our supported, generic campaign IDs in the
+1. (Advanced): Use one of our supported, generic campaign IDs in the
     URL. We want to be accommodating with additional ref tags that you
     need to use, so we support the convention to automatically recognize these additional tags:
     

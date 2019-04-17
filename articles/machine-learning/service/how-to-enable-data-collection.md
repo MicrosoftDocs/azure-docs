@@ -132,15 +132,15 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-    [![Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
+     [![Edit option](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
-    [![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
+     [![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Select **Update** to apply the change.
 
-* Option 2 - Use Python to disable data collection:
++ Option 2 - Use Python to disable data collection:
 
   ```python 
   ## replace <service_name> with the name of the web service

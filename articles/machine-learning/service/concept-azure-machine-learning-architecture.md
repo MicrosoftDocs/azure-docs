@@ -1,26 +1,28 @@
 ---
-title: 'Machine learning in the cloud: Terms and architecture'
+title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terminology, and concepts that make up Azure Machine Learning service. You also learn about the general workflow of using the service, and the Azure services that are used by Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts and workflow that make up Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: haining
-author: hning86
-ms.reviewer: larryfr
-ms.date: 12/04/2018
+ms.author: larryfr
+author: Blackmist
+ms.date: 04/15/2019
+ms.custom: seoapril2019
 # As a data scientist, I want to understand the big picture about how Azure Machine Learning service works.
 ms.custom: seodec18
 ---
 
 # How Azure Machine Learning service works: Architecture and concepts
 
-This article describes the architecture and concepts for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
+Learn about the architecture, concepts, and workflow for Azure Machine Learning service. The major components of the service and the general workflow for using the service are shown in the following diagram:
 
 [![Azure Machine Learning service architecture and workflow](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-The workflow generally follows this sequence:
+## Workflow
+
+The machine learning workflow generally follows this sequence:
 
 1. Develop machine learning training scripts in **Python**.
 1. Create and configure a **compute target**.
@@ -43,11 +45,13 @@ The workspace keeps a list of compute targets that you can use to train your mod
 
 You register models with the workspace. You use a registered model and scoring scripts to create an image. You can then deploy the image to Azure Container Instances, Azure Kubernetes Service, or to a field-programmable gate array (FPGA) as a REST-based HTTP endpoint. You can also deploy the image to an Azure IoT Edge device as a module.
 
-You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning the following roles to users:
+You can create multiple workspaces, and each workspace can be shared by multiple people. When you share a workspace, you can control access to it by assigning users to the following roles:
 
 * Owner
 * Contributor
 * Reader
+
+For more information on these roles, see the [Manage access to an Azure Machine Learning workspace](how-to-assign-roles.md) article.
 
 When you create a new workspace, it automatically creates several Azure resources that are used by the workspace:
 
@@ -67,7 +71,7 @@ A taxonomy of the workspace is illustrated in the following diagram:
 
 An experiment is a grouping of many runs from a specified script. It always belongs to a workspace. When you submit a run, you provide an experiment name. Information for the run is stored under that experiment. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
 
-For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of using an experiment, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Model
 
@@ -75,9 +79,9 @@ At its simplest, a model is a piece of code that takes an input and produces out
 
 A model is produced by a run in Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. You can register a model in an Azure Machine Learning service workspace.
 
-Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer, and Microsoft Cognitive Toolkit (formerly known as CNTK).
+Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model, see [Quickstart: Create a Machine Learning service workspace](quickstart-get-started.md).
+For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ### Model registry
 
@@ -114,7 +118,7 @@ A compute target is the compute resource that you use to run your training scrip
 | Your local computer | ✓ | &nbsp; |
 | Azure Machine Learning compute | ✓ | &nbsp; |
 | A Linux VM in Azure</br>(such as the Data Science Virtual Machine) | ✓ | &nbsp; |
-| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; |
 | Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark for HDInsight | ✓ | &nbsp; |
 | Azure Container Instances | &nbsp; | ✓ |
@@ -140,7 +144,7 @@ For information about selecting a compute target for deployment, see the [Deploy
 
 To train a model, you specify the directory that contains the training script and associated files. You also specify an experiment name, which is used to store information that's gathered during training. During training, the entire directory is copied to the training environment (compute target), and the script that's specified by the run configuration is started. A snapshot of the directory is also stored under the experiment in the workspace.
 
-For an example, see [Create a workspace with Python](quickstart-get-started.md).
+For an example, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 ## Run
 
@@ -153,7 +157,7 @@ A run is a record that contains the following information:
 
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
 
-For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md).
+For an example of viewing runs that are produced by training a model, see [Quickstart: Get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
 
 ## Snapshot
 
@@ -181,6 +185,10 @@ Azure Machine Learning can create two types of images:
 * **FPGA image**: Used when you deploy to a field-programmable gate array in Azure.
 * **Docker image**: Used when you deploy to compute targets other than FPGA. Examples are Azure Container Instances and Azure Kubernetes Service.
 
+The Azure Machine Learning service provides a base image, which is used by default. You can also provide your own custom images.
+
+For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
+
 For an example of creating an image, see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 ### Image registry
@@ -203,7 +211,7 @@ For an example of deploying a model as a web service, see [Deploy an image class
 
 ### IoT module
 
-A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on Edge devices.
+A deployed IoT module is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
 
 If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
 
@@ -224,6 +232,6 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Quickstart: Create a workspace with Python](quickstart-get-started.md)
+* [Create an Azure Machine Learning service workspace](setup-create-workspace.md)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
-* [Create a workspace with a resource manager template](how-to-create-workspace-template.md)
+* [Create a workspace with a Resource Manager template](how-to-create-workspace-template.md)

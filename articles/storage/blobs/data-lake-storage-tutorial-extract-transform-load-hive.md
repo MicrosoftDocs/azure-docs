@@ -54,6 +54,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
    | Filter Year |2013 |
    | Filter Period |January |
    | Fields |Year, FlightDate, Reporting_Airline, IATA_CODE_Reporting_Airline, Flight_Number_Reporting_Airline, OriginAirportID, Origin, OriginCityName, OriginState, DestAirportID, Dest, DestCityName, DestState, DepDelayMinutes, ArrDelay, ArrDelayMinutes, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay. |
+   
    Clear all other fields.
 
 3. Select **Download**. You get a .zip file with the data fields you selected.
@@ -342,4 +343,4 @@ All resources used in this tutorial are preexisting. No cleanup is necessary.
 To learn more ways to work with data in HDInsight, see the following article:
 
 > [!div class="nextstepaction"]
-> [Extract, transform, and load data by using Azure Databricks](./data-lake-storage-use-hdi-cluster.md)
+> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

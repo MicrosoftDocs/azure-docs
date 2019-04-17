@@ -4,7 +4,7 @@ description: Learn to configure the throttles provided by the Service Fabric Clu
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63

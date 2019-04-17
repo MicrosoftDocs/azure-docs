@@ -15,11 +15,11 @@ ms.date: 02/21/2019
 ms.author: magoedte
 ---
 
-# Manage Log Analytics using Azure Resource Manager templates
+# Manage Log Analytics workspace using Azure Resource Manager templates
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces. Examples of the tasks you can perform with templates include:
+You can use [Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md) to create and configure Log Analytics workspaces in Azure Monitor. Examples of the tasks you can perform with templates include:
 
 * Create a workspace including setting pricing tier 
 * Add a solution
@@ -38,7 +38,7 @@ This article provides template samples that illustrate some of the configuration
 The following table lists the API version for the resources used in this example.
 
 | Resource | Resource type | API version |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Workspace   | workspaces    | 2017-03-15-preview |
 | Search      | savedSearches | 2015-03-20 |
 | Data source | datasources   | 2015-11-01-preview |

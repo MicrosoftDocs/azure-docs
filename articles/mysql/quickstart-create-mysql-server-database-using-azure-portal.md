@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/15/2019
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -37,14 +37,14 @@ Follow these steps to create an Azure Database for MySQL server:
     ---|---|---
     Server name | Unique server name | Choose a unique name that identifies your Azure Database for MySQL server. For example, mydemoserver. The domain name *.mysql.database.azure.com* is appended to the server name you provide. The server name can contain only lowercase letters, numbers, and the hyphen (-) character. It must contain from 3 to 63 characters.
     Subscription | Your subscription | Select the Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you get billed for the resource.
-    Resource group | *myresourcegroup* | Provide a new or existing resource group name.    Resource group|*myresourcegroup*| A new resource group name or an existing one from your subscription.
+    Resource group | *myresourcegroup* | Provide a new or existing resource group name.
     Select source | *Blank* | Select *Blank* to create a new server from scratch. (You select *Backup* if you are creating a server from a geo-backup of an existing Azure Database for MySQL server).
     Server admin login | myadmin | A sign-in account to use when you're connecting to the server. The admin sign-in name cannot be **azure_superuser**, **admin**, **administrator**, **root**, **guest**, or **public**.
     Password | *Your choice* | Provide a new password for the server admin account. It must contain from 8 to 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0-9), and non-alphanumeric characters (!, $, #, %, and so on).
     Confirm password | *Your choice*| Confirm the admin account password.
     Location | *The region closest to your users*| Choose the location that is closest to your users or your other Azure applications.
     Version | *The latest major version*| The latest major version (unless you have specific requirements that require another version).
-    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *2 vCores*, *5 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Pricing tier | **General Purpose**, **Gen 5**, **2 vCores**, **5 GB**, **7 days**, **Geographically Redundant** | The compute, storage, and backup configurations for your new server. Select **Pricing tier**. Next, select the **General Purpose** tab. *Gen 5*, *4 vCores*, *100 GB*, and *7 days* are the default values for **Compute Generation**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is. To enable your server backups in geo-redundant storage, select **Geographically Redundant** from the **Backup Redundancy Options**. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
   
    > [!NOTE]
    > Consider using the Basic pricing tier if light compute and I/O are adequate for your workload. Note that servers created in the Basic pricing tier cannot later be scaled to General Purpose or Memory Optimized. See the [pricing page](https://azure.microsoft.com/pricing/details/mysql/) for more information.
@@ -52,21 +52,21 @@ Follow these steps to create an Azure Database for MySQL server:
 
    ![Create server - pricing tier window](./media/quickstart-create-mysql-server-database-using-azure-portal/3-pricing-tier.png)
 
-4.	Select **Create** to provision the server. Provisioning can take up to 20 minutes.
+4. Select **Create** to provision the server. Provisioning can take up to 20 minutes.
    
-5.	Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
+5. Select **Notifications** on the toolbar (the bell icon) to monitor the deployment process.
    
-  By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
+   By default, the following databases are created under your server: **information_schema**, **mysql**, **performance_schema**, and **sys**.
 
 ## Configure a server-level firewall rule
 
 The Azure Database for MySQL service creates a firewall at the server level. It prevents external applications and tools from connecting to the server and any databases on the server, unless a firewall rule is created to open the firewall for specific IP addresses. 
 
-1.	 After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name, such as the example **mydemoserver**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
+1. After the deployment finishes, locate your server. If necessary, you can search for it. For example, select **All Resources** from the menu on the left. Then type in the server name, such as the example **mydemoserver**, to search for your newly created server. Select the server name from the search result list. The **Overview** page for your server opens and provides options for further configuration.
 
 2. On the server page, select **Connection security**.
 
-3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Enter the precise range of IPs of the clients that will be accessing this server.
+3. Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Enter the precise range of IPs of the clients that will be accessing this server.
    
    ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
@@ -203,13 +203,13 @@ To delete the entire resource group including the newly created server, take the
 
 To delete only the newly created server, take the following steps:
 
-1.	Locate your server in the Azure portal if you don't already have it open. From the menu on the left in the Azure portal, select **All resources**. Then search for the server you created.
+1. Locate your server in the Azure portal if you don't already have it open. From the menu on the left in the Azure portal, select **All resources**. Then search for the server you created.
 
-2.	On the **Overview** page, select **Delete**. 
+2. On the **Overview** page, select **Delete**. 
 
    ![Azure Database for MySQL--Delete server](./media/quickstart-create-mysql-server-database-using-azure-portal/delete-server.png)
 
-3.	Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
+3. Confirm the name of the server that you want to delete, and show the databases under it that are affected. Type your server name in the box (such as our example **mydemoserver**). Select **Delete**.
 
 ## Next steps
 

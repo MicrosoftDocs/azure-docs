@@ -147,7 +147,7 @@ In this section, you author a Databricks linked service. This linked service con
 
           ![Create a new folder](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder**,** click **Create.**
+       1. [Create a new notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), let’s call it **mynotebook** under **adftutorial** Folder, click **Create.**
 
           ![Create a new notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -161,8 +161,8 @@ In this section, you author a Databricks linked service. This linked service con
            dbutils.widgets.text("input", "","")
            dbutils.widgets.get("input")
            y = getArgument("input")
-           print "Param -\'input':"
-           print y
+           print ("Param -\'input':")
+           print (y)
            ```
 
            ![Create widgets for parameters](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)

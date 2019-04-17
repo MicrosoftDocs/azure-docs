@@ -136,7 +136,7 @@ There are a number of applications you can use to connect to your Azure Database
     > [!TIP]
     > If the firewall is not configured to allow the IP address of your client, the following error occurs:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > To resolve the error, make sure the server configuration matches the steps in the "Configure a server-level firewall rule" section of this article.
 
@@ -193,7 +193,7 @@ pgAdmin is an open-source tool used with PostgreSQL. You can install pgAdmin fro
 
 10. Select the **Owner** for the database from the list box. Choose your server admin login name, such as the example, **my admin**.
 
-   ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
+    ![Create a database in pgadmin](./media/quickstart-create-database-portal/11-pgadmin-database.png)
 
 11. Select **Save** to create a new blank database.
 

@@ -67,7 +67,7 @@ Your Managed Instance needs permissions to read Azure AD to successfully accompl
 
     ![grant permissions-portal](./media/sql-database-aad-authentication/grant-permissions.png)
 
-    ```PowerShell
+    ```powershell
     # Gives Azure Active Directory read permission to a Service Principal representing the Managed Instance.
     # Can be executed only by a "Company Administrator" or "Global Administrator" type of user.
 
@@ -238,6 +238,7 @@ You can also provision an Azure Active Directory Administrator by using the REST
 ### CLI  
 
 You can also provision an Azure AD admin by calling the following CLI commands:
+
 | Command | Description |
 | --- | --- |
 |[az sql server ad-admin create](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-create) |Provisions an Azure Active Directory administrator for Azure SQL server or Azure SQL Data Warehouse. (Must be from the current subscription.) |

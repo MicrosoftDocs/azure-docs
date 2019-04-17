@@ -27,12 +27,12 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 1. Clone the account configurations from Azure Germany to the new region by running the data migration tool.
 1. If using a maintenance window is possible, copy data from the source to the destination by running the data migration tool.
 1. If using a maintenance window isn't an option, copy data from the source to the destination by running the tool, and then complete these steps:
-  1. Use a config-driven approach to make changes to read/write in an application.
-  1. Complete a first-time sync.
-  1. Set up an incremental sync and catch up with the change feed.
-  1. Point reads to the new account and validate the application.
-  1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
-  1. Stop the tool and delete the old account.
+   1. Use a config-driven approach to make changes to read/write in an application.
+   1. Complete a first-time sync.
+   1. Set up an incremental sync and catch up with the change feed.
+   1. Point reads to the new account and validate the application.
+   1. Stop writes to the old account, validate that the change feed is caught up, and then point writes to the new account.
+   1. Stop the tool and delete the old account.
 1. Run the tool to validate that data is consistent across old and new accounts.
 
 For more information:
@@ -59,9 +59,9 @@ For more information:
 
 To migrate settings from one instance of Azure Notification Hubs to another instance, export and then import all registration tokens and tags:
 
-1. [Export the existing notification hub registrations](https://msdn.microsoft.com/library/azure/dn790624.aspx) to an Azure Blob storage container.
+1. [Export the existing notification hub registrations](/previous-versions/azure/azure-services/dn790624(v=azure.100)) to an Azure Blob storage container.
 1. Create a new notification hub in the target environment.
-1. [Import your registration tokens](https://msdn.microsoft.com/library/azure/dn790624.aspx) from Blob storage to your new notification hub.
+1. [Import your registration tokens](/previous-versions/azure/azure-services/dn790624(v=azure.100)) from Blob storage to your new notification hub.
 
 For more information:
 
