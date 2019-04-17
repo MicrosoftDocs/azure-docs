@@ -92,7 +92,6 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 	```
 2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
-    ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
 	```SQL

@@ -28,6 +28,16 @@ The following regions are supported for virtual node deployments:
 * West Europe (westeurope)
 * West US (westus)
 
+## Known limitations
+Virtual Nodes functionality is heavily dependent on ACI's feature set. The following scenarios are not yet supported with Virtual Nodes
+
+* Using service principal to pull ACR images. [Workaround](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is to use [Kubernetes secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtual Network Limitations](../container-instances/container-instances-vnet.md) including VNet peering, Kubernetes network policies, and outbound traffic to the internet with network security groups.
+* Init containers
+* [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at https://portal.azure.com.
