@@ -37,15 +37,12 @@ After test creations succeeds, you can compare the models side-by-side.
 
 ## Side-by-side model comparisons
 
-**<<TODO - Erik: THIS NEEDS TO BE CLEANED UP>>**
+When the test status is *Succeeded*, click in the test item name to see details of the test. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset.
 
-When the test status is *Succeeded*, click in the test item name to gain more testing insights. You will see all the audios in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and listen to the machine transcripts, to find out whether the selected model(s) quality is good to use.
+To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. It is recommended to play the associated audio files, especially for long audio files, during your inspection by clicking the 'Play' icon and listening to the original audio. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
-For long audios, you may click in the certain audio item to playback the audio and inspect the transcript, by playing back the audio, the corresponding machine transcript sentence would be floating so that you can listen and see effectively.
+Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in Testing: Evaluate Accuracy.
 
-If you have selected two models to test, you will see two columns of machine transcripts. You can choose one of the result to be the reference result, and the differentiations in the other transcript will be marked with color.  
-
-Inspecting quality testing is useful in doing a sanity check to validate the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, you will need to transcribe some audio and follow the instructions found in Testing: Evaluate Accuracy.
 
 ## Next steps
 
