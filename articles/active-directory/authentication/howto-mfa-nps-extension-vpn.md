@@ -371,7 +371,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 2. At the PowerShell command prompt, enter **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, and then select Enter.
 
-3. At the next command prompt, enter **.\AzureMfsNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
+3. At the next command prompt, enter **.\AzureMfaNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
 
     ![Running the AzureMfsNpsExtnConfigSetup.ps1 configuration script](./media/howto-mfa-nps-extension-vpn/image38.png)
 
