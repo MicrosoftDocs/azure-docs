@@ -1,13 +1,13 @@
 ---
 title: Language support - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: A list of natural languages supported by Computer Vision text recognition.
+description: A list of natural languages supported by Computer Vision features.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: reference
+ms.subservice: computer-vision
+ms.topic: article
 ms.date: 04/17/2019
 ms.author: pafarley
 ---
@@ -65,7 +65,7 @@ Some actions of the [Analyze - Image](https://westus.dev.cognitive.microsoft.com
 
 ## Next steps
 
-Get started using the Computer Vision APIs mentioned in this guide.
+Get started using the Computer Vision features mentioned in this guide.
 
 * [Analyze a local image (REST)](./quickstarts/csharp-analyze.md)
 * [Extract printed text (REST)](./quickstarts/csharp-print-text.md)
