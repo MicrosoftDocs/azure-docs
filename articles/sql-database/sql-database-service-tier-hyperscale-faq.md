@@ -289,7 +289,7 @@ No. The storage format for Hyperscale databases is different from traditional SQ
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stop working.
+Yes. Long-term retention backups in Azure SQL Database is not supported in Hyperscale during public preview. After you migrate your databases to Hyperscale, this feature stops working.
 
 ### Will Polybase work with SQL Database Hyperscale
 
