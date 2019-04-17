@@ -1,7 +1,7 @@
 ---
 title: "Inspect data quality for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: TBD
+description: "Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the Custom Speech portal, you can play back uploaded audio and determine if the provided recognition result is correct.  This allows you to quickly inspect quality of Microsoft's baseline speech-to-text model or a trained custom model without having to transcribe any audio data."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -17,23 +17,17 @@ ms.author: erhopf
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.
 
-Custom Speech provides tools that allow you visually inspect recognition quality by aligning audio data with the corresponding recognition result, so that you can play back the audio and determine if the recognized text is correct, all from your browser. This allows you to evaluate recognition quality of Microsoft's baseline model or a custom model without having to transcribe any audio data.
+Custom Speech provides tools that allow you to visually inspect the recognition quality of a model by comparing audio data with the corresponding recognition result. From the Custom Speech portal, you can play back uploaded audio and determine if the provided recognition result is correct.  This allows you to quickly inspect quality of Microsoft's baseline speech-to-text model or a trained custom model without having to transcribe any audio data.
+
+In this document, you'll learn how to visually inspect the quality of a model using the training data you previously uploaded.
 
 On this page, you'll learn how to visually inspect the quality of Microsoft's baseline speech-to-text model and/or a custom model that you've trained. You'll use the data you uploaded to the **Data** tab for testing.
-
-The following sections cover:
-
-* How to create a test
-* Side-by-side model comparisons
-* Finding and resolving issues
-
-<< THIS PROBABLY NEEDS TO BE ADJUSTED >>
 
 ## Create a test
 
 Follow these instructions to create a test:
 
-1. Navigate to **Speech-to-text/Custom Speech/Testing**.
+1. Navigate to **Speech-to-text > Custom Speech > Testing**.
 2. Click **Add Test**.
 3. Select **Inspect quality (Audio-only data)**. Give the test a name, description, and select your audio dataset.
 4. Select up to two models that you'd like to test.
@@ -42,6 +36,8 @@ Follow these instructions to create a test:
 After test creations succeeds, you can compare the models side-by-side.
 
 ## Side-by-side model comparisons
+
+**<<TODO - Erik: THIS NEEDS TO BE CLEANED UP>>**
 
 When the test status is *Succeeded*, click in the test item name to gain more testing insights. You will see all the audios in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and listen to the machine transcripts, to find out whether the selected model(s) quality is good to use.
 
@@ -53,9 +49,9 @@ Inspecting quality testing is useful in doing a sanity check to validate the qua
 
 ## Next steps
 
-* [Evaluate accuracy](how-to-custom-speech-evaluate-data.md)
-* [Train your model](placeholder)
-* [Deploy your model](placeholder)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Train your model](how-to-custom-speech-train-model.md)
+* [Deploy your model](how-to-custom-speech-deploy-model.md)
 
 ## Additional resources
 

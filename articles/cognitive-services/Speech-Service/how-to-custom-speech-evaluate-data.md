@@ -1,7 +1,7 @@
 ---
 title: "Evaluate accuracy for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: TBD
+description: "In this document you'll learn how to quantitatively measure the quality of Microsoft's speech-to-text model or your custom model. Audio + human-labeled transcription data is required to test accuracy, and 30 minutes to 5 hours of representative audio should be provided."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -40,9 +40,31 @@ How the errors are distributed is important. When many deletion errors are encou
 
 Moreover, you may drill down to file details and look at individual files to get a sense which type of errors exist, so that you can pick out some typical cases and get specific targets to improve.
 
+## Create a test
+
+If you'd like to test the quality of Microsoft's speech-to-text baseline model or a custom model that you've trained, you can compare two models side-by-side to evaluate accuracy. The comparison includes WER and recognition results. Typically, a custom model is compared with Microsoft's baseline model.
+
+To evaluate models side-by-side:
+
+1. Navigate to **Speech-to-text > Custom Speech > Testing**.
+2. Click **Add Test**.
+3. Select **Evaluation accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
+4. Select up to two models that you'd like to test.
+5. Click **Create**.
+
+After test creations succeeds, you can compare the results side-by-side.
+
 ## Side-by-side comparison
 
-**<< ARCHER/ED/MARK - Will provide updated text >>**
+**<<TODO - Erik: THIS NEEDS TO BE CLEANED UP>>**
+
+When the test status changes to *Succeeded*, you'll get the WER number for each model that you selected. Select the test item name to gain more testing insights. You will see all the items in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and side-by-side compare the recognition results against the human transcription, All the error types (insertion, deletion, substitution) have been calculated and displayed with different color.
+
+Similarly, for long audios, you may click in the certain audio item to playback the audio and compare the results, by playing back the audio, the corresponding machine transcript sentence would be floating so that you can listen and see effectively.
+
+If you have selected two models to test, you will see three columns of transcripts (i.e. one column of human-labelled transcripts, and two columns of machine transcripts)
+
+![Example of incorrectly identified words](./media/custom-speech/custom-speech-evaluate-comparison.png)
 
 ## Next steps
 

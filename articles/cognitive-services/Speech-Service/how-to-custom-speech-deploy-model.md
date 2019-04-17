@@ -1,7 +1,7 @@
 ---
 title: "Deploy a model for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: TBD
+description: "In this document, you'll learn how to create and deploy an endpoint using the Custom Speech portal."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -22,27 +22,18 @@ To create a new custom endpoint, select **Deployment** from the Custom Speech me
 
 Next, select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom model that you'd like to associate with this endpoint. From this page you can also enable logging. This allows you to monitor endpoint traffic. If disabled, traffic will not be stored.
 
+![How to deploy a model](./media/custom-speech/custom-speech-deploy-model.png)
+
 > [!NOTE]
 > Don't forget to accept the terms of use and pricing details.
 
 Next, select **Create**. This action returns you to the **Deployment** page. The table now includes an entry that corresponds to your custom endpoint. The endpoint’s status shows its current state. It can take up to 30 minutes to instantiate a new endpoint using your custom models. When the status of the deployment changes to **Complete**, the endpoint is ready to use.
 
-**<<MARK/ARCHER/ED - A screenshot that shows adding, naming, and selecting a model could be useful >>**
-
 After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code for your custom endpoint.
 
 ## View logging data
 
-Earlier, it was mentioned that you can enable and access logging/traffic data for your custom endpoint. Logging data is available for download under **Endpoint > Details**.
-
-**<<MARK/ARCHER/ED - Can you provide an image that shows how to navigate to logging?>>**
-
-
-You can also select whether content logging is switched on or off. That is, you're selecting whether the endpoint traffic is stored. If it is not selected, storing the traffic will be suppressed. For all logged content you can find download links under Endpoint-> Details view
-
-## Next steps
-
-**<<MARK/ED/ARCHER - Is there a guide for how to use this endpoint>>**
+Logging data is available for download under **Endpoint > Details**.
 
 ## Useful links
 

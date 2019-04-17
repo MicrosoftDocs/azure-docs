@@ -1,7 +1,7 @@
 ---
 title: "Prepare test data for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: TBD
+description: "Whether you are testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page we cover the types of data, how they are used, and how to manage them."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -14,11 +14,11 @@ ms.author: erhopf
 
 # Prepare data for Custom Speech
 
-Whether you are testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text).  In this page we cover the types of data, how they are used, and how to manage them.
+Whether you are testing to see how accurate Microsoft speech recognition is or training your own models, you'll need data (in the form of audio and/or text). On this page we cover the types of data, how they are used, and how to manage them.
 
 ## Data types
 
-This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model.
+This table lists accepted data types, when each data type should be used, and the recommended quantity. Not every data type is required to create a model. Data requirements will vary depending on whether you are creating a test or training a model.
 
 | Data type | Used of testing | Quantity | Used for training | Quantity |
 |-----------|-----------------|----------|-------------------|----------|
@@ -43,6 +43,8 @@ After your dataset is uploaded, you have a few options:
 
 ## Audio data for testing
 
+Audio data is optimal for testing the accuracy of Microsoft's baseline speech-to-text model or a custom model. Keep in mind, audio data is used to inspect the accuracy of speech with regards to a specific model's performance. If you are looking to quantify the accuracy of a model, use [audio + human-labeled transcription data](#audio--human-labeled-transcript-data-for-testingtraining).
+
 Use this table to ensure that your audio files are formatted correctly for use with Custom Speech:
 
 | Property | Value |
@@ -66,7 +68,6 @@ If your audio doesn’t satisfy these properties or you want to check if it does
 
 To measure the accuracy of Microsoft's speech-to-text accuracy when processing your audio files, you must provide human-labeled transcriptions (word-by-word) for comparison. While human-labeled transcription is often time consuming, it's necessary to evaluate accuracy and to train the model for your use cases. Keep in mind, the improvements in recognition will only be as good as the data provided. For that reason, it's important that only high quality transcripts are uploaded.  
 
-
 | Property | Value |
 |----------|-------|
 | File format | RIFF (WAV) |
@@ -77,9 +78,15 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
 
-To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) provides guidance to help you build a high-quality transcription file.
+To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. This is a sample
 
-After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the Custom Speech portal.
+![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-sample-transcription.png)
+
+[How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) provides guidance to help you build a high-quality transcription file.
+
+After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the Custom Speech portal. The following is an example of a data set with three audio files and a human-labeled transcription file:
+
+![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 ## Related text data for training
 
