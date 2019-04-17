@@ -11,26 +11,7 @@ ms.author: v-chjenk
 ---
 # Windows Virtual Desktop Troubleshooting Guide
 
-This article describes some common issues you may encounter when setting up a Windows Virtual Desktop tenant environment and provides information on how to resolve the issues.
-
-## Overview
-
-Windows Virtual Desktop (WVD) is a multi-tenant service hosted by Microsoft that manages connections between RD clients and isolated Windows Virtual Desktop tenant environments. A tenant environment lets end users connect to published apps and desktops.
-
-Each Windows Virtual Desktop tenant environment consists of one or more host pools. Each host pool consists of one or more identical session hosts. The session hosts are virtual machines (VMs) running different Windows operating systems. Each session host must have a Windows Virtual Desktop host agent installed and registered with the Windows Virtual Desktop service.
-
->[!NOTE]
-> Windows 10 Enterprise multi-session is the recommended operating system to use for session host virtual machines (VMs). If you’re using Windows Server 2016 or 2012 R2 Remote Desktop Session Host (RDSH) for your session host VMs, you’ll also need to install or enable a protocol stack on the session host to support connections between the session host and the Windows Virtual Desktop service. This is known as “reverse-connect” and eliminates the need for inbound ports to be opened to the Windows Virtual Desktop tenant environment.
-
->[!TIP]
->The opposite of "reverse-connect" is “forward-connect” and requires an inbound 3389 port be opened to the Windows Virtual Desktop tenant environment.
-
-Each host pool may have one or more app groups. An app group is a logical grouping of applications that are installed on the session hosts in the host pool. There are two types of app groups:
-
-- Desktop
-- RemoteApp
-
-A desktop app group publishes the full desktop and provides access to all the apps installed on the session hosts in the host pool. A RemoteApp group contains one or more applications that are published from remote VMs. Individual applications from the appgroup show in the Remote Desktop client.
+This article describes some common issues you may encounter during Windows Virtual Desktop setup.
 
 ## Escalation tracks
 
@@ -39,18 +20,18 @@ Use the following table to identify and resolve issues you may encounter when se
 | **Issue**                                                            | **Suggested Solution**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | Creating a Tenant                                                    | If there's an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/); otherwise contact **Remote Desktop Services/Windows Virtual Desktop support**.|
-| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
-| Accessing ARM templates via GitHub                                   | If the issue is not covered in **Creating Windows Virtual Desktop session host VMs**, contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
+| Accessing Marketplace templates in Azure Portal       | If there is an Azure outage, contact [Azure Support](https://azure.microsoft.com/support/options/). <br> <br> Azure Marketplace Windows Virtual Desktop templates are freely available.|
+| Accessing Azure Resource Manager templates via GitHub                                   | If the issue is not covered in [Creating Windows Virtual Desktop session host VMs](#creating-windows-virtual-desktop-session-host-vms), contact the [GitHub support team](https://github.com/contact). <br> <br> If the error occurs after accessing the template in GitHub, contact [Azure Support](https://azure.microsoft.com/support/options/).|
 | Session host pool VNET and Express Route settings                    | Contact **Azure Support (Networking)**. |
-| Session host pool VM creation when ARM templates provided with Windows Virtual Desktop are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the ARM templates provided with Windows Virtual Desktop, see **Creating Windows Virtual Desktop tenant**. |
-| Managing Windows Virtual Desktop session host environment from the Azure management portal                | Contact **Azure Support**. <br> <br> For management issues when using **Remote Desktop Services/Windows Virtual Desktop PowerShell**, troubleshoot using **Management with PowerShell** or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
-| Managing Windows Virtual Desktop configuration tied to host pools and application groups (appgroups)      | Troubleshoot using **Management with PowerShell**, or contact **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients crash on start                                                 | Troubleshoot using **Client connection issues** and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
-| Connected but no feed                                                                 | Troubleshoot using **User connects but nothing is displayed (no feed)**. <br> <br> If your users have been assigned to an appgroup, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
+| Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the Azure Resource Manager templates provided with Windows Virtual Desktop, see [Creating Windows Virtual Desktop tenant](#creating-windows-virtual-desktop-tenant). |
+| Managing Windows Virtual Desktop session host environment from the Azure management portal    | Contact **Azure Support**. <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, troubleshoot using [Management with PowerShell](#management-with-powershell) or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
+| Managing Windows Virtual Desktop configuration tied to host pools and application groups (appgroups)      | Troubleshoot using [Management with PowerShell](#management-with-powershell), or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
+| Remote desktop clients crash on start                                                 | Troubleshoot using [Client connection issues](#client-connection-issues) and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
+| Connected but no feed                                                                 | Troubleshoot using [User connects but nothing is displayed (no feed)](#user-connects-but-nothing-is-displayed-no-feed). <br> <br> If your users have been assigned to an appgroup, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
-| Connecting clients                                                                    | Troubleshoot using **Session host VMs configuration** and **Client connection issues**. |
-| Responsiveness of remote applications or desktop                                      | Troubleshoot using **Performance and usability issues**. <br> <br> If issues are tied to a specific application or product, contact the team responsible for that product. |
-| Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product.|
+| Connecting clients                                                                    | Troubleshoot using [Session host VMs configuration](#session-host-vms-configuration) and [Client connection issues](#client-connection-issues). |
+| Responsiveness of remote applications or desktop                                      | If issues are tied to a specific application or product, contact the team responsible for that product. |
+| Licensing messages or errors                                                          | If issues are tied to a specific application or product, contact the team responsible for that product. |
 
 ## Setup issues
 
@@ -58,7 +39,7 @@ This section covers potential issues during the initial setup of the Windows Vir
 
 ### Acquiring the Windows 10 Enterprise multi-session image
 
-To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select Get Started > Microsoft Windows 10 > and [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
+To use the Windows 10 Enterprise multi-session image, go to the Azure Marketplace, select **Get Started** > **Microsoft Windows** 10 > and [Windows 10 Enterprise for Virtual Desktops Preview, Version 1809](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsdesktop.windows-10?tab=PlansAndPrice).
 
 ![A screenshot of selecting Windows 10 Enterprise for Virtual Desktops Preview, Version 1809.](media/AzureMarketPlace.png)
 
@@ -68,21 +49,23 @@ During the private and public preview creation of the Windows Virtual Desktop, t
 
 ### Creating Windows Virtual Desktop session host VMs
 
-Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure ARM template for creating new host pool. The Azure ARM template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
+Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure Resource Manager template for creating a new host pool. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
-### Issues executing “WVD – Provision a host pool”
+### Issues executing Windows Virtual Desktop – Provision a host pool
 
-**Error** When using the link from GitHub, the message “Create a free account" appears.
+Thw Windows Virtual Desktop – Provision a host pool template is available from the Azure Marketplace.
+
+**Error:** When using the link from GitHub, the message “Create a free account" appears.
 
 ![Screenshot to create a free account.](media/be615904ace9832754f0669de28abd94.png)
 
-**Cause 1** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
+**Cause 1:** There are no active subscriptions in the account being used to log into Azure or the account being used does not have permissions to view the subscriptions.
 
-**Fix 1** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
+**Fix 1:** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
 
-**Cause 2** The subscription being used is part of a CSP tenant.
+**Cause 2:** The subscription being used is part of a CSP tenant.
 
-**Fix 2** Go to the GitHub location for **Create and provision new Windows Virtual Desktop host pool** and perform the following steps:
+**Fix 2:** Go to the GitHub location for **Create and provision new Windows Virtual Desktop host pool** and follow these instructions:
 
 1. Right click on **Deploy to Azure** and select **Copy link address**.
 2. Open **Notepad** and paste the link.
@@ -95,9 +78,9 @@ Session host VMs can be created using multiple methods but Remote Desktop Servic
      2FRDS-Templates%2Fmaster%2Fwvd-templates%2FCreate%20and%20provision%20WVD%20host%20pool%2FmainTemplate.json
 ```
 
-### ARM template and DSC errors
+### Azure Resource Manager template and DSC errors
 
-Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templates and DSC.
+Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations).
 2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
@@ -108,9 +91,7 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 ![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
-**Example of raw error**
-
-```
+``` Raw error example
  {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
  Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\": \"Failed\",\r\n \"error\":
  {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.
@@ -118,31 +99,29 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
  extension 'joindomain'. Error message: \\\"Exception(s) occurred while joining Domain 'diamondsg.onmicrosoft.com'\\\".\"\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Cause 1** Credential provided for joining VMs to the domain are incorrect.
+**Cause 1:** Credential provided for joining VMs to the domain are incorrect.
 
-**Fix 1** See the "Incorrect credentials" error in **VMs are not joined to the domain.**
+**Fix 1:** See the "Incorrect credentials" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
 
-**Cause 2** Domain name does not resolve.
+**Cause 2:** Domain name does not resolve.
 
-**Fix 2** See the "Domain name does not resolve" error in **VMs are not joined to the domain.**
+**Fix 2:** See the "Domain name does not resolve" error in [VMs are not joined to the domain](#vms-are-not-joined-to-the-domain).
 
-**Error** VMExtensionProvisioningError
+**Error:** VMExtensionProvisioningError
 
 ![Screenshot of Your Deployment Failed with terminal provisioning state failed.](media/7aaf15615309c18a984673be73ac969a.png)
 
-**Cause 1** Transient error with the Windows Virtual Desktop environment.
+**Cause 1:** Transient error with the Windows Virtual Desktop environment.
 
-**Cause 2** Transient error with connection.
+**Cause 2:** Transient error with connection.
 
-**Fix** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration steps in **Create a host pool with PowerShell.**
+**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration steps in **Create a host pool with PowerShell.**
 
-**Error** The Admin Username specified is not allowed.
+**Error:** The Admin Username specified is not allowed.
 
 ![Screenshot of your deployment failed due to admin specified is not allowed.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
-> **Example of raw error**
-
-```
+``` Raw error example
  { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Resources/deployments
  /vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation":
  "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
@@ -151,17 +130,15 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
  /resourceGroups/demoHostDesktop/providers/Microsoft.Compute/virtualMachines/demoHostv2-1", "resourceType": "Microsoft.Compute/virtualMachines", "resourceName": "demoHostv2-1" } }}
 ```
 
-**Cause** Password provided contains forbidden substrings (admin, administrator, root).
+**Cause:** Password provided contains forbidden substrings (admin, administrator, root).
 
-**Fix** Update username or use different users.
+**Fix:** Update username or use different users.
 
-**Error** VM has reported a failure when processing extension
+**Error:** VM has reported a failure when processing extension
 
 ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/49c4a1836a55d91cd65125cf227f411f.png)
 
-**Example of raw error**
-
-```batch
+```Raw error example
 { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
  rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
@@ -177,17 +154,15 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
 
-**Cause** DSC extension was not able to get admin access on the VM.
+**Cause:** DSC extension was not able to get admin access on the VM.
 
-**Fix** Confirm username and password provided have administrative access on the virtual machine and run the ARM template again.
+**Fix:** Confirm username and password provided have administrative access on the virtual machine and run the Azure Resource Manager template again.
 
-**Error** DeploymentFailed – DSC Configuration ‘FirstSessionHost’ completed with Error(s).
+**Error:** DeploymentFailed – DSC Configuration ‘FirstSessionHost’ completed with Error(s).
 
 ![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](media/64870370bcbe1286906f34cf0a8646ab.png)
 
-> **Example of raw error**
-
-```
+```Raw error example
 {
     "code": "DeploymentFailed",
    "message": "At least one resource deployment operation failed. Please list 
@@ -209,15 +184,13 @@ Use the steps below to troubleshoot unsuccessful deployments of Azure ARM templa
 
 ```
 
-**Cause** DSC extension was not able to get admin access on the VM.
+**Cause:** DSC extension was not able to get admin access on the VM.
 
-**Fix** Confirm username and password provided have administrative access on the virtual machine and run the ARM template again.
+**Fix:** Confirm username and password provided have administrative access on the virtual machine and run the Azure Resource Manager template again.
 
-**Error** DeploymentFailed – InvalidResourceReference.
+**Error:** DeploymentFailed – InvalidResourceReference.
 
-> **Example of raw error**
-
-```batch
+```Raw error example
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -238,15 +211,13 @@ the referenced resource exists, and that both resources are in the same
 region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r\n }\r\n}"}]}
 ```
 
-**Cause** Part of the resource group name is used for certain resources being created by the template. Due to the name matching existing resources, the template may select an existing resource from a different group.
+**Cause:** Part of the resource group name is used for certain resources being created by the template. Due to the name matching existing resources, the template may select an existing resource from a different group.
 
-**Fix** When running the ARM template to deploy session host VMs, make the first two characters unique for your subscription resource group name.
+**Fix:** When running the Azure Resource Manager template to deploy session host VMs, make the first two characters unique for your subscription resource group name.
 
-**Error** DeploymentFailed – InvalidResourceReference
+**Error:** DeploymentFailed – InvalidResourceReference
 
-> **Example of raw error**
-
-```batch
+```Raw error example
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -268,15 +239,13 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 }\r\n ]\r\n }\r\n ]\r\n }\r\n\
 ```
 
-**Cause** This error is due to having the NIC being created by the ARM template having the same name as another NIC already in the VNET.
+**Cause:** This error is due to having the NIC created by the Azure Resource Manager template having the same name as another NIC already in the VNET.
 
-**Fix** Use different host prefix.
+**Fix:** Use different host prefix.
 
-**Error** DeploymentFailed – Error downloading.
+**Error:** DeploymentFailed – Error downloading.
 
-> **Example of raw error**
-
-```
+```Raw error example
 \\\"The DSC Extension failed to execute: Error downloading
 https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
 2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
@@ -287,9 +256,9 @@ be found in the logs located under
 the VM.\\\"
 ```
 
-**Cause** This is due to either a static route, firewall rule, or NSG blocking download of the zip file tied to the ARM template.
+**Cause:** This is due to a static route, firewall rule, or NSG blocking download of the zip file tied to the Azure Resource Manager template.
 
-**Fix** Remove blocking static route, firewall rule, or NSG. Optionally, open the ARM template json file in a text editor, take the link to zip file, and download the resource to a location that is allowed.
+**Fix:** Remove blocking static route, firewall rule, or NSG. Optionally, open the Azure Resource Manager template json file in a text editor, take the link to zip file, and download the resource to an allowed location.
 
 ## Session host VMs configuration
 
@@ -297,53 +266,53 @@ Use this section to troubleshoot issues when configuring session host VMs.
 
 ### VMs are not joined to the domain
 
-Use the following information if you're having issues joining VMs to the domain.
+Follow these instructions if you're having issues joining VMs to the domain.
 
 - Join the VM manually using the process in [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) or via using the [domain join template](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
 - Try pinging the domain name from command line on VM.
 - Review the list of domain join error messages in [Troubleshooting Domain Join Error Messages](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx).
 
-**Error** Incorrect credentials
+**Error:** Incorrect credentials
 
-**Cause** There was a typo made when the credentials were entered in the ARM template interface fixes.
+**Cause:** There was a typo made when the credentials were entered in the Azure Resource Manager template interface fixes.
 
-**Fix** Use the steps below to correct the credentials.
+**Fix:** Follow these instructions to correct the credentials.
 
 1. Manually add the VMs to a domain.
 2. Redeploy once credentials have been confirmed. See **Create a host pool with PowerShell.**
 3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
 
-**Error** Timeout waiting for user input.
+**Error:** Timeout waiting for user input.
 
-**Cause** The account used to complete the domain join may have multi-factor authentication (MFA).
+**Cause:** The account used to complete the domain join may have multi-factor authentication (MFA).
 
-**Fix** Use steps below.
+**Fix:** Follow these instructions to complete the domain join.
 
 1. Temporarily remove MFA for the account.
 2. Use a service account.
 
-**Error** Account used during provisioning not having permissions to complete the operation.
+**Error:** Account used during provisioning not having permissions to complete the operation.
 
-**Cause** The account being used does not have permissions to join VMs to the domain due to compliance and regulations.
+**Cause:** The account being used does not have permissions to join VMs to the domain due to compliance and regulations.
 
-**Fix**
+**Fix:** Follow these instructions.
 
 1. Use an account that is a member of the Administrator group.
 2. Grant the necessary permissions to the account being used.
 
-**Error** Domain name does not resolve
+**Error:** Domain name does not resolve
 
-**Cause 1** VMs are in a resource group that is not tied to the virtual network (VNET) where the domain is located.
+**Cause 1:** VMs are in a resource group that is not tied to the virtual network (VNET) where the domain is located.
 
-**Fix 1** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
+**Fix 1:** Create VNET peering between the VNET where VMs were provisioned and the VNET where the domain controller (DC) is running. See [Create a virtual network peering - Resource Manager, different subscriptions](https://docs.microsoft.com/en-us/azure/virtual-network/create-peering-different-subscriptions).
 
-**Cause 2** When using AadService (AADS), DNS entries have not been set.
+**Cause 2:** When using AadService (AADS), DNS entries have not been set.
 
-**Fix 2** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
+**Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
 ### Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are not installed
 
-The recommended way to provision VMs is using the **Create and provision Windows Virtual Desktop host pool** ARM template. Installing the RD Infra Agent and RD Agent Boot Loader is part of the template functionality.
+The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Windows Virtual Desktop host pool** template. Installing the RD Infra Agent and RD Agent Boot Loader is part of the template functionality.
 
 Use these steps to confirm the components are installed and to check for error messages.
 
@@ -351,21 +320,21 @@ Use these steps to confirm the components are installed and to check for error m
 2. Open **File Explorer** and navigate to **C:\\Windows\\Temp\\scriptlogs.log**. If the file is missing, this indicates that **DSC** that installed the two components was not able to run in the security context provided.
 3. If the file **C:\\Windows\\Temp\\scriptlogs.log** is present, open it and check for error messages.
 
-**Error** Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing.
+**Error:** Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing.
 
-**Cause 1** Credentials provided during as input for the ARM template were incorrect or permissions were insufficient.
+**Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
-**Fix 1** Manually add the missing components to the VMs using **Create a host pool with PowerShell**.
+**Fix 1:** Manually add the missing components to the VMs using **Create a host pool with PowerShell**.
 
-**Cause 2** DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
+**Cause 2:** DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
 
-**Fix 2** Step through the following list. - Make sure account does not have MFA. - Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop. - Confirm account has at least Remote Desktop Services Contributor permissions.
+**Fix 2:** Step through the following list. - Make sure account does not have MFA. - Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop. - Confirm account has at least Remote Desktop Services Contributor permissions.
 
-**Error** Authentication failed, Error in C:\\Windows\\Temp\\scriptlogs.log
+**Error:** Authentication failed, Error in C:\\Windows\\Temp\\scriptlogs.log
 
-**Cause** DSC was able to execute but could not connect to Windows Virtual Desktop.
+**Cause:** DSC was able to execute but could not connect to Windows Virtual Desktop.
 
-**Fix** Check the following list:
+**Fix:** Check the following list:
 
 - Manually register the VMs with the Windows Virtual Desktop service.
 - Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
@@ -373,15 +342,15 @@ Use these steps to confirm the components are installed and to check for error m
 
 ### Remote Desktop (RD) Agent not registering with the Windows Virtual Desktop service
 
-When the RD Agent is first installed on the session host VM (either manually or through ARM template/DSC), a registration token must be provided. The following section covers common troubleshooting steps applicable to the RD Agent.
+When the RD Agent is first installed on the session host VM (either manually or through the Azure Resource Manager template/DSC), a registration token must be provided. The following section covers common troubleshooting steps applicable to the RD Agent.
 
-**Error** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
+**Error:** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
 
 ![Get-RdsSessionHost cmdlet shows status as Unavailable.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Cause** The agent is not able to update itself to a new version.
+**Cause:** The agent is not able to update itself to a new version.
 
-**Fix** Manually update the agent with these steps:
+**Fix:** Manually update the agent with these steps:
 
 1. Download a new version of the agent on the session host VM.
 2. Launch Task Manager (TM) and in the Service Tab stop the RDAgentBootLoader service.
@@ -390,25 +359,25 @@ When the RD Agent is first installed on the session host VM (either manually or 
 5. Complete the installation Wizard.
 6. Open TM and start the RDAgentBootLoader service.
 
-**Error** RD agent registry entry IsRegistered shows value of 0
+**Error:** RD agent registry entry IsRegistered shows value of 0
 
-**Cause** Registration token has expired or has been generated with expiration value of 999999.
+**Cause:** Registration token has expired or has been generated with expiration value of 999999.
 
-**Fix** Follow the steps below.
+**Fix:** Follow the steps below.
 
 1. If there's already a registration token, remove it with Remove-RDSRegistrationInfo.
 2. Generate new token with Rds-NewRegistrationInfo.
 3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
 
-**Error** RD agent is not reporting heartbeat when running Get-RdsSessionHost
+**Error:** RD agent is not reporting heartbeat when running Get-RdsSessionHost
 
-**Cause 1** RDAgentBootLoader service has been stopped.
+**Cause 1:** RDAgentBootLoader service has been stopped.
 
-**Fix 1** Launch Task Manager (TM) and, if the Service Tab reports a stopped status for RDAgentBootLoader service, start the service.
+**Fix 1:** Launch Task Manager (TM) and, if the Service Tab reports a stopped status for RDAgentBootLoader service, start the service.
 
-**Cause 2** Port 443 may be closed.
+**Cause 2:** Port 443 may be closed.
 
-**Fix 2** Open port 443 using the following steps.
+**Fix 2:** Open port 443 using the following steps.
 
 1. Confirm port 443 is open by downloading the PSPing tool from [Sysinternal tools](https://docs.microsoft.com/en-us/sysinternals/downloads/psping).
 2. Install PSPing on the session host VM where the agent is running.
@@ -442,7 +411,7 @@ The side-by-side (SxS) stack gets installed with a Microsoft Installer (MSI) on 
 
 There are three main ways SxS gets installed or enabled on session host pool VMs:
 
-- With the **Create and provision new Windows Virtual Desktop hostpool** ARM template
+- With the Azure Resource Manager **Create and provision new Windows Virtual Desktop hostpool** template
 - By being included and enabled on the master image
 - Installed or enabled manually on each VM (or with extensions / PS)
 
@@ -466,21 +435,13 @@ Examine the registry entries listed below and confirm that their values match. I
 
 ![O_REVERSE_CONNECT_STACK_FAILURE error code.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-**Cause** The side-by-side stack is not installed on the session host VM.
+**Cause:** The side-by-side stack is not installed on the session host VM.
 
-**Fix** Use the following steps to install the side-by-side stack on the session host VM.
+**Fix:** Use the following steps to install the side-by-side stack on the session host VM.
 
 1. RDP directly into the session host VM as local administrator.
 2. Download and import [the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
 3. Install the side-by-side stack using [Create a host pool with PowerShell](https://https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
-
-**Error** TBD
-
- **Fix** TBD
-
-### How to re-install SxS stack
-
-For steps on uninstalling the SxS stack, see **How to fix an SxS stack that malfunctions**.
 
 ### How to fix an SxS stack that malfunctions
 
@@ -565,29 +526,29 @@ Confirm there is internet connectivity by opening another web site; for example,
 
 Use **nslookup** to confirm DNS can resolve the FQDN:
 
-```
+```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
 Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10.
 
-**Error** Opening other site fails.
+**Error:** Opening other site fails.
 
-**Cause** Network issues and/or outages.
+**Cause:** Network issues and/or outages.
 
-**Fix** Contact network support.
+**Fix:** Contact network support.
 
-**Error** Nslookup cannot resolve the name.
+**Error:** Nslookup cannot resolve the name.
 
-**Cause** Network issues and/or outages.
+**Cause:** Network issues and/or outages.
 
-**Fix** Contact network support
+**Fix:** Contact network support
 
-**Error** Other clients can connect.
+**Error:** Other clients can connect.
 
-**Cause** Browser is not behaving as expected due to cashed or bad setting, and browser has stopped working.
+**Cause:** Browser is not behaving as expected due to cashed or bad setting, and browser has stopped working.
 
-**Fix** Use the following steps:
+**Fix:** Use the following steps:
 
 1. Restart browser.
 2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
@@ -598,11 +559,11 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 
 Try connecting using another browser or client.
 
-**Error** Other browsers and clients also crash or fail to open.
+**Error:** Other browsers and clients also crash or fail to open.
 
-**Cause** Network and/or operation system issues or outages.
+**Cause:** Network and/or operation system issues or outages.
 
-**Fix** Contact support teams.
+**Fix:** Contact support teams.
 
 ### Web client keeps prompting for credentials
 
@@ -616,7 +577,7 @@ If the Web client keeps prompting for credentials, use the following steps:
 
 ### Remote Desktop client for Windows 7 or Windows 10 crashes or cannot be opened
 
-Use following PS cmdlets to cleanup OOB client registries.
+Use following PowerShell cmdlets to cleanup OOB client registries.
 
 ```cmds
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -649,7 +610,7 @@ Follow these general troubleshooting steps for common error codes.
 5. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
 6. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
-```
+```cmd
  Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
  "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
 ```
@@ -673,27 +634,27 @@ ReportedBy        : <Reported by component>
 Time              : <Timestampt>
 ```
 
-**Error** O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
+**Error:** O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
 
-**Cause** VM has not been joined to the domain where user object is.
+**Cause:** VM has not been joined to the domain where user object is.
 
-**Fix** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
+**Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-**Error** Nslookup cannot resolve the name
+**Error:** Nslookup cannot resolve the name
 
-**Cause** Network issues or outages.
+**Cause:** Network issues or outages.
 
-**Fix** Contact network support
+**Fix:** Contact network support
 
-**Error** ConnectionFailedClientProtocolError
+**Error:** ConnectionFailedClientProtocolError
 
-**Cause** VMs that user is attempting to connect to are not domain joined.
+**Cause:** VMs that user is attempting to connect to are not domain joined.
 
-**Fix** Join all VMs that are part of a host pool to the domain controller.
+**Fix:** Join all VMs that are part of a host pool to the domain controller.
 
 ### User connects but nothing is displayed (no feed)
 
-A User can start RD clients and is able to authenticate, however the user does not see any icons in the web discovery feed.
+A User can start Remote Desktop clients and is able to authenticate, however the user does not see any icons in the web discovery feed.
 
 Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
@@ -717,21 +678,21 @@ Below are typical errors when using Powershell commands.
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName 'Desktop Application Group' -UserPrincipalName <UserName>
 ```
 
-**Error** The specified UserPrincipalName is already assigned to a RemoteApp AppGroup in the specified HostPool.
+**Error:** The specified UserPrincipalName is already assigned to a RemoteApp AppGroup in the specified HostPool.
 
-**Cause** The username used has been already assigned to an AppGroup of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
+**Cause:** The username used has been already assigned to an AppGroup of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
 
-**Fix** If user needs both remote apps and remote desktop, create different host pools or grant user access to remote desktop only, as this will permit the use of any application on the session host VM.
+**Fix:* If user needs both remote apps and remote desktop, create different host pools or grant user access to remote desktop only, as this will permit the use of any application on the session host VM.
 
 ```cmd
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
 ```
 
-**Error** The specified UserPrincipalName does not exist in the Azure AD associated with the RD tenant.
+**Error:** The specified UserPrincipalName does not exist in the Azure AD associated with the RD tenant.
 
-**Cause** The user specified by the -UserPrincipalName cannot be found in the Azure AD tied to the Windows Virtual Desktop tenant.
+**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure AD tied to the Windows Virtual Desktop tenant.
 
-**Fix** Confirm the following:
+**Fix:** Confirm the following:
 
 - User has synched to Azure AD.
 - User is not B2C or B2B.
@@ -743,36 +704,34 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 Get-RdsDiagnosticActivities -ActivityId \<ActivityId\>
 ```
 
-**Error** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
+**Error:** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
 
-**Cause** -TenantName switch is not specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire Windows Virtual Desktop service, which is not allowed.
+**Cause:** -TenantName switch is not specified. Issuing Get-RdsDiagnosticActivities without -TenantName \<TenantName\> will query the entire Windows Virtual Desktop service, which is not allowed.
 
-**Fix** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName\>.
+**Fix:** Issue Get-RdsDiagnosticActivities with -TenantName \<TenantName\>.
 
 ```cmd
 Get-RdsDiagnosticActivities -Deployment -username \<username\>
 ```
 
-**Error** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
+**Error:** Get-RdsDiagnosticActivities : User is not authorized to query the management service.
 
-**Cause** Using -Deployment switch.
+**Cause:** Using -Deployment switch.
 
-**Fix** -Deployment switch can be used by deployment administrators only. These are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace -Deployment with -TenantName \<TenantName\>
+**Fix:** -Deployment switch can be used by deployment administrators only. These are usually members of the Remote Desktop Services/Windows Virtual Desktop team. Replace -Deployment with -TenantName \<TenantName\>
 
 ### New-RdsRoleAssignment
 
 New-RdsRoleAssignment cannot give permissions to a user that does not exist in the Azure AD.
 
-**Error** New-RdsRoleAssignment : User is not authorized to query the management service.
+**Error:** New-RdsRoleAssignment : User is not authorized to query the management service.
 
-**Cause** Account being used does not have Remote Desktop Services Owner permissions on the tenant.
+**Cause:** Account being used does not have Remote Desktop Services Owner permissions on the tenant.
 
-**Fix** A user with Remote Desktop Services Owner permission needs to execute the role assignment.
+**Fix:** A user with Remote Desktop Services owner permissions needs to execute the role assignment.
 
-**Error** New-RdsRoleAssignment : User is not authorized to query the management service.
+**Error:** New-RdsRoleAssignment : User is not authorized to query the management service.
 
-**Cause** Account being used does have Remote Desktop Services Owner permissions but is not part of Active Directory (AD) or does not have permission to query AD where the user is located.
+**Cause:** Account being used does have Remote Desktop Services owner permissions but is not part of Active Directory (AD) or does not have permission to query AD where the user is located.
 
-**Fix** User with AD permissions needs to execute the role assignment.
-
-## Performance and usability issues
+**Fix:** User with AD permissions needs to execute the role assignment.
