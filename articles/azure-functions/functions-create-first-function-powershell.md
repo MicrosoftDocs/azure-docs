@@ -10,40 +10,30 @@ ms.date: 02/04/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.devlang: powershell
+
 ---
 
 # Create your first PowerShell function in Azure (preview)
 
-This quickstart article walks you through how to use the Azure CLI to create your first
-[serverless](https://azure.com/serverless) PowerShell function app running on Windows or Linux.
-The function code is created locally and then deployed to Azure by using the
-[Azure Functions Core Tools](functions-run-local.md).
-To learn more about preview considerations for running your function apps on Linux,
-see [this Functions on Linux article](https://aka.ms/funclinux).
+[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+
+This quickstart article walks you through how to create your first [serverless](https://azure.com/serverless) PowerShell function app. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). The function app in Azure is created by using the [Azure portal]. 
 
 The following steps are supported on a Mac, Windows, or Linux computer.
 
 ## Prerequisites
 
-To run and debug functions locally, you will need to:
+To run and debug functions locally, you need to install:
 
-* Install [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)
-* Install the [.NET Core SDK 2.1+](https://www.microsoft.com/net/download)
-* Install [Azure Functions Core Tools](functions-run-local.md#v2) version 2.4.299 or later
-  (update as often as possible)
+* [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell-core)
+* [.NET Core SDK 2.1+](https://www.microsoft.com/net/download) (required by Core Tools)
+* Install [Azure Functions Core Tools](functions-run-local.md#v2), version 2.4.299 or later.
 
-To publish and run in Azure:
+You also need an active Azure subscription.
 
-* Install [Azure PowerShell](/powershell/azure/install-az-ps)
-  OR install the [Azure CLI](cli/azure/install-azure-cli) version 2.x or later.
-* You need an active Azure subscription.
   [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## Create a local Functions project
-
-You can now create a local Functions project.
-This directory is the equivalent of a function app in Azure.
-It can contain multiple functions that share the same local and hosting configuration.
 
 In the terminal window or from a command prompt, run the following commands:
 
@@ -53,7 +43,7 @@ cd MyFunctionProj
 func init --worker-runtime powershell
 ```
 
-You should see something like this:
+You should see something like the following output:
 
 ```output
 PS > func init --worker-runtime powershell
@@ -62,20 +52,17 @@ Writing host.json
 Writing local.settings.json
 ```
 
-A new folder named _MyFunctionProj_ is created and initialized with some files.
+A new folder named _MyFunctionProj_ is created and initialized with files required by the Functions runtime. This directory is the same as a function app in running in Azure. It can contain multiple function folders, where each function shares the same local and hosting configuration.
 
 ## Creating a function
 
-Now that we have a Functions project, we need to create a function inside of it.
-A function will contain the actual script of yours that will get executed.
-
-To create a function, run the following command:
+The following command creates an HTTP-triggered function named `MyHttpTrigger`.
 
 ```powershell
 func new -template HttpTrigger -name MyHttpTrigger
 ```
 
-You should see something like:
+When the command executes, you see something like the following output:
 
 ```output
 PS > func new -template HttpTrigger -name MyHttpTrigger
@@ -87,63 +74,47 @@ The function "MyHttpTrigger" was created successfully from the "HttpTrigger" tem
 PS >
 ```
 
-Here we are using the [HttpTrigger template](functions-bindings-http-webhook.md).
-It's a simple template that allows you to trigger your function using an HTTP request.
+The function.json file defines the HTTP trigger. The run.ps1 file contains code that runs when the function is triggered by an HTTP request.
 
-Our directory structure should look like this:
+## Update the function
 
-```output
-PS > dir -Recurse
+By default, the template creates a function that requires a [function key](functions-bindings-http-webhook.md#authorization-keys) when making requests. To make it easier to test the function in Azure, you need to update the function to allow anonymous access.
 
-    Directory: /home/foo/MyFunctionsProj
+Open the function.json file for your new function in a text editor, update the **authLevel** property in **bindings** to `anonymous`, and save your changes.
 
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-d-----           11/1/18  5:41 PM                .vscode
-d-----           11/1/18  5:41 PM                MyHttpTrigger
-------           11/1/18  5:41 PM            431 .gitignore
-------           11/1/18  5:41 PM             25 host.json
-------           11/1/18  5:41 PM            142 local.settings.json
-------           11/1/18  5:41 PM           1182 profile.ps1
-
-    Directory: /home/foo/MyFunctionsProj/MyHttpTrigger
-
-Mode                LastWriteTime         Length Name
-----                -------------         ------ ----
-------           11/1/18  5:41 PM            328 function.json
-------           11/1/18  5:41 PM            751 run.ps1
-------           11/1/18  5:41 PM             27 sample.dat
+```json
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
 ```
 
-TODO: move to non-quickstart
-Let's run through what each of these files do:
-
-* _.vscode_ - A folder that recommends VS Code extensions to the user
-* _MyHttpTrigger_ - The folder that contains the function
-* _.gitignore_ - A file used by Git to ignore certain local build/test artifacts from source control
-* _host.json_ - Contains global configuration options that affect all functions for a function app
-* _local.settings.json_ - Contains the configuration settings for your function app that can be published to "Application Settings" in your Azure function app environment
-* _profile.ps1_ - A PowerShell script that will be executed on every cold start of your language worker
-* _function.json_ - Contains the configuration metadata for the Function and the definition of input and output bindings
-* _run.ps1_ - This is the script that will be executed when a Function is triggered
-* _sample.dat_ - Contains the sample data that will be displayed in the Azure Portal for testing purposes
-
-> [!NOTE]
-> For more information about bindings, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
-
-Now that you have a function in your function app, you are ready to run it!
+Now you can call the function in Azure without having to supply the function key. The function key is never required when running locally.
 
 ## Run the function locally
 
-Run the following command from the root of your function app (you may need to run `cd ..`) to run the Functions host locally:
+Run the following command in the root of your Functions project.
 
 ```powershell
 func start
 ```
 
-When the Functions host starts, it outputs the URL of your HTTP-triggered function.
-(Note that the entire output has been truncated for readability.)
+This command starts the function app running using the same Azure Functions runtime that is in Azure.
+
+When the Functions host starts, it outputs the URL of your HTTP-triggered function. (The full output has been truncated for readability.)
 
 ```output
 
@@ -168,504 +139,89 @@ Http Functions:
         HttpTrigger: http://localhost:7071/api/HttpTrigger
 ```
 
-TODO: move to non-quickstart
-If you access `http://localhost:7071/api/MyHttpTrigger` using `Invoke-RestMethod`, you should get:
+Copy the URL of your `HttpTrigger` function from the runtime output, append the query string `?name=<yourname>` to this URL, and then use `Invoke-RestMethod` to execute the request, as follows:
+
+```powershell
+Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger?name=PowerShell
+```
+
+This is the expected response:
 
 ```output
-PS > Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger
-irm : Please pass a name on the query string or in the request body.
-At line:1 char:1
-+ irm http://localhost:7071/api/MyHttpTrigger
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-+ CategoryInfo          : InvalidOperation: (Method: GET, Re...rShell/6.2.0
-}:HttpRequestMessage) [Invoke-RestMethod], HttpResponseException
-+ FullyQualifiedErrorId : WebCmdletWebResponseException,Microsoft.PowerShell.Commands.InvokeRestMethodCommand
-```
-
-This error is expected to be thrown if you look at the `run.ps1`.
-To get back a proper 200 response, we need to supply a query parameter called "Name":
-
-```
-PS > Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger?Name=PowerShell
+PS > Invoke-RestMethod http://localhost:7071/api/MyHttpTrigger?name=PowerShell
 Hello PowerShell
 ```
 
-TODO: move to non-quickstart
-You can also copy the URL of your function from the output and paste it into your browser's address bar.
-Append the query string `?name=<yourname>` to this URL and execute the request:
+When you call the MyHttpTrigger endpoint without passing `name` either as a query parameter or in the body, the function returns a 500 error. If you review the code in run.ps1, you see that this error occurs by design.
 
-```none
-http://localhost:7071/api/HttpTrigger?name=<yourname>
-```
-
-We have successfully executed our function locally!
-Now let's publish it to Azure.
+Now that you've verified that the function runs locally, you can publish it to Azure.
 
 ## Create a function app in Azure
 
-There are two ways to create a new Function App in Azure:
+Before publishing to Azure, you must create a function app in which your functions run. Use the following steps to create a function app in the [Azure portal].
 
-* [Azure Portal](#azure-portal)
-* [ARM Template](#arm-template)
+1. Select the **Create a resource** button found on the upper left-hand corner of the [Azure portal], then select **Compute** > **Function App**.
 
-## Azure Portal
+    ![Create a function app in the Azure portal](./media/functions-create-first-function-powershell/function-app-create-flow.png)
 
-### Creating the Function App
+2. Use the function app settings as specified in the table below the image.
 
-1. Navigate to the [Azure Portal](https://portal.azure.com).
-2. Click on "+ Create a resource":
+    ![Define new function app settings](./media/functions-create-first-function-powershell/function-app-create-flow2.png)
 
-![create a resource](./media/functions-create-first-function-powershell/azure-portal-create-resource.png)
+    | Setting      | Suggested value  | Description                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **App name** | Globally unique name | Name that identifies your new function app. Valid characters are `a-z`, `0-9`, and `-`.  | 
+    | **Subscription** | Your subscription | The subscription under which this new function app is created. | 
+    | **[Resource Group](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Name for the new resource group in which to create your function app. |
+    | **OS** | Windows | Serverless hosting on Linux is currently in preview. For more information, see [this considerations article](https://aka.ms/funclinux). |
+    | **[Hosting plan](functions-scale.md)** | Consumption plan | Hosting plan that defines how resources are made available to your function app. In the default **Consumption Plan**, resources are added dynamically as required by your functions. In this [serverless](https://azure.microsoft.com/overview/serverless-computing/) hosting, you only pay for the time your functions run. When you run in an App Service plan, you must manage the [scaling of your function app](functions-scale.md).  |
+    | **Location** | West Europe | Choose a [region](https://azure.microsoft.com/regions/) near you or near other services your functions access. |
+    | **Runtime stack** | Preferred language | Choose a runtime that supports your favorite function programming language. Choose **.NET** for C# and F# functions. |
+    | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globally unique name |  Create a storage account used by your function app. Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only. You can also use an existing account, which must meet the [storage account requirements](functions-scale.md#storage-account-requirements). |
+    | **[Application Insights](functions-monitoring.md)** | Default | Creates an Application Insights resource of the same *App name* in the nearest supported region. By expanding this setting, you can change the **New resource name** or choose a different **Location** in an [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you want to store your data. |
 
-3. Enter "Function App" in the search box and hit Enter:
+3. Select **Create** to provision and deploy the function app.
 
-![search for "Function App"](./media/functions-create-first-function-powershell/azure-portal-search-function-app.png)
+4. Select the Notification icon in the upper-right corner of the portal and watch for the **Deployment succeeded** message.
 
-4. Select "Function App" in the search results:
+    ![Define new function app settings](./media/functions-create-first-function-powershell/function-app-create-notification.png)
 
-![select "Function App" in the search results](./media/functions-create-first-function-powershell/azure-portal-search-results-function-app.png)
+    After the resources have been created, you can use Core Tools to deploy your project to the new function app.
 
+## Sign in to Azure in your local shell
 
-5. Click "Create" at the bottom:
-
-![Click "Create"](./media/functions-create-first-function-powershell/azure-portal-create-function-app.png)
-
-
-6. Fill in the following for the form and then click "Create":
-
-- _App name_: Any you'd like
-- _Subscription_: Any you'd like
-- _Resource Group_: Any you'd like
-- _OS_: Windows
-- _Publish_: Code
-- _Runtime Stack_: PowerShell
-- _App Service Plan/Location_: Any you'd like
-- _Storage_: Any you'd like
-- _Application Insights_: Any you'd like
-- _Application Insights Location_: Any you'd like
-
-> [!NOTE]
-> Currently Linux is also supported, but is limited to the dedicated plan as opposed to the consumption plan.
-For more information on the different plans, see the [official hosting documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-scale).
-
-![form](./media/functions-create-first-function-powershell/azure-portal-create-details-function-app.png)
-
-As soon as it's deployed, you now have a function app configured to run PowerShell!
-Now you need to [publish a local PowerShell function app](#Deploy-the-function-app-project-to-Azure) to this deployed function app.
-
-TODO: move out to `azure-quickstart-templates`
-## ARM Template
-
-You can also deploy the following ARM template with
-[Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
-or [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli).
-This ARM template will:
-
-- Create an Azure App Service Plan if it does not exist
-- Create an Azure Storage Account if it does not exist
-- Create an Azure Function App with the correct Application and Container settings
-
-TODO: move out
-### Windows Consumption `template.json`
-
-First, save the following file as something like `template.json`:
-
-```json
-{
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "functionAppName": {
-            "type": "string",
-            "metadata": {
-                "description": "Specify the name of the function application"
-              }
-        },
-        "ApplicationInsightsLocation": {
-            "type": "string",
-            "defaultValue": "West Europe",
-            "allowedValues": [
-              "East US",
-              "South Central US",
-              "North Europe",
-              "West Europe",
-              "Southeast Asia",
-              "West US 2",
-              "Central India",
-              "Canada Central",
-              "UK South"
-            ],
-            "metadata": {
-              "description": "Specify the region for Application Insights data"
-            }
-          },
-        "runtimeStack": {
-            "type": "string",
-            "defaultValue": "powershell",
-            "allowedValues": [
-                "powershell",
-                "dotnet",
-                "node",
-                "java"
-            ],
-            "metadata": {
-                "description": "Pick the language runtime that you want enabled"
-              }
-        }
-    },
-    "variables": {
-        "hostingPlanName": "[parameters('functionAppName')]",
-        "location": "[resourceGroup().location]",
-        "storageAccountName": "[concat('storage', uniquestring(resourceGroup().id))]"
-    },
-    "resources": [
-        {
-            "name": "[parameters('functionAppName')]",
-            "type": "Microsoft.Web/sites",            
-            "dependsOn": [
-                "[concat('Microsoft.Web/serverfarms/', variables('hostingPlanName'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
-                "[resourceId('microsoft.insights/components/', parameters('functionAppName'))]"
-            ],
-            "identity": {
-                "type": "SystemAssigned"
-            },
-            "properties": {
-                "siteConfig": {
-                    "appSettings": [
-                        {
-                            "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "[parameters('runtimeStack')]"
-                        },
-                        {
-                            "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',variables('storageAccountName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2015-05-01-preview').key1)]"
-                        },
-                        {
-                            "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~2"
-                        },
-                        {
-                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components/', parameters('functionAppName')), '2015-05-01').InstrumentationKey]"
-                        }
-                    ]
-                },
-                "name": "[parameters('functionAppName')]",
-                "clientAffinityEnabled": false,
-                "serverFarmId": "[concat('/subscriptions/', subscription().subscriptionId,'/resourcegroups/', resourceGroup().name, '/providers/Microsoft.Web/serverfarms/', variables('hostingPlanName'))]"
-            },
-            "apiVersion": "2018-02-01",
-            "location": "[variables('location')]",
-            "kind": "functionapp"
-        },
-        {
-            "type": "Microsoft.Web/serverfarms",
-            "apiVersion": "2015-04-01",
-            "name": "[variables('hostingPlanName')]",
-            "location": "[resourceGroup().location]",
-            "properties": {
-                "name": "[variables('hostingPlanName')]",
-                "computeMode": "Dynamic",
-                "sku": "Dynamic"
-            }
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
-            "location": "[variables('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "apiVersion": "2015-05-01",
-            "name": "[parameters('functionAppName')]",
-            "type": "Microsoft.Insights/components",
-            "location": "[parameters('ApplicationInsightsLocation')]",
-            "tags": {
-                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('functionAppName'))]": "Resource"
-            },
-            "properties": {
-                "ApplicationId": "[parameters('functionAppName')]"
-            }
-        }
-    ],
-    "outputs": {
-        "principalId": {
-          "type": "string",
-          "value": "[reference(concat(resourceId('Microsoft.Web/sites/', parameters('functionAppName')), '/providers/Microsoft.ManagedIdentity/Identities/default'), '2015-08-31-PREVIEW').principalId]"
-        }
-    }
-}
-```
-
-Then deploy it with Azure PowerShell (replacing "ContosoGroup" and "contosofunctionapp" with your own resource group and function app names):
-
-```powershell
-# Register Resource Providers if they're not already registered
-Register-AzResourceProvider -ProviderNamespace "microsoft.web"
-Register-AzResourceProvider -ProviderNamespace "microsoft.storage"
-
-# Create a resource group for the function app
-New-AzResourceGroup -Name "ContosoGroup" -Location 'West Europe'
-
-# Create the parameters for the file – the only required one is the function app name.
-$TemplateParams = @{"functionAppName" = "contosofunctionapp"}
-
-# Deploy the template
-New-AzResourceGroupDeployment -ResourceGroupName “ContosoGroup” -TemplateFile template.json -TemplateParameterObject $TemplateParams -Verbose
-```
-
-TODO: move out
-### Linux Dedicated `template.json`
-
-_template.json_
-```json
-{
-    "parameters": {
-        "functionAppName": {
-            "type": "string"
-        },
-        "storageName": {
-            "type": "string"
-        },
-        "hostingPlanName": {
-            "type": "string"
-        },
-        "serverFarmResourceGroup": {
-            "type": "string"
-        },
-        
-        "subscriptionId": {
-            "type": "string"
-        },
-        "location": {
-            "type": "string"
-        },
-        "hostingEnvironment": {
-            "type": "string"
-        },
-        "sku": {
-            "type": "string"
-        },
-        "skuCode": {
-            "type": "string"
-        },
-        "workerSize": {
-            "type": "string"
-        }
-    },
-    "resources": [
-        {
-            "name": "[parameters('functionAppName')]",
-            "type": "Microsoft.Web/sites",
-            "dependsOn": [
-                "[concat('Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageName'))]",
-                "[resourceId('microsoft.insights/components/', parameters('functionAppName'))]"
-            ],
-            "properties": {
-                "siteConfig": {
-                    "appSettings": [
-                        {
-                            "name": "FUNCTIONS_WORKER_RUNTIME",
-                            "value": "powershell"
-                        },
-                        {
-                            "name": "AzureWebJobsStorage",
-                            "value": "[concat('DefaultEndpointsProtocol=https;AccountName=',parameters('storageName'),';AccountKey=',listKeys(resourceId('Microsoft.Storage/storageAccounts', parameters('storageName')), '2015-05-01-preview').key1)]"
-                        },
-                        {
-                            "name": "FUNCTIONS_EXTENSION_VERSION",
-                            "value": "~2"
-                        },
-                        {
-                            "name": "WEBSITE_NODE_DEFAULT_VERSION",
-                            "value": "8.11.1"
-                        },
-                        {
-                            "name": "APPINSIGHTS_INSTRUMENTATIONKEY",
-                            "value": "[reference(resourceId('microsoft.insights/components/', parameters('functionAppName')), '2015-05-01').InstrumentationKey]"
-                        }
-                    ],
-                    "alwaysOn": true,
-                    "linuxFxVersion": "DOCKER|mcr.microsoft.com/azure-functions/powershell:2.0"
-                },
-                "name": "[parameters('functionAppName')]",
-                "clientAffinityEnabled": false,
-                "serverFarmId": "[concat('/subscriptions/', parameters('subscriptionId'),'/resourcegroups/', parameters('serverFarmResourceGroup'), '/providers/Microsoft.Web/serverfarms/', parameters('hostingPlanName'))]",
-                "hostingEnvironment": "[parameters('hostingEnvironment')]"
-            },
-            "apiVersion": "2016-03-01",
-            "location": "[parameters('location')]",
-            "kind": "functionapp"
-        },
-        {
-            "apiVersion": "2016-09-01",
-            "name": "[parameters('hostingPlanName')]",
-            "type": "Microsoft.Web/serverfarms",
-            "location": "[parameters('location')]",
-            "properties": {
-                "name": "[parameters('hostingPlanName')]",
-                "workerSizeId": "[parameters('workerSize')]",
-                "reserved": true,
-                "numberOfWorkers": "1",
-                "hostingEnvironment": "[parameters('hostingEnvironment')]"
-            },
-            "sku": {
-                "Tier": "[parameters('sku')]",
-                "Name": "[parameters('skuCode')]"
-            },
-            "kind": "linux"
-        },
-        {
-            "apiVersion": "2015-05-01-preview",
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageName')]",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "apiVersion": "2015-05-01",
-            "name": "[parameters('functionAppName')]",
-            "type": "Microsoft.Insights/components",
-            "location": "[parameters('location')]",
-            "tags": {
-                "[concat('hidden-link:', resourceGroup().id, '/providers/Microsoft.Web/sites/', parameters('functionAppName'))]": "Resource"
-            },
-            "properties": {
-                "ApplicationId": "[parameters('functionAppName')]",
-                "Request_Source": "IbizaWebAppExtensionCreate"
-            }
-        }
-    ],
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0"
-}
-```
-
-_parameters.json_
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "functionAppName": {
-            "value": "AwesomeFuncApp"
-        },
-        "storageName": {
-            "value": "awesomefuncappstorage"
-        },
-        "hostingPlanName": {
-            "value": "AwesomeFuncApp-plan"
-        },
-        "serverFarmResourceGroup": {
-            "value": "AwesomeFuncApp"
-        },
-        "subscriptionId": {
-            "value": ""
-        },
-        "location": {
-            "value": "West US 2"
-        },
-        "hostingEnvironment": {
-            "value": ""
-        },
-        "sku": {
-            "value": "Basic"
-        },
-        "skuCode": {
-            "value": "B1"
-        },
-        "workerSize": {
-            "value": "0"
-        }
-    }
-}
-
-```
-
-You should change the values of the `parameters.json` to fill your needs.
-
-You can deploy these by using
-[Azure PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy)
-or [Azure CLI](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy-cli).
-
-## Deploy the function app project to Azure
-
-Now that you've created a function app in Azure,
-you can deploy your local function app to the cloud.
-
-### Login to Azure in your local shell
-
-#### Azure PowerShell
-
-> [!NOTE]
-> If you have the AzureRM module, that works fine too. However, the Az module is recommended.
-
-Before deploying, login to Azure PowerShell by running the following command and following the prompt:
+Before deploying, sign in to Azure PowerShell by running the following command and following the prompt:
 
 ```powershell
 Login-AzAccount
 ```
 
-Once you login, you're ready to publish!
+[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
-TODO: move out
-#### Azure CLI
+## <a name="test"></a>Run the function in Azure
 
-You can also login using the Azure CLI instead of Azure PowerShell:
+To verify that your published function runs in Azure, execute the following PowerShell command, replacing the `<app_name>` placeholder with the name of your function app. As before, append the query string `&name=<yourname>` to the URL.
 
 ```powershell
-az login
+Invoke-WebRequest -Uri "https://<app_name>.azurewebsites.net/api/MyHttpTrigger?name=<yourname>"
 ```
 
-Once you login, you're ready to publish!
+## Clean up resources
 
-### Deploy the function app to Azure
+Other articles in this collection build upon this quickstart article. If you plan to continue on to work with subsequent quickstarts or with the tutorials, don't clean up the resources created in this quickstart. If you don't plan to continue, use the following command to delete all resources created by this quickstart:
 
-To publish our function app, all you need to do is run:
-
-```
-func azure functionapp publish <name of function app in Azure>
+```powershell
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-> [!NOTE]
-> You might be asked to supply the `--nozip` parameter. That's okay!
-
-You should see:
-
-```output
-PS > func azure functionapp publish AwesomePSFunc
-Getting site publishing info...
-Creating archive for current directory...
-Uploading archive...
-Upload completed successfully.
-Functions in AwesomePSFunc:
-    MyHttpTrigger - [httpTrigger]
-        Invoke url: http://awesomepsfunc.azurewebsites.net/api/myhttptrigger?code=8fLQn8PM8wDRXDxhr0/ZWbulJgHPLZTPoH8KagmLbA9jaMheybRwtw==
-```
-
-Your function app is now deployed to Azure and can be invoked using the URL above:
-
-```
-PS > Invoke-RestMethod 'http://awesomepsfunc.azurewebsites.net/api/myhttptrigger?code=8fLQn8PM8wDRXDxhr0/ZWbulJgHPLZTPoH8KagmLbA9jaMheybRwtw==&Name=PowerShell'
-Hello PowerShell
-PS >
-```
-
-> [!NOTE]
-> The `code` query parameter that you see there is a result of the function's HTTP trigger binding having `"authLevel":"function"` which can be found in the function's `function.json`.
-For more information, take a look at the [official HTTP binding documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook#trigger---configuration).
+Type `y` or choose **Yes** when prompted.
 
 ## Next steps
 
-Learn more about developing Azure Functions using PowerShell
+Learn more about developing Azure Functions using PowerShell:
 
 > [!div class="nextstepaction"]
 > [Azure Functions PowerShell developer guide](functions-reference-powershell.md)
 > [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+
+[Azure portal]: https://portal.azure.com
