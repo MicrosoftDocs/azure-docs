@@ -92,6 +92,8 @@ print("signed in")
 print (client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
 ```
 
+1. Run the file
+
 ## Next steps
 
 - Use [Python SDK](https://aka.ms/ams-v3-python-sdk).
