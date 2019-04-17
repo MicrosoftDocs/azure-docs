@@ -34,11 +34,11 @@ Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitec
 
 1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
 
-1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
+1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lsv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lsv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
 
-1. Lv2 user should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
+1. Lsv2 users should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
 
-1. The maximum supported queue depth per I/O queue pair for Lv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
+1. The maximum supported queue depth per I/O queue pair for Lsv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lsv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
 
 ## Utilizing local NVMe storage
 
@@ -90,7 +90,7 @@ To learn more about options for backing up data in local storage, see [Backup an
    The rq_affinity setting is a minor adjustment when using the absolute maximum input/output operations per second (IOPS). Once everything else is working well, then try to set rq_affinity to 0 to see if it makes a difference.
 
 1. **Do I need to change the blk_mq settings?**  
-   RHEL/CentOS 7.x automatically uses blk-mq for the NVMe devices. No configuration changes or settings are necessary. The scsi_mod.use_blk_mq setting is for SCSI only and was used during Lv2 Preview because the NVMe devices were visible in the guest VMs as SCSI devices. Currently, the NVMe devices are visible as NVMe devices, so the SCSI blk-mq setting is irrelevant.
+   RHEL/CentOS 7.x automatically uses blk-mq for the NVMe devices. No configuration changes or settings are necessary. The scsi_mod.use_blk_mq setting is for SCSI only and was used during Lsv2 Preview because the NVMe devices were visible in the guest VMs as SCSI devices. Currently, the NVMe devices are visible as NVMe devices, so the SCSI blk-mq setting is irrelevant.
 
 1. **Do I need to change “fio”?**  
    To get maximum IOPS with a performance measuring tool like ‘fio’ in the L64v2 and L80v2 VM sizes, set “rq_affinity” to 0 on each NVMe device.  For example, this command line will set “rq_affinity” to zero for all 10 NVMe devices in an L80v2 VM:
