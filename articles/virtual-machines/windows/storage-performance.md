@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.date: 04/17/2019
 ms.author: joelpell
 ---
 
@@ -20,9 +20,23 @@ Lsv2-series virtual machines support a variety of workloads that need high I/O a
 
 The design of the Lsv2-series Virtual Machines (VMs) maximizes the AMD EPYC™ 7551 processor to provide the best performance between the processor, memory, NVMe devices, and the VMs. In addition to maximizing the hardware performance, Lsv2-series VMs are designed to work with the needs of Windows and Linux operating systems for better performance with the hardware and the software.
 
-Tuning the software and hardware resulted in the optimized version of Windows Server 2019 Datacenter, released in early December 2018 to the Azure Marketplace, which supports maximum performance on the NVMe devices in Lsv2-series VMs.
+Tuning the software and hardware resulted in the optimized version of [Windows Server 2019 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WindowsServer?tab=Overview), released in early December 2018 to the Azure Marketplace, which supports maximum performance on the NVMe devices in Lsv2-series VMs.
 
-This article provides tips and suggestions to ensure your workloads and applications are able to achieve the maximum performance designed into the VMs. The information on this page will be continuously updated as more Lsv2 optimized images are added to the Azure Marketplace.
+This article provides tips and suggestions to ensure your workloads and applications achieve the maximum performance designed into the VMs. The information on this page will be continuously updated as more Lsv2 optimized images are added to the Azure Marketplace.
+
+## AMD EYPC™ chipset architecture
+
+Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitecture. AMD developed Infinity Fabric (IF) for EYPC™ as scalable interconnect for its NUMA model that could be used for on-die, on-package, and multi-package communications. Compared with QPI (Quick-Path Interconnect) and UPI (Ultra-Path Interconnect) used on Intel modern monolithic-die processors, AMD’s many-NUMA small-die architecture may bring both performance benefits as well as challenges. The actual impact of memory bandwidth and latency constraints could vary depending on the type of workloads running.
+
+## Tips for Maximizing Performance on Lsv2-Series VMs
+
+1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
+
+1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
+
+1. Lv2 user should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
+
+1. The maximum supported queue depth per I/O queue pair for Lv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
 
 ## Utilizing local NVMe storage
 
@@ -32,16 +46,14 @@ There will also be cases when the VM needs to be moved to a different host machi
 
 In the case that a planned maintenance event requires the VM to be recreated on a new host with empty local disks, the data will need to be resynchronized (again, with any data on the old host being securely erased). This occurs because Lsv2-series VMs do not currently support live migration on the local NVMe disk.
 
-### Maintenance modes
-
 There are two modes for planned maintenance.
 
-#### Standard VM customer-controlled maintenance
+### Standard VM customer-controlled maintenance
 
 - The VM is moved to an updated host during a 30-day window.
 - Lsv2 local storage data could be lost, so backing-up data prior to the event is recommended.
 
-#### Automatic maintenance
+### Automatic maintenance
 
 - Occurs if the customer does not execute customer-controlled maintenance, or in the event of emergency procedures such as a security zero-day event.
 - Intended to preserve customer data, but there is a small risk of a VM freeze or reboot.
@@ -64,27 +76,10 @@ Scenarios that securely erase data to protect the customer include:
 
 To learn more about options for backing up data in local storage, see [Backup and disaster recovery for Azure IaaS disks](backup-and-disaster-recovery-for-azure-iaas-disks.md).
 
-## AMD EYPC™ chipset architecture
-
-Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitecture. AMD developed Infinity Fabric (IF) for EYPC™ as scalable interconnect for its NUMA model that could be used for on-die, on-package, and multi-package communications. Compared with QPI (Quick-Path Interconnect) and UPI (Ultra-Path Interconnect) used on Intel modern monolithic-die processors, AMD’s many-NUMA small-die architecture may bring both performance benefits as well as challenges. The actual impact of memory bandwidth and latency constraints could vary depending on the type of workloads running.
-
-Tips for Maximizing Performance on Lsv2-Series VMs:
-
-1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
-
-1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
-
-1. Lv2 user should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
-
-1. The maximum supported queue depth per I/O queue pair for Lv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
-
 ## Frequently asked questions
 
 1. **How do I start deploying Lsv2-series VMs?**  
    Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
-
-1. **Are Lsv2-series VMs available globally?**  
-   At this time, Lsv2-series VMs available only in four regions (East US, East US 2, West Europe, and SE Asia).
 
 1. **Will a single NVMe disk failure cause all VMs on the host to fail?**  
    If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
