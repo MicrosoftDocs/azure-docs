@@ -40,9 +40,9 @@ Supports operations for creating and editing jobs.
 All jobs must belong to an existing job collection, 
 so there's no implicit creation. For more information, see 
 [Scheduler REST API - Jobs](https://docs.microsoft.com/rest/api/scheduler/jobs). 
-Here is the URI address for these operations:
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}`
+https:\//management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
 
 ### Job collection management
 
@@ -50,9 +50,9 @@ Supports operations for creating and editing jobs and job collections,
 which map to quotas and shared settings. For example, quotas specify 
 the maximum number of jobs and smallest recurrence interval. 
 For more information, see [Scheduler REST API - Job Collections](https://docs.microsoft.com/rest/api/scheduler/jobcollections). 
-Here is the URI address for these operations:
+Here's the URI address for these operations:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}`
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
 
 ### Job history management
 
@@ -60,9 +60,9 @@ Supports the GET operation for fetching 60 days of job execution history,
 for example, job elapsed time and job execution results. 
 Includes query string parameter support for filtering based on state and status. 
 For more information, see [Scheduler REST API - Jobs - List Job History](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). 
-Here is the URI address for this operation:
+Here's the URI address for this operation:
 
-`https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history`
+https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
 
 ## Job types
 
