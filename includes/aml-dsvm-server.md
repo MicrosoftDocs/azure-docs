@@ -22,9 +22,11 @@ ms.date: 01/25/2019
 1. Add a workspace configuration file to the cloned directory using either of these methods:
 
     * In the [Azure Portal](), select  **Download config.json** from the **Overview** section of your workspace. 
-    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook in your cloned directory.
 
     ![Download config.json](./media/aml-dsvm-server/download-config.png)
+
+    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb) notebook in your cloned directory.
+
 
 1. Start the notebook server from your cloned directory.
     
