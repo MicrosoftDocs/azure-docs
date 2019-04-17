@@ -85,6 +85,8 @@ Now, if you attempt to visit your backend URL directly by pasting it into a new 
 
 Your Function App is connected to both the Internet and your VNET. The proxy is receiving a request over the public internet, and then acting as a simple HTTP proxy to forward that request along into the virtual network. The proxy then relays the response back to you over the public internet. 
 
+<img src="./media/functions-create-vnet/plant.png" width="900">
+
 ## Next Steps
 
 Functions running in a Premium plan share the same underlying App Service infrastructure as Web Apps on PV2 plans. This means that all of the documentation for Web Apps applies to your Premium plan functions.
