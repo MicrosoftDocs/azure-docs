@@ -165,7 +165,7 @@ For applications that use distributed transactions, we recommend you deploy Site
 
 In this scenario, we recommend that you use Site Recovery replication to protect the SQL Server machine. The exact steps will depend whether SQL Server is a VM or a physical server, and whether you want to replicate to Azure or a secondary on-premises site. Learn about [Site Recovery scenarios](site-recovery-overview.md).
 
-## Protect a SQL Server cluster (standard edition/Windows Server 2008 R2)
+## Protect a SQL Server cluster (standard edition/SQL Server 2008 R2)
 
 For a cluster running SQL Server Standard edition, or SQL Server 2008 R2, we recommend you use Site Recovery replication to protect SQL Server.
 
