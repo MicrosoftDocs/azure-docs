@@ -1,24 +1,24 @@
 ---
 title: Improve knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 
+description: Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. Your knowledge base doesn't change automatically. You must accept the suggestions for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 author: diberry
 manager: nitinme 
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/21/2019
 ms.author: diberry
 ---
 
-# Use active learning to improve knowledge base
+# Use active learning to improve your knowledge base
 
 Active learning allows you to improve the quality of your knowledge base by suggesting alternative questions, based on user-submissions, to your question and answer pair. You review those suggestions, either adding them to existing questions or rejecting them. 
 
 Your knowledge base doesn't change automatically. You must accept the suggestions in order for any change to take effect. These suggestions add questions but don't change or remove existing questions.
 
-## Active learning
+## What is active learning?
 
 QnA Maker learns new question variations with implicit and explicit feedback.
  
@@ -37,7 +37,7 @@ When 5 or more similar queries are clustered, every 30 minutes, QnA Maker sugges
 
 Once questions are suggested in the QnA Maker portal, you need to review and accept or reject those suggestions. 
 
-## Upgrade version to use active learning
+## Upgrade your version to use active learning
 
 Active Learning is supported in runtime version 4.4.0 and above. If your knowledge base was created on an earlier version, [upgrade your runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) to use this feature. 
 
@@ -59,12 +59,12 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. To turn active learning on, Click on your **Name**, go to [**Service Settings**](https://www.qnamaker.ai/UserSettings) in the QnA Maker portal, in the top-right corner.  
 
-    ![On the service settings page, toggle on Active learning](../media/improve-knowledge-base/Endpoint-Keys.png)
+    ![Turn on active learning's suggested question alternatives from the Service settings page. Select your user name in the top right menu, then select Service Settings.](../media/improve-knowledge-base/Endpoint-Keys.png)
 
 
 1. Find the QnA Maker service then toggle **Active Learning**. 
 
-    [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![On the Service settings page, toggle on Active Learning feature. If you are not able to toggle the feature, you may need to upgrade your service.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     Once **Active Learning** is enabled, the knowledge suggests new questions at regular intervals based on user-submitted questions. You can disable **Active Learning** by toggling the setting again.
 
@@ -72,15 +72,15 @@ Active learning is off by default. Turn it on to see suggested questions.
 
 1. In order to see the suggested questions, on the **Edit** knowledge base page, select **Show Suggestions**. 
 
-    [![On the service settings page, toggle the Show Suggestions button](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [![On the Edit section of the portal, select Show Suggestions in order to see the active learning's new question alternatives.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filter the knowledge base with question and answer pairs to show only suggestions by selecting **Filter by Suggestions**.
 
-    [![On the service settings page, filter by suggestions to see just those question/answer pairs](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [![Use the Filter by suggestions toggle to view only the active learning's suggested question alternatives.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
 1.	Each question section with suggestions shows the new questions with a check mark, `✔` , to accept the question or an `x` to reject the suggestions. Select the check mark to add the question. 
 
-    [![On the service settings page, toggle on Active Learning](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select or reject active learning's suggested question alternatives by selecting the green check mark or red delete mark.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     You can add or delete _all suggestions_ by selecting **Add all** or **Reject all**.
 
@@ -149,7 +149,13 @@ When the client application (such as a chat bot) receives the response, the top 
 
 The client application displays all the questions with an option for the user to select the question that most represents their intention. 
 
-Once user selects one of the existing questions. The user feedback is sent to QnA Maker's [Train](https://www.aka.ms/activelearningsamplebot) API to continue the active learning feedback loop. 
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
+
+Use the [Azure Bot sample](https://aka.ms/activelearningsamplebot) to see active learning in an end-to-end scenario.
+
+## Train API
+
+Active learning feedback is sent to QnA Maker with the Train API POST request. The API signature is:
 
 ```http
 POST https://<QnA-Maker-resource-name>.azurewebsites.net/qnamaker/knowledgebases/<knowledge-base-ID>/train
@@ -158,13 +164,46 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-Learn more about how to use active learning with an [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+|HTTP request property|Name|Type|Purpose|
+|--|--|--|--|
+|URL route parameter|Knowledge base ID|string|The GUID for your knowledge base.|
+|Host subdomain|QnAMaker resource name|string|The hostname for your QnA Maker in your Azure subscription. This is available on the Settings page after you publish the knowledge base. |
+|Header|Content-Type|string|The media type of the body sent to the API. Default value is: `application/json`|
+|Header|Authorization|string|Your endpoint key (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Post Body|JSON object|JSON|The training feedback|
 
-## Active learning is saved in the exported app's tsv file
+The JSON body has several settings:
+
+|JSON body property|Type|Purpose|
+|--|--|--|--|
+|`feedbackRecords`|array|List of feedback.|
+|`userId`|string|The user ID of the person accepting the suggested questions. The user ID format is up to you. For example, an email address can be a valid user ID in your architecture. Optional.|
+|`userQuestion`|string|Exact text of the question. Required.|
+|`qnaID`|number|ID of question, found in the [GenerateAnswer response](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+
+An example JSON body looks like:
+
+```json
+{
+    "feedbackRecords": [
+        {
+            "userId": "1",
+            "userQuestion": "<question-text>",
+            "qnaId": 1
+        }
+    ]
+}
+```
+
+A successful response returns a status of 204 and no JSON response body. 
+
+<a name="active-learning-is-saved-in-the-exported-apps-tsv-file"></a>
+
+## Active learning is saved in the exported knowledge base
 
 When your app has active learning enabled, and you export the app, the `SuggestedQuestions` column in the tsv file retains the active learning data. 
 
-The `SuggestedQuestions` column is a JSON object of information of implicit (`autosuggested`) and explicit (`usersuggested`) [feedback](#active-learning). An example of this JSON object for a single user-submitted question of `help` is:
+The `SuggestedQuestions` column is a JSON object of information of implicit (`autosuggested`) and explicit (`usersuggested`) feedback. An example of this JSON object for a single user-submitted question of `help` is:
 
 ```JSON
 [
@@ -188,4 +227,4 @@ When you reimport this app, the active learning continues to collect information
 ## Next steps
  
 > [!div class="nextstepaction"]
-> [Use QnA Maker API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Use metadata with GenerateAnswer API](metadata-generateanswer-usage.md)

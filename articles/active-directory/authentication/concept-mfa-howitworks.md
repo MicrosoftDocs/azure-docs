@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication - How it works
+title: Azure Multi-Factor Authentication - How it works - Azure Active Directory
 description: Azure Multi-Factor Authentication helps safeguard access to data and applications while meeting user demand for a simple sign-in process.
 
 services: multi-factor-authentication

@@ -1,5 +1,5 @@
 ---
-title: Deploy models as web services
+title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
 description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning
@@ -9,23 +9,28 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
+ms.date: 04/02/2019
+
+ms.custom: seoapril2019
 ---
 
 # Deploy models with the Azure Machine Learning service
 
-The Azure Machine Learning SDK provides several ways you can deploy your trained model. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
+In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices. 
 
-You can deploy models to the following compute targets:
+## Compute targets for deployment
+
+Use the Azure Machine Learning SDK to deploy your trained model to the following locations:
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
-| [Azure ML Compute](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
+| [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
+
+## Deployment workflow
 
 The process of deploying a model is similar for all compute targets:
 
@@ -41,11 +46,9 @@ The following video demonstrates deploying to Azure Container Instances:
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
-## Prerequisites
+## Prerequisites for deployment
 
-- An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
-
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [Get started with Azure Machine Learning quickstart](quickstart-get-started.md).
+[!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
 - A trained model. If you do not have a trained model, use the steps in the [Train models](tutorial-train-models-with-aml.md) tutorial to train and register one with the Azure Machine Learning service.
 
@@ -80,6 +83,8 @@ Deployed models are packaged as an image. The image contains the dependencies ne
 
 For **Azure Container Instance**, **Azure Kubernetes Service**, and **Azure IoT Edge** deployments, the [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class is used to create an image configuration. The image configuration is then used to create a new Docker image.
 
+When creating the image configuration, you can use either a __default image__ provided by the Azure Machine Learning service or a __custom image__ that you provide.
+
 The following code demonstrates how to create a new image configuration:
 
 ```python
@@ -105,6 +110,36 @@ The important parameters in this example described in the following table:
 For an example of creating an image configuration, see [Deploy an image classifier](tutorial-deploy-models-with-aml.md).
 
 For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py)
+
+### <a id="customimage"></a> Use a custom image
+
+When using a custom image, the image must meet the following requirements:
+
+* Ubuntu 16.04 or greater.
+* Conda 4.5.# or greater.
+* Python 3.5.# or 3.6.#.
+
+To use a custom image, set the `base_image` property of the image configuration to the address of the image. The following example demonstrates how to use an image from both a public and private Azure Container Registry:
+
+```python
+# use an image available in public Container Registry without authentication
+image_config.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
+
+# or, use an image available in a private Container Registry
+image_config.base_image = "myregistry.azurecr.io/mycustomimage:1.0"
+image_config.base_image_registry.address = "myregistry.azurecr.io"
+image_config.base_image_registry.username = "username"
+image_config.base_image_registry.password = "password"
+```
+
+For more information on uploading images to an Azure Container Registry, see [Push your first image to a private Docker container registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli).
+
+If your model is trained on Azure Machine Learning Compute, using __version 1.0.22 or greater__ of the Azure Machine Learning SDK, an image is created during training. The following example demonstrates how to use this image:
+
+```python
+# Use an image built during training with SDK 1.0.22 or greater
+image_config.base_image = run.properties["AzureML.DerivedImageName"]
+```
 
 ### <a id="script"></a> Execution script
 
@@ -325,7 +360,7 @@ print(aks_target.provisioning_errors)
 
 #### Use an existing cluster
 
-If you already have AKS cluster in your Azure subscription, and it is version 1.11.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.11.## cluster to your workspace:
+If you already have AKS cluster in your Azure subscription, and it is version 1.12.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.12.## cluster to your workspace:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -389,7 +424,7 @@ For a walkthrough of deploying a model using Project Brainwave, see the [Deploy 
 
 ## Define schema
 
-Custom decorators can be used for [OpenAPI](https://swagger.io/docs/specification/about/) specification generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to auto-generate the schema. The following types are currently supported:
+Custom decorators can be used for [OpenAPI](https://swagger.io/docs/specification/about/) specification generation and input type manipulation when deploying the web service. In the `score.py` file, you provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. The following types are currently supported:
 
 * `pandas`
 * `numpy`

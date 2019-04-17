@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
 ---
@@ -19,10 +19,9 @@ Azure SQL Database Managed Instance must be deployed within an Azure [virtual ne
 
 If one of the following cases applies to you, you can validate and modify your network by using the script explained in this article:
 
-* You have a new subnet that's still not configured.
-* You're not sure that the subnet is aligned with the [requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* You want to check that the subnet still complies with the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) after you made changes.
-
+- You have a new subnet that's still not configured.
+- You're not sure that the subnet is aligned with the [requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- You want to check that the subnet still complies with the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) after you made changes.
 
 > [!Note]
 > You can create a Managed Instance only in virtual networks created through the Azure Resource Manager deployment model. Azure virtual networks created through the classic deployment model are not supported. Calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-vnet-subnet.md) article. You can't resize the subnet after you deploy the resources inside.

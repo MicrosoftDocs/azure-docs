@@ -72,7 +72,7 @@ The following table provides an overview of our samples repository and the scena
 </tr>
 <tr> 
 <td>SAS</td>
-<td><a href="https://github.com/Azure/azure-storage-java/blob/master/microsoft-azure-storage-test/src/com/microsoft/azure/storage/blob/SasTests.java">SAS Tests Sample</a></td>
+<td><a href="https://github.com/Azure/azure-storage-java/blob/89540f018f1160ce55619c6fe7b5f5ff57d0ce10/src/test/java/com/microsoft/azure/storage/Samples.java#L513">SAS Tests Sample</a></td>
 </tr> 	
 <tr> 
 <td>Service Properties</td>
