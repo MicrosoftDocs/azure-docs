@@ -61,6 +61,7 @@
   - name: Azure CLI
     href: sample-scripts-azure-cli.md
 - name: Concepts
+  items:
   - name: Single server
     items:
     - name: DB & Servers
