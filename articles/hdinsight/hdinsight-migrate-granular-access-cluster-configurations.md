@@ -11,7 +11,7 @@ ms.date: 04/16/2019
     
 # Migrate to granular role-based access for cluster configurations
 
-The latest release of the Azure HDInsight SDK brings some important changes to support more fine-grained role-based access to obtain sensitive information. As part of these changes, some **action may be required**  if you are using one of the affected methods.
+We are introducing some important changes to support more fine-grained role-based access to obtain sensitive information. As part of these changes, some **action may be required** if you are using one of the [affected entities/scenarios](#am-i-affected-by-these-changes).
 
 ## What is changing?
 
@@ -19,8 +19,8 @@ Previously, secrets could be obtained via the HDInsight API by cluster users
 possessing the Owner, Contributor, or Reader [RBAC
 roles](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles).
 Going forward, these secrets will no longer be accessible to users with the
-Reader role. We will also be introducing a new ‘HDInisght Cluster Operator’ Role
-that will be able to retrieve secrets without being granted the administrative
+Reader role. We are also be introducing a new ‘HDInisght Cluster Operator’ Role
+that is be able to retrieve secrets without being granted the administrative
 permissions of Contributor or Owner. To summarize:
 
 | Role                                  | Previously                                                                                       | Now       |
