@@ -108,7 +108,7 @@ The application manifest represents the schema of the underlying application mod
 
 For descriptions for these attributes, see the the [manifest reference](#manifest-reference) section.
 
-When you try to upload a previously downloaded manifest, you may see one of the following errors. This is likely because the manifest editor now supports a newer version of the schema, which does'ot match with the one you're trying to upload.
+When you try to upload a previously downloaded manifest, you may see one of the following errors. This is likely because the manifest editor now supports a newer version of the schema, which doesn't match with the one you're trying to upload.
 
 - "**Failed to update xxxxxx application. Error detail: Invalid object identifier 'undefined'. [].**"
 - "**Failed to update xxxxxx application. Error detail: One or more property values specified are invalid. [].**"
@@ -118,7 +118,7 @@ When you try to upload a previously downloaded manifest, you may see one of the 
 
 When you see one of these errors, we recommend the following:
 
-1. Edit the attributes individually in the manifest editor instead of uploading a previously downloaded manifest. Use the [Manifest reference](#manifest-reference) table to understand the syntax and semantics of old and new attributes so that you can successfully edit the attributes you're interested in. 
+1. Edit the attributes individually in the manifest editor instead of uploading a previously downloaded manifest. Use the [manifest reference](#manifest-reference) table to understand the syntax and semantics of old and new attributes so that you can successfully edit the attributes you're interested in. 
 1. If your workflow requires you to save the manifests in your source repository for use later, we suggest rebasing the saved manifests in your repository with the one you see in the **App registrations (Preview)** experience.
 
 ## Next steps
