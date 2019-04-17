@@ -50,7 +50,7 @@ You can inspect the logged run information, which contains metrics gathered duri
 
 ## Next steps
 
-See examples and learn how to build models using Automated Machine Learning:
+See examples and learn how to build models using automated machine learning:
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md)
 
