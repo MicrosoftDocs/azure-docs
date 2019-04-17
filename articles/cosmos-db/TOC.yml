@@ -490,8 +490,8 @@
     - name: Change Feed
       items:
       - name: Multiple Azure Cosmos DB Triggers
-        href: how-to-create-multiple-cosmosdb-triggers.md
-      - name: Troubleshoot Azure Cosmos DB Trigger
+        href: how-to-create-multiple-cosmos-db-triggers.md
+      - name: Troubleshoot Azure Cosmos DB Triggers
         href: troubleshoot-changefeed-functions.md
     - name : Server-side programming
       items:
