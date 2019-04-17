@@ -11,7 +11,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 04/16/2019
 ms.author: orspod
 ---
 
@@ -33,6 +33,9 @@ The Azure Data Explorer connector allows you to do the following:
 * As a sink, append data to a destination table.
 
 ## Getting started
+
+>[!TIP]
+>For a walkthrough of using Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](../data-explorer/data-factory-load-data.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
