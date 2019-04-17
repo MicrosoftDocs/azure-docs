@@ -8,7 +8,7 @@
   - name: Quick start
     expanded: true
     items:
-    - name: Create service
+    - name: Initialialize and purchase capacity
       href: quickstart-create-cloudsimple-service.md
     - name: Configure private cloud environment
       href: quickstart-create-private-cloud.md
@@ -136,7 +136,7 @@
         href: https://docs.azure.cloudsimple.com/ha-ensuring/
     - name: VMware ecosystem
       items:
-      - name: Azure AD identity source on Private Cloud vCenter - duplicate (3 locations), removed from Azure Core Integration and Azure Ecosystem
+      - name: Azure AD identity source on Private Cloud vCenter
         href: https://docs.azure.cloudsimple.com/azure-ad/
       - name: Zerto virtual replication for disaster recovery
         href: https://docs.azure.cloudsimple.com/zerto-solutionguide/
@@ -150,9 +150,9 @@
         href: https://docs.azure.cloudsimple.com/oracle-rac/
     - name: Azure Core Integration
       items:
-      - name: On-premises network connection with ExpressRoute - duplicate, see Private cloud networking node
+      - name: On-premises network connection with ExpressRoute 
         href: https://docs.azure.cloudsimple.com/er-connection/
-      - name: Azure Virtual network connection with ExpressRoute - duplicate, see Private cloud networking node
+      - name: Azure Virtual network connection with ExpressRoute
         href: https://docs.azure.cloudsimple.com/azure-er-connection/
   - name: Resources
     items:
