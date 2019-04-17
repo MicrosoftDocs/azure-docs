@@ -153,7 +153,7 @@ In the preceding section, you set up your IoT hub to route messages containing a
    1. Select the service bus policy (RootManageSharedAccessKey). Then select  **Create**.
 
       ![Create a service bus connection for your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
-   1. On the next screen, for **Queue name**, select the queue that you created from the drop-down. Enter `175` for **Maximum message count**
+   1. On the final screen, for **Queue name**, select the queue that you created from the drop-down. Enter `175` for **Maximum message count**.
 
       ![Specify the maximum message count for the service bus connection in your logic app](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
    1. Select **Save** on the menu at the top of the Logic Apps Designer to save your changes.
