@@ -1,5 +1,5 @@
 ---
-title: "Inspect and evaluate data quality for Custom Speech - Speech Services"
+title: "Inspect data quality for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Inspect data
+# Inspect Custom Speech data
 
 > [!NOTE]
 > This page assumes you've read [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md) and have uploaded a dataset for inspection.
@@ -43,7 +43,7 @@ After test creations succeeds, you can compare the models side-by-side.
 
 ## Side-by-side model comparisons
 
-When the test status is Succeeded, click in the test item name to gain more testing insights. You will see all the audios in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and listen to the machine transcripts, to find out whether the selected model(s) quality is good to use.
+When the test status is *Succeeded*, click in the test item name to gain more testing insights. You will see all the audios in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and listen to the machine transcripts, to find out whether the selected model(s) quality is good to use.
 
 For long audios, you may click in the certain audio item to playback the audio and inspect the transcript, by playing back the audio, the corresponding machine transcript sentence would be floating so that you can listen and see effectively.
 
@@ -53,6 +53,10 @@ Inspecting quality testing is useful in doing a sanity check to validate the qua
 
 ## Next steps
 
-* [Inspect and evaluate your data quality](placeholder)
+* [Evaluate accuracy](how-to-custom-speech-evaluate-data.md)
 * [Train your model](placeholder)
 * [Deploy your model](placeholder)
+
+## Additional resources
+
+* [Prepare test data for Custom Speech](how-to-custom-speech-test-data.md)
