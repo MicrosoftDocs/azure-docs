@@ -6,13 +6,13 @@ author: alexkarcher-msft
 manager: jehollan
 ms.service: azure-functions
 ms.topic: article
-ms.date: 12/03/2018
+ms.date: 4/11/2019
 ms.author: alkarche
 
 ---
 # Integrate a function app with an Azure virtual network
 
-This step-by-step tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET.
+This tutorial shows you how to use Azure Functions to connect to resources in an Azure VNET.
 
 For this tutorial we will be deploying a WordPress site on a VM in a private, non-internet accessible, VNET. We will then deploy a Function with access to both the internet and the VNET. We will use that Function to access resources from the WordPress site deployed inside the VNET.
 
@@ -106,13 +106,14 @@ Your Function App is connected to both the Internet and your VNET. The proxy is 
 
 ## Next Steps
 
-Functions running in a Premium plan share the same underlying App Service infrastructure as Web Apps. This means that all of the documentation for Web Apps applies to your Premium plan functions.
+Functions running in a Premium plan share the same underlying App Service infrastructure as Web Apps on PV2 plans. This means that all of the documentation for Web Apps applies to your Premium plan functions.
 
-1. [Learn more about VNET integration with App Service / Functions here](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
-1. [Learn more about VNETs in Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/)
-1. [Enable for networking features and control with App Service Environments](https://docs.microsoft.com/azure/app-service/environment/intro)
-1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
-1. [Learn more about Function Proxies](https://review.docs.microsoft.com/azure/azure-functions/functions-proxies)
+1. [Learn more about the networking options in functions here](./functions-networking-options.md)
+1. [Read the Functions networking FAQ here](./functions-networking-faq.md)
+1. [Learn more about VNETs in Azure](../virtual-network/virtual-networks-overview.md)
+1. [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)
+1. [Connect to individual on-premises resources without firewall changes using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
+1. [Learn more about Function Proxies](./functions-proxies.md)
 
 <!--Image references-->
 [1]: ./media/functions-create-vnet/topology.png
