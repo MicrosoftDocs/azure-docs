@@ -24,9 +24,9 @@ ms.custom: aaddev
 
 ## Introduction
 
-The Microsoft identity platform is a developer platform that allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs and other APIs secured by the Microsoft identity platform. It’s a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, documentation, code samples, and other developer content.
+The Microsoft identity platform is a developer platform that allows developers to build applications that sign in all Microsoft identities and get tokens to call APIs secured by the Microsoft identity platform. It’s a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, documentation, code samples, and more.
 
-This Microsoft identity platform integration checklist is intended to guide you to a high-quality and secure integration. It is not intended to review your entire application but rather focuses on highlighting best practices and common oversights when integrating with the Microsoft identity platform. It contains items that should be reviewed on a regular basis to ensure a high-quality and secure integration is maintained. The contents of the checklist are subject to change as we make improvements to our platform. 
+This Microsoft identity platform integration checklist is intended to guide you to a high-quality and secure integration. It's not intended to review your entire application but rather focuses on highlighting best practices and common oversights when integrating with the Microsoft identity platform. It contains items that should be reviewed on a regular basis to ensure a high-quality and secure integration is maintained. The contents of the checklist are subject to change as we make improvements to our platform.
 
 If you’re just getting started, we recommend checking out our [documentation](https://docs.microsoft.com/en-us/azure/active-directory/develop/).
 
@@ -48,7 +48,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 > [!div class="checklist"]
 > * Ensure you adhere to our [Branding guidelines for applications](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-add-branding-in-azure-ad-apps).
-> * Ensure you have provided a meaningful name and logo for your application. This information appear on your application’s consent prompt. Ensure that your name and logo are representative of your company/product so that users can make informed decisions. Ensure that you are not violating any trademarks.
+> * Ensure you have provided a meaningful name and logo for your application. This information appears on your application’s consent prompt. Ensure that your name and logo are representative of your company/product so that users can make informed decisions. Ensure that you are not violating any trademarks.
 
 ### Security
 
