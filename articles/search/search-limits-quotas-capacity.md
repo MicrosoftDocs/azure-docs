@@ -130,7 +130,7 @@ For the Storage Optimized tiers,  you should expect a lower query throughput and
 
 A [cognitive search pipeline](cognitive-search-concept-intro.md) that makes calls to a Text Analytics resource for [entity recognition](cognitive-search-skill-entity-recognition.md), [key phrase extraction](cognitive-search-skill-keyphrases.md), [sentiment analysis](cognitive-search-skill-sentiment.md), and [language detection](cognitive-search-skill-language-detection.md) is subject to data limits. The maximum size of a record should be 50,000 characters as measured by `String.Length`. If you need to break up your data before sending it to the sentiment analyzer, use the [Text Split skill](cognitive-search-skill-textsplit.md).
 
-## API Request limits
+## API request limits
 * Maximum of 16 MB per request <sup>1</sup>
 * Maximum 8 KB URL length
 * Maximum 1000 documents per batch of index uploads, merges, or deletes
@@ -139,12 +139,12 @@ A [cognitive search pipeline](cognitive-search-concept-intro.md) that makes call
 
 <sup>1</sup> In Azure Search, the body of a request is subject to an upper limit of 16 MB, imposing a practical limit on the contents of individual fields or collections that are not otherwise constrained by theoretical limits (see [Supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) for more information about field composition and restrictions).
 
-## API Response limits
+## API response limits
 * Maximum 1000 documents returned per page of search results
 * Maximum 100 suggestions returned per Suggest API request
 
-## API Key limits
-Api-keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
+## API key limits
+API keys are used for service authentication. There are two types. Admin keys are specified in the request header and grant full read-write access to the service. Query keys are read-only, specified on the URL, and typically distributed to client applications.
 
 * Maximum of 2 admin keys per service
 * Maximum of 50 query keys per service
