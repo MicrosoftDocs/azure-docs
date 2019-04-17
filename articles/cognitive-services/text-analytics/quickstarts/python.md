@@ -104,8 +104,27 @@ Document Id:  4 , Sentiment Score:  1.00
 1. Create a list of dictionaries, containing the documents you want to analyze. Using the client created earlier call `detect_language()`
 
 ``` 
-CODE FOR REQUEST
+documents = [
+    { 'id': '1', 'text': 'This is a document written in English.' },
+    { 'id': '2', 'text': 'Este es un document escrito en Español.' },
+    { 'id': '3', 'text': '这是一个用中文写的文件' }
+]
 ``` 
+2. Call the `detect_language()` function and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+
+```
+response = text_analytics.detect_language(documents=documents)
+for document in response.documents:
+    print("Document Id: ", document.id , ", Language: ", document.detected_languages[0].name)
+```
+
+### Output
+
+```
+Document Id:  1 , Language:  English
+Document Id:  2 , Language:  Spanish
+Document Id:  3 , Language:  Chinese_Simplified
+```
 
 ## Entity recognition
 
