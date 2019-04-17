@@ -135,6 +135,8 @@
     items:
     - name: Nodes
       href: concepts-hyperscale-nodes.md
+    - name: PostgreSQL extensions
+      href: concepts-hyperscale-extensions.md
 - name: How-to guides
   items:
   - name: Create users 
