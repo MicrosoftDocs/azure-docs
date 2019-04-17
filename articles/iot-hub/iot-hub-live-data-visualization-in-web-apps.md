@@ -30,7 +30,7 @@ In this tutorial, you learn how to visualize real-time sensor data that your IoT
 
 ## What you need
 
-* [Set up your device](iot-hub-raspberry-pi-kit-node-get-started.md), which covers the following requirements:
+* Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
 
   * An active Azure subscription
   * An Iot hub under your subscription

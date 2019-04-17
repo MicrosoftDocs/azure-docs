@@ -51,7 +51,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `ASPNET-Quickstart`.
->      - Add `https://localhost:44368/` in **Reply URL**, and click **Register**.
+>      - Add `https://localhost:44368/` in **Redirect URI**, and click **Register**.
 Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and then select **Save**.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -155,7 +155,7 @@ public void Configuration(IAppBuilder app)
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
 
 ### Initiate an authentication challenge
