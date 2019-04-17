@@ -22,7 +22,7 @@
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Run C# UDF on Edge
+  - name: 5 - Run C# UDF on IoT Edge
     href: stream-analytics-edge-csharp-udf.md
 - name: Samples
   items:
@@ -141,7 +141,7 @@
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API for Edge jobs
+    - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
   - name: Visual Studio tools
     items:
@@ -153,11 +153,11 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Develop an Edge job
+    - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Write .NET UDF for Edge
+    - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
   - name: Troubleshoot
     items:
@@ -364,6 +364,9 @@
             - name: POWER
               href: /stream-analytics-query/power-azure-stream-analytics
               maintainContext: true
+            - name: ROUND
+              href: /stream-analytics-query/round-azure-stream-analytics.md
+              maintainContext: true
             - name: SIGN
               href: /stream-analytics-query/sign-azure-stream-analytics
               maintainContext: true
@@ -407,6 +410,9 @@
             - name: REGEXMATCH
               href: /stream-analytics-query/regexmatch-azure-stream-analytics
               maintainContext: true
+            - name: REPLACE
+              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
               maintainContext: true
@@ -448,6 +454,9 @@
           maintainContext: true
         - name: CASE
           href: /stream-analytics-query/case-azure-stream-analytics
+          maintainContext: true
+        - name: COALESCE
+          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
           maintainContext: true
         - name: CREATE TABLE
           href: /stream-analytics-query/create-table-stream-analytics
