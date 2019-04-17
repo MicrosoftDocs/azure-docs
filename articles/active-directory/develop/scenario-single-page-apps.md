@@ -56,9 +56,8 @@ In MSAL library, the application registration information is passed as configura
 # [JS](#tab/Javascript)
 
 ```JS
-// Configuration object constructed
+// Configuration object constructed.
 const config:Configuration = {
-
     auth: {
         clientID: 'your_app_id',
         redirectUri: "your_app_redirect_uri" //defaults to application start page
@@ -68,6 +67,7 @@ const config:Configuration = {
 // create UserAgentApplication instance
 const userAgentApplication = new UserAgentApplication(config);
 ```
+See the [wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/MSAL-basics#configuration-options) for more details on the configurable options available.
 
 # [Angular](#tab/angular)
 
@@ -98,15 +98,16 @@ Before you can get tokens to access APIs in your application, you will need an a
 # [JS](#tab/Javascript)
 
 ```JS
-var loginRequest: AuthenticationParameters = {
+const loginRequest = {
     scopes: ["user.read", "user.write"]
 }
 
-userAgentApplication.loginPopup(loginRequest).then(function (AuthResponse r) {
+userAgentApplication.loginPopup(loginRequest).then(function (loginResponse) {
     //login success
-}).catch(function (AuthError e) {
+    let idToken = loginResponse.idToken;
+}).catch(function (error) {
     //login failure
-    console.log(e);
+    console.log(error);
 });
 ```
 
@@ -162,38 +163,21 @@ client_id=your_app_id
 The redirect methods do not return a promise  due to the navigation away from the main app. To process and access the returned tokens, you will need to register success and error callbacks before calling the redirect methods.
 
 ```JS
-userAgentApplication.handleRedirectCallbacks(success: tokenReceivedCallback, error: errorReceivedCallback);
+function tokenReceivedCallback(response) {
+    // use response in callback code
+}
 
-var loginRequest: AuthenticationParameters = {
+function errorReceivedCallback(error) {
+    // handle error in callback code
+}
+
+userAgentApplication.handleRedirectCallbacks(tokenReceivedCallback, errorReceivedCallback);
+
+const loginRequest = {
     scopes: ["user.read", "user.write"]
 }
 
-try {
-    userAgentApplication.loginRedirect(loginRequest);
-} catch (AuthError e) {
-    console.log(e); // error when callbacks are not registered
-}
-
-function tokenReceivedCallback(AuthResponse response) {
-    switch(response.tokenType) {
-        case "id_token":
-            // Call acquireToken
-        case "access_token":
-            // Call api
-        case "id_token_token":
-            // Call api
-    }
-}
-
-function errorReceivedCallback(AuthError e) {
-    if (error instanceof ClientAuthError) {
-		// Check error and mitigate
-	} else if (error instanceof ServerAuthError) {
-		// Check error and mitigate
-	} else {
-		// Unknown error
-	}
-}
+userAgentApplication.loginRedirect(loginRequest);
 ```
 
 # [Angular](#tab/angular)
@@ -222,24 +206,25 @@ You can set the API scopes that you want the access token to include when buildi
 The above pattern using Popup methods:
 
 ```JS
-var accessTokenRequest: AuthenticationParameters = {
+const accessTokenRequest = {
     scopes: ["user.read"]
 }
 
-userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(AuthResponse r) {
+userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // Acquire token silent success
     // call API with token
-}).catch(function (AuthError e) {
+    let accessToken = accessTokenResponse.accessToken;
+}).catch(function (error) {
     //Acquire token silent failure, send an interactive request.
-    if (e instanceof InteractionRequiredAuthError) {
-        userAgentApplication.acquireTokenPopup(accessTokenRequest).then(function(AuthResponse r) {
+    if (error.errorMessage.indexOf("interaction_required") !== -1) {
+        userAgentApplication.acquireTokenPopup(accessTokenRequest).then(function(accessTokenResponse) {
             // Acquire token interactive success
-        }).catch(function(AuthError e) {
+        }).catch(function(error) {
             // Acquire token interactive failure
-            console.log(e);
+            console.log(error);
         });
     }
-    console.log(e);
+    console.log(error);
 });
 ```
 
@@ -312,48 +297,31 @@ client_id=your_app_id
 The pattern is as described above but shown with a redirect method to acquire token interactively. Note that you will need to register the redirect callbacks as mentioned above.
 
 ```JS
-var accessTokenRequest: AuthenticationParameters = {
+function tokenReceivedCallback(response) {
+    // use response in callback code
+}
+
+function errorReceivedCallback(error) {
+    // handle error in callback code
+}
+
+userAgentApplication.handleRedirectCallbacks(tokenReceivedCallback, errorReceivedCallback);
+
+const accessTokenRequest: AuthenticationParameters = {
     scopes: ["user.read"]
 }
 
-userAgentApplication.handleRedirectCallbacks(success: tokenReceivedCallback, error: errorReceivedCallback);
-
-
-userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(AuthResponse r) {
+userAgentApplication.acquireTokenSilent(accessTokenRequest).then(function(accessTokenResponse) {
     // Acquire token silent success
     // call API with token
-}).catch(function (AuthError e) {
+    let accessToken = accessTokenResponse.accessToken;
+}).catch(function (error) {
     //Acquire token silent failure, send an interactive request.
-    if (e instanceof InteractionRequiredAuthError) {
-        try {
-            userAgentApplication.acquireTokenRedirect(accessTokenRequest);
-        } catch (AuthError e) {
-            console.log(e); // error when callbacks are not registered
-        }
+    console.log(error);
+    if (error.errorMessage.indexOf("interaction_required") !== -1) {
+        userAgentApplication.acquireTokenRedirect(accessTokenRequest);
     }
-    console.log(e);
 });
-
-function tokenReceivedCallback(AuthResponse response) {
-    switch(response.tokenType) {
-        case "id_token":
-            // Call acquireToken
-        case "access_token":
-            // Call api
-        case "id_token_token":
-            // Call api
-    }
-}
-
-function errorReceivedCallback(AuthError e) {
-    if (error instanceof ClientAuthError) {
-		// Check error and mitigate
-	} else if (error instanceof ServerAuthError) {
-		// Check error and mitigate
-	} else {
-		// Unknown error
-	}
-}
 ```
 
 # [Angular](#tab/angular)
@@ -420,7 +388,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 Here are a few links to learn more:
 
-- Try the quickstart: [Sign in users and acquire an access token from a JavaScript single page application](./quickstart-v2-javascript.md)
+- Try the quickstart sample: [Sign in users and acquire an access token from a JavaScript single page application](./quickstart-v2-javascript.md)
 
 - [MSAL.js Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki)
 
