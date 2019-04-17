@@ -16,7 +16,8 @@ ms.date: 04/04/2019
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installation and configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. 
+After a VM is deployed, you configure the VM with the software your app needs. Instead of performing this configuration task for each VM, you can create a custom image.
+A custom image is a snapshot of an existing VM that includes any installed software. When you [configure a scale set](./ansible-create-configure-vmss.md), you specify the image to use for that scale set's VMs. By using a custom image, each VM instance is identically configured for your app. Sometimes, you may need to update your scale set's custom image. That task is the focus of this tutorial.
 
 [!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
 
@@ -34,6 +35,7 @@ When you create a scale set, you specify an image to be used when the VM instanc
 
 ## Configure two VMs
 
+The playbook code in this section <does something>
 
 
 The first playbook: 
@@ -223,7 +225,7 @@ Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks
 
 - a public IP address
 - a load balancer
-- a scel set that references image A
+- a scale set that references image A
 
 ```yml
 ---
