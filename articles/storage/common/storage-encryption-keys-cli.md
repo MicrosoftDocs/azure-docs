@@ -1,6 +1,6 @@
 ---
-title: Use customer-managed keys with Azure Storage encryption
-description: Learn how to use customer-managed keys with Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
+title: Configure customer-managed keys for Azure Storage encryption from Azure CLI
+description: Learn how to use Azure CLI to configure customer-managed keys for Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
 author: tamram
 
@@ -11,15 +11,11 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Use customer-managed keys with Azure Storage encryption
+# Use customer-managed keys with Azure Storage encryption from Azure CLI
 
-You can use customer-managed keys with Azure Storage encryption. Customer-managed keys enable you to create, rotate, disable, and revoke access controls. Use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The storage account and the key vault must be in the same region, but they can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/key-vault-overview.md).
+[!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-This article shows how to configure a key vault with customer-managed keys, using either Azure PowerShell or Azure CLI. You can also configure a key vault in the [Azure portal](https://portal.azure.com/). However, you must use either PowerShell or Azure CLI to configure two required properties on the key vault, **Soft Delete** and **Do Not Purge**.
-
-## Prerequisites
-
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+This article shows how to configure a key vault with customer-managed keys using Azure CLI.
 
 ## Assign an identity to the storage account
 
@@ -154,46 +150,6 @@ kv_uri=$(az keyvault show -n <key-vault> -g <resource_group> --query properties.
 key_version=$(az keyvault key list-versions -n <key_name> --vault-name <key-vault> --query [].kid -o tsv | cut -d '/' -f 6)
 az storage account update -n <storage-account> -g <resource_group> --encryption-key-name <key_name> --encryption-key-version $key_version --encryption-key-source Microsoft.Keyvault --encryption-key-vault $kv_uri 
 ```
-
-### Azure portal
-
-To enable custom key management and specify a key for Azure Storage encryption using the Azure portal, follow these steps:
-
-1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, click **Encryption**. Select the **Use your own key** option, as shown in the following figure.
-
-    ![Portal screenshot showing encryption option](./media/storage-service-encryption-customer-managed-keys/ssecmk1.png)
-
-After you enable custom key management, you'll have the opportunity to specify a key to associate with the storage account.
-
-#### Specify a key as a URI
-
-To specify a key as a URI, follow these steps:
-
-1. To locate the key URI in the Azure portal, navigate to your key vault, and select the **Keys** setting. Select the desired key, then click the key to view its settings. Copy the value of the **Key Identifier** field, which provides the URI.
-
-    ![Screenshot showing key vault key URI](media/storage-service-encryption-customer-managed-keys/key-uri-portal.png)
-
-1. In the **Encryption** settings for your storage account, choose the **Enter key URI** option.
-1. In the **Key URI** field, specify the URI.
-
-   ![Portal Screenshot showing Encryption with enter key uri option](./media/storage-service-encryption-customer-managed-keys/ssecmk2.png)
-
-#### Specify a key from a key vault
-
-To specify a key from a key vault, first make sure that you have a key vault that contains a key. To specify a key from a key vault, follow these steps:
-
-1. Choose the **Select from Key Vault** option.
-2. Choose the key vault containing the key you want to use.
-3. Choose the key from the key vault.
-
-   ![Portal Screenshot showing Encryptions use your own key option](./media/storage-service-encryption-customer-managed-keys/ssecmk3.png)
-
-4. If the storage account does not have access to the key vault, you can run the Azure PowerShell command shown in the following image to grant access.
-
-    ![Portal Screenshot showing access denied for key vault](./media/storage-service-encryption-customer-managed-keys/ssecmk4.png)
-
-You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account. Be sure to replace the placeholder values shown in angle brackets with your own values:
 
 ## Next steps
 
