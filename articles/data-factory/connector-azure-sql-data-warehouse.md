@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/16/2019
 ms.author: jingwang
 
 ---
@@ -133,21 +133,21 @@ To use service principal-based Azure AD application token authentication, follow
     - Application key
     - Tenant ID
 
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
+2. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
+3. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the service principal. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL:
     
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code:
+4. **Grant the service principal needed permissions** as you normally do for SQL users or others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
     ```
 
-1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 
 #### Linked service example that uses service principal authentication
@@ -181,36 +181,23 @@ To use service principal-based Azure AD application token authentication, follow
 
 A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific factory. You can use this managed identity for Azure SQL Data Warehouse authentication. The designated factory can access and copy data from or to your data warehouse by using this identity.
 
-> [!IMPORTANT]
-> Note that PolyBase isn't currently supported for managed identity authentication.
-
 To use managed identity authentication, follow these steps:
 
-1. **Create a group in Azure AD.** Make the managed identity a member of the group.
+1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so. The Azure AD administrator can be an Azure AD user or Azure AD group. If you grant the group with managed identity an admin role, skip steps 3 and 4. The administrator will have full access to the database.
 
-   1. Find the data factory managed identity from the Azure portal. Go to your data factory's **Properties**. Copy the SERVICE IDENTITY ID.
-
-   1. Install the [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Sign in by using the `Connect-AzureAD` command. Run the following commands to create a group and add the managed identity as a member.
-      ```powershell
-      $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
-      Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory managed identity object ID>"
-      ```
-
-1. **[Provision an Azure Active Directory administrator](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)** for your Azure SQL server on the Azure portal if you haven't already done so.
-
-1. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Azure AD group. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
+2. **[Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities)** for the Data Factory Managed Identity. Connect to the data warehouse from or to which you want to copy data by using tools like SSMS, with an Azure AD identity that has at least ALTER ANY USER permission. Run the following T-SQL. 
     
     ```sql
-    CREATE USER [your Azure AD group name] FROM EXTERNAL PROVIDER;
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-1. **Grant the Azure AD group needed permissions** as you normally do for SQL users and others. For example, run the following code.
+3. **Grant the Data Factory Managed Identity needed permissions** as you normally do for SQL users and others. Run the following code, or refer to more options [here](https://docs.microsoft.com/en-us/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017).
 
     ```sql
-    EXEC sp_addrolemember [role name], [your Azure AD group name];
+    EXEC sp_addrolemember [role name], [your Data Factory name];
     ```
 
-1. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
+5. **Configure an Azure SQL Data Warehouse linked service** in Azure Data Factory.
 
 **Example:**
 
@@ -412,9 +399,6 @@ Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/po
 * If your source data is in Azure Blob storage or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 * If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
 
-> [!IMPORTANT]
-> Note that PolyBase isn't currently supported for MSI-based Azure AD Application token authentication.
-
 ### Direct copy by using PolyBase
 
 SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Store. It uses service principal as a source and has specific file format requirements. If your source data meets the criteria described in this section, use PolyBase to copy direct from the source data store to Azure SQL Data Warehouse. Otherwise, use [Staged copy by using PolyBase](#staged-copy-by-using-polybase).
@@ -424,7 +408,7 @@ SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Sto
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with account key authentication or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with service principal authentication.
+1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with **account key authentication** or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with **service principal authentication**.
 2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
 
    1. `fileName` doesn't contain wildcard filter.
