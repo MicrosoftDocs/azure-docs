@@ -390,4 +390,4 @@ ansible-playbook rg_delete.yml
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Autoscale a virtual machine scale set in Azure using Ansible](/azure/ansible/ansible-auto-scale-vmss)
+> [Ansible on Azure](/azure/ansible)

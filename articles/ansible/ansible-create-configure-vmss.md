@@ -146,43 +146,43 @@ Before running the playbook, see the following notes:
 
 Run the playbook using the `ansible-playbook` command:
 
-  ```bash
-  ansible-playbook vmss-create.yml
-  ```
+```bash
+ansible-playbook vmss-create.yml
+```
 
 After running the playbook, you see output similar to the following results:
 
-  ```Output
-  PLAY [localhost] 
+```Output
+PLAY [localhost] 
 
-  TASK [Gathering Facts] 
-  ok: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Create a resource group] 
-  changed: [localhost]
+TASK [Create a resource group] 
+changed: [localhost]
 
-  TASK [Create virtual network] 
-  changed: [localhost]
+TASK [Create virtual network] 
+changed: [localhost]
 
-  TASK [Add subnet] 
-  changed: [localhost]
+TASK [Add subnet] 
+changed: [localhost]
 
-  TASK [Create public IP address] 
-  changed: [localhost]
+TASK [Create public IP address] 
+changed: [localhost]
 
-  TASK [Create Network Security Group that allows SSH] 
-  changed: [localhost]
+TASK [Create Network Security Group that allows SSH] 
+changed: [localhost]
 
-  TASK [Create a load balancer] 
-  changed: [localhost]
+TASK [Create a load balancer] 
+changed: [localhost]
 
-  TASK [Create Scale Set] 
-  changed: [localhost]
+TASK [Create Scale Set] 
+changed: [localhost]
 
-  PLAY RECAP 
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+PLAY RECAP 
+localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
-  ```
+```
 
 ## View the number of VM instances
 
@@ -192,15 +192,15 @@ The [configured scale set](#configure-a-scale-set) currently has two instances. 
 
 1. Navigate to the scale set you configured.
 
-1. 1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (2 instances)`
+1. You see the scale set name with the number of instances in parenthesis: `Standard_DS1_v2 (2 instances)`
 
 1. You can also verify the number of instances with the [Azure Cloud Shell](https://shell.azure.com/) by running the following command:
 
-  ```azurecli-interactive
-  az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
 
-  The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
+    The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
 
     ```bash
     {
@@ -217,72 +217,72 @@ The playbook code in this section retrieves information about the scale set and 
 
 Save the following playbook as `vmss-scale-out.yml`:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myScaleSet
-    tasks: 
-      - name: Get scaleset info
-        azure_rm_virtualmachine_scaleset_facts:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          format: curated
-        register: output_scaleset
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
 
-      - name: Dump scaleset info
-        debug:
-          var: output_scaleset
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
 
-      - name: Modify scaleset (change the capacity to 3)
-        set_fact:
-          body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+    - name: Modify scaleset (change the capacity to 3)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
-      - name: Update something in that scale set
-        azure_rm_virtualmachine_scaleset: "{{ body }}"
-  ```
+    - name: Update something in that scale set
+      azure_rm_virtualmachine_scaleset: "{{ body }}"
+```
 
 Run the playbook using the `ansible-playbook` command:
 
-  ```bash
-  ansible-playbook vmss-scale-out.yml
-  ```
+```bash
+ansible-playbook vmss-scale-out.yml
+```
 
 After running the playbook, you see output similar to the following results:
 
-  ```Output
-  PLAY [localhost] 
+```Output
+PLAY [localhost] 
 
-  TASK [Gathering Facts] 
-  ok: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Get scaleset info] 
-  ok: [localhost]
+TASK [Get scaleset info] 
+ok: [localhost]
 
-  TASK [Dump scaleset info] 
-  ok: [localhost] => {
-      "output_scaleset": {
-          "ansible_facts": {
-              "azure_vmss": [
-                  {
-                      ......
-                  }
-              ]
-          },
-          "changed": false,
-          "failed": false
-      }
-  }
+TASK [Dump scaleset info] 
+ok: [localhost] => {
+    "output_scaleset": {
+        "ansible_facts": {
+            "azure_vmss": [
+                {
+                    ......
+                }
+            ]
+        },
+        "changed": false,
+        "failed": false
+    }
+}
 
-  TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
-  ok: [localhost]
+TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+ok: [localhost]
 
-  TASK [Update something in that scale set] 
-  changed: [localhost]
+TASK [Update something in that scale set] 
+changed: [localhost]
 
-  PLAY RECAP 
-  localhost                  : ok=5    changed=1    unreachable=0    failed=0
-  ```
+PLAY RECAP 
+localhost                  : ok=5    changed=1    unreachable=0    failed=0
+```
 
 ## Verify the changes
 
@@ -300,7 +300,7 @@ Verify your changes via the Azure portal:
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-  The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
+    The results of running the Azure CLI command in Cloud Shell show that three instances now exist: 
 
     ```bash
     {
@@ -311,4 +311,4 @@ Verify your changes via the Azure portal:
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansible](/azure/ansible/ansible-deploy-app-vmss)
+> [Tutorial: Deploy apps to virtual machine scale sets in Azure using Ansible](./ansible-deploy-app-vmss.md)

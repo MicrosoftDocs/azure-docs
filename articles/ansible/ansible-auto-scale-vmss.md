@@ -212,4 +212,4 @@ There are two ways to disable autoscale settings. One way is to change the `enab
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Ansible on Azure](/azure/ansible)
+> [Tutorial: Update Azure virtual machine scale sets with custom images using Ansible](./ansible-vmss-update-image.md)

@@ -214,4 +214,4 @@ Congratulation! Your application is running in Azure now. You can now navigate t
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial - Autoscale a virtual machine scale set in Azure using Ansible](/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial: Autoscale a virtual machine scale set in Azure using Ansible](./ansible-auto-scale-vmss.md)
