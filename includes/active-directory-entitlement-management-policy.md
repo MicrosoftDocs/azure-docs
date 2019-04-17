@@ -114,3 +114,5 @@ In the Expiration section, you specify when a user's assignment to the access pa
     You can always enable it in the future after you have finished creating the access package.
 
     ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-policy/policy-enable.png)
+
+1. Click **Next** or **Create**.

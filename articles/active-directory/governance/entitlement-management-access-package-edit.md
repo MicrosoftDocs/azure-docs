@@ -90,8 +90,6 @@ The following diagram shows the high-level process to create a policy for an exi
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-1. Click **Create** to create the policy.
-
 ## Edit an existing policy
 
 You can edit a policy at any time. If you change the expiration date for a policy, the expiration date for requests that are already in a pending approval or approved state will not change.

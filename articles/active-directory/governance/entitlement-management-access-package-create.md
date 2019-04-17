@@ -110,8 +110,6 @@ On the **Policy** tab, you create the first policy to specify who can request th
 
 [!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
 
-1. Click **Next**.
-
 ## Review + create
 
 On the **Review + create** tab, you can review your settings and check for any validation errors.
