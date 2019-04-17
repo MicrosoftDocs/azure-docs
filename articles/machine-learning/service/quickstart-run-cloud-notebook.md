@@ -68,7 +68,7 @@ After your workstation is created, use the **Notebook VMs** section to launch th
 
 * The notebook server opens in a new browser tab.  This URL can only be used by the person who creates the VM.
 
-* Select the **Samples** folder to see the 
+* Select the **Quickstart** folder to see the quickstart notebook.
 
 ### Run the notebook
 
