@@ -31,7 +31,7 @@ Select the **Create a resource** > **Containers** > **Container Instances**.
 
 ![Begin creating a new container instance in the Azure portal][aci-portal-01]
 
-On the **Basics** page, enter the following values in the **Container name**, **Container image**, and **Resource group** text boxes. Leave the other values at their defaults, then select **OK**.
+On the **Basics** page, enter the following values in the **Resource group**, **Container name**, and **Container image** text boxes. Leave the other values at their defaults, then select **OK**.
 
 * Resource group: **Create new** > `myresourcegroup`
 * Container name: `mycontainer`
@@ -39,13 +39,13 @@ On the **Basics** page, enter the following values in the **Container name**, **
 
 ![Configuring basic settings for a new container instance in the Azure portal][aci-portal-03]
 
-For this quickstart, leave the default **Image type** setting of **Public** to deploy the public Microsoft `aci-helloworld` image. This image packages a small web app written in Node.js that serves a static HTML page. Also leave the default **OS type** and **Size** of the container.
+For this quickstart, you use the default **Image type** setting of **Public** to deploy the public Microsoft `aci-helloworld` image. This Linux image packages a small web app written in Node.js that serves a static HTML page.
 
 On the **Networking** page, specify a **DNS name label** for your container. The name must be unique within the Azure region where you create the container instance. Your container will be publicly reachable at `<dns-name-label>.<region>.azurecontainer.io`. If you receive a "DNS name label not available" error message, try a different DNS name label.
 
-Leave the other settings at their defaults, then select **Review + create**.
-
 ![Configuring a new container instance in the Azure portal][aci-portal-04]
+
+Leave the other settings at their defaults, then select **Review + create**.
 
 When the validation completes, you're shown a summary of the container's settings. Select **Create** to submit your container deployment request.
 
