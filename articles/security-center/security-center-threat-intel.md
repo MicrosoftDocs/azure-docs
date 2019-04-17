@@ -20,10 +20,6 @@ ms.author: rkarlin
 # Security alerts map and threat intelligence
 This article helps you to use the Azure Security Center security alerts map and security event-based threat intelligence map to address security-related issues.
 
-> [!NOTE]
-> The Security *events* map button will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_securityeventsmap) to learn on alternative services.
-
-
 ## How the security alerts map works
 Security Center provides you with a map that helps you identify security threats against the environment. For example, you can identify whether a particular computer is part of a botnet, and where the threat is coming from. Computers can become nodes in a botnet when attackers illicitly install malware that secretly interacts with command and control that manage the botnet. 
 

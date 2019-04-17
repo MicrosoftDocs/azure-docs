@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 04/15/2019
 ms.author: aschhab
 
 ---
@@ -21,33 +21,17 @@ ms.author: aschhab
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-In this quickstart, you take the following steps: 
-
-- Create a topic by using the Azure portal
-- Create three subscriptions for the topic by using the Azure portal
-- Write Java code to send messages to the topic
-- Write Java code to receive messages from subscriptions
+In this quickstart, you write Java code to send messages to a Service Bus topic and then receive messages from subscriptions to that topic. 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free) before you begin.
-- [Azure SDK for Java][Azure SDK for Java]. 
-
-## What are Service Bus topics and subscriptions?
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When using topics and subscriptions, components of a distributed application do not communicate directly with
-each other; instead they exchange messages via a topic, which acts as an intermediary.
-
-![TopicConcepts](./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png)
-
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a one-to-many form of communication, using a publish/subscribe pattern. It is possible to
-register multiple subscriptions to a topic. When a message is sent to a topic, it is then made available to each subscription to handle/process independently. A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on a per-subscription basis, which allows you to filter or restrict which messages to a topic are received by which topic subscriptions.
-
-Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
-
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-[!INCLUDE [service-bus-create-topics-three-subscriptions-portal](../../includes/service-bus-create-topics-three-subscriptions-portal.md)]
-
+1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
+    1. Create a Service Bus **namespace**.
+    2. Get the **connection string**.
+    3. Create a **topic** in the namespace.
+    4. Create **three subscriptions** to the topic in the namespace.
+3. [Azure SDK for Java][Azure SDK for Java].
 
 ## Configure your application to use Service Bus
 Make sure you have installed the [Azure SDK for Java][Azure SDK for Java] before building this sample. If you are using Eclipse, you can install the [Azure Toolkit for Eclipse][Azure Toolkit for Eclipse] that includes the Azure SDK for Java. You can then add the **Microsoft Azure Libraries for Java** to your project:

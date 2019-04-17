@@ -27,8 +27,8 @@ Function Apps can be hosted in several different ways.
 |                |[Consumption Plan](functions-scale.md#consumption-plan)|⚠ [Premium Plan](functions-scale.md##premium-plan-public-preview)|[App Service Plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
 |[**Inbound IP Restrictions**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**VNET Integration**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
-|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-vnet-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
+|[**VNET Integration**](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
+|[**Preview VNET Integration (Express Route & Service Endpoints)**](#preview-version-of-virtual-network-integration)|❌No|⚠Yes|⚠Yes|✅Yes|
 |[**Hybrid Connections**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[**Private Site Access**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
@@ -43,7 +43,7 @@ IP Restrictions allow you to define a priority ordered allow/deny list of IP add
 
 [Learn more here](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 
-## VNET integration
+## Virtual network integration
 
 VNET integration allows your function app to access resources inside a VNET. VNET integration is available in both the Premium plan and App Service plan. If your app is in an App Service Environment, then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet.
 
@@ -53,7 +53,7 @@ VNet Integration is often used to enable access from apps to a databases and web
 
 The generally available version of VNET integration relies on a VPN gateway to connect Function Apps to a virtual network. It is available in Functions hosted in an app service plan. To learn how to configure this feature, see the [App Service document for the same feature](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
 
-### Preview VNET integration
+### Preview version of virtual network integration
 
 There is a new version of the VNet Integration feature that is in preview. It doesn't depend on point-to-site VPN and also supports accessing resources across ExpressRoute or Service Endpoints. This feature is available in the Premium plan, and in App Service plans scaled to PremiumV2.
 
