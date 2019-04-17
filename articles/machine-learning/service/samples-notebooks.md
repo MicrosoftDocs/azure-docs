@@ -25,7 +25,7 @@ Use one of the paths below to run a notebook server with these sample notebooks.
 
 ## Use a managed cloud notebook server in your workspace
 
-It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.  
+It's easy to get started with your own cloud-based notebook server. The sample notebook and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you once you create this cloud resource.  
 
 [!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
 
@@ -49,7 +49,7 @@ The quickstart instructions will install the packages you need to run the quicks
 
 ## Try Azure Notebooks: Free Jupyter notebooks in the cloud
 
-It's easy to get started with Azure Notebooks! The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
+The sample notebooks and the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) are already installed and configured for you on [Azure Notebooks](https://notebooks.azure.com/). The installation and future updates are automatically managed via Azure services.
 
 Use the [Azure portal](https://portal.azure.com) to get started with Azure Notebooks.  Open your workspace and from the  **Overview** section, select **Get Started in Azure Notebooks**.
 
