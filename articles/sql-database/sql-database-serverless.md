@@ -11,62 +11,69 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 04/04/2019
+ms.date: 05/06/2019
 ---
-# SQL Database serverless (preview) provides compute and memory resources only as needed
+# SQL Database serverless (preview) compute tier provides compute and memory resources only as needed
 
-Application development unburdened by resource management is a cornerstone of serverless computing in the cloud.  In this paradigm, the provisioning of a fixed amount of compute resources is unnecessary. When a single database is deployed using the serverless provisioning option, the SQL Database service automatically and transparently scales resources to satisfy workload demand and only charges for the amount of compute resources actually consumed. This enables very high resolution price optimization without management complexity and without impacting application performance or availability.
+## What is the serverless compute tier
 
-The serverless provisioning option within SQL Database is a new deployment option for single databases that bills for the amount of compute and memory used on a per second basis, plus the amount of storage provisioned. In contrast, the provisioned deployment option bills for the amount of compute and memory provisioned on an hourly basis, plus the amount of storage provisioned.
+SQL DB serverless is a compute tier that bills for the amount of compute used on a per second basis.  Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. 
+In contrast, publicly available offers in SQL DB today bill for the amount of compute provisioned on an hourly basis.  This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
 
-## How does serverless work
+A serverless database in SQL DB is parameterized by the compute range it can use and an auto-pause delay.
 
-When you deploy a single database using the serverless provisioning option, you configure the following parameters:
+![serverless billing](./media/sql-database-serverless/serverless_billing.png)
 
-- Max vCores (max compute level)
-- Min vCores (min compute level)
-- Auto-pause delay (inactivity period)
+### Performance
 
-Memory and IO limits are proportional to the vCore range specified.
+- Min vcores and max vcores are configurable parameters which define the range of compute capacity available for the database. Memory and IO limits are proportional to the vcore range specified.  
+- The auto-pause delay is a configurable parameter which defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
 
-Based on the configuration values of these parameters, the SQL Database service provides resources to your workload as follows:
+### Pricing
 
-- Provides the maximum compute capacity when your workload requires it
-- Provides the minimum computer capacity when your workload does not require it
-- Automatically pauses your database when your workload has been inactive for the period specified
+- The total bill for a serverless database is the summation of the compute bill and storage bill. 
+Billing for compute is based on the amount of vcores used and memory used per second.
+- The minimum compute billed is based on min vcores and min memory.
+- While the database is paused, only storage is billed.
 
-> [!NOTE]
-> Serverless is only available with the vCore-based purchasing model.
+## Scenarios
 
-### How quickly are resources provided to a serverless database when online
+Serverless is price-performance optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. The provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
 
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by max vCores.  Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+The following table compares serverless compute with provisioned compute:
 
-### How is memory managed in serverless
+||Serverless compute|Provisioned compute|
+|---|---|---|
+|Typical usage scenario|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
+|Performance management effort|Lower|Higher|
+|Compute scaling|Automatic|Manual|
+Compute responsiveness|Lower after inactive periods|Immediate|
+|Billing granularity|Per second|Per hour|
+|
 
-Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This is important to control costs in serverless. The following table illustrates the memory management policy for serverless.
+### Scenarios well-suited for serverless compute
 
-![serverless memory management](./media/sql-database-serverless/serverless_memory.png)
+- Single databases with bursty usage patterns interspersed with periods of inactivity and can benefit from price savings based on billing per second for the amount of compute used.
+- Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
+- Single databases in the provisioned compute tier that frequently change their performance level.
 
-#### Cache reclaiming
+### Scenarios well-suited for provisioned compute
 
-Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
+- Single databases with more regular and more substantial compute utilization over time.
+- Databases that cannot tolerate performance trade-offs resulting from more frequent memory trimming or delay in auto-resuming from a paused state.
+- Multiple databases with bursty usage patterns that can be consolidated into a single server and use elastic pools for better price optimization.
 
-Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+### Feature support
 
-When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
+The following features do not support auto-pausing and auto-resuming.  That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
 
-When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
+- Geo-replication
+- Long term backup retention (LTR)
+- The sync database used in SQL data sync.
 
-The cache size is never reduced below the minimum memory as defined by minimum vCores.
+## Auto-scaling
 
-#### Cache hydration
-
-The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned compute databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
-
-### How does auto-pause and auto-resume work in serverless
-
-#### Auto-pause
+### Auto-pause
 
 Auto-pause is triggered if all of the following conditions are true for the duration of the auto-pause delay:
 
@@ -77,7 +84,7 @@ An option is provided to disable auto-pause if desired.
 
 ![serverless pause and resume](./media/sql-database-serverless/serverless_pause_resume.png)
 
-#### Auto-resume
+### Auto-resume
 
 Auto-resume is triggered if any of the following conditions are true at any time:
 
@@ -95,79 +102,34 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |SQL data sync|Synchronization between hub and member databases which can run on a configurable schedule or be performed manually.|
 |
 
-### Latency
+### Scaling responsiveness
 
-The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
-
-### Feature support
-
-The following features do not support auto-pausing and auto-resuming.  That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
-
-- Geo-replication
-- Long term backup retention (LTR)
-- The sync database used in SQL data sync.
-
-## How is serverless billed
-
-With serverless, your bill is the summation of the compute bill and storage bill:
-
-- Billing for compute is based on the amount of maximum number of vCores used each second.
-- The minimum compute billed is based on min vCores.
-- While the database is paused, only storage is billed.
-
-If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vcores by rescaling the amount of memory in GB by 3 GB per vcore.
-
-![serverless billing](./media/sql-database-serverless/serverless_billing.png)
+In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by max vCores.  Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
 
 > [!IMPORTANT]
-> There is no Azure Hybrid Benefit (AHB) or Reserved Instance (RI) discount.
+> The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
 
-## Who should use serverless
+### Memory management
 
-Serverless is price-performance optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods. The provisioned compute tier is price-performance optimized for single or pooled databases with higher average usage that cannot afford any delay in compute warm-up.
+Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This is important to control costs in serverless. The following table illustrates the memory management policy for serverless.
 
-![serverless scenarios](./media/sql-database-serverless/serverless_scenarios.png)
+#### Cache reclaiming
 
-The following table compares serverless compute with provisioned compute:
+Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
 
-||Serverless compute|Provisioned compute|
-|---|---|
-|Typical usage scenario|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
-|Performance management effort|Lower|Higher|
-|Compute scaling|Automatic|Manual|
-Compute responsiveness|Lower after inactive periods|Immediate|
-|Billing granularity|Per second|Per hour|
-|
+Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
 
-## What SKUs are supported and what are their resource limits
+When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
 
-The SKUs and resources available for each SKU are shown in the following table:
+When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
 
-|SKU|GP_5_Gen5_1|GP_5_Gen5_2|GP_5_Gen5_4|
-|---|---:|---:|---:|
-|Hardware generation|5|5|5|
-|Min / max vCores|0.5 - 1|0.5 - 2|0.5 - 4|
-|Min / max memory (GB)|2.02 - 3|2.05 - 6|2.10 - 12|
-|Min auto-pause delay (hours)|6|6|6|
-|Max requests (workers)|75|150|300|
-|Max sessions (connections)|30K|30K|30K|
-|Tempdb data max size (GB)|32|64|128|
-|Tempdb log max size (GB)|12|24|48|
-|Database data max size (GB)|512|1024|1024|
-|Database log max size (GB)|154|307|307|
-|SQL instance max data IO (IOPS)|250|500|1000|
-|Database max data IO (IOPS)|160|320|640|
-|Database max log IO (MB/s)|2.5|5.0|10.0|
-|
+The cache size is never reduced below the minimum memory as defined by minimum vCores.
 
-> [!NOTE]
-> Only the general purpose service tier is supported.
+#### Cache hydration
 
-## Available regions
+The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned compute databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
 
-Serverless is available in the following regions:
-
-## How do a create or move a database into serverless
+## On-boarding into the serverless compute tier
 
 Creating a new database or moving an existing database into a serverless SKU (service tier and compute size) follows the same pattern as creating a new database in provisioned compute SKUs and involves the following two steps:
 
@@ -186,7 +148,13 @@ Creating a new database or moving an existing database into a serverless SKU (se
    |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
    |Auto-pause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable auto-pause: -1|360 minutes|
 
-## Creating and moving databases
+## Create new serverless database
+
+The serverless compute tier is only available with the vCore-based purchasing model.
+
+## Creating a new database using the Azure portal
+
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless computer tier.
 
 ### Create new database using PowerShell
 
@@ -200,7 +168,7 @@ The following example creates a new database in the serverless SKU defined by se
     -RequestedServiceObjectiveName "GP_S_Gen5_4"
 ```
 
-### Move existing database from provisioned into serverless
+## Move existing database into serverless
 
 The following example moves an existing database in SQL DB into the serverless SKU defined by service objective named GP_S_Gen5_4 with default values for the min vCores and auto-pause delay.
 
@@ -217,11 +185,11 @@ Set-AzSqlDatabase
     -AutoPauseDelay "1440"
 ```
 
-### Move a database in a serverless SKU into a provisioned SKU
+## Move a database out of serverless
 
 A serverless database can be moved into a provisioned compute SKU in the same way as moving a provisioned compute database into a serverless SKU.
 
-### Modifying serverless configuration parameters
+## Modify serverless configuration parameters
 
 ### Maximum vCores
 
@@ -235,7 +203,7 @@ Modifying the maximum vCores is performed by using the `Set-AzSqlDatabase` comma
 
 Modifying the maximum vCores is performed by using the `Set-AzSqlDatabase` command in PowerShell using the `AutoPauseDelay` argument.
 
-## Monitoring
+## Monitor serverless database
 
 ### Resources used and billed
 
@@ -280,4 +248,53 @@ Get-AzSqlDatabase `
   | Select -ExpandProperty "Status"
 ```
 
+## Resource limits
+
+For resource limits, see [Serverless compute tier](sql-database-vcore-resource-limits-single-databases.md#serverless-compute-tier)
+
+## Billing
+
+The amount of compute billed each second is the maximum of CPU used and memory used each second.  If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed.  In order to compare CPU with memory for billing purposes, memory is normalized into units of vcores by rescaling the amount of memory in GB by 3 GB per vcore.
+
+|Resource billed|Amount billed ($)|Billing frequency|
+|---|---|---|
+|CPU and memory|vcore unit price * max (min vcores, vcores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
+|||
+
+The amount of compute billed is exposed by the following metric:
+
+|Metric|Definition|Reporting frequency|
+|---|---|---|
+|app_cpu_billed (vcore seconds)|max (min vcores, vcores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
+|||
+\* This quantity is calculated each second and aggregated over 1 minute.
+ 
+**Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1 hour period:
+
+|Time (hours:minutes)|app_cpu_billed (vcore seconds)|
+|---|---|
+|0:01|63|
+|0:02|123|
+|0:03|95|
+|0:04|54|
+|0:05|41|
+|0:06 - 1:00|1255|
+||Total: 1631|  
+
+Suppose the compute unit price is as follows:
+
+|Vcore unit price|$0.2609/vcore/hour|
+|---|---|  
+
+Then the compute billed for this 1 hour period is determined as follows:
+
+|CPU and memory billed|$0.2609/vcore/hour * 1631 vcore seconds * 1 hour/3600 seconds = $0.1232|
+|---|---|
+
+## Available regions
+
+The serverless compute tier is available in all regions except the following: China East, China North, Germany Central, Germany Northeast, UK North, UK South, and West Central US
+
 ## Next steps
+
+For resource limits, see [Serverless compute tier resource limits](sql-database-vcore-resource-limits-single-databases.md#serverless-compute-tier)
