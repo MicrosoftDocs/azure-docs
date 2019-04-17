@@ -13,6 +13,8 @@
       href: quickstarts/csharp.md
     - name: Java
       href: quickstarts/java.md
+    - name: Javascript
+      href: quickstarts/javascript.md
   - name: Concepts
     items:
     - name: Send ink data to the Ink Recognizer API 
