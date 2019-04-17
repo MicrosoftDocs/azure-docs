@@ -10,27 +10,27 @@
   - name: Creating Azure DB for PostgreSQL single server
     items:
     - name: Create DB - Portal
-    href: quickstart-create-server-database-portal.md
+      href: quickstart-create-server-database-portal.md
     - name: Create DB - Azure CLI
-    href: quickstart-create-server-database-azure-cli.md
+      href: quickstart-create-server-database-azure-cli.md
     - name: Create DB - Azure CLI up command
-    href: quickstart-create-server-up-azure-cli.md
+      href: quickstart-create-server-up-azure-cli.md
     - name: Connect & query
-    items:
-    - name: Python
-      href: connect-python.md
-    - name: Node.js
-      href: connect-nodejs.md
-    - name: Java
-      href: connect-java.md
-    - name: Ruby
-      href: connect-ruby.md
-    - name: PHP
-      href: connect-php.md
-    - name: .NET
-      href: connect-csharp.md
-    - name: Go
-      href: connect-go.md
+      items:
+      - name: Python
+        href: connect-python.md
+      - name: Node.js
+        href: connect-nodejs.md
+      - name: Java
+        href: connect-java.md
+      - name: Ruby
+        href: connect-ruby.md
+      - name: PHP
+        href: connect-php.md
+      - name: .NET
+        href: connect-csharp.md
+      - name: Go
+        href: connect-go.md
   - name: Creating Azure DB for PostgreSQL Hyperscale (Citus) (preview)
     items:
     - name: Create DB - Portal
