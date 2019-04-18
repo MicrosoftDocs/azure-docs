@@ -60,7 +60,7 @@ You do not need to specify NSGs at the subnet level because Batch configures its
 
 **Inbound security rules**
 
-| Source IP addresses | Source ports | Destination | Destination ports | Protocol | Action |
+| Source service tag | Source ports | Destination | Destination ports | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
 [BatchNodeManagement service tag](../articles/virtual-network/security-overview.md#service-tags) | * | Any | 29876-29877 | TCP | Allow |
 | [BatchNodeManagement service tag](../articles/virtual-network/security-overview.md#service-tags) | * | Any |  3389 (Windows), 22 (Linux) | TCP | Allow |
