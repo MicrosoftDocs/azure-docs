@@ -282,12 +282,12 @@ In this tutorial, you learned how to:
 > * Use APIs in the TSI JavaScript client library.
 > * Use JavaScript to create and populate chart controls with TSI data.
 
-As discussed, the TSI Sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
+As seen, the TSI sample application uses a demo data set. To learn how you can create your own TSI environment and data set, advance to the following article:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create an Azure Time Series Insights environment](tutorial-create-populate-tsi-environment.md)
 
-Or view the TSI Sample application source files:
+Or view the TSI sample application source files:
 
 > [!div class="nextstepaction"]
-> [TSI Sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
+> [TSI sample app repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial)
