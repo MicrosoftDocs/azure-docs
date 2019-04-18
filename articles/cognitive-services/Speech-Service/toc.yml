@@ -119,8 +119,8 @@
     displayName: recognize speech, speech recognition, speech-to-text, stt
   - name: Consume audio input streams (SDK)
     href: how-to-use-audio-input-streams.md
-  - name: Consume compressed audio input streams (SDK)
-    href: how-to-use-compressed-audio-input-streams.md
+  - name: Consume codec compressed audio input streams (SDK)
+    href: how-to-use-codec-compressed-audio-input-streams.md
     displayName: mp3, opus, ogg, flac
   - name: Select an audio input device (SDK)
     href: how-to-select-audio-input-devices.md
