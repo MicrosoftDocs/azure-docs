@@ -107,7 +107,7 @@ Azure Monitor can collect log data from a variety of sources both within Azure a
 
 | Data | Description |
 |:---|:---|
-| Azure Monitor for Containers | Inventory and performance data collected by [Azure Monitor for containers](../insights/container-insights-overview.md). See [Container data-collection details](../insights/container-insights-analyze.md#container-data-collection-details) for a list of the tables. |
+| Azure Monitor for containers | Inventory and performance data collected by [Azure Monitor for containers](../insights/container-insights-overview.md). See [Container data-collection details](../insights/container-insights-log-search.md#container-records) for a list of the tables. |
 | Azure Monitor for VMs | Map and performance data collected by [Azure Monitor for VMs](../insights/vminsights-overview.md). See [How to query logs from Azure Monitor for VMs](../insights/vminsights-log-search.md) for details on querying this data. |
 
 ### Custom 
