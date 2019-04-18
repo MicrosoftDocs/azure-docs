@@ -14,20 +14,27 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Database for MySQL](/azure/mysql/) is a managed service that you use to run, manage, and scale highly available MySQL databases in the cloud. Ansible enables you to automate the deployment and configuration of resources in your environment. 
+[Azure Database for MySQL](/azure/mysql/overview) is a relational database service based on the MySQL Community Edition. Azure Database for MySQL enables you to run, manage, and scale MySQL databases in your web apps.
 
-This quickstart shows you how use Ansible to create an Azure Database for MySQL server and configure its firewall rule. You can finish those tasks in about five minutes by using the Azure portal.
+[!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
+>
+> * Create a MySql server
+> * Create a MySql database
+> * Configure a filewall rule so that an external app can connect to your server
+> * Connect to your MySql server from the Azure cloud shell
+> * Query your available MySQL servers
+> * List all databases in your connected servers
 
 ## Prerequisites
 
-- [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
-- [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+* [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
+* [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## Create a resource group
 
-A resource group is a logical container in which Azure resources are deployed and managed.  
+The playbook code in this section creates an Azure resource group. A resource group is a logical container in which Azure resources are deployed and managed.  
 
-The following example creates a resource group named **myResourceGroup** in the **eastus** location:
+Save the following playbook as `rg.yml`:
 
 ```yml
 - hosts: localhost
@@ -41,7 +48,12 @@ The following example creates a resource group named **myResourceGroup** in the 
         location: "{{ location }}"
 ```
 
-Save the preceding playbook as **rg.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Before running the playbook, see the following notes:
+
+* A resource group named `myResourceGroup` is created.
+* The resource group is created in the `eastus` location:
+
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook rg.yml
@@ -49,9 +61,11 @@ ansible-playbook rg.yml
 
 ## Create a MySQL server and database
 
-The following example creates a MySQL server named **mysqlserveransible** and an Azure Database for MySQL instance named **mysqldbansible**. This is a Gen 5 Basic Purpose server with one vCore. 
+The playbook code in this section creates a MySQL server and an Azure Database for MySQL instance. The new MySQL server is a Gen 5 Basic Purpose server with one vCore and is named `mysqlserveransible`. The database instance is named `mysqldbansible`.
 
-The value of **mysqlserver_name** must be unique. To understand the valid values per region and per tier, see the [pricing tiers documentation](/azure/mysql/concepts-pricing-tiers). Replace `<server_admin_password>` with a password.
+For more information about pricing tiers, see [Azure Database for MySQL pricing tiers](/azure/mysql/concepts-pricing-tiers). 
+
+Save the following playbook as `mysql_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -83,17 +97,24 @@ The value of **mysqlserver_name** must be unique. To understand the valid values
         name: "{{ mysqldb_name }}"
 ```
 
-Save the preceding playbook as **mysql_create.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Before running the playbook, see the following notes:
+
+* In the `vars` section, the value of `mysqlserver_name` must be unique.
+* In the `vars` section, replace `<server_admin_password>` with a password.
+
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook mysql_create.yml
 ```
 
 ## Configure a firewall rule
 
-A server-level firewall rule allows an external application to connect to your server through the Azure MySQL service firewall. An example of an external application is the **mysql** command-line tool or MySQL Workbench.
-The following example creates a firewall rule named **extenalaccess** that allows connections from any external IP address. 
+A server-level firewall rule allows an external app to connect to your server through the Azure MySQL service firewall. Examples of external apps are the `mysql` command-line tool and the MySQL Workbench.
 
-Enter your own values for **startIpAddress** and **endIpAddress**. Use the range of IP addresses that correspond to where you'll be connecting from. 
+The playbook code in this section creates a firewall rule named `extenalaccess` that allows connections from any external IP address. 
+
+Save the following playbook as `mysql_firewall.yml`:
 
 ```yml
 - hosts: localhost
@@ -117,18 +138,25 @@ Enter your own values for **startIpAddress** and **endIpAddress**. Use the range
           endIpAddress: "255.255.255.255"
 ```
 
-> [!NOTE]
-> Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. In that case, you can't connect to your server unless your IT department opens port 3306.
-> 
+Before running the playbook, see the following notes:
 
-Here, the **azure_rm_resource** module is used to perform this task. It allows direct use of the REST API.
+* In the vars section, replace `startIpAddress` and `endIpAddress`. Use the range of IP addresses that correspond to the range from which you'll be connecting.
+* Connections to Azure Database for MySQL communicate over port 3306. If you try to connect from within a corporate network, outbound traffic over port 3306 might not be allowed. In that case, you can't connect to your server unless your IT department opens port 3306.
+* The playbook uses the `azure_rm_resource` module, which allows direct use of the REST API.
 
-Save the preceding playbook as **mysql_firewall.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook mysql_firewall.yml
 ```
 
-## Connect to the server by using the command-line tool
+## Connect to the server
+
+In this section, you use the Azure cloud shell to connect to the server you created previously.
+
+1. Open the Azure cloud shell by either using the Auzre portal. 
+
+
 You can [download MySQL](https://dev.mysql.com/downloads/) and install it on your computer. Instead, you can select the **Try It** button in code samples, or the  **>_** button from the upper-right toolbar in the Azure portal, and open **Azure Cloud Shell**.
 
 Enter the next commands: 
@@ -185,7 +213,7 @@ Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open ta
 --------------
 ```
 
-## Using facts to query MySQL servers
+## Query MySQL servers
 
 The following example queries MySQL servers in **myResourceGroup** and subsequently all the databases on the servers:
 

@@ -191,10 +191,11 @@ Save the following playbook as `aks-rbac.yml`:
 ```
 
 In the **vars** section, replace the following placeholders with your Azure AD information:
-- **<client id>**
-- **<server id>**
-- **<server secret>**
-- **<tenant id>**
+
+- `<client id>`
+- `<server id>`
+- `<server secret>`
+- `<tenant id>`
 
 Run the complete playbook using the `ansible-playbook` command:
 
