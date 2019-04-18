@@ -26,7 +26,7 @@ A database in the serverless computer tier is parameterized by the compute range
 
 ### Performance
 
-- Min vCores and max vCores are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
+- `MinVcore` and `MaxVcore` are configurable parameters that define the range of compute capacity available for the database. Memory and IO limits are proportional to the vCore range specified.  
 - The auto-pause delay is a configurable parameter that defines the period of time the database must be inactive before it is automatically paused. The database is automatically resumed when the next login occurs.
 
 ### Pricing
@@ -135,24 +135,24 @@ Creating a new database or moving an existing database into a serverless compute
 
 1. Specify the service objective name. The following table shows the available service tier and compute sizes currently available in the public preview.
 
-  |Service tier|Compute size|
-  |---|---|
-  |General Purpose|GP_S_Gen5_1|
-  |General Purpose|GP_S_Gen5_2|
-  |General Purpose|GP_S_Gen5_4|
+   |Service tier|Compute size|
+   |---|---|
+   |General Purpose|GP_S_Gen5_1|
+   |General Purpose|GP_S_Gen5_2|
+   |General Purpose|GP_S_Gen5_4|
 
 2. Optionally, specify the minimum vCores and auto-pause delay to change their default values. The following table shows the available values for these parameters.
 
-  |Parameter|Value choices|Default value|
-  |---|---|---|---|
-  |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
-  |Auto-pause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable auto-pause: -1|360 minutes|
+   |Parameter|Value choices|Default value|
+   |---|---|---|---|
+   |Minimum vCores|Any of {0.5, 1, 2, 4} not exceeding max vCores|0.5 vCores|
+   |Auto-pause delay|Min: 360 minutes (6 hours)<br>Max: 10080 minutes (7 days)<br>Increments: 60 minutes<br>Disable auto-pause: -1|360 minutes|
 
-## Create new serverless database
+### Create new serverless database
 
 The serverless compute tier is only available with the vCore-based purchasing model.
 
-## Creating a new database using the Azure portal
+### Creating a new database using the Azure portal
 
 See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless computer tier.
 
@@ -168,7 +168,7 @@ New-AzSqlDatabase `
   -RequestedServiceObjectiveName "GP_S_Gen5_4"
 ```
 
-## Move existing database into serverless
+### Move existing database into serverless
 
 The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example uses the default values for the min vCores, max vCores, and auto-pause delay.
 
@@ -185,7 +185,7 @@ Set-AzSqlDatabase
   -AutoPauseDelay "1440"
 ```
 
-## Move a database out of serverless
+### Move a database out of serverless
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
