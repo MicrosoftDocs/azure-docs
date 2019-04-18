@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 
@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # How To: Configure the multi-factor authentication registration policy
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a policy to require MFA registration. This article explains what the policy can be used for an how to configure it.
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a policy to require MFA registration. This article explains what the policy can be used for and how to configure it.
 
 ## What is the multi-factor authentication registration policy?
 
