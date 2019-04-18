@@ -27,21 +27,17 @@ sections:
           html: <p>Learn about Ink Recognizer and how to integrate it into your products</p>
           image:
             src: ../media/index/i_overview.svg
-          title: What is Ink Recognizer?
-        - href: /azure/cognitive-services/translator/custom-translator/overview
-          html: <p>Learn about the Ink Recognizer API</p>
+          title: What is Ink Recognizer API?
+        - href: concepts/recommended-calling-patterns.md
+          html: <p>Learn about recommended calling patterns when using the API</p>
           image:
             src: ../media/index/i_overview.svg
-          title: Lorum ipsum?
-        - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
-          html: <p>Learn how to get started with Custom Translator</p>
-          image:
-            src: ../media/index/i_get-started.svg
-          title: Ecce Romani
+          title: Sending ink data to the Ink Recognizer API
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Translator Text API:'
+    text: 'Get started using the Ink Recognizer API:'
   - type: table
     style: dataMatrix
     columns:
@@ -49,20 +45,36 @@ sections:
         src: media/index/logo_csharp.svg
       title: C#
     - image:
+        src: media/index/logo_java.svg
+      title: Java
+    - image:
         src: media/index/logo_js.svg
       title: Javascript
     rows:
-    - title: Something about recognizing handwriting from X
+    - title: Recognize digital ink strokes
       values:
-      - href: quickstart-csharp-translate
-      - href: quickstart-js-translate
+      - href: quickstarts/csharp.md
+      - href: quickstarts/java.md
+      - href: quickstarts/javascript.md
+
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: "Learn how to develop applications using Ink Recognizer:"
   - type: paragraph
     text: <a href="tutorial-wpf-translation-csharp.md">Not sure if this will be ready for //Build.</a>
+
+
 - title: Reference
   items:
-  - type: paragraph
-    text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: <p><a href="https://aka.ms/luis-endpoint-apis"> Ink Recognizer REST API </a></p>
+    - title: PowerShell 
+      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
+    - title: CLI 
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices">Azure CLI</a></p>
+      

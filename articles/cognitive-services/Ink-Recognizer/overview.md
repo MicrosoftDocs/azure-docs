@@ -27,7 +27,7 @@ With the Ink Recognizer API, you can easily recognize handwritten content in you
 |Feature  |Description  |
 |---------|---------|
 | Handwriting recognition | Recognize handwritten content in 63 core languages, and several locales. | 
-| Layout recognition | Get structural information about the digital ink content. Break the content into writing regions, paragraphs, lines, words, bulleted lists. Your applications can then utilize the layout information to build additional features like automatic spacing between words, shape alignment, and text interpretation. |
+| Layout recognition | Get structural information about the digital ink content. Break the content into writing regions, paragraphs, lines, words, bulleted lists. Your applications can then utilize the layout information to build additional features like automatic spacing between words, shape alignment, and text recognition. |
 | Shape recognition | Recognize the most commonly used geometric shapes when taking notes. |
 | Combined shapes and text recognition | Recognize ink content with shapes and handwritten text. Separately classify which strokes belong to shapes or handwritten content, and recognize them.|
 
@@ -45,5 +45,7 @@ After signing up:
 
 ## Next steps
 
-Try a [quickstart](quickstarts/csharp.md) to begin making calls to the Ink Recognizer API.
-
+Try a quickstart in the following languages to begin making calls to the Ink Recognizer API.
+* [C#](quickstarts/csharp.md)
+* [Java](quickstarts/java.md)
+* [JavaScript](quickstarts/csharp.md)
