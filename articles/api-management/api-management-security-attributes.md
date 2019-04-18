@@ -5,7 +5,6 @@ services: api-management
 documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
-ms.service: api-management
 
 ms.topic: conceptual
 ms.date: 04/16/2019
