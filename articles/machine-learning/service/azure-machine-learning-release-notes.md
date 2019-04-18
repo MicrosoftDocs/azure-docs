@@ -18,6 +18,31 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 + The Azure Machine Learning's  [**main SDK for Python**](https://aka.ms/aml-sdk)
 + The Azure Machine Learning [**Data Prep SDK**](https://aka.ms/data-prep-sdk)
 
+## 2019-04-17
+
+### Azure Machine Learning Data Prep SDK v1.1.2
+
+Note: Data Prep Python SDK will no longer install `numpy` and `pandas` packages. See [updated installation instructions](https://aka.ms/aml-data-prep-installation).
+
++ **New features**
+  + You can now use the Pivot transform.
+    + How-to guide: [Pivot notebook](https://aka.ms/aml-data-prep-pivot-nb)
+  + You can now use regular expressions in native functions.
+    + Examples:
+      + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
+      + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
+  + You can now use `to_upper` and `to_lower` functions in expression language.
+  + You can now see the number of unique values of each column in a data profile.
+  + For some of the commonly used reader steps, you can now pass in the `infer_column_types` argument. If it is set to `True`, Data Prep will attempt to detect and automatically convert column types.
+    + `inference_arguments` is now deprecated.
+  + You can now call `Dataflow.shape`.
+
++ **Bug fixes and improvements**
+  + `keep_columns` now accepts an additional optional argument `validate_column_exists`, which checks if the result of `keep_columns` will contain any columns.
+  + All reader steps (which read from a file) now accept an additional optional argument `verify_exists`.
+  + Improved performance of reading from pandas dataframe and getting data profiles.
+  + Fixed a bug where slicing a single step from a Dataflow failed with a single index.
+
 ## 2019-04-15
 
 ### Azure Portal
