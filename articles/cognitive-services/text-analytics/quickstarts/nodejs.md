@@ -36,7 +36,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 ## Create the solution and install the SDK
 
 - Install [Node](https://nodejs.org/en/)
-- Create node project.
+- Create a node project.
     - ```mkdir myapp && cd myapp```
     - Run ```npm init``` and follow the steps
     - This will create a node application with a packaje.json file
@@ -69,6 +69,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use the correct Azure region for your Text Analytics subscription.
 
    ```javascript
+        //Replace 'westus' with the correct region for your Text Analytics subscription
         let client = new TextAnalyticsAPIClient(
           credentials,
           "https://westus.api.cognitive.microsoft.com/"
@@ -105,10 +106,10 @@ Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use
 ### Output
 
 ```console
-id: 1, score: 0.87
-id: 2, score: 0.11
-id: 3, score: 0.44
-id: 4, score: 1.00
+[ { id: '1', score: 0.8723785877227783 },
+  { id: '2', score: 0.1059873104095459 },
+  { id: '3', score: 0.43635445833206177 },
+  { id: '4', score: 1 } ]
 ```
 
 ## Language detection
@@ -137,7 +138,7 @@ id: 4, score: 1.00
             result.documents.forEach(document => {
               console.log(`ID: ${document.id}`);
               document.detectedLanguages.forEach(language =>
-                console.log(`\tLanguage ${language.name}`)
+                console.log(`\tLanguage: ${language.name}`)
               );
             });
           })
