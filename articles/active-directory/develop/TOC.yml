@@ -94,7 +94,7 @@
     - name: Authentication scenarios
       items:
       - name: Daemon apps
-        itemps:
+        items:
         - name: Overview
           href: scenario-daemon-overview.md
         - name: App registration
@@ -320,7 +320,7 @@
         items:
         - name: Single sign-on
           href: single-sign-on-saml-protocol.md
-        - name: Signout
+        - name: Sign-out
           href: single-sign-out-saml-protocol.md
         - name: How Azure AD uses the SAML protocol
           href: active-directory-saml-protocol-reference.md

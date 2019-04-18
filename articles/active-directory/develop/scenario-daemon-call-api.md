@@ -23,7 +23,13 @@ ms.collection: M365-identity-device-management
 
 # Call a Web API from a daemon application
 
+## Calling a Web API from a .NET daemon application
+
 [!INCLUDE [Call Web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
+
+<!--
+More includes will come later for Python and Java
+-->
 
 ## Calling several APIs
 
