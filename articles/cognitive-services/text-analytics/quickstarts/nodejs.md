@@ -76,21 +76,18 @@ Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use
 
 ## Sentiment analysis
 
-1. Create a new function called `sentimentAnalysisExample()` that takes the client created earlier. Create a list of objects, containing the documents you want to analyze.
+1. Create a list of objects, containing the documents you want to analyze.
 
     ```javascript
-    sentimentAnalysisExample(){
-
-        const inputDocuments = {documents:[
-            {language:"en", id:"1", text:"I had the best day of my life."},
-            {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
-            {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
-            {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
-          ]}
-    }
+    const inputDocuments = {documents:[
+        {language:"en", id:"1", text:"I had the best day of my life."},
+        {language:"en", id:"2", text:"This was a waste of my time. The speaker put me to sleep."},
+        {language:"es", id:"3", text:"No tengo dinero ni nada que dar..."},
+        {language:"it", id:"4", text:"L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."}
+    ]}
     ```
 
-2. In the same function, call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
+2. Call `client.sentiment` and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
     ```javascript
      const operation = client.sentiment({multiLanguageBatchInput: inputDocuments})
@@ -103,7 +100,7 @@ Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use
         });
     ```
 
-3. Call your function `sentimentAnalysisExample()` and run your the app by executing `node index.js`
+3. Run your code by executing `node index.js`
 ### Output
 
 ```console
@@ -115,21 +112,18 @@ id: 4, score: 1.00
 
 ## Language detection
 
-1. Create a new function called `detectLanguageExample()` that takes the client created earlier. Create a list of Input objects, containing your documents.
+1. Create a list of Input objects, containing your documents.
 
     ```javascript
-    static async Task DetectLanguageExample(TextAnalyticsClient client)
-    {
-        // The documents to be submitted for language detection. The ID can be any value.
-            const inputDocuments = [
-                { id: "1", text: "This is a document written in English." },
-                { id: "2", text: "Este es un document escrito en Español." },
-                { id: "3", text: "这是一个用中文写的文件" }
-            ];
-    }
+    // The documents to be submitted for language detection. The ID can be any value.
+    const inputDocuments = [
+        { id: "1", text: "This is a document written in English." },
+        { id: "2", text: "Este es un document escrito en Español." },
+        { id: "3", text: "这是一个用中文写的文件" }
+    ];
     ```
 
-2. In the same function, call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
+2. Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
     ```javascript
         const operation = client.detectLanguage({
@@ -149,7 +143,7 @@ id: 4, score: 1.00
           });
     ```
 
-4. Call your function `detectLanguageExample()` and run the app by executing `node index.js`
+4. Run your code by executing `node index.js`
 
 ### Output
 
@@ -162,52 +156,70 @@ ID: 3 Language Chinese_Simplified
 
 ## Entity recognition
 
-1. Create a new function called `recognizeEntitiesExample()` that takes the client created earlier. Create a list of objects, containing your documents.
+1. Create a list of objects, containing your documents.
 
     ```javascript
-    'TODO: code here'
-    "en", "1", "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.
-    "es", "2", "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."
+
+        const inputDocuments = {documents:[
+            {language:"en", id:"1", text:"Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800"},
+            {language:"es", id:"2", text:"La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."},
+          ]}
+
     }
     ```
 
-2. In the same function, call `client.EntitiesAsync() TODO:check` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print it's wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+2. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print it's wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
     ```javascript
-    'code here'
+    const operation = client.entities({
+        multiLanguageBatchInput: inputDocuments
+    });
+    operation
+      .then(result => {
+        result.documents.forEach(document => {
+          console.log(`Document ID: ${document.id}`)
+          document.entities.forEach(e =>{
+            console.log(`\tName: ${e.name} Type: ${e.type} Sub Type: ${e.type}`)
+            e.matches.forEach(match => (
+              console.log(`\t\tOffset: ${match.offset} Length: ${match.length} Score: ${match.entityTypeScore}`)
+            ))
+          })
+        });
+      })
+      .catch(err => {
+        throw err;
+      });
     ```
 
-4. Call your function `recognizeEntitiesExample()` and run your the app by executing `node index.js`
+4. Run your code by executing `node index.js`
 
 ### Output
 
 ```console
 Document ID: 1
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 0,      Length: 9,      Score: 1.000
-                Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-                        Offset: 25,     Length: 10,     Score: 1.000
-                Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-                        Offset: 40,     Length: 10,     Score: 0.999
-                Name: April 4,  Type: Other,    Sub-Type: N/A
-                        Offset: 54,     Length: 7,      Score: 0.800
-                Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-                        Offset: 54,     Length: 13,     Score: 0.800
-                Name: BASIC,    Type: Other,    Sub-Type: N/A
-                        Offset: 89,     Length: 5,      Score: 0.800
-                Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-                        Offset: 116,    Length: 11,     Score: 0.800
+    Name: Microsoft Type: Organization Sub Type: Organization
+            Offset: 0 Length: 9 Score: 1
+    Name: Bill Gates Type: Person Sub Type: Person
+            Offset: 25 Length: 10 Score: 0.999786376953125
+    Name: Paul Allen Type: Person Sub Type: Person
+            Offset: 40 Length: 10 Score: 0.9988105297088623
+    Name: April 4 Type: Other Sub Type: Other
+            Offset: 54 Length: 7 Score: 0.8
+    Name: April 4, 1975 Type: DateTime Sub Type: DateTime
+            Offset: 54 Length: 13 Score: 0.8
+    Name: BASIC Type: Other Sub Type: Other
+            Offset: 89 Length: 5 Score: 0.8
+    Name: Altair 8800 Type: Other Sub Type: Other
+            Offset: 116 Length: 11 Score: 0.8
 Document ID: 2
-         Entities:
-                Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-                        Offset: 21,     Length: 9,      Score: 1.000
-                Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-                        Offset: 60,     Length: 7,      Score: 0.991
-                Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-                        Offset: 71,     Length: 13,     Score: 0.800
-                Name: Seattle,  Type: Location, Sub-Type: N/A
-                        Offset: 88,     Length: 7,      Score: 1.000
+    Name: Microsoft Type: Organization Sub Type: Organization
+            Offset: 21 Length: 9 Score: 0.999755859375
+    Name: Redmond (Washington) Type: Location Sub Type: Location
+            Offset: 60 Length: 7 Score: 0.9911284446716309
+    Name: 21 kilómetros Type: Quantity Sub Type: Quantity
+            Offset: 71 Length: 13 Score: 0.8
+    Name: Seattle Type: Location Sub Type: Location
+            Offset: 88 Length: 7 Score: 0.9998779296875
 ```
 
 ## Key phrase extraction
