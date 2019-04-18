@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/18/2019
 ms.author: sbowles
 ---
 
@@ -134,13 +134,16 @@ foreach (var face in faces)
 }
 ```
 
-To learn more about each of the attributes, refer to the [Glossary](../Glossary.md).
+To learn more about each of the attributes, refer to the [Face detection and attributes](../concepts/face-detection.md) conceptual guide.
 
 ## Next steps
 
-In this guide you learned how to use the various functionalities of face detection. Next, see the [Glossary](../Glossary.md) for a more detailed look at the face data you've retrieved.
+In this guide you learned how to use the various functionalities of face detection. Next, integrate these features into your app by following an in-depth tutorial.
 
-## Related Topics
+- [Tutorial: Create a WPF app to display face data in an image](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutorial: Create an Android app to detect and frame faces in an image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+
+## Related topics
 
 - [Reference documentation (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 - [Reference documentation (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet)
