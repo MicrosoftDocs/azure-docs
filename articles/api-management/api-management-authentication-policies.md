@@ -123,7 +123,7 @@ This topic provides a reference for the following API Management policies. For i
 |----------|-----------------|--------------|-------------|  
 |resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
 |output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`.|No|N/A|  
-|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
+|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtainedgi.|No|false|  
   
 ### Usage  
  This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
