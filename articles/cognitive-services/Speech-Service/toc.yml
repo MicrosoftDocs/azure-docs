@@ -184,6 +184,8 @@
     - name: Overview
       href: speech-sdk.md
       displayName: 'C#, C++, Java, .NET, .NET Core, UWP, Android, Linux, Windows'
+    - name: Scenario Availability
+      href: scenario-availability.md  
     - name: Release notes
       href: releasenotes.md
     - name: C++
