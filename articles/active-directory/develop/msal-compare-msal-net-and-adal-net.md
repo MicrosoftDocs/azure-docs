@@ -27,7 +27,7 @@ Both Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentic
 
 This article describes how to choose between the Microsoft Authentication Library for .NET (MSAL.NET) and Azure AD Authentication Library for .NET (ADAL.NET) and compares the two libraries.  
 
-## Choosing between ADAL.NET and MSAL.NET
+## Choos between ADAL and MSAL
 
 In most cases you want to use MSAL.NET and the Azure AD v2.0 endpoint, which is the latest generation of Microsoft authentication libraries. Using MSAL.NET, you acquire tokens for users signing-in to your application with Azure AD (work and school accounts), Microsoft (personal) accounts (MSA), or Azure AD B2C. 
 
@@ -35,10 +35,10 @@ If you are already familiar with the v1.0 endpoint (and ADAL.NET), you might wan
 
 However, you still need to use ADAL.NET if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). For more details, see [ADFS support](https://aka.ms/msal-net-adfs-support).
 
-## Differences between ADAL.NET and MSAL.NET apps
+## Differences between ADAL and MSAL apps
 
 The following picture summarizes some of the differences between ADAL.NET and MSAL.NET
-![Side-by-side code](./media/msal-compare-msaldotnet-and-adaldotnet/Differences.png)
+![Side-by-side code](./media/msal-compare-msaldotnet-and-adaldotnet/differences.png)
 
 ### NuGet packages and Namespaces
 
@@ -188,7 +188,7 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 // then call the API: https://management.azure.com/subscriptions?api-version=2016-09-01
 ```
 
-This is because the ARM API expects a slash in its audience claim (`aud`), and then there is a slash to separate the API name from the scope.
+This is because the Resource Manager API expects a slash in its audience claim (`aud`), and then there is a slash to separate the API name from the scope.
 
 The logic used by Azure AD is the following:
 - For ADAL (v1.0) endpoint with a v1.0 access token (the only possible), aud=resource
@@ -209,7 +209,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 In the case of client credential flow, the scope to pass would also be `/.default`. This tells to Azure AD: "all the app-level permissions that the admin has consented to in the application registration.
 
-## ADAL.NET v2.x migration to MSAL.NET v2.x.
+## ADAL to MSAL migration
 
 In ADAL.NET v2.X, the refresh tokens were exposed allowing you to develop solutions around the use of these tokens by caching them and using the AcquireTokenByRefreshToken methods provided by ADAL 2.x. 
 Some of those solutions were used in scenarios such as:
@@ -259,7 +259,7 @@ AuthenticationResult result = await appRt.AcquireTokenByRefreshToken(null, rt)
 
 You will see an access token and ID token returned in your AuthenticationResult while your new refresh token is stored in the cache.
 
-Note: You can also use this method for various integration scenarios where you have a refresh token available.
+You can also use this method for various integration scenarios where you have a refresh token available.
 
 ## Next steps
 

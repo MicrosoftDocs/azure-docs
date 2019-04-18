@@ -34,7 +34,7 @@ If you are already familiar with the v1.0 endpoint (and ADAL.js), you might want
 
 However, you still need to use ADAL.js if your application needs to sign in users with earlier versions of [Active Directory Federation Services (ADFS)](/windows-server/identity/active-directory-federation-services). 
 
-## Key differences in authentication with v1.0 versus v2.0 endpoint
+## Key differences in authentication
 
 * Scope instead of resource parameter in authentication requests
 

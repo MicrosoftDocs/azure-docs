@@ -33,7 +33,7 @@ MSAL gives you many ways to get tokens, with a consistent API for a number of pl
 * Helps you set up your application from configuration files.
 * Helps you troubleshoot your app by exposing actionable exceptions, logging, and telemetry.
 
-## Supported application types and scenarios
+## Application types and scenarios
 Using MSAL, a token can be acquired from a number of application types: web applications, web APIs, single-page apps (JavaScript), mobile and native applications, and daemons and server-side applications. 
 
 MSAL can be used in many authentication scenarios, including the following:
@@ -46,7 +46,7 @@ MSAL can be used in many authentication scenarios, including the following:
 * Web API calling another downstream Web API on behalf of the user for whom it was called
 * Web API calling another API in its own name.
 
-## Supports multiple languages and frameworks
+## Languages and frameworks
 
 | Library | Supported platforms and frameworks|
 | --- | --- | 
@@ -58,6 +58,6 @@ MSAL can be used in many authentication scenarios, including the following:
 ## Differences between ADAL and MSAL
 Active Directory Authentication Library (ADAL) integrates with the Azure AD v1.0 endpoint, where MSAL integrates with the Azure AD v2.0 endpoint. The v1.0 endpoint supports work accounts, but not personal accounts. The v2.0 endpoint is the unification of Microsoft personal accounts and work accounts into a single authentication system. Additionally, with MSAL you can also get authentications for Azure AD B2C.
 
-For more specific information, read about the differences between [ADAL.NET and MSAL.NET](msal-compare-msaldotnet-and-adaldotnet.md) and [ADAL.js and MSAL.js](msal-compare-msaljs-and-adaljs.md).
+For more specific information, read about the differences between [ADAL.NET and MSAL.NET](msal-compare-msal-net-and-adal-net.md ) and [ADAL.js and MSAL.js](msal-compare-msal-js-and-adal-js.md).
 
             
