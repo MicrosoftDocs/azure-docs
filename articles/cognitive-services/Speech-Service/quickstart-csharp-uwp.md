@@ -15,7 +15,7 @@ ms.custom: seodec18
 
 # Quickstart: Recognize speech in a UWP app by using the Speech SDK
 
-If desired, choose a different scenario: [**speech-recognition**](quickstart-csharp-uwp.md), [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp)
+If desired, choose a different scenario: [**speech-recognition**](quickstart-csharp-uwp.md), [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md)
 
 If desired, choose to a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]

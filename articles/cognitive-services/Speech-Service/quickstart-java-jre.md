@@ -14,6 +14,9 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech with the Speech SDK for Java
 
+If desired, choose a different scenario: [**speech-recognition**](quickstart-java-jre.md), [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md)
+
+If desired, choose to a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Ubuntu Linux 16.04 / 18.04 or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
