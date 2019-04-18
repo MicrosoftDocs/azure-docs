@@ -39,11 +39,11 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Computer Vision?
-        - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
-          html: <p>Learn how to get subscription keys for Computer Vision API.</p>
+        - href: /azure/cognitive-services/computer-vision/concept-recognizing-text
+          html: <p>Learn about the concepts of text recognition.</p>
           image:
             src: ../media/index/i_tasks.svg
-          title: Subscription keys for Computer Vision API
+          title: Recognize printed and handwritten text
         - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
           html: <p>Learn the basics of calling a Computer Vision API.</p>
           image:
