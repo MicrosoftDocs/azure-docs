@@ -19,4 +19,13 @@ Before you migrate your data from MongoDB (either on-premises or in the cloud (I
 3. Pick an optimal partition key for your data
 4. Understand the indexing policy that you can set on your data
 
-If you have already completed the above pre-requisites for migration, see the [Migrate MongoDB data to Azure Cosmos DB’s API for MongoDB tutorial] (././dms/tutorial-mongodb-cosmos-db) for the actual data migration instructions. If not, this document provides instructions to handle these pre-requisites. 
+If you have already completed the above pre-requisites for migration, see the [Migrate MongoDB data to Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md) for the actual data migration instructions. If not, this document provides instructions to handle these pre-requisites. 
+
+## Create an Azure Cosmos account using Azure Cosmos DB's API for MongoDB
+
+Before starting the migration, you need to [create an Azure Cosmos account using Azure Cosmos DB’s API for MongoDB](create-mongodb-dotnet.md). 
+
+At the account creation, you can choose settings to [globally distribute](distribute-data-globally.md) your data. You also have the option to enable multi-region writes (or multi-master configuration), that allows each of your regions to be both a write and read region.
+
+![Account-Creation](./media/mongodb-pre-migration/account-creation.png)
+
