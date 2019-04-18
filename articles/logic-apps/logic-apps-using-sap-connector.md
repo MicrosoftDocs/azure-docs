@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 04/19/2019
 tags: connectors
 ---
 
@@ -535,8 +535,8 @@ To enable SNC for your requests to or from SAP system select the **Use SNC** che
 
    ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sap-snc.png) 
 
-   | Property   |Description |
-   |------------|------------|
+   | Property   | Description |
+   |------------| ------------|
    | **SNC Library** | SNC library name or path relative to NCo installation location or absolute path. As an example sapsnc.dll or .\security\sapsnc.dll or c:\security\sapsnc.dll  | 
    | **SNC SSO** | When connecting via SNC, the SNC identity is typically used for authenticating the caller. Another option is to override so that user/password information can be used for authenticating the caller, but the line is still encrypted.|
    | **SNC My Name** | In most cases this can be omitted. The installed SNC solution usually knows its own SNC name. Only for solutions supporting “multiple identities”, you may need to specify the identity to be used for this particular destination/server |
