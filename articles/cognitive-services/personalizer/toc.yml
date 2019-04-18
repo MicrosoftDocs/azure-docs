@@ -5,6 +5,12 @@
   items:
   - name: What is Personalizer?
     href: what-is-personalizer.md
+- name: Concepts
+  items: 
+  - name: Analysis
+    items: 
+    - name: Offline evaluation
+      href: concepts-offline-evaluation.md
 - name: Quickstarts
   items:
   - name: Create and use feedback loop
