@@ -31,11 +31,11 @@ With both approaches, we evaluate the models by using the test dataset with repl
 
 4. Select the **Open** button for the Sample 4 experiment:
 
-    ![Open the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
+    ![Open the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/open-sample4.png)
 
 ## Related sample
 
-See [Sample 3 - Classification: Credit Risk Prediction (Basic)](sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
+See [Sample 3 - Classification: Credit Risk Prediction (Basic)](ui-sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
 
 ## Data
 
@@ -47,7 +47,7 @@ The cost of misclassifying a low-risk example as high is 1, and the cost of misc
 
 Here's the graph of the experiment:
 
-![Graph of the experiment](media/sample-classification-predict-credit-risk-cost-sensitive/graph.png)
+[ ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Data processing
 
@@ -103,7 +103,7 @@ We use the standard experimental workflow to create, train, and test the models:
 
 The following diagram shows a portion of this experiment, in which the original and replicated training sets are used to train two different SVM models. **Train Model** is connected to the training set, and **Score Model** is connected to the test set.
 
-![Experiment graph](media/sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
+![Experiment graph](media/ui-sample-classification-predict-credit-risk-cost-sensitive/score-part.png)
 
 
 In the evaluation stage of the experiment, we compute the accuracy of each of the four models. For this experiment, we use **Evaluate Model** to compare examples that have the same misclassification cost.
@@ -139,7 +139,7 @@ def azureml_main(dataframe1 = None, dataframe2 = None):
 
 To view the results of the experiment, you can right-click the Visualize output of the last **Select Columns in Dataset** module.
 
-![Visualize output](media/sample-classification-predict-credit-risk-cost-sensitive/result.png)
+![Visualize output](media/ui-sample-classification-predict-credit-risk-cost-sensitive/result.png)
 
 The first column lists the machine learning algorithm used to generate the model.
 The second column indicates the type of the training set.
@@ -155,7 +155,7 @@ From these results, you can see that the best accuracy is provided by the model 
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](sample-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

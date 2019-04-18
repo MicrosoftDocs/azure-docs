@@ -22,11 +22,11 @@ This visual interface sample experiment shows how to build a regression model to
 
 4. Select the **Open** button for the Sample 1 experiment:
 
-    ![Open the experiment](media/sample-regression-predict-automobile-price-basic/open-sample1.png)
+    ![Open the experiment](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
 
 ## Related sample
 
-[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
+[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
 
 ## Experiment summary
 
@@ -39,7 +39,7 @@ We use these steps to build the experiment:
 
 Here's the complete graph of the experiment:
 
-![Graph of the experiment](media/sample-regression-predict-automobile-price-basic/overall-graph.png)
+![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## Get the data
 
@@ -51,7 +51,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 We use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](./media/sample-regression-predict-automobile-price-basic/data-processing.png)
+![Data pre-processing](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## Train the model
 Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
@@ -68,11 +68,11 @@ After the model is trained, we use the **Score Model** and **Evaluate Model** mo
 
 **Score Model** generates predictions for the test dataset by using the trained model. To check the result, select the output port of **Score Model** and then select **Visualize**.
 
-![Score result](./media/sample-regression-predict-automobile-price-basic/score-result.png)
+![Score result](./media/ui-sample-regression-predict-automobile-price-basic/score-result.png)
 
 We then pass the scores to the **Evaluate Model** module to generate evaluation metrics. To check the result, select the output port of the **Evaluate Model** and then select **Visualize**.
 
-![Evaluate result](./media/sample-regression-predict-automobile-price-basic/evaluate-result.png)
+![Evaluate result](./media/ui-sample-regression-predict-automobile-price-basic/evaluate-result.png)
 
 ## Clean up resources
 
@@ -82,7 +82,7 @@ We then pass the scores to the **Evaluate Model** module to generate evaluation 
 
 Explore the other samples available for the visual interface:
 
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

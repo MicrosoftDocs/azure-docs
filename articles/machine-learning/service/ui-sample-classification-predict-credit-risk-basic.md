@@ -22,11 +22,11 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 4. Select the **Open** button for the Sample 3 experiment:
 
-    ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Open the experiment](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## Related sample
 
-[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
+[Sample 4 - Classification: Credit Risk Prediction (Cost Sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 provides an advanced experiment that solves the same problem as this experiment. It shows how to perform _cost sensitive_ classification by using an **Execute Python Script** module and compare the performance of two binary classification algorithms. Refer to it if you want to learn more about how to build classification experiments.
 
 ## Data
@@ -49,12 +49,12 @@ We follow these steps to create the experiment:
     
 Here's the complete experiment graph:
 
-![Graph of the experiment](media/sample-classification-predict-credit-risk-basic/overall-graph.png)
+![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 
 ## Results
 
-![Evaluate the results](media/sample-classification-predict-credit-risk-basic/evaluate-result.png)
+![Evaluate the results](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
 In the evaluation results, you can see that the AUC of the model is 0.757. At threshold 0.5, the precision is 0.7, the recall is 0.393, and the F1 score is 0.503.
 
@@ -66,7 +66,7 @@ In the evaluation results, you can see that the AUC of the model is 0.757. At th
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](sample-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

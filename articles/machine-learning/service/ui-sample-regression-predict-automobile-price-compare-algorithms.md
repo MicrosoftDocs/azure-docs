@@ -22,11 +22,11 @@ This visual interface sample experiment shows how to compare the performance of 
 
 4. Select the **Open** button for the Sample 2 experiment:
 
-    ![Open the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Open the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
 ## Related sample
 
-[Sample 1 - Regression: Automobile Price Prediction (Basic)](sample-regression-predict-automobile-price-basic.md) provides a simpler experiment that solves the same problem as this experiment but that uses only one regression model. Refer to it if you're looking for a basic sample of regression.
+[Sample 1 - Regression: Automobile Price Prediction (Basic)](ui-sample-regression-predict-automobile-price-basic.md) provides a simpler experiment that solves the same problem as this experiment but that uses only one regression model. Refer to it if you're looking for a basic sample of regression.
 
 ## Experiment summary
 
@@ -39,7 +39,8 @@ We use these steps to build the experiment:
 
 Here's the complete graph of the experiment:
 
-![Graph of the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/graph.png)
+[ ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+
 
 ## Get the data
 
@@ -51,7 +52,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 In this experiment, we use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](media/sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Data pre-processing](media/ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## Train the model
 
@@ -75,7 +76,7 @@ First, we compare two algorithms on the training dataset.
 Second, we compare two algorithms on the testing dataset.
 Here are the results:
 
-![Compare the results](media/sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Compare the results](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 
@@ -89,7 +90,7 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](sample-regression-predict-automobile-price-basic.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
