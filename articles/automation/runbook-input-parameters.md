@@ -24,10 +24,10 @@ PowerShell and PowerShell Workflow runbooks in Azure Automation support input pa
 
 | **Property** | **Description** |
 |:--- |:--- |
-| Type |Required. The data type expected for the parameter value. Any .NET type is valid. |
-| Name |Required. The name of the parameter. This must be unique within the runbook, and can contain only letters, numbers, or underscore characters. It must start with a letter. |
-| Mandatory |Optional. Specifies whether a value must be provided for the parameter. If you set this to **\$true**, then a value must be provided when the runbook is started. If you set this to **\$false**, then a value is optional. |
-| Default value |Optional. Specifies a value that is used for the parameter if a value is not passed in when the runbook is started. A default value can be set for any parameter and will automatically make the parameter optional regardless of the Mandatory setting. |
+| `Type` |Required. The data type expected for the parameter value. Any .NET type is valid. |
+| `Name` |Required. The name of the parameter. This must be unique within the runbook, and can contain only letters, numbers, or underscore characters. It must start with a letter. |
+| `Mandatory` |Optional. Specifies whether a value must be provided for the parameter. If you set this to **\$true**, then a value must be provided when the runbook is started. If you set this to **\$false**, then a value is optional. |
+| `Default value` |Optional. Specifies a value that is used for the parameter if a value is not passed in when the runbook is started. A default value can be set for any parameter and will automatically make the parameter optional regardless of the Mandatory setting. |
 
 Windows PowerShell supports more attributes of input parameters than those listed here, like validation, aliases, and parameter sets. However, Azure Automation currently supports only the preceding input parameters.
 
@@ -88,11 +88,11 @@ You can use the [**Write-Output**](/powershell/module/microsoft.powershell.utili
 
    | **Property** | **Description** |
    |:--- |:--- |
-   | Name |Required. The name of the parameter. This must be unique within the runbook, and can contain only letters, numbers, or underscore characters. It must start with a letter. |
-   | Description |Optional. Description about the purpose of input parameter. |
-   | Type |Optional. The data type that's expected for the parameter value. Supported parameter types are **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime**, and **Object**. If a data type is not selected, it defaults to **String**. |
-   | Mandatory |Optional. Specifies whether a value must be provided for the parameter. If you choose **yes**, then a value must be provided when the runbook is started. If you choose **no**, then a value is not required when the runbook is started, and a default value may be set. |
-   | Default Value |Optional. Specifies a value that is used for the parameter if a value is not passed in when the runbook is started. A default value can be set for a parameter that's not mandatory. To set a default value, choose **Custom**. This value is used unless another value is provided when the runbook is started. Choose **None** if you don’t want to provide any default value. |
+   | `Name` |Required. The name of the parameter. This must be unique within the runbook, and can contain only letters, numbers, or underscore characters. It must start with a letter. |
+   | `Description` |Optional. Description about the purpose of input parameter. |
+   | `Type` |Optional. The data type that's expected for the parameter value. Supported parameter types are **String**, **Int32**, **Int64**, **Decimal**, **Boolean**, **DateTime**, and **Object**. If a data type is not selected, it defaults to **String**. |
+   | `Mandatory` |Optional. Specifies whether a value must be provided for the parameter. If you choose **yes**, then a value must be provided when the runbook is started. If you choose **no**, then a value is not required when the runbook is started, and a default value may be set. |
+   | `Default Value` |Optional. Specifies a value that is used for the parameter if a value is not passed in when the runbook is started. A default value can be set for a parameter that's not mandatory. To set a default value, choose **Custom**. This value is used unless another value is provided when the runbook is started. Choose **None** if you don’t want to provide any default value. |
 
     ![Add new input](media/automation-runbook-input-parameters/automation-runbook-input-parameter-new.png)
 4. Create two parameters with the following properties that are used by the **Get-AzureRmVm** activity:

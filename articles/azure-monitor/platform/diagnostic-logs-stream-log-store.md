@@ -1,28 +1,27 @@
 ---
-title: Stream Azure Diagnostic Logs to Log Analytics
-description: Learn how to stream Azure diagnostic logs to a Log Analytics workspace.
+title: Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor
+description: Learn how to stream Azure diagnostic logs to a Log Analytics workspace in Azure Monitor.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
 ---
-# Stream Azure Diagnostic Logs to Log Analytics
+# Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor
 
-**[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to Azure Log Analytics using the portal, PowerShell cmdlets or Azure CLI.
+**[Azure diagnostic logs](diagnostic-logs-overview.md)** can be streamed in near real time to a Log Analytics workspace in Azure Monitor using the portal, PowerShell cmdlets or Azure CLI.
 
-## What you can do with diagnostics logs in Log Analytics
+## What you can do with diagnostics logs in a Log Analytics workspace
 
-Azure Log Analytics is a flexible log search and analytics tool that enables you to gain insight into the raw log data generated from Azure resources. Some capabilities include:
+Azure Monitor provides a flexible log query and analytics tool that enables you to gain insight into the raw log data generated from Azure resources. Some capabilities include:
 
-* **Log search** - Write advanced queries over your log data, correlate logs from various sources, and even generate charts that can be pinned to your Azure dashboard.
-* **Alerting** - Detect when one or more events match a particular query and become notified with an email or webhook call.
-* **Solutions** - Use pre-built views and dashboards that give you immediate insight into your log data.
+* **Log query** - Write advanced queries over your log data, correlate logs from various sources, and generate charts that can be pinned to your Azure dashboard.
+* **Alerting** - Detect when one or more events match a particular query and become notified with an email or webhook call using Azure Monitor alerts.
 * **Advanced analytics** - Apply machine learning and pattern matching algorithms to identify possible issues revealed by your logs.
 
-## Enable streaming of diagnostic logs to Log Analytics
+## Enable streaming of diagnostic logs to Log Analytics workspace
 
 You can enable streaming of diagnostic logs programmatically, via the portal, or using the [Azure Monitor REST APIs](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). Either way, you create a diagnostic setting in which you specify a Log Analytics workspace and the log categories and metrics you want to send in to that workspace. A diagnostic **log category** is a type of log that a resource may provide.
 
@@ -36,9 +35,8 @@ The Log Analytics workspace does not have to be in the same subscription as the 
 >
 
 ## Stream diagnostic logs using the portal
-1. In the portal, navigate to Azure Monitor and click on **Diagnostic Settings**
+1. In the portal, navigate to Azure Monitor and click on **Diagnostic settings** in the **Settings** menu.
 
-    ![Monitoring section of Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Optionally filter the list by resource group or resource type, then click on the resource for which you would like to set a diagnostic setting.
 
@@ -91,9 +89,9 @@ You can add additional categories to the diagnostic log by adding dictionaries t
 
 The `--resource-group` argument is only required if `--workspace` is not an object ID.
 
-## How do I query the data in Log Analytics?
+## How do I query the data from a Log Analytics workspace?
 
-In the Log Search blade in the portal or Advanced Analytics experience as part of Log Analytics, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Log Analytics.
+In the Logs blade in the Azure Monitor portal, you can query diagnostic logs as part of the Log Management solution under the AzureDiagnostics table. There are also [several monitoring solutions for Azure resources](../../azure-monitor/insights/solutions.md) you can install to get immediate insight into the log data you are sending into Azure Monitor.
 
 ### Known limitation: column limit in AzureDiagnostics
 Because many resources send data types are all sent to the same table (_AzureDiagnostics_), the schema of this table is the super-set of the schemas of all the different data types being collected. For example, if you have created diagnostic settings for the collection of the following data types, all being sent to the same workspace:
@@ -120,7 +118,7 @@ Azure Data Factory, due to a very detailed set of logs, is a resource that is kn
 - *User parameters defined against any activity in your pipeline*: there will be a new column created for every uniquely-named user parameter against any activity. 
 - *Activity inputs and outputs*: these vary activity-to-activity and generate a large amount of columns due to their verbose nature. 
  
-As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available by mid-April 2019.
+As with the broader workaround proposals below, it is recommended to isolate ADF logs into their own workspace to minimize the chance of these logs impacting other log types being collected in your workspaces. We expect to have curated logs for Azure Data Factory available soon.
  
 #### Workarounds
 Short term, until the 500-column limit is redefined, it is recommended to separate verbose data types into separate workspaces to reduce the possibility of hitting the limit.

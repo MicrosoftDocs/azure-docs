@@ -63,17 +63,17 @@
     href: azure-management.md
   - name: Continuous monitoring
     href: continuous-monitoring.md
-  - name: Analyze log data
-    items: 
-    - name: Log queries
-      href: log-query/log-query-overview.md
-    - name: Log query portals
-      href: log-query/portals.md
-  - name: Monitoring data
-    items: 
-    - name: Metrics and logs
-      href: platform/data-collection.md
-    - name: Data sources
+  - name: Data platform
+    items:
+    - name: Overview
+      href: platform/data-platform.md
+    - name: Metrics
+      href: platform/data-platform-metrics.md
+    - name: Logs
+      href: platform/data-platform-logs.md
+  - name: Data sources
+    items:
+    - name: Data sources summary
       href: platform/data-sources.md
     - name: Azure data sources
       href: platform/data-sources-reference.md
@@ -85,14 +85,14 @@
       href: platform/data-ingestion-time.md  
     - name: Custom metrics to metric store
       href: platform/metrics-custom-overview.md       
-    - name: Data security
-      items:
-      - name: Log data
-        href: platform/data-security.md
-      - name: Personal log data handling
-        href: platform/personal-data-mgmt.md
-      - name: Application data collection, retention, and storage
-        href: app/data-retention-privacy.md
+  - name: Data security
+    items:
+    - name: Log data
+      href: platform/data-security.md
+    - name: Personal log data handling
+      href: platform/personal-data-mgmt.md
+    - name: Application data collection, retention, and storage
+      href: app/data-retention-privacy.md
   - name: Insights
     items:
     - name: Application Insights
@@ -127,6 +127,8 @@
       href: platform/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
+    - name: Common alert schema
+      href: platform/alerts-common-schema.md
   - name: Visualize data
     href: visualizations.md
   - name: Partner integrations
@@ -179,8 +181,6 @@
           href: learn/quick-create-workspace-posh.md
       - name: Delete a workspace
         href: platform/delete-workspace.md
-      - name: Manage a workspace
-        href: platform/manage-access.md
       - name: Design for service providers
         href: platform/service-providers.md
   - name: Collect data
@@ -223,7 +223,7 @@
           href: platform/diagnostic-logs-append-blobs.md
         - name: VM guest to metrics store
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md  
-        - name: VM scale set guest to metrics store
+        - name: Virtual machine scale set guest to metrics store
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md  
         - name: VM classic guest to metrics store 
           href: platform/collect-custom-metrics-guestos-vm-classic.md  
@@ -297,12 +297,12 @@
             href: app/snapshot-debugger-appservice.md
           - name: Enable Snapshot Debugger for other environments
             href: app/snapshot-debugger-vm.md
+          - name: Upgrade Snapshot Debugger
+            href: app/snapshot-debugger-upgrade.md
           - name: Snapshot Debugger troubleshooting
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Previews
-          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -318,6 +318,8 @@
           items:
           - name: Profiler for Linux App services (preview)
             href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core without Visual Studio
+          href: app/asp-net-core-no-visualstudio.md            
         - name: Console
           href: app/console.md
         - name: Application dashboard
@@ -338,12 +340,12 @@
           href: app/annotations.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
+        - name: Snapshot Debugger
+          href: app/snapshot-debugger.md
       - name: Java apps
         items:
         - name: Web apps
-          href: app/java-get-started.md
-        - name: Web apps - runtime
-          href: app/java-live.md
+          href: app/java-get-started.md        
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
@@ -431,6 +433,8 @@
         href: platform/collect-azure-metrics-logs.md
       - name: Diagnostic or log data from Azure storage
         href: platform/azure-storage-iis-table.md
+      - name: Azure PaaS resources
+        href: platform/collect-azurepass-posh.md
       - name: Correlate custom data sources
         href: app/custom-data-correlation.md
     - name: Collect custom data 
@@ -457,10 +461,10 @@
         href: platform/archive-diagnostic-logs.md
       - name: Store diagnostic logs
         href: platform/diagnostic-logs-stream-log-store.md
-      - name: Azure resource data to Event Hub
-        href: platform/stream-monitoring-data-event-hubs.md
       - name: Stream activity log to Event Hubs
         href: platform/activity-logs-stream-event-hubs.md
+      - name: Logs and metrics to Event Hub
+        href: platform/stream-monitoring-data-event-hubs.md
       - name: Diagnostic logs to Event Hub
         href: platform/diagnostic-logs-stream-event-hubs.md
       - name: Application data to Log Analytics
@@ -542,10 +546,14 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Analyze data with log queries
+          href: insights/container-insights-log-search.md
         - name: Alerting
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Update to enable metrics
+          href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
@@ -570,8 +578,8 @@
           href: insights/network-performance-monitor.md
         - name: Performance Monitor
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service Endpoint
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Service Connectivity Monitor
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Pricing
@@ -596,7 +604,9 @@
           href: insights/vminsights-maps.md
         - name: Monitor performance
           href: insights/vminsights-performance.md
-        - name: Query data with Log Analytics
+        - name: Using workbooks
+          href: insights/vminsights-workbooks.md
+        - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
@@ -666,18 +676,20 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Getting started with Metrics Explorer
-      href: platform/metrics-getting-started.md
-    - name: Advanced features of Metrics Explorer
-      href: platform/metrics-charts.md
-    - name: Examples of metrics charts
-      href: platform/metric-chart-samples.md
-    - name: View events in activity log
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: View service notifications
-      href: platform/service-notifications.md
-    - name: Query log data
+    - name: Metrics
       items:
+      - name: Getting started with Metrics Explorer
+        href: platform/metrics-getting-started.md
+      - name: Advanced features of Metrics Explorer
+        href: platform/metrics-charts.md
+      - name: Examples of metrics charts
+        href: platform/metric-chart-samples.md
+    - name: Logs
+      items:
+      - name: Log queries
+        href: log-query/log-query-overview.md
+      - name: Log query portals
+        href: log-query/portals.md
       - name: Query language Documentation
         href: log-query/query-language.md
       - name: Language differences
@@ -752,6 +764,10 @@
         href: platform/flow-tutorial.md
       - name: Log Search API
         href: https://dev.loganalytics.io/
+    - name: View events in activity log
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: View service notifications
+      href: platform/service-notifications.md
   - name: Respond to incidents
     items:
     - name: Alerts
@@ -802,6 +818,8 @@
           href: platform/action-groups.md
         - name: Learn about the webhook schema
           href: platform/activity-log-alerts-webhook.md
+        - name: Common alert schema definitions
+          href: platform/alerts-common-schema-definitions.md    
         - name: SMS alert behavior
           href: platform/alerts-sms-behavior.md
         - name: Alert rate limiting
@@ -822,6 +840,14 @@
           href: platform/alerts-managing-alert-states.md  
         - name: Manage alerts from other monitoring services
           href: platform/alerts-managing-nagios-zabbix-scom.md   
+      - name: Migrate classic alerts
+        items:
+        - name: Use the migration tool
+          href: platform/alerts-using-migration-tool.md
+        - name: Prepare for the migration
+          href: platform/alerts-prepare-migration.md
+        - name: Understand the migration tool
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Walkthrough of autoscale
@@ -836,9 +862,9 @@
         href: platform/autoscale-common-scale-patterns.md
       - name: Autoscale using a custom metric
         href: platform/autoscale-custom-metric.md
-      - name: Autoscale VM scale sets using Resource Manager templates
+      - name: Autoscale virtual machine scale sets using Resource Manager templates
         href: platform/autoscale-virtual-machine-scale-sets.md
-      - name: Automatically scale machines in a VM scale set
+      - name: Automatically scale machines in a virtual machine scale set
         href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
       - name: Configure webhooks and email notifications on autoscale
         href: platform/autoscale-webhook-email.md
@@ -965,9 +991,9 @@
   - name: Azure PowerShell
     items:
     - name: Monitor
-      href: /powershell/module/azurerm.insights
+      href: /powershell/module/az.applicationinsights
     - name: Logs
-      href: /powershell/module/azurerm.operationalinsights
+      href: /powershell/module/az.operationalinsights
   - name: REST API
     items:
     - name: Monitor

@@ -1,5 +1,5 @@
 ---
-title: Configure a IP restriction rule with web application firewall rule for Azure Front Door
+title: Configure an IP restriction rule with web application firewall rule for Azure Front Door
 description: Learn how to IP addresses for an existing Front Door endpoint.
 services: frontdoor
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.date: 04/18/2019
 ms.author: kumud;tyao
 
 ---
-# How to configure a IP restriction rule with web application firewall for Azure Front Door (Preview)
+# How to configure an IP restriction rule with web application firewall for Azure Front Door (Preview)
  This article shows you how to configure IP restriction rules in Azure web application firewall (WAF) for Front Door by using [Azure CLI](#configure-ip-firewall-cli), [Azure PowerShell](#configure-ip-firewall-powershell), or [Azure Resource Manager template](#configure-ip-firewall-template).
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Before you begin to configure an IP restriction policy, set up your CLI environm
  2. If using the CLI locally in Bash, sign in to Azure with `az login`.
 
 #### Create Front Door profile
-Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md)
+Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md)
 
 ### Create a WAF policy
 
@@ -105,7 +105,7 @@ Azure PowerShell provides a set of cmdlets that use the [Azure Resource Manager]
 
 You can install [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) on your local machine and use it in any PowerShell session. Follow the instructions on the page, to sign in with your Azure credentials, and install Az PowerShell module.
 
-##### Connect to Azure with an interactive dialog for sign-in
+##### Connect to Azure with an interactive dialog for sign in
 ```
 Connect-AzAccount
 
@@ -122,7 +122,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### Create a Front Door profile
-Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md)
+Create a Front Door profile by following the instructions described in [Quickstart: Create a Front Door profile](quickstart-create-front-door.md)
 
 ### Define IP match condition
 Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) command to define an IP match condition. Replace example IP ranges of ["192.168.1.0/24","192.168.2.2/32"] with your own range.
@@ -193,7 +193,7 @@ Link the WAF policy object to an existing Front Door front-end host and update F
 > In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link WAF policy to any of your front-ends.You only need to set *WebApplicationFirewallPolicyLink* property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
 
-## <a id="configure-ip-firewall-template"></a>Configure an IP access control policy by using ARM template
+## <a id="configure-ip-firewall-template"></a>Configure an IP access control policy by using Resource Manager template
 Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip) to view the template that creates a Front Door and a WAF policy with custom IP restriction rules.
 
 

@@ -109,7 +109,7 @@ SET (ALLOW_CONNECTIONS = NO)
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABSE V1
+ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
