@@ -187,7 +187,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
    DECLARE @speedmodel varbinary(max) = 
        (SELECT model FROM dbo.stopping_distance_models WHERE model_name = 'latest model');
 
-    EXEC sp_execute_external_script
+   EXECUTE sp_execute_external_script
        @language = N'R'
        , @script = N'
                current_model <- unserialize(as.raw(speedmodel));
