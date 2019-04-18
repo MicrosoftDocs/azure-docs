@@ -44,7 +44,7 @@ Once you've created an Azure account and a Speech Services subscription, you'll 
 
 1. Get your Speech Services subscription key from the Azure portal.
 2. Sign-in to the [Custom Speech portal](https://portal.cris.ai/customspeech.html).
-3. Select the subscription you need to work on and creat a speech project. 
+3. Select the subscription you need to work on and creat a speech project.
 4. If you'd like to modify your subscription, use the **cog** icon located in the top navigation.
 
 ## How to create a project

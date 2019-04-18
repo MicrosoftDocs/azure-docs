@@ -36,6 +36,7 @@ Adding different datasets to training helps resolve accuracy issues.  Use the gu
 **<< TODO - Erik: edit/rephrase >>**
 
 Once you have uploaded the training data, click Train model button in the Training tab to start a new model customization.
+
 First and as always, give your model a name with some suggestive description. Next, in the Scenario and Baseline model drop-down list, select a scenario that fits your business domain. If you are not sure about the scenario, just select “General”. The baseline model is the starting point for your customization. You may use the latest one if you don’t have any preference here.
 
 Next, in the Select training data page, select one or multiple audio + transcript datasets that you want to use to perform the customization.

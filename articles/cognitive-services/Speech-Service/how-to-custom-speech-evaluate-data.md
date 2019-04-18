@@ -38,7 +38,7 @@ You can use the WER from the machine recognition results to evaluate the quality
 
 How the errors are distributed is important. When many deletion errors are encountered, it's usually due to weak audio signal strength. To resolve this issue, you'll need to collect audio data closer to the source. Insertion errors mean that the audio was recorded in a noisy environment and crosstalk may be present, causing recognition issues. Substitution errors are usually encountered when an insufficient sample of domain-specific terms have been provided as either human-labeled transcriptions or related text.
 
-Moreover, you may drill down to file details and look at individual files to get a sense which type of errors exist, so that you can pick out some typical cases and get specific targets to improve.
+By analyzing individual files, you can determine what type of errors exist, and which errors are unique to a specific file. Understanding issues at the file level will help you target improvements.
 
 ## Create a test
 
@@ -56,7 +56,7 @@ After test creations succeeds, you can compare the results side-by-side.
 
 ## Side-by-side comparison
 
-Once the test is complete, indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Click on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. It is recommended to play the associated audio files, especially for long audio files, during your inspection by clicking the 'Play' icon and listening to the original audio. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
+Once the test is complete, indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Click on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. It is recommended to play the associated audio files, especially for long audio files. By listening to the audio and comparing recognition results in each column, which shows the human-labeled transcription and the results for two speech-to-text models, you can decide which model meets your needs and where additional training and improvements are required.
 
 ## Next steps
 
