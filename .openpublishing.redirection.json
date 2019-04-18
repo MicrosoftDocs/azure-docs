@@ -36996,6 +36996,11 @@
       "source_path": "articles/azure-app-configuration/howto-integrate-ci-cd-pipeline.md",
       "redirect_url": "/azure/azure-app-configuration/integrate-ci-cd-pipeline",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-jre-support.md",
+      "redirect_url": "/azure/app-service/configure-language-java",
+      "redirect_document_id": false
     }
   ]
 }
