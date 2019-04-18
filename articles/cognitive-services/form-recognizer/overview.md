@@ -46,7 +46,7 @@ Additionally, Form Recognizer is **not** compatible with the following types of 
 * Complex tables (tables whose header and data associations cannot be easily determined from the layout)
 * Forms with checkboxes or radio buttons
 * Images which appear tilted
-* PDF documents longer than 3000 pages (Form Recognizer will process the first 3000 pages)
+* PDF documents longer than 50 pages or 4MB file size
 
 ## Data privacy and security
 
