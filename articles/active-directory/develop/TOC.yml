@@ -92,7 +92,13 @@
     - name: Application types
       href: v2-app-types.md
     - name: Microsoft Authentication Library (MSAL)
-      items:
+      items:        
+        - name: Overview
+          href: msal-overview.md
+        - name: Compare MSAL.NET and ADAL.Net
+          href: msal-compare-msal-net-and-adal-net.md
+        - name: Compare MSAL.js and ADAL.js
+          href: msal-compare-msal-js-and-adal-js.md
         - name: Client applications
           href: msal-client-applications.md
     - name: Authentication
