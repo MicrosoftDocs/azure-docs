@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - read queries on replicas| Microsoft Docs
-description: The Azure SQL Database provides the ability to load balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
+description: The Azure SQL Database provides the ability to load-balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -13,21 +13,19 @@ ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 04/18/2019
 ---
-# Use read-only replicas to load balance read-only query workloads
+# Use read-only replicas to load-balance read-only query workloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica.
-
-As part of the [High Availability architecture](./sql-database-high-availability#premium-and-business-critical-service-tier-availability), each database in the Premium, Business Critical or Hyperscale service tier is automatically provisioned with a primry replica and several secondary replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
+As part of the [High Availability architecture](./sql-database-high-availability#premium-and-business-critical-service-tier-availability), each database in the Premium, Business Critical or Hyperscale service tier is automatically provisioned with a primary replica and several secondary replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load-balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
 
 The following diagram illustrates it using a Business Critical database.
 
 ![Readonly replicas](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-The Read Scale-Out feature is enabled by default on new Premium,  Business Critical and Hyperscale databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+The Read Scale-Out feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium, Business Critical or Hyperscale tier and want to make sure all your connections continue to go to the primary replica, disable Read Scale-out. For details on how to disable it, see [Enable and disable Read Scale-Out](#enable-and-disable-read-scale-out).
 
@@ -79,7 +77,7 @@ When connected to a read-only replica, you can access the performance metrics us
 
 ## Enable and disable Read Scale-Out
 
-Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tier. You can change it on individual databases using the following methods. Read Scale-Out cannot be enabled in Basic, Standard or General Purpose service tiers.
+Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tier. You can change it on individual databases using the following methods. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers.
 
 > [!NOTE]
 > You cannot manage Read Scale-Out on databases created in Buisness Critical Managed Instance. It is always enabled. 
@@ -135,10 +133,10 @@ The TempDB database is not replicated to the read-only replicas. Each replica ha
 
 ## Using Read Scale-Out with geo-replicated databases
 
-If you are using read scale-out to load balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different end-point than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
+If you are using read scale-out to load-balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different endpoint than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
 
 > [!NOTE]
-> Round-robin or any other load balanced routing between the local replicas of the secondary database is not supported.
+> Round-robin or any other load-balanced routing between the local replicas of the secondary database is not supported.
 
 ## Next steps
 
