@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -24,22 +24,28 @@ If the [built-in roles for Azure resources](built-in-roles.md) don't meet the sp
 
 ## List custom roles
 
-To list all custom roles in a directory, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the directory scope.
-
-- Use the following request:
-
-    ```http
-    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2017-09-01&$filter=type%20eq%20'CustomRole'
-    ```
-
-## List custom roles at a scope
-
-To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
+To list all custom roles in a directory, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API.
 
 1. Start with the following request:
 
     ```http
-    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter=type%20eq%20'CustomRole'
+    GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
+    ```
+
+1. Replace *{filter}* with the role type.
+
+    | Filter | Description |
+    | --- | --- |
+    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+
+## List custom roles at a scope
+
+To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API.
+
+1. Start with the following request:
+
+    ```http
+    GET https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
 1. Within the URI, replace *{scope}* with the scope for which you want to list the roles.
@@ -50,9 +56,15 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
 
+1. Replace *{filter}* with the role type.
+
+    | Filter | Description |
+    | --- | --- |
+    | `$filter=type%20eq%20'CustomRole'` | Filter based on the CustomRole type |
+
 ## List a custom role definition by name
 
-To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
+To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API.
 
 1. Start with the following request:
 
@@ -76,7 +88,7 @@ To get information about a custom role by its display name, use the [Role Defini
 
 ## List a custom role definition by ID
 
-To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
+To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier for the role.
 
