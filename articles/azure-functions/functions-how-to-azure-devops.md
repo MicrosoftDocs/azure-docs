@@ -20,17 +20,17 @@ You can automatically deploy your function to an Azure Function app using [Azure
 
 ## Build your app
 
-# [YAML .NET](#tab/yaml)
+# [YAML .NET](#tab/yamldotnet)
 You can use the following samples to create your YAML file to build your .NET app targeting:
 - Windows Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/windows/node-windows.yml)
 - Dedicated Linux Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/dedicated/dotnet-dedicated.yml)
 - Consumption Linux Function App (In Preview): [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/consumption/dotnet-consumption.yml) 
-# [YAML Java Script](#tab/yaml)
+# [YAML Java Script](#tab/yamljs)
 You can use the following samples to create your YAML file to build your Java Script app targeting:
 - Windows Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/windows/node-windows.yml)
 - Dedicated Linux Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/dedicated/node-dedicated.yml)
 - Consumption Linux Function App (In Preview): [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/consumption/node-consumption.yml) 
-# [YAML Python](#tab/yaml)
+# [YAML Python](#tab/yamlpy)
 You can use the following samples to create your YAML file to build your Python app targeting:
 - Dedicated Linux Function App: [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/dedicated/python-dedicated.yml)
 - Consumption Linux Function App (In Preview): [Sample](https://github.com/Azure/azure-functions-devops-build/blob/master/sample_yaml_builds/linux/consumption/python-consumption.yml) 
@@ -45,7 +45,7 @@ After configuring the source of your code, search for Azure Functions build temp
 
 
 ## Deploying your app
-# [YAML Windows Function App](#tab/yaml)
+# [YAML Windows Function App](#tab/yamlwin)
 The following snippet can be used to deploy to a Windows function app
 ```yaml
 steps:
@@ -55,7 +55,7 @@ steps:
     appType: functionApp
     appName: '<Name of function app>'
 ```
-# [YAML Linux Function App](#tab/yaml)
+# [YAML Linux Function App](#tab/yamllinux)
 The following snippet can be used to deploy to a Linux function app
 ```yaml
 steps:
