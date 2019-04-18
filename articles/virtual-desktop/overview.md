@@ -49,12 +49,17 @@ You can also assign and connect users to your virtual desktops:
 
 There are a few things you need to set up Windows Virtual Desktop and successfully connect your users to their Windows desktops and applications.
 
-First, make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
+Windows Virtual Desktop currently only supports the following two OSes:
+- Windows 10 Enterprise multi-session
+- Windows Server 2016
+
+We plan to add support for the following OSes, so make sure you have the [appropriate licenses](https://azure.microsoft.com/pricing/details/virtual-desktop/) for your users based on the desktop and apps you plan to deploy:
 
 |OS|Required license|
 |---|---|
-|Windows 10 Enterprise multi-session or Windows 10 single-session|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
-|Windows 7|Microsoft 365 E3, E5, A3, A5, Business, F1<br>Windows E3, E5, A3, A5|
+
+|Windows 10 Enterprise multi-session or Windows 10 Enterprise|Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
+|Windows 7 Enterprise |Microsoft E3, E5, A3, A5, Business<br>Windows E3, E5, A3, A5|
 |Windows Server 2012 R2, 2016, 2019|RDS Client Access License (CAL) with Software Assurance|
 
 Your infrastructure needs the following things to support Windows Virtual Desktop:
