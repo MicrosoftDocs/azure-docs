@@ -17,9 +17,6 @@ Each provisioned Azure Digital Twins instance includes its own automatically gen
 
 [Swagger](https://swagger.io/), or [OpenAPI](https://www.openapis.org/), unites complex API information into an interactive and language-agnostic reference resource. Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
-> [!IMPORTANT]
-> Support for Swagger authentication is temporarily disabled during Public Preview.
-
 ## Swagger summary
 
 Swagger provides an interactive summary of your API, which includes:
@@ -93,7 +90,42 @@ The examples also include error codes to help debug or improve failing tests.
 To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
-> Support for OAuth 2.0 authentication is temporarily disabled during Public Preview.
+> The user principal that created the Azure Digital Twins resource will have a Space Administrator role assignment and will be able to create additional role assignments for other users.
+
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application of type ***Web app / API***. Or you can reuse an existing app registration.
+
+2. Add the following reply url to the app registration:
+
+    ```plaintext
+    https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
+    ```
+    | Name  | Replace with | Example |
+    |---------|---------|---------|
+    | YOUR_SWAGGER_URL | Your Management REST API documentation URL found in the portal  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
+
+3. Grant permissions for your app to access Azure Digital Twins. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
+
+    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+4. Configure the application manifest to allow OAuth 2.0 implicit flow. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
+
+    ![Azure AD implicit flow](../../includes/media/digital-twins-permissions/aad-app-allow-implicit-flow.png)
+
+5. Copy the ID of your Azure AD app.
+
+6. Click the Authorize button on your swagger page.
+
+    ![Swagger authorize button](../../includes/media/digital-twins-permissions/swagger-select-authorize-btn.png)
+
+7. Paste the application ID into the client_id field.
+
+    ![Swagger client_id field](../../includes/media/digital-twins-permissions/swagger-auth-form.png)
+
+    ![Swagger grant application permissions](../../includes/media/digital-twins-permissions/swagger-grant-application-permissions.png)
+
+8. You should now see the Bearer authentication token passed in the authorization header and the identity of the logged in user displayed in the result.
+
+    ![Swagger token result](../../includes/media/digital-twins-permissions/swagger-token-example.png)
 
 ## Next steps
 
