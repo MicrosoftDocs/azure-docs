@@ -29,7 +29,7 @@ The secondary replicas are provisioned with the same compute size as the primary
 
 The Read Scale-Out feature is enabled by default on the new Premium and Business Critical databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium or Business Critical tier and want to make sure all your connections continue to go to the primary replica, set `readScale` property to `Disabled`.  You can do that by using the PowerShell cmdlets [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) or through the Azure Resource Manager REST API [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium or Business Critical tier and want to make sure all your connections continue to go to the primary replica, disable Read Scale-out. For details on how to disable it, see [Enable and disable Read Scale-Out](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
 > Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas. 
@@ -79,35 +79,40 @@ When connected to a read-only replica, you can access the performance metrics us
 
 ## Enable and disable Read Scale-Out
 
-Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier. It should be explicitly enabled in [database placed on SQL Database server](sql-database-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here.
+Read Scale-Out is enabled by default on Premium and Business Critical service tier. You can change it on individual databases using the following methods. 
+
+> [!NOTE]
+> You cannot manage Read Scale-Out on databases created in Buisness Critical Managed Instance. It is always enabled.
 
 ### PowerShell: Enable and disable Read Scale-Out
 
 Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest PowerShell release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Enable or disable read scale-out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter. Alternatively, you may use the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet to create a new database with read scale-out enabled.
+You can disable or re-enable Read Scale-Out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter. 
 
-For example, to enable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
-
-```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
-```
-
-To disable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+To disable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
 ```
-
-To create a new database with read scale-out enabled (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+To disable read scale-out on a new database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
 New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
 ```
 
+To re-enable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+
+```powershell
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+```
+
+> [!NOTE]
+> These commands are not supported in Basic, Standard or General Purpose service tiers.
+
 ### REST API: Enable and disable Read Scale-Out
 
-To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
+To create a database with read scale-out disabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
