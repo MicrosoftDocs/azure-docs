@@ -22,7 +22,7 @@ This visual interface sample experiment demonstrates how to perform binary class
 
 4. Select the **Open** button for the Sample 3 experiment:
 
-    ![Open the experiment](media/sample-classification-predict-credit-risk-basic/open-sample3.png)
+    ![Open the experiment](media/ui-sample-classification-predict-credit-risk-basic/open-sample3.png)
 
 ## Related sample
 
@@ -49,12 +49,12 @@ We follow these steps to create the experiment:
     
 Here's the complete experiment graph:
 
-![Graph of the experiment](media/sample-classification-predict-credit-risk-basic/overall-graph.png)
+![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-basic/overall-graph.png)
 
 
 ## Results
 
-![Evaluate the results](media/sample-classification-predict-credit-risk-basic/evaluate-result.png)
+![Evaluate the results](media/ui-sample-classification-predict-credit-risk-basic/evaluate-result.png)
 
 In the evaluation results, you can see that the AUC of the model is 0.757. At threshold 0.5, the precision is 0.7, the recall is 0.393, and the F1 score is 0.503.
 

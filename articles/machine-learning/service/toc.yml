@@ -55,19 +55,19 @@
     items:
     - name: "Predict price"
       displayName: Sample 1, training, regression
-      href:  sample-regression-predict-automobile-price-basic.md
+      href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
       displayName: Sample 2, training, regression
-      href: sample-regression-predict-automobile-price-compare-algorithms.md
+      href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
       displayName: Sample 3, training, classification
-      href: sample-classification-predict-credit-risk-basic.md
+      href: ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
       displayName: Sample 4, training, classification
-      href: sample-classification-predict-credit-risk-cost-sensitive.md
+      href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
       displayName: Sample 5, training, CRM, classification
-      href: sample-classification-predict-churn.md
+      href: ui-sample-classification-predict-churn.md
 - name: Concepts
   items:
   - name: How the service works

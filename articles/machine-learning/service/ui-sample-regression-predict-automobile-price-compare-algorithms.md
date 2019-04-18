@@ -22,7 +22,7 @@ This visual interface sample experiment shows how to compare the performance of 
 
 4. Select the **Open** button for the Sample 2 experiment:
 
-    ![Open the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Open the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
 ## Related sample
 
@@ -39,7 +39,7 @@ We use these steps to build the experiment:
 
 Here's the complete graph of the experiment:
 
-![Graph of the experiment](media/sample-regression-predict-automobile-price-compare-algorithms/graph.png)
+![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)
 
 ## Get the data
 
@@ -51,7 +51,7 @@ The main data preparation tasks include data cleaning, integration, transformati
 
 In this experiment, we use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![Data pre-processing](media/sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![Data pre-processing](media/ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
 ## Train the model
 
@@ -75,7 +75,7 @@ First, we compare two algorithms on the training dataset.
 Second, we compare two algorithms on the testing dataset.
 Here are the results:
 
-![Compare the results](media/sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![Compare the results](media/ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
 These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 
