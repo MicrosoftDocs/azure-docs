@@ -20,10 +20,10 @@ ms.author: haroldw
 
 # Configure prerequisites
 
-Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/openshift-prerequisites) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
+Before using the Marketplace offer to deploy a self-managed OpenShift Container Platform cluster in Azure, a few prerequisites must be configured.  Read the [OpenShift prerequisites](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) article for instructions to create an ssh key (without a passphrase), Azure key vault, key vault secret, and a service principal.
 
  
-## Deploy using the OpenShift Container Platform Azure Marketplace offer
+## Deploy using the Marketplace offer
 
 The simplest way to deploy a self-managed OpenShift Container Platform cluster into Azure is to use the [Azure Marketplace offer](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
@@ -90,6 +90,13 @@ Enter values for the input parameters and click **OK**.
 | Secret Name | The name of the secret that contains the ssh private key.  Only alphanumeric characters and dashes are allowed |
 
    ![Offer infrastructure blade](media/openshift-marketplace-self-managed/ocp-inframain.png)  
+<br>
+
+**Change size**
+
+To select a different VM size, click ***Change size***.  The VM selection window will open.  Select the VM size you want and click **Select**.
+
+   ![Select VM Size](media/openshift-marketplace-self-managed/ocp-selectvmsize.png)  
 <br>
 
 **Existing Virtual Network**
