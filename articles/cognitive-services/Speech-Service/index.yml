@@ -20,7 +20,7 @@ metadata:
   ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech-recognition/SR), <i>wake-word</i> (keyword-spotter/KWS), <i>intent</i>, <i>translation</i>, <i>text-to-speech</i> (TTS), <i>conversation-transcription</i> (CTS), <i>personalization/adaptation</i> (phrase list, customization) and <i>voice-first-virtual-assistant</i> capabilities to your apps. The Speech Services also have REST APIs that work with any programming language that can make HTTP requests. 
+  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <b><i>speech-to-text</i></b> (speech-recognition/SR), <b><i>wake-word</i></b> (keyword-spotter/KWS), <b><i>intent</i></b>, <b><i>translation</i></b>, <b><i>text-to-speech</i></b> (TTS), <b><i>conversation-transcription</i></b> (CTS), <b><i>personalization/adaptation</i></b> (phrase list, customization) and <b><i>voice-first-virtual-assistant</i></b> capabilities to your apps. The Speech Services also have REST APIs that work with any programming language that can make HTTP requests. 
 sections:
 - items:
     - type: list
@@ -46,7 +46,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to an SR quickstart -- if desired, from there (<a href="scenario-availability.md">where available</a>), TTS, and Voice-first virtual assistant quickstarts can also be selected. 
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to an SR quickstart -- if desired, from there other scenarios (<a href="scenario-availability.md">where available</a>) like TTS or voice-first-virtual-assistant quickstarts can also be selected. 
   - type: table
     style: dataMatrix
     columns:
