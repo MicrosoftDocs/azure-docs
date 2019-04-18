@@ -53,19 +53,19 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Android-Quickstart`.
 >      - Hit the `Register` button.
-> 1. Go to `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients`, and select the Redirect URI of format **msal{AppId}://auth**. Save the change.
-
+> 1. Go to `Authentication` > `Add Platform` > `Android`.    
+>      - Enter the Package Name from your Android studio project. 
+>      - Generate a Signature Hash. Refer to the portal for instructions.
+> 1. Select `Configure` and save the ***MSAL Configuration*** JSON for later. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as **msal{AppId}://auth** (where {AppId} is the application ID of your app).
+> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -74,7 +74,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 #### Step 2: Download the project
 
-* [Download the Android Studio Project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Download the Code Sample](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### Step 3: Configure your project
 
@@ -84,10 +84,13 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-> 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
+> 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make the changes:
 >    ```javascript
 >    "client_id" : "Enter_the_Application_Id_Here",
+>    "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>    [...]
 >    "type": "Enter_the_Audience_Info_Here",
+>    [...]
 >    "tenant_id" : "Enter_the_Tenant_Info_Here"
 >    ```
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
@@ -103,8 +106,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msalEnter_The_Application_Id_Here"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="packageName/signatureHash" />
 >        </intent-filter>
 >    </activity>
 >    ```
@@ -112,7 +115,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-> 1. Edit **auth_config.json** and replace the `client_id` and `redirect_uri`:
+> 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make these changes::
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
 >    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
@@ -130,12 +133,12 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > 
 >            <!--Add in your scheme/host from registered redirect URI-->
 >            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="<YOUR_PackageName>/<YOUR_SignatureHash>" />
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> 1. Replace `<YOUR_PackageName>` and `<YOUR_SignatureHash>` with the values you registered in the Azure portal. 
 
 ## More Information
 
@@ -147,7 +150,7 @@ MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.ident
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
-implementation 'com.microsoft.identity.client:msal:0.2.+'
+implementation 'com.microsoft.identity.client:msal:0.3.+'
 ```
 
 ### MSAL initialization
@@ -168,7 +171,7 @@ Then, initialize MSAL using the following code:
 
 > |Where: ||
 > |---------|---------|
-> |`R.raw.auth_config` | This file contains the configurations for your application including your App/Client ID, Sign-in audience, and several other customization options. |
+> |`R.raw.auth_config` | This file contains the configurations for your application including your App/Client ID, Sign-in audience, Redirect URI, and several other customization options. |
 
 ### Requesting tokens
 
@@ -176,7 +179,7 @@ MSAL has two methods used acquire tokens: `acquireToken` and `acquireTokenSilent
 
 #### Getting a user token interactively
 
-Some situations require forcing users to interact with Microsoft identity platform endpoint, which results in a context switch to the system browser to either validate the users's credentials or for consent. Some examples include:
+Some situations require forcing users to interact with Microsoft identity platform endpoint, which results in a context switch to the system browser, webview, or Microsoft Authenticator or Company Portal to either validate the users's credentials or for consent. Some examples include:
 
 * The first time users sign in to the application
 * When users may need to reenter their credentials because the password has expired
@@ -194,22 +197,27 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 
 #### Getting a user token silently
 
-You don't want to require user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `acquireToken` method:
+You don't want to require user to validate their credentials every time they need to access a resource. If the user has already signed in, this method allows you to get SSO from the browser or the Microsoft Authenticator or Company Portal:
 
 ```java
-List<IAccount> accounts = sampleApp.getAccounts();
-if (sample.size() == 1) {
-    sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
-} else {
-    // No or multiple accounts
-}
+    sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
+        @Override
+        public void onAccountsLoaded(final List<IAccount> accounts) {
+
+            if (accounts.isEmpty() && accounts.size() == 1) {
+                sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
+            } else {
+                /* No accounts or >1 account */
+            }
+        }
+    });
 ```
 
 > |Where:||
 > |---------|---------|
 > | `SCOPES` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "<Application ID URL>/scope" }` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
-> | `accounts.get(0)` | Contains the Account you're trying to get tokens for silently |
-> | `getAuthInteractiveCallback` | Callback executed when control is given back to the application after authentication |
+> | `getAccounts(...)` | Contains the Account you're trying to get tokens for silently |
+> | `getAuthSilentCallback()` | Callback executed when control is given back to the application after authentication |
 
 ## Next steps
 
