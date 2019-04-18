@@ -8,7 +8,7 @@ manager:
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.author: travisw
 ms.custom: 
 ---
