@@ -112,7 +112,7 @@ Directories | Before [9.20 version](https://support.microsoft.com/en-in/help/447
 Boot directory | Multiple boot disks on a virtual machine is not supported <br/><br/> A machine without boot disk cannot be protected
 
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
-XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If ftype is set to 1, then XFSv5 features are in use.
+XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported from Mobility Service version 9.10 onward. Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 
 ## VM/Disk management
 
@@ -177,6 +177,14 @@ Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server EFI/UEFI boot | Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/><br/> You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/><br/> The server shouldn't have more than four partitions on the OS disk.<br/><br/> Requires Mobility Service version 9.13 or later.<br/><br/> Only NTFS is supported.
+
+## Replication channels
+
+|**Type of replication**   |**Supported**  |
+|---------|---------|
+|Offloaded Data Transfers  (ODX)    |       No  |
+|Offline Seeding        |   No      |
+| Azure Data Box | No
 
 
 ## Azure storage
