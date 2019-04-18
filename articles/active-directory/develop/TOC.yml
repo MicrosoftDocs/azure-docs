@@ -91,6 +91,30 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
+    - name: Application scenarios
+      items:
+      - name: Daemon apps
+        items:
+        - name: Overview
+          href: scenario-daemon-overview.md
+        - name: App registration
+          href: scenario-daemon-app-registration.md
+        - name: App configuration
+          href: scenario-daemon-app-configuration.md
+        - name: Acquire Token for client
+          href: scenario-daemon-acquire-token.md
+        - name: Call Web API
+          href: scenario-daemon-call-api.md
+        - name: Move to production
+          href: scenario-daemon-production.md
+    - name: Microsoft Authentication Library (MSAL)
+      items:
+        - name: Overview
+          href: msal-overview.md
+        - name: Compare MSAL.NET and ADAL.Net
+          href: msal-compare-msal-net-and-adal-net.md
+        - name: Compare MSAL.js and ADAL.js
+          href: msal-compare-msal-js-and-adal-js.md
     - name: Authentication
       items:
       - name: Authentication basics
@@ -296,7 +320,7 @@
         items:
         - name: Single sign-on
           href: single-sign-on-saml-protocol.md
-        - name: Signout
+        - name: Sign-out
           href: single-sign-out-saml-protocol.md
         - name: How Azure AD uses the SAML protocol
           href: active-directory-saml-protocol-reference.md
