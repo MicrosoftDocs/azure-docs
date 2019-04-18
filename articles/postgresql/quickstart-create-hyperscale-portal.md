@@ -5,8 +5,7 @@ author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.custom: mvc
-ms.devlang: azurecli
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 04/15/2019
 ---
 
@@ -41,7 +40,7 @@ Follow these steps to create an Azure Database for PostgreSQL server:
    - Location: use the location that is closest to your users to give them the fastest access to the data.
 
    > [!IMPORTANT]
-   > The server admin login and password that you specify here are required to log in to the server and its databases later in this tutorial. Remember or record this information for later use.
+   > The server admin login and password that you specify here are required to log in to the server and its databases later in this quick start. Remember or record this information for later use.
 
 5. Click **Configure server group**. Leave the settings in that section unchanged and click **Save**.
 6. Click **Review + create** and then **Create** to provision the server. Provisioning takes a few minutes.
@@ -54,7 +53,7 @@ The Azure Database for PostgreSQL – Hyperscale (Citus) (preview) service uses 
 
 1. From the **Outputs** section where you previously copied the coordinator node hostname, click back into the **Overview** menu item.
 
-2. Find the scaling group for your deployment in the list of resources and click it. (Its name will be prefixed with "sg-".)
+2. The name of your deployment's scaling group will be prefixed with "sg-". Find it in the list of resources and click it.
 
 3. Click **Firewall** under **Security** in the left-hand menu.
 
@@ -92,7 +91,7 @@ Let's now use the [psql](https://www.postgresql.org/docs/current/app-psql.html) 
 
 Once connected to the hyperscale coordinator node using psql, you can complete some basic tasks.
 
-Within Citus there are three types of tables:
+Within Hyperscale servers there are three types of tables:
 
 1. Distributed or sharded tables (spread out to help scaling for performance and parallelization)
 2. Reference tables (multiple copies maintained)
@@ -133,21 +132,19 @@ The `payload` field of `github_events` has a JSONB datatype. JSONB is the JSON d
 
 Postgres can create a `GIN` index on this type which will index every key and value within it. With a `GIN` index it becomes fast and easy to query the payload with various conditions. Let's go ahead and create a couple of indexes before we load our data:
 
-```
+```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Next we’ll take those Postgres tables on the coordinator node and tell Citus to shard them across the workers. To do so we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
+Next we’ll take those Postgres tables on the coordinator node and tell Hyperscale to shard them across the workers. To do so we’ll run a query for each table specifying the key to shard it on. In the current example we’ll shard both the events and users table on `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
 SELECT create_distributed_table('github_users', 'user_id');
 ```
 
-We're ready to load data. Download the two example files [users.csv](https://examples.citusdata.com/users.csv) and [events.csv](https://examples.citusdata.com/events.csv). (We also have a [large_events.csv](https://examples.citusdata.com/large_events.csv) available, which may be more interesting to try, though it does take longer to download and load.)
-
-After downloading the files, connect with psql and load the data with the `\copy` command:
+We're ready to load data. Download the two example files [users.csv](https://examples.citusdata.com/users.csv) and [events.csv](https://examples.citusdata.com/events.csv). After downloading the files, connect with psql and load the data with the `\copy` command:
 
 ```sql
 \copy github_events from 'events.csv' WITH CSV
@@ -175,7 +172,7 @@ ORDER BY hour;
 
 So far the queries have involved the github\_events exclusively, but we can combine this information with github\_users. Since we sharded both users and events on the same identifier (`user_id`), the rows of both tables with matching user ids will be [co-located](http://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) on the same database nodes and can easily be joined.
 
-If we join on `user_id`, Citus can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
+If we join on `user_id`, Hyperscale can push the join execution down into shards for execution in parallel on worker nodes. For example, let's find the users who created the greatest number of repositories:
 
 ```sql
 SELECT login, count(*)
@@ -190,11 +187,11 @@ ORDER BY count(*) DESC;
 
 ## Clean up resources
 
-In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the *Delete* button in the *Overview* page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final *Delete* button.
+In the preceding steps, you created Azure resources in a server group. If you don't expect to need these resources in the future, delete the server group. Press the **Delete** button in the **Overview** page for your server group. When prompted on a pop-up page, confirm the name of the server group and click the final **Delete** button.
 
 ## Next steps
 
-In this tutorial, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
+In this quick start, you learned how to provision a Hyperscale (Citus) server group. You connected to it with psql, created a schema, and distributed data.
 
 Next, follow a tutorial to build scalable multi-tenant applications.
 > [!div class="nextstepaction"]
