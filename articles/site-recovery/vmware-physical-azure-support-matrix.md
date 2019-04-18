@@ -178,6 +178,14 @@ Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server EFI/UEFI boot | Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/><br/> You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/><br/> The server shouldn't have more than four partitions on the OS disk.<br/><br/> Requires Mobility Service version 9.13 or later.<br/><br/> Only NTFS is supported.
 
+## Replication channels
+
+|**Type of replication**   |**Supported**  |
+|---------|---------|
+|Offloaded Data Transfers  (ODX)    |       No  |
+|Offline Seeding        |   No      |
+| Azure Databox | No
+
 
 ## Azure storage
 
