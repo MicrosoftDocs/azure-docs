@@ -193,7 +193,7 @@ To configure Azure AD single sign-on with Salesforce Sandbox, perform the follow
 
 	![The Certificate download link](common/metadataxml.png)
 
-12. Open a new tab in your browser and log in to your Salesforce Sandbox administrator account.
+12. Open a new tab in your browser and sign in to your Salesforce Sandbox administrator account.
 
 13. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
