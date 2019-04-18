@@ -65,7 +65,7 @@ profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
   #include <abstractions/base>
   
   file,
-  # Deny all file writes.
+  # Deny all file writes.
   deny /** w,
 }
 ```
@@ -134,7 +134,7 @@ From your local machine, now create a pod manifest named *aks-seccomp.yaml* and 
 ```yaml
 apiVersion: v1
 kind: Pod
-metadata:
+metadata:
   name: chmod-prevented
   annotations:
     seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
