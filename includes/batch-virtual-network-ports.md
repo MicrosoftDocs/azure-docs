@@ -69,7 +69,7 @@ You do not need to specify NSGs at the subnet level because Batch configures its
 
 | Source | Source ports | Destination | Destination service tag | Protocol | Action |
 | --- | --- | --- | --- | --- | --- |
-| Any | 443 | `Storage` [Service tag](../articles/virtual-network/security-overview.md#service-tags) | Storage (in the same region as your Batch account and VNet)  | Any | Allow |
+| Any | 443 | [Service tag](../articles/virtual-network/security-overview.md#service-tags) | `Storage` (in the same region as your Batch account and VNet)  | Any | Allow |
 
 ### Pools in the Cloud Services configuration
 
