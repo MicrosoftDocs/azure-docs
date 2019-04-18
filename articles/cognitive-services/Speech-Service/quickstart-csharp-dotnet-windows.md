@@ -14,9 +14,10 @@ ms.author: wolfma
 
 # Quickstart: Recognize speech with the Speech SDK for .NET Framework (Windows)
 
-Select programming language and environment of choice: [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
 Click on scenario of choice: [SR](quickstart-text-to-speech-dotnet-windows.md), [TTS](quickstart-text-to-speech-dotnet-windows.md)
+
+If desired, switch to a different programming language and/or environment:<br/>
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 
