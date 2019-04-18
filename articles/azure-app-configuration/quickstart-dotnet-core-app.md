@@ -24,6 +24,8 @@ Azure App Configuration is a managed configuration service in Azure. You can use
 
 You can use any code editor to do the steps in this quickstart. [Visual Studio Code](https://code.visualstudio.com/) is an excellent option available on the Windows, macOS, and Linux platforms.
 
+![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
+
 ## Prerequisites
 
 To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/download).
@@ -33,6 +35,14 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 ## Create an app configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
 
 ## Create a .NET Core console app
 
@@ -95,8 +105,6 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 3. After the build successfully completes, run the following command to run the app locally:
 
         dotnet run
-
-    ![Quickstart app run](./media/quickstarts/dotnet-core-app-run.png)
 
 ## Clean up resources
 
