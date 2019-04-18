@@ -22,7 +22,7 @@ ms.reviewer: bagovind
 
 ## Prerequisites
 
-To manage access, you one of the following need:
+To manage access, you need one of the following:
 
 * [Bash in Azure Cloud Shell](/azure/cloud-shell/overview)
 * [Azure CLI](/cli/azure)
