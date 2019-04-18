@@ -1,6 +1,6 @@
 ---
 title: Continuous Delivery Using Azure DevOps  | Microsoft Docs
-description: Learn how to setup an Azure DevOps pipeline targeting Azure Functions.
+description: Learn how to set up an Azure DevOps pipeline targeting Azure Functions.
 services: ''
 documentationcenter:
 author: ahmedelnably
