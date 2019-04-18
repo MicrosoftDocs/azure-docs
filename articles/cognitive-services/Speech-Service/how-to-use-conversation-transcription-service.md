@@ -60,7 +60,7 @@ public class MyConversationTranscriber
         var stopTranscription = new TaskCompletionSource<int>();
 
         // Create an audio stream from a wav file.
-        // Replace with your own audio file name.
+        // Replace with your own audio file name and Helper class which implements AudioConfig using PullAudioInputStreamCallback 
         using (var audioInput = Helper.OpenWavFile(@"8channelsOfRecordedPCMAudio.wav"))
         {
             // Creates a conversation transcriber using audio stream input.
@@ -87,8 +87,10 @@ public class MyConversationTranscriber
                 // Sets a conversation Id.
                 transcriber.ConversationId = "AConversationFromTeams";
 
-                // Add a participant to the conversation.
+                // Add a participants to the conversation.
                 transcriber.AddParticipant("mary@microsoft.com");
+                transcriber.AddParticipant("john@microsoft.com");
+                transcriber.AddParticipant("mike@microsoft.com");
 
                 // Starts transcribing of the conversation. Uses StopTranscribingAsync() to stop transcribing when all participants leave.
                 await transcriber.StartTranscribingAsync().ConfigureAwait(false);
