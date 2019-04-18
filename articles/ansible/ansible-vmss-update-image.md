@@ -38,8 +38,8 @@ The playbook code in this section creates two virtual machines with HTTPD instal
 
 The `index.html` page for each VM displays a test string:
 
-* First VM displays the value **Image A**
-* Second VM displays the value **Image B**
+* First VM displays the value `Image A`
+* Second VM displays the value `Image B`
 
 This string is meant to mimic configuring each VM with different software.
 
@@ -168,13 +168,13 @@ Run the playbook using the `ansible-playbook` command, replacing `myrg` with you
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Due to the `debug` sections of the playbook, the `ansible-playbook` command will print the IP address of each VM. Copy these IP addresses for later use.
+Because of the `debug` sections of the playbook, the `ansible-playbook` command will print the IP address of each VM. Copy these IP addresses for later use.
 
 ![Virtual machine IP addresses](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
 ## Connect to the two VMs
 
-In this section, you connect to each VM. As mentioned in the previous section, the strings **Image A** and **Image B** mimic having two distinct VMs with different configurations.
+In this section, you connect to each VM. As mentioned in the previous section, the strings `Image A` and `Image B` mimic having two distinct VMs with different configurations.
 
 Using the IP addresses from the previous section, connect to both VMs:
 
@@ -188,8 +188,8 @@ At this point, you have two VMs with slightly different configurations (their `i
 
 The playbook code in this section creates a custom image for each VM:
 
-* **image_vmforimageA** - Custom image created for the VM that displays **Image A** on its homne page.
-* **image_vmforimageB** - Custom image created for the VM that displays **Image B** on its homne page.
+* `image_vmforimageA` - Custom image created for the VM that displays `Image A` on its home page.
+* `image_vmforimageB` - Custom image created for the VM that displays `Image B` on its home page.
 
 There are two ways to get the sample playbook:
 
@@ -312,7 +312,7 @@ Run the playbook using the `ansible-playbook` command, replacing `myrg` with you
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-Due to the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
+Because of the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
 
 ![Public IP Address](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
@@ -322,11 +322,11 @@ In this section, you connect to the scale set.
 
 Using the IP address from the previous section, connect to the scale set.
 
-As mentioned in the previous section, the strings **Image A** and **Image B** mimic having two distinct VMs with different configurations.
+As mentioned in the previous section, the strings `Image A` and `Image B` mimic having two distinct VMs with different configurations.
 
-The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays **Image A**.
+The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays `Image A`.
 
-Therefore, you see a home page displaying **Image A**:
+Therefore, you see a home page displaying `Image A`:
 
 ![The scale set is associated with the first VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
@@ -334,7 +334,7 @@ Leave your browser window open as you continue to the next section.
 
 ## Change custom image in scale set and upgrade instances
 
-The playbook code in this section changes the scale set's image - from **image_vmforimageA** to **image_vmforimageB**. In addition, all current virtual machines deployed by the scale set are updated.
+The playbook code in this section changes the scale set's image - from `image_vmforimageA` to `image_vmforimageB`. In addition, all current virtual machines deployed by the scale set are updated.
 
 There are two ways to get the sample playbook:
 
@@ -420,7 +420,7 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml
