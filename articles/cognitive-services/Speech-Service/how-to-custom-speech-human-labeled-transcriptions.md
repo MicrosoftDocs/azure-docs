@@ -24,11 +24,11 @@ Human-labeled transcriptions for English audio must be provided as plain text, o
 
 Here are a few examples:
 
-| Non-ASCII characters | Substitution | Notes |
-|----------------------|--------------|-------|
+| Characters to avoid | Substitution | Notes |
+|---------------------|--------------|-------|
 | “Hello world” | "Hello world" | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
 | John’s day | John's day | The apostrophe has been substituted with the appropriate ASCII character. |
-| it was good&mdashno, it was great! | it was good--no, it was great! | The emdash was substituted with two hyphens. |
+| it was good——no, it was great! | it was good--no, it was great! | The emdash was substituted with two hyphens. |
 
 ### Text normalization for US English
 
@@ -75,7 +75,54 @@ It costs $3.14| it costs three fourteen |
 
 ## Mandarin Chinese (zh-cn)
 
+Human-labeled transcriptions for Madarin Chinese audio must be UTF-8 encoded with a byte-order marker. Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from web pages. If these characters are present, make sure to update them with the appropriate full-width substitution.
+
+Here are a few examples:
+
+| Characters to avoid | Substitution | Notes |
+|---------------------|--------------|-------|
+| "你好" | "你好" | The opening and closing quotations marks have been substituted with appropriate characters. |
+| 需要什么帮助? | 需要什么帮助？ | The question mark has been substituted with appropriate character. |
+
+### Text normalization for Mandarin Chinese
+
+Text normalization is the transformation of words into a consistent format used when training a model. Some normalization rules are applied to text automatically, however, we recommend using these guidelines as you prepare your human-labeled transcription data:
+
+* Write out abbreviations in words.
+* Write out numeric strings in spoken form.
+
+Here are a few examples of normalization that you should perform on the transcription:
+
+| Original text | Text after normalization |
+|---------------|--------------------------|
+| 我今年21 | 我今年二十一 |
+| 3号楼504 | 三号 楼 五 零 四 |
+
+Here are a few examples of normalization automatically performed on the transcription:
+
+| Original text | Text after normalization |
+|---------------|--------------------------|
+| 3.1415 | 三 点 一 四 一 五 |
+| ￥3.5 | 三 元 五 角 |
+| w f y z |W F Y Z |
+| 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
+| 你吃饭了吗? | 你 吃饭 了 吗 |
+| 下午5:00的航班 | 下午 五点 的 航班 |
+| 我今年21岁 | 我 今年 二十 一 岁 |
+
 ## German (de-DE)
+
+### Text normalization for German
+
+Here are a few examples of normalization that you should perform on the transcription:
+
+| Original text | Text after normalization |
+|---------------|--------------------------|
+
+Here are a few examples of normalization automatically performed on the transcription:
+
+| Original text | Text after normalization |
+|---------------|--------------------------|
 
 ## Next Steps
 
