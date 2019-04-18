@@ -9,17 +9,21 @@ manager: nitime
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/10/2019
+ms.date: 04/18/2019
 ms.author: pafarley
 ---
 
 # Face recognition concepts
 
-This article explains the concepts of the various face recognition operations (verification, find similar, grouping, identification) and the data structures involved. See the [Overview](../Overview.md) for a description of each operation.
+This article explains the concepts of the various face recognition operations (verification, find similar, grouping, identification). Broadly, recognition describes the work of comparing faces in two different images to determine if they are similar and/or belong to the same person.
+
+See the [Overview](../Overview.md) for a description of each recognition operation.
+
+## Recognition
 
 ## Face API data structures
 
-### FaceLists
+### FaceList/LargeFaceList
 
 A FaceList is a collection of [PersistedFace](#persistedface) objects and is the unit of [Find Similar](#find-similar). A FaceList comes with a [FaceList ID](#facelist-id), as well as other attributes such as Name and User Data.
 
@@ -46,20 +50,10 @@ Multiple faces in the input are considered separately, and each face will have i
 > [!NOTE]
 > The LargePersonGroup/PersonGroup should be trained successfully before identification. If the LargePersonGroup/PersonGroup is not trained, or the training [status](#status-train) is not shown as 'succeeded' (i.e. 'running', 'failed', or 'timeout'), the request response is 400.
 
-#### UserData/User Data
-
-User data is extra information associated with [Person](#person) and [PersonGroup](#persongroup)/[LargePersonGroup](#largepersongroup). User data is set by users to make data easier to use, understand and remember.
-
 ## training
 This API is used to pre-process the [LargeFaceList](#largefacelist)/[LargePersonGroup](#largepersongroup)/[PersonGroup](#persongroup) to ensure the [Find Similar](#find-similar)/[Identification](#identification) performance. If the training is not operated, or the [Training Status](#status-train) is not shown as succeeded, the identification for this PersonGroup will result in failure
 
-#### Status (Train)
-
-Status is a string used to describe the procedure for Training LargeFaceList/LargePersonGroups/PersonGroups, including 'notstarted', 'running', 'succeeded', 'failed'.
-
-## Groups 
-
-#### Grouping
+## Grouping
 
 Face grouping is the grouping of a collection of faces according to facial similarities. Face collections are indicated by the face ID collections in the request. As a result of grouping, similar faces are grouped together as [groups](#groups), and faces that are not similar to any other face are merged together as a messy group. There is at the most, one [messy group](#messy-group) in the grouping result.
 
@@ -91,17 +85,19 @@ For more information, see the reference documentation:
 
 Confidence is a measurement revealing the similarity between [faces](#face) or [Person](#person) in numerical values –which is used in [identification](#identification), and [verification](#verification) to indicate the similarities of searched, identified and verified results.
 
+### Input data
 
-**Question**: What factors can reduce Face API's accuracy for Recognition, Verification, or Find Similar?
+Use the following tips to ensure your input images give the most accurate recognition results:
 
-**Answer**: Generally it is the same cases where humans have difficulty identifying someone including:
-* Obstructions blocking one or both eyes
-* Harsh lighting (for example, severe backlighting)
-* Changes to hair style or facial hair
-* Changes due to age
-* Extreme facial expressions (for example, screaming)
-
-Face API is often successful in challenging cases like the above, but accuracy can be reduced. To make recognition more robust and address these challenges, train your Persons with photos that include a diversity of angles and lighting.
+* The supported input image formats are JPEG, PNG, GIF(the first frame), BMP.
+* Image file size should be no larger than 4 MB.
+* You should train your **Person**s with photos that feature a variety of angles and lighting.
+* Some faces may not be recognized because of technical challenges:
+  * Images with extreme lighting (for example, severe backlighting).
+  * Obstructions blocking one or both eyes.
+  * Differences in hair style or facial hair.
+  * Changes in face appearance due to age.
+  * Extreme facial expressions.
 
 ## Links
 For more information, see the reference documentation:
