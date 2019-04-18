@@ -102,9 +102,9 @@ block_blob_service.set_container_acl(container_name, public_access=PublicAccess.
 
 Blob storage supports block blobs, append blobs, and page blobs. Block blobs are the most commonly used, and that's what is used in this quickstart.  
 
-To upload a file to a blob, get the full file path by joining the directory name with the file name on your local drive. You can then upload the file to the specified path using the `create\_blob\_from\_path` method. 
+To upload a file to a blob, get the full file path by joining the directory name with the file name on your local drive. You can then upload the file to the specified path using the `create_blob_from_path` method. 
 
-The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as `file\_path\_to\_file` and the name of the blob as `local\_file\_name`. The following example uploads the file to your container called **quickstartblobs**.
+The sample code creates a local file to be used for the upload and download, storing the file to be uploaded as *full_path_to_file* and the name of the blob as *local_file_name*. The following example uploads the file to your container called **quickstartblobs**.
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -124,7 +124,7 @@ print("\nUploading to Blob storage as blob" + local_file_name)
 block_blob_service.create_blob_from_path(container_name, local_file_name, full_path_to_file)
 ```
 
-There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the `create\_blob\_from\_stream` method rather than `create\_blob\_from\_path`. 
+There are several upload methods that you can use with Blob storage. For example, if you have a memory stream, you can use the `create_blob_from_stream` method rather than `create_blob_from_path`. 
 
 Block blobs can be as large as 4.7 TB, and can be anything from Excel spreadsheets to large video files. Page blobs are primarily used for the VHD files that back IaaS VMs. Append blobs are used for logging, such as when you want to write to a file and then keep adding more information. Most objects stored in Blob storage are block blobs.
 
@@ -142,7 +142,7 @@ for blob in generator:
 
 ### Download the blobs
 
-Download blobs to your local disk using `the get\_blob\_to\_path` method. 
+Download blobs to your local disk using the `get_blob_to_path` method. 
 The following code downloads the blob uploaded in a previous section. *_DOWNLOADED* is added as a suffix to the blob name so you can see both files on local disk. 
 
 ```python
@@ -154,7 +154,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete\_container` method. To delete individual files instead, use the `delete\_blob` method.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete_container` method. To delete individual files instead, use the `delete_blob` method.
 
 ```python
 # Clean up resources. This includes the container and the temp files
