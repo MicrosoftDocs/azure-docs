@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Log Analytics agent for hybrid Windows computers | Microsoft Docs
-description: In this quickstart, you will learn how to deploy the Log Analytics agent for Windows computers running outside of Azure and enable data collection with Log Analytics.
+description: In this quickstart, you'll learn how to deploy the Log Analytics agent for Windows computers running outside of Azure and enable data collection with Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -19,7 +19,7 @@ ms.custom: mvc
 # Configure Log Analytics agent for Windows computers in a hybrid environment
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) can collect data directly from your physical or virtual Windows computers into a single repository for detailed analysis and correlation. Log Analytics can collect data from a datacenter or other cloud environment. This quickstart shows you how to configure and collect data from your Windows computer with a few easy steps.  For information about Azure Windows VMs, see [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
-To understand the supported configuration, see [supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) and [network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
+To understand the supported configuration, see [Supported Windows operating systems](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) and [Network firewall configuration](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements).
  
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -31,13 +31,13 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
     ![Azure portal](media/quick-collect-windows-computer/azure-portal-01.png)
   
-2. Select **Create**, and then provide the following details:
+2. Select **Create**, and then provide these details:
 
    * Enter a name for the new **Log Analytics Workspace**. Something like **DefaultLAWorkspace**.
    * Select a **Subscription** to link to. If the default isn't the one you want to use, select another one from the list.
    * For the **Resource Group**, select an existing resource group that contains one or more Azure virtual machines.  
    * Select the **Location** your VMs are deployed to. Here's a list of [regions in which Log Analytics is available](https://azure.microsoft.com/regions/services/).  
-   * If you're creating a workspace in a subscription that you created after April 2, 2018, the workspace will automatically use the **Per GB** pricing plan. You won't be able to select a pricing tier. If you're creating a workspace in a subscription that you created before April 2, 2018, or in subscription that was tied to an existing EA enrollment, select the pricing tier that you want to use. See the [Log Analytics pricing details here](https://azure.microsoft.com/pricing/details/log-analytics/) for information about tiers.
+   * If you're creating a workspace in a subscription that you created after April 2, 2018, the workspace will automatically use the **Per GB** pricing plan. You won't be able to select a pricing tier. If you're creating a workspace in a subscription that you created before April 2, 2018, or in a subscription that was tied to an existing EA enrollment, select the pricing tier that you want to use. See the [Log Analytics pricing details](https://azure.microsoft.com/pricing/details/log-analytics/) for information about tiers.
 
         ![Create Log Analytics resource](media/quick-collect-windows-computer/create-loganalytics-workspace-02.png)<br>  
 
@@ -46,7 +46,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 While the information is verified and the workspace is being created, you can track the progress under **Notifications** in the menu.
 
 ## Get the workspace ID and key
-Before you install Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace. The setup wizard needs this information to properly configure the agent and ensure that it can communicate with Log Analytics.  
+Before you install Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace. The setup wizard needs this information to properly configure the agent and ensure it can communicate with Log Analytics.  
 
 1. In the upper-left corner of the Azure portal, select **All services**. In the search box, enter **Log Analytics**. As you type, the list filters based on your input. Select **Log Analytics**.
 2. In your list of Log Analytics workspaces, select the workspace you created earlier. (You might have named it **DefaultLAWorkspace**.)
@@ -68,7 +68,7 @@ The following steps install and configure the agent for Log Analytics in Azure a
 5. On the **Agent Setup Options** page, connect the agent to Azure Log Analytics and then select **Next**.
 6. On the **Azure Log Analytics** page, complete these steps:
    1. Paste in the **Workspace ID** and **Workspace Key (Primary Key)** that you copied earlier. If the computer should report to a Log Analytics workspace in Azure Government, select **Azure US Government** in the **Azure Cloud** list.  
-   2. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server. If your proxy server requires authentication, type the user name and password for authentication with the proxy server and then select **Next**.  
+   2. If the computer needs to communicate through a proxy server to the Log Analytics service, select **Advanced** and provide the URL and port number of the proxy server. If your proxy server requires authentication, enter the user name and password for authentication with the proxy server and then select **Next**.  
 7. Select **Next** after you've added the configuration settings:
 
     ![Microsoft Monitoring Agent Setup](media/quick-collect-windows-computer/log-analytics-mma-setup-laworkspace.png)
@@ -87,11 +87,11 @@ Log Analytics can collect events that you specify from the Windows event log and
     ![Log Analytics advanced settings](media/quick-collect-windows-computer/log-analytics-advanced-settings-01.png)
  
 3. Select **Data**, and then select **Windows Event Logs**.  
-4. You add an event log by entering the name of the log. Enter **System** and then select the plus sign (**+**).  
+4. You add an event log by entering the name of the log. Enter **System**, and then select the plus sign (**+**).  
 5. In the table, select the **Error** and **Warning** severities.
 6. Select **Save** at the top of the page.
 7. Select **Windows Performance Counters** to enable collection of performance counters on a Windows computer.
-8. When you first configure Windows Performance counters for a new Log Analytics workspace, you're given the option to quickly create several common counters. Each option is listed, with a check box next to it:
+8. When you first configure Windows performance counters for a new Log Analytics workspace, you're given the option to quickly create several common counters. Each option is listed, with a check box next to it:
 
     ![Windows performance counters](media/quick-collect-windows-computer/windows-perfcounters-default.png).
     
@@ -125,7 +125,7 @@ To delete the Log Analytics workspace you created earlier, select it, and, on th
 ![Delete Log Analytics workspace](media/quick-collect-windows-computer/log-analytics-portal-delete-resource.png)
 
 ## Next steps
-Now that you're collecting operational and performance data from your Windows computer, you can easily begin exploring, analyzing, and taking action on the data you collect for *free*.  
+Now that you're collecting operational and performance data from your Windows computer, you can easily begin exploring, analyzing, and acting on the data you collect, for *free*.  
 
 To learn how to view and analyze the data, continue to the tutorial:
 
