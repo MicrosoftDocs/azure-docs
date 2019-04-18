@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ms.author: lahugh
 ---
 
@@ -74,6 +74,7 @@ Once you have saved your custom image and you know its resource ID or name, crea
 > [!NOTE]
 > If you are creating the pool using one of the Batch APIs, make sure that the identity you use for AAD authentication has permissions to the image resource. See [Authenticate Batch service solutions with Active Directory](batch-aad-auth.md).
 >
+> The resource for the managed image must exist for the lifetime of the pool. If the underlying resource is deleted, the pool cannot be scaled. 
 
 1. Navigate to your Batch account in the Azure portal. This account must be in the same subscription and region as the resource group containing the custom image. 
 2. In the **Settings** window on the left, select the **Pools** menu item.
@@ -105,6 +106,16 @@ Also note the following:
 - **Resize timeout** - If your pool contains a fixed number of nodes (doesn't autoscale), increase the resizeTimeout property of the pool to a value such as 20-30 minutes. If your pool doesn't reach its target size within the timeout period, perform another [resize operation](/rest/api/batchservice/pool/resize).
 
   If you plan a pool with more than 300 compute nodes, you might need to resize the pool multiple times to reach the target size.
+
+## Considerations for using Packer
+
+Creating a managed image resource directly with Packer can only be done with user subscription mode Batch accounts. For Batch service mode accounts, you need to create a VHD first, then import the VHD to a managed image resource. Depending on your pool allocation mode (user subscription, or Batch service), your steps to create a managed image resource will vary.
+
+Ensure that the resource used to create the managed image exists for the lifetimes of any pool referencing the custom image. Failure to do so can result in pool allocation failures and/or resize failures. 
+
+If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If this happens, ensure that the underlying resource has not been removed.
+
+For more information on using Packer to create a VM, see [Build a Linux image with Packer](../virtual-machines/linux/build-image-with-packer.md) or [Build a Windows image with Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## Next steps
 
