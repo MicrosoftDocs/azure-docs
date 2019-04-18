@@ -63,7 +63,7 @@ imageName=myBuilderImage
 Create a variable for your subscription ID. You can get this using `az account show | grep id`.
 
 ```azurecli-interactive
-subscriptionID=<INSERT YOUR SUBSCRIPTION ID HERE>
+subscriptionID=<Your subscription ID>
 ```
 
 Create the resource group.
