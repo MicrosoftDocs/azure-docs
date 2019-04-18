@@ -73,9 +73,9 @@ FTY | Atlanta, Georgia, USA | North America: East Coast U.S.
 GIG | Rio de Janeiro, Brazil | Latin America
 GRU | São Paulo, Brazil | Latin America
 HEL | Helsinki, Finland | Europe
-HHP | Hong Kong | Asia
-HKC | Hong Kong | Asia
-HKG | Hong Kong | Asia
+HHP | Hong Kong, SAR | Asia
+HKC | Hong Kong, SAR | Asia
+HKG | Hong Kong, SAR | Asia
 HND | Tokyo, Japan | Asia
 IAD | Ashburn, Virginia, USA | North America: East Coast U.S.
 ICN | Seoul, Korea | Asia
