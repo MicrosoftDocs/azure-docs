@@ -184,7 +184,7 @@ In this section, you create a network security group rule to allow inbound conne
 
       ![IIS Web server](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
 
-To see the Load Balancer distribute traffic across all three VMs running your app, you can force-refresh your web browser.
+To see the Load Balancer distribute traffic across **myVM1** and **myVM2**, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
 ## Clean up resources
 
