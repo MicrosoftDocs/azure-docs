@@ -1,7 +1,7 @@
 ---
 title: "Train a model for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: TBD
+description: "Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product specific terms."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -14,13 +14,11 @@ ms.author: erhopf
 
 # Train a model for Custom Speech
 
-**<< TODO - Erik: edit/rephrase >>**
+Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product specific terms. The more in-domain datasets that you provide (data that is related to what users will say and what you expect to recognize), the more accurate your model will be, which results in improved recognition. Keep in mind, that by feeding unrelated data into your training, you can reduce or hurt the accuracy of your model.
 
-Training a speech recognition model is necessary to improve its accuracy.  This is done by taking Audio+human-labeled transcript and/or Related Text datasets uploaded to Data and having the machine incorporate into its model.  The more in-domain datasets you incorporate (data that is related to what users will speak into your application) in training the better the trained model will perform.  But likewise if you incorporate unrelated data, it may hurt accuracy.
+## Use training to resolve accuracy issues
 
-## Resolve accuracy issues
-
-Adding different datasets to training helps resolve accuracy issues.  Use the guide below to determine which datasets to add to train your model.
+If you're encountering recognition issues with your model, using human-labeled transcripts and related data for additional training can help to improve accuracy. Use this table to determine which dataset to use to address your issue(s):
 
 | Use case | Data type | Data quantity |
 |----------|-----------|---------------|
@@ -33,19 +31,27 @@ Adding different datasets to training helps resolve accuracy issues.  Use the gu
 
 ## Train and evaluate a model
 
-**<< TODO - Erik: edit/rephrase >>**
+The first step to train a model is to upload training data. Use [Prepare and test your data](how-to-custom-speech-test-data.md) for step-by-step instructions to prepare human-labeled transcriptions and related text (utterances and pronunciations). After you've uploaded training data, follow these instructions to start training your model:
 
-Once you have uploaded the training data, click Train model button in the Training tab to start a new model customization.
+1. Navigate to **Speech-to-text > Custom Speech > Training**.
+2. Click **Train model**.
+3. Next, give your training a **Name** and **Description**.
+4. From the **Scenario and Baseline model** drop-down menu, select the scenario that best fits your domain. If you're unsure of which scenario to choose, select **General**. The baseline model is the starting point for training. If you don't have a preference, you can use the latest.
+5. From the **Select training data** page, choose one or multiple audio + human-labeled transcription datasets that you'd like to use for training. **<<Archer -  can you also use related text>>**
+6. Once the training is complete, you can choose to perform accuracy testing on the newly trained model. This step is optional.
+7. Select **Create** to build your custom model.
 
-First and as always, give your model a name with some suggestive description. Next, in the Scenario and Baseline model drop-down list, select a scenario that fits your business domain. If you are not sure about the scenario, just select “General”. The baseline model is the starting point for your customization. You may use the latest one if you don’t have any preference here.
+The Training table displays a new entry that corresponds to this newly created model. The table also displays the status:  Processing, Succeeded, or Failed.
 
-Next, in the Select training data page, select one or multiple audio + transcript datasets that you want to use to perform the customization.
+## Evaluate the accuracy of a trained model
 
-When the processing is complete, you can optionally choose to perform accuracy testing of your new model in the next step. If so, in the next page, choose a testing type. As before, Inspect quality requires only audio data as test set;  Evaluate accuracy requires audio and transcript data as test set, which will give you a quantitated error rate to help you evaluate whether the model is better than others. The testing steps are similar to training steps, you will enter a test name with descriptions, and select the certain type of test data.
-If you perform accuracy testing, to get a realistic sense of the model’s performance, it's important to select an acoustic dataset that's different from the one you used for the model creation. Testing the accuracy on the training data doesn't allow you to evaluate how the adapted model performs under real conditions. The result will be too optimistic.
+You can inspect the data and evaluate model accuracy using these documents:
 
-When you're ready to start running the customization process, select Create.
-The Training table displays a new entry that corresponds to this new model. The table also displays the status of the process:  Processing, Succeeded, or Failed.
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+
+
+If you chose to test accuracy, it's important to select an acoustic dataset that's different from the one you used with your model to get a realistic sense of the model’s performance.
 
 ## Next steps
 
