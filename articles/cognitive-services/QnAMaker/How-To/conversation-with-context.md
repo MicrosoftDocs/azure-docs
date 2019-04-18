@@ -15,7 +15,7 @@ ms.author: diberry
 
 # Create contextual conversations using follow-up prompts
 
-Use prompts and context to manage the conversational flow for your bot from one questions to another.
+Use prompts and context to manage the conversational flow for your bot from one question to another.
 
 ## What is contextual conversational?
 
