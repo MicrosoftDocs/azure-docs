@@ -42,7 +42,7 @@ Unmanaged Virtual Machine (VM) disks depend upon the disabled Blob Storage APIs,
 
 Blob Storage APIs and Azure Data Lake Gen2 APIs aren't interoperable with each other.
 
-If you have tools, applications, services, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable a hierarchical namespace on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without a hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
+If you have tools, applications, services, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable a hierarchical namespace on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without a hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and file system access control lists.
 
 ## Azure Storage Explorer
 

@@ -125,7 +125,7 @@ In the POSIX ACLs, every user is associated with a *primary group*. For example,
 
 #### Assigning the owning group for a new file or directory
 
-* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the filesystem is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
+* **Case 1**: The root directory "/". This directory is created when a Data Lake Storage Gen2 file system is created. In this case, the owning group is set to the user who created the file system if it was done using OAuth. If the file system is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to **$superuser**.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent directory.
 
 #### Changing the owning group
