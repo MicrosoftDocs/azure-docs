@@ -99,12 +99,10 @@ With an access package and its policies, the access package manager defines:
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
-The following diagram shows the different components in entitlement management.
+The following diagram shows an example of the different elements in entitlement management. It shows two example access packages.
 
-- The resource directory is your directory where you have several resources that users can potentially request access to.
-- Currently, there are two access packages.
-- **Access package 1** includes a single group. Access is defined with a policy that enables a set of user in your directory to request access.
-- **Access package 2** includes a group, an application, and a SharePoint Online site. Access is defined with two different policies. The first policy enables a set of users in your directory to request access. The second policy enables users in an external directory to request access.
+- **Access package 1** includes a single group as a resource. Access is defined with a policy that enables a set of users in the directory to request access.
+- **Access package 2** includes a group, an application, and a SharePoint Online site as resources. Access is defined with two different policies. The first policy enables a set of users in the directory to request access. The second policy enables users in an external directory to request access.
 
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
 
