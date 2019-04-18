@@ -5,8 +5,9 @@
 In all cases above, methods to acquire tokens return an ``AuthenticationResult`` (or, for the async methods, a ``Task<AuthenticationResult>``.
 
 In MSAL.NET, `AuthenticationResult` exposes:
-- ``AccessToken`` for the Web API to access resources. This parameter is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks. See also [Access Tokens](access-tokens.md)
-- ``IdToken`` for the user (this parameter is an encoded JWT). See [ID Tokens](id-tokens.md)
+
+- ``AccessToken`` for the Web API to access resources. This parameter is a string, usually a base64 encoded JWT but the client should never look inside the access token. The format isn't guaranteed to remain stable and it can be encrypted for the resource. People writing code depending on access token content on the client is one of the biggest sources of errors and client logic breaks. See also [Access tokens](../articles/active-directory/develop/access-tokens.md)
+- ``IdToken`` for the user (this parameter is an encoded JWT). See [ID Tokens](../articles/active-directory/develop/id-tokens.md)
 - ``ExpiresOn`` tells the date/time when the token expires
 - ``TenantId`` contains the tenant in which the user was found. For guest users (Azure AD B2B scenarios), the Tenant ID is the guest tenant, not the unique tenant.
 When the token is delivered for a user, ``AuthenticationResult`` also contains information about this user. For confidential client flows where tokens are requested with no user (for the application), this User information is null.
