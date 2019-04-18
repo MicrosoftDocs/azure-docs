@@ -37,6 +37,12 @@ When the user selects a choice (#3), then the next list of refining choices (#4)
 
 You need to change your client application to manage the contextual conversation.
 
+## Create contextual conversation from imported document's structure
+
+If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import. 
+
+Learn more from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
+
 ## Add question as follow-up prompt to another question
 
 You can add a follow-up prompt to an existing question and answer pair as a new question and answer, or as an existing question and answer pair. 
