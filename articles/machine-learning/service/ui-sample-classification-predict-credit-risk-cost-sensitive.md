@@ -47,7 +47,7 @@ The cost of misclassifying a low-risk example as high is 1, and the cost of misc
 
 Here's the graph of the experiment:
 
-![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)
+    [ ![Graph of the experiment](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## Data processing
 

@@ -39,7 +39,8 @@ We use these steps to build the experiment:
 
 Here's the complete graph of the experiment:
 
-![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)
+[ ![Graph of the experiment](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
+
 
 ## Get the data
 
