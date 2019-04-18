@@ -42,7 +42,7 @@ If the provider shows as *NotRegistered*, register the provider using the [az pr
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## Regional availability limitations
+## Regional availability
 
 The following regions are supported for virtual node deployments:
 
@@ -51,6 +51,16 @@ The following regions are supported for virtual node deployments:
 * West Central US (westcentralus)
 * West Europe (westeurope)
 * West US (westus)
+
+## Known limitations
+Virtual Nodes functionality is heavily dependent on ACI's feature set. The following scenarios are not yet supported with Virtual Nodes
+
+* Using service principal to pull ACR images. [Workaround](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) is to use [Kubernetes secrets](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Virtual Network Limitations](../container-instances/container-instances-vnet.md) including VNet peering, Kubernetes network policies, and outbound traffic to the internet with network security groups.
+* Init containers
+* [Host aliases](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Arguments](../container-instances/container-instances-exec.md#restrictions) for exec in ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) will not deploy pods to the virtual node
 
 ## Launch Azure Cloud Shell
 
@@ -88,7 +98,7 @@ az network vnet subnet create \
     --resource-group myResourceGroup \
     --vnet-name myVnet \
     --name myVirtualNodeSubnet \
-    --address-prefix 10.241.0.0/16
+    --address-prefixes 10.241.0.0/16
 ```
 
 ## Create a service principal
@@ -157,13 +167,7 @@ az aks create \
 
 After several minutes, the command completes and returns JSON-formatted information about the cluster.
 
-## Enable virtual nodes
-
-To provide additional functionality, the virtual nodes connector uses an Azure CLI extension. Before you can enable the virtual nodes connector, first install the extension using the [az extension add][az-extension-add] command:
-
-```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
-```
+## Enable virtual nodes addon
 
 To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step:
 
@@ -174,6 +178,11 @@ az aks enable-addons \
     --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
+> [!NOTE]
+> If you receive an error about virtual-node not being found, you may need to install its CLI extension 
+> ```azurecli-interactive
+> az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
+> ```
 
 ## Connect to the cluster
 
@@ -334,7 +343,7 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
-[aks-github]: https://github.com/azure/aks/issues]
+[aks-github]: https://github.com/azure/aks/issues
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 

@@ -12,10 +12,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
-ms.author: mabrigg
+ms.date: 04/15/2019
 ms.reviewer: ppacent
-ms.lastreviewed: 12/18/2018
+ms.lastreviewed: 04/15/2019
 
 ---
 
@@ -31,7 +30,7 @@ All the certificates, passwords, secure strings, and keys used by the Azure Stac
 
 - **External secrets**
 
-Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services:
+Infrastructure service certificates for external-facing services that provided by the Azure Stack Operator. External secrets include the certificates for the following services:
 
 - Administrator Portal
 - Public Portal
@@ -60,13 +59,13 @@ Azure Stack supports secret rotation with external certificates from a new Certi
 
 |Installed Certificate CA|CA to Rotate To|Supported|Azure Stack Versions Supported|
 |-----|-----|-----|-----|
-|From Self-Signed|To Enterprise|Not Supported||
+|From Self-Signed|To Enterprise|Supported|1903 & Later|
 |From Self-Signed|To Self-Signed|Not Supported||
 |From Self-Signed|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Enterprise|To Enterprise|Supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
+|From Enterprise|To Enterprise|Supported. From 1803-1903: supported so long as customers use the SAME enterprise CA as used at deployment|1803 & Later|
 |From Enterprise|To Self-Signed|Not Supported||
 |From Enterprise|To Public<sup>*</sup>|Supported|1803 & Later|
-|From Public<sup>*</sup>|To Enterprise|Not Supported|1803 & Later|
+|From Public<sup>*</sup>|To Enterprise|Supported|1903 & Later|
 |From Public<sup>*</sup>|To Self-Signed|Not Supported||
 |From Public<sup>*</sup>|To Public<sup>*</sup>|Supported|1803 & Later|
 
@@ -99,7 +98,7 @@ Running secret rotation using the instructions below will remediate these alerts
     > [!Note] 
     > For pre-1811 versions you do not need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
 
-2. Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using SCOM to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
+2. Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using System Center Operations Manager to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
 
 3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
 
@@ -297,11 +296,11 @@ The **Start-SecretRotation** cmdlet rotates the infrastructure secrets of an Azu
 
 | Parameter | Type | Required | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
-| CertificatePassword | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
-| Internal | String | False | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
-| PathAccessCredential | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
-| ReRun | SwitchParameter | False  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
+| `PfxFilesPath` | String  | False  | Named  | None  | The fileshare path to the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets. End directory must be **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | Named  | None  | The password for all certificates provided in the -PfXFilesPath. Required value if PfxFilesPath is provided when external secrets are rotated. |
+| `Internal` | String | False | Named | None | Internal flag must be used anytime an Azure Stack operator wishes to rotate internal infrastructure secrets. |
+| `PathAccessCredential` | PSCredential | False  | Named  | None  | The PowerShell credential for the fileshare of the **\Certificates** directory containing all external network endpoint certificates. Only required when rotating external secrets.  |
+| `ReRun` | SwitchParameter | False  | Named  | None  | ReRun must be used anytime secret rotation is reattempted after a failed attempt. |
 
 ### Examples
 
@@ -366,7 +365,7 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 
 The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components on a regular basis.
 
-1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user account name and password for each BMC in your environment must be the same.
+1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user name and password for each BMC in your environment must be the same. Note that BMC user names can't exceed 16 characters.
 2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredential` by running `Invoke-Command`. Pass your privileged endpoint session variable as a parameter. For example:
 

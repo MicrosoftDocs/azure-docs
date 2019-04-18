@@ -44,7 +44,7 @@ For high availability in your production environment, we recommend having more t
 
 1. Physically locate the connector server close to the application servers to optimize performance between the connector and the application. For more information, see [Network topology considerations](application-proxy-network-topology.md).
 
-2. The connector server and the web applications servers should belong to the same Active Directory domain. Having the servers in the same domain is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+2. The connector server and the web applications servers should belong to the same Active Directory domain or span trusting domains. Having the servers in the same domain or trusting domains is a requirement for using single sign-on (SSO) with Integrated Windows Authentication (IWA) and Kerberos Constrained Delegation (KCD). If the connector server and web application servers are in different Active Directory domains, you need to use resource-based delegation for single sign-on. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
 
 #### Software requirements
 
@@ -109,7 +109,7 @@ To install the connector:
 
 ### General remarks
 
-If you've previously installed a connector, reinstall to get the latest version.
+If you've previously installed a connector, reinstall to get the latest version. To see information about previously released versions and what changes they include, see [Application Proxy- Version Release History](application-proxy-release-version-history.md).
 
 If you choose to have more than one Windows server for your on-premises applications, you'll need to install and register the connector on each server. You can organize the connectors into connector groups. For more information, see [Connector groups](application-proxy-connector-groups.md). 
 
@@ -117,7 +117,6 @@ If your organization uses proxy servers to connect to the internet, you need to 
 
 For information about connectors, capacity planning, and how they stay up-to-date, see [Understand Azure AD Application Proxy connectors](application-proxy-connectors.md). 
 
-If you're using the Qlik Sense application, always install the latest connector. Qlik Sense uses WebSockets, which is only supported on connector versions 1.5.612.0 or later.
 
 ## Verify the connector installed and registered correctly
 

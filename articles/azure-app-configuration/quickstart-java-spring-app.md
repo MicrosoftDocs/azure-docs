@@ -51,11 +51,7 @@ To do this quickstart, install a supported [Java Development Kit (JDK)](https://
 
 4. Select **Create**. The deployment might take a few minutes to finish.
 
-5. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You use this connection string later to configure your application to communicate with the app configuration store you created. The connection string has the following form:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Use the entire string in your application.
+5. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You use this connection string later to configure your application to communicate with the app configuration store you created.
 
 6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
 
@@ -173,4 +169,4 @@ In this quickstart, you created a new app configuration store and used it with a
 To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)
