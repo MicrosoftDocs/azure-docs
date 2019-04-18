@@ -98,7 +98,7 @@ A Load Balancer rule is used to define how traffic is distributed to the VMs. Yo
 
 ## Create backend servers
 
-In this section, you create a virtual network, create two virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
+In this section, you create a virtual network, create three virtual machines for the backend pool of the Load Balancer, and then install IIS on the virtual machines to help test the Load Balancer.
 
 ### Create a virtual network
 1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
@@ -117,7 +117,7 @@ In this section, you create a virtual network, create two virtual machines for t
 1. Leave the rest of the defaults and select **Create**.
 
 ### Create virtual machines
-Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create two VMs (*myVM1* and *myVM2*) with a Standard public IP address in two different zones (*Zone 1* and *Zone 2*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
+Standard Load Balancer only supports VMs with Standard IP addresses in the backend pool. In this section, you will create three VMs (*myVM1*, *myVM2* and *myVM3*) with a Standard public IP address in three different zones (*Zone 1*, *Zone 2*, and *Zone 3*) that are added to the backend pool of the Standard Load Balancer that was created earlier.
 
 1. On the upper-left side of the portal, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**. 
    
@@ -144,7 +144,7 @@ Standard Load Balancer only supports VMs with Standard IP addresses in the backe
 1. Select the **Management** tab, or select **Next** > **Management**. Under **Monitoring**, set **Boot diagnostics** to **Off**. 
 1. Select **Review + create**.   
 1. Review the settings, and then select **Create**.
-1. Follow the steps to create a second VM named *myVM2*, with a Standard SKU public IP address named *myVM2-ip*, and **Availability zone** setting of **2** and all the other settings the same as *myVM1*. 
+1. Follow the steps to create two more VMs named *myVM2* and *myVM3*, with a Standard SKU public IP address named *myVM2-ip* and *myVM3-ip*, and **Availability zone** setting of **2** a,d **3** respectively, and all the other settings the same as *myVM1*. 
 
 ### Create NSG rule
 
@@ -175,7 +175,7 @@ In this section, you create a network security group rule to allow inbound conne
     - In the **Select destination server** page, select **myVM1**
     - In the **Select server role** page, select **Web Server (IIS)**
     - Follow instructions to complete the rest of the wizard 
-7. Repeat steps 1 to 6 for the virtual machine *myVM2*.
+7. Repeat steps 1 to 6 for the virtual machines *myVM2* and *myVM3*.
 
 ## Test the Load Balancer
 1. Find the public IP address for the Load Balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myPublicIP**.
@@ -184,7 +184,7 @@ In this section, you create a network security group rule to allow inbound conne
 
       ![IIS Web server](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
 
-To see the Load Balancer distribute traffic across **myVM1** and **myVM2**, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the Load Balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
 ## Clean up resources
 
