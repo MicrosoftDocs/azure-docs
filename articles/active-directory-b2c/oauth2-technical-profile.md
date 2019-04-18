@@ -60,7 +60,7 @@ The technical profile also returns claims that aren't returned by the identity p
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />

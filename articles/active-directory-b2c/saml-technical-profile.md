@@ -92,7 +92,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
  
 The following example shows the claims returned by the Facebook identity provider:
 
-- The **socialIdpUserId** claim is mapped to the **assertionSubjectName** claim.
+- The **issuerUserId** claim is mapped to the **assertionSubjectName** claim.
 - The **first_name** claim is mapped to the **givenName** claim.
 - The **last_name** claim is mapped to the **surname** claim.
 - The **displayName** claim without name mapping.
@@ -105,7 +105,7 @@ The technical profile also returns claims that aren't returned by the identity p
  
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="assertionSubjectName" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="assertionSubjectName" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />

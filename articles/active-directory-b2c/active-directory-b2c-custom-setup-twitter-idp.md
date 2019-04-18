@@ -83,7 +83,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
             <Key Id="client_secret" StorageReferenceId="B2C_1A_TwitterSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />

@@ -84,7 +84,7 @@ You can define Azure AD as a claims provider by adding the **ClaimsProvider** el
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>

@@ -42,7 +42,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claims returned by the Twitter identity provider:
 
-- The **user_id** claim that is mapped to the **socialIdpUserId** claim.
+- The **user_id** claim that is mapped to the **issuerUserId** claim.
 - The **screen_name** claim that is mapped to the **displayName** claim.
 - The **email** claim without name mapping.
 
@@ -53,7 +53,7 @@ The technical profile also returns claims that aren't returned by the identity p
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />

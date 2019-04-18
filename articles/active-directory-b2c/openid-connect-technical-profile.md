@@ -48,7 +48,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claims returned by the Microsoft Account identity provider:
 
-- The **sub** claim that is mapped to the **socialIdpUserId** claim.
+- The **sub** claim that is mapped to the **issuerUserId** claim.
 - The **name** claim that is mapped to the **displayName** claim.
 - The **email** without name mapping.
 
@@ -61,7 +61,7 @@ The technical profile also returns claims that aren't returned by the identity p
 <OutputClaims>
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
   <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
   <OutputClaim ClaimTypeReferenceId="email" />
 </OutputClaims>
