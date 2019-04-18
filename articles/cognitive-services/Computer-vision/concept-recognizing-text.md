@@ -16,7 +16,7 @@ ms.custom: seodec18
 
 # Recognize printed and handwritten text
 
-Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as notetaking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
+Computer Vision provides a number of services that detect and extract printed or handwritten text that appears in images. This is useful in a variety of scenarios such as note taking, medical records, security, and banking. The following three sections detail three different text recognition APIs, each optimized for different use cases.
 
 ## Read API
 

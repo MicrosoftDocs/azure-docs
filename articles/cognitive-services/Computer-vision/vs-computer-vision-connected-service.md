@@ -251,7 +251,7 @@ This article and its companion articles provide details for using the Visual Stu
 
 When no longer needed, delete the resource group. This deletes the cognitive service and related resources. To delete the resource group through the portal:
 
-1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this QuickStart in the search results, select it.
+1. Enter the name of your resource group in the Search box at the top of the portal. When you see the resource group used in this quickstart in the search results, select it.
 2. Select **Delete resource group**.
 3. In the **TYPE THE RESOURCE GROUP NAME:** box type in the name of the resource group and select **Delete**.
 

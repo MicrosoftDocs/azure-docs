@@ -1,7 +1,7 @@
 ---
 title: "Sample: Explore an image processing app in C#"
 titleSuffix: Azure Cognitive Services
-description: Explore a basic Windows app that uses the Computer Vision API in Microsoft Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
+description: Explore a basic Windows app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: nolachar
