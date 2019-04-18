@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/11/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -99,6 +99,13 @@ With an access package and its policies, the access package manager defines:
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
+The following diagram shows the different components in entitlement management.
+
+- The resource directory is your directory where you have several resources that users can potentially request access to.
+- Currently, there are two access packages.
+- **Access package 1** includes a single group. Access is defined with a policy that enables a set of user in your directory to request access.
+- **Access package 2** includes a group, an application, and a SharePoint Online site. Access is defined with two different policies. The first policy enables a set of users in your directory to request access. The second policy enables users in an external directory to request access.
+
 ![Entitlement management overview](./media/entitlement-management-overview/elm-overview.png)
 
 ## Terminology
@@ -108,8 +115,8 @@ To better understand entitlement management and its documentation, you should re
 | Term or concept | Description |
 | --- | --- |
 | entitlement management | A service that assigns, revokes, and administers access packages. |
-| catalog | A container of related resources and access packages. A catalog can be configured to be visible outside the current directory. |
-| Default catalog | A built-in catalog that is always available. To add resources to the Default catalog requires certain permissions. |
+| catalog | A container of related resources and access packages. |
+| Default Catalog | A built-in catalog that is always available. To add resources to the Default Catalog requires certain permissions. |
 | access package | A collection of permissions and policies to resources that users can request. An access package is always contained in a catalog. |
 | access request | A request to access an access package. A request typically goes through a workflow. |
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
@@ -118,7 +125,7 @@ To better understand entitlement management and its documentation, you should re
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
 | assigned users | An assignment of an access package to a user or group. |
-| enable | The process of making an access package visible for users to request. |
+| enable | The process of making an access package available for users to request. |
 
 ## Roles and permissions
 
@@ -137,24 +144,23 @@ The following table lists the permissions for each of these roles.
 
 | Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| Create a catalog | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| Edit/delete a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Create a new access package in the **Default Catalog**](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
+| [Create a new access package in a catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
+| [Add/remove resource roles to/from an access package](entitlement-management-access-package-edit.md#add-resource-roles) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Directly assign a user to an access package](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [View who has an assignment to an access package](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [View an access package's requests](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [View a request's delivery errors](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Cancel a pending request](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Hide an access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Delete an access package](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Approve an access request](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
+| [Create a catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
+| [Add/remove resources to/from the **Default Catalog**](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
+| [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | Add additional catalog owners | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| Add/remove resources to/from the **Default** catalog | :heavy_check_mark: |  |  |  |  |
-| Add/remove resources to/from a catalog | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| Create an access package in the **Default** catalog | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| Create an access package in a catalog | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| Delete an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Add/remove access packages to/from a catalog | :heavy_check_mark: |  |  | :heavy_check_mark: |  |
-| Add/remove resource roles to/from an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Directly assign a user to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Specify who can request an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| View who has an assignment to an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| View an access package's requests | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| View a request's delivery errors | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Cancel a pending request | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Hide an access package | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| Approve an access request |  |  |  |  | :heavy_check_mark: |
 
 ## Next steps
 
