@@ -45,6 +45,7 @@ class Program
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSpeechSubscriptionKey");
         var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
+        // signature can be extracted from the jsonData
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
@@ -56,10 +57,12 @@ class Program
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
         var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
+        // signature can be extracted from the jsonData
         var jsonData = await response.Content.ReadAsStringAsync();
     }
     static void Main(string[] args)
     {
+        UseFormContent().Wait();
         UserByteArrayContent().Wait();
     }
 }
