@@ -211,7 +211,7 @@ operations that were performed within Azure resources.
 ## A.12.4.4 Clock synchronization
 
 This blueprint helps you ensure system events are logged by assigning seven Azure Policy
-definitions that that audit log settings on Azure resources. Azure logs rely on synchronized
+definitions that audit log settings on Azure resources. Azure logs rely on synchronized
 internal clocks to create a time-correlated record of events across resources.
 
 - [Preview]: Audit Dependency Agent Deployment - VM Image (OS) unlisted
