@@ -2,12 +2,12 @@
 title: Use Draft with AKS and Azure Container Registry
 description: Use Draft with AKS and Azure Container Registry
 services: container-service
-author: iainfoulds
+author: zr-msft
 
 ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
-ms.author: iainfou
+ms.author: zarhoads
 ---
 
 # Use Draft with Azure Kubernetes Service (AKS)
@@ -140,7 +140,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-To access your application, open a web browser to the address and port specified in the `draft connect` output, such as *http://localhost:49804*. 
+To access your application, open a web browser to the address and port specified in the `draft connect` output, such as `http://localhost:49804`. 
 
 ![Sample Java app running with Draft](media/kubernetes-draft/sample-app.png)
 

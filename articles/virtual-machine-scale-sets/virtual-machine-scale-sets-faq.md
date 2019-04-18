@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
 
@@ -26,13 +26,13 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 ## Top frequently asked questions for scale sets
 
-**Q.** How many VMs can I have in a scale set?
+### How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
+A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
 
-**Q.** Are data disks supported within scale sets?
+### Are data disks supported within scale sets?
 
-**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
 * Azure files (SMB shared drives)
 * OS drive
@@ -40,33 +40,33 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 * Azure data service (for example, Azure tables, Azure blobs)
 * External data service (for example, remote database)
 
-**Q.** Which Azure regions support scale sets?
+### Which Azure regions support scale sets?
 
-**A.** All regions support scale sets.
+All regions support scale sets.
 
-**Q.** How do I create a scale set by using a custom image?
+### How do I create a scale set by using a custom image?
 
-**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
+### If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
-**A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
 
-**Q.** What if I then increase the capacity from 15 to 18?
+### What if I then increase the capacity from 15 to 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
 
-**Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
+### When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
+Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
 
-**Q.** Do scale sets work with Azure availability sets?
+### Do scale sets work with Azure availability sets?
 
-**A.** A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
+A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
-**Q.** Do scale sets work with Azure availability zones?
+### Do scale sets work with Azure availability zones?
 
-**A.** Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## Autoscale
@@ -231,7 +231,7 @@ You can provide SSH public keys in plain text when you create a Linux VM:
 ```
 
 linuxConfiguration element name | Required | Type | Description
---- | --- | --- | --- |  ---
+--- | --- | --- | --- 
 ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key
@@ -240,7 +240,7 @@ For an example, see [the 101-vm-sshkey GitHub quickstart template](https://githu
 
 ### When I run `Update-AzVmss` after adding more than one certificate from the same key vault, I see the following message:
 
->Update-AzVmss: List secret contains repeated instances of /subscriptions/<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
+>Update-AzVmss: List secret contains repeated instances of /subscriptions/\<my-subscription-id>/resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, which is disallowed.
 
 This can happen if you try to re-add the same vault instead of using a new vault certificate for the existing source vault. The `Add-AzVmssSecret` command does not work correctly if you are adding additional secrets.
 
@@ -300,13 +300,13 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
+### Why do I have to specify the exact location for the certificate URL (https:\/\/\<name of the vault>.vault.azure.net:443/secrets/\<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
 
 The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
 
 Method | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Replace {*secret-name*} with the name, and replace {*secret-version*} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
 
@@ -371,9 +371,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 You can find the extensionName value in `$vmss`.
 
-### Is there a virtual machine scale set template example that integrates with Log Analytics?
+### Is there a virtual machine scale set template example that integrates with Azure Monitor logs?
 
-For a virtual machine scale set template example that integrates with Log Analytics, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
+For a virtual machine scale set template example that integrates with Azure Monitor logs, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
 
@@ -532,7 +532,7 @@ To deploy a virtual machine scale set to an existing Azure virtual network, see 
 
 ### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
 
-To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### Can I use scale sets with Accelerated Networking?
 
@@ -655,15 +655,18 @@ Yes, you can use the reimage operation to reset a VM without changing the image.
 
 For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
-### Is it possible to integrate scale sets with Azure Log Analytics?
+### Is it possible to integrate scale sets with Azure Monitor logs?
 
-Yes, you can by installing the Log Analytics extension on the scale set VMs. Here is an Azure CLI example:
+Yes, you can by installing the Azure Monitor extension on the scale set VMs. Here is an Azure CLI example:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 You can find the required workspaceId and workspaceKey in the Log Analytics workspace of Azure portal. On the Overview page, click the Settings tile. Click the Connected Sources tab at the top.
 
-Note: if your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
+> [!NOTE]
+> If your scale set _upgradePolicy_ is set to Manual, you need to apply the extension to the all VMs in the set by calling upgrade on them. In CLI this would be _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## Troubleshooting
 
@@ -715,3 +718,26 @@ The main difference between deleting a VM in a virtual machine scale set and dea
 - You want to start a set of VMs more quickly than you could scale out a virtual machine scale set.
   - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
+
+### How do I take a snapshot of a VMSS instance?
+Create a snapshot from an instance of a VMSS.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Create a managed disk from the snapshot.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

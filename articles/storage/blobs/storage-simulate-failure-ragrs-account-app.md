@@ -72,7 +72,7 @@ Once complete, select **File** and **Save** to save your changes.
 
 ### Interrupting the application
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 Run the application in your IDE or shell.
 
@@ -80,7 +80,7 @@ Once the application begins reading from the primary endpoint, press **any key**
 
 ![Scenario app](media/storage-simulate-failure-ragrs-account-app/scenario.png)
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 Run the application in your IDE or shell.
 
@@ -110,7 +110,7 @@ Uncomment the following lines, replace `STORAGEACCOUNTNAME` with the name of you
          }
 ```
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 To resume the application, press **any key**.
 
@@ -120,7 +120,7 @@ This pattern is the [Circuit Breaker](https://docs.microsoft.com/azure/architect
 
 ![Paste customized rule](media/storage-simulate-failure-ragrs-account-app/figure3.png)
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 Now that you've introduced the failure, enter **G** to test the failure.
 
@@ -130,7 +130,7 @@ It will inform you that it is using the secondary pipeline as opposed to the pri
 
 ### Simulate primary endpoint restoration
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
@@ -150,7 +150,7 @@ When complete, press **any key** to resume the application. The application cont
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 With the Fiddler custom rule set in the preceding step, requests to the primary endpoint fail.
 
@@ -170,11 +170,11 @@ You can create an invalid static route for all requests to the primary endpoint 
 
 ### Start and pause the application
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 Run the application in your IDE or shell. Once the application begins reading from the primary endpoint, press **any key** in the console window to pause the application.
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 Since you control the sample, you do not need to interrupt it in order to test failure.
 
@@ -207,13 +207,13 @@ To add a static route for a destination host, type the following command on a Wi
 
 Replace  `<destination_ip>` with your storage account IP address, and `<gateway_ip>` with your local host IP address.
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 To resume the application, press **any key**.
 
 Once the application starts running again, the requests to the primary endpoint begin to fail. The application attempts to reconnect to the primary endpoint five times. After the failure threshold of five attempts, it requests the image from the secondary read-only endpoint. After the application successfully retrieves the image 20 times from the secondary endpoint, the application attempts to connect to the primary endpoint. If the primary endpoint is still unreachable, the application resumes reading from the secondary endpoint. This pattern is the [Circuit Breaker](/azure/architecture/patterns/circuit-breaker) pattern described in the previous tutorial.
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 Now that you've introduced the failure, enter **G** to test the failure. It will inform you that it is using the secondary pipeline as opposed to the primary pipeline.
 
@@ -233,14 +233,14 @@ To delete the static route of a destination host, the storage account, type the 
 
 `route delete <destination_ip>`
 
-# [.NET, Python, and Java v7] (#tab/dotnet-python-java-v7)
+# [.NET, Python, and Java v7](#tab/dotnet-python-java-v7)
 
 Press **any key** to resume the application. The application continues reading from the primary endpoint until it hits 999 reads.
 
 ![Resume application](media/storage-simulate-failure-ragrs-account-app/figure4.png)
 
 
-# [Java v10] (#tab/Java-v10)
+# [Java v10](#tab/Java-v10)
 
 Enter **G** to test the download. The application will report that it is now using the primary pipeline again.
 

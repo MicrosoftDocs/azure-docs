@@ -53,10 +53,9 @@ We've created this content to help you set up and use security info, two-step ve
                         <p>
                         <a href="/azure/active-directory/user-help/myprofile-portal-overview">Overview</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-security-info-overview">Manage your security info</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-recent-activity-page">View recent sign-in activity</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-organizations-page">Manage your organizations</a><br/>
                         <a href="/azure/active-directory/user-help/myprofile-portal-devices-page">Manage your connected devices</a><br/>
-                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">View your privacy-related info</a><br/>                       
+                        <a href="/azure/active-directory/user-help/myprofile-portal-privacy-page">View your privacy-related info</a>
                         </p>
                     </div>
                 </div>
@@ -137,8 +136,11 @@ We've created this content to help you set up and use security info, two-step ve
                     <div class="cardText">
                         <h3>My Apps portal help</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">What is the My Apps portal?</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Troubleshoot</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Access and use the My Apps portal</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Update your profile and account info</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Update your group-related info</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Perform your own access reviews</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Troubleshoot</a>
                         </p>
                     </div>
                 </div>

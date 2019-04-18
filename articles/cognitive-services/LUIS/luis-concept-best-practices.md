@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 02/26/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
@@ -72,7 +72,9 @@ For more information:
 
 ## Do add phrase lists and patterns in later iterations
 
-A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding phrase lists and patterns. Once you understand how your app behaves without these, add each of these features as they apply to your app. You do not need to add these features with each [iteration](luis-concept-app-iteration.md) or change the features with each version. 
+A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding phrase lists and patterns because these features are weighted more heavily than example utterances and will skew confidence. 
+
+Once you understand how your app behaves without these, add each of these features as they apply to your app. You do not need to add these features with each [iteration](luis-concept-app-iteration.md) or change the features with each version. 
 
 There is no harm adding them in the beginning of your model design but it is easier to see how each feature changes results after the model is tested with utterances. 
 
@@ -114,12 +116,12 @@ For more information:
 
 ## Do leverage the suggest feature for active learning
 
-Use [active learning](luis-how-to-review-endoint-utt.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
+Use [active learning](luis-how-to-review-endpoint-utterances.md)'s **Review endpoint utterances** on a regular basis, instead of adding more example utterances to intents. Because the app is constantly receiving endpoint utterances, this list is growing and changing.
 
 For more information:
 * Concept: [Concepts for enabling active learning by reviewing endpoint utterances](luis-concept-review-endpoint-utterances.md)
 * Tutorial: [Tutorial: Fix unsure predictions by reviewing endpoint utterances](luis-tutorial-review-endpoint-utterances.md)
-* How-to: [How to review endpoint utterances in LUIS portal](luis-how-to-review-endoint-utt.md)
+* How-to: [How to review endpoint utterances in LUIS portal](luis-how-to-review-endpoint-utterances.md)
 
 ## Do monitor the performance of your app
 

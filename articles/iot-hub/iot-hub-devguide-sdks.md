@@ -1,13 +1,13 @@
 ---
 title: Understand the Azure IoT SDKs | Microsoft Docs
 description: Developer guide - information about and links to the various Azure IoT device and service SDKs that you can use to build device apps and back-end apps.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: dobett
 ---
 
 # Understand and use Azure IoT Hub SDKs
@@ -32,7 +32,7 @@ Learn about the [benefits of developing using Azure IoT SDKs](https://azure.micr
 
 Supported platforms for the SDKs can be found in [Azure IoT SDKs Platform Support](iot-hub-device-sdk-platform-support.md).
 
-For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsuite.com/) or individual repository.
+For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com/) or individual repository.
 
 ## Azure IoT Hub Device SDKs
 
@@ -54,6 +54,7 @@ Azure IoT Hub device SDK for C (ANSI C - C99):
 * [Module reference](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
 * [Porting the C SDK to other platforms](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Developer documentation](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc) for information on cross-compiling, getting started on different platforms, etc.
+* [Azure IoT Hub C SDK resource consumption information](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 Azure IoT Hub device SDK for Java: 
 

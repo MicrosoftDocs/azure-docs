@@ -21,7 +21,7 @@
       href: create-sql-api-xamarin-dotnet.md
   - name: Tutorials
     items:
-    - name: 1 - Create account
+    - name: 1 - Create & manage data
       items:
       - name: Build a console app
         items:
@@ -216,7 +216,7 @@
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: MongoDB API
       items: 
       - name: Introduction
         href: mongodb-introduction.md
@@ -238,7 +238,7 @@
           href: create-mongodb-golang.md
       - name: Tutorials
         items:
-        - name: 1 - Create account
+        - name: 1 - Create & manage data
           items:
           - name: Node.js console app
             href: mongodb-samples.md
@@ -285,40 +285,9 @@
         - name: Store and manage Spring Data 
           href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
           maintainContext: true
-    - name: Gremlin API
-      displayName: graph, graph database
-      items: 
-      - name: Introduction
-        href: graph-introduction.md
-      - name: Wire protocol support
-        href: gremlin-support.md
-      - name: Quickstarts
-        items:
-        - name: Gremlin console
-          href: create-graph-gremlin-console.md
-        - name: .NET
-          href: create-graph-dotnet.md
-        - name: Java
-          href: create-graph-java.md
-        - name: Node.js
-          href: create-graph-nodejs.md
-        - name: Python
-          href: create-graph-python.md
-        - name: PHP
-          href: create-graph-php.md
-      - name: Tutorials
-        items:
-        - name: 1 - Query data
-          href: tutorial-query-graph.md
-      - name: How-to guides
-        items:
-        - name: Import graph data 
-          href: bulk-executor-graph-dotnet.md
-        - name: Graph data partitioning
-          href: graph-partitioning.md
-        - name: Store and manage Spring Data 
-          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-          maintainContext: true
+        - name: MongoDB extension commands
+          href: mongodb-custom-commands.md
+          displayName: custom commands
     - name: Cassandra API
       items: 
       - name: Introduction
@@ -337,7 +306,7 @@
           href: create-cassandra-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create account & database
+        - name: 1 - Create & manage data
           href: create-cassandra-api-account-java.md
         - name: 2 - Load data
           href: cassandra-api-load-data.md
@@ -373,6 +342,42 @@
             href: cassandra-spark-aggregation-ops.md
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
+    - name: Gremlin API
+      displayName: graph, graph database
+      items: 
+      - name: Introduction
+        href: graph-introduction.md
+      - name: Wire protocol support
+        href: gremlin-support.md
+      - name: Quickstarts
+        items:
+        - name: Gremlin console
+          href: create-graph-gremlin-console.md
+        - name: .NET
+          href: create-graph-dotnet.md
+        - name: Java
+          href: create-graph-java.md
+        - name: Node.js
+          href: create-graph-nodejs.md
+        - name: Python
+          href: create-graph-python.md
+        - name: PHP
+          href: create-graph-php.md
+      - name: Tutorials
+        items:
+        - name: 1 - Query data
+          href: tutorial-query-graph.md
+      - name: How-to guides
+        items:
+        - name: Import graph data 
+          href: bulk-executor-graph-dotnet.md
+        - name: Graph data partitioning
+          href: graph-partitioning.md
+        - name: Optimize Gremlin queries
+          href: graph-execution-profile.md
+        - name: Store and manage Spring Data
+          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+          maintainContext: true
     - name: Table API
       items:
       - name: Introduction
@@ -389,7 +394,7 @@
           href: create-table-python.md
       - name: Tutorials
         items:
-        - name: 1 - Create account
+        - name: 1 - Create & manage data
           href: tutorial-develop-table-dotnet.md
         - name: 2 - Migrate data
           displayName: import 
@@ -459,12 +464,18 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Find request unit charge
+        displayName: request units, RUs, RU, charge, consumption
+        href: find-request-unit-charge.md
     - name: Working with containers and items
       items:
       - name: Create a container
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Data modeling and partitioning - a real-world example
+        displayName: model, partition, example
+        href: how-to-model-partition-example.md
       - name: Configure time to live
         displayName: delete, delete data, ttl
         href: how-to-time-to-live.md
@@ -476,6 +487,12 @@
         items:
         - name: Manage indexing
           href: how-to-manage-indexing-policy.md
+    - name: Change Feed
+      items:
+      - name: Multiple Azure Cosmos DB Triggers
+        href: how-to-create-multiple-cosmos-db-triggers.md
+      - name: Troubleshoot Azure Cosmos DB Triggers
+        href: troubleshoot-changefeed-functions.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
@@ -599,6 +616,8 @@
       items:
       - name: Troubleshoot Java Async SDK
         href: troubleshoot-java-async-sdk.md
+      - name: Troubleshoot .NET SDK
+        href: troubleshoot-dot-net-sdk.md
   - name: Reference
     items:
     - name: .NET

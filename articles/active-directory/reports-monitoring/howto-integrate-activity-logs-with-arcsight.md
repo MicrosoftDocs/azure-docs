@@ -3,7 +3,7 @@ title: How to integrate Azure Active Directory logs with ArcSight using Azure Mo
 description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 12/03/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -56,4 +56,4 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Next steps
 
-* [Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+* [Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)

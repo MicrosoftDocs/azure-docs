@@ -89,14 +89,14 @@ All actions have the properties in the following table.  Different types of aler
 
 | Property | Description |
 |:--- |:--- |
-| Type |Type of the action.  Currently the possible values are Alert and Webhook. |
-| Name |Display name for the alert. |
-| Version |The API version being used.  Currently, this should always be set to 1. |
+| `Type` |Type of the action.  Currently the possible values are Alert and Webhook. |
+| `Name` |Display name for the alert. |
+| `Version` |The API version being used.  Currently, this should always be set to 1. |
 
 ### Retrieving actions
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use the Get method to retrieve all actions for a schedule.
 
@@ -119,7 +119,7 @@ The request format for creating a new action varies by action type so these exam
 ### Deleting actions
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use the Delete method with the action ID to delete an action.
 
@@ -140,7 +140,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 | Webhook Actions | Push data from Alerts, to desired service as JSON |Not required, if alerts are extended to Azure|
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md).
 
 #### Thresholds
 An Alert action should have one and only one threshold.  When the results of a saved search match the threshold in an action associated with that search, then any other processes in that action are run.  An action can also contain only a threshold so that it can be used with actions of other types that don’t contain thresholds.
@@ -149,8 +149,8 @@ Thresholds have the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| Operator |Operator for the threshold comparison. <br> gt = Greater Than <br> lt = Less Than |
-| Value |Value for the threshold. |
+| `Operator` |Operator for the threshold comparison. <br> gt = Greater Than <br> lt = Less Than |
+| `Value` |Value for the threshold. |
 
 For example, consider an event query with an Interval of 15 minutes, a Timespan of 30 minutes, and a Threshold of greater than 10. In this case, the query would be run every 15 minutes, and an alert would be triggered if it returned 10 events that were created over a 30-minute span.
 
@@ -182,9 +182,9 @@ Log Analytics allows you to classify your alerts into categories, to allow easie
 
 |Log Analytics Severity Level  |Azure Alerts Severity Level  |
 |---------|---------|
-|critical |Sev 0|
-|warning |Sev 1|
-|informational | Sev 2|
+|`critical` |Sev 0|
+|`warning` |Sev 1|
+|`informational` | Sev 2|
 
 Following is a sample response for an action with only a threshold and severity. 
 
@@ -279,7 +279,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 By default actions, follow standard template and format for notifications. But user can customize some actions, even if they are controlled by Action Groups. Currently, customization is possible for Email Subject and Webhook Payload.
 
 ##### Customize E-Mail Subject for Action Group
-By default, the email subject for alerts is: Alert Notification <AlertName> for <WorkspaceName>. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
+By default, the email subject for alerts is: Alert Notification `<AlertName>` for `<WorkspaceName>`. But this can be customized, so that you can specific words or tags - to allow you to easily employ filter rules in your Inbox. 
 The customize email header details need to send along with ActionGroup details, as in sample below.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
@@ -350,7 +350,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 Email Notifications send mail to one or more recipients.  They include the properties in the following table.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Property | Description |
@@ -394,7 +394,7 @@ Use the Put method with an existing action ID to modify an e-mail action for a s
 Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using Azure portal, a new webhook is automatically created for the runbook.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Remediations include the properties in the following table.
 
@@ -453,7 +453,7 @@ Following is a complete example to create a new email alert.  This creates a new
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent.  They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks.  They also provide the additional option of providing a payload to be delivered to the remote process.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhook actions do not have a threshold but instead should be added to a schedule that has an Alert action with a threshold.  

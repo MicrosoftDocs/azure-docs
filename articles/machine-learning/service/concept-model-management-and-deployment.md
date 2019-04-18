@@ -18,7 +18,7 @@ ms.custom: seodec18
 In this article, you can learn how to use Azure Machine Learning Service to deploy, manage, and monitor your models to continuously improve them. You can deploy the models you trained with Azure Machine Learning, on your local machine, or from other sources. 
 
 The following diagram illustrates the complete deployment workflow:
-[ ![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
+[![Deployment workflow for Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png)](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 The deployment workflow includes the following steps:
 1. **Register the model** in a registry hosted in your Azure Machine Learning Service workspace
@@ -29,7 +29,7 @@ The deployment workflow includes the following steps:
 
 Each step can be performed independently or as part of a single deployment command. Additionally, you can integrate deployment into a **CI/CD workflow** as illustrated in this graphic.
 
-[ !['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png) ](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Azure Machine Learning continuous integration/continuous deployment (CI/CD) cycle'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## Step 1: Register model
 
@@ -59,7 +59,9 @@ The image can also include SDK components for logging and monitoring. The SDK lo
 Azure Machine Learning supports the most popular frameworks, but in general any framework that can be pip installed can work.
 
 When your workspace was created, so were other several other Azure resources used by that workspace.
-All the objects used to create the image are stored in the Azure storage account in your workspace. You can provide additional metadata tags when creating the image. The metadata tags are also stored by the image registry, and can be queried to find your image.
+All the objects used to create the default image are stored in the Azure storage account in your workspace. You can provide additional metadata tags when creating the image. The metadata tags are also stored by the image registry, and can be queried to find your image.
+
+You can also use custom images, which can be uploaded to Azure Container Registry and used by the Azure Machine Learning service.
 
 For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
@@ -69,7 +71,7 @@ You can deploy registered images into the cloud or to edge devices. The deployme
 
 Web service deployments are also searchable. For example, you can search for all deployments of a specific model or image.
 
-[ ![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png) ](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Inferencing targets](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 You can deploy your images to the following deployment targets in the cloud:
 
@@ -101,6 +103,6 @@ Updates to your model are not automatically registered. Similarly, registering a
 
 ## Next steps
 
-Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service.
+Learn more about [how and where you can deploy models](how-to-deploy-and-where.md) with the Azure Machine Learning service. For an example of deployment, see [Tutorial: Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
 
 Learn how to create client applications and services that [Consume a model deployed as a web service](how-to-consume-web-service.md).

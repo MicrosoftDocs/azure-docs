@@ -34,11 +34,11 @@ When you click on the virtual machine, the **Properties** pane is expanded on th
 
 ![System properties of the computer](./media/vminsights-maps/properties-pane-01.png)
 
-On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Log Analytics and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
+On the right-side of the pane, click on the **Log Events** icon to switch focus of the pane to show a list of tables that collected data from the VM has sent to Azure Monitor and is available for querying.  Clicking on any one of the record types listed will open the **Logs** page to view the results for that type with a pre-configured query filtered against the specific virtual machine.  
 
 ![Log search list in Properties pane](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Close *Logs** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
+Close **Logs** and return to the **Properties** pane and select **Alerts** to view alerts that alerts raised for the VM from health criteria. Map integrates with Azure Alerts to show fired alerts for the selected server in the selected time range. The server displays an icon if there are current alerts, and the Machine Alerts pane lists the alerts. 
 
 ![Machine alerts in Properties pane](./media/vminsights-maps/properties-pane-alerts-01.png)
 

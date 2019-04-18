@@ -21,28 +21,23 @@ In this article, you'll create, view, and delete [**Azure Machine Learning servi
 
 ## Create a workspace 
 
-To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## View a workspace
+## <a name="view"></a>View a workspace
 
 1. In top left corner of the portal, select **All services**. 
 
-1. In the **All services** filter field, type **Machine Learning service workspace**.  
+1. In the **All services** filter field, type **machine learning service**.  
 
-   ![search for Azure Machine Learning service workspace](media/how-to-manage-workspace/allservices-search1.png)
+1. Select **Machine Learning service workspaces**.
 
-1. In the filter results, select **Machine Learning service workspace** to display a list of your workspaces. 
-
-   ![List Azure Machine Learning service workspaces](media/how-to-manage-workspace/allservices-search.PNG)
+   ![Search for Azure Machine Learning service workspace](media/how-to-manage-workspace/all-services.png)
 
 1. Look through the list of workspaces found. You can filter based on subscription, resource groups, and locations.  
 
-   ![View workspaces](media/how-to-manage-workspace/allservices_view_workspace.PNG)
-
-1. Select the workspace you just created to display its properties.
-
+1. Select a workspace to display its properties.
    ![Workspace properties](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## Delete a workspace

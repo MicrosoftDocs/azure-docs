@@ -25,18 +25,20 @@ Learn more about [how to create custom APIs that support a webhook](../logic-app
 
 ## Use the webhook trigger
 
-A [*trigger*](connectors-overview.md) is an event that starts a logic app workflow. 
-A webhook trigger is event-based and doesn't rely on polling for new items. 
-Like the [request trigger](connectors-native-reqres.md), 
-the logic app fires the instant that an event happens. 
-The webhook trigger registers a *callback URL* to a service and uses that URL to fire the logic app as needed.
+A [*trigger*](../connectors/apis-list.md) is an event that starts a logic app workflow. 
+The webhook trigger is event-based, which doesn't depend on polling for new items. 
+When you save your logic app with a webhook trigger, or when you change your logic 
+app from disabled to enabled, the webhook trigger *subscribes* to the specified 
+service or endpoint by registering a *callback URL* with that service or endpoint. 
+The trigger then uses that URL to run the logic app as necessary. Like the 
+[request trigger](connectors-native-reqres.md), the logic app fires immediately 
+when the expected event happens. The trigger *unsubscribes* if you remove the 
+trigger and save your logic app, or when you change your logic app from 
+enabled to disabled.
 
 Here's an example that shows how to set up an HTTP trigger in the Logic App Designer. 
 The steps assume that you have already deployed or are accessing an API that follows 
 the [webhook subscribe and unsubscribe pattern in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
-The subscribe call is made whenever a logic app is saved with a new webhook, 
-or switched from disabled to enabled. The unsubscribe call is made when 
-a logic app webhook trigger is removed and saved, or switched from enabled to disabled.
 
 **To add the webhook trigger**
 
@@ -55,18 +57,26 @@ the logic app fires, and includes any data passed into the request.
 
 ## Use the webhook action
 
-An [*action*](connectors-overview.md) is an operation carried out by the workflow defined in a logic app. 
-A webhook action registers a *callback URL* with a service and waits until the URL is called before resuming. 
-The ["Send Approval Email"](connectors-create-api-office365-outlook.md) 
-is an example of a connector that follows this pattern. 
+An [*action*](../connectors/apis-list.md) is an operation 
+that's defined and run by your logic app's workflow. 
+When a logic app runs a webhook action, that action 
+*subscribes* to the specified service or endpoint by 
+registering a *callback URL* with that service or endpoint. 
+The webhook action then waits until that service calls the URL 
+before the logic app resumes running. The logic app unsubscribes 
+from the service or endpoint in these cases: 
+
+* When the webhook action successfully finishes
+* If the logic app run is canceled while waiting for a response
+* Before the logic app times out
+
+For example, the [**Send approval email**](connectors-create-api-office365-outlook.md) 
+action is an example of webhook action that follows this pattern. 
 You can extend this pattern into any service through the webhook action. 
 
 Here's an example that shows how to set up a webhook action in the Logic App Designer. 
 These steps assume that you have already deployed or are accessing an API that follows the 
 [webhook subscribe and unsubscribe pattern used in logic apps](../logic-apps/logic-apps-create-api-app.md#webhook-actions). 
-The subscribe call is made when a logic app executes the webhook action. 
-The unsubscribe call is made when a run is canceled while waiting for a response, 
-or before the logic app times out.
 
 **To add a webhook action**
 

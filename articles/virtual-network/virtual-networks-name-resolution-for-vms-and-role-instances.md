@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Name resolution scenarios for Azure IaaS, hybrid solutions, between different cloud services, Active Directory, and using your own DNS server.
 services: virtual-network
 documentationcenter: na
-author: subsarma
+author: rohinkoul
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/14/2018
-ms.author: subsarma
+ms.date: 3/25/2019
+ms.author: rohink
 ---
 
 # Name resolution for resources in Azure virtual networks
@@ -69,6 +69,7 @@ Points to consider when you are using Azure-provided name resolution:
 * Host names must be DNS-compatible. Names must use only 0-9, a-z, and '-', and cannot start or end with a '-'.
 * DNS query traffic is throttled for each VM. Throttling shouldn't impact most applications. If request throttling is observed, ensure that client-side caching is enabled. For more information, see [DNS client configuration](#dns-client-configuration).
 * Only VMs in the first 180 cloud services are registered for each virtual network in a classic deployment model. This limit does not apply to virtual networks in Azure Resource Manager.
+* The Azure DNS IP address is 168.63.129.16. This is a static IP address and will not change.
 
 ## DNS client configuration
 
@@ -141,7 +142,7 @@ DNS forwarding also enables DNS resolution between virtual networks, and allows 
 
 > [!NOTE]
 > A role instance can perform name resolution of VMs within the same virtual network. It does so by using the FQDN, which consists of the VM's host name and **internal.cloudapp.net** DNS suffix. However, in this case, name resolution is only successful if the role instance has the VM name defined in the [Role Schema (.cscfg file)](https://msdn.microsoft.com/library/azure/jj156212.aspx).
-> <Role name="<role-name>" vmName="<vm-name>">
+> `<Role name="<role-name>" vmName="<vm-name>">`
 >
 > Role instances that need to perform name resolution of VMs in another virtual network (FQDN by using the **internal.cloudapp.net** suffix) have to do so by using the method described in this section (custom DNS servers forwarding between the two virtual networks).
 >
@@ -152,7 +153,7 @@ When you are using Azure-provided name resolution, Azure Dynamic Host Configurat
 
 If necessary, you can determine the internal DNS suffix by using PowerShell or the API:
 
-* For virtual networks in Azure Resource Manager deployment models, the suffix is available via the [network interface REST API](/rest/api/virtualnetwork/networkinterfaces/get), the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet, and the [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI command.
+* For virtual networks in Azure Resource Manager deployment models, the suffix is available via the [network interface REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces), the [Get-AzNetworkInterface](/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet, and the [az network nic show](/cli/azure/network/nic#az-network-nic-show) Azure CLI command.
 * In classic deployment models, the suffix is available via the [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) call or the [Get-AzureVM -Debug](/powershell/module/servicemanagement/azure/get-azurevm) cmdlet.
 
 If forwarding queries to Azure doesn't suit your needs, you should provide your own DNS solution. Your DNS solution needs to:

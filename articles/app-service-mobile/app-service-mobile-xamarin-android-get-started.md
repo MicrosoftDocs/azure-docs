@@ -12,7 +12,7 @@ ms.service: app-service-mobile
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: crdun
 
@@ -35,7 +35,7 @@ To complete this tutorial, you need the following prerequisites:
 
 * An active Azure account. If you don't have an account, sign up for an Azure trial and get up to 10 free Mobile
   Apps. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](https://msdn.microsoft.com/library/mt613162.aspx) for instructions.
+* Visual Studio with Xamarin. See [Setup and install for Visual Studio and Xamarin](/visualstudio/cross-platform/setup-and-install) for instructions.
 
 ## Create an Azure Mobile App backend
 Follow these steps to create a Mobile App backend.
@@ -72,7 +72,7 @@ Please note that all the support packages referenced in your project must have t
 
 ## Next steps
 * [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Add authentication to your app ](app-service-mobile-xamarin-android-get-started-users.md)
+* [Add authentication to your app](app-service-mobile-xamarin-android-get-started-users.md)
 * [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
 * [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 

@@ -1,19 +1,20 @@
 ---
-title: "Troubleshooting | Microsoft Docs"
+title: "Troubleshooting"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
-ms.date: "09/11/2018"
-ms.topic: "article"
+ms.date: 09/11/2018
+ms.topic: "conceptual"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
-keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
+keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s "
 ---
 # Troubleshooting guide
 
 This guide contains information about common problems you may have when using Azure Dev Spaces.
+
+If you have a problem when using Azure Dev Spaces, create an [issue in the Azure Dev Spaces GitHub repository](https://github.com/Azure/dev-spaces/issues).
 
 ## Enabling detailed logging
 
@@ -140,8 +141,8 @@ You see this error in Visual Studio Code if you have a newer version of the VS C
 
 Download and install the latest version of the Azure Dev Spaces CLI:
 
-* [Windows](http://aka.ms/get-azds-windows)
-* [Mac](http://aka.ms/get-azds-mac)
+* [Windows](https://aka.ms/get-azds-windows)
+* [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
 ## Error 'azds' is not recognized as an internal or external command, operable program, or batch file
@@ -204,7 +205,7 @@ Starting the VS Code debugger may sometimes result in this error.
 Running the VS Code debugger reports the error: `Failed to find debugger extension for type:coreclr.`
 
 ### Reason
-You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .Net Core (CoreCLR).
+You do not have the VS Code extension for C# installed on your development machine. The C# extension includes debugging support for .NET Core (CoreCLR).
 
 ### Try:
 Install the [VS Code extension for C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
@@ -257,11 +258,13 @@ az provider register --namespace Microsoft.DevSpaces
 ## Dev Spaces times out at *Waiting for container image build...* step with AKS virtual nodes
 
 ### Reason
-This occurs when you attempt to use Dev Spaces to run a service that is configured to run on an [AKS virtual node](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces does not currently support building or debugging services on virtual nodes.
+This timeout occurs when you attempt to use Dev Spaces to run a service that is configured to run on an [AKS virtual node](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces does not currently support building or debugging services on virtual nodes.
 
 If you run `azds up` with the `--verbose` switch, or enable verbose logging in Visual Studio, you see additional detail:
 
 ```cmd
+$ azds up --verbose
+
 Installed chart in 2s
 Waiting for container image build...
 pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
@@ -269,7 +272,7 @@ Streaming build container logs for service 'mywebapi' failed with: Timed out aft
 Container image build failed
 ```
 
-This shows that the service's pod was assigned to *virtual-node-aci-linux*, which is a virtual node.
+The above command shows that the service's pod was assigned to *virtual-node-aci-linux*, which is a virtual node.
 
 ### Try:
 Update the Helm chart for the service to remove any *nodeSelector* and/or *tolerations* values that allow the service to run on a virtual node. These values are typically defined in the chart's `values.yaml` file.
@@ -307,3 +310,66 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## Error "Internal watch failed: watch ENOSPC" when attaching debugging to a Node.js application
+
+### Reason
+
+The node running the pod with the Node.js application you are trying to attach to with a debugger has exceeded the *fs.inotify.max_user_watches* value. In some cases, [the default value of *fs.inotify.max_user_watches* may be too small to handle attaching a debugger directly to a pod](https://github.com/Azure/AKS/issues/772).
+
+### Try
+A temporary workaround for this issue is to increase the value of *fs.inotify.max_user_watches* on each node in the cluster and restart that node for the changes to take effect.
+
+## New pods are not starting
+
+### Reason
+
+The Kubernetes initializer cannot apply the PodSpec for new pods due to RBAC permission changes to the *cluster-admin* role in the cluster. The new pod may also have an invalid PodSpec, for example the service account associated with the pod no longer exists. To see the pods that are in a *Pending* state due to the initializer issue, use the `kubectl get pods` command:
+
+```bash
+kubectl get pods --all-namespaces --include-uninitialized
+```
+
+This issue can impact pods in *all namespaces* in the cluster including namespaces where Azure Dev Spaces is not enabled.
+
+### Try
+
+[Updating the Dev Spaces CLI to the latest version](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) and then deleting the *azds InitializerConfiguration* from the Azure Dev Spaces controller:
+
+```bash
+az aks get-credentials --resource-group <resource group name> --name <cluster name>
+kubectl delete InitializerConfiguration azds
+```
+
+Once you have removed the *azds InitializerConfiguration* from the Azure Dev Spaces controller, use `kubectl delete` to remove any pods in a *Pending* state. After all pending pods have been removed, redeploy your pods.
+
+If new pods are still stuck in a *Pending* state after a redeployment, use `kubectl delete` to remove any pods in a *Pending* state. After all pending pods have been removed, delete the controller from the cluster and reinstall it:
+
+```bash
+azds remove -g <resource group name> -n <cluster name>
+azds controller create --name <cluster name> -g <resource group name> -tn <cluster name>
+```
+
+After your controller is reinstalled, redeploy your pods.
+
+## Incorrect RBAC permissions for calling Dev Spaces controller and APIs
+
+### Reason
+The user accessing the Azure Dev Spaces controller must have access to read the admin *kubeconfig* on the AKS cluster. For example, this permission is available in the [built-in Azure Kubernetes Service Cluster Admin Role](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). The user accessing the Azure Dev Spaces controller must also have the *Contributor* or *Owner* RBAC role for the controller.
+
+### Try
+More details on updating a user's permissions for an AKS cluster are available [here](../aks/control-kubeconfig-access.md#assign-role-permissions-to-a-user).
+
+To update the user's RBAC role for the controller:
+
+1. Sign in to the Azure portal at https://portal.azure.com.
+1. Navigate to the Resource Group containing the controller, which is usually the same as your AKS cluster.
+1. Enable the *Show hidden types* checkbox.
+1. Click on the controller.
+1. Open the *Access Control (IAM)* pane.
+1. Click on the *Role Assignments* tab.
+1. Click *Add* then *Add role assignment*.
+    * For *Role* select either *Contributor* or *Owner*.
+    * For *Assign access to* select *Azure AD user, group, or service principal*.
+    * For *Select* search for the user you want to give permissions.
+1. Click *Save*.

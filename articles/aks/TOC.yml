@@ -162,6 +162,8 @@
             href: ingress-static-ip.md
     - name: Egress traffic
       href: egress.md
+    - name: Customize CoreDNS
+      href: coredns-custom.md
   - name: Security and authentication
     items:
     - name: Create service principal
@@ -170,6 +172,8 @@
       href: control-kubeconfig-access.md
     - name: Secure pod traffic with network policies (preview)
       href: use-network-policies.md
+    - name: Use pod security policies (preview)
+      href: use-pod-security-policies.md
     - name: Whitelist IP address ranges for API server access (preview)
       href: api-server-ip-whitelist.md
     - name: Update cluster service principal credentials
@@ -291,7 +295,7 @@
   - name: REST
     href: /rest/api/aks
   - name: PowerShell
-    href: /powershell/module/azurerm.aks#aks
+    href: /powershell/module/az.aks#aks
   - name: .NET
     href: /dotnet/api/overview/azure/containerservice
   - name: Python
@@ -310,6 +314,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback

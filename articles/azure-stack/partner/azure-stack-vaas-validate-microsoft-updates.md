@@ -11,10 +11,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/14/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/14/2019
+ms.lastreviewed: 03/11/2019
 
 
 
@@ -56,7 +56,7 @@ The following tests should be executed in the following order for monthly softwa
 1. Provide the location to the OEM extension package currently deployed on the stamp, and the location to the OEM extension package that will be applied during the update. To configure the URLs for these packages, see [managing packages for validation](azure-stack-vaas-validate-oem-package.md#managing-packages-for-validation).
 1. Follow the steps in the UI from the selected agent.
 
-If you have questions or concerns, please contact [VaaS Help](mailto:vaashelp@microsoft.com).
+If you have questions or concerns, contact [VaaS Help](mailto:vaashelp@microsoft.com).
 
 ## Next steps
 

@@ -15,7 +15,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
+ms.date: 04/20/2019
 ---
 # What is Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio is a collaborative, drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions on your data. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
@@ -35,7 +35,7 @@ There is no programming required, just visually connecting datasets and modules 
 ## Download the Machine Learning Studio overview diagram
 Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** diagram and get a high-level view of the capabilities of Machine Learning Studio. To keep it nearby, you can print the diagram in tabloid size (11 x 17 in.).
 
-**Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](http://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
+**Download the diagram here: [Microsoft Azure Machine Learning Studio Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)**
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## Get started with Machine Learning Studio
@@ -56,7 +56,7 @@ Click **Studio** and you'll be taken to the **Azure Machine Learning Studio**. F
 * **SETTINGS** - A collection of settings that you can use to configure your account and resources.
 
 ### Gallery
-Click **Gallery** and you'll be taken to the **[Azure AI Gallery](http://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
+Click **Gallery** and you'll be taken to the **[Azure AI Gallery](https://gallery.azure.ai/)**. The Gallery is a place where a community of data scientists and developers share solutions created using components of the Cortana Intelligence Suite.
 
 For more information about the Gallery, see [Share and discover solutions in the Azure AI Gallery](gallery-how-to-use-contribute-publish.md).
 
@@ -103,7 +103,7 @@ For some help navigating through the large library of machine learning algorithm
 ## Deploying a predictive analytics web service
 Once your predictive analytics model is ready, you can deploy it as a web service right from Machine Learning Studio. For more details on this process, see [Deploy an Azure Machine Learning web service](publish-a-machine-learning-web-service.md).
 
-
+<a name="compare"></a>
 ## How is Machine Learning Studio different from Azure Machine Learning service?
 
 [Azure Machine Learning service](../service/overview-what-is-azure-ml.md) provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. 

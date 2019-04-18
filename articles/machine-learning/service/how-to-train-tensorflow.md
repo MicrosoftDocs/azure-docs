@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: minxia
 author: mx-iao
 ms.reviewer: sgilley
-ms.date: 02/21/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
 ---
 
 # Train TensorFlow and Keras models with Azure Machine Learning service
 
-For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's `TensorFlow` estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
+For deep neural network (DNN) training using TensorFlow, Azure Machine Learning provides a custom `TensorFlow` class of the `Estimator`. The Azure SDK's [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) estimator (not to be conflated with the [`tf.estimator.Estimator`](https://www.tensorflow.org/api_docs/python/tf/estimator/Estimator) class) enables you to easily submit TensorFlow training jobs for both single-node and distributed runs on Azure compute.
 
 ## Single-node training
 Training with the `TensorFlow` estimator is similar to using the [base `Estimator`](how-to-train-ml-models.md), so first read through the how-to article and make sure you understand the concepts introduced there.
@@ -43,7 +43,7 @@ Here, we specify the following parameters to the TensorFlow constructor:
 Parameter | Description
 --|--
 `source_directory` | Local directory that contains all of your code needed for the training job. This folder gets copied from your local machine to the remote compute
-`script_params` | Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs
+`script_params` | Dictionary specifying the command-line arguments to your training script `entry_script`, in the form of <command-line argument, value> pairs.  To specify a verbose flag in `script_params`, use `<command-line argument, "">`.
 `compute_target` | Remote compute target that your training script will run on, in this case an Azure Machine Learning Compute ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)) cluster
 `entry_script` | Filepath (relative to the `source_directory`) of the training script to be run on the remote compute. This file, and any additional files it depends on, should be located in this folder
 `conda_packages` | List of Python packages to be installed via conda needed by your training script. In this case training script uses `sklearn` for loading the data, so specify this package to be installed.  The constructor has another parameter called `pip_packages` that you can use for any pip packages needed
@@ -66,10 +66,10 @@ keras_est = TensorFlow(source_directory='./my-keras-proj',
                        script_params=script_params,
                        compute_target=compute_target,
                        entry_script='keras_train.py',
-                       conda_packages=['keras'], # just add keras through conda
+                       pip_packages=['keras'], # just add keras through pip
                        use_gpu=True)
 ```
-The above TensorFlow estimator constructor instructs Azure Machine Learning service to install Keras through Conda to the execution environment. And your `keras_train.py` can then import Keras API to train a Keras model. For a complete example, explore [this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
+The above TensorFlow estimator constructor instructs Azure Machine Learning service to install Keras through pip to the execution environment. And your `keras_train.py` can then import Keras API to train a Keras model. For a complete example, explore [this Jupyter notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb).
 
 ## Distributed training
 The TensorFlow Estimator also enables you to train your models at scale across CPU and GPU clusters of Azure VMs. You can easily run distributed TensorFlow training with a few API calls, while Azure Machine Learning will manage behind the scenes all the infrastructure and orchestration needed to carry out these workloads.

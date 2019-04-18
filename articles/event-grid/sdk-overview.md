@@ -42,4 +42,4 @@ The data plane SDKs enable you to post events to topics by taking care of authen
 * For example applications, see [Event Grid code samples](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
 * For an introduction to Event Grid, see [What is Event Grid?](overview.md)
 * For Event Grid commands in Azure CLI, see [Azure CLI](/cli/azure/eventgrid).
-* For Event Grid commands in PowerShell, see [PowerShell](/powershell/module/azurerm.eventgrid).
+* For Event Grid commands in PowerShell, see [PowerShell](/powershell/module/az.eventgrid).

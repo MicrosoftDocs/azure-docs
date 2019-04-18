@@ -28,7 +28,7 @@ The following are some guidelines to decide on a provisioned throughput strategy
 
 1. You have a few dozen Azure Cosmos containers and want to share throughput across some or all of them. 
 
-2. You are migrating from a single-tenant database designed to run on IaaS-hosted VMs or on-premises, for example, NoSQL or relational databases to Azure Cosmos DB. Anf if you have many collections/tables/graphs and you do not want to make any changes to your data model. Note, you might have to compromise some of the benefits offered by Azure Cosmos DB if you are not updating your data model when migrating from an on-premise database. It's recommended that you always reaccess your data model to get the most in terms of performance and also to optimize for costs. 
+2. You are migrating from a single-tenant database designed to run on IaaS-hosted VMs or on-premises, for example, NoSQL or relational databases to Azure Cosmos DB. And if you have many collections/tables/graphs and you do not want to make any changes to your data model. Note, you might have to compromise some of the benefits offered by Azure Cosmos DB if you are not updating your data model when migrating from an on-premises database. It's recommended that you always reaccess your data model to get the most in terms of performance and also to optimize for costs. 
 
 3. You want to absorb unplanned spikes in workloads by virtue of pooled throughput at the database level subjected to unexpected spike in workload. 
 
@@ -108,7 +108,7 @@ Furthermore, if you're using Azure Cosmos DB, and you know you are not going to 
 
 ## Optimize by changing indexing policy 
 
-By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad-hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
+By default, Azure Cosmos DB automatically indexes every property of every record. This is intended to ease development and ensure excellent performance across many different types of ad hoc queries. If you have large records with thousands of properties, paying the throughput cost for indexing every property may not be useful, especially if you only query against 10 or 20 of those properties. As you get closer to getting a handle on your specific workload, our guidance is to tune your index policy. Full details on Azure Cosmos DB indexing policy can be found [here](indexing-policies.md). 
 
 ## Monitoring provisioned and consumed throughput 
 
@@ -154,7 +154,7 @@ The following steps help you to make your solutions highly scalable and cost-eff
 
 2. One method for estimating the amount of reserved throughput required by your application is to record the request unit RU charge associated with running typical operations against a representative Azure Cosmos container or database used by your application and then estimate the number of operations you anticipate to perform each second. Be sure to measure and include typical queries and their usage as well. To learn how to estimate RU costs of queries programmatically or using portal see [Optimizing the cost of queries](online-backup-and-restore.md). 
 
-3. Another way to get operations and their costs in RUs is by enabling Log Analytics, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
+3. Another way to get operations and their costs in RUs is by enabling Azure Monitor logs, which will give you the breakdown of operation/duration and the request charge. Azure Cosmos DB provides request charge for every operation, so every operation charge can be stored back from the response and then used for analysis. 
 
 4. You can elastically scale up and down provisioned throughput as you need to accommodate your workload needs. 
 

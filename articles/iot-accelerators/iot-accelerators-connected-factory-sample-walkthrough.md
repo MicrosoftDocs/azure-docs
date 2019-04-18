@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
 ---
 
@@ -68,7 +68,7 @@ OPC Publisher Module connects to the station OPC UA servers and subscribes to th
 
 1. Converts the node data into JSON format.
 1. Encrypts the JSON.
-1. Sends the JSON to IoT Hub as OPC UA Pub/Sub messages.
+1. Sends the JSON to IoT Hub as OPC UA pub/sub messages.
 
 The OPC Publisher module only requires an outbound https port (443) and can work with existing enterprise infrastructure.
 
@@ -224,7 +224,7 @@ The web app deployed as part of the solution accelerator includes an integrated 
 
 You can continue getting started with IoT solution accelerators by reading the following articles:
 
-* [Permissions on the azureiotsuite.com site][lnk-permissions]
+* [Permissions on the azureiotsolutions.com site][lnk-permissions]
 * [Deploy a gateway on Windows or Linux for the Connected Factory solution accelerator](iot-accelerators-connected-factory-gateway-deployment.md)
 * [OPC Publisher reference implementation](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 

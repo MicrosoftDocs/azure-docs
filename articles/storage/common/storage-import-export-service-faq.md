@@ -133,7 +133,7 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
-Max Page Blob size is 1TB.
+Max Page Blob size is 8TB.
 
 
 ### Does Azure Import/Export support AES-256 encryption?

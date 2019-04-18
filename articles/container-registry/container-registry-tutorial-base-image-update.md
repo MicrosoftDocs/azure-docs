@@ -78,7 +78,7 @@ This tutorial walks you through a base image update scenario. The [code sample][
 
 In the following sections, you create a task, update the `NODE_VERSION` value in the base image Dockerfile, then use ACR Tasks to build the base image. When the ACR task pushes the new base image to your registry, it automatically triggers a build of the application image. Optionally, you run the application container image locally to see the different version strings in the built images.
 
-In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md) (currently in preview), using a YAML file to define steps to build, push, and optionally test multiple containers.
+In this tutorial, your ACR task builds and pushes a single container image specified in a Dockerfile. ACR Tasks can also run [multi-step tasks](container-registry-tasks-multi-step.md), using a YAML file to define steps to build, push, and optionally test multiple containers.
 
 ## Build the base image
 
@@ -145,7 +145,7 @@ Now, run the container locally with `docker run`. Replace **\<run-id\>** with th
 docker run -d -p 8080:80 $ACR_NAME.azurecr.io/helloworld:<run-id>
 ```
 
-Navigate to http://localhost:8080 in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
+Navigate to `http://localhost:8080` in your browser, and you should see the Node.js version number rendered in the web page, similar to the following. In a later step, you bump the version by adding an "a" to the version string.
 
 ![Screenshot of sample application rendered in browser][base-update-01]
 

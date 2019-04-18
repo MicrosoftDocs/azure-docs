@@ -4,7 +4,7 @@ description: Service Fabric cluster capacity planning considerations. Nodetypes,
 services: service-fabric
 documentationcenter: .net
 author: ChackDan
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
@@ -24,9 +24,9 @@ For any production deployment, capacity planning is an important step. Here are 
 * The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
 
-> [!NOTE]
-> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
-> 
+> [!NOTE]
+> You should minimally review all **Not Allowed** upgrade policy values during planning. This is to ensure that you set the values appropriately and to mitigate burning down of your cluster later because of unchangeable system configuration settings. 
+> 
 
 Let us briefly review each of these items.
 
@@ -78,16 +78,16 @@ The durability tier is used to indicate to the system the privileges that your V
 
 > [!WARNING]
 > Node types running with Bronze durability obtain _no privileges_. This means that infrastructure jobs that impact your stateless workloads will not be stopped or delayed, which might impact your workloads. Use only Bronze for node types that run only stateless workloads. For production workloads, running Silver or above is recommended. 
-
+> 
 > Regardless of any durability level, [Deallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) operation on VM Scale Set will destroy the cluster
 
 **Advantages of using Silver or Gold durability levels**
- 
+ 
 - Reduces the number of required steps in a scale-in operation (that is, node deactivation and Remove-ServiceFabricNodeState is called automatically).
 - Reduces the risk of data loss due to a customer-initiated in-place VM SKU change operation or Azure infrastructure operations.
 
 **Disadvantages of using Silver or Gold durability levels**
- 
+ 
 - Deployments to your virtual machine scale set and other related Azure resources can be delayed, can time out, or can be blocked entirely by problems in your cluster or at the infrastructure level. 
 - Increases the number of [replica lifecycle events](service-fabric-reliable-services-lifecycle.md) (for example, primary swaps) due to automated node deactivations during Azure infrastructure operations.
 - Takes nodes out of service for periods of time while Azure platform software updates or hardware maintenance activities are occurring. You may see nodes with status Disabling/Disabled during these activities. This reduces the capacity of your cluster temporarily, but should not impact the availability of your cluster or applications.

@@ -3,15 +3,15 @@ title: '.NET SDK: Filesystem operations on Azure Data Lake Storage Gen1 | Micros
 description: Use Azure Data Lake Storage Gen1 .NET SDK to perform filesystem operations on Data Lake Storage Gen1 such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Filesystem operations on Azure Data Lake Storage Gen1 using .NET SDK
@@ -58,7 +58,7 @@ The code sample available [on GitHub](https://github.com/Azure-Samples/data-lake
       * `Microsoft.Azure.DataLake.Store` - This tutorial uses v1.0.0.
       * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - This tutorial uses v2.3.1.
     
-    Close the **NuGet Package Manager**.
+      Close the **NuGet Package Manager**.
 
 6. Open **Program.cs**, delete the existing code, and then include the following statements to add references to namespaces.
 

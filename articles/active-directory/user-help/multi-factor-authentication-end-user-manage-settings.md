@@ -46,7 +46,7 @@ If clicking that link doesn't work for you, you can also get to the **Additional
     ![Proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## I want to change my phone number, or add a secondary number
-It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
+It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the fastest way you will be able to get back into your account if your phone is lost or stolen.
 
 > [!NOTE]
 > If you don't have access to your primary phone number, and need help getting in to your account, see the [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) article for more help.  

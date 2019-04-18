@@ -75,11 +75,11 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors. 
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([FaceList management calls](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) or the [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors.
 
 ## Retrieve the Snapshot ID
 
-The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be cancelled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve an operation ID. You can obtain it by parsing the `OperationLocation` field. 
+The snapshot taking method is asynchronous, so you'll need to wait for its completion (snapshot operations cannot be canceled). In this code, the `WaitForOperation` method monitors the asynchronous call, checking the status every 100ms. When the operation completes, you will be able to retrieve an operation ID. You can obtain it by parsing the `OperationLocation` field. 
 
 ```csharp
 var takeOperationId = Guid.Parse(takeSnapshotResult.OperationLocation.Split('/')[2]);

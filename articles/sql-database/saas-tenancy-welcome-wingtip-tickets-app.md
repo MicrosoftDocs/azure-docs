@@ -55,7 +55,7 @@ Check out the [tutorials][docs-tutorials-for-wingtip-mt] and code on GitHub  [..
 #### Tutorials and code
 
 - Standalone app per tenant:
-    - [Tutorials for standalone app ][docs-tutorials-for-wingtip-sa].
+    - [Tutorials for standalone app][docs-tutorials-for-wingtip-sa].
     - [Code for standalone app, on GitHub][github-code-for-wingtip-sa].
 
 - Database per tenant:
