@@ -23,7 +23,7 @@ ms.reviewer: dhanyahk
 [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides the following workbooks to help you gain insights into your environment. 
 
 * Usage: This workbook contains information about application usage, sign-ins, conditional access policies, and legacy authentication.
-* Troubleshooting: This workbook contains information about errors that occur during attempted sign-ins, applying conditional access policies and legacy authentication.
+* Troubleshooting: This workbook contains information about errors that occur during attempted sign-ins, conditional access policies and legacy authentication.
 
 Workbooks are editable by any other team members who have access to the same Azure resources.
 
@@ -43,7 +43,7 @@ To use this feature, you need:
 
 ## Usage - Sign-ins
 
-You can access sign-ins data by selecting **Sign-ins** from the **Usage** section. This workbook contains success and failure trends for attempted sign-ins over time, and shows a breakdown of sign-in attempts by location and platform (operating system and browser). You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
+You can access sign-in data by selecting **Sign-ins** from the **Usage** section. This workbook contains success and failure trends for attempted sign-ins over time, and shows a breakdown of sign-in attempts by location and platform (operating system and browser). You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
 
 ![Workbooks](./media/howto-use-azure-monitor-workbooks/signin-usage.png)
 
@@ -67,4 +67,4 @@ Select the **Sign-ins failure analysis** workbook to troubleshoot errors with si
 
 ## Next steps
 
-* [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/en-us/azure/azure-monitor/app/usage-workbooks)
+* [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks)
