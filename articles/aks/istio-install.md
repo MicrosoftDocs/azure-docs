@@ -17,8 +17,8 @@ ms.author: pabouwer
 This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS.
 
 > [!NOTE]
-> These instructions reference Istio version `1.1.2`. <br/><br/>
-> The Istio `1.1` release has been tested with Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes]. 
+> These instructions reference Istio version `1.1.3`. <br/><br/>
+> The Istio `1.1.x` releases have been tested by the Istio team against Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
 
 In this article, you learn how to:
 
@@ -52,7 +52,7 @@ On MacOS, use `curl` to download the latest Istio release and then extract with 
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.1.2
+ISTIO_VERSION=1.1.3
 
 # MacOS
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
@@ -62,7 +62,7 @@ On Linux or Windows Subsystem for Linux, use `curl` to download the latest Istio
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.1.2
+ISTIO_VERSION=1.1.3
 
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-linux.tar.gz" | tar xz
 ```
@@ -75,7 +75,7 @@ In PowerShell, use `Invoke-WebRequest` to download the latest Istio release and 
 
 ```powershell
 # Specify the Istio version that will be leveraged throughout these instructions
-$ISTIO_VERSION="1.1.2"
+$ISTIO_VERSION="1.1.3"
 
 # Windows
 $ProgressPreference = 'SilentlyContinue'; Invoke-WebRequest -URI "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-win.zip" -OutFile "istio-$ISTIO_VERSION.zip"
@@ -178,8 +178,8 @@ The following example output shows the successfully completed jobs.
 
 ```console
 NAME                COMPLETIONS   DURATION   AGE
-istio-init-crd-10   1/1           5s         6s
-istio-init-crd-11   1/1           3s         6s
+istio-init-crd-10   1/1           16s        18s
+istio-init-crd-11   1/1           15s        18s
 ```
 
 Now that we've confirmed the successful completion of the jobs, let's verify that we have the correct number of Istio CRDs installed. You can verify that all 53 Istio CRDs have been installed by running the appropriate command for your environment. The command should return the number `53`.
@@ -306,7 +306,7 @@ Now that we've successfully created the Grafana and Kiali secrets in our AKS clu
 > [!NOTE]
 > We are using the following options as part of our installation:
 > - `global.controlPlaneSecurityEnabled=true` - mutual TLS enabled for the control plane
-> - `mixer.adapters.useAdapterCRDs=false` - remove watches on mixer adapter CRDs to improve performance
+> - `mixer.adapters.useAdapterCRDs=false` - remove watches on mixer adapter CRDs as they to be deprecated and this will improve performance
 > - `grafana.enabled=true` - enable Grafana deployment for analytics and monitoring dashboards
 > - `grafana.security.enabled=true` - enable authentication for Grafana
 > - `tracing.enabled=true` - enable the Jaeger deployment for tracing
@@ -345,21 +345,21 @@ If the `istio-ingressgateway` shows an external ip of `<pending>`, wait a few mi
 
 ```console
 NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                                                                                                                                      AGE       SELECTOR
-grafana                  ClusterIP      10.0.75.187    <none>          3000/TCP                                                                                                                                     2m21s     app=grafana
-istio-citadel            ClusterIP      10.0.141.240   <none>          8060/TCP,15014/TCP                                                                                                                           2m20s     istio=citadel
-istio-galley             ClusterIP      10.0.160.127   <none>          443/TCP,15014/TCP,9901/TCP                                                                                                                   2m21s     istio=galley
-istio-ingressgateway     LoadBalancer   10.0.137.252   20.188.241.39   80:31380/TCP,443:31390/TCP,31400:31400/TCP,15029:30713/TCP,15030:32193/TCP,15031:32089/TCP,15032:30405/TCP,15443:32096/TCP,15020:32594/TCP   2m21s     app=istio-ingressgateway,istio=ingressgateway,release=istio
-istio-pilot              ClusterIP      10.0.94.159    <none>          15010/TCP,15011/TCP,8080/TCP,15014/TCP                                                                                                       2m20s     istio=pilot
-istio-policy             ClusterIP      10.0.117.198   <none>          9091/TCP,15004/TCP,15014/TCP                                                                                                                 2m20s     istio-mixer-type=policy,istio=mixer
-istio-sidecar-injector   ClusterIP      10.0.30.130    <none>          443/TCP                                                                                                                                      2m20s     istio=sidecar-injector
-istio-telemetry          ClusterIP      10.0.226.3     <none>          9091/TCP,15004/TCP,15014/TCP,42422/TCP                                                                                                       2m20s     istio-mixer-type=telemetry,istio=mixer
-jaeger-agent             ClusterIP      None           <none>          5775/UDP,6831/UDP,6832/UDP                                                                                                                   2m20s     app=jaeger
-jaeger-collector         ClusterIP      10.0.134.126   <none>          14267/TCP,14268/TCP                                                                                                                          2m20s     app=jaeger
-jaeger-query             ClusterIP      10.0.137.115   <none>          16686/TCP                                                                                                                                    2m20s     app=jaeger
-kiali                    ClusterIP      10.0.160.169   <none>          20001/TCP                                                                                                                                    2m20s     app=kiali
-prometheus               ClusterIP      10.0.116.5     <none>          9090/TCP                                                                                                                                     2m20s     app=prometheus
-tracing                  ClusterIP      10.0.69.238    <none>          80/TCP                                                                                                                                       2m19s     app=jaeger
-zipkin                   ClusterIP      10.0.255.122   <none>          9411/TCP                                                                                                                                     2m20s     app=jaeger
+grafana                  ClusterIP      10.0.81.182    <none>          3000/TCP                                                                                                                                     119s      app=grafana
+istio-citadel            ClusterIP      10.0.96.33     <none>          8060/TCP,15014/TCP                                                                                                                           119s      istio=citadel
+istio-galley             ClusterIP      10.0.237.158   <none>          443/TCP,15014/TCP,9901/TCP                                                                                                                   119s      istio=galley
+istio-ingressgateway     LoadBalancer   10.0.154.12    20.188.211.19   15020:30603/TCP,80:31380/TCP,443:31390/TCP,31400:31400/TCP,15029:31198/TCP,15030:30610/TCP,15031:30937/TCP,15032:31344/TCP,15443:31499/TCP   119s      app=istio-ingressgateway,istio=ingressgateway,release=istio
+istio-pilot              ClusterIP      10.0.178.56    <none>          15010/TCP,15011/TCP,8080/TCP,15014/TCP                                                                                                       119s      istio=pilot
+istio-policy             ClusterIP      10.0.116.118   <none>          9091/TCP,15004/TCP,15014/TCP                                                                                                                 119s      istio-mixer-type=policy,istio=mixer
+istio-sidecar-injector   ClusterIP      10.0.31.160    <none>          443/TCP                                                                                                                                      119s      istio=sidecar-injector
+istio-telemetry          ClusterIP      10.0.187.246   <none>          9091/TCP,15004/TCP,15014/TCP,42422/TCP                                                                                                       119s      istio-mixer-type=telemetry,istio=mixer
+jaeger-agent             ClusterIP      None           <none>          5775/UDP,6831/UDP,6832/UDP                                                                                                                   119s      app=jaeger
+jaeger-collector         ClusterIP      10.0.116.63    <none>          14267/TCP,14268/TCP                                                                                                                          119s      app=jaeger
+jaeger-query             ClusterIP      10.0.22.108    <none>          16686/TCP                                                                                                                                    119s      app=jaeger
+kiali                    ClusterIP      10.0.142.50    <none>          20001/TCP                                                                                                                                    119s      app=kiali
+prometheus               ClusterIP      10.0.138.134   <none>          9090/TCP                                                                                                                                     119s      app=prometheus
+tracing                  ClusterIP      10.0.165.210   <none>          80/TCP                                                                                                                                       118s      app=jaeger
+zipkin                   ClusterIP      10.0.126.211   <none>          9411/TCP                                                                                                                                     118s      app=jaeger
 ```
 
 Next, confirm that the required pods have been created. Use the [kubectl get pods][kubectl-get] command, and again query the `istio-system` namespace:
@@ -376,20 +376,20 @@ The following example output shows the pods that are running:
 - the `kiali` add-on service mesh dashboard pod
 
 ```console
-NAME                                      READY     STATUS      RESTARTS   AGE
-grafana-7d46b7dc59-xsj22                  1/1       Running     0          6m26s
-istio-citadel-5bbc997554-68lmr            1/1       Running     0          6m25s
-istio-galley-5ff6d64c5f-kpbp2             1/1       Running     0          6m26s
-istio-ingressgateway-5c6bcff97c-w57mm     1/1       Running     0          6m26s
-istio-init-crd-10-84z8l                   0/1       Completed   0          20m38s
-istio-init-crd-11-5mpnm                   0/1       Completed   0          20m38s
-istio-pilot-57984c5679-7tkpv              2/2       Running     0          6m26s
-istio-policy-7b695cf748-t59pq             2/2       Running     2          6m26s
-istio-sidecar-injector-549585c8d9-4zlxt   1/1       Running     0          6m25s
-istio-telemetry-7647988cc8-mgv62          2/2       Running     6          6m26s
-istio-tracing-5fbc94c494-25759            1/1       Running     0          6m25s
-kiali-56d95cf466-wd7tp                    1/1       Running     0          6m26s
-prometheus-8647cf4bc7-tpgb7               1/1       Running     0          6m26s
+NAME                                     READY     STATUS      RESTARTS   AGE
+grafana-88779954d-nzpm7                  1/1       Running     0          6m26s
+istio-citadel-7f699dc8c8-n7q8g           1/1       Running     0          6m26s
+istio-galley-649bc8cd97-wfjzm            1/1       Running     0          6m26s
+istio-ingressgateway-65dfbd566-42wkn     1/1       Running     0          6m26s
+istio-init-crd-10-tmtw5                  0/1       Completed   0          20m38s
+istio-init-crd-11-ql25l                  0/1       Completed   0          20m38s
+istio-pilot-958dd8cc4-4ckf9              2/2       Running     0          6m26s
+istio-policy-86b4b7cf9-zf7v7             2/2       Running     4          6m26s
+istio-sidecar-injector-d48786c5c-pmrj9   1/1       Running     0          6m26s
+istio-telemetry-7f6996fdcc-84w94         2/2       Running     3          6m26s
+istio-tracing-79db5954f-h7hmz            1/1       Running     0          6m26s
+kiali-5c4cdbb869-s28dv                   1/1       Running     0          6m26s
+prometheus-67599bf55b-pgxd8              1/1       Running     0          6m26s
 ```
 
 There should be two `istio-init-crd-*` pods with a `Completed` status. These pods were responsible for running the jobs that created the CRDs in an earlier step. All of the other pods should show a status of `Running`. If your pods don't have these statuses, wait a minute or two until they do. If any pods report an issue, use the [kubectl describe pod][kubectl-describe] command to review their output and status.
