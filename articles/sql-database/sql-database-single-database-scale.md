@@ -7,15 +7,15 @@ ms.subservice: performance
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: juliemsft
-ms.author: jrasnick
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/20/2019
+ms.date: 05/06/2019
 ---
 # Scale single database resources in Azure SQL Database
 
-This article describes how to scale the compute and storage resources available for a single database in Azure SQL Database.
+This article describes how to scale the compute and storage resources available for a single database in the provisioned compute tier. Alternatively, the [serverless compute tier](sql-database-serverless.md) provides compute auto-scaling and bills per second for compute used.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]

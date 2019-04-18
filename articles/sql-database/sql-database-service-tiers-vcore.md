@@ -11,14 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 05/06/2019
 ---
-# vCore service tiers, Azure Hybrid Benefit, and migration
+# Choose among the vCore service tiers and migrate from DTU service tiers
 
 The vCore-based purchasing model enables you to independently scale compute and storage resources, match on-premises performance, and optimize price. It also enables you to choose generation of hardware:
 
 - Gen4 - Up to 24 logical CPUs based on Intel E5-2673 v3 (Haswell) 2.4 GHz processors, vCore = 1 PP (physical core), 7 GB per core, attached SSD
 - Gen5 - Up to 80 logical CPUs based on Intel E5-2673 v4 (Broadwell) 2.3 GHz processors, vCore=1 LP (hyper-thread), 5.1 GB per core, fast eNVM SSD
+
+> [!IMPORTANT]
+> The serverless compute tier (preview) is only available on Gen5 hardware and the vCore limits are lower than in the provisioned compute tier.
 
 Gen4 hardware offers substantially more memory per vCore. However, Gen5 hardware allows you to scale up compute resources much higher.
 
@@ -34,9 +37,9 @@ The following table helps you understand the differences between the three tiers
 ||**General Purpose**|**Business Critical**|**Hyperscale (preview)**|
 |---|---|---|---|
 |Best for|Most business workloads. Offers budget oriented balanced and scalable compute and storage options.|Business applications with high IO requirements. Offers highest resilience to failures using several isolated replicas.|Most business workloads with highly scalable storage and read-scale requirements|
-|Compute|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
-|Memory|Gen4: 7 GB per core<br>Gen5: 5.1 GB per core | Gen4: 7 GB per core<br>Gen5: 5.1 GB per core |Gen4: 7 GB per core<br>Gen5: 5.1 GB per core|
-|Storage|Uses remote storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 8 TB |Uses local SSD storage:<br/>Single database: 5 GB – 4 TB<br/>Managed Instance: 32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
+|CPU|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore<br/>**Serverless compute**<br/>Gen5: 0.5 - 4 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|**Provisioned compute**:<br/>Gen4: 1 to 24 vCore<br/>Gen5: 1 to 80 vCore|
+|Memory|**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core<br/>**Serverless compute**<br/>Gen5: 3 GB per core|**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core |**Provisioned compute**:<br/>Gen4: 7 GB per core<br/>Gen5: 5.1 GB per core|
+|Storage|Uses remote storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Single database serverless compute**:<br/>5 GB - 1 TB<br/>**Managed Instance**: 32 GB - 8 TB |Uses local SSD storage:<br/>**Single database provisioned compute**:<br/>5 GB – 4 TB<br/>**Managed Instance**:<br/>32 GB - 4 TB |Flexible, autogrow of storage as needed. Supports up to 100 TB storage and beyond. Local SSD storage for local buffer pool cache and local data storage. Azure remote storage as final long-term data store. |
 |IO throughput (approximate)|Single database: 500 IOPS per vCore with 7000 maximum IOPS</br>Managed Instance: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per core with 200,000 maximum IOPS|TBD|
 |Availability|1 replica, no read-scale|3 replicas, 1 [read-scale replica](sql-database-read-scale-out.md),<br/>zone redundant HA|?|
 |Backups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|snapshot-based backup in Azure remote storage and restores use these snapshots for fast recovery. Backups are instantaneous and do not impact the IO performance of Compute. Restores are very fast and are not a size of data operation (taking minutes rather than hours or days).|
@@ -51,15 +54,20 @@ The following table helps you understand the differences between the three tiers
 - For details on the Hyperscale service tier in the vCore-based purchasing model, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).  
 
 > [!IMPORTANT]
-> If you need less than one vCore of compute capacity, use the DTU-based purchasing model.
+> If you need less than one vCore of compute capacity, use the serverless compute tier or the DTU-based purchasing model.
 
 ## Azure Hybrid Benefit
 
-In the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
+In the provisioned computer tier of the vCore-based purchasing model, you can exchange your existing licenses for discounted rates on SQL Database using the [Azure Hybrid Benefit for SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). This Azure benefit allows you to use your on-premises SQL Server licenses to save up to 30% on Azure SQL Database using your on-premises SQL Server licenses with Software Assurance.
 
 ![pricing](./media/sql-database-service-tiers/pricing.png)
 
-With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**). You can choose or change your licensing model using the Azure portal or using one of the following APIs.
+With the Azure Hybrid Benefit, you can choose to only pay for the underlying Azure infrastructure using your existing SQL Server license for the SQL database engine itself (**BasePrice**) or pay for both the underlying infrastructure and the SQL Server license (**LicenseIncluded**).
+
+> [!IMPORTANT]
+> Azure Hybrid Benefit is not available in the [serverless compute tier](sql-database-serverless.md).
+
+You can choose or change your licensing model using the Azure portal or using one of the following APIs.
 
 - To set or update the license type using PowerShell:
 
@@ -124,5 +132,5 @@ You can copy any database with a DTU-based compute size to a database with a vCo
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
+- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier)
 - For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
