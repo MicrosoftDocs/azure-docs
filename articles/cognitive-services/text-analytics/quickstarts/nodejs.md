@@ -35,6 +35,7 @@ You must also have the [endpoint and access key](../How-tos/text-analytics-how-t
 
 ## Create the solution and install the SDK
 
+- Install [Node](https://nodejs.org/en/)
 - Create node project.
     - ```mkdir myapp && cd myapp```
     - Run ```npm init``` and follow the steps
