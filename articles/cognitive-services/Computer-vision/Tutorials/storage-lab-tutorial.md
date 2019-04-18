@@ -49,11 +49,11 @@ You will need to create a Computer Vision resource for your Azure account; this 
 
 1. Return to the menu for your resource group and click the Computer Vision API subscription that you just created. Copy the URL under **Endpoint** to somewhere you can easily retrieve it in a moment. Then click **Show access keys**.
 
-    ![Viewing the access keys](../Images/copy-vision-endpoint.png)
+    ![Azure portal page with the endpoint URL and access keys link outlined](../Images/copy-vision-endpoint.png)
 
 1. In the next window, copy the value of **KEY 1** to the clipboard.
 
-    ![Copying the access key](../Images/copy-vision-key.png)
+    ![Manage keys dialog, with the copy button outlined](../Images/copy-vision-key.png)
 
 ## Add Computer Vision credentials
 
@@ -133,7 +133,7 @@ Save your changes in Visual Studio and press **Ctrl+F5** to launch the applicati
 
 To view all of the attached metadata, use the Azure Storage Explorer to view the storage container you're using for images. Right-click any of the blobs in the container and select **Properties**. In the dialog, you'll see a list of key-value pairs. The computer-generated image description is stored in the item "Caption," and the search keywords are stored in "Tag0," "Tag1," and so on. When you're finished, click **Cancel** to close the dialog.
 
-![Blob metadata](../Images/blob-metadata.png)
+![Image properties dialog window, with metadata tags listed](../Images/blob-metadata.png)
 
 ## Clean up resources
 

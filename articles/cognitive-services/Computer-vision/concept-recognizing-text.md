@@ -47,7 +47,7 @@ OCR supports 25 languages: Arabic, Chinese Simplified, Chinese Traditional, Czec
 
 If necessary, OCR corrects the rotation of the recognized text by returning the rotational offset in degrees about the horizontal image axis. OCR also provides the frame coordinates of each word, as seen in the following illustration.
 
-![A diagram depicting an image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
+![An image being rotated and its text being read and delineated](./Images/vision-overview-ocr.png)
 
 See the [OCR reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) to learn more.
 
