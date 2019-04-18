@@ -19,6 +19,8 @@ There are several best practices that you should follow on your Kubernetes deplo
 
 The [kube-advisor tool][kube-advisor-github] is a single container designed to be run on your cluster. It queries the Kubernetes API server for information about your deployments and returns a set of suggested improvements.
 
+The kube-advisor tool can report on resource request and limits missing in PodSpecs for Windows applications as well as Linux applications, but the kube-advisor tool itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
+
 > [!NOTE]
 > The kube-advisor tool is supported by Microsoft on a best-effort basis. Issues and suggestions should be filed on GitHub.
 
@@ -70,3 +72,4 @@ If you are running the tool against a cluster that is not RBAC-enabled, no clean
 
 [kube-cpumem]: https://github.com/Azure/azure-quickstart-templates
 [kube-advisor-github]: https://github.com/azure/kube-advisor
+[k8s-node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
