@@ -117,6 +117,7 @@ To configure Azure AD single sign-on with BenSelect, perform the following steps
 	![image](media/benselect-tutorial/mail-prefix1.png)
 
 7. On the **Manage user claims** section, perform the following steps:
+
 	![image](media/benselect-tutorial/mail-prefix2.png)
 
 	a. Select **Transformation** as a **Source**.
