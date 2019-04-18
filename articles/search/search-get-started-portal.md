@@ -7,7 +7,7 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
@@ -74,7 +74,7 @@ We'll skip this step for now, and move directly on to **Customize target index**
    ![Skip cognitive skill step](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> You can try the new cognitive search preview feature for Azure Search from [cognitive search quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
+> You can step through an AI-indexing example in a [quickstart](cognitive-search-quickstart-blob.md) or [tutorial](cognitive-search-tutorial-blob.md).
 
 ### Step 3 - Configure index
 

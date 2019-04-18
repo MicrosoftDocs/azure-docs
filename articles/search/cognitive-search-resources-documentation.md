@@ -14,7 +14,7 @@ ms.custom: seodec2018
 ---
 # Documentation resources for cognitive search workloads
 
-Cognitive search, now in public preview, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
+Cognitive search, now generally available, is a new enrichment layer in Azure Search indexing that finds latent information in non-text sources and undifferentiated text, transforming it into full text searchable content in Azure Search.
 
 The following articles are the complete documentation for cognitive search.
 
