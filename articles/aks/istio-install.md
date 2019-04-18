@@ -17,7 +17,8 @@ ms.author: pabouwer
 This article shows you how to install Istio. The Istio `istioctl` client binary is installed onto your client machine and the Istio components are installed into a Kubernetes cluster on AKS.
 
 > [!NOTE]
-> These instructions reference Istio version `1.1.3`. <br/><br/>
+> These instructions reference Istio version `1.1.3`.
+>
 > The Istio `1.1.x` releases have been tested by the Istio team against Kubernetes versions `1.11`, `1.12`, `1.13`. You can find additional Istio versions at [GitHub - Istio Releases][istio-github-releases] and information about each of the releases at [Istio - Release Notes][istio-release-notes].
 
 In this article, you learn how to:
