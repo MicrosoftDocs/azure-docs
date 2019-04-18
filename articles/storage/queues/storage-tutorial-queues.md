@@ -21,11 +21,13 @@ In this tutorial, you learn how to:
 >
 > - Create an Azure storage account
 > - Create the app
+> - Add support for asynchronous code
+> - Create a **CloudQueue**
 > - Programmatically access a queue
+> - Check for command-line arguments
 > - Insert messages into the queue
 > - Dequeue messages
-> - Check for command-line arguments
-> - Add support for asynchronous code
+> - Delete an empty queue
 
 ## Prerequisites
 
@@ -126,26 +128,14 @@ Add the connection string into the app so it can access the storage account.
    using Microsoft.WindowsAzure.Storage.Queue;
    ```
 
-3. Add the following method to your **Program** class to get a reference to a **CloudQueue**, which we're calling **mystoragequeue**. Getting a queue reference is a common task. This method will be called for both send and receive operations.
-
-   ```csharp
-   static CloudQueue GetQueue()
-   {
-       CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
-       CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-       return queueClient.GetQueueReference("mystoragequeue");
-   }
-   ```
-
 ## Insert messages into the queue
 
 Create a new method to asynchronously send a message into the queue. Add the following method to your **Program** class. This method gets a queue reference, then creates a new queue if it doesn't already exist by calling [CreateIfNotExistsAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.createifnotexistsasync?view=azure-dotnet). Then, it adds the message to the queue by calling [AddMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.addmessageasync?view=azure-dotnet).
 
    ```csharp
-   static async Task SendMessageAsync(string newMessage)
+   static async Task SendMessageAsync(CloudQueue theQueue, string newMessage)
    {
-       CloudQueue queue = GetQueue();
-       bool createdQueue = await queue.CreateIfNotExistsAsync();
+       bool createdQueue = await theQueue.CreateIfNotExistsAsync();
 
        if (createdQueue)
        {
@@ -153,61 +143,90 @@ Create a new method to asynchronously send a message into the queue. Add the fol
        }
 
        CloudQueueMessage message = new CloudQueueMessage(newMessage);
-       await queue.AddMessageAsync(message);
+       await theQueue.AddMessageAsync(message);
    }
    ```
 
-## Dequeue messages
+## Dequeue messages or delete an empty queue
 
-Create a new method to asynchronously receive a message from the queue by calling [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+1. Create a new method to asynchronously receive a message from the queue by calling [GetMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.getmessageasync?view=azure-dotnet). Once the message is successfully received, it's important to delete it from the queue so it isn't processed more than once. After the message is received, delete it from the queue by calling [DeleteMessageAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.deletemessageasync?view=azure-dotnet).
+
+2. It's a best practice at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. If the queue exists but is empty, ask the user if they would like to delete it.
 
 Add the following method to your **Program** class.
 
    ```csharp
-   static async Task<string> ReceiveMessageAsync()
+   static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
    {
-       CloudQueue queue = GetQueue();
-       bool exists = await queue.ExistsAsync();
+       bool exists = await theQueue.ExistsAsync();
+
        if (exists)
        {
-           CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
+           CloudQueueMessage retrievedMessage = await theQueue.GetMessageAsync();
+
            if (retrievedMessage != null)
            {
                string theMessage = retrievedMessage.AsString;
-               await queue.DeleteMessageAsync(retrievedMessage);
+               await theQueue.DeleteMessageAsync(retrievedMessage);
                return theMessage;
            }
-       }
+           else
+           {
+               Console.Write("The queue is empty. Attempt to delete it? (Y/N) ");
+               string response = Console.ReadLine();
 
-       return "<queue empty or not created>";
-   }
-   ```
-
-## Check for command-line arguments
-
-Update the **Main** method to check for command-line arguments. If there are any, assume they're the message and join them together to make a string. Add this string to the message queue by calling the **SendMessageAsync** method we added earlier.
-
-If there are no command-line arguments, the app will instead retrieve the first message in the queue and delete it by calling the **ReceiveMessageAsync** method.
-
-Update **Main** as follows:
-
-   ```csharp
-   static async Task Main(string[] args)
-   {
-       if (args.Length > 0)
-       {
-           string value = String.Join(" ", args);
-           await SendMessageAsync(value);
-           Console.WriteLine($"Sent: {value}");
+               if (response == "Y" || response == "y")
+               {
+                   await theQueue.DeleteIfExistsAsync();
+                   return "The queue was deleted.";
+               }
+               else
+               {
+                   return "The queue was not deleted.";
+               }
+           }
        }
        else
        {
-           string value = await ReceiveMessageAsync();
-           Console.WriteLine($"Received {value}");
+           return "The queue does not exist.";
        }
-
-       Console.ReadLine();
    }
+   ```
+
+## Create a **CloudQueue** and check for command-line arguments
+
+1. Update the **Main** method to create a **CloudQueue** object which is passed into the send and receive methods.
+
+2. Check for command-line arguments. If there are any, assume they're the message and join them together to make a string. Add this string to the message queue by calling the **SendMessageAsync** method we added earlier.
+
+   If there are no command-line arguments, the app will instead retrieve the first message in the queue and delete it by calling the **ReceiveMessageAsync** method.
+
+3. Finally, wait for user input before exiting by calling **Console.ReadLine**.
+
+The fully updated **Main** method follows:
+
+   ```csharp
+        static async Task Main(string[] args)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+            CloudQueue queue = queueClient.GetQueueReference("mystoragequeue");
+
+            if (args.Length > 0)
+            {
+                string value = String.Join(" ", args);
+                await SendMessageAsync(queue, value);
+                Console.WriteLine($"Sent: {value}");
+            }
+            else
+            {
+                string value = await ReceiveMessageAsync(queue);
+                Console.WriteLine($"Received: {value}");
+            }
+
+            Console.Write("Press Enter...");
+            Console.ReadLine();
+        }
    ```
 
 ## Complete code
@@ -222,65 +241,85 @@ Here is the complete code listing for this project.
 
    namespace QueueApp
    {
-       class Program
-       {
-           private const string connectionString =
-        "DefaultEndpointsProtocol=https;AccountName=<your storage account name>;AccountKey=<your key>;EndpointSuffix=core.windows.net";
+    class Program
+    {
+        // The string value is broken up for better onscreen formatting
+        private const string connectionString = "DefaultEndpointsProtocol=https;" +
+                                                "AccountName=<your storage account name>;" +
+                                                "AccountKey=<your key>;" +
+                                                "EndpointSuffix=core.windows.net";
 
-           static async Task Main(string[] args)
-           {
-               if (args.Length > 0)
-               {
-                   string value = String.Join(" ", args);
-                   await SendMessageAsync(value);
-                   Console.WriteLine($"Sent: {value}");
-               }
-               else
-               {
-                   string value = await ReceiveMessageAsync();
-                   Console.WriteLine($"Received {value}");
-               }
-           }
+        static async Task Main(string[] args)
+        {
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+            CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+            CloudQueue queue = queueClient.GetQueueReference("mystoragequeue");
 
-           static CloudQueue GetQueue()
-           {
-               CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
-               CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-               return queueClient.GetQueueReference("mystoragequeue");
-           }
+            if (args.Length > 0)
+            {
+                string value = String.Join(" ", args);
+                await SendMessageAsync(queue, value);
+                Console.WriteLine($"Sent: {value}");
+            }
+            else
+            {
+                string value = await ReceiveMessageAsync(queue);
+                Console.WriteLine($"Received {value}");
+            }
 
-           static async Task SendMessageAsync(string newMessage)
-           {
-               CloudQueue queue = GetQueue();
-               bool createdQueue = await queue.CreateIfNotExistsAsync();
+            Console.Write("Press Enter...");
+            Console.ReadLine();
+        }
 
-               if (createdQueue)
-               {
-                   Console.WriteLine("The queue was created.");
-               }
+        static async Task SendMessageAsync(CloudQueue theQueue, string newMessage)
+        {
+            bool createdQueue = await theQueue.CreateIfNotExistsAsync();
 
-               CloudQueueMessage message = new CloudQueueMessage(newMessage);
-               await queue.AddMessageAsync(message);
-           }
+            if (createdQueue)
+            {
+                Console.WriteLine("The queue was created.");
+            }
 
-           static async Task<string> ReceiveMessageAsync()
-           {
-               CloudQueue queue = GetQueue();
-               bool exists = await queue.ExistsAsync();
-               if (exists)
-               {
-                   CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
-                   if (retrievedMessage != null)
-                   {
-                       string theMessage = retrievedMessage.AsString;
-                       await queue.DeleteMessageAsync(retrievedMessage);
-                       return theMessage;
-                   }
-               }
+            CloudQueueMessage message = new CloudQueueMessage(newMessage);
+            await theQueue.AddMessageAsync(message);
+        }
 
-               return "<queue empty or not created>";
-           }
-       }
+        static async Task<string> ReceiveMessageAsync(CloudQueue theQueue)
+        {
+            bool exists = await theQueue.ExistsAsync();
+
+            if (exists)
+            {
+                CloudQueueMessage retrievedMessage = await theQueue.GetMessageAsync();
+
+                if (retrievedMessage != null)
+                {
+                    string theMessage = retrievedMessage.AsString;
+                    await theQueue.DeleteMessageAsync(retrievedMessage);
+                    return theMessage;
+                }
+                else
+                {
+                    Console.Write("The queue is empty. Attempt to delete it? (Y/N) ");
+                    string response = Console.ReadLine();
+
+                    if (response == "Y" || response == "y")
+                    {
+                        await theQueue.DeleteIfExistsAsync();
+                        return "The queue was deleted.";
+                    }
+                    else
+                    {
+                        return "The queue was not deleted.";
+                    }
+                }
+            }
+            else
+            {
+                return "The queue does not exist. Add a message to the command line to create the queue and store the message.";
+            }
+        }
+    }
    }
    ```
 
@@ -327,6 +366,7 @@ You should see this output:
    C:\Tutorials\QueueApp>dotnet run First queue message
    The queue was created.
    Sent: First queue message
+   Press Enter..._
    ```
 
 ### Verify that the message was added to the queue
@@ -363,37 +403,41 @@ We can verify that the app worked by opening the contents of the queue in the St
 
    ![Message removed](media/storage-tutorial-queues/message-removed.png)
 
-8. Continue to run the app until all the messages are removed. If you run it one more time, you'll get a message that the queue is empty.
+8. Continue to run the app until all the messages are removed. If you run it one more time, you'll get a message that the queue is empty and a prompt to delete the queue.
 
    ```console
    C:\Tutorials\QueueApp>dotnet run First queue message
    The queue was created.
    Sent: First queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run Second queue message
    Sent: Second queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run Third queue message
    Sent: Third queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run
-   Received First queue message
+   Received: First queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run
-   Received Second queue message
+   Received: Second queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run
-   Received Third queue message
+   Received: Third queue message
+   Press Enter...
 
    C:\Tutorials\QueueApp>dotnet run
-   Received <queue empty or not created>
+   The queue is empty. Attempt to delete it? (Y/N) Y
+   Received: The queue was deleted.
+   Press Enter...
 
    C:\Tutorials\QueueApp>_
    ```
-
-## Clean up resources
-
-It's a best practice at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources one by one or just delete the resource group to get rid of the entire set.
 
 ## Next steps
 
