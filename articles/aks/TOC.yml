@@ -170,7 +170,7 @@
       href: kubernetes-service-principal.md
     - name: Limit access to cluster configuration file
       href: control-kubeconfig-access.md
-    - name: Secure pod traffic with network policies (preview)
+    - name: Secure pod traffic with network policies
       href: use-network-policies.md
     - name: Use pod security policies (preview)
       href: use-pod-security-policies.md
