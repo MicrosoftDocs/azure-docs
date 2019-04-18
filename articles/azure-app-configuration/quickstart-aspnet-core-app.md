@@ -36,6 +36,8 @@ To do this quickstart, install the [.NET Core SDK](https://dotnet.microsoft.com/
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
     | Key | Value |
     |---|---|
     | TestApp:Settings:BackgroundColor | White |

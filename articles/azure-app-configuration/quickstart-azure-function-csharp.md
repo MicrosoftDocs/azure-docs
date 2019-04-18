@@ -36,6 +36,8 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
+
     | Key | Value |
     |---|---|
     | TestApp:Settings:Message | Data from Azure App Configuration |
