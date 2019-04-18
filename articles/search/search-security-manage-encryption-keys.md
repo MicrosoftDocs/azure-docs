@@ -7,7 +7,7 @@ ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 05/02/2019
 ms.custom: 
 ---
 # Manage encryption keys in Azure Search
@@ -19,7 +19,7 @@ For a more general overview of index creation, please see [Create a basic index 
 Azure Search service encryption is integrated with Azure Key Vault, so that you can use a key vault to manage your encryption keys. You can create your own encryption keys and store them in a key vault, or you can use Azure Key Vault's APIs to generate encryption keys. With Azure Key Vault, you can manage and control your keys and also audit your key usage. To learn more about Azure Key Vault, see [Azure Key Vault Overview](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 >[!Note]
-> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
+> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2019-05-06-Preview). There is no Azure portal support at this time.
 
 ## Get started with customer-managed keys
 To create an Azure search index or synonym-map that is encrypted with a customer-managed key, you can either create a new Azure Key vault and key or use an existing key vault and key. Notice that different indexes\synonym-maps in the same search service may use different keys from different Key vaults, or may not be encrypted using customer managed keys at all, if not required.  

@@ -150,7 +150,7 @@ Moving forward, you should now have a search index that's ready to query using t
 
    ![Search explorer command](media/search-get-started-portal/search-explorer-cmd2.png)
 
-2. Click **Change index** on the command bar to switch to *realestate-us-sample*. Click **Set API version** on the command bar to see which REST APIs are available. For the queries below, use the generally available version (2017-11-11).
+2. Click **Change index** on the command bar to switch to *realestate-us-sample*. Click **Set API version** on the command bar to see which REST APIs are available. For the queries below, use the generally available version (2019-05-06).
 
    ![Index and API commands](media/search-get-started-portal/search-explorer-changeindex-se2.png)
 

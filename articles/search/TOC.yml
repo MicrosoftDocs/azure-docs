@@ -205,6 +205,8 @@
       href: search-query-simple-examples.md
     - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
   - name: Filter and sort data
     items:
     - name: Filter overview
