@@ -27,12 +27,12 @@ Microsoft Authentication Library (MSAL) defines two types of clients: public cli
 - **Confidential client applications** are applications which run on servers (Web Apps, Web API, or even service/daemon applications). They are considered difficult to access, and therefore capable of keeping an application secret. Confidential clients are able to hold configuration time secrets. Each instance of the client has a distinct configuration (including clientId and secret). These values are difficult for end users to extract. A web app is the most common confidential client. The client ID is exposed through the web browser, but the secret is passed only in the back channel and never directly exposed.
 
     Confidential client apps:
-    ![Web app](media/msal-client-applications/WebApp.png) ![Web API](media/msal-client-applications/WebAPI.png) ![Daemon/service](media/msal-client-applications/DaemonService.png)
+    ![Web app](media/msal-client-applications/web-app.png) ![Web API](media/msal-client-applications/web-api.png) ![Daemon/service](media/msal-client-applications/DaemonService.png)
 
 - **Public client applications** are applications which run on devices (phones, for example) or desktop machines. They are not trusted to safely keep application secrets, and therefore only access Web APIs on behalf of the user (they only support public client flows). Public clients are unable to hold configuration time secrets, and as a result have no client secret.
 
     Public client applications:
-    ![Desktop app](media/msal-client-applications/DesktopApp.png) ![Browserless API](media/msal-client-applications/BrowserlessApp.png) ![Mobile app](media/msal-client-applications/MobileApp.png)
+    ![Desktop app](media/msal-client-applications/desktop-app.png) ![Browserless API](media/msal-client-applications/browserless-app.png) ![Mobile app](media/msal-client-applications/mobile-app.png)
 
 ## Comparing the client types
 There are some commonalities and differences public client and confidential client applications:
