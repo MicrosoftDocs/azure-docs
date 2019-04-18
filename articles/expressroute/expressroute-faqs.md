@@ -6,7 +6,7 @@ author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
 
@@ -112,6 +112,14 @@ Yes. Each ExpressRoute circuit has a redundant pair of cross connections configu
 ### Will I lose connectivity if one of my ExpressRoute links fail?
 
 You will not lose connectivity if one of the cross connections fails. A redundant connection is available to support the load of your network and provide high availability of your ExpressRoute circuit. You can additionally create a circuit in a different peering location to achieve circuit-level resilience.
+
+### How do I implement redundancy on private peering?
+
+Multiple ExpressRoute circuits from different peering locations can be connected to the same virtual network to provide high-availability in the case that a single circuit becomes unavailable. You can then [assign higher weights](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) to the local connection to favor prefer a specific circuit. It is strongly recommended that customers setup at least two ExpressRoute circuits to avoid single points of failure. 
+
+### How I do implement redundancy on Microsoft peering?
+
+It is highly recommended when customers are using Microsoft peering to access Azure public services like Azure Storage or Azure SQL, as well as customers that are using Microsoft peering for Office 365 that they implement multiple circuits in different peering locations to avoid single points of faiure. Customers can either advertise the same prefix on both circuits and use [AS PATH prepending](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
 
 ### How do I ensure high availability on a virtual network connected to ExpressRoute?
 
