@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-Azure provides the following built-in RBAC roles for authorizing access to storage data using OAuth:
+Azure provides the following built-in RBAC roles for authorizing access to blob and queue data using Azure AD and OAuth:
 
 - [Storage Blob Data Owner](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Use to set ownership and manage POSIX access control for Azure Data Lake Storage Gen2 (preview). For more information, see [Access control in Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
 - [Storage Blob Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Use to grant read/write/delete permissions to Blob storage resources.
@@ -20,7 +20,7 @@ Azure provides the following built-in RBAC roles for authorizing access to stora
 - [Storage Queue Data Message Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
 
-In addition, you can access data using Shared Key authorization if you have the Microsoft.Storage/storageAccounts/listkeys/action operation, for example with the Storage Account Contributor RBAC role.
+If a user has been assigned a role that specifies the RBAC action **Microsoft.Storage/storageAccounts/listkeys/action**, then that user also has permissions to access blob and queue data using the storage account access keys. For example, the **Storage Account Contributor** role does not provide access to blob and queue data via OAuth, but it does grant access to the keys. The keys can be used to access data in the storage account via Shared Key authorization. For more information, see [Use the Azure portal to access blob or queue data](../articles/storage/common/storage-access-blobs-queues-portal.md).
 
 > [!IMPORTANT]
 > RBAC role assignments may take up to five minutes to propagate.
