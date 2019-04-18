@@ -37,9 +37,9 @@ pip install azureml.core.contrib
 >[!NOTE]
 >The azureml.contrib namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
 
-Import the mlflow, azureml.contrib.mlflow, and Workspace classes to access MLflow's tracking URI and configure your workspace.
+Import the mlflow, `azureml.contrib.mlflow`, and [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) classes to access MLflow's tracking URI and configure your workspace.
 
-In the following code, the `get_mlflow_tracking_uri()` method assigns a unique tracking URI address to the workspace, `ws` and`set_tracking_uri()` points the MLflow tracking URI to that address.
+In the following code, the `get_mlflow_tracking_uri()` method assigns a unique tracking URI address to the workspace, `ws`, and `set_tracking_uri()` points the MLflow tracking URI to that address.
 
 ```Python
 import mlflow
@@ -54,7 +54,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 >[!NOTE]
 >The tracking URI is valid up to an hour or less. If you restart your script after some idle time, use the get_mlflow_tracking_uri API to get a new URI.
 
-Set the MLflow experiment name with `set_experiment()` and start your training run with start_run(). Use log_metric() to activate the MLflow logging API and begin logging your run metrics.
+Set the MLflow experiment name with `set_experiment()` and start your training run with `start_run()`. Then use `log_metric()` to activate the MLflow logging API and begin logging your training run metrics.
 
 ```Python
 experiment_name = "experiment_with_mlflow"
@@ -87,7 +87,7 @@ run_config.target = "my_remote_compute_name"
 src = ScriptRunConfig(script="my_training_script.py", run_config = run_config)
 ```
 
-In your training script, import mlflow and azureml.contrib.mlflow to use the MLflow logging APIs, and start logging your run metrics.
+In your training script, import `mlflow` and `azureml.contrib.mlflow` to use the MLflow logging APIs, and start logging your run metrics.
 
 ```Python
 import mlflow
