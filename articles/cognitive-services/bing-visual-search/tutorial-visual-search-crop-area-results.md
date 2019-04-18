@@ -2,6 +2,7 @@
 title: "Tutorial: Crop an image with the Bing Visual Search SDK"
 description: Use the Bing Visual Search SDK to get insights from specific ares on an image.
 services: cognitive-services
+titleSuffix: Azure Cognitive Services
 author: mikedodaro
 manager: nitinme
 ms.service: cognitive-services
