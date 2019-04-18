@@ -15,14 +15,16 @@ ms.custom: seodec18
 
 # How to use MLflow with Azure Machine Learning service (Preview)
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Whether you run your experiments locally, on a virtual machine, or on a remote compute cluster,  [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) logs and tracks your training run metrics and model artifacts. The [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, and scalable location to store your training metrics and models. This how-to demonstrates how to use MLflow Tracking with Azure Machine Learning together to track and log your experiment metrics and artifacts in your workspace.
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. Whether you run your experiments locally, on a virtual machine, or on a remote compute cluster, [MLFlow Tracking](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api) logs and tracks your training run metrics and model artifacts. If you already use MLflow Tracking with your experiments, the [Azure Machine Learning Workspace](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspace) provides a centralized, secure, and scalable location to store your training metrics and models.
+
+This article demonstrates how to use MLflow Tracking with Azure Machine Learning together to track and log your experiment metrics and artifacts in your workspace.
 
 ![mlflow with azure machine learning diagram](media/how-to-use-mlflow/mlflow-diagram.png)
 
 ## Prerequisites
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Install Azure ML Python SDK on your local computer and create Azure ML Workspace](setup-create-workspace.md). The SDK provides the connectivity for MLflow to access your workspace.
+* [Install the Azure Machine Learning Python SDK on your local computer and create an Azure Machine Learning Workspace](setup-create-workspace.md#sdk). The SDK provides the connectivity for MLflow to access your workspace.
 
 ## Use MLflow Tracking on local runs
 
@@ -31,6 +33,9 @@ Install the `azureml.core.contrib` package to use MLflow Tracking with Azure Mac
 ```shell
 pip install azureml.core.contrib
 ```
+
+>[!NOTE]
+>The azureml.contrib namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
 
 Import the mlflow, azureml.contrib.mlflow, and Workspace classes to access MLflow's tracking URI and configure your workspace.
 
@@ -100,13 +105,21 @@ run = exp.submit(src)
 
 ## View metrics and artifacts in your workspace
 
-The metrics and artifacts from MLflow logging are kept in your workspace on the [Azure portal](https://portal.azure.com). To view them, navigate to your workspace and find the experiment by name. You can also view these items at a later time, however storing them incurs costs to your Azure subscription.
+The metrics and artifacts from MLflow logging are kept in your workspace on the [Azure portal](https://portal.azure.com). To view them, navigate to your workspace and find the experiment by name. You can also view these items at a later time, but be aware this incurs costs to your Azure subscription.
 
 ## Clean up resources
 
-[!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
+If you don't plan to use the logged metrics and artifacts in your workspace, you aren't able to delete them individually. Instead, delete the resource group that contains the storage account and workspace, so you don't incur any charges:
 
-At this time, the deletion of specific metrics and artifacts is not available.
+1. In the Azure portal, select **Resource groups** on the far left.
+
+   ![Delete in the Azure portal](./media/aml-delete-resource-group/delete-resources.png)
+
+1. From the list, select the resource group you created.
+
+1. Select **Delete resource group**.
+
+1. Enter the resource group name. Then select **Delete**.
 
 ## Example notebooks
 
