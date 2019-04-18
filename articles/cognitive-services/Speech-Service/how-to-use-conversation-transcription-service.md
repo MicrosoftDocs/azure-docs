@@ -35,35 +35,34 @@ First step to enable creating conversation/meeting like scenario is to create vo
 This is what the code may look like:
 ```csharp
 class Program
+{
+    static async Task UseFormContent()
     {
-        static async Task UseFormContent()
-        {
-            byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
-            var form = new MultipartFormDataContent();
-            var content = new ByteArrayContent(fileBytes);
-            form.Add(content, "file", "file");
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSpeechSubscriptionKey");
-            var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
-            var jsonData = await response.Content.ReadAsStringAsync();
-        }
-
-        static async Task UserByteArrayContent()
-        {
-            byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
-            var content = new ByteArrayContent(fileBytes);
-
-            var client = new HttpClient();
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
-            var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
-            var  jsonData = await response.Content.ReadAsStringAsync();
-        }
-        static void Main(string[] args)
-        {
-            //UseFormContent().Wait();
-            UserByteArrayContent().Wait();
-        }
+        byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
+        var form = new MultipartFormDataContent();
+        var content = new ByteArrayContent(fileBytes);
+        form.Add(content, "file", "file");
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSpeechSubscriptionKey");
+        var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
+        var jsonData = await response.Content.ReadAsStringAsync();
     }
+
+    static async Task UserByteArrayContent()
+    {
+        byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
+        var content = new ByteArrayContent(fileBytes);
+
+        var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
+        var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
+        var jsonData = await response.Content.ReadAsStringAsync();
+    }
+    static void Main(string[] args)
+    {
+        UserByteArrayContent().Wait();
+    }
+}
 ```
 
 ## Transcribing conversations
@@ -117,10 +116,13 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // signautreA is the signature got through signature REST API
-                var speakerA = Attendee.From("Speaker_A", "en-us", signatureA, null);
-                var speakerB = Attendee.From("Speaker_B", "en-us", signatureB, null);
-                var speakerC = Attendee.From("SPeaker_C", "en-us", signatureC, null);
+                // signatureA, signatureB and signatureC are the signatures got through signature REST API. Here these are just examples
+                float[] signatureA = new float[] { 1.1F, 2.2F };
+                float[] signatureB = new float[] { 1.1F, 2.2F };
+                float[] signatureC = new float[] { 1.1F, 2.2F };
+                var speakerA = Participant.From("Speaker_A", "en-us", signatureA, null);
+                var speakerB = Participant.From("Speaker_B", "en-us", signatureB, null);
+                var speakerC = Participant.From("SPeaker_C", "en-us", signatureC, null);
                 transcriber.AddParticipant(speakerA);
                 transcriber.AddParticipant(speakerB);
                 transcriber.AddParticipant(speakerC);
