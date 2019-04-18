@@ -12,7 +12,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 08/16/2018
+  ms.date: 04/18/2019
   ms.author: rolyon
 abstract:
   description: Azure Active Directory (Azure AD) identity governance gives organizations the ability to govern the identity lifecycle, govern access lifecycle, and secure administration across employees and partners. 
@@ -53,4 +53,4 @@ sections:
     - type: list
       style: unordered
       items:
-      - html: <a href="/azure/active-directory/conditional-access/terms-of-use">What can I do with Terms of use?</a>
+      - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Require Terms of use?</a>
