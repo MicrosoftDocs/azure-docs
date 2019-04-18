@@ -93,7 +93,23 @@
       href: v2-app-types.md
     - name: Application scenarios
       items:
-      - name: Daemon apps
+      - name: Desktop app that calls Web APIs
+        items:
+        - name: Overview
+          href: scenario-desktop-overview.md
+        - name: App registration
+          href: scenario-desktop-app-registration.md
+        - name: App's code configuration
+          href: scenario-desktop-app-configuration.md
+        - name: Sign-in
+          href: scenario-desktop-sign-in.md
+        - name: Acquiring a token for the app
+          href: scenario-desktop-acquire-token.md
+        - name: Calling a Web API
+          href: scenario-desktop-call-api.md
+        - name: Move to production
+          href: scenario-desktop-production.md
+      - name: Daemon app
         items:
         - name: Overview
           href: scenario-daemon-overview.md
