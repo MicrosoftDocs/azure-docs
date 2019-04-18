@@ -32,7 +32,7 @@ Using the rewrite conditions you can evaluate the content of the HTTP(S) request
 - HTTP headers in the response
 - Application gateway server variables
 
-A condition can be used to evaluate whether the specified variable is present, whether the specified variable exactly matches a specific value, or whether the specified variable exactly matches a specific pattern. [Perl Compatible Regular Expressions (PCRE) library](https://www.pcre.org/) is used to implement regular expression pattern matching in the conditions. To learn about the regular expression syntax, see the [Perl regular expressions man page](http://perldoc.perl.org/perlre.html).
+A condition can be used to evaluate whether the specified variable is present, whether the specified variable exactly matches a specific value, or whether the specified variable exactly matches a specific pattern. [Perl Compatible Regular Expressions (PCRE) library](https://www.pcre.org/) is used to implement regular expression pattern matching in the conditions. To learn about the regular expression syntax, see the [Perl regular expressions man page](https://perldoc.perl.org/perlre.html).
 
 ## Rewrite actions
 
