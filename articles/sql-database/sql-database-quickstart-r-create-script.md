@@ -1,7 +1,7 @@
 ---
 title: Create and run simple R scripts
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Run simple R scripts in Azure SQL Database using Machine Learning Services (preview).
+description: Run simple R scripts in Azure SQL Database Machine Learning Services (preview).
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
