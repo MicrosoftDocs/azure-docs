@@ -93,9 +93,7 @@ Download and unzip the [device simulation microservice](https://github.com/Azure
 
 Open the **remote-monitoring-services-dotnet-master\storage-adapter** folder in Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
-Open the **.vscode/launch.json** file and assign your Cosmos DB connection string to the **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** environment variable.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Open the **storage-adapter/WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentDBConnectionString**  variable.
 
 To run the microservice locally, click **Debug > Start Debugging**.
 
@@ -412,11 +410,7 @@ In this section, you test the device types you created in the previous sections 
 
 Open the **device-simulation-dotnet-master** folder you downloaded from GitHub in a new instance of Visual Studio Code. Click any **Restore** buttons to fix any unresolved dependencies.
 
-Open the **.vscode/launch.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable. In the same file, add the **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** environment variable and assign the connection string for your Cosmos DB database.
-
-Open the **WebService/Properties/launchSettings.json** file and assign your IoT Hub connection string to the **PCS_IOTHUB_CONNSTRING** environment variable.
-
-Open the **WebService/appsettings.ini** file and modify the settings as follows:
+Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** variable and also modify the settings as follows:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

@@ -43,8 +43,12 @@ sections:
         src: /azure/event-hubs/media/index/logo_powershell.svg
       text: Azure PowerShell
       href: /azure/event-hubs/event-hubs-quickstart-powershell
+    - image:
+        src: /azure/event-hubs/media/index/logo_arm.svg
+      text: Azure Resource Manager template
+      href: /azure/event-hubs/event-hubs-resource-manager-namespace-event-hub
   - type: paragraph
-    text: 'Learn how to <b>send events</b> to an event hub:'
+    text: 'Learn how to <b>send events to</b> and <b>receive events from</b> an event hub:'
   - type: list
     style: icon48
     items: 
@@ -71,40 +75,15 @@ sections:
     - image: 
         src: /azure/event-hubs/media/index/logo_go.svg
       text: Go
-      href: /azure/event-hubs/event-hubs-go-get-started-send
+      href: /azure/event-hubs/event-hubs-go-get-started-send 
     - image: 
         src: /azure/event-hubs/media/index/logo_c.svg
       text: C
-      href: /azure/event-hubs/event-hubs-c-getstarted-send   
-  - type: paragraph
-    text: 'Learn how to <b>receive events</b> from an event hub:'
-  - type: list
-    style: icon48
-    items: 
+      href: /azure/event-hubs/event-hubs-c-getstarted-send
     - image: 
-        src: /azure/event-hubs/media/index/logo_net.svg
-      text: .NET Framework
-      href: /azure/event-hubs/event-hubs-dotnet-framework-getstarted-receive-eph
-    - image: 
-        src: /azure/event-hubs/media/index/logo_netcore.svg
-      text: .NET Standard
-      href: /azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph      
-    - image: 
-        src: /azure/event-hubs/media/index/logo_java.svg
-      text: Java
-      href: /azure/event-hubs/event-hubs-java-get-started-receive-eph
-    - image: 
-        src: /azure/event-hubs/media/index/logo_python.svg
-      text: Python
-      href: /azure/event-hubs/event-hubs-python-get-started-receive
-    - image: 
-        src: /azure/event-hubs/media/index/logo_nodejs.svg
-      text: Node.js
-      href: /azure/event-hubs/event-hubs-node-get-started-receive
-    - image: 
-        src: /azure/event-hubs/media/index/logo_go.svg
-      text: Go
-      href: /azure/event-hubs/event-hubs-go-get-started-receive-eph
+        src: /azure/event-hubs/media/index/storm_r.svg
+      text: Apache Storm
+      href: /azure/event-hubs/event-hubs-storm-getstarted-receive
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -127,7 +106,7 @@ sections:
     - title: Enable reliable messaging for Big Data Applications using Azure Event Hubs
       href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
       image: 
-        src: /learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
+        src: https://docs.microsoft.com/learn/achievements/enable-reliable-messaging-for-big-data-apps-using-azure-event-hubs.svg
         href: /learn/modules/enable-reliable-messaging-for-big-data-apps-using-event-hubs/
   - type: paragraph
     text: <a href="/learn/browse/?products=azure-event-hubs">More interactive learning...</a>

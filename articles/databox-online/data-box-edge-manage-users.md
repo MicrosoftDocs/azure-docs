@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
+ms.topic: article
 ms.date: 03/11/2019
 ms.author: alkohli
 ---

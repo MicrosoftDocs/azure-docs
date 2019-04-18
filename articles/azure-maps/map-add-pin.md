@@ -71,13 +71,16 @@ Learn more about the classes and methods used in this article:
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a popup](./map-add-popup.md)
+> [Add a popup](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Add a shape](./map-add-shape.md)
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](./map-add-bubble-layer.md)
+> [Add a shape](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Add HTML Makers](./map-add-bubble-layer.md)
+> [Add a bubble layer](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add HTML Makers](map-add-bubble-layer.md)
