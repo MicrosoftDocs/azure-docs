@@ -34,16 +34,16 @@ The application tiers in the following table are specific to Azure.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | This data can be collected using a tenant diagnostic setting. |
-| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | Collect this data using a log profile to collect the Activity log. |
-| [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically. Configure diagnostic settings to collect logs. Monitoring solutions and Insights are available for more detailed monitoring for specific resource types. |
+| [Azure Tenant](#azure-tenant) | Data about the operation of tenant-level Azure services, such as Azure Active Directory. | View in portal or configure using a tenant diagnostic setting. |
+| [Azure subscription](#azure-subscription) |  Telemetry related to the health and operation of Azure itself. | View in portal or configure collection using a log profile. |
+| [Azure resources](#azure-resources) |  Data about the operation and performance of each Azure resource. | Metrics collected automatically.<br>Configure diagnostic settings to collect logs.<br>Monitoring solutions and Insights available for more detailed monitoring for specific resource types. |
 
 ### Azure, other cloud, or on-premises 
 The application tiers in the following table may be in Azure, another cloud, or on-premises.
 
 | Tier | Description | Collection method |
 |:---|:---|:---|
-| [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | To collect this type of data, you need to install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent. |
+| [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent. For Azure virtual machines, install Azure Diagnostic Extension and Azure Monitor for VMs. |
 | [Application](#application) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |
 
 ## Azure tenant
@@ -54,11 +54,11 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 ### Azure Active Directory Audit Logs
 [Azure Active Directory reporting](../../active-directory/reports-monitoring/overview-reports.md) contains the history of sign-in activity and audit trail of changes made within a particular tenant. 
 
-| Destination | Description |
-|:---|:---|
-| Azure Monitor Logs | See [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) for details on configuring them to be collected in Azure Monitor. |
-| Azure Storage | Export [Azure AD logs to Azure Storage](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) for archiving. | 
-| Event Hub | Stream Azure AD logs to other locations using [Event Hubs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
+| Destination | Description | Reference |
+|:---|:---|:---|
+| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor. | [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) |
+| Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account (preview)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Event Hub | Stream Azure AD logs to other locations using Event Hubs | [Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
