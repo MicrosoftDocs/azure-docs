@@ -34,6 +34,12 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
+    | Key | Value |
+    |---|---|
+    | TestApp:Settings:Message | Data from Azure App Configuration |
+
+    Leave **Label** and **Content Type** empty for now.
+
 ## Create a .NET console app
 
 1. Start Visual Studio, and select **File** > **New** > **Project**.
