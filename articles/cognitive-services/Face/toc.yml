@@ -97,10 +97,6 @@
       href: https://github.com/Microsoft/Cognitive-Face-iOS
 - name: Resources
   items:
-  - name: Glossary
-    href: Glossary.md
-  - name: FAQ
-    href: FAQ.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/face-api
   - name: UserVoice
