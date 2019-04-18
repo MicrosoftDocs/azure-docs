@@ -14,15 +14,24 @@ manager: jeconnoc
 
 # Set up your Microsoft Azure Red Hat OpenShift dev environment
 
-To build and run Microsoft Azure Red Hat OpenShift applications on your Windows development machine, you'll need:
+To build and run Microsoft Azure Red Hat OpenShift applications:
 
-* Version 2.0.43 or higher of the Azure CLI (or use the Azure Cloud Shell)
-* A tenant, or Azure Active Directory (Azure AD), for your OpenShift cluster
-* An Azure AD application object
-* An Azure AD user that you'll use to sign into apps running on your OpenShift cluster
-* Manually register providers and features
+* Purchase Azure virtual machine reserved instances.
+* Install Version 2.0.43 or higher of the Azure CLI (or use the Azure Cloud Shell).
+* Create a tenant (Azure Active Directory) for your OpenShift cluster if you don't already have one.
+* Create an Azure AD application object.
+* Create an Azure AD user that you'll use to sign into apps running on your OpenShift cluster.
+* Manually register Azure Red Hat OpenShift providers and features.
 
 The following instructions will help you get everything ready.
+
+## Purchase Azure virtual machine reserved instances
+
+Before you can use Azure Red Hat OpenShift, you need to purchase Azure virtual machine reserved instances.
+
+If you are an Azure customer, [purchase Azure virtual machine reserved instances](https://aka.ms/openshift/buy). A reservation reduces your spend by pre-paying for fully managed Azure services. You can see [what are Azure Reservations](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) to learn more about reservations and how they save you money.
+
+If you are not an Azure customer, [contact sales](https://aka.ms/openshift/contact-sales) and fill out the sales form at the bottom of the page to start the process.
 
 ## Install the Azure CLI
 
@@ -48,7 +57,7 @@ If you don't have an app registration in the Azure AD tenant you are using to cr
 
 ## Register providers and features
 
-The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Solutions` and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
+The `Microsoft.ContainerService openshiftmanagedcluster` feature, `Microsoft.Solutions`, and `Microsoft.Network` providers must be registered to your subscription manually before deploying your first Azure Red Hat OpenShift cluster.
 
 To register these providers and features manually, use the following instructions from a Bash shell if you've installed the CLI, or from the Azure Cloud Shell (Bash) session in your Azure portal:
 .

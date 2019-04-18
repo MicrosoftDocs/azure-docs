@@ -27,9 +27,9 @@
 - name: Reference
   items:
   - name: Azure Red Hat OpenShift CLI
-    href: https://docs.microsoft.com/cli/azure/openshift?view=azure-cli-latest#az-openshift-create, 
+    href: /cli/azure/openshift
   - name: Azure Red Hat OpenShift REST APIs
-    href: https://docs.microsoft.com/rest/api/azure/
+    href: /rest/api/openshift
 
 - name: Resources
   items:
