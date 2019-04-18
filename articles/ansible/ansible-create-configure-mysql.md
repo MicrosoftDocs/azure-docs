@@ -154,68 +154,65 @@ ansible-playbook mysql_firewall.yml
 
 In this section, you use the Azure cloud shell to connect to the server you created previously.
 
-1. Open the Azure cloud shell by either using the Auzre portal. 
+1. Select the **Try It** button in the following code:
 
+    ```azurecli-interactive
+    mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+    ```
 
-You can [download MySQL](https://dev.mysql.com/downloads/) and install it on your computer. Instead, you can select the **Try It** button in code samples, or the  **>_** button from the upper-right toolbar in the Azure portal, and open **Azure Cloud Shell**.
+1. At the prompt, enter the following command to query the server status:
 
-Enter the next commands: 
-
-1. Connect to the server by using the **mysql** command-line tool:
-   ```azurecli-interactive
-   mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-   ```
-
-2. View the server status:
-   ```sql
-   mysql> status
-   ```
-
-If everything goes well, the command-line tool should output the following text:
-
-```
-demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
-Enter password:
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 65233
-Server version: 5.6.39.0 MySQL Community Server (GPL)
-
-Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> status
---------------
-mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64) using  EditLine wrapper
-
-Connection id:          65233
-Current database:
-Current user:           mysqladmin@13.76.42.93
-SSL:                    Cipher in use is AES256-SHA
-Current pager:          stdout
-Using outfile:          ''
-Using delimiter:        ;
-Server version:         5.6.39.0 MySQL Community Server (GPL)
-Protocol version:       10
-Connection:             mysqlserveransible.mysql.database.azure.com via TCP/IP
-Server characterset:    latin1
-Db     characterset:    latin1
-Client characterset:    utf8
-Conn.  characterset:    utf8
-TCP port:               3306
-Uptime:                 36 min 21 sec
-
-Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open tables: 10  Queries per second avg: 0.256
---------------
-```
-
+    ```sql
+    mysql> status
+    ```
+    
+    If everything goes well, you see output similar to the following results:
+    
+    ```
+    demo@Azure:~$ mysql -h mysqlserveransible.mysql.database.azure.com -u mysqladmin@mysqlserveransible -p
+    Enter password:
+    Welcome to the MySQL monitor.  Commands end with ; or \g.
+    Your MySQL connection id is 65233
+    Server version: 5.6.39.0 MySQL Community Server (GPL)
+    
+    Copyright (c) 2000, 2018, Oracle and/or its affiliates. All rights reserved.
+    
+    Oracle is a registered trademark of Oracle Corporation and/or its
+    affiliates. Other names may be trademarks of their respective
+    owners.
+    
+    Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+    
+    mysql> status
+    --------------
+    mysql  Ver 14.14 Distrib 5.7.23, for Linux (x86_64) using  EditLine wrapper
+    
+    Connection id:          65233
+    Current database:
+    Current user:           mysqladmin@13.76.42.93
+    SSL:                    Cipher in use is AES256-SHA
+    Current pager:          stdout
+    Using outfile:          ''
+    Using delimiter:        ;
+    Server version:         5.6.39.0 MySQL Community Server (GPL)
+    Protocol version:       10
+    Connection:             mysqlserveransible.mysql.database.azure.com via TCP/IP
+    Server characterset:    latin1
+    Db     characterset:    latin1
+    Client characterset:    utf8
+    Conn.  characterset:    utf8
+    TCP port:               3306
+    Uptime:                 36 min 21 sec
+    
+    Threads: 5  Questions: 559  Slow queries: 0  Opens: 96  Flush tables: 3  Open tables: 10  Queries per second avg: 0.256
+    --------------
+    ```
+    
 ## Query MySQL servers
 
-The following example queries MySQL servers in **myResourceGroup** and subsequently all the databases on the servers:
+The playbook code in this section queries MySQL servers in **myResourceGroup** and lists the databases on the found servers.
+
+Save the following playbook as `mysql_query.yml`:
 
 ```yml
 - hosts: localhost
@@ -243,13 +240,13 @@ The following example queries MySQL servers in **myResourceGroup** and subsequen
         var: mysqldatabasefacts
 ```
 
-Save the preceding playbook as **mysql_query.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook mysql_query.yml
 ```
 
-Then you'll see the following output for the MySQL server: 
+After running the playbook, you see output similar to the following results:
 
 ```json
 "servers": [
@@ -274,7 +271,7 @@ Then you'll see the following output for the MySQL server:
 ]
 ```
 
-You'll also see the following output for the MySQL database:
+You also see the following output for the MySQL database:
 
 ```json
 "databases": [
@@ -311,7 +308,9 @@ You'll also see the following output for the MySQL database:
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myResourceGroup**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following playbook as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -324,31 +323,10 @@ If you don't need these resources, you can delete them by running the following 
         state: absent
 ```
 
-Save the preceding playbook as **rg_delete.yml**. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
-ansible-playbook rg_delete.yml
-```
-
-If you want to delete only the one newly created MySQL server, run the following example:
-
-```yml
-- hosts: localhost
-  vars:
-    resource_group: myResourceGroup
-    mysqlserver_name: mysqlserveransible
-  tasks:
-    - name: Delete MySQL Server
-      azure_rm_mysqlserver:
-        resource_group: "{{ resource_group }}"
-        name: "{{ mysqlserver_name }}"
-        state: absent
-```
-
-Save the preceding playbook as **mysql_delete.yml**. To run the playbook, use the **ansible-playbook** command as follows:
-
-```bash
-ansible-playbook mysql_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
