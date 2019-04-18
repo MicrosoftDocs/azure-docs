@@ -89,7 +89,7 @@ print(c(c, d))
 A typical example script is one that just outputs the string "Hello World". Run the following command.
 
 ```sql
-EXEC sp_execute_external_script
+EXECUTE sp_execute_external_script
   @language =N'R',
   @script=N'OutputDataSet<-InputDataSet',
   @input_data_1 =N'SELECT 1 AS hello'
@@ -242,109 +242,12 @@ The output is from `installed.packages()` in R and is returned as a result set.
 
 ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
-## Add a package
-
-If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils).
-
-For example, follow the steps below to install the **[glue](https://cran.r-project.org/web/packages/glue/)** package which can format and interpolate a string. These steps also install **sqlmlutils** and **RODBCext** (which is a prerequisite for **sqlmlutils**).
-
-1. Open a **Command Prompt** and run the following command to install the **RODBCext** package:
-
-    ```
-    R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
-    ```
-
-    > [!TIP]
-    > If you get the error, " 'R' is not recognized as an internal or external command, operable program or batch file ", it likely means that the path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the path to the environment variable or navigate to the folder in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`) and then retry the command.
-
-1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
-
-1. Use the **R CMD INSTALL** command in **Command Prompt** to install **sqlmlutils**. Specify the full path to the zip file you downloaded. For example:
-
-    ```
-    R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
-    ```
-
-    The output you see should be similar to the following:
-
-    ```text
-    In R CMD INSTALL
-    * installing to library 'C:/Users/youruser/Documents/R/win-library/3.5'
-    package 'sqlmlutils' successfully unpacked and MD5 sums checked
-    ```
-
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install the **glue** package using `sqlmlutils`.
-
-    ```R
-    library(sqlmlutils) 
-    connection <- connectionInfo(server= "yourserver.database.windows.net", 
-        database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
-    sql_install.packages(connectionString = connection, pkgs = "glue", verbose = TRUE, scope = "PUBLIC")
-    ```
-
-    > [!TIP]
-    > The **scope** can be either **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package  available only to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
-
-1. Verify that the **glue** package has been installed.
-
-    ```R
-    r<-sql_installed.packages(connectionString = connection, fields=c("Package", "LibPath", "Attributes", "Scope"))
-    View(r)
-    ```
-
-    **Results**
-
-    ![Contents of the RTestData table](./media/sql-database-connect-query-r/r-verify-package-install.png)
-
-
-Once the package is installed, you can use it in an R script through **sp_execute_external_script**.
-
-1. Open **SQL Server Management Studio** and connect to your SQL database.
-
-1. Run the following script:
-
-    ```sql
-    EXEC sp_execute_external_script @language = N'R'
-    , @script = N'
-    library(glue)
-
-    name <- "Fred"
-    age <- 50
-    anniversary <- as.Date("2020-06-14")
-    text <- glue(''My name is {name}, '',
-        ''my age next year is {age + 1}, '',
-        ''my anniversary is {format(anniversary, "%A, %B %d, %Y")}.'')
-    print(text)
-    ';
-    ```
-
-    You will see the following result in the Messages tab.
-
-    **Results**
-
-    ```text
-    STDOUT message(s) from external script:
-    My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
-    ```
-
-If you would like to remove the package, run the following R script in **RStudio** on your local computer.
-
-```R
-library(sqlmlutils) 
-connection <- connectionInfo(server= "yourserver.database.windows.net", 
-    database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
-sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
-```
-
-> [!TIP]
-> Another way to install an R package to your SQL database is to upload the R package with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-
 ## Next steps
 
 To create a machine learning model using R in SQL Database, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [Create and train a predictive model in R</br>with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
+> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
 
 For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
 

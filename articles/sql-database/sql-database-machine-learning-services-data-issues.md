@@ -26,6 +26,8 @@ Common issues that you may encounter include:
 - Cast and convert operations are sometimes required
 - R and SQL use different data objects
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.

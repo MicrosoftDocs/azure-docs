@@ -19,6 +19,8 @@ ms.date: 04/11/2019
 
 This article describes how to embed R mathematical and utility functions in a SQL stored procedure. Advanced statistical functions that are complicated to implement in T-SQL can be done in R with only a single line of code.
 
+[!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/) before you begin.

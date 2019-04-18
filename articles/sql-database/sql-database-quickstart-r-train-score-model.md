@@ -59,7 +59,7 @@ In the following steps you'll set up the training data, create a regression mode
     CREATE TABLE dbo.CarSpeed (speed INT NOT NULL, distance INT NOT NULL)
     GO
     INSERT INTO dbo.CarSpeed (speed, distance)
-    EXEC sp_execute_external_script
+    EXECUTE sp_execute_external_script
     @language = N'R'
         , @script = N'car_speed <- cars;'
         , @input_data_1 = N''
@@ -77,7 +77,7 @@ In the following steps you'll set up the training data, create a regression mode
      CREATE PROCEDURE generate_linear_model
      AS
      BEGIN
-       EXEC sp_execute_external_script
+       EXECUTE sp_execute_external_script
        @language = N'R'
        , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
            trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
@@ -106,7 +106,7 @@ In the following steps you'll set up the training data, create a regression mode
 
    ```sql
    INSERT INTO dbo.stopping_distance_models (model)
-   EXEC generate_linear_model;
+   EXECUTE generate_linear_model;
    ```
 
    Note that if you run this code a second time, you get this error:
