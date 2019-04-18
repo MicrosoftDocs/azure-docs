@@ -17,7 +17,7 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With OAuth1 technical profile you can federate with an OAuth1 based identity provider, such as Twitter, allowing you users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the [OAuth 1.0 protocol](https://tools.ietf.org/html/rfc5849) identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With an OAuth1 technical profile, you can federate with an OAuth1 based identity provider, such as Twitter. Federating with the identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -42,7 +42,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows the claims returned by the Twitter identity provider:
 
-- The **user_id** claim that is mapped to the **socialIdpUserId** claim.
+- The **user_id** claim that is mapped to the **issuerUserId** claim.
 - The **screen_name** claim that is mapped to the **displayName** claim.
 - The **email** claim without name mapping.
 
@@ -53,7 +53,7 @@ The technical profile also returns claims that aren't returned by the identity p
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -83,7 +83,7 @@ The **CryptographicKeys** element contains the following attribute:
 
 ## Redirect URI
 
-When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Make sure to replace **tenant** with your tenant name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase. You should add a redirect UR for all policies that use the identity provider login. 
+When you configure the redirect URL of your identity provider, enter `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Make sure to replace **tenant** with your tenant name (for example, contosob2c.onmicrosoft.com) and **policyId** with the identifier of your policy (for example, b2c_1a_policy). The redirect URI needs to be in all lowercase. Add a redirect URL for all policies that use the identity provider login. 
 
 If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.
 
