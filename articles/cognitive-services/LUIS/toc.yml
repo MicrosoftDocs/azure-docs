@@ -168,7 +168,7 @@
   items:
   - name: Start a new app
     href: luis-how-to-start-new-app.md
-    displayName: import
+    displayName: import, export, container
   - name: Build Model
     items:
     - name: Add an intent
@@ -248,7 +248,7 @@
       href: luis-how-to-azure-subscription.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
-      diplayName: import
+      diplayName: import, export, container
     - name: Manage authors and collaborators
       displayName: access, transfer, AAD, tenant, Azure AD, consent, RBAC, admin, role-based access control, ownership, import
       href: luis-how-to-collaborate.md
