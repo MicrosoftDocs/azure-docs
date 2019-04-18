@@ -30,10 +30,40 @@ The Speech SDK's **Conversation Transcriber** API provides a way to transcribe c
 
 ## Create voice signatures for participants
 First step to enable creating conversation/meeting like scenario is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification functionality done by Speech Service.
-This is what the code may look like:
+[Use the REST API to get the voice signature.](https://westus.signature.speech.microsoft.com/ui)
 
+This is what the code may look like:
 ```csharp
-// <<Add code sample here >>
+class Program
+    {
+        static async Task UseFormContent()
+        {
+            byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
+            var form = new MultipartFormDataContent();
+            var content = new ByteArrayContent(fileBytes);
+            form.Add(content, "file", "file");
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSpeechSubscriptionKey");
+            var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
+            var jsonData = await response.Content.ReadAsStringAsync();
+        }
+
+        static async Task UserByteArrayContent()
+        {
+            byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
+            var content = new ByteArrayContent(fileBytes);
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
+            var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
+            var  jsonData = await response.Content.ReadAsStringAsync();
+        }
+        static void Main(string[] args)
+        {
+            //UseFormContent().Wait();
+            UserByteArrayContent().Wait();
+        }
+    }
 ```
 
 ## Transcribing conversations
@@ -86,10 +116,14 @@ public class MyConversationTranscriber
                 // Sets a conversation Id.
                 transcriber.ConversationId = "AConversationFromTeams";
 
-                // Add a participants to the conversation.
-                transcriber.AddParticipant("mary@microsoft.com");
-                transcriber.AddParticipant("john@microsoft.com");
-                transcriber.AddParticipant("mike@microsoft.com");
+                // Add participants to the conversation.
+                // signautreA is the signature got through signature REST API
+                var speakerA = Attendee.From("Speaker_A", "en-us", signatureA, null);
+                var speakerB = Attendee.From("Speaker_B", "en-us", signatureB, null);
+                var speakerC = Attendee.From("SPeaker_C", "en-us", signatureC, null);
+                transcriber.AddParticipant(speakerA);
+                transcriber.AddParticipant(speakerB);
+                transcriber.AddParticipant(speakerC);
 
                 // Starts transcribing of the conversation. Uses StopTranscribingAsync() to stop transcribing when all participants leave.
                 await transcriber.StartTranscribingAsync().ConfigureAwait(false);
