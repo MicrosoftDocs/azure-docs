@@ -143,7 +143,7 @@
 - name: Reference
   items:
   - name: REST API Reference
-    href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff 
   - name: FAQ
     href: faqs.md
   - name: Limits
@@ -153,6 +153,10 @@
   - name: HTTP response codes
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: Samples
+    items: 
+    - name: QnA Maker help bot
+      href: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot
   - name: SDKs
     items:
     - name: C#

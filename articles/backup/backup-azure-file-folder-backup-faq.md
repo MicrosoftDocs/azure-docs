@@ -111,10 +111,10 @@ The cache folder and the metadata VHD do not have the necessary attributes for t
 When you rename a server, all currently configured backups are stopped. Register the new name of the server with the Backup vault. When you register the new name with the vault, the first backup operation is a *full* backup. If you need to recover data backed up to the vault with the old server name, use the [**Another server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) option in the **Recover Data** wizard.
 
 ### What is the maximum file path length that can be specified in Backup policy using Azure Backup agent? <br/>
-Azure Backup agent relies on NTFS. The [filepath length specification is limited by the Windows API](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). If the files you want to protect have a file-path length longer than what is allowed by the Windows API, back up the parent folder or the disk drive.  
+Azure Backup agent relies on NTFS. The [filepath length specification is limited by the Windows API](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). If the files you want to protect have a file-path length longer than what is allowed by the Windows API, back up the parent folder or the disk drive.  
 
 ### What characters are allowed in file path of Azure Backup policy using Azure Backup agent? <br>
- Azure Backup agent relies on NTFS. It enables [NTFS supported characters](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) as part of file specification. 
+ Azure Backup agent relies on NTFS. It enables [NTFS supported characters](/windows/desktop/FileIO/naming-a-file#naming_conventions) as part of file specification. 
  
 ### I receive the warning, "Azure Backups have not been configured for this server" even though I configured a backup policy <br/>
 This warning occurs when the backup schedule settings stored on the local server are not the same as the settings stored in the backup vault. When either the server or the settings have been recovered to a known good state, the backup schedules can lose synchronization. If you receive this warning, [reconfigure the backup policy](backup-azure-manage-windows-server.md) and then **Run Back Up Now** to resynchronize the local server with Azure.

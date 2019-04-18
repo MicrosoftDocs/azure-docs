@@ -51,9 +51,9 @@ To achieve this business scenario, Contoso uses the features provided with Micro
 To complete the scenario, we use Service Bus queues to send invoice from Contoso to Northwind or receive acknowledgement from Northwind. These queues can be created using a client application, which is available as a download and is included in the sample package that is available as part of this tutorial.  
 
 ## Prerequisites
-* You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
+* You must have a Service Bus namespace. For instructions on creating a namespace, see [How To: Create or Modify a Service Bus Service Namespace](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Let us assume that you already have a Service Bus namespace provisioned, called **edifactbts**.
 * You must have a BizTalk Services subscription. For this tutorial, let us assume you have a BizTalk Services subscription, called **contosowabs**.
-* Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/hh689837.aspx)
+* Register your BizTalk Services subscription on the BizTalk Services Portal. For instructions, see [Registering a BizTalk Service Deployment on the BizTalk Services Portal](/previous-versions/azure/hh689837(v=azure.100))
 * You must have Visual Studio installed.
 * You must have BizTalk Services SDK installed. You can download the SDK from [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

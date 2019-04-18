@@ -34,7 +34,6 @@ Front Door Service backends refer to the host name or public IP of your app, whi
 
 - **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
 
-
 ### <a name = "hostheader"></a>Backend host header
 
 Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. The value for this field typically comes from the backend URI and has the host and port.

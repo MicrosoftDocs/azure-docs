@@ -2369,7 +2369,7 @@ SELECT
    
  Single quotes within the array are not valid JSON.
  Even though they are valid within a query, they will not parse to valid arrays. 
- Strings within the array string must either be escaped "[\"\"]" or the surrounding quote must be single '[""]'.
+ Strings within the array string must either be escaped "[\\"\\"]" or the surrounding quote must be single '[""]'.
 
 ```
 SELECT

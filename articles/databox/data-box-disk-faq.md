@@ -37,7 +37,7 @@ Disks are encrypted using Microsoft BitLocker drive encryption, and your encrypt
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
 
 ### Q. What is the price of Data Box Disks?
-A. For information on the price of Data Box Disks, go to [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+A. For information on the price of Data Box Disks, go to [Pricing page](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### Q. How do I get Data Box Disks? 
 A.  To get Azure Data Box Disks, log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.

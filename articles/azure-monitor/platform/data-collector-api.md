@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
 ---
 
@@ -161,6 +161,11 @@ But, if you then made this next submission, Azure Monitor would create the new p
 If you then submitted the following entry, before the record type was created, Azure Monitor would create a record with three properties, **number_s**, **boolean_s**, and **string_s**. In this entry, each of the initial values is formatted as a string:
 
 ![Sample record 4](media/data-collector-api/record-04.png)
+
+## Reserved properties
+The following properties are reserved and should not be used in a custom record type. You will receive an error if your payload includes any of these property names.
+
+- tenant
 
 ## Data limits
 There are some constraints around the data posted to the Azure Monitor Data collection API.

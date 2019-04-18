@@ -679,9 +679,11 @@
       href: platform/grafana-plugin.md
   - name: Analyze data
     items:
-    - name: Create metrics charts in Metrics Explorer
+    - name: Getting started with Metrics Explorer
+      href: platform/metrics-getting-started.md
+    - name: Advanced features of Metrics Explorer
       href: platform/metrics-charts.md
-    - name: Metric Explorer chart samples
+    - name: Examples of metrics charts
       href: platform/metric-chart-samples.md
     - name: View events in activity log
       href: ../azure-resource-manager/resource-group-audit.md

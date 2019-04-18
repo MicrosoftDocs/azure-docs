@@ -125,7 +125,7 @@ To configure Azure AD single sign-on with ProMaster (by Inlogik), perform the fo
 
     | |
 	| - |-|
-	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs `|
+	| `https://secure.inlogik.com/<COMPANYNAME>/saml/acs`|
 	| `https://<CUSTOMDOMAIN>/SAMLBASE/saml/acs`|
 	| |
 

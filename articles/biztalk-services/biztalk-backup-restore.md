@@ -42,10 +42,10 @@ Azure BizTalk Services includes Backup and Restore capabilities.
 * Optional: In the BizTalk Services Portal, stop any management operations.
 
 ## Create a backup
-A backup can be taken at any time and is completely controlled by you. To create a backup, use the [REST API for Managing BizTalk Services on Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+A backup can be taken at any time and is completely controlled by you. To create a backup, use the [REST API for Managing BizTalk Services on Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ## Restore
-To restore a backup, use the [REST API for Managing BizTalk Services on Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+To restore a backup, use the [REST API for Managing BizTalk Services on Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ### <a name="postrestore"></a>After restoring a backup
 The BizTalk Service is always restored in a **Suspended** state. In this state, you can make any configuration changes before the new environment is functional, including:

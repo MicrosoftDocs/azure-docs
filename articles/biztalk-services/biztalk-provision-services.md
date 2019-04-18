@@ -64,7 +64,7 @@ The Access Control service identity is a set of credentials that allow applicati
 > 
 > 
 
-[Managing Your ACS Namespace](https://msdn.microsoft.com/library/azure/hh674478.aspx) lists some guidelines and recommendations.
+[Managing Your ACS Namespace](/previous-versions/azure/azure-services/hh674478(v=azure.100)) lists some guidelines and recommendations.
 
 ## Requirements explained
 These requirements do not apply to the Free Edition.

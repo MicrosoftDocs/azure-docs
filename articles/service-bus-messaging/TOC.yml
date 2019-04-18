@@ -105,6 +105,8 @@
         href: service-bus-sas.md
     - name: Topic filters and actions
       href: topic-filters.md
+    - name: Migrate from Standard to Premium namespaces
+      href: service-bus-migrate-standard-premium.md
     - name: Partitioned queues and topics
       href: service-bus-partitioning.md
     - name: Message sessions
@@ -121,6 +123,8 @@
         href: service-bus-amqp-protocol-guide.md
       - name: AMQP request-response-based operations
         href: service-bus-amqp-request-response.md
+      - name: AMQP errors
+        href: service-bus-amqp-troubleshoot.md
     - name: Advanced features
       items:
       - name: Use firewalls

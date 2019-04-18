@@ -11,7 +11,7 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ---
 # Azure SQL Connectivity Architecture
 
@@ -31,7 +31,7 @@ This article explains the Azure SQL Database and SQL Data Warehouse connectivity
 > - Application connects to an existing server infrequently so our telemetry didn't capture the information about those applications
 > - Automated deployment logic creates a SQL Database server assuming that the default behavior for service endpoint connections is `Proxy`
 >
-> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) for ports 11000-12000. If this is not an option for you, switch server explicitly to `Proxy`.
+> If service endpoint connections could not be established to Azure SQL server, and you are suspecting that you are affected by this change, please verify that connection type is explicitly set to `Redirect`. If this is the case, you have to open VM firewall rules and Network Security Groups (NSG) to all Azure IP addresses in the region that belong to Sql [service tag](../virtual-network/security-overview.md#service-tags) for ports 11000-11999. If this is not an option for you, switch server explicitly to `Proxy`.
 > [!NOTE]
 > This topic applies to Azure SQL Database servers hosting single databases and elastic pools, SQL Data Warehouse databases, Azure Database for MySQL, Azure Database for MariaDB, and Azure Database for PostgreSQL. For simplicity, SQL Database is used when referring to SQL Database, SQL Data Warehouse, Azure Database for MySQL, Azure Database for MariaDB, and Azure Database for PostgreSQL.
 
@@ -51,7 +51,7 @@ The following steps describe how a connection is established to an Azure SQL dat
 
 Azure SQL Database supports the following three options for the connection policy setting of a SQL Database server:
 
-- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags)) for ports 11000-12000, not just the Azure SQL Database gateway IP addresses on port 1433. Because packets go directly to the database, latency and throughput have improved performance.
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags)) for ports 11000-11999, not just the Azure SQL Database gateway IP addresses on port 1433. Because packets go directly to the database, latency and throughput have improved performance.
 - **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.
 - **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The effective policy depends on whether connections originate from within Azure (`Redirect`) or outside of Azure (`Proxy`).
 

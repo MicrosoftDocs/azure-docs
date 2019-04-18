@@ -12,9 +12,9 @@ ms.date: 03/20/2019
 ms.author: juliako
 ---
 
-# Examine the Video Indexer output produced by v2 API
+# Examine the Video Indexer output produced by API
 
-When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, ocrs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
+When you call the **Get Video Index** API and the response status is OK, you get a detailed JSON output as the response content. The JSON content contains details of the specified video insights. The insights include dimensions like: transcripts, OCRs, faces, topics, blocks, etc. The dimensions have instances of time ranges that show when each dimension appeared in the video.  
 
 You can also visually examine the video's summarized insights by pressing the **Play** button on the video on the [Video Indexer](https://www.videoindexer.ai/) website. For more information, see [View and edit video insights](video-indexer-view-edit.md).
 
@@ -79,7 +79,7 @@ This section shows the summary of the insights.
 |faces|May contain zero or more faces. For more detailed information, see [faces](#faces).|
 |keywords|May contain zero or more keywords. For more detailed information, see [keywords](#keywords).|
 |sentiments|May contain zero or more sentiments. For more detailed information, see [sentiments](#sentiments).|
-|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioeffects).|
+|audioEffects| May contain zero or more audioEffects. For more detailed information, see [audioEffects](#audioEffects).|
 |labels| May contain zero or more labels. For detailed more information, see [labels](#labels).|
 |brands| May contain zero or more brands. For more detailed information, see [brands](#brands).|
 |statistics | For more detailed information, see [statistics](#statistics).|
@@ -149,14 +149,14 @@ A face might  have an ID, a name, a thumbnail, other metadata, and a list of its
 |sourceLanguage|The video's source language (assuming one master language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |language|The insights language (translated from the source language). In the form of a [BCP-47](https://tools.ietf.org/html/bcp47) string.|
 |transcript|The [transcript](#transcript) dimension.|
-|ocr|The [ocr](#ocr) dimension.|
+|ocr|The [OCR](#ocr) dimension.|
 |keywords|The [keywords](#keywords) dimension.|
 |blocks|May contain one or more [blocks](#blocks)|
 |faces|The [faces](#faces) dimension.|
 |labels|The [labels](#labels) dimension.|
 |shots|The [shots](#shots) dimension.|
 |brands|The [brands](#brands) dimension.|
-|audioEffects|The [audioEffects](#audioeffects) dimension.|
+|audioEffects|The [audioEffects](#audioEffects) dimension.|
 |sentiments|The [sentiments](#sentiments) dimension.|
 |visualContentModeration|The [visualContentModeration](#visualcontentmoderation) dimension.|
 |textualContentModeration|The [textualContentModeration](#textualcontentmoderation) dimension.|
@@ -415,61 +415,85 @@ Example:
   ] 
 ```
 
+#### scenes
+
+|Name|Description|
+|---|---|
+|id|The scene ID.|
+|instances|A list of time ranges of this scene (a scene can only have 1 instance).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### shots
 
 |Name|Description|
 |---|---|
 |id|The shot ID.|
-|keyFrames|A list of key frames within the shot (each has an ID and a list of instances time ranges). Key frames instances have a thumbnailId field with the keyFrame’s thumbnail ID.|
-|instances|A list of time ranges of this shot (shots have only 1 instance).|
+|keyFrames|A list of keyFrames within the shot (each has an ID and a list of instances time ranges). Each keyFrame instance has a thumbnailId field, which holds the keyFrame's thumbnail ID.|
+|instances|A list of time ranges of this shot (a shot can only have 1 instance).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-	            "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-	        "thumbnailId": "00000000-0000-0000-0000-000000000000",	
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-	            "thumbnailId": "00000000-0000-0000-0000-000000000000",	    
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-	  "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### brands

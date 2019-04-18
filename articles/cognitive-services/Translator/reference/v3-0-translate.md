@@ -3,7 +3,7 @@ title: Translator Text API Translate Method
 titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Translate method.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 
 ms.service: cognitive-services

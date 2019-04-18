@@ -1429,11 +1429,11 @@ Update an existing person group's name and userData. The properties keep unchang
 > | Action | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Reset the service principal profile of a managed cluster |
 > | Action | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Gets the upgrade profile of the cluster |
 > | Action | Microsoft.ContainerService/managedClusters/write | Creates a new managed cluster or updates an existing one |
-> | Action | Microsoft.ContainerService/openShiftClusters/delete | Delete a Open Shift Cluster |
-> | Action | Microsoft.ContainerService/openShiftClusters/read | Get a Open Shift Cluster |
+> | Action | Microsoft.ContainerService/openShiftClusters/delete | Delete an Open Shift Cluster |
+> | Action | Microsoft.ContainerService/openShiftClusters/read | Get an Open Shift Cluster |
 > | Action | Microsoft.ContainerService/openShiftClusters/write | Creates a new Open Shift Cluster or updates an existing one |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | Delete a Open Shift Managed Cluster |
-> | Action | Microsoft.ContainerService/openShiftManagedClusters/read | Get a Open Shift Managed Cluster |
+> | Action | Microsoft.ContainerService/openShiftManagedClusters/delete | Delete an Open Shift Managed Cluster |
+> | Action | Microsoft.ContainerService/openShiftManagedClusters/read | Get an Open Shift Managed Cluster |
 > | Action | Microsoft.ContainerService/openShiftManagedClusters/write | Creates a new Open Shift Managed Cluster or updates an existing one |
 > | Action | Microsoft.ContainerService/operations/read | Lists operations available on Microsoft.ContainerService resource provider |
 > | Action | Microsoft.ContainerService/register/action | Registers Subscription with Microsoft.ContainerService resource provider |

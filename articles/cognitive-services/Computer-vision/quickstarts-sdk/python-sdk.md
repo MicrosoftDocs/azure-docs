@@ -14,7 +14,7 @@ ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python
 
-The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in. 
+The Computer Vision service provides developers with access to advanced algorithms for processing images and returning information. Computer Vision algorithms analyze the content of an image in different ways, depending on the visual features you're interested in.
 
 * [Analyze an image](#analyze-an-image)
 * [Get subject domain list](#get-subject-domain-list)
@@ -33,23 +33,23 @@ Looking for more documentation?
 ## Prerequisites
 
 * [Python 3.6+][python]
-* Free [Computer Vision key][computervision_resource] and associated region. You need these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. Use one of the following methods to get these values. 
+* Free [Computer Vision key][computervision_resource] and associated endpoint. You need these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] client object. Use one of the following methods to get these values.
 
 ### If you don't have an Azure Subscription
 
-Create a free key valid for 7 days with the **[Try It][computervision_resource]** experience for the Computer Vision service. When the key is created, copy the key and region name. You will need this to [create the client](#create-client).
+Create a free key valid for 7 days with the **[Try It][computervision_resource]** experience for the Computer Vision service. When the key is created, copy the key and endpoint name. You will need this to [create the client](#create-client).
 
 Keep the following after the key is created:
 
-* Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` 
-* Key region: the subdomain of the endpoint URL, https://**westcentralus**.api.cognitive.microsoft.com
+* Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
+* Key endpoint: the base endpoint URL, https://westcentralus.api.cognitive.microsoft.com
 
 ### If you have an Azure Subscription
 
-The easiest method to create a resource in your subscription is to use the following [Azure CLI][azure_cli] command. This creates a Cognitive Service key that can be used across many cognitive services. You need to choose the _existing_ resource group name, for example, "my-cogserv-group" and the new computer vision resource name, such as "my-computer-vision-resource". 
+The easiest method to create a resource in your subscription is to use the following [Azure CLI][azure_cli] command. This creates a Cognitive Service key that can be used across many cognitive services. You need to choose the _existing_ resource group name, for example, "my-cogserv-group" and the new computer vision resource name, such as "my-computer-vision-resource".
 
 ```Bash
-RES_REGION=westeurope 
+RES_REGION=westeurope
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
@@ -87,31 +87,31 @@ pip install azure-cognitiveservices-vision-computervision
 
 ## Authentication
 
-Once you create your Computer Vision resource, you need its **region**, and one of its **account keys** to instantiate the client object.
+Once you create your Computer Vision resource, you need its **endpoint**, and one of its **account keys** to instantiate the client object.
 
-Use these values when you create the instance of the [ComputerVisionAPI][ref_computervisionclient] client object. 
+Use these values when you create the instance of the [ComputerVisionClient][ref_computervisionclient] client object.
 
 For example, use the Bash terminal to set the environment variables:
 
 ```Bash
-ACCOUNT_REGION=<resourcegroup-name>
+ACCOUNT_ENDPOINT=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 ```
 
-### For Azure subscription users, get credentials for key and region
+### For Azure subscription users, get credentials for key and endpoint
 
-If you do not remember your region and key, you can use the following method to find them. If you need to create a key and region, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
+If you do not remember your endpoint and key, you can use the following method to find them. If you need to create a key and endpoint, you can use the method for [Azure subscription holders](#if-you-have-an-azure-subscription) or for [users without an Azure subscription](#if-you-dont-have-an-azure-subscription).
 
-Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **region** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
+Use the [Azure CLI][cloud_shell] snippet below to populate two environment variables with the Computer Vision account **endpoint** and one of its **keys** (you can also find these values in the [Azure portal][azure_portal]). The snippet is formatted for the Bash shell.
 
 ```Bash
 RES_GROUP=<resourcegroup-name>
 ACCT_NAME=<computervision-account-name>
 
-export ACCOUNT_REGION=$(az cognitiveservices account show \
+export ACCOUNT_ENDPOINT=$(az cognitiveservices account show \
     --resource-group $RES_GROUP \
     --name $ACCT_NAME \
-    --query location \
+    --query endpoint \
     --output tsv)
 
 export ACCOUNT_KEY=$(az cognitiveservices account keys list \
@@ -124,28 +124,28 @@ export ACCOUNT_KEY=$(az cognitiveservices account keys list \
 
 ### Create client
 
-Get the region and key from environment variables then create the [ComputerVisionAPI][ref_computervisionclient] client object.  
+Get the endpoint and key from environment variables then create the [ComputerVisionClient][ref_computervisionclient] client object.
 
 ```Python
-from azure.cognitiveservices.vision.computervision import ComputerVisionAPI
+from azure.cognitiveservices.vision.computervision import ComputerVisionClient
 from azure.cognitiveservices.vision.computervision.models import VisualFeatureTypes
 from msrest.authentication import CognitiveServicesCredentials
 
-# Get region and key from environment variables
+# Get endpoint and key from environment variables
 import os
-region = os.environ['ACCOUNT_REGION']
+endpoint = os.environ['ACCOUNT_ENDPOINT']
 key = os.environ['ACCOUNT_KEY']
 
 # Set credentials
 credentials = CognitiveServicesCredentials(key)
 
 # Create client
-client = ComputerVisionAPI(region, credentials)
+client = ComputerVisionClient(endpoint, credentials)
 ```
 
 ## Examples
 
-You need a [ComputerVisionAPI][ref_computervisionclient] client object before using any of the following tasks.
+You need a [ComputerVisionClient][ref_computervisionclient] client object before using any of the following tasks.
 
 ### Analyze an image
 
@@ -173,7 +173,7 @@ for x in models.models_property:
 
 ### Analyze an image by domain
 
-You can analyze an image by subject domain with [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Get the [list of supported subject domains](#get-subject-domain-list) in order to use the correct domain name.  
+You can analyze an image by subject domain with [`analyze_image_by_domain`][ref_computervisionclient_analyze_image_by_domain]. Get the [list of supported subject domains](#get-subject-domain-list) in order to use the correct domain name.
 
 ```Python
 # type of prediction
@@ -211,7 +211,7 @@ for caption in analysis.captions:
 
 ### Get text from image
 
-You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`recognize_text`][ref_computervisionclient_recognize_text] and [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. The call to recognize_text is asynchronous. In the results of the get_text_operation_result call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text. 
+You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`recognize_text`][ref_computervisionclient_recognize_text] and [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. The call to recognize_text is asynchronous. In the results of the get_text_operation_result call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text.
 
 ```Python
 # import models
@@ -233,13 +233,14 @@ idLocation = len(operationLocation) - numberOfCharsInOperationId
 operationId = operationLocation[idLocation:]
 
 # SDK call
-while result.status in ['NotStarted', 'Running']:
-    time.sleep(1)
+while True:
     result = client.get_text_operation_result(operationId)
+    if result.status not in ['NotStarted', 'Running']:
+        break
+    time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-
     for line in result.recognition_result.lines:
         print(line.text)
         print(line.bounding_box)
@@ -247,13 +248,13 @@ if result.status == TextOperationStatusCodes.succeeded:
 
 ### Generate thumbnail
 
-You can generate a thumbnail (JPG) of an image with [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. The thumbnail does not need to be in the same proportions as the original image. 
+You can generate a thumbnail (JPG) of an image with [`generate_thumbnail`][ref_computervisionclient_generate_thumbnail]. The thumbnail does not need to be in the same proportions as the original image.
 
 Install **Pillow** to use this example:
 
 ```bash
 pip install Pillow
-``` 
+```
 
 Once Pillow is installed, use the package in the following code example to generate the thumbnail image.
 
@@ -280,7 +281,7 @@ image.save('thumbnail.jpg')
 
 ### General
 
-When you interact with the [ComputerVisionAPI][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] class is used to return errors. Errors returned by the service correspond to the same HTTP status codes returned for REST API requests.
+When you interact with the [ComputerVisionClient][ref_computervisionclient] client object using the Python SDK, the [`ComputerVisionErrorException`][ref_computervision_computervisionerrorexception] class is used to return errors. Errors returned by the service correspond to the same HTTP status codes returned for REST API requests.
 
 For example, if you try to analyze an image with an invalid key, a `401` error is returned. In the following snippet, the [error][ref_httpfailure] is handled gracefully by catching the exception and displaying additional information about the error.
 
@@ -299,14 +300,14 @@ try:
         print(caption.confidence)
 except HTTPFailure as e:
     if e.status_code == 401:
-        print("Error unauthorized. Make sure your key and region are correct.")
+        print("Error unauthorized. Make sure your key and endpoint are correct.")
     else:
         raise
 ```
 
 ### Handle transient errors with retries
 
-While working with the [ComputerVisionAPI][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
+While working with the [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
 
 ### More sample code
 

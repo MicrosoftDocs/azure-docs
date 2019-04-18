@@ -111,7 +111,7 @@ The current recommendation for Azure is to set TCP MSS clamping to 1350 bytes an
 
 #### Latency and round-trip time
 
-Network latency is governed by the speed of light over a fiber optic network. The reality is, network throughput of TCP is also effectively governed (practical maximums) because of of the Round-Trip Time (RTT) between two network devices.
+Network latency is governed by the speed of light over a fiber optic network. The reality is, network throughput of TCP is also effectively governed (practical maximums) because of the Round-Trip Time (RTT) between two network devices.
 
 | | | | |
 |-|-|-|-|

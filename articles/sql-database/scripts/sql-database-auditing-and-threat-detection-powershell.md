@@ -3,7 +3,7 @@ title: PowerShell example-auditing-threat detection-Azure SQL Database  | Micros
 description: Azure PowerShell example script to configure auditing & threat detection in an Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-detection
+ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample

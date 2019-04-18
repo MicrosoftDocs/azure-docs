@@ -37,7 +37,7 @@ When you create a workspace the following Azure resources are added automaticall
 
 
 ## Prerequisites
-To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+To create a workspace, you need an Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 ## <a name="portal"></a> Azure portal
 

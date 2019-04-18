@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ms.author: diberry
 ---
 
@@ -17,19 +17,19 @@ ms.author: diberry
 
 Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity is included in your application, LUIS includes the corresponding entity prediction in the endpoint response. All example utterances are also labeled with the entity. The behavior of prebuilt entities **can't** be modified. Unless otherwise noted, prebuilt entities are available in all LUIS application locales (cultures). The following table shows the prebuilt entities that are supported for each culture.
 
-|Culture|Subcultures|
-|--|--|
-|Chinese|[zh-CN](#chinese-entity-support)|
-|Dutch|[nl-NL](#dutch-entity-support)|
-|English|[en-US (American)](#english-american-entity-support)|
-|French|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), |
-|German|[de-DE](#german-entity-support)|
-|Italian|[it-IT](#italian-entity-support)|
-|Japanese|[ja-JP](#japanese-entity-support)|
-|Korean|[ko-KR](#korean-entity-support)|
-|Portuguese|[pt-BR (Brazil)](#portuguese-brazil-entity-support)|
-|Spanish|[es-ES (Spain)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)|
-|Turkish|[turkish](#turkish-entity-support)|
+|Culture|Subcultures|Notes|
+|--|--|--|
+|Chinese|[zh-CN](#chinese-entity-support)||
+|Dutch|[nl-NL](#dutch-entity-support)||
+|English|[en-US (American)](#english-american-entity-support)||
+|French|[fr-CA (Canada)](#french-canadian-entity-support), [fr-FR (France)](#french-france-entity-support), ||
+|German|[de-DE](#german-entity-support)||
+|Italian|[it-IT](#italian-entity-support)||
+|Japanese|[ja-JP](#japanese-entity-support)||
+|Korean|[ko-KR](#korean-entity-support)||
+|Portuguese|[pt-BR (Brazil)](#portuguese-brazil-entity-support)||
+|Spanish|[es-ES (Spain)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)||
+|Turkish|[turkish](#turkish-entity-support)|No prebuilt entities supported in Turkish|
 
 ## Chinese entity support
 
@@ -289,7 +289,9 @@ KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR`
 
 ## Turkish entity support
 
-The following entities are supported:
+**There are no prebuilt entities supported in Turkish.** 
+
+<!--
 
 |Prebuilt entity|```tr-tr``` |
 ------|:------:|
@@ -310,8 +312,9 @@ The following entities are supported:
 
 See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-KeyPhrase is not available.
 
+KeyPhrase is not available.
+-->
 
 ## Contribute to prebuilt entity cultures
 The prebuilt entities are developed in the Recognizers-Text open-source project. [Contribute](https://github.com/Microsoft/Recognizers-Text) to the project. This project includes examples of currency per culture. 

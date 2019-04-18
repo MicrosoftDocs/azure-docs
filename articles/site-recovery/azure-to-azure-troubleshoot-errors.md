@@ -180,7 +180,7 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
   - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
 
 
-### Issue 4: A2A replication failed when the network traffic goes through on-premise proxy server (151072)
+### Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
 - **Possible cause** </br>
   - The custom proxy settings are invalid and ASR Mobility Service agent did not auto-detect the proxy settings from IE
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy models as web services
+title: How and where to deploy models 
 titleSuffix: Azure Machine Learning service
 description: 'Learn how and where to deploy your Azure Machine Learning service models including: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge, and Field-programmable gate arrays.'
 services: machine-learning
@@ -9,15 +9,18 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
+ms.date: 04/02/2019
+
+ms.custom: seoapril2019
 ---
 
 # Deploy models with the Azure Machine Learning service
 
-The Azure Machine Learning SDK provides several ways you can deploy your trained model. In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices.
+In this document, learn how to deploy your model as a web service in the Azure cloud, or to IoT Edge devices. 
 
-You can deploy models to the following compute targets:
+## Compute targets for deployment
+
+Use the Azure Machine Learning SDK to deploy your trained model to the following locations:
 
 | Compute target | Deployment type | Description |
 | ----- | ----- | ----- |
@@ -26,6 +29,8 @@ You can deploy models to the following compute targets:
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
 | [Field-programmable gate array (FPGA)](#fpga) | (Preview) Web service | Ultra-low latency for real-time inferencing. |
+
+## Deployment workflow
 
 The process of deploying a model is similar for all compute targets:
 
@@ -41,7 +46,7 @@ The following video demonstrates deploying to Azure Container Instances:
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
-## Prerequisites
+## Prerequisites for deployment
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 

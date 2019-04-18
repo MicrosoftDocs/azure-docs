@@ -26,7 +26,7 @@ ms.author: deonhe
 The release notes for the Microsoft Azure BizTalk Services contain the known issues in this release.
 
 ## What’s new in the November update of BizTalk Services
-* Encryption at Rest can be enabled in the BizTalk Services Portal. See [Enable Encryption at Rest in BizTalk Services Portal](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* Encryption at Rest can be enabled in the BizTalk Services Portal. See [Enable Encryption at Rest in BizTalk Services Portal](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## Update History
 ### October Update
@@ -35,14 +35,14 @@ The release notes for the Microsoft Azure BizTalk Services contain the known iss
   * **Scenario**: You registered a BizTalk Service deployment using an organizational account in an Azure Active Directory (like user@fabrikam.com or user@contoso.com). In this scenario, only Azure Active Directory users within the same organization can manage the BizTalk Service using the BizTalk Services portal. A Microsoft account cannot be used.  
 * When you create a BizTalk Service, you are automatically registered in the BizTalk Services Portal.
   * **Scenario**: You sign into Azure, create a BizTalk Service, and then select **Manage** for the very first time. When the BizTalk Services portal opens, the BizTalk Service automatically registers and is ready for your deployments.  
-    See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    See [Registering and Updating a BizTalk Service Deployment on the BizTalk Services Portal](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### August 14 Update
-* Agreement and bridge decoupling – Trading partner agreements and bridges are now decoupled in the BizTalk Services Portal. You now create agreements and bridges separately, and at runtime bridges resolve to an agreement based on the values in the EDI message. See [Create Agreements in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689908.aspx), [Create an EDI bridge using BizTalk Services Portal](https://msdn.microsoft.com/library/azure/dn793986.aspx), [Create an AS2 bridge using BizTalk Services Portal](https://msdn.microsoft.com/library/azure/dn793993.aspx), and [How do bridges resolve agreements at runtime?](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Agreement and bridge decoupling – Trading partner agreements and bridges are now decoupled in the BizTalk Services Portal. You now create agreements and bridges separately, and at runtime bridges resolve to an agreement based on the values in the EDI message. See [Create Agreements in Azure BizTalk Services](/previous-versions/azure/hh689908(v=azure.100)), [Create an EDI bridge using BizTalk Services Portal](/previous-versions/azure/dn793986(v=azure.100)), [Create an AS2 bridge using BizTalk Services Portal](/previous-versions/azure/dn793993(v=azure.100)), and [How do bridges resolve agreements at runtime?](/previous-versions/azure/dn794001(v=azure.100))  
 * The option to create templates for agreements is discontinued.  
-* For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx) and [Create an EDIFACT Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/dn606267.aspx). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) and [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](https://msdn.microsoft.com/library/azure/dn793987.aspx) and [Use Derived Types in Mapping Scenarios and Examples](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* For the send-side agreement, you can now specify different delimiter sets for each schema. This configuration is specified under protocol settings for send side agreement. For more information, see [Create an X12 Agreement in Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100)) and [Create an EDIFACT Agreement in Azure BizTalk Services](/previous-versions/azure/dn606267(v=azure.100)). Two new entities are also added to the TPM OM API for the same purpose. See [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) and [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* Standard XSD constructs, including Derived Types, are now supported. See [Use standard XSD constructs in your maps](/previous-versions/azure/dn793987(v=azure.100)) and [Use Derived Types in Mapping Scenarios and Examples](/previous-versions/azure/).  
+* AS2 supports new MIC algorithms for message signing and new encryption algorithms. See [Create an AS2 Agreement in Azure BizTalk Services](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## Known Issues
 
@@ -81,7 +81,7 @@ If there are whitespaces beyond an IEA segment, the disassembler treats this as 
 
 ### Tracking in BizTalk Services Portal
 Tracking events are captured up to the EDI message processing and any correlation. If a message fails outside of the Protocol stage, Tracking will show as successful. In this situation, refer to the LOG section under the **Details** column in **Tracking** for error details.
-The X12 Receive and Send settings ([Create an X12 Agreement in Azure BizTalk Services](https://msdn.microsoft.com/library/azure/hh689847.aspx)) provide information on the Protocol stage.  
+The X12 Receive and Send settings ([Create an X12 Agreement in Azure BizTalk Services](/previous-versions/azure/hh689847(v=azure.100))) provide information on the Protocol stage.  
 
 ### Update Agreement
 The BizTalk Services Portal allows you to modify the Qualifier of an Identity when an agreement is configured. This can result in inconsistent properties. For example, there is an agreement using ZZ:1234567 and ZZ:7654321 the Qualifier. In the BizTalk Services Portal profile settings, you change ZZ:1234567 to be 01:ChangedValue. You open the agreement and 01:ChangedValue is displayed instead of ZZ:1234567.
@@ -221,5 +221,5 @@ Assume a scenario where you have an XML bridge deployed on BizTalk Services Prev
 Throughout this document, the term ‘pipelines’ and ‘bridges’ are used interchangeably. Both essentially mean the same thing, which is, a message processing unit deployed on BizTalk Services.  
 
 ### Concepts
-[BizTalk Services](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[BizTalk Services](/previous-versions/azure/hh689864(v=azure.100))   
 

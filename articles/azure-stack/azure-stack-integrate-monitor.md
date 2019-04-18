@@ -77,8 +77,8 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 | Parameter | Description | Example |
 |---------|---------|---------|
-| *arm_endpoint* | Azure Resource Manager (administrator) endpoint |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Azure Resource Manager (administrator) endpoint | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Azure Resource Manager (administrator) endpoint  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | Admin subscription ID | Retrieve via the administrator portal or PowerShell |
 | *User_name* | Operator subscription username | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operator subscription password | mypassword |
@@ -92,12 +92,12 @@ Configure the plugin file “Azurestack_plugin.py” with the following paramete
 
 If you're not using Operations Manager, Nagios, or a Nagios-based solution, you can use PowerShell to enable a broad range of monitoring solutions to integrate with Azure Stack.
 
-1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https:\//adminmanagement.[region].[External_FQDN]).
+1. To use PowerShell, make sure that you have [PowerShell installed and configured](azure-stack-powershell-configure-quickstart.md) for an Azure Stack operator environment. Install PowerShell on a local computer that can reach the Resource Manager (administrator) endpoint (https://adminmanagement.[region].[External_FQDN]).
 
 2. Run the following commands to connect to the Azure Stack environment as an Azure Stack operator:
 
    ```powershell
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
@@ -105,22 +105,23 @@ If you're not using Operations Manager, Nagios, or a Nagios-based solution, you 
 3. Use commands such as the following examples to work with alerts:
    ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## Learn more

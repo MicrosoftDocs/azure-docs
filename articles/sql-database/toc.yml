@@ -232,7 +232,7 @@
         href: sql-database-data-discovery-and-classification.md
       - name: Vulnerability assessment
         href: sql-vulnerability-assessment.md
-      - name: Threat detection
+      - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
     - name: Server-level IP firewall rules
       items:

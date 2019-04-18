@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
@@ -37,7 +37,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations (Preview)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Go to the [Azure portal - App registrations](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -48,7 +48,8 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 >
 > 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
 > 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-Quickstart`.
 >    - In **Reply URL**, add `https://localhost:44321/`, and select **Register**.
@@ -75,7 +76,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 
 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
 1. If you use Visual Studio 2017, open the solution in Visual Studio (optional).
-1. Edit the **appsettings.json** file. Find `ClientId` and replace `Enter_the_Application_Id_here` with the **Application (client) ID** value of the application you just registered. 
+1. Edit the **appsettings.json** file. Find `ClientId` and Update the value of `ClientId` with the **Application (client) ID** value of the application you just registered. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"

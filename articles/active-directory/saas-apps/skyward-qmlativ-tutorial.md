@@ -102,7 +102,7 @@ To configure Azure AD single sign-on with Skyward Qmlativ, perform the following
     ![Skyward Qmlativ Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    ` https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
+    `https://<SUBDOMAIN>.skyward.com/<CUSTOMERIDENTIFIERSTS>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://<BASEURL>/customeridentifierSTS`

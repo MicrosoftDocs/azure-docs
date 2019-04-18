@@ -59,14 +59,14 @@ You can set up Azure SQL databases, and instance databases to collect the follow
 | :------------------- | ----- | ----- |
 | [All metrics](#all-metrics): Contains DTU/CPU percentage, DTU/CPU limit, physical data read percentage, log write percentage, Successful/Failed/Blocked by firewall connections, sessions percentage, workers percentage, storage, storage percentage, and XTP storage percentage. | Yes | No |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contains information about the query runtime statistics such as CPU usage and query duration statistics. | Yes | Yes |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such as CPU, LOG, and LOCKING. | Yes | Yes |
-| [Errors](#errors-dataset): Contains information about SQL errors on the database. | Yes | Yes |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time the database spent waiting on different wait types. | Yes | No |
-| [Timeouts](#time-outs-dataset): Contains information about timeouts on the database. | Yes | No |
-| [Blocks](#blockings-dataset): Contains information about blocking events on the database. | Yes | No |
-| [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on the database. | Yes | No |
-| [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations on the database. | Yes | No |
-| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. | Yes | Yes |
+| [Errors](#errors-dataset): Contains information about SQL errors on a database. | Yes | Yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contains information about how much time a database spent waiting on different wait types. | Yes | No |
+| [Timeouts](#time-outs-dataset): Contains information about timeouts on a database. | Yes | No |
+| [Blocks](#blockings-dataset): Contains information about blocking events on a database. | Yes | No |
+| [Deadlocks](#deadlocks-dataset): Contains information about deadlock events on a database. | Yes | No |
+| [AutomaticTuning](#automatic-tuning-dataset): Contains information about automatic tuning recommendations for a database. | Yes | No |
+| [SQLInsights](#intelligent-insights-dataset): Contains Intelligent Insights into performance for a database. To learn more, see [Intelligent Insights](sql-database-intelligent-insights.md). | Yes | Yes |
 
 > [!IMPORTANT]
 > Elastic pools and managed instances have its own separate diagnostics telemetry from databases they contain. This is important to note as diagnostics telemetry is configured separately for each of these resources, as documented below.
