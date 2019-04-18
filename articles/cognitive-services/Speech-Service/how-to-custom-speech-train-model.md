@@ -12,7 +12,7 @@ ms.date: 05/06/2019
 ms.author: erhopf
 ---
 
-# Train a model
+# Train a model for Custom Speech
 
 **<< TODO - Erik: edit/rephrase >>**
 
