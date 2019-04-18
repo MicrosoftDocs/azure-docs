@@ -224,44 +224,45 @@ Document ID: 2
 
 ## Key phrase extraction
 
-1. Create a new function called `keyPhraseExtractionExample()` that takes the client created earlier. Create a list of objects, containing your documents.
+1. Create a list of objects, containing your documents.
 
     ```javascript
-    TODO: 
-                        "ja", "1", "猫は幸せ"
-                        "de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."
-                        "en", "3", "My cat might need to see a veterinarian."
-                        "es", "4", "A mi me encanta el fútbol!"
-    }
+     let inputLanguage = {
+        documents: [
+          {language:"ja", id:"1", text:"猫は幸せ"},
+          {language:"de", id:"2", text:"Fahrt nach Stuttgart und dann zum Hotel zu Fu."},
+          {language:"en", id:"3", text:"My cat might need to see a veterinarian."},
+          {language:"es", id:"4", text:"A mi me encanta el fútbol!"}
+        ]
+      };
     ```
 
-2. In the same function, call `client.KeyPhrasesAsync() TODO:check` and get the result. Then iterate through the results, and print each document's ID, and any detected key phrases.
+2. Call `client.keyPhrases()` and get the result. Then iterate through the results, and print each document's ID, and any detected key phrases.
 
     ```javascript
-        'code here'
+       let operation = client.keyPhrases({
+        multiLanguageBatchInput: inputLanguage
+      });
+      operation
+        .then(result => {
+          console.log(result.documents);
+        })
+        .catch(err => {
+          throw err;
+        });
     ```
 
-4. Call your function `keyPhraseExtractionExample()` and run your the app by executing `node index.js`
+4. Run your code by executing `node index.js`
 
 ### Output
 
 ```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                rock
-Document ID: 4
-         Key phrases:
-                fútbol
+[ 
+    { id: '1', keyPhrases: [ '幸せ' ] },
+    { id: '2', keyPhrases: [ 'Stuttgart', 'Hotel', 'Fahrt', 'Fu' ] },
+    { id: '3', keyPhrases: [ 'cat', 'veterinarian' ] },
+    { id: '4', keyPhrases: [ 'fútbol' ] } 
+]
 ```
 
 ## Next steps
