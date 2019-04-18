@@ -24,7 +24,7 @@ If the [built-in roles for Azure resources](built-in-roles.md) don't meet the sp
 
 ## List custom roles
 
-To list all custom roles in a directory, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the directory.
+To list all custom roles in a directory, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the directory scope.
 
 - Use the following request:
 
@@ -34,7 +34,7 @@ To list all custom roles in a directory, use the [Role Definitions - List](/rest
 
 ## List custom roles at a scope
 
-To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+To list custom roles at a scope, use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
 
 1. Start with the following request:
 
@@ -52,7 +52,7 @@ To list custom roles at a scope, use the [Role Definitions - List](/rest/api/aut
 
 ## List a custom role definition by name
 
-To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+To get information about a custom role by its display name, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
 
 1. Start with the following request:
 
@@ -76,7 +76,7 @@ To get information about a custom role by its display name, use the [Role Defini
 
 ## List a custom role definition by ID
 
-To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/read` operation at the scope. Several [built-in roles](built-in-roles.md) are granted access to this operation.
+To get information about a custom role by its unique identifier, use the [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/read` permission at the scope. Several [built-in roles](built-in-roles.md) include this permission.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) REST API to get the GUID identifier for the role.
 
@@ -98,7 +98,7 @@ To get information about a custom role by its unique identifier, use the [Role D
 
 ## Create a custom role
 
-To create a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
+To create a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
 
 1. Review the list of [resource provider operations](resource-provider-operations.md) that are available to create the permissions for your custom role.
 
@@ -189,7 +189,7 @@ To create a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 ## Update a custom role
 
-To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/write` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
+To update a custom role, use the [Role Definitions - Create Or Update](/rest/api/authorization/roledefinitions/createorupdate) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/write` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) or [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API to get information about the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
 
@@ -273,7 +273,7 @@ To update a custom role, use the [Role Definitions - Create Or Update](/rest/api
 
 ## Delete a custom role
 
-To delete a custom role, use the [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) REST API. To call this API, you must have access to the `Microsoft.Authorization/roleDefinitions/delete` operation on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) are granted access to this operation. 
+To delete a custom role, use the [Role Definitions - Delete](/rest/api/authorization/roledefinitions/delete) REST API. To call this API, you must be signed in with a user that is assigned a role that has the `Microsoft.Authorization/roleDefinitions/delete` permission on all the `assignableScopes`. Of the built-in roles, only [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) include this permission.
 
 1. Use the [Role Definitions - List](/rest/api/authorization/roledefinitions/list) or [Role Definitions - Get](/rest/api/authorization/roledefinitions/get) REST API to get the GUID identifier of the custom role. For more information, see the earlier [List custom roles](#list-custom-roles) section.
 
