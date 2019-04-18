@@ -253,19 +253,18 @@ For resource limits, see [Serverless compute tier](sql-database-vCore-resource-l
 
 The amount of compute billed each second is the maximum of CPU used and memory used each second. If the amount of CPU used and memory used is less than the minimum amount provisioned for each, then the provisioned amount is billed. In order to compare CPU with memory for billing purposes, memory is normalized into units of vCores by rescaling the amount of memory in GB by 3 GB per vCore.
 
-|Resource billed|Amount billed ($)|Billing frequency|
-|---|---|---|
-|CPU and memory|vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)|Per second|
-|||
+- **Resource billed**: CPU and memory
+- **Amount billed ($)**: vCore unit price * max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3) 
+- **Billing frequency**: Per second
 
 The amount of compute billed is exposed by the following metric:
 
-|Metric|Definition|Reporting frequency|
-|---|---|---|
-|app_cpu_billed (vCore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
-|||
+- **Metric**: app_cpu_billed (vCore seconds)
+- **Definition**: max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*
+- **Reporting frequency**: Per minute
 
-\* This quantity is calculated each second and aggregated over 1 minute.
+> [!NOTE]
+> \* This quantity is calculated each second and aggregated over 1 minute.
 
 **Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1-hour period:
 
@@ -279,15 +278,12 @@ The amount of compute billed is exposed by the following metric:
 |0:06 - 1:00|1255|
 ||Total: 1631|
 
-Suppose the compute unit price is as follows:
-
-|vCore unit price|$0.2609/vCore/hour|
+Suppose the compute unit price is $0.2609/vCore/hour
 |---|---|
 
-Then the compute billed for this 1-hour period is determined as follows:
+Then the compute billed for this 1-hour period is determined using the following formula:
 
-|CPU and memory billed|`$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232`|
-|---|---|
+`$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232`
 
 ## Available regions
 
@@ -295,4 +291,4 @@ The serverless compute tier is available in all regions except the following reg
 
 ## Next steps
 
-For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier)
+For resource limits, see [Serverless compute tier resource limits](sql-database-vCore-resource-limits-single-databases.md#serverless-compute-tier).
