@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 04/18/2019
 ms.author: danlep
 ---
 
@@ -21,7 +21,7 @@ Use a private repository in Azure Container Registry to manage one of the follow
 
 * [Docker Image Manifest V2, Schema 2](https://docs.docker.com/registry/spec/manifest-v2-2/) - includes Manifest Lists which allow registries to store multiplatform images under a single "image:tag" reference
 
-* [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) 
+* [Open Container Initiative (OCI) Image Format Specification](https://github.com/opencontainers/image-spec/blob/master/spec.md) - includes packaging formats such as [Singularity Image Format (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/)
 
 
 ## Helm charts
