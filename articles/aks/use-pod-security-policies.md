@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 04/17/2019
 ms.author: iainfou
 ---
 
@@ -518,3 +518,4 @@ For more information about limiting pod network traffic, see [Secure traffic bet
 [az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-update]: /cli/azure/ext/aks-preview/aks#ext-aks-preview-az-aks-update
+[az-extension-add]: /cli/azure/extension#az-extension-add
