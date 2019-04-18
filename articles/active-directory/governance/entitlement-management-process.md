@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/12/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -61,7 +61,7 @@ The following table provides more detail about each of these email notifications
 | # | Email subject | When sent | Sent to |
 | --- | --- | --- | --- |
 | 1 | Action required: Approve request to *[access package]* by *[date]* *[time]* | When a requestor submits a request for an access package | All approvers |
-| 2 |  |  |  |
+| 2 | Action required: Approve request to *[access package]* by *[date]* *[time]* | X days before the approval request timeout | All approvers |
 | 3 | Status notification: *[requestor]*'s access request to *[access package]* has expired | When the approvers do not approve or deny an access request within the request duration | Requestor |
 | 4 | Status notification: *[requestor]* access request to *[access package]* has been completed | When the first approver approves or denies an access request | All approvers |
 | 5 | You have been denied access to *[access package]* | When a requestor has been denied access to the access package | Requestor |
