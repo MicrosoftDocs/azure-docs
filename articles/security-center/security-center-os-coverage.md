@@ -96,7 +96,7 @@ The following table provides a matrix of:
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, Built in to OS| Yes |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (see note below) | Via Extension | Yes |
-| Trend Micro – All version | Windows Server Family  | No | Yes |
+| Trend Micro – All versions* | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
 | Kaspersky| Windows Server Family  | No | No  |
@@ -104,6 +104,7 @@ The following table provides a matrix of:
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).
+> - Detection of Trend Micro protection is supported for Deep Security agents.  OfficeScan agents are not supported.
 >
 >
 
