@@ -101,8 +101,6 @@
           href: scenario-desktop-app-registration.md
         - name: App's code configuration
           href: scenario-desktop-app-configuration.md
-        - name: Sign-in
-          href: scenario-desktop-sign-in.md
         - name: Acquiring a token for the app
           href: scenario-desktop-acquire-token.md
         - name: Calling a Web API

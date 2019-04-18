@@ -31,7 +31,7 @@ The account types supported in desktop application depend on the experience you 
 
 ### Audience for interactive token acquisition
 
-If  your desktop application uses interactive authentication, you can sign in users from any [account type](v2-supported-account-types.md)
+If  your desktop application uses interactive authentication, you can sign in users from any [account type](quickstart-register-app.md#register-a-new-application-using-the-azure-portal)
 
 ### Audience for desktop app silent flows
 
