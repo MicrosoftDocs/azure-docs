@@ -232,7 +232,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 (
 	{
 	instrumentationKey:"INSTRUMENTATION_KEY",
-	endpointUrl: https://dc.applicationinsights.us/v2/track;
+	endpointUrl: "https://dc.applicationinsights.us/v2/track"
   }
 );
 window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
