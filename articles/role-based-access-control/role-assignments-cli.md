@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/25/2019
+ms.date: 04/17/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -272,7 +272,7 @@ To create a role assignment using the unique role ID instead of the role name, u
 az role assignment create --role <role_id> --assignee <assignee> --resource-group <resource_group>
 ```
 
-The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong@contoso.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az-role-definition-list) or see [Built-in roles for Azure resources](built-in-roles.md).
+The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *patlong\@contoso.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [az role definition list](/cli/azure/role/definition#az-role-definition-list) or see [Built-in roles for Azure resources](built-in-roles.md).
 
 ```azurecli
 az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee patlong@contoso.com --resource-group pharma-sales
