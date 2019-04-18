@@ -101,7 +101,9 @@ When you scale or upgrade an AKS cluster, the action is performed against the de
 
 ### Node selectors
 
-In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler where a given resource should run. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters to control where a pod should be scheduled, such as the node OS. The following basic example scheduled an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
+In an AKS cluster that contains multiple node pools, you may need to tell the Kubernetes Scheduler which node pool to use for a given resource. For example, ingress controllers shouldn't run on Windows Server nodes (currently in preview in AKS). Node selectors let you define various parameters, such as the node OS, to control where a pod should be scheduled.
+
+The following basic example schedules an NGINX instance on a Linux node using the node selector *"beta.kubernetes.io/os": linux*:
 
 ```yaml
 kind: Pod
