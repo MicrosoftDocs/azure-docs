@@ -450,6 +450,7 @@ deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb 
 service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
 service.wait_for_deployment(show_output = True)
 print(service.state)
+print(service.get_logs())
 ```
 
 **Time estimate**: Approximately 5 minutes.
@@ -463,7 +464,7 @@ Azure Kubernetes Service provides the following capabilities:
 
 #### Autoscaling
 
-Autoscaling of your cluster can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
+Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(autoscale_enabled=True,
@@ -504,9 +505,9 @@ Azure Machine Learning Compute targets are created and managed by the Azure Mach
 
 For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
 
-## Test web service deployments
+## Consume web service deployments
 
-To test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
+To quickly test a web service deployment, you can use the `run` method of the Webservice object. In the following example, a JSON document is set to a web service and the result is displayed. The data sent must match what the model expects. In this example, the data format matches the input expected by the diabetes model.
 
 ```python
 import json
@@ -521,7 +522,7 @@ prediction = service.run(input_data = test_sample)
 print(prediction)
 ```
 
-The webservice is a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
+The web service also provides a REST API, so you can create client applications in a variety of programming languages. For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
 ## <a id="update"></a> Update the web service
 
