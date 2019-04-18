@@ -6,7 +6,7 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/06/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -91,7 +91,7 @@ If you require granular, per-user control over content, you can build security f
 |[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
 |[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
 
-## Table: Permitted operations
+## Table: Permissioned operations
 
 The following table summarizes the operations allowed in Azure Search and which key unlocks access a particular operation.
 
