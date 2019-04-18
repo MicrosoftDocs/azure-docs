@@ -58,7 +58,7 @@ The end to end experience of developers for this scenario has, therefore, specif
 - Daemon applications can only work in Azure AD tenants. It wouldn't make sense to build a daemon application that attempts to manipulate Microsoft personal accounts. If you're a Line of business (LOB) developer, you'll create your daemon app in your tenant. If you're an ISV, you might want to create a multi-tenant daemon application. It will need to be consented by each tenant admin.
 - During the [Application registration](./scenario-daemon-app-registration.md), the Reply URI isn't needed, you need to share secrets or certificates with Azure AD, and you need to request applications permissions and grant admin consent to use those app permissions.
 - The [Application configuration](./scenario-daemon-app-configuration.md) needs to provide client credentials as shared with Azure AD during the application registration
-- The [scope](scenario-daemon-app-configuration.md#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
+- The [scope](scenario-daemon-acquire-token.md#scopes-to-request) used to acquire a token with the client credentials flow needs to be a static scope.
 
 ## Next steps
 
