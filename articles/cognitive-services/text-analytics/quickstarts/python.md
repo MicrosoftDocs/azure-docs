@@ -128,7 +128,60 @@ Document Id:  3 , Language:  Chinese_Simplified
 
 ## Entity recognition
 
+1. Create a list of dictionaries, containing the documents you want to analyze.
 
+```
+documents = [
+    {"id": "1","language": "en", "text": "Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800."},
+    {"id": "2","language": "es", "text": "La sede principal de Microsoft se encuentra en la ciudad de Redmond, a 21 kilómetros de Seattle."}
+]
+```
+2.  Using the client created earlier, call `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
+
+```
+response = text_analytics.entities(documents=documents)
+
+for document in response.documents:
+    print("Document Id: ", document.id)
+    print("\tKey Entities:")
+    for entity in document.entities:
+        print("\t\t", "NAME: ",entity.name, "\tType: ", entity.type, "\tSub-type: ", entity.sub_type)
+        for match in entity.matches:
+            print("\t\t\tOffset: ", match.offset, "\tLength: ", match.length, "\tScore: ",
+                  "{:.2f}".format(match.entity_type_score))
+```
+
+
+### Output
+
+```
+Document Id:  1
+	Key Entities:
+		 NAME:  Microsoft 	Type:  Organization 	Sub-type:  None
+			Offset:  0 	Length:  9 	Score:  1.00
+		 NAME:  Bill Gates 	Type:  Person 	Sub-type:  None
+			Offset:  25 	Length:  10 	Score:  1.00
+		 NAME:  Paul Allen 	Type:  Person 	Sub-type:  None
+			Offset:  40 	Length:  10 	Score:  1.00
+		 NAME:  April 4 	Type:  Other 	Sub-type:  None
+			Offset:  54 	Length:  7 	Score:  0.80
+		 NAME:  April 4, 1975 	Type:  DateTime 	Sub-type:  Date
+			Offset:  54 	Length:  13 	Score:  0.80
+		 NAME:  BASIC 	Type:  Other 	Sub-type:  None
+			Offset:  89 	Length:  5 	Score:  0.80
+		 NAME:  Altair 8800 	Type:  Other 	Sub-type:  None
+			Offset:  116 	Length:  11 	Score:  0.80
+Document Id:  2
+	Key Entities:
+		 NAME:  Microsoft 	Type:  Organization 	Sub-type:  None
+			Offset:  21 	Length:  9 	Score:  1.00
+		 NAME:  Redmond (Washington) 	Type:  Location 	Sub-type:  None
+			Offset:  60 	Length:  7 	Score:  0.99
+		 NAME:  21 kilómetros 	Type:  Quantity 	Sub-type:  Dimension
+			Offset:  71 	Length:  13 	Score:  0.80
+		 NAME:  Seattle 	Type:  Location 	Sub-type:  None
+			Offset:  88 	Length:  7 	Score:  1.00
+```
 
 ## Key phrase extraction
 
