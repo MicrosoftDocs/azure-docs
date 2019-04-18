@@ -25,7 +25,7 @@ Classic alerts are being replaced by new, unified alerting in Azure Monitor. The
 
 ## Before you migrate
 
-The migration process converts classic alert rules to new, equivalent alert rules, and creates action groups. In preparation, be aware of the following:
+The migration process converts classic alert rules to new, equivalent alert rules, and creates action groups. In preparation, be aware of the following points:
 
 - Both the notification payload format and the APIs to create and manage new alert rules are different from those of the classic alert rules because they support more features. [Learn how to prepare for the migration](alerts-prepare-migration.md).
 
@@ -36,7 +36,7 @@ The migration process converts classic alert rules to new, equivalent alert rule
 
 ## How to use the migration tool
 
-To trigger the migration of your classic alert rules in the Azure portal, do the following:
+To trigger the migration of your classic alert rules in the Azure portal, follow these steps:
 
 1. In [Azure portal](https://portal.azure.com), select **Monitor**.
 
@@ -57,7 +57,7 @@ To trigger the migration of your classic alert rules in the Azure portal, do the
 
     ![migration-preview](media/alerts-migration/migration-preview.png "Preview migration")
 
-1. Specify one or more **email addresses** to be notified of migration status. You'll receive email when the migration is complete or if an action is needed from you.
+1. Specify one or more email addresses to be notified of migration status. You'll receive email when the migration is complete or if any action is needed from you.
 
 1. Select **Start Migration**. Read the information shown in the confirmation dialog box and confirm that you're ready to start the migration process.
 
@@ -66,13 +66,13 @@ To trigger the migration of your classic alert rules in the Azure portal, do the
 
     ![migration-confirm](media/alerts-migration/migration-confirm.png "Confirm start migration")
 
-1. When migration is complete or if action is required from you, you'll receive an email at the addresses that you provided earlier. You can also periodically check the status at the migration landing page in the portal.
+1. When migration is complete, or if action is required from you, you'll receive an email at the addresses that you provided earlier. You can also periodically check the status at the migration landing page in the portal.
 
 ## Frequently asked questions
 
 ### Why is my subscription listed as not ready for migration?
 
-The migration tool is rolling out in phases to all customers. In the early phases, most or all of your subscriptions might be marked as **Not ready for migration**. However, by mid-April, all subscriptions should be ready to migrate.
+The migration tool is rolling out to customers in phases. In the early phases, most or all of your subscriptions might be marked as **Not ready for migration**. By mid-April, however, all subscriptions should be ready to migrate.
 
 When a subscription becomes ready for migration, the subscription owner will receive an email message stating that the tool is available. Keep an eye out for this message.
 
@@ -82,7 +82,7 @@ Users who have the Monitoring Contributor role assigned to them at the subscript
 
 ### How long will the migration take?
 
-For most subscriptions, migration is typically completed in under an hour. You can keep track of the migration progress on the migration landing page. During the migration, be assured that your alerts are still running either in the classic alerts system or in the new one.
+Migration is completed for most subscriptions in under an hour. You can keep track of the migration progress on the migration landing page. During the migration, be assured that your alerts are still running either in the classic alerts system or in the new one.
 
 ### What can I do if I run into a problem during migration?
 

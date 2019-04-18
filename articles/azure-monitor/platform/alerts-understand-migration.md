@@ -18,9 +18,9 @@ This article explains how the voluntary migration tool works. It also describes 
 
 Although the tool can migrate almost all classic alert rules, there are some exceptions. The following alert rules won't be migrated by using the tool (or during the automatic migration in July 2019):
 
-- Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines).
+- Classic alert rules on virtual-machine guest metrics (both Windows and Linux). See the [guidance for recreating such alert rules in new metric alerts](#guest-metrics-on-virtual-machines) later in this article.
 - Classic alert rules on classic storage metrics. See the [guidance for monitoring your classic storage accounts](https://azure.microsoft.com/blog/modernize-alerting-using-arm-storage-accounts/).
-- Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this topic.
+- Classic alert rules on some storage account metrics. See [details](#storage-account-metrics) later in this article.
 
 If your subscription has any such classic rules, you must migrate them manually. Because we can't provide an automatic migration, any existing, classic metric alerts of these types will continue to work until June 2020. This extension gives you time to move over to new alerts. However, no new classic alerts can be created after June 2019.
 
@@ -49,7 +49,7 @@ All classic alerts on storage accounts can be migrated except alerts on these me
 
 Classic alert rules on Percent metrics must be migrated based on [the mapping between old and new storage metrics](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Thresholds will need to be modified appropriately because the new metric available is an absolute one.
 
-Classic alert rules on AnonymousThrottlingError and SASThrottlingError will need to be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be appropriately adapted.
+Classic alert rules on AnonymousThrottlingError and SASThrottlingError must be split into two new alerts because there is no combined metric that provides the same functionality. Thresholds will need to be adapted appropriately.
 
 ## Rollout phases
 
@@ -58,7 +58,7 @@ The migration tool is rolling out in phases to customers that use classic alert 
 > [!NOTE]
 > Because the tool is being rolled out in phases, you might see that most of your subscriptions are not yet ready to be migrated during the early phases.
 
-Currently a subset of subscriptions are marked as ready for migration: those that have classic alert rules only on the following resource types. Support for more resource types will be added in upcoming phases.
+Currently a subset of subscriptions is marked as ready for migration. The subset includes those subscriptions that have classic alert rules only on the following resource types. Support for more resource types will be added in upcoming phases.
 
 - Microsoft.apimanagement/service
 - Microsoft.batch/batchaccounts
@@ -99,11 +99,11 @@ After you [trigger the migration](alerts-using-migration-tool.md), you'll receiv
 
 ### Validation failed
 
-Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This is a temporary issue. You can restart the migration after the migration status moves back **Ready for migration** in a few days.
+Due to some recent changes to classic alert rules in your subscription, the subscription cannot be migrated. This problem is temporary. You can restart the migration after the migration status moves back **Ready for migration** in a few days.
 
 ### Policy or scope lock preventing us from migrating your rules
 
-As part of the migration, new metric alerts and new action groups will be created and then classic alert rules will be deleted. However, there's either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this issue by removing the scope lock or policy temporarily and triggering the migration again.
+As part of the migration, new metric alerts and new action groups will be created, and then classic alert rules will be deleted. However, there's either a policy or scope lock preventing us from creating resources. Depending on the policy or scope lock, some or all rules could not be migrated. You can resolve this problem by removing the scope lock or policy temporarily and triggering the migration again.
 
 ## Next steps
 
