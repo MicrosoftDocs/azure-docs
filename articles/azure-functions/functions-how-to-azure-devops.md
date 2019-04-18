@@ -43,7 +43,8 @@ After configuring the source of your code, search for Azure Functions build temp
 
 ![](media/functions-how-to-azure-devops/build-templates.png)
 
-
+---
+ 
 ## Deploying your app
 # [YAML Windows Function App](#tab/yamlwin)
 The following snippet can be used to deploy to a Windows function app
@@ -69,6 +70,8 @@ steps:
 When creating a new release pipeline, search for Azure Functions release template.
 
 ![](media/functions-how-to-azure-devops/release-template.png)
+
+---
 
 ## Using Azure CLI
 
