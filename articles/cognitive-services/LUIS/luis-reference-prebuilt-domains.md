@@ -27,13 +27,13 @@ LUIS offers the following prebuilt domains.
 | ---------------- |-----------------------|
 | [Calendar](#calendar) | The Calendar domain provides intent and entities for adding, deleting, or editing an appointment, checking participants availability, and finding information about a calendar event.|
 | [Communication](#communication) | Sending messages and making phone calls.| 
-| [Email](#email)|Send email.|
+| [Email](#email)|Manage email tasks such as reading, replying and flagging emails.|
 | [HomeAutomation](#homeautomation) | Controlling smart home devices like lights and appliances.| 
-| [Note](#note) | The Note domain provides intents and entities related to creating, editing, and finding notes.|
+| [Note](#note) | Manage note taking tasks such as creating, editing, and finding notes.|
 | [Places](#places)  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| 
-| [RestaurantReservation](#restaurantreservation) | Handling requests to manage restaurant reservations.| 
-| [ToDo](#todo) |  |
-| [Utilities](#utilities)  | Handling requests that are common in many domains, like "help", "repeat", "start over."|
+| [RestaurantReservation](#restaurantreservation) | Manage tasks associated with reservations such as book a table at a restaurant, changing or cancelling a reservation at a restaurant.| 
+| [ToDo](#todo) | Handling requests for task list. |
+| [Utilities](#utilities)  | Handling requests that are common in many domains, like 'help', 'repeat', 'start over.'|
 | [Weather](#weather) | Getting weather reports and forecasts.| 
 | [Web](#web) | Navigating to a website.|
 
