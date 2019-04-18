@@ -53,12 +53,12 @@ Modify `app\manifests\AndroidManifest.xml` to include the following entries insi
 </application>
 ```
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.5 (support for ARCore 1.6+ on Azure Spatial Anchors will be coming soon). After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entry. This code will ensure that your app targets ARCore version 1.7. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.5.0'
+    implementation 'com.google.ar:core:1.7.0'
     ...
 }
 ```
@@ -67,7 +67,7 @@ dependencies {
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a> makes it simple to render realistic 3D scenes in Augmented Reality apps, without having to learn OpenGL.
 
-Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.5, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
+Modify `Gradle Scripts\build.gradle (Module: app)` to include the following entries. This code will allow your app to use language constructs from Java 8, which `Sceneform` requires. It will also ensure your app targets `Sceneform` version 1.7, since it should match the version of ARCore your app is using. After this change, you might get a notification from Gradle asking you to sync: click **Sync now**.
 
 ```
 android {
@@ -81,7 +81,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.5.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
     ...
 }
 ```
