@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/04/2019
+ms.date: 04/18/2019
 ms.author: jeedes
 
 ---
@@ -123,15 +123,16 @@ To configure Azure AD single sign-on with Picturepark, perform the following ste
 
     ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-7. On the **Set up Picturepark** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up Picturepark** section, copy the appropriate URL(s) as per your requirement. For **Login URL**, use the value with the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+    > [!Note]
+    > _my_directory_id_ is the tenant id of Azure Ad subscription.
 
-	a. Login URL
+	![Copy configuration URLs](./media/picturepark-tutorial/configurls.png)
 
-	b. Azure AD Identifier
+	a. Azure AD Identifier
 
-	c. Logout URL
+	b. Logout URL
 
 ### Configure Picturepark Single Sign-On
 
@@ -235,7 +236,7 @@ In order to enable Azure AD users to sign into Picturepark, they must be provisi
    
     ![Create User](./media/picturepark-tutorial/ic795069.png "Create User")
    
-    a. In the **Email Address** textbox, type the **email address** of the user BrittaSimon@contoso.com.  
+    a. In the **Email Address** textbox, type the **email address** of the user `BrittaSimon@contoso.com`.  
    
     b. In the **Password** and **Confirm Password** textboxes, type the **password** of BrittaSimon. 
    
