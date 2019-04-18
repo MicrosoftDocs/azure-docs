@@ -19,27 +19,26 @@ The Speech SDK's **Conversation Transcriber** API provides a way to transcribe c
 ## Limitations
 
 * Conversation transcriber is supported for C++, C#, and Java on Windows, Linux and Android.
-* ROOBO DevKit (add link) is recommended HW environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification. 
+* ROOBO DevKit ([See Speech Devices SDK for more details](speech-devices-sdk.md)) is supported HW environment for creating conversations as that provides circular multi-microphone array which can be utilized efficiently by the Conversation Transcription service for the speaker identification. 
 * Support in Speech SDK is limited to use of audio pull and push mode streams with 8-channels of PCM audio.
 * Conversation Transcription service requires a specific endpoint (add link for more information).
 
 ## Prerequisites
 
-* Learn how to use Speech-to-text with the Speech SDK (add link to quick start)
-* Get subscription to the specific endpoint for Conversation Transcription service (add link)
+* [Learn how to use Speech-to-text with the Speech SDK](quickstart-csharp-dotnet-windows.md)
+* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 
-## Create conversation session
-First step in creating conversation/meeting like scenario is by adding participants with the voice signatures. 
+## Create voice signatures for participants
+First step to enable creating conversation/meeting like scenario is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification functionality done by Speech Service.
 This is what the code may look like:
 
-### Create voice signatures for Participant(s)
 ```csharp
 // <<Add code sample here >>
 ```
 
 ## Transcribing conversations
 
-To transcribe conversations of participants, create `ConversationTranscriber` object associated with the config created for conversation session
+To transcribe conversations of multiple participants, create `ConversationTranscriber` object associated with the audio config created for conversation session
 and stream audio using `PullAudioInputStream` or `PushAudioInputStream`.
 Let's assume that you have a ConversationTranscriber class called `MyConversationTranscriber`. This is what the code may look like: 
 
@@ -112,7 +111,5 @@ public class MyConversationTranscriber
 
 ## Next steps
 
-* [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
-* [See how to recognize speech in C#](quickstart-csharp-dotnet-windows.md)
-* Add link to SDK API reference
-* Add link to SDK samples
+> [!div class="nextstepaction"]
+> [Explore our samples on GitHub](https://aka.ms/csspeech/samples)
