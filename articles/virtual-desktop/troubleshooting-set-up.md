@@ -91,7 +91,9 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
-``` Raw error example
+Example of raw error:
+
+```Error
  {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
  Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\": \"Failed\",\r\n \"error\":
  {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.
@@ -121,7 +123,9 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ![Screenshot of your deployment failed due to admin specified is not allowed.](media/f2b3d3700e9517463ef88fa41875bac9.png)
 
-``` Raw error example
+Example of raw error:
+
+```Error
  { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostDesktop/providers/Microsoft.Resources/deployments
  /vmCreation-linkedTemplate/operations/76487E2A822284AB", "operationId": "76487E2A822284AB", "properties": { "provisioningOperation":
  "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T20:53:18.904917Z", "duration": "PT3.0574505S", "trackingId":
@@ -138,7 +142,9 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ![Screenshot of the resource operation completed with terminal provisioning state in Your Deployment Failed.](media/49c4a1836a55d91cd65125cf227f411f.png)
 
-```Raw error example
+Example of raw error:
+
+```Error
 { "id": "/subscriptions/d2cd2b8a-6d8f-4e4b-85ec-ef98cb93cc76/resourceGroups/demoHostD/providers/Microsoft.Resources/deployments/
  rds.wvd-hostpool4-preview-20190129132410/operations/5A0757AC9E7205D2", "operationId": "5A0757AC9E7205D2", "properties":
  { "provisioningOperation": "Create", "provisioningState": "Failed", "timestamp": "2019-01-29T21:43:05.1416423Z",
@@ -162,7 +168,9 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 ![Screenshot of deployment fail with DSC Configuration ‘FirstSessionHost’ completed with Error(s).](media/64870370bcbe1286906f34cf0a8646ab.png)
 
-```Raw error example
+Example of raw error:
+
+```Error
 {
     "code": "DeploymentFailed",
    "message": "At least one resource deployment operation failed. Please list 
@@ -190,7 +198,9 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 
 **Error:** DeploymentFailed – InvalidResourceReference.
 
-```Raw error example
+Example of raw error:
+
+```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -217,7 +227,9 @@ region.\\\",\\r\\n\\\"details\\\": []\\r\\n }\\r\\n}\"\r\n }\r\n ]\r\n }\r\n ]\r
 
 **Error:** DeploymentFailed – InvalidResourceReference
 
-```Raw error example
+Example of raw error:
+
+```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation
 failed. Please list deployment operations for details. Please see https://aka.ms/arm-
 debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\":
@@ -245,7 +257,9 @@ resources are in the same region.\\\",\\r\\n \\\"details\\\": []\\r\\n }\\r\\n}\
 
 **Error:** DeploymentFailed – Error downloading.
 
-```Raw error example
+Example of raw error:
+
+```Error
 \\\"The DSC Extension failed to execute: Error downloading
 https://catalogartifact.azureedge.net/publicartifacts/rds.wvd-hostpool-3-preview-
 2dec7a4d-006c-4cc0-965a-02bbe438d6ff-private-preview-
