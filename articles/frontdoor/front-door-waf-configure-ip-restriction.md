@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: kumud;tyao
 
 ---
@@ -24,7 +24,7 @@ ms.author: kumud;tyao
 ## <a id="configure-ip-firewall-cli"></a>Configure an IP access control policy by using the Azure CLI
 
 ### Prerequisites
-Before you begin to configure an IP restriction policy, set up your PowerShell environment and create a Front Door profile.
+Before you begin to configure an IP restriction policy, set up your CLI environment and create a Front Door profile.
 
 #### Set up Azure CLI environment
 1. Install the [Azure CLI](/cli/azure/install-azure-cli), or use the Azure Cloud Shell. The Azure Cloud Shell is a free Bash shell that you can run directly within the Azure portal. It has the Azure CLI pre-installed and configured to use with your account. Select the **Try it** button in the CLI commands that follow. Selecting **Try it** invokes a Cloud Shell that you can sign in to your Azure account with. Once a cloud shell session starts, enter `az extension add --name front-door` to add the front-door extension.
@@ -45,7 +45,9 @@ az network waf-policy create \
   ```
 ### Add custom IP access control rule
 
-Add a custom IP access control rule to the WAF policy created in the previous step with the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) command:
+Add a custom IP access control rule to the WAF policy created in the previous step with the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) command. Replace example IP ranges of ["192.168.1.0/24","192.168.2.2/32"] with your own range.
+
+First create the IP allow rule for the specified addresses.
 
 ```azurecli-interactive
 az network waf-policy custom-rule create \
@@ -57,19 +59,20 @@ az network waf-policy custom-rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
 ```
+Next, create a **Block all** IP rule with lower priority than the previous IP allow rule.
 
 ```azurecli-interactive
 az network waf-policy custom-rule create \
   --name IPDenyAllRule\
   --priority 2 \
   --rule-type MatchRule \
-  --match-condition RemoteAddr Any []
+  --match-condition RemoteAddr Any
   --action Block \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
  ```
 
-### Determine WAF policy ID
+### Find WAF policy ID
 Find the ID of a WAF policy with the [az network waf-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) command:
 
    ```azurecli-interactive
@@ -88,9 +91,9 @@ Set the front-door *WebApplicationFirewallPolicyLink* ID to the policy ID with t
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```
-
+In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link WAF policy to any of your front-ends.
 > [!Note]
-> in this example, the WAF policy is applied to FrontendEndpoints[0]. You must set the WAF policy to the appropriate front-end.
+> You only need to set the **WebApplicationFirewallPolicyLink** property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
 ## <a id="configure-ip-firewall-powershell"></a>Configure an IP access control policy by using PowerShell
 
@@ -116,26 +119,26 @@ Install-Module PowerShellGet -Force -AllowClobber
 ##### Install Az.FrontDoor module 
 
 ```
-Install-Module -Name Az.FrontDoor -AllowPrerelease
+Install-Module -Name Az.FrontDoor
 ```
 ### Create a Front Door profile
 Create a Front Door profile by following the instructions described in [Qucikstart: Create a Front Door profile](quickstart-create-front-door.md)
 
 ### Define IP match condition
-Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) command to define an IP match condition (IP allow list contains [ "192.168.1.0/24", “192.168.2.161/32”] ).
+Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject) command to define an IP match condition. Replace example IP ranges of ["192.168.1.0/24","192.168.2.2/32"] with your own range.
 
 ```powershell-interactive
   $IPMatchCondition = New-AzFrontDoorMatchConditionObject `
-    -MatchVariable  RemoteAddr`
+    -MatchVariable  RemoteAddr `
     -OperatorProperty IPMatch `
-    -MatchValue [ "192.168.1.0/24", “192.168.2.161/32”]`
+    -MatchValue [ "192.168.1.0/24", “192.168.2.161/32”]
 ```
-
+Create a IP match all condition rule
 ```powershell-interactive
   $IPMatchALlCondition = New-AzFrontDoorMatchConditionObject `
-    -MatchVariable  RemoteAddr`
-    -OperatorProperty Any`
-    -MatchValue []`
+    -MatchVariable  RemoteAddr `
+    -OperatorProperty Any
+    
 ```
 
 ### Create a custom IP allow rule
@@ -148,13 +151,15 @@ Use the [New-AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/ne
     -MatchCondition $IPMatchCondition `
     -Action Allow -Priority 1
 ```
+Create a Block all IP rule with lower priority than the previous IP allow rule.
 
 ```powershell-interactive
   $IPBlockAll = New-AzFrontDoorCustomRuleObject `
     -Name "IPDenyAll" `
     -RuleType MatchRule `
     -MatchCondition $IPMatchALlCondition `
-    -Action Allow -Priority 2
+    -Action Block `
+    -Priority 2
    ```
 
 ### Configure WAF policy
@@ -164,7 +169,7 @@ The below example uses the Resource Group name *myResourceGroupFD1* with the ass
 
 
 ```powershell-interactive
-  $IPBlockPolicy = New-AzFrontDoorFireWallPolicy `
+  $IPAllowPolicyExamplePS = New-AzFrontDoorFireWallPolicy `
     -Name "IPRestrictionExamplePS" `
     -resourceGroupName myResourceGroupFD1 `
     -Customrule $IPAllowRule $IPBlockAll `
@@ -174,7 +179,7 @@ The below example uses the Resource Group name *myResourceGroupFD1* with the ass
 
 ### Link WAF policy to a Front Door front-end host
 
-Link the WAF policy object to an existing Front Door front-end host and update Front Door properties. First retrieve the Front Door object using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Next, set the front-end *WebApplicationFirewallPolicyLink* property to the *resourceId* of the "$ratePolicy" created in the previous step with the [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command.
+Link the WAF policy object to an existing Front Door front-end host and update Front Door properties. First retrieve the Front Door object using [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor). Next, set the front-end *WebApplicationFirewallPolicyLink* property to the resourceId of the *$IPAllowPolicyExamplePS* created in the previous step with the [Set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) command.
 
 ```powershell-interactive
   $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -185,12 +190,12 @@ Link the WAF policy object to an existing Front Door front-end host and update F
 ```
 
 > [!NOTE]
-> You only need to set *WebApplicationFirewallPolicyLink* property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
+> In this example, the WAF policy is applied to FrontendEndpoints[0]. You may link WAF policy to any of your front-ends.You only need to set *WebApplicationFirewallPolicyLink* property once to link a WAF policy to a Front Door front-end. Subsequent policy updates are automatically applied to the front-end.
 
 
 ## <a id="configure-ip-firewall-template"></a>Configure an IP access control policy by using ARM template
-Below template creates a Front Door with a WAF policy that denies all but a defined list of client IPs from accessing a front door front-end host
-https://github.com/Azure/azure-quickstart-templates/tree/master/201-waf-frontdoor-clientip-allow.
+Click [here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip) to view the template that creates a Front Door and a WAF policy with custom IP restriction rules.
+
 
 ## Next steps
 
