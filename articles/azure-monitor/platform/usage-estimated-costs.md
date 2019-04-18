@@ -5,7 +5,7 @@ author: dalekoetke
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 08/11/2018
+ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ""
