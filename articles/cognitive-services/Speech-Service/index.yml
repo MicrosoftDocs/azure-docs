@@ -46,7 +46,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>. All of the arrow links default to an SR quickstart. From there (where available) TTS and Virtual Voice Assistant quickstarts can be selected. 
   - type: table
     style: dataMatrix
     columns:
