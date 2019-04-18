@@ -69,7 +69,6 @@ At line:1 char:1
 **Cause:** The logged in user has not been assigned the TenantCreator role in their Azure Active Directory.
 
 **Fix:** Follow the instructions in [Assign the TenantCreator application role to a user in your Azure Active Directory tenant](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role-to-a-user-in-your-azure-active-directory-tenant). After completing the steps, you'll have a user assigned to the TenantCreator role.
-Image <TenantCreatorRoleAssigned.png> attached
 
 ![Screenshot of TenantCreator role assigned.](media/TenantCreatorRoleAssigned.png)
 
@@ -77,7 +76,7 @@ Image <TenantCreatorRoleAssigned.png> attached
 
 Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure Resource Manager template for creating a new host pool. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
-### Issues executing Windows Virtual Desktop – Provision a host pool Azure Marketplace offering
+### Issues using Windows Virtual Desktop – Provision a host pool Azure Marketplace offering
 
 Thw Windows Virtual Desktop – Provision a host pool template is available from the Azure Marketplace.
 
@@ -89,7 +88,7 @@ Thw Windows Virtual Desktop – Provision a host pool template is available from
 
 **Fix 1:** Sign in with an account that has been granted at a minimum contributor access to the subscription where session host VMs are going to be deployed.
 
-**Cause 2:** The subscription being used is part of a CSP tenant.
+**Cause 2:** The subscription being used is part of a Microsoft Cloud Service Provider (CSP) tenant.
 
 **Fix 2:** Go to the GitHub location for **Create and provision new Windows Virtual Desktop host pool** and follow these instructions:
 
@@ -305,7 +304,14 @@ the VM.\\\"
 Example of raw error:
 
 ```Error
-"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00", "status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s). Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: User is not authorized to query the management service.\nActivityId: 1b4f2b37-59e9-411e-9d95-4f7ccd481233\nPowershell commands to diagnose the failure:\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
+"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00", 
+"status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing 
+extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s). 
+Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource
+ functionality with error message: User is not authorized to query the management service.
+\nActivityId: 1b4f2b37-59e9-411e-9d95-4f7ccd481233\nPowershell commands to diagnose the failure:
+\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n 
+The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
 **Cause:** The specified Windows Virtual Desktop tenant admin does not have a valid role assignment in Windows Virtual Desktop tenant.
@@ -414,13 +420,17 @@ Follow these instructions to confirm the components are installed and to check f
 
 **Cause 2:** PowerShell DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
 
-**Fix 2:** Step through the following list. - Make sure account does not have MFA. - Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop. - Confirm account has at least RDS Contributor permissions.
+**Fix 2:** Confrim the items in the following list.
+
+- Make sure account does not have MFA.
+- Confirm tenant name is accurate and tenant exists in Windows Virtual Desktop.
+- Confirm account has at least RDS Contributor permissions.
 
 **Error:** Authentication failed, Error in C:\\Windows\\Temp\\scriptlogs.log
 
 **Cause:** PowerShell DSC was able to execute but could not connect to Windows Virtual Desktop.
 
-**Fix:** Check the following list:
+**Fix:** Confirm the following list:
 
 - Manually register the VMs with the Windows Virtual Desktop service.
 - Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
@@ -436,7 +446,7 @@ When the Windows Virtual Desktop Agent is first installed on the session host VM
 
 **Cause:** The agent is not able to update itself to a new version.
 
-**Fix:** Follow these instructions to manually update the agent:
+**Fix:** Follow these instructions to manually update the agent.
 
 1. Download a new version of the agent on the session host VM.
 2. Launch Task Manager (TM) and in the Service Tab stop the RDAgentBootLoader service.
@@ -445,7 +455,7 @@ When the Windows Virtual Desktop Agent is first installed on the session host VM
 5. Complete the installation Wizard.
 6. Open TM and start the RDAgentBootLoader service.
 
-**Error:**  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
+**Error:**  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0.
 
 **Cause:** Registration token has expired or has been generated with expiration value of 999999.
 
@@ -772,7 +782,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Cause:** The username used has been already assigned to an AppGroup of a different type. Users can’t be assigned to both a remote desktop and remote app group under the same session host pool.
 
-**Fix:* If user needs both remote apps and remote desktop, create different host pools or grant user access to remote desktop only, as this will permit the use of any application on the session host VM.
+**Fix:** If user needs both remote apps and remote desktop, create different host pools or grant user access to remote desktop only, as this will permit the use of any application on the session host VM.
 
 ```cmd
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
@@ -782,7 +792,7 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant.
 
-**Fix:** Confirm the following:
+**Fix:** Confirm the items in the following list.
 
 - User has synched to Azure Active Directory.
 - User is not B2C or B2B.
