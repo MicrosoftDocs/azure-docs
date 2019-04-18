@@ -1,5 +1,5 @@
 ---
-title: Introduction to Azure Key Vault security | Microsoft Docs
+title: Azure Key Vault security | Microsoft Docs
 description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your key vault.
 services: key-vault
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.author: barclayn
-Customer intent: As a key vault administrator, I want to secure my vaults and know that I can monitor access activity.
+Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
 ---
 
-# Introduction to Azure Key Vault security
+# Azure Key Vault security
 
 You need to protect encryption keys and secrets like certificates, connection strings, and passwords in the cloud so you are using Azure Key Vault. Since you are storing sensitive and business critical data, you need to take steps to maximize the security of your vaults and the data stored in them. This article will cover some of the concepts that you should consider when designing your Azure Key Vault security.
 
