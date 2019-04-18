@@ -1,4 +1,14 @@
-# Role Based Access Control and Privileged Identity Management
+---
+title: Implementing Role Based Access Control and Privileged Identity Management on Azure Quickstart Guide
+description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
+author: galey801
+ms.service: azure-australia
+ms.topic: quickstart
+ms.date: 04/25/2019
+ms.author: grgale
+---
+
+# Implementing Role Based Access Control and Privileged Identity Management
 
 ## Background
 

@@ -24,7 +24,7 @@ A VPN Gateway is used to send encrypted traffic between an Azure virtual network
 
 This guide will focus on S2S VPN Gateways. Diagram 1 shows an example Site-to-Site VPN gateway configuration.
 
-![VPN Gateway with multi-site connections](images/vpngateway-multisite-connection-diagram.png)
+![VPN Gateway with multi-site connections](media/vpngateway-multisite-connection-diagram.png)
 *Diagram 1 – Azure Site-to-Site VPN Gateway*
 
 ## Key Design Considerations
@@ -57,7 +57,7 @@ Azure VNets can have multiple VPN Gateways that can be deployed in independent, 
 
 It is recommended that all VPN Gateways are deployed in a [highly available configuration](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-highlyavailable): for example, two on-premises VPN devices connected to two VPN Gateways in either active-passive or active-active  mode (See Diagram 2).
 
-![VPN Gateway redundant connections](images/dual-redundancy.png)
+![VPN Gateway redundant connections](media/dual-redundancy.png)
 *Diagram 2 – Active-active VPN Gateways and two VPN devices*
 
 ### Forced tunneling

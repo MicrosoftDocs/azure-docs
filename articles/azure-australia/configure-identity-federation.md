@@ -58,7 +58,7 @@ All three of these options support [Password Write-Back](https://docs.microsoft.
 
 Pass-Through Authentication was released after the IRAP assessment was completed and therefore; should be individually evaluated to determine how the solution fits your organisation's risk profile. Pass-Through Authentication is preferred over Federation by Microsoft due to the improved security posture.
 
-![Pass-Through Authentication](pta1.png)
+![Pass-Through Authentication](/media/pta1.png)
 
 Pass-Through Authentication presents several design factors to be considered:
 

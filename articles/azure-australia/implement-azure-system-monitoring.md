@@ -1,3 +1,13 @@
+---
+title: Implementing System Monitoring on Azure Quickstart Guide
+description: Guidance on configuring System Monitoring within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
+author: galey801
+ms.service: azure-australia
+ms.topic: quickstart
+ms.date: 04/25/2019
+ms.author: grgale
+---
+
 # System Monitoring with Microsoft Azure
 
 ## Background
@@ -32,7 +42,7 @@ The Security Center "Standard" tier also provides cloud-based security controls 
 
 Azure Monitor is the centralised logging solution for all Azure Resources, and includes Log Analytics and Application Insights. Two key data types are collected from Azure resources: logs and metrics. Once collected in Azure Monitor, logging information can be used by a wide range of tools and for a variety of purposes.
 
-![Azure Monitor Overview](images/overview.png)
+![Azure Monitor Overview](media/overview.png)
 
 Azure Monitor also includes the "Azure Activity Log". The SActivity Log stores all subscription level events that have occurred within Azure. It allows Azure customers to see the "who, what and when" behind operations undertaken on their Azure resources. Both resource based logging sent to Azure Monitor and Azure Activity Log events can be analysed using the in-built Kusto query language. These logs can then be exported, used to create custom dashboards and views, and configured to trigger alerts and notifications.
 
@@ -109,7 +119,7 @@ Once logs are collected, their true value is realised once they are appropriatel
 
 Log data stored in Azure Monitor is kept in a Log Analytics Workspace. All analysis begins with a query. Azure Monitor queries are written in the Kusto query language. These queries form the basis of all outputs from Azure Monitor, from Azure Dashboards to Alert Rules.
 
-![Azure Log Queries Overview](queries-overview.png)
+![Azure Log Queries Overview](media/queries-overview.png)
 
 Auditing of logs can be enhanced through the use of Monitoring Solutions. These are pre-packaged solutions that contain collection logic, queries, and data visualisation views. Microsoft [provide](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/solutions-inventory) a number of Monitoring Solutions and additional solutions from product vendors can be found in the Azure Marketplace.
 

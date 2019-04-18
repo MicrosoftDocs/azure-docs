@@ -16,11 +16,11 @@ A critical consideration for any organisation is the implementation and manageme
 
 Microsoft Azure provides two services to facilitate these objectives: Azure Backup and Azure Site Recovery. These services are designed to enable Azure customers to protect their on-premises and cloud native data for a variety of design scenarios. Azure Backup and Azure Site Recovery both use a common storage and management resource: the Azure Recovery Services Vault. This vault is used to manage, monitor, and segregate Azure Backup and Azure Site Recovery Data.
 
-This guide details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual Controls](https://acsc.gov.au/infosec/ism/index.htm)(ISM).
+This guide details the key design elements for implementing Azure Backup and Azure Site Recovery in line with the [Australian Signals Directorate’s (ASD) Information Security Manual (ISM) Controls](https://acsc.gov.au/infosec/ism/index.htm).
 
 ### Azure Backup
 
-![Azure Backup](images/backup_overview.png)
+![Azure Backup](media/backup_overview.png)
 
 Azure Backup resembles a traditional on-premises backup solution and provides the ability to backup both on-premises and Azure hosted data. Azure Backup can be used to backup the following data types to Azure:
 
@@ -32,7 +32,7 @@ Azure Backup resembles a traditional on-premises backup solution and provides th
 
 ### Azure Site Recovery
 
-![Azure Site Recovery](images/ASR_overview.png)
+![Azure Site Recovery](media/ASR_overview.png)
 
 Azure Site Recovery replicates workloads consisting of either a single virtual machine or multi-tier applications. Replication is supported from on-premises into Azure, between Azure regions, or between on-premise locations orchestrated by Azure Site Recovery. On-premises virtual machines can be replicated to Azure or to a supported on-premises hypervisor. Once configured, Azure Site Recovery orchestrates replication, fail-over, and fail-back.
 
@@ -103,7 +103,7 @@ A minimum backup retention period of three months is recommended, however, longe
 
 The Azure Recovery Services Vault has a number of default backup and retention policies in place.  Administrative staff can also create custom backup and retention policies.
 
-![Azure Backup Policy](CreatePolicy.png)
+![Azure Backup Policy](media/CreatePolicy.png)
 
 A balance between backup frequency and long-term retention requirements needs to be found when configuring Azure Backup and retention policies.
 

@@ -1,4 +1,14 @@
-# Azure Perimeter Protection Guide – Logging, auditing and visibility
+---
+title: Implementing Logging, Auditing and Visibility in Azure Australia How-to Guide
+description: How to configure Logging, Auditing, and Visibility within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
+author: galey801
+ms.service: azure-australia
+ms.topic: conceptual
+ms.date: 04/25/2019
+ms.author: grgale
+---
+
+# Implementing Logging, Auditing, and Visibility in Azure Australia
 
 ## Background
 
@@ -36,7 +46,7 @@ The overall security requirements for Commonwealth systems are defined in the AC
 
 To be able to confidently understand the network traffic entering and leaving the Azure environment, the necessary logging must be enabled on the right set of components to ensure complete visibility of the environment and provide the necessary data to perform analysis.
 
-![Azure Monitoring Architecture](images/visibility.png)
+![Azure Monitoring Architecture](media/visibility.png)
 
 ## Components
 

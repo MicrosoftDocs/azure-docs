@@ -38,7 +38,7 @@ This guide provides a reference architecture for how the elements above can be u
 
 Providing a secure administration capability requires multiple components that all work together to form a cohesive solution. In the reference architecture provided, the components are mapped to the elements described in [ACSC Protect: Secure Administration](https://www.acsc.gov.au/publications/protect/secure-administration.htm)
 
-![Azure Secure Remote Administration Architecture](images/remoteadmin.png)
+![Azure Secure Remote Administration Architecture](media/remoteadmin.png)
 
 ## Components
 

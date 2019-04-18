@@ -43,7 +43,7 @@ To implement the necessary security controls for ingress traffic, individuals in
 
 The architectural diagram shown here depicts the possible paths that network traffic can take to connect into a service hosted in Azure. These components are divided into Azure, IaaS Ingress, PaaS Ingress, and Security Control, depending on the function that they provide for ingress traffic.
 
-![Architecture](images/IngressTraffic.png)
+![Architecture](media/IngressTraffic.png)
 
 ### Azure Components
 
