@@ -34,7 +34,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 
 ## Regions and services
 
-| Americas                        | Europe     | Asia Pacific |           |           |                |              |          |             |            |                |
+|                                 |Americas    |              |           |           | Europe         |              |          |              | Asia Pacific |                 |
 |---------------------------------|------------|--------------|-----------|-----------|----------------|--------------|----------|-------------|------------|----------------|
 |                                 | Central US | East US      | East US 2 | West US 2 | France Central | North Europe | UK South | West Europe | Japan East | Southeast Asia |
 | Compute                         |            |              |           |           |                |              |          |             |            |                |
