@@ -7,7 +7,7 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 4/18/2019
 ms.author: victorh
-
+#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
 ---
 # Tutorial: Create and configure an application gateway to host multiple web sites using the Azure portal
 
