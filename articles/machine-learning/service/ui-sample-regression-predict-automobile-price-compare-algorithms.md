@@ -26,7 +26,7 @@ This visual interface sample experiment shows how to compare the performance of 
 
 ## Related sample
 
-[Sample 1 - Regression: Automobile Price Prediction (Basic)](sample-regression-predict-automobile-price-basic.md) provides a simpler experiment that solves the same problem as this experiment but that uses only one regression model. Refer to it if you're looking for a basic sample of regression.
+[Sample 1 - Regression: Automobile Price Prediction (Basic)](ui-sample-regression-predict-automobile-price-basic.md) provides a simpler experiment that solves the same problem as this experiment but that uses only one regression model. Refer to it if you're looking for a basic sample of regression.
 
 ## Experiment summary
 
@@ -89,7 +89,7 @@ Both algorithms have a lower error on the training dataset than on the unseen te
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](sample-regression-predict-automobile-price-basic.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

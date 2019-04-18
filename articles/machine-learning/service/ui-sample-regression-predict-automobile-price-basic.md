@@ -26,7 +26,7 @@ This visual interface sample experiment shows how to build a regression model to
 
 ## Related sample
 
-[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
+[Sample 2 - Regression: Automobile Price Prediction (Compare Algorithms)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) provides a more complicated sample experiment that solves the same problem as this experiment by using two different regression models. It shows how to quickly compare different algorithms in Azure Machine Learning Studio version 2. Check it out if you're looking for a more advanced sample.
 
 ## Experiment summary
 
@@ -82,7 +82,7 @@ We then pass the scores to the **Evaluate Model** module to generate evaluation 
 
 Explore the other samples available for the visual interface:
 
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](sample-classification-predict-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)

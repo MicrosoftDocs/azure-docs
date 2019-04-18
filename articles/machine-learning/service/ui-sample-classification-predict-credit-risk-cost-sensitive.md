@@ -35,7 +35,7 @@ With both approaches, we evaluate the models by using the test dataset with repl
 
 ## Related sample
 
-See [Sample 3 - Classification: Credit Risk Prediction (Basic)](sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
+See [Sample 3 - Classification: Credit Risk Prediction (Basic)](ui-sample-classification-predict-churn.md) for a basic experiment that solves the same problem as this experiment, without adjusting for misclassification costs.
 
 ## Data
 
@@ -155,7 +155,7 @@ From these results, you can see that the best accuracy is provided by the model 
 
 Explore the other samples available for the visual interface:
 
-- [Sample 1 - Regression: Predict an automobile's price](sample-regression-predict-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Sample 3 - Classification: Predict credit risk](sample-classification-predict-credit-risk-basic.md)
-- [Sample 5 - Classification: Predict churn](sample-classification-predict-churn.md)
+- [Sample 1 - Regression: Predict an automobile's price](ui-sample-regression-predict-automobile-price-basic.md)
+- [Sample 2 - Regression: Compare algorithms for automobile price prediction](ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Sample 3 - Classification: Predict credit risk](ui-sample-classification-predict-credit-risk-basic.md)
+- [Sample 5 - Classification: Predict churn](ui-sample-classification-predict-churn.md)
