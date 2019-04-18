@@ -117,11 +117,13 @@ id: 4, score: 1.00
 
     ```javascript
     // The documents to be submitted for language detection. The ID can be any value.
-    const inputDocuments = [
-        { id: "1", text: "This is a document written in English." },
-        { id: "2", text: "Este es un document escrito en Español." },
-        { id: "3", text: "这是一个用中文写的文件" }
-    ];
+    const inputDocuments = {
+        documents: [
+          { id: "1", text: "This is a document written in English." },
+          { id: "2", text: "Este es un document escrito en Español." },
+          { id: "3", text: "这是一个用中文写的文件" }
+        ]
+      };
     ```
 
 2. Call `client.detectLanguage()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
@@ -133,9 +135,9 @@ id: 4, score: 1.00
         operation
           .then(result => {
             result.documents.forEach(document => {
-              console.log(
-                `ID: ${document.id}`,
-                `Language ${document.detectedLanguages}`
+              console.log(`ID: ${document.id}`);
+              document.detectedLanguages.forEach(language =>
+                console.log(`\tLanguage ${language.name}`)
               );
             });
           })
