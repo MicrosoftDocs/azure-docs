@@ -212,6 +212,10 @@ It depends on the situation. For example, if the source region VM exists, only c
 After reprotection, the amount of time for failback is usually similar to the time for failover from the primary region to a secondary region.
 
 ## <a name="capacity"></a>Capacity
+
+### How is capacity assured in target region for Azure VMs?
+The Azure Site Recovery (ASR) team works with Azure capacity management team to plan for sufficient infrastructure capacity, in an attempt to ensure that VMs protected by ASR for disaster recovery will successfully be deployed in the disaster recovery (DR) region, whenever ASR failover operations are initiated.
+
 ### Does Site Recovery work with Reserved Instances?
 Yes, You can purchase [reserve instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the DR region and ASR failover operations will use them. </br> No additional configuration is required from the customers.
 
