@@ -80,7 +80,7 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 
 To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. This is a sample
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-audio-sample-transcription.png)
+![Select audio from the Speech Portal](./media/custom-speech/custom-speech-sample-transcription.png)
 
 [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) provides guidance to help you build a high-quality transcription file.
 

@@ -43,7 +43,6 @@ To help inspect the side-by-side comparison, you can toggle various error types 
 
 Inspecting quality testing is useful to validate if the quality of a speech recognition endpoint is enough for an application.  For an objective measure of accuracy, requiring transcribed audio, follow the instructions found in Testing: Evaluate Accuracy.
 
-
 ## Next steps
 
 * [Evaluate your data](how-to-custom-speech-evaluate-data.md)

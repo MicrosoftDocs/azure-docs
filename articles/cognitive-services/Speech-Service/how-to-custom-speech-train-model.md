@@ -49,4 +49,11 @@ The Training table displays a new entry that corresponds to this new model. The 
 
 ## Next steps
 
-* [Deploy your model](placeholder)
+* [Deploy your model](how-to-custom-speech-deploy-model.md)
+
+## Additional resources
+
+* [Prepare and test your data](how-to-custom-speech-test-data.md)
+* [Inspect your data](how-to-custom-speech-inspect-data.md)
+* [Evaluate your data](how-to-custom-speech-evaluate-data.md)
+* [Train your model](how-to-custom-speech-train-model.md)

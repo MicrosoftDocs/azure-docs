@@ -35,7 +35,7 @@ After your endpoint is deployed, the endpoint name appears as a link. Click the 
 
 Logging data is available for download under **Endpoint > Details**.
 
-## Useful links
+## Additional resources
 
 * [Prepare and test your data](how-to-custom-speech-test-data.md)
 * [Inspect your data](how-to-custom-speech-inspect-data.md)
