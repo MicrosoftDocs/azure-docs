@@ -43,6 +43,7 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 ## Connect to an app configuration store
 
 1. Right-click your project, and select **Manage NuGet Packages**. On the **Browse** tab, search and add the following NuGet packages to your project. If you can't find them, select the **Include prerelease** check box.
+
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
@@ -102,4 +103,4 @@ To do this quickstart, install [Visual Studio 2017](https://visualstudio.microso
 In this quickstart, you created a new app configuration store and used it with a .NET Framework console app. To learn more about how to use App Configuration, continue to the next tutorial that demonstrates authentication.
 
 > [!div class="nextstepaction"]
-> [Managed identities for Azure resources integration](./integrate-azure-managed-service-identity.md)
+> [Managed identities for Azure resources integration](./howto-integrate-azure-managed-service-identity.md)

@@ -22,7 +22,7 @@ Learn how to use Azure PowerShell with [Azure Resource Manager](resource-group-o
 Other articles about managing resources:
 
 - [Manage Azure resources by using the Azure portal](./manage-resources-portal.md)
-- [Manage Azure resources by using Azure PowerShell](./manage-resources-powershell.md)
+- [Manage Azure resources by using Azure CLI](./manage-resources-cli.md)
 
 ## Deploy resources to an existing resource group
 
@@ -93,8 +93,6 @@ $storageAccountName = Read-Host -Prompt "Enter the storage account name"
 $storageAccount = Get-AzResource -ResourceGroupName $srcResourceGroupName -ResourceName $storageAccountName
 Move-AzResource -DestinationResourceGroupName $destResourceGroupName -ResourceId $storageAccount.ResourceId
 ```
-
-To go through a tutorial, see [Tutorial: Move Azure resources to another resource group or subscription](./resource-manager-tutorial-move-resources.md). 
 
 For more information, see [Move resources to new resource group or subscription](resource-group-move-resources.md).
 

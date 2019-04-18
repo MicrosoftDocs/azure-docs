@@ -21,8 +21,8 @@
   items:
     - name: Enable dynamic configuration in ASP.NET Core
       href: enable-dynamic-configuration-aspnet-core.md
-    - name: Integrate with Azure Managed Service Identity
-      href: integrate-azure-managed-service-identity.md
+    - name: Integrate with a CI/CD pipeline
+      href: integrate-ci-cd-pipeline.md
 - name: Samples
   items:
     - name: Azure CLI
@@ -35,10 +35,10 @@
       href: concept-point-time-snapshot.md
 - name: How-to guides
   items:
+    - name: Integrate with Azure Managed Service Identity
+      href: howto-integrate-azure-managed-service-identity.md
     - name: Import or export configuration data
       href: howto-import-export-data.md
-    - name: Integrate with a CI/CD pipeline
-      href: howto-integrate-ci-cd-pipeline.md
 - name: Reference
   items:
     - name: .NET Core configuration provider
@@ -46,7 +46,9 @@
     - name: .NET Framework configuration builder
       href: https://go.microsoft.com/fwlink/?linkid=2074663
     - name: Java Spring configuration provider
-      href: https://go.microsoft.com/fwlink/?linkid=2074659
+      href: https://github.com/Microsoft/spring-cloud-azure/tree/azure-config/spring-cloud-azure-starters/spring-cloud-starter-azure-config
+    - name: .NET Azure SDK
+      href: https://github.com/Azure/azure-sdk-for-net/tree/master/src/SDKs/Azure.ApplicationModel.Configuration/data-plane
     - name: REST
       href: https://go.microsoft.com/fwlink/?linkid=2078296
 - name: Resources

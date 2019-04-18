@@ -66,7 +66,7 @@ Before setting up a VPN connection to the ASDK, ensure you have met the followin
 
 To create a VPN connection to the ASDK, open PowerShell as an administrator on your local Windows-based computer. Then, run the following script (update the IP address and password values for your environment):
 
-```PowerShell
+```powershell
 # Change directories to the default Azure Stack tools directory
 cd C:\AzureStack-Tools-master
 
@@ -106,9 +106,9 @@ If setup succeeds, **azurestack** appears in your list of VPN connections.
 
   Connect to the Azure Stack instance by using one of the following methods:  
 
-  * Use the `Connect-AzsVpn ` command:
+  * Use the `Connect-AzsVpn` command:
       
-    ```PowerShell
+    ```powershell
     Connect-AzsVpn `
       -Password $Password
     ```
