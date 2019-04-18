@@ -16,7 +16,7 @@ ms.author: edjez
 
 Offline evaluation is a method that allows you to test and assess the effectiveness of the Personalizer Service without changing your code or affecting user experience. Offline evaluation uses past data, sent from your application to the Rank API, to compare how different ranks have performed.
 
-Offline evaluation is performed on a date range. The range can finish as late as the current time. The beginning of the range can't be more than the number of days specified for [data retention](how-to-settings.md).
+Offline evaluation is performed on a date range. The range can finish as late as the current time. The beginning of the range can't be more than the number of days specified for data retention<!--[data retention](how-to-settings.md)-->.
 
 Offline evaluation can help you answer the following questions:
 
@@ -89,9 +89,10 @@ We recommend looking at feature evaluations and asking:
 * Are there any features that are accidentally included? Examples of these are: personally identifiable information, duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
-
+<!--
 ## Next steps
 
 * [How to Do Offline Evaluations](how-to-offline-evaluation.md)
 * [How to Configure Personalizer Settings](how-to-settings.md)
 
+-->
