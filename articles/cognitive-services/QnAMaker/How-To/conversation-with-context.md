@@ -40,9 +40,9 @@ You need to change your client application to manage the contextual conversation
 ## Create contextual conversation from imported document's structure
 
 If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import. 
-
+<!--
 ![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](./media/conversational-context/import-file-with-converational-structure.png)
-
+-->
 ## Filter questions and answers by context
 
 1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
