@@ -19,34 +19,34 @@ ms.reviewer: saeeda
 ms.custom: aaddev
 ---
 
-## Handling exceptions and errors using MSAL
+# Handling exceptions and errors using MSAL
 Exceptions in Microsoft Authentication Library (MSAL) are intended for app developers to troubleshoot and not for displaying to end-users. Exception messages are not localized.
 
 When processing exceptions and errors, you can use the exception type itself and the error code to distinguish between exceptions.  For a list of error codes, see [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
-### .NET
+## .NET exceptions
 When processing exceptions, you can use the exception type itself and the `ErrorCode` member to distinguish between exceptions. The values of `ErrorCode` are constants of type [MsalError](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet#fields).
 
 You can also have a look at the fields of [MsalClientException](/dotnet/api/microsoft.identity.client.msalexception?view=azure-dotnet#fields), [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields), [MsalUIRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet#fields).
 
 In the case of [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet), the error code might contain a code which you can find in [Authentication and authorization error codes](reference-aadsts-error-codes.md).
 
-#### Common exceptions
+### Common exceptions
 Here are the common exception that might be thrown and some possible mitigations.
 
 | Exception | Error code | Mitigation|
 | --- | --- | --- | 
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: The user or administrator has not consented to use the application with ID '{appId}' named '{appName}'. Send an interactive authorization request for this user and resource.| You need to get user consent first. This can be done, if you are not using .NET Core (which does not have any Web UI) by calling (once only) AcquireTokeninteractive. If you are using .NET core or don't want to do an AcquireTokenInteractive, you might want to suggest the user to navigate to a URL to consent: https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read . To call AcquireTokenInteractive: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: The user is required to use multi-factor authentication.| There is no mitigation - if MFA is configured for your tenant and AAD decides to enforce it, you need to fallback to an interactive flows such as AcquireTokenInteractive or AcquireTokenByDeviceCode.|
-| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: The grant type is not supported over the /common or /consumers endpoints. Please use the /organizations or tenant-specific endpoint. You used common.| As explained in the message from Azure AD, the authority needs to be tenanted or otherwise /organizations.|
+| [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) |AADSTS90010: The grant type is not supported over the */common* or */consumers* endpoints. Please use the */organizations* or tenant-specific endpoint. You used */common*.| As explained in the message from Azure AD, the authority needs to be tenanted or otherwise /organizations.|
 | [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet#fields) | AADSTS70002: The request body must contain the following parameter: 'client_secret or client_assertion'.| This can happen if your application was not registered as a public client application in Azure AD. In the Azure portal, edit the manifest for your application and set the `allowPublicClient` to `true`. |
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)| unknown_user Message: Could not identify logged in user| The library was unable to query the current Windows logged-in user or this user is not AD or AAD joined (work-place joined users are not supported). Mitigation 1: on UWP, check that the application has the following capabilities: Enterprise Authentication, Private Networks (Client and Server), User Account Information. Mitigation 2: Implement your own logic to fetch the username (e.g. john@contoso.com) and use the AcquireTokenByIntegratedWindowsAuth form that takes in the username.|
 | [MsalClientException](/dotnet/api/microsoft.identity.client.msalclientexception?view=azure-dotnet)|integrated_windows_auth_not_supported_managed_user| This method relies on an a protocol exposed by Active Directory (AD). If a user was created in Azure Active Directory without AD backing ("managed" user), this method will fail. Users created in AD and backed by AAD ("federated" users) can benefit from this non-interactive method of authentication. Mitigation: Use interactive authentication.|
 
-### JavaScript
+## JavaScript errors
 When processing errors, you can use the error message to distinguish between errors. 
 
-#### UI required errors
+### UI required errors
 An error is returned when a UI is required. This means you have attempted to use a non-interactive method of acquiring a token (for example, `acquireTokenSilent`), but MSAL could not do it silently. Possible reasons are:
 
 * you need to sign-in
@@ -72,7 +72,7 @@ myMSALObj.acquireTokenSilent(applicationConfig.graphScopes).then(function (acces
 });
 ```
 
-## Handling conditional access and claims challenges
+## Conditional access and claims challenges
 When getting tokens silently, your application may receive errors when a [conditional access claims challenge](conditional-access-dev-guide.md#scenario-single-page-app-spa-using-adaljs) such as MFA policy is required by an API you are trying to access.
 
 The pattern to handle this error is to interactively aquire a token using MSAL. This prompts the user and gives them the opportunity to satisfy the required conditional access policy.
