@@ -28,9 +28,11 @@ Microsoft identity platform is an evolution of the Azure Active Directory (Azure
 Microsoft identity platform connects and secures over 1 billion monthly active users across work, school, and life with over 1 million third-party active applications. For developers, Microsoft identity platform offers seamless integration into major innovations in the identity and security space, such as passwordless authentication, step-up authentication, and conditional access. Developers don't need to implement such functionality themselves: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
   
 Microsoft identity platform unifies application development for various Microsoft identities. Whether your app needs to authenticate users with work or school accounts (provisioned through Azure AD) or personal accounts (known as Microsoft accounts (MSA), such as @outlook.com), the unified platform simplifies getting authentication integrated into your app. The unified Microsoft identity platform lets developers write code once and have the code work with all the applicable user identities. Developers can build an app once and have it work across many platforms, or build an app that functions as a client and a resource application (API).
-  
+
+# Getting started
+
 Working with identity doesn’t have to be hard. However, it's important to know the basics and choose the right flow for the scenario. It's also important to follow principles and patterns necessary to ensure secure configuration of the application, and secure DevOps processes to ensure that the app won't be compromised in the course of its lifecycle.
-  
+
 The following diagram outlines key authentication concepts and best practices for common application scenarios – we recommend that you reference it when integrating the Microsoft identity platform with your app:
 
 [![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios.png)](./media/v2-overview/application-scenarios.svg#lightbox)
