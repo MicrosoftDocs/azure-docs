@@ -25,6 +25,10 @@ ms.collection: M365-identity-device-management
 
 Learn all you need to build a daemon application that calls Web APIs.
 
+## Pre-requisites
+
+[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+
 ## Scenario overview
 
 Your application can acquire a token to call a Web API on behalf of itself (not on behalf of a user). This scenario is useful for daemon applications. It's using the standard OAuth 2 [client credentials](v2-oauth2-client-creds-grant-flow.md) grant.
