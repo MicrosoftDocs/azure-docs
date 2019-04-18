@@ -1,5 +1,5 @@
 ---
-title: Examine the Video Indexer output produced by v2 API
+title: Examine the Azure Media Services Video Indexer output produced by v2 API
 titlesuffix: Azure Media Services
 description: This topic examines the Video Indexer output produced by v2 API.
 services: media-services
@@ -275,40 +275,24 @@ Example:
 |instances|A list of time ranges where this keyword appeared (a keyword can appear multiple times).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
-    },
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+	id: 0,
+	text: "technology",
+	confidence: 1,
+	language: "en-US",
+	instances: [{
+			adjustedStart: "0:05:15.782",
+			adjustedEnd: "0:05:16.249",
+			start: "0:05:15.782",
+			end: "0:05:16.249"
+	},
+	{
+			adjustedStart: "0:04:54.761",
+			adjustedEnd: "0:04:55.228",
+			start: "0:04:54.761",
+			end: "0:04:55.228"
+	}]
 }
-] 
 ```
 
 #### faces
