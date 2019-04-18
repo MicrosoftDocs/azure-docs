@@ -48,7 +48,7 @@ To evaluate models side-by-side:
 
 1. Navigate to **Speech-to-text > Custom Speech > Testing**.
 2. Click **Add Test**.
-3. Select **Evaluation accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
+3. Select **Evaluate accuracy**. Give the test a name, description, and select your audio + human-labeled transcription dataset.
 4. Select up to two models that you'd like to test.
 5. Click **Create**.
 
@@ -56,15 +56,7 @@ After test creations succeeds, you can compare the results side-by-side.
 
 ## Side-by-side comparison
 
-**<<TODO - Erik: THIS NEEDS TO BE CLEANED UP>>**
-
-When the test status changes to *Succeeded*, you'll get the WER number for each model that you selected. Select the test item name to gain more testing insights. You will see all the items in your dataset has been recognized to speech with the model(s) you selected. You can play the audios and side-by-side compare the recognition results against the human transcription, All the error types (insertion, deletion, substitution) have been calculated and displayed with different color.
-
-Similarly, for long audios, you may click in the certain audio item to playback the audio and compare the results, by playing back the audio, the corresponding machine transcript sentence would be floating so that you can listen and see effectively.
-
-If you have selected two models to test, you will see three columns of transcripts (i.e. one column of human-labelled transcripts, and two columns of machine transcripts)
-
-![Example of incorrectly identified words](./media/custom-speech/custom-speech-evaluate-comparison.png)
+Once the test is complete, indicated by the status change to *Succeeded*, you'll find a WER number for both models included in your test. Click on the test name to view the testing detail page. This detail page lists all the utterances in your dataset, indicating the recognition results of the two models alongside the transcription from the submitted dataset. To help inspect the side-by-side comparison, you can toggle various error types including insertion, deletion, and substitution. It is recommended to play the associated audio files, especially for long audio files, during your inspection by clicking the 'Play' icon and listening to the original audio. By listening to the audio and comparing recognition results in each column (showing human-labeled transcription and the results of two speech-to-text models), you can decide which model meets your needs and where improvements are needed.
 
 ## Next steps
 
