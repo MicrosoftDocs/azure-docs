@@ -49,7 +49,7 @@ EXECUTE sp_execute_external_script
        @language = N'R'
      , @script = N' mytextvariable <- c("hello", " ", "world");
        OutputDataSet <- as.data.frame(mytextvariable);'
-     , @input_data_1 = N' ';
+     , @input_data_1 = N'';
 ```
 
 **Example 2**
