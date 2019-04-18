@@ -32,11 +32,11 @@ We don't recommend using batch anomaly detection for real-time data monitoring, 
 
 1. Batch detection creates and applies only one model, the detection for each point is performed in the context of whole series.
 
-    If the time series trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not counted as significant enough to be incorporated into the model.
+    If the time series trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not be counted as significant enough to be incorporated into the model.
 
 2. Batch detection is slower than detecting the anomaly status of the latest point when performing real-time data monitoring, due to the number of points being analyzed. 
 
-For real-time data monitoring, we recommend detecting the anomaly status of your latest data point only. By continously applying latest point detection, streaming data monitoring can be done more efficiently and accurately.
+For real-time data monitoring, we recommend detecting the anomaly status of your latest data point only. By continuously applying latest point detection, streaming data monitoring can be done more efficiently and accurately.
 
 The example below describes the impact these detection modes can have on performance. The first picture shows the result of continuously detecting the anomaly status latest point along 28 previously seen data points. The red points are anomalies.
 
