@@ -37,9 +37,7 @@ After creating a private cloud, create a VLAN in which to deploy your workload/a
 5. Enter an optional subnet name.
 6. To enable routing on the VLAN (subnet), specify the subnet CIDR range.
 7. Click **Submit**.
-
-    > [!NOTE]
-    > If you want the subnet created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
+8. (Optional) To make the subnet you created accessible over point-to-site or site-to-site VPN, open a support ticket with [CloudSimple Support](http://support.cloudsimple.com).
 
 ## Connect your environment to an Azure virtual network
 
@@ -193,8 +191,13 @@ Add the static method to the inet address family configuration in the file /etc/
 
 For your environment, the available subnet information is provided in the welcome email.
 
-#### sudo vi /etc/network/interfaces
+```bash
+sudo vi /etc/network/interfaces
+```
 
+The output will look like this
+
+```console
 auto eth0
 Iface eth0 inet static
 iface eth0 inet static
@@ -204,34 +207,45 @@ gateway 192.168.24.1
 dns-nameservers 8.8.8.8
 dns-domain acme.com
 dns-search acme.com
+```
 
 Manually disable the interface.
 
-#### sudo ifdown eth0
+```bash
+sudo ifdown eth0
+```
 
 Manually enable the interface again.
 
-#### sudo ifup eth0
+```bash
+sudo ifup eth0
+```
 
 By default, all incoming traffic from the Internet is **denied**. If you would like to open any other port, file a ticket with CloudSimple Support.
 
 After configuring an internal IP address as the static IP address, verify that you can reach the Internet from within the VM.
 
-#### ping 8.8.8.8
+```bash
+ping 8.8.8.8
+```
 
 Also verify that you can reach the VM from the Internet using the public IP address.
 
 * Ensure that any iptable rules on the VM aren't blocking port 80 inbound.
 
-#### netstat -an | grep 80
+```bash
+netstat -an | grep 80
+```
 
 * Start an http server that listens on port 80.
 
-#### python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
+```bash
+python2.7 -m SimpleHTTPServer 80 or python3 -m http.server 80
+```
 
 * Start a browser on your desktop and point it to port 80 for the public IP address to browse the files on your VM.
 
-### Default CloudSimple firewall rules for public IP
+## Default CloudSimple firewall rules for public IP
 
 The following are the default firewall rules.
 
