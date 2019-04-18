@@ -326,7 +326,7 @@ The LUIS container sends billing information to Azure, using a _Language Underst
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
-## Unsupported dependencies
+## Unsupported dependencies for `latest` container
 
 If your LUIS app has unsupported dependencies, you won't be able to [export for container](#export-packaged-app-from-luis) until you remove the unsupported features. When you attempt to export for container, the LUIS portal reports the unsupported features you need to remove.
 
@@ -334,7 +334,7 @@ You can use a LUIS application if it **doesn't include** any of the following de
 
 Unsupported app configurations|Details|
 |--|--|
-|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.1 tokenizer](luis-language-support.md#custom-tokenizer-versions).|
+|Unsupported container cultures| Dutch (nl-NL)<br>Japanese (ja-JP)<br>German is only supported with the [1.0.1 tokenizer or later](luis-language-support.md#custom-tokenizer-versions).|
 |Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
 |Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) prebuilt entities|
 |Speech priming|External dependencies are not supported in the container.|
