@@ -1,24 +1,20 @@
 ---
-title: Create an application gateway with URL path-based routing rules - Azure portal | Microsoft Docs
-description: Learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
+title: Tutorial - Create an application gateway with URL path-based routing rules - Azure portal
+description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: application-gateway
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.topic: tutorial
+ms.date: 4/18/2019
 ms.author: victorh
-
+#Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
 ---
-# Create an application gateway with path-based routing rules using the Azure portal
+
+# Tutorial: Create an application gateway with path-based routing rules using the Azure portal
 
 You can use the Azure portal to configure [URL path-based routing rules](url-route-overview.md) when you create an [application gateway](overview.md). In this tutorial, you create backend pools using virtual machines. You then create routing rules that make sure web traffic arrives at the appropriate servers in the pools.
 
-In this article, you learn how to:
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an application gateway
@@ -33,13 +29,13 @@ If you prefer, you can complete this tutorial using [Azure CLI](tutorial-url-rou
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
 
 ## Create an application gateway
 
-A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
+A virtual network is needed for communication between the resources you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time you create the application gateway.
 
 1. Click **New** found on the upper left-hand corner of the Azure portal.
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
@@ -77,7 +73,7 @@ A virtual network is needed for communication between the resources that you cre
 
 ## Create virtual machines
 
-In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
+In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
 
 1. Click **New**.
 2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
@@ -98,7 +94,7 @@ In this example, you create three virtual machines to be used as backend servers
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. Open the interactive shell and make sure that it is set to **PowerShell**.
+1. Open the interactive shell and make sure it's set to **PowerShell**.
 
     ![Install custom extension](./media/create-url-route-portal/application-gateway-extension.png)
 
@@ -160,23 +156,15 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Test base URL in application gateway](./media/create-url-route-portal/application-gateway-iistest.png)
 
-3. Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+3. Change the URL to http://&lt;ip-address&gt;:8080/images/test.htm, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test images URL in application gateway](./media/create-url-route-portal/application-gateway-iistest-images.png)
 
-4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, substituting &lt;ip-address&gt; with your IP address, and you should see something like the following example:
+4. Change the URL to http://&lt;ip-address&gt;:8080/video/test.htm, replacing &lt;ip-address&gt; with your IP address, and you should see something like the following example:
 
     ![Test video URL in application gateway](./media/create-url-route-portal/application-gateway-iistest-video.png)
 
 ## Next steps
 
-In this article, you learned how to
-
-> [!div class="checklist"]
-> * Create an application gateway
-> * Create virtual machines for backend servers
-> * Create backend pools with the backend servers
-> * Create a backend listener
-> * Create a path-based routing rule
-
-To learn more about application gateways and their associated resources, continue to the how-to articles.
+> [!div class="nextstepaction"]
+> [Learn more about what you can do with Azure Application Gateway](application-gateway-introduction.md)
