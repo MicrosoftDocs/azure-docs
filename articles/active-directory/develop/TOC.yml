@@ -91,7 +91,7 @@
       href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
-    - name: Authentication scenarios
+    - name: Application scenarios
       items:
       - name: Daemon apps
         items:
@@ -117,6 +117,8 @@
           href: msal-compare-msal-js-and-adal-js.md
         - name: Client applications
           href: msal-client-applications.md
+        - name: Handling errors and exceptions
+          href: msal-handling-exceptions.md
     - name: Authentication
       items:
       - name: Authentication basics
