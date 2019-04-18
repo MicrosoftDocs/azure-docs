@@ -29,6 +29,8 @@
       href: azure-to-azure-tutorial-migrate.md 
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
+    - name: Move Azure VMs between Government & Public regions
+      href: region-move-cross-geos.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
