@@ -116,7 +116,7 @@ The list of things that would be accomplished in the below steps are
 1. In this step we will create a SAS Definition. Once this SAS Definition is created, you can ask Key Vault to generate more SAS tokens for you. This operation requires the storage/setsas permission.
 
 ```
-$sastoken = az Storage Account generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
+$sastoken = az storage sccount generate-sas --expiry 2020-01-01 --permissions rw --resource-types sco --services bfqt --https-only --account-name storageacct --account-key 00000000
 ```
 
 You can see more help about the operation above [here](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-generate-sas)
