@@ -41,7 +41,7 @@ To learn how to assign a built-in RBAC for Azure Storage resources, see one of t
 - [Grant access to Azure blob and queue data with RBAC using Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Grant access to Azure blob and queue data with RBAC using PowerShell](storage-auth-aad-rbac-powershell.md)
 
-### Access permissions granted by RBAC roles 
+### Access permissions granted by RBAC roles
 
 For details on the permissions required to call Azure Storage operations, see [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).
 
