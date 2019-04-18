@@ -139,7 +139,7 @@ The following questions and answers apply to the **Azure CNI** networking config
 
 * *Can I configure per-pod network policies?*
 
-  Kubernetes network policy is currently available as a preview feature in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
+  Yes, Kubernetes network policy is available in AKS. To get started, see [Secure traffic between pods by using network policies in AKS][network-policy].
 
 * *Is the maximum number of pods deployable to a node configurable?*
 
