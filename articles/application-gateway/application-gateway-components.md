@@ -1,6 +1,6 @@
 ---
 title: Application gateway components
-description: This article provides information about the various application gateway components
+description: This article provides information about the various components in an application gateway
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
@@ -21,7 +21,7 @@ A frontend IP address is the IP address associated with an application gateway. 
 
 ### Static versus dynamic public IP address
 
-Azure Application Gateway v2 SKU supports both static internal and static public IP addresses, although the v1 SKU supports only static internal IP addresses. The virtual IP (VIP) address can change if an application gateway is stopped and started.
+The Azure Application Gateway v2 SKU supports both static internal and static public IP addresses, although the v1 SKU supports only static internal IP addresses. The virtual IP (VIP) address can change if an application gateway is stopped and started.
 
 The DNS name associated with an application gateway doesn't change over the lifecycle of the gateway. As a result, you should use a CNAME alias and point it to the DNS address of the application gateway.
 
@@ -37,7 +37,7 @@ Listeners support the following ports and protocols.
 
 ### Ports
 
-A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for v1 SKU and 1 to 65199 for v2 SKU.
+A port is where a listener listens for the client request. You can configure ports ranging from 1 to 65502 for the v1 SKU and 1 to 65199 for the v2 SKU.
 
 ### Protocols
 
@@ -47,7 +47,7 @@ Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
 - Support for [WebSockets and HTTP/2 protocols](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) is provided natively, and [WebSocket support](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 - HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
-- Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by overhead. Your apps are then free to focus on business logic.
+Use an HTTPS listener for SSL termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by overhead. Your apps are then free to focus on business logic.
 
 ### Custom error pages
 
@@ -77,9 +77,9 @@ When a listener accepts a request, the request routing rule forwards the request
 
 There are two types of request routing rules:
 
-- **Basic.** All requests on the associated listener (for example, blog.contoso.com/*) are forwarded to the associated backend pool by using the associated HTTP setting.
+- **Basic**. All requests on the associated listener (for example, blog.contoso.com/*) are forwarded to the associated backend pool by using the associated HTTP setting.
 
-- **Path-based.** This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
+- **Path-based**. This routing rule lets you route the requests on the associated listener to a specific backend pool, based on the URL in the request. If the path of the URL in a request matches the path pattern in a path-based rule, the rule routes that request. It applies the path pattern only to the URL path, not to its query parameters. If the URL path on a listener request doesn't match any of the path-based rules, it routes the request to the default backend pool and HTTP settings.
 
 For more information, see [URL-based routing](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
@@ -87,7 +87,7 @@ For more information, see [URL-based routing](https://docs.microsoft.com/azure/a
 
 The request routing rule also allows you to redirect traffic on the application gateway. This is a generic redirection mechanism, so you can redirect to and from any port you define by using rules.
 
-You can choose the redirection target to be another listener (which can help enable automatic HTTP to HTTPS redirection) or an external site, to have the redirection be temporary or permanent, or to append the URI path and query string to the redirected URL.
+You can choose the redirection target to be another listener (which can help enable automatic HTTP to HTTPS redirection) or an external site. You can also choose to have the redirection be temporary or permanent, or to append the URI path and query string to the redirected URL.
 
 For more information, see [Redirect traffic on your application gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
@@ -111,7 +111,7 @@ This component is also used to:
 
 - Gracefully remove backend pool members by using [connection draining](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining).
 
-- Associate a custom probe to monitor the backend health, set the request timeout interval, override host name and path in the request, and provide one-click ease to specify backend settings for the App Service backend.
+- Associate a custom probe to monitor the backend health, set the request timeout interval, override host name and path in the request, and provide one-click ease to specify settings for the App Service backend.
 
 ## Backend pools
 
@@ -124,9 +124,9 @@ A backend pool routes request to backend servers, which serve the request. Backe
 - FQDN
 - Multitenant backends (such as App Service)
 
-Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, data centers, or outside of Azure, as long as there's IP connectivity.
+Application Gateway backend pool members aren't tied to an availability set. An application gateway can communicate with instances outside of the virtual network that it's in. As a result, the members of the backend pools can be across clusters, across datacenters, or outside Azure, as long as there's IP connectivity.
 
-If you use internal IPs as backend pool members, you must use [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or [VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
+If you use internal IPs as backend pool members, you must use [virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) or a [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Virtual network peering is supported and beneficial for load-balancing traffic in other virtual networks.
 
 An application gateway can also communicate with to on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
