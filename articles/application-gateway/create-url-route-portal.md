@@ -31,13 +31,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com)
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Create an application gateway
 
 A virtual network is needed for communication between the resources you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time you create the application gateway.
 
-1. Click **New** found on the upper left-hand corner of the Azure portal.
+1. Select **New** found on the upper left-hand corner of the Azure portal.
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter these values for the application gateway:
 
@@ -46,8 +46,8 @@ A virtual network is needed for communication between the resources you create. 
 
      ![Create new application gateway](./media/create-url-route-portal/application-gateway-create.png)
 
-4. Accept the default values for the other settings and then click **OK**.
-5. Click **Choose a virtual network**, click **Create new**, and then enter these values for the virtual network:
+4. Accept the default values for the other settings and then select **OK**.
+5. Select **Choose a virtual network**, select **Create new**, and then enter these values for the virtual network:
 
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
@@ -56,27 +56,27 @@ A virtual network is needed for communication between the resources you create. 
 
      ![Create virtual network](./media/create-url-route-portal/application-gateway-vnet.png)
 
-6. Click **OK** to create the virtual network and subnet.
-7. Click **Choose a public IP address**, click **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then click **OK**.
-8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then click **OK**.
-9. Review the settings on the summary page, and then click **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
+6. Select **OK** to create the virtual network and subnet.
+7. Select **Choose a public IP address**, select **Create new**, and then enter the name of the public IP address. In this example, the public IP address is named *myAGPublicIPAddress*. Accept the default values for the other settings and then select **OK**.
+8. Accept the default values for the Listener configuration, leave the Web application firewall disabled, and then select **OK**.
+9. Review the settings on the summary page, and then select **OK** to create the network resources and the application gateway. It may take several minutes for the application gateway to be created, wait until
    the deployment finishes successfully before moving on to the next section.
 
 ### Add a subnet
 
-1. Click **All resources** in the left-hand menu, and then click **myVNet** from the resources list.
-2. Click **Subnets**, and then click **Subnet**.
+1. Select **All resources** in the left-hand menu, and then select **myVNet** from the resources list.
+2. Select **Subnets**, and then select **Subnet**.
 
     ![Create subnet](./media/create-url-route-portal/application-gateway-subnet.png)
 
-3. Enter *myBackendSubnet* for the name of the subnet and then click **OK**.
+3. Enter *myBackendSubnet* for the name of the subnet and then select **OK**.
 
 ## Create virtual machines
 
 In this example, you create three virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify the application gateway was successfully created.
 
-1. Click **New**.
-2. Click **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
+1. Select **New**.
+2. Select **Compute** and then select **Windows Server 2016 Datacenter** in the Featured list.
 3. Enter these values for the virtual machine:
 
     - *myVM1* - for the name of the virtual machine.
@@ -84,11 +84,11 @@ In this example, you create three virtual machines to be used as backend servers
     - *Azure123456!* for the password.
     - Select **Use existing**, and then select *myResourceGroupAG*.
 
-4. Click **OK**.
-5. Select **DS1_V2** for the size of the virtual machine, and click **Select**.
+4. Select **OK**.
+5. Select **DS1_V2** for the size of the virtual machine, and select **Select**.
 6. Make sure that **myVNet** is selected for the virtual network and the subnet is **myBackendSubnet**. 
-7. Click **Disabled** to disable boot diagnostics.
-8. Click **OK**, review the settings on the summary page, and then click **Create**.
+7. Select **Disabled** to disable boot diagnostics.
+8. Select **OK**, review the settings on the summary page, and then select **Create**.
 
 ### Install IIS
 
@@ -117,38 +117,38 @@ In this example, you create three virtual machines to be used as backend servers
 
 ## Create backend pools with the virtual machines
 
-1. Click **All resources** and then click **myAppGateway**.
-2. Click **Backend pools**. A default pool was automatically created with the application gateway. Click **appGatewayBackendPool**.
-3. Click **Add target** to add *myVM1* to appGatewayBackendPool.
+1. Select **All resources** and then select **myAppGateway**.
+2. Select **Backend pools**. A default pool was automatically created with the application gateway. Select **appGatewayBackendPool**.
+3. Select **Add target** to add *myVM1* to appGatewayBackendPool.
 
     ![Add backend servers](./media/create-url-route-portal/application-gateway-backend.png)
 
-4. Click **Save**.
-5. Click **Backend pools** and then click **Add**.
+4. Select **Save**.
+5. Select **Backend pools** and then select **Add**.
 6. Enter a name of *imagesBackendPool* and add *myVM2* using **Add target**.
-7. Click **OK**.
-8. Click **Add** again to add another backend pool with a name of *videoBackendPool* and add *myVM3* to it.
+7. Select **OK**.
+8. Select **Add** again to add another backend pool with a name of *videoBackendPool* and add *myVM3* to it.
 
 ## Create a backend listener
 
-1. Click **Listeners** and the click **Basic**.
+1. Select **Listeners** and the select **Basic**.
 2. Enter *myBackendListener* for the name, *myFrontendPort* for the name of the frontend port, and then *8080* as the port for the listener.
-3. Click **OK**.
+3. Select **OK**.
 
 ## Create a path-based routing rule
 
-1. Click **Rules** and then click **Path-based**.
+1. Select **Rules** and then select **Path-based**.
 2. Enter *rule2* for the name.
 3. Enter *Images* for the name of the first path. Enter */images/*\* for the path. Select **imagesBackendPool** for the backend pool.
 4. Enter *Video* for the name of the second path. Enter */video/*\* for the path. Select **videoBackendPool** for the backend pool.
 
     ![Create a path-based rule](./media/create-url-route-portal/application-gateway-route-rule.png)
 
-5. Click **OK**.
+5. Select **OK**.
 
 ## Test the application gateway
 
-1. Click **All resources**, and then click **myAGPublicIPAddress**.
+1. Select **All resources**, and then select **myAGPublicIPAddress**.
 
     ![Record application gateway public IP address](./media/create-url-route-portal/application-gateway-record-ag-address.png)
 
