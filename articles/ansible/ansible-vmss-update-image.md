@@ -162,31 +162,34 @@ There are two ways to get the sample playbook:
       msg: "Public IP Address B: {{ pip_output.results[1].state.ip_address }}"
 ```
 
-Run the playbook using the `ansible-playbook` command, replace `myrg` with your resource group name:
+Run the playbook using the `ansible-playbook` command, replacing `myrg` with your resource group name:
 
 ```bash
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Note the IP address of each VM:
+Due to the `debug` sections of the playbook, the `ansible-playbook` command will print the IP address of each VM. Copy these IP addresses for later use.
 
-![Public IP Address](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
+![Virtual machine IP addresses](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
 ## Connect to the two VMs
 
-In this section, you connect to each VM. As mentioned in the previous section, the strings `Image A` and `Image B` mimic having two distinct VMs with different configurations.
+In this section, you connect to each VM. As mentioned in the previous section, the strings **Image A** and **Image B** mimic having two distinct VMs with different configurations.
 
 Using the IP addresses from the previous section, connect to both VMs:
 
-![VM A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
+![Screenshot from virtual machine A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
 
-![VM B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
+![Screenshot from virtual machine B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
 
 ## Create images from each VM
 
 At this point, you have two VMs with slightly different configurations (their `index.html` files).
 
-The playbook code in this section creates a custom image for each VM.
+The playbook code in this section creates a custom image for each VM:
+
+* **image_vmforimageA** - Custom image created for the VM that displays **Image A** on its homne page.
+* **image_vmforimageB** - Custom image created for the VM that displays **Image B** on its homne page.
 
 There are two ways to get the sample playbook:
 
@@ -220,7 +223,7 @@ There are two ways to get the sample playbook:
       - B
 ```
 
-Run the playbook using the `ansible-playbook` command, replace `myrg` with your resource group name:
+Run the playbook using the `ansible-playbook` command, replacing `myrg` with your resource group name:
 
 ```bash
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
@@ -228,15 +231,16 @@ ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 
 ## Create scale set using Image A
 
-In this section, a playbook is used to configure:
+In this section, a playbook is used to configure the following Azure resources:
 
 * Public IP address
 * Load balancer
-* Scale set that references custom image A
+* Scale set that references `image_vmforimageA`
 
+"There are two ways to get the sample playbook:
 
-Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) or save below as *create-vmss.yml*. This step creates:
-
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) and save it to `create-vmss.yml`.
+* Create a new file named `create-vmss.yml` and copy into it the following contents:"
 
 ```yml
 ---
@@ -302,24 +306,40 @@ Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks
         msg: "Scale set public IP address: {{ pip_output.state.ip_address }}"
 ```
 
-To run this playbook, use command ansible-playbook as follows:
-
+Run the playbook using the `ansible-playbook` command, replacing `myrg` with your resource group name:
 
 ```bash
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-Copy the IP address printed out at the end of your output to a browser:
+Due to the `debug` section of the playbook, the `ansible-playbook` command will print the IP address of the scale set. Copy this IP address for later use.
 
 ![Public IP Address](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
-You see Image A deployed to the scale set:
+## Connect to the scale set
 
-![Scale set Image A](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+In this section, you connect to the scale set. 
 
-## Update image referenced in scale set and upgrade instances
+Using the IP address from the previous section, connect to the scale set.
 
-The final playbook replaces Image A with Image B. Download the [sample](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) or save below as *update-vmss-image.yml*:
+As mentioned in the previous section, the strings **Image A** and **Image B** mimic having two distinct VMs with different configurations.
+
+The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays **Image A**.
+
+Therefore, you see a home page displaying **Image A**:
+
+![The scale set is associated with the first VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+
+Leave your browser window open as you continue to the next section.
+
+## Change custom image in scale set and upgrade instances
+
+The playbook code in this section changes the scale set's image - from **image_vmforimageA** to **image_vmforimageB**. In addition, all current virtual machines deployed by the scale set are updated.
+
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) and save it to `update-vmss-image.yml`.
+* Create a new file named `update-vmss-image.yml` and copy into it the following contents:
 
 ```yml
 - name: Update scale set image reference
@@ -370,19 +390,23 @@ The final playbook replaces Image A with Image B. Download the [sample](https://
     with_items: "{{ instances.instances }}"
 ```
 
-To run this playbook, use command ansible-playbook as follows:
+Run the playbook using the `ansible-playbook` command, replacing `myrg` with your resource group name:
 
 ```bash
 ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 ```
 
-Now press **F5** in your browser to reload the page. You see that image is updated to Image B:
+Return to the browser and refresh the page. 
 
-![Scale set Image B](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
+You see that virtual machine's underlying custom image is updated.
+
+![The scale set is associated with the second VM](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following example. It deletes a resource group named **myrg**. 
+When no longer needed, delete the resources created in this article. 
+
+Save the following code as `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -396,10 +420,10 @@ If you don't need these resources, you can delete them by running the following 
         state: absent
 ```
 
-Save the preceding playbook as *rg_delete.yml*. To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the **ansible-playbook** command:
 
 ```bash
-ansible-playbook rg_delete.yml
+ansible-playbook cleanup.yml
 ```
 
 ## Next steps
