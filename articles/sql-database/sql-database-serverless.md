@@ -17,8 +17,8 @@ ms.date: 05/06/2019
 
 ## What is the serverless compute tier versus the provisioned compute tier
 
-SQL DB serverless is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
-In contrast, publicly available offers in SQL DB today bill for the amount of compute provisioned on an hourly basis. This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
+SQL Database serverless is a compute tier that bills for the amount of compute used by a single database on a per second basis. Serverless is price-perf optimized for single databases with bursty usage patterns that can afford some delay in compute warm-up after idle usage periods.
+In contrast, publicly available offers in SQL Database today bill for the amount of compute provisioned on an hourly basis. This provisioned compute tier is price-perf optimized for single databases or elastic pools with higher average usage that cannot afford any delay in compute warm-up.
 
 A database in the serverless computer tier is parameterized by the compute range it can use and an auto-pause delay.
 
@@ -44,18 +44,18 @@ The following table compares serverless compute tier with the provisioned comput
 
 ||Serverless compute|Provisioned compute|
 |---|---|---|
-|Typical usage scenario|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
-|Performance management effort|Lower|Higher|
-|Compute scaling|Automatic|Manual|
-Compute responsiveness|Lower after inactive periods|Immediate|
-|Billing granularity|Per second|Per hour|
+|**Typical usage scenario**|Databases with bursty, unpredictable usage interspersed with inactive periods|Databases or elastic pools with more regular usage|
+|**Performance management effort**|Lower|Higher|
+|**Compute scaling**|Automatic|Manual|
+|**Compute responsiveness**|Lower after inactive periods|Immediate|
+|**Billing granularity**|Per second|Per hour|
 |
 
 ### Scenarios well-suited for serverless compute
 
-- Single databases with bursty usage patterns interspersed with periods of inactivity and can benefit from price savings based on billing per second for the amount of compute used.
+- Single databases with bursty usage patterns interspersed with periods of inactivity can benefit from price savings based on billing per second for the amount of compute used.
 - Single databases with resource demand that is difficult to predict and customers who prefer to delegate compute sizing to the service.
-- Single databases in the provisioned compute tier that frequently changes performance levels.
+- Single databases in the provisioned compute tier that frequently change performance levels.
 
 ### Scenarios well-suited for provisioned compute
 
@@ -67,7 +67,7 @@ Compute responsiveness|Lower after inactive periods|Immediate|
 
 The following features do not support auto-pausing and auto-resuming. That is, if any of the following features are used, then the database remains online regardless of duration of database inactivity:
 
-- Geo-replication
+- Geo-replication (active geo-replication and auto failover groups)
 - Long-term backup retention (LTR)
 - The sync database used in SQL data sync.
 
@@ -91,43 +91,40 @@ Auto-resume is triggered if any of the following conditions are true at any time
 |Feature|Auto-resume trigger|
 |---|---|
 |Authentication and authorization|Login|
-|Threat detection|Enabling/disabling threat detection settings at the database or server level.<br>Modifying threat detection settings at the database or server level.|
-|Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels.|
-|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy.|
-|Data masking|Adding, modifying, deleting, or viewing data masking rules.|
-|Transparent data encryption|View state or status of transparent data encryption.|
-|Query (performance) data store|Modifying or viewing query store settings; automatic tuning.|
-|Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing.|
-|Database copying|Create database as copy.<br>Export BACPAC|
-|SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually.|
+|Threat detection|Enabling/disabling threat detection settings at the database or server level<br>Modifying threat detection settings at the database or server level|
+|Data discovery and classification|Adding, modifying, deleting, or viewing sensitivity labels|
+|Auditing|Viewing auditing records.<br>Updating or viewing auditing policy|
+|Data masking|Adding, modifying, deleting, or viewing data masking rules|
+|Transparent data encryption|View state or status of transparent data encryption|
+|Query (performance) data store|Modifying or viewing query store settings; automatic tuning|
+|Auto-tuning|Application and verification of auto-tuning recommendations such as auto-indexing|
+|Database copying|Create database as copy<br>Export to a BACPAC file|
+|SQL data sync|Synchronization between hub and member databases that run on a configurable schedule or are performed manually|
 |
 
 ### Scaling responsiveness
 
-In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by max vCores. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
+In general, databases are run on a machine with sufficient capacity to satisfy resource demand without interruption for any amount of compute requested within limits set by the `maxVcores` value. Occasionally, load balancing automatically occurs if the machine is unable to satisfy resource demand within a few minutes. The database remains online during load balancing except for a brief period at the end of the operation when connections are dropped.
 
 > [!IMPORTANT]
 > The latency to auto-pause or auto-resume a serverless database is generally on the order of 1 minute.
 
 ### Memory management
 
-Memory for serverless databases is reclaimed more frequently than for provisioned compute databases. This behavior is important to control costs in serverless. The following table illustrates the memory management policy for serverless.
+Memory for serverless databases is reclaimed more frequently than for provisioned databases. This behavior is important to control costs in serverless.
 
 #### Cache reclaiming
 
 Unlike provisioned compute, memory from the SQL cache is reclaimed from a serverless database when CPU or cache utilization is low. In both serverless and provisioned compute, cache entries can be evicted if all available memory is used.
 
-Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
-
-When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
-
-When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
-
-The cache size is never reduced below the minimum memory as defined by minimum vCores.
+- Cache utilization is considered low when the total size of the most recently used cache entries falls below a threshold for a period of time.
+- When cache reclamation is triggered, the target cache size is reduced incrementally to a fraction of its previous size and reclaiming only continues if usage remains low.
+- When cache reclamation occurs, the policy for selecting cache entries to evict is the same selection policy as for provisioned compute databases when memory pressure is high.
+- The cache size is never reduced below the minimum memory as defined by minimum vCores.
 
 #### Cache hydration
 
-The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned compute databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
+The SQL cache grows as data is fetched from disk in the same way and with the same speed as for provisioned databases. The cache is allowed to grow unconstrained up to the max memory limit when the database is busy.
 
 ## On-boarding into the serverless compute tier
 
@@ -154,7 +151,7 @@ The serverless compute tier is only available with the vCore-based purchasing mo
 
 ### Creating a new database using the Azure portal
 
-See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless computer tier.
+See [Quickstart: Create a single database in Azure SQL Database using the Azure portal](sql-database-single-database-get-started.md) and choose the serverless compute tier.
 
 ### Create new database using PowerShell
 
@@ -168,7 +165,7 @@ New-AzSqlDatabase `
   -RequestedServiceObjectiveName "GP_S_Gen5_4"
 ```
 
-### Move existing database into serverless
+### Move existing database into the serverless compute tier
 
 The following example moves an existing single database from the provisioned compute tier into the serverless compute tier. This example uses the default values for the min vCores, max vCores, and auto-pause delay.
 
@@ -185,7 +182,7 @@ Set-AzSqlDatabase
   -AutoPauseDelay "1440"
 ```
 
-### Move a database out of serverless
+### Move a database out of the serverless compute tier
 
 A serverless database can be moved into a provisioned compute tier in the same way as moving a provisioned compute database into a serverless compute tier.
 
@@ -193,15 +190,15 @@ A serverless database can be moved into a provisioned compute tier in the same w
 
 ### Maximum vCores
 
-Modifying the maximum vCores is performed by using the `Set-AzSqlDatabase` command in PowerShell using the `MaxVcore` argument.
+Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MaxVcore` argument.
 
 ### Minimum vCores
 
-Modifying the maximum vCores is performed by using the `Set-AzSqlDatabase` command in PowerShell using the `MinVcore` argument.
+Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `MinVcore` argument.
 
 ### Auto-pause delay
 
-Modifying the maximum vCores is performed by using the `Set-AzSqlDatabase` command in PowerShell using the `AutoPauseDelay` argument.
+Modifying the maximum vCores is performed by using the [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) command in PowerShell using the `AutoPauseDelay` argument.
 
 ## Monitor serverless database
 
@@ -211,11 +208,11 @@ The resources of a serverless database are encapsulated by the following entitie
 
 #### App package
 
-The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services that together scope all user and system resources used by a database in SQL DB. Examples of external services include R and full-text search. The SQL instance generally dominates the overall resource utilization across the app package.
+The app package is the outer most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The app package contains the SQL instance and external services that together scope all user and system resources used by a database in SQL Database. Examples of external services include R and full-text search. The SQL instance generally dominates the overall resource utilization across the app package.
 
 #### User resource pool
 
-The user resource pool is the inner most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The user resource pool scopes CPU and IO for user workload generated by DDL queries (for example CREATE, ALTER, etc.) and DML queries (for example SELECT, INSERT, UPDATE, DELETE, etc.). These queries generally represent the most substantial proportion of utilization within the app package.
+The user resource pool is the inner most resource management boundary for a database, regardless of whether the database is in a serverless or provisioned compute tier. The user resource pool scopes CPU and IO for user workload generated by DDL queries (for example, CREATE, ALTER, etc.) and DML queries (for example, SELECT, INSERT, UPDATE, DELETE, etc.). These queries generally represent the most substantial proportion of utilization within the app package.
 
 ### Metrics
 
@@ -232,7 +229,7 @@ The user resource pool is the inner most resource management boundary for a data
 ____
 
 > [!NOTE]
-> Metrics in the Azure portal are available in the database pane indow for a single database under **Monitoring**.
+> Metrics in the Azure portal are available in the database pane for a single database under **Monitoring**.
 
 ### Pause and resume status
 
@@ -267,6 +264,7 @@ The amount of compute billed is exposed by the following metric:
 |---|---|---|
 |app_cpu_billed (vCore seconds)|max (min vCores, vCores used, min memory GB * 1/3, memory GB used * 1/3)*|Per minute|
 |||
+
 \* This quantity is calculated each second and aggregated over 1 minute.
 
 **Example**: Consider a database using GP_S_Gen5_4 with the following usage over a 1-hour period:
