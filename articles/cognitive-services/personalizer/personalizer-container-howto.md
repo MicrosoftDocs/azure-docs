@@ -31,8 +31,7 @@ You must meet the following prerequisites before using Personalizer Service cont
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
 |Personalizer Service resource |In order to use these containers, you must have:<br><br>A _Personalizer Service_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Personalizer Service Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/`|
 
-
-
+<!--
 ## Request access to the private container registry
 
 You must first complete and submit the [Cognitive Services Personalizer Containers Request form](http://aka.ms/PersonalizerPreview) to request access to the container. The form requests information about you, your company, and the user scenario for which you'll use the container. Once submitted, the Azure Cognitive Services team reviews the form to ensure that you meet the criteria for access to the private container registry.
@@ -57,7 +56,7 @@ If you have secured your credentials in a text file, you can concatenate the con
 ```docker
 cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
 ```
-
+-->
 ### The host computer
 
 The **host** is the computer that runs the docker container. It can be a computer on your premises or a docker hosting service in Azure including:
@@ -101,6 +100,12 @@ Container images for Personalizer Service are available.
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/personalizer:latest
 ```
+
+## How the container works
+
+The Personalizer container represents the client portion of the Personalizer service. When the container runs, it gets the models and configuration settings from the Personalizer service in the Azure cloud. The container service uses this information to respond to requests to **rank** and **reward**. The container also sends these requests to the Personalizer resource in the Azure cloud. This information is then used to train your Personalizer loop model, based on the current setting for model update frequency. The updated model is sent back to the container. 
+
+![On-premises, local architecture for Personalizer container's client](./media/personalizer-container-howto/personalizer-container-architecture.png)
 
 ## How to use the container
 
