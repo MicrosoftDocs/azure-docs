@@ -82,7 +82,7 @@ With Service Connectivity monitoring, you can now test reachability of applicati
 
 For more information, see the following articles:
 
-* [Configure Network Performance Monitor for monitoring Service Endpoints](https://aka.ms/applicationconnectivitymonitorguide)
+* [Configure Network Performance Monitor for monitoring Service Endpoints](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
 * [Blog post](https://aka.ms/svcendptmonitor)
 
 ## Traffic Analytics
