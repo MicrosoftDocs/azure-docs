@@ -29,3 +29,16 @@ At the account creation, you can choose settings to [globally distribute](distri
 
 ![Account-Creation](./media/mongodb-pre-migration/account-creation.png)
 
+## Estimate the throughput need for your workloads
+
+Before starting the migration by using the [Database Migration Service (DMS)](../dms/dms-overview.md), you should estimate the amount of throughput to provision for your Azure Cosmos databases and collections.
+
+Throughput can be provisioned on either:
+
+- Collection
+
+- Database
+
+> [!NOTE]
+> You can also have a combination of the above, where some collections in a database may have dedicated provisioned throughput and others may share the throughput. For details, please see [set throughput on a database and a container](set-throughput.md).
+>
