@@ -18,7 +18,7 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
-Azure SQL Database includes both [Single Database](sql-database-single-index.md) and [Managed Instance](sql-database-managed-instance.md). The entries below apply to both offerings, except where otherwise noted.
+Azure SQL Database includes both [Single Database](sql-database-single-index.yml) and [Managed Instance](sql-database-managed-instance.md). The entries below apply to both offerings, except where otherwise noted.
 
 ## Preventative
 
@@ -34,7 +34,7 @@ Azure SQL Database includes both [Single Database](sql-database-single-index.md)
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service Endpoint support| Yes | Applies to [Single Database](sql-database-single-index.md) only. |
+| Service Endpoint support| Yes | Applies to [Single Database](sql-database-single-index.yml) only. |
 | vNET Injection support| Yes | Applies to [Managed Instance](sql-database-managed-instance.md) only. |
 | Network Isolation / Firewalling support| Yes | Firewall at both database- and server-level; network isolation for [Managed Instance](sql-database-managed-instance.md) only |
 | Support for forced tunneling | Yes | [Managed Instance](sql-database-managed-instance.md) via [Azure Express Route](../expressroute/index.yml) VPN |
