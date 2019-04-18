@@ -260,7 +260,7 @@ To delete the lab, use the following task:
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) and save it to `devtestlab-create.yml`.
-- Create a new file called `devtestlab-create.yml` and copy into it the following contents:
+- Create a new file named `devtestlab-create.yml` and copy into it the following contents:
 
 ```yml
 ---

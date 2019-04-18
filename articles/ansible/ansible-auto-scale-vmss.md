@@ -234,4 +234,4 @@ vmss-auto-scale-delete-setting.yml
 ## Next steps
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Update Azure virtual machine scale sets with custom images using Ansible](./ansible-vmss-update-image.md)
+> [Tutorial: Update custom image of Azure virtual machine scale sets using Ansible](./ansible-vmss-update-image.md)

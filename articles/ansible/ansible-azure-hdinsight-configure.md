@@ -186,7 +186,7 @@ Billing for HDInsight clusters is prorated per minute, whether you use them or n
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) and save it to `hdinsight_create.yml`.
-- Create a new file called `hdinsight_create.yml` and copy into it the following contents:
+- Create a new file named `hdinsight_create.yml` and copy into it the following contents:
 
 ```yml
 ---

@@ -68,7 +68,7 @@ Once you have your virtual machines defined (and tagged), it's time to generate 
 
 ### Using Ansible version < 2.8
 
-Ansible provides a Python script called [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
+Ansible provides a Python script named [azure_rm.py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) that generates a dynamic inventory of your Azure resources. The following steps walk you through using the `azure_rm.py` script to connect to your two test Azure virtual machines:
 
 1. Use the GNU `wget` command to retrieve the `azure_rm.py` script:
 
@@ -142,7 +142,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     ```
 
 ## Enable the VM tag
-Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable called `AZURE_TAGS` via the **export** command:
+Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable  `AZURE_TAGS` via the **export** command:
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx

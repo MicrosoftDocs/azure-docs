@@ -78,7 +78,7 @@
       href: ./ansible-deploy-app-vmss.md
     - name: Autoscale
       href: ./ansible-auto-scale-vmss.md
-    - name: Update with custom images
+    - name: Update custom image
       href: ./ansible-vmss-update-image.md
   - name: Virtual network
     items:

@@ -134,7 +134,7 @@ Finally, the last snippet shows how to delete an Azure Cosmos DB account.
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) and save it to `cosmosdb.yml`.
-- Create a new file called `cosmosdb.yml` and copy into it the following contents:
+- Create a new file named `cosmosdb.yml` and copy into it the following contents:
 
 ```yml
 ---

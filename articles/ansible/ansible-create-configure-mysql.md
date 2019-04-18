@@ -91,7 +91,7 @@ ansible-playbook mysql_create.yml
 ## Configure a firewall rule
 
 A server-level firewall rule allows an external application to connect to your server through the Azure MySQL service firewall. An example of an external application is the **mysql** command-line tool or MySQL Workbench.
-The following example creates a firewall rule called **extenalaccess** that allows connections from any external IP address. 
+The following example creates a firewall rule named **extenalaccess** that allows connections from any external IP address. 
 
 Enter your own values for **startIpAddress** and **endIpAddress**. Use the range of IP addresses that correspond to where you'll be connecting from. 
 

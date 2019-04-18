@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Update Azure virtual machine scale sets with custom images using Ansible
+title: Tutorial - Update custom image of Azure virtual machine scale sets using Ansible
 description: Learn how to use Ansible to update virtual machine scale sets in Azure with custom image
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Update Azure virtual machine scale sets with custom images using Ansible
+# Tutorial: Update custom image of Azure virtual machine scale sets using Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
@@ -23,9 +23,9 @@ After a VM is deployed, you configure the VM with the software your app needs. I
 > [!div class="checklist"]
 >
 > * Configure two VMs with HTTPD
-> * Capture an image from an existing VM
+> * Create a custom image from an existing VM
 > * Create a scale set from an image
-> * Update the image
+> * Update the custom image
 
 ## Prerequisites
 
@@ -34,16 +34,19 @@ After a VM is deployed, you configure the VM with the software your app needs. I
 
 ## Configure two VMs
 
-The playbook code in this section <does something>
+The playbook code in this section creates two virtual machines with HTTPD installed on both. 
 
+The `index.html` page for each VM displays a test string:
 
-The first playbook: 
+* First VM displays the value **Image A**
+* Second VM displays the value **Image B**
 
-- creates two virtual machines
-- installs HTTPD on both of them
-- changes index.html to contain **Image A** and **Image B** respectively
+This string is meant to mimic configuring each VM with different software.
 
-You can download the [sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) or save the following playbook as *create_vms.yml*. 
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) and save it to `create_vms.yml`.
+* Create a new file named `create_vms.yml` and copy into it the following contents:
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -159,31 +162,36 @@ You can download the [sample playbook](https://github.com/Azure-Samples/ansible-
       msg: "Public IP Address B: {{ pip_output.results[1].state.ip_address }}"
 ```
 
-To run this playbook, use command ansible-playbook as follows:
-
->[!Tips]
-> You can replace `myrg` with your own resource group name.
+Run the playbook using the `ansible-playbook` command, replace `myrg` with your resource group name:
 
 ```bash
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Copy and paste IP addresses of both VMs to the browser:
+Note the IP address of each VM:
 
 ![Public IP Address](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
-You see two different versions of VM:
+## Connect to the two VMs
+
+In this section, you connect to each VM. As mentioned in the previous section, the strings `Image A` and `Image B` mimic having two distinct VMs with different configurations.
+
+Using the IP addresses from the previous section, connect to both VMs:
 
 ![VM A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
 
-and
-
 ![VM B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
 
+## Create images from each VM
 
-## Capture images from both Virtual Machines
+At this point, you have two VMs with slightly different configurations (their `index.html` files).
 
-Run second playbook to create the custom images. You can download the [sample](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) or copy below playbook. Save it as *capture-images.yml*
+The playbook code in this section creates a custom image for each VM.
+
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) and save it to `capture-images.yml`.
+* Create a new file named `capture-images.yml` and copy into it the following contents:
 
 ```yml
 - name: Capture VM Images
@@ -212,7 +220,7 @@ Run second playbook to create the custom images. You can download the [sample](h
       - B
 ```
 
-To run this playbook, use command ansible-playbook as follows:
+Run the playbook using the `ansible-playbook` command, replace `myrg` with your resource group name:
 
 ```bash
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
@@ -220,11 +228,15 @@ ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 
 ## Create scale set using Image A
 
+In this section, a playbook is used to configure:
+
+* Public IP address
+* Load balancer
+* Scale set that references custom image A
+
+
 Download the [third playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) or save below as *create-vmss.yml*. This step creates:
 
-- a public IP address
-- a load balancer
-- a scale set that references image A
 
 ```yml
 ---

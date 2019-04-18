@@ -113,15 +113,15 @@ After running the playbook, you see output similar to the following results:
 
 ## Deploy the application to a scale set
 
-> [!Tip]
-> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) for this section.
-
 The playbook code in this section is used to:
 
 * Install the JRE on a host group named `saclesethosts`
 * Deploy the Java application to a host group named **saclesethosts**
 
-Save the following playbook as `vmss-setup-deploy.yml`:
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) and save it to `vmss-setup-deploy.yml`.
+* Create a new file named `vmss-setup-deploy.yml` and copy into it the following contents:
 
 ```yml
 - hosts: localhost

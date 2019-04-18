@@ -123,7 +123,7 @@ To delete the virtual network peering, run the following task:
 
 There are two ways to get the complete sample playbook:
 - [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) and save it to `vnet_peering.yml`.
-- Create a new file called `vnet_peering.yml` and copy into it the following contents:
+- Create a new file named `vnet_peering.yml` and copy into it the following contents:
 
 ```yml
 - hosts: localhost

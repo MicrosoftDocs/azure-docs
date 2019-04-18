@@ -31,9 +31,6 @@ ms.date: 04/04/2019
 
 ## Configure a scale set
 
-> [!Tip]
-> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) for this section.
-
 The playbook code in this section defines the following resources:
 
 * **Resource group** into which all of your resources will be deployed.
@@ -44,7 +41,10 @@ The playbook code in this section defines the following resources:
 * **Load balancer** that distributes traffic across a set of defined VMs using load balancer rules
 * **Virtual machine scale set** that uses all the created resources
 
-Save the following playbook as `vmss-create.yml`:
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) and save it to `vmss-create.yml`.
+* Create a new file named `vmss-create.yml` and copy into it the following contents:
 
 ```yml
 - hosts: localhost
@@ -210,12 +210,12 @@ The [configured scale set](#configure-a-scale-set) currently has two instances. 
 
 ## Scale out a scale set
 
-> [!Tip]
-> You can [download the sample playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) for this section.
-
 The playbook code in this section retrieves information about the scale set and changes its capacity from two to three.
 
-Save the following playbook as `vmss-scale-out.yml`:
+There are two ways to get the sample playbook:
+
+* [Download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) and save it to `vmss-scale-out.yml`.
+* Create a new file named `vmss-scale-out.yml` and copy into it the following contents:
 
 ```yml
 - hosts: localhost
