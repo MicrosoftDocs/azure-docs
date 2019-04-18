@@ -18,7 +18,7 @@ ms.custom: seodec2018
 By default, the contents of all top-level searchable fields are considered. If you want to specify particular fields instead, you can use the `searchFields` parameter. 
 
 > [!NOTE]
-> `moreLikeThis` preview does not work on searchable subfields in a [complex type](search-howto-complext-data-types.md).
+> `moreLikeThis` preview does not work on searchable subfields in a [complex type](search-howto-complex-data-types.md).
 
 ## Examples 
 
