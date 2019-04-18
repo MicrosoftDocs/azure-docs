@@ -182,7 +182,7 @@ so you can set up your SAP action.
       these properties, which usually appear optional, are required: 
 
       ![Create SAP message server connection](media/logic-apps-using-sap-connector/create-SAP-message-server-connection.png) 
-
+      
    2. When you're done, choose **Create**. 
    
       Logic Apps sets up and tests your connection, 
@@ -521,9 +521,41 @@ For other fields, follow the example below.
 2. After a successful run, go to the integration account, 
 and check that the generated schemas generated exist.
 
+## Enable Secure Network Communications (SNC)
+
+Before you start, ensure the following Prerequisites are taken care of:
+
+1. On-premise data gateway is installed on a machine that is in the same network as your SAP system
+
+2. For Single Sing-On, gateway is running as a user thats mapped to SAP user
+
+3. SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">Secude</a>, Kerberos, NTLM, etc
+
+To enable SNC for your requests to or from SAP system select the **Use SNC** checkbox in SAP connection and provide these properties:
+
+   ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sap-snc.png) 
+
+   | Property   |Description |
+   |------------|------------|
+   | **SNC Library** | SNC library name or path relative to NCo installation location or absolute path. As an example sapsnc.dll or .\security\sapsnc.dll or c:\security\sapsnc.dll  | 
+   | **SNC SSO** | When connecting via SNC, the SNC identity is typically used for authenticating the caller. Another option is to override so that user/password information can be used for authenticating the caller, but the line is still encrypted.|
+   | **SNC My Name** | In most cases this can be omitted. The installed SNC solution usually knows its own SNC name. Only for solutions supporting “multiple identities”, you may need to specify the identity to be used for this particular destination/server |
+   | **SNC Partner Name** | The backend’s SNC name |
+   | **SNC Quality of Protection** | Quality of Service to be used for SNC communication of this particular destination/server. Default value is defined by the back-end system. Maximum value is defined by the security product used for SNC |
+   |||
+
+   > [!NOTE]
+   > Environment variables SNC_LIB and SNC_LIB_64 should not be set on the machine where you have data gateway and SNC library. If set, they would take precedence over the 
+   > SNC Library value passed via connector.
+   >
+
 ## Known issues and limitations
 
 Here are the currently known issues and limitations for the SAP connector:
+
+* Only a single Send to SAP call or message works with tRFC. 
+The Business Application Programming Interface (BAPI) commit pattern, 
+such as making multiple tRFC calls in the same session, isn't supported.
 
 * The SAP trigger doesn't support receiving batch IDOCs from SAP. 
 This action might result in RFC connection failure between your SAP system and the data gateway.
@@ -533,23 +565,10 @@ In some failover cases, the data gateway node that communicates
 with the SAP system might differ from the active node, resulting 
 in unexpected behavior. For Send scenarios, data gateway clusters are supported.
 
-* In Receive scenarios, returning a non-null response isn't supported. 
-A logic app with a trigger and a response action results in unexpected behavior. 
-
-* Only a single Send to SAP call or message works with tRFC. 
-The Business Application Programming Interface (BAPI) commit pattern, 
-such as making multiple tRFC calls in the same session, isn't supported.
-
-* RFCs with attachments aren't supported for both the Send to SAP 
-and Generate schemas actions.
-
 * The SAP connector currently doesn't support SAP router strings. 
 The on-premises data gateway must exist on the same LAN as the SAP 
 system you want to connect.
 
-* The conversion for absent (null), empty, minimum, and maximum values 
-for DATS and TIMS SAP fields is subject to change in later updates for 
-the on-premises data gateway.
 
 ## Get support
 
