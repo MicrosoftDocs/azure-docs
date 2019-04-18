@@ -31,7 +31,7 @@ To use a Microsoft account as an identity provider in Azure AD B2C, you need to 
 1. Sign in to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) with your Microsoft account credentials.
 2. In the upper-right corner, select **Add an app**.
 3. Enter an **Application Name**, and then click **Create** 
-4. Select **Generate New Password** and make sure that you copy the password to use when you configure the identity provider. Also copy the **Application Id**. 
+4. Select **Generate New Password** and make sure that you copy the password to use when you configure the identity provider. Also copy the Application ID. 
 5. Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` in **Redirect URLs**. Replace `your-tenant-name` with the name of your tenant.
 6. Select **Save**.
 
@@ -40,7 +40,7 @@ To use a Microsoft account as an identity provider in Azure AD B2C, you need to 
 You need to store the password that you generated and previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 5. Select **Policy Keys** and then select **Add**.
@@ -84,7 +84,7 @@ You can define Azure AD as a claims provider by adding the **ClaimsProvider** el
           <OutputClaims>
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
@@ -137,13 +137,13 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with a Twitter account to receive a token.
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
+2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
     ```xml
     <ClaimsExchange Id="MicrosoftAccountExchange" TechnicalProfileReferenceId="MSA-OIDC" />
     ```
     
-    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `MSA-OIDC`.
+    Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `MSA-OIDC`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
@@ -152,7 +152,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application, for example *testapp1*.
