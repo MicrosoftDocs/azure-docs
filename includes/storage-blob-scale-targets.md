@@ -15,6 +15,3 @@ ms.author: tamram
 | Maximum size of an append blob | 50,000 x 4 MiB (approximately 195 GiB) |
 | Maximum size of a page blob | 8 TiB |
 | Maximum number of stored access policies per blob container | 5 |
-|Target throughput for single blob |Up to storage account ingress/egress limits<sup>1</sup> |
-
-<sup>1</sup> Single object throughput depends on several factors, including, but not limited to: concurrency, operation size, performance tier, speed of source for uploads, and destination for downloads.
