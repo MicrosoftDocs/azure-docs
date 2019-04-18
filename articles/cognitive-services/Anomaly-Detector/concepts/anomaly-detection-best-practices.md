@@ -30,11 +30,11 @@ The Anomaly Detector API's batch detection endpoint lets you detect anomalies th
 
 We don't recommend using batch anomaly detection for real-time data monitoring, or using it on time series data that doesn't have above characteristics. 
 
-1. Batch detection creates and applies only one model, the detection for each point is performed in the context of whole series.
+1. Batch detection creates and applies only one model, the detection for each point is done in the context of whole series.
 
-    If the time series trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not be counted as significant enough to be incorporated into the model.
+    If the time series data trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not be counted as significant enough to be incorporated into the model.
 
-2. Batch detection is slower than detecting the anomaly status of the latest point when performing real-time data monitoring, due to the number of points being analyzed. 
+2. Batch detection is slower than detecting the anomaly status of the latest point when doing real-time data monitoring, because of the number of points being analyzed. 
 
 For real-time data monitoring, we recommend detecting the anomaly status of your latest data point only. By continuously applying latest point detection, streaming data monitoring can be done more efficiently and accurately.
 
