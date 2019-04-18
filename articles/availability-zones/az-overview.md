@@ -32,7 +32,10 @@ To achieve comprehensive business continuity on Azure, build your application ar
  
 ![conceptual view of one zone going down in a region](./media/az-overview/az-graphic-two.png)
 
-## Regions and services
+## Services support by region
+
+The combinations of Azure services and regions that support Availability Zones are:
+
 
 |                                 |Americas |              |           |           | Europe |              |          |              | Asia Pacific |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
@@ -57,38 +60,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 | Integration                     |            |              |           |           |                |              |          |             |            |                |
 | Service Bus (Premium Tier Only) | &#10003;   |              | &#10003;  | &#10003;  | &#10003;       | &#10003;     |          | &#10003;    |            | &#10003;       |
 
-## Regions that support Availability Zones
 
-- Central US
-- East US
-- East US 2
-- France Central
-- North Europe
-- Southeast Asia 
-- UK South &#42;
-- West Europe
-- West US 2
-
-
-
-## Services that support Availability Zones
-The Azure services that support Availability Zones are:
-
-- Linux Virtual Machines
-- Windows Virtual Machines
-- Virtual Machine Scale Sets
-- Managed Disks
-- Standard Load Balancer &#42;
-- Standard public IP address &#42;
-- Zone-redundant storage
-- SQL Database
-- Event Hubs
-- Service Bus (Premium Tier Only)
-- VPN Gateway
-- ExpressRoute
-- Application Gateway (preview)
-
-&#42; Resources created in UK South before March 25, 2019 will soon be converted to be zone-redundant. Resources created after March 25, 2019 will be zone-redundant immediately.
 
 ## Services resiliency
 All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
