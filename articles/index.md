@@ -447,6 +447,12 @@ featureFlags:
                                                 <p>CycleCloud</p>
                                             </a>
                                         </li>
+<li>
+                                            <a href="/azure/vmware-cloudsimple/">
+                                                <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                <p>Azure VMware Solutions by CloudSimple</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Databases</h3>
                                     <ul>
@@ -2081,6 +2087,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>CycleCloud</h3>
                                                     <p>Create, manage, operate, and optimize HPC and big compute clusters of any scale</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+<li>
+                                <a href="/azure/vmware-cloudsimple/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cs_dedicatedcloudnode.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure VMware Solutions by CloudSimple</h3>
+                                                    <p>Run the VMware platform in Azure.</p>
                                                 </div>
                                             </div>
                                         </div>
