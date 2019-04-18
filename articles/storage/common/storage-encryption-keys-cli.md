@@ -11,7 +11,7 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Use customer-managed keys with Azure Storage encryption from Azure CLI
+# Configure customer-managed keys for Azure Storage encryption from Azure CLI
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
@@ -19,7 +19,7 @@ This article shows how to configure a key vault with customer-managed keys using
 
 ## Assign an identity to the storage account
 
-To enable custom key management for your storage account, first assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault.
+To enable customer-managed keys for your storage account, first assign a system-assigned managed identity to the storage account. You'll use this managed identity to grant the storage account permissions to access the key vault.
 
 To assign a managed identity using Azure CLI, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). Remember to replace the placeholder values in brackets with your own values.
 
@@ -76,7 +76,7 @@ az keyvault key create
 
 ## Configure encryption with customer-managed keys
 
-By default, Azure Storage encryption uses Microsoft-managed keys. Configure your Azure Storage account for custom key management and specify the key to associate with the storage account.
+By default, Azure Storage encryption uses Microsoft-managed keys. Configure your Azure Storage account for customer-managed keys and specify the key to associate with the storage account.
 
 To update the storage account's encryption settings, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). This example also queries for the key vault URI and key version, both of which values are needed to associate the key with the storage account. Remember to replace the placeholder values in brackets with your own values.
 

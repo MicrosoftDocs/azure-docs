@@ -39,7 +39,11 @@ Use Azure Key Vault to manage your keys and audit your key usage. You can either
 
 To revoke access to customer-managed keys, see [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) and [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Revoking access effectively blocks access to all data in the storage account, as the encryption key is inaccessible by Azure Storage.
 
-To learn how to use customer-managed keys with Azure Storage, see [Manage custom keys for Azure Storage encryption with Key Vault](storage-service-encryption-customer-managed-keys.md).
+To learn how to use customer-managed keys with Azure Storage, see one of these articles:
+
+- [Configure customer-managed keys for Azure Storage encryption from the Azure portal](storage-encryption-keys-portal.md)
+- [Configure customer-managed keys for Azure Storage encryption from PowerShell](storage-encryption-keys-powershell.md)
+- [Use customer-managed keys with Azure Storage encryption from Azure CLI](storage-encryption-keys-cli.md)
 
 > [!NOTE]  
 > Customer-managed keys are not supported for [Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md).
@@ -50,5 +54,4 @@ With Azure Storage encryption, all Azure Storage accounts and the resources they
 
 ## Next steps
 
-- [Manage custom keys for Azure Storage encryption with Key Vault](storage-service-encryption-customer-managed-keys.md)
 - [What is Azure Key Vault?](../../key-vault/key-vault-overview.md)
