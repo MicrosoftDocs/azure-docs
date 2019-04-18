@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-Azure provides the following built-in RBAC roles for access to storage data:
+Azure provides the following built-in RBAC roles for authorizing access to storage data using OAuth:
 
 - [Storage Blob Data Owner](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-owner): Use to set ownership and manage POSIX access control for Azure Data Lake Storage Gen2 (preview). For more information, see [Access control in Azure Data Lake Storage Gen2](../articles/storage/blobs/data-lake-storage-access-control.md).
 - [Storage Blob Data Contributor](../articles/role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Use to grant read/write/delete permissions to Blob storage resources.
@@ -19,6 +19,8 @@ Azure provides the following built-in RBAC roles for access to storage data:
 - [Storage Queue Data Reader](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-reader): Use to grant read-only permissions to Azure queues.
 - [Storage Queue Data Message Processor](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-processor): Use to grant peek, retrieve, and delete permissions to messages in Azure Storage queues.
 - [Storage Queue Data Message Sender](../articles/role-based-access-control/built-in-roles.md#storage-queue-data-message-sender): Use to grant add permissions to messages in Azure Storage queues.
+
+In addition, you can access data using Shared Key authorization if you have the Microsoft.Storage/storageAccounts/listkeys/action operation, for example with the Storage Account Contributor RBAC role.
 
 > [!IMPORTANT]
 > RBAC role assignments may take up to five minutes to propagate.
