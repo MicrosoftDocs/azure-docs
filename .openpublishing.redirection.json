@@ -2874,7 +2874,7 @@
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/azure-resource-manager/resource-manager-templates-parameters.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-authoring-templates#parameters",
@@ -4690,7 +4690,7 @@
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
     },
-    
+
     {
       "source_path": "articles/automation/automation-credentials.md",
       "redirect_url": "/azure/automation/shared-resources/credentials",
@@ -36818,6 +36818,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Home-v1.md",
       "redirect_url": "/azure/cognitive-services/computer-vision/home",
       "redirect_document_id": false
@@ -36968,6 +36973,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/virtual-machines/linux/prepay-rhel-software-charges.md",
+      "redirect_url": "/azure/virtual-machines/linux/prepay-suse-software-charges",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-quickstart-intent-and-hier-entity.md",
       "redirect_url": "/azure/cognitive-services/LUIS/tutorial-entity-roles",
       "redirect_document_id": true
@@ -36990,6 +37000,11 @@
     {
       "source_path": "articles/azure-app-configuration/howto-integrate-ci-cd-pipeline.md",
       "redirect_url": "/azure/azure-app-configuration/integrate-ci-cd-pipeline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-jre-support.md",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     }
   ]
