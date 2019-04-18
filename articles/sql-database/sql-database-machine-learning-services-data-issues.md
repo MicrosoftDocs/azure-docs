@@ -158,7 +158,7 @@ Under the covers, the column of three values is converted to a single-column mat
 However, note what happens when you change the size of the array `y`.
 
 ```sql
-execute sp_execute_external_script
+EXECUTE sp_execute_external_script
    @language = N'R'
    , @script = N'
         x <- as.matrix(InputDataSet);
