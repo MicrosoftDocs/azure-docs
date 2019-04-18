@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with Picturepark, perform the following ste
 7. On the **Set up Picturepark** section, copy the appropriate URL(s) as per your requirement. For **Login URL**, use the value with the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
-    > _my_directory_id_ is the tenant id of Azure Ad subscription.
+    > _my_directory_id_ is the tenant id of Azure AD subscription.
 
 	![Copy configuration URLs](./media/picturepark-tutorial/configurls.png)
 
