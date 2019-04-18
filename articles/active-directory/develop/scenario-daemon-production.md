@@ -34,6 +34,8 @@ You'll need to explain to your customers how to perform these operations. See [R
 
 ## Next steps
 
+[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
 Here are a few links to learn more:
 
 ### .NET
