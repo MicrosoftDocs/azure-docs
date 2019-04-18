@@ -1,6 +1,6 @@
 ---
-title: Web app calling Web APIs - scenario landing page | Azure
-description: Learn how to build a web app signing-in users and calling web apis on behalf of the signed-in user
+title: Web app that calls Web APIs - scenario landing page | Azure
+description: Learn how to build a web app signing-in users and that calls web apis on behalf of the signed-in user
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -21,9 +21,9 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Scenarios - Sign-in users to a Web App. Web App calling Web APIs on behalf of the signed-in user
+# Scenarios - Sign-in users to a Web App. Web App that calls Web APIs on behalf of the signed-in user
 
-Learn how to build a web app signing-in users on the Microsoft identity platform and calling Web APIs on behalf of the signed-in user.
+Learn how to build a web app signing-in users on the Microsoft identity platform and that calls Web APIs on behalf of the signed-in user.
 
 ## Scenario
 
@@ -31,9 +31,9 @@ Learn how to build a web app signing-in users on the Microsoft identity platform
 
 You add authentication to your Web App, which can therefore sign in users and calls a web API on behalf of the signed-in user.
 
-![Web app calling web apis](./media/scenario-webapp/web-app.svg)
+![Web app that calls web apis](./media/scenario-webapp/web-app.svg)
 
-Web Apps calling Web APIs:
+Web Apps that calls Web APIs:
 
 - are confidential client applications.
 - therefore they have registered a secret (application password or certificate) with Azure AD. This secret is passed-in during the call to Azure AD to get a token

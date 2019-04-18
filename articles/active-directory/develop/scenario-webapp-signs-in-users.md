@@ -62,10 +62,6 @@ See [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quicks
 
 See [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](./quickstart-v2-aspnet-webapp.md)
 
-# [REST](#tab/other)
-
-No quickstart uses the protocol directly. We advise that you use Microsoft authentication libraries.
-
 ___
 
 ### Register an app using Azure portal
@@ -105,9 +101,12 @@ The libraries used to protect a Web App (and a Web API) are:
   Platform | Library | Description
   ------------ | ---------- | ------------
 ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios)
-![Node.JS](media/sample-v2-code/logo_nodejs.png) | [Passport.Azure AD](https://github.com/AzureAD/passport-azure-ad) | @Brandon: how would we describe passport.node?
-![Python](media/sample-v2-code/logo_python.png) | ? | @Navya: Do we have a recommended Middleware for Python?
-![Java](media/sample-v2-code/logo_java.png) |  ??? | @Navya: Do we have a recommended Middleware for Java?
+
+<!-- 
+will not be ready for Build 
+![Node.JS](media/sample-v2-code/logo_nodejs.png) | [Passport.Azure AD](https://github.com/AzureAD/passport-azure-ad) | Azure Active Directory Authentication Strategies using Node and Passportjs
+
+-->
 
 ## Web Application code configuration
 
@@ -262,24 +261,6 @@ The code related to authentication is located in the `App_Start/Startup.Auth.cs`
     });
  }
 ```
-
-<!-- 
-# [Python](#tab/python)
-```Python
-{
-    "authority": "https://login.microsoftonline.com/organizations",
-    "client_id": "your_client_id",
-}
-
-# [Java](#tab/java)
-
-# [Node.JS](#tab/node.js)
--->
-
-# [REST](#tab/other)
-
-No application shows how to use the protocol directly
-
 ___
 
 ## Sign-out
@@ -389,11 +370,24 @@ public static IServiceCollection AddMsal(this IServiceCollection services, IEnum
 
 # [ASP.NET](#tab/aspnet)
 
-needs write-up
+In ASP.NET, signing out is triggered from the SignOut() method on a Controller (for instance AccountController). This method is not part of the ASP.NET framework (contrary to what happens in ASP.NET Core), and does not use async, and therefore it:
+- sends an OpenId sign-out challenge
+- clears the cache
+- redirects to the page it wants
 
-# [REST](#tab/other)
-
-The protocol documentation is available from [Open ID Connect](./v2-protocols-oidc.md).
+```CSharp
+/// <summary>
+/// Send an OpenID Connect sign-out request.
+/// </summary>
+public void SignOut()
+{
+ HttpContext.GetOwinContext()
+            .Authentication
+            .SignOut(CookieAuthenticationDefaults.AuthenticationType);
+ MsalAppBuilder.ClearUserTokenCache();
+ Response.Redirect("/");
+}
+```
 
 ___
 
@@ -401,9 +395,12 @@ ___
 
 Here are a few links to learn more:
 
+- The protocol documentation is available from [Open ID Connect](./v2-protocols-oidc.md).
+
 # [ASP.NET Core](#tab/aspnetcore)
 
 To learn more:
+
 
 - Try the quickstart: [Quickstart: Add sign-in with Microsoft to an ASP.NET Core web app](./quickstart-v2-aspnet-core-webapp.md)
 - Tutorial: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) is a progressive tutorial with production ready code for a Web app including how to add sign-in
@@ -419,13 +416,4 @@ Once your web app signs-in users, it can now call Web APIs on behalf of the sign
 - If you have not already, try the quickstart [Quickstart: Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)
 - Tutorial: [Add sign-in with Microsoft to an ASP.NET web app]tutorial-v2-asp-webapp)
 
-# [REST](#tab/other)
-
-The protocol documentation is available from [Open ID Connect](./v2-protocols-oidc.md).
-
-<!-- 
-# [Python](#tab/python)
--->
-
 ___
-
