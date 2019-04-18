@@ -79,7 +79,7 @@ The following are the property descriptions:
 | clusterEndpont | string | --- | URI:PORT to Management endpoint |
 | nodeTypeRef | string | --- | name of nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | --- | time allowed to pause immutable Azure Infrastructure |
-| enableParallelJobs | true or false | --- | Enable Compute ParallelJobs like remove VM and Reboto VM in the same scale set in parallel |
+| enableParallelJobs | true or false | --- | Enable Compute ParallelJobs like remove VM and reboot VM in the same scale set in parallel |
 | nicPrefixOverride | string | --- | Subnet Prefix like "10.0.0.0/24" |
 | commonNames | string[] | --- | Common Names of installed cluster certificates |
 | x509StoreName | string | --- | Name of Store where installed cluster certificate is located |
