@@ -87,7 +87,7 @@ This section describes which Data Lake Storage Gen1 platform capabilities that a
 
 ### Programming interfaces
 
-This table describes which API sets that are available for your custom applications. To make things a bit clearer, we've separated these API sets into 2 types: management APIs and fil system APIs.
+This table describes which API sets that are available for your custom applications. To make things a bit clearer, we've separated these API sets into 2 types: management APIs and file system APIs.
 
 Management APIs help you to manage accounts, while file system APIs help you to operate on the files and folders.
 
