@@ -17,9 +17,21 @@ ms.custom: seodec18
 
 ## Speech SDK 1.5.0: 2019-May release
 
+**New features**
+
+<!-- TODO -->
+
+**Samples**
+
+<!-- TODO -->
+
 **Improvements / Changes**
 
 * Objective-C: OutputFormat property was added to SPXSpeechConfiguration.
+
+**Bug fixes**
+
+<!-- TODO -->
 
 ## Speech SDK 1.4.1
 
