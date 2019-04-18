@@ -42,7 +42,7 @@ the Azure backbone network instead of through the public management URLs.
 
 ## Export **HTTPS_PROXY** before running the CycleCloud CLI installer
 
-The [CycleCloud CLI installer](#install-cyclecloud-cli.md) requires outbound
+The [CycleCloud CLI installer](../install-cyclecloud-cli.md) requires outbound
 access to install packages via `pip`. Prior to running the install script,
 be sure to set the **HTTPS_PROXY** environment variable to point to your
 proxy server and port:
