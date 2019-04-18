@@ -186,9 +186,10 @@ These modules are available from the Ansible official release and from the follo
 
 ## Introduction to playbook role for Azure
 
-The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) is the most complete role and includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the azure_preview_module playbook role.
+The [azure_preview_module playbook role](https://galaxy.ansible.com/Azure/azure_preview_modules/) includes all the latest Azure modules. The updates and bug fixes are done in a more timely manner than the official Ansible release. If you use Ansible for Azure resource provisioning purposes, you're encouraged to install the `azure_preview_module` playbook role.
 
-The azure_preview_module playbook role is released every three weeks.
+The `azure_preview_module` playbook role is released every three weeks.
 
 ## Next steps
-More information related to playbook roles, refer to [Creating Reusable Playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+
+For more information about playbook roles, see [Creating reusable playbooks](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
