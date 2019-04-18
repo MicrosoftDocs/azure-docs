@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 #Customer intent: As a developer, I want to understand synonym implementation, benefits, and tradeoffs.
@@ -24,7 +24,7 @@ In Azure Search, synonyms are defined in a *synonym map*, through *mapping rules
 You can create multiple synonym maps, post them as a service-wide resource available to any index, and then reference which one to use at the field level. At query time, in addition to searching an index, Azure Search does a lookup in a synonym map, if one is specified on fields used in the query.
 
 > [!NOTE]
-> Synonyms are supported in the latest API and SDK versions (api-version=2017-11-11, SDK version 5.0.0). There is no Azure portal support at this time. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> Synonyms are supported in the latest API and SDK versions (api-version=2019-05-06, SDK version 5.0.0). There is no Azure portal support at this time. If Azure portal support for synonyms would be useful to you, please provide your feedback on the [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
 
 ## Prerequisites
 

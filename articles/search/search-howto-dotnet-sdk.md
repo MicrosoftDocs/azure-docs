@@ -32,7 +32,7 @@ The various client libraries define classes like `Index`, `Field`, and `Document
 
 The current version of the Azure Search .NET SDK is now generally available. If you would like to provide feedback for us to incorporate in the next version, please visit our [feedback page](https://feedback.azure.com/forums/263029-azure-search/).
 
-The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. Preview features that are *not* part of this version, such as support for indexing JSON arrays and CSV files, are in [preview](search-api-2016-09-01-preview.md) and available via [4.0-preview version of the .NET SDK](https://aka.ms/search-sdk-preview).
+The .NET SDK supports version `2017-11-11` of the [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/). This version now includes support for synonyms, as well as incremental improvements to indexers. Preview features that are *not* part of this version, such as support for indexing CSV files, are in [preview](search-api-2016-09-01-preview.md) and available via [4.0-preview version of the .NET SDK](https://aka.ms/search-sdk-preview).
 
 This SDK does not support [Management Operations](https://docs.microsoft.com/rest/api/searchmanagement/) such as creating and scaling Search services and managing API keys. If you need to manage your Search resources from a .NET application, you can use the [Azure Search .NET Management SDK](https://aka.ms/search-mgmt-sdk).
 

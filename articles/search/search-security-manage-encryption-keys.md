@@ -7,7 +7,7 @@ ms.author: natinimn
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/02/2019
 ms.custom: 
 ---
 # Azure Search encryption using customer-managed keys in Azure Key Vault
@@ -22,7 +22,7 @@ Encryption with customer-managed keys is configured at the index or synonym map 
 You can use different keys from different Key vaults. This means a single search service can host multiple encrypted indexes\synonym maps, each encrypted potentially using a different customer-managed key, alongside indexes\synonym maps that are not encrypted using customer-managed keys. 
 
 >[!Note]
-> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2017-11-11-preview). There is no Azure portal support at this time.
+> **Feature availability**: Encryption with customer-managed keys is a preview feature that is not available for free services. For paid services, it is only available for search services created on or after 2019-01-01, using the latest preview api-version (api-version=2019-05-06-Preview). There is no Azure portal support at this time.
 
 ## Prerequisites
 

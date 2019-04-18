@@ -2,7 +2,7 @@
 title: Index blobs containing multiple search index documents from Azure Blob indexer for full text search - Azure Search
 description: Crawl Azure blobs for text content using the Azure Search Blob indexer. Each blob might contain one or more Azure Search index documents.
 
-ms.date: 02/12/2019
+ms.date: 05/02/2019
 author: arv100kri
 manager: briansmi
 ms.author: arjagann
@@ -19,9 +19,6 @@ By default, a blob indexer will treat the contents of a blob as a single search 
 + `delimitedText`
 + `jsonArray`
 + `jsonLines`
-
-> [!IMPORTANT]
-> `jsonLines` parsing mode is in public preview and should not be used in production environments. For more information, see [REST api-version=2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 ## One-to-many document key
 Each document that shows up in an Azure Search index is uniquely identified by a document key. 

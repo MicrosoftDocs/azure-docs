@@ -8,7 +8,7 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2019
+ms.date: 05/02/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -108,7 +108,7 @@ Blobs containing your search service traffic logs are structured as described in
 | time |datetime |"2018-12-07T00:00:43.6872559Z" |Timestamp of the operation |
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |Your ResourceId |
 | operationName |string |"Query.Search" |The name of the operation |
-| operationVersion |string |"2017-11-11" |The api-version used |
+| operationVersion |string |"2019-05-06" |The api-version used |
 | category |string |"OperationLogs" |constant |
 | resultType |string |"Success" |Possible values: Success or Failure |
 | resultSignature |int |200 |HTTP result code |
@@ -120,7 +120,7 @@ Blobs containing your search service traffic logs are structured as described in
 | Name | Type | Example | Notes |
 | --- | --- | --- | --- |
 | Description |string |"GET /indexes('content')/docs" |The operation's endpoint |
-| Query |string |"?search=AzureSearch&$count=true&api-version=2017-11-11" |The query parameters |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |The query parameters |
 | Documents |int |42 |Number of documents processed |
 | IndexName |string |"testindex" |Name of the index associated with the operation |
 

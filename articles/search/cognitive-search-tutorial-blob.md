@@ -7,13 +7,13 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
-# REST Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline (Preview)
+# REST Tutorial: Call Cognitive Services APIs in an Azure Search indexing pipeline
 
 In this tutorial, you learn the mechanics of programming data enrichment in Azure Search using *cognitive skills*. Skills are backed by natural language processing (NLP) and image analysis capabilities in Cognitive Services. Through skillset composition and configuration, you can extract text and text representations of an image or scanned document file. You can also detect language, entities, key phrases, and more. The end result is rich additional content in an Azure Search index, created by an AI-powered indexing pipeline. 
 
@@ -33,8 +33,7 @@ This tutorial runs on the Free service, but the number of free transactions is l
 > [!NOTE]
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
-> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/)
-. Image extraction pricing is charged at preview pricing, as described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -103,7 +102,7 @@ In the request header, provide the service name you used while creating the Azur
 
 ### Sample Request
 ```http
-POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
+POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
 Content-Type: application/json
 api-key: [admin key]
 ```
@@ -126,7 +125,7 @@ Since this is your first request, check the Azure portal to confirm the data sou
 
   ![Data sources tile in the portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Data sources tile in the portal")
 
-If you got a 403 or 404 error, check the request construction: `api-version=2017-11-11-Preview` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
+If you got a 403 or 404 error, check the request construction: `api-version=2019-05-06` should be on the endpoint, `api-key` should be in the Header after `Content-Type`, and its value must be valid for a search service. You can reuse the header for the remaining steps in this tutorial.
 
 ## Create a skillset
 
@@ -146,7 +145,7 @@ Before you make this REST call, remember to replace the service name and the adm
 This request creates a skillset. Reference the skillset name ```demoskillset``` for the rest of this tutorial.
 
 ```http
-PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [admin key]
 Content-Type: application/json
 ```
@@ -262,7 +261,7 @@ Before you make this REST call, remember to replace the service name and the adm
 This request creates an index. Use the index name ```demoindex``` for the rest of this tutorial.
 
 ```http
-PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -335,7 +334,7 @@ Before you make this REST call, remember to replace the service name and the adm
 Also, provide the name of your indexer. You can reference it as ```demoindexer``` for the rest of this tutorial.
 
 ```http
-PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2017-11-11-Preview
+PUT https://[servicename].search.windows.net/indexers/demoindexer?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -407,7 +406,7 @@ When content is extracted, you can set ```imageAction``` to extract text from im
 Once the indexer is defined, it runs automatically when you submit the request. Depending on which cognitive skills you defined, indexing can take longer than you expect. To find out whether the indexer is still running, send the following request to check the indexer status.
 
 ```http
-GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexers/demoindexer/status?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -423,7 +422,7 @@ After indexing is finished, run queries that return the contents of individual f
 As a verification step, query the index for all of the fields.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -433,7 +432,7 @@ The output is the index schema, with the name, type, and attributes of each fiel
 Submit a second query for `"*"` to return all contents of a single field, such as `organizations`.
 
 ```http
-GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2017-11-11-Preview
+GET https://[servicename].search.windows.net/indexes/demoindex/docs?search=*&$select=organizations&api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```
@@ -525,7 +524,7 @@ To reindex your documents with the new definitions:
 You can use the portal to delete indexes, indexers, and Skillsets.
 
 ```http
-DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2017-11-11-Preview
+DELETE https://[servicename].search.windows.net/skillsets/demoskillset?api-version=2019-05-06
 api-key: [api-key]
 Content-Type: application/json
 ```

@@ -205,6 +205,8 @@
       href: search-query-simple-examples.md
     - name: Examples (full Lucene)
       href: search-query-lucene-examples.md
+    - name: moreLikeThis (preview)
+      href: search-more-like-this.md
   - name: Filter and sort data
     items:
     - name: Filter overview
@@ -274,13 +276,13 @@
       href: cognitive-search-skill-sentiment.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
-    - name: Ocr
+    - name: OCR
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
     - name: Deprecated Skills
       href: cognitive-search-skill-deprecated.md
-  - name: Custom skills (Preview)
+  - name: Custom skills
     items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md

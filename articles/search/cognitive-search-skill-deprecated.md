@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -27,7 +27,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 
 ### Last available api version
 
-2017-11-11-preview
+2019-05-06-Preview
 
 ### End of support
 

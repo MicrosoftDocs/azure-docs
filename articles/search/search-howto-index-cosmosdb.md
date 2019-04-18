@@ -2,7 +2,7 @@
 title: Index an Azure Cosmos DB data source - Azure Search 
 description: Crawl an Azure Cosmos DB data source and ingest data in a full text searchable index in Azure Search. Indexers automate data ingestion for selected data sources like Azure Cosmos DB.
 
-ms.date: 02/28/2019
+ms.date: 05/02/2019
 author: mgottein 
 manager: cgronlun
 ms.author: magottei
@@ -146,7 +146,7 @@ A **data source** specifies the data to index, credentials, and policies for ide
 
 To create a data source, formulate a POST request:
 
-    POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+    POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -215,7 +215,7 @@ Array flattening query:
 
 [Create a target Azure Search index](/rest/api/searchservice/create-index) if you don’t have one already. The following example creates an index with an ID and description field:
 
-    POST https://[service name].search.windows.net/indexes?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexes?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
@@ -259,7 +259,7 @@ Ensure that the schema of your target index is compatible with the schema of the
 
 Once the index and data source have been created, you're ready to create the indexer:
 
-    POST https://[service name].search.windows.net/indexers?api-version=2017-11-11
+    POST https://[service name].search.windows.net/indexers?api-version=2019-05-06
     Content-Type: application/json
     api-key: [admin key]
 
@@ -330,7 +330,7 @@ If you are using a custom query, make sure that the property referenced by `soft
 
 The following example creates a data source with a soft-deletion policy:
 
-	POST https://[service name].search.windows.net/datasources?api-version=2017-11-11
+	POST https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json
     api-key: [Search service admin key]
 
