@@ -34,7 +34,17 @@ Note that there are frequent updates to these images, so check Marketplace Manag
 
 Wherever possible, download the images available through Marketplace Management which have been prepared and tested for Azure Stack.
 
-The Azure Linux Agent (typically called `WALinuxAgent` or `walinuxagent`) is required, and not all versions of the agent will work on Azure Stack. You should use the latest version of WALA or version 2.2.20 if you create your own image. Note that versions between 2.2.20 and 2.2.35.1 (exclusive) do not work on Azure Stack. To use agent versions between 2.2.20 and 2.2.35.1, please apply the 1901 hotfix/1902 hotfix or update your Azure Stack to the 1903 release (or above). Note that [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
+### Azure Linux Agent
+The Azure Linux Agent (typically called `WALinuxAgent` or `walinuxagent`) is required, and not all versions of the agent will work on Azure Stack. Versions between 2.2.20 and 2.2.35 are not supported on Azure Stack. To use the latest agent versions above 2.2.35, please apply the 1901 hotfix/1902 hotfix or update your Azure Stack to the 1903 release (or above). Note that [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
+
+| Azure Stack build | Azure Linux Agent build |
+| ------------- | ------------- |
+| 1.1901.0.99 or earlier | 2.2.20 |
+| 1.1902.0.69  | 2.2.20  |
+|  1.1901.3.105   | 2.2.35 or newer |
+| 1.1902.2.73  | 2.2.35 or newer |
+| 1.1903.0.35  | 2.2.35 or newer |
+| Not Supported | 2.2.21-2.2.34 |
 
 You can prepare your own Linux image using the following instructions:
 

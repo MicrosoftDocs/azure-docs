@@ -268,7 +268,7 @@ The VM takes a few minutes to create. After creation, take note of the **publicI
 
 ## Confirm access to storage account
 
-SSH into the *myVmPrivate* VM. Replace *<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
+SSH into the *myVmPrivate* VM. Replace *\<publicIpAddress>* with the public IP address of your *myVmPrivate* VM.
 
 ```bash 
 ssh <publicIpAddress>

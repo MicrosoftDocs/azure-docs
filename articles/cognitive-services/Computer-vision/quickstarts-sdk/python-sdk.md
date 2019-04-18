@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/28/2019
+ms.date: 04/10/2019
 ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python
@@ -42,7 +42,7 @@ Create a free key valid for 7 days with the **[Try It][computervision_resource]*
 Keep the following after the key is created:
 
 * Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Key endpoint: the base endpoint URL, https://westcentralus.api.cognitive.microsoft.com
+* Key endpoint: the base endpoint URL, https\://westcentralus.api.cognitive.microsoft.com
 
 ### If you have an Azure Subscription
 
@@ -211,12 +211,13 @@ for caption in analysis.captions:
 
 ### Get text from image
 
-You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`recognize_text`][ref_computervisionclient_recognize_text] and [`get_text_operation_result`][ref_computervisionclient_get_text_operation_result]. The call to recognize_text is asynchronous. In the results of the get_text_operation_result call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text.
+You can get any handwritten or printed text from an image. This requires two calls to the SDK: [`batch_read_file`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#batch-read-file-url--mode--custom-headers-none--raw-false----operation-config-) and [`get_read_operation_result`](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python#get-read-operation-result-operation-id--custom-headers-none--raw-false----operation-config-). The call to `batch_read_file` is asynchronous. In the results of the `get_read_operation_result` call, you need to check if the first call completed with [`TextOperationStatusCodes`][ref_computervision_model_textoperationstatuscodes] before extracting the text data. The results include the text as well as the bounding box coordinates for the text.
 
 ```Python
 # import models
 from azure.cognitiveservices.vision.computervision.models import TextRecognitionMode
 from azure.cognitiveservices.vision.computervision.models import TextOperationStatusCodes
+import time
 
 url = "https://azurecomcdn.azureedge.net/cvt-1979217d3d0d31c5c87cbd991bccfee2d184b55eeb4081200012bdaf6a65601a/images/shared/cognitive-services-demos/read-text/read-1-thumbnail.png"
 mode = TextRecognitionMode.handwritten
@@ -225,7 +226,7 @@ custom_headers = None
 numberOfCharsInOperationId = 36
 
 # Async SDK call
-rawHttpResponse = client.recognize_text(url, mode, custom_headers,  raw)
+rawHttpResponse = client.batch_read_file(url, mode, custom_headers,  raw)
 
 # Get ID from returned headers
 operationLocation = rawHttpResponse.headers["Operation-Location"]
@@ -234,16 +235,17 @@ operationId = operationLocation[idLocation:]
 
 # SDK call
 while True:
-    result = client.get_text_operation_result(operationId)
+    result = client.get_read_operation_result(operationId)
     if result.status not in ['NotStarted', 'Running']:
         break
     time.sleep(1)
 
 # Get data
 if result.status == TextOperationStatusCodes.succeeded:
-    for line in result.recognition_result.lines:
-        print(line.text)
-        print(line.bounding_box)
+    for textResult in result.recognition_results:
+        for line in textResult.lines:
+            print(line.text)
+            print(line.bounding_box)
 ```
 
 ### Generate thumbnail
@@ -309,12 +311,6 @@ except HTTPFailure as e:
 
 While working with the [ComputerVisionClient][ref_computervisionclient] client, you might encounter transient failures caused by [rate limits][computervision_request_units] enforced by the service, or other transient problems like network outages. For information about handling these types of failures, see [Retry pattern][azure_pattern_retry] in the Cloud Design Patterns guide, and the related [Circuit Breaker pattern][azure_pattern_circuit_breaker].
 
-### More sample code
-
-Several Computer Vision Python SDK samples are available to you in the SDK's GitHub repository. These samples provide example code for additional scenarios commonly encountered while working with Computer Vision:
-
-* [recognize_text][recognize-text]
-
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -324,7 +320,7 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 [pip]: https://pypi.org/project/pip/
 [python]: https://www.python.org/downloads/
 
-[azure_cli]: https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
+[azure_cli]: https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create
 [azure_pattern_circuit_breaker]: https://docs.microsoft.com/azure/architecture/patterns/circuit-breaker
 [azure_pattern_retry]: https://docs.microsoft.com/azure/architecture/patterns/retry
 [azure_portal]: https://portal.azure.com
@@ -345,7 +341,7 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 [ref_httpfailure]: https://docs.microsoft.com/python/api/msrest/msrest.exceptions.httpoperationerror?view=azure-python
 
 
-[computervision_resource]: https://azure.microsoft.com/en-us/try/cognitive-services/?
+[computervision_resource]: https://azure.microsoft.com/try/cognitive-services/?
 
 [computervision_docs]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/home
 
@@ -359,8 +355,6 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 
 [ref_computervisionclient_describe_image]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
-[ref_computervisionclient_recognize_text]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
-
 [ref_computervisionclient_get_text_operation_result]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
 
 [ref_computervisionclient_generate_thumbnail]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.computervisionclient?view=azure-python
@@ -371,6 +365,3 @@ Several Computer Vision Python SDK samples are available to you in the SDK's Git
 [ref_computervision_model_textoperationstatuscodes]:https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision.models.textoperationstatuscodes?view=azure-python
 
 [computervision_request_units]:https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/
-
-[recognize-text]:https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/vision/computer_vision_samples.py
-

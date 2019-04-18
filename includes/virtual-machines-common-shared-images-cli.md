@@ -5,7 +5,7 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 03/27/2019
+ ms.date: 04/18/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
@@ -52,12 +52,12 @@ az sig image-definition create \
 
 ## Create an image version 
 
-
 Create versions of the image as needed using [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create). You will need to pass in the ID of the managed image to use as a baseline for creating the image version. You can use [az image list](/cli/azure/image?view#az-image-list) to get information about images that are in a resource group. 
 
 Allowed characters for image version are numbers and periods. Numbers must be within the range of a 32-bit integer. Format: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In this example, the version of our image is *1.0.0* and we are going to create 5 total replicas in the *West Central US*, *South Central US*, and East US 2* regions. When choosing target regions for replication, remember that you also have to include the *source* region as a target for replication.
+In this example, the version of our image is *1.0.0* and we are going to create 2 replicas in the *West Central US* region, 1 replica in the *South Central US* region and 1 replica in the *East US 2* region.
+
 
 ```azurecli-interactive 
 az sig image-version create \
@@ -66,7 +66,7 @@ az sig image-version create \
    --gallery-image-definition myImageDefinition \
    --gallery-image-version 1.0.0 \
    --target-regions "WestCentralUS" "SouthCentralUS=1" "EastUS2=1" \
-   --replica-count 5 \
+   --replica-count 2 \
    --managed-image "/subscriptions/<subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myImage"
 ```
 

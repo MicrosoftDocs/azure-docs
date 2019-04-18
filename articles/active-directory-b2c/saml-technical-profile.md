@@ -77,21 +77,6 @@ The following example shows the Azure AD B2C technical profile encryption sectio
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## Identity provider initiated flow
-
-In a single sign-on session (unsolicited request) initiated by the IDP, an unsolicited SAML response is sent to the service provider, in this case, an Azure AD B2C technical profile. In this flow, the user does not go through the web application first, but is directed to the identity provider. When the request is sent, an authentication page is provided to the user by the identity provider. The user completes the sign-in and then the request is redirected to Azure AD B2C with a SAML response that contains the assertions. Azure AD B2C reads the assertions and issues a new SAML token and then redirects the user back to the relying party application. The redirections are done by the **AssertionConsumerService** element's **Location** property.
-
-
-![SAML IDP initiated](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Consider the following policy requirements when creating an identity provider initiated flow:
-
-- The first orchestration step needs to be a single claims exchange that points to a SAML technical profile.
-- The technical profile needs to have a metadata item named **IdpInitiatedProfileEnabled** set to `true`.
-- The relying party policy needs to be a SAML relying party.
-- The relying party policy needs to have a metadata item named **IdpInitiatedProfileEnabled** set to `true`.
-- The unsolicited response needs to be sent to the `/your-tenant/your-policy/samlp/sso/assertionconsumer` endpoint. Any relay state included with the response is forwarded onto the relying party. Replace the following values: **your-tenant** with your tenant name. **your-policy** with your relying party policy name.
     
 ## Protocol
 

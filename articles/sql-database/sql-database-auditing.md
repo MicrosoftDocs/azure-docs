@@ -11,7 +11,7 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
+ms.date: 04/16/2019
 ---
 # Get started with SQL database auditing
 
@@ -19,7 +19,7 @@ Auditing for Azure [SQL Database](sql-database-technical-overview.md)  and [SQL 
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
-- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+- Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 
 > [!NOTE] 
@@ -83,6 +83,9 @@ The following section describes the configuration of auditing using the Azure po
     ![Navigation pane][3]
 
 5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Azure Monitor logs, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+
+   > [!WARNING]
+   > Enabling auditing to Log Analytics will incur cost based on ingestion rates. Please be aware of the associated cost with using this [option](https://azure.microsoft.com/en-us/pricing/details/monitor/), or consider storing the audit logs in an Azure storage account.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
