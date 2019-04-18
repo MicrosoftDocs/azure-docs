@@ -170,16 +170,16 @@ To configure Azure AD single sign-on with SAP Business ByDesign, perform the fol
 
 9. Specify whether the employee can manually choose between logging on with user ID and password or SSO by selecting **Manual Identity Provider Selection**.
 
-10. In the **SSO URL** section, specify the URL that should be used by the employee to logon to the system.
+10. In the **SSO URL** section, specify the URL that should be used by the employee to signon to the system.
     In the URL Sent to Employee dropdown list, you can choose between the following options:
 
     **Non-SSO URL**
 
-    The system sends only the normal system URL to the employee. The employee cannot log on using SSO, and must use password or certificate instead.
+    The system sends only the normal system URL to the employee. The employee cannot signon using SSO, and must use password or certificate instead.
 
     **SSO URL**
 
-    The system sends only the SSO URL to the employee. The employee can log on using SSO. Authentication request is redirected through the IdP.
+    The system sends only the SSO URL to the employee. The employee can signon using SSO. Authentication request is redirected through the IdP.
 
     **Automatic Selection**
 
