@@ -2,7 +2,7 @@
 title: Retirement of Security Center features (July 2019) | Microsoft Docs
 description: This article details features in Security Center that will be retired on July 31st, 2019.
 services: security-center
-author: yoafr
+author: yoavfrancis
 
 ms.service: security-center
 ms.devlang: na
