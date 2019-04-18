@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -45,6 +45,10 @@ Yes, Pass-through Authentication supports `Alternate ID` as the username when co
 ## Does password hash synchronization act as a fallback to Pass-through Authentication?
 
 No. Pass-through Authentication _does not_ automatically failover to password hash synchronization. To avoid user sign-in failures, you should configure Pass-through Authentication for [high availability](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## What happens when I switch from password hash synchronization to Pass-through Authentication?
+
+When you use Azure AD Connect to switch the sign-in method from password hash synchronization to Pass-through Authentication, Pass-through Authentication becomes the primary sign-in method for your users in managed domains. Please note that all users' password hashes which were previously synchronized by password hash synchronization remain stored on Azure AD.
 
 ## Can I install an [Azure AD Application Proxy](../manage-apps/application-proxy.md) connector on the same server as a Pass-through Authentication Agent?
 
