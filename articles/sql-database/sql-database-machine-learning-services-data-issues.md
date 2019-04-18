@@ -58,7 +58,7 @@ EXECUTE sp_execute_external_script
 EXECUTE sp_execute_external_script
         @language = N'R'
       , @script = N' OutputDataSet<- data.frame(c("hello"), " ", c("world"));'
-      , @input_data_1 = N'  ';
+      , @input_data_1 = N'';
 ```
 
 Why are the results so different?
