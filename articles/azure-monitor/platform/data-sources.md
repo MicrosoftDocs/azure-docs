@@ -17,13 +17,13 @@ ms.author: bwren
 ---
 
 # Sources of monitoring data for Azure Monitor
-Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes [Logs](data-platform-logs.md) and [Metrics](data-platform-metrics.md). Collecting data into a common platform allows data from multiple resources to be analyzed together using a common set of tools. There are also other locations where monitoring data may be sent to support other scenarios, and some resources may write to other locations before they can be collected into Metrics and Logs.
+Azure Monitor is based on a [common monitoring data platform](data-platform.md) that includes [Logs](data-platform-logs.md) and [Metrics](data-platform-metrics.md). Collecting data into this platform allows data from multiple resources to be analyzed together using a common set of tools in Azure Monitor. There are also other locations where monitoring data may be sent to support other scenarios, and some resources may write to other locations before they can be collected into Metrics and Logs.
 
-This article describes the different sources of monitoring data used by Azure Monitor and how it can be collected. Links are provided to detailed information on configuring and accessing this data.
+This article describes the monitoring data created by Azure resources and the different sources of monitoring data collected by Azure Monitor. Links are provided to detailed information on configuration required to collect this data to different locations.
 
 ## Application tiers
 
-Monitoring data in Azure comes from a variety of sources that can be organized into tiers, the highest tiers being your application and any operating systems and the lower tiers being components of Azure platform. The method of accessing data from each tier varies as described in the sections below.
+Monitoring data from Azure applications can be organized into tiers, the highest tiers being your application itself and the lower tiers being components of Azure platform. The method of accessing data from each tier varies. The application tiers are summarized in the table below, and the sources of monitoring data in each tier are presented in the following sections.
 
 
 ![Monitoring tiers](../media/overview/overview.png)
@@ -44,7 +44,7 @@ The application tiers in the following table may be in Azure, another cloud, or 
 | Tier | Description | Collection method |
 |:---|:---|:---|
 | [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | To collect this type of data, you need to install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent. |
-| [Application](#application) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |}
+| [Application](#application) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |
 
 ## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
@@ -57,8 +57,8 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 | Destination | Description |
 |:---|:---|
 | Azure Monitor Logs | See [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) for details on configuring them to be collected in Azure Monitor. |
-| Storage || 
-| Event Hub | |
+| Azure Storage | Export [Azure AD logs to Azure Storage](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) for archiving. | 
+| Event Hub | Stream Azure AD logs to other locations using [Event Hubs](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
