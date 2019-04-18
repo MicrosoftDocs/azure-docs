@@ -16,10 +16,12 @@ ms.author: iainfou
 
 To protect your clusters, security updates are automatically applied to nodes in AKS. These updates include OS security fixes or kernel updates. Some of these updates require a node reboot to complete the process. AKS doesn't automatically reboot nodes to complete the update process.
 
+The process of applying security and kernel updates to nodes in AKS is only applicable to Linux node pools. Windows node pools need to be upgraded to get the latest base image.
+
 This article shows you how to use the open-source [kured (KUbernetes REboot Daemon)][kured] to watch for nodes that require a reboot, then automatically handle the rescheduling of running pods and node reboot process.
 
 > [!NOTE]
-> `Kured` is an open-source project by Weaveworks. Support for this project in AKS is provided on a best-effort basis. Additional support can be found in the #weave-community slack channel,
+> `Kured` is an open-source project by Weaveworks. Support for this project in AKS is provided on a best-effort basis. Additional support can be found in the #weave-community slack channel.
 
 ## Before you begin
 

@@ -122,6 +122,8 @@ For more information about using pod disruption budgets, see [Specify a disrupti
 
 The [kube-advisor][kube-advisor] tool is an associated AKS open source project that scans a Kubernetes cluster and reports on issues that it finds. One useful check is to identify pods that don't have resource requests and limits in place.
 
+The kube-advisor tool can report on resource request and limits missing in PodSpecs for Windows applications as well as Linux applications, but the kube-advisor tool itself must be scheduled on a Linux pod. You can schedule a pod to run on a node pool with a specific OS using a [node selector][k8s-node-selector] in the pod's configuration.
+
 In an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
 
 ## Next steps
@@ -137,6 +139,7 @@ This article focused on basic Kubernetes scheduler features. For more informatio
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
 [kube-advisor]: https://github.com/Azure/kube-advisor
 [k8s-pdbs]: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+[k8s-node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
 
 <!-- INTERNAL LINKS -->
 [resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits

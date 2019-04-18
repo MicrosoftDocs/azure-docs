@@ -14,7 +14,7 @@ ms.author: iainfou
 
 When you run modern, microservices-based applications in Kubernetes, you often want to control which components can communicate with each other. The principle of least privilege should be applied to how traffic can flow between pods in an Azure Kubernetes Service (AKS) cluster. Let's say you likely want to block traffic directly to back-end applications. The *Network Policy* feature in Kubernetes lets you define rules for ingress and egress traffic between pods in a cluster.
 
-This article shows you how to install the network policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS. This feature is currently in preview.
+This article shows you how to install the network policy engine and create Kubernetes network policies to control the flow of traffic between pods in AKS. This feature is currently in preview on Linux-based nodes only.
 
 > [!IMPORTANT]
 > AKS preview features are self-service and opt-in. Previews are provided to gather feedback and bugs from our community. However, they are not supported by Azure technical support. If you create a cluster, or add these features to existing clusters, that cluster is unsupported until the feature is no longer in preview and graduates to general availability (GA).
