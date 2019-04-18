@@ -114,18 +114,16 @@ To configure Azure AD single sign-on with Icertis Contract Management Platform, 
 
 	![The Certificate download link](common/metadataxml.png)
 
-6. On the **Set up Icertis Contract Management Platform** section, copy the appropriate URL(s) as per your requirement. For **Single Sign-On Service URL**, use a value of the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
+6. On the **Set up Icertis Contract Management Platform** section, copy the appropriate URL(s) as per your requirement. For **Login URL**, use the value with the following pattern: `https://login.microsoftonline.com/_my_directory_id_/wsfed`
 
     > [!Note]
-    > _my_directory_id_ is the tenant id of Azure Ad subscription.
+    > _my_directory_id_ is the tenant id of Azure AD subscription.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](media/icertisicm-tutorial/configurls.png)
 
-	a. Login URL
+	a. Azure AD Identifier
 
-	b. Azure AD Identifier
-
-	c. Logout URL
+	b. Logout URL
 
 ### Configure Icertis Contract Management Platform Single Sign-On
 
