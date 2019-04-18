@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 04/09/2019
+ms.date: 04/22/2019
 ms.author: iainfou
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
@@ -100,6 +100,9 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ## Create outbound gateway for firewall rules
 
 To ensure that the nodes in a cluster can reliably communicate with the API server when you enable IP whitelisting in the next section, create an Azure firewall for use as the outbound gateway. The IP address of the Azure firewall is then added to the list of authorized API server IP addresses in the next section.
+
+> [!WARNING]
+> The use of Azure Firewall can incur significant costs over a monthly billing cycle. The requirement to use Azure Firewall should only be necessary in this initial preview period. For more information and cost planning, see [Azure Firewall pricing][azure-firewall-costs].
 
 First, get the *MC_* resource group name for the AKS cluster and the virtual network. Then, create a subnet using the [az network vnet subnet create][az-network-vnet-subnet-create] command. The following example creates a subnet named *AzureFirewallSubnet* with the CIDR range of *10.200.0.0/16*:
 
@@ -238,6 +241,7 @@ For more information, see [Security concepts for applications and clusters in AK
 
 <!-- LINKS - external -->
 [aks-github]: https://github.com/azure/aks/issues]
+[azure-firewall-costs]: https://azure.microsoft.com/pricing/details/azure-firewall/
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
