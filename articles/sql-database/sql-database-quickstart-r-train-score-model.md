@@ -131,7 +131,7 @@ For example, suppose you want to train a model but immediately view the table of
 
 ```sql
 DECLARE @model VARBINARY(max), @modelname VARCHAR(30)
-EXEC sp_execute_external_script
+EXECUTE sp_execute_external_script
     @language = N'R'
     , @script = N'
         speedmodel <- rxLinMod(distance ~ speed, CarsData)
@@ -187,7 +187,7 @@ Did you notice that the original training data stops at a speed of 25 miles per 
    DECLARE @speedmodel varbinary(max) = 
        (SELECT model FROM dbo.stopping_distance_models WHERE model_name = 'latest model');
 
-    EXEC sp_execute_external_script
+   EXECUTE sp_execute_external_script
        @language = N'R'
        , @script = N'
                current_model <- unserialize(as.raw(speedmodel));

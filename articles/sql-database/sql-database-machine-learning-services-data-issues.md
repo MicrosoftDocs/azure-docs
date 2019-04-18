@@ -49,7 +49,7 @@ EXECUTE sp_execute_external_script
        @language = N'R'
      , @script = N' mytextvariable <- c("hello", " ", "world");
        OutputDataSet <- as.data.frame(mytextvariable);'
-     , @input_data_1 = N' ';
+     , @input_data_1 = N'';
 ```
 
 **Example 2**
@@ -58,14 +58,14 @@ EXECUTE sp_execute_external_script
 EXECUTE sp_execute_external_script
         @language = N'R'
       , @script = N' OutputDataSet<- data.frame(c("hello"), " ", c("world"));'
-      , @input_data_1 = N'  ';
+      , @input_data_1 = N'';
 ```
 
 Why are the results so different?
 
 The answer can usually be found by using the R `str()` command. Add the function `str(object_name)` anywhere in your R script to have the data schema of the specified R object returned as an informational message. You can view the messages in the **Messages** tab in SSMS.
 
-To figure out why Example 1 and Example 2 have such different results, insert the line `str(OutputDataSet)` at the end of the _@script_ variable definition in each statement, like this:
+To figure out why Example 1 and Example 2 have such different results, insert the line `str(OutputDataSet)` at the end of the `@script` variable definition in each statement, like this:
 
 **Example 1 with str function added**
 
@@ -158,7 +158,7 @@ Under the covers, the column of three values is converted to a single-column mat
 However, note what happens when you change the size of the array `y`.
 
 ```sql
-execute sp_execute_external_script
+EXECUTE sp_execute_external_script
    @language = N'R'
    , @script = N'
         x <- as.matrix(InputDataSet);
