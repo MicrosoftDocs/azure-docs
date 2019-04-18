@@ -36818,7 +36818,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/Computer-Vision/Vision-API-How-to-Topics/HowToSubscribe.md",
+      "source_path": "articles/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe.md",
       "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account#single-service-subscription",
       "redirect_document_id": false
     },
