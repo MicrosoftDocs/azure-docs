@@ -174,7 +174,7 @@ See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/mas
 
 ## Configure your experiment settings
 
-There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) for a full list of parameters.  
+There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object. See the [AutoMLConfig class](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) for a full list of parameters.  
 
 Some examples include:
 
