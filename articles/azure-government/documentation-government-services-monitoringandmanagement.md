@@ -156,6 +156,92 @@ Add-AzMetricAlertRule -Name vmcpu_gt_1 -Location "USGov Virginia" -ResourceGroup
 For more information on using PowerShell, see [public documentation](../azure-monitor/platform/powershell-quickstart-samples.md).
 
 ## Application Insights
+
+### SDK endpoint modifications
+
+In order to send data from Application Insights to the Azure Government you will need to modify the default endpoint addresses that are used by the Application Insights SDK. Each SDK requires slightly different modifications.
+
+### .NET/Java with applicationinsights.config/xml
+
+```xml
+<ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector">
+      <QuickPulseServiceEndpoint>https://rt.applicationinsights.us/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
+    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.applicationinsights.us/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.applicationinsights.us/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
+</ApplicationInsights>
+```
+
+### Spring Boot
+
+Modify the `application.properties` file and add:
+
+```yaml
+azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us /v2/track
+```
+
+### .NET Core
+
+Modify the config.json file in your project as follows
+
+```json
+"ApplicationInsights": {
+    "InstrumentationKey": "instrumentationkey",
+    "TelemetryChannel": {
+      "EndpointAddress": "https://dc.applicationinsights.us/v2/track"
+    }
+  }
+```
+
+Then use UseApplicationInsights() method to add Application Insights.
+
+If using AddApplicationInsightsTelemetry(), construct the Configuration first and pass it to AddApplicationInsightsTelemetry in the ConfigureServices method of Startup class as shown in below example.
+
+```csharp
+var configBuilder = new ConfigurationBuilder()
+               .SetBasePath(this.HostingEnvironment.ContentRootPath)
+               .AddJsonFile("appsettings.json", true)               
+               .AddEnvironmentVariables();            
+            services.AddApplicationInsightsTelemetry(configBuilder.Build());
+```
+
+### Node.js
+
+```javascript
+var appInsights = require("applicationinsights");
+appInsights.setup('INSTRUMENTATION_KEY').start();
+appInsights.defaultClient. endpointUrl = "https://dc.applicationinsights.us/v2/track ";
+```
+
+### JavaScript
+
+```javascript
+<script type="text/javascript">
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
+(
+	{
+	instrumentationKey:"INSTRUMENTATION_KEY",
+	endpointUrl: https://dc.applicationinsights.us/v2/track;
+  }
+);
+window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
+
+```
+
+### Firewall exceptions
+
 The Azure Application Insights service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
