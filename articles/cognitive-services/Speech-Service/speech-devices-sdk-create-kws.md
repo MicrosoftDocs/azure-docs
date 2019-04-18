@@ -44,15 +44,17 @@ Consider the following guidelines when you choose a wake word:
 
 Before you can use a custom wake word with your device, you'll need to create a wake word with the Microsoft Custom Wake Word Generation service. After you provide a wake word, the service produces a file that you deploy to your development kit to enable the wake word on your device.
 
-1. Go to the [Custom Speech Service Portal](https://cris.ai/).
+1. Go to the [Custom Speech Service Portal](https://portal.develop.cris.ai/) and choose the Custom Wake Word option.
 
     ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. The **Custom Wake Word** page is not available to the public, so there is no direct link that takes you there. The Custom Speech feature requires an Azure subscription, but the Custom Wake Word feature doesn't. If you got the **No Subscriptions found.** error page, just replace the **"Subscriptions?errorMessage=No%20Subscriptions%20found"** with "**customkws**" in the URL, and hit ENTER. The URL should be one of these: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws or https://northeurope.cris.ai/customkws, depending on where your region is.
-
-1. Type in the wake word of your choice, and then select **Submit the word**.
+1. Type in the wake word of your choice, and then select **Add wake word**. <NOTE: This image is draft>
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
+
+1. Listen to the candidate pronunciations, and then select **Submit**. <NOTE: This image is draft>
+
+    ![Review your wake word](media/speech-devices-sdk/wake-word-6.png)
 
 1. It might take a few minutes for the files to be generated. After a moment you'll be provided with a link to download a .zip file.
 
