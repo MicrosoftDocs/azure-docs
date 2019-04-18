@@ -132,7 +132,7 @@ Entitlement management has different roles based on job function.
 | Role | Description |
 | --- | --- |
 | [User administrator](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Manage all aspects of entitlement management.<br/>Create users and groups. |
-| Catalog creator | Create and manage catalogs. Typically an IT administrator or resource owner. The person that creates a catalog automatically becomes the catalog's first Catalog owner. |
+| Catalog creator | Create and manage catalogs. Typically an IT administrator or resource owner. The person that creates a catalog automatically becomes the catalog's first catalog owner. |
 | Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owner. |
 | Access package manager | Edit and manage all existing access packages within a catalog. |
 | Approver | Approve requests to access packages. |
@@ -157,8 +157,8 @@ The following table lists the permissions for each of these roles.
 | [Create a catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
 | [Add/remove resources to/from the **Default Catalog**](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
 | [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Add catalog owners or access package managers](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 | [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| Add additional catalog owners | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
 
 ## Next steps
 
