@@ -107,3 +107,7 @@ Using the `devops-build create` [command](https://docs.microsoft.com/cli/azure/f
 - You need to have write access to the repo.
 
 - You need to have owner access to the function app.
+
+## Next steps
+
++ [Need to add something here](https://www.microsoft.com)
