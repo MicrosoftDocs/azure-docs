@@ -1,3 +1,23 @@
+---
+title: include file
+description: include file for confidential client scenario landing pages (daemon, Web app, Web API)
+services: active-directory
+documentationcenter: dev-center-name
+author: jmprieur
+manager: CelesteDG
+editor: ''
+
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 04/18/2018
+ms.author: jmprieur
+ms.custom: include file 
+
+---
+
 ## Registration of secrets or certificates
 
 Like for any confidential client application, you need to register a secret or certificate. You can register your application secrets either through the interactive experience in the [Azure portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview), or using command-line tools (like PowerShell)
