@@ -104,7 +104,7 @@ To configure Azure AD single sign-on with Salesforce Sandbox, perform the follow
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** intiated mode perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file** and wish to configure in **IDP** initiated mode perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -140,7 +140,7 @@ To configure Azure AD single sign-on with Salesforce Sandbox, perform the follow
 
 ### Configure Salesforce Sandbox Single Sign-On
 
-1. Open a new tab in your browser and log in to your Salesforce Sandbox administrator account.
+1. Open a new tab in your browser and sign in to your Salesforce Sandbox administrator account.
 
 2. Click on the **Setup** under **settings icon** on the top right corner of the page.
 
