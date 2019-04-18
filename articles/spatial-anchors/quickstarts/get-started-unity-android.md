@@ -36,7 +36,7 @@ To complete this quickstart, make sure you have:
   - If running on Windows, you'll also need <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
   - If running on macOS, get Git installed via HomeBrew. Enter the following command into a single line of the Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. Then, run `brew install git`.
 - A <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">developer enabled</a> and <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore capable</a> Android device.
-- Your app must use version **1.5** of the ARCore SDK for Unity (support for ARCore 1.6+ will be available a later date).
+- Your app must use version **1.7** of the ARCore SDK for Unity.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
