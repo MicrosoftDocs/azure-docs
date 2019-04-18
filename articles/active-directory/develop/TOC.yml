@@ -94,7 +94,19 @@
     - name: Authentication scenarios
       items:
       - name: Daemon apps
-        href: scenario-daemon-app.md
+        itemps:
+        - name: Overview
+          href: scenario-daemon-overview.md
+        - name: App registration
+          href: scenario-daemon-app-registration.md
+        - name: App configuration
+          href: scenario-daemon-app-configuration.md
+        - name: Acquire Token for client
+          href: scenario-daemon-acquire-token.md
+        - name: Call Web API
+          href: scenario-daemon-call-api.md
+        - name: Move to production
+          href: scenario-daemon-production.md
     - name: Microsoft Authentication Library (MSAL)
       items:
         - name: Overview
