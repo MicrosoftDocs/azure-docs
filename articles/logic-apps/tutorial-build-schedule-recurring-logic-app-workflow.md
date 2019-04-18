@@ -335,7 +335,7 @@ For testing purposes, use your email address.
 6. In the **Subject** box, specify the email's subject, 
 and include the **travelTime** variable.
 
-   1. Enter the text ```Current travel time (minutes): ``` with a trailing space. 
+   1. Enter the text ```Current travel time (minutes):``` with a trailing space. 
    
    2. From either the parameter list or the dynamic content list, 
    select **travelTime** under **Variables**. 
@@ -346,7 +346,7 @@ and include the **travelTime** variable.
 
 7. In the **Body** box, specify the content for the email body. 
 
-   1. Enter the text ```Add extra travel time (minutes): ``` with a trailing space. 
+   1. Enter the text ```Add extra travel time (minutes):``` with a trailing space. 
    
    2. If necessary, widen your browser until the dynamic content list appears. 
    In the dynamic content list, choose **Expression**.

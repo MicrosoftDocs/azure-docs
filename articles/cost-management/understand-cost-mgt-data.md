@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 04/11/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -20,42 +20,44 @@ This article helps you better understand what data is included in Azure Cost Man
 
 The following information shows the currently supported [Microsoft Azure offers](https://azure.microsoft.com/support/legal/offer-details/) in Azure Cost Management.  An Azure offer is the type of the Azure subscription that you have.
 
-| Category  | **Offer name** | **Offer number** |
-| --- | --- | --- |
-| **Azure Germany** | [Azure Germany Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-de-0003p/) | MS-AZR-DE-0003P |
-| **Azure Government** | Azure Government Enterprise | MS-AZR-USGOV-0017P |
-| **Enterprise Agreement (EA)** | Enterprise Dev/Test | MS-AZR-0148P |
-| **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade/) | MS-AZR-0017P |
-| **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p/) | MS-AZR-0062P |
-| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
-| **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p/) | MS-AZR-0023P |
-| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p/) | MS-AZR-0025P |
-| **Pay-As-You-Go** | [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p/) | MS-AZR-0044P |
-| **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p/) | MS-AZR-0111P |
-| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) | MS-AZR-0170P |
-| **Pay-As-You-Go** | Azure Pass | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p/) | MS-AZR-0029P |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p/) | MS-AZR-0059P |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p/) | MS-AZR-0060P |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) | MS-AZR-0063P |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p/) | MS-AZR-0064P |
+| Category  | **Offer name** | **Quota ID** | **Offer number** |
+| --- | --- | --- | --- |
+| **Azure Germany** | [Azure Germany Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-de-0003p)      | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P |
+| **Enterprise Agreement (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P |
+| **Enterprise Agreement (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A |
+| **Microsoft Customer Agreement** | [Microsoft Azure Plan for Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g)  | MSDNDevTest_2014-09-01 | N/A |
+| **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p) | MSDN_2014-09-01 | MS-AZR-0062P |
+| **Pay-As-You-Go** | [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p)                       | PayAsYouGo_2014-09-01 | MS-AZR-0003P |
+| **Pay-As-You-Go** | [Pay-As-You-Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)              | MSDNDevTest_2014-09-01 | MS-AZR-0023P |
+| **Pay-As-You-Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)           | MPN_2014-09-01 | MS-AZR-0025P |
+| **Pay-As-You-Go** | [Free Trial](https://azure.microsoft.com/offers/ms-azr-0044p)                          | FreeTrial_2014-09-01 | MS-AZR-0044P |
+| **Pay-As-You-Go** | [Azure in Open](https://azure.microsoft.com/offers/ms-azr-0111p)                       | AzureInOpen_2014-09-01 | MS-AZR-0111P |
+| **Pay-As-You-Go** | [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)                  | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay-As-You-Go** | Azure Pass                                                                             | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P |
+| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)      | MPN_2014-09-01 | MS-AZR-0029P |
+| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)          | MSDN_2014-09-01 | MS-AZR-0059P |
+| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)     | MSDNDevTest_2014-09-01 | MS-AZR-0060P |
+| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)            | MSDN_2014-09-01 | MS-AZR-0063P |
+| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)  | MSDN_2014-09-01 | MS-AZR-0064P |
 
 The following table shows unsupported offers.
 
-| Category  | **Offer name** | **Offer number** |
-| --- | --- | --- |
-| **Cloud Solution Provider (CSP)** | Microsoft Azure | MS-AZR-0145P |
-| **Cloud Solution Provider (CSP)** | Azure Government CSP | MS-AZR-USGOV-0145P |
-| **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany | MS-AZR-DE-0145P |
-| **Pay-As-You-Go** | Azure for Students Starter | MS-AZR-0144P |
-| **Pay-As-You-Go** | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | MS-AZR-0036P |
-| **Support Plans** | Standard support | MS-AZR-0041P |
-| **Support Plans** | Professional Direct support | MS-AZR-0042P |
-| **Support Plans** | Developer support | MS-AZR-0043P |
-| **Support Plans** | Germany support plan | MS-AZR-DE-0043P |
-| **Support Plans** | Azure Government Standard Support | MS-AZR-USGOV-0041P |
-| **Support Plans** | Azure Government Pro-Direct Support | MS-AZR-USGOV-0042P |
-| **Support Plans** | Azure Government Developer Support | MS-AZR-USGOV-0043P |
+| Category  | **Offer name** | **Quota ID** | **Offer number** |
+| --- | --- | --- | --- |
+| **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
+| **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
+| **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **Pay-As-You-Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pay-As-You-Go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Support Plans** | Standard support                    | Default_2014-09-01 | MS-AZR-0041P |
+| **Support Plans** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
+| **Support Plans** | Developer support                   | Default_2014-09-01 | MS-AZR-0043P |
+| **Support Plans** | Germany support plan                | Default_2014-09-01 | MS-AZR-DE-0043P |
+| **Support Plans** | Azure Government Standard Support   | Default_2014-09-01 | MS-AZR-USGOV-0041P |
+| **Support Plans** | Azure Government Pro-Direct Support | Default_2014-09-01 | MS-AZR-USGOV-0042P |
+| **Support Plans** | Azure Government Developer Support  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 For customers with Pay-As-You-Go, MSDN, and Visual Studio offer categories, data is available in Cost Management starting from 10/02/2018. To access data for your subscription before 10/02/2018, you can use the [Azure Account Center](https://account.azure.com/subscriptions) to download your usage details in a CSV file or you can use the [Usage Details API](/rest/api/consumption/usagedetails).
 
@@ -66,27 +68,28 @@ If you don't see data for a subscription and you want to determine if your subsc
 
 ## Costs included in Cost Management
 
-The following tables show data that's included or isn't in Cost Management.
+The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown do not include free and prepaid credits.
 
 **Cost and usage data**
 
 | **Included** | **Not included** |
 | --- | --- |
 | Azure service usage<sup>1</sup> | Reservation purchases – For more information, see [APIs for Azure reservation automation](../billing/billing-reservation-apis.md). |
-| Marketplace offering usage | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
+| Marketplace offering usage<sup>2</sup> | Marketplace purchases – For more information, see [Third-party service charges](../billing/billing-understand-your-azure-marketplace-charges.md). |
 |   | Support charges - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Taxes - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 |   | Credits - For more information, see [Invoice terms explained](../billing/billing-understand-your-invoice.md). |
 
 <sup>1</sup> Azure service usage is based on reservation and negotiated prices.
+<sup>2</sup> Marketplace offering usage is not available for Pay-As-You-Go, MSDN, and Visual Studio offers at this time.
 
 **Metadata**
 
 | **Included** | **Not included** |
 | --- | --- |
-| Resource tags<sup>2</sup> | Resource group tags |
+| Resource tags<sup>3</sup> | Resource group tags |
 
-<sup>2</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
+<sup>3</sup> Resource tags are applied as usage is emitted from each service and aren't available retroactively to historical usage.
 
 ## Rated usage data refresh schedule
 
@@ -115,6 +118,25 @@ The availability of your incurred usage data in Cost Management depends on a cou
 - The time taken to process the usage data through the rating engine and cost management pipelines.
 
 Some services emit usage more frequently than others. So, you might see data in Cost Management for some services sooner than other services that emit data less frequently. Typically, usage for services takes 8-24 hours to appear in Cost Management. Keep in mind that data for an open month gets refreshed as you incur more usage because updates are cumulative.
+
+## Historical data might not match invoice
+
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure Pay-As-You-Go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. However, the historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. As a result, the historical data shown for the following offers may not match exactly with your invoice.
+
+-	MS-AZR-0029P
+-	MS-AZR-0064P
+-	MS-AZR-0170P
+-	MS-AZR-0062P
+-	MS-AZR-0123P
+-	MS-AZR-0129P
+-	MS-AZR-0044P
+-	MS-AZR-0128P
+-	MS-AZR-0120P
+-	MS-AZR-0125P
+-	MS-AZR-0059P
+-	MS-AZR-0063P
+-	MS-AZR-0060P
+-	MS-AZR-0111P
 
 ## See also
 

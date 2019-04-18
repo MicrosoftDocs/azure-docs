@@ -101,14 +101,17 @@ After normalization, this password becomes “contosoblankf9!”. The matching p
 Since this password is at least 5 points, it is accepted.
 
    > [!IMPORTANT]
-   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premise DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
+   > Please note that the banned password algorithm along with the global list can and do change at any time in Azure based on ongoing security analysis and research. For the on-premises DC agent service, updated algorithms will only take effect after the DC agent software is re-installed.
 
 ## License requirements
 
 |   | Azure AD password protection with global banned password list | Azure AD password protection with custom banned password list|
 | --- | --- | --- |
-| Cloud-only users | Azure AD Free | Azure AD Basic |
+| Cloud-only users | Azure AD Free | Azure AD Premium P1 or P2 |
 | Users synchronized from on-premises Windows Server Active Directory | Azure AD Premium P1 or P2 | Azure AD Premium P1 or P2 |
+
+> [!NOTE]
+> On-premises Windows Server Active Directory users that not synchronized to Azure Active Directory also avail the benefits of Azure AD password protection based on existing licensing for synchronized users.
 
 Additional licensing information, including costs, can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
 

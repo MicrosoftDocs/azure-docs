@@ -17,7 +17,7 @@ ms.reviewer: jrasnick
 This article explains the SQL Data Warehouse workload classification process of assigning a resource class and importance to incoming requests.
 
 > [!Note]
-> Workload classification is available on SQL Data Warehouse Gen2.
+> Workload classification is available for preview on SQL Data Warehouse Gen2. Workload Management Classification and Importance preview is for builds with a release date of April 9th, 2019 or later.  Users should avoid using builds earlier than this date for workload management testing.  To determine if your build is workload management capable, run select @@version when connected to your SQL Data Warehouse instance.
 
 ## Classification
 
@@ -28,6 +28,8 @@ Workload management classification allows workload policies to be applied to req
 While there are many ways to classify data warehousing workloads, the simplest and most common classification is load and query. You load data with insert, update, and delete statements.  You query the data using selects. A data warehousing solution will often have a workload policy for load activity, such as assigning a higher resource class with more resources. A different workload policy could apply to queries, such as lower importance compared to load activities.
 
 You can also subclassify your load and query workloads. Subclassification gives you more control of your workloads. For example, query workloads can consist of cube refreshes, dashboard queries or ad-hoc queries. You can classify each of these query workloads with different resource classes or importance settings. Load can also benefit from subclassification. Large transformations can be assigned to larger resource classes. Higher importance can be used to ensure key sales data is loader before weather data or a social data feed.
+
+Not all statements are classified as they do not require resources or need importance to influence execution.  DBCC commands, BEGIN, COMMIT, and ROLLBACK TRANSACTION statements are not classified.
 
 ## Classification process
 

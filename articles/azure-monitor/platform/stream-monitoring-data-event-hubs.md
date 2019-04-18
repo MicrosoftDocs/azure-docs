@@ -64,10 +64,10 @@ To send data from the Azure activity log into an Event Hubs namespace, you set u
 ## Azure resource metrics and diagnostics logs
 
 Azure resources emit two types of monitoring data:
-1. [Resource diagnostic logs](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Metrics](../../azure-monitor/platform/data-collection.md)
+1. [Resource diagnostic logs](diagnostic-logs-overview.md)
+2. [Metrics](data-platform.md)
 
-Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
+Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](diagnostic-logs-stream-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
 
 > [!TIP]
 > You can use Azure Policy to ensure that every resource within a certain scope is always set up with a diagnostic setting [by using the DeployIfNotExists effect in the policy rule](../../governance/policy/concepts/definition-structure.md#policy-rule).

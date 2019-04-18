@@ -112,7 +112,10 @@ You can create an Azure Machine Learning compute environment on demand when you 
 
 #### Run-based creation
 
-You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The cluster scales up to the number of **max_nodes** that you specify in your run config. The compute is deleted automatically once the run completes.
+You can create Azure Machine Learning Compute as a compute target at run time. The compute is automatically created for your run. The compute is deleted automatically once the run completes. 
+
+> [!NOTE]
+> To specify the max number of nodes to use, you would normally set `node_count` to the number of nodes. There is currently (04/04/2019) a bug that prevents this from working. As a workaround, use the `amlcompute._cluster_max_node_count` property of the run configuration. For example, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > Run-based creation of Azure Machine Learning compute is currently in Preview. Don't use run-based creation if you use automated hyperparameter tuning or automated machine learning. To use hyperparameter tuning or automated machine learning, create a [persistent compute](#persistent) target instead.
@@ -369,7 +372,6 @@ You can access the compute targets that are associated with your workspace using
 
 For more information, see [Resource management](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Submit training run
 
 After you create a run configuration, you use it to run your experiment.  The code pattern to submit a training run is the same for all types of compute targets:
@@ -377,6 +379,13 @@ After you create a run configuration, you use it to run your experiment.  The co
 1. Create an experiment to run
 1. Submit the run.
 1. Wait for the run to complete.
+
+> [!IMPORTANT]
+> When you submit the training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. It is also stored as part of the experiment in your workspace. If you change files and submit the run again, only the changed files will be uploaded.
+>
+> To prevent files from being included in the snapshot, create a [.gitignore](https://git-scm.com/docs/gitignore) or `.amlignore` file in the directory and add the files to it. The `.amlignore` file uses the same syntax and patterns as the [.gitignore](https://git-scm.com/docs/gitignore) file. If both files exist, the `.amlignore` file takes precedence.
+> 
+> For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### Create an experiment
 
@@ -391,8 +400,6 @@ Submit the experiment with a `ScriptRunConfig` object.  This object includes the
 * **source_directory**: The source directory that contains your training script
 * **script**: Identify the training script
 * **run_config**: The run configuration, which in turn defines where the training will occur.
-
-When you submit a training run, a snapshot of the directory that contains your training scripts is created and sent to the compute target. For more information, see [Snapshots](concept-azure-machine-learning-architecture.md#snapshot).
 
 For example, to use [the local target](#local) configuration:
 

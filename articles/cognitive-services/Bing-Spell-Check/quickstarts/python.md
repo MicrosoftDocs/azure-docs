@@ -22,7 +22,6 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-
 ## Initialize the application
 
 1. Create a new Python file in your favorite IDE or editor, and add the following import statement.
@@ -35,7 +34,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 2. Create variables for the text you want to spell check, your subscription key, and your Bing Spell Check endpoint.
 
     ```python
-    api_key = "enter-your-key-here"
+    api_key = "<ENTER-KEY-HERE>"
     example_text = "Hollo, wrld" # the text to be spell-checked
     endpoint = "https://api.cognitive.microsoft.com/bing/v7.0/SpellCheck"
     ```
@@ -48,7 +47,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     data = {'text': example_text}
     ```
 
-2. Add the parameters for your request. Set the `mkt` parameter to your market, and `mode` to `proof`. 
+2. Add the parameters for your request. Append your market code after `mkt=`. The market code is the country you make the request from. Also, append your spell-check mode after `&mode=`. Mode is either `proof` (catches most spelling/grammar errors) or `spell` (catches most spelling but not as many grammar errors).
 
     ```python
     params = {
@@ -75,7 +74,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
     ```
 
 2. Get the JSON response, and print it.
-    
+
     ```python
     json_response = response.json()
     print(json.dumps(json_response, indent=4))
@@ -83,7 +82,7 @@ Use this quickstart to make your first call to the Bing Spell Check REST API. Th
 
 ## Example JSON response
 
-A successful response is returned in JSON, as shown in the following example: 
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {

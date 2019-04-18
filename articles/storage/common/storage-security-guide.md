@@ -42,7 +42,7 @@ Here are the topics to be covered in this article:
 * Using [Storage Analytics](#storage-analytics) to audit access of Azure Storage
 
   This section discusses how to find information in the storage analytics logs for a request. We'll take a look at real storage analytics log data and see how to discern whether a request is made with the Storage account key, with a Shared Access signature, or anonymously, and whether it succeeded or failed.
-* [Enabling Browser-Based Clients using CORS](#Cross-Origin-Resource-Sharing-CORS)
+* [Enabling Browser-Based Clients using CORS](#cross-origin-resource-sharing-cors)
 
   This section talks about how to allow cross-origin resource sharing (CORS). We'll talk about cross-domain access, and how to handle it with the CORS capabilities built into Azure Storage.
 

@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
 ---
 # Prepare and customize a master VHD image
@@ -153,21 +153,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-You can disable Automatic Updates manually.
+### Disable Automatic Updates
 
-To disable Automatic Updates:
+To disable Automatic Updates via local Group Policy:
 
-1. Install Office365 by following the instructions in [Software preparation and installation](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Install any additional applications by following the instructions in [Set up user profile container (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [Configure Windows Defender](set-up-customize-master-image.md#configure-windows-defender), and [Other applications and registry configuration](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Disable Windows Auto Update Service on the local VM.
-4. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
-5. Right-click **Configure Automatic Update** and set it to **Disabled**.
+1. Open **Local Group Policy Editor\\Administrative Templates\\Windows Components\\Windows Update**.
+2. Right-click **Configure Automatic Update** and set it to **Disabled**.
 
 You can also run the following command on a command prompt to disable Automatic Updates.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### Specify Start layout for Windows 10 PCs (optional)
 
 Run this command to specify a Start layout for Windows 10 PCs.
 
@@ -200,7 +199,7 @@ Here's how to install OneDrive in per-machine mode:
 5. Run this command to install OneDrive in per-machine mode:
 
     ```batch
-    Run "[staged location]\OneDriveSetup.exe /allusers"
+    Run "[staged location]\OneDriveSetup.exe" /allusers
     ```
 
 6. Run this command to configure OneDrive to start at sign in for all users:
@@ -255,10 +254,10 @@ You can also configure remote session policies manually by running the following
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 5000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
 ```
 
 ### Set up time zone redirection
@@ -270,7 +269,7 @@ To redirect time zones:
 1. On the Active Directory server, open the **Group Policy Management Console**.
 2. Expand your domain and Group Policy Objects.
 3. Right-click the **Group Policy Object** that you created for the group policy settings and select **Edit**.
-4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Horizon View RDSH Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
+4. In the **Group Policy Management Editor**, navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Device and Resource Redirection**.
 5. Enable the **Allow time zone redirection** setting.
 
 You can also run this command on the master image to redirect time zones:
@@ -309,7 +308,7 @@ This section covers application and operating system configuration. All configur
 For feedback hub collection of telemetry data on Windows 10 Enterprise multi-session, run this command:
 
 ```batch
-HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
+reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection "AllowTelemetry"=dword:00000003
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\DataCollection /v AllowTelemetry /d 3
 ```
 

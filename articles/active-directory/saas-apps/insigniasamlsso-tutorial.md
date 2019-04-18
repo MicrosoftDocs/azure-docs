@@ -114,7 +114,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	|--|
 	| `https://<customername>.insigniails.com/ils` |
 	| `https://<customername>.insigniails.com/` |
-	| `https://<customername>.insigniailsusa.com/ ` |
+	| `https://<customername>.insigniailsusa.com/` |
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<customername>.insigniailsusa.com/<uniqueid>`
 

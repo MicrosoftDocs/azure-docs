@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: overview
-ms.date: 03/24/2019
+ms.topic: article
+ms.date: 03/26/2019
 ms.author: alkohli
 ---
 # Manage compute on your Azure Data Box Edge
@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 ## Manage triggers
 
-Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers are response to those events. Triggers can help execute a function whenever the event is fired. For your Data Box Edge, triggers can be in response to file events or a schedule.
+Events are things that happen within your cloud environment or on your device that you might want to take action on. For example, when a file is created in a share, it is an event. Triggers raise the events. For your Data Box Edge, triggers can be in response to file events or a schedule.
 
 - **File**: These triggers are in response to file events such as creation of a file, modification of a file.
 - **Scheduled**: These triggers are in response to a schedule that you can define with a start date, start time, and the repeat interval.

@@ -9,11 +9,17 @@ ms.date: 02/22/2019
 ms.author: absha
 ---
 
-# Troubleshoot Application Gateway with App Service – Redirection to App Service’s URL
+# Troubleshoot Application Gateway with App Service
 
- Learn how to diagnose and resolve redirection issues with Application Gateway where the App Service’s URL is getting exposed.
+Learn how to diagnose and resolve issues encountered with Application Gateway and App Service as the backend server.
 
 ## Overview
+
+In this article, you will learn how to troubleshoot the following issues:
+
+> [!div class="checklist"]
+> * App Service's URL getting exposed in the browser when there is a redirection
+> * App Service's ARRAffinity Cookie domain set to App Service hostname (example.azurewebsites.net) instead of original host
 
 When you configure a public facing App Service in the backend pool of Application Gateway and if you have a redirection configured in your Application code, you might see that when you access Application Gateway, you will be redirected by the browser directly to the App Service URL.
 
@@ -23,6 +29,8 @@ This issue may happen due to the following main reasons:
 - You have Azure AD authentication which causes the redirection.
 - You have enabled “Pick Host Name from Backend Address” switch in the HTTP settings of Application Gateway.
 - You don’t have your custom domain registered with your App Service.
+
+Also, when you are using App Services behind Application Gateway and you are using a custom domain to access Application Gateway, you may see the domain value for the ARRAffinity cookie set by the App Service will carry the "example.azurewebsites.net" domain name. If you want your original hostname to be the cookie domain as well, follow the solution in this article.
 
 ## Sample configuration
 
@@ -89,6 +97,16 @@ To achieve this, you must own a custom domain and follow the process mentioned b
 - Associate the custom probe back to the backend HTTP settings and verify the backend health if it is healthy.
 
 - Once this is done, Application Gateway should now forward the same hostname “www.contoso.com” to the App Service and the redirection will happen on the same hostname. You can check the example request and response headers below.
+
+To implement the steps mentioned above using PowerShell for an existing setup, follow the sample PowerShell script below. Note how we have not used the -PickHostname switches in the Probe and HTTP Settings configuration.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 
