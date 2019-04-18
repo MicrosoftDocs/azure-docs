@@ -56,4 +56,8 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Next steps
 
+<<<<<<< HEAD
 * [Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+=======
+* [Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.microfocus.com/t5/ArcSight-Connectors/SmartConnector-for-Microsoft-Azure-Monitor-Event-Hub/ta-p/1671292)
+>>>>>>> 824b1162efcfbe7da708380a34a6270f5e511c96
