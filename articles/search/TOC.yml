@@ -276,7 +276,7 @@
       href: cognitive-search-skill-sentiment.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
-    - name: Ocr
+    - name: OCR
       href: cognitive-search-skill-ocr.md
     - name: Shaper
       href: cognitive-search-skill-shaper.md
