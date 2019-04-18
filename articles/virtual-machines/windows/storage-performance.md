@@ -1,5 +1,5 @@
 ---
-title: Optimize performance on the Lsv2-series virtual machines - Storage | Microsoft Docs
+title: Optimize performance on Azure Lsv2-series virtual machines - Storage | Microsoft Docs
 description: Learn how to optimize performance for your solution on the Lsv2-series virtual machines.
 services: virtual-machines-windows
 author: laurenhughes
@@ -28,15 +28,15 @@ This article provides tips and suggestions to ensure your workloads and applicat
 
 Lsv2-series VMs use AMD EYPC™ server processors based on the Zen microarchitecture. AMD developed Infinity Fabric (IF) for EYPC™ as scalable interconnect for its NUMA model that could be used for on-die, on-package, and multi-package communications. Compared with QPI (Quick-Path Interconnect) and UPI (Ultra-Path Interconnect) used on Intel modern monolithic-die processors, AMD’s many-NUMA small-die architecture may bring both performance benefits as well as challenges. The actual impact of memory bandwidth and latency constraints could vary depending on the type of workloads running.
 
-## Tips for Maximizing Performance on Lsv2-Series VMs
+## Tips for maximizing performance
 
-1. The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
+* The hardware that powers the Lsv2-series VMs utilizes NVMe devices with eight I/O Queue Pairs (QP)s. Every NVMe device I/O queue is actually a pair: a submission queue and a completion queue. The NVMe driver is set up to optimize the utilization of these eight I/O QPs by distributing I/O’s in a round robin schedule. To gain max performance, run eight jobs per device to match.
 
-1. Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lsv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lsv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
+* Avoid mixing NVMe admin commands (for example, NVMe SMART info query, etc.) with NVMe I/O commands during active workloads. Lsv2 NVMe devices are backed by Hyper-V NVMe Direct technology, which switches into “slow mode” whenever any NVMe admin commands are pending. Lsv2 users could see a dramatic performance drop in NVMe I/O performance if that happens.
 
-1. Lsv2 users should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible.  (Azure will address VM device NUMA issue in the future).
+* Lsv2 users should not rely on device NUMA information (all 0) reported from within the VM for data drives to decide the NUMA affinity for their apps. The recommended way for better performance is to spread workloads across CPUs if possible. 
 
-1. The maximum supported queue depth per I/O queue pair for Lsv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lsv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
+* The maximum supported queue depth per I/O queue pair for Lsv2 VM NVMe device is 1024 (vs. Amazon i3 QD 32 limit). Lsv2 users should limit their (synthetic) benchmarking workloads to queue depth 1024 or lower to avoid triggering queue full conditions, which can reduce performance.
 
 ## Utilizing local NVMe storage
 
@@ -78,17 +78,21 @@ To learn more about options for backing up data in local storage, see [Backup an
 
 ## Frequently asked questions
 
-1. **How do I start deploying Lsv2-series VMs?**  
+* **How do I start deploying Lsv2-series VMs?**  
    Much like any other VM, use the [Portal](quick-create-portal.md), [Azure CLI](quick-create-cli.md), or [PowerShell](quick-create-powershell.md) to create a VM.
 
-1. **Will a single NVMe disk failure cause all VMs on the host to fail?**  
+* **Will a single NVMe disk failure cause all VMs on the host to fail?**  
    If a disk failure is detected on the hardware node, the hardware is in a failed state. When this occurs, all VMs on the node are automatically de-allocated and moved to a healthy node. For Lsv2-series VMs, this means that the customer’s data on the failing node is also securely erased and will need to be recreated by the customer on the new node. As noted, before live migration becomes available on Lsv2, the data on the failing node will be proactively moved with the VMs as they are transferred to another node.
 
-1. **Do I need to make polling adjustments in Windows in Windows Server 2012 or Windows Server 2016?**  
+* **Do I need to make polling adjustments in Windows in Windows Server 2012 or Windows Server 2016?**  
    NVMe polling is only available on Windows Server 2019 on Azure.  
 
-1. **Can I switch back to a traditional interrupt service routine (ISR) model?**  
+* **Can I switch back to a traditional interrupt service routine (ISR) model?**  
    Lsv2-series VMs are optimized for NVMe polling. Updates are continuously provided to improve polling performance.
 
-1. **Can I adjust the polling settings in Windows Server 2019?**  
+* **Can I adjust the polling settings in Windows Server 2019?**  
    The polling settings are not user adjustable.
+   
+## Next steps
+
+* See specifications for all [VMs optimized for storage performance](sizes-storage.md) on Azure
