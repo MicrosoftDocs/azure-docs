@@ -11,6 +11,7 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: diberry
+#gen-tool: https://github.com/diberry/swagger-tools/blob/master/luis-app.js
 ---
 
 # Prebuilt domain reference for your LUIS app
@@ -36,7 +37,7 @@ LUIS offers the following prebuilt domains.
 | [Weather](#weather) | Getting weather reports and forecasts.| 
 | [Web](#web) | Navigating to a website.|
 
-## Supported domains across cultures
+# Supported domains across cultures
 
 The table below summarizes the currently supported domains. Support for English is usually more complete than others.
 
@@ -55,7 +56,7 @@ The table below summarizes the currently supported domains. Support for English 
 | Weather        | ✓    | ✓        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
 | Web    | ✓    | -        | ✓    | ✓      | ✓     | ✓       | -  | -      | -    | -    | -     | -  |
 
-<!-- this section (below this comment) generated from https://github.com/diberry/swagger-tools/blob/master/luis-app.js -->
+<!-- 04/18/2019 - this section (below this comment) generated from https://github.com/diberry/swagger-tools/blob/master/luis-app.js -->
 
 ## Calendar
 
@@ -192,8 +193,8 @@ The table below summarizes the currently supported domains. Support for English 
 * email
 * phonenumber
 
-## Email
 
+## Email
 
 ### Intents 
 
@@ -244,6 +245,7 @@ The table below summarizes the currently supported domains. Support for English 
 * email
 * ordinal
 
+
 ## HomeAutomation
 
 ### Intents 
@@ -279,6 +281,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 * ordinal
 
+
 ## Note
 
 ### Intents 
@@ -313,6 +316,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 * datetimeV2
 * ordinal
+
 
 ## Places
 
@@ -357,6 +361,7 @@ The table below summarizes the currently supported domains. Support for English 
 * datetimeV2
 * dimension
 
+
 ## RestaurantReservation
 
 ### Intents 
@@ -386,6 +391,7 @@ The table below summarizes the currently supported domains. Support for English 
 
 * Atmosphere
 * MealType
+
 
 ## ToDo
 
@@ -418,8 +424,8 @@ The table below summarizes the currently supported domains. Support for English 
 
 * ordinal
 
-## Utilities
 
+## Utilities
 
 ### Intents 
 
@@ -486,6 +492,7 @@ The table below summarizes the currently supported domains. Support for English 
 * geographyV2
 * temperature
 
+
 ## Web
 
 ### Intents 
@@ -507,4 +514,3 @@ The table below summarizes the currently supported domains. Support for English 
 ### Prebuilt entities 
 
 * url
-
