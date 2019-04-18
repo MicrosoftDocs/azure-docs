@@ -280,5 +280,5 @@ Follow these steps to create a log alert in Azure Monitor by using one of the lo
 
 ## Next steps
 
-* View [log query examples](container-insights-analyze.md#search-logs-to-analyze-data) to learn about pre-defined queries and examples to evaluate or customize for other alert scenarios.
+* View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to learn about pre-defined queries and examples to evaluate or customize for other alert scenarios.
 * To learn more about Azure Monitor and how to monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
