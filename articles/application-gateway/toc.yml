@@ -63,7 +63,7 @@
       href: ssl-overview.md
     - name: SSL policy overview
       href: application-gateway-ssl-policy-overview.md
-    - name: Using Key Vault for SSL termination
+    - name: Using Key Vault
       href: key-vault-certs.md
   - name: WAF
     items:
