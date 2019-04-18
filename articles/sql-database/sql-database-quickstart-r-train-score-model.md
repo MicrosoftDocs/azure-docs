@@ -131,7 +131,7 @@ For example, suppose you want to train a model but immediately view the table of
 
 ```sql
 DECLARE @model VARBINARY(max), @modelname VARCHAR(30)
-EXEC sp_execute_external_script
+EXECUTE sp_execute_external_script
     @language = N'R'
     , @script = N'
         speedmodel <- rxLinMod(distance ~ speed, CarsData)
