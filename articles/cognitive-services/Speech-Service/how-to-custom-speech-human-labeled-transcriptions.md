@@ -14,6 +14,8 @@ ms.author: erhopf
 
 # How to create human-labeled transcriptions
 
+**<<INCOMPLETE>>**
+
 Add all contents from the appendix of the Custom portal docs...
 
 ## Next Steps
