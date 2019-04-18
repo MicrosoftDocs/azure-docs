@@ -278,12 +278,7 @@ The amount of compute billed is exposed by the following metric:
 |0:06 - 1:00|1255|
 ||Total: 1631|
 
-Suppose the compute unit price is $0.2609/vCore/hour
-|---|---|
-
-Then the compute billed for this 1-hour period is determined using the following formula:
-
-`$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232`
+Suppose the compute unit price is $0.2609/vCore/hour. Then the compute billed for this 1-hour period is determined using the following formula: **$0.2609/vCore/hour * 1631 vCore seconds * 1 hour/3600 seconds = $0.1232**
 
 ## Available regions
 
