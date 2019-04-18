@@ -103,8 +103,8 @@ If you’ve decided to adopt the new pricing model for a given subscription, go 
 
 ## Automate moving to the new pricing model
 
-As noted above, the is no longer a requirement to move all monitoring resources in a subscription to the new pricing model at the same time, and hence the ``migratetonewpricingmodel`` action will no longer have any effect. Now you can move Application Insights resources and Log Analytics workspaces seperately into the newest pricing tiers.  
+As noted above, the is no longer a requirement to move all monitoring resources in a subscription to the new pricing model at the same time, and hence the ``migratetonewpricingmodel`` action will no longer have any effect. Now you can move Application Insights resources and Log Analytics workspaces separately into the newest pricing tiers.  
 
-Automating this change is documented for Application Insights using [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/en-us/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) with ``-PricingPlan "Basic"`` 
-and Log Analytics using [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/en-us/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) with ``-sku "PerGB2018"``. 
+Automating this change is documented for Application Insights using [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) with ``-PricingPlan "Basic"`` 
+and Log Analytics using [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) with ``-sku "PerGB2018"``. 
 
