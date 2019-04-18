@@ -333,6 +333,15 @@ The LUIS container sends billing information to Azure, using a _Cognitive Servic
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
 
+## Supported dependencies for `latest` container
+
+The latest container, released at 2019 //Build, will support:
+
+* Bing spell check: requests to the query prediction endpoint with the `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` query string parameters. Use the [Bing Spell Check v7 tutorial](luis-tutorial-bing-spellcheck.md) to learn more. 
+* [New prebuilt domains](luis-reference-prebuilt-domains.md): these enterprise-focused domains include entities, example utterances, and patterns. Extend these domains for your own use. 
+
+<a name="unsupported-dependencies"></a>
+
 ## Unsupported dependencies for `latest` container
 
 If your LUIS app has unsupported dependencies, you won't be able to [export for container](#export-packaged-app-from-luis) until you remove the unsupported features. When you attempt to export for container, the LUIS portal reports the unsupported features you need to remove.
