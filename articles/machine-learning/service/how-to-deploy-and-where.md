@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 04/17/2019
+ms.date: 05/02/2019
 
 ms.custom: seoapril2019
 ---
@@ -23,14 +23,8 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 | [Local web service](#local) | Test/debug | Good for limited testing and troubleshooting.
 | [Azure Kubernetes Service (AKS)](#aks) | Real-time inference | Good for high-scale production deployments. Provides autoscaling, and fast response times. |
 | [Azure Container Instances (ACI)](#aci) | Testing | Good for development or testing. **Not suitable for production workloads.** |
+| [Azure Machine Learning Compute](how-to-run-batch-predictions.md) | (Preview) Batch inference | Run batch prediction on serverless compute. Supports normal and low-priority VMs. |
 | [Azure IoT Edge](#iotedge) | (Preview) IoT module | Deploy models on IoT devices. Inferencing happens on the device. |
-
-> [!TIP]
-> You can also deploy web services to Azure Machine Learning Compute (preview) and Field-programmable gate arrays (preview).
->
-> Azure Machine Learning Compute provides batch prediction on serverless compute. It supports normal and low-priority VMs. For more information, see [How to run batch predictions](how-to-run-batch-predictions.md).
->
-> Field-programmable gate arrays (FPGA) provide ultra-low latency, real-time inferencing. For more information, see [Field-programmable gate array (FPGA) preview](how-to-deploy-fpga-web-service.md).
 
 ## Deployment workflow
 
@@ -504,11 +498,11 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
 
 
-### <a id="azuremlcompute"></a> Inference with Azure ML Compute
+### <a id="azuremlcompute"></a> Inference with Azure Machine Learning Compute
 
-Azure ML compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure ML Pipelines.
+Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
 
-For a walkthrough of batch inference with Azure ML Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
+For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
 
 ## Test web service deployments
 
@@ -544,7 +538,7 @@ new_model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
                        description = "test",
                        workspace = ws)
 
-service_name = 'myserevice'
+service_name = 'myservice'
 # Retrieve existing service
 service = Webservice(name = service_name, workspace = ws)
 
