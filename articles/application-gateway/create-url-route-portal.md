@@ -164,6 +164,17 @@ In this example, you create three virtual machines to be used as backend servers
 
     ![Test video URL in application gateway](./media/create-url-route-portal/application-gateway-iistest-video.png)
 
+## Clean up resources
+
+When you no longer need the resources that you created with the application gateway, remove the resource group. By removing the resource group, you also remove the application gateway and all its related resources. 
+
+To remove the resource group:
+
+1. On the left menu of the Azure portal, select **Resource groups**.
+2. On the **Resource groups** page, search for **myResourceGroupAG** in the list, then select it.
+3. On the **Resource group page**, select **Delete resource group**.
+4. Enter *myResourceGroupAG* for **TYPE THE RESOURCE GROUP NAME** and then select **Delete**.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
