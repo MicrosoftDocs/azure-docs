@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with ForeSee CX Suite, perform the followin
 	a. In the **Sign-on URL** text box, type a URL:
     `https://cxsuite.foresee.com/`
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: https://www.okta.com/saml2/service-provider/<UniqueID>
+	b. In the **Identifier** textbox, type a URL using the following pattern: https:\//www.okta.com/saml2/service-provider/<UniqueID>
 
 	> [!Note]
 	> If the **Identifier** value do not get auto polulated, then please fill in the value manually according to above pattern. The Identifier value is not real. Update this value with the actual Identifier. Contact [ForeSee CX Suite Client support team](mailto:support@foresee.com) to get this value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
