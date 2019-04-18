@@ -18,13 +18,13 @@ In addition to using the [Azure Site Recovery](site-recovery-overview.md) servic
 This tutorial shows you how to move Azure VMs between Azure Government and Public regions using Azure Site Recovery. The same can be extended to move VMs between region pairs that are not within the same geographic cluster. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * [Verify prerequisites](#verify-prerequisites)
-> * [Prepare the source VMs](#prepare-the-source-vms)
-> * [Prepare the target region](#prepare-the-target-region)
-> * [Copy data to the target region](#copy-data-to-the-target-region)
-> * [Test the configuration](#test-the-configuration) 
-> * [Perform the move](#perform-the-move-to-the-target-region-and-confirm) 
-> * [Discard the resources in the source region](#discard-the-resource-in-the-source-region) 
+> * Verify prerequisites
+> * Prepare the source VMs
+> * Prepare the target region
+> * Copy data to the target region
+> * Test the configuration
+> * Perform the move
+> * Discard the resources in the source region
 
 > [!IMPORTANT]
 > This tutorial shows you how to move Azure VMs between Azure Government and Public regions, or between regions pairs that are not supported by the regular disaster recovery solution for Azure VMs. In case, your source and target regions pairs are [supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), please refer to this [document](azure-to-azure-tutorial-migrate.md) for the move. If your requirement is to improve availability by moving VMs in an availability set to zone pinned VMs in a different region, refer to the tutorial [here](move-azure-VMs-AVset-Azone.md).
