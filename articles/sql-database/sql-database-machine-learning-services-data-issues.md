@@ -65,7 +65,7 @@ Why are the results so different?
 
 The answer can usually be found by using the R `str()` command. Add the function `str(object_name)` anywhere in your R script to have the data schema of the specified R object returned as an informational message. You can view the messages in the **Messages** tab in SSMS.
 
-To figure out why Example 1 and Example 2 have such different results, insert the line `str(OutputDataSet)` at the end of the _@script_ variable definition in each statement, like this:
+To figure out why Example 1 and Example 2 have such different results, insert the line `str(OutputDataSet)` at the end of the `@script` variable definition in each statement, like this:
 
 **Example 1 with str function added**
 
