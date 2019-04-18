@@ -21,31 +21,30 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 
 Use this article to learn about best practices for using the API getting the best results for your data. 
 
-## When should I use “Entire” or “Last” API? 
- 
-“Entire” detection api is used to find anomalies in given time series. One single anomaly detection model is built and applied on each point to do anomaly detection. It's used for doing a quick preview in one single call. If your time series have below characteristics, the “Entire” API can give out a quick preview on the anomalies. 
+## When to use batch anomaly detection (entire) or latest point detection (last) 
+
+The Anomaly Detector API's batch detection endpoint lets you detect anomalies through your entire times series data. In this detection mode, a single statistical model is created and applied to each point in the data set. If your time series has the below characteristics, we recommend using batch detection to preview your data in one API call.
 
 1.	A seasonal time series, with occasional anomalies.
 2.	A flat trend time series, with occasional spikes/dips. 
- 
-We don't recommend you to use “Entire” API in the real-time monitoring scenario or use it on time series don’t have above characteristics, for the following reasons. 
 
-1.	Since it uses one single model, so the detection on each point is done in the context of whole series.
+We don't recommend using batch anomaly detection for real-time data monitoring, or using it on time series data that doesn't have above characteristics. 
 
-*	If the time series trend goes up and down without seasonality, the change points might be missed.
-*	Some spikes or dips, which are less significant than the later spikes or dips might be ignored because they aren't significant enough as model takes into account the data before and after the spike or dip points. But in real-time monitoring, we hope they're alerted immediately to avoid bigger issues. 
+1. Batch detection creates and applies only one model, the detection for each point is performed in the context of whole series.
 
-2.	It's much slower than the “Last” API in real-time monitoring, because it does inferencing for each point, while the “Last” API only does it for the last point. 
- 
-So in an online monitoring system, when new data point coming, you should always use the “Last” API to do anomaly detection on current point. 
+    If the time series trends up and down without seasonality, some points of change (dips and spikes in the data) may be missed by the model. Similarly, some points of change that are less significant than ones later in the data set may not counted as significant enough to be incorporated into the model.
 
-Below is a case using “Entire” API, and you can see some small deviations (yellow rectangles) are ignored as the model factors in the entire time range of this time series.
+2. Batch detection is slower than detecting the anomaly status of the latest point when performing real-time data monitoring, due to the number of points being analyzed. 
 
-![entire detection](../media/entire.png "entire detection")
+For real-time data monitoring, we recommend detecting the anomaly status of your latest data point only. By continously applying latest point detection, streaming data monitoring can be done more efficiently and accurately.
 
-If we use “Last” API with a moving windows of 28 days, you can see the smaller deviations are also marked as anomalies as the model only factors in the data before the point to be detected.
+The example below describes the impact these detection modes can have on performance. The first picture shows the result of continuously detecting the anomaly status latest point along 28 previously seen data points. The red points are anomalies.
 
-![last detection](../media/last.png "last detection")
+![An image showing anomaly detection using the latest point](../media/last.png)
+
+Below is the same data set using batch anomaly detection. The model built for the operation has ignored several anomalies, marked by rectangles.
+
+![An image showing anomaly detection using the batch method](../media/entire.png)
 
 ## Data preparation
 
