@@ -1,11 +1,7 @@
 ---
 title: Azure CycleCloud User Management | Microsoft Docs
 description: Add and manage users in Azure CycleCloud.
-services: azure cyclecloud
 author: jermth
-ms.prod: cyclecloud
-ms.devlang: na
-ms.topic: conceptual
 ms.date: 04/15/2019
 ms.author: jechia
 ---
