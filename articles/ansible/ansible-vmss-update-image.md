@@ -326,7 +326,7 @@ As mentioned in the previous section, the strings `Image A` and `Image B` mimic 
 
 The scale set references the custom image named `image_vmforimageA`. Custom image `image_vmforimageA` was created from the VM whose home page displays `Image A`.
 
-Therefore, you see a home page displaying `Image A`:
+As a result, you see a home page displaying `Image A`:
 
 ![The scale set is associated with the first VM.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
@@ -334,7 +334,7 @@ Leave your browser window open as you continue to the next section.
 
 ## Change custom image in scale set and upgrade instances
 
-The playbook code in this section changes the scale set's image - from `image_vmforimageA` to `image_vmforimageB`. In addition, all current virtual machines deployed by the scale set are updated.
+The playbook code in this section changes the scale set's image - from `image_vmforimageA` to `image_vmforimageB`. Also, all current virtual machines deployed by the scale set are updated.
 
 There are two ways to get the sample playbook:
 
