@@ -26,7 +26,7 @@ During custom installation, Azure AD Connect reads the source anchor policy from
 During this read operation, it is possible that the source anchor policy in Azure Active Directory is unexpected. In this case, Azure AD Connect does not know what the source anchor to use and needs manual override.</br>
 ![unexpected](media/tshoot-connect-source-anchor/source1.png)
 
-To resolve this, you can manually override the source anchor by selecting a specific attribute. Proceed with this option if and only if you are certain of which attribute to select. If you are not certain, please contact [Microsoft support](https://support.microsoft.com/contactus/) for guidance. Please note that if you change the source anchor policy, it can break the association between your on-premises users and their associated Azure resources.</br>
+To resolve this issue, you can manually override the source anchor by selecting a specific attribute. Proceed with this option if and only if you are certain of which attribute to select. If you are not certain, please contact [Microsoft support](https://support.microsoft.com/contactus/) for guidance. Be aware that if you change the source anchor policy, it can break the association between your on-premises users and their associated Azure resources.</br>
 ![unexpected](media/tshoot-connect-source-anchor/source2.png)
 
 ### Express Installation
@@ -35,7 +35,7 @@ During express installation, Azure AD Connect reads the source anchor policy fro
 During this read operation, it is possible that the source anchor policy in Azure Active Directory is unexpected. In this case, Azure AD Connect does not know what source anchor to use.</br>
 ![unexpected](media/tshoot-connect-source-anchor/source3.png)
 
-To resolve this, you need to re-install using the custom mode and manually override the source anchor by selecting a specific attribute. Proceed with this option if and only if you are certain of which attribute to select. If you are not certain, please contact Microsoft support for guidance. Please note that if you change the source anchor policy, it can break the association between your on-premises users and their associated Azure resources.
+To resolve this issue, you need to re-install using the custom mode and manually override the source anchor by selecting a specific attribute. Proceed with this option if and only if you are certain of which attribute to select. If you are not certain, please contact Microsoft support for guidance. Be aware that if you change the source anchor policy, it can break the association between your on-premises users and their associated Azure resources.
 
 ### Invalid Source Anchor in Sync Engine
 During installation, it is possible Azure AD Connect attempts to configure the sync engine using an invalid source anchor. This is most likely a product issues and Azure AD Connect will fail the installation will fail in this case. Please contact Microsoft Support in case you run into this issue so that Microsoft can troubleshoot this and provide mitigation steps.</br>
