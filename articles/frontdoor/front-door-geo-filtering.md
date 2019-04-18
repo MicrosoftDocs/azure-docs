@@ -92,7 +92,7 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | GR | Greece|
 | GT | Guatemala|
 | GY | Guyana|
-| HK | Hong Kong|
+| HK | Hong Kong SAR|
 | HN | Honduras|
 | HR | Croatia|
 | HT | Haiti|
