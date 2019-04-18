@@ -29,7 +29,7 @@
 - name: Reference
   items:
   - name: Ink Recognizer REST API
-    href: overview.md
+    href: https://dev.cognitive.microsoft.com/docs/services/inkrecognizer
   - name: PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
