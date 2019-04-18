@@ -85,8 +85,8 @@ selection and integration.
 | Speaker Loopback                  | Provided via WASAPI, private APIs, custom ALSA plug-in (Linux), or provided via firmware channel      |
 | THD%                              | 3rd Octave Bands minimum 5th Order, 70 dBA Playback @ 0.8m  ≤ 6.3%, 315-500 Hz ≤ 5%, 630-5000 Hz                 |
 | Echo Coupling to Microphones      | \> -10 dB TCLw using ITU-T G.122 Annex B.4 method, normalized to mic level   |
-|                                   | TCLw = TCLwmeasured \+ (Measured Level -- Target Output Sensitivity)         |
-|                                   | TCLw = TCLwmeasured \+ (Measured Level -- (-26))|
+|                                   | TCLw = TCLwmeasured \+ (Measured Level - Target Output Sensitivity)         |
+|                                   | TCLw = TCLwmeasured \+ (Measured Level - (-26))|
 
 ## Integration Design Architecture
 
@@ -96,10 +96,8 @@ microphones into a device:
 | Parameter                         | Recommendation                    |
 |-----------------------------------|-----------------------------------|
 | Mic Port Similarity               | All microphone ports are same length in array    |
-| Mic Port Dimensions               | Port size Ø0.8-1.0mm              |
-|                                   | Port Length / Port Diameter \< 2  |
-| Mic Sealing                       | Sealing gaskets uniformly implemented in stack-up|
-|                                   | Recommend \> 70% compression ratio for foam gaskets     |
+| Mic Port Dimensions               | Port size Ø0.8-1.0mm. Port Length / Port Diameter \< 2              |
+| Mic Sealing                       | Sealing gaskets uniformly implemented in stack-up. Recommend \> 70% compression ratio for foam gaskets     |
 | Mic Reliability                   | Mesh should be used to prevent dust and ingress (between PCB for bottom ported microphones and sealing gasket/top cover)  |
 | Mic Isolation                     | Rubber gaskets and vibration decoupling through structure, particularly for isolating any vibration paths due to integrated speakers      |
 | Sampling Clock                    | Device audio must be free of jitter and drop-outs with low drift    |
