@@ -35,10 +35,10 @@ Microsoft Authentication Library (MSAL) defines two types of clients: public cli
     ![Desktop app](media/msal-client-applications/desktop-app.png) ![Browserless API](media/msal-client-applications/browserless-app.png) ![Mobile app](media/msal-client-applications/mobile-app.png)
 
 ## Comparing the client types
-There are some commonalities and differences public client and confidential client applications:
+There are some commonalities and differences between public client and confidential client applications:
 
 - Both kinds of applications maintain a user token cache and can acquire a token silently (in cases where the token is already in the token cache). Confidential client applications also have an app token cache for tokens which are for the app itself.
 - Both manage user accounts and can get the accounts from the user token cache, get an account from its identifier, or remove an account.
-- Public client applications have four ways of acquiring a token (four flows), whereas confidential client applications have three (+ one method to compute the URL of the identity provider authorize endpoint). For more details see Scenarios and Acquiring tokens
+- Public client applications have four ways of acquiring a token (four flows), whereas confidential client applications have three (and one method to compute the URL of the identity provider authorize endpoint). For more details see Scenarios and Acquiring tokens
 
 If you used ADAL in the past, you might notice that, contrary to ADAL.NET's Authentication context, in MSAL.NET the clientID (also named applicationID or appId) is passed once at the construction of the Application, and no longer needs to be repeated when acquiring a token. This is the case both for a public and a confidential client applications. Constructors of confidential client applications are also passed client credentials: the secret they share with the identity provider.
