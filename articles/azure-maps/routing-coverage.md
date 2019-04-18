@@ -133,7 +133,7 @@ The following table provides coverage information for Azure Maps routing.
 | Cambodia                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong                      |        ✓       |         ✓            |             |
+| Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Korea                          |        Ø       |                      |             |
