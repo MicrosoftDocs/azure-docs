@@ -15,11 +15,11 @@ ms.author: diberry
 
 # Create contextual conversations using follow-up prompts
 
-Add question-and-answer prompts to manage the contextual conversation from one question to another question. 
+Use prompts and context to manage the conversational flow for your bot from one questions to another.
 
 ## What is contextual conversational?
 
-contextual conversation is the ability to manage a question within the context of questions asked before and after that question. 
+Contextual conversation is the ability to have a back and forth conversation where the previous question's context influences the next question and answer. 
 
 When you design your client application (chat bot) conversations, a user may ask a question that needs to be filtered or refined in order to determine the correct answer. This flow through the questions is possible by presenting the user with follow-up prompts.
 
@@ -41,7 +41,7 @@ You need to change your client application to manage the contextual conversation
 
 If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import. 
 
-Learn more from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
+![If you import a document, contextual conversation can be implied from the structure. If that structure exists, QnA Maker creates the follow-up prompt QnA pairs for you, as part of the document import.](./media/conversational-context/import-file-with-converational-structure.png)
 
 ## Filter questions and answers by context
 
@@ -49,14 +49,6 @@ Learn more from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
 
     ![Filter question and answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
 
-## Add existing QnA pair as follow-up prompt
-
-1. If you want to link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair.
-1. Select **Add follow-up prompt** in that row.
-1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
-
-    Once ou have added the follow-up prompt, remember to select **Save and train**.
-  
 ## Add new QnA pair as follow-up prompt
 
 1. Select **Add QnA pair**. 
@@ -86,6 +78,14 @@ Learn more from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
 
 1. Select **Save and Train** to train the knowledge base. 
 
+## Add existing QnA pair as follow-up prompt
+
+1. If you want to link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair.
+1. Select **Add follow-up prompt** in that row.
+1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
+
+    Once ou have added the follow-up prompt, remember to select **Save and train**.
+  
 ## Add metadata to follow-up prompts 
 
 In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
@@ -155,6 +155,8 @@ The `prompts` array provides text in the `displayText` property and the `qnaId` 
 The prompt order, returned in the [JSON](#json-response-for-prompts) response, is supported for editing by the API only. 
 
 ## Next steps
+
+Learn more about contextual conversations from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
 
 > [!div class="nextstepaction"]
 > [Migrate a knowledge base](../Tutorials/migrate-knowledge-base.md)
