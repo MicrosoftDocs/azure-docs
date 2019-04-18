@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 03/21/2018
+ ms.date: 12/14/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -70,7 +70,7 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 |                           |                          |              |                |
 
@@ -96,3 +96,6 @@ Yes. A VNet-to-VNet tunnel consists of two connection resources in Azure, one fo
 
 ### Does custom IPsec/IKE policy work on ExpressRoute connection?
 No. IPsec/IKE policy only works on S2S VPN and VNet-to-VNet connections via the Azure VPN gateways.
+
+### Where can I find more configuration information for IPsec?
+See [Configure IPsec/IKE policy for S2S or VNet-to-VNet connections](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)

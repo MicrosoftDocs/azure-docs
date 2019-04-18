@@ -4,13 +4,13 @@ description: Learn about known issues/migration limitations with online migratio
 services: database-migration
 author: HJToland3
 ms.author: jtoland
-manager: 
-ms.reviewer: 
-ms.service: database-migration
+manager: craigg
+ms.reviewer: craigg
+ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 03/12/2019
 ---
 
 # Known issues/migration limitations with online migrations to Azure DB for MySQL
@@ -25,7 +25,7 @@ Known issues and limitations associated with online migrations from MySQL to Azu
 - Same version migration. Migrating MySQL 5.6 to Azure Database for MySQL 5.7 isn't supported.
 - Enable binary logging in my.ini (Windows) or my.cnf (Unix)
     - Set Server_id to any number larger or equals to 1, for example, Server_id=1 (only for MySQL 5.6)
-    - Set log-bin = <path> (only for MySQL 5.6)
+    - Set log-bin = \<path> (only for MySQL 5.6)
     - Set binlog_format = row
     - Expire_logs_days = 5 (recommended - only for MySQL 5.6)
 - User must have the ReplicationAdmin role.
@@ -75,7 +75,7 @@ Large Object (LOB) columns are columns that could grow large in size. For MySQL,
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Workaround**: If you have LOB object that is bigger than 32 KB, contact engineering team at [Ask Azure Database Migrations](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## Other limitations
 - A password string that has opening and closing curly brackets {  } at the beginning and end of the password string isn't supported. This limitation applies to both connecting to source MySQL and target Azure Database for MySQL.

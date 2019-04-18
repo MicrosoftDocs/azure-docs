@@ -10,21 +10,21 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 
 ---
 
-# Datasets and linked services in Azure Data Factory 
+# Datasets and linked services in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-create-datasets.md)
 > * [Current version](concepts-datasets-linked-services.md)
 
-This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines. 
+This article describes what datasets are, how they are defined in JSON format, and how they are used in Azure Data Factory pipelines.
 
-If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview. 
+If you are new to Data Factory, see [Introduction to Azure Data Factory](introduction.md) for an overview.
 
 ## Overview
 A data factory can have one or more pipelines. A **pipeline** is a logical grouping of **activities** that together perform a task. The activities in a pipeline define actions to perform on your data. For example, you might use a copy activity to copy data from an on-premises SQL Server to Azure Blob storage. Then, you might use a Hive activity that runs a Hive script on an Azure HDInsight cluster to process data from Blob storage to produce output data. Finally, you might use a second copy activity to copy the output data to Azure SQL Data Warehouse, on top of which business intelligence (BI) reporting solutions are built. For more information about pipelines and activities, see [Pipelines and activities](concepts-pipelines-activities.md) in Azure Data Factory.
@@ -68,7 +68,7 @@ typeProperties | The type properties are different for each data store or comput
 connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No
 
 ## Linked service example
-The following linked service is an Azure Storage linked service. Notice that the type is set to AzureStorage. The type properties for the Azure Storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime. 
+The following linked service is an Azure Storage linked service. Notice that the type is set to AzureStorage. The type properties for the Azure Storage linked service include a connection string. The Data Factory service uses this connection string to connect to the data store at runtime.
 
 ```json
 {
@@ -99,7 +99,7 @@ A dataset in Data Factory is defined in JSON format as follows:
         "type": "<type of dataset: AzureBlob, AzureSql etc...>",
         "linkedServiceName": {
                 "referenceName": "<name of linked service>",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "structure": [
             {
@@ -134,7 +134,7 @@ In the following example, the dataset represents a table named MyTable in a SQL 
         "type": "AzureSqlTable",
         "linkedServiceName": {
                 "referenceName": "MyAzureSqlLinkedService",
-                 "type": "LinkedServiceReference",
+                "type": "LinkedServiceReference",
         },
         "typeProperties":
         {
@@ -164,9 +164,9 @@ In the example in the previous section, the type of the dataset is set to **Azur
         "type": "AzureBlob",
         "linkedServiceName": {
                 "referenceName": "MyAzureStorageLinkedService",
-                 "type": "LinkedServiceReference",
-        }, 
- 
+                "type": "LinkedServiceReference",
+        },
+
         "typeProperties": {
             "fileName": "input.log",
             "folderPath": "adfgetstarted/inputdata",
@@ -216,14 +216,14 @@ You can create datasets by using one of these tools or SDKs: [.NET API](quicksta
 
 ## Current version vs. version 1 datasets
 
-Here are some differences between Data Factory and Data Factory version 1 datasets: 
+Here are some differences between Data Factory and Data Factory version 1 datasets:
 
 - The external property is not supported in the current version. It's replaced by a [trigger](concepts-pipeline-execution-triggers.md).
 - The policy and availability properties are not supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
-- Scoped datasets (datasets defined in a pipeline) are not supported in the current version. 
+- Scoped datasets (datasets defined in a pipeline) are not supported in the current version.
 
 ## Next steps
-See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs. 
+See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)
 - [Quickstart: create a data factory using PowerShell](quickstart-create-data-factory-powershell.md)

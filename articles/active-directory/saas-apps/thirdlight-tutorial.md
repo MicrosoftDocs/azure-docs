@@ -5,186 +5,203 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 168aae9a-54ee-4c2b-ab12-650a2c62b901
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/16/2017
+ms.topic: tutorial
+ms.date: 03/25/2019
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with ThirdLight
 
 In this tutorial, you learn how to integrate ThirdLight with Azure Active Directory (Azure AD).
-
 Integrating ThirdLight with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to ThirdLight
-- You can enable your users to automatically get signed-on to ThirdLight (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to ThirdLight.
+* You can enable your users to be automatically signed-in to ThirdLight (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with ThirdLight, you need the following items:
 
-- An Azure AD subscription
-- A ThirdLight single-sign on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can get a one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* ThirdLight single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding ThirdLight from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* ThirdLight supports **SP** initiated SSO
 
 ## Adding ThirdLight from the gallery
+
 To configure the integration of ThirdLight into Azure AD, you need to add ThirdLight from the gallery to your list of managed SaaS apps.
 
 **To add ThirdLight from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![Active Directory][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![Applications][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **ThirdLight**.
+	![The New application button](common/add-new-app.png)
 
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/tutorial_thirdlight_search.png)
+4. In the search box, type **ThirdLight**, select **ThirdLight** from result panel then click **Add** button to add the application.
 
-1. In the results panel, select **ThirdLight**, and then click **Add** button to add the application.
+	 ![ThirdLight in the results list](common/search-new-app.png)
 
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/tutorial_thirdlight_addfromgallery.png)
+## Configure and test Azure AD single sign-on
 
-##  Configuring and testing Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with ThirdLight based on a test user called "Britta Simon."
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in ThirdLight is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in ThirdLight needs to be established.
-
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in ThirdLight.
+In this section, you configure and test Azure AD single sign-on with ThirdLight based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in ThirdLight needs to be established.
 
 To configure and test Azure AD single sign-on with ThirdLight, you need to complete the following building blocks:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Creating a ThirdLight test user](#creating-a-thirdlight-test-user)** - to have a counterpart of Britta Simon in ThirdLight that is linked to the Azure AD representation of user.
-1. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
+2. **[Configure ThirdLight Single Sign-On](#configure-thirdlight-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create ThirdLight test user](#create-thirdlight-test-user)** - to have a counterpart of Britta Simon in ThirdLight that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
-### Configuring Azure AD single sign-on
+### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your ThirdLight application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with ThirdLight, perform the following steps:**
+To configure Azure AD single sign-on with ThirdLight, perform the following steps:
 
-1. In the Azure portal, on the **ThirdLight** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **ThirdLight** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Configure Single Sign-On](./media/thirdlight-tutorial/tutorial_thirdlight_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **ThirdLight Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Configure Single Sign-On](./media/thirdlight-tutorial/tutorial_thirdlight_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<subdomain>.thirdlight.com/`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.thirdlight.com/saml/sp`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identiifer. Contact [ThirdLight Client support team](https://www.thirdlight.com/support) to get these values. 
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the XML file on your computer.
+    ![ThirdLight Domain and URLs single sign-on information](common/sp-identifier.png)
 
-	![Configure Single Sign-On](./media/thirdlight-tutorial/tutorial_thirdlight_certificate.png) 
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.thirdlight.com/`
 
-1. Click **Save** button.
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<subdomain>.thirdlight.com/saml/sp`
 
-	![Configure Single Sign-On](./media/thirdlight-tutorial/tutorial_general_400.png)
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [ThirdLight Client support team](https://www.thirdlight.com/support) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. In a different web browser window, log in to your ThirdLight company site as an administrator.
+5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
+
+	![The Certificate download link](common/metadataxml.png)
+
+6. On the **Set up ThirdLight** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure ThirdLight Single Sign-On
+
+1. In a different web browser window, sign in to your ThirdLight company site as an administrator.
 
 1. Go to **Configuration \> System Administration**, and then click **SAML2**.
-   
+
     ![System Administration](./media/thirdlight-tutorial/ic805843.png "System Administration")
 
 1. In the SAML2 configuration section, perform the following steps:
-   
-    ![SAML Single Sign-On](./media/thirdlight-tutorial/ic805844.png "SAML Single Sign-On")   
+  
+    ![SAML Single Sign-On](./media/thirdlight-tutorial/ic805844.png "SAML Single Sign-On")
 
-	 a. Select **Enable SAML2 Single Sign-On**.
- 
-	 b. As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.
- 
-	 c. Open the downloaded metadata file, copy the content, and then paste it
-     into the **IdP Metadata XML** textbox. 
-	 
-     d. Click **Save SAML2 settings**.
+	a. Select **Enable SAML2 Single Sign-On**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+	b. As **Source for IdP Metadata**, select **Load IdP Metadata from XML**.
 
-### Creating an Azure AD test user
+	c. Open the downloaded metadata file from the Azure portal, copy the content, and then paste it into the **IdP Metadata XML** textbox.
+
+    d. Click **Save SAML2 settings**.
+
+### Create an Azure AD test user
+
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/create_aaduser_01.png) 
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/create_aaduser_02.png) 
+3. In the User properties, perform the following steps.
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/create_aaduser_03.png) 
+    ![The User dialog box](common/user-properties.png)
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![Creating an Azure AD test user](./media/thirdlight-tutorial/create_aaduser_04.png) 
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
-    a. In the **Name** textbox, type **BrittaSimon**.
-
-    b. In the **User name** textbox, type the **email address** of Britta Simon.
-
-	c. Select **Show Password** and write down the value of the **Password**.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Creating a ThirdLight test user
 
-To enable Azure AD users to log in to ThirdLight, they must be provisioned into ThirdLight.  
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to ThirdLight.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **ThirdLight**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **ThirdLight**.
+
+	![The ThirdLight link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create ThirdLight test user
+
+To enable Azure AD users to sign in to ThirdLight, they must be provisioned into ThirdLight.  
 In the case of ThirdLight, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your **ThirdLight** company site as an administrator.
+1. Sign in to your **ThirdLight** company site as an administrator.
 
 1. Go to **Users** tab.
 
@@ -196,62 +213,19 @@ In the case of ThirdLight, provisioning is a manual task.
 
 1. Click **Create**.
 
->[!NOTE]
->You can use any other Thirdlight user account creation tools or APIs provided by Thirdlight to provision AAD user accounts. 
+> [!NOTE]
+> You can use any other Thirdlight user account creation tools or APIs provided by Thirdlight to provision AAD user accounts.
 
-### Assigning the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to ThirdLight.
-
-![Assign User][200] 
-
-**To assign Britta Simon to ThirdLight, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **ThirdLight**.
-
-	![Configure Single Sign-On](./media/thirdlight-tutorial/tutorial_thirdlight_app.png) 
-
-1. In the menu on the left, click **Users and groups**.
-
-	![Assign User][202] 
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![Assign User][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Testing single sign-on
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the ThirdLight tile in the Access Panel, you should get automatically signed-on to your ThirdLight application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the ThirdLight tile in the Access Panel, you should be automatically signed in to the ThirdLight for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/thirdlight-tutorial/tutorial_general_01.png
-[2]: ./media/thirdlight-tutorial/tutorial_general_02.png
-[3]: ./media/thirdlight-tutorial/tutorial_general_03.png
-[4]: ./media/thirdlight-tutorial/tutorial_general_04.png
-
-[100]: ./media/thirdlight-tutorial/tutorial_general_100.png
-
-[200]: ./media/thirdlight-tutorial/tutorial_general_200.png
-[201]: ./media/thirdlight-tutorial/tutorial_general_201.png
-[202]: ./media/thirdlight-tutorial/tutorial_general_202.png
-[203]: ./media/thirdlight-tutorial/tutorial_general_203.png
-
+- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

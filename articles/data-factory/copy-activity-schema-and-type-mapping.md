@@ -10,24 +10,24 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
-ms.date: 06/22/2018
+ms.date: 12/20/2018
 ms.author: jingwang
 
 ---
 # Schema mapping in copy activity
-This article describes how Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when perform the data copy.
+This article describes how Azure Data Factory copy activity does schema mapping and data type mapping from source data to sink data when execute the data copy.
 
 ## Column mapping
 
-By default, copy activity **map source data to sink by column names**, unless [explicit column mapping](#explicit-column-mapping) is configured. More specifically, copy activity:
+Column mapping applies when copying data between tabular-shaped data. By default, copy activity **map source data to sink by column names**, unless [explicit column mapping](#explicit-column-mapping) is configured. More specifically, copy activity:
 
 1. Read the data from source and determine the source schema
 
     * For data sources with pre-defined schema in the data store/file format, for example, databases/files with metadata (Avro/ORC/Parquet/Text with header), source schema is extracted from the query result or file metadata.
-    * For data sources with flexible schema, for example,  Azure Table/Cosmos DB, source schema is inferred from the query result. You can overwrite it by providing the "structure" in dataset.
-    * For Text file without header, default column names are generated with pattern "Prop_0", "Prop_1", ...You can overwrite it by providing the "structure" in dataset.
+    * For data sources with flexible schema, for example,  Azure Table/Cosmos DB, source schema is inferred from the query result. You can overwrite it by configuring the "structure" in dataset.
+    * For Text file without header, default column names are generated with pattern "Prop_0", "Prop_1", ...You can overwrite it by configuring the "structure" in dataset.
     * For Dynamics source, you have to provide the schema information in the dataset "structure" section.
 
 2. Apply explicit column mapping if specified.
@@ -37,7 +37,7 @@ By default, copy activity **map source data to sink by column names**, unless [e
     * For data stores with pre-defined schema, the data is written to the columns with the same name.
     * For data stores without fixed schema and for file formats, the column names/metadata will be generated based on the source schema.
 
-### Explicit column mapping
+### Explicit column-mapping
 
 You can specify **columnMappings** in the **typeProperties** section of the Copy activity to do explicit column mapping. In this scenario, "structure" section is required for both input and output datasets. Column mapping supports **mapping all or subset of columns in the source dataset "structure" to all columns in the sink dataset "structure"**. The following are error conditions that result in an exception:
 
@@ -46,7 +46,7 @@ You can specify **columnMappings** in the **typeProperties** section of the Copy
 * Either fewer columns or more columns in the "structure" of sink dataset than specified in the mapping.
 * Duplicate mapping.
 
-#### Explicit column mapping example
+#### Explicit column-mapping example
 
 In this sample, the input table has a structure and it points to a table in an on-premises SQL database.
 
@@ -131,11 +131,86 @@ The following JSON defines a copy activity in a pipeline. The columns from sourc
 }
 ```
 
-If you were using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` to specify column mapping, it is still supported as-is.
+If you are using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"` to specify column mapping, it is still supported as-is.
 
-**Column mapping flow:**
+**Column-mapping flow:**
 
 ![Column mapping flow](./media/copy-activity-schema-and-type-mapping/column-mapping-sample.png)
+
+## Schema mapping
+
+Schema mapping applies when copying data between hierarchical-shaped data and tabular-shaped data, e.g. copy from MongoDB/REST to text file and copy from SQL to Azure Cosmos DB's API for MongoDB. The following properties are supported in copy activity `translator` section:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The type property of the copy activity translator must be set to: **TabularTranslator** | Yes |
+| schemaMapping | A collection of key-value pairs, which represents the mapping relation **from source side to sink side**.<br/>- **Key:** represents source. For **tabular source**, specify the column name as defined in dataset structure; for **hierarchical source**, specify the JSON path expression for each field to extract and map.<br/>- **Value:** represents sink. For **tabular sink**, specify the column name as defined in dataset structure; for **hierarchical sink**, specify the JSON path expression for each field to extract and map. <br/> In the case of hierarchical data, for fields under root object, JSON path starts with root $; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element.  | Yes |
+| collectionReference | If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. This property is supported only when hierarchical data is source. | No |
+
+**Example: copy from MongoDB to SQL:**
+
+For example, if you have MongoDB document with the following content: 
+
+```json
+{
+    "id": {
+        "$oid": "592e07800000000000000000"
+    },
+    "number": "01",
+    "date": "20170122",
+    "orders": [
+        {
+            "prod": "p1",
+            "price": 23
+        },
+        {
+            "prod": "p2",
+            "price": 13
+        },
+        {
+            "prod": "p3",
+            "price": 231
+        }
+    ],
+    "city": [ { "name": "Seattle" } ]
+}
+```
+
+and you want to copy it into an Azure SQL table in the following format, by flattening the data inside the array *(order_pd and order_price)* and cross join with the common root info *(number, date, and city)*:
+
+| orderNumber | orderDate | order_pd | order_price | city |
+| --- | --- | --- | --- | --- |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
+
+Configure the schema-mapping rule as the following copy activity JSON sample:
+
+```json
+{
+    "name": "CopyFromMongoDBToSqlAzure",
+    "type": "Copy",
+    "typeProperties": {
+        "source": {
+            "type": "MongoDbV2Source"
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "translator": {
+            "type": "TabularTranslator",
+            "schemaMapping": {
+                "orderNumber": "$.number", 
+                "orderDate": "$.date", 
+                "order_pd": "prod", 
+                "order_price": "price",
+                "city": " $.city[0].name"
+            },
+            "collectionReference":  "$.orders"
+        }
+    }
+}
+```
 
 ## Data type mapping
 
@@ -148,7 +223,7 @@ You can find the mapping between native type to interim type in the "Data type m
 
 ### Supported data types
 
-Data Factory supports the following interim data types: You can specify below values when providing type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure) configuration:
+Data Factory supports the following interim data types: You can specify below values when configuring type information in [dataset structure](concepts-datasets-linked-services.md#dataset-structure) configuration:
 
 * Byte[]
 * Boolean
@@ -182,7 +257,7 @@ In below scenarios, "structure" in dataset is required:
 
 In below scenarios, "structure" in dataset is suggested:
 
-* Copying from Text file without header (input dataset). You can specify the column names for Text file aligning with the corresponding sink columns, to save from providing explicit column mapping.
+* Copying from Text file without header (input dataset). You can specify the column names for Text file aligning with the corresponding sink columns, to save from configuring explicit column mapping.
 * Copying from data stores with flexible schema, for example,  Azure Table/Cosmos DB (input dataset), to guarantee the expected data (columns) being copied over instead of let copy activity infer schema based on top row(s) during each activity run.
 
 

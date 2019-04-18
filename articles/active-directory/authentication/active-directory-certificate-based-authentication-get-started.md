@@ -1,18 +1,19 @@
 ---
-title: Get started with Azure Active Directory certificate-based authentication
+title: Get started with certificate-based authentication - Azure Active Directory
 description: Learn how to configure certificate-based authentication in your environment
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: article
 ms.date: 01/15/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
 
+ms.collection: M365-identity-device-management
 ---
 # Get started with certificate-based authentication in Azure Active Directory
 
@@ -26,7 +27,7 @@ Configuring this feature eliminates the need to enter a username and password co
 This topic:
 
 - Provides you with the steps to configure and utilize certificate-based authentication for users of tenants in Office 365 Enterprise, Business, Education, and US Government plans. This feature is available in preview in Office 365 China, US Government Defense, and US Government Federal plans.
-- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](../connect/active-directory-aadconnectfed-whatis.md) configured.
+- Assumes that you already have a [public key infrastructure (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) and [AD FS](../hybrid/how-to-connect-fed-whatis.md) configured.
 
 ## Requirements
 
@@ -34,7 +35,7 @@ To configure certificate-based authentication, the following statements must be 
 
 - Certificate-based authentication (CBA) is only supported for Federated environments for browser applications or native clients using modern authentication (ADAL). The one exception is Exchange Active Sync (EAS) for Exchange Online (EXO), which can be used for  federated and managed accounts.
 - The root certificate authority and any intermediate certificate authorities must be configured in Azure Active Directory.
-- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an Internet facing URL.
+- Each certificate authority must have a certificate revocation list (CRL) that can be referenced via an internet-facing URL.
 - You must have at least one certificate authority configured in Azure Active Directory. You can find related steps in the [Configure the certificate authorities](#step-2-configure-the-certificate-authorities) section.
 - For Exchange ActiveSync clients, the client certificate must have the user’s routable email address in Exchange online in either the Principal Name or the RFC822 Name value of the Subject Alternative Name field. Azure Active Directory maps the RFC822 value to the Proxy Address attribute in the directory.
 - Your client device must have access to at least one certificate authority that issues client certificates.
@@ -57,7 +58,7 @@ The related information exists for the following device platforms:
 To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
 
 * The public portion of the certificate, in *.cer* format
-* The Internet facing URLs where the Certificate Revocation Lists (CRLs) reside
+* The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
 
 The schema for a certificate authority looks as follows:
 
@@ -112,7 +113,7 @@ To create a trusted certificate authority, use the [New-AzureADTrustedCertificat
     $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation
     $new_ca.AuthorityType=0
     $new_ca.TrustedCertificate=$cert
-    $new_ca.crlDistributionPoint=”<CRL Distribution URL>”
+    $new_ca.crlDistributionPoint="<CRL Distribution URL>"
     New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca
 
 ### Remove
@@ -175,7 +176,7 @@ If your sign-in is successful, then you know that:
 
 1. On your test device, install an Office mobile application (for example, OneDrive).
 3. Launch the application.
-4. Enter your user name, and then select the user certificate you want to use.
+4. Enter your username, and then select the user certificate you want to use.
 
 You should be successfully signed in.
 
@@ -200,6 +201,6 @@ An EAS profile can be configured and placed on the device through the utilizatio
 
 ## Next steps
 
-[Additional information about certificate-based authenticaion on Android devices.](active-directory-certificate-based-authentication-android.md)
+[Additional information about certificate-based authentication on Android devices.](active-directory-certificate-based-authentication-android.md)
 
-[Additional information about certificate-based authenticaion on iOS devices.](active-directory-certificate-based-authentication-ios.md)
+[Additional information about certificate-based authentication on iOS devices.](active-directory-certificate-based-authentication-ios.md)

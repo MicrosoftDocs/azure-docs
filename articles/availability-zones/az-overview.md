@@ -3,7 +3,7 @@ title: What are Azure Availability Zones? | Microsoft Docs
 description: To create highly available and resilient applications in Azure, Availability Zones provide physically separate locations you can use to run your resources.
 services: 
 documentationcenter:
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor:
 tags:
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 04/02/2019
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications). 
 ---
 
@@ -35,10 +35,15 @@ To achieve comprehensive business continuity on Azure, build your application ar
 ## Regions that support Availability Zones
 
 - Central US
+- East US
+- East US 2
 - France Central
-- East US 2 (Preview)
+- North Europe
+- Southeast Asia 
+- UK South &#42;
 - West Europe
-- Southeast Asia (Preview)
+- West US 2
+
 
 
 ## Services that support Availability Zones
@@ -48,15 +53,20 @@ The Azure services that support Availability Zones are:
 - Windows Virtual Machines
 - Virtual Machine Scale Sets
 - Managed Disks
-- Load Balancer
-- Public IP address
+- Standard Load Balancer &#42;
+- Standard public IP address &#42;
 - Zone-redundant storage
 - SQL Database
 - Event Hubs
-- Service Bus
+- Service Bus (Premium Tier Only)
 - VPN Gateway
 - ExpressRoute
+- Application Gateway (preview)
 
+&#42; Resources created in UK South before March 25, 2019 will soon be converted to be zone-redundant. Resources created after March 25, 2019 will be zone-redundant immediately.
+
+## Services resiliency
+All Azure management services are architected to be resilient from region-level failures. In the spectrum of failures, one or more Availability Zone failures within a region have a smaller failure radius compared to an entire region failure. Azure can recover from a zone-level failure of management services within the region or from another Azure region. Azure performs critical maintenance one zone at a time within a region, to prevent any failures impacting customer resources deployed across Availability Zones within a region.
 
 ## Pricing
 There is no additional cost for virtual machines deployed in an Availability Zone. 99.99% VM uptime SLA is offered when two or more VMs are deployed across two or more Availability Zones within an Azure region. There will be additional inter-Availability Zone VM-to-VM data transfer charges. For more information, review the [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/) page.
@@ -69,11 +79,11 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
 - [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
-- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration-preview)
-- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
+- [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
+- [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Create a zone-redundant virtual network gateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 
 ## Next steps
-- [Quickstart templates](http://aka.ms/azqs)
+- [Quickstart templates](https://aka.ms/azqs)

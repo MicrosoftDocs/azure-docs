@@ -3,7 +3,7 @@ title: Azure Stack add scale nodes | Microsoft Docs
 description: Add nodes to scale units in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,17 +13,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: brenduns
-ms.reviewer: thoroet 
+ms.date: 02/12/2019
+ms.author: jeffgilb
+ms.reviewer: thoroet
+ms.lastreviewed: 09/17/2018
 ---
 
 # Add additional scale unit nodes in Azure Stack
 
-Azure Stack operators can increase the overall capacity of an existing scale unit by adding an additional physical computer. The physical computer is also referred to as a scale unit node. Each new scale unit node you add must be homogenous in CPU type, memory, and disk number & size to the nodes that are already present in the scale unit.
-
-> [!NOTE]  
-You must run Azure Stack 1807 or later to add additional scale unit nodes.
+Azure Stack operators can increase the overall capacity of an existing scale unit by adding an additional physical computer. The physical computer is also referred to as a scale unit node. Each new scale unit node you add must be homogeneous in CPU type, memory, and disk number and size to the nodes that are already present in the scale unit.
 
 To add a scale unit node, you act in Azure Stack and run tooling from your hardware equipment manufacturer (OEM). The OEM tooling runs on the hardware lifecycle host (HLH) to make sure the new physical computer matches the same firmware level as existing nodes.
 
@@ -61,7 +59,7 @@ You can use the admin portal or PowerShell to add new nodes. The add node operat
 ### Use the admin portal
 
 1. Sign in to the Azure Stack admin portal as an Azure Stack operator.
-2. Navigate to **New** > **Capacity** > **Scale Unit Node**.
+2. Navigate to **+ Create a resource** > **Capacity** > **Scale Unit Node**.
    ![Scale unit node](media/azure-stack-add-scale-node/select-node1.png)
 3. On the **Add node** pane, select the *Region*, and then select the *Scale unit* that you want to add the node to. Also specify the *BMC IP ADDRESS* for the scale unit node you are adding. You can only add one node at a time.
    ![Add node details](media/azure-stack-add-scale-node/select-node2.png)
@@ -74,7 +72,7 @@ Use the **New-AzsScaleUnitNodeObject** cmdlet to add a node.
 Before using either of the following sample PowerShell scripts, replace the values *node names* and *IP addresses* with values from your Azure Stack environment.
 
   > [!Note]  
-  > When naming a node you must keep the name to less than 15 characters in length. You also cannot use a name that contains a space or contains any of the following characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > When naming a node you must keep the name to less than 15 characters in length. You also cannot use a name that contains a space or contains any of the following characters: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Add a node:**
   ```powershell
@@ -102,6 +100,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 ### Status for the add node operation 
 **For a scale unit:**
+
 |Status               |Description  |
 |---------------------|---------|
 |Running              |All nodes are actively participating in the scale unit.|
@@ -112,6 +111,7 @@ The status for scale unit and scale unit nodes can be retrieved using PowerShell
 
 
 **For a scale unit node:**
+
 |Status                |Description  |
 |----------------------|---------|
 |Running               |The node is actively participating in the scale unit.|
@@ -139,4 +139,4 @@ The following are common issues seen when adding a node.
 
 
 ## Next steps 
-Review [Node actions](azure-stack-node-actions.md) 
+[Add public IP addresses](azure-stack-add-ips.md) 

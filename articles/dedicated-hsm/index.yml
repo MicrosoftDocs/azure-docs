@@ -1,0 +1,62 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Dedicated HSM Documentation
+metadata:
+  title: Azure Dedicated HSM Documentation - Tutorials, API Reference | Microsoft Docs
+  meta.description: Learn how to use Azure Dedicated HSM to create and maintain keys that access and encrypt your cloud resources, apps, and solutions. Tutorials, API references, and more.
+  services: dedicated-hsm
+  author: barclayn
+  manager: barbkess
+  layout: LandingPage
+  ms.assetid: 
+  ms.service: dedicated-hsm
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/21/2018
+  ms.author: barclayn
+abstract:
+  description: Learn about Dedicated HSM functionality and whether it applies to your environment.
+sections:
+
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+      - href: /azure/dedicated-hsm/overview
+        html: <p>Learn what Azure Dedicated HSM is all about.</p>
+        image: 
+          src: media/index/hsm.svg
+        title: Azure Dedicated HSM overview
+      - href: /azure/dedicated-hsm/faq
+        html: <p>Design considerations when using Dedicated HSM</p>
+        image:
+          src: media/index/guide.svg
+        title: Deciding on deployment architecture
+
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: ''
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: media/index/cli.svg
+      text: Azure CLI
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-cli
+    - image: 
+        src: media/index/logo_powershell.svg
+      text: PowerShell
+      href: /azure/dedicated-hsm/tutorial-deploy-hsm-powershell
+ 
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: FAQ
+      html: <p><a href="/azure/dedicated-hsm/faq/">Frequently asked questions</a></p>

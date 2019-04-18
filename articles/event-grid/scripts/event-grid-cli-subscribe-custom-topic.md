@@ -4,14 +4,13 @@ description: Azure CLI Script Sample - Subscribe to custom topic
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
 ---
 
@@ -23,9 +22,16 @@ This script creates an Event Grid subscription to the events for a custom topic.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## Sample script
+The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
+
+## Sample script - stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
+
+## Sample script - preview extension
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
+
 
 ## Script explanation
 
@@ -34,7 +40,7 @@ This script uses the following command to create the event subscription. Each co
 | Command | Notes |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Create an Event Grid subscription. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) - extension version | Create an Event Grid subscription. |
 
 ## Next steps
 

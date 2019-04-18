@@ -12,14 +12,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 03/26/2019
 ms.author: jeffgilb
-ms.reviewer: jeffgo
+ms.reviewer: quying
+ms.lastreviewed: 10/16/2018
 
 ---
 # Add hosting servers for the SQL resource provider
 
-You can host a SQL instance on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
+You can create SQL Server database hosting servers on a virtual machine (VM) in [Azure Stack](azure-stack-poc.md), or on a VM outside your Azure Stack environment, as long as the SQL resource provider can connect to the instance.
+
+> [!NOTE]
+> The SQL resource provider should be created in the default provider subscription while SQL hosting servers should be created in a billable, user subscription. The resource provider server should not be used to host user databases.
 
 ## Overview
 
@@ -34,13 +38,16 @@ Before you add a SQL hosting server, review the following mandatory and general 
 
 * Dedicate the SQL instance for use by the resource provider and user workloads. You can't use a SQL instance that's being used by any other consumer. This restriction also applies to App Services.
 * Configure an account with the appropriate privilege levels for the resource provider (described below).
-* You're are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
+* You are responsible for managing the SQL instances and their hosts.  For example, the resource provider doesn't apply updates, handle backups, or handle credential rotation.
 
 ### SQL Server virtual machine images
 
 SQL IaaS virtual machine images are available through the Marketplace Management feature. These images are the same as the SQL VMs that are available in Azure.
 
 Make sure you always download the latest version of the **SQL IaaS Extension** before you deploy a SQL VM using a Marketplace item. The IaaS extension and corresponding portal enhancements provide additional features such as automatic patching and backup. For more information about this extension, see [Automate management tasks on Azure Virtual Machines with the SQL Server Agent Extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> The SQL IaaS Extension is _required_ for all SQL on Windows images in the marketplace; the VM will fail to deploy if you did not download the extension. It is not used with Linux-based SQL virtual machine images.
 
 There are other options for deploying SQL VMs, including templates in the [Azure Stack Quickstart Gallery](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -121,7 +128,7 @@ To enable automatic seeding on all instances, edit and then run the following SQ
   GO
   ```
 
-Note that the availability group must be enclosed in square brackets.
+The availability group must be enclosed in square brackets.
 
 On the secondary nodes, run the following SQL command:
 
@@ -163,25 +170,31 @@ Use these commands to set the contained database authentication server option fo
    > You can't mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
 
 ## SKU notes
-
-You can use SKUs to differentiate service offerings. For example, you can have a SQL Enterprise instance that has the following characteristics:
+Use a SKU name that describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU. For example, you can use SKU names to differentiate service offerings by the following characteristics:
   
 * high capacity
 * high-performance
 * high availability
 
-SKUs can't be assigned to specific users or groups in this release.
-
- SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
-
->[!TIP]
->Use a SKU name that reflects describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU.
-
 As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
 
-## Make the SQL databases available to users
+SKUs can't be assigned to specific users or groups.
+
+SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
+
+To edit a SKU, go to **All services** > **SQL Adapter** > **SKUs**. Select the SKU to modify, make any necessary changes, and click **Save** to save changes. 
+
+To delete a SKU that is no longer needed, go to **All services** > **SQL Adapter** > **SKUs**. Right-click the SKU name and select **Delete** to delete it.
+
+> [!IMPORTANT]
+> It can take up to an hour for new SKUs to be available in the user portal.
+
+## Make SQL databases available to users
 
 Create plans and offers to make SQL databases available for users. Add the **Microsoft.SqlAdapter** service to the plan and create a new quota.
+
+> [!IMPORTANT]
+> It can take up to two hours for new quotas to be available in the user portal or before a changed quota is enforced.
 
 ## Next steps
 

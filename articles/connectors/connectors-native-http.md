@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to any HTTP endpoint with Azure Logic Apps | Microsoft Docs
 description: Automate tasks and workflows that communicate with any HTTP endpoint by using Azure Logic Apps
 services: logic-apps
@@ -63,7 +63,7 @@ Under the triggers list, select the **HTTP** trigger.
 
 1. Provide the [HTTP trigger's parameters and values](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) 
 you want to include in the call to the target endpoint. 
-Set up recurrence for how often you want the trigger to check the target endpont.
+Set up recurrence for how often you want the trigger to check the target endpoint.
 
    ![Enter HTTP trigger parameters](./media/connectors-native-http/http-trigger-parameters.png)
 
@@ -112,7 +112,7 @@ see [Trigger and action types reference](../logic-apps/logic-apps-workflow-actio
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

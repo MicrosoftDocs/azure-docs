@@ -1,22 +1,16 @@
 ---
-title: Process Azure blob data with advanced analytics | Microsoft Docs
-description: Process Data in Azure Blob storage.
-services: machine-learning,storage
-documentationcenter: ''
-author: deguhath
+title: Process Azure blob data with advanced analytics - Team Data Science Process
+description: Explore data and generate features from data stored in Azure Blob storage using advanced analytics.
+services: machine-learning
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: d8a59078-91d3-4440-b85c-430363c3f4d1
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Process Azure blob data with advanced analytics
 This document covers exploring data and generating features from data stored in Azure Blob storage. 
@@ -75,12 +69,12 @@ Here are a few examples of ways to explore data using Pandas:
         print miss_num
 7. If you have missing values for a specific column in the data, you can drop them as follows:
    
-     dataframe_blobdata_noNA = dataframe_blobdata.dropna()
-     dataframe_blobdata_noNA.shape
+        dataframe_blobdata_noNA = dataframe_blobdata.dropna()
+        dataframe_blobdata_noNA.shape
    
    Another way to replace missing values is with the mode function:
    
-     dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
+        dataframe_blobdata_mode = dataframe_blobdata.fillna({'<column_name>':dataframe_blobdata['<column_name>'].mode()[0]})        
 8. Create a histogram plot using variable number of bins to plot the distribution of a variable    
    
         dataframe_blobdata['<column_name>'].value_counts().plot(kind='bar')

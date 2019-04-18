@@ -2,7 +2,7 @@
 title: "Azure Batch pool resize complete event | Microsoft Docs"
 description: Reference for Batch pool resize complete event.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.assetid: 
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Pool resize complete event

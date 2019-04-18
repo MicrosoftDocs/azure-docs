@@ -1,11 +1,11 @@
 ---
-title: Create a Ruby App and deploy to App Service on Linux | Microsoft Docs
-description: Learn to create Ruby apps with App Service on Linux.
-keywords: azure app service, linux, oss, ruby
+title: Create Ruby web app on Linux - Azure App Service | Microsoft Docs
+description: Learn to create a Ruby on Rails app with App Service on Linux.
+keywords: azure app service, linux, oss, ruby, rails
 services: app-service
 documentationcenter: ''
-author: SyntaxC4
-manager: cfowler
+author: cephalin
+manager: jeconnoc
 editor: ''
 
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
@@ -14,13 +14,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/24/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: mvc
+ms.custom: seodec18
 ---
-# Create a Ruby App in App Service on Linux
+# Create a Ruby on Rails App in App Service on Linux
 
 [Azure App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This quickstart shows you how to create a basic [Ruby on Rails](https://rubyonrails.org/) application that can then be deployed to Azure as a Web App on Linux.
+
+> [!NOTE]
+> The Ruby development stack only supports Ruby on Rails at this time. If you want to use a different platform, such as Sinatra, or if you want to use an [unsupported Ruby version](app-service-linux-intro.md), you need to [run it in a custom container](quickstart-docker-go.md).
 
 ![Hello-world](./media/quickstart-ruby/hello-world-updated.png)
 
@@ -43,9 +47,16 @@ git clone https://github.com/Azure-Samples/ruby-docs-hello-world
 
 Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window, change to the `hello-world` directory, and use the `rails server` command to start the server.
 
+The first step is to install the required gems. There's a `Gemfile` included in the sample so you don't need to specify the gems to install. We'll use bundler for this:
+
 ```bash
-cd hello-world\bin
-rails server
+bundle install
+```
+
+Once the gems are installed, we'll use bundler to start the app:
+
+```bash
+bundle exec rails server
 ```
 
 Using your web browser, navigate to `http://localhost:3000` to test the app locally.
@@ -124,4 +135,7 @@ http://<app name>.azurewebsites.net
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Ruby on Rails with MySQL](tutorial-ruby-postgres-app.md)
+> [Tutorial: Ruby on Rails with Postgres](tutorial-ruby-postgres-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure Ruby app](configure-language-ruby.md)

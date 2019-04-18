@@ -4,7 +4,7 @@ description: This topic shows how to use Media Encoder Standard (MES) to auto-ge
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,11 +12,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/10/2017
+ms.date: 03/14/2019
 ms.author: juliako
 
 ---
-#  Use Azure Media Encoder Standard to auto-generate a bitrate ladder
+#  Use Azure Media Encoder Standard to auto-generate a bitrate ladder  
 
 ## Overview
 

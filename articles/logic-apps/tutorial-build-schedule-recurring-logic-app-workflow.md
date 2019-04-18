@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 01/12/2018
 ---
 
-# Check traffic with a schedule-based logic app
+# Check traffic on a schedule with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows that run on a schedule. 
 This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) 
@@ -335,7 +335,7 @@ For testing purposes, use your email address.
 6. In the **Subject** box, specify the email's subject, 
 and include the **travelTime** variable.
 
-   1. Enter the text ```Current travel time (minutes): ``` with a trailing space. 
+   1. Enter the text ```Current travel time (minutes):``` with a trailing space. 
    
    2. From either the parameter list or the dynamic content list, 
    select **travelTime** under **Variables**. 
@@ -346,7 +346,7 @@ and include the **travelTime** variable.
 
 7. In the **Body** box, specify the content for the email body. 
 
-   1. Enter the text ```Add extra travel time (minutes): ``` with a trailing space. 
+   1. Enter the text ```Add extra travel time (minutes):``` with a trailing space. 
    
    2. If necessary, widen your browser until the dynamic content list appears. 
    In the dynamic content list, choose **Expression**.
@@ -421,7 +421,7 @@ Choose **Delete resource group**. Enter the resource group name as confirmation,
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

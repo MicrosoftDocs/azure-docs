@@ -4,7 +4,7 @@ description: The Microsoft Trust center provides you the information you need to
 services: security
 documentationcenter: na
 author: TomShinder
-manager: MBaldwin
+manager: barbkess
 editor: TomSh
 
 ms.assetid: 0b94f9a3-8648-4860-812c-be689b0b327b

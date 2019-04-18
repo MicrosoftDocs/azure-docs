@@ -5,8 +5,8 @@ metadata:
   title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Logic Apps simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Learn how to create, design, and deploy logic apps that automate business processes with our quickstarts, tutorials, templates, and APIs.
   services: logic-apps
-  author: czeumault
-  manager: estfan
+  author: ecfan
+  manager: carmonm
   ms.service: logic-apps
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -44,6 +44,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.logicapp/?view=azurermps-5.1.1">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/az.logicapp">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/logic/">REST API Reference</a></p>

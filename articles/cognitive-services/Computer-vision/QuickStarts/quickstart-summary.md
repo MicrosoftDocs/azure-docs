@@ -1,17 +1,20 @@
 ---
-title: Computer Vision quickstart summary | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using Computer Vision in Cognitive Services.
+title: Computer Vision Quickstart Summary
+titleSuffix: "Azure Cognitive Services"
+description: In these quickstarts, you analyze an image, create a thumbnail, and extract printed and handwritten text using the Computer Vision API.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 02/08/2019
+ms.author: pafarley
+ms.custom: seodec18
+# This topic is not currently listed.
 ---
+
 # Quickstart: Summary
 
 These quickstarts provide information and code samples to help you quickly get started using the Computer Vision service.

@@ -1,17 +1,16 @@
 ---
 title: Create and manage MySQL firewall rules in Azure Database for MySQL
 description: Create and manage Azure Database for MySQL firewall rules using the Azure portal
-services: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
-editor: jasonwhowell
 ms.service: mysql
-ms.topic: article
-ms.date: 02/28/2018
+ms.topic: conceptual
+ms.date: 04/09/2018
 ---
 # Create and manage Azure Database for MySQL firewall rules by using the Azure portal
-Server-level firewall rules enable administrators to access an Azure Database for MySQL Server from a specified IP address or a range of IP addresses. 
+Server-level firewall rules can be used to manage access to an Azure Database for MySQL Server from a specified IP address or a range of IP addresses. 
+
+Virtual Network (VNet) rules can also be used to secure access to your server. Learn more about [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-using-portal.md).
 
 ## Create a server-level firewall rule in the Azure portal
 
@@ -31,7 +30,7 @@ Server-level firewall rules enable administrators to access an Azure Database fo
 
 4. Add additional address ranges. In the firewall rules for the Azure Database for MySQL, you can specify a single IP address or a range of addresses. If you want to limit the rule to a single IP address, type the same address in the Start IP and End IP fields. Opening the firewall enables administrators, users, and application to access any database on the MySQL server to which they have valid credentials.
 
-   ![Azure portal - firewall rules ](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
+   ![Azure portal - firewall rules](./media/howto-manage-firewall-using-portal/4-specify-addresses.png)
 
 5. Click **Save** on the toolbar to save this server-level firewall rule. Wait for the confirmation that the update to the firewall rules is  successful.
 
@@ -54,4 +53,5 @@ Repeat the steps to manage the firewall rules.
 
 ## Next steps
 - Similarly, you can script to [Create and manage Azure Database for MySQL firewall rules using Azure CLI](howto-manage-firewall-using-cli.md).
-- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md)
+- Further secure access to your server by [creating and managing Virtual Network service endpoints and rules using the Azure portal](howto-manage-vnet-using-portal.md).
+- For help in connecting to an Azure Database for MySQL server, see [Connection libraries for Azure Database for MySQL](./concepts-connection-libraries.md).

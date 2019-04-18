@@ -1,23 +1,25 @@
 ---
 title: Configure sign-in auto-acceleration for an application using a Home Realm Discovery policy | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
+description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 documentationcenter: 
-author: barbkess
+author: CelesteDG
 manager: mtillman
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
-ms.author: barbkess
+ms.date: 04/08/2019
+ms.author: celested
+ms.custom: seoapril2019
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
 
-The following document provides an introduction to configuring Azure Active Directory authentication behavior for federated users.   It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
+This article provides an introduction to configuring Azure Active Directory authentication behavior for federated users. It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
 
 ## Home Realm Discovery
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
@@ -258,4 +260,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## Next steps
 - For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-scenarios.md).
 - For more information about user single sign-on, see [Application access and single sign-on with Azure Active Directory](configure-single-sign-on-portal.md).
-- Visit the [Active Directory developer's guide](../develop/azure-ad-developers-guide.md) for an overview of all developer-related content.
+- Visit the [Active Directory developer's guide](../develop/v1-overview.md) for an overview of all developer-related content.

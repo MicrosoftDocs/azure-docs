@@ -59,7 +59,7 @@ or [from inside your logic app](#create-function-designer) in the Logic App Desi
 
   * Your function doesn't use custom routes unless you've defined an 
   [OpenAPI definition](../azure-functions/functions-openapi-definition.md), 
-  formerly known as a [Swagger file](http://swagger.io/). 
+  formerly known as a [Swagger file](https://swagger.io/). 
   
   * If you've defined an OpenAPI definition for your function, 
   the Logic Apps Designer gives you a richer experience for 
@@ -97,7 +97,7 @@ template for either **JavaScript** or **C#**.
 <a name="function-swagger"></a>
 
 * Optionally, if you [generate an API definition](../azure-functions/functions-openapi-definition.md), 
-formerly known as a [Swagger file](http://swagger.io/), for your function, 
+formerly known as a [Swagger file](https://swagger.io/), for your function, 
 you can get a richer experience when you work with function parameters 
 in the Logic Apps Designer. To set up your function app so your logic 
 app can find and use functions that have Swagger descriptions, 
@@ -329,7 +329,7 @@ payload you want that logic app to process. For more information, see
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

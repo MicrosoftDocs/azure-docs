@@ -16,6 +16,15 @@ metadata:
   ms.author: rolyon
 abstract:
   description: Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables you to limit standing administrator access to privileged roles, discover who has access, and review privileged access.
+  aside:
+    image:
+      alt: 
+      height: 112
+      src: media/index/video-thumb-pim.png
+      width: 200  
+    title: Protect the keys to your kingdom (42:45)
+    href: https://www.youtube.com/embed/w7wTpZYJJeQ
+    width: 200
 sections:
   - title: How-to guides for eligible and active role users
     items:
@@ -24,7 +33,7 @@ sections:
       columns:
         - image:
             src: media/index/Azure Active Directory_COLOR.svg
-          title: Azure AD directory roles
+          title: Azure AD roles
         - image:
             src: media/index/Cubes.svg
           title: Azure resources
@@ -40,7 +49,7 @@ sections:
       columns:
         - image:
             src: media/index/Azure Active Directory_COLOR.svg
-          title: Azure AD directory roles
+          title: Azure AD roles
         - image:
             src: media/index/Cubes.svg
           title: Azure resources

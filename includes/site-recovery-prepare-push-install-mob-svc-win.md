@@ -1,3 +1,10 @@
+---
+author: rayne-wiselman
+ms.service: site-recovery
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: raynew
+---
 ### Prepare for a push installation on a Windows computer
 
 1. Ensure that there's network connectivity between the Windows computer and the process server.

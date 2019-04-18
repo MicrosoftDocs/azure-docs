@@ -1,5 +1,5 @@
 ﻿---
-title: Create an Azure Time Series Insights single-page web app
+title: 'Tutorial: Create an Azure Time Series Insights single-page web app | Microsoft Docs'
 description: Learn how to create a single-page web application that queries and renders data from a TSI environment.
 author: ashannon7
 ms.service: time-series-insights
@@ -7,6 +7,7 @@ ms.topic: tutorial
 ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
+ms.custom: seodec18
 # Customer intent: As a developer, I want learn how to create a Time Series Insights single-page web application (SPA), so I can apply the principles to building my own SPA.
 ---
 
@@ -49,7 +50,7 @@ Before building the application, you need to register it with Azure AD. Registra
    ---|---
    **Name** | Provide a meaningful registration name.  
    **Application type** | Since you're building an SPA web application, leave as "Web app/API."
-   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https://azurewebsites.net" domain. In this example, the name is based on the registration name.
+   **Sign-on URL** | Enter the URL for the home/sign-in page of the application. Because the application will be hosted in Azure App Service (later), you must use a URL within the "https:\//azurewebsites.net" domain. In this example, the name is based on the registration name.
 
    When finished, click **Create** to create the new application registration.
 
@@ -174,7 +175,7 @@ Before building the application, you need to register it with Azure AD. Registra
 Error code/condition | Description
 ---------------------| -----------
 *AADSTS50011: No reply address is registered for the application.* | The Azure AD registration is missing the "Reply URL" property. Go to the **Settings** / **Reply URLs** page for your Azure AD application registration. Verify that the **Sign-on** URL specified in step #3 of [Register the application with Azure AD](#register-the-application-with-azure-ad) is present. 
-*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration. Be sure to also change **Destination URL** to use `https`, per step #5.e of [Build and publish the web application](#build-and-publish-the-web-application).
+*AADSTS50011: The reply url specified in the request does not match the reply urls configured for the application: '\<Application ID GUID>'.* | The `postLogoutRedirectUri` specified in step #4.b of [Build and publish the web application](#build-and-publish-the-web-application), must match the value specified under the **Settings** / **Reply URLs** property in your Azure AD application registration. Be sure to also change **Destination URL** to use `https`, per step #5.e of [Build and publish the web application](#build-and-publish-the-web-application).
 Web application loads, but has an unstyled text-only sign-in page, with a white background. | Verify that the paths discussed in step #4.a of [Build and publish the web application](#build-and-publish-the-web-application) are correct. If the web application can't find the .css files, the page won't be styled correctly.
 
 ## Clean up resources

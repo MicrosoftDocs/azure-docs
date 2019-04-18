@@ -1,22 +1,16 @@
 ---
-title: Explore data in a SQL Server virtual machine on Azure | Microsoft Docs
+title: Explore data in a SQL Server virtual machine - Team Data Science Process
 description: Explore data and generate features in a SQL Server virtual machine on Azure
 services: machine-learning
-documentationcenter: ''
-author: deguhath
-manager: jhubbard
-editor: ''
-
-ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
+author: marktab
+manager: cgronlun
+editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 # <a name="heading"></a>Process Data in SQL Server Virtual Machine on Azure
 This document covers how to explore data and generate features for data stored in a SQL Server VM on Azure. This can be done by data wrangling using SQL or by using a programming language like Python.
@@ -36,7 +30,7 @@ We describe the following data wrangling tasks in this section using SQL:
 Here are a few sample SQL scripts that can be used to explore data stores in SQL Server.
 
 > [!NOTE]
-> For a practical example, you can use the [NYC Taxi dataset](http://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
+> For a practical example, you can use the [NYC Taxi dataset](https://www.andresmh.com/nyctaxitrips/) and refer to the IPNB titled [NYC Data wrangling using IPython Notebook and SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) for an end-to-end walk-through.
 > 
 > 
 
@@ -82,7 +76,7 @@ The following example shows how to generate binned features by binning (using fi
 ### <a name="sql-featurerollout"></a>Rolling out the features from a single column
 In this section, we demonstrate how to roll out a single column in a table to generate additional features. The example assumes that there is a latitude or longitude column in the table from which you are trying to generate features.
 
-Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This is useful to understand before featurizing the location field:
+Here is a brief primer on latitude/longitude location data (resourced from stackoverflow [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)). This is useful to understand before featurizing the location field:
 
 * The sign tells us whether we are north or south, east or west on the globe.
 * A nonzero hundreds digit tells us that we're using longitude, not latitude!
@@ -130,10 +124,10 @@ The following connection string format can be used to connect to a SQL Server da
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-The [Pandas library](http://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads the results returned from a SQL Server database into a Pandas data frame:
+The [Pandas library](https://pandas.pydata.org/) in Python provides a rich set of data structures and data analysis tools for data manipulation for Python programming. The code below reads the results returned from a SQL Server database into a Pandas data frame:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Now you can work with the Pandas data frame as covered in the article [Process Azure Blob data in your data science environment](data-blob.md).
 

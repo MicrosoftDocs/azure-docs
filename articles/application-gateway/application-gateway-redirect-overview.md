@@ -32,4 +32,4 @@ With this change, customers would need to create a new redirect configuration ob
 
 ### Next steps
 
-[Configure URL redirection on an application gateway](application-gateway-configure-redirect-powershell.md)
+[Configure HTTP to HTTPS redirection on an application gateway](redirect-http-to-https-portal.md)

@@ -4,9 +4,9 @@ description: Updated schema version 2015-08-01-preview for logic app definitions
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
-author: stepsic-microsoft-com
-ms.author: stepsic
-ms.reviewer: klam, estfan, LADocs
+author: kevinlam1
+ms.author: klam
+ms.reviewer: estfan, LADocs
 ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
 ms.topic: article
 ms.date: 05/31/2016
@@ -84,8 +84,11 @@ Here is an example of a connection that calls Office 365 to send an email:
 The `host` object is a part of the inputs that is unique to API connections, 
 and contains these parts: `api` and `connection`. 
 The `api` object specifies the runtime URL for where that managed API is hosted. 
-You can see all the available managed APIs by calling 
-`GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/managedApis/?api-version=2015-08-01-preview`.
+You can see all the available managed APIs by calling this method:
+
+```text
+GET https://management.azure.com/subscriptions/<Azure-subscription-ID>/providers/Microsoft.Web/locations/<location>/managedApis?api-version=2015-08-01-preview
+```
 
 When you use an API, that API might or might not have defined any *connection parameters*. 
 So, if the API doesn't define these parameters, no connection is required. 
@@ -93,7 +96,7 @@ If the API does define these parameters, you must create a connection with a spe
 You then reference that name in the `connection` object inside the `host` object. 
 To create a connection in a resource group, call this method:
 
-```
+```text
 PUT https://management.azure.com/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Web/connections/<name>?api-version=2015-08-01-preview
 ```
 
@@ -115,11 +118,10 @@ With the following body:
 
 ### Deploy managed APIs in an Azure Resource Manager template
 
-You can create a full app in an Azure Resource Manager 
-template as long as interactive sign-in isn't required.
-If sign-in is required, you can set up everything 
-with the Azure Resource Manager template, 
-but you still have to visit the Azure portal to authorize the connections. 
+When interactive sign-in isn't required, you can 
+create a full app by using a Resource Manager template.
+If sign-in is required, you can still use a Resource Manager template, 
+but you have to authorize the connections through the Azure portal. 
 
 ``` json
 "resources": [ {
@@ -214,11 +216,12 @@ They reference the managed APIs available to you in your subscription.
 
 ### Your custom Web APIs
 
-If you use your own APIs, not Microsoft-managed ones, 
-use the built-in **HTTP** action to call them. 
-For an ideal experience, you should expose a Swagger endpoint for your API. 
-This endpoint enables the Logic App Designer to render the inputs and outputs for your API. 
-Without Swagger, the designer can only show the inputs and outputs as opaque JSON objects.
+If you use your own APIs rather than Microsoft-managed ones, 
+use the built-in **HTTP** action to call your APIs. Ideally, 
+you should provide a Swagger endpoint for your API. 
+This endpoint helps Logic App Designer show your API's 
+inputs and outputs. Without a Swagger endpoint, 
+the designer can only show the inputs and outputs as opaque JSON objects.
 
 Here is an example showing the new `metadata.apiDefinitionUrl` property:
 
@@ -287,8 +290,8 @@ your **2014-12-01-preview** schema version definition might have something like:
 }
 ```
 
-Now, you can now construct the equivalent HTTP action like the following example, 
-while leaving the parameters section for the logic app definition unchanged:
+Now, you can now build a similar HTTP action and leave the 
+logic app definition's `parameters` section unchanged, for example:
 
 ``` json
 "actions": {
@@ -321,8 +324,8 @@ Walking through these properties one-by-one:
 | `metadata.apiDefinitionUrl` | To use this action in the Logic App Designer, include the metadata endpoint, which is constructed from: `{api app host.gateway}/api/service/apidef/{last segment of the api app host.id}/?api-version=2015-01-14&format=swagger-2.0-standard` |
 | `inputs.uri` | Constructed from: `{api app host.gateway}/api/service/invoke/{last segment of the api app host.id}/{api app operation}?api-version=2015-01-14` |
 | `inputs.method` | Always `POST` |
-| `inputs.body` | Identical to the API App parameters |
-| `inputs.authentication` | Identical to the API App authentication |
+| `inputs.body` | Same as the API App parameters |
+| `inputs.authentication` | Same as the API App authentication |
 
 This approach should work for all API App actions. However, 
 remember that these previous API Apps are no longer supported. 
@@ -386,7 +389,7 @@ So, using the previous `repeat` example, you get these outputs:
    },
    "outputs": {
       "headers": { },
-      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+      "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
    },
    "status": "Succeeded"
 } ]
@@ -403,7 +406,7 @@ Now you get these outputs instead:
       },
       "outputs": {
          "headers": { },
-         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"http://schemas.live.com/Web/\">...</html>"
+         "body": "<!DOCTYPE html><html lang=\"en\" xml:lang=\"en\" xmlns=\"http://www.w3.org/1999/xhtml\" xmlns:Web=\"https://schemas.live.com/Web/\">...</html>"
       },
       "status": "Succeeded"
 } ]
@@ -418,7 +421,7 @@ Previously, to get the `body` from the action when referencing these outputs:
       "repeat": "@outputs('pingBing').repeatItems",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@repeatItem().outputs.body"
       }
    }
@@ -434,7 +437,7 @@ Now you can use this version instead:
       "foreach": "@outputs('pingBing')",
       "inputs": {
          "method": "POST",
-         "uri": "http://www.example.com",
+         "uri": "https://www.example.com",
          "body": "@item().outputs.body"
       }
    }
@@ -445,13 +448,16 @@ Now you can use this version instead:
 
 ## Native HTTP listener
 
-The HTTP Listener capabilities are now built in. So you no longer need to deploy an HTTP Listener API App. 
-See [the full details for how to make your Logic app endpoint callable here](../logic-apps/logic-apps-http-endpoint.md). 
+HTTP listener features are now built-in, so you 
+don't have to deploy an HTTP Listener API App. 
+For more information, learn how to 
+[make your logic app endpoint callable](../logic-apps/logic-apps-http-endpoint.md). 
 
-With these changes, we removed the `@accessKeys()` function, which we replaced with the `@listCallbackURL()` 
-function for getting the endpoint when necessary. Also, you must now define at least one trigger in your logic app. 
-If you want to `/run` the workflow, you must have one of these triggers: `manual`, `apiConnectionWebhook`, 
-or `httpWebhook`.
+With these changes, Logic Apps replaces the `@accessKeys()` function 
+with the `@listCallbackURL()` function, which gets the endpoint when necessary. 
+Also, you now must define at least one trigger in your logic app. 
+If you want to `/run` the workflow, you have to use one of these trigger types: 
+`Manual`, `ApiConnectionWebhook`, or `HttpWebhook`
 
 <a name="child-workflows"></a>
 
@@ -460,7 +466,7 @@ or `httpWebhook`.
 Previously, calling child workflows required going to the workflow, 
 getting the access token, and pasting the token in the logic app 
 definition where you want to call that child workflow. 
-With the new schema, the Logic Apps engine automatically generates 
+With this schema, the Logic Apps engine automatically generates 
 a SAS at runtime for the child workflow so you don't have to 
 paste any secrets into the definition. Here is an example:
 
@@ -488,17 +494,17 @@ paste any secrets into the definition. Here is an example:
 }
 ```
 
-A second improvement is we are giving the child workflows full access to the incoming request. 
-That means that you can pass parameters in the *queries* section and in the *headers* object 
-and that you can fully define the entire body.
+Also, child workflows get full access to the incoming request. 
+So, you can pass parameters in the `queries` section and in the 
+`headers` object. You can also fully define the entire `body` section.
 
-Finally, there are required changes to the child workflow. 
-While you could previously call a child workflow directly, 
-now you must define a trigger endpoint in the workflow for the parent to call. 
-Generally, you would add a trigger that has `manual` type, 
+Finally, child workflows have these required changes. 
+While you could previously and directly call a child workflow, 
+you must now define a trigger endpoint in the workflow for the parent to call. 
+Generally, you would add a trigger that has `Manual` type, 
 and then use that trigger in the parent definition. 
-Note the `host` property specifically has a `triggerName` 
-because you must always specify which trigger you are invoking.
+The `host` property specifically has a `triggerName` 
+because you must always specify the trigger you're calling.
 
 ## Other changes
 
@@ -509,11 +515,11 @@ This input can be a structured object, rather than you having to assemble the st
 
 ### Renamed 'parse()' function to 'json()'
 
-We are adding more content types soon, so we renamed the `parse()` function to `json()`.
+The `parse()` function is now renamed the `json()` function for future content types.
 
-## Coming soon: Enterprise Integration APIs
+## Enterprise Integration APIs
 
-We don't have managed versions yet of the Enterprise Integration APIs, like AS2. 
-Meanwhile, you can use your existing deployed BizTalk APIs through the HTTP action. 
-For details, see "Using your already deployed API apps" in the 
-[integration roadmap](http://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 
+This schema doesn't yet support managed versions for Enterprise Integration APIs, 
+such as AS2. However, you can use existing deployed BizTalk APIs through the HTTP action. 
+For more information, see "Using your already deployed API apps" in the 
+[integration roadmap](https://www.zdnet.com/article/microsoft-outlines-its-cloud-and-server-integration-roadmap-for-2016/). 

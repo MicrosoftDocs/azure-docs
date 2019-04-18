@@ -5,14 +5,10 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.tgt_pltfrm: multiple
-ms.workload: na 
 ms.date: 08/12/2018
 ms.author: glenga
 
@@ -52,13 +48,13 @@ However, you might have created your functions by using the editor in the Azure 
 
 + **From the Azure portal:**
 
-    1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
+  1. Sign in to the [Azure portal](https://portal.azure.com), and then go to your function app.
 
-    2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
+  2. On the **Overview** tab, select **Download app content**. Select your download options, and then select **Download**.
 
-        ![Download the function app project](./media/deployment-zip-push/download-project.png)
+      ![Download the function app project](./media/deployment-zip-push/download-project.png)
 
-    The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
+     The downloaded .zip file is in the correct format to be republished to your function app by using .zip push deployment. The portal download can also add the files needed to open your function app directly in Visual Studio.
 
 + **Using REST APIs:**
 
@@ -91,10 +87,7 @@ When you're using Azure CLI on your local computer, `<zip_file_path>` is the pat
 
 You can also choose to run your functions directly from the deployment package file. This method skips the deployment step of copying files from the package to the `wwwroot` directory of your function app. Instead, the package file is mounted by the Functions runtime, and the contents of the `wwwroot` directory become read-only.  
 
-> [!NOTE]
-> The ability to run your function app from the deployment package is in preview.
-
-Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_ZIP` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
+Zip deployment integrates with this feature, which you can enable by setting the function app setting `WEBSITE_RUN_FROM_PACKAGE` to a value of `1`. For more information, see [Run your functions from a deployment package file](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

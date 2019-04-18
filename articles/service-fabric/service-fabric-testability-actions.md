@@ -4,7 +4,7 @@ description: This article talks about the testability actions found in Microsoft
 services: service-fabric
 documentationcenter: .net
 author: motanv
-manager: timlt
+manager: chackdan
 editor: heeldin
 
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
@@ -107,7 +107,7 @@ Parameter explanation:
 
 Instead of directly specifying the node by its name, you can specify it via a partition key and the kind of replica.
 
-For further information, see [PartitionSelector and ReplicaSelector](#partition_replica_selector).
+For further information, see PartitionSelector and ReplicaSelector.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll

@@ -1,12 +1,11 @@
 ---
-title: Configure Load Balancer TCP idle timeout | Microsoft Docs
+title: Configure Load Balancer TCP idle timeout in Azure
+titlesuffix: Azure Load Balancer
 description: Configure Load Balancer TCP idle timeout
 services: load-balancer
 documentationcenter: na
 author: kumudd
-manager: timlt
-
-ms.assetid: 4625c6a8-5725-47ce-81db-4fa3bd055891
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -118,7 +117,7 @@ You can configure the TCP idle timeout by using the service management API. Make
 ### Response
 
 ```xml
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
     <InputEndpoint>
     <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
     <LocalPort>local-port-number</LocalPort>

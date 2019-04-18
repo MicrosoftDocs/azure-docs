@@ -56,12 +56,18 @@
       href: hpccompute-gpu-linux.md
     - name: Windows
       href: hpccompute-gpu-windows.md
-  - name: Operations Management suite
+  - name: Log Analytics
     items:
     - name: Linux
       href: oms-linux.md
     - name: Windows
       href: oms-windows.md
+  - name: Azure Monitor for VMs
+    items:
+    - name: Linux Dependency agent
+      href: agent-dependency-linux.md
+    - name: Windows Dependency agent
+      href: agent-dependency-windows.md
   - name: PowerShell DSC 
     href: dsc-overview.md
     items:
@@ -85,6 +91,8 @@
       href: diagnostics-template.md
   - name: Third-party extensions
     items:
+    - name: Chef
+      href: chef.md
     - name: Stackify Retrace
       href: stackify-retrace-linux.md
     - name: Symantec

@@ -2,18 +2,16 @@
 title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
+author: markingmyname
+ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 04/15/2019
 ---
 
 # Supported data sources in Azure Data Catalog
 
 You can publish metadata by using a public API or a click-once registration tool, or by manually entering information directly to the Azure Data Catalog web portal. The following table summarizes all data sources that are supported by the catalog today, and the publishing capabilities for each. Also listed are the external data tools that each data source can launch from our portal "open-in" experience. The second table contains a more technical specification of each data-source connection property.
-
 
 ## List of supported data sources
 
@@ -27,7 +25,7 @@ You can publish metadata by using a public API or a click-once registration tool
        <td><b>Notes</b></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store directory</td>
+      <td>Azure Data Lake Store directory (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -35,7 +33,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
-      <td>Azure Data Lake Store file</td>
+      <td>Azure Data Lake Store file (Only Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -364,7 +362,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Only legacy collections from Azure DocumentDB and SQL API collections in Azure Cosmos DB are compatible. Newer Cosmos DB APIs are not yet supported. Choose Azure DocumentDB in the Data Source list.</td>
     </tr>
     <tr>
       <td>Generic ODBC table</td>
@@ -529,32 +527,6 @@ If you want to see a specific data source supported, suggest it (or voice your s
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

@@ -1,24 +1,20 @@
 ---
-title: Data import in Azure Search | Microsoft Docs
-description: Learn how to upload data to an index in Azure Search.
+title: Data import for data ingestion to a search index - Azure Search
+description: Populate and upload data to an index in Azure Search from external data sources.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 01/05/2018
+ms.date: 02/26/2019
 ms.author: heidist
-
+ms.custom: seodec2018
 ---
-# Indexing in Azure Search
-> [!div class="op_single_selector"]
-> * [Overview](search-what-is-data-import.md)
-> * [.NET](search-import-data-dotnet.md)
-> * [REST](search-import-data-rest-api.md)
-> 
-> 
+# Data import overview - Azure Search
 
-In Azure Search, queries execute over your content loaded into a [search index](search-what-is-an-index.md). This article examines the two basic approaches for loading content into an index: *push* your data into the index programmatically, or point an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+In Azure Search, queries execute over your content loaded into and saved in a [search index](search-what-is-an-index.md). This article examines the two basic approaches for populating an index: *push* your data into the index programmatically, or point an [Azure Search indexer](search-indexer-overview.md) at a supported data source to *pull* in the data.
+
+With either approach, the objective is to *load data* from an external data source into an Azure Search index. Azure Search will let you create an empty index, but until you push or pull data into it, it's not queryable.
 
 ## Pushing data to an index
 The push model, used to programmatically send your data to Azure Search, is the most flexible approach. First, it has no restrictions on data source type. Any dataset composed of JSON documents can be pushed to an Azure Search index, assuming each document in the dataset has fields mapping to fields defined in your index schema. Second, it has no restrictions on frequency of execution. You can push changes to an index as often as you like. For applications having very low latency requirements (for example, if you need search operations to be in sync with dynamic inventory databases), the push model is your only option.
@@ -34,7 +30,38 @@ You can use the following APIs to load single or multiple documents into an inde
 
 There is currently no tool support for pushing data via the portal.
 
-For an introduction to each methodology, see [Import data using REST](search-import-data-rest-api.md) or [Import data using .NET](search-import-data-dotnet.md).
+For an introduction to each methodology, see [Quickstart: Create an Azure Search index using PowerShell and the REST API](search-create-index-rest-api.md) or [Quickstart: Create an Azure Search index in C#](search-import-data-dotnet.md).
+
+<a name="indexing-actions"></a>
+
+### Indexing actions: upload, merge, mergeOrUpload, delete
+
+You can control the type of indexing action on a per-document basis, specifying whether the document should be uploaded in full, merged with existing document content, or deleted.
+
+In the REST API, issue HTTP POST requests with JSON request bodies to your Azure Search index's endpoint URL. Each JSON object in the "value" array contains the document's key and specifies an indexing action adds, updates, or deletes document content. For a code example, see [Load documents](search-create-index-rest-api.md#load-documents).
+
+In the .NET SDK, package up your data into an `IndexBatch` object. An `IndexBatch` encapsulates a collection of `IndexAction` objects, each of which contains a document and a property that tells Azure Search what action to perform on that document. For a code example, see [Construct IndexBatch](search-import-data-dotnet.md#construct-indexbatch).
+
+
+| @search.action | Description | Necessary fields for each document | Notes |
+| -------------- | ----------- | ---------------------------------- | ----- |
+| `upload` |An `upload` action is similar to an "upsert" where the document will be inserted if it is new and updated/replaced if it exists. |key, plus any other fields you wish to define |When updating/replacing an existing document, any field that is not specified in the request will have its field set to `null`. This occurs even when the field was previously set to a non-null value. |
+| `merge` |Updates an existing document with the specified fields. If the document does not exist in the index, the merge will fail. |key, plus any other fields you wish to define |Any field you specify in a merge will replace the existing field in the document. In the .NET SDK, this includes fields of type `DataType.Collection(DataType.String)`. In the REST API, this includes fields of type `Collection(Edm.String)`. For example, if the document contains a field `tags` with value `["budget"]` and you execute a merge with value `["economy", "pool"]` for `tags`, the final value of the `tags` field will be `["economy", "pool"]`. It will not be `["budget", "economy", "pool"]`. |
+| `mergeOrUpload` |This action behaves like `merge` if a document with the given key already exists in the index. If the document does not exist, it behaves like `upload` with a new document. |key, plus any other fields you wish to define |- |
+| `delete` |Removes the specified document from the index. |key only |Any fields you specify other than the key field will be ignored. If you want to remove an individual field from a document, use `merge` instead and simply set the field explicitly to null. |
+
+## Decide which indexing action to use
+To import data using the .NET SDK, (upload, merge, delete, and mergeOrUpload). Depending on which of the below actions you choose, only certain fields must be included for each document:
+
+
+### Formulate your query
+There are two ways to [search your index using the REST API](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). One way is to issue an HTTP POST request where your query parameters are defined in a JSON object in the request body. The other way is to issue an HTTP GET request where your query parameters are defined within the request URL. POST has more [relaxed limits](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) on the size of query parameters than GET. For this reason, we recommend using POST unless you have special circumstances where using GET would be more convenient.
+
+For both POST and GET, you need to provide your *service name*, *index name*, and the proper *API version* (the current API version is `2017-11-11` at the time of publishing this document) in the request URL. For GET, the *query string* at the end of the URL is where you provide the query parameters. See below for the URL format:
+
+    https://[service name].search.windows.net/indexes/[index name]/docs?[query string]&api-version=2017-11-11
+
+The format for POST is the same, but with only api-version in the query string parameters.
 
 
 ## Pulling data into an index
@@ -42,7 +69,7 @@ The pull model crawls a supported data source and automatically uploads the data
 
 + [Blob storage](search-howto-indexing-azure-blob-storage.md)
 + [Table storage](search-howto-indexing-azure-tables.md)
-+ [Azure Cosmos DB](http://aka.ms/documentdb-search-indexer)
++ [Azure Cosmos DB](https://aka.ms/documentdb-search-indexer)
 + [Azure SQL database, and SQL Server on Azure VMs](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
 Indexers connect an index to a data source (usually a table, view, or equivalent structure), and map source fields to equivalent fields in the index. During execution, the rowset is automatically transformed to JSON and loaded into the specified index. All indexers support scheduling so that you can specify how frequently the data is to be refreshed. Most indexers provide change tracking if the data source supports it. By tracking changes and deletes to existing documents in addition to recognizing new documents, indexers remove the need to actively manage the data in your index. 

@@ -1,25 +1,17 @@
 ---
-title: Hosting multiple sites on Azure Application Gateway | Microsoft Docs
-description: This page provides an overview of the Application Gateway multi-site support.
-documentationcenter: na
+title: Hosting multiple sites on Azure Application Gateway
+description: This article provides an overview of the Azure Application Gateway multi-site support.
 services: application-gateway
-author: amsriva
-manager: rossort
-editor: 
-
-ms.assetid: 49993fd2-87e5-4a66-b386-8d22056a616d
+author: vhorne
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2017
+ms.date: 1/17/2019
 ms.author: amsriva
-
+ms.topic: conceptual
 ---
+
 # Application Gateway multiple site hosting
 
-Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 20 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
+Multiple site hosting enables you to configure more than one web application on the same application gateway instance. This feature allows you to configure a more efficient topology for your deployments by adding up to 100 websites to one application gateway. Each website can be directed to its own backend pool. In the following example, application gateway is serving traffic for contoso.com and fabrikam.com from two back-end server pools called ContosoServerPool and FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
@@ -19,7 +19,7 @@ ms.author: yexu
 
 In a data integration solution, incrementally (or delta) loading data after an initial full data load is a widely used scenario. The tutorials in this section show you different ways of loading data incrementally by using Azure Data Factory.
 
-## Delta data loading by using a watermark
+## Delta data loading from database by using a watermark
 In this case, you define a watermark in your source database. A watermark is a column that has the last updated time stamp or an incrementing key. The delta loading solution loads the changed data between an old watermark and a new watermark. The workflow for this approach is depicted in the following diagram: 
 
 ![Workflow for using a watermark](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
@@ -29,7 +29,7 @@ For step-by-step instructions, see the following tutorials:
 - [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
 - [Incrementally copy data from multiple tables in on-premises SQL Server to Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
 
-## Delta data loading by using the Change Tracking technology
+## Delta data loading from SQL DB by using the Change Tracking technology
 Change Tracking technology is a lightweight solution in SQL Server and Azure SQL Database that provides an efficient change tracking mechanism for applications. It enables an application to easily identify data that was inserted, updated, or deleted. 
 
 The workflow for this approach is depicted in the following diagram:
@@ -38,6 +38,18 @@ The workflow for this approach is depicted in the following diagram:
 
 For step-by-step instructions, see the following tutorial: <br/>
 [Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
+
+## Loading new and changed files only by using LastModifiedDate
+You can get the metadata (LastModifiedDate) of your files first, and then copy the new and changed files only to the destination store.
+
+For step-by-step instructions, see the following tutorial: <br/>
+[Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
+
+## Loading new files only by using time partitioned folder or file name.
+You can copy new files only, where files or folders has already been time partitioned with timeslice information as part of the file or folder name (for example, /yyyy/mm/dd/file.csv). 
+
+For step-by-step instructions, see the following tutorial: <br/>
+[Incrementally copy new files based on time partitioned folder or file name from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)
 
 ## Next steps
 Advance to the following tutorial: 
