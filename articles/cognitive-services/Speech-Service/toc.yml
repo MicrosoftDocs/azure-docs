@@ -128,6 +128,9 @@
   - name: Enable logging (SDK)
     href: how-to-use-logging.md
     displayName: debug, log, logging
+  - name: Improve recognition with Phrase Lists
+    href: how-to-phrase-lists.md
+    displayname: phrase lists, phrase, list, recognition accuracy
   - name: Customization
     items:
     - name: Speech-to-text
@@ -165,8 +168,8 @@
       displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
       href: speech-container-howto.md
     - name: Configure containers
-      href: speech-container-configuration.md  
-      displayName: docker, container, billing, apikey, pull, logging    
+      href: speech-container-configuration.md
+      displayName: docker, container, billing, apikey, pull, logging
 - name: Samples
   items:
   - name: Speech SDK
