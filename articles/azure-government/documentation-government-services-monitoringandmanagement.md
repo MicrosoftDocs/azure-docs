@@ -188,7 +188,7 @@ In order to send data from Application Insights to the Azure Government region y
 Modify the `application.properties` file and add:
 
 ```yaml
-azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us /v2/track
+azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
 ```
 
 ### .NET Core
