@@ -159,7 +159,7 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 
 ### SDK endpoint modifications
 
-In order to send data from Application Insights to the Azure Government region you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
+In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
 ### .NET/Java with applicationinsights.config/xml
 
@@ -221,7 +221,7 @@ var configBuilder = new ConfigurationBuilder()
 ```javascript
 var appInsights = require("applicationinsights");
 appInsights.setup('INSTRUMENTATION_KEY').start();
-appInsights.defaultClient. endpointUrl = "https://dc.applicationinsights.us/v2/track ";
+appInsights.defaultClient.endpointUrl = "https://dc.applicationinsights.us/v2/track ";
 ```
 
 ### JavaScript
