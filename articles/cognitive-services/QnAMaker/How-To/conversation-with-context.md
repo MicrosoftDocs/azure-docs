@@ -43,20 +43,21 @@ If you import a document, contextual conversation can be implied from the struct
 
 Learn more from the [Dialog sample](https://aka.ms/qnamakermultiturnsample).
 
-## Add question as follow-up prompt to another question
+## Filter questions and answers by context
 
-You can add a follow-up prompt to an existing question and answer pair as a new question and answer, or as an existing question and answer pair. 
-
-### Filter questions and answers by context
-
-In the QnA Maker portal, add a follow-up prompt to a question. 
-
-1. In the [QnA Maker](https://http://qnamaker.ai) portal, open your knowledge base. 
 1. Reduce the question and answer pairs displayed to just those with contextual conversations. Select **View options**, then select **Show context (PREVIEW)**. The list will be empty until you add the first question and answer pair with a follow-up prompt. 
 
     ![Filter question and answer pairs by contextual conversations](../media/conversational-context/filter-question-and-answers-by-context.png)
-.  
-### Add new follow-up prompt to question and answer pair
+
+## Add existing QnA pair as follow-up prompt
+
+1. If you want to link an existing QnA pair as a follow-up prompt, select the row for the question and answer pair.
+1. Select **Add follow-up prompt** in that row.
+1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
+
+    Once ou have added the follow-up prompt, remember to select **Save and train**.
+  
+## Add new QnA pair as follow-up prompt
 
 1. Select **Add QnA pair**. 
 1. Enter the new question text, `Give feedback.` with an answer of `What kind of feedback do you have?`.
@@ -85,13 +86,9 @@ In the QnA Maker portal, add a follow-up prompt to a question.
 
 1. Select **Save and Train** to train the knowledge base. 
 
-## Test the link to the follow-up prompts
+## Add metadata to follow-up prompts 
 
-In the QnA Maker portal, you can test the link between questions and answer sets. 
-
-### Add metadata to follow-up prompts 
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, it is important to understand how and when metadata filtering is applied when a QnA pair also has context. When a question-and-answer has both, the metadata filters are applied first, then the follow-ups are returned.
+In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, then the follow-ups are returned.
 
 1. For the two follow-up QnA pairs, add metadata to each one:
 
@@ -104,22 +101,18 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 1. Save and train. 
 
-### Test the question and answer to get all the follow-up prompts
+    When you send the question `Give feedback` with the metadata filter `Feature` with a value of `all`, only the QnA pair with that metadata will be returned. Both QnA pairs are not returned because they both do not match the filter. 
+
+## Test the QnA set to get all the follow-up prompts
 
 Select the **Test** pane and enter the question, `Give feedback`. The test result includes the two follow-up prompts as question IDs.
 
     ![![Select Test pane and enter the question, `Give feedback`. The test result includes the two child questions.](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/test-pane-parent-question-prompts-to-child-questions.png#lightbox)
 
 
-### Add existing follow-up prompt to question and answer pair
-
-1. If you want to link a follow-up prompt to a question and answer pair, select **Add follow-up prompt**.
-
-1. In the pop-up dialog, enter the question text in the search box. All matches are returned. Select the question you want as the follow-up, and check **Context-only**, then select **Save**. 
-
 ## JSON response for prompts
 
-The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in the `context` property of the first item in the `answers` object. :
+The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in the `context` property of the first item in the `answers` object:
 
 ```JSON
 {
@@ -155,11 +148,11 @@ The QnA Maker _GenerateAnswer_ JSON response includes the follow-up prompts in t
 }
 ```
 
-The response gives you enough information to present the prompts with text as the next series of questions in the conversation flow. 
+The `prompts` array provides text in the `displayText` property and the `qnaId` value so you can show these answers as the next displayed choices in the conversation flow. 
 
 ## Prompt order supported in API
 
-The prompt order, returned in the [JSON](#json-response-for-prompts), is supported for editing by the API only. 
+The prompt order, returned in the [JSON](#json-response-for-prompts) response, is supported for editing by the API only. 
 
 ## Next steps
 
