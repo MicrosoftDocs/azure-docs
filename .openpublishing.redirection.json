@@ -36949,7 +36949,7 @@
     },
     {
       "source_path": "articles/app-service/app-service-jre-support.md",
-      "redirect_url": "articles/app-service/configure-language-java.md",
+      "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
     }
   ]
