@@ -11,7 +11,7 @@ ms.author: v-chjenk
 ---
 # Windows Virtual Desktop Troubleshooting Guide
 
-This article describes some common issues you may encounter during Windows Virtual Desktop setup.
+This article describes some common issues you may encounter when you're setting up Windows Virtual Desktop and provides ways to troubleshoot the issues.
 
 ## Escalation tracks
 
@@ -26,7 +26,7 @@ Use the following table to identify and resolve issues you may encounter when se
 | Session host pool Virtual Machine (VM) creation when Azure Resource Manager templates provided with Windows Virtual Desktop are not being used | Contact **Azure Support (Compute)**. <br> <br> For issue with the Azure Resource Manager templates provided with Windows Virtual Desktop, see [Creating Windows Virtual Desktop tenant](#creating-windows-virtual-desktop-tenant). |
 | Managing Windows Virtual Desktop session host environment from the Azure management portal    | Contact **Azure Support**. <br> <br> For management issues when using Remote Desktop Services/Windows Virtual Desktop PowerShell, troubleshoot using [Management with PowerShell](#management-with-powershell) or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Managing Windows Virtual Desktop configuration tied to host pools and application groups (appgroups)      | Troubleshoot using [Management with PowerShell](#management-with-powershell), or contact the **Remote Desktop Services/Windows Virtual Desktop support team**. <br> <br> If issues are tied to the sample graphical user interface (GUI), reach out to the Yammer community.|
-| Remote desktop clients crash on start                                                 | Troubleshoot using [Client connection issues](#client-connection-issues) and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
+| Remote desktop clients malfunction on start                                                 | Troubleshoot using [Client connection issues](#client-connection-issues) and if this doesn't resolve the issue, contact **Remote Desktop Services/Windows Virtual Desktop support team**.  <br> <br> If it's a network issues, your users need to contact their network administrator. |
 | Connected but no feed                                                                 | Troubleshoot using [User connects but nothing is displayed (no feed)](#user-connects-but-nothing-is-displayed-no-feed). <br> <br> If your users have been assigned to an appgroup, escalate to the **Remote Desktop Services/Windows Virtual Desktop support team**. |
 | Feed discovery problems due to the network                                            | Your users need to contact their network administrator. |
 | Connecting clients                                                                    | Troubleshoot using [Session host VMs configuration](#session-host-vms-configuration) and [Client connection issues](#client-connection-issues). |
@@ -51,7 +51,7 @@ During the private and public preview creation of the Windows Virtual Desktop, t
 
 Session host VMs can be created using multiple methods but Remote Desktop Services/Windows Virtual Desktop teams only support VM provisioning issues resulting from the usage of the Azure Resource Manager template for creating a new host pool. The Azure Resource Manager template is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/) and [GitHub](https://github.com/).
 
-### Issues executing Windows Virtual Desktop – Provision a host pool
+### Issues executing Windows Virtual Desktop – Provision a host pool Azure Marketplace offering
 
 Thw Windows Virtual Desktop – Provision a host pool template is available from the Azure Marketplace.
 
@@ -117,7 +117,7 @@ Example of raw error:
 
 **Cause 2:** Transient error with connection.
 
-**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration steps in **Create a host pool with PowerShell.**
+**Fix:** Confirm Windows Virtual Desktop environment is healthy by signing in using PowerShell. Complete the manual VM registration instructions in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
 **Error:** The Admin Username specified is not allowed.
 
@@ -293,7 +293,7 @@ Follow these instructions if you're having issues joining VMs to the domain.
 **Fix:** Follow these instructions to correct the credentials.
 
 1. Manually add the VMs to a domain.
-2. Redeploy once credentials have been confirmed. See **Create a host pool with PowerShell.**
+2. Redeploy once credentials have been confirmed. See [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 3. Join VMs to a domain using a template with [Joins an existing Windows VM to AD Domain](https://azure.microsoft.com/en-us/resources/templates/201-vm-domain-join-existing/).
 
 **Error:** Timeout waiting for user input.
@@ -324,21 +324,21 @@ Follow these instructions if you're having issues joining VMs to the domain.
 
 **Fix 2:** To set domain services, see [Enable Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-dns).
 
-### Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are not installed
+### Windows Virtual Desktop Agent and Windows Virtual Desktop Boot Loader are not installed
 
-The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Windows Virtual Desktop host pool** template. Installing the RD Infra Agent and RD Agent Boot Loader is part of the template functionality.
+The recommended way to provision VMs is using the Azure Resource Manager **Create and provision Windows Virtual Desktop host pool** template. The template automatically installs the Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader.
 
-Use these steps to confirm the components are installed and to check for error messages.
+Follow these instructions to confirm the components are installed and to check for error messages.
 
-1. Confirm that the two components are installed by checking in **Control Panel** \>**Programs** \>**Programs and Features**. If **Remote Desktop Infra Agent** and **Remote Desktop Agent Boot Loader** are not visible, this indicates they are not installed on the VM
+1. Confirm that the two components are installed by checking in **Control Panel** \>**Programs** \>**Programs and Features**. If **Windows Virtual Desktop Agent** and **Windows Virtual Desktop Agent Boot Loader** are not visible, they are not installed on the VM.
 2. Open **File Explorer** and navigate to **C:\\Windows\\Temp\\scriptlogs.log**. If the file is missing, this indicates that **DSC** that installed the two components was not able to run in the security context provided.
 3. If the file **C:\\Windows\\Temp\\scriptlogs.log** is present, open it and check for error messages.
 
-**Error:** Remote Desktop Infra Agent and Remote Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing.
+**Error:** Windows Virtual Desktop Agent and Windows Virtual Desktop Agent Boot Loader are missing. C:\\Windows\\Temp\\scriptlogs.log is also missing.
 
 **Cause 1:** Credentials provided during input for the Azure Resource Manager template were incorrect or permissions were insufficient.
 
-**Fix 1:** Manually add the missing components to the VMs using **Create a host pool with PowerShell**.
+**Fix 1:** Manually add the missing components to the VMs using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
 **Cause 2:** DSC was able to start and execute but failed to complete as it was not able to sign in to Windows Virtual Desktop infra and obtain needed information.
 
@@ -354,9 +354,9 @@ Use these steps to confirm the components are installed and to check for error m
 - Confirm account used for connecting to Windows Virtual Desktop has permissions on the tenant to create host pools.
 - Confirm account does not have MFA.
 
-### Remote Desktop (RD) Agent not registering with the Windows Virtual Desktop service
+### Windows Virtual Desktop Agent is not registering with the Windows Virtual Desktop service
 
-When the RD Agent is first installed on the session host VM (either manually or through the Azure Resource Manager template/DSC), a registration token must be provided. The following section covers common troubleshooting steps applicable to the RD Agent.
+When the Windows Virtual Desktop Agent is first installed on the session host VM (either manually or through the Azure Resource Manager template/DSC), a registration token must be provided. The following section covers common troubleshooting issues applicable to the Windows Virtual Desktop Agent.
 
 **Error:** The status filed in Get-RdsSessionHost cmdlet shows status as Unavailable.
 
@@ -364,26 +364,26 @@ When the RD Agent is first installed on the session host VM (either manually or 
 
 **Cause:** The agent is not able to update itself to a new version.
 
-**Fix:** Manually update the agent with these steps:
+**Fix:** Follow these instructions to manually update the agent:
 
 1. Download a new version of the agent on the session host VM.
 2. Launch Task Manager (TM) and in the Service Tab stop the RDAgentBootLoader service.
-3. Run the installer for the new version of the RD Agent.
+3. Run the installer for the new version of the Windows Virtual Desktop Agent.
 4. When prompted for the registration token, remove the entry INVALID_TOKEN and press next (a new token is not required).
 5. Complete the installation Wizard.
 6. Open TM and start the RDAgentBootLoader service.
 
-**Error:** RD agent registry entry IsRegistered shows value of 0
+**Error:**  Windows Virtual Desktop Agent registry entry IsRegistered shows a value of 0
 
 **Cause:** Registration token has expired or has been generated with expiration value of 999999.
 
-**Fix:** Follow the steps below.
+**Fix:** Follow these instructions to fix the agent registry error.
 
 1. If there's already a registration token, remove it with Remove-RDSRegistrationInfo.
 2. Generate new token with Rds-NewRegistrationInfo.
 3. Confirm that the -ExpriationHours parameter is set to 72 (max value is 99999).
 
-**Error:** RD agent is not reporting heartbeat when running Get-RdsSessionHost
+**Error:** Windows Virtual Desktop agent is not reporting heartbeat when running Get-RdsSessionHost
 
 **Cause 1:** RDAgentBootLoader service has been stopped.
 
@@ -391,7 +391,7 @@ When the RD Agent is first installed on the session host VM (either manually or 
 
 **Cause 2:** Port 443 may be closed.
 
-**Fix 2:** Open port 443 using the following steps.
+**Fix 2:** Follow these instructions to open port 443.
 
 1. Confirm port 443 is open by downloading the PSPing tool from [Sysinternal tools](https://docs.microsoft.com/en-us/sysinternals/downloads/psping).
 2. Install PSPing on the session host VM where the agent is running.
@@ -419,23 +419,23 @@ Sent = 4, Received = 4, Lost = 0 (0% loss),
 Minimum = 2.12ms, Maximum = 3.83ms, Average = 2.58ms
 ```
 
-### Troubleshooting issues with the side-by-side stack
+### Troubleshooting issues with the Windows Virtual Desktop side-by-side stack
 
-The side-by-side (SxS) stack gets installed with a Microsoft Installer (MSI) on Microsoft Widows Server 2016. For Microsoft Windows 10, SxS is enabled with **enablesxstackrs.ps1**.
+The Windows Virtual Desktop side-by-side stack is automatically installed with Windows Server 2019. Use Microsoft Installer (MSI) to install the side-by-side stack on Microsoft Windows Server 2016 or Windows Server 2012 R2. For Microsoft Windows 10, the Windows Virtual Desktop side-by-side stack is enabled with **enablesxstackrs.ps1**.
 
-There are three main ways SxS gets installed or enabled on session host pool VMs:
+There are three main ways the side-by-side stack gets installed or enabled on session host pool VMs:
 
 - With the Azure Resource Manager **Create and provision new Windows Virtual Desktop hostpool** template
 - By being included and enabled on the master image
-- Installed or enabled manually on each VM (or with extensions / PS)
+- Installed or enabled manually on each VM (or with extensions/PowerShell)
 
-If you're having issues with the the SxS stack, confirm the SxS stack is installed or enabled by issuing the **qwinsta** command from **Command Prompt**.
+If you're having issues with the Windows Virtual Desktop side-by-side stack, confirm the side-by-side stack is installed or enabled by issuing the **qwinsta** command from the command prompt.
 
-If SxS stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
+If the side-by-side stack is installed or enabled, the output of **qwinsta** will list **rdp-sxs** in the output.
 
-![SxS stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
+![Side-by-side stack installed or enabled with qwinsta listed as rdp-sxs in the output.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in **Getting started with your Windows Virtual Desktop tenant** on how to reinstall the SxS stack.
+Examine the registry entries listed below and confirm that their values match. If registry keys are missing or values are mismatched, follow guidance in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) on how to reinstall the side-by-side stack.
 
 ```registry
     HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Terminal
@@ -451,38 +451,40 @@ Examine the registry entries listed below and confirm that their values match. I
 
 **Cause:** The side-by-side stack is not installed on the session host VM.
 
-**Fix:** Use the following steps to install the side-by-side stack on the session host VM.
+**Fix:** Follow these instructions to install the side-by-side stack on the session host VM.
 
 1. RDP directly into the session host VM as local administrator.
 2. Download and import [the Windows Virtual Desktop PowerShell module](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) to use in your PowerShell session if you haven't already.
-3. Install the side-by-side stack using [Create a host pool with PowerShell](https://https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
+3. Install the side-by-side stack using [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell).
 
-### How to fix an SxS stack that malfunctions
+### How to fix a Windows Virtual Desktop side-by-side stack that malfunctions
 
-There are known circumstance that can cause the side-by-side (SxS) stack to malfunction:
+There are known circumstance that can cause the side-by-side stack to malfunction:
 
-- Not following the correct order of the steps to enable SxS
-- Auto update to Windows 10 EVD
+- Not following the correct order of the steps to enable the side-by-side stack
+- Auto update to Windows 10 Enhanced Versatile Disc (EVD)
 - Missing the RDSH role
 - Running enablesxsstackrc.ps1 multiple times
 - Running enablesxsstackrc.ps1 in an account that does not have local admin privileges
 
-The steps outlined in this section can help to uninstall the SxS stack. Once SxS has been uninstalled, follow steps in “Register the VM with the Windows Virtual Desktop host pool” in **Create a host pool with PowerShell** to install SxS stack.
+The instructions in this section can help you uninstall the Windows Virtual Desktop side-by-side stack. Once you uninstall the side-by-side stack, go to “Register the VM with the Windows Virtual Desktop host pool” in [Create a host pool with PowerShell](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-powershell) to reinstall the side-by-side stack.
 
-The VM used to run the remediation steps must be on the same subnet and part of the same domain as the VM with the crashed SxS stack.
+The VM used to run remediation must be on the same subnet and part of the same domain as the VM with the malfunctioning side-by-side stack.
 
-1. Connect via standard RDP to the VM from where fix will be applied 
-2. Download PsExec from https://docs.microsoft.com/en-us/sysinternals/downloads/psexec
-3. Unzip the downloaded file
-4. Start command prompt as local administrator
-5. Navigate to folder where PsExec was unzipped
+Follow these instructions to run remediation from the same subnet and domain:
+
+1. Connect via standard RDP to the VM from where fix will be applied.
+2. Download PsExec from https://docs.microsoft.com/en-us/sysinternals/downloads/psexec.
+3. Unzip the downloaded file.
+4. Start command prompt as local administrator.
+5. Navigate to folder where PsExec was unzipped.
 6. From command prompt, use the following command:
 
 ```cmd
-psexec.exe \\<VMname> cmd
+        psexec.exe \\<VMname> cmd
 ```
 >[!Note]
->VMname is the machine name of the VM with the chased SxS stack.
+>VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
 7. Accept the PsExec License Agreement by clicking Agree.
 
@@ -491,50 +493,50 @@ psexec.exe \\<VMname> cmd
 >[!Note]
 >This dialog will show up only the first time PsExec is run.
 
-8. This will start a command prompt session on the VM with the crashed SxS stack. Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the SxS stack as this indicates no SxS present on the VM.
+8. This will start a command prompt session on the VM with the malfunctioning side-by-side stack. Run qwinsta and confirm that an entry rdp-sxs is available. If not, the issue is not tied to the side-by-side stack as this indicates that no side-by-side stack is present on the VM.
 
 ![Administrator command prompt](media/AdministratorCommandPrompt.png)
 
-9. Run the following command. It will list Microsoft components installed on the VM with the malfunctioning SxS stack.
+9. Run the following command, which will list Microsoft components installed on the VM with the malfunctioning side-by-side stack.
 
 ```cmd
-wmic product get name
+    wmic product get name
 ```
 
 10. Run the command below with product names from step above.
 
 ```cmd
-wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
+    wmic product where name="<Remote Desktop Services Infrastructure Agent>" call uninstall
 ```
 
 11. Uninstall all products that start with “Remote Desktop.”
 
-12. If the operating system is Windows Server, once all Windows Virtual Desktop components have been uninstalled, restart the VM with the crashed SxS stack (either via Azure Portal or from the PsExec tool). <br> If the operating system is Windows 10, perform the following steps.
+12. If the operating system is Windows Server, once all Windows Virtual Desktop components have been uninstalled, restart the VM with the malfunctioning side-by-side stack (either with Azure Portal or from the PsExec tool). <br> If the operating system is Windows 10, continue with these instructions:
 
-1. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned SxS stack.
+        1. From the VM running PsExec, open File Explorer and copy disablesxsstackrc.ps1 to the system drive of the VM with the malfunctioned side-by-side stack.
 
 ```
-\\<VMname>\c$\
+        \\<VMname>\c$\
 ```
 
 >[!NOTE]
->VMname is the machine name of the VM with the chased SxS stack.
+>VMname is the machine name of the VM with the malfunctioning side-by-side stack.
 
-2. From the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1, which is the recommended process. You may alternatively run the following cmdlets:
+        2. The recommended process: from the PsExec tool, start PowerShell and navigate to the folder from the previous step and run disablesxsstackrc.ps1. Alternatively, you can run the following cmdlets:
 
+```PowerShell
+        Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
+        Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
+        Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
 ```
-Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\ClusterSettings" -Name "SessionDirectoryListener" -Force
-Remove-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-sxs" -Recurse -Force
-Remove-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations" -Name "ReverseConnectionListener" -Force
-```
 
-3. Once the cmdlets have completed, restart the VM with malfunctioning SxS.
+        3. When the cmdlets are done running, restart the VM with the malfunctioning side-by-side stack.
 
 ## Client connection issues
 
 If you are having client connection issues, use the following troubleshooting information.
 
-### Web client cannot be opened
+### Can't open web client
 
 Confirm there is internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
 
@@ -562,18 +564,18 @@ Try connecting with another client, like Remote Desktop client for Windows 7 or 
 
 **Cause:** Browser is not behaving as expected due to cashed or bad setting, and browser has stopped working.
 
-**Fix:** Use the following steps:
+**Fix:** Follow these instructions to troubleshoot browser.
 
 1. Restart browser.
 2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/en-us/help/278835/how-to-delete-cookie-files-in-internet-explorer).
 3. Clear browser cache. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
 4. Open browser in Private mode.
 
-### Web client crashes
+### Web client stops responding or disconnects
 
 Try connecting using another browser or client.
 
-**Error:** Other browsers and clients also crash or fail to open.
+**Error:** Other browsers and clients also malfunction or fail to open.
 
 **Cause:** Network and/or operation system issues or outages.
 
@@ -581,7 +583,7 @@ Try connecting using another browser or client.
 
 ### Web client keeps prompting for credentials
 
-If the Web client keeps prompting for credentials, use the following steps:
+If the Web client keeps prompting for credentials, follow these instructions.
 
 1. Confirm web client URL is correct.
 2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
@@ -589,11 +591,11 @@ If the Web client keeps prompting for credentials, use the following steps:
 4. Clear browser cache. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
 5. Open browser in Private mode.
 
-### Remote Desktop client for Windows 7 or Windows 10 crashes or cannot be opened
+### Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-Use following PowerShell cmdlets to cleanup OOB client registries.
+Use the following PowerShell cmdlets to clean up OOB client registries.
 
-```cmds
+```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
 
 #Remove RdClientRadc registry key
@@ -615,7 +617,7 @@ In scenarios where users can obtain their feed and see the resource provided to 
 
 ![Can't connect to the gateway error message.](media/a8fbb9910d4672147335550affe58481.png)
 
-Follow these general troubleshooting steps for common error codes.
+Follow these general troubleshooting instructions for common error codes.
 
 1. Confirm user name and time when issue was experienced.
 2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
@@ -702,15 +704,15 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
 ```
 
-**Error:** The specified UserPrincipalName does not exist in the Azure AD associated with the RD tenant.
+**Error:** The specified UserPrincipalName does not exist in the Azure Active Directory associated with the Remote Desktop tenant.
 
-**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure AD tied to the Windows Virtual Desktop tenant.
+**Cause:** The user specified by the -UserPrincipalName cannot be found in the Azure Active Directory tied to the Windows Virtual Desktop tenant.
 
 **Fix:** Confirm the following:
 
-- User has synched to Azure AD.
+- User has synched to Azure Active Directory.
 - User is not B2C or B2B.
-- Windows Virtual Desktop tenant is tied to correct Azure AD.
+- Windows Virtual Desktop tenant is tied to correct Azure Active Directory.
 
 ### Get-RdsDiagnosticActivities
 
