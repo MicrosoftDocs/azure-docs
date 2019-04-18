@@ -12,49 +12,38 @@ manager: jeconnoc
 
 This article is to show you how you can create a basic customized image using the Azure VM Image Builder, and then use the Azure [Shared Image Gallery](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/shared-image-galleries).
 
-To use this Quick Quickstarts, this can all be done using the Azure [Cloudshell from the Portal](https://azure.microsoft.com/en-us/features/cloud-shell/). Simply copy and paste the code from here, at a miniumum, just update the **subscriptionID** variable below.
 
-## Step 0 : Sign up for the Image Builder Private Preview
+## Register the features
+To use Azure Image Builder during the preview, you need to register the new feature.
 
-You must register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4Mz2uUjMSlGsl9SsCqVlc5UNUFCRDRRTjFJSDJJQTcwWks1UFBGTU8yRi4u), you will be added to the MS Teams channel, where you can ask questions to the dev team and gain access to docs.
-
-For full detailed information, please refer to the documentation on the Azure VM Image Builder [MS Teams channel](https://teams.microsoft.com/l/channel/19%3a03e8b2922c5b44eaaaf3d0c7cd1ff448%40thread.skype/General?groupId=a82ee7e2-b2cc-49e6-967d-54da8319979d&tenantId=72f988bf-86f1-41af-91ab-2d7cd011db47).
-
-## Step 1 : Enable Prereqs
-
-Happy Image Building!!!
-
-### Register for Image Builder / VM / Storage Features
-```bash
+```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
+```
 
+Check the status of the feature registration.
+
+```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
+```
 
-# register and enable for shared image gallery
-az feature register --namespace Microsoft.Compute --name GalleryPreview
+Check your registration.
 
-# wait until it says registered
-
-# check you are registered for the providers
-
+```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 
 az provider show -n Microsoft.Storage | grep registrationState
-
-az provider show -n Microsoft.Compute | grep registrationState
 ```
 
-If they do not saw registered, run the commented out code below.
-```bash
-## az provider register -n Microsoft.VirtualMachineImages
+If they do not say registered, run the following:
 
-## az provider register -n Microsoft.Storage
+```azurecli-interactive
+az provider register -n Microsoft.VirtualMachineImages
 
-## az provider register -n Microsoft.Compute
-
+az provider register -n Microsoft.Storage
 ```
 
-## Step 1 : Set Permissions & Create Shared Image Gallery (SIG)
+
+## Set Permissions & Create Shared Image Gallery (SIG)
 
 >>> NOTE!!! Currently Linux Support only. 
 For Preview AIB will only support creating custom images in the same Resource Group as the source custom managed image. For example, if your existing managed custom images resides in RG1, then you must make sure the sigResourceGroup variable below is set to RG1. In the quick start below, we will create a SIG in that RG.
