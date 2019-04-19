@@ -10,7 +10,7 @@ ms.author: johnkem
 ms.subservice: logs
 ---
 # Export Azure Activity Log to storage or Event Hub
-In addition to viewing the [Azure Activity Log](aztivity-logs-overview.md) in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
+In addition to viewing the [Azure Activity Log](activity-logs-overview.md) in the Azure portal or copying it to a Log Analytics workspace where it can be analyzed with other data collected by Azure Monitor, you can archive it to an Azure storage account or stream it to an Event Hub. Since the process to configure both of these activities is similar, they are both described together in this article.
 
 
 ## Archive Activity Log

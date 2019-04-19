@@ -26,7 +26,7 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 * Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](diagnostic-logs-overview.md#diagnostic-settings) for a resource.
-* View the [log profile](activity-logs-export.md) for a subscription.
+* View the [log profile](activity-log-export.md) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
@@ -47,7 +47,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 
 * Publish monitoring dashboards as a shared dashboard.
 * Set [diagnostic settings](diagnostic-logs-overview.md#diagnostic-settings) for a resource.\*
-* Set the [log profile](activity-logs-export.md) for a subscription.\*
+* Set the [log profile](activity-log-export.md) for a subscription.\*
 * Set alert rules activity and settings via [Azure Alerts](alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.

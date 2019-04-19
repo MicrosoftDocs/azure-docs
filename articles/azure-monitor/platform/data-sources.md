@@ -116,7 +116,7 @@ The Azure services in the following table do not currently store their data in t
 
 | Service | Description | Reference |
 |:---|:---|:---|
-| Storage | Metrics for storage accounts are collected in Azure Monitor along with other resources, but logs are written to the storage account](../../storage/common/storage-metrics-in-azure-monitor.md). You can import these logs into a Log Analytics workspace in Azure Monitor, but this requires custom configuration. You can also retrieve this data with the Storage Analytics API.  | [Azure Storage metrics in Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md)<br>[Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)<br>[Storage Analytics API](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)<br>[Query Azure Storage analytics logs in Azure Log Analytics](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/) |
+| Storage | Metrics for storage accounts are collected in Azure Monitor along with other resources, but logs are written to the storage account. You can import these logs into a Log Analytics workspace in Azure Monitor, but this requires custom configuration. You can also retrieve this data with the Storage Analytics API.  | [Azure Storage metrics in Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md)<br>[Azure Storage analytics logging](../../storage/common/storage-analytics-logging.md)<br>[Storage Analytics API](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)<br>[Query Azure Storage analytics logs in Azure Log Analytics](https://azure.microsoft.com/blog/query-azure-storage-analytics-logs-in-azure-log-analytics/) |
 | App Service | Metrics for app services are collected in Azure Monitor along with other resources. Logs are written to file, table, or blob storage. | [Enable diagnostics logging for apps in Azure App Service](../../app-service/troubleshoot-diagnostic-logs.md)  |
 
 
@@ -150,8 +150,8 @@ Comprehensive monitoring and management of your Windows or Linux virtual machine
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using Azure Monitor for VMs (preview) Map to understand application components](../../insights/vminsights-maps.md) |
-| VM Storage | Azure Monitor for VMs stores heath state information in a custom location. This is only available to Azure Monitor for BVMs in the Azure portal in addition to the [Azure Resource health REST API](/rest/api/resourcehealth/). | [Understand the health of your Azure virtual machines](../../insights/vminsights-health.md)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using Azure Monitor for VMs (preview) Map to understand application components](../insights/vminsights-maps.md) |
+| VM Storage | Azure Monitor for VMs stores heath state information in a custom location. This is only available to Azure Monitor for BVMs in the Azure portal in addition to the [Azure Resource health REST API](/rest/api/resourcehealth/). | [Understand the health of your Azure virtual machines](../insights/vminsights-health.md)<br>[Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
@@ -166,11 +166,11 @@ When you enable Application Insights for an application by installing an instrum
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Application Insights supports multiple kinds of data in Azure Monitor Logs:<br>- Operational data about your application including page views, application requests, and exceptions.<br>- Dependency information between application components to support Application Map and telemetry correlation.<br>- Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. |[Analyze log data in Azure Monitor](../../log-query/log-query-overview.md)<br>[Application Map](../../app/app-map.md)<br>[Telemetry correlation in Application Insights](../../app/correlation.md)<br>[Monitor availability and responsiveness of any web site](../../app/monitor-web-app-availability.md) |
-| Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](../../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](../../app/api-custom-events-metrics.md) |
+| Azure Monitor Logs | Application Insights supports multiple kinds of data in Azure Monitor Logs:<br>- Operational data about your application including page views, application requests, and exceptions.<br>- Dependency information between application components to support Application Map and telemetry correlation.<br>- Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. |[Analyze log data in Azure Monitor](../log-query/log-query-overview.md)<br>[Application Map](../app/app-map.md)<br>[Telemetry correlation in Application Insights](../../app/correlation.md)<br>[Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
+| Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md) |
 
-You can also use Application Insights to [create a custom metric](../../application-insights/app-insights-api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](autoscale-custom-metric.md) and metric alerts. |
-| Azure Storage | Archive application data to storage by configuring [continuous export](/../../app/export-telemetry.md). |
+You can also use Application Insights to [create a custom metric](../app/api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](autoscale-custom-metric.md) and metric alerts. |
+| Azure Storage | Archive application data to storage by configuring [continuous export](/../app/export-telemetry.md). |
 
 
 ## Monitoring Solutions and Insights
@@ -180,7 +180,7 @@ You can also use Application Insights to [create a custom metric](../../applicat
 
 | Destination | Description | Reference
 |:---|:---|:---|
-| Azure Monitor Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the query language or [views](view-designer.md) that are typically included in the solution. | [Data collection details for monitoring solutions in Azure](../../insights/solutions-inventory.md)<br>[Analyze log data in Azure Monitor](../log-query/log-query-overview.md) |
+| Azure Monitor Logs | Monitoring solutions collect data into Azure Monitor logs where it may be analyzed using the query language or [views](view-designer.md) that are typically included in the solution. | [Data collection details for monitoring solutions in Azure](../insights/solutions-inventory.md)<br>[Analyze log data in Azure Monitor](../log-query/log-query-overview.md) |
 
 ### Azure Monitor for VMs
 A description of the data collected by Azure Monitor for VMs is included in the [Guest Operating System](#guest-operating-system) section above.
@@ -190,10 +190,10 @@ A description of the data collected by Azure Monitor for VMs is included in the 
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Azure Monitor for containers](../../insights/container-insights-analyze.md) |
-| Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
+| Azure Monitor Logs | Stores monitoring data for AKS including inventory, logs, and events. Metric data is also stored in Logs in order to leverage its analysis functionality in the portal. | [Understand AKS cluster performance with Azure Monitor for containers](../insights/container-insights-analyze.md) |
+| Azure Monitor Metrics | Metric data is stored in the metric database to drive visualization and alerts. | [View container metrics in metrics explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Container Diagnostics | Audit log and control plane logs are stored in a custom location before they're moved to a Log Analytics workspace. |  |
-| Azure Kubernetes Service | In order to a near real time experience, Azure Monitor for Containers presents data directly from the Azure Kubernetes service in the Azure portal. | [How to view container logs real time with Azure Monitor for containers (preview)](../../insights/container-insights-live-logs.md) |
+| Azure Kubernetes Service | In order to a near real time experience, Azure Monitor for Containers presents data directly from the Azure Kubernetes service in the Azure portal. | [How to view container logs real time with Azure Monitor for containers (preview)](../insights/container-insights-live-logs.md) |
 
 ## Custom sources
 In addition to the standard tiers of an application, you may need to monitor other resources that have telemetry that can't be collected with the other data sources. For these resources, you need to write this data using an Azure Monitor API.
