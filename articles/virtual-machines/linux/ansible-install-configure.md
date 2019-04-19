@@ -30,60 +30,85 @@ Sign in to your Linux machine and select one of the following distros for steps 
 
 ### CentOS 7.4
 
-Install the required packages for the Azure Python SDK modules and Ansible by entering the following commands in a terminal or Bash window:
+In this section, you configure CentOS to use Ansible.
 
-```bash
-## Install pre-requisite packages
-sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
-sudo yum install -y python-pip python-wheel
+1. Open a terminal window.
 
-## Install Ansible and Azure SDKs via pip
-sudo pip install ansible[azure]
-```
+1. Enter the following command to install the required packages for the Azure Python SDK modules:
 
-Follow the instructions outlined in the section, [Create Azure credentials](#create-azure-credentials).
+    ```bash
+    sudo yum check-update; sudo yum install -y gcc libffi-devel python-devel openssl-devel epel-release
+    sudo yum install -y python-pip python-wheel
+    ```
+
+1. Enter the following command to install the required packages Ansible:
+
+    ```bash
+    sudo pip install ansible[azure]
+    ```
+
+1. [Create the Azure credentials](#create-azure-credentials).
 
 ### Ubuntu 16.04 LTS
 
-Install the required packages for the Azure Python SDK modules and Ansible by entering the following commands in a terminal or Bash window:
+In this section, you configure Ubuntu to use Ansible.
 
+1. Open a terminal window.
 
-```bash
-## Install pre-requisite packages
-sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
+1. Enter the following command to install the required packages for the Azure Python SDK modules:
 
-## Install Ansible and Azure SDKs via pip
-sudo pip install ansible[azure]
-```
+    ```bash
+    sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev python-pip
+    ```
 
-Follow the instructions outlined in the section, [Create Azure credentials](#create-azure-credentials).
+1. Enter the following command to install the required packages Ansible:
+
+    ```bash
+    sudo pip install ansible[azure]
+    ```
+
+1. [Create the Azure credentials](#create-azure-credentials).
 
 ### SLES 12 SP2
 
-Install the required packages for the Azure Python SDK modules and Ansible by entering the following commands in a terminal or Bash window:
+In this section, you configure SLES to use Ansible.
 
-```bash
-## Install pre-requisite packages
-sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
-    python-devel libopenssl-devel libtool python-pip python-setuptools
+1. Open a terminal window.
 
-## Install Ansible and Azure SDKs via pip
-sudo pip install ansible[azure]
+1. Enter the following command to install the required packages for the Azure Python SDK modules:
 
-# Remove conflicting Python cryptography package
-sudo pip uninstall -y cryptography
-```
+    ```bash
+    sudo zypper refresh && sudo zypper --non-interactive install gcc libffi-devel-gcc5 make \
+        python-devel libopenssl-devel libtool python-pip python-setuptools
+    ```
 
-Follow the instructions outlined in the section, [Create Azure credentials](#create-azure-credentials).
+1. Enter the following command to install the required packages Ansible:
+
+    ```bash
+    sudo pip install ansible[azure]
+    ```
+
+1. Enter the following command to remove conflicting Python cryptography package:
+
+    ```bash
+    sudo pip uninstall -y cryptography
+    ```
+
+1. [Create the Azure credentials](#create-azure-credentials).
 
 ## Create Azure credentials
 
-The combination of the subscription ID and the information returned from creating the service principal is used to configure the Ansible credentials in one of two ways:
+To configure the Ansible credentials, you need the following:
+
+* Your Azure subscription ID 
+* The service principal information
+
+Once you have that information, you can configure the Ansible credentials in two different ways:
 
 - [Create an Ansible credentials file](#file-credentials)
 - [Use Ansible environment variables](#env-credentials)
 
-If you are going to use tools such as Ansible Tower or Jenkins, you will need to use the option of declaring the service principal values as environment variables.
+If you are using tools such as Ansible Tower or Jenkins, you need to declare the service principal values as environment variables.
 
 ### <span id="file-credentials"/> Create Ansible credentials file
 
