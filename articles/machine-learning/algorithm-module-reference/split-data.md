@@ -76,9 +76,8 @@ This module is particularly useful when you need to separate data into training 
 
 3. In the **Regular expression** box, type a valid regular expression. 
   
-    The regular expression is applied only to the specified column, which must be a string data type.
+   The regular expression should follow Python regular expression syntax.
 
-    For help with composing regular expressions, see the [Regular Expression Language - Quick Reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 4. Run the experiment.
 
@@ -90,8 +89,10 @@ This module is particularly useful when you need to separate data into training 
   
 2. For **Splitting mode**, select **relative expression split**.
   
-3. In the **Relational expression** text box, type an expression that performs a numeric comparison operation, on a single column:
+3. . In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
 
+
+ - Numeric column:
     - The column contains numbers of any numeric data type, including date/time data types.
 
     - The expression can reference a maximum of one column name.
@@ -101,6 +102,10 @@ This module is particularly useful when you need to separate data into training 
     - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
     - You cannot group operations by using `(` and `)`.
+
+ - String column: 
+    - The following operators are supported: `==`, `!=`
+
 
 
 4. Run the experiment.
