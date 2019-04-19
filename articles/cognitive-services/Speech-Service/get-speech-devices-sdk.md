@@ -30,9 +30,7 @@ The Speech Devices SDK is a pretuned library designed to work with purpose-built
 
 ## Download the Speech Devices SDK
 
-Go to the [Speech Devices SDK download site](https://shares.datatransfer.microsoft.com/).
-
-ToDo add details of the new download site and process to get the SDK for the chosen device.
+Go to the [Speech Devices SDK download site](shares.datatransfer.microsoft.com).
 
 ## Next steps
 
