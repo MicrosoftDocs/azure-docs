@@ -1,5 +1,5 @@
 ---
-title: contextual conversation
+title: Contextual conversation
 titleSuffix: Azure Cognitive Services
 description: Use question & answer prompts to manage the conversation state. This is the ability to manage a question within the context of questions asked before and after that question. When you design your chat bot flow, a user asks a question that needs to be refined in order to determine the correct answer.
 services: cognitive-services
@@ -17,7 +17,7 @@ ms.author: diberry
 
 Use prompts and context to manage the conversational flow for your bot from one question to another.
 
-## What is contextual conversational?
+## What is a contextual conversation?
 
 Contextual conversation is the ability to have a back and forth conversation where the previous question's context influences the next question and answer. 
 
@@ -107,7 +107,7 @@ In the knowledge base, when a question-and-answer pair is linked to follow-up pr
 
 Select the **Test** pane and enter the question, `Give feedback`. The test result includes the two follow-up prompts as question IDs.
 
-    ![![Select Test pane and enter the question, `Give feedback`. The test result includes the two child questions.](../media/conversational-context/add-level-2-answer.png)](../media/conversational-context/test-pane-parent-question-prompts-to-child-questions.png#lightbox)
+![Select Test pane and enter the question, `Give feedback`. The test result includes the two child questions.](../media/conversational-context/test-pane-parent-question-prompts-to-child-questions.png)
 
 
 ## JSON response for prompts
