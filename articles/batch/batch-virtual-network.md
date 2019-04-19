@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: batch
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
 
