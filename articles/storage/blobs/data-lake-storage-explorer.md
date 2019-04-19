@@ -23,7 +23,7 @@ In this quickstart, you learn how to use [Azure Storage Explorer](https://azure.
 
 This quickstart requires that you install Azure Storage Explorer. To install Azure Storage Explorer for Windows, Macintosh, or Linux, see [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-## Log in to Storage Explorer
+## Sign in to Storage Explorer
 
 On first launch, the **Microsoft Azure Storage Explorer - Connect** window is shown. While Storage Explorer provides several ways to connect to storage accounts, only one way is currently supported for managing ACLs.
 
