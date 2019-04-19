@@ -177,9 +177,9 @@
     - name: Enable Azure Active Directory integration
       items:
         - name: Use the Azure CLI
-          href: aad-integration-cli.md
+          href: azure-ad-integration-cli.md
         - name: Use the Azure portal
-          href: aad-integration.md
+          href: azure-ad-integration.md
     - name: Use Kubernetes RBAC with Azure AD integration
       href: azure-ad-rbac.md
     - name: Authenticate with ACR

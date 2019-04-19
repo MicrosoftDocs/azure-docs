@@ -1,6 +1,6 @@
 ---
 title: Control cluster resources with RBAC and Azure AD in Azure Kubernetes Service
-description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using role-based access controls (RBAC) in Azure Kubernetes Service (AKS)
+description: Learn how to use Azure Active Directory group membership to restrict access to cluster resources using role-based access control (RBAC) in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
@@ -10,7 +10,7 @@ ms.date: 04/16/2019
 ms.author: iainfou
 ---
 
-# Control access to cluster resources using role-based access controls and Azure Active Directory identities in Azure Kubernetes Service
+# Control access to cluster resources using role-based access control and Azure Active Directory identities in Azure Kubernetes Service
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you sign in to an AKS cluster using an Azure AD authentication token. You can also configure Kubernetes role-based access control (RBAC) to limit access to cluster resources based a user's identity or group membership.
 
@@ -386,7 +386,7 @@ az ad group delete --group appdev
 az ad group delete --group opssre
 ```
 
-## Next Steps
+## Next steps
 
 For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
 

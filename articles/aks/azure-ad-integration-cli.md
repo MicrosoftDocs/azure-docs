@@ -123,7 +123,7 @@ az ad app permission add --id $clientApplicationId --api $serverApplicationId --
 az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 ```
 
-## Deploy Cluster
+## Deploy the cluster
 
 With the two Azure AD applications created, now create the AKS cluster itself. First, create a resource group using the [az group create][az-group-create] command. The following example creates the resource group in the *EastUS* region:
 
@@ -235,11 +235,11 @@ error: You must be logged in to the server (Unauthorized)
 * The user you are signed in as is not a *Guest* in the Azure AD instance (this is often the case if you use a federated login from a different directory).
 * The user is not a member of more than 200 groups.
 
-## Next Steps
+## Next steps
 
 For the complete script that contains the commands shown in this article, see the [Azure AD integration script in the AKS samples repo][complete-script].
 
-To use Azure AD users and groups to control access to cluster resources, see [Control access to cluster resources using role-based access controls and Azure AD identities in AKS][azure-ad-rbac].
+To use Azure AD users and groups to control access to cluster resources, see [Control access to cluster resources using role-based access control and Azure AD identities in AKS][azure-ad-rbac].
 
 For more information about how to secure Kubernetes clusters, see [Access and identity options for AKS)][rbac-authorization].
 
@@ -267,7 +267,7 @@ For best practices on identity and resource control, see [Best practices for aut
 [az-group-create]: /cli/azure/group#az-group-create
 [az-account-show]: /cli/azure/account#az-account-show
 [az-ad-signed-in-user-show]: /cli/azure/ad/signed-in-user#az-ad-signed-in-user-show
-[azure-ad-portal]: aad-integration.md
+[azure-ad-portal]: azure-ad-integration.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
 [rbac-authorization]: concepts-identity.md#role-based-access-controls-rbac
