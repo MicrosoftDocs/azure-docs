@@ -56,9 +56,8 @@ print(c(c, d))
    The script is passed through the `@script` argument. Everything inside the `@script` argument must be valid R code.
 
     ```sql
-    EXECUTE sp_execute_external_script
-    @language = N'R',
-    @script = N'
+    EXECUTE sp_execute_external_script @language = N'R'
+        , @script = N'
     a <- 1
     b <- 2
     c <- a/b
@@ -89,11 +88,10 @@ print(c(c, d))
 A typical example script is one that just outputs the string "Hello World". Run the following command.
 
 ```sql
-EXECUTE sp_execute_external_script
-  @language =N'R',
-  @script=N'OutputDataSet<-InputDataSet',
-  @input_data_1 =N'SELECT 1 AS hello'
-  WITH RESULT SETS (([Hello World] int));
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'OutputDataSet<-InputDataSet'
+    , @input_data_1 = N'SELECT 1 AS hello'
+WITH RESULT SETS(([Hello World] INT));
 GO
 ```
 
@@ -124,16 +122,23 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     ```sql
     CREATE TABLE RTestData (col1 INT NOT NULL)
-    INSERT INTO RTestData VALUES (1);
-    INSERT INTO RTestData VALUES (10);
-    INSERT INTO RTestData VALUES (100);
+    
+    INSERT INTO RTestData
+    VALUES (1);
+    
+    INSERT INTO RTestData
+    VALUES (10);
+    
+    INSERT INTO RTestData
+    VALUES (100);
     GO
     ```
 
 1. Use the `SELECT` statement to query the table.
   
     ```sql
-    SELECT * FROM RTestData
+    SELECT *
+    FROM RTestData
     ```
 
     **Results**
@@ -143,11 +148,10 @@ For now, let's use the default input and output variables of [sp_execute_externa
 1. Run the following R script. It retrieves the data from the table using the `SELECT` statement, passes it through the R runtime, and returns the data as a data frame. The `WITH RESULT SETS` clause defines the schema of the returned data table for SQL Database, adding the column name *NewColName*.
 
     ```sql
-    EXECUTE sp_execute_external_script
-        @language = N'R'
+    EXECUTE sp_execute_external_script @language = N'R'
         , @script = N'OutputDataSet <- InputDataSet;'
         , @input_data_1 = N'SELECT * FROM RTestData;'
-    WITH RESULT SETS (([NewColName] INT NOT NULL));
+    WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
     **Results**
@@ -157,13 +161,12 @@ For now, let's use the default input and output variables of [sp_execute_externa
 1. Now let's change the names of the input and output variables. The default input and output variable names are **InputDataSet** and **OutputDataSet**, this script changes the names to **SQL_in** and **SQL_out**:
 
     ```sql
-    EXECUTE sp_execute_external_script
-      @language = N'R'
-      , @script = N' SQL_out <- SQL_in;'
-      , @input_data_1 = N' SELECT 12 as Col;'
-      , @input_data_1_name  = N'SQL_in'
-      , @output_data_1_name =  N'SQL_out'
-      WITH RESULT SETS (([NewColName] INT NOT NULL));
+    EXECUTE sp_execute_external_script @language = N'R'
+        , @script = N' SQL_out <- SQL_in;'
+        , @input_data_1 = N' SELECT 12 as Col;'
+        , @input_data_1_name = N'SQL_in'
+        , @output_data_1_name = N'SQL_out'
+    WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
     Note that R is case-sensitive. The input and output variables used in the R script (**SQL_out**, **SQL_in**) need to match the values defined with `@input_data_1_name` and `@output_data_1_name`, including case.
@@ -176,12 +179,11 @@ For now, let's use the default input and output variables of [sp_execute_externa
    The following script outputs the text "hello" and "world".
 
     ```sql
-    EXECUTE sp_execute_external_script
-        @language = N'R'
+    EXECUTE sp_execute_external_script @language = N'R'
         , @script = N' mytextvariable <- c("hello", " ", "world");
-            OutputDataSet <- as.data.frame(mytextvariable);'
+    OutputDataSet <- as.data.frame(mytextvariable);'
         , @input_data_1 = N''
-    WITH RESULT SETS (([Col1] CHAR(20) NOT NULL));
+    WITH RESULT SETS(([Col1] CHAR(20) NOT NULL));
     ```
 
     **Results**
@@ -192,35 +194,34 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
 If you would like to see which version of R is installed in your SQL database, run the following script.
 
-    ```SQL
-    EXECUTE sp_execute_external_script
-    @language =N'R',
-    @script=N'print(version)';
-    GO
-    ```
+```sql
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'print(version)';
+GO
+```
 
 The R `print` function returns the version to the **Messages** window. In the example output below, you can see that SQL Database in this case has R version 3.4.4 installed.
 
-    **Results**
+**Results**
 
-    ```text
-    STDOUT message(s) from external script:
+```text
+STDOUT message(s) from external script:
                    _
-    platform       x86_64-w64-mingw32
-    arch           x86_64
-    os             mingw32
-    system         x86_64, mingw32
-    status
-    major          3
-    minor          4.4
-    year           2018
-    month          03
-    day            15
-    svn rev        74408
-    language       R
-    version.string R version 3.4.4 (2018-03-15)
-    nickname       Someone to Lean On
-    ```
+platform       x86_64-w64-mingw32
+arch           x86_64
+os             mingw32
+system         x86_64, mingw32
+status
+major          3
+minor          4.4
+year           2018
+month          03
+day            15
+svn rev        74408
+language       R
+version.string R version 3.4.4 (2018-03-15)
+nickname       Someone to Lean On
+```
 
 ## List R packages
 
@@ -228,13 +229,18 @@ Microsoft provides a number of R packages pre-installed with Machine Learning Se
 
 To see a list of which R packages are installed, including version, dependencies, license, and library path information, run the following script.
 
-    ```SQL
-    EXECUTE sp_execute_external_script @language = N'R'
+```SQL
+EXEC sp_execute_external_script @language = N'R'
     , @script = N'
-    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
-    WITH result sets((Package NVARCHAR(255),  Version NVARCHAR(100), Depends NVARCHAR(4000)
-                    , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
-    ```
+OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
+WITH result sets((
+            Package NVARCHAR(255)
+            , Version NVARCHAR(100)
+            , Depends NVARCHAR(4000)
+            , License NVARCHAR(1000)
+            , LibPath NVARCHAR(2000)
+            ));
+```
 
 The output is from `installed.packages()` in R and is returned as a result set.
 
@@ -247,7 +253,7 @@ The output is from `installed.packages()` in R and is returned as a result set.
 To create a machine learning model using R in SQL Database, follow this quickstart:
 
 > [!div class="nextstepaction"]
-> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)(sql-database-quickstart-r-train-score-model.md)
+> [Create and train a predictive model in R with Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-train-score-model.md)
 
 For more information on Machine Learning Services, see the articles below. While some of these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
 

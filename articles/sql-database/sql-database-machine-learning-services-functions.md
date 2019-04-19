@@ -42,12 +42,11 @@ as.data.frame(rnorm(100, mean = 50, sd = 3));
 To call this line of R from T-SQL, run `sp_execute_external_script` and add the R function in the R script parameter, like this:
 
 ```sql
-EXEC sp_execute_external_script
-      @language = N'R'
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-         OutputDataSet <- as.data.frame(rnorm(100, mean = 50, sd =3));'
+OutputDataSet <- as.data.frame(rnorm(100, mean = 50, sd =3));'
     , @input_data_1 = N'   ;'
-      WITH RESULT SETS (([Density] float NOT NULL));
+WITH RESULT SETS(([Density] FLOAT NOT NULL));
 ```
 
 What if you'd like to make it easier to generate a different set of random numbers?
@@ -55,18 +54,21 @@ What if you'd like to make it easier to generate a different set of random numbe
 That's easy when combined with SQL. You define a stored procedure that gets the arguments from the user, then pass those arguments into the R script as variables.
 
 ```sql
-CREATE PROCEDURE MyRNorm (@param1 int, @param2 int, @param3 int)
+CREATE PROCEDURE MyRNorm (
+    @param1 INT
+    , @param2 INT
+    , @param3 INT
+    )
 AS
-    EXEC sp_execute_external_script
-      @language = N'R'
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-	     OutputDataSet <- as.data.frame(rnorm(mynumbers, mymean, mysd));'
+OutputDataSet <- as.data.frame(rnorm(mynumbers, mymean, mysd));'
     , @input_data_1 = N'   ;'
-	, @params = N' @mynumbers int, @mymean int, @mysd int'
-	, @mynumbers = @param1
-	, @mymean = @param2
-	, @mysd = @param3
-    WITH RESULT SETS (([Density] float NOT NULL));
+    , @params = N' @mynumbers int, @mymean int, @mysd int'
+    , @mynumbers = @param1
+    , @mymean = @param2
+    , @mysd = @param3
+WITH RESULT SETS(([Density] FLOAT NOT NULL));
 ```
 
 - The first line defines each of the SQL input parameters that are required when the stored procedure is executed.
@@ -78,7 +80,9 @@ AS
 Now that you've wrapped the R function in a stored procedure, you can easily call the function and pass in different values, like this:
 
 ```sql
-EXEC MyRNorm @param1 = 100,@param2 = 50, @param3 = 3
+EXECUTE MyRNorm @param1 = 100
+    , @param2 = 50
+    , @param3 = 3
 ```
 
 ## Use R utility functions for troubleshooting
@@ -88,14 +92,13 @@ The `utils` package, installed by default, provides a variety of utility functio
 Because the `utils` package is installed but not loaded by default, you must use the `library()` function to load it first.
 
 ```sql
-EXECUTE sp_execute_external_script
-      @language = N'R'
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-        library(utils);
-        mymemory <- memory.limit();
-        OutputDataSet <- as.data.frame(mymemory);'
+library(utils);
+mymemory <- memory.limit();
+OutputDataSet <- as.data.frame(mymemory);'
     , @input_data_1 = N' ;'
-WITH RESULT SETS (([Col1] int not null));
+WITH RESULT SETS(([Col1] INT NOT NULL));
 ```
 
 > [!TIP]
