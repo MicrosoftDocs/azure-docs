@@ -26,10 +26,8 @@ Create a new host pool using a VM of the size you selected. For instructions, se
 
 Windows Virtual Desktop Preview supports GPU-accelerated rendering and encoding in the following OSes:
 
-| Distribution |
-|---|
-| Windows 10 (version 1511 or newer)|
-| Windows Server 2016 or newer |
+* Windows 10 version 1511 or newer
+* Windows Server 2016 or newer
 
 You must also configure an app group, or use the default desktop app group (named "Desktop Application Group") that's automatically created when you create a new host pool. For instructions, see [Tutorial: Manage app groups for Windows Virtual Desktop Preview](/azure/virtual-desktop/manage-app-groups).
 
