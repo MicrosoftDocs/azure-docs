@@ -29,7 +29,7 @@
       - name: HB-series performance
         href: hb-series-performance.md  
       - name: Known issues
-        href: known-issues.md
+        href: hb-known-issues.md
     - name: HC-series
       href: hc-series-overview.md
       items:  
