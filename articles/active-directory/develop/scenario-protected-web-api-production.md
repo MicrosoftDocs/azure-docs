@@ -23,8 +23,23 @@ ms.collection: M365-identity-device-management
 
 # protected Web API - move to production
 
-Now that you know how to acquire a token to call Web APIs, learn how to move to production.
+Now that you know how to protect your Web API, learn how to move it to production
+
+## Improve your app
+
+[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## Next steps
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+Also learn how to call downstream APIs:
+
+> [!div class="nextstepaction"]
+> [Scenario - Web API calls downstream APIS](scenario-web-api-call-api-overview.md)
+
+Learn more with tutorials and samples:
+
+> [!div class="nextstepaction"]
+> [ASP.NET Core Web API Tutorial](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+
+> [!div class="nextstepaction"]
+> [ASP.NET Web API sample](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

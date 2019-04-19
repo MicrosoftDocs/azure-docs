@@ -23,21 +23,12 @@ ms.collection: M365-identity-device-management
 
 # protected Web API - overview
 
-Learn all you need to build a protected Web API.
+You expose a Web API and you want to protect it so that only authenticated user can access it. You want to enable authenticated users with both work and school accounts
+or Microsoft personal accounts (formerly live account) to use your Web API.
 
 ## Pre-requisites
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-## Quickstart
-
-> [!div class="nextstepaction"]
-> [protected Web API - Quickstart](./quickstart-v2-XXXXXXXXX.md)
-
-## Scenario overview
-
-
-Learn all you need to build a protected Web API.
 
 ## Next steps
 

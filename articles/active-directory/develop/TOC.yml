@@ -157,10 +157,6 @@
           href: scenario-protected-web-api-app-registration.md
         - name: App's code configuration
           href: scenario-protected-web-api-app-configuration.md
-        - name: Acquiring a token for the app
-          href: scenario-protected-web-api-acquire-token.md
-        - name: Calling a Web API
-          href: scenario-protected-web-api-call-api.md
         - name: Move to production
           href: scenario-protected-web-api-production.md
       - name: Web API that calls Web APIs
