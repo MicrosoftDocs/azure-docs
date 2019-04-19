@@ -42,6 +42,22 @@ There are several ways that you can configure entitlement management for your or
 > | I want to view who has an assignment to groups, applications, or SharePoint sites | 1. Open an access package<br/>2. [View **Assignments**](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>View which users have access to an access package</li><li>View which user's access has expired</li></ul> |
 > | I want to view groups, applications, or SharePoint sites a user has access to | [View **User assignments report**](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |
 
+## Approvers 1
+
+> [!div class="mx-tableFixed"]
+> | Scenario | Steps |
+> | --- | --- |
+> | I want to approve requests to access groups, applications, or SharePoint sites | 1. Sign in to the My Access portal<br/>2. [Find request in pending approvals](entitlement-management-request-approve.md#open-request)<br/>3. [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) |
+
+## Requestors 1
+
+> [!div class="mx-tableFixed"]
+> | Scenario | Steps |
+> | --- | --- |
+> | I want to view the groups, applications, or SharePoint sites available to me and request access | 1. [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal)<br/>2. Find access package<br/>3. [Request access](entitlement-management-request-access.md#request-an-access-package) |
+> | I'm an external user and I want to request access to groups, applications, or SharePoint sites with a direct link | 1. Find the access package link you received<br/>2. [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal)<br/>3. [Request access](entitlement-management-request-access.md#request-an-access-package) |
+> | I want to view the groups, applications, or SharePoint sites I already have access to | 1. [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal)<br/>2. View active access packages |
+
 
 ## Administrators 2
 
@@ -82,7 +98,7 @@ There are several ways that you can configure entitlement management for your or
 
 
 
-## Approvers
+## Approvers 2
 
 ### I want to approve requests to access groups, applications, or SharePoint sites
 
@@ -94,7 +110,7 @@ There are several ways that you can configure entitlement management for your or
 > | **3.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) |
 
 
-## Requestors
+## Requestors 2
 
 ### I want to view the groups, applications, or SharePoint sites available to me and request access
 
