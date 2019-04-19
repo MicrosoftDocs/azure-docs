@@ -76,11 +76,11 @@ Save the following playbook as `azure_create_aks.yml`:
 
 Before running the playbook, see the following notes:
 
-- The first section within **tasks** defines a resource group named **myResourceGroup** within the **eastus** location.
-- The second section within **tasks** defines an AKS cluster named **myAKSCluster** within the **myResourceGroup** resource group.
+- The first section within `tasks` defines a resource group named `myResourceGroup` within the `eastus` location.
+- The second section within `tasks` defines an AKS cluster named `myAKSCluster` within the `myResourceGroup` resource group.
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook azure_create_aks.yml
@@ -106,7 +106,7 @@ localhost                  : ok=3    changed=2    unreachable=0    failed=0
 
 ## Scale AKS nodes
 
-The sample playbook in the previous section defines two nodes. You adjust the number of nodes by modifying the **count** value in the **agent_pool_profiles** block.
+The sample playbook in the previous section defines two nodes. You adjust the number of nodes by modifying the `count` value in the `agent_pool_profiles` block.
 
 Save the following playbook as `azure_configure_aks.yml`:
 
@@ -145,7 +145,7 @@ Before running the playbook, see the following notes:
 
 - For the `your_ssh_key` placeholder, enter your RSA public key in the single-line format - starting with "ssh-rsa" (without the quotes).
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook azure_configure_aks.yml
@@ -188,7 +188,7 @@ Save the following playbook as `azure_delete_aks.yml`:
       state: absent
   ```
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook azure_delete_aks.yml

@@ -3,7 +3,7 @@ title: Tutorial - Configure labs in Azure DevTest Labs using Ansible | Microsoft
 description: Learn how to configure a lab in Azure DevTest Labs using Ansible
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, devtest labs
-author: TomArcherMsft
+author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
@@ -68,14 +68,14 @@ The next task creates the sample lab.
 
 You can set up lab policy settings. The following values can be set:
 
-- **user_owned_lab_vm_count** is the number of VMs a user can own
-- **user_owned_lab_premium_vm_count** is the number of premium VMs a user can own
-- **lab_vm_count** is the maximum number of lab VMs
-- **lab_premium_vm_count** is the maximum number of lab premium VMs
-- **lab_vm_size** is the allowed lab VMs size(s)
-- **gallery_image** is the allowed gallery image(s)
-- **user_owned_lab_vm_count_in_subnet** is the maximum number of user’s VMs in a subnet
-- **lab_target_cost** is the target cost of the lab
+- `user_owned_lab_vm_count` is the number of VMs a user can own
+- `user_owned_lab_premium_vm_count` is the number of premium VMs a user can own
+- `lab_vm_count` is the maximum number of lab VMs
+- `lab_premium_vm_count` is the maximum number of lab premium VMs
+- `lab_vm_size` is the allowed lab VMs size(s)
+- `gallery_image` is the allowed gallery image(s)
+- `user_owned_lab_vm_count_in_subnet` is the maximum number of user’s VMs in a subnet
+- `lab_target_cost` is the target cost of the lab
 
 ```yaml
 - name: Set the lab policies
@@ -92,7 +92,7 @@ You can set up lab policy settings. The following values can be set:
 
 The sample task in this section configures the lab schedule. 
 
-In the following code snippet, the **lab_vms_startup** value is used to specify the VM startup time. Likewise, setting the **lab_vms_shutdown** value establishes the lab VM shutdown time.
+In the following code snippet, the `lab_vms_startup` value is used to specify the VM startup time. Likewise, setting the `lab_vms_shutdown` value establishes the lab VM shutdown time.
 
 ```yaml
 - name: Set the lab schedule
@@ -197,7 +197,7 @@ The following task lists all the artifacts:
 
 ## Get Azure Resource Manager information for the artifact sources
 
-To list all the Azure Resource Manager templates in **public environment repository**, the predefined repository with templates:
+To list all the Azure Resource Manager templates in `public environment repository`, the predefined repository with templates:
 
 ```yaml
 - name: List the Azure Resource Manager template facts
@@ -444,10 +444,10 @@ There are two ways to get the complete sample playbook:
 In this section, run the playbook to test various features shown in this article.
 
 Before running the playbook, make the following changes:
-- In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 - Store the GitHub token as an environment variable named `GITHUB_ACCESS_TOKEN`.
 
-To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook devtestlab-create.yml
@@ -471,7 +471,7 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml

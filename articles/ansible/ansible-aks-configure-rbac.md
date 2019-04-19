@@ -122,7 +122,7 @@ To create an RBAC binding, you first need to get the Azure AD Object ID.
 
 1. In the search field at the top of the page, enter `Azure Active Directory`. 
 
-1. Select the **Enter** key.
+1. Click `Enter`.
 
 1. In the **Manage** menu, select **Users**.
 
@@ -155,7 +155,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Replace the **&lt;your-aad-account>** placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
+Replace the `&lt;your-aad-account>` placeholder with your Azure AD tenant [Object ID](#get-the-azure-ad-object-id).
 
 Save the following playbook - that deploys your new role to AKS - as `aks-kube-deploy.yml`:
 
@@ -197,7 +197,7 @@ Save the following playbook as `aks-rbac.yml`:
        include_tasks: aks-kube-deploy.yml
 ```
 
-In the **vars** section, replace the following placeholders with your Azure AD information:
+In the `vars` section, replace the following placeholders with your Azure AD information:
 
 - `<client id>`
 - `<server id>`
@@ -256,7 +256,7 @@ Save the following code as `cleanup.yml`:
             path: "aks-{{ name }}-kubeconfig"
 ```
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml

@@ -66,7 +66,8 @@ You can scale up by changing the pricing tier of the App Service plan that your 
 
 Save this playbook as *webapp_scaleup.yml*.
 
-To run the playbook,  use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
+
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```

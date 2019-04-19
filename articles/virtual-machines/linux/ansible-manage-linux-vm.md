@@ -57,7 +57,7 @@ In this section, you use Ansible to deallocate (stop) an Azure virtual machine.
     ansible-playbook azure-vm-stop.yml
     ```
 
-1. The output looks similar to the following results:
+1. After running the playbook, you see output similar to the following results:
 
     ```bash
     PLAY [Stop Azure VM] ********************************************************
@@ -109,7 +109,7 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
     ansible-playbook azure-vm-start.yml
     ```
 
-1. The output looks similar to the following results:
+1. After running the playbook, you see output similar to the following results:
 
     ```bash
     PLAY [Start Azure VM] ********************************************************

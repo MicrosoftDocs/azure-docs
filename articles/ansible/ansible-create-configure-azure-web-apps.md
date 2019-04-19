@@ -62,9 +62,9 @@ This section presents a sample Ansible playbook that defines the following resou
               java_container_version: 8.5
 ```
 
-Save the preceding playbook as **firstwebapp.yml**.
+Save the preceding playbook as `firstwebapp.yml`.
 
-To run the playbook,  use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook firstwebapp.yml
@@ -186,9 +186,9 @@ This section presents a sample Ansible playbook that defines the following resou
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Save the preceding playbook as **webapp.yml**, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Save the preceding playbook as `webapp.yml`, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
-To run the playbook,  use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook webapp.yml

@@ -342,9 +342,9 @@ There are two ways to get the complete sample playbook:
 In this section, run the playbook to test various features shown in this article.
 
 Before running the playbook, make the following changes:
-- In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+- In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-To run the playbook, use the **ansible-playbook** command as follows:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -368,7 +368,7 @@ Save the following code as `cleanup.yml`:
         state: absent
 ```
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml

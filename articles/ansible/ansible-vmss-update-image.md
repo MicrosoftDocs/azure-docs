@@ -128,7 +128,7 @@ There are two ways to get the sample playbook:
       - B
 
   - name: Create VM Extension
-    azure_rm_virtualmachine_extension:
+    azure_rm_virtualmachineextension:
       resource_group: "{{ resource_group }}"
       name: testVMExtension
       virtual_machine_name: "{{ vm_name }}{{ item }}"
@@ -142,7 +142,7 @@ There are two ways to get the sample playbook:
       - B
 
   - name: Create VM Extension
-    azure_rm_virtualmachine_extension:
+    azure_rm_virtualmachineextension:
       resource_group: "{{ resource_group }}"
       name: testVMExtension
       virtual_machine_name: "{{ vm_name }}{{ item }}"
@@ -283,7 +283,7 @@ In this section, a playbook is used to configure the following Azure resources:
         natpool_protocol: Tcp
 
     - name: Create a scale set
-      azure_rm_virtualmachine_scaleset:
+      azure_rm_virtualmachinescaleset:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
         vm_size: Standard_DS1_v2
@@ -353,7 +353,7 @@ There are two ways to get the sample playbook:
   tasks:
 
   - name: Update scale set - second image
-    azure_rm_virtualmachine_scaleset:
+    azure_rm_virtualmachinescaleset:
       resource_group: "{{ resource_group }}"
       name: "{{ vmss_name }}"
       vm_size: Standard_DS1_v2

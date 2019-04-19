@@ -137,7 +137,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     Failed to connect to the host via ssh: Host key verification failed.
     ```
     
-    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at **/etc/ansible/ansible.cfg`**.
+    If you do receive the "host-key verification" error, add the following line to the Ansible configuration file. The Ansible configuration file is located at `/etc/ansible/ansible.cfg`.
 
     ```bash
     host_key_checking = False
@@ -151,7 +151,7 @@ Starting with Ansible 2.8, Ansible provides an [Azure dynamic-inventory plugin](
     ```
 
 ## Enable the VM tag
-Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable  `AZURE_TAGS` via the **export** command:
+Once you've set a tag, you need to "enable" that tag. One way to enable a tag is by exporting the tag to an environment variable  `AZURE_TAGS` via the `export` command:
 
 ```azurecli-interactive
 export AZURE_TAGS=nginx
@@ -169,7 +169,7 @@ export AZURE_TAGS=nginx
     ansible all -m ping -i ./myazure_rm.yml
     ```
 
-You now see only one virtual machine (the one whose tag matches the value exported into the **AZURE_TAGS** environment variable):
+You now see only one virtual machine (the one whose tag matches the value exported into the `AZURE_TAGS` environment variable):
 
 ```Output
 ansible-inventory-test-vm1 | SUCCESS => {
@@ -183,13 +183,13 @@ ansible-inventory-test-vm1 | SUCCESS => {
 
 The purpose of tags is to enable the ability to quickly and easily work with subgroups of your virtual machines. For example, let's say you want to install Nginx only on virtual machines to which you've assigned a tag of `nginx`. The following steps illustrate how easy that is to accomplish:
 
-1. Create a file (to contain your playbook) named `nginx.yml` as follows:
+1. Create a file named `nginx.yml`:
 
    ```azurecli-interactive
-   vi nginx.yml
+   code nginx.yml
    ```
 
-1. Insert the following code into the newly created `nginx.yml` file:
+1. Paste the following sample code into the editor:
 
     ```yml
     ---
@@ -207,21 +207,23 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
           service: name=nginx state=started
     ```
 
-1. Run the `nginx.yml` playbook:
+1. Save the file and exit the editor.
 
-   - If you're using Ansible < 2.8, run the following command:
+1. Run the playbook using the `ansible-playbook` command:
+
+   - Ansible < 2.8:
 
     ```bash
     ansible-playbook -i azure_rm.py nginx.yml
     ```
 
-   - If you're using Ansible >= 2.8, run the following command:
+   - Ansible >= 2.8:
 
     ```bash
      ansible-playbook  -i ./myazure_rm.yml  nginx.yml
     ```
 
-1. Once you run the playbook, you see results similar to the following output:
+1. After running the playbook, you see output similar to the following results:
 
     ```Output
     PLAY [Install and start Nginx on an Azure virtual machine] 
@@ -267,7 +269,7 @@ This section illustrates one technique to test that Nginx is installed on your v
     tom@ansible-inventory-test-vm1:~$
     ```
 
-1. Press the **&lt;Ctrl>D** keyboard combination to disconnect the SSH session.
+1. Click the `&lt;Ctrl>D` keyboard combination to disconnect the SSH session.
 
 1. Doing the preceding steps for the `ansible-inventory-test-vm2` virtual machine yields an informational message indicating where you can get Nginx (which implies that you don't have it installed at this point):
 

@@ -116,7 +116,7 @@ After running the playbook, you see output similar to the following results:
 The playbook code in this section is used to:
 
 * Install the JRE on a host group named `saclesethosts`
-* Deploy the Java application to a host group named **saclesethosts**
+* Deploy the Java application to a host group named `saclesethosts`
 
 There are two ways to get the sample playbook:
 

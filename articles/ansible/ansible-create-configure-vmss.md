@@ -109,7 +109,7 @@ There are two ways to get the sample playbook:
         natpool_protocol: Tcp
 
     - name: Create Scale Set
-      azure_rm_virtualmachine_scaleset:
+      azure_rm_virtualmachinescaleset:
         resource_group: "{{ resource_group }}"
         name: "{{ vmss_name }}"
         vm_size: Standard_DS1_v2
@@ -239,7 +239,7 @@ There are two ways to get the sample playbook:
         body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
     - name: Update something in that scale set
-      azure_rm_virtualmachine_scaleset: "{{ body }}"
+      azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
 Run the playbook using the `ansible-playbook` command:

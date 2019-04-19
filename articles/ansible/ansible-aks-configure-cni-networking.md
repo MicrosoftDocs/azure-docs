@@ -140,10 +140,10 @@ Save the following playbook as `aks-azure-cni.yml`:
            var: aks
 ```
 
-In the **vars** section, make the following changes:
-- For the **resource_group** key, change the **aksansibletest** value to your resource group name.
-- For the **name** key, change the **aksansibletest** value to your AKS name.
-- For the **Location** key, change the **eastus** value to your resource group location.
+In the `vars` section, make the following changes:
+- For the `resource_group` key, change the `aksansibletest` value to your resource group name.
+- For the `name` key, change the `aksansibletest` value to your AKS name.
+- For the `Location` key, change the `eastus` value to your resource group location.
 
 
 Run the complete playbook using the `ansible-playbook` command:
@@ -246,7 +246,7 @@ Save the following code as `cleanup.yml`:
 ---
 - hosts: localhost
   vars:
-      resource_group: **{{ resource_group_name }}**
+      resource_group: {{ resource_group_name }}
   tasks:
       - name: Clean up resource group
         azure_rm_resourcegroup:
@@ -255,9 +255,9 @@ Save the following code as `cleanup.yml`:
             force: yes
 ```
 
-In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml

@@ -212,7 +212,7 @@ In this section, you use the Azure cloud shell to connect to the server you crea
     
 ## Query MySQL servers
 
-The playbook code in this section queries MySQL servers in **myResourceGroup** and lists the databases on the found servers.
+The playbook code in this section queries MySQL servers in `myResourceGroup` and lists the databases on the found servers.
 
 Save the following playbook as `mysql_query.yml`:
 

@@ -200,10 +200,10 @@ Save the following playbook as `aks-kubenet.yml`:
            var: output.aks[0]
 ```
 
-In the **vars** section, make the following changes:
-- For the **resource_group** key, change the **aksansibletest** value to your resource group name.
-- For the **name** key, change the **aksansibletest** value to your AKS name.
-- For the **Location** key, change the **eastus** value to your resource group location.
+In the `vars` section, make the following changes:
+- For the `resource_group` key, change the `aksansibletest` value to your resource group name.
+- For the `name` key, change the `aksansibletest` value to your AKS name.
+- For the `Location` key, change the `eastus` value to your resource group location.
 
 Run the complete playbook using the `ansible-playbook` command:
 
@@ -335,9 +335,9 @@ Save the following code as `cleanup.yml`:
             force: yes
 ```
 
-In the **vars** section, replace the **{{ resource_group_name }}** placeholder with the name of your resource group.
+In the `vars` section, replace the `{{ resource_group_name }}` placeholder with the name of your resource group.
 
-Run the playbook using the **ansible-playbook** command:
+Run the playbook using the `ansible-playbook` command:
 
 ```bash
 ansible-playbook cleanup.yml
