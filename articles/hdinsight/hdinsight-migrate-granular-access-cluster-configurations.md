@@ -80,15 +80,15 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 ### Azure HDInsight Tools for Visual Studio Code
 
-If you are using version _ or older of Azure HDInsight Tools for Visual Studio Code, please update to version _ to avoid interruptions.
+If you are using version 1.1.1 or older, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
 
 ### Azure Toolkit for IntelliJ
 
-If you are using version _ or older of the Azure Toolkit for IntelliJ, please update to version _ to avoid interruptions.
+If you are using version 3.21.0 or older, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
 
 ### Azure Toolkit for Eclipse
 
-If you are using version _ or older of the Azure Toolkit for Eclipse, please update to version _ to avoid interruptions.
+If you are using the 2019-03-29 release or older, please update to the latest version of Azure Toolkit for Eclipse to avoid interruptions.
 
 ### SDK for .NET
 
