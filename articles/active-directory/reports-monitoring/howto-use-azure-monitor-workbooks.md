@@ -34,16 +34,184 @@ To use this feature, you need:
 1. An Azure Active Directory tenant, with a premium (P1/P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 2. A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## Open the workbooks from Azure portal 
+## Open workbooks 
 
-1. First, navigate to the [Azure portal](https://portal.azure.com).
-2. Select **Azure Active Directory**, then select **Insights** from the **Monitoring** section.  
+1. Sign in to your [Azure portal](https://portal.azure.com).
 
-![Workbooks](./media/howto-use-azure-monitor-workbooks/workbook-menu.png)
+2. On the left navbar, click **Azure Active Directory**.
 
-## Usage - Sign-ins
+3. In the **Monitoring** section, click **Insights**. 
 
-You can access sign-in data by selecting **Sign-ins** from the **Usage** section. This workbook contains success and failure trends for attempted sign-ins over time, and shows a breakdown of sign-in attempts by location and platform (operating system and browser). You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
+    ![Insights](./media/howto-use-azure-monitor-workbooks/41.png)
+
+4. Click a report or template, or click **Open** in the toolbar. 
+
+    ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
+
+
+## Sign-ins report
+
+To access the sign-ins data, click **Sign-ins** in the **Usage** section. 
+
+This workbook shows the following sign-in trends:
+
+- All sign-ins
+
+- Success
+
+- Pending user action
+
+- Failure
+
+You can filter each trend by:
+
+- Time range
+
+- Apps
+
+- Users
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/43.png)
+
+
+For each trend, you get a breakdown by:
+
+- Location
+
+    ![Gallery](./media/howto-use-azure-monitor-workbooks/45.png)
+
+- Device
+
+    ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
+
+
+## Sign-ins using legacy authentication report
+
+
+To access the sign-ins data, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
+
+This workbook shows the following sign-in trends:
+
+- All sign-ins
+
+- Success
+
+
+You can filter each trend by:
+
+- Time range
+
+- Apps
+
+- Users
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
+
+
+For each trend, you get a breakdown by app and protocol.
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+
+
+
+## Sign-ins by conditional access report
+
+
+To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+
+This workbook shows the trend for disabled sign-ins.
+
+You can filter each trend by:
+
+- Time range
+
+- Apps
+
+- Users
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
+
+
+For each trend, you get a breakdown by app and protocol.
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
+
+
+
+
+
+
+
+
+## Sign-ins by grant controls
+
+To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+
+This workbook shows the trend for disabled sign-ins.
+
+You can filter each trend by:
+
+- Time range
+
+- Apps
+
+- Users
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/50.png)
+
+
+For each trend, you get a breakdown by app and protocol.
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/51.png)
+
+
+
+
+## Troubleshooting sign-ins
+
+To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+
+This workbook shows the trend for disabled sign-ins.
+
+You can filter each trend by:
+
+- Time range
+
+- Apps
+
+- Users
+
+![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
+
+
+For each trend, you get a breakdown by:
+
+
+- Top errors
+
+    ![Gallery](./media/howto-use-azure-monitor-workbooks/53.png)
+
+- Sign-ins waiting on user action
+
+    ![Gallery](./media/howto-use-azure-monitor-workbooks/54.png)
+
+
+
+
+## Backup
+
+
+
+
+
+This workbook contains success and failure trends for attempted sign-ins over time, and shows a breakdown of sign-in attempts by location and platform (operating system and browser). 
+
+
+
+
+
+
+You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
 
 ![Workbooks](./media/howto-use-azure-monitor-workbooks/signin-usage.png)
 
