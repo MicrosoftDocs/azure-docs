@@ -110,6 +110,15 @@ Queue q = namespaceManager.CreateQueue(qd);
 
 Batched store access does not affect the number of billable messaging operations, and is a property of a queue, topic, or subscription. It is independent of the receive mode and the protocol that is used between a client and the Service Bus service.
 
+> [!NOTE]
+> Setting BatchFlushInterval ensures that the batching is implicit from the application's perspective. i.e. The application makes SendAsync() and CompleteAsync() calls and does not make specific Batch calls.
+>
+> However, explicit client side batching can be implemented by utilizing the below method call - 
+> ```csharp
+> Task SendBatchAsync (BrokeredMessage messages);
+> ```
+> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
+
 ## Prefetching
 
 [Prefetching](service-bus-prefetch.md) enables the queue or subscription client to load additional messages from the service when it performs a receive operation. The client stores these messages in a local cache. The size of the cache is determined by the [QueueClient.PrefetchCount][QueueClient.PrefetchCount] or [SubscriptionClient.PrefetchCount][SubscriptionClient.PrefetchCount] properties. Each client that enables prefetching maintains its own cache. A cache is not shared across clients. If the client initiates a receive operation and its cache is empty, the service transmits a batch of messages. The size of the batch equals the size of the cache or 256 KB, whichever is smaller. If the client initiates a receive operation and the cache contains a message, the message is taken from the cache.
