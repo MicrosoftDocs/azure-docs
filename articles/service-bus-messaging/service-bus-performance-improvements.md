@@ -96,7 +96,7 @@ Batching does not affect the number of billable messaging operations, and is ava
 >
 > Explicit client side batching can be implemented by utilizing the below method call - 
 > ```csharp
-> Task SendBatchAsync (BrokeredMessage messages);
+> Task SendBatchAsync (IEnumerable<BrokeredMessage> messages);
 > ```
 > Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
 
