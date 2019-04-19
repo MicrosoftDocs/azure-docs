@@ -33,7 +33,7 @@ ExpressRoute Global Reach currently is supported in the following places.
 * Australia
 * Canada
 * France
-* Hong Kong
+* Hong Kong SAR
 * Ireland
 * Japan
 * Korea

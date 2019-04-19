@@ -144,10 +144,6 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
     ![ADX destination data store](media/data-factory-load-data/destination-data-store.png)
 
-1. In **Choose the output file or folder**, enter the output folder name, determine settings, and select **Next**.
-
-    ![Specify output folder](media/data-factory-load-data/specify-path.png)
-
 1. In **Table mapping**, set the destination table name and select **Next**.
 
     ![Destination dataset table mapping](media/data-factory-load-data/destination-dataset-table-mapping.png)
@@ -183,6 +179,8 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
 
 ## Next steps
 
-* Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal)
+* Learn about the [Azure Data Explorer connector](/azure/data-factory/connector-azure-data-explorer) in Azure Data Factory.
+
+* Learn more about editing linked services, datasets, and pipelines in the [Data Factory UI](/azure/data-factory/quickstart-create-data-factory-portal).
 
 * Learn about [Azure Data Explorer queries](/azure/data-explorer/web-query-data) for data querying.
