@@ -56,7 +56,7 @@ You can add users to a group when they are assigned an access package. You can u
 
 1. For **Resource**, select a group that is available in the catalog.
 
-    If you don't see the group you want to add in the list, follow the steps to [add the group to the catalog](entitlement-management-catalog-create.md).
+    If you don't see the group you want to add in the list, follow the steps to [add the group to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
 
 1. For **Role**, select **Owner** or **Member**.
 
@@ -90,7 +90,7 @@ You can assign users access to an Azure AD enterprise application, including bot
 
 1. For **Resource**, select an application that is available in the catalog.
 
-    If you don't see the application you want to add in the list, follow the steps to [add the application to the catalog](entitlement-management-catalog-create.md).
+    If you don't see the application you want to add in the list, follow the steps to [add the application to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
 
 1. For **Role**, select an application role.
 
@@ -118,7 +118,7 @@ You can assign users access to a SharePoint Online site or SharePoint Online sit
 
 1. For **Resource**, select a SharePoint site that is available in the catalog.
 
-    If you don't see the SharePoint site you want to add in the list, follow the steps to [add the SharePoint site to the catalog](entitlement-management-catalog-create.md).
+    If you don't see the SharePoint site you want to add in the list, follow the steps to [add the SharePoint site to the catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog).
 
 1. For **Role**, select a SharePoint site role.
 
