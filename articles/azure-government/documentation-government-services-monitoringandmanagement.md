@@ -161,7 +161,7 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
-### .NET/Java with applicationinsights.config/xml
+### .NET with applicationinsights.config
 
 ```xml
 <ApplicationInsights>
@@ -189,11 +189,12 @@ Modify the `application.properties` file and add:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
+azure.application-insights.channel
 ```
 
 ### .NET Core
 
-Modify the config.json file in your project as follows
+Modify the appsettings.json file in your project as follows:
 
 ```json
 "ApplicationInsights": {
@@ -204,24 +205,15 @@ Modify the config.json file in your project as follows
   }
 ```
 
-Then use UseApplicationInsights() method to add Application Insights.
-
-If using AddApplicationInsightsTelemetry(), construct the Configuration first and pass it to AddApplicationInsightsTelemetry in the ConfigureServices method of Startup class as shown in below example.
-
-```csharp
-var configBuilder = new ConfigurationBuilder()
-               .SetBasePath(this.HostingEnvironment.ContentRootPath)
-               .AddJsonFile("appsettings.json", true)               
-               .AddEnvironmentVariables();            
-            services.AddApplicationInsightsTelemetry(configBuilder.Build());
-```
-
 ### Node.js
 
 ```javascript
 var appInsights = require("applicationinsights");
-appInsights.setup('INSTRUMENTATION_KEY').start();
-appInsights.defaultClient.endpointUrl = "https://dc.applicationinsights.us/v2/track ";
+appInsights.setup('INSTRUMENTATION_KEY');
+appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.us/v2/track "; // ingestion
+appInsights.defaultClient.config.profileQueryEndpoint = “https://dc.applicationinsights.us”; // appid/profile lookup
+appInsights.defaultClient.config.quickPulseHost = ”FAIRFAX QUICKPULSE ENDPOINT”; //live metrics
+appInsights.Configuration.start();
 ```
 
 ### JavaScript
