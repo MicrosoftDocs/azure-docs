@@ -68,12 +68,12 @@ The gateway helps you securely access data and
 resources are on premises. For more information, see 
 [Install on-premises data gateway for Azure Logic Apps](../logic-apps/logic-apps-gateway-install.md).
 
-* If you are using SNC with Single Sing-On (SSO), then ensure gateway is running as a user that's mapped against the SAP user. To change the default account,
-select Change account and enter the user credentials.
+* If you are using SNC with Single Sign-On (SSO), then make sure the gateway is running as a user that's mapped against the SAP user. To change the default account,
+select **Change account** and enter the user credentials.
 
    ![Change gateway account](./media/logic-apps-using-sap-connector/gateway-account.png)
 
-* If you are enabling SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some of the examples of SNC products include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">Secude</a>, Kerberos, NTLM, etc
+* If you are enabling SNC with an external security product, copy the SNC library or files on the same machine where the gateway is installed. Some examples of SNC products include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, etc
 
 * Download and install the latest SAP client library, which is currently 
 <a href="https://softwaredownloads.sap.com/file/0020000001865512018" target="_blank">SAP Connector (NCo) 3.0.21.0 for Microsoft .NET Framework 4.0 and Windows 64bit (x64)</a>, 
@@ -527,13 +527,13 @@ and check that the generated schemas generated exist.
 
 Before you start, ensure the following [Prerequisites](#pre-reqs) are taken care of:
 
-1. On-premise data gateway is installed on a machine that is in the same network as your SAP system.
+* The on-premises data gateway is installed on a machine that is in the same network as your SAP system.
 
-2. For Single Sign-On, gateway is running as a user that's mapped to SAP user.
+* For Single Sign-On, gateway is running as a user that's mapped to SAP user.
 
-3. SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">Secude</a>, Kerberos, NTLM, etc.
+* SNC library that provides the additional security functions has been installed on the same machine as data gateway. Some of the examples of these include <a href="https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm">sapseculib</a>, Kerberos, NTLM, etc.
 
-To enable SNC for your requests to or from SAP system select the **Use SNC** checkbox in SAP connection and provide these properties:
+To enable SNC for your requests to or from SAP system, select the **Use SNC** checkbox in SAP connection and provide these properties:
 
    ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
 
