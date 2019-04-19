@@ -98,7 +98,7 @@ It may take a few minutes to create the VM. Once the VM has been created, the Az
 
 When the VM is deployed in an availability zone, a managed disk for the VM is created in the same availability zone. By default, a public IP address is also created in that zone. The following examples get information about these resources.
 
-To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm) command to return the disk id. In this example, the disk id is stored in a variable that is used in a later step. 
+To verify that the VM's managed disk is in the availability zone, use the [az vm show](/cli/azure/vm) command to return the disk ID. In this example, the disk ID is stored in a variable that is used in a later step. 
 
 ```azurecli-interactive
 osdiskname=$(az vm show -g myResourceGroupVM -n myVM --query "storageProfile.osDisk.name" -o tsv)

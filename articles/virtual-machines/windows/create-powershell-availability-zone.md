@@ -27,9 +27,9 @@ To use an availability zone, create your virtual machine in a [supported Azure r
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
+Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions.
 
 ```powershell
 Connect-AzAccount
