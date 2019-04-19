@@ -14,7 +14,7 @@ ms.author: hrasheed
 
 # Customize HDInsight clusters using Bootstrap
 
-Sometimes, you want to configure the configuration files, which include:
+Bootstrap scripts provide for the installation, and configuration of components useful for administering clusters. Sometimes, you want to configure the configuration files, which include:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -44,7 +44,6 @@ For information on installing additional components on HDInsight cluster during 
 ## Prerequisites
 
 * If using PowerShell, you will need the [Az Module](https://docs.microsoft.com/powershell/azure/overview).
-
 
 ## Use Azure PowerShell
 
@@ -110,8 +109,6 @@ $MapRedConfigValues = @{ "mapreduce.task.timeout"="1200000" } #default 600000
 $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # default 120
 ```
 
-For more information, see Azim Uddin's blog titled [Customizing HDInsight Cluster creation](https://blogs.msdn.com/b/bigdatasupport/archive/2014/04/15/customizing-hdinsight-cluster-provisioning-via-powershell-and-net-sdk.aspx).
-
 ## Use .NET SDK
 See [Create Linux-based clusters in HDInsight using the .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
 
@@ -120,7 +117,6 @@ You can use bootstrap in Resource Manager template:
 
 ```json
 "configurations": {
-    �
     "hive-site": {
         "hive.metastore.client.connect.retry.delay": "5",
         "hive.execution.engine": "mr",
