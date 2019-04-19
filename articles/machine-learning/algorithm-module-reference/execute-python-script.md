@@ -27,9 +27,54 @@ With Python, you can perform tasks that aren't currently supported by existing m
 + Visualizing data using `matplotlib`
 + Using Python libraries to enumerate datasets and models in your workspace
 + Reading, loading, and manipulating data from sources not supported by the [Import Data](./import-data.md) module
++ Run your own deep learning code 
+
 
 Azure Machine Learning uses the Anaconda distribution of Python, which includes many common utilities for data processing. We will update Anaconda version automatically. Current version is:
  -  Anaconda 4.5+ distribution for Python 3.6 
+
+The pre-installed packages are:
+-  asn1crypto==0.24.0
+- attrs==19.1.0
+- azure-common==1.1.18
+- azure-storage-blob==1.5.0
+- azure-storage-common==1.4.0
+- certifi==2019.3.9
+- cffi==1.12.2
+- chardet==3.0.4
+- cryptography==2.6.1
+- distro==1.4.0
+- idna==2.8
+- jsonschema==3.0.1
+- lightgbm==2.2.3
+- more-itertools==6.0.0
+- numpy==1.16.2
+- pandas==0.24.2
+- Pillow==6.0.0
+- pip==19.0.3
+- pyarrow==0.12.1
+- pycparser==2.19
+- pycryptodomex==3.7.3
+- pyrsistent==0.14.11
+- python-dateutil==2.8.0
+- pytz==2018.9
+- requests==2.21.0
+- scikit-learn==0.20.3
+- scipy==1.2.1
+- setuptools==40.8.0
+- six==1.12.0
+- torch==1.0.1.post2
+- torchvision==0.2.2.post3
+- urllib3==1.24.1
+- wheel==0.33.1 
+
+ To install other pakages not in the pre-installed list, for example *scikit-misc*, add following code to your script: 
+
+ ```python
+import os
+os.system(f"pip install scikit-misc")
+```
+
 
 
 ## How to use Execute Python Script
