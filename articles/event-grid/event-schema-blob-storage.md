@@ -18,36 +18,29 @@ For a list of sample scripts and tutorials, see [Storage event source](event-sou
 
 ## List of events
 
-These events are triggered when a user, application, or service uses any of the following:
-
-* Blob or Azure Data Lake Storage Gen2 REST APIs.
-* Tools that implement Blob or Azure Data Lake Storage Gen2 REST APIs.
+These events are triggered when a client creates, replaces, or deletes a blob by calling REST APIs.
 
  |Event name |Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. |
- |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. |
+ |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. <br>Specifically, this event is triggered when clients use the `PutBlob`, `PutBlockList`, or `CopyBlob` operations that are available in the Blob REST API. <br><br>This event is also triggered when clients use the `CreateFile` and `FlushWithClose` operations that are available in the Azure Data Lake Storage Gen2 REST API. |
+ |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. <br>Specifically, this event is triggered when clients call the `DeleteBlob` operation that is available in the Blob REST API. <br>This event is also triggered when clients call the `DeleteFile` operation that is available in the Azure Data Lake Storage Gen2 REST API. |
 
 > [!NOTE]
 > If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event so that subscribers receive an event notification only in response to the `CopyBlob`, `PutBlob`, `PutBlockList`, and `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
 
-## List of the events for Azure Data Lake Gen 2 REST APIs
+## List of the events for Azure Data Lake Storage Gen 2 REST APIs
 
-These events are triggered only if you enable a hierarchical namespace on the storage account. These events are triggered when a user, application, or service uses any of the following:
-
-* Azure Data Lake Gen2 REST APIs.
-* Tools that implement Azure Data Lake Storage Gen2 REST APIs.
-  For example, the Azure Blob Filesystem driver in a Hadoop ecosystem implements Azure Data Lake Storage Gen2 REST APIs.
+These events are triggered if you enable a hierarchical namespace on the storage account, and clients call Azure Data Lake Storage Gen2 REST APIs.
 
 > [!NOTE]
 > These events are in public preview and they are available only the **West US 2** and **West Central US** regions.
 
  |Event name|Description|
  |----------|-----------|
- |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. |
- |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. |
- |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. |
- |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. |
+ |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `RenameFile` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+ |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `CreateDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+ |**Microsoft.Storage.DirectoryRenamed**|Triggered when a directory is renamed. <br>Specifically, this event is triggered when clients use the `RenameDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
+ |**Microsoft.Storage.DirectoryDeleted**|Triggered when a directory is deleted. <br>Specifically, this event is triggered when clients use the `DeleteDirectory` operation that is available in the Azure Data Lake Storage Gen2 REST API.|
 
 <a id="example-event" />
 
