@@ -65,7 +65,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 A taxonomy of the workspace is illustrated in the following diagram:
 
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## Experiment
 
@@ -102,6 +102,14 @@ A run configuration is a set of instructions that defines how a script should be
 A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
+
+## Dataset
+
+Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different dataset definitions, and compare between datasets used in training and in production.
+
+Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
+
+For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
 
 ## Datastore
 
