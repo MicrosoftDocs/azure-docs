@@ -48,7 +48,7 @@ Before you can use a custom wake word with your device, you'll need to create a 
 
     ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. At the [Custom Wake Word](https://speech.azure.ai/app.html#/CustomWakeWord) page type in the wake word of your choice and click **Add wake word**. We have some [guidelines](#Choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
+1. At the [Custom Wake Word](https://speech.azure.ai/app.html#/CustomWakeWord) page type in the wake word of your choice and click **Add wake word**. We have some [guidelines](#choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
 

@@ -15,7 +15,6 @@ ms.author: wellsi
 
 This article provides information to help you solve issues you might encounter when you use the Speech Devices SDK.
 
-
 ## Certificate failures
 
 If you get certificate failures when using the Speech Services, make sure that your device has the correct date and time:
