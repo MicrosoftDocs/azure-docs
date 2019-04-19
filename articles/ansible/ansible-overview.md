@@ -18,7 +18,7 @@ This article gives a basic overview of some of the benefits of using Ansible wit
 
 ## Ansible playbooks
 
-[Ansible playbooks](https://docs.ansible.com/ansible/latest/playbooks.html) allow you to direct Ansible to configure your environment. Playbooks can describe a policy you want your remote systems to enforce, or a set of steps in a general IT process. When you create a playbook you do so using YAML, which defines a model of a configuration or a process.
+[Ansible playbooks](https://docs.ansible.com/ansible/latest/playbooks.html) allow you to direct Ansible to configure your environment. Playbooks are coded using YAML so as to be human-readable. The Tutorials section gives many examples of using playbooks to install and configure Azure resources. 
 
 ## Ansible modules
 
