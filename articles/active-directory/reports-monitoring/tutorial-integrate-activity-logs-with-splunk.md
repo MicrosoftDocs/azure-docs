@@ -1,6 +1,6 @@
 ---
-title: Stream Azure Active Directory logs to Splunk using Azure Monitor (preview)  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with Splunk by using Azure Monitor (preview)
+title: Stream Azure Active Directory logs to Splunk using Azure Monitor  | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with Splunk by using Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure AD logs with Splunk using Azure Monitor (preview)
+# Integrate Azure AD logs with Splunk using Azure Monitor
 
 In this article, you learn how to integrate Azure Active Directory (Azure AD) logs with Splunk by using Azure Monitor. You first route the logs to an Azure event hub, and then you integrate the event hub with Splunk.
 
@@ -47,7 +47,7 @@ To use this feature, you need:
     ![Activity logs](./media/tutorial-integrate-activity-logs-with-splunk/activitylogs.png)
 
 > [!NOTE]
-> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
+> If you cannot install an add-on in your Splunk instance (for example, if you're using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector. To do so, use this [Azure function](https://github.com/Microsoft/AzureFunctionforSplunkVS), which is triggered by new messages in the event hub. 
 >
 
 ## Next steps
