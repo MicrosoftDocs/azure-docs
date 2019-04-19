@@ -106,7 +106,7 @@ The Reliable Services runtime emits the following events under the `Service Fabr
 | --- | --- |
 | Begin Txn Operations/sec | The number of new write transactions created per second.|
 | Txn Operations/sec | The number of add/update/delete operations performed on reliable collections per second.|
-| Avg. Flush Latency (ms) | The number of bytes being flushed to the disk by the Transactional Replicator per second |
+| Log Flush Bytes/sec | The number of bytes being flushed to the disk by the Transactional Replicator per second |
 | Throttled Operations/sec | The number of operations rejected every second by the Transactional Replicator due to throttling. |
 | Avg. Transaction ms/Commit | Average commit latency per transaction in milliseconds |
 | Avg. Flush Latency (ms) | Average duration of disk flush operations initiated by the Transactional Replicator in milliseconds |

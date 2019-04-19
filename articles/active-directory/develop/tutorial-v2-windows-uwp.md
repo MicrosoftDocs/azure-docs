@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/10/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev 
 ms.collection: M365-identity-device-management
@@ -169,7 +169,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
 
           try
           {
-           authResult = await PublicClientApp.AcquireTokenInteractive(scopes, this)
+           authResult = await PublicClientApp.AcquireTokenInteractive(scopes)
                                                       .ExecuteAsync()
                                                       .ConfigureAwait(false);
            }

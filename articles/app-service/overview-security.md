@@ -54,7 +54,7 @@ App Service supports both FTP and FTPS for deploying your files. However, FTPS s
 
 By default, your App Service app accepts requests from all IP addresses from the internet, but you can limit that access to a small subset of IP addresses. App Service on Windows lets you define a list of IP addresses that are allowed to access your app. The allowed list can include individual IP addresses or a range of IP addresses defined by a subnet mask. For more information, see [Azure App Service Static IP Restrictions](app-service-ip-restrictions.md).
 
-For App Service on Windows, you can also restrict IP addresses dynamically by configuring the _web.config_. For more information, see [Dynamic IP Security <dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
+For App Service on Windows, you can also restrict IP addresses dynamically by configuring the _web.config_. For more information, see [Dynamic IP Security \<dynamicIpSecurity>](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/).
 
 ## Client authentication and authorization
 
