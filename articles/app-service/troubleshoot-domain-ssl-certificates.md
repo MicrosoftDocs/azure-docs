@@ -266,8 +266,8 @@ This problem occurs for one of the following reasons:
     |Record type|Host|Point to|
     |------|------|-----|
     |A|@|IP address for an app|
-    |TXT|@|<app-name>.azurewebsites.net|
-    |CNAME|www|<app-name>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## FAQ
 
