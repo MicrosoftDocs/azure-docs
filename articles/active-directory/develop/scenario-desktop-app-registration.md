@@ -50,7 +50,7 @@ Again the redirect URIs to use in desktop application will depend on the flow yo
 
 - If your app is only using Integrated Windows authentication, Username/Password or Device Code Flow, you don't need to register a redirect URI for your application. Indeed, these flows do a round trip to the Microsoft identity platform v2.0 endpoint and your application won't be called back on any specific URI. In order to distinguish them from a confidential client application flow, which doesn't have redirect URIs either (the client credential flow used in daemon applications), you need to express that your application is a public client application. This configuration is achieved by going to the **Authentication** section for your application, and in the **Advanced settings** subsection, choose **Yes**, to the question **Treat application as a public client** (in the **Default client type** paragraph)
 
-  ![Allow public client](media/scenarios/default-client-type.pgn)
+  ![Allow public client](media/scenarios/default-client-type.png)
 
 ## API permissions
 
