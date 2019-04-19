@@ -47,7 +47,7 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Scenario | Steps |
 > | --- | --- |
-> | I want to approve requests to access groups, applications, or SharePoint sites | 1. Sign in to the My Access portal<br/>2. [Find request in pending approvals](entitlement-management-request-approve.md#open-request)<br/>3. [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) |
+> | I want to approve requests to access groups, applications, or SharePoint sites | 1. [Open request in My Access portal](entitlement-management-request-approve.md#open-request)<br/>2. [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) |
 
 ## Requestors 1
 
@@ -119,9 +119,8 @@ There are several ways that you can configure entitlement management for your or
 > [!div class="mx-tableFixed"]
 > | Steps | Example |
 > | --- | --- |
-> | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
-> | **2.** [Find request in pending approvals](entitlement-management-request-approve.md#open-request) |  |
-> | **3.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) |
+> | **1.** [Open request in My Access portal](entitlement-management-request-approve.md#open-request) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
+> | **2.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) |
 
 
 ## Requestors 2
