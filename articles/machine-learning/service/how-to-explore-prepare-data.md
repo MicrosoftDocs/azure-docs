@@ -1,7 +1,7 @@
 ---
-title: Explore and prepare data
+title: Explore and prepare data (Dataset class)
 titleSuffix: Azure Machine Learning service
-description: Learn how to explore data using summary statistics and prepare data through data cleaning, transformation, and feature engineering
+description: Explore data using summary statistics and prepare data through data cleaning, transformation, and feature engineering
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -14,7 +14,10 @@ ms.date: 04/11/19
 
 ---
 
-# Explore and prepare data
+# Explore and prepare data using the Dataset class
+
+> [!Important]
+> Many Dataset classes (preview) have dependencies on the Data Prep SDK (GA). [Transformation functions](how-to-transform-data.md) can be done directly with the Data Prep SDK functions, or through the Dataset package wrappers for those functions described in this article.
 
 Historically, data preparation has been very time consuming. With Azure Machine Learning SDK, you are now able to explore Datasets easily through summary statistics and prepare your data with intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions, with the capability to handle multiple large files of different schemas in a highly scalable manner. 
 
@@ -24,7 +27,7 @@ In this article, you will learn how to create data profiles and different transf
 
 You do not need Azure subscriptions or workspaces to explore and prepare data. You can take create a Dataset locally, explore and prepare your data, then register the Dataset with Azure workspace for reuse and sharing.
 
-To download the sample files used in the following examples: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv), [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
+To download the sample files used in the following examples: [crime.csv](https://dprepdata.blob.core.windows.net/Dataset-sample-files/crime.csv), [city.json](https://dprepdata.blob.core.windows.net/Dataset-sample-files/city.json).
 
 ## Sampling
 
@@ -35,7 +38,7 @@ from azureml.core import Dataset
 import random
 
 # create an in-memory Dataset from a local file
-dataset = Dataset.auto_read_files('./data/crime.csv')
+Dataset = Dataset.auto_read_files('./data/crime.csv')
 
 # create seed for Simple Random and Stratified sampling
 seed = random.randint(0, 4294967295)
@@ -44,7 +47,7 @@ seed = random.randint(0, 4294967295)
 Top N sampling will keep the number of records specified from the top of your Dataset and return a modified Dataset.
 
 ```python
-top_n_sample_dataset = dataset.sample('top_n', {'n': 5})
+top_n_sample_dataset = Dataset.sample('top_n', {'n': 5})
 top_n_sample_dataset.to_pandas_dataframe()
 ```
 
@@ -59,7 +62,7 @@ top_n_sample_dataset.to_pandas_dataframe()
 Simple Random sampling will keep the records from your Dataset based on the probability specified and return a modified Dataset. The seed parameter is optional.
 
 ```python
-simple_random_sample_dataset = dataset.sample('simple_random', {'probability':0.3, 'seed': seed})
+simple_random_sample_dataset = Dataset.sample('simple_random', {'probability':0.3, 'seed': seed})
 simple_random_sample_dataset.to_pandas_dataframe()
 ```
 
@@ -78,7 +81,7 @@ fractions = {}
 fractions[('THEFT',)] = 0.5
 fractions[('DECEPTIVE PRACTICE',)] = 0.2
 
-sample_dataset = dataset.sample('stratified', {'columns': ['Primary Type'], 'fractions': fractions, 'seed': seed})
+sample_dataset = Dataset.sample('stratified', {'columns': ['Primary Type'], 'fractions': fractions, 'seed': seed})
       
 sample_dataset.to_pandas_dataframe()
 ```
@@ -97,7 +100,7 @@ Data exploration is essential to help you understand the input data, identify an
 
 ```Python
 # generate profile with local compute
-dataset.get_profile()
+Dataset.get_profile()
 ```
 
 ||Type|Min|Max|Count|Missing Count|Not Missing Count|Percent missing|Error Count|Empty count|0.1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99.9% Quantile|Mean|Standard Deviation|Variance|Skewness|Kurtosis
@@ -133,7 +136,7 @@ From the Dataset profile generated above, we can see that `Latitude` and `Longit
 
 ```python
 # get the latest definition of Dataset
-ds_def = dataset.get_definition()
+ds_def = Dataset.get_definition()
 
 # keep useful columns for this example
 ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
@@ -196,8 +199,8 @@ As shown in the result above, the missing latitude was imputed with the `MEAN` v
 
 ```python
 # update Dataset definition to keep the transformation steps performed. 
-dataset = dataset.update_definition(ds_def, 'Impute Missing')
-dataset.head(5)
+Dataset = Dataset.update_definition(ds_def, 'Impute Missing')
+Dataset.head(5)
 ```
 
 ||ID|Arrest|Latitude|Longitude
@@ -220,7 +223,7 @@ For example, if you want to make sure `Latitude` and `Longitude` values in your 
 from azureml.dataprep import value
 
 # get the latest definition of the Dataset
-ds_def = dataset.get_definition()
+ds_def = Dataset.get_definition()
 
 # set assertion rules for `Latitude` and `Longitude` columns
 ds_def = ds_def.assert_value('Latitude', (value <= 90) & (value >= -90), error_code='InvalidLatitude')
@@ -254,11 +257,11 @@ print(error.originalValue)
 One of the more advanced tools in Datasets is the ability to derive columns using examples of desired results. This lets you give the SDK an example so it can generate code to achieve the intended transformation.
 
 ```python
-from azureml.dataset import Dataset
+from azureml.Dataset import Dataset
 
 # create an in-memory Dataset from a local file
-dataset = Dataset.auto_read_files('./data/crime.csv')
-dataset.head(5)
+Dataset = Dataset.auto_read_files('./data/crime.csv')
+Dataset.head(5)
 ```
 
 ||ID|Case Number|Date|Block|...|
@@ -272,7 +275,7 @@ dataset.head(5)
 Assuming that you need to transform the date and time format to '2016-04-04 10PM-12AM', you can achieve it through `derive_column_by_example`. In `example_data` argument, you need to pass value pairs of original record in `source_columns` and the expected value for the derived column.
 
 ```python
-ds_def = dataset.get_definition()
+ds_def = Dataset.get_definition()
 ds_def = ds_def.derive_column_by_example(
         source_columns = "Date", 
         new_column_name = "Date_Time_Range", 
@@ -291,7 +294,7 @@ ds_def.keep_columns(['ID','Date','Date_Time_Range']).head(5)
 
 ```Python
 # update Dataset definition to keep the transformation steps performed. 
-dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
+Dataset = Dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 ```
 
 ## How to do fuzzy groupings
@@ -299,11 +302,11 @@ dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 Unprepared data often represents the same entity with multiple values due to different spellings, varying capitalizations, and abbreviations. This is common when working with data gathered from multiple sources or through human input. One way to canonicalize and reconcile these variants is to use `fuzzy_group_column` (also known as "text clustering") functionality.
 
 ```python
-from azureml.dataset import Dataset
+from azureml.Dataset import Dataset
 
 # create an in-memoery Dataset from a local json file
-dataset = Dataset.auto_read_files('./data/city.json')
-dataset.head(5)
+Dataset = Dataset.auto_read_files('./data/city.json')
+Dataset.head(5)
 ```
 
 ||inspections.business.business_id|inspections.business_name|inspections.business.address|inspections.business.city|...|
@@ -318,7 +321,7 @@ As you can see above, the column `inspections.business.city` contains several fo
 
 ```python
 # get the latest Dataset definition
-ds_def = dataset.get_definition()
+ds_def = Dataset.get_definition()
 ds_def = ds_def.fuzzy_group_column(source_column='inspections.business.city',
                                        new_column_name='city_grouped',
                                        similarity_threshold=0.8,
@@ -339,5 +342,5 @@ The arguments `source_column` and `new_column_name` are required, whereas the ot
 In the resulting Dataset definition, you can see that all the different variations of representing "San Francisco" in the data were normalized to the same string, "San Francisco". Now, you can update the Dataset definition to save this fuzzy grouping step into the latest Dataset definition.
 
 ```Python
-dataset = dataset.update_definition(ds_def, 'fuzzy grouping')
+Dataset = Dataset.update_definition(ds_def, 'fuzzy grouping')
 ```
