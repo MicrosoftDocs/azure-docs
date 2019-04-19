@@ -40,9 +40,9 @@ Via its [dynamic inventory](https://docs.ansible.com/ansible/intro_dynamic_inven
 
 ## Additional Azure Marketplace options
 
-The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) is an Azure Marketplace image by Red Hat. Ansible Tower helps organizations scale IT automation and manage complex deployments across infrastructures. 
+The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) is an Azure Marketplace image by Red Hat. 
 
-Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys. This layer of security enables you to delegate tasks without exposing credentials.
+Ansible Tower is a web-based UI and dashboard for Ansible that also includes a REST API. Ansible Tower enables you to define role-based access control, job scheduling, and graphical inventory management. Ansible Tower's REST API and CLI enalbe you to embed Tower into existing tools and processes. Ansible Tower also includes real-time output of playbook runs.Tower encrypts credentials such as Azure and SSH keys. This layer of security enables you to delegate tasks without exposing credentials.
 
 ## Ansible module and version matrix for Azure
 
