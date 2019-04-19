@@ -132,7 +132,7 @@
   - name: Power Query M
     href: https://msdn.microsoft.com/library/mt211003.aspx
   - name: Tabular Model Scripting Language (TMSL)
-    href: https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference
+    href: https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference
   - name: Tabular Object Model (TOM)
     href: https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo
   - name: Resource and object limits

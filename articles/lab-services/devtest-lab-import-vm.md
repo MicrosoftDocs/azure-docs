@@ -38,7 +38,7 @@ In addition, to be able to import a VM from one lab to another, you need to be t
 Currently, you can import a VM from one lab into another only by using Azure PowerShell and REST API.
 
 ### Use PowerShell
-Download the PowerShell script file ImportVirtualMachines.ps1 from [Azure DevTest Lab Git repository](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImportVirtualMachines) to your local drive. 
+Download the PowerShell script file ImportVirtualMachines.ps1 from [Azure DevTest Lab Git repository](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines) to your local drive. 
 
 #### Import a single VM
 Run the ImportVirtualMachines.ps1 script to import a single VM from a source lab into a destination lab. You can specify a new name for the VM that's being copied by using the DestinationVirtualMachineName paramer. 
