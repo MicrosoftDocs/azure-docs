@@ -75,7 +75,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([Face List management calls](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) or the [Person Group - Train](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors. 
+> The process of taking and applying snapshots will not disrupt any regular calls to the source or target **PersonGroup**s (or **FaceList**s). However, we do not recommend making simultaneous calls that change the source object ([FaceList management calls](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) or the [PersonGroup Train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) call, for example), because the snapshot operation may execute before or after those operations or may encounter errors.
 
 ## Retrieve the Snapshot ID
 

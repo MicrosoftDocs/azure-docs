@@ -151,7 +151,7 @@ The client application displays all the questions with an option for the user to
 
 Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop. 
 
-Use the [Azure Bot C# example](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) to see active learning in an end-to-end scenario.
+Use the [Azure Bot sample](https://aka.ms/activelearningsamplebot) to see active learning in an end-to-end scenario.
 
 ## Train API
 

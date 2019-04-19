@@ -35,6 +35,8 @@
         href: service-bus-ruby-how-to-use-queues.md
   - name: Services Bus topics and subscriptions
     items:
+    - name: Create topics and subscriptions 
+      href: service-bus-quickstart-topics-subscriptions-portal.md
     - name: Publish and subscribe for messages
       items: 
       - name: .NET

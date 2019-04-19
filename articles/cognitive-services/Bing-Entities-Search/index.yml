@@ -95,7 +95,7 @@ sections:
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/entitysearch?view=azure-java-stable">Java</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python">Python</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/entitysearch?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-entitysearch?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/entitysearch">Go</a></p>
     - title: PowerShell
       html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>

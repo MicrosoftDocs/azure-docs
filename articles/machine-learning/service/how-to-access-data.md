@@ -75,7 +75,7 @@ The following examples show you to register an Azure Blob Container or an Azure 
   ```Python
   ds = Datastore.register_azure_file_share(workspace=ws, 
                                            datastore_name='your datastore name', 
-                                           container_name='your file share name',
+                                           file_share_name='your file share name',
                                            account_name='your storage account name', 
                                            account_key='your storage account key',
                                            create_if_not_exists=True)
