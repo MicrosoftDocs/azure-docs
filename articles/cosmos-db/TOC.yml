@@ -161,6 +161,17 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency control
         href: database-transactions-optimistic-concurrency.md
+    - name: Change feed
+      items:
+      - name: Overview
+        href: change-feed.md
+      - name: Reading change feed
+        href: read-change-feed.md
+      - name: Change feed processor
+        href: change-feed-processor.md
+      - name: Trigger Azure Functions 
+        displayName: change feed
+        href: change-feed-functions.md
     - name: Server-side programming
       items:
         - name: Stored procedures, triggers, and UDFs
@@ -212,7 +223,61 @@
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: Cassandra API
+      items: 
+      - name: Introduction
+        href: cassandra-introduction.md
+      - name: Wire protocol support
+        href: cassandra-support.md
+      - name: Quickstarts
+        items:
+        - name: .NET
+          href: create-cassandra-dotnet.md
+        - name: Java
+          href: create-cassandra-java.md
+        - name: Node.js
+          href: create-cassandra-nodejs.md
+        - name: Python
+          href: create-cassandra-python.md
+      - name: Tutorials
+        items:
+        - name: 1 - Create & manage data
+          href: create-cassandra-api-account-java.md
+        - name: 2 - Load data
+          href: cassandra-api-load-data.md
+        - name: 3 - Query data
+          href: cassandra-api-query-data.md
+        - name: 4 - Migrate data
+          displayName: import 
+          href: cassandra-import-data.md
+      - name: How-to guides
+        items:
+        - name: Store and manage Spring Data 
+          href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
+          maintainContext: true
+        - name: Cassandra & Spark
+          items:
+          - name: Introduction
+            href: cassandra-spark-generic.md
+          - name: Connect using Databricks
+            href: cassandra-spark-databricks.md
+          - name: Connect using HDInsight
+            href: cassandra-spark-hdinsight.md
+          - name: Create keyspace & table
+            href: cassandra-spark-ddl-ops.md
+          - name: Insert data
+            href: cassandra-spark-create-ops.md
+          - name: Read data
+            href: cassandra-spark-read-ops.md
+          - name: Upsert data
+            href: cassandra-spark-upsert-ops.md
+          - name: Delete data
+            href: cassandra-spark-delete-ops.md
+          - name: Aggregation operations
+            href: cassandra-spark-aggregation-ops.md
+          - name: Copy table data
+            href: cassandra-spark-table-copy-ops.md
+    - name: MongoDB API
       items: 
       - name: Introduction
         href: mongodb-introduction.md
@@ -320,60 +385,6 @@
         - name: Store and manage Spring Data
           href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
           maintainContext: true
-    - name: Cassandra API
-      items: 
-      - name: Introduction
-        href: cassandra-introduction.md
-      - name: Wire protocol support
-        href: cassandra-support.md
-      - name: Quickstarts
-        items:
-        - name: .NET
-          href: create-cassandra-dotnet.md
-        - name: Java
-          href: create-cassandra-java.md
-        - name: Node.js
-          href: create-cassandra-nodejs.md
-        - name: Python
-          href: create-cassandra-python.md
-      - name: Tutorials
-        items:
-        - name: 1 - Create & manage data
-          href: create-cassandra-api-account-java.md
-        - name: 2 - Load data
-          href: cassandra-api-load-data.md
-        - name: 3 - Query data
-          href: cassandra-api-query-data.md
-        - name: 4 - Migrate data
-          displayName: import 
-          href: cassandra-import-data.md
-      - name: How-to guides
-        items:
-        - name: Store and manage Spring Data 
-          href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db 
-          maintainContext: true
-        - name: Cassandra & Spark
-          items:
-          - name: Introduction
-            href: cassandra-spark-generic.md
-          - name: Connect using Databricks
-            href: cassandra-spark-databricks.md
-          - name: Connect using HDInsight
-            href: cassandra-spark-hdinsight.md
-          - name: Create keyspace & table
-            href: cassandra-spark-ddl-ops.md
-          - name: Insert data
-            href: cassandra-spark-create-ops.md
-          - name: Read data
-            href: cassandra-spark-read-ops.md
-          - name: Upsert data
-            href: cassandra-spark-upsert-ops.md
-          - name: Delete data
-            href: cassandra-spark-delete-ops.md
-          - name: Aggregation operations
-            href: cassandra-spark-aggregation-ops.md
-          - name: Copy table data
-            href: cassandra-spark-table-copy-ops.md
     - name: Table API
       items:
       - name: Introduction
@@ -481,6 +492,12 @@
         href: data-explorer.md
       - name: Manage indexing policies
         href: how-to-manage-indexing-policy.md
+    - name: Change Feed
+      items:
+      - name: Multiple Azure Cosmos DB Triggers
+        href: how-to-create-multiple-cosmos-db-triggers.md
+      - name: Troubleshoot Azure Cosmos DB Triggers
+        href: troubleshoot-changefeed-functions.md
     - name : Server-side programming
       items:
       - name: Write stored procedures, triggers, & UDFs
