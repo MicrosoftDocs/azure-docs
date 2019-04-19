@@ -10,4 +10,4 @@ The **host** is a x64-based computer that runs the docker container. It can be a
 
 * [Azure Kubernetes Service](../articles/aks/index.yml)
 * [Azure Container Instances](../articles/container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](../articles/azure-stack/index.yml). For more information, see [Deploy Kubernetes to Azure Stack](../articles/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+* [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack). For more information, see [Deploy Kubernetes to Azure Stack](../articles/azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
