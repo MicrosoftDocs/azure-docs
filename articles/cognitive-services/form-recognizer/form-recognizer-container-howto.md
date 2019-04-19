@@ -52,16 +52,12 @@ You must meet the following prerequisites before using Form Recognizer container
 
 ### The host computer
 
-The **host** is the computer that runs the docker container. It can be a computer on your premises, a local Kubernetes cluster, or a docker hosting service in Azure including:
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index)
-<!-- * [Azure Container Instances](https://docs.microsoft.com/container-instances/index) -->
-
-If you plan to use Azure Blob as a data storage, then the **host** has to be ** Ubuntu Linux**.
+If you plan to use Azure Blob as a data storage, then the **host** has to be **Ubuntu Linux**.
 
 > [!TIP]
-> If the host computer is a virtual machine, like for example Azure VM, then every docker command has to be run as ```sudo``` in case you face permission issues.
->
+> If the host computer is a virtual machine, for example Azure VM, then every docker command has to be run as ```sudo``` in case you face permission issues.
 
 ### Container requirements and recommendations
 
