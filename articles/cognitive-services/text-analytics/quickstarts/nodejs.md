@@ -172,7 +172,7 @@ ID: 3 Language Chinese_Simplified
     }
     ```
 
-2. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print it's wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
+2. Call `client.entities()` and get the result. Then iterate through the results, and print each document's ID. For each detected entity, print its wikipedia name, the type and sub-types (if exists) as well as the locations in the original text.
 
     ```javascript
     const operation = client.entities({
