@@ -1,6 +1,6 @@
 ---
-title: Set up MPI for high-performance computing in Azure | Microsoft Docs
-description: Learn how to set up MPI for high-performance computing in Azure. 
+title: Set up MPI for HPC on Azure | Microsoft Docs
+description: Learn how to set up MPI for HPC on Azure. 
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -18,11 +18,11 @@ ms.author: msalias
 
 # Set up MPI
 
-<intro text>
+Set up MPI for Linux VMs.
 
 ## UCX
 
-UCX (https://github.com/openucx/ucx) offers the best performance on IB and works with MPICH and OpenMPI.
+[UCX](https://github.com/openucx/ucx) offers the best performance on IB and works with MPICH and OpenMPI.
 
 ```bash
 wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
@@ -113,7 +113,7 @@ Follow the installation process.
 
 
 ## Intel MPI
-Download from: [https://software.intel.com/en-us/mpi-library/choose-download](https://software.intel.com/en-us/mpi-library/choose-download ).
+[Download Intel MPI](https://software.intel.com/en-us/mpi-library/choose-download).
 
 Change the I_MPI_FABRICS environment variable depending on the version. For Intel MPI 2018, use `I_MPI_FABRICS=shm:ofa` and for 2019, use `I_MPI_FABRICS=shm:ofi`.
 
@@ -121,8 +121,7 @@ Process pinning works correctly for 15, 30 and 60 PPN by default.
 
 
 ## OSU MPI Benchmarks
-Download and untar from [http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/).
-
+[Download OSU MPI Benchmarks][http://mvapich.cse.ohio-state.edu/benchmarks/](http://mvapich.cse.ohio-state.edu/benchmarks/) and untar.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -139,6 +138,57 @@ make
 
 MPI Benchmarks are under `mpi/` folder.
 
+
+## Discover partition keys
+Discover partition keys (pkeys) for communicating with other VMs.
+
+```bash
+/sys/class/infiniband/mlx5_0/ports/1/pkeys/0
+/sys/class/infiniband/mlx5_0/ports/1/pkeys/1
+```
+
+The larger of the two is the tenant key that should be used with MPI. Example: If the following are the pkeys, 0x800b should be used with MPI.
+
+```bash
+cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
+0x800b
+cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
+0x7fff
+```
+
+Use the partition other than default (0x7fff) partition key. UCX requires the MSB of pkey to be cleared. For example, set UCX_IB_PKEY as 0x000b for 0x800b.
+
+
+## Set up user limits for MPI
+
+Set up user limits for MPI.
+
+```bash
+cat << EOF >> /etc/security/limits.conf
+*               hard    memlock         unlimited
+*               soft    memlock         unlimited
+*               hard    nofile          65535
+*               soft    nofile          65535
+EOF
+```
+
+
+## Set up SSH keys for MPI
+
+Set up SSH keys for MPI types that require it.
+
+```bash
+ssh-keygen -f /home/$USER/.ssh/id_rsa -t rsa -N ''
+cat << EOF > /home/$USER/.ssh/config
+Host *
+    StrictHostKeyChecking no
+EOF
+cat /home/$USER/.ssh/id_rsa.pub >> /home/$USER/.ssh/authorized_keys
+chmod 644 /home/$USER/.ssh/config
+```
+
+The above syntax assumes a shared home directory, else .ssh directory must be copied to each node.
+
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
