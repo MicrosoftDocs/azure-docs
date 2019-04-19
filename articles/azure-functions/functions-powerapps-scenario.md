@@ -35,6 +35,9 @@ In this topic, you learn how to:
 > * Add controls to call the function and display data.
 > * Run the app to determine whether a repair is cost-effective.
 
+> [!IMPORTANT]
+> The OpenAPI feature is currently in preview and is only available for version 1.x of the Azure Functions runtime.
+
 ## Prerequisites
 
 + An active [PowerApps account](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) with the same sign in credentials as your Azure account. 
