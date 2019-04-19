@@ -14,7 +14,10 @@ ms.date: 2/22/2019
 ms.custom: seodec18
 ---
 
-# Load and read data with Azure Machine Learning
+# Load and read data with the Azure Machine Learning Data Prep SDK
+
+> [!Important]
+> In addition to these Data Prep SDK classes, which are generally available, you can also try [Azure Machine Learning Datasets (preview)](how-to-explore-prepare-data.md) to transform your data and store those transformations as versioned dataset descriptions. 
 
 In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
 

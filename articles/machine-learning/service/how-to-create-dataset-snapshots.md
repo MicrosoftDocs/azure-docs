@@ -1,0 +1,161 @@
+---
+title: Create Dataset snapshots
+titleSuffix: Azure Machine Learning service
+description: Learn how to create Dataset snapshots
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: conceptual
+ms.author: sihhu
+author: MayMSFT
+manager: cgronlun
+ms.reviewer: nibaccam
+ms.date: 05/02/2019
+---
+
+# Create Dataset snapshots (Preview)
+
+When you create a snapshot of an Azure Machine Learning Dataset, you generate the current data profile, and have the option to save a copy of that data. With snapshots, you can compare your data between training runs and model production, or use them to monitor the evolution of your data as it changes.
+
+In this article, you learn how to take a Dataset snapshot, how to access its data profile and data copy, and how to delete it with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+
+## Prerequisites
+
+To create a snapshot, you need:
+
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
+
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+
+* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+
+* A registered Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
+
+* [Optional] Download the sample data [here](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) to follow along with the examples.
+
+## How to create Dataset snapshots
+
+Snapshots are based on the latest definition of your Dataset. For more information about definitions, see [Update and manage dataset definitions](how-to-manage-dataset-definitions.md).
+
+The following retrieves an existing registered Dataset from your workspace and take a snapshot. The [`create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) method not only creates a snapshot of your data, but generates a data profile as well. To not incur storage cost, this method does **not** save a copy of the data in your workspace. To save a copy of your data, set `create_data_snapshot = True`; this saves it to the default datastore of your workspace.
+
+```Python
+from azureml.core.dataset import Workpace, Dataset
+from azureml.data.dataset_snapshot import DatasetSnapshot
+import datetime
+
+# get existing workspace
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+# get the registered Dataset by name:
+ dataset = workspace.datasets['dataset_crime']
+
+snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
+
+snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
+                                   compute_target = remote_compute_target,
+                                   create_data_snapshot = True)
+```
+
+>[!NOTE]
+> If a snapshot with the same name already exists, the `create_snapshot()` method returns the existing one.
+
+To retrieve an existing snapshot, use [`get_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
+
+```Python
+dataset.get_snapshot(snapshot_name)
+```
+
+Output:
+
+```Python
+ DatasetSnapshot(Name: snapshot_20190411165420,
+ Dataset Id: 66cd0830-2f72-41e5-b677-d2d953f54821,
+ Workspace: "your_workspace_name",
+ Dataset definition version: 1,
+ Snapshot created date: 2019-04-11 17:24:00+00:00)
+```
+
+Because the `create_snapshot()` method runs asynchronously, use the
+[`wait_for_completion()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) method prior to retrieving a newly created snapshot with `get_snapshot()`. The following code outputs the status of the snapshot creation every 10 seconds until the status is marked, "Completed".
+
+```Python
+snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
+```
+
+Output:
+
+```Python
+Action status: Running
+Action status: Running
+Action status: Completed
+```
+
+## How to access the data profile and optional data copy of a snapshot
+
+Every snapshot generates a profile of the dataset, which includes summary statistics, and gives you the option to save a copy of your data.
+
+Use [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) to access the profile of your data. Save this profile to compare training and production data.
+
+```python
+snapshot.get_profile()
+```
+
+||Type|Min|Max|Count|Missing Count|Not Missing Count|Percent missing|Error Count|Empty count|0.1% Quantile|1% Quantile|5% Quantile|25% Quantile|50% Quantile|75% Quantile|95% Quantile|99% Quantile|99.9% Quantile|Mean|Standard Deviation|Variance|Skewness|Kurtosis
+-|----|---|---|-----|-------------|-----------------|---------------|-----------|-----------|-------------|-----------|-----------|------------|------------|------------|------------|------------|--------------|----|------------------|--------|--------|--------
+ID|FieldType.INTEGER|1.04986e+07|1.05351e+07|10.0|0.0|10.0|0.0|0.0|0.0|1.04986e+07|1.04992e+07|1.04986e+07|1.05166e+07|1.05209e+07|1.05259e+07|1.05351e+07|1.05351e+07|1.05351e+07|1.05195e+07|12302.7|1.51358e+08|-0.495701|-1.02814
+Case Number|FieldType.STRING|HZ239907|HZ278872|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Date|FieldType.DATE|2016-04-04 23:56:00+00:00|2016-04-15 17:00:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Block|FieldType.STRING|004XX S KILBOURN AVE|113XX S PRAIRIE AVE|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+IUCR|FieldType.INTEGER|810|1154|10.0|0.0|10.0|0.0|0.0|0.0|810|850|810|890|1136|1153|1154|1154|1154|1058.5|137.285|18847.2|-0.785501|-1.3543
+Primary Type|FieldType.STRING|DECEPTIVE PRACTICE|THEFT|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Description|FieldType.STRING|BOGUS CHECK|OVER $500|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Location Description|FieldType.STRING||SCHOOL, PUBLIC, BUILDING|10.0|0.0|10.0|0.0|0.0|1.0||||||||||||||
+Arrest|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Domestic|FieldType.BOOLEAN|False|False|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Beat|FieldType.INTEGER|531|2433|10.0|0.0|10.0|0.0|0.0|0.0|531|531|531|614|1318.5|1911|2433|2433|2433|1371.1|692.094|478994|0.105418|-1.60684
+District|FieldType.INTEGER|5|24|10.0|0.0|10.0|0.0|0.0|0.0|5|5|5|6|13|19|24|24|24|13.5|6.94822|48.2778|0.0930109|-1.62325
+Ward|FieldType.INTEGER|1|48|10.0|0.0|10.0|0.0|0.0|0.0|1|5|1|9|22.5|40|48|48|48|24.5|16.2635|264.5|0.173723|-1.51271
+Community Area|FieldType.INTEGER|4|77|10.0|0.0|10.0|0.0|0.0|0.0|4|8.5|4|24|37.5|71|77|77|77|41.2|26.6366|709.511|0.112157|-1.73379
+FBI Code|FieldType.INTEGER|6|11|10.0|0.0|10.0|0.0|0.0|0.0|6|6|6|6|11|11|11|11|11|9.4|2.36643|5.6|-0.702685|-1.59582
+X Coordinate|FieldType.INTEGER|1.16309e+06|1.18336e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.16309e+06|1.16309e+06|1.16309e+06|1.16401e+06|1.16678e+06|1.17921e+06|1.18336e+06|1.18336e+06|1.18336e+06|1.17108e+06|10793.5|1.165e+08|0.335126|-2.33333
+Y Coordinate|FieldType.INTEGER|1.8315e+06|1.908e+06|10.0|7.0|3.0|0.7|0.0|0.0|1.8315e+06|1.8315e+06|1.8315e+06|1.83614e+06|1.85005e+06|1.89352e+06|1.908e+06|1.908e+06|1.908e+06|1.86319e+06|39905.2|1.59243e+09|0.293465|-2.33333
+Year|FieldType.INTEGER|2016|2016|10.0|0.0|10.0|0.0|0.0|0.0|2016|2016|2016|2016|2016|2016|2016|2016|2016|2016|0|0|NaN|NaN
+Updated On|FieldType.DATE|2016-05-11 15:48:00+00:00|2016-05-27 15:45:00+00:00|10.0|0.0|10.0|0.0|0.0|0.0||||||||||||||
+Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6928|41.6928|41.7057|41.7441|41.8634|41.9032|41.9032|41.9032|41.78|0.109695|0.012033|0.292478|-2.33333
+Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
+Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
+
+Access a saved copy of your data in the snapshot by converting it to a pandas DataFrame with [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--).
+
+```python
+# this method will fail if you did not save a data copy while creating the snapshot
+snapshot.to_pandas_dataframe().head(5)
+```
+
+||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location
+-|--|-----------|----|-----|----|------------|-----------|--------------------|------|--------|---|----|--------------|--------|------------|------------|----|----------|--------|---------|--------
+0|10498554|HZ239907|2016-04-04 23:56:00|007XX E 111TH ST|1153|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT OVER $ 300|OTHER|False|False|...|9|50|11|1183356.0|1831503.0|2016|2016-05-11 15:48:00|41.692834|-87.604319|(41.692833841, -87.60431945)
+1|10516598|HZ258664|2016-04-15 17:00:00|082XX S MARSHFIELD AVE|890|THEFT|FROM BUILDING|RESIDENCE|False|False|...|21|71|6|1166776.0|1850053.0|2016|2016-05-12 15:48:00|41.744107|-87.664494|(41.744106973, -87.664494285)
+2|10519196|HZ261252|2016-04-15 10:00:00|104XX S SACRAMENTO AVE|1154|DECEPTIVE PRACTICE|FINANCIAL IDENTITY THEFT $300 AND UNDER|RESIDENCE|False|False|...|19|74|11|NaN|NaN|2016|2016-05-12 15:50:00|NaN|NaN|
+3|10519591|HZ261534|2016-04-15 09:00:00|113XX S PRAIRIE AVE|1120|DECEPTIVE PRACTICE|FORGERY|RESIDENCE|False|False|...|9|49|10|NaN|NaN|2016|2016-05-13 15:51:00|NaN|NaN|
+4|10534446|HZ277630|2016-04-15 10:00:00|055XX N KEDZIE AVE|890|THEFT|FROM BUILDING|SCHOOL, PUBLIC, BUILDING|False|False|...|40|13|6|NaN|NaN|2016|2016-05-25 15:59:00|NaN|NaN|
+
+## How to delete snapshots
+
+Saving a copy of the snapshot will incur storage costs, so you may want to delete the snapshot when it’s no longer in use. To do so, use [`delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-).
+
+```Python
+# delete the snapshot by name
+dataset.delete_snapshot(snapshot_name)
+```
+
+To get a list of your saved snapshots of a particular Dataset, use [`get_all_snapshots()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). You can also use this to ensure the successful deletion of a particular snapshot.
+
+```Python
+dataset.get_all_snapshots()
+```
+
+## Next steps
+
+* See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.

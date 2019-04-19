@@ -6,10 +6,11 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/20/2019
+ms.date: 4/18/2019
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
+
 # What is Azure Application Gateway?
 
 Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications. Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, to a destination IP address and port.
@@ -49,7 +50,7 @@ Application gateway supports SSL termination at the gateway, after which traffic
 
 ## Azure Kubernetes Service (AKS) Ingress controller preview 
 
-The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. 
+The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. This is supported with Application Gateway v2 only.
 
 For more information, see [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/).
 

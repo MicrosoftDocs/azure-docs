@@ -13,7 +13,10 @@ ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
 ---
-# Write and configure data using Azure Machine Learning
+# Write and configure data  with the Azure Machine Learning Data Prep SDK
+
+> [!Important]
+> In addition to these Data Prep SDK classes, which are generally available, you can also try [Azure Machine Learning Datasets (preview)](how-to-explore-prepare-data.md) to transform your data and store those transformations as versioned dataset descriptions. 
 
 In this article, you learn different methods to write data using the [Azure Machine Learning Data Prep Python SDK](https://aka.ms/data-prep-sdk) and how to configure that data for experimentation with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  Output data can be written at any point in a dataflow. Writes are added as steps to the resulting data flow, and these steps run every time the data flow runs. Data is written to multiple partition files to allow parallel writes.
 

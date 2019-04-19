@@ -71,6 +71,7 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
 1. Extract the zip file to a local folder closer to the root folder - for example, **C:\Azure-Samples**
 1. Open the solution in Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
+1. Depending on the version of Visual Studio you might need to right click on the project `AppModelv2-WebApp-OpenIDConnect-DotNet` and **Restore NuGet packages**
 1. Edit **Web.config** and replace the parameters `ClientId` and `Tenant` with:
 
     ```xml
@@ -100,7 +101,7 @@ You can set up the authentication pipeline with cookie-based authentication usin
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
+Install-Package Microsoft.Owin.Host.SystemWeb  
 ```
 
 ### OWIN Startup Class
