@@ -20,12 +20,15 @@ ms.reviewer: dhanyahk
 
 # How to: Use Azure Monitor workbooks for Azure Active Directory reports
 
-[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides the following workbooks to help you gain insights into your environment. 
+[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides the following workbooks to help you gain insights into your environment.
 
-* Usage: This workbook contains information about application usage, sign-ins, conditional access policies, and legacy authentication.
-* Troubleshooting: This workbook contains information about errors that occur during attempted sign-ins, conditional access policies and legacy authentication.
+This article:
 
-Workbooks are editable by any other team members who have access to the same Azure resources.
+- Assumes that you are familiar with how to [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
+
+- Explains how you can use the Azure Monitor workbooks for monitoring.
+ 
+
 
 ## Prerequisites
 
@@ -34,7 +37,9 @@ To use this feature, you need:
 1. An Azure Active Directory tenant, with a premium (P1/P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 2. A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-## Open workbooks 
+## Access workbooks about monitoring  
+
+To Access workbooks about monitoring:
 
 1. Sign in to your [Azure portal](https://portal.azure.com).
 
