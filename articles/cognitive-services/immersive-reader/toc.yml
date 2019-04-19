@@ -4,6 +4,7 @@
   - name: About Immersive Reader
     href: Overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a web app that launches the Immersive Reader (C#)
     href: Quickstart.md
