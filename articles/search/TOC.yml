@@ -197,9 +197,9 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Store enrichments
+  - name: Knowledge Store
     items:
-    - name: Send enrichments to Knowledge Store 
+    - name: How to get started
       href: knowledge-store-howto.md
   - name: Query data
     items:

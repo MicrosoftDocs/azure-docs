@@ -1,5 +1,5 @@
 ---
-title: 'How to use Knowledge Store - Azure Search'
+title: 'How to get started with Knowledge Store - Azure Search'
 description: Learn the steps for sending enchriched documents created by AI indexing pipelines in Azure Search to an  Azure storage account. From there, you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
 manager: eladz
 author: Vkurpad
@@ -8,9 +8,8 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: vikurpad
-
 ---
-# How to use Knowledge Store
+# How to get started with Knowledge Store
 
 
 REST API api-version=2019-05-06-Preview
