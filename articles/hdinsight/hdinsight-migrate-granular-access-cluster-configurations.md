@@ -145,9 +145,9 @@ Please update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
-A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#owner) role can grant the HDInsight Cluster Operator role to users that you want to have read/write access to HDInsight cluster secrets like cluster gateway credentials and storage account keys.
+A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can grant the HDInsight Cluster Operator role to users that you want to have read/write access to HDInsight cluster secrets like cluster gateway credentials and storage account keys.
 
-### Using Azure CLI
+### Using the Azure CLI
 
 The simplest way to add this role assignment is by using the following command in Azure CLI:
 
@@ -158,12 +158,12 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 > [!NOTE]
 > This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.
 
-The above command grants this role at the subsription level. To instead just grant this role at the resource group level, you can modify the command like so:
+The above command grants this role at the subscription level. To instead just grant this role at the resource group level, you can modify the command like so:
 
 ```azurecli-interactive
 az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com -g <ResourceGroupName>
 ```
 
-### Using Azure Portal
+### Using the Azure portal
 
-You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user.  See the documentation, [Manage access to Azure resources using RBAC and the Azure portal | Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Manage access to Azure resources using RBAC and the Azure portal - Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
