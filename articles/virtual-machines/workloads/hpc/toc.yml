@@ -2,24 +2,39 @@
   items:
   - name: Overview
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
-  - name: Create a VM using the HB-series
-    href: create-vm-using-hb-series.md
-  - name: Configure HPC
+  - name: Configuration
     href: configure.md
-  - name: Enable Infiniband with SRIOV
-    href: enable-infiniband-with-sriov.md  
+    - name: RDMA capabilities
+      href: rdma-capabilities.md
+    - name: Cluster configuration
+      href: cluster-configuration.md
+    - name: Enable Infiniband with SRIOV
+      href: enable-infiniband-with-sriov.md  
   - name: Setup MPI
     href: setup-mpi.md 
   - name: Compiling applications
     href: compiling-applications.md  
   - name: Scaling applications
     href: scaling-applications.md 
-  - name: HB-series 
-    href: hb-series-overview.md
+  - name: Virtual machines
     items:
-    - name: HB-series preview
-      href: hb-series-preview.md
-    - name: HB-series performance
-      href: hb-series-performance.md  
-    - name: Known issues
-      href: known-issues.md
+    - name: Create a VM
+      href: create-vm-using-hb-series.md
+    - name: HB-series 
+      href: hb-series-overview.md
+      items:
+      - name: HB-series preview
+        href: hb-series-preview.md
+      - name: HB-series performance
+        href: hb-series-performance.md  
+      - name: Known issues
+        href: known-issues.md
+    - name: HC-series
+      href: hc-series-overview.md
+      items:  
+      - name: HC-series preview
+        href: hc-series-preview.md
+      - name: HC-series performance
+        href: hc-series-performance.md   
+      - name: Known issues
+        href: hc-known-issues.md
