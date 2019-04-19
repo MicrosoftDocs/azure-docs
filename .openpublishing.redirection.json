@@ -38477,6 +38477,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/aks/aad-integration.md",
+      "redirect_url": "/azure/aks/azure-ad-integration",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "/azure/app-service/configure-language-java",
       "redirect_document_id": false
