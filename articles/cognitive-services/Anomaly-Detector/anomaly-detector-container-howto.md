@@ -164,7 +164,7 @@ The Anomaly Detector containers send billing information to Azure, using an Anom
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-For more information about these options, see [Configure containers](../anomaly-detector-container-configuration.md).
+For more information about these options, see [Configure containers](anomaly-detector-container-configuration.md).
 
 ## Summary
 
