@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
 
-This article lists the versions of the Azure APIs, SDKs, and tools supported with the Data Box Blob storage. Data Box Blob storage provides blob management functionality with Azure-consistent semantics. This article also summarizes the known Azure Data Box Blob storage differences from the Azure Storage services.
+This article lists the versions of the Azure APIs, Azure client libraries, and tools supported with the Data Box Blob storage. Data Box Blob storage provides blob management functionality with Azure-consistent semantics. This article also summarizes the known Azure Data Box Blob storage differences from the Azure Storage services.
 
 We recommend that you review the information carefully before you connect to the Data Box Blob storage, and then refer back to it as necessary.
 
