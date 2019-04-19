@@ -23,6 +23,10 @@
       href: entitlement-management-process.md
     - name: Manage external users
       href: entitlement-management-external-users.md
+    - name: Manage resources
+      href: entitlement-management-resources.md
+    - name: Manage at scale
+      href: entitlement-management-scale.md
   - name: Access reviews
     items:
     - name: Manage guest access with reviews
