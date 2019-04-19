@@ -127,15 +127,15 @@ You can configure a geo-filtering policy for your Front Door by either using [Az
 | LT | Lithuania|
 | LU | Luxembourg|
 | LV | Latvia|
-| LY | Libyan Arab Jamahiriya|
+| LY | Libya |
 | MA | Morocco|
 | MD | Moldova, Republic of|
 | MG | Madagascar|
-| MK | Macedonia|
+| MK | North Macedonia|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongolia|
-| MO | Macao|
+| MO | Macao SAR|
 | MQ | Martinique|
 | MR | Mauritania|
 | MT | Malta|

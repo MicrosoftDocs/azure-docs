@@ -42,13 +42,13 @@ Unmanaged Virtual Machine (VM) disks depend upon the disabled Blob Storage APIs,
 
 Blob Storage APIs and Azure Data Lake Gen2 APIs aren't interoperable with each other.
 
-If you have tools, applications, services, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable a hierarchical namespace on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without a hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and filesystem access control lists.
+If you have tools, applications, services, or scripts that use Blob APIs, and you want to use them to work with all of the content that you upload to your account, then don't enable a hierarchical namespace on your Blob storage account until Blob APIs become interoperable with Azure Data Lake Gen2 APIs. Using a storage account without a hierarchical namespace means you then don't have access to Data Lake Storage Gen2 specific features, such as directory and file system access control lists.
 
 ## Azure Storage Explorer
 
 To view or manage Data Lake Storage Gen2 accounts by using Azure Storage Explorer, you must have at least version `1.6.0` of the tool which is available as a [free download](https://azure.microsoft.com/features/storage-explorer/).
 
-Note that the version of Storage Explorer that is embedded into the Azure Portal does not currently support viewing or managing Data Lake Storage Gen2 accounts with the hierarchical namespace feature enabled.
+Note that the version of Storage Explorer that is embedded into the Azure portal does not currently support viewing or managing Data Lake Storage Gen2 accounts with the hierarchical namespace feature enabled.
 
 ## Blob viewing tool
 
