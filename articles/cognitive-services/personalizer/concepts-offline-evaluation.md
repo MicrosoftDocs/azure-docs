@@ -89,10 +89,11 @@ We recommend looking at feature evaluations and asking:
 * Are there any features that are accidentally included? Examples of these are: personally identifiable information, duplicate IDs, etc.
 * Are there any undesirable features that shouldn't be used to personalize due to regulatory or responsible use considerations? Are there features that could proxy (that is, closely mirror or correlate with) undesirable features?
 
-<!--
+
 ## Next steps
 
 * [How to Do Offline Evaluations](how-to-offline-evaluation.md)
+<!--
 * [How to Configure Personalizer Settings](how-to-settings.md)
 
 -->
