@@ -20,7 +20,16 @@ ms.reviewer: dhanyahk
 
 # How to: Use Azure Monitor workbooks for Azure Active Directory reports
 
-[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides workbooks that help you gain insights into your environment.
+Do you want to:
+
+- Understand the impact of your [conditional access policies](../conditional-access/overview.md) on your users' sign in experience?
+
+- Troubleshoot sign-in failures to get a better view of your organization sign-in health as well as resolve issues quickly?
+
+- Know who is using legacy authentications to sign on to your environment? By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.
+
+
+[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides you with workbooks for monitoring that help you to find answers to the questions above.
 
 This article:
 
@@ -34,12 +43,13 @@ This article:
 
 To use this feature, you need:
 
-1. An Azure Active Directory tenant, with a premium (P1/P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
-2. A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- An Azure Active Directory tenant, with a premium (P1/P2) license. Learn how to [get a premium license](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
-## Access workbooks about monitoring  
+- A [Log Analytics workspace](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
-To Access workbooks about monitoring:
+## Access workbooks 
+
+To Access workbooks:
 
 1. Sign in to your [Azure portal](https://portal.azure.com).
 
@@ -56,7 +66,7 @@ To Access workbooks about monitoring:
 
 ## Sign-in analysis
 
-To access the sign-in analysis data, click **Sign-ins** in the **Usage** section. 
+To access the sign-in analysis workbook, click **Sign-ins** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -93,7 +103,7 @@ For each trend, you get a breakdown by:
 ## Sign-ins using legacy authentication 
 
 
-To access the sign-ins data, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
+To access the sign-ins using legacy authentication workbook, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -124,7 +134,7 @@ For each trend, you get a breakdown by app and protocol.
 ## Sign-ins by conditional access 
 
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+To access the sign-ins by [conditional access policies](../conditional-access/overview.md) workbook, click **Sign-ins by Conditional Access** in the **Conditional access** section. 
 
 This workbook shows the trend for disabled sign-ins.
 
@@ -139,7 +149,7 @@ You can filter each trend by:
 ![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-For each trend, you get a breakdown by app and protocol.
+For the disabled sign-ins, you get a breakdown by the conditional access status.
 
 ![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
 
@@ -152,7 +162,7 @@ For each trend, you get a breakdown by app and protocol.
 
 ## Sign-ins by grant controls
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+To access the sign-ins by [grant controls](../conditional-access/controls.md) workbook, click **Sign-ins by Grant Controls** in the **Conditional access** section. 
 
 This workbook shows the following disabled sign-in trends:
 
