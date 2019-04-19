@@ -1,5 +1,5 @@
 ---
-title: Use Microsoft identity platform to sign in users using ROPC | Azure
+title: Use Microsoft identity platform to sign in users using resource owner password credential (ROPC) grant | Azure
 description: Support browser-less authentication flows using the resource owner password credential grant.
 services: active-directory
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -22,9 +22,10 @@ ms.collection: M365-identity-device-management
 
 # Microsoft identity platform and the OAuth 2.0 resource owner password credential
 
-Microsoft identity platform supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and developers should only use this flow when the other, more secure, flows can't be used.
+Microsoft identity platform supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and you should only use this flow when other, more secure, flows can't be used.
 
 > [!IMPORTANT]
+>
 > * The Microsoft identity platform endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`) or the `organizations` endpoint.
 > * Personal accounts that are invited to an Azure AD tenant can't use ROPC.
 > * Accounts that don't have passwords can't sign in through ROPC. For this scenario, we recommend that you use a different flow for your app instead.
@@ -34,7 +35,7 @@ Microsoft identity platform supports the [resource owner password credential (RO
 
 The following diagram shows the ROPC flow.
 
-![ROPC flow](media/v2-oauth2-ropc/v2-oauth-ropc.png)
+![ROPC flow](./media/v2-oauth2-ropc/v2-oauth-ropc.svg)
 
 ## Authorization request
 
@@ -65,11 +66,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Required | Must be set to `password`. |
 | `username` | Required | The user's email address. |
 | `password` | Required | The user's password. |
-| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. These scopes must be consented to ahead of time either by an admin or by the user in an interactive flow. |
+| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md), or permissions, that the app requires. In an interactive flow, the admin or the user must consent to these scopes ahead of time. |
 
 ### Successful authentication response
 
-The following shows an example of a successful token response:
+The following example shows a successful token response:
 
 ```json
 {
@@ -101,7 +102,7 @@ If the user hasn't provided the correct username or password, or the client hasn
 |------ | ----------- | -------------|
 | `invalid_grant` | The authentication failed | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` error will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser. |
 | `invalid_request` | The request was improperly constructed | The grant type isn't supported on the `/common` or `/consumers` authentication contexts.  Use `/organizations` instead. |
-| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property isn't set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. Note that ROPC is only supported for public client apps. |
+| `invalid_client` | The app is improperly set up | This can happen if the `allowPublicClient` property isn't set to true in the [application manifest](reference-app-manifest.md). The `allowPublicClient` property is needed because the ROPC grant doesn't have a redirect URI. Azure AD can't determine if the app is a public client application or a confidential client application unless the property is set. ROPC is only supported for public client apps. |
 
 ## Learn more
 
