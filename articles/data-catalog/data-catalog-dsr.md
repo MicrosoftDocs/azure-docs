@@ -2,8 +2,8 @@
 title: Supported data sources in Azure Data Catalog
 description: This article lists specifications of the currently supported data sources.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/15/2019
