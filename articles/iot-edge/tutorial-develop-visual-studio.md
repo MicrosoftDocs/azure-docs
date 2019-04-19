@@ -4,18 +4,18 @@ description: This tutorial walks through setting up your development machine and
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/10/2019
+ms.date: 04/20/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 ---
 
-# Tutorial: Develop an IoT Edge module for a Windows device
+# Tutorial: Develop IoT Edge modules for Windows devices
 
 Use Visual Studio 2017 to develop and deploy code to Windows devices running IoT Edge.
 
-In the quickstart articles, you created an IoT Edge device and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
+In the quickstart, you created an IoT Edge device using a Windows virtual machine and deployed a pre-built module from the Azure Marketplace. This tutorial walks through what it takes to develop and deploy your own code to an IoT Edge device. This tutorial is a useful prerequisite for all the other tutorials, which will go into more detail about specific programming languages or Azure services. 
 
 This tutorial uses the example of deploying a **C module to a Windows device**. This example was chosen because it has the fewest prerequisites, so that you can learn about the development tools without worrying about whether you have the right libraries installed. Once you understand the development concepts, then you can choose your preferred language or Azure service to dive into the details. 
 
@@ -38,12 +38,12 @@ When developing IoT Edge modules, it's important to understand the difference be
 
 This tutorial targets Windows devices running IoT Edge. Windows IoT Edge devices use Windows containers. We recommend using Visual Studio 2017 to develop for Windows devices, so that's what this tutorial will use. You can use Visual Studio Code as well, although there are differences in support between the two tools.
 
-The following table lists the supported development scenarios for Windows containers in Visual Studio Code and Visual Studio 2017.
+The following table lists the supported development scenarios for **Windows containers** in Visual Studio Code and Visual Studio 2017.
 
 |   | Visual Studio Code | Visual Studio 2017 |
 | - | ------------------ | ------------------ |
-| **Azure services** | * Azure Functions <br> * Azure Stream Analytics |   |
-| **Languages** | * C# (debugging not supported) <br> * Python | * C <br> * C# |
+| **Azure services** | Azure Functions <br> Azure Stream Analytics |   |
+| **Languages** | C# (debugging not supported) <br> Python | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 This tutorial teaches the development steps for Visual Studio 2017. If you would rather use Visual Studio Code, refer to the instructions in [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
@@ -85,9 +85,9 @@ Use the Docker documentation to install on your development machine:
   * When you install Docker Desktop for Windows, you're asked whether you want to use Linux or Windows containers. For this tutorial, use **Windows containers**. For more information, see [Switch between Windows and Linux containers](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 
-## Install Visual Studio and tools
+## Set up Visual Studio and tools
 
-Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. 
+Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These extensions provide project templates, automate the creation of the deployment manifest, and allow you to monitor and manage IoT Edge devices. In this section, you install Visual Studio and the IoT Edge extension, then set up your Azure account to manage IoT Hub resources from within Visual Studio. 
 
 1. [Install Visual Studio Community 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) on your development machine with the following workloads: 
 
@@ -100,9 +100,9 @@ Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These
 
 4. Select **View** > **Cloud Explorer**. 
 
-5. Select the profile icon in Cloud Explorer and sign in to your Azure account if you aren't signed in already. 
+5. Select the profile icon in the cloud explorer and sign in to your Azure account if you aren't signed in already. 
 
-6. Once you sign in, your Azure subscriptions are listed. Select the subscriptions that you want to access through Cloud Explorer and then select **Apply**. 
+6. Once you sign in, your Azure subscriptions are listed. Select the subscriptions that you want to access through the cloud explorer and then select **Apply**. 
 
 7. Expand your subscription, then **IoT Hubs**, then your IoT hub. You should see a list of your IoT devices, and can use this explorer to manage them. 
 
@@ -112,7 +112,7 @@ Use the IoT extensions for Visual Studio 2017 to develop IoT Edge modules. These
 
 ## Create a new module project
 
-The Azure IoT Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio 2017. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
+The Azure IoT Edge Tools extension provides project templates for all supported IoT Edge module languages in Visual Studio 2017. These templates have all the files and code that you need to deploy a working module to test IoT Edge, or give you a starting point to customize the template with your own business logic. 
 
 1. Run Visual Studio as an administrator.
 
@@ -143,6 +143,27 @@ Once your new project loads in the Visual Studio window, take a moment to famili
 * An IoT Edge module project called **IoTEdgeModule1**.
     * The **main.c** file contains the default C module code that comes with the project template. The default module takes input from a source and passes it along to IoT Hub. 
     * The **module.json** file hold details about the module, including the full image repository, image version, and which Dockerfile to use for each supported platform.
+
+### Provide your registry credentials to the IoT Edge agent
+
+The IoT Edge runtime needs your registry credentials to pull your container images onto the IoT Edge device. Add these credentials to the deployment template. 
+
+1. Open the **deployment.template.json** file.
+
+2. Find the **registryCredentials** property in the $edgeAgent desired properties. 
+
+3. Update the property with your credentials, following this format: 
+
+   ```json
+   "registryCredentials": {
+     "<registry name>": {
+       "username": "<username>",
+       "password": "<password>",
+       "address": "<registry name>.azurecr.io"
+     }
+   }
+
+4. Save the deployment.template.json file. 
 
 ### Review the sample code
 
@@ -195,36 +216,17 @@ Provide your container registry credentials to Docker on your development machin
 
    You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-### Provide your registry credentials to the IoT Edge agent
-
-The IoT Edge runtime uses your registry credentials to pull your container images onto the IoT Edge device. Add these credentials to the deployment template. 
-
-1. Open the **deployment.template.json** file.
-
-2. Find the **registryCredentials** property in the $edgeAgent desired properties. 
-
-3. Update the property with your credentials, following this format: 
-
-   ```json
-   "registryCredentials": {
-     "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
-       "address": "<registry name>.azurecr.io"
-     }
-   }
-
-4. Save the deployment.template.json file. 
-
 ### Build and push
 
 Your development machine now has access to your container registry, and your IoT Edge devices will too. It's time to turn the project code into a container image. 
 
 1. Right-click the **AzureIotEdgeApp1.Windows.Amd64** project folder and select **Build and Push IoT Edge Modules**. 
 
+   ![Build and push IoT Edge modules](./media/tutorial-develop-visual-studio/build-and-push-modules.png)
+
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
-   The build and push process may take several minutes the first time, but is faster the next time that you run the commands. 
+   This process may take several minutes the first time, but is faster the next time that you run the commands. 
 
 2. Open the **deployment.windows-amd64.json** file in the newly created config folder. (The config folder may not appear in the Solution Explorer in Visual Studio. If that's the case, select the **Show all files** icon in the Solution Explorer taskbar.)
 
@@ -258,35 +260,70 @@ If you encounter errors when building and pushing your module image, it often ha
 * If you used a different name than **IotEdgeModule1** for your module, is that name consistent throughout the solution?
 * Is your machine running the same type of containers that you're building? This tutorial is for Windows IoT Edge devices, so your Visual Studio files should have the **windows-amd64** extension, and Docker Desktop should be running Windows containers. 
 
-## Deploy solution to a device
+## Deploy modules to device
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running. 
 
 1. Open the Cloud Explorer in Visual Studio and expand the details for your IoT hub. 
 
-2. Right-click the name of the device that you want to deploy to, then select **Create Deployment**.
+2. Select the name of the device that you want to deploy to. In the **Actions** list, select **Create Deployment**.
 
-3. In the file explorer, navigate to the config folder of your project and select the **deployment.windows-amd64.json** file. This is often located at `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`. 
+   ![Create deployment for single device](./media/tutorial-develop-visual-studio/create-deployment.png)
+
+
+3. In the file explorer, navigate to the config folder of your project and select the **deployment.windows-amd64.json** file. This is often located at `C:\Users\<username>\source\repos\AzureIotEdgeApp1\AzureIotEdgeApp1.Windows.Amd64\config\deployment.windows-amd64.json`
 
    Do not use the deployment.template.json file, which doesn't have the full module image values in it. 
 
 4. Expand the details for your IoT Edge device in the Cloud Explorer to see the modules on your device.
 
-5. Use the **Refresh all** button to update the explorer until you see the tempSensor and IotEdgeModule1 modules running on your device. 
+5. Use the **Refresh** button to update the device status to see that the tempSensor and IotEdgeModule1 modules are deployed your device. 
 
-   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. 
 
-   ![View modules running on your IoT Edge device](./media/tutorial-develop-vs-code/view-running-modules.png)
-
+   ![View modules running on your IoT Edge device](./media/tutorial-develop-visual-studio/view-running-modules.png)
 
 ## View messages from device
 
-The SampleModule code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages to SampleModule from tempSensor, and then forwarded messages from SampleModule to IoT Hub. The Azure IoT tools for Visual Studio Code allow you to see messages as they arrive at IoT Hub from your individual devices. 
+The IotEdgeModule1 code receives messages through its input queue and passes them along through its output queue. The deployment manifest declared routes that passed messages from tempSensor to IotEdgeModule1, and then forwarded messages from IotEdgeModule1 to IoT Hub. The Azure IoT Edge tools for Visual Studio allow you to see messages as they arrive at IoT Hub from your individual devices. 
+
+1. In the Visual Studio cloud explorer, select the name of the IoT Edge device that you deployed to. 
+
+2. In the **Actions** menu, select **Start Monitoring D2C Message**.
+
+3. Watch the **Output** section in Visual Studio to see messages arriving at your IoT hub. 
+
+   It may take a few minutes for both modules to start. The IoT Edge runtime needs to receive its new deployment manifest, pull down the module images from the container runtime, then start each new module. If you 
+
+   ![View incoming device to cloud messages](./media/tutorial-develop-visual-studio/view-d2c-messages.png)
+
+## View changes on device
+
+If you want to see what's happening on your device itself, use the commands in this section to inspect the IoT Edge runtime and modules running on your device. 
+
+The commands in this section are for your IoT Edge device, not your development machine. If you're using a virtual machine for your IoT Edge device, connect to it now. In Azure, go to the virtual machine's overview page and select **Connect** to access the remote desktop connection. On the device, open a command or PowerShell window to run the `iotedge` commands.
+
+* View all modules deployed to your device, and check their status:
+
+   ```cmd
+   iotedge list
+   ```
+
+   You should see four modoules: the two IoT Edge runtime modules, tempSensor, and IotEdgeModule1. All four should be listed as running.
+
+* Inspect the logs for a specific module:
+
+   ```cmd
+   iotedge logs <module name>
+   ```
+
+   IoT Edge modules are case-sensitive. 
+
+   The tempSensor and IotEdgeModule1 logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
 
 ## Next steps
 
 In this tutorial, you set up Visual Studio 2017 on your development machine and deployed your first IoT Edge module from it. Now that you know the basic concepts, try adding functionality to a module so that it can analyze the data passing through it. Choose your preferred language: 
 
 > [!div class="nextstepaction"] 
-> [C](tutorial-c-module.md)
-> [C#](tutorial-csharp-module.md)
+> [C](tutorial-c-module-visual-studio.md)
+> [C#](tutorial-csharp-module-visual-studio.md)
