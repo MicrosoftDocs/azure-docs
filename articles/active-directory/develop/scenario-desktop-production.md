@@ -31,7 +31,8 @@ In the different flows above, we've shown how you can handle the errors for the 
 
 ## How to have  the user consent upfront for several resources
 
-> [!NOTE]: Getting consent for several resources works for Azure AD v2.0, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
+> [!NOTE]
+> Getting consent for several resources works for Azure AD v2.0, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
 
 The Azure AD v2.0 endpoint doesn't allow you to get a token for several resources at once. Therefore the `scopes` parameter can only contain scopes for a single resource. However, you can ensure that the user pre-consents to several resources by using the `extraScopesToConsent` parameter.
 

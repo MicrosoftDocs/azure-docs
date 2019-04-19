@@ -39,7 +39,7 @@ If  your desktop application uses interactive authentication, you can sign in us
 - If you want to use the Device code flow, you can't sign in users with their Microsoft personal accounts yet
 - If you sign in users with social identities passing a B2C authority and policy, you can only use the interactive and username-password authentication.
 
-## Redirect URIs for desktop applications
+## Redirect URIs
 
 Again the redirect URIs to use in desktop application will depend on the flow you want to use.
 

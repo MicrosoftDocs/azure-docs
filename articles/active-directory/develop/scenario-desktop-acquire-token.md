@@ -164,9 +164,9 @@ The MSAL.NET team have rewritten our UI tests to leverage this extensibility mec
 
 Learn more about all the other optional parameters for `AcquireTokenInteractive` from the reference documentation for [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
-## Acquiring a token for the domain user in Domain or Azure AD joined machine
+## Integrated Windows authentication
 
-If you want to sign in with the domain user on a domain or Azure AD joined machine, you need to use:
+If you want to sign in a domain user on a domain or Azure AD joined machine, you need to use:
 
 ```csharp
 AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
@@ -284,7 +284,9 @@ static async Task GetATokenForGraph()
 
 For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
-## Acquiring a token using Username / Password
+## Username / Password
+
+You can also acquire a token by providing the username and password. This flow is limited and not recommended, but there are still use cases where it's necessary.
 
 ### This flow isn't recommended
 
@@ -518,7 +520,7 @@ static async Task GetATokenForGraph()
 
 For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
-## Acquiring a token in a command-line tool
+## Command-line tool (without web browser)
 
 ### Device code flow Why? and how?
 

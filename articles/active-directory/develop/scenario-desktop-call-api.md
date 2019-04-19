@@ -21,7 +21,7 @@ ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ---
 
-# Desktop app that calls Web APIs - calling a Web API
+# Calling a Web API from a desktop app
 
 Now that you have a token, you can call a protected Web API.
 
@@ -33,7 +33,7 @@ Now that you have a token, you can call a protected Web API.
 More includes will come later for Python and Java
 -->
 
-## Calling several APIs - incremental consent
+## Calling several APIs - Incremental consent and conditional access
 
 If you need to call several APIs for the same user, once you got a token for the first API, you can just call `AcquireTokenSilent`, and you'll get a token for the other APIs silently most of the time.
 
