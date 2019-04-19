@@ -102,14 +102,14 @@ The following table lists the supported locales for **speech-to-text**:
 |Language locale|Tags|
 |--|--|
 |Chinese|`zh-cn`|
-|English |`en-us`<br>`en-gb`<br>`en-au`|
+|English |`en-us`<br>`en-gb`<br>`en-au`<br>`en-in`|
 |French |`fr-ca`<br>`fr-fr`|
 |German|`de-de`|
 |Italian|`it-it`|
 |Japense|`ja-jp`|
 |Korean|`ko-kr`|
 |Portuguese|`pt-br`|
-|Spanish|`es-es`<br>`en-in`<br>`es-mx`|
+|Spanish|`es-es`<br>`es-mx`|
 
 
 #### Text to speech locales
