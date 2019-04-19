@@ -5,10 +5,10 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 04/12/2019
 ms.author: absha
 ---
-# Rewrite HTTP headers in an existing Application gateway
+# Rewrite HTTP request and response headers with Azure Application Gateway - Azure PowerShell
 
 This article shows you how to use Azure PowerShell to configure an [Application Gateway v2 SKU](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>)  to rewrite the HTTP headers in the requests and responses.
 
@@ -20,8 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - This tutorial requires that you run Azure PowerShell locally. You must have Az module version 1.0.0 or later installed. Run `Import-Module Az` and then`Get-Module Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps). After you verify the PowerShell version, run `Login-AzAccount` to create a connection with Azure.
-
-- You need to have an Application Gateway v2 SKU  since the header rewrite capability is not supported for the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) before you begin.
+- You need to have an Application Gateway v2 SKU  since the header rewrite capability is not supported for the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) before you begin.
 
 ## What is required to rewrite a header
 
