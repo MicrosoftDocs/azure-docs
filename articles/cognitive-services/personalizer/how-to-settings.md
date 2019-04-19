@@ -41,4 +41,4 @@ Service configuration includes how the service treats rewards, how often the ser
 
 # Next step
 
-[How to use the Personalizer container](personalizer-container-howto.md)
+[How to use the Personalizer container](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
