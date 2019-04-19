@@ -21,10 +21,6 @@ ms.author: spelluru
 # Azure DevTest Labs FAQ
 Get answers to some of the most common questions about Azure DevTest Labs.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-
-
 ## Blog post
 Our DevTest Labs Team blog has been retired as of 20 March 2019. 
 
