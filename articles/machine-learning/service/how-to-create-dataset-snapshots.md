@@ -21,7 +21,7 @@ In this article, you learn how to take a Dataset snapshot, how to access its dat
 
 ## Prerequisites
 
-To create a snapshot you need:
+To create a snapshot, you need:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -29,7 +29,7 @@ To create a snapshot you need:
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* A registered Dataset. If you do not have one see [Create and register datasets](how-to-create-register-datasets.md).
+* A registered Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
 
 * [Optional] Download the sample data [here](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) to follow along with the examples.
 
