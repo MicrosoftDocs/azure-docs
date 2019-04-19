@@ -25,6 +25,42 @@ ms.collection: M365-identity-device-management
 
 Learn how to configure the code for your web API that calls Web APIs.
 
+
+## Subscribe to OnTokenValidated
+
+```CSharp
+/// <summary>
+/// Protects the Web API with Microsoft Identity Platform v2.0 (AAD v2.0)
+/// This supposes that the configuration files have a section named "AzureAD"
+/// </summary>
+/// <param name="services">Service collection to which to add authentication</param>
+/// <param name="configuration">Configuration</param>
+/// <returns></returns>
+public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollection services,
+                                                             IConfiguration configuration,
+                                                             IEnumerable<string> scopes)
+{
+    services.AddTokenAcquisition();
+    services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
+    {
+        // When an access token for our own Web API is validated, we add it to MSAL.NET's cache so that it can
+        // be used from the controllers.
+        options.Events = new JwtBearerEvents();
+
+        options.Events.OnTokenValidated = async context =>
+        {
+            var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
+            context.Success();
+
+            // Adds the token to the cache, and also handles the incremental consent and claim challenges
+            tokenAcquisition.AddAccountToCacheFromJwt(context, scopes);
+            await Task.FromResult(0);
+        };
+    });
+    return services;
+}
+```
+
 ## Next steps
 
 > [!div class="nextstepaction"]

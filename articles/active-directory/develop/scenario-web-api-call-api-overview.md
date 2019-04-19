@@ -27,17 +27,20 @@ Learn all you need to build a web API that calls Web APIs.
 
 ## Pre-requisites
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-## Quickstart
+This scenario "protected Web API that calls Web APIs" builds on top of the "Protect a Web API" scenario: 
 
 > [!div class="nextstepaction"]
-> [web API that calls Web APIs - Quickstart](./quickstart-v2-XXXXXXXXX.md)
+> [Protected Web API - Scenario](scenario-protected-web-api-overview.md)
 
 ## Scenario overview
 
+You protected Web API now calls downstream Web APIs, and therefore it becomes a client of these downstream APIs. So far the protected API was protected by the JwtBearer middleware. It now uses MSAL to acquire tokens for the downstream APIS
 
-Learn all you need to build a web API that calls Web APIs.
+![Web API calling a Web API](media/scenarios/web-api.svg)
+
+## Specifics
+
+The part of app registration related to the API permissions is classical. The application configuration involves using the OAuth 2.0 on behalf of flow to exchange the Jwt bearer token against a token for a downstream API. This token is added to the token cache where it's available in the Web API's controllers which can acquire a token silently to call downstream APIs  
 
 ## Next steps
 
