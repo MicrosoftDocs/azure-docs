@@ -151,7 +151,7 @@ You might see this error if azds.exe is not installed or configured correctly.
 
 ### Try:
 
-1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI (Preview) for azds.exe. If it's there, add that location to the PATH environment variable.
+1. Check the location %ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI for azds.exe. If it's there, add that location to the PATH environment variable.
 2. If azds.exe is not installed, run the following command:
 
     ```cmd
