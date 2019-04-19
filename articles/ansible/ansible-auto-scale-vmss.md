@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Autoscale a virtual machine scale set in Azure using Ansible | Microsoft Docs
-description: Learn how to use Ansible to scale a virtual machine scale set with autoscale in Azure
+title: Tutorial - Autoscale virtual machine scale sets in Azure using Ansible | Microsoft Docs
+description: Learn how to use Ansible to scale virtual machine scale sets with autoscale in Azure
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -10,7 +10,7 @@ ms.author: tarcher
 ms.date: 04/04/2019
 ---
 
-# Tutorial: Autoscale a virtual machine scale set in Azure using Ansible
+# Tutorial: Autoscale virtual machine scale sets in Azure using Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 

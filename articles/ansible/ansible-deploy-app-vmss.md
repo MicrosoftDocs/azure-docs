@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Deploy apps to virtual machine scale sets in Azure using Ansible | Microsoft Docs
-description: Learn how to use Ansible to configure an Azure virtual machine scale set and deploy application on the scale set
+description: Learn how to use Ansible to configure Azure virtual machine scale sets and deploy application on the scale set
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -236,4 +236,4 @@ Verify the results of your work by navigating to the URL of the load balancer fo
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autoscale a virtual machine scale set in Azure using Ansible](./ansible-auto-scale-vmss.md)
+> [Tutorial: Autoscale virtual machine scale sets in Azure using Ansible](./ansible-auto-scale-vmss.md)
