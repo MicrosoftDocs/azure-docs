@@ -7,7 +7,7 @@
     href: what-is-personalizer.md
 - name: Concepts
   items:
-  - name: Fundamental Concepts
+  - name: Fundamental concepts
     items: 
     - name: Actions and context
       href: concepts-actions-context.md  
