@@ -158,7 +158,7 @@ This option is used when you have divided a dataset into multiple partitions and
 
     For example, let's say previously partitioned patients into four folds using age. To work with each individual fold, you need four copies of the **Partition and Sample** module, and in each, you select a different fold, as shown below. It's not correct to use the **Assign to Folds** output directly.  
 
-    ![partition and sample](./media/partition-and-sample/partition-and-sample.png)
+    [![Partition and sample](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. Run the experiment.
 
