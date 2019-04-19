@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: About Azure Search
+  - name: What is Azure Search?
     href: search-what-is-azure-search.md
 - name: Quickstarts
   expanded: true
@@ -49,12 +49,12 @@
     href: https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling
 - name: Concepts
   items:
-  - name: Full text search
-    href: search-lucene-query-architecture.md
-  - name: AI indexing (Cognitive Search)
+  - name: AI-enriched indexing
     href: cognitive-search-concept-intro.md
   - name: Knowledge Store (preview)
     href: knowledge-store-concept-intro.md
+  - name: Full text search
+    href: search-lucene-query-architecture.md
   - name: Multitenant architecture
     href: search-modeling-multitenant-saas-applications.md
 - name: How-to guides
@@ -173,12 +173,10 @@
       href: search-indexer-field-mappings.md
     - name: Troubleshooting common issues
       href: search-indexer-troubleshooting.md
-  - name: AI-indexing (cognitive search)
+  - name: Enrich with AI
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Send enrichments to Knowledge Store 
-      href: knowledge-store-howto.md
     - name: Skillsets
       items:
       - name: Define a skillset
@@ -199,6 +197,10 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
+  - name: Store enrichments
+    items:
+    - name: Send enrichments to Knowledge Store 
+      href: knowledge-store-howto.md
   - name: Query data
     items:
     - name: Create a basic query
