@@ -76,6 +76,8 @@ In the folder, double-click **HelloAR U3D.sln** to open the project in Visual St
 
 Change the **Solution Configuration** to **Release**, change the **Solution Platform** to **x86**, and select **Device** from the deployment target options.
 
+If using HoloLens 2, use **ARM** as the **Solution Platform**, instead of **x86**.
+
    ![Visual Studio configuration](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
 Turn on the HoloLens device, sign in, and connect the device to the PC by using a USB cable.
