@@ -1,19 +1,19 @@
 ---
-title: HDInsight 4.0 overview (Preview) - Azure
+title: HDInsight 4.0 overview - Azure
 description: Compare HDInsight 3.6 to HDInsight 4.0 features, limitations, and upgrade recommendations.
 ms.service: hdinsight
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: hrasheed
 ms.topic: overview
-ms.date: 10/04/2018
+ms.date: 04/15/2019
 ---
 
-# HDInsight 4.0 overview (Preview)
+# HDInsight 4.0 overview
 
-Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight (HDI) 4.0 is a cloud distribution of the Apache Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
+Azure HDInsight is one of the most popular services among enterprise customers for open-source Apache Hadoop and Apache Spark analytics on Azure. HDInsight 4.0 is a cloud distribution of the Apache Hadoop components from the [Hortonworks Data Platform (HDP) 3.0](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/relnotes.html). This article provides information about the most recent Azure HDInsight release and how to upgrade.
 
-## What's new in HDI 4.0?
+## What's new in HDInsight 4.0?
 
 ### Apache Hive 3.0 and LLAP
 
@@ -62,7 +62,7 @@ Apache Spark on HDInsight 4.0 supports the following scenarios:
 * Run a Spark streaming job on the change feed from a Hive streaming table.
 * Create ORC files directly from a Spark Structured Streaming job.
 
-You no longer have to worry about accidentally trying to access Hive transactional tables directly from Spark, resulting in inconsistent results, duplicate data, or data corruption. In HDI 4.0, Spark tables and Hive tables are kept in separate Metastores. Use Hive Data Warehouse Connector to explicitly register Hive transactional tables as Spark external tables.
+You no longer have to worry about accidentally trying to access Hive transactional tables directly from Spark, resulting in inconsistent results, duplicate data, or data corruption. In HDInsight 4.0, Spark tables and Hive tables are kept in separate Metastores. Use Hive Data Warehouse Connector to explicitly register Hive transactional tables as Spark external tables.
 
 Learn more about [Apache Spark](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/spark-overview/content/analyzing_data_with_apache_spark.html).
 
@@ -77,22 +77,19 @@ Apache Oozie 4.3.1 is included in HDI 4.0 with the following changes:
 
 Learn more about [Apache Oozie](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.0/release-notes/content/patch_oozie.html).
 
-## How to upgrade to HDI 4.0
+## How to upgrade to HDInsight 4.0
 
-As with any major release, it's important to thoroughly test your components before implementing the latest version in a production environment. HDI 4.0 is available for you to begin the upgrade process, but HDI 3.6 is the default option to prevent accidental mishaps.
+As with any major release, it's important to thoroughly test your components before implementing the latest version in a production environment. HDInsight 4.0 is available for you to begin the upgrade process, but HDInsight 3.6 is the default option to prevent accidental mishaps.
 
-There is no supported upgrade path from previous versions of HDI to HDI 4.0. Because Metastore and blob data formats have changed, HDI 4.0 is not compatible with previous versions. It is important that you keep your new HDI 4.0 environment separate from your current production environment. If you deploy HDI 4.0 to your current environment, your Metastore will be upgraded and cannot be reversed.  
+There is no supported upgrade path from previous versions of HDInsight to HDInsight 4.0. Because Metastore and blob data formats have changed, HDInsight 4.0 is not compatible with previous versions. It is important that you keep your new HDInsight 4.0 environment separate from your current production environment. If you deploy HDInsight 4.0 to your current environment, your Metastore will be upgraded and cannot be reversed.  
 
 ## Limitations
 
-* HDI 4.0 does not support MapReduce. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
-
-* Hive View is no longer available in HDI 4.0. 
-
+* HDInsight 4.0 does not support MapReduce. Use Apache Tez instead. Learn more about [Apache Tez](https://tez.apache.org/).
+* HDInsight 4.0 does not support Apache Storm. 
+* Hive View is no longer available in HDInsight 4.0. 
 * Shell interpreter in Apache Zeppelin is not supported in Spark and Interactive Query clusters.
-
 * You can't *disable* LLAP on a Spark-LLAP cluster. You can only turn LLAP off.
-
 * Azure Data Lake Storage Gen2 can't save Juypter notebooks in a Spark cluster.
 
 ## Next steps

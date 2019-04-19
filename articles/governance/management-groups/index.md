@@ -5,7 +5,7 @@ author: rthorn17
 
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
 ---
@@ -55,15 +55,14 @@ One assignment on the management group can enable users to have access to everyt
 
 Each directory is given a single top-level management group called the "Root" management group.
 This root management group is built into the hierarchy to have all management groups and
-subscriptions fold up to it. This Root management group allows for global policies and RBAC
+subscriptions fold up to it. This root management group allows for global policies and RBAC
 assignments to be applied at the directory level. The [Azure AD Global Administrator needs to elevate
-themselves](../../role-based-access-control/elevate-access-global-admin.md) to be the owner of this
-root group initially. Once the administrator is the owner of the group, they can assign any RBAC
-role to other directory users or groups to manage the hierarchy.
+themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access Administrator role of this
+root group initially. After elevating access, the administrator can assign any RBAC role to other directory users or groups to manage the hierarchy. As administrator, you can assign your own account as owner of the root management group.
 
 ### Important facts about the Root management group
 
-- The root management group's name and ID are given by default. The display name can be updated at any time to show different within the Azure portal.
+- The root management group's name and ID are given by default. The display name can be updated at any time to show different within the Azure portal. To [change the name](manage.md#change-the-name-of-a-management-group), your account must be assigned the Owner or Contributor role on the root management group.
   - The name will be "Tenant root group".
   - The ID will be the Azure Active Directory ID.
 - The root management group can't be moved or deleted, unlike other management groups.  
@@ -92,7 +91,7 @@ resources within that Azure AD Tenant.
 
 ## Trouble seeing all subscriptions
 
-A few directories that started using management groups early in the preview before June 25 2018 could see an issue where all the subscriptions aren't within the hierarchy.  The processes to have all subscriptions in the hierarchy was put in place after a role or policy assignment was done on the root management group in the directory.
+A few directories that started using management groups early in the preview before June 25 2018 could see an issue where not all the subscriptions were within the hierarchy. The process to have all subscriptions in the hierarchy was put in place after a role or policy assignment was done on the root management group in the directory. 
 
 ### How to resolve the issue
 
