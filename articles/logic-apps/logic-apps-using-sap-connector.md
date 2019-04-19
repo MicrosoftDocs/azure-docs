@@ -535,7 +535,7 @@ Before you start, ensure the following [Prerequisites](#pre-reqs) are taken care
 
 To enable SNC for your requests to or from SAP system select the **Use SNC** checkbox in SAP connection and provide these properties:
 
-   ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sap-snc.png) 
+   ![Configure SAP SNC in connection](media/logic-apps-using-sap-connector/configure-sapsnc.png) 
 
    | Property   | Description |
    |------------| ------------|
