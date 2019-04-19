@@ -80,7 +80,7 @@ You can choose between a few different methods to connect to your Interactive Qu
 * [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
 * spark-submit
-* [Zeppelin](spark/apache-spark-zeppelin-notebook.md)
+* [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
 * [Livy](../spark/apache-spark-livy-rest-interface.md)
 
 All examples provided in this article will be executed through spark-shell.
