@@ -305,8 +305,8 @@
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
       maintainContext: true
-  - name: Changes to cluster configuration access
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    - name: Migrate to granular role-based access for cluster configurations
+      href: ../hdinsight-migrate-granular-access-cluster-configurations.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum
