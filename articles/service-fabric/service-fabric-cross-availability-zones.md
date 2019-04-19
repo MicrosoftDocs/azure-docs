@@ -279,6 +279,7 @@ foreach($name in $nodeNames){
     Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
     Write-Host "Removed node state for node $name"
 }
+
 ```
 
 [sf-architecture]: .\media\service-fabric-availability-zones\az-architecture.png
