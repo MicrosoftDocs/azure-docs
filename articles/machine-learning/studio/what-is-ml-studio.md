@@ -112,7 +112,7 @@ For users who prefer a drag-and-drop experience, there is a visual interface (Pr
 
 Here is a quick comparison.
 
-| Azure Machine Learning Studio | Azure Machine Learning service 
+| Azure Machine Learning Studio | visual interface (preview) for Azure Machine Learning service 
 | --- | --- |
  Large number of modules | Small initial set of most popular modules |
  Train on proprietary compute target, CPU support only | Train on Azure Machine Learning compute, autoscaled CPU and GPU clusters.
