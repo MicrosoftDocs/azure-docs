@@ -10,106 +10,86 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/11/19
+ms.date: 05/02/2019
 ---
 
-# Create Dataset snapshots
+# Create Dataset snapshots (Preview)
 
-A Dataset snapshot saves the profile and an optional copy of your data at the moment the snapshot was created. This is useful when your underlying data is continuously changing. 
+Azure Machine Learning Dataset snapshots are copies of your data at that moment in time. Use them to compare your data between training runs and model production or take them regularly to monitor the evolution of your data.
 
-For example, new transaction records are being added to your sales data every day, and you have a Dataset referencing to that sales data. You can use the snapshots for the following scenarios:
-
-1.	If you want to ensure the result of your machine learning models are reproducible. You can save a copy of the data in the snapshot before training, so that you will have access to the same data rather than dealing with changing data in modeling. 
-2.	Compare the difference between the Dataset used in training and in production by taking a snapshot of your Dataset before model training and in production. This is to ensure the validity of your machine learning models in production.
-3.	To keep track of how your Dataset has been evolving over time by taking snapshots regularly.
-
-In this article, you will learn how to take a snapshot, how to access the data profile and optional data copy saved in the snapshot, and how to delete it. 
+In this article, you learn how to take a Dataset snapshot, how to access its data profile and data copy, and how to delete it with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
 ## Prerequisites
 
-You need to have an Azure subscription and a workspace to register your Dataset in order to manage the lifecycle of Dataset definitions.
+To create a snapshot, you need:
 
-Sample files used in the following examples can be downloaded from [here](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv).
+* An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-## How to create snapshots
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
 
-We will first create and register a Dataset with your workspace.
+* The Azure Machine Learning SDK for Python (version 1.0.21 or later). To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-```python
-from azureml.core import Workspace, Datastore, Dataset
+* A registered Dataset. If you do not have one, see [Create and register datasets](how-to-create-register-datasets.md).
 
-# change the configuration for workspace and Datastore
-subscription_id = 'your subscription id'
-resource_group = 'your resource group name'
-workspace_name = 'your workspace name'
-compute_target_name = 'your compute name'
-datastore_name = 'your datastore name'
+* [Optional] Download the sample data [here](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) to follow along with the examples.
 
-# get existing workspace
-workspace = Workspace(subscription_id, resource_group, workspace_name)
+## How to create Dataset snapshots
 
-# get compute target that has already been attached to the workspace
-remote_compute_target = workspace.compute_targets[compute_target_name]
+Snapshots are based on the latest definition of your Dataset. For more information about definitions, see [Update and manage dataset definitions](how-to-manage-dataset-definitions.md).
 
-# get a Datastore that has already been created in the workspace
-dstore = Datastore.get(workspace, datastore_name)
-
-# create an in-memory Dataset from Datastore
-datapath = dstore.path('data/src/crime.csv')
-dataset = Dataset.from_delimited_files(datapath)
-
-# register the Dataset with the workspace. if a Dataset with the same name already exists, retrieve it by turning `exist_ok = True`
-dataset_name = 'crime dataset'
-dataset = dataset.register(workspace = workspace, 
-                 name = dataset_name, 
-                 description = 'crime dataset for demo', 
-                 tags = {'year':'2019', 'month':'Apr'},
-                 exist_ok = True)
-```
-
-Snapshots are always created based on the latest definition of your Datasets. By default, `create_snapshot` will generate a data profile and will NOT create a data copy to save potential storage cost. By turning `create_data_snapshot = True`, your data copy will be saved into the default datastore of your workspace.
+The [`create_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?#create-snapshot-snapshot-name--compute-target-none--create-data-snapshot-false--target-datastore-none-) method not only creates a snapshot of your data, but generates a data profile as well. To not incur storage cost, this method does **not** save a copy of the data in your workspace. To save a copy of your data, set `create_data_snapshot = True`; this saves it to the default datastore of your workspace.
 
 ```python
+from azureml.core.dataset import Dataset
+from azureml.data.dataset_snapshot import DatasetSnapshot
 import datetime
 
 snapshot_name = 'snapshot_' + datetime.datetime.today().strftime('%Y%m%d%H%M%S')
 
-# asynchronous method
-# if a snapshot with the same name already exists, it will return the existing one. 
-snapshot = dataset.create_snapshot(snapshot_name=snapshot_name, compute_target=remote_compute_target, create_data_snapshot=True)
+snapshot = dataset.create_snapshot(snapshot_name = snapshot_name,
+                                   compute_target = remote_compute_target,
+                                   create_data_snapshot = True)
+```
 
-# check the snapshot created
+>[!NOTE]
+> If a snapshot with the same name already exists, the `create_snapshot()` method returns the existing one.
+
+To retrieve an existing snapshot, use [`get_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-snapshot-snapshot-name-).
+
+```Python
 dataset.get_snapshot(snapshot_name)
 ```
 
+Output:
 
+```Python
+ DatasetSnapshot(Name: snapshot_20190411165420,
+ Dataset Id: 66cd0830-2f72-41e5-b677-d2d953f54821,
+ Workspace: "your_workspace_name",
+ Dataset definition version: 1,
+ Snapshot created date: 2019-04-11 17:24:00+00:00)
+```
 
+Because the `create_snapshot()` method runs asynchronously, use the
+[`wait_for_completion()`](https://review.docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_snapshot.datasetsnapshot?view=azure-ml-py#wait-for-completion-show-output-true--status-update-frequency-10-) method prior to retrieving a newly created snapshot with `get_snapshot()`. The following code outputs the status of the snapshot creation every 10 seconds until the status is marked, "Completed".
 
-    DatasetSnapshot(Name: snapshot_20190411165420,
-    Dataset Id: 66cd0830-2f72-41e5-b677-d2d953f54821,
-    Workspace: your_workspace_name,
-    Dataset definition version: 1,
-    Snapshot created date: 2019-04-11 17:24:00+00:00)
-
-## How to access the data profile and optional data copy in a snapshot
-
-`create_snapshot()` method runs asynchronously to unblock you for other tasks. Therefore, before accessing a snapshot, you should make sure that the snapshot is generated completely. If you try to access a snapshot before generation completed, you will get an error.
-
-```python
-from azureml.core.dataset import DatasetSnapshot
-
-# get an existing Dataset snapshot
-snapshot = dataset.get_snapshot(snapshot_name=snapshot_name)
-
-# make sure the snapshot generation is completed.
+```Python
 snapshot.wait_for_completion(show_output=True, status_update_frequency=10)
 ```
 
-    Action status: Running
-    Action status: Running
-    Action status: Completed
+Output:
 
-Every snapshot includes a Data profile, which is the statistics summary of your Dataset, and an optional copy of your data. You can use the data profiles saved in snapshots for comparison between training and production data. If you saved a copy of data in the snapshot, you can access it by converting it to pandas DataFrame.
+```Python
+Action status: Running
+Action status: Running
+Action status: Completed
+```
+
+## How to access the data profile and optional data copy of a snapshot
+
+Every snapshot generates a profile of the dataset, which includes summary statistics, and a copy of your data.
+
+Use [`get_profile()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-profile-arguments-none--generate-if-not-exist-true--workspace-none--compute-target-none-) to access the profile of your data. Save this profile to compare training and production data.
 
 ```python
 snapshot.get_profile()
@@ -140,9 +120,11 @@ Latitude|FieldType.DECIMAL|41.6928|41.9032|10.0|7.0|3.0|0.7|0.0|0.0|41.6928|41.6
 Longitude|FieldType.DECIMAL|-87.6764|-87.6043|10.0|7.0|3.0|0.7|0.0|0.0|-87.6764|-87.6764|-87.6764|-87.6734|-87.6645|-87.6194|-87.6043|-87.6043|-87.6043|-87.6484|0.0386264|0.001492|0.344429|-2.33333
 Location|FieldType.STRING||(41.903206037, -87.676361925)|10.0|0.0|10.0|0.0|0.0|7.0||||||||||||||
 
+Access a saved copy of your data in the snapshot by converting it to a pandas DataFrame with [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#to-pandas-dataframe--).
+
 ```python
 # this method will fail if you did not save a data copy while creating the snapshot
-snapshot.to_pandas_dataframe().head()
+snapshot.to_pandas_dataframe().head(5)
 ```
 
 ||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location
@@ -155,16 +137,19 @@ snapshot.to_pandas_dataframe().head()
 
 ## How to delete snapshots
 
-Saving a data copy in the snapshot will incur storage cost, and you may want to delete the snapshot when it’s no longer in use.
+Saving a copy of the snapshot will incur storage costs, so you may want to delete the snapshot when it’s no longer in use. To do so, use [`delete_snapshot()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#delete-snapshot-snapshot-name-).
 
 ```python
 # delete the snapshot by name
 dataset.delete_snapshot(snapshot_name)
+```
 
-# double check to ensure the snapshot is successfully deleted
+To get a list of your saved snapshots of a particular Dataset, use [`get_all_snapshots()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#get-all-snapshots--). You can also use this to ensure the successful deletion of a particular snapshot.
+
+```Python
 dataset.get_all_snapshots()
 ```
 
 ## Next steps
 
-* See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example
+* See the automated machine learning [tutorial](tutorial-auto-train-models.md) for a regression model example.
