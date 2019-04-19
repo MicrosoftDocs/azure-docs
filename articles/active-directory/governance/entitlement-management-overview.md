@@ -144,7 +144,7 @@ The following table lists the permissions for each of these roles.
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Create a new access package in the **Default Catalog**](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
 | [Create a new access package in a catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [Add/remove resource roles to/from an access package](entitlement-management-access-package-edit.md#add-resource-roles) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Add/remove resource roles to/from an access package](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Directly assign a user to an access package](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 | [View who has an assignment to an access package](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |

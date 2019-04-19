@@ -34,9 +34,10 @@ This article describes how to edit and manage existing access packages.
 
 ## Add a group resource role
 
-You can assign a user membership or ownership of a group as part of a user being assigned an access package. Any Office 365 group or Azure AD security group can be added. Here are some considerations when selecting groups:
+You can add users to a group when they are assigned an access package. You can use any Office 365 group or Azure AD security group. Here are some considerations when selecting a group:
 
-- When a group is part of an access package, then a user who is assigned that access package is added to that group, if not already present. When a user's access package assignment expires, if they do not have another access package that includes that group, they will be removed from the group.
+- When a group is part of an access package, then a user who is assigned that access package is added to that group, if not already present.
+- When a user's access package assignment expires, they will be removed from the group, unless they they have access to another access package that includes that group.
 - When a user is added to a group, they can see all the other members of that group.
 - Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
 - The membership of dynamic groups cannot be updated using entitlement management.
@@ -69,9 +70,10 @@ You can assign a user membership or ownership of a group as part of a user being
 
 ## Add an application resource role
 
-You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD. For applications that integrate with Azure AD through federated single sign on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting applications:
+You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD, when they are assigned an access package. For applications that integrate with Azure AD through federated single sign on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting an application:
 
-- When an application's role is part of an access package, then a user who is assigned that access package is added to that application role, if not already present. When a user's access package assignment expires, if they do not have another access package that includes that application, they will be removed from the application.
+- When an application's role is part of an access package, then a user who is assigned that access package is added to that application role, if not already present.
+- When a user's access package assignment expires, their access will be removed from the application, unless they have access to another access package that includes that application.
 - Applications can have multiple roles, as well as groups assigned to roles.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
@@ -100,7 +102,7 @@ You can assign users access to an Azure AD enterprise application, including bot
 
 ## Add an SharePoint site resource role
 
-You can assign users access to a SharePoint Online site or SharePoint Online site collection.
+You can assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
