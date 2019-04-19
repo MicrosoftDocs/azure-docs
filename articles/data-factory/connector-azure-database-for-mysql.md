@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 04/19/2019
 ms.author: jingwang
 
 ---
@@ -140,6 +140,7 @@ To copy data from Azure Database for MySQL, set the source type in the copy acti
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **AzureMySqlSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM MyTable"`. | No (if "tableName" in dataset is specified) |
+| queryCommandTimeout | The wait time before the query request times out. Default is 120 minutes (02:00:00) | No |
 
 **Example:**
 
