@@ -225,6 +225,8 @@
       href: move-support-resources.md
     - name: Tag support
       href: tag-support.md
+  - name: Resource providers by service
+    href: resource-providers-to-azure-services.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
