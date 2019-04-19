@@ -49,7 +49,7 @@ $keyVault = New-AzKeyVault -Name <key-vault> `
 
 Next, configure the access policy for the key vault so that the storage account has permissions to access it. In this step, you'll use the managed identity that you previously assigned to the storage account.
 
-To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Remember to replace the placeholder values in brackets with your own values.
+To set the access policy for the key vault, call [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy `
@@ -60,7 +60,7 @@ Set-AzKeyVaultAccessPolicy `
 
 ## Create a new key
 
-Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Remember to replace the placeholder values in brackets with your own values.
+Next, create a new key in the key vault. To create a new key, call [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey). Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
 
 ```powershell
 $key = Add-AzKeyVaultKey -VaultName $keyVault.VaultName -Name <key> -Destination 'Software'
@@ -81,20 +81,9 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## Update key version
+## Update the key version
 
-When you create a new version of a key, you'll need to update the storage account to use the new version. Call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key, then update the storage account's encryption settings to use the new version of the key.
-
-```powershell
-$key = Get-AzKeyVaultKey -VaultName $keyVault.VaultName `
-    -KeyName $key.Name
-Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
-    -AccountName $storageAccount.StorageAccountName `
-    -KeyvaultEncryption `
-    -KeyName $key.Name `
-    -KeyVersion $key.Version `
-    -KeyVaultUri $keyVault.VaultUri
-```
+When you create a new version of a key, you'll need to update the storage account to use the new version. First, call [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) to get the latest version of the key. Then call [Set-AzStorageAccount](/powershell/module/az.keyvault/set-azstorageaccount) to update the storage account's encryption settings to use the new version of the key, as shown in the previous section.
 
 ## Next steps
 

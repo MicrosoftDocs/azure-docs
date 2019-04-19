@@ -56,7 +56,11 @@ Next, configure the access policy for the key vault so that the storage account 
 To set the access policy for the key vault, call [az keyvault set-policy](/cli/azure/keyvault#az-keyvault-set-policy). Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
-storage_account_principal=$(az storage account show -n <storage-account> -g <resource-group> --query identity.principalId -o tsv)
+storage_account_principal=$(az storage account show \
+    -name <storage-account> \
+    --resource-group <resource-group> \
+    --query identity.principalId \
+    --output tsv)
 az keyvault set-policy \
     --name <key-vault> \
     --resource-group <resource_group>
@@ -81,8 +85,16 @@ By default, Azure Storage encryption uses Microsoft-managed keys. Configure your
 To update the storage account's encryption settings, call [az storage account update](/cli/azure/storage/account#az-storage-account-update). This example also queries for the key vault URI and key version, both of which values are needed to associate the key with the storage account. Remember to replace the placeholder values in brackets with your own values.
 
 ```azurecli-interactive
-key_vault_uri=$(az keyvault show -n <key-vault> -g <resource_group> --query properties.vaultUri -o tsv)
-key_version=$(az keyvault key list-versions -n <key> --vault-name <key-vault> --query [].kid -o tsv | cut -d '/' -f 6)
+key_vault_uri=$(az keyvault show \
+    --name <key-vault> \
+    --resource-group <resource_group> \
+    --query properties.vaultUri \
+    --output tsv)
+key_version=$(az keyvault key list-versions \
+    --name <key> \
+    --vault-name <key-vault> \
+    --query [].kid \
+    --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \
     --resource-group <resource_group> \
@@ -92,20 +104,9 @@ az storage account update
     --encryption-key-vault $key_vault_uri
 ```
 
-## Update key version
+## Update the key version
 
-When you create a new version of a key, you'll need to update the storage account to use the new version. Query for the key version using [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions), then update the storage account's encryption settings to use the new version of the key. Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
-
-```azurecli-interactive
-key_version=$(az keyvault key list-versions -n <key> --vault-name <key-vault> --query [].kid -o tsv | cut -d '/' -f 6)
-az storage account update 
-    --name <storage-account> \
-    --resource-group <resource_group> \
-    --encryption-key-name <key> \
-    --encryption-key-version $key_version \
-    --encryption-key-source Microsoft.Keyvault \
-    --encryption-key-vault $key_vault_uri
-```
+When you create a new version of a key, you'll need to update the storage account to use the new version. First, query for the key vault URI by calling [az keyvault show](/cli/azure/keyvault#az-keyvault-show), and for the key version by calling [az keyvault key list-versions](/cli/azure/keyvault/key#az-keyvault-key-list-versions). Then call [az storage account update](/cli/azure/storage/account#az-storage-account-update) to update the storage account's encryption settings to use the new version of the key, as shown in the previous section.
 
 ## Next steps
 

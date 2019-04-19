@@ -57,13 +57,7 @@ To specify a key from a key vault, first make sure that you have a key vault tha
 
    ![Screenshot showing customer-managed key option](./media/storage-encryption-keys-portal/ssecmk3.png)
 
-4. If the storage account does not have access to the key vault, you can run the Azure PowerShell command shown in the following image to grant access.
-
-    ![Screenshot showing access denied for key vault](./media/storage-encryption-keys-portal/ssecmk4.png)
-
-You can also grant access via the Azure portal by navigating to the Azure Key Vault in the Azure portal and granting access to the storage account. Be sure to replace the placeholder values shown in angle brackets with your own values:
-
-## Update key version
+## Update the key version
 
 When you create a new version of a key, you'll need to update the storage account to use the new version. Follow these steps:
 
