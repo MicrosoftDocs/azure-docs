@@ -44,6 +44,10 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * LinkedIn Sales Navigator supports **SP and IDP** initiated SSO
 
+* LinkedIn Sales Navigator supports **Just In Time** user provisioning
+
+* LinkedIn Sales Navigator supports [**Automated** user provisioning](linkedinsalesnavigator-provisioning-tutorial.md)
+
 ## Adding LinkedIn Sales Navigator from the gallery
 
 To configure the integration of LinkedIn Sales Navigator into Azure AD, you need to add LinkedIn Sales Navigator from the gallery to your list of managed SaaS apps.
