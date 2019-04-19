@@ -73,7 +73,7 @@ A container's indexing policy can be updated at any time [by using the Azure por
 > [!NOTE]
 > While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
-If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be cancelled by setting the indexing policy's mode to None (which will immediately drop the index).
+If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be canceled by setting the indexing policy's mode to None (which will immediately drop the index).
 
 ## Indexing policies and TTL
 
