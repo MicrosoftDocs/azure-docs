@@ -42,19 +42,7 @@ Public preview release (Azure Data Box 1.8 onwards)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
 - [2015-07-08](/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](/rest/api/storageservices/version-2015-04-05)
-
-## Supported SDK versions
-
-|     Client library     |     Data Box Blob storage supported version     |     Link             |     Endpoint specification         |
-|------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
-|    .NET                |    From 6.2.0 to 9.2.0.                         |    Nuget package:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>GitHub release:   https://github.com/Azure/azure-storage-net/releases                                                                      |    app.config file                 |
-|    Java                |    From 4.1.0 to 7.0.0                          |    Maven package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases                                                      |    Connection string setup         |
-|    Node.js             |    From 1.1.0 to 2.8.3                          |    NPM link:   https://www.npmjs.com/package/azure-storage   (For example: run "npm install azure-storage@2.7.0")   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases                            |    Service instance declaration    |
-|    C++                 |    From 2.4.0 to 5.2.0                          |    Nuget package:   https://www.nuget.org/packages/wastorage.v140/   <br>GitHub release:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Connection string setup         |
-|    PHP                 |    From 0.15.0 to 1.2.0                         |    GitHub release:   https://github.com/Azure/azure-storage-php/releases   <br>Install via Composer (see details below)                                                                                                   |    Connection string setup         |
-|    Python              |    From 0.30.0 to 1.1.0                         |    GitHub release:   https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    Service instance declaration    |
-|    Ruby                |    From 0.12.1 to 1.0.1                         |    RubyGems package:<br>Common:   https://rubygems.org/gems/azure-storage-common/   <br>Blob: https://rubygems.org/gems/azure-storage-blob/      <br>GitHub release:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
-
+                                |
 ## Supported Azure client libraries
 
 For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API, see the [supported versions for Azure Data Box 1.8 onwards](#supported-api-versions). For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
@@ -67,7 +55,7 @@ For Data Box Blob storage, there are specific client libraries and specific endp
 |    Java                |    7.0.0                                           |    Maven package:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Connection string setup         |
 |    Node.js             |    2.8.3                                           |    NPM link:   https://www.npmjs.com/package/azure-storage   (Run: `npm install azure-storage@2.7.0`)   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Service instance declaration    |
 |    C++                 |    5.2.0                                           |    Nuget package:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>GitHub release:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Connection string setup         |
-|    PHP                 |    1.2.0                                           |    GitHub release:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Install via Composer (To learn more, See   the details below.)                                                                                                             |    Connection string setup         |
+|    PHP                 |    1.2.0                                           |    GitHub release:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Install via Composer (To learn more, See   the details below.)                                                                                                             |    Connection string setup         |
 |    Python              |    1.1.0                                           |    GitHub release:<br>Common:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Service instance declaration    |
 |    Ruby                |    1.0.1                                           |    RubyGems package:<br>Common:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>GitHub release:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Connection string setup         |
 
@@ -81,7 +69,7 @@ To install via Composer: (take blob as example).
     ```
     {
     "require": {
-    "Microsoft/azure-storage-blob":"1.0.0"
+    "Microsoft/azure-storage-blob":"1.2.0"
     }
     ```
 
