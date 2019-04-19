@@ -1,7 +1,7 @@
 ---
-title: Create IPv6 virtual network endpoints using Azure PowerShell
+title: Deploy an IPv6 dual stack application in Azure virtual network - PowerShell
 titlesuffix: Azure Virtual Network
-description: This article shows how to create IPv6 endpoints using Powershell in Azure Virtual Network.
+description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure Powershell.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,7 +15,7 @@ ms.date: 04/19/2019
 ms.author: kumud
 ---
 
-# Deploy a dual stack (IPv4 + IPv6) application in Azure - PowerShell (Preview)
+# Deploy an IPv6 dual stack application in Azure - PowerShell (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network and subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, network security group, and public IPs.
 
@@ -331,12 +331,22 @@ The following figure shows a sample output that lists the private IPv4 and IPv6 
 
 ![IP summary of dual stack (IPv4/IPv6) application deployment in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-application-IP-summary.png)
 
+## View IPv6 dual stack virtual network in Azure portal
+You can view the IPv6 dual stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter *dsVnet*.
+2. When **myVirtualNetwork** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+
+  ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+
+> [!NOTE]
+> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
+
 ## Clean up resources
 
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, VM, and all related resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name DsResourceGroup01
+Remove-AzResourceGroup -Name dsRG1
 ```
 
 ## Next steps

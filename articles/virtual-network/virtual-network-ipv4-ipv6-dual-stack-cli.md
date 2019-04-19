@@ -1,7 +1,7 @@
 ---
-title: Create IPv6 virtual network endpoints using Azure CLI
+title: Deploy an IPv6 dual stack application in Azure virtual network - CLI
 titlesuffix: Azure Virtual Network
-description: This article shows how to create IPv6 endpoints using Azure CLI in Azure virtual network.
+description: This article shows how deploy an IPv6 dual stack application in Azure virtual network using Azure CLI
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -15,7 +15,7 @@ ms.date: 04/16/2019
 ms.author: kumud
 ---
 
-# Deploy a dual stack (IPv4 + IPv6) application in Azure virtual network - CLI (Preview)
+# Deploy an IPv6 dual stack application in Azure virtual network - CLI (Preview)
 
 This article shows you how to deploy a dual stack (IPv4 + IPv6) application in Azure that includes a dual stack virtual network with a dual stack subnet, a load balancer with dual (IPv4 + IPv6) front-end configurations, VMs with NICs that have a dual IP configuration, dual network security group rules, and dual public IPs.
 
@@ -359,8 +359,16 @@ az vm create \
 --image MicrosoftWindowsServer:WindowsServer:2016-Datacenter:latest 
 ```
 
-## Determine IP addresses of the IPv4 and IPv6 endpoints
-Get all Network Interface Objects in the resource group to summarize the IPs used in this deployment. 
+## View IPv6 dual stack virtual network in Azure portal
+You can view the IPv6 dual stack virtual network in Azure portal as follows:
+1. In the portal's search bar, enter *dsVnet*.
+2. When **myVirtualNetwork** appears in the search results, select it. This launches the **Overview** page of the dual stack virtual network named *dsVnet*. The dual stack virtual network shows the two NICs with both IPv4 and IPv6 configurations located in the dual stack subnet named *dsSubnet*.
+
+  ![IPv6 dual stack virtual network in Azure](./media/virtual-network-ipv4-ipv6-dual-stack-powershell/dual-stack-vnet.png)
+
+> [!NOTE]
+> The IPv6 for Azure virtual network is available in the Azure portal in read-only for this preview release.
+
 
 ## Clean up resources
 
