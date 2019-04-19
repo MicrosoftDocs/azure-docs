@@ -93,7 +93,8 @@ These items should be treated as sensitive data and specified in the extensions 
 }
 ```
 
-**Note** - Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
+> [!NOTE]
+> Only one version of an extension can be installed on a VM at a point in time, specifying custom script twice in the same Resource Manager template for the same VM will fail.
 
 ### Property values
 
@@ -152,15 +153,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 ## Additional examples
 
 ### Using multiple scripts
-<<<<<<< HEAD
 
 In this example, you have three scripts that are used to build your server. The **commandToExecute** calls the first script, then you have options on how the others are called. For example, you can have a master script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine for running. For example in `1_Add_Tools.ps1` you would call `2_Add_Features.ps1` by adding  `.\2_Add_Features.ps1` to the script, and repeat this process for the other scripts you define in `$settings`.
 
-=======
-
-In this example, you have three scripts that are used to build your server. The **commandToExecute** calls the first script, then you have options on how the others are called. For example, you can have a master script that controls the execution, with the right error handling, logging, and state management. The scripts are downloaded to the local machine for running. For example in `1_Add_Tools.ps1` you would call `2_Add_Features.ps1` by adding  `.\2_Add_Features.ps1` to the script, and repeat this process for the other scripts you define in `$settings`.
-
->>>>>>> bacd1d82144b0f4a3a33c47fecccf02d0e1ae51a
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
 "https://xxxxxxx.blob.core.windows.net/buildServer1/2_Add_Features.ps1",
