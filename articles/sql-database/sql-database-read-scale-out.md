@@ -85,7 +85,7 @@ You can disable and re-enable Read Scale-Out on single databases and elastic poo
 > [!NOTE]
 > The ability to disable Read Scale-Out is provided for backward compatibility.
 
-### Azure Portal
+### Azure portal
 
 You can manage the Read Sacle-out setting on the **Configure** database blade. 
 
