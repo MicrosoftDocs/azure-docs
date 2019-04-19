@@ -235,7 +235,7 @@
       href: luis-interactive-test.md
     - name: Batch testing
       href: luis-how-to-batch-test.md
-      displayName: import
+      displayName: import, export
   - name: Publish
     href: luis-how-to-publish-app.md
   - name: Manage app
@@ -261,7 +261,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
-      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, export to container
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
