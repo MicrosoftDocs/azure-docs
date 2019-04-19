@@ -28,7 +28,7 @@ This article lists common troubleshooting question.
 | Issue                                                        | Resolution                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio object explorer is missing AAD users           | This is a known issue.  As a workaround, view the users in [sys.database_principals][sys.database_principals].  See [Authentication to Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] to learn more about using Azure Active Directory with SQL Data Warehouse. |
-| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, hung, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
+| Manual scripting, using the scripting wizard, or connecting via SSMS is slow, not responding, or producing errors | Ensure that users have been created in the master database. In scripting options, also make sure that the engine edition is set as “Microsoft Azure SQL Data Warehouse Edition” and engine type is “Microsoft Azure SQL Database”. |
 | Generate scripts fails in SSMS                             | Generating a script for SQL data warehouse fails if the option "Generate script for dependent objects" option is set to "True." As a workaround, users must manually go to Tools -> Options ->SQL Server Object Explorer -> Generate script for dependent options and set to false |
 
 ## Performance
