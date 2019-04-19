@@ -35,23 +35,33 @@ Event Grid uses [event subscriptions](../../event-grid/concepts.md#event-subscri
 
 ![Event Grid Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
-## List of the events
+## List of events
 
- The following events are available to all storage accounts.  
+These events are triggered when a user, application, or service uses any of the following:
 
- |Event Name|Description|
+* Blob or Azure Data Lake Storage Gen2 REST APIs.
+* Tools that implement Blob or Azure Data Lake Storage Gen2 REST APIs.
+
+ |Event name |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. |
 
-## List of the events for Azure Data Lake Gen 2
+> [!NOTE]
+> If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event so that subscribers receive an event notification only in response to the `CopyBlob`, `PutBlob`, `PutBlockList`, and `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
 
-These events are available in public preview to storage accounts that have a hierarchical namespace..
+## List of the events for Azure Data Lake Gen 2 REST APIs
+
+These events are triggered only if you enable a hierarchical namespace on the storage account. These events are triggered when a user, application, or service uses any of the following:
+
+* Azure Data Lake Gen2 REST APIs.
+* Tools that implement Azure Data Lake Storage Gen2 REST APIs.
+  For example, the Azure Blob Filesystem driver in a Hadoop ecosystem implements Azure Data Lake Storage Gen2 REST APIs.
 
 > [!NOTE]
-> These events are available only the **West US 2** and **West Central US** regions.
+> These events are in public preview and they are available only the **West US 2** and **West Central US** regions.
 
- |Event Name|Description|
+ |Event name|Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobRenamed**|Triggered when a blob is renamed. |
  |**Microsoft.Storage.DirectoryCreated**|Triggered when a directory is created. |

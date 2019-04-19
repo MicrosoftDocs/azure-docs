@@ -18,19 +18,29 @@ For a list of sample scripts and tutorials, see [Storage event source](event-sou
 
 ## List of events
 
- The following events are available to all storage accounts.  
+These events are triggered when a user, application, or service uses any of the following:
+
+* Blob or Azure Data Lake Storage Gen2 REST APIs.
+* Tools that implement Blob or Azure Data Lake Storage Gen2 REST APIs.
 
  |Event name |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Triggered when a blob is created or replaced. |
  |**Microsoft.Storage.BlobDeleted** |Triggered when a blob is deleted. |
 
-## List of the events for Azure Data Lake Gen 2
+> [!NOTE]
+> If you want to ensure that the **Microsoft.Storage.BlobCreated** event is triggered only when a Block Blob is completely committed, filter the event so that subscribers receive an event notification only in response to the `CopyBlob`, `PutBlob`, `PutBlockList`, and `FlushWithClose` REST API calls. These API calls trigger the **Microsoft.Storage.BlobCreated** event only after data is fully committed to a Block Blob. To learn how to create a filter, see [Filter events for Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/how-to-filter-events).
 
-These events are available in public preview to storage accounts that have a hierarchical namespace.
+## List of the events for Azure Data Lake Gen 2 REST APIs
+
+These events are triggered only if you enable a hierarchical namespace on the storage account. These events are triggered when a user, application, or service uses any of the following:
+
+* Azure Data Lake Gen2 REST APIs.
+* Tools that implement Azure Data Lake Storage Gen2 REST APIs.
+  For example, the Azure Blob Filesystem driver in a Hadoop ecosystem implements Azure Data Lake Storage Gen2 REST APIs.
 
 > [!NOTE]
-> These events are available only the **West US 2** and **West Central US** regions.
+> These events are in public preview and they are available only the **West US 2** and **West Central US** regions.
 
  |Event name|Description|
  |----------|-----------|
@@ -64,7 +74,7 @@ This section contains an example of what that data would look like for each blob
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
-    "url": "https://example.blob.core.windows.net/testcontainer/new-file.txt",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/new-file.txt",
     "sequencer": "00000000000004420000000000028963",
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
@@ -81,17 +91,17 @@ If the blob storage account has a hierarchical namespace, the data looks similar
 
 * The `dataVersion` key is set to a value of `2`.
 
-* The `data.api` key is set to the string `CreateFile`.
+* The `data.api` key is set to the string `CreateFile` or `FlushWithClose`.
 
 * The `contentOffset` key is included in the data set.
 
 > [!NOTE]
-> If applications use the `PutBlockList` operation to upload a new blob to the account, the data won't contain these changes.  
+> If applications use the `PutBlockList` operation to upload a new blob to the account, the data won't contain these changes.
 
 ```json
 [{
   "topic": "/subscriptions/{subscription-id}/resourceGroups/Storage/providers/Microsoft.Storage/storageAccounts/my-storage-account",
-  "subject": "/blobServices/default/containers/my-storage-account/blobs/new-file.txt",
+  "subject": "/blobServices/default/containers/my-file-system/blobs/new-file.txt",
   "eventType": "Microsoft.Storage.BlobCreated",
   "eventTime": "2017-06-26T18:41:00.9584103Z",
   "id": "831e1650-001e-001b-66ab-eeb76e069631",
@@ -104,7 +114,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "contentLength": 0,
     "contentOffset": 0,
     "blobType": "BlockBlob",
-    "url": "https://my-storage-account.dfs.core.windows.net/my-storage-account/new-file.txt",
+    "url": "https://my-storage-account.dfs.core.windows.net/my-file-system/new-file.txt",
     "sequencer": "00000000000004420000000000028963",  
     "storageDiagnostics": {
     "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
@@ -129,7 +139,7 @@ If the blob storage account has a hierarchical namespace, the data looks similar
     "requestId": "4c2359fe-001e-00ba-0e04-585868000000",
     "contentType": "text/plain",
     "blobType": "BlockBlob",
-    "url": "https://example.blob.core.windows.net/testcontainer/file-to-delete.txt",
+    "url": "https://my-storage-account.blob.core.windows.net/testcontainer/file-to-delete.txt",
     "sequencer": "0000000000000281000000000002F5CA",
     "storageDiagnostics": {
       "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
