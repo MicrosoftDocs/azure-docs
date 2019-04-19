@@ -47,7 +47,7 @@ To complete these tasks, your account should be assigned the Virtual Machine Con
 Images of replicated machines are contained in Azure storage. Azure VMs are created from the storage when you fail over from on-premises to Azure. The storage account must be in the same region as the Recovery Services vault.
 
 1. In the [Azure portal](https://portal.azure.com) menu, select **Create a resource** > **Storage** > **Storage account - blob, file, table, queue**.
-2. In Create storage account, enter a name for the account.  The name you choose must be unique within Azure, be 3 to 24 characters long, and only use lowercase letters and numbers. For this tutorial, use *contosovmsacct1910171607*.
+2. In Create storage account, enter a name for the account.  The name you choose must be unique within Azure, be from 3 to 24 characters long, and only use lowercase letters and numbers. For this tutorial, use *contosovmsacct1910171607*.
 3. In Deployment model, select **Resource Manager**.
 4. In Account kind, choose **Storage (general-purpose v1)**. Don't choose blob storage.
 5. In Replication, select the default **Read-access geo-redundant storage** for storage redundancy. Leave the Secure transfer required setting as Disabled.
