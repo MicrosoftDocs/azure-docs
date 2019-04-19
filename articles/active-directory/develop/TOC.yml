@@ -91,6 +91,36 @@
       href: v2-app-types.md
     - name: Application scenarios
       items:
+      - name: Sign-in audience
+        href: v2-supported-account-types.md
+      - name: Web app that signs-in users
+        items:
+        - name: Overview
+          href: scenario-web-app-sign-user-overview.md
+        - name: App registration
+          href: scenario-web-app-sign-user-app-registration.md
+        - name: App's code configuration
+          href: scenario-web-app-sign-user-app-configuration.md
+        - name: Sign in and Sign out
+          href: scenario-web-app-sign-user-sign-in.md
+        - name: Move to production
+          href: scenario-web-app-sign-user-production.md
+      - name: Web app that calls Web APIs
+        items:
+        - name: Overview
+          href: scenario-web-app-call-api-overview.md
+        - name: App registration
+          href: scenario-web-app-call-api-app-registration.md
+        - name: App's code configuration
+          href: scenario-web-app-call-api-app-configuration.md
+        - name: Sign-in
+          href: scenario-web-app-call-api-sign-in.md
+        - name: Acquiring a token for the app
+          href: scenario-web-app-call-api-acquire-token.md
+        - name: Calling a Web API
+          href: scenario-web-app-call-api-call-api.md
+        - name: Move to production
+          href: scenario-web-app-call-api-production.md
       - name: Desktop app that calls Web APIs
         items:
         - name: Overview
