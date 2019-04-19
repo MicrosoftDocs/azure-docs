@@ -1,6 +1,6 @@
 ---
-title: Configure containers
-titleSuffix: Anomaly detector - Azure Cognitive Services
+title: Configure containers - Anomaly detector
+titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
 services: cognitive-services
 author: aahill
@@ -91,7 +91,7 @@ The exact syntax of the host mount location varies depending on the host operati
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](anomaly-detector-container-howto.md#stop-the-container) it.
 
-* **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a carot, `^`. Replace the back slash with the carot. 
+* **Line-continuation character**: The Docker commands in the following sections use the back slash, `\`, as a line continuation character for a bash shell. Replace or remove this based on your host operating system's requirements. For example, the line continuation character for windows is a caret, `^`. Replace the back slash with the caret. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with Docker containers.
 
 Replace {_argument_name_} with your own values:
