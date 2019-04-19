@@ -33,6 +33,8 @@ For example, assume your data looks like the following, and represents multiple 
 |4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
+|6| F.A.M.| M| NaN| |
+|7| F.A.M.| M| NaN| |
 
 Clearly, this example has multiple columns with potentially duplicate data. Whether they are actually duplicates depends on your knowledge of the data. 
 
@@ -40,7 +42,7 @@ Clearly, this example has multiple columns with potentially duplicate data. Whet
 
 + Alternatively, you might decide to allow duplicates in the ID field, and use some other combination of files to find unique records, such as first name, last name, age, and gender.  
 
-To set the criteria for whether a row is duplicate or not, you specify a single column or a set of columns to use as **keys**. Two rows are considered duplicates only when the values in **all** key columns are equal. 
+To set the criteria for whether a row is duplicate or not, you specify a single column or a set of columns to use as **keys**. Two rows are considered duplicates only when the values in **all** key columns are equal. If any row has missing value for **keys**, they will not be considered duplicate rows. For example, if Gender and Age are set as Keys in above table,  row 6 and 7 are not duplicate rows given they have missing value in Age.
 
 When you run the module, it creates a candidate dataset, and returns a set of rows that have no duplicates across the set of columns you specified.
 
