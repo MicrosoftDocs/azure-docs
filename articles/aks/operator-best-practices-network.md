@@ -97,6 +97,8 @@ spec:
 
 An ingress controller is a daemon that runs on an AKS node and watches for incoming requests. Traffic is then distributed based on the rules defined in the ingress resource. The most common ingress controller is based on [NGINX]. AKS doesn't restrict you to a specific controller, so you can use other controllers such as [Contour][contour], [HAProxy][haproxy], or [Traefik][traefik].
 
+Ingress controllers must be scheduled on a Linux node. Windows Server nodes (currently in preview in AKS) shouldn't run the ingress controller. Use a node selector in your YAML manifest or Helm chart deployment to indicate that the resource should run on a Linux-based node. For more information, see [Use node selectors to control where pods are scheduled in AKS][concepts-node-selectors].
+
 There are many scenarios for ingress, including the following how-to guides:
 
 * [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
@@ -182,3 +184,4 @@ This article focused on network connectivity and security. For more information 
 [use-network-policies]: use-network-policies.md
 [advanced-networking]: configure-azure-cni.md
 [aks-configure-kubenet-networking]: configure-kubenet.md
+[concepts-node-selectors]: concepts-clusters-workloads.md#node-selectors
