@@ -14,7 +14,7 @@ ms.author: iainfou
 
 Azure Kubernetes Service (AKS) can be configured to use Azure Active Directory (AD) for user authentication. In this configuration, you can log into an AKS cluster using an Azure AD authentication token. Cluster operators can also configure Kubernetes role-based access control (RBAC) based on a user's identity or directory group membership.
 
-This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal]. For the complete script that contains the commands shown in this article, see the [Azure AD integration script in the AKS samples repo][complete-script].
+This article shows you how to create the required Azure AD components, then deploy an Azure AD-enabled cluster and create a a basic RBAC role in the AKS cluster. You can also [complete these steps using the Azure portal][azure-ad-portal].
 
 The following limitations apply:
 
@@ -48,10 +48,10 @@ Create the server application component using the [az ad app create][az-ad-app-c
 
 ```azurecli-interactive
 # Create the Azure AD application
-serverApplicationId="$(az ad app create \
+serverApplicationId=$(az ad app create \
     --display-name "${aksname}Server" \
     --identifier-uris "https://${aksname}Server" \
-    --query appId -o tsv)"
+    --query appId -o tsv)
 
 # Update the application group memebership claims
 az ad app update --id $serverApplicationId --set groupMembershipClaims=All
@@ -97,7 +97,11 @@ az ad app permission admin-consent --id  $serverApplicationId
 The second Azure AD application is used when a user logs to the AKS cluster with the Kubernetes CLI (`kubectl`). This client application takes the authentication request from the user and verifies their credentials and permissions. Create the Azure AD app for the client component using the [az ad app create][az-ad-app-create] command:
 
 ```azurecli-interactive
-clientApplicationId="$(az ad app create --display-name "${aksname}Client" --native-app --reply-urls "https://${aksname}Client" --query appId -o tsv)"
+clientApplicationId=$(az ad app create \
+    --display-name "${aksname}Client" \
+    --native-app \
+    --reply-urls "https://${aksname}Client" \
+    --query appId -o tsv)
 ```
 
 Create a service principal for the client application using the [az ad sp create][az-ad-sp-create] command:
@@ -109,7 +113,7 @@ az ad sp create --id $clientApplicationId
 Get the oAuth2 ID for the server app to allow the authentication flow between the two app components using the [az ad app show][az-ad-app-show] command. This oAuth2 ID is used in the next step.
 
 ```azurecli-interactive
-oAuthPermissionId="$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)"
+oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Permissions[0].id" -o tsv)
 ```
 
 Add the permissions for the client application and server application components to use the oAuth2 communication flow using the [az ad app permission add][az-ad-app-permission-add] command. Then, grant permissions for the client application to communication with the server application using the [az ad app permission grant][az-ad-app-permission-grant] command:
@@ -132,17 +136,17 @@ az group create --name myResourceGroup --location EastUS
 Get the tenant ID of your Azure subscription using the [az account show][az-account-show] command. Then, create the AKS cluster using the [az aks create][az-aks-create] command. The command to create the AKS cluster provides the server and client application IDs, the server application service principal secret, and your tenant ID:
 
 ```azurecli-interactive
-tenantId="$(az account show --query tenantId -o tsv)"
+tenantId=$(az account show --query tenantId -o tsv)
 
 az aks create \
-  --resource-group myResourceGroup \
-  --name $aksname \
-  --node-count 1 \
-  --generate-ssh-keys \
-  --aad-server-app-id $serverApplicationId \
-  --aad-server-app-secret $serverApplicationSecret \
-  --aad-client-app-id $clientApplicationId \
-  --aad-tenant-id $tenantId
+    --resource-group myResourceGroup \
+    --name $aksname \
+    --node-count 1 \
+    --generate-ssh-keys \
+    --aad-server-app-id $serverApplicationId \
+    --aad-server-app-secret $serverApplicationSecret \
+    --aad-client-app-id $clientApplicationId \
+    --aad-tenant-id $tenantId
 ```
 
 Finally, get the cluster admin credentials using the [az aks get-credentials][az-aks-get-credentials] command. In one of the following steps, you get the regular *user* cluster credentials to see the Azure AD authentication flow in action.
