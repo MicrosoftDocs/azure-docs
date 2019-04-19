@@ -62,7 +62,7 @@ The following sample Ansible playbook section creates a subnet named `mySubnet` 
 
 
 [Public IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) allow Internet resources to communicate inbound to Azure resources. 
-Public IP addresses also enable Azure resources to communicate outbound to public-facing Azure services. In both scenarios, an IP address assigned to the resource being accessed. The address is dedicated to the resource until you unassign it. If a public IP address is not assigned to a resource, the resource can still communicate outbound to the Internet. The connection is made by Azure dynamically assigning an available IP address. The dynamically assigned address is not dedicated to the resource.
+Public IP addresses also enable Azure resources to communicate outbound to public-facing Azure services. In both scenarios, an IP address assigned to the resource being accessed. The address is dedicated to the resource until you unassign it. If a public IP address isn't assigned to a resource, the resource can still communicate outbound to the Internet. The connection is made by Azure dynamically assigning an available IP address. The dynamically assigned address isn't dedicated to the resource.
 
 The following sample Ansible playbook section creates a public IP address named `myPublicIP`:
 
@@ -98,7 +98,7 @@ The following playbook creates a network security group named `myNetworkSecurity
 
 A virtual network interface card connects your virtual machine to a given virtual network, public IP address, and network security group. 
 
-The following section in a sample Ansible playbook section creates a virtual network interface card named `myNIC` connected to the virtual networking resources you have created:
+The following section in a sample Ansible playbook section creates a virtual network interface card named `myNIC` connected to the virtual networking resources you've created:
 
 ```yaml
 - name: Create virtual network inteface card
