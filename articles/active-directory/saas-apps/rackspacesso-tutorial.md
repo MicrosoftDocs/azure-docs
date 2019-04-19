@@ -68,7 +68,7 @@ To configure the integration of Rackspace SSO into Azure AD, you need to add Rac
 ## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with Rackspace SSO based on a test user called **Britta Simon**.
-When using single sign-on with Rackspace, the Rackspace users will be automatically created the first time they log in to the Rackspace portal. 
+When using single sign-on with Rackspace, the Rackspace users will be automatically created the first time they sign in to the Rackspace portal. 
 
 To configure and test Azure AD single sign-on with Rackspace SSO, you need to complete the following building blocks:
 
@@ -117,7 +117,7 @@ To configure single sign-on on **Rackspace SSO** side:
 1. See the documentation at [Add an Identity Provider to the Control Panel](https://developer.rackspace.com/docs/rackspace-federation/gettingstarted/add-idp-cp/)
 1. It will lead you through the steps to:
     1. Create a new Identity Provider
-    1. Specify an email domain that users will use to identify your company when logging in.
+    1. Specify an email domain that users will use to identify your company when signing in.
     1. Upload the **Federation Metadata XML** previously downloaded from the Azure control panel.
 
 This will correctly configure the basic SSO settings needed for Azure and Rackspace to connect.
