@@ -1,7 +1,7 @@
 ---
 title: Azure IoT Central show/hide chat | Microsoft Docs
 description: As a user, learn how to show and hide chat.
-author: krishnaghantasala
+author: v-krghan
 ms.author: v-krghan
 ms.date: 04/18/2019
 ms.topic: conceptual
