@@ -103,32 +103,6 @@ public static IServiceCollection AddAzureAdV2Authentication(this IServiceCollect
 }
 ```
 
-### Intercepting the callback after sign out - Single Sign Out
-
-Your application can also intercept the after `logout` event, for instance to clear the entry of the token cache associated with the account that signed out. We'll see in the second part of this tutorial (about the Web app calling a Web API), that the web app will store access tokens for the user in a cache. Intercepting the after logout callback enables your web application to remove the user from the token cache. This mechanism is illustrated in the `AddMsal()` method of [StartupHelper.cs L137-143](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L137-L143)
-
-The Logout Url that you've registered for your application enables you to implement single sign out. Indeed, the Microsoft identity platform logout endpoint will call the Logout URL registered with your application. This call happens whether or not the sign-out was initiated from your web app, or from another web app or the browser. For more information, see [Single sign-out](https://docs.microsoft.com/azure/active-directory/develop/v2-protocols-oidc#single-sign-out) in the conceptual documentation
-
-```CSharp
-public static IServiceCollection AddMsal(this IServiceCollection services, IEnumerable<string> initialScopes)
-{
-    services.AddTokenAcquisition();
-
-    services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
-    {
-     ...
-        // Handling the sign-out: removing the account from MSAL.NET cache
-        options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
-        {
-            // Remove the account from MSAL.NET token cache
-            var _tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
-            await _tokenAcquisition.RemoveAccount(context);
-        };
-    });
-    return services;
-}
-```
-
 ## ASP.NET Code
 
 In ASP.NET, signing out is triggered from the SignOut() method on a Controller (for instance AccountController). This method isn't part of the ASP.NET framework (contrary to what happens in ASP.NET Core), and doesn't use async, and that's why it:

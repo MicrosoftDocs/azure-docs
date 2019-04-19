@@ -37,4 +37,4 @@ To learn more aspects
 Once your web app signs-in users, it can call Web APIs on behalf of the signed-in users. Calling Web APIs from our Web App is the object of the following scenario:
 
 > [!div class="nextstepaction"]
-> [Web app that calls web APIs](scenario-webapp-calls-webapi.md)
+> [Web app that calls web APIs](scenario-web-app-call-api-overview.md)
