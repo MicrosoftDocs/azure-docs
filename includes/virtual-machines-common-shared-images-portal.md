@@ -16,13 +16,13 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create an image gallery
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names can use uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Gallery names must be unique within your subscription. 
+An image gallery is the primary resource used for enabling image sharing. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes.  Gallery names must be unique within your subscription. 
 
 The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
 1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Use the type **Shared image gallery** in the search box and select **Shared image gallery (preview)** in the results.
-1. In the **Shared image gallery (preview)** page, click **Create**.
+1. Use the type **Shared image gallery** in the search box and select **Shared image gallery** in the results.
+1. In the **Shared image gallery** page, click **Create**.
 1. Select the correct subscription.
 1. In **Resource group**, select **Create new** and type *myGalleryRG* for the name.
 1. In **Name**, type *myGallery* for the name of the gallery.

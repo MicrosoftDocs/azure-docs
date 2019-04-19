@@ -20,7 +20,7 @@ Possible causes:
 
 *The gallery name is invalid.*
 
-Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Change the gallery name and try again. 
+Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Change the gallery name and try again. 
 
 *The gallery name is not unique within your subscription.*
 

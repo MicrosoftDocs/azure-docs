@@ -5,24 +5,24 @@
  author: axayjo
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 04/15/2019
+ ms.date: 04/19/2019
  ms.author: akjosh; cynthn
  ms.custom: include file
 ---
 
 Shared Image Gallery is a service that helps you build structure and organization around your custom managed VM images. Shared Image Galleries provide:
 
-* Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
-* Managed global replication of images.
-* Versioning and grouping of images for easier management.
-* Higher scaling limits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
-* Sharing across subscriptions, and even between tenants, using RBAC.
+- Highly available images using Zone Redundant Storage. Even if a data center goes down, you’ll have access to the images in that region.
+- Managed global replication of images.
+- Versioning and grouping of images for easier management.
+- Higher scaling limits. Custom images allow for 600 concurrent VMs, while Shared Image Galleries allow for 1000 concurrent VMs.
+- Sharing across subscriptions, and even between tenants, using RBAC.
 
 Using a Shared Image Gallery you can share your images to different users, service principals, or AD groups within your organization. Shared images can be replicated to multiple regions, for quicker scaling of your deployments.
 
 A managed image is a copy of either a full VM (including any attached data disks) or just the OS disk, depending on how you create the image. When you create a VM  from the image, a copy of the VHDs in the image are used to create the disks for the new VM. The managed image remains in storage and can be used over and over again to create new VMs.
 
-If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a Shared Image Gallery as a repository that makes it easy to update and share your images. 
+If you have a large number of managed images that you need to maintain and would like to make them available throughout your company, you can use a Shared Image Gallery as a repository that makes it easy to share your images. 
 
 The Shared Image Gallery feature has multiple resource types:
 
@@ -30,9 +30,8 @@ The Shared Image Gallery feature has multiple resource types:
 |----------|------------|
 | **Managed image** | A basic image that can be used alone or used to create an **image version** in an image gallery. Managed images are created from generalized VMs. A managed image is a special type of VHD that can be used to make multiple VMs and can now be used to create shared image versions. |
 | **Image gallery** | Like the Azure Marketplace, an **image gallery** is a repository for managing and sharing images, but you control who has access. |
-| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it internally. You can include information like whether the image is Windows or Linux, release notes, and minimum and maximum memory requirements. It is a definition of a type of image. |
+| **Image definition** | Images are defined within a gallery and carry information about the image and requirements for using it within your organization. You can include information like whether the image is Windows or Linux, minimum and maximum memory requirements, and release notes. It is a definition of a type of image. |
 | **Image version** | An **image version** is what you use to create a VM when using a gallery. You can have multiple versions of an image as needed for your environment. Like a managed image, when you use an **image version** to create a VM, the image version is used to create new disks for the VM. Image versions can be used multiple times. |
-
 <br>
 
 
@@ -74,13 +73,8 @@ The following are other parameters that can be set on your image definition so t
 * Privacy Statement and Release notes - store release notes and privacy statements in Azure storage and provide a URI for accessing them as part of the image definition.
 * End-of-life date - attach an end-of-life date to your image definition in order to be able to use automation to delete old image definitions.
 * Tag - you can add tags when you create your image definition. For more information about tags, see [Using tags to organize your resources](../articles/azure-resource-manager/resource-group-using-tags.md)
-* Minimum and maximum VCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
+* Minimum and maximum vCPU and memory recommendations - if your image has vCPU and memory recommendations, you can attach that information to your image definition.
 * Disallowed disk types - you can provide information about the storage needs for your VM. For example, if the image isn't suited for standard HDD disks, you add them to the disallow list.
-
-
-## RBAC
-
-Images are shared across a tenant using RBAC or between tenants using a multi-tenant app registration.
 
 
 ## Regional Support
@@ -107,9 +101,9 @@ Regional support for shared image galleries is in limited preview, but will expa
 With Managed Images, you can only have 600 concurrent VMs per image, with Shared Image Galleries, this is increased to 1000 concurrent VMs per image version.
 
 There are limits, per subscription, for deploying resources using Shared Image Galleries:
-* 10 shared image galleries, per subscription, per region
-* 200 image definitions, per subscription, per region
-* 2000 image versions, per subscription, per region
+- 10 shared image galleries, per subscription, per region
+- 200 image definitions, per subscription, per region
+- 2000 image versions, per subscription, per region
 
 For more information, see [Check resource usage against limits](https://docs.microsoft.com/en-us/azure/networking/check-usage-against-limits) for examples on how to check your current usage.
  
@@ -129,6 +123,7 @@ The regions a Shared Image version is replicated to can be updated after creatio
 
 
 ## Access
+
 As the Shared Image Gallery, Shared Image and Shared Image version are all resources, they can be shared using the built-in native Azure RBAC controls. Using RBAC you can share these resources to other users, service principals, and groups in your organization. The scope of sharing these resources is within the same Azure AD tenant. Once a user has access to the Shared Image version, they can deploy a VM or a Virtual Machine Scale Set in any of the subscriptions they have access to within the same Azure AD tenant as the Shared Image version.  Here is the sharing matrix that helps understand what the user gets access to:
 
 | Shared with User     | Shared Image Gallery | Shared Image | Shared Image version |
@@ -137,7 +132,9 @@ As the Shared Image Gallery, Shared Image and Shared Image version are all resou
 | Shared Image         | No                   | Yes          | Yes                  |
 | Shared Image version | No                   | No           | Yes                  |
 
+For more information about RBAC, see [Manage access to Azure resources using RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
+Images can also be shared across tenants using a multi-tenant app registration. For more information about sharing images across tenants, see [Share gallery VM images across Azure tenants](../articles/virtual-machines/linux/cross-tenant-image-sharing.md).
 
 ## Billing
 There is no extra charge for using the Shared Image Gallery service. You will be charged for the following resources:
@@ -146,7 +143,7 @@ There is no extra charge for using the Shared Image Gallery service. You will be
 
 ## Updating resources
 
-The details that can be updated on each of the resources are mentioned below:
+Once created, you can make some changes to the image gallery resources. These are limited to:
  
 Shared image gallery:
 - Description
@@ -221,8 +218,6 @@ You can create Shared Image Gallery resource using templates. There are several 
  A. No, we do not currently support specialized disks as images. If you have a specialized disk, you need to [create a VM from the VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) by attaching the specialized disk to a new VM. Once you have a running VM, you need to follow the instructions to create a managed image from the [Windows VM](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) or [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Once you have a generalized managed image, you can start the process to create a shared image description and image version.
 
  
-
-
 **Q.** Once created, can I move the Shared Image Gallery resource to a different subscription?
 
  A. No, you cannot move the shared image gallery resource to a different subscription. However, you will be able to replicate the image versions in the gallery to other regions as required.

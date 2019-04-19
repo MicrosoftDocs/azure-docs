@@ -30,7 +30,7 @@ $managedImage = Get-AzImage `
 
 ## Create an image gallery 
 
-An image gallery is the primary resource used for enabling image sharing. Gallery names can use uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot have dashes in it. Gallery names must be unique within your subscription. 
+An image gallery is the primary resource used for enabling image sharing. Allowed characters for Gallery name are uppercase or lowercase letters, digits, dots, and periods. The gallery name cannot contain dashes. Gallery names must be unique within your subscription. 
 
 Create an image gallery using [New-AzGallery](https://docs.microsoft.com/powershell/module/az.compute/new-azgallery). The following example creates a gallery named *myGallery* in the *myGalleryRG* resource group.
 
