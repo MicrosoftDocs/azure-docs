@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 04/15/2019
 ms.author: jeedes
 
 ---
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 To configure Azure AD integration with Rackspace SSO, you need the following items:
 
-* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
 * Rackspace SSO single sign-on enabled subscription
 
 ## Scenario description
@@ -97,12 +97,22 @@ To configure Azure AD single sign-on with Rackspace SSO, perform the following s
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. On the **Basic SAML Configuration** section, Upload the **Service Provider metadata file** which you can download from the [URL](https://login.rackspace.com/federate/sp.xml) and perform the following steps:
 
-    ![Rackspace SSO Domain and URLs single sign-on information](common/sp-signonurl.png)
+	a. Click **Upload metadata file**.
 
-    In the **Sign-on URL** text box, type a URL:
+    ![image](common/upload-metadata.png)
+
+	b. Click on **folder logo** to select the metadata file and click **Upload**.
+
+	![image](common/browse-upload-metadata.png)
+
+	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
+
+	d. In the **Sign-on URL** text box, type a URL:
     `https://login.rackspace.com/federate/`
+
+    ![Rackspace SSO Domain and URLs single sign-on information](common/sp-signonurl.png)   
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -140,7 +150,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 

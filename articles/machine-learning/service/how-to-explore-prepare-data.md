@@ -1,7 +1,7 @@
 ---
-title: Explore and prepare data
+title: Explore and prepare data (Dataset class)
 titleSuffix: Azure Machine Learning service
-description: Learn how to explore data using summary statistics and prepare data through data cleaning, transformation, and feature engineering
+description: Explore data using summary statistics and prepare data through data cleaning, transformation, and feature engineering
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,11 +10,14 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 04/11/19
+ms.date: 05/02/19
 
 ---
 
-# Explore and prepare data
+# Explore and prepare data using the Dataset class
+
+> [!Important]
+> Many Dataset classes (preview) have dependencies on the Data Prep SDK (GA). [Transformation functions](how-to-transform-data.md) can be done directly with the Data Prep SDK functions, or through the Dataset package wrappers for those functions described in this article.
 
 Historically, data preparation has been very time consuming. With Azure Machine Learning SDK, you are now able to explore Datasets easily through summary statistics and prepare your data with intelligent transformation methods powered by AI. Transformation steps are saved in Dataset definitions, with the capability to handle multiple large files of different schemas in a highly scalable manner. 
 
@@ -299,7 +302,7 @@ dataset = dataset.update_definition(ds_def, 'Derive Date_Time_Range')
 Unprepared data often represents the same entity with multiple values due to different spellings, varying capitalizations, and abbreviations. This is common when working with data gathered from multiple sources or through human input. One way to canonicalize and reconcile these variants is to use `fuzzy_group_column` (also known as "text clustering") functionality.
 
 ```python
-from azureml.dataset import Dataset
+from azureml.Dataset import Dataset
 
 # create an in-memoery Dataset from a local json file
 dataset = Dataset.auto_read_files('./data/city.json')

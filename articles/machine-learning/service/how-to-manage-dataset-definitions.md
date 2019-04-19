@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
-ms.date: 04/10/19
+ms.date: 05/02/19
 ---
 
 # Update and manage the lifecycle of Dataset definitions

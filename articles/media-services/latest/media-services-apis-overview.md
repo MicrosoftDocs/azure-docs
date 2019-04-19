@@ -36,7 +36,7 @@ If you are not sure whether you have permissions to create an Azure AD applicati
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 
-![Middle-tier apps](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Middle-tier apps](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. A middle-tier app requests an Azure AD access token that has the following parameters:  
 
