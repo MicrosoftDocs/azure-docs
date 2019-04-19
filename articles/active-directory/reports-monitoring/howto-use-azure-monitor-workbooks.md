@@ -22,11 +22,11 @@ ms.reviewer: dhanyahk
 
 Do you want to:
 
-- Know who is using legacy authentications to sign on to your environment? By blocking legacy authentication, you can improve your tenant's protection.
-
-- Understand how the conditional access policies you set impact your users' sign in experience?
+- Understand the impact of your [conditional access policies](../conditional-access/overview.md) on your users' sign in experience?
 
 - Troubleshoot sign-in failures to get a better view of your organization sign-in health as well as resolve issues quickly?
+
+- Know who is using legacy authentications to sign on to your environment? By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.
 
 
 [Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides you with workbooks for monitoring that help you to find answers to the questions above.
