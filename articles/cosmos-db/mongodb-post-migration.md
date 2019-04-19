@@ -5,7 +5,7 @@ author: roaror
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 04/18/2019
 ms.author: roaror
 
 ---
@@ -15,7 +15,7 @@ ms.author: roaror
 After you migrate the data stored in MongoDB database to Azure Cosmos DB’s API for MongoDB, you can connect to Azure Cosmos DB and manage the data. This guide provides the steps you should consider after the migration. See the [Migrate MongoDB to Azure Cosmos DB’s API for MongoDB tutorial](../dms/tutorial-mongodb-cosmos-db.md) for the migration steps.
 
 In this guide, you will learn how to:
-- [Connect your application to your Azure Cosmos DB’s API for MongoDB account](#connect-account)
+- [Connect your application](#connect-account)
 - [Optimize the indexing policy](#indexing)
 - [Configure global distribution for Azure Cosmos DB's API for MongoDB](#distribute-data)
 - [Set consistency level](#consistency)
@@ -24,7 +24,7 @@ In this guide, you will learn how to:
 > The only mandatory post-migration step on your application level is changing the connection string in your application to point to your new Azure Cosmos DB account. All other migration steps are recommended optimizations.
 >
 
-## <a id="connect-account"></a>Connect your application to Azure Cosmos DB’s API for MongoDB 
+## <a id="connect-account"></a>Connect your application 
 
 1. In a new window sign into the [Azure portal](https://www.portal.azure.com/)
 2. From the [Azure portal](https://www.portal.azure.com/), in the left pane open the **All resources** menu and find  the Azure Cosmos DB account to which you have migrated your data.
@@ -54,7 +54,7 @@ Azure Cosmos DB offers 5 well-defined [consistency levels](consistency-levels.md
 
 Most users leave their consistency level at the default session consistency setting. However, there are [availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md). 
 
-## Next Steps:
+## Next steps
 
 * [Connect a MongoDB application to Azure Cosmos DB](connect-mongodb-account.md)
 * [Connect to Azure Cosmos DB account using Studio 3T](mongodb-mongochef.md)
