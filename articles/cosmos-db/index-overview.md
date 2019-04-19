@@ -73,7 +73,7 @@ The **spatial** index kind is used for:
 - geospatial distance queries: `SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40`
 - geospatial within queries: `SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })`
 
-Spatial indexes can be used on correctly formatted [GeoJSON](https://tools.ietf.org/html/rfc7946) objects. Points, LineStrings and Polygons are currently supported.
+Spatial indexes can be used on correctly formatted [GeoJSON](geospatial.md) objects. Points, LineStrings and Polygons are currently supported.
 
 ## Querying with indexes
 
@@ -83,16 +83,8 @@ For example, consider the following query: `SELECT location FROM location IN com
 
 ![Matching a specific path within a tree](./media/index-overview/matching-path.png)
 
-### What happens when no index is defined for a path
-
-If a query predicate targets a path, where no corresponding index is defined, for example:
-
-- a range query targeting a path where no range index is defined, or
-- a geospatial query targeting a path, where no spatial index is defined,
-
-and no other index can be used by the query, an error is returned. It is possible to force the query to execute despite the absence of a suitable index by using the `x-ms-documentdb-enable-scan` header in the REST API or the `EnableScanInQuery` request option exposed by the SDKs.
-
-An `ORDER BY` clause *always* needs a range index and cannot be forced, if the path it references doesn't have one.
+> [!NOTE]
+> An `ORDER BY` clause *always* needs a range index and will fail if the path it references doesn't have one.
 
 ## Next steps
 

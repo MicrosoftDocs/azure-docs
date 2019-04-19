@@ -68,9 +68,10 @@ See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) fo
 
 ## Modifying the indexing policy
 
-A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container.
+A container's indexing policy can be updated at any time [by using the Azure portal or one of the supported SDKs](how-to-manage-indexing-policy.md). An update to the indexing policy triggers a transformation from the old index to the new one, which is performed online and in place (so no additional storage space is consumed during the operation). The old policy's index is efficiently transformed to the new policy without affecting the write availability or the throughput provisioned on the container. Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. 
 
-Index transformation is an asynchronous operation, and the time it takes to complete depends on the provisioned throughput, the number of items and their size. While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
+> [!NOTE]
+> While re-indexing is in progress, queries may not return all the matching results, and will do so without returning any errors. This means that query results may not be consistent until the index transformation is completed. It is possible to track the progress of index transformation [by using one of the SDKs](how-to-manage-indexing-policy.md).
 
 If the new indexing policy's mode is set to Consistent, no other indexing policy change can be applied while the index transformation is in progress. A running index transformation can be cancelled by setting the indexing policy's mode to None (which will immediately drop the index).
 
@@ -93,6 +94,7 @@ When working with indexing policies, you may encounter the following attributes 
 
 - `automatic` is a boolean defined at the root of an indexing policy. It is now ignored and can be set to `true`, when the tool you are using requires it.
 - `precision` is a number defined at the index level for included paths. It is now ignored and can be set to `-1`, when the tool you are using requires it.
+- `hash` is an index kind that is now replaced by the range kind.
 
 ## Next steps
 
