@@ -97,7 +97,7 @@ sections:
             <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v5-reference">Bing Spell Check API v5 Reference</a> (old version)</p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet">.NET</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/spellcheck?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-spellcheck?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python">Python</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/spellcheck">Go</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/spellcheck?view=azure-java-stable">Java</a></p>

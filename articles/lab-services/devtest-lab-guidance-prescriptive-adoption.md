@@ -18,7 +18,7 @@ ms.reviewer: christianreddington,anthdela,juselph
 ---
 
 # Set up Azure DevTest Labs infrastructure in your enterprise
-Enterprises are rapidly adopting the cloud due to its [benefits](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. A common first step for customers to use the cloud is to start with development and test workloads.  DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key enterprise dev/test scenarios](devtest-lab-guidance-get-started.md).
+Enterprises are rapidly adopting the cloud due to its [benefits](/azure/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) that include agility, flexibility, and economics. A common first step for customers to use the cloud is to start with development and test workloads.  DevTest Labs provides [features](devtest-lab-concepts.md) that benefit the enterprise and support [key enterprise dev/test scenarios](devtest-lab-guidance-get-started.md).
 
 There is a common set of concerns when migrating these workloads to the cloud:
 
@@ -34,4 +34,4 @@ There is a common set of concerns when migrating these workloads to the cloud:
 The Enterprise-focused documentation is intended for IT planners, architects, and managers who are responsible for establishing and reviewing overall deployments and overseeing operations practices. As a result, this document emphasizes the overall process and recommended design principles to promote a secure and stable development/testing environment, which ultimately drives adoption of Azure DevTest Labs within an organization.
 
 ## Next steps
-- [Get started with using Azure DevTest Labs](devtest-lab-guidance-get-started.md)
+- [Reference architecture for an enterprise](devtest-lab-reference-architecture.md)

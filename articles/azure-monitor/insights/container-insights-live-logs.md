@@ -87,4 +87,5 @@ To suspend auto-scroll and control the behavior of the pane and allow you to man
 ![Live logs pane pause live view](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## Next steps
-To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- To continue learning how to use Azure Monitor and monitor other aspects of your AKS cluster, see [View Azure Kubernetes Service health](container-insights-analyze.md).
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

@@ -21,15 +21,14 @@ ms.author: rkarlin
 The Events dashboard provides an overview of the number of security events collected over time and a list of notable events that may require your attention.  
 
 > [!NOTE]
-> Security events dashboard will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_events) to learn on alternative services.
+> To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
+>
+>
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## What is a security event?
 Security Center uses the Microsoft Monitoring Agent to collect various security related configurations and events from your machines and stores these events in your workspace(s). Examples of such data are: operating system logs (Windows event logs), running processes, and events from security solutions integrated with Security Center. The Microsoft Monitoring Agent also copies crash dump files to your workspace(s).
-
-## Requirements
-To use this feature, your workspace must be running Log Analytics version 2 and be on Security Center’s Standard tier. See the Security Center [pricing page](security-center-pricing.md) for more information about the Standard tier.
 
 ## Events processed dashboard
 You access the **Events** dashboard from the Security Center main menu or Security Center **Overview** blade.  

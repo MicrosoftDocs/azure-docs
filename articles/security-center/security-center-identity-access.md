@@ -21,9 +21,6 @@ ms.author: rkarlin
 This article helps you use Azure Security Center to monitor users' identity and access activity.
 
 > [!NOTE]
-> The "View *classic* Identity & Access" link will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_classicidentity) to learn on alternative services.
-
-> [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
 >
 

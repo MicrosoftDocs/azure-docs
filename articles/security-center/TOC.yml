@@ -172,8 +172,6 @@
     href: https://docs.microsoft.com/rest/api/securitycenter/
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=security-center
-  - name: Features and API retirement (July 2019)
-    href: security-center-features-retirement-july2019.md
 
 - name: Resources
   items:

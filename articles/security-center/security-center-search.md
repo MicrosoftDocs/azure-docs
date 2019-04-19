@@ -18,10 +18,6 @@ ms.author: rkarlin
 
 ---
 # Azure Security Center search
-
-> [!NOTE]
-> Security Center's Search dashboard will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_search) to learn on alternative services.
-
 Azure Security Center uses [Azure Monitor logs search](../log-analytics/log-analytics-log-searches.md) to retrieve and analyze your security data. Azure Monitor logs includes a query language to quickly retrieve and consolidate data. From Security Center, you can leverage Azure Monitor logs search to construct queries and analyze collected data.
 
 Search is available in both the Free tier and Standard tier of Security Center.  The data available in your log searches is dependent on the tier level applied to your workspace.  See the Security Center [pricing page](../security-center/security-center-pricing.md) for more information.
