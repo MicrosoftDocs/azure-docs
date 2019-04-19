@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Quickstart: Configure Linux virtual machines in Azure using Ansible
 
-Using a declarative language, Ansible allows you to automate the creation, configuration, and deployment of Azure resources via Ansible *playbooks*. Each section of this article shows you how each section of an Ansible playbook might look to create and configure different aspects of a Linux virtual machine. The [complete Ansible playbook](#complete-sample-ansible-playbook) is listed at the end of this article.
+Using a declarative language, Ansible allows you to automate the creation, configuration, and deployment of Azure resources via Ansible *playbooks*. This article presents a sample Ansible playbook for confuring Linux virtual machines. The [complete Ansible playbook](#complete-sample-ansible-playbook) is listed at the end of this article.
 
 ## Prerequisites
 
@@ -57,7 +57,12 @@ The following sample Ansible playbook section creates a subnet named `mySubnet` 
 
 ## Create a public IP address
 
-[Public IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) allow Internet resources to communicate inbound to Azure resources. Public IP addresses also enable Azure resources to communicate outbound to Internet and public-facing Azure services with an IP address assigned to the resource. The address is dedicated to the resource, until it is unassigned by you. If a public IP address is not assigned to a resource, the resource can still communicate outbound to the Internet, but Azure dynamically assigns an available IP address that is not dedicated to the resource. 
+
+
+
+
+[Public IP addresses](/azure/virtual-network/virtual-network-ip-addresses-overview-arm) allow Internet resources to communicate inbound to Azure resources. 
+Public IP addresses also enable Azure resources to communicate outbound to public-facing Azure services. In both scenarios, an IP address assigned to the resource being accessed. The address is dedicated to the resource until you unassign it. If a public IP address is not assigned to a resource, the resource can still communicate outbound to the Internet. The connection is made by Azure dynamically assigning an available IP address. The dynamically assigned address is not dedicated to the resource.
 
 The following sample Ansible playbook section creates a public IP address named `myPublicIP`:
 
@@ -71,9 +76,9 @@ The following sample Ansible playbook section creates a public IP address named 
 
 ## Create a network security group
 
-A [network security group](/azure/virtual-network/security-overview) enables you to filter network traffic to and from Azure resources in an Azure virtual network. A network security group contains security rules that allow or deny inbound network traffic to, or outbound network traffic from, several types of Azure resources. 
+[Network security groups](/azure/virtual-network/security-overview) filter network traffic between Azure resources in a virtual network. Security Rules are defined that govern inbound and outbound traffic to and from Azure resources. For more information about Azure resources and network security groups, see [Virtual network integration for Azure services](/azure/virtual-network/virtual-network-for-azure-services)
 
-The following sample Ansible playbook section creates a network security group named `myNetworkSecurityGroup` and defines a rule to allow SSH traffic on TCP port 22:
+The following playbook creates a network security group named `myNetworkSecurityGroup`. The network security group includes a rule that allows SSH traffic on TCP port 22.
 
 ```yaml
 - name: Create Network Security Group that allows SSH
@@ -88,7 +93,6 @@ The following sample Ansible playbook section creates a network security group n
         priority: 1001
         direction: Inbound
 ```
-
 
 ## Create a virtual network interface card
 
