@@ -1,6 +1,6 @@
 ---
-title: Client applications (MSAL) | Azure
-description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL supports multiple application architectures and platforms.
+title: Instantiate client applications (MSAL.NET) | Azure
+description: Microsoft Authentication Library (MSAL.NET) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL.NET supports multiple application architectures and platforms.
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,7 +17,7 @@ ms.date: 04/12/2019
 ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to learn about the types of client application so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to learn about instantiating client applications so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
@@ -36,6 +36,7 @@ Before instantiating an application, you first need to [register it](quickstart-
 - For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
 
 ## Ways to instantiate applications
+There are many different ways to instantiate client applications.
 
 ### Instantiating a public client application from code
 
@@ -96,37 +97,37 @@ In the code snippets using applicatoin builders, a number of .With methods can b
 
 The modifiers you can set on a public client or confidential client application builder are:
 
-Parameter | Description
---------- | --------- 
-`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.
-`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.
-`.WithB2CAuthority(string)` | Sets the application default authority to be an Azure AD B2C authority.
-`.WithClientId(string)` | overrides the client ID.
-`.WithComponent(string)` | Sets the name of the library using MSAL.NET (for telemetry reasons). 
-`.WithDebugLoggingCallback() | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.
-`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Set the application level extra query parameters that will be sent in all authentication request. This is overridable at each token acquisition method level (with the same `.WithExtraQueryParameters pattern`).
-`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Enables advanced scenarios such as configuring for an HTTP proxy, or to force MSAL to use a particular HttpClient (for instance in ASP.NET Core web apps/APIs).
-`.WithLogging()` | If called, the application will call a callback with debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.
-`.WithRedirectUri(string redirectUri)` | Overrides the default redirect Uri. In the case of public client applications, this will be useful for scenarios involving the broker
-`.WithTelemetry(TelemetryCallback telemetryCallback)` | Sets the delegate used to send telemetry.
-`.WithTenantId(string tenantId)` | Overrides the tenant ID, or the tenant description.
+|Parameter | Description|
+|--------- | --------- |
+|`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
+|`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
+|`.WithB2CAuthority(string)` | Sets the application default authority to be an Azure AD B2C authority.|
+|`.WithClientId(string)` | overrides the client ID.|
+|`.WithComponent(string)` | Sets the name of the library using MSAL.NET (for telemetry reasons). |
+|`.WithDebugLoggingCallback() | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Set the application level extra query parameters that will be sent in all authentication request. This is overridable at each token acquisition method level (with the same `.WithExtraQueryParameters pattern`).|
+|`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Enables advanced scenarios such as configuring for an HTTP proxy, or to force MSAL to use a particular HttpClient (for instance in ASP.NET Core web apps/APIs).|
+|`.WithLogging()` | If called, the application will call a callback with debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
+|`.WithRedirectUri(string redirectUri)` | Overrides the default redirect URI. In the case of public client applications, this will be useful for scenarios involving the broker.|
+|`.WithTelemetry(TelemetryCallback telemetryCallback)` | Sets the delegate used to send telemetry.|
+|`.WithTenantId(string tenantId)` | Overrides the tenant ID, or the tenant description.|
 
 ### Modifiers specific to Xamarin.iOS applications
 
 The modifiers you can set on a public client application builder on Xamarin.iOS are:
 
-Parameter | Description
---------- | --------- 
-`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS only**: Sets the iOS key chain security group (for the cache persistence).
+|Parameter | Description|
+|--------- | --------- |
+|`.WithIosKeychainSecurityGroup()` | **Xamarin.iOS only**: Sets the iOS key chain security group (for the cache persistence).|
 
 ### Modifiers specific to confidential client applications
 
 The modifiers you can set on a confidential client application builder are:
 
-Parameter | Description
---------- | --------- 
-`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.
-`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.
+|Parameter | Description|
+|--------- | --------- |
+|`.WithCertificate(X509Certificate2 certificate)` | Sets the certificate identifying the application with Azure AD.|
+|`.WithClientSecret(string clientSecret)` | Sets the client secret (app password) identifying the application with Azure AD.|
 
 These modifiers are mutually exclusive. If you provide both, MSAL will throw a meaningful exception.
 

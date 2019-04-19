@@ -48,7 +48,7 @@ If you used ADAL in the past, you might notice that, contrary to ADAL.NET's Auth
 There are a number of different applications, which can be separated into two groups:
 
 - Registration options, including:
-    - [Authority](#authority-instance--audience): Identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID.
+    - [Authority](#authority): Identity provider [instance](#cloud-instance) and sign-in [audience](#application-audience) for the application, and possibly the tenant ID.
     - [redirect URI](#redirect-uri)
     - client secret for a confidential client application (which you've seen already)
 - [Logging options](#logging), including: log level, control of the PII, name of the component using the library
@@ -57,7 +57,7 @@ There are a number of different applications, which can be separated into two gr
 The authority URL is composed of the instance and the audience.
 The authority can be:
 - an Azure Active directory Cloud authority
-- an Azure AD B2C authority. See [B2C specifics](AAD-B2C-specifics)
+- an Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics)
 - an ADFS authority (coming soon. See [ADFS support](https://aka.ms/msal-net-adfs-support)
 
 Azure Active directory cloud authorities have two parts:
@@ -69,7 +69,7 @@ The instance and audience can be concatenated and provided as the authority URL.
 ![Authority](media/msal-client-applications/authority.png)
 
 ### Cloud instance
-The **instance** is used to specify if your application is signing users from the Microsoft Azure public cloud, or from national or sovereign clouds. Using MSAL in your code, the Azure cloud instance can be set by using an enumeration or by passing the URL to the [sovereign cloud instance](authentication-national-cloud#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
+The **instance** is used to specify if your application is signing users from the Microsoft Azure public cloud, or from national or sovereign clouds. Using MSAL in your code, the Azure cloud instance can be set by using an enumeration or by passing the URL to the [sovereign cloud instance](authentication-national-cloud.md#azure-ad-authentication-endpoints) as the `Instance` member (if you know it).
 
 MSAL.NET will throw an explicit exception if both `Instance` and `AzureCloudInstance` are specified. 
 
