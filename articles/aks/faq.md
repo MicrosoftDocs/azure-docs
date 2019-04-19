@@ -94,7 +94,7 @@ In a service level agreement (SLA), the provider agrees to reimburse the custome
 [aks-cluster-autoscale]: ./autoscaler.md
 [virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
-[aks-rbac-aad]: ./aad-integration.md
+[aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md
 
 <!-- LINKS - external -->
