@@ -1,6 +1,6 @@
 ---
-title: Compiling applications for high-performance computing in Azure | Microsoft Docs
-description: Learn how to compile high-performance computing applications for use on Azure VMs. 
+title: Compiling applications for HPC on Azure | Microsoft Docs
+description: Learn how to compile HPC applications on Azure VMs. 
 services: virtual-machines
 documentationcenter: ''
 author: githubname
@@ -26,7 +26,7 @@ Clang supports the  `-march=znver1` flag to enable best code generation and tuni
 
 
 ## Flang
-The Flang compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the github version of Flang  (https://github.com/flangcompiler/flang). The Flang compiler supports all Clang compiler options and an additional number of Flang-specific compiler options.
+The Flang compiler is a recent addition to the AOCC suite (added April 2018) and is currently in pre-release for developers to download and test. Based on Fortran 2008, AMD extends the github version of Flang (https://github.com/flangcompiler/flang). The Flang compiler supports all Clang compiler options and an additional number of Flang-specific compiler options.
 
 
 ## DragonEgg
@@ -65,4 +65,4 @@ gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
