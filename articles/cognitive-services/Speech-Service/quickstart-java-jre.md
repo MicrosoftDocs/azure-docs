@@ -14,7 +14,7 @@ ms.author: fmegen
 
 # Quickstart: Recognize speech with the Speech SDK for Java
 
-If desired, choose a different scenario: [**speech-recognition**](quickstart-java-jre.md), [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md)
+If desired, choose a different scenario: [**speech-recognition**](quickstart-java-jre.md), [voice-first virtual assistant](https://aka.ms/csspeech/vfvajava)
 
 If desired, choose to a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
