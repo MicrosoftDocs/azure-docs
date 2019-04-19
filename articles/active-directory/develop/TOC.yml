@@ -159,6 +159,8 @@
           href: msal-compare-msal-js-and-adal-js.md
         - name: Handling errors and exceptions
           href: msal-handling-exceptions.md
+        - name: Logging
+          href: msal-logging.md
     - name: Authentication
       items:
       - name: Authentication basics
