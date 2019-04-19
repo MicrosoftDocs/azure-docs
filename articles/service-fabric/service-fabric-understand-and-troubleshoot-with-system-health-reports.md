@@ -25,7 +25,7 @@ Azure Service Fabric components provide system health reports on all entities in
 > 
 > 
 
-System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of hung processes. User services can enrich the health data with information specific to their logic.
+System health reports provide visibility into cluster and application functionality, and flag problems. For applications and services, system health reports verify that entities are implemented and are behaving correctly from the Service Fabric perspective. The reports don't provide any health monitoring of the business logic of the service or detection of processes that are not responding. User services can enrich the health data with information specific to their logic.
 
 > [!NOTE]
 > Health reports sent by user watchdogs are visible only *after* the system components create an entity. When an entity is deleted, the health store automatically deletes all the health reports associated with it. The same is true when a new instance of the entity is created. An example is when a new stateful persisted service replica instance is created. All reports associated with the old instance are deleted and cleaned up from the store.
