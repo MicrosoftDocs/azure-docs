@@ -24,7 +24,7 @@ Azure SQL Database includes both [single database](sql-database-single-index.yml
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Referred to as "encryption-in-use". See article on [Always Encrypted](sql-database-always-encrypted.md) for details.  |
+| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Referred to as "encryption-in-use", as described in the article [Always Encrypted](sql-database-always-encrypted.md). Service-side encryption uses [transparent data encryption](transparent-data-encryption-azure-sql.md) (TDE).|
 | Encryption in Transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| Yes | Using HTTPS. |
 | Encryption Key Handling (CMK, BYOK, etc.)| Yes | Both service-managed and customer-managed key handling are offered (the latter through [Azure Key Vault](../key-vault/index.yml). |
 | Column Level Encryption (Azure Data Services)| Yes | Through [Always Encrypted](sql-database-always-encrypted.md). |
