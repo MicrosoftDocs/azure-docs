@@ -38466,7 +38466,7 @@
       "source_path": "articles/azure-stack/partner/index.yml",
       "redirect_url": "/azure-stack/partner",
       "redirect_document_id": false
-    },    
+    },
     {
       "source_path": "articles/app-service/app-service-jre-support.md",
       "redirect_url": "/azure/app-service/configure-language-java",
