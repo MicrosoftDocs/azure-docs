@@ -4695,7 +4695,11 @@
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/virtual-machines/extensions/custom-script-classic.md",
+      "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/automation/automation-credentials.md",
       "redirect_url": "/azure/automation/shared-resources/credentials",
