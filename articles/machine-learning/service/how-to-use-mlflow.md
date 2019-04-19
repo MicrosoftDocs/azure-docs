@@ -113,7 +113,7 @@ If you don't plan to use the logged metrics and artifacts in your workspace, you
 
 1. In the Azure portal, select **Resource groups** on the far left.
 
-   ![Delete in the Azure portal](./media/aml-delete-resource-group/delete-resources.png)
+   ![Delete in the Azure portal](/includes/media/aml-delete-resource-group/delete-resources.png)
 
 1. From the list, select the resource group you created.
 
