@@ -17,8 +17,8 @@ ms.author: pafarley
 
 Azure Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. You can call your custom Form Recognizer model using a simple REST API in order to reduce complexity and easily integrate it into your workflow or application. You only need five form documents or an empty form of the same type as your input material to get started. You can get results quickly, accurately and tailored to your specific content without the need for heavy manual intervention or extensive data science expertise.
 
-## Request Access
-Form Recognizer is a limited access preview, to get access to the preview, please submit the [Cognitive Services Form Recognizer Access Request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use the Form Recognizer Service. Once submitted, the Azure Cognitive Services team reviews the form, if your request is approved, you then receive an email with instructions describing how to access the service.
+## Request access
+Form Recognizer is available as a limited-access preview. To get access to the preview, please fill out and submit the [Cognitive Services Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form. The form requests information about you, your company, and the user scenario for which you'll use Form Recognizer. If your request is approved by the Azure Cognitive Services team, you'll receive an email with instructions on how to access the service.
 
 ## What it does
 
