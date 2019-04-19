@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Python SDK"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you learn how to use the Python SDK for common tasks.
+description: In this quickstart, you learn how to use the Python SDK for common tasks, such as analyze image, get description, recognize text and generate thumbnail.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python

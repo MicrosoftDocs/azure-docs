@@ -31,14 +31,3 @@ ms.custom: include file
 4. Select **Create**. The deployment might take a few minutes to finish.
 
 5. After the deployment is finished, select **Settings** > **Access Keys**. Make a note of either the primary read-only or primary read-write key connection string. You use this connection string later to configure your application to communicate with the app configuration store you created.
-
-6. Select **Key/Value Explorer** > **+ Create** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | White |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Black |
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
