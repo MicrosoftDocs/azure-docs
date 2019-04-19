@@ -12,7 +12,7 @@ ms.author: jamesbak
 
 # Quickstart: Create an Azure Data Lake Storage Gen2 storage account
 
-Azure Data Lake Storage Gen2 [supports a Hierarchical Namespace Service](data-lake-storage-introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
+Azure Data Lake Storage Gen2 [supports a hierarchical namespace](data-lake-storage-introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](data-lake-storage-abfs-driver.md).
 
 This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |-----------|--------------|
 |Portal     | None         |
 |PowerShell | This quickstart requires the PowerShell module Az.Storage version **0.7** or later. To find your current version, run the `Get-Module -ListAvailable Az.Storage` command. If after you run this command, no results appear, or if a version other than **0.7** appears, then you'll have to upgrade your powershell module. See the [Upgrade your powershell module](#upgrade-your-powershell-module) section of this guide.
-|CLI        | You can log in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
+|CLI        | You can sign in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
 
@@ -58,7 +58,7 @@ When naming your storage account, keep these rules in mind:
 
 ## Create an account using the Azure portal
 
-Log in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create a resource group
 
@@ -107,7 +107,7 @@ To remove a resource group using the Azure portal:
 
 First, install the latest version of the [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) module.
 
-Then, upgrade your powershell module, log in to your Azure subscription, create a resource group, and then create a storage account.
+Then, upgrade your powershell module, sign in to your Azure subscription, create a resource group, and then create a storage account.
 
 ### Upgrade your powershell module
 
@@ -123,7 +123,7 @@ Install the Az.Storage module
 Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
 ```
 
-### Log in to your Azure Subscription
+### Sign in to your Azure Subscription
 
 Use the `Login-AzAccount` command and follow the on-screen directions to authenticate.
 
@@ -171,9 +171,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 ## Create an account using Azure CLI
 
-To start Azure Cloud Shell, log in to the [Azure portal](https://portal.azure.com).
+To start Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.com).
 
-If you want to log into your local installation of the CLI, run the login command:
+If you want to sign in to your local installation of the CLI, run the login command:
 
 ```cli
 az login
