@@ -1,5 +1,5 @@
 ---
-title: Pre-migration Steps for Data Migrations from MongoDB to Azure Cosmos DB's API for MongoDB
+title: Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
 author: roaror
 ms.service: cosmos-db
