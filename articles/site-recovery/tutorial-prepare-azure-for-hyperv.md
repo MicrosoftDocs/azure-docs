@@ -17,7 +17,7 @@ ms.custom: MVC
 This tutorial is the first in a series that describes how to set up disaster recovery for on-premises VMs. It's relevant when you're protecting Hyper-V VMs.
 
 > [!NOTE]
-> We design tutorials to show the simplest deployment path for a scenario. They use default options when possible, and don't show all possible settings and paths. For more information, see the How To section for each corresponding scenario.
+> We design tutorials to show the simplest deployment path for a scenario. These tutorials use default options when possible, and don't show all possible settings and paths. For more information, see the How To section for each corresponding scenario.
 
 This tutorial shows you how to prepare Azure components when you want to replicate on-premises VMs (Hyper-V) to Azure. You'll learn how to:
 
@@ -80,10 +80,10 @@ When Azure VMs are created from storage after failover, they're joined to this n
 1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Networking** > **Virtual network**. Leave Resource Manager selected as the deployment model.
 2. In Name, enter a network name. The name must be unique within the Azure resource group. For this tutorial, use *ContosoASRnet*.
 3. Specify the resource group in which to create the network. For this tutorial, use the existing resource group *contosoRG*.
-4. In Address range, enter 10.0.0.0/24 as the range for the network. In this network there's no subnet.
+4. In Address range, enter 10.0.0.0/24 as the range for the network. There's no subnet in this network.
 5. In Subscription, select the subscription in which to create the network.
 6. In Location, choose **West Europe**. The network must be in the same region as the Recovery Services vault.
-7. Leav the default options of basic DDoS protection, with no service endpoint on the network.
+7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
 8. Select **Create**.
 
    ![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
