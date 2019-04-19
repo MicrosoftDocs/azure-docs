@@ -34,8 +34,9 @@ To register your application, you can use:
 ## Register an app using the QuickStarts
 
 If you navigate to this link, you can create bootstrap the creation of your Web application:
-- [ASP.NET Core]()
-- [ASP.NET]()
+
+- [ASP.NET Core](https://aka.ms/aspnetcore2-1-aad-quickstart-v2)
+- [ASP.NET](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs)
 
 ### Register an app using Azure portal
 
@@ -63,8 +64,7 @@ If you navigate to this link, you can create bootstrap the creation of your Web 
 > - MyOrg (Accounts in this organizational directory only)
 > - AnyOrg (Accounts in any organizational directory).
 >
-> If you want to create an application that signs-in users with their personal Microsoft Accounts (e.g. Skype, XBox, Outlook.com), you can first create a multi-tenant application (Supported account types = Accounts in any organizational directory), and then change the `signInAudience` property in the application manifest from the Azure portal. This is explained in details in the step [1.3]() of the ASP.NET Core tutorial (and can be generalized to Web Apps in any language).
-> In the future PowerShell and CLI tools will create applications for any audience
+> If you want to create an application that signs-in users with their personal Microsoft Accounts (e.g. Skype, XBox, Outlook.com), you can first create a multi-tenant application (Supported account types = Accounts in any organizational directory), and then change the `signInAudience` property in the application manifest from the Azure portal. This is explained in details in the step [1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) of the ASP.NET Core tutorial (and can be generalized to Web Apps in any language).
 
 ## Next steps
 

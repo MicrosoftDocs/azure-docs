@@ -34,12 +34,6 @@ The libraries used to protect a Web App (and a Web API) are:
   ------------ | ---------- | ------------
 ![.NET](media/sample-v2-code/logo_net.png) | [Identity model extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Used directly by ASP.NET and ASP.NET Core, Microsoft Identity Extensions for .NET proposes a set of DLLs running both on .NET Framework and .NET Core. From an ASP.NET/ASP.NET Core Web app, you can control token validation using the **TokenValidationParameters** class (in particular in some ISV scenarios)
 
-<!-- 
-will not be ready for Build 
-![Node.JS](media/sample-v2-code/logo_nodejs.png) | [Passport.Azure AD](https://github.com/AzureAD/passport-azure-ad) | Azure Active Directory Authentication Strategies using Node and Passportjs
-
--->
-
 ## ASP.NET Core configuration
 
 ### Application configuration files

@@ -69,7 +69,7 @@ else
 
 Pressing the **Sign out** button on the web app, triggers the `SignOut` action on the `Account` controller. In previous versions of the ASP.NET core templates, the `Account` controller
 was embedded with the Web App, but this is no longer the case as it's now part of the ASP.NET Core framework itself. The code for the `AccountController` is available from the ASP.NET core repository at
-from <https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs>, and what it does is:
+from [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs), and what it does is:
 
 - set an openid redirect URI to `/Account/SignedOut` so that the controller is called back when Azure AD has performed the sign out
 - call `Signout()`, which lets the OpenId connect middleware contact the Microsoft identity platform `logout` endpoint which:
@@ -77,7 +77,7 @@ from <https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authent
   - clears the session cookie from the browser,
   - and finally calls back the **logout URL**, which, by default, displays the signed out view page [SignedOut.html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) also provided as part of ASP.NET Core.
 
-### Intercepting the call to the logout endpoint
+### Intercepting the call to the `logout` endpoint
 
 The ASP.NET Core OpenIdConnect middleware enables your app to intercept the call to the Microsoft identity platform `logout` endpoint by providing an OpenIdConnect event named `OnRedirectToIdentityProviderForSignOut`. The web app uses it to attempt to avoid the select account dialog to be presented to the user when signing out. This interception is done in the `AddAzureAdV2Authentication` of the `Microsoft.Identity.Web` reusable library. See [StartupHelpers.cs L58-L66](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/b87a1d859ff9f9a4a98eb7b701e6a1128d802ec5/Microsoft.Identity.Web/StartupHelpers.cs#L58-L66)
 

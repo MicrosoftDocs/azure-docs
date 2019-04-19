@@ -80,7 +80,7 @@ There are numerous additional complexities such as:
 
 Things are similar in ASP.NET:
 
-- A controller action protected by an [Authorize] attribute, will extract the tenant Id and userId of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`)
+- A controller action protected by an [Authorize] attribute, will extract the tenant ID and user ID of the `ClaimsPrincipal` member of the controller (ASP.NET uses `HttpContext.User`)
 - from there it builds an MSAL.NET `IConfidentialClientApplication`
 - IT call the `AcquireTokenSilent` method of the confidential client application 
 

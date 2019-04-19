@@ -48,9 +48,7 @@ Some account types can't be used with certain authentication flows. For instance
 - Daemon applications can only be used with Azure Active Directory organizations. It doesn't make sense to attempt to use daemon applications to manipulate Microsoft personal accounts (the admin consent will never be granted).  
 - You can only use the Integrated Windows Authentication flow with work or school accounts (in your organization or any organization). Indeed, Integrated Windows Authentication works with domain accounts, and requires the machines to be domain joined or Azure AD joined. This flow doesn't make sense for personal Microsoft Accounts.
 - The [Resource Owner Password Grant](./v2-oauth-ropc.md) (Username/Password), can't be used with personal Microsoft accounts. Indeed, personal Microsoft accounts require that the user consents to accessing personal resources at each sign-in session. That's why, this behavior isn't compatible with non-interactive flows.
-- Device code flow doesn't yet work with personal Microsoft accounts
-  > [!NOTE]
-  > There is ongoing work to support device code flow with personal Microsoft accounts;
+- Device code flow doesn't yet work with personal Microsoft accounts.
 
 ## Supported account types in national clouds
 
