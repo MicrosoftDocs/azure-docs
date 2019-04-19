@@ -15,13 +15,26 @@ ms.author: pafarley
 
 # Face recognition concepts
 
-This article explains the concepts of the various face recognition operations (verification, find similar, grouping, identification). Broadly, recognition describes the work of comparing faces in two different images to determine if they are similar and/or belong to the same person.
+This article explains the concepts of the various face recognition operations (verification, find similar, grouping, identification). Broadly, recognition describes the work of comparing two different faces to determine if they are similar or belong to the same person.
 
 See the [Overview](../Overview.md) for a description of each recognition operation.
 
 ## Recognition
 
 ## Face API data structures
+
+Face
+denoted by ID.
+
+FaceList/LargeFaceList
+a list of persisted face objects
+
+Person
+denoted by ID.
+a list of PersistedFaces
+
+PersonGroup/LargePersonGroup
+a list of person objects
 
 ### FaceList/LargeFaceList
 
