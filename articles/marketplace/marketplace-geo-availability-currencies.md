@@ -38,7 +38,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Bolivia                             | BO        | USD          |
 | Bosnia and Herzegovina              | BA        | USD          |
 | Botswana                            | BW        | USD          |
-| Brazil                              | BR        | BRL          |
+| Brazil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
 | Cameroon                            | CM        | USD          |
@@ -160,3 +160,5 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Zambia                              | ZM        | USD          |
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
+
+* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
