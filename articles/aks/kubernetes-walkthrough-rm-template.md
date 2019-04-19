@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 03/21/2019
+ms.date: 04/19/2019
 ms.author: iainfou
 ms.custom: mvc
 
@@ -25,11 +25,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.60 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.61 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Prerequisites
 
-To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. If you need one of these resources, see the following section, otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
+To create an AKS cluster using a Resource Manager template, you provide an SSH public key and Azure Active Directory service principal. If you need either of these resources, see the following section, otherwise skip to the [Create an AKS cluster](#create-an-aks-cluster) section.
 
 ### Create an SSH key pair
 
@@ -55,11 +55,11 @@ The output is similar to the following example:
 
 ```json
 {
-  "appId": "e7596ae3-6864-4cb8-94fc-20164b1588a9",
-  "displayName": "azure-cli-2018-06-29-19-14-37",
-  "name": "http://azure-cli-2018-06-29-19-14-37",
-  "password": "52c95f25-bd1e-4314-bd31-d8112b293521",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
+  "appId": "8b1ede42-d407-46c2-a1bc-6b213b04295f",
+  "displayName": "azure-cli-2019-04-19-21-42-11",
+  "name": "http://azure-cli-2019-04-19-21-42-11",
+  "password": "27e5ac58-81b0-46c1-bd87-85b4ef622682",
+  "tenant": "73f978cf-87f2-41bf-92ab-2e7ce012db57"
 }
 ```
 
@@ -71,7 +71,7 @@ The template used in this quickstart is to [deploy an Azure Kubernetes Service c
 
 1. Select the following image to sign in to Azure and open a template..
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json"><img src="./media/quick-create-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json"><img src="./media/kubernetes-walkthrough-rm-template/deploy-to-azure.png" alt="deploy to azure"/></a>
 
 2. Select or enter the following values.  
 
@@ -145,6 +145,8 @@ spec:
       labels:
         app: azure-vote-back
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-back
         image: redis
@@ -183,6 +185,8 @@ spec:
       labels:
         app: azure-vote-front
     spec:
+      nodeSelector:
+        "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
         image: microsoft/azure-vote-front:v1
@@ -272,7 +276,7 @@ In this quickstart, pre-created container images were used to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and deployed a multi-container application to it.  [Access the Kubernetes web dashboard][kubernetes-dashboard] for the cluster you just created.
+In this quickstart, you deployed a Kubernetes cluster and deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for the cluster you created.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
