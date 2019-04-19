@@ -51,8 +51,7 @@ Ansible Tower is a web-based UI and dashboard for Ansible that has the following
 
 ## Ansible module and version matrix for Azure
 
-Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
-The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure. These modules enable you to provision Azure cloud resources such as virtual machine, networking, and container services. 
+Ansible ships with a suite of modules that are executed directly on remote hosts or through playbooks. The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure. These modules enable you to provision Azure cloud resources such as virtual machine, networking, and container services. 
 
 ## Next steps
 
