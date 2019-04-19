@@ -101,13 +101,14 @@
     - name: Insights page
       href: ./cloud-partner-portal/portal-tour/cpp-insights-page.md
   - name: Portal management
+    href: ./cloud-partner-portal/portal-manage/cpp-portal-management.md
     items:
-    - name: Dev center account registration
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md
-    - name: Manage publisher profile
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md
+    - name: Prerequisites for managing accounts
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-prerequisites.md
+    - name: Manage publisher profiles
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-publisher-profile.md
     - name: Manage users
-      href: ./cloud-partner-portal-orig/cloud-partner-portal-manage-users.md
+      href: ./cloud-partner-portal/portal-manage/cpp-manage-users.md
   - name: Business management
     items:
     - name: SEO guidance
@@ -116,11 +117,6 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
     - name: Private SKUs
       href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
-    - name: Pricing considerations
-      items:
-      - name: Simplified currency pricing
-      - name: Information on taxes and price
-      - name: Export-import pricing
     - name: Manage leads
       items:
       - name: Configure customer leads
@@ -293,7 +289,7 @@
         href: ./cloud-partner-portal-orig/bpm-and-methodologies.md
       - name: Help wiki
         href: ./cloud-partner-portal-orig/help-wiki.md
-    - name: IoT edge module offer
+    - name: IoT Edge module offer
       href: ./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md
       items:
       - name: Prerequisites
@@ -366,7 +362,11 @@
       - name: SaaS Fulfillment APIs
         href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
         items:
-        - name: SaaS API
+        - name: Register SaaS application
+          href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
+        - name: SaaS API v1 (deprecated)
+          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
+        - name: SaaS API v2
           href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
     - name: Virtual machine offer
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md

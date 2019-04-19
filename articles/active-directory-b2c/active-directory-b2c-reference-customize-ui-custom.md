@@ -147,7 +147,7 @@ The following table describes the purpose of the preceding HTML5 pages.
 
 You can add a link to your HTML5/CSS templates to your user journey by editing a custom policy directly.
 
-The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional *<ContentDefinitions>* XML element must be declared under the *<BuildingBlocks>* section of your custom policy XML file.
+The custom HTML5/CSS templates to use in your user journey have to be specified in a list of content definitions that can be used in those user journeys. For that purpose, an optional *\<ContentDefinitions>* XML element must be declared under the *\<BuildingBlocks>* section of your custom policy XML file.
 
 The following table describes the set of content definition IDs recognized by the Azure AD B2C identity experience engine and the type of pages that relates to them.
 

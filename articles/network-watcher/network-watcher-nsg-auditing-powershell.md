@@ -24,6 +24,9 @@ Customers are often faced with the challenge of verifying the security posture o
 
 If you are unfamiliar with Network Security Groups, see [Network Security Overview](../virtual-network/security-overview.md).
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Before you begin
 
 In this scenario, you compare a known good baseline to the security group view results returned for a virtual machine.
@@ -43,7 +46,7 @@ In this scenario, you will:
 
 ## Retrieve rule set
 
-The first step in this example is to work with an existing baseline. The following example is some json extracted from an existing Network Security Group using the `Get-AzureRmNetworkSecurityGroup` cmdlet that is used as the baseline for this example.
+The first step in this example is to work with an existing baseline. The following example is some json extracted from an existing Network Security Group using the `Get-AzNetworkSecurityGroup` cmdlet that is used as the baseline for this example.
 
 ```json
 [
@@ -120,19 +123,19 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## Retrieve Network Watcher
 
-The next step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `AzureRmNetworkWatcherSecurityGroupView` cmdlet.
+The next step is to retrieve the Network Watcher instance. The `$networkWatcher` variable is passed to the `AzNetworkWatcherSecurityGroupView` cmdlet.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## Get a VM
 
-A virtual machine is required to run the `Get-AzureRmNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
+A virtual machine is required to run the `Get-AzNetworkWatcherSecurityGroupView` cmdlet against. The following example gets a VM object.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
+$VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
 ## Retrieve security group view
@@ -140,7 +143,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 The next step is to retrieve the security group view result. This result is compared to the "baseline" json that was shown earlier.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## Analyzing the results

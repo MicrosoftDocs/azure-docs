@@ -24,6 +24,8 @@ HDInsight has full access to data in the Azure Storage accounts associated with 
 
 ## Requirements
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * An Azure subscription
 * C# or Python. C# example code is provided as a Visual Studio solution.
 
@@ -156,12 +158,12 @@ An example of creating an HDInsight cluster that uses the SAS is included in the
 1. From the prompt, use the following command to authenticate to your Azure subscription:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
     When prompted, sign in with the account for your Azure subscription.
 
-    If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzureRmSubscription` to select the subscription you wish to use.
+    If your account is associated with multiple Azure subscriptions, you may need to use `Select-AzSubscription` to select the subscription you wish to use.
 
 4. From the prompt, change directories to the `CreateCluster` directory that contains the HDInsightSAS.ps1 file. Then use the following command to run the script
 
@@ -269,11 +271,11 @@ Once connected to the cluster, use the following steps to verify that you can on
 
 **Symptoms**: When creating a cluster using the PowerShell script, you may receive the following error message:
 
-    New-AzureRmHDInsightCluster : A task was canceled.
+    New-AzHDInsightCluster : A task was canceled.
     At C:\Users\larryfr\Documents\GitHub\hdinsight-azure-storage-sas\CreateCluster\HDInsightSAS.ps1:62 char:5
-    +     New-AzureRmHDInsightCluster `
+    +     New-AzHDInsightCluster `
     +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-        + CategoryInfo          : NotSpecified: (:) [New-AzureRmHDInsightCluster], CloudException
+        + CategoryInfo          : NotSpecified: (:) [New-AzHDInsightCluster], CloudException
         + FullyQualifiedErrorId : Hyak.Common.CloudException,Microsoft.Azure.Commands.HDInsight.NewAzureHDInsightClusterCommand
 
 **Cause**: This error can occur if you use a password for the admin/HTTP user for the cluster, or (for Linux-based clusters) the SSH user.

@@ -34,7 +34,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+- Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 - An Azure Active Directory service principal. Once you have created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -72,7 +74,7 @@ $destContainerName = "adfgetstarted" # don't change this value.
 ####################################
 #region - Connect to Azure subscription
 Write-Host "`nConnecting to your Azure subscription ..." -ForegroundColor Green
-Login-AzureRmAccount
+Login-AzAccount
 #endregion
 
 ####################################
@@ -82,25 +84,25 @@ Login-AzureRmAccount
 #region - create Azure resources
 Write-Host "`nCreating resource group, storage account and blob container ..." -ForegroundColor Green
 
-New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
-New-AzureRmStorageAccount `
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzStorageAccount `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName `
     -type Standard_LRS `
     -Location $location
 
-$destStorageAccountKey = (Get-AzureRmStorageAccountKey `
+$destStorageAccountKey = (Get-AzStorageAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $destStorageAccountName)[0].Value
 
-$sourceContext = New-AzureStorageContext `
+$sourceContext = New-AzStorageContext `
     -StorageAccountName $sourceStorageAccountName `
     -Anonymous
-$destContext = New-AzureStorageContext `
+$destContext = New-AzStorageContext `
     -StorageAccountName $destStorageAccountName `
     -StorageAccountKey $destStorageAccountKey
 
-New-AzureStorageContainer -Name $destContainerName -Context $destContext
+New-AzStorageContainer -Name $destContainerName -Context $destContext
 #endregion
 
 ####################################
@@ -109,16 +111,16 @@ New-AzureStorageContainer -Name $destContainerName -Context $destContext
 #region - copy files
 Write-Host "`nCopying files ..." -ForegroundColor Green
 
-$blobs = Get-AzureStorageBlob `
+$blobs = Get-AzStorageBlob `
     -Context $sourceContext `
     -Container $sourceContainerName
 
-$blobs|Start-AzureStorageBlobCopy `
+$blobs|Start-AzStorageBlobCopy `
     -DestContext $destContext `
     -DestContainer $destContainerName
 
 Write-Host "`nCopied files ..." -ForegroundColor Green
-Get-AzureStorageBlob -Context $destContext -Container $destContainerName
+Get-AzStorageBlob -Context $destContext -Container $destContainerName
 #endregion
 
 Write-host "`nYou will use the following values:" -ForegroundColor Green

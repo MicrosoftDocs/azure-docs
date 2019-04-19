@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 03/01/2019
+ms.date: 04/04/2019
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
@@ -93,7 +93,8 @@ The following exercise is focused on the first interaction model: how to pass R 
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. Assuming that you have everything set up correctly the correct result is calculated, and the R `print` function returns the result to the **Messages** window.

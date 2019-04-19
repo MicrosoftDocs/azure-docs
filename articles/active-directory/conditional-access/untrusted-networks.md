@@ -4,7 +4,7 @@ description: Learn how to configure a conditional access policy in Azure Active 
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management

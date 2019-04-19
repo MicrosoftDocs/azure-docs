@@ -19,15 +19,17 @@ Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure
 ## Video insights
 
 - **Face detection**: Detects and groups faces appearing in the video.
-- **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities – such as world leaders, actors and actresses, athletes, researchers, business and tech leaders across the globe. The data about these celebrities can also be found on various famous websites, for example, IMDB and Wikipedia.
+- **Celebrity identification**: Video Indexer automatically identifies over 1 million celebrities – such as world leaders, actors, actresses, athletes, researchers, business, and tech leaders across the globe. The data about these celebrities can also be found on various famous websites, for example, IMDB and Wikipedia.
 - **Account-based face identification**: Video Indexer trains a model for a specific account. It then recognizes faces in the video based on the trained model. For more information, see [Customize a Person model from the Video Indexer website](customize-person-model-with-website.md) and [Customize a Person model with the Video Indexer API](customize-person-model-with-api.md).
 - **Thumbnail extraction for faces** ("best face"): Automatically identifies the best captured face in each group of faces (based on quality, size, and frontal position) and extract it as an image asset.
 - **Visual text recognition** (OCR): Extracts text that is visually displayed in the video.
 - **Visual content moderation**: Detects adult and/or racy visuals.
 - **Labels identification**: Identifies visual objects and actions displayed.
-- **Shot detection**: Determines when a scene changes in the video.
+- **Scene segmentation**: determines when a scene changes in video based on visual cues. A scene depicts a single event and it is composed by a series of consecutive shots, which are semantically related. 
+- **Shot detection**: determines when a shot changes in video based on visual cues. A shot is a series of frames taken from the same motion-picture camera. For more information, see [Scenes, shots, and keyframes](scenes-shots-keyframes.md).
 - **Black frame detection**: Identifies black frames presented in the video.
 - **Keyframe extraction**: Detects stable keyframes in a video.
+- **Rolling credits**: identify the beginning and end of the rolling credits in the end of TV shows and movies.
 
 ## Audio insights
 
@@ -65,9 +67,8 @@ You can sign up for the service using existing AAD, LinkedIn, Facebook, Google, 
 Below are a few scenarios where Video Indexer can be useful
 
 - Search – Insights extracted from the video can be used to enhance the search experience across a video library. For example, indexing spoken words and faces can enable the search experience of finding moments in a video where a particular person spoke certain words or when two people were seen together. Search based on such insights from videos is applicable to news agencies, educational institutes, broadcasters, entertainment content owners, enterprise LOB apps and in general to any industry that has a video library that users need to search against.
-
+- Content creation – insights extracted from videos and help effectively create content such as trailers, social media content, news clips etc. from existing content in the organization archive 
 - Monetization – Video Indexer can help improve the value of videos. As an example, industries that rely on ad revenue (for example, news media, social media, etc.), can deliver more relevant ads by using the extracted insights as additional signals to the ad server (presenting a sports shoe ad is more relevant in the middle of a football match vs. a swimming competition).
-
 - User engagement – Video insights can be used to improve user engagement by positioning the relevant video moments to users. As an example, consider an educational video that explains spheres for the first 30 minutes and pyramids in the next 30 minutes. A student reading about pyramids would benefit more if the video is positioned starting from the 30-minute marker.
 
 ## Next steps

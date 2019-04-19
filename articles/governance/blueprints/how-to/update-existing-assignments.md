@@ -1,7 +1,6 @@
 ---
 title: How to update an existing assignment from the portal
 description: Learn about the mechanism for updating an existing assignment from the portal in Azure Blueprints.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 10/25/2018
@@ -27,17 +26,17 @@ an existing assignment, including:
 
 1. In the list of blueprints, left-click the blueprint assignment. Then click the **Update assignment** button OR right-click the blueprint assignment and select **Update assignment**.
 
-   ![Update assignment](../media/update-existing-assignments/update-assignment.png)
+   ![Update an existing blueprint assignment](../media/update-existing-assignments/update-assignment.png)
 
 1. The **Assign blueprint** page will load pre-filled with all values from the original assignment. You can change the **blueprint definition version**, the **Lock Assignment** state, and any of the dynamic parameters that exist on the blueprint definition. Click **Assign** when done making changes.
 
 1. On the updated assignment details page, see the new status. In this example, we added **Locking** to the assignment.
 
-   ![Updated assignment - locked](../media/update-existing-assignments/updated-assignment.png)
+   ![Updated an existing blueprint assignment - lock mode changed](../media/update-existing-assignments/updated-assignment.png)
 
 1. Explore details about other **Assignment operations** using the drop-down. The table of **Managed resources** updates by selected assignment operation.
 
-   ![Assignment operations](../media/update-existing-assignments/assignment-operations.png)
+   ![Assignment operations of a blueprint assignment](../media/update-existing-assignments/assignment-operations.png)
 
 ## Rules for updating assignments
 

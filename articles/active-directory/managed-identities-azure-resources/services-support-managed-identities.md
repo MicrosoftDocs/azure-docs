@@ -2,13 +2,13 @@
 title: Azure Services that support managed identities for Azure resources
 description: List of services that support managed identities for Azure resources and Azure AD authentication
 services: active-directory
-author: priyamohanram
+author: MarkusVi
 ms.author: priyamo
-ms.date: 11/28/2018
+ms.date: 04/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -172,7 +172,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://vault.microsoftazure.de` | Available |
 | Azure China 21Vianet | `https://vault.azure.cn` | Available |
 
-## Azure Data Lake 
+### Azure Data Lake 
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -181,7 +181,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-## Azure SQL 
+### Azure SQL 
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -190,7 +190,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany | `https://database.cloudapi.de/` | Available |
 | Azure China 21Vianet | `https://database.chinacloudapi.cn/` | Available |
 
-## Azure Event Hubs
+### Azure Event Hubs
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -199,7 +199,7 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-## Azure Service Bus
+### Azure Service Bus
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
@@ -208,11 +208,11 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |   | Not Available |
 | Azure China 21Vianet |  | Not Available |
 
-## Azure Storage
+### Azure Storage blobs and queues
 
 | Cloud | Resource ID | Status |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Preview |
-| Azure Government |  | Not Available |
-| Azure Germany |   | Not Available |
-| Azure China 21Vianet |  | Not Available |
+| Azure Global | `https://storage.azure.com/` | Available |
+| Azure Government | `https://storage.azure.com/` | Available |
+| Azure Germany | `https://storage.azure.com/` | Available |
+| Azure China 21Vianet | `https://storage.azure.com/` | Available |

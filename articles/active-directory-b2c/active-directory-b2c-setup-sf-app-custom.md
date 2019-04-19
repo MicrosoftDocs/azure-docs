@@ -68,7 +68,7 @@ Requests sent to Salesforce need to be signed by Azure AD B2C. To generate a sig
 > [!NOTE]
 > Make sure that you update the tenant name and password in the top two lines.
 
-```PowerShell
+```powershell
 $tenantName = "<YOUR TENANT NAME>.onmicrosoft.com"
 $pwdText = "<YOUR PASSWORD HERE>"
 

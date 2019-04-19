@@ -244,7 +244,7 @@ There are three features that enable access to VNet hosted resources. They are:
 
 Hybrid Connections requires you to install a relay agent called the Hybrid Connection Manager(HCM) in your network. The HCM needs to be able to connect to Azure and also to your application. Hybrid Connections doesn't require an inbound internet accessible endpoint for your remote network, as is required for a VPN connection. The HCM only runs on Windows and you can have up to five instances running to provide high availability. Hybrid Connections only supports TCP though and each HC endpoint has to match to a specific host:port combination. 
 
-The App Service Environment feature allows you to run a single tenant instance of the Azure App Service in your VNet. If your apps are in an App Service Environment, then your apps can access resources in your VNet without any extra steps. With and App Service Environment your apps run on more powerful workers and can scale up to 100 ASP instances. App Service Environments work with all of the networking features including ExpressRoute and Service Endpoints.  
+The App Service Environment feature allows you to run a single tenant instance of the Azure App Service in your VNet. If your apps are in an App Service Environment, then your apps can access resources in your VNet without any extra steps. With an App Service Environment your apps run on more powerful workers and can scale up to 100 ASP instances. App Service Environments work with all of the networking features including ExpressRoute and Service Endpoints.  
 
 While there is some use case overlap, none of these features can replace any of the others. Knowing what feature to use is tied to your needs. For example:
 

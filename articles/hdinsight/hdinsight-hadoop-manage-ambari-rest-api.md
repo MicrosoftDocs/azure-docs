@@ -64,7 +64,7 @@ Edit the scripts below to replace `CLUSTERNAME` with your cluster name. Then ent
 **A. Bash**  
 
 ```bash
-export clusterName=$(curl -u admin:$password -sS -G "https://CLSUTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
 echo $clusterName
 ```  
 
@@ -302,7 +302,7 @@ This example returns a JSON document containing the current configuration for th
    Modify, and then enter the commands below:
 
    * Replace `livy2-conf` with the desired component.
-   * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#Get-all-configurations).
+   * Replace `INITIAL` with actual value retrieved for `tag` from [Get all configurations](#get-all-configurations).
 
      **A. Bash**  
      ```bash

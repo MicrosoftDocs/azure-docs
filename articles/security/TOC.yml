@@ -64,7 +64,9 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-      - name: Appendix for disk encryption
+        - name: Disk encryption with VMSS extension sequencing
+          href: azure-security-disk-encryption-extension-sequencing.md
+        - name: Appendix for disk encryption
         href: azure-security-disk-encryption-appendix.md
       - name: Disk encryption FAQ
         href: azure-security-disk-encryption-faq.md
@@ -301,6 +303,8 @@
   href: security-best-practices-and-patterns.md
 - name: Resources
   items:
+  - name: Common security attributes
+    href: common-security-attributes.md
   - name: Azure security MVP program
     href: azure-security-mvp.md
   - name: Cybersecurity consulting
@@ -329,6 +333,8 @@
         href: azure-security-threat-modeling-tool-releases-71510231.md
       - name: Threat Modeling Tool update release 7.1.60126.1 - 1/29/2019
         href: azure-security-threat-modeling-tool-releases-71601261.md
+      - name: Threat Modeling Tool update release 7.1.60408.1 - 4/09/2019
+        href: azure-security-threat-modeling-tool-releases-71604081.md
     - name: Mitigations
       href: azure-security-threat-modeling-tool-mitigations.md
       items:

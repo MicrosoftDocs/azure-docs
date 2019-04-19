@@ -7,13 +7,14 @@ author: zchia
 writer: zchia
 manager: beatrizd-msft
 
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ---
@@ -29,39 +30,34 @@ The objective of this tutorial is to demonstrate the steps to be performed in Sa
 
 The scenario outlined in this tutorial assumes that you already have the following:
 
-*   An Azure AD tenant
-*   A [Samanage tenant](https://www.samanage.com/pricing/) with the Professional package
-*   A user account in Samanage with Admin permissions
+* An Azure AD tenant
+* A [Samanage tenant](https://www.samanage.com/pricing/) with the Professional package
+* A user account in Samanage with Admin permissions
 
 > [!NOTE]
 > The Azure AD provisioning integration relies on the [Samanage Rest API](https://www.samanage.com/api/), which is available to Samanage developers for accounts with the Professional package.
 
 ## Adding Samanage from the gallery
+
 Before configuring Samanage for automatic user provisioning with Azure AD, you need to add Samanage from the Azure AD application gallery to your list of managed SaaS applications.
 
 **To add Samanage from the Azure AD application gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click on the **Azure Active Directory** icon.
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications** > **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications Section][2]
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-3. To add Samanage, click the **New application** button on the top of the dialog.
+3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Samanage**.
+4. In the search box, type **Samanage**, select **Samanage** from result panel then click **Add** button to add the application.
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. In the results panel, select **Samanage**, and then click the **Add** button to add Samanage to your list of SaaS applications.
-
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppCreation.png)
+	![Samanage in the results list](common/search-new-app.png)
 
 ## Assigning users to Samanage
 
@@ -88,11 +84,13 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ### To configure automatic user provisioning for Samanage in Azure AD:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and browse to **Azure Active Directory > Enterprise applications > All applications**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and select **Enterprise Applications**, select **All applications**, then select **Samanage**.
 
-2. Select Samanage from your list of SaaS applications.
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-	![Samanage Provisioning](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. In the applications list, select **Samanage**.
+
+	![The Samanage link in the Applications list](common/all-applications.png)
 
 3. Select the **Provisioning** tab.
 

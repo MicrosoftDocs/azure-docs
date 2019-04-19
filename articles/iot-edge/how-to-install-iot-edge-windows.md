@@ -21,7 +21,16 @@ To learn more about the IoT Edge runtime, see [Understand the Azure IoT Edge run
 This article lists the steps to install the Azure IoT Edge runtime on your Windows x64 (AMD/Intel) system. Windows support is currently in Preview.
 
 > [!NOTE]
+> A known Windows operating system issue prevents transition to sleep and hibernate power states when IoT Edge modules (process-isolated Windows Nano Server containers) are running. This issue impacts battery life on the device.
+>
+> As a workaround, use the command `Stop-Service iotedge` to stop any running IoT Edge modules before using these power states. 
+
+<!--
+> [!NOTE]
 > Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Using Linux container on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes. 
 
 ## Prerequisites
 
@@ -243,7 +252,7 @@ For more information about commands you can use to interact with containers and 
 
 If you want to remove the IoT Edge installation from your Windows device, use the following command from an administrative PowerShell window. This command removes the IoT Edge runtime, along with your existing configuration and the Moby engine data. 
 
-```PowerShell
+```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-SecurityDaemon -DeleteConfig -DeleteMobyDataRoot
 ```

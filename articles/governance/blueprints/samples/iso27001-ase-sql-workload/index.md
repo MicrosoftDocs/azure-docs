@@ -1,15 +1,14 @@
 ---
-title: Sample - ISO 27001 App Service Environment/SQL Database workload blueprint - Overview
+title: Sample - ISO 27001 ASE/SQL workload workload blueprint - Overview
 description: Overview and architecture of the ISO 27001 App Service Environment/SQL Database workload blueprint sample.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ---
-# Overview of the Azure Blueprints ISO 27001 App Service Environment/SQL Database workload blueprint sample
+# Overview of the ISO 27001 App Service Environment/SQL Database workload blueprint sample
 
 The ISO 27001 App Service Environment/SQL Database workload blueprint sample provides additional
 infrastructure to the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
@@ -30,7 +29,7 @@ a service based web environment. The environment can be used to host multiple we
 APIs, and SQL Database instances that follow the ISO 27001 standards. This blueprint sample depends
 on the [ISO 27001 Shared Services](../iso27001-shared/index.md) blueprint sample.
 
-![ISO 27001 App Service Environment/SQL Database workload blueprint sample design](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![ISO 27001 ASE/SQL workload blueprint sample design](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready workload infrastructure based on ISO 27001 standards. This environment is

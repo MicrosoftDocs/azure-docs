@@ -4,7 +4,7 @@ description: An introduction to balancing your cluster with the Service Fabric C
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 030b1465-6616-4c0b-8bc7-24ed47d054c0

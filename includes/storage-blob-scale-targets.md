@@ -2,10 +2,10 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 4/11/2019
 ms.author: tamram
 ---
-| Resource | Target |
+| Resource | Target        |
 |----------|---------------|
 | Maximum size of single blob container | Same as maximum storage account capacity |
 | Maximum number of blocks in a block blob or append blob | 50,000 blocks |
@@ -15,4 +15,3 @@ ms.author: tamram
 | Maximum size of an append blob | 50,000 x 4 MiB (approximately 195 GiB) |
 | Maximum size of a page blob | 8 TiB |
 | Maximum number of stored access policies per blob container | 5 |
-| Target throughput for single blob | Up to 60 MiB per second, or up to 500 requests per second |

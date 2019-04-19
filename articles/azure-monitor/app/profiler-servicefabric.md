@@ -49,7 +49,7 @@ To set up your environment, take the following actions:
   If your settings are correct, Application Insights Profiler will be installed and enabled when the Azure Diagnostics extension is installed. 
 
 1. Add Application Insights to your Service Fabric application.  
-  For Profiler to collect profiles for your requests, your application must be sending request data to Application Insights. For more information, go to the [Application Insights SDK for Service Fabric projects](https://github.com/Microsoft/ApplicationInsights-ServiceFabric) page.
+  For Profiler to collect profiles for your requests, your application must be tracking operations with Application Insights. For stateless APIs, you can refer to instructions for [tracking Requests for profiling](profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json). For more information about tracking custom operations in other kinds of apps, refer to [track custom operations with Application Insights .NET SDK](custom-operations-tracking.md?toc=/azure/azure-monitor/toc.json).
 
 1. Redeploy your application.
 

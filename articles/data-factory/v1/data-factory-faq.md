@@ -181,7 +181,7 @@ You can rerun a slice in one of the following ways:
 * Click **Run** in the command bar on the **DATA SLICE** blade for the slice in the Azure portal.
 * Run **Set-AzDataFactorySliceStatus** cmdlet with Status set to **Waiting** for the slice.   
 
-	```PowerShell
+	```powershell
     Set-AzDataFactorySliceStatus -Status Waiting -ResourceGroupName $ResourceGroup -DataFactoryName $df -TableName $table -StartDateTime "02/26/2015 19:00:00" -EndDateTime "02/26/2015 20:00:00"
     ```
   See [Set-AzDataFactorySliceStatus][set-azure-datafactory-slice-status] for details about the cmdlet.

@@ -29,6 +29,8 @@
       href: azure-to-azure-tutorial-migrate.md 
     - name: Move Azure VMs to Availability Zones
       href: move-Azure-VMs-AVset-Azone.md
+    - name: Move Azure VMs between Government & Public regions
+      href: region-move-cross-geos.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -44,7 +46,7 @@
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Prepare on-premises Hyper-V
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Set up replication for Hyper-V VMs
@@ -91,7 +93,7 @@
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
       href: vmware-azure-common-questions.md
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Support requirements for configuration server deployment
       href: vmware-azure-configuration-server-requirements.md
@@ -111,7 +113,7 @@
       href: hyper-v-azure-architecture.md
   - name: About physical server disaster recovery to Azure
     items:
-    - name: Support matrix
+    - name: VMware/Physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
@@ -211,12 +213,10 @@
         href: vmware-azure-set-up-replication.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service installation
+        - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Enable replication for VMware VMs
@@ -243,6 +243,8 @@
         href: vmware-azure-install-linux-master-target.md
     - name: Manage
       items: 
+      - name: Manage mobility agent for VMware 
+        href: vmware-physical-manage-mobility-service.md 
       - name: Manage the configuration server for VMware 
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers
@@ -275,8 +277,6 @@
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Walkthrough-Set up disaster recovery
@@ -285,6 +285,8 @@
       href: physical-to-azure-failover-failback.md
     - name: Manage
       items:
+      - name: Manage mobility agent for physical server 
+        href: vmware-physical-manage-mobility-service.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
       - name: Manage process servers
@@ -442,7 +444,7 @@
 - name: Reference
   items: 
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.recoveryservices.siterecovery
+    href: /powershell/module/az.recoveryservices
   - name: Azure PowerShell classic
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST

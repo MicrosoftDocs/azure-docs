@@ -333,6 +333,58 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 |AMQP|5671|BLOCKED (Default)|OPEN (Default)|<ul> <li>Default communication protocol for IoT Edge. <li> Must be configured to be Open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol.<li>5672 for AMQP is not supported by IoT Edge.<li>Block this port when Azure IoT Edge uses a different IoT Hub supported protocol.<li>Incoming (Inbound) connections should be blocked.</ul></ul>|
 |HTTPS|443|BLOCKED (Default)|OPEN (Default)|<ul> <li>Configure Outgoing (Outbound) to be Open on 443 for IoT Edge provisioning. This configuration is required when using manual scripts or Azure IoT Device Provisioning Service (DPS). <li>Incoming (Inbound) connection should be Open only for specific scenarios: <ul> <li>  If you have a transparent gateway with leaf devices that may send method requests. In this case, Port 443 does not need to be open to external networks to connect to IoTHub or provide IoTHub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open Incoming (Inbound) from the internal network. <li> For Client to Device (C2D) scenarios.</ul><li>80 for HTTP is not supported by IoT Edge.<li>If non-HTTP protocols (for example, AMQP or MQTT) cannot be configured in the enterprise; the messages can be sent over WebSockets. Port 443 will be used for WebSocket communication in that case.</ul>|
 
+## Edge Agent module continually reports 'empty config file' and no modules start on the device
+
+The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
+
+### Potential root cause
+By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
+
+### Resolution
+
+**Option 1: Set DNS server in container engine settings**
+
+Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. For example:
+
+```
+{
+    "dns": ["1.1.1.1"]
+}
+```
+
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
+
+Place `daemon.json` in the right location for your platform: 
+
+| Platform | Location |
+| --------- | -------- |
+| Linux | `/etc/docker` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
+
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
+
+*Restart the container engine for the updates to take effect*
+
+| Platform | Command |
+| --------- | -------- |
+| Linux | `sudo systemctl restart docker` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**Option 2: Set DNS server in IoT Edge deployment per module**
+
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. For example:
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+Be sure to set this for the *edgeAgent* and *edgeHub* modules as well. 
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 

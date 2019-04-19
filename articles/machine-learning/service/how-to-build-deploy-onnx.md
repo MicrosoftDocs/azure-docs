@@ -24,15 +24,16 @@ The [Open Neural Network Exchange](https://onnx.ai) (ONNX) format is an open sta
 Microsoft supports ONNX across its products including Azure and Windows to help you achieve these goals.  
 
 ## Why choose ONNX?
+
 The interoperability you get with ONNX makes it possible to get great ideas into production faster. With ONNX, data scientists can choose their preferred framework for the job. Similarly, developers can spend less time getting models ready for production, and deploy across the cloud and edge.  
 
-You can create ONNX models from many frameworks, including PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, and more.
+You can create ONNX models from many frameworks, including PyTorch, Chainer,  MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, Microsoft Cognitive Toolkit,and more.
 
 There is also an ecosystem of tools for visualizing and accelerating ONNX models. A number of pre-trained ONNX models are also available for common scenarios.
 
 [ONNX models can be deployed](#deploy) to the cloud using Azure Machine Learning and ONNX Runtime. They can also be deployed to Windows 10 devices using [Windows ML](https://docs.microsoft.com/windows/ai/). They can even be deployed to other platforms using converters that are available from the ONNX community. 
 
-[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ONNX flow diagram showing training, converters, and deployment](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## Get ONNX models
 
@@ -49,11 +50,11 @@ You can convert existing models to ONNX or save them as ONNX at the end of your 
 |Framework for model|Conversion example or tool|
 |-----|-------|
 |PyTorch|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 |TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
 |Chainer|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
 |MXNet|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn, CoreML<br/>XGBoost, and libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Jupyter notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 You can find the latest list of supported frameworks and converters at the [ONNX Tutorials site](https://github.com/onnx/tutorials).
 
@@ -98,7 +99,7 @@ For the complete Python API reference, see the [ONNX Runtime reference docs](htt
 
 Here is an example for deploying an ONNX model:
 
-1. Initialize your Azure Machine Learning service workspace. If you don't have one yet, learn how to create a workspace in [this quickstart](quickstart-get-started.md).
+1. Initialize your Azure Machine Learning service workspace. If you don't have one yet, learn how to [create a workspace](setup-create-workspace.md).
 
    ```python
    from azureml.core import Workspace
@@ -139,6 +140,9 @@ Here is an example for deploying an ONNX model:
 
    image.wait_for_creation(show_output = True)
    ```
+
+   > [!TIP]
+   > The previous example uses the default image provided by the Azure Machine Learning service. You can also use a custom image. For more information, see the configure and register image section of [Deploy models](how-to-deploy-and-where.md#configureimage).
 
    The file `score.py` contains the scoring logic and needs to be included in the image. This file is used to run the model in the image. See this [tutorial](tutorial-deploy-models-with-aml.md#create-scoring-script) for instructions on how to create a scoring script. An example file for an ONNX model is shown below:
 

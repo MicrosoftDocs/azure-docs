@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 SDKs - Azure
-description: This article provides an overview of how to start developing with  Media Services v3 API using SDKs/tools.
+description: This article provides an overview of how to start developing with  Media Services v3 API using SDKs.
 services: media-services
 documentationcenter: na
 author: Juliako
@@ -14,103 +14,71 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/22/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: 
 ---
 
-# Start developing with Media Services v3 API using SDKs/tools
+# Develop against Media Services v3 API using SDKs
 
 As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
-This topic provides links to the SDKs, tools, documentation. It also provides some useful information for different dev env.
+> [!NOTE]
+> The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
+
+This topic provides links to the SDKs, tools, how-to guides.
 
 ## Prerequisites
 
 To start developing against Media Services, you need:
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-- [Create a Media Services account](create-account-cli-how-to.md)
+- [Learn about fundamental concepts](concepts-overview.md)
+- Review [Developing with Media Services v3 APIs](media-services-apis-overview.md)
+- [Create a Media Services account - CLI](create-account-cli-how-to.md)
 
-## Start developing
+## Start developing with SDKs
 
-Azure Media Services supports the following SDKs/tools 
+### .NET
 
-- [Azure CLI](https://aka.ms/ams-v3-cli) 
-- [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)
-- [Java SDK](https://aka.ms/ams-v3-java-sdk)
-- [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk)
-- [Python SDK](https://aka.ms/ams-v3-python-sdk)
-- [Go SDK](https://aka.ms/ams-v3-go-sdk)
-- [Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)
+Use [.NET SDK](https://aka.ms/ams-v3-dotnet-sdk) to  [connect to Media Services](configure-connect-dotnet-howto.md).
 
-### Azure Media Services Explorer
+Explore the Media Services [.NET reference](https://aka.ms/ams-v3-dotnet-ref) documentation.
+
+### Java
+
+Use [Java SDK](https://aka.ms/ams-v3-java-sdk) to [connect to Media Services](configure-connect-java-howto.md).
+
+Review the Media Services [Java reference](https://aka.ms/ams-v3-java-ref) documentation.
+
+### Node.js
+
+Use [Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) to [connect to Media Services](configure-connect-nodejs-howto.md).
+
+Explore the Media Services [Node.js reference](https://aka.ms/ams-v3-nodejs-ref) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
+
+### Python
+
+Use [Python SDK](https://aka.ms/ams-v3-python-sdk).
+
+Review the Media Services [Python reference](https://aka.ms/ams-v3-python-ref) documentation.
+
+### Go
+
+Use [Go SDK](https://aka.ms/ams-v3-go-sdk).
+
+Review the Media Services [Go reference](https://aka.ms/ams-v3-go-ref) documentation.
+
+### Ruby
+
+Use [Ruby SDK](https://aka.ms/ams-v3-ruby-sdk).
+
+## Azure Media Services Explorer
 
 [Azure Media Services Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (AMSE) is a tool available to Windows customers who want to learn about Media Services. AMSE is a Winforms/C# application that does upload, download, encode, stream VOD and live content with Media Services. The AMSE tool is for clients who want to test Media Services without writing any code. The AMSE code is provided as a resource for customers who want to develop with Media Services.
 
 AMSE is an Open Source project, support is provided by the community (issues can be reported to https://github.com/Azure/Azure-Media-Services-Explorer/issues). This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments.
 
-## REST
-
-To start developing with the Media Services REST APIs, install a REST client. For example **Postman**, **Visual Studio Code** with the REST plugin, or **Telerik Fiddler**. We are using [Postman](media-rest-apis-with-postman.md) for Media Services v3 samples.
-
-Explore the Media Services [REST API ref](https://aka.ms/ams-v3-rest-ref) documentation and check out these examples:
-
-- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md)
-- [Upload files into a Media Services account - REST](upload-files-rest-how-to.md)
-- [Create filters with Media Services - REST](filters-dynamic-manifest-rest-howto.md)
-- [Azure Resource Manager based REST API](https://github.com/Azure-Samples/media-services-v3-arm-templates)
-
-<!-- ## CLI -->
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-Explore the Media Services [Azure CLI ref](https://aka.ms/ams-v3-cli-ref) documentation and check out these examples:
-
-- [Scale Media Reserved Units - CLI](media-reserved-units-cli-how-to.md)
-- [Create a Media Services account - CLI](./scripts/cli-create-account.md) 
-- [Reset account credentials - CLI](./scripts/cli-reset-account-credentials.md)
-- [Create assets - CLI](./scripts/cli-create-asset.md)
-- [Upload a file - CLI](./scripts/cli-upload-file-asset.md)
-- [Create transforms - CLI](./scripts/cli-create-transform.md)
-- [Create jobs - CLI](./scripts/cli-create-jobs.md)
-- [Create EventGrid - CLI](./scripts/cli-create-event-grid.md)
-- [Publish an asset - CLI](./scripts/cli-publish-asset.md)
-- [Filter - CLI](filters-dynamic-manifest-cli-howto.md)
-
-## .NET
-
-Explore the Media Services [.NET ref](https://aka.ms/ams-v3-dotnet-ref) documentation and check out these examples:
-
-- [Tutorial: Upload, encode, and stream videos - .NET](stream-files-tutorial-with-api.md) 
-- [Tutorial: Stream live with Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Analyze videos with Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
-- [Create a job input from a local file - .NET](job-input-from-local-file-how-to.md)
-- [Create a job input from an HTTPS URL - .NET](job-input-from-http-how-to.md)
-- [Encode with a custom Transform - .NET](customize-encoder-presets-how-to.md)
-- [Use AES-128 dynamic encryption and the key delivery service - .NET](protect-with-aes128.md)
-- [Use DRM dynamic encryption and license delivery service - .NET](protect-with-drm.md)
-- [Get a signing key from the existing policy - .NET](get-content-key-policy-dotnet-howto.md)
-- [Create filters with Media Services - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Advanced video on-demand examples of Azure Functions v2 with Media Services v3](https://aka.ms/ams3functions)
-
-## Java
-
-Review the Media Services [Java ref](https://aka.ms/ams-v3-java-ref) documentation.
-
-## Node.js
-
-Explore the Media Services [Node.js ref](https://aka.ms/ams-v3-nodejs-ref) documentation and check out [samples](https://github.com/Azure-Samples/media-services-v3-node-tutorials) that show how to use Media Services API with node.js.
-
-## Python
-
-Review the Media Services [Python ref](https://aka.ms/ams-v3-python-ref) documentation.
-
-## Go
-
-Review the Media Services [Go ref](https://aka.ms/ams-v3-go-ref) documentation.
-
 ## Next steps
 
-- [Create an account - CLI](create-account-cli-how-to.md)
-- [Access APIs - CLI](access-api-cli-how-to.md)
-
+[Overview](media-services-overview.md)

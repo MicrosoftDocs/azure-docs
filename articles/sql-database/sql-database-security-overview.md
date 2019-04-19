@@ -11,7 +11,7 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 02/04/2019
+ms.date: 04/11/2019
 ---
 # An overview of Azure SQL Database security capabilities
 
@@ -82,9 +82,9 @@ SQL Database secures customer data by providing auditing and threat detection ca
 
 SQL Database auditing tracks database activities and helps to maintain compliance with security standards by recording database events to an audit log in a customer-owned Azure storage account. Auditing allows users to monitor ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For more information, see Get started with [SQL Database Auditing](sql-database-auditing.md).  
 
-### Threat detection
+### Advanced Threat Protection
 
-Threat detection enhances auditing by analyzing audit logs for unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities or anomalous access patterns such as SQL injection attacks, potential data infiltration, and brute force password attacks. Threat detection alerts are viewed from the [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Threat detection costs $15/server/month. It's free for the first 60 days. For more information, see [Get started with SQL Database Threat detection](sql-database-threat-detection.md).
+Advanced Threat Protection is analyzing your SQL Server logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -94,12 +94,16 @@ Threat detection enhances auditing by analyzing audit logs for unusual behavior 
 
 SQL Database secures customer data by encrypting data in motion with [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+Sql Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
+
+As a best practice, recommend that in your application's connection string you specify an encrypted connection and _**not**_ trust the server certificate. This forces the your application to verify the server certificate and thus prevents your application from being vulnerable to man in the middle type attacks .
+
+For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**.If you obtain your connection string from the Azure portal, it will have the correct settings.
+
 > [!IMPORTANT]
-> Azure SQL Database enforces encryption (SSL/TLS) at all times for all connections, which ensures all data is encrypted "in transit" between the database and the client. This will happen irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
+> Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data. 
 >
-> In your application's connection string, ensure that you specify an encrypted connection and _not_ to trust the server certificate (For the ADO.NET driver this is **Encrypt=True** and **TrustServerCertificate=False**). This helps to prevent your application from a man in the middle attack, by forcing the application to verify the server and enforcing encryption. If you obtain your connection string from the Azure portal, it will have the correct settings.
->
-> For information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> For further information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### Transparent Data Encryption (Encryption-at-rest)
 
@@ -147,7 +151,7 @@ For more information, see [Get started with data discovery & classification](sql
 
 ### Compliance
 
-In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits, and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+In addition to the above features and functionality that can help your application meet various security requirements, Azure SQL Database also participates in regular audits, and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
 
 ## Next steps
 

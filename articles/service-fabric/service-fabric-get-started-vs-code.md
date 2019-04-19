@@ -3,8 +3,8 @@ title: Azure Service Fabric with VS Code Getting Started | Microsoft Docs
 description: This article is an overview of creating Service Fabric applications using Visual Studio Code. 
 services: service-fabric
 documentationcenter: .net
-author: JimacoMS2
-manager: timlt
+author: peterpogorski
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
-ms.author: v-jamebr
+ms.author: pepogors
 
 ---
 
@@ -117,7 +117,7 @@ The **Service Fabric: Remove Application** command removes a Service Fabric appl
 2.  View the cluster with Service Fabric Explorer to confirm that the application has been removed. This may take some time, so be patient.
 
 ### Service Fabric: Build Application
-The **Service Fabric: Remove Application** command can build either Java or C# Service Fabric applications. 
+The **Service Fabric: Build Application** command can build either Java or C# Service Fabric applications. 
 
 1.  Make sure you are in the application root folder before executing this command. The command identifies the type of application (C# or Java) 
     and builds your application accordingly.

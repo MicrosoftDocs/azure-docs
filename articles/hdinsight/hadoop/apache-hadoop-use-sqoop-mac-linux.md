@@ -155,7 +155,7 @@ You can also use Sqoop to import and export data from SQL Server. The difference
 
 Now you have learned how to use Sqoop. To learn more, see:
 
-* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie.md): Use Sqoop action in an Oozie workflow.
+* [Use Apache Oozie with HDInsight](../hdinsight-use-oozie-linux-mac.md): Use Sqoop action in an Oozie workflow.
 * [Analyze flight delay data using HDInsight](../hdinsight-analyze-flight-delay-data-linux.md): Use Apache Hive to analyze flight delay data, and then use Sqoop to export data to an Azure SQL database.
 * [Upload data to HDInsight](../hdinsight-upload-data.md): Find other methods for uploading data to HDInsight/Azure Blob storage.
 

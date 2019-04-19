@@ -6,7 +6,7 @@ author: roygara
 
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
 ---
@@ -130,7 +130,7 @@ Data Plane Security refers to the methods used to secure the data objects stored
 You have three options for authorizing access to data objects in Azure Storage, including:
 
 - Using Azure AD to authorize access to filesystems and queues. Azure AD provides advantages over other approaches to authorization, including removing the need to store secrets in your code. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md). 
-- Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible. For production applications, or for authorizing access to Azure tables and files, continue using Shared Key while Azure AD integration is in preview.
+- Using your storage account keys to authorize access via Shared Key. Authorizing via Shared Key requires storing your storage account keys in your application, so Microsoft recommends using Azure AD instead where possible.
 - Using Shared Access Signatures to grant controlled permissions to specific data objects for a specific amount of time.
 
 In addition to limiting access through authorization, you can also use [Firewalls and Virtual Networks](storage-network-security.md) to limit access to the storage account based on network rules.  This approach enables you deny access to public internet traffic, and to grant access only to specific Azure Virtual Networks or public internet IP address ranges.

@@ -20,7 +20,7 @@ metadata:
   ms.custom: seodec18
 
 abstract:
-  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Services also have REST APIs that works with any programming language that can make HTTP requests.
+  description: Learn how to use the Speech Services and the Speech SDK to add speech-enabled features to your apps. You can use the Speech SDK to add <i>speech-to-text</i> (speech recognition/SR), <i>intent</i>, <i>translation</i>, and <i>text-to-speech</i> (TTS) capabilities to your apps. The Speech Services also have REST APIs that work with any programming language that can make HTTP requests.
 sections:
 - items:
     - type: list
@@ -161,12 +161,12 @@ sections:
         values:
         - href:
         - href:
+        - href: quickstart-cpp-macos
+        - href: quickstart-csharp-dotnetcore-windows
         - href:
-        - href:
-        - href:
-        - href:
+        - href: quickstart-java-jre
         - href: quickstart-python
-        - href:
+        - href: quickstart-objective-c-macos
         - href: quickstart-js-node
         - href:
       - title: Devices SDK (ARM32)
@@ -216,6 +216,7 @@ sections:
     - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
     - html: <a href="intent.md">Intent Recognition</a><br/>
     - html: <a href="translation.md">Translation</a>
+    - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text-to-speech</a><br/>
 - title: Samples
   items:
   - type: paragraph

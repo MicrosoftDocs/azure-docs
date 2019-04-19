@@ -3,8 +3,8 @@ title: Set up a Windows development environment for Azure microservices | Micros
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you will be ready to build applications on Windows.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 
 ms.assetid: b94e2d2e-435c-474a-ae34-4adecd0e6f8f
@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
-ms.author: ryanwi
+ms.date: 04/02/2019
+ms.author: aljo
 
 ---
 # Prepare your development environment on Windows
@@ -65,8 +65,8 @@ If you only need the SDK, you can install this package:
 * [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 The current versions are:
-* Service Fabric SDK and Tools 3.3.644
-* Service Fabric runtime 6.4.644
+* Service Fabric SDK and Tools 3.3.654
+* Service Fabric runtime 6.4.654
 * Service Fabric Tools for Visual Studio 2015 2.4.11116.1
 * Visual Studio 2017 15.9 includes Service Fabric Tools for Visual Studio 2.4.11024.1 
 

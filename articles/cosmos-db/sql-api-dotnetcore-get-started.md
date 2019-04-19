@@ -71,7 +71,7 @@ Use the following steps to create an Azure Cosmos account:
 
    ![Screenshot of the right-click menu for the project](./media/sql-api-dotnetcore-get-started/nosql-tutorial-manage-nuget-pacakges.png)
 
-6. On the **NuGet** tab, select **Browse** at the top of the window, and type **azure documentdb** in the search box.
+6. On the **NuGet** tab, select **Browse** at the top of the window, and type **azure documentdb** in the search box. Ensure that the **include prerelease** checkbox is checked.
 
 7. In the results, find **Microsoft.Azure.DocumentDB.Core** and select **Install**.
 
@@ -201,7 +201,7 @@ Copy and paste the following code to your **GetStartedDemo** method underneath t
 ```csharp
     this.client = new DocumentClient(new Uri(EndpointUri), PrimaryKey);
 
-    await this.client.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
     // ADD THIS PART TO YOUR CODE
     await this.client.CreateDocumentCollectionIfNotExistsAsync(UriFactory.CreateDatabaseUri("FamilyDB_oa"), new DocumentCollection { Id = "FamilyCollection_oa" });
@@ -296,7 +296,7 @@ private async Task CreateFamilyDocumentIfNotExists(string databaseName, string c
 And insert two documents, one each for the Andersen Family and the Wakefield Family. Copy and paste the code that follows `// ADD THIS PART TO YOUR CODE` to your **GetStartedDemo** method underneath the document collection creation.
 
 ```csharp
-await this.CreateDatabaseIfNotExistsAsync("FamilyDB_oa");
+    await this.client.CreateDatabaseIfNotExistsAsync(new Database { Id = "FamilyDB_oa" });
 
 await this.CreateDocumentCollectionIfNotExists("FamilyDB_oa", "FamilyCollection_oa");
 

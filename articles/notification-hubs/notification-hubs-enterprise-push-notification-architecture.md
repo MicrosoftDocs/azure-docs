@@ -69,156 +69,156 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     b. This application is a simple C# console app to simulate an LoB system, which initiates the message to be delivered to the mobile app.
 
-        ```csharp
-        static void Main(string[] args)
-        {
-            string connectionString =
-                CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    ```csharp
+    static void Main(string[] args)
+    {
+        string connectionString =
+            CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-            // Create the topic
-            CreateTopic(connectionString);
+        // Create the topic
+        CreateTopic(connectionString);
 
-            // Send message
-            SendMessage(connectionString);
-        }
-        ```
+        // Send message
+        SendMessage(connectionString);
+    }
+    ```
 
     c. `CreateTopic` is used to create the Service Bus topic.
 
-        ```csharp
-        public static void CreateTopic(string connectionString)
+    ```csharp
+    public static void CreateTopic(string connectionString)
+    {
+        // Create the topic if it does not exist already
+
+        var namespaceManager =
+            NamespaceManager.CreateFromConnectionString(connectionString);
+
+        if (!namespaceManager.TopicExists(sampleTopic))
         {
-            // Create the topic if it does not exist already
-
-            var namespaceManager =
-                NamespaceManager.CreateFromConnectionString(connectionString);
-
-            if (!namespaceManager.TopicExists(sampleTopic))
-            {
-                namespaceManager.CreateTopic(sampleTopic);
-            }
+            namespaceManager.CreateTopic(sampleTopic);
         }
-        ```
+    }
+    ```
 
     d. `SendMessage` is used to send the messages to this Service Bus Topic. This code simply sends a set of random messages to the topic periodically for the purpose of the sample. Normally there is a backend system, which sends messages when an event occurs.
 
-        ```csharp
-        public static void SendMessage(string connectionString)
+    ```csharp
+    public static void SendMessage(string connectionString)
+    {
+        TopicClient client =
+            TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
+
+        // Sends random messages every 10 seconds to the topic
+        string[] messages =
         {
-            TopicClient client =
-                TopicClient.CreateFromConnectionString(connectionString, sampleTopic);
+            "Employee Id '{0}' has joined.",
+            "Employee Id '{0}' has left.",
+            "Employee Id '{0}' has switched to a different team."
+        };
 
-            // Sends random messages every 10 seconds to the topic
-            string[] messages =
-            {
-                "Employee Id '{0}' has joined.",
-                "Employee Id '{0}' has left.",
-                "Employee Id '{0}' has switched to a different team."
-            };
+        while (true)
+        {
+            Random rnd = new Random();
+            string employeeId = rnd.Next(10000, 99999).ToString();
+            string notification = String.Format(messages[rnd.Next(0,messages.Length)], employeeId);
 
-            while (true)
-            {
-                Random rnd = new Random();
-                string employeeId = rnd.Next(10000, 99999).ToString();
-                string notification = String.Format(messages[rnd.Next(0,messages.Length)], employeeId);
+            // Send Notification
+            BrokeredMessage message = new BrokeredMessage(notification);
+            client.Send(message);
 
-                // Send Notification
-                BrokeredMessage message = new BrokeredMessage(notification);
-                client.Send(message);
+            Console.WriteLine("{0} Message sent - '{1}'", DateTime.Now, notification);
 
-                Console.WriteLine("{0} Message sent - '{1}'", DateTime.Now, notification);
-
-                System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
-            }
+            System.Threading.Thread.Sleep(new TimeSpan(0, 0, 10));
         }
-        ```
+    }
+    ```
 2. **ReceiveAndSendNotification**
 
     a. This project uses the *WindowsAzure.ServiceBus* and **Microsoft.Web.WebJobs.Publish** NuGet packages and is based on [Service Bus Pub/Sub programming].
 
     b. The following console app runs as an [Azure WebJob] since it has to run continuously to listen for messages from the LoB/backend systems. This application is part of your Mobile backend.
 
-        ```csharp
-        static void Main(string[] args)
-        {
-            string connectionString =
-                     CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
+    ```csharp
+    static void Main(string[] args)
+    {
+        string connectionString =
+                 CloudConfigurationManager.GetSetting("Microsoft.ServiceBus.ConnectionString");
 
-            // Create the subscription that receives messages
-            CreateSubscription(connectionString);
+        // Create the subscription that receives messages
+        CreateSubscription(connectionString);
 
-            // Receive message
-            ReceiveMessageAndSendNotification(connectionString);
-        }
-        ```
+        // Receive message
+        ReceiveMessageAndSendNotification(connectionString);
+    }
+    ```
 
     c. `CreateSubscription` is used to create a Service Bus subscription for the topic where the backend system sends messages. Depending on the business scenario, this component creates one or more subscriptions to corresponding topics (for example, some may be receiving messages from HR system, some from Finance system, and so on)
 
-        ```csharp
-        static void CreateSubscription(string connectionString)
-        {
-            // Create the subscription if it does not exist already
-            var namespaceManager =
-                NamespaceManager.CreateFromConnectionString(connectionString);
+    ```csharp
+    static void CreateSubscription(string connectionString)
+    {
+        // Create the subscription if it does not exist already
+        var namespaceManager =
+            NamespaceManager.CreateFromConnectionString(connectionString);
 
-            if (!namespaceManager.SubscriptionExists(sampleTopic, sampleSubscription))
-            {
-                namespaceManager.CreateSubscription(sampleTopic, sampleSubscription);
-            }
+        if (!namespaceManager.SubscriptionExists(sampleTopic, sampleSubscription))
+        {
+            namespaceManager.CreateSubscription(sampleTopic, sampleSubscription);
         }
-        ```
+    }
+    ```
 
     d. `ReceiveMessageAndSendNotification` is used to read the message from the topic using its subscription and if the read is successful then craft a notification (in the sample scenario a Windows native toast notification) to be sent to the mobile application using Azure Notification Hubs.
 
-        ```csharp
-        static void ReceiveMessageAndSendNotification(string connectionString)
+    ```csharp
+    static void ReceiveMessageAndSendNotification(string connectionString)
+    {
+        // Initialize the Notification Hub
+        string hubConnectionString = CloudConfigurationManager.GetSetting
+                ("Microsoft.NotificationHub.ConnectionString");
+        hub = NotificationHubClient.CreateClientFromConnectionString
+                (hubConnectionString, "enterprisepushservicehub");
+
+        SubscriptionClient Client =
+            SubscriptionClient.CreateFromConnectionString
+                    (connectionString, sampleTopic, sampleSubscription);
+
+        Client.Receive();
+
+        // Continuously process messages received from the subscription
+        while (true)
         {
-            // Initialize the Notification Hub
-            string hubConnectionString = CloudConfigurationManager.GetSetting
-                    ("Microsoft.NotificationHub.ConnectionString");
-            hub = NotificationHubClient.CreateClientFromConnectionString
-                    (hubConnectionString, "enterprisepushservicehub");
+            BrokeredMessage message = Client.Receive();
+            var toastMessage = @"<toast><visual><binding template=""ToastText01""><text id=""1"">{messagepayload}</text></binding></visual></toast>";
 
-            SubscriptionClient Client =
-                SubscriptionClient.CreateFromConnectionString
-                        (connectionString, sampleTopic, sampleSubscription);
-
-            Client.Receive();
-
-            // Continuously process messages received from the subscription
-            while (true)
+            if (message != null)
             {
-                BrokeredMessage message = Client.Receive();
-                var toastMessage = @"<toast><visual><binding template=""ToastText01""><text id=""1"">{messagepayload}</text></binding></visual></toast>";
-
-                if (message != null)
+                try
                 {
-                    try
-                    {
-                        Console.WriteLine(message.MessageId);
-                        Console.WriteLine(message.SequenceNumber);
-                        string messageBody = message.GetBody<string>();
-                        Console.WriteLine("Body: " + messageBody + "\n");
+                    Console.WriteLine(message.MessageId);
+                    Console.WriteLine(message.SequenceNumber);
+                    string messageBody = message.GetBody<string>();
+                    Console.WriteLine("Body: " + messageBody + "\n");
 
-                        toastMessage = toastMessage.Replace("{messagepayload}", messageBody);
-                        SendNotificationAsync(toastMessage);
+                    toastMessage = toastMessage.Replace("{messagepayload}", messageBody);
+                    SendNotificationAsync(toastMessage);
 
-                        // Remove message from subscription
-                        message.Complete();
-                    }
-                    catch (Exception)
-                    {
-                        // Indicate a problem, unlock message in subscription
-                        message.Abandon();
-                    }
+                    // Remove message from subscription
+                    message.Complete();
+                }
+                catch (Exception)
+                {
+                    // Indicate a problem, unlock message in subscription
+                    message.Abandon();
                 }
             }
         }
-        static async void SendNotificationAsync(string message)
-        {
-            await hub.SendWindowsNativeNotificationAsync(message);
-        }
-        ```
+    }
+    static async void SendNotificationAsync(string message)
+    {
+        await hub.SendWindowsNativeNotificationAsync(message);
+    }
+    ```
 
     e. For publishing this app as a **WebJob**, right click on the solution in Visual Studio and select **Publish as WebJob**
 
@@ -240,23 +240,23 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     c. Ensure that the following Notification Hubs registration code is being called at the App start up (after replacing the `HubName` and `DefaultListenSharedAccessSignature` values:
 
-        ```csharp
-        private async void InitNotificationsAsync()
+    ```csharp
+    private async void InitNotificationsAsync()
+    {
+        var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
+
+        var hub = new NotificationHub("[HubName]", "[DefaultListenSharedAccessSignature]");
+        var result = await hub.RegisterNativeAsync(channel.Uri);
+
+        // Displays the registration ID so you know it was successful
+        if (result.RegistrationId != null)
         {
-            var channel = await PushNotificationChannelManager.CreatePushNotificationChannelForApplicationAsync();
-
-            var hub = new NotificationHub("[HubName]", "[DefaultListenSharedAccessSignature]");
-            var result = await hub.RegisterNativeAsync(channel.Uri);
-
-            // Displays the registration ID so you know it was successful
-            if (result.RegistrationId != null)
-            {
-                var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
-                dialog.Commands.Add(new UICommand("OK"));
-                await dialog.ShowAsync();
-            }
+            var dialog = new MessageDialog("Registration successful: " + result.RegistrationId);
+            dialog.Commands.Add(new UICommand("OK"));
+            await dialog.ShowAsync();
         }
-        ```
+    }
+    ```
 
 ### Running the sample
 

@@ -33,7 +33,9 @@ This document describes how you can create and configure a self-hosted IR.
 3. Retrieve the authentication key and register the self-hosted integration runtime with the key. Here is a PowerShell example:
 
 	```powershell
-	Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+	Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
 	```
 
 ## Setting up a self-hosted IR on an Azure VM by using an Azure Resource Manager template (automation)
@@ -47,7 +49,7 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 ![High-level overview](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. The data developer creates a self-hosted integration runtime within an Azure data factory by using a PowerShell cmdlet. Currently, the Azure portal does not support this feature.
-2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores. As part of setting up the linked service, the data developer uses the Credential Manager application (currently not supported) for setting authentication types and credentials. The Credential Manager application communicates with the data store to test the connection and the self-hosted integration runtime to save credentials.
+2. The data developer creates a linked service for an on-premises data store by specifying the self-hosted integration runtime instance that it should use to connect to data stores.
 3. The self-hosted integration runtime node encrypts the credentials by using Windows Data Protection Application Programming Interface (DPAPI) and saves the credentials locally. If multiple nodes are set for high availability, the credentials are further synchronized across other nodes. Each node encrypts the credentials by using DPAPI and stores them locally. Credential synchronization is transparent to the data developer and is handled by the self-hosted IR.    
 4. The Data Factory service communicates with the self-hosted integration runtime for scheduling and management of jobs via a *control channel* that uses a shared Azure Service Bus queue. When an activity job needs to be run, Data Factory queues the request along with any credential information (in case credentials are not already stored on the self-hosted integration runtime). The self-hosted integration runtime kicks off the job after polling the queue.
 5. The self-hosted integration runtime copies data from an on-premises store to a cloud storage, or vice versa depending on how the copy activity is configured in the data pipeline. For this step, the self-hosted integration runtime directly communicates with cloud-based storage services such as Azure Blob storage over a secure (HTTPS) channel.
@@ -104,7 +106,7 @@ You can install the self-hosted integration runtime by downloading an MSI setup 
 
 
 ## High availability and scalability
-A self-hosted integration runtime can be associated with multiple on-premises machines. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
+A self-hosted integration runtime can be associated with multiple on-premises machines or Virtual Machines in Azure. These machines are called nodes. You can have up to four nodes associated with a self-hosted integration runtime. The benefits of having multiple nodes (on-premises machines with a gateway installed) for a logical gateway are:
 * Higher availability of the self-hosted integration runtime so that it's no longer the single point of failure in your big data	solution or cloud data integration with Azure Data Factory, ensuring continuity with up to four nodes.
 * Improved performance and throughput during data movement between on-premises and cloud data stores. Get more information on [performance comparisons](copy-activity-performance.md).
 
@@ -248,7 +250,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 ![Specify proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-The self-hosted integration runtime uses the proxy server to connect to the cloud service. Select **Change link** during initial setup. You see the proxy-setting dialog box.
+When configured, the self-hosted integration runtime uses the proxy server to connect to the cloud service, source/ destination (those using HTTP/ HTTPS protocol). This is  Select **Change link** during initial setup. You see the proxy-setting dialog box.
 
 ![Set proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
@@ -324,8 +326,8 @@ If you encounter errors similar to the following ones, it's likely due to improp
 	```
 
 ### Enabling remote access from an intranet  
-If you use PowerShell or the Credential Manager application to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
-If you run PowerShell or the Credential Manager application to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
+If you use PowerShell to encrypt credentials from another machine (in the network) other than where the self-hosted integration runtime is installed, you can enable the **Remote Access from Intranet** option. 
+If you run PowerShell to encrypt credentials on the same machine where the self-hosted integration runtime is installed, you can't enable **Remote Access from Intranet**.
 
 You should enable **Remote Access from Intranet** before you add another node for high availability and scalability.  
 
@@ -335,9 +337,7 @@ If you're using a third-party firewall, you can manually open port 8060 (or the 
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> The Credential Manager application is not yet available for encrypting credentials in Azure Data Factory V2.  
+``` 
 
 If you choose not to open port 8060 on the self-hosted integration runtime machine, use mechanisms other than the Setting Credentials application to configure data store credentials. For example, you can use the **New-AzDataFactoryV2LinkedServiceEncryptCredential** PowerShell cmdlet.
 

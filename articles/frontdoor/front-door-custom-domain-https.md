@@ -38,6 +38,9 @@ In this tutorial, you learn how to:
 > - Validate the domain
 > - Disable the HTTPS protocol on your custom domain
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 Before you can complete the steps in this tutorial, you must first create a Front Door and with at least one custom domain onboarded. For more information, see [Tutorial: Add a custom domain to your Front Door](front-door-custom-domain.md).
@@ -83,11 +86,11 @@ You can use your own certificate to enable the HTTPS feature. This process is do
 
 Register the service principal for Azure Front Door Service as an app in your Azure Active Directory via PowerShell.
 
-1. If needed, install [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) in PowerShell on your local machine.
+1. If needed, install [Azure PowerShell](/powershell/azure/install-az-ps) in PowerShell on your local machine.
 
 2. In PowerShell, run the following command:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### Grant Azure Front Door Service access to your key vault
  

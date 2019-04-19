@@ -212,7 +212,3 @@ From this article, you learned how to run the samples included with the Linux-ba
 [hdinsight-submit-jobs]:submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:apache-hadoop-introduction.md
 
-
-
-[hdinsight-samples]: hdinsight-run-samples.md
-

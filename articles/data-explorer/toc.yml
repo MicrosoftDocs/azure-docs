@@ -7,16 +7,18 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a cluster - Azure portal
-    href: create-cluster-database-portal.md
-  - name: Create a cluster - Azure CLI
-    href: create-cluster-database-cli.md
-  - name: Create a cluster - PowerShell
-    href: create-cluster-database-powershell.md
-  - name: Create a cluster - C#
-    href: create-cluster-database-csharp.md
-  - name: Create a cluster - Python
-    href: create-cluster-database-python.md
+  - name: Create cluster and database
+    items:
+    - name: Azure portal
+      href: create-cluster-database-portal.md
+    - name: Azure CLI
+      href: create-cluster-database-cli.md
+    - name: PowerShell
+      href: create-cluster-database-powershell.md
+    - name: C#
+      href: create-cluster-database-csharp.md
+    - name: Python
+      href: create-cluster-database-python.md
   - name: Ingest data
     items:
     - name: Streaming data - Event Hub
@@ -82,12 +84,18 @@
       href: delete-data.md
     - name: Deal with duplicate data
       href: dealing-with-duplicates.md
+  - name: Monitoring
+    items:
+    - name: Using metrics to monitor cluster health
+      href: using-metrics.md
   - name: Work with other tools
     items:
     - name: Connect from Databricks using Python
       href: connect-from-databricks.md
     - name: Analyze data in Jupyter Notebooks & Kqlmagic
       href: kqlmagic.md
+    - name: Copy data using Azure Data Factory
+      href: data-factory-load-data.md 
     - name: Visualize data in Grafana
       href: grafana.md
     - name: Connect with ODBC

@@ -7,10 +7,10 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 03/29/2019
 ms.author: alkohli
 ---
-# Manage an Azure Data Box Edge device via Windows PowerShell (preview)
+# Manage an Azure Data Box Edge device via Windows PowerShell
 
 Azure Data Box Edge solution lets you process data and send it over the network to Azure. This article describes some of the configuration and management tasks for your Data Box Edge device. You can use the Azure portal, local web UI, or the Windows PowerShell interface to manage your device.
 
@@ -27,18 +27,9 @@ This article includes the following procedures:
 - Get compute logs
 - Monitor and troubleshoot compute modules
 
-> [!IMPORTANT]
-> Azure Data Box Edge is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Connect to the PowerShell interface
 
 [!INCLUDE [Connect to admin runspace](../../includes/data-box-edge-gateway-connect-minishell.md)]
-
-## Start a support session
-
-[!INCLUDE [Connect to support runspace](../../includes/data-box-edge-gateway-connect-support.md)]
 
 ## Create a support package
 
@@ -48,7 +39,22 @@ This article includes the following procedures:
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
+You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
+
+- Root CA certificate or the owner CA
+- Device CA certificate
+- Device key certificate
+
+The following example shows the usage of this cmdlet to install IoT Edge certificates:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
+
 ## View device information
+
  
 [!INCLUDE [View device information](../../includes/data-box-edge-gateway-view-device-info.md)]
 
@@ -65,14 +71,19 @@ If the compute role is configured on your device, you can also get the compute l
 
     The following example shows the usage of this cmdlet:
 
-    ```
+    ```powershell
     Get-AzureDataBoxEdgeComputeRoleLogs -Path "\\hcsfs\logs\myacct" -Credential "username/password" -RoleInstanceName "IotRole" -FullLogCollection
     ```
-    Here is a description of the parameters used for the cmdlet: 
+
+    Here is a description of the parameters used for the cmdlet:
     - `Path`: Provide a network path to the share where you want to create the compute log package.
     - `Credential`: Provide the username and password for the network share.
     - `RoleInstanceName`: Provide this string `IotRole` for this parameter.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
+
+## Monitor and troubleshoot compute modules
+
+[!INCLUDE [Monitor and troubleshoot compute modules](../../includes/data-box-edge-monitor-troubleshoot-compute.md)]
 
 
 ## Next steps
