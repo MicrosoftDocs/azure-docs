@@ -68,7 +68,7 @@ The pre-installed packages are:
 - urllib3==1.24.1
 - wheel==0.33.1 
 
- To install other pakages not in the pre-installed list, for example *scikit-misc*, add the following code to your script: 
+ To install other packages not in the pre-installed list, for example *scikit-misc*, add the following code to your script: 
 
  ```python
 import os
