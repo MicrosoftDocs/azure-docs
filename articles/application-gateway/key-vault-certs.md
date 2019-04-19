@@ -44,6 +44,8 @@ Integration with Key Vault requires a three-step configuration process:
 
    Once the previous two steps are completed, you can provision or modify an existing Application Gateway to use the user assigned managed identity. You also configure the HTTP listener’s SSL certificate to point to the complete URI of Key Vault's certificate or secret ID.
 
+![Key Vault certificates](media/key-vault-certs/ag-kv.png)
+
 ## Next steps
 
 [Configure SSL termination with Key Vault certificates using Azure PowerShell](configure-keyvault-ps.md).
