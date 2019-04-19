@@ -102,7 +102,7 @@
   - name: Azure PowerShell
     href: sql-database-powershell-samples.md
   - name: Azure Resource Manager
-    displayName: ARM template
+    displayName: Resource Manager template
     href: sql-database-resource-manager-samples.md 
 - name: Concepts
   items:
@@ -186,6 +186,8 @@
       href: sql-database-managed-instance-transact-sql-information.md 
     - name: Time zone in Managed Instance
       href: sql-database-managed-instance-timezone.md
+    - name: Secure public endpoints in managed instance
+      href: sql-database-managed-instance-public-endpoint-securely.md
   - name: Platform as a Service
     items:
     - name: Platform as a Service overview
