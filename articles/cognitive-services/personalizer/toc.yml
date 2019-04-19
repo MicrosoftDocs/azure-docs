@@ -25,3 +25,10 @@
   items: 
   - name: Configuring Personalizer
     href: how-to-settings.md
+  - name: Use containers
+    items:
+    - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
+      href: https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409
+    - name: Configure containers
+      href: https://go.microsoft.com/fwlink/?linkid=2083828&clcid=0x409
