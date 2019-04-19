@@ -135,28 +135,28 @@
     href: how-to-use-conversation-transcription-service.md
     displayName: conversation, transcription, speech recognition
 - name: Customization
+  items:
+  - name: Speech-to-text
     items:
-    - name: Speech-to-text
-      items:
-      - name: Prepare transcripts for customization
-        href: prepare-transcription.md
-      - name: Customize acoustic models
-        href: how-to-customize-acoustic-models.md
-      - name: Customize language models
-        href: how-to-customize-language-model.md
-      - name: Customize pronunciation
-        href: how-to-customize-pronunciation.md
-      - name: Create custom recognition endpoint
-        href: how-to-create-custom-endpoint.md
-    - name: Text-to-speech
-      items:
-      - name: Create voice fonts (bot brand voice)
-        href: how-to-customize-voice-font.md
-      - name: Record voice samples
-        href: record-custom-voice-samples.md
-    - name: Create a custom wake word (Devices SDK)
-      href: speech-devices-sdk-create-kws.md
-      displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
+    - name: Prepare transcripts for customization
+      href: prepare-transcription.md
+    - name: Customize acoustic models
+      href: how-to-customize-acoustic-models.md
+    - name: Customize language models
+      href: how-to-customize-language-model.md
+    - name: Customize pronunciation
+      href: how-to-customize-pronunciation.md
+    - name: Create custom recognition endpoint
+      href: how-to-create-custom-endpoint.md
+  - name: Text-to-speech
+    items:
+    - name: Create voice fonts (bot brand voice)
+      href: how-to-customize-voice-font.md
+    - name: Record voice samples
+      href: record-custom-voice-samples.md
+  - name: Create a custom wake word (Devices SDK)
+    href: speech-devices-sdk-create-kws.md
+    displayName: roobo, speech devices sdk, wake word, keyword spotting, kws
   - name: Migration
     items:
     - name: From Bing Speech
