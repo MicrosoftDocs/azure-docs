@@ -53,12 +53,21 @@ Sample returned value:
 
 With the SAS for your empty managed disk, you can now use that as the destination for your upload command.
 
-Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI generated in step #2 
+Use AzCopy v10 to upload your local VHD file to a managed disk by specifying the SAS URI generated in step #2.
 
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob 
+```
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" "sas-URI" --blob-type PageBlob
+```
 
-Revoke the SAS after the upload is complete to attach the disk to a VM 
+
+After the upload is complete, revoke the SAS, this will change the state of the managed disk and allow you to attach the disk to a VM.
 
 ```azurecli-interactive
 az disk revoke-access -n contosodisk2 -g contosoteam2 
 ```
+
+## Next steps
+
+Now that you've successfully uploaded a vhd to a managed disk, you can attach your disk to a VM and begin using it.
+
+To learn how to accomplish that, see our article on the subject: [Add a disk to a Linux VM](add-disk.md).

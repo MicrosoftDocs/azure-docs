@@ -17,6 +17,7 @@ Ensure that you are using the latest version (>=10.0.1) of Azure Storage blob .N
 
 Create an empty managed disk for upload and generate a writable SAS of the managed disk 
 
+```csharp
 using (var computeClient = new ComputeManagementClient(credential)) 
 
 { 
@@ -51,7 +52,7 @@ var getSasResponse = computeClient.Disks.GrantAccess(resourceGroupName, managedD
 return getSasResponse.AccessSAS; 
 }
 Upload data to the managed disk by using WritePage as shown below. You can choose either a or b.  
-
+```
 The sample below gets the pages of a page blob, downloads the pages and writes the pages to the managed disk. 
 CloudPageBlob sourceVHD = new CloudPageBlob(new Uri(sourceSASURI)); 
 
@@ -85,6 +86,7 @@ await targetMD.WritePagesAsync(stream, range.StartOffset + subOffset, null);
 }
 }
 }
+
 The sample below gets the pages of a page blob, writes the pages to the target managed disk without downloading the pages. System downloads the source pages and writes them to managed disks.  
 
 CloudPageBlob sourceVHD = new CloudPageBlob(new Uri(sourceSASURI)); 
