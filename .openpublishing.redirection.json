@@ -1651,6 +1651,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-vscode-train-deploy.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-vscode-tools",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/support-for-aml-services.md",
       "redirect_url": "https://aka.ms/aml-forum-service",
       "redirect_document_id": true

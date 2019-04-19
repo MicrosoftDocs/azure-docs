@@ -106,7 +106,7 @@ The application manifest represents the schema of the underlying application mod
 | `publicClient`            | `allowPublicClient`         |
 | `replyUrls`               | `replyUrlsWithType`         |
 
-For descriptions for these attributes, see the the [manifest reference](#manifest-reference) section.
+For descriptions for these attributes, see the [manifest reference](#manifest-reference) section.
 
 When you try to upload a previously downloaded manifest, you may see one of the following errors. This is likely because the manifest editor now supports a newer version of the schema, which doesn't match with the one you're trying to upload.
 
