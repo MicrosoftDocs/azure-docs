@@ -105,7 +105,7 @@ Now, if you try to visit your back-end URL directly by pasting it into a new bro
 
 Your function app is connected to both the internet and your virtual network. The proxy is receiving a request over the public internet, and then acting as a simple HTTP proxy to forward that request along into the virtual network. The proxy then relays the response back to you over the public internet. 
 
-<img src="./media/functions-create-vnet/plant.png" width="900">
+<!-- <img src="./media/functions-create-vnet/plant.png" width="900"> -->
 
 ## Next steps
 
@@ -118,7 +118,7 @@ Functions running in a Premium plan share the same underlying App Service infras
 * [Connect to individual on-premises resources without firewall changes by using Hybrid Connections](../app-service/app-service-hybrid-connections.md)
 * [Learn more about Functions Proxies](./functions-proxies.md)
 
-<!--Image references-->
+<!--Image references
 [1]: ./media/functions-create-vnet/topology.png
 [2]: ./media/functions-create-vnet/create-function-app.png
 [3]: ./media/functions-create-vnet/create-app-service-plan.png
@@ -132,3 +132,4 @@ Functions running in a Premium plan share the same underlying App Service infras
 [11]: ./media/functions-create-vnet/new-proxy.png
 [12]: ./media/functions-create-vnet/create-proxy.png
 [14]: ./media/functions-create-vnet/vm-networking.png
+-->
