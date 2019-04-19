@@ -13,11 +13,11 @@ ms.date: 04/18/2019
 
 The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Spark and Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector is a library that works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
 
-Apache Hive offers ACID support, detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. Apache Spark, on the other hand, Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs which can make interoperability difficult. Hive Warehouse Connector makes it easier to use Spark and Hive together. Since data is loaded from LLAP daemons to Spark executors in parallel, this is much more efficient and scalable than using a standard JDBC connection from Spark to Hive.
+Apache Hive offers ACID support, detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. Apache Spark, on the other hand, Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs, which can make interoperability difficult. Hive Warehouse Connector makes it easier to use Spark and Hive together. Data is loaded from LLAP daemons to Spark executors in parallel, this architecture is much more efficient and scalable than using a standard JDBC connection from Spark to Hive.
 
 ![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
-Some of the operations supported by the Hive Warehouse Connector are the following:
+Some of the operations supported by the Hive Warehouse Connector are:
 
 * Describing a table
 * Creating a table for ORC-formatted data
@@ -33,12 +33,12 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
 
 1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet).
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
-1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. Once you have completed this, the hosts file on your Spark cluster will look something like the output shown in the screenshot below.
+1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. Once you have completed this step, the hosts file on your Spark cluster will look something like the output shown in the screenshot below.
 
 ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. Configure the Spark cluster settings by doing the following steps: 
-    1. Go to Azure portal, select **HDInsight clusters** and then click on your cluster name.
+    1. Go to Azure portal, select HDInsight clusters, and then click on your cluster name.
     1. On the right side, under **Cluster dashboards**, select **Ambari home**.
     1. In the Ambari web UI, click **SPARK2** > **CONFIGS** > **Custom spark2-defaults**.
 
@@ -46,12 +46,12 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
 
     1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
 
-    1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like `jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`, where `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
+    1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like `jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`, where `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
 
         >[!Note] 
         > The JDBC URL should contain credentials for connecting to Hiveserver2 including a username and password.
 
-    1. Set `spark.datasource.hive.warehouse.load.staging.dir` to a suitable HDFS-compatible staging directory. If you have two different clusters, this should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it. For example, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` where `STORAGE_ACCOUNT_NAME` is the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` is the name of the storage container.
+    1. Set `spark.datasource.hive.warehouse.load.staging.dir` to a suitable HDFS-compatible staging directory. If you have two different clusters, the staging directory should be a folder in the staging directory of the LLAP cluster’s storage account so that HiveServer2 has access to it. For example, `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` where `STORAGE_ACCOUNT_NAME` is the name of the storage account being used by the cluster, and `STORAGE_CONTAINER_NAME` is the name of the storage container.
 
     1. Set `spark.datasource.hive.warehouse.metastoreUri` with the value of the metastore URI of the Interactive Query cluster. To find the metastoreUri for your LLAP cluster, look for the **hive.metastore.uris** property in the Ambari UI for your LLAP cluster under **Hive** > **ADVANCED** > **General**. The value will look something like the following URI:
 
@@ -61,7 +61,7 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
         ```
 
     1. Set `spark.security.credentials.hiveserver2.enabled` to `false` for YARN client deploy mode.
-    1. Set `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of your LLAP Cluster. To find the Zookeeper quorum for your LLAP cluster, look for the **hive.zookeeper.quorum** property in the Ambari UI for your LLAP cluster under **Hive** > **ADVANCED** > **Advanced hive-site**. The value will look something like the following:
+    1. Set `spark.hadoop.hive.zookeeper.quorum` to the Zookeeper quorum of your LLAP Cluster. To find the Zookeeper quorum for your LLAP cluster, look for the **hive.zookeeper.quorum** property in the Ambari UI for your LLAP cluster under **Hive** > **ADVANCED** > **Advanced hive-site**. The value will look something like the following string:
 
         ```
         zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
@@ -75,7 +75,7 @@ To test the configuration of your Hive Warehouse Connector, follow the steps in 
 
 ### Connecting and running queries
 
-You can choose between a few different methods to connect to your Interactive Query cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following:
+You can choose between a few different methods to connect to your Interactive Query cluster and execute queries using the Hive Warehouse Connector. Supported methods include the following tools:
 
 * [spark-shell](../spark/apache-spark-shell.md)
 * PySpark
@@ -85,9 +85,9 @@ You can choose between a few different methods to connect to your Interactive Qu
 
 All examples provided in this article will be executed through spark-shell.
 
-To start a spark-shell session, do the following:
+To start a spark-shell session, do the following steps:
 
-1. SSH into the headnode for your cluster. See [Connect to HDInsight (Apache Hadoop) using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md) for more information on connecting to your cluster with SSH.
+1. SSH into the headnode for your cluster. For more information about connecting to your cluster with SSH, see [Connect to HDInsight (Apache Hadoop) using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
 1. Change into the correct directory by typing `cd /usr/hdp/current/hive_warehouse_connector` or provide the full path to all jar files used as parameters in the spark-shell command.
 1. Enter the following command to start the spark shell:
 
@@ -169,12 +169,12 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
     ```
 
-1. Generate data for the Spark stream that you have just created, by doing the following:
+1. Generate data for the Spark stream that you created, by doing the following steps:
     1. Open another terminal on the same Spark cluster.
     1. At the command prompt, type `nc -lk 9999`. This command uses the netcat utility to send data from the command line to the specified port.
     1. Type the words that you would like the Spark stream to ingest, followed by carriage return.
         ![input data to spark stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
-1. Create a new Hive table to hold the streaming data. At the spark-shell, type the following:
+1. Create a new Hive table to hold the streaming data. At the spark-shell, type the following commands:
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
@@ -193,7 +193,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     ```
 
 >[!Note]
-> There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastore Uri and database options manually. For more information, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460) for more details. As soon as this issue is resolved, both metastore Uri and the database can be omitted likewise.
+> There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastore Uri and database options manually. For more information about this issue, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460). As soon as this issue is resolved, both metastore Uri and the database can be omitted likewise.
 
 ### Securing data on Spark ESP clusters
 
@@ -206,7 +206,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. View the table's contents with the following command. Note that before applying the policy, `demo` table shows the full column.
+1. View the table's contents with the following command. Before applying the policy, the `demo` table shows the full column.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -214,7 +214,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
 
     ![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
-1. Apply a column masking policy that only shows the last 4 characters of the column.  
+1. Apply a column masking policy that only shows the last four characters of the column.  
     1. Go to the Ranger Admin UI at `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Click on the Hive service for your cluster under **Hive**.
         ![demo table before applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
@@ -222,11 +222,11 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
         ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
                 ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
-1. View the table's contents again. Note that after applying the ranger policy, we can see only last four characters on the column.
+1. View the table's contents again. After applying the ranger policy, we can see only last four characters on the column.
 
     ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
 
 ## Next steps
 
 * [Use Interactive Query with HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
-* [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
+* [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
