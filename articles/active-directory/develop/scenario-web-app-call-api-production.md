@@ -25,11 +25,13 @@ ms.collection: M365-identity-device-management
 
 Now that you know how to acquire a token to call Web APIs, learn how to move to production.
 
-## Next steps
+## Improve your app
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-See the full ASP.NET Core Web app progressive tutorial, which shows:
+## Next steps
+
+Learn more  by trying out the full ASP.NET Core Web app progressive tutorial, which shows:
 
 - how to sign in users with multiple audiences, national clouds, or with social identities
 - call Microsoft Graph,
