@@ -75,7 +75,7 @@ catch(MsalUiRequiredException)
 
 ### Mandatory parameters
 
-`AcquireTokenInteractive` has only one mandatory parameter ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for the Microsoft Graph, the required scopes can be found in api reference of each Microsoft graph API in the section named "Permissions". For instance, to [list the user's contacts](https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_list_contacts), the scope "User.Read", "Contacts.Read" will need to be used. See also [Microsoft Graph permissions reference](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` has only one mandatory parameter ``scopes``, which contains an enumeration of strings that define the scopes for which a token is required. If the token is for the Microsoft Graph, the required scopes can be found in api reference of each Microsoft graph API in the section named "Permissions". For instance, to [list the user's contacts](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_contacts), the scope "User.Read", "Contacts.Read" will need to be used. See also [Microsoft Graph permissions reference](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
 
 On Android, you need to also specify the parent activity (using `.WithParentActivityOrWindow`, see below) so that the token gets back to that parent activity after the interaction. If you don't specify it, an exception will be thrown when calling `.ExecuteAsync()`.
 
@@ -162,7 +162,7 @@ The MSAL.NET team have rewritten our UI tests to leverage this extensibility mec
 
 #### Other optional parameters
 
-Learn more about all the other optional parameters for `AcquireTokenInteractive` from the reference documentation for [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
+Learn more about all the other optional parameters for `AcquireTokenInteractive` from the reference documentation for [AcquireTokenInteractiveParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokeninteractiveparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## Acquiring a token for the domain user in Domain or Azure AD joined machine
 
@@ -191,13 +191,13 @@ AcquireTokenByIntegratedWindowsAuth(IEnumerable<string> scopes)
   - or the tenant admin must have previously consented to all users in the tenant to use the application.
   - In other words:
     - either you as a developer have pressed the **Grant** button on the Azure portal for yourself,
-    - or a tenant admin has pressed the **Grant/revoke admin consent for {tenant domain}** button in the **API permissions** tab of the registration for the application (See [Add permissions to access web APIs](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
-    - or you've provided a way for users to consent to the application (See [Requesting individual user consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
-    - or you've provided a way for the tenant admin to consent for the application (See [admin consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
+    - or a tenant admin has pressed the **Grant/revoke admin consent for {tenant domain}** button in the **API permissions** tab of the registration for the application (See [Add permissions to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis))
+    - or you've provided a way for users to consent to the application (See [Requesting individual user consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent))
+    - or you've provided a way for the tenant admin to consent for the application (See [admin consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant))
 
 - This flow is enabled for .net desktop, .net core, and Windows Universal (UWP) Apps. On .NET core only the overload taking the username is available, as the .NET Core platform can't ask the username to the OS.
   
-For more information on consent, see [v2.0 permissions and consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)
+For more information on consent, see [v2.0 permissions and consent](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
 
 ### How to use it
 
@@ -282,7 +282,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
+For the list of possible modifiers on AcquireTokenByIntegratedWindowsAuthentication, see [AcquireTokenByIntegratedWindowsAuthParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyintegratedwindowsauthparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## Acquiring a token using Username / Password
 
@@ -516,7 +516,7 @@ static async Task GetATokenForGraph()
 }
 ```
 
-For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
+For details on all the modifiers that can be applied to `AcquireTokenByUsernamePassword`, see [AcquireTokenByUsernamePasswordParameterBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenbyusernamepasswordparameterbuilder?view=azure-dotnet-preview#methods)
 
 ## Acquiring a token in a command-line tool
 
@@ -617,7 +617,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
  {
   // If you use a CancellationToken, and call the Cancel() method on it, then this may be triggered
   // to indicate that the operation was cancelled.
-  // See https://docs.microsoft.com/en-us/dotnet/standard/threading/cancellation-in-managed-threads
+  // See https://docs.microsoft.com/dotnet/standard/threading/cancellation-in-managed-threads
   // for more detailed information on how C# supports cancellation in managed threads.
  }
  catch (MsalClientException ex)
@@ -635,7 +635,7 @@ In MSAL.NET, an in-memory token cache is provided by default.
 
 ### Serialization is customizable in Windows desktop apps and Web apps / Web APIs
 
-In the case of .NET Framework and .NET core, if you don't do anything extra, the in-memory token cache lasts for the duration of the application. To understand why serialization isn't provided out of the box, remember MSAL .NET desktop/core applications can be console or Windows applications (which would have access to the file system), **but also** Web applications or Web API. These Web apps and Web APIs might use some specific cache mechanisms like databases, distributed caches, redis caches and so on. .... To have a persistent token cache application in .NET Desktop or Core, you'll need to customize the serialization.
+In the case of .NET Framework and .NET core, if you don't do anything extra, the in-memory token cache lasts for the duration of the application. To understand why serialization isn't provided out of the box, remember MSAL .NET desktop/core applications can be console or Windows applications (which would have access to the file system), **but also** Web applications or Web API. These Web apps and Web APIs might use some specific cache mechanisms like databases, distributed caches, redis caches and so on. To have a persistent token cache application in .NET Desktop or Core, you'll need to customize the serialization.
 
 Classes and interfaces involved in token cache serialization are the following types:
 
@@ -645,11 +645,11 @@ Classes and interfaces involved in token cache serialization are the following t
 
   ![image](https://user-images.githubusercontent.com/13203188/56027172-d58d1480-5d15-11e9-8ada-c0292f1800b3.png)
 
-**Important**
-MSAL.NET creates token caches for you and provides you with the `IToken` cache when you call an application's `GetUserTokenCache` and `GetAppTokenCache` methods. You aren't supposed to implement the interface yourself. Your responsibility, when you implement a custom token cache serialization, is to:
-
-- React to `BeforeAccess` and `AfterAccess` "events". The`BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
-- Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
+> [!IMPORTANT]
+> MSAL.NET creates token caches for you and provides you with the `IToken` cache when you call an application's `GetUserTokenCache` and `GetAppTokenCache` methods. You aren't supposed to implement the interface yourself. Your responsibility, when you implement a custom token cache serialization, is to:
+>
+> - React to `BeforeAccess` and `AfterAccess` "events". The`BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
+> - Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
 
 The strategies are different depending on if you're writing a token cache serialization for a public client application (Desktop), or a confidential client application (Web App / Web API, Daemon app).
 

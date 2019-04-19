@@ -23,6 +23,8 @@ ms.collection: M365-identity-device-management
 
 # Desktop application's code configuration
 
+Now that you've created your application, you'll learn how to configure the code with the application's coordinates.
+
 ## MSAL libraries supporting desktop application
 
 The only MSAL library supporting desktop applications today is MSAL.NET
@@ -31,7 +33,7 @@ The only MSAL library supporting desktop applications today is MSAL.NET
 
 From a code point of view, desktop applications are public client applications, and that's why you'll build and manipulate MSAL.NET `IPublicClientApplication`. Again things will be a bit different whether you use interactive authentication or not.
 
-![IPublicClientApplication](media/scenarios/PublicClientApplication.png)
+![IPublicClientApplication](media/scenarios/public-client-application.png)
 
 ### Exclusively by code
 
@@ -63,7 +65,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### More elaborated configuration
 
-You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multi-tenant application in a national or sovereign cloud, you could write:
+You can elaborate the application building by adding a number of modifiers. For instance, if you want your application to be a multi-tenant application in a national cloud (here US Government), you could write:
 
 ```CSharp
 IPublicClientApplication app;
@@ -95,8 +97,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 To learn more on how to configure an MSAL.NET desktop application:
 
-- For the list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- For the description of all the options exposed in `PublicClientApplicationOptions` see [PublicClientApplicationOptions](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), in the reference documentation
+- For the list of all modifiers available on `PublicClientApplicationBuilder`, see the reference documentation [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
+- For the description of all the options exposed in `PublicClientApplicationOptions` see [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), in the reference documentation
 
 ## Complete example - configuration of a public client application with configuration Options
 

@@ -23,6 +23,8 @@ ms.collection: M365-identity-device-management
 
 # Desktop app that calls Web APIs - calling a Web API
 
+Now that you have a token, you can call a protected Web API.
+
 ## Calling a Web API from .NET
 
 [!INCLUDE [Call Web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]

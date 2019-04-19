@@ -23,13 +23,15 @@ ms.collection: M365-identity-device-management
 
 # Desktop app that calls Web APIs - move to production
 
+This article provides you details to improve your application further and move it to production
+
 ## Handling errors in desktop applications
 
 In the different flows above, we've shown how you can handle the errors for the silent flows (in code snippets). You've also seen that there are cases where interaction is needed (incremental consent and conditional access)
 
 ## How to have  the user consent upfront for several resources
 
-> Note: Getting consent for several resources works for Azure AD v2.0, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
+> [!NOTE]: Getting consent for several resources works for Azure AD v2.0, but not for Azure AD B2C. B2C supports only admin consent, not user consent.
 
 The Azure AD v2.0 endpoint doesn't allow you to get a token for several resources at once. Therefore the `scopes` parameter can only contain scopes for a single resource. However, you can ensure that the user pre-consents to several resources by using the `extraScopesToConsent` parameter.
 
