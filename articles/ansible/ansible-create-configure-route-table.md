@@ -234,7 +234,7 @@ The playbook code in this section a route table.
 
 When a route table is deleted, all of its routes are also deleted.
 
-A route table can't be deleted if it's associated with a subnet. You must first [dissociate the route table from any subnets](#dissociate-a-route-table-from-a-subnet). 
+A route table can't be deleted if it's associated with a subnet. [Dissociate the route table from any subnets](#dissociate-a-route-table-from-a-subnet) before attempting to delete the route table. 
 
 Save the following playbook as `route_table_delete.yml`:
 
