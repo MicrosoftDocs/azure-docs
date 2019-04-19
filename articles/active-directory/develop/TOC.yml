@@ -87,8 +87,6 @@
     href: sample-v2-code.md
   - name: Concepts
     items:
-    - name: Deciding between v1.0 and v2.0
-      href: azure-ad-endpoint-comparison.md
     - name: Application types
       href: v2-app-types.md
     - name: Application scenarios
@@ -288,6 +286,8 @@
     href: sample-v1-code.md
   - name: Concepts
     items:
+    - name: Deciding between v1.0 and v2.0
+      href: azure-ad-endpoint-comparison.md
     - name: Application types
       items:
       - name: Types of applications

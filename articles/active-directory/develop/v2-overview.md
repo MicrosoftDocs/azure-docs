@@ -1,6 +1,6 @@
 ---
-title: About v2.0 | Azure
-description: Learn about the v2.0 endpoint and platform.
+title: Microsoft identity platform (v2.0) overview | Azure
+description: Learn about the Microsoft identity platform (v2.0) endpoint and platform.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,51 +13,55 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 05/07/2019
 ms.author: celested
-ms.reviewer: saeeda
+ms.reviewer: agirling, saeeda
 ms.custom: aaddev
-#Customer intent: As an application developer, I want to understand about the v2.0 endpoint and platform so I can decide if this platform meets my application development needs and requirements.
+#Customer intent: As an application developer, I want to understand about the Microsoft identity platform (v2.0) endpoint and platform so I can decide if this platform meets my application development needs and requirements.
 ms.collection: M365-identity-device-management
 ---
 
-# About v2.0
+# Microsoft identity platform (v2.0) overview
 
-The v2.0 endpoint and platform has been in preview and continually enhanced. Today, the JavaScript single-page application (SPA) scenarios are feature complete and we invite you to use MSAL.js to build browser-based applications and give us feedback so we can update the status from preview to general availability (GA).
+Microsoft identity platform is an evolution of the Azure Active Directory (Azure AD) identity service and developer platform. It allows developers to build applications that sign in all Microsoft identities and get tokens to call Microsoft APIs, such as [Microsoft Graph](https://developer.microsoft.com/graph/), or APIs that developers have built. It’s a full-featured platform that consists of an OAuth 2.0 and OpenID Connect standard-compliant authentication service, open-source libraries, application registration and configuration, robust conceptual and reference documentation, quickstart samples, code samples, tutorials, and how-to guides.
+  
+Microsoft identity platform connects and secures over 1 billion monthly active users across work, school, and life with over 1 million third-party active applications. For developers, Microsoft identity platform offers seamless integration into major innovations in the identity and security space, such as passwordless authentication, step-up authentication, and conditional access. Developers don't need to implement such functionality themselves: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+  
+Microsoft identity platform unifies application development for various Microsoft identities. Whether your app needs to authenticate users with work or school accounts (provisioned through Azure AD) or personal accounts (known as Microsoft accounts (MSA), such as @outlook.com), the unified platform simplifies getting authentication integrated into your app. The unified Microsoft identity platform lets developers write code once and have the code work with all the applicable user identities. Developers can build an app once and have it work across many platforms, or build an app that functions as a client and a resource application (API).
 
-> [!NOTE]
-> MSAL Android, iOS, and .NET still have features under development. You can use them to build applications and send us feedback.
+# Getting started
 
-The Azure portal [App registrations (preview)](quickstart-register-app.md) experience has been significantly updated to now include all your applications built with ADAL or MSAL, and to improve usability.
+Working with identity doesn’t have to be hard. However, it's important to know the basics and choose the right flow for the scenario. It's also important to follow principles and patterns necessary to ensure secure configuration of the application, and secure DevOps processes to ensure that the app won't be compromised in the course of its lifecycle.
 
-In the past, application developers who wanted to support both personal Microsoft accounts and work accounts from Azure Active Directory (Azure AD) had to integrate with two separate systems. The v2.0 endpoint and platform provides an authentication API version that simplifies this process. It enables sign-in from both types of accounts by using a single integration. Applications that use the v2.0 endpoint can also consume the REST APIs from the [Microsoft Graph API](https://developer.microsoft.com/graph) by using either type of account.
+The following diagram outlines key authentication concepts and best practices for common application scenarios – we recommend that you reference it when integrating the Microsoft identity platform with your app:
 
-## Getting started
+[![Application scenarios in Microsoft identity platform](./media/v2-overview/application-scenarios.png)](./media/v2-overview/application-scenarios.svg#lightbox)
 
-Choose your favorite platform from the following list to build an application by using the Microsoft open source libraries and frameworks:
+Choose a scenario that applies to you. Start by reviewing the **Prerequisites**, which are core authentication concepts that apply to all app scenarios. Each scenario path has a quickstart to get you up and running in minutes and an overview of scenario and other specifics you need to know:
 
-[!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
+- Build a single-page application
+- Build a web application that signs in users
+- Build a web application that calls web APIs
+- Protect a web API
+- Build a web API that calls web APIs
+- Build a daemon application
+- Build a desktop application
+- Build a mobile application
 
-## Learn more about the v2.0 endpoint and platform
+In each application scenario path, we'll also show you how to call APIs using your app's access tokens to call APIs like Microsoft Graph or other APIs.
 
-Learn about what you can do with the Azure AD v2.0 endpoint:
-
-* Discover the [types of applications that you can build with the Azure AD v2.0 endpoint](v2-app-types.md).
-* Understand the [limitations, restrictions, and constraints](active-directory-v2-limitations.md) with the Azure AD v2.0 endpoint.
+And when you're ready to launch your app into a production environment, see the steps on how to **Move to production**.
 
 ## Additional resources
 
 Explore in-depth information about v2.0:
 
 * [About the Microsoft identity platform](about-microsoft-identity-platform.md)
-* [v2.0 protocols reference](active-directory-v2-protocols.md)
+* [Microsoft identity platform protocols reference](active-directory-v2-protocols.md)
 * [Access tokens reference](access-tokens.md)
 * [ID tokens reference](id-tokens.md)
-* [v2.0 authentication libraries reference](reference-v2-libraries.md)
-* [Permissions and consent in v2.0](v2-permissions-and-consent.md)
+* [Authentication libraries reference](reference-v2-libraries.md)
+* [Permissions and consent in Microsoft identity platform](v2-permissions-and-consent.md)
 * [Microsoft Graph API](https://developer.microsoft.com/graph)
-
-> [!NOTE]
-> If you only need to sign in work and school accounts from Azure Active Directory, start with the [Azure AD developer's guide](v1-overview.md). The v2.0 endpoint is intended for use by developers who explicitly need to sign in Microsoft personal accounts.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
