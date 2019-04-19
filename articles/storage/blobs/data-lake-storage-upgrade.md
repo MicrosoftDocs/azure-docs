@@ -244,7 +244,7 @@ When you need to build applications on Data Lake Storage Gen1 or Data Lake Stora
 
 #### URI changes
 
-The main task here is to translate URI's that have a prefix of "adl://" into URI's that have an "abfss://" prefix.
+The main task here is to translate URI's that have a prefix of `adl://` into URI's that have an `abfss://` prefix.
 
 The URI scheme for Data Lake Storage Gen1 is mentioned [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) in detail, but broadly speaking, it is
 *adl://mydatalakestore.azuredatalakestore.net/\<file_path\>.*
@@ -328,7 +328,7 @@ Depending on the strategy you choose and the complexities of your solution, this
 
 ### Post-upgrade
 
-After you are done with the transition operation, the final steps will involve thorough verification. This would include but not be limited to verifying data has been copied over reliably, verifying ACLs have been set correctly, verifying e2e pipelines are functioning correctly etc. After the verifications have been completed, you can now turn off your old pipelines, delete your source Data Lake Storage Gen1 accounts and go full speed on your Data Lake Storage Gen2-based solutions.
+After you are done with the transition operation, the final steps will involve thorough verification. This would include but not be limited to verifying data has been copied over reliably, verifying ACLs have been set correctly, verifying end-to-end pipelines are functioning correctly etc. After the verifications have been completed, you can now turn off your old pipelines, delete your source Data Lake Storage Gen1 accounts and go full speed on your Data Lake Storage Gen2-based solutions.
 
 ## Conclusion
 
