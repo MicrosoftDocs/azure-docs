@@ -6,7 +6,7 @@ ms.author: tyfox
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ---
     
 # Migrate to granular role-based access for cluster configurations
@@ -30,6 +30,8 @@ permissions of Contributor or Owner. To summarize:
 | Contributor                           | - Read/write access, including secrets<br>- Create and manage all of types of Azure resources.     | No change |
 | Owner                                 | - Read/write access including secrets<br>- Full access to all resources<br>- Delegate access to others | No change |
 
+For information on how to add the HDInsight Cluster Operator role assignment to a user to grant them read/write access to cluster secrets, see the below section, [Add the HDInsight Cluster Operator role assignment to a user](#add-the-hdinsight-cluster-operator-role-assignment-to-a-user).
+
 ## Am I affected by these changes?
 
 The following entities and scenarios are affected:
@@ -47,7 +49,7 @@ The following entities and scenarios are affected:
 
 See the below sections (or use the above links) to see the migration steps for your scenario.
 
-## API
+### API
 
 The following APIs will be changed or deprecated:
 
@@ -76,21 +78,21 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/updateGatewaySettings?api-version={api-version}
     - Use this API to update gateway settings (username and/or password).
 
-## Azure HDInsight Tools for Visual Studio Code
+### Azure HDInsight Tools for Visual Studio Code
 
-If you are using version _ or older of Azure HDInsight Tools for Visual Studio Code, please update to version _ to avoid interruptions.
+If you are using version 1.1.1 or older, please update to the [latest version of Azure HDInsight Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) to avoid interruptions.
 
-## Azure Toolkit for IntelliJ
+### Azure Toolkit for IntelliJ
 
-If you are using version _ or older of the Azure Toolkit for IntelliJ, please update to version _ to avoid interruptions.
+If you are using version 3.21.0 or older, please update to the [latest version of the Azure Toolkit for IntelliJ plugin](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) to avoid interruptions.
 
-## Azure Toolkit for Eclipse
+### Azure Toolkit for Eclipse
 
-If you are using version _ or older of the Azure Toolkit for Eclipse, please update to version _ to avoid interruptions.
+If you are using the 2019-03-29 release or older, please update to the latest version of Azure Toolkit for Eclipse to avoid interruptions.
 
-## SDK for .NET
+### SDK for .NET
 
-### Versions 1.x and 2.x
+#### Versions 1.x and 2.x
 
 Please update to [version 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/2.1.0) of the HDInsight SDK for .NET. Minimal code modifications may be required if you are using a method affected by these changes:
 
@@ -104,7 +106,7 @@ Please update to [version 2.1.0](https://www.nuget.org/packages/Microsoft.Azure.
 
 - `ConfigurationsOperationsExtensions.EnableHttp` and `DisableHttp` are now deprecated. HTTP is now always enabled, so these methods are no longer needed.
 
-### Versions 3.x and up
+#### Versions 3.x and up
 
 Please update to [version 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.Management.HDInsight/5.0.0) of the HDInsight SDK for .NET. Minimal code modifications may be required if you are using a method affected by these changes:
 
@@ -114,7 +116,7 @@ Please update to [version 5.0.0](https://www.nuget.org/packages/Microsoft.Azure.
 - [`ConfigurationsOperationsExtensions.Update`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.update?view=azure-dotnet) is now deprecated and has been replaced by `ClusterOperationsExtensions.UpdateGatewaySettings`. 
 - [`ConfigurationsOperationsExtensions.EnableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.enablehttp?view=azure-dotnet) and [`DisableHttp`](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.hdinsight.configurationsoperationsextensions.disablehttp?view=azure-dotnet) are now deprecated. HTTP is now always enabled, so these methods are no longer needed.
 
-## SDK for Python
+### SDK for Python
 
 Please update to [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0.0/) of the HDInsight SDK for Python. Minimal code modifications may be required if you are using a method affected by these changes:
 
@@ -123,7 +125,7 @@ Please update to [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1
     - To retrieve just HTTP gateway credentials, use [`ConfigurationsOperations.get_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#get-gateway-settings-resource-group-name--cluster-name--custom-headers-none--raw-false----operation-config-).
 - [`ConfigurationsOperations.update`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-resource-group-name--cluster-name--tags-none--custom-headers-none--raw-false----operation-config-) is now deprecated and has been replaced by [`ClusterOperationsExtensions.update_gateway_settings`](https://docs.microsoft.com/python/api/azure-mgmt-hdinsight/azure.mgmt.hdinsight.operations.clusters_operations.clustersoperations?view=azure-python#update-gateway-settings-resource-group-name--cluster-name--parameters--custom-headers-none--raw-false--polling-true----operation-config-).
 
-## SDK For Java
+### SDK For Java
 
 Please update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/) of the HDInsight SDK for Java. Minimal code modifications may be required if you are using a method affected by these changes:
 
@@ -132,7 +134,7 @@ Please update to [version 1.0.0](https://search.maven.org/artifact/com.microsoft
     - To retrieve just HTTP gateway credentials, use `ConfigurationsOperations.get_gateway_settings`.
 - [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) is now deprecated and has been replaced by `ClusterOperationsExtensions.update_gateway_settings`.
 
-## SDK For Go
+### SDK For Go
 
 Please update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight) of the HDInsight SDK for Go. Minimal code modifications may be required if you are using a method affected by these changes:
 
@@ -140,3 +142,28 @@ Please update to [version 27.1.0](https://github.com/Azure/azure-sdk-for-go/tree
     - To retrieve all configurations, including sensitive parameters, use [`ConfigurationsClient.list`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.List) going forward.  Note that users with the 'Reader' role will not be able to use this method. This allows for granular control over which users can access sensitive information for a cluster. 
     - To retrieve just HTTP gateway credentials, use [`ClustersClient.get_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.GetGatewaySettings).
 - [`ConfigurationsClient.update`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ConfigurationsClient.Update) is now deprecated and has been replaced by [`ClustersClient.update_gateway_settings`](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight#ClustersClient.UpdateGatewaySettings).
+
+## Add the HDInsight Cluster Operator role assignment to a user
+
+A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can grant the HDInsight Cluster Operator role to users that you want to have read/write access to HDInsight cluster secrets like cluster gateway credentials and storage account keys.
+
+### Using the Azure CLI
+
+The simplest way to add this role assignment is by using the following command in Azure CLI:
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com
+```
+
+> [!NOTE]
+> This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.
+
+The above command grants this role at the subscription level. To instead just grant this role at the resource group level, you can modify the command like so:
+
+```azurecli-interactive
+az role assignment create --role "HDInsight Cluster Operator" --assignee user@domain.com -g <ResourceGroupName>
+```
+
+### Using the Azure portal
+
+You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Manage access to Azure resources using RBAC and the Azure portal - Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
