@@ -35,7 +35,7 @@
   - name: Azure DevTest Labs
     items:
     - name: Configure labs
-      href: ./ansible-devtest-labs-create-configure.md
+      href: ./ansible-devtest-labs-configure.md
   - name: Azure Kubernetes Service (AKS)
     items:
     - name: Configure AKS clusters
