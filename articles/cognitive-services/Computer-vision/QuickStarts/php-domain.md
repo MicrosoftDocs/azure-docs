@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Domain-specific image content - REST, PHP"
+title: "Quickstart: Domain-specific content - REST, PHP"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you use a domain model to identify landmarks in  an image using the Computer Vision API with PHP.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
