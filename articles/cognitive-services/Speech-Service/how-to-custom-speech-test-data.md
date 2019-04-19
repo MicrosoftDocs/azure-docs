@@ -57,7 +57,7 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Archive format | .zip |
 | Maximum archive size | 2 GB |
 
-If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox] (http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
+If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
 | Activity | Description | Sox command |
 |----------|-------------|-------------|
