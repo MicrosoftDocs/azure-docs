@@ -45,13 +45,16 @@ $appgwName = "AppGwKVIntegration"
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
 
 #Create User Managed Identity
-$identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" -Location $location -ResourceGroupName $rgname
+$identity = New-AzUserAssignedIdentity -Name "appgwKeyVaultIdentity" `
+  -Location $location -ResourceGroupName $rgname
 
 #Create Key Vault, policy and certificate to be used by Application Gateway
 $keyVault = New-AzKeyVault -Name $kv -ResourceGroupName $rgname -Location $location -EnableSoftDelete 
 Set-AzKeyVaultAccessPolicy -VaultName $kv -PermissionsToSecrets get -ObjectId $identity.PrincipalId
 
-$policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 -SubjectName "CN=www.contoso11.com" -IssuerName self -RenewAtNumberOfDaysBeforeExpiry 30
+$policy = New-AzKeyVaultCertificatePolicy -ValidityInMonths 12 `
+  -SubjectName "CN=www.contoso11.com" -IssuerName self `
+  -RenewAtNumberOfDaysBeforeExpiry 30
 $certificate = Add-AzKeyVaultCertificate -VaultName $vaultName -Name "cert1" -CertificatePolicy $policy
 $certificate = Get-AzKeyVaultCertificate -VaultName $kv -Name "cert1"
 $secretId = $certificate.SecretId.Replace($certificate.Version, "")
@@ -83,7 +86,8 @@ $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol H
   -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp01 -SslCertificate $sslCert01
 $listener02 = New-AzApplicationGatewayHttpListener -Name "listener2" -Protocol Http `
   -FrontendIPConfiguration $fipconfig01 -FrontendPort $fp02
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting1" -Port 80 -Protocol Http -CookieBasedAffinity Disabled
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting1" -Port 80 `
+  -Protocol Http -CookieBasedAffinity Disabled
 $rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "rule1" -RuleType basic `
   -BackendHttpSettings $poolSetting01 -HttpListener $listener01 -BackendAddressPool $pool
 $rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "rule2" -RuleType basic `
