@@ -55,10 +55,9 @@ Images of replicated machines are contained in Azure storage. Azure VMs are crea
 7. In Subscription, choose the subscription in which you want to create the new storage account.
 8. In Resource group, enter a new resource group. An Azure resource group is a logical container in which Azure resources are deployed and managed. For this tutorial, use *ContosoRG*.
 9. In Location, choose the geographic location for your storage account. For this tutorial, use *West Europe*.
+10. Select **Create** to create the storage account.
 
    ![Create a storage account](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Select **Create** to create the storage account.
 
 ## Create a recovery services vault
 
