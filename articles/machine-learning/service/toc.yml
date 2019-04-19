@@ -121,17 +121,24 @@
     - name: Tune hyperparameters
       displayName: parameter
       href: how-to-tune-hyperparameters.md
+  - name: Track and monitor experiments
+    items:
+    - name: Start, monitor or cancel runs
+      displayName: cancel, fail, status, child run
+      href: how-to-manage-runs.md
     - name: Log metrics for training runs
       href: how-to-track-experiments.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
-    - name: Configure auto training
+    - name: Use automated ML (Python)
+      displayName: SDK automl
       href: how-to-configure-auto-train.md
     - name: Use remote compute targets
       displayName: automl automated auto ml
       href: how-to-auto-train-remote.md
-    - name: Auto-train forecast models
+    - name: Auto-train a forecast model
+      displayName: time series
       href: how-to-auto-train-forecast.md
   - name: ONNX models
     href: how-to-build-deploy-onnx.md
