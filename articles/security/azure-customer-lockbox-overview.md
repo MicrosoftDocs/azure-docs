@@ -35,7 +35,7 @@ The following steps outline a typical workflow for a Customer Lockbox request.
     - Secure Device (Secure Admin Workstation)
     - Permission level
     
-    This step also includes an initial approval from internal Microsoft approvers, based on the JIT policy. For example, the Customer Support Lead or DevOps Manager.
+    This step also includes an initial approval from internal Microsoft approvers, based on the JIT policy. For example, the the approver might be the Customer Support Lead or DevOps Manager.
 
 6. When the request requires direct access to customer data, a Customer Lockbox request is initiated. For example, remote desktop access to a customer's virtual machine.
     
@@ -71,10 +71,10 @@ When you have an eligible support plan, no action is required by you to enable C
 ## Auditing logs
 
 Use the **Activity Logs** to view auditing information related to Customer Lockbox requests. You can filter for specific actions, such as:
-- Create Lockbox Requests
-- Approve Lockbox Requests
-- Deny Lockbox Requests
-- Lockbox Request Expiry
+- **Create Lockbox Requests**
+- **Approve Lockbox Requests**
+- **Deny Lockbox Requests**
+- **Lockbox Request Expiry**
 
 <Include Screenshot>
 
@@ -84,7 +84,7 @@ The following services and scenarios are currently in general availability for C
 
 ### Remote desktop access to virtual machines
 
-Customer Lockbox is currently enabled for RDP Access requests to virtual machines. Interactive Remote Access (RDP) to the following workloads are supported:
+Customer Lockbox is currently enabled for remote desktop access requests to virtual machines. Interactive remote desktop access to the following workloads are supported:
 - PAAS V1
 - IAAS - Windows and Linux (ARM-based only)
 - VMSS -Windows and Linux
@@ -93,7 +93,7 @@ Customer Lockbox is currently enabled for RDP Access requests to virtual machine
 
 #### Detailed audit logs 
 
-For scenarios that involve direct RDP access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting, to be used by other monitoring solutions, such as Azure Monitor.
+For scenarios that involve direct remote desktop access to a virtual machine, you can also use the Windows Event Log. If a virtual machine agent is installed on the virtual machine, you can export these logs for analysis and alerting, to be used by other monitoring solutions, such as Azure Monitor.
 
 ## Exclusions
 
