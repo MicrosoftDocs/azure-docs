@@ -117,11 +117,6 @@
       href: ./cloud-partner-portal-orig/cloud-partner-portal-gdpr.md
     - name: Private SKUs
       href: ./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md
-    - name: Pricing considerations
-      items:
-      - name: Simplified currency pricing
-      - name: Information on taxes and price
-      - name: Export-import pricing
     - name: Manage leads
       items:
       - name: Configure customer leads

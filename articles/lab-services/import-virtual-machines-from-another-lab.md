@@ -44,7 +44,7 @@ There are two key constraints to be aware of when planning to import VMs from on
 - Currently, this feature is supported only through Powershell and REST API.
 
 ## Use PowerShell
-Download ImportVirtualMachines.ps1 file from the [GitHub](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/ImportVirtualMachines/ImportVirtualMachines.ps1). You can use the script to import a single VM or all VMs in the source lab into the destination lab. 
+Download ImportVirtualMachines.ps1 file from the [GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). You can use the script to import a single VM or all VMs in the source lab into the destination lab. 
 
 ### Use PowerShell to import a single VM
 Executing this powershell script requires identifying the source VM and the destination lab, and optionally supplying a new name to use for the destination machine:

@@ -85,15 +85,15 @@ The next step is to configure the app to use your account identifier and account
 
 # [Swift](#tab/openproject-swift)
 
-Open `iOS/Swift/SampleSwift/ViewController.swift`.
+Open `iOS/Swift/SampleSwift/ViewControllers/BaseViewController.swift`.
 
-Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
+Locate the `spatialAnchorsAccountKey` field and replace `Set me` with the account key.
 
-Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
+Locate the `spatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
 # [Objective-C](#tab/openproject-objc)
 
-Open `iOS/Objective-C/SampleObjC/ViewController.m`.
+Open `iOS/Objective-C/SampleObjC/BaseViewController.m`.
 
 Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the account key.
 

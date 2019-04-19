@@ -215,7 +215,7 @@ The sample application can simulate temperature and humidity data in case you do
 
 ### Deploy the sample application to Feather HUZZAH ESP8266
 
-1. In the Visual Studio Code, click **<Select Serial Port>** on the status bar, and then click the serial port for Feather HUZZAH ESP8266.
+1. In the Visual Studio Code, click **\<Select Serial Port>** on the status bar, and then click the serial port for Feather HUZZAH ESP8266.
 
 2. Enter `F1`, then type **Arduino** and select **Arduino: Upload** to build and deploy the sample application to Feather HUZZAH ESP8266.
 
