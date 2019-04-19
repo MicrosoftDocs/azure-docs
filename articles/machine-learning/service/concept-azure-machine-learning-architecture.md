@@ -65,7 +65,7 @@ When you create a new workspace, it automatically creates several Azure resource
 
 A taxonomy of the workspace is illustrated in the following diagram:
 
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## Experiment
 
@@ -105,7 +105,9 @@ For example run configurations, see [Select and use a compute target to train yo
 
 ## Dataset
 
-Azure Machine Learning Datasets manage data in various scenarios such as, model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between datasets used in training and in production.
+Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different dataset definitions, and compare between datasets used in training and in production.
+
+Datasets provides methods for working with data in popular formats, such as using `from_excel_files()` or `to_pandas_dataframe()`.
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
 

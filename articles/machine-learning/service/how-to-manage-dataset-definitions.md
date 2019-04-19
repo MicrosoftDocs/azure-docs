@@ -14,7 +14,7 @@ ms.date: 04/10/19
 
 # Update and manage the lifecycle of Dataset definitions
 
-Learn how to update  and manage Dataset definitions.
+Learn how to update and manage Dataset definitions with Azure Machine Learning Datasets (preview).
 
 Dataset definitions are the recipes used to prepare your Datasets, which include both the reference to your source data and the transformation steps performed. One Dataset can have many definitions, and each definition has its own lifecycle.
 
