@@ -74,8 +74,25 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. From the **Add Modules** tab, **Deployment Modules** area, click  **AzureSecurityCenterforIoT**. 
    
 1. Change the **name** to **azureiotsecurity**.
-1. Change the name  of **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1**
-      
+1. Change the **Image URI** to **mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3**.
+1. Verify the **Container Create Options** value is set to:      
+    ``` json
+    {
+        "NetworkingConfig": {
+            "EndpointsConfig": {
+                "host": {}
+            }
+        },
+        "HostConfig": {
+            "Privileged": true,
+            "NetworkMode": "host",
+            "PidMode": "host",
+            "Binds": [
+                "/:/host"
+            ]
+        }
+    }    
+    ```
 1. Verify that **Set module twin's desired properties** is selected, and change the configuration object to:
       
     ``` json
@@ -88,12 +105,16 @@ There are three steps to create an IoT Edge deployment for Azure Security Center
 1. Click **Save**.
 1. Scroll to the bottom of the tab and select **Configure advanced Edge Runtime settings**.
    
-  >[!Note]
-  > Do **not** disable AMQP communication for the IoT Edge Hub.
-  > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
+   >[!Note]
+   > Do **not** disable AMQP communication for the IoT Edge Hub.
+   > Azure Security Center for IoT module requires AMQP communication with the IoT Edge Hub.
    
-1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.05-preview**.
-      
+1. Change the **Image** under **Edge Hub** to **mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview**.
+
+   >[!Note]
+   > Azure Security Center for IoT module requires a forked version of IoT Edge Hub, based on SDK version 1.20.
+   > By changing IoT Edge Hub image, you are instructing your IoT Edge device to replace the latest stable release with the forked version of IoT Edge Hub, which is not officially supported by the IoT Edge service.
+
 1. Verify **Create Options** is set to: 
          
     ``` json
@@ -136,8 +157,8 @@ If you encounter an issue, container logs are the best way to learn about the st
    
    | Name | IMAGE |
    | --- | --- |
-   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.1 |
-   | edgeHub | asotcontainerregistry.azurecr.io/edgehub:1.04-preview |
+   | azureIoTSecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:0.0.3 |
+   | edgeHub | mcr.microsoft.com/ascforiot/edgehub:1.0.9-preview |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    If the minimum required containers are not present, check if your IoT Edge deployment manifest is aligned with the recommended settings. For more information, see [Deploy IoT Edge module](#deployment-using-azure-portal).

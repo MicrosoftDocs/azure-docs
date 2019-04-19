@@ -303,8 +303,6 @@
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md
-        - name: Previews
-          href: app/previews.md
       - name: ASP.NET apps
         items:
         - name: Web apps
@@ -347,9 +345,7 @@
       - name: Java apps
         items:
         - name: Web apps
-          href: app/java-get-started.md
-        - name: Web apps - runtime
-          href: app/java-live.md
+          href: app/java-get-started.md        
         - name: Docker apps
           href: app/docker.md
         - name: Log traces
@@ -550,6 +546,8 @@
           href: insights/container-insights-optout.md
         - name: View container live logs
           href: insights/container-insights-live-logs.md
+        - name: Analyze data with log queries
+          href: insights/container-insights-log-search.md
         - name: Alerting
           href: insights/container-insights-alerts.md
         - name: Agent management
@@ -580,8 +578,8 @@
           href: insights/network-performance-monitor.md
         - name: Performance Monitor
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Service Endpoint
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Service Connectivity Monitor
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Pricing
@@ -608,7 +606,7 @@
           href: insights/vminsights-performance.md
         - name: Using workbooks
           href: insights/vminsights-workbooks.md
-        - name: Query data with Log Analytics
+        - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md

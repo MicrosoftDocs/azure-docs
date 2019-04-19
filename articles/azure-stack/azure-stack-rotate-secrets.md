@@ -12,10 +12,9 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
-ms.author: mabrigg
+ms.date: 04/15/2019
 ms.reviewer: ppacent
-ms.lastreviewed: 12/18/2018
+ms.lastreviewed: 04/15/2019
 
 ---
 
@@ -31,7 +30,7 @@ All the certificates, passwords, secure strings, and keys used by the Azure Stac
 
 - **External secrets**
 
-Infrastructure service certificates for external-facing services that are provided by the Azure Stack Operator. This includes the certificates for the following services:
+Infrastructure service certificates for external-facing services that provided by the Azure Stack Operator. External secrets include the certificates for the following services:
 
 - Administrator Portal
 - Public Portal
@@ -99,7 +98,7 @@ Running secret rotation using the instructions below will remediate these alerts
     > [!Note] 
     > For pre-1811 versions you do not need to rotate secrets to add extension host certificates. You should follow the instructions in the article [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md) to add extension host certificates.
 
-2. Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using SCOM to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
+2. Operators may notice alerts open and automatically close during rotation of Azure Stack secrets.  This behavior is expected and the alerts can be ignored.  Operators can verify the validity of these alerts by running **Test-AzureStack**.  For operators using System Center Operations Manager to monitor Azure Stack systems, placing a system in maintenance mode will prevent these alerts from reaching their ITSM systems but will continue to alert if the Azure Stack system becomes unreachable.
 
 3. Notify your users of any maintenance operations. Schedule normal maintenance windows, as much as possible,  during non-business hours. Maintenance operations may affect both user workloads and portal operations.
 

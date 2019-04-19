@@ -136,7 +136,7 @@ Before you begin, ensure that you have the following prerequisites:
 For this exercise, start by declaring the following variables. Be sure to replace the placeholders with your own values when configuring for production:
 
 ```powershell
-$Sub1 = "\<YourSubscriptionName\>"
+$Sub1 = "<YourSubscriptionName>"
 $RG1 = "TestPolicyRG1"
 $Location1 = "East US 2"
 $VNetName1 = "TestVNet1"
@@ -189,18 +189,18 @@ $gw1pip1 = New-AzureRmPublicIpAddress -Name $GW1IPName1 -ResourceGroupName $RG1 
 
 $vnet1 = Get-AzureRmVirtualNetwork -Name $VNetName1 -ResourceGroupName $RG1
 
-$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet"
+$subnet1 = Get-AzureRmVirtualNetworkSubnetConfig -Name "GatewaySubnet" `
 -VirtualNetwork $vnet1
 
-$gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1
+$gw1ipconf1 = New-AzureRmVirtualNetworkGatewayIpConfig -Name $GW1IPconf1 `
 -Subnet $subnet1 -PublicIpAddress $gw1pip1
 
-New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1
--Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn
+New-AzureRmVirtualNetworkGateway -Name $GWName1 -ResourceGroupName $RG1 `
+-Location $Location1 -IpConfigurations $gw1ipconf1 -GatewayType Vpn `
 -VpnType RouteBased -GatewaySku VpnGw1
 
-New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1
--Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix
+New-AzureRmLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 `
+-Location $Location1 -GatewayIpAddress $LNGIP6 -AddressPrefix `
 $LNGPrefix61,$LNGPrefix62
 ```
 
@@ -251,8 +251,7 @@ The following example shows how to get the IPsec/IKE policy configured on a conn
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
@@ -278,8 +277,7 @@ The steps to add a new policy or update an existing policy on a connection are t
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 
 $newpolicy6 = New-AzureRmIpsecPolicy -IkeEncryption AES128 -IkeIntegrity SHA1 -DhGroup DHGroup14 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 
@@ -291,8 +289,7 @@ Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $con
 You can get the connection again to check if the policy is updated:
 
 ```powershell
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.IpsecPolicies
 ```
 
@@ -316,10 +313,9 @@ Once you remove the custom policy from a connection, the Azure VPN gateway rever
 ```powershell
 $RG1 = "TestPolicyRG1"
 $Connection16 = "VNet1toSite6"
-$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name
-$Connection16 -ResourceGroupName $RG1
+$connection6 = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG1
 $connection6.SharedKey = “AzS123”
-$currentpolicy = $connection6.IpsecPolicies\[0\]
+$currentpolicy = $connection6.IpsecPolicies[0]
 $connection6.IpsecPolicies.Remove($currentpolicy)
 
 Set-AzureRmVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection6

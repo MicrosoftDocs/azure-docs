@@ -11,10 +11,10 @@ ms.workload: na
 pms.tgt_pltfrm: na 
 ms.devlang: na 
 ms.topic: article 
-ms.date: 03/07/2019 
+ms.date: 04/19/2019
 ms.author: mabrigg 
 ms.reviewer: waltero 
-ms.lastreviewed: 02/27/2019
+ms.lastreviewed: 04/19/2019
 
 # Keyword target: Azure Stack Kubernetes dashboard 
 --- 

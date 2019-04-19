@@ -5,6 +5,8 @@
   items:
   - name: What is the Text Analytics API?
     href: overview.md
+  - name: Example user scenarios
+    href: text-analytics-user-scenarios.md
 - name: Quickstarts
   items:
   - name: C#
@@ -23,13 +25,17 @@
     href: quickstarts/ruby.md
 - name: Tutorials
   items:
-   - name: Sentiment analysis on streaming data using Azure Databricks
-     href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
-     maintainContext: true
-   - name: Text Analytics with Power BI
-     href: Tutorials/tutorial-power-bi-key-phrases.md
-   - name: Text Analytics in Power Apps
-     href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+    - name: Integrate Power BI to analyze customer feedback
+      href: Tutorials/tutorial-power-bi-key-phrases.md
+    - name: Text Analytics in Power Apps
+      href: https://powerapps.microsoft.com/tutorials/cognitive-services-api/
+    - name: Sentiment analysis on streaming data using Azure Databricks
+      maintainContext: true
+      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+    - name: Use Flask to translate text, analyze sentiment, and synthesize speech
+      maintainContext: true
+      href: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis
+   
 - name: How-to guides
   items:
    - name: Sign up
@@ -78,6 +84,8 @@
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics
 - name: Resources
   items:
+  - name: Identify the sentiment of comments in a Yammer group with MS Flow
+    href: https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure
   - name: External and community content
     href: text-analytics-resource-external-community.md
   - name: FAQ

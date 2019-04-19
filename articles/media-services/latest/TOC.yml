@@ -14,7 +14,6 @@
   - name: Stream video files - Node.js
     href: stream-files-nodejs-quickstart.md
 - name: Tutorials
-  expanded: true
   items:
   - name: Encode remote file and stream video – REST
     displayName: encoding, job, transform
@@ -158,10 +157,14 @@
     - name: Develop with SDKs
       href: developers-guide.md
       items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
       - name: Connect with .NET 
         href: configure-connect-dotnet-howto.md
       - name: Connect with Node.js
         href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
   - name: Upload content
     items:
     - name: From HTTPS - .NET

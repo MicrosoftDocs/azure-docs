@@ -6,8 +6,10 @@
 - name: Quickstarts
   expaned: true
   items:
-  - name: cURL
-    href: quickstarts/curl-train-extract.md
+  - name: Train model and extract data  
+    items:
+    - name: cURL
+      href: quickstarts/curl-train-extract.md
 - name: How-to guides
   items:
   - name: Use containers

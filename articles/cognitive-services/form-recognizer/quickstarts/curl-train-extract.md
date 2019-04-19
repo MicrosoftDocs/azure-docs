@@ -25,58 +25,76 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 * You must have a subscription key for Form Recognizer. To get a subscription key, see Obtaining subscription keys.
 * You must have a minimum set of five forms of the same type located in the container's mounted **/input** directory. You can use a [sample dataset](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) for this quickstart.
 
-## Create a training dataset
-
-First, you will send a request to process your training dataset. The dataset should consist of a minimum of five forms (PDF documents and/or images) of the same type/structure or an empty form (the empty form's filename must include the word "empty").
-
-You create a dataset by calling the **Dataset** API and assigning to a mount location to the `dataRef` parameter.
-To run the sample command, do the following steps:
-
-1. Copy the following command into a text editor
-
-    ```bash
-    curl -X POST "http://localhost:5000/forms/v1.0/dataset" --data "{\"name\": \"<dataset name>\",\"dataRef\": \"/input/<dataset path>\"}" -H "Content-Type: application/json"
-    ```
-
-1. Make the following changes:
-
-   * Replace `<dataset name>` with a name for the dataset
-   * Replace `<dataset path>` with the path to your training dataset
-
-   > [!NOTE]
-   > The `dataRef` parameter is always relative to the input mount root path, which is **/input** by default. Therefore, all `dataRef` attribute values are relative to this path. For example, if the value is `/input/dataset`, it's expected that the **/dataset** folder is present under the path that was mapped to **/input**.
-
-1. Open a command prompt window, paste the command from the text editor, and run the command.
-1. You should receive a `202 (Accepted)` response with the following JSON output:
-
-   ```json
-   {"purpose":"train","state":"created","id":1,"name":"<dataset name>","dataRef":"/input/<dataset path>"}
-   ```
-
-1. Copy the `"id"` value; you will need it for the following steps.
-
 ## Train a Form Recognizer model
 
-To train a new Form Recognizer model using the documents in your dataset, call the **Train** API by executing the following cURL command. Replace `<id>` with your dataset ID:
+First, you will need a training data. The training data can be the [sample data](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/sample_data.zip) located on an Azure Blob or your own training data. Training data should consist of a minimum of five forms (PDF documents and/or images) of the same type/structure or an empty form (the empty form's filename must include the word "empty") located on an Azure Blob container.
+
+To train a Form Recognizer model using the documents in your Azure Blob container, call the **Train** API by executing the following cURL command. Before running the command replace the following: 
+* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<SAS URL>` with an Azure Blob Storage container shared access signature (SAS) URL where the training data is located.  
 
 ```bash
-curl -X POST --data "" "http://localhost:5000/forms/v1.0/dataset/<id>/train"
+curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/train" -H "accept: application/json" -H "Content-Type: application/json-patch+json" -d "{ \"source\": \"<SAS URL>\"}"
 ```
 
 You will receive a `200 (Success)` response with the following JSON output:
 
 ```json
-{"modelVersion":{"versionId":1,"modelId":1,"modelRef":"/output/datasets/<dataset name>/models/1260d261-2737-4b29-ac18-b578fab103b1.gz","isActive":true}}
+{
+  "modelId": "9299792c-03b4-4eea-b83e-afa403fcb406",
+  "totalPages": 5,
+  "processReport": [
+    {
+      "dataRef": "Invoice_1.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    },
+    {
+      "dataRef": "Invoice_2.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    },
+    {
+      "dataRef": "Invoice_3.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    },
+    {
+      "dataRef": "Invoice_4.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    },
+    {
+      "dataRef": "Invoice_5.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    }
+  ],
+  "trainReport": {
+    "errors": [],
+    "pages": 0,
+    "status": "success"
+  }
+}
 ```
 
 Take note of the `"modelId"` value; you will need it for the following steps.
   
 ## Extract key-value pairs and tables from forms
 
-Next, you will score all the documents in the dataset (batch scoring). Copy the following command, replacing `<model Id>` with your model ID and `<id>` with your dataset ID. Then execute the command.
+Next, you will analyze a document and extract key value pairs and tables from it. Call the **model analyze** API by executing the following cURL command. Before running the command replace the following: 
+* Replace `<Azure region>` with the Azure region where you obtained your Form Recognizer subscription key.
+* Replace `<modelID>` with the modelID you received in the previous step of training the model.
+* Replace `</path/to/my/Invoice_1.pdf>` with the path to the file you would like to analyze from the sample data. 
+* Replace `<pdf>` with the file type you are analyzing supported options are - pdf, image/jpeg, image/png. 
 
 ```bash
-curl -X POST --data "{\"modelId\": <model Id> }" "http://localhost:5000/forms/v1.0/dataset/<id>/score"
+curl -X POST "http://<Azure Region>/formrecognizer/v1.0-preview/custom/model/<modelID>/analyze" -H "accept: application/json" -H "Content-Type: multipart/form-data" -F "form=@</path/to/my/Invoice_1.pdf>;type=application/<pdf>"
 ```
 
 ### Examine the response
@@ -84,79 +102,346 @@ curl -X POST --data "{\"modelId\": <model Id> }" "http://localhost:5000/forms/v1
 A successful response is returned in JSON and represents the extracted key-value pairs and tables for all documents in the dataset.
 
 ```bash
-{  
-  "documents":[  
-    {  
-      "dataRef":"/tmp/tmpsqme4w7n/4c73a76f-fa4e-4b5f-97a1-267f0fbf089e.pdf",
-      "pages":[  
-        {  
-          "number":1,
-          "height":792,
-          "width":612,
-          "clusterId":0,
-          "keyValuePairs":[  
-            {  
-              "key":[  
-                {  
-                  "text":"Invoice For:",
-                  "boundingBox":[  
-                    316.1,
-                    683.1,
-                    368.2,
-                    683.1,
-                    368.2,
-                    673.7,
-                    316.1,
-                    673.7
-                  ]
-                }
-              ],
-              "value":[  
-                {  
-                  "text":"Contoso",
-                  "boundingBox":[  
-                    374,
-                    687.9,
-                    414.4,
-                    687.9,
-                    414.4,
-                    673.7,
-                    374,
-                    673.7
-                  ],
-                  "confidence":0.7
-                },
-                {  
-                  "text":"456 49th st",
-                  "boundingBox":[  
-                    374.3,
-                    673.5,
-                    425.8,
-                    673.5,
-                    425.8,
-                    659.2,
-                    374.3,
-                    659.2
-                  ],
-                  "confidence":0.7
-                },
-                {  
-                  "text":"New York, NY 87643",
-                  "boundingBox":[  
-                    374.2,
-                    658.9,
-                    469.3,
-                    658.9,
-                    469.3,
-                    645.3,
-                    374.2,
-                    645.3
-                  ],
-                  "confidence":0.7
-                }
-              ]
-            },
-            ...
+{
+  "formResults": {
+    "documents": [
+      {
+        "dataRef": "streamed-in.pdf",
+        "pages": [
+          {
+            "number": 1,
+            "height": 792,
+            "width": 612,
+            "clusterId": 0,
+            "keyValuePairs": [
+              {
+                "key": [
+                  {
+                    "text": "Address:",
+                    "boundingBox": [
+                      57.4,
+                      683.1,
+                      100.5,
+                      683.1,
+                      100.5,
+                      673.7,
+                      57.4,
+                      673.7
+                    ]
+                  }
+                ],
+                "value": [
+                  {
+                    "text": "1 Redmond way Suite",
+                    "boundingBox": [
+                      57.4,
+                      671.3,
+                      154.8,
+                      671.3,
+                      154.8,
+                      659.2,
+                      57.4,
+                      659.2
+                    ],
+                    "confidence": 0.86
+                  },
+                  {
+                    "text": "6000 Redmond, WA",
+                    "boundingBox": [
+                      57.4,
+                      657.1,
+                      146.9,
+                      657.1,
+                      146.9,
+                      645.5,
+                      57.4,
+                      645.5
+                    ],
+                    "confidence": 0.86
+                  },
+                  {
+                    "text": "99243",
+                    "boundingBox": [
+                      57.4,
+                      642.9,
+                      85,
+                      642.9,
+                      85,
+                      631.9,
+                      57.4,
+                      631.9
+                    ],
+                    "confidence": 0.86
+                  }
+                ]
+              },
+              {
+                "key": [
+                  {
+                    "text": "Invoice For:",
+                    "boundingBox": [
+                      316.1,
+                      683.1,
+                      368.2,
+                      683.1,
+                      368.2,
+                      673.7,
+                      316.1,
+                      673.7
+                    ]
+                  }
+                ],
+                "value": [
+                  {
+                    "text": "Microsoft",
+                    "boundingBox": [
+                      374,
+                      687.9,
+                      418.8,
+                      687.9,
+                      418.8,
+                      673.7,
+                      374,
+                      673.7
+                    ],
+                    "confidence": 1
+                  },
+                  {
+                    "text": "1020 Enterprise Way",
+                    "boundingBox": [
+                      373.9,
+                      673.5,
+                      471.3,
+                      673.5,
+                      471.3,
+                      659.2,
+                      373.9,
+                      659.2
+                    ],
+                    "confidence": 1
+                  },
+                  {
+                    "text": "Sunnayvale, CA 87659",
+                    "boundingBox": [
+                      373.8,
+                      659,
+                      479.4,
+                      659,
+                      479.4,
+                      645.5,
+                      373.8,
+                      645.5
+                    ],
+                    "confidence": 1
+                  }
+                ]
+              }
+            ],
+            "tables": [
+              {
+                "id": "table_0",
+                "columns": [
+                  {
+                    "header": [
+                      {
+                        "text": "Invoice Number",
+                        "boundingBox": [
+                          38.5,
+                          585.2,
+                          113.4,
+                          585.2,
+                          113.4,
+                          575.8,
+                          38.5,
+                          575.8
+                        ]
+                      }
+                    ],
+                    "entries": [
+                      [
+                        {
+                          "text": "34278587",
+                          "boundingBox": [
+                            38.5,
+                            547.3,
+                            82.8,
+                            547.3,
+                            82.8,
+                            537,
+                            38.5,
+                            537
+                          ],
+                          "confidence": 1
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "header": [
+                      {
+                        "text": "Invoice Date",
+                        "boundingBox": [
+                          139.7,
+                          585.2,
+                          198.5,
+                          585.2,
+                          198.5,
+                          575.8,
+                          139.7,
+                          575.8
+                        ]
+                      }
+                    ],
+                    "entries": [
+                      [
+                        {
+                          "text": "6/18/2017",
+                          "boundingBox": [
+                            139.7,
+                            546.8,
+                            184,
+                            546.8,
+                            184,
+                            537,
+                            139.7,
+                            537
+                          ],
+                          "confidence": 1
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "header": [
+                      {
+                        "text": "Invoice Due Date",
+                        "boundingBox": [
+                          240.5,
+                          585.2,
+                          321,
+                          585.2,
+                          321,
+                          575.8,
+                          240.5,
+                          575.8
+                        ]
+                      }
+                    ],
+                    "entries": [
+                      [
+                        {
+                          "text": "6/24/2017",
+                          "boundingBox": [
+                            240.5,
+                            546.8,
+                            284.8,
+                            546.8,
+                            284.8,
+                            537,
+                            240.5,
+                            537
+                          ],
+                          "confidence": 1
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "header": [
+                      {
+                        "text": "Charges",
+                        "boundingBox": [
+                          341.3,
+                          585.2,
+                          381.2,
+                          585.2,
+                          381.2,
+                          575.8,
+                          341.3,
+                          575.8
+                        ]
+                      }
+                    ],
+                    "entries": [
+                      [
+                        {
+                          "text": "$56,651.49",
+                          "boundingBox": [
+                            387.6,
+                            546.4,
+                            437.5,
+                            546.4,
+                            437.5,
+                            537,
+                            387.6,
+                            537
+                          ],
+                          "confidence": 1
+                        }
+                      ]
+                    ]
+                  },
+                  {
+                    "header": [
+                      {
+                        "text": "VAT ID",
+                        "boundingBox": [
+                          442.1,
+                          590,
+                          474.8,
+                          590,
+                          474.8,
+                          575.8,
+                          442.1,
+                          575.8
+                        ]
+                      }
+                    ],
+                    "entries": [
+                      [
+                        {
+                          "text": "PT",
+                          "boundingBox": [
+                            447.7,
+                            550.6,
+                            460.4,
+                            550.6,
+                            460.4,
+                            537,
+                            447.7,
+                            537
+                          ],
+                          "confidence": 1
+                        }
+                      ]
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "scoreReport": [
+    {
+      "dataRef": "streamed-in.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    }
+  ],
+  "totalPages": 1,
+  "processReport": [
+    {
+      "dataRef": "streamed-in.pdf",
+      "errors": [],
+      "pages": 1,
+      "status": "success"
+    }
+  ]
+}
 ```
 
 ## Next steps

@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ---
 
-# Bring your own key for Apache Kafka on Azure HDInsight (Preview)
+# Bring your own key for Apache Kafka on Azure HDInsight
 
 Azure HDInsight includes Bring Your Own Key (BYOK) support for Apache Kafka. This capability lets you own and manage the keys used to encrypt data at rest. 
 
@@ -29,6 +29,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 1. Create managed identities for Azure resources
 2. Setup Azure Key Vault and keys
 3. Create HDInsight Kafka cluster with BYOK enabled
+4. Rotating the encryption key
 
 ## Create managed identities for Azure resources
 
@@ -66,6 +67,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
         ![Copy key identifier](./media/apache-kafka-byok/kafka-get-key-identifier.png)
    
     4. Add managed identity to the key vault access policy.
+
         a. Create a new Azure Key Vault access policy.
 
         ![Create new Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy.png)
@@ -82,7 +84,7 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 
         ![Set Key Permissions for Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png)
 
-        e. Click on **Save** 
+        e. Click on **Save**. 
 
         ![Save Azure Key Vault access policy](./media/apache-kafka-byok/add-key-vault-access-policy-save.png)
 
@@ -93,6 +95,13 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
    ![Kafka disk encryption in Azure portal](./media/apache-kafka-byok/apache-kafka-byok-portal.png)
 
    During cluster creation, provide the full key URL, including the key version. For example, `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. You also need to assign the managed identity to the cluster and provide the key URI.
+
+## Rotating the Encryption key
+   There might be scenarios where you might want to change the encryption keys used by the Kafka cluster after it has been created. This can be easily via the portal. For this operation, the cluster must have access to both the current key and the intended new key, otherwise the rotate key operation will fail.
+
+   To rotate the key, you must have the full url of the new key (See Step 3 of [Setup the Key Vault and Keys](#setup-the-key-vault-and-keys)). Once you have that, go to the Kafka cluster properties section in the portal and click on **Change Key** under **Disk Encryption Key URL**. Enter in the new key url and submit to rotate the key.
+
+   ![Kafka rotate disk encryption key](./media/apache-kafka-byok/kafka-change-key.png)
 
 ## FAQ for BYOK to Apache Kafka
 
@@ -107,6 +116,11 @@ To create a BYOK enabled Kafka cluster, we will go through the following steps:
 **Can I have different keys for different topics/partitions?**
 
    No, all managed disks in the cluster are encrypted by the same key.
+
+**What happens if the cluster loses access to the key vault or the key?**
+   If the cluster loses access to the key, warnings will be shown in the Ambari portal. In this state, the **Change Key** operation will fail. Once key access is restored, ambari warnings will go away and operations such as key rotation can be successfully performed.
+
+   ![Kafka key access ambari alert](./media/apache-kafka-byok/kafka-byok-ambari-alert.png)
 
 **How can I recover the cluster if the keys are deleted?**
 

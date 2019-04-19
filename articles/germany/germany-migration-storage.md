@@ -15,6 +15,8 @@ ms.custom: bfmigrate
 
 This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Blobs
 
 AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works for Azure-to-Azure, on-premises-to-Azure, and Azure-to-on-premises migrations. Use AzCopy for your migration to copy blobs directly from Azure Germany to global Azure.
@@ -40,7 +42,7 @@ You get the three parts of the URI (*storageaccountname*, *containername*, *blob
 You also need the storage account keys to access the Azure Storage account. Get them from the portal, by using PowerShell, or by using the CLI. For example:
 
 ```powershell
-Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
+Get-AzStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
 ```
 
 As always, you need only one of the two keys for each storage account.

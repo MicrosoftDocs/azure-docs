@@ -94,7 +94,7 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Lithuania                           | LT        | EUR          |
 | Luxembourg                          | LU        | EUR          |
 | Macao SAR                           | MO        | USD          |
-| Macedonia FYRO                      | MK        | USD          |
+| North Macedonia                     | MK        | USD          |
 | Malaysia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauritius                           | MU        | USD          |

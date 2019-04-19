@@ -10,9 +10,9 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: 
 manager: craigg
-ms.date: 04/09/2019
+ms.date: 04/10/2019
 ---
-# Time Zone in Azure SQL Database Managed Instance
+# Time Zone in Azure SQL Database Managed Instance (Preview)
 
 While using Coordinated Universal Time (UTC) is a recommended practice for data tier of cloud solutions, Azure SQL Database Managed Instance offers a choice of time zone to meet the needs of the existing applications that store date and time values and call date and time functions with an implicit context of a specific time zone.
 
