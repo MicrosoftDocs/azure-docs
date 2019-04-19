@@ -92,7 +92,7 @@ This module is particularly useful when you need to separate data into training 
 3. . In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
 
 
- - Numeric colume:
+ - Numeric column:
     - The column contains numbers of any numeric data type, including date/time data types.
 
     - The expression can reference a maximum of one column name.
