@@ -87,7 +87,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 ## Start monitoring in the Azure portal
 
-1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application.
+1. You can now reopen the Application Insights **Overview** page in the Azure portal to view details about your currently running application.
 
    ![Application Insights Overview Menu](./media/java-quick-start/3overview.png)
 
@@ -95,7 +95,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
    ![Application Map](./media/java-quick-start/4appmap.png)
 
-3.  Click on the **App Analytics** icon ![Application Map icon](./media/java-quick-start/006.png). **View in Analytics**.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
+3.  Click on the **App Analytics** icon ![Application Map icon](./media/java-quick-start/006.png) **View in Analytics**.  This opens **Application Insights Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. In this case, a query is generated for you that renders the request count as a chart. You can write your own queries to analyze other data.
 
    ![Analytics graph of user requests over a period of time](./media/java-quick-start/5analytics.png)
 
@@ -133,7 +133,7 @@ To learn more about monitoring Java, check out the [additional App Insights Java
 
 ## Clean up resources
 
-If you plan to continue on to work with subsequent quickstarts or with the tutorials, do not clean up the resources created in this quickstart. If you do not plan to continue, use the following steps to delete all resources created by this quickstart in the Azure portal.
+When you are done testing, you can delete the resource group and all related resources. To do so follow the steps below.
 
 1. From the left-hand menu in the Azure portal, click **Resource groups** and then click **myResourceGroup**.
 2. On your resource group page, click **Delete**, type **myResourceGroup** in the text box, and then click **Delete**.
