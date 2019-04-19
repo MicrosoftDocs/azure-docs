@@ -46,4 +46,4 @@ ms.collection: M365-identity-device-management
 
 ## Next steps
 
-- [Manage resources](entitlement-management-resources.md)
+- [Common scenarios](entitlement-management-scenarios.md)

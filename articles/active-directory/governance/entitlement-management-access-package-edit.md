@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/19/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -32,7 +32,14 @@ An access package enables you to do a one-time setup of resources and policies t
 
 This article describes how to edit and manage existing access packages.
 
-## Add resource roles
+## Add a group resource role
+
+You can assign a user membership or ownership of a group as part of a user being assigned an access package. Any Office 365 group or Azure AD security group can be added. Here are some considerations when selecting groups:
+
+- When a group is part of an access package, then a user who is assigned that access package is added to that group, if not already present. When a user's access package assignment expires, if they do not have another access package that includes that group, they will be removed from the group.
+- When a user is added to a group, they can see all the other members of that group.
+- Azure AD cannot change the membership of a group that was synchronized from Windows Server Active Directory using Azure AD Connect.  
+- The membership of dynamic groups cannot be updated using entitlement management.
 
 **Prerequisite role:** User administrator, Catalog owner, or Access package manager
 
@@ -40,17 +47,84 @@ This article describes how to edit and manage existing access packages.
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Click **Resource roles**.
+1. In the left menu, click **Resource roles**.
 
 1. Click **Add resource roles**.
 
-1. Select the resources you want to add.
+1. For **Resource type**, select **Group**.
 
-1. Select the role.
+1. For **Resource**, select a group that is available in the catalog.
+
+    If you don't see the group you want to add in the list, follow the steps to [add the group to the catalog](entitlement-management-catalog-create.md).
+
+1. For **Role**, select **Owner** or **Member**.
+
+    You typically select the Member role. If you select the Owner role, that will allow users to add or remove other members or owners.
+
+    ![Access package - Add resource role for a group](./media/entitlement-management-access-package-edit/resource-role-group.png)
 
 1. Click **Add**.
 
-Any users with existing assignments to the access package will automatically be given access to this resource role when it is added.
+    Any users with existing assignments to the access package will automatically be given access to this group when it is added.
+
+## Add an application resource role
+
+You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD. For applications that integrate with Azure AD through federated single sign on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting applications:
+
+- When an application's role is part of an access package, then a user who is assigned that access package is added to that application role, if not already present. When a user's access package assignment expires, if they do not have another access package that includes that application, they will be removed from the application.
+- Applications can have multiple roles, as well as groups assigned to roles.
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. In the left menu, click **Resource roles**.
+
+1. Click **Add resource roles**.
+
+1. For **Resource type**, select **Application**.
+
+1. For **Resource**, select an application that is available in the catalog.
+
+    If you don't see the application you want to add in the list, follow the steps to [add the application to the catalog](entitlement-management-catalog-create.md).
+
+1. For **Role**, select an application role.
+
+    ![Access package - Add resource role for an application](./media/entitlement-management-access-package-edit/resource-role-application.png)
+
+1. Click **Add**.
+
+    Any users with existing assignments to the access package will automatically be given access to this application when it is added.
+
+## Add an SharePoint site resource role
+
+You can assign users access to a SharePoint Online site or SharePoint Online site collection.
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. In the left menu, click **Resource roles**.
+
+1. Click **Add resource roles**.
+
+1. For **Resource type**, select **SharePoint site**.
+
+1. For **Resource**, select a SharePoint site that is available in the catalog.
+
+    If you don't see the SharePoint site you want to add in the list, follow the steps to [add the SharePoint site to the catalog](entitlement-management-catalog-create.md).
+
+1. For **Role**, select a SharePoint site role.
+
+    ![Access package - Add resource role for a SharePoint site](./media/entitlement-management-access-package-edit/resource-role-sharepoint-site.png)
+
+1. Click **Add**.
+
+    Any users with existing assignments to the access package will automatically be given access to this SharePoint site when it is added.
 
 ## Remove resource roles
 
@@ -60,11 +134,11 @@ Any users with existing assignments to the access package will automatically be 
 
 1. In the left menu, click **Access packages** and then open the access package.
 
-1. Click **Resource roles**.
+1. In the left menu, click **Resource roles**.
 
 1. Click the ellipsis (**...**) and then click **Remove resource role**.
 
-Any users with existing assignments to the access package will automatically have their access revoked to this resource role when it is removed.
+    Any users with existing assignments to the access package will automatically have their access revoked to this resource role when it is removed.
 
 ## Add a new policy
 

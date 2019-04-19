@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 04/19/2019
 ms.author: rolyon
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
@@ -71,6 +71,10 @@ To include resources in an access package, the resources must exist in a catalog
 1. Click **Add resources**.
 
 1. Click a resource type: **Groups**, **Applications**, or **SharePoint sites**.
+
+    If you are a catalog creator, you can add any Office 365 group or Azure AD security group you own to your catalog. If there is a group that you want to assign to users, but you do not own the group, you will need to have a User administrator add that group to your catalog.
+
+    If you are a catalog creator, you can add any Azure AD enterprise application you own, including both SaaS applications and your own applications federated to Azure AD, to your catalog. If there is a application that you want to assign users to but do not own, you will need to have a User administrator add that application to your catalog. Once the application is part of the catalog, you can select any of the application's roles in an access package.
 
 1. Select one or more resources of the type that you would like to add to the catalog.
 

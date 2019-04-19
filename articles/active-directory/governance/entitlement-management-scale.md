@@ -39,4 +39,4 @@ Intro
 
 ## Next steps
 
-- [Manage resources](entitlement-management-resources.md)
+- [Common scenarios](entitlement-management-scenarios.md)

@@ -45,4 +45,4 @@ With entitlement management Contoso would be able to define a policy that allows
 
 ## Next steps
 
-- [Manage resources](entitlement-management-resources.md)
+
