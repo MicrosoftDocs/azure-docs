@@ -102,9 +102,9 @@ The modifiers you can set on a public client or confidential client application 
 |`.WithAuthority()` 7 overrides | Sets the application default authority to an Azure AD authority, with the possibility of choosing the Azure Cloud, the audience, the tenant (tenant ID or domain name), or providing directly the authority URI.|
 |`.WithAdfsAuthority(string)` | Sets the application default authority to be an ADFS authority.|
 |`.WithB2CAuthority(string)` | Sets the application default authority to be an Azure AD B2C authority.|
-|`.WithClientId(string)` | overrides the client ID.|
+|`.WithClientId(string)` | Overrides the client ID.|
 |`.WithComponent(string)` | Sets the name of the library using MSAL.NET (for telemetry reasons). |
-|`.WithDebugLoggingCallback() | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
+|`.WithDebugLoggingCallback()` | If called, the application will call `Debug.Write` simply enabling debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
 |`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Set the application level extra query parameters that will be sent in all authentication request. This is overridable at each token acquisition method level (with the same `.WithExtraQueryParameters pattern`).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Enables advanced scenarios such as configuring for an HTTP proxy, or to force MSAL to use a particular HttpClient (for instance in ASP.NET Core web apps/APIs).|
 |`.WithLogging()` | If called, the application will call a callback with debugging traces. See [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) for more information.|
