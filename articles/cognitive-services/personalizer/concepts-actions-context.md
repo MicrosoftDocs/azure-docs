@@ -203,7 +203,7 @@ In some cases, there are actions that you don't want to display to users. The be
 
 In some cases, it can only be determined later in your business logic if a resulting Action of a Rank is to be shown to a user. For these cases, you should use _Inactive Events_.
 
-# Examples of context information
+## Examples of context information
 
 Information in the Context depends on each application and use case, but it typically may include information such as:
 
@@ -215,7 +215,7 @@ Information in the Context depends on each application and use case, but it typi
 
 Your application is responsible for loading the information about the context from the relevant databases, sensors, and systems you may have. If your context information doesn't change, you can add logic in your application to cache this information, before sending it to the Rank API.
 
-#  Sending context to the Rank API
+##  Sending context to the Rank API
 
 Context is expressed as a JSON object that is sent to the Rank API
 
@@ -231,3 +231,6 @@ Context is expressed as a JSON object that is sent to the Rank API
   ]
 ```
 
+## Next steps:
+
+Use [offline evaluation](concepts-offline-evaluation.md) to improve your Personalizer loop
