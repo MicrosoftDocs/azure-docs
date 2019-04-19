@@ -71,7 +71,7 @@
       - name: Troubleshoot
         items:
         - name: Data Box Blob storage issues
-          href: data-box-system-requirements-rest.md  
+          href: data-box-troubleshoot-rest.md  
  
   - name: Data Box Disk 
     items:
