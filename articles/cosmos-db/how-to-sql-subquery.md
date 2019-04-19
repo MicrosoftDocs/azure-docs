@@ -4,7 +4,7 @@ description: Learn about SQL subqueries in Azure Cosmos DB and common use cases
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 04/19/2019
 ms.author: tsander26
 
 ---
