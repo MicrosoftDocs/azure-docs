@@ -242,6 +242,9 @@
     href: /azure/templates/microsoft.media/allversions
 - name: Resources
   items:
+  - name: Azure Media Services community
+    displayName: forums, twitter, feedback
+    href: media-services-community.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
