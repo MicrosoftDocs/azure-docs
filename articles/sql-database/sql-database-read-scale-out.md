@@ -143,5 +143,4 @@ If you are using Read Scale-Out to load-balance read-only workloads on a databas
 
 ## Next steps
 
-- For information about using PowerShell to set read scale-out, see the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets.
-- For information about using the REST API to set read scale-out, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+- For information about SQL Database Hyperscale offering, see the [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).
