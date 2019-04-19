@@ -33,5 +33,8 @@ There is a common set of concerns when migrating these workloads to the cloud:
 ## Intended audience
 The Enterprise-focused documentation is intended for IT planners, architects, and managers who are responsible for establishing and reviewing overall deployments and overseeing operations practices. As a result, this document emphasizes the overall process and recommended design principles to promote a secure and stable development/testing environment, which ultimately drives adoption of Azure DevTest Labs within an organization.
 
+## Enterprise Customers
+There are many existing enterprise customers of DevTest Labs who leverage DevTest Labs for development and/or testing workloads in their organizations successfully.  [Click to learn more!](https://azure.microsoft.com/en-us/case-studies/?term=DevTest+labs)
+
 ## Next steps
 - [Reference architecture for an enterprise](devtest-lab-reference-architecture.md)
