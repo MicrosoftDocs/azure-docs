@@ -48,88 +48,6 @@ There are several ways that you can configure entitlement management for your or
 ### I'm new to entitlement management and I need help getting started
 
 > [!div class="mx-tableFixed"]
-> | Step | Who can perform |
-> | --- | --- |
-> | **1.** [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | User admin<br/>Catalog owner |
-
-### I want to allow users in my directory to request access to groups, applications, or SharePoint sites
-
-> [!div class="mx-tableFixed"]
-> | Step | Who can perform |
-> | --- | --- |
-> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | User admin<br/>Catalog owner |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
-
-> [!div class="mx-tableFixed"]
-> | Step | Who can perform |
-> | --- | --- |
-> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | User admin<br/>Catalog owner |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | User admin<br/>Catalog owner<br/>Access package manager |
-> | **4.** Send the **My Access portal link** to request the access package to your business partner<ul><li>Business partner can share link with their users</li></ul> | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to change the groups, applications, or SharePoint sites in an access package
-
-> [!div class="mx-tableFixed"]
-> | Step | Who can perform |
-> | --- | --- |
-> | **1.** Open the access package | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | User admin<br/>Catalog owner<br/>Access package manager |
-
-
-## Administrators 3
-
-### I'm new to entitlement management and I need help getting started
-
-- [Follow tutorial to create your first access package](entitlement-management-access-package-first.md)
-
-### I want to allow users in my directory to request access to groups, applications, or SharePoint sites
-
-1. [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package)
-
-1. [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)
-
-    - Groups
-    - Applications
-    - SharePoint sites
-
-1. [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)
-
-    - For users in your directory
-    - Require approval
-    - Expiration settings
-
-### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
-
-1. [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package)
-
-1. [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)
-
-1. [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)
-
-    - For users not in your directory
-    - Require approval
-    - Expiration settings
-
-1. Send the **My Access portal link** to request the access package to your business partner
-
-    - Business partner can share link with their users
-
-### I want to change the groups, applications, or SharePoint sites in an access package
-
-1. Open the access package
-
-1. [Add or remove resource roles](entitlement-management-access-package-edit.md)
-
-
-## Administrators 4
-
-### I'm new to entitlement management and I need help getting started
-
-> [!div class="mx-tableFixed"]
 > | Step | Example |
 > | --- | --- |
 > | **1.** [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) |
@@ -162,56 +80,6 @@ There are several ways that you can configure entitlement management for your or
 > | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
 
 
-## Administrators 5
-
-### I'm new to entitlement management and I need help getting started
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [Follow tutorial to create your first access package](entitlement-management-access-package-first.md) | ![Azure portal icon](./media/entitlement-management-scenarios/icon-azure-portal.png) | User admin<br/>Catalog owner |
-
-### I want to allow users in my directory to request access to groups, applications, or SharePoint sites
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) | User admin<br/>Catalog owner |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **3.** [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **4.** Send the **My Access portal link** to request the access package to your business partner<ul><li>Business partner can share link with their users</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to change the groups, applications, or SharePoint sites in an access package
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** Open the access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to view who has an assignment to groups, applications, or SharePoint sites
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** Open an access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) | User admin<br/>Catalog owner<br/>Access package manager |
-> | **2.** [View **Assignments**](entitlement-management-access-package-edit.md#view-who-has-an-assignment)<ul><li>View which users have access to an access package</li><li>View which user's access has expired</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
-
-### I want to view groups, applications, or SharePoint sites a user has access to
-
-> [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [View **User assignments report**](entitlement-management-reports.md)<ul><li>View when they requested and who approved</li></ul> |  | User admin<br/>Catalog owner<br/>Access package manager |
 
 
 ## Approvers
@@ -219,11 +87,11 @@ There are several ways that you can configure entitlement management for your or
 ### I want to approve requests to access groups, applications, or SharePoint sites
 
 > [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) | Approver |
-> | **2.** [Find request in pending approvals](entitlement-management-request-approve.md#open-request) |  | Approver |
-> | **3.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) | Approver |
+> | Step | Example |
+> | --- | --- |
+> | **1.** Sign in to the My Access portal | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
+> | **2.** [Find request in pending approvals](entitlement-management-request-approve.md#open-request) |  |
+> | **3.** [Approve access request](entitlement-management-request-approve.md#approve-or-deny-request) | ![Approve access](./media/entitlement-management-scenarios/icon-approve-access.png) |
 
 
 ## Requestors
@@ -231,28 +99,28 @@ There are several ways that you can configure entitlement management for your or
 ### I want to view the groups, applications, or SharePoint sites available to me and request access
 
 > [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) | Requestor |
-> | **2.** Find access package |  | Requestor |
-> | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access](./media/entitlement-management-scenarios/icon-request-access.png) | Requestor |
+> | Step | Example |
+> | --- | --- |
+> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
+> | **2.** Find access package |  |
+> | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access](./media/entitlement-management-scenarios/icon-request-access.png) |
 
 ### I'm an external user and I want to request access to groups, applications, or SharePoint sites with a direct link
 
 > [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** Find the access package link you received |  | Requestor |
-> | **2.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) | Requestor |
-> | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access](./media/entitlement-management-scenarios/icon-request-access.png) | Requestor |
+> | Step | Example |
+> | --- | --- |
+> | **1.** Find the access package link you received |  |
+> | **2.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
+> | **3.** [Request access](entitlement-management-request-access.md#request-an-access-package) | ![Request access](./media/entitlement-management-scenarios/icon-request-access.png) |
 
 ### I want to view the groups, applications, or SharePoint sites I already have access to
 
 > [!div class="mx-tableFixed"]
-> | Step | Example | Who can perform |
-> | --- | --- | --- |
-> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) | Requestor |
-> | **2.** View active access packages |  | Requestor |
+> | Step | Example |
+> | --- | --- |
+> | **1.** [Sign in to the My Access portal](entitlement-management-request-access.md#open-the-my-access-portal) | ![My Access portal icon](./media/entitlement-management-scenarios/icon-myaccess-portal.png) |
+> | **2.** View active access packages |  |
 
 ## Next steps
 
