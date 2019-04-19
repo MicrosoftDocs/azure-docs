@@ -32,24 +32,24 @@ The Speech SDK's **Conversation Transcriber** API provides a way to transcribe c
 First step to enable creating conversation/meeting like scenario is to create voice signatures for the conversation participants. Creating voice signatures is required for efficient speaker identification functionality done by Speech Service.
 [Use the REST API to get the voice signature.](https://westus.signature.speech.microsoft.com/ui)
 
-This is what the code may look like:
+The example below shows two different ways to create voice signatures:
 ```csharp
 class Program
 {
-    static async Task UseFormContent()
+    static async Task CreateVoiceSignatureByUsingFormData()
     {
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var form = new MultipartFormDataContent();
         var content = new ByteArrayContent(fileBytes);
         form.Add(content, "file", "file");
         var client = new HttpClient();
-        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSpeechSubscriptionKey");
+        client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
         var response = await client.PostAsync($"https://{region}.signature.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromFormData", form);
-        // signature can be extracted from the jsonData
+        // A voice signature can be extracted from the jsonData
         var jsonData = await response.Content.ReadAsStringAsync();
     }
 
-    static async Task UserByteArrayContent()
+    static async Task CreateVoiceSignatureByUsingBody()
     {
         byte[] fileBytes = File.ReadAllBytes(@"speakerVoice.wav");
         var content = new ByteArrayContent(fileBytes);
@@ -57,13 +57,14 @@ class Program
         var client = new HttpClient();
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", "YourSubscriptionKey");
         var response = await client.PostAsync($"https://{region}.cts.speech.microsoft.com/api/v1/Signature/GenerateVoiceSignatureFromByteArray", content);
-        // signature can be extracted from the jsonData
+        // A voice signature can be extracted from the jsonData
         var jsonData = await response.Content.ReadAsStringAsync();
     }
+
     static void Main(string[] args)
     {
-        UseFormContent().Wait();
-        UserByteArrayContent().Wait();
+        CreateVoiceSignatureByUsingFormData().Wait();
+        CreateVoiceSignatureByUsingBody().Wait();
     }
 }
 ```
@@ -119,13 +120,12 @@ public class MyConversationTranscriber
                 transcriber.ConversationId = "AConversationFromTeams";
 
                 // Add participants to the conversation.
-                // signatureA, signatureB and signatureC are the signatures got through signature REST API. Here these are just examples
-                float[] signatureA = new float[] { 1.1F, 2.2F };
-                float[] signatureB = new float[] { 1.1F, 2.2F };
-                float[] signatureC = new float[] { 1.1F, 2.2F };
-                var speakerA = Participant.From("Speaker_A", "en-us", signatureA, null);
-                var speakerB = Participant.From("Speaker_B", "en-us", signatureB, null);
-                var speakerC = Participant.From("SPeaker_C", "en-us", signatureC, null);
+                // Create data for voice signatures using REST API described in the earlier section in this document.
+                // How to create voice signatureA, signatureB & signatureC variables, please check the SDK API samples.
+
+                var speakerA = Participant.From("Speaker_A", "en-us", signatureA);
+                var speakerB = Participant.From("Speaker_B", "en-us", signatureB);
+                var speakerC = Participant.From("SPeaker_C", "en-us", signatureC);
                 transcriber.AddParticipant(speakerA);
                 transcriber.AddParticipant(speakerB);
                 transcriber.AddParticipant(speakerC);
