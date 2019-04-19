@@ -25,11 +25,11 @@ In this article, you learn how to use Azure Storage Explorer to:
 
 ## Prerequisites
 
-In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (filesystem created and data uploaded to it).
+In order to best depict the process, we require that you complete our [Azure Storage Explorer quickstart](data-lake-storage-Explorer.md). This ensures your storage account will be in the most appropriate state (file system created and data uploaded to it).
 
 ## Managing access
 
-You can set permissions at the root of your filesystem. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your filesystem and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
+You can set permissions at the root of your file system. To do so, you must be logged into Azure Storage Explorer with your individual account with rights to do so (as opposed to with a connection string). Right-click your file system and select **Manage Permissions**, bringing up the **Manage Permission** dialog box.
 
 ![Microsoft Azure Storage Explorer - Manage directory access](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
