@@ -35,7 +35,7 @@ Create a Front Door profile by following the instructions described in [Quicksta
 
 ### Create a WAF policy
 
-Create a WAF policy with the [az network waf-policy create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) command:
+Create a WAF policy with the [az network waf-policy create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) command. In the below example, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive 
 az network waf-policy create \
@@ -54,7 +54,7 @@ az network waf-policy custom-rule create \
   --name IPAllowListRule \
   --priority 1 \
   --rule-type MatchRule \
-  --match-condition RemoteAddr IPMatch ["192.168.1.0/24","192.168.2.2/32"]
+  --match-condition RemoteAddr IPMatch ["192.168.1.0/24","192.168.2.2/32"] \
   --action Allow \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
