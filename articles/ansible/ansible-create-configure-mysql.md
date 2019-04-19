@@ -14,7 +14,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
-[Azure Database for MySQL](/azure/mysql/overview) is a relational database service based on the MySQL Community Edition. Azure Database for MySQL enables you to run, manage, and scale MySQL databases in your web apps.
+[Azure Database for MySQL](/azure/mysql/overview) is a relational database service based on the MySQL Community Edition. Azure Database for MySQL enables you to manage MySQL databases in your web apps.
 
 [!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
 >
