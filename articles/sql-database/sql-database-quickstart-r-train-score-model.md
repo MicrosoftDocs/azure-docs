@@ -56,11 +56,17 @@ In the following steps you'll set up the training data, create a regression mode
 1. Create the **CarSpeed** table to save the training data.
 
     ```sql
-    CREATE TABLE dbo.CarSpeed (speed INT NOT NULL, distance INT NOT NULL)
+    CREATE TABLE dbo.CarSpeed (
+        speed INT NOT NULL
+        , distance INT NOT NULL
+        )
     GO
-    INSERT INTO dbo.CarSpeed (speed, distance)
-    EXECUTE sp_execute_external_script
-    @language = N'R'
+    
+    INSERT INTO dbo.CarSpeed (
+        speed
+        , distance
+        )
+    EXECUTE sp_execute_external_script @language = N'R'
         , @script = N'car_speed <- cars;'
         , @input_data_1 = N''
         , @output_data_1_name = N'car_speed'
@@ -71,23 +77,25 @@ In the following steps you'll set up the training data, create a regression mode
 
    To build the model you define the formula inside the R code and then pass the training data **CarSpeed** as an input parameter.
 
-     ```sql
-     DROP PROCEDURE IF EXISTS generate_linear_model;
-     GO
-     CREATE PROCEDURE generate_linear_model
-     AS
-     BEGIN
-       EXECUTE sp_execute_external_script
-       @language = N'R'
-       , @script = N'lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
-           trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));'
-       , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
-       , @input_data_1_name = N'CarsData'
-       , @output_data_1_name = N'trained_model'
-       WITH RESULT SETS ((model VARBINARY(max)));
-     END;
-     GO
-     ```
+    ```sql
+    DROP PROCEDURE IF EXISTS generate_linear_model;
+    GO
+    CREATE PROCEDURE generate_linear_model
+    AS
+    BEGIN
+      EXECUTE sp_execute_external_script
+      @language = N'R'
+      , @script = N'
+    lrmodel <- rxLinMod(formula = distance ~ speed, data = CarsData);
+    trained_model <- data.frame(payload = as.raw(serialize(lrmodel, connection=NULL)));
+    '
+      , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
+      , @input_data_1_name = N'CarsData'
+      , @output_data_1_name = N'trained_model'
+      WITH RESULT SETS ((model VARBINARY(max)));
+    END;
+    GO
+    ```
 
      The first argument to rxLinMod is the *formula* parameter, which defines distance as dependent on speed. The input data is stored in the variable `CarsData`, which is populated by the SQL query.
 
@@ -99,7 +107,7 @@ In the following steps you'll set up the training data, create a regression mode
     CREATE TABLE dbo.stopping_distance_models (
         model_name VARCHAR(30) NOT NULL DEFAULT('default model') PRIMARY KEY
         , model VARBINARY(max) NOT NULL
-    );
+        );
     ```
 
 1. Now call the stored procedure, generate the model, and save it to a table.
@@ -130,22 +138,30 @@ Generally, the output of R from the stored procedure [sp_execute_external_script
 For example, suppose you want to train a model but immediately view the table of coefficients from the model. To do so, you create the table of coefficients as the main result set, and output the trained model in a SQL variable. You can immediately re-use the model by calling the variable, or you can save the model to a table as shown here.
 
 ```sql
-DECLARE @model VARBINARY(max), @modelname VARCHAR(30)
-EXECUTE sp_execute_external_script
-    @language = N'R'
+DECLARE @model VARBINARY(max)
+    , @modelname VARCHAR(30)
+
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-        speedmodel <- rxLinMod(distance ~ speed, CarsData)
-        modelbin <- serialize(speedmodel, NULL)
-        OutputDataSet <- data.frame(coefficients(speedmodel));'
+speedmodel <- rxLinMod(distance ~ speed, CarsData)
+modelbin <- serialize(speedmodel, NULL)
+OutputDataSet <- data.frame(coefficients(speedmodel));
+'
     , @input_data_1 = N'SELECT [speed], [distance] FROM CarSpeed'
     , @input_data_1_name = N'CarsData'
     , @params = N'@modelbin varbinary(max) OUTPUT'
     , @modelbin = @model OUTPUT
-    WITH RESULT SETS (([Coefficient] FLOAT NOT NULL));
+WITH RESULT SETS(([Coefficient] FLOAT NOT NULL));
 
 -- Save the generated model
-INSERT INTO dbo.stopping_distance_models(model_name, model)
-VALUES ('latest model', @model)
+INSERT INTO dbo.stopping_distance_models (
+    model_name
+    , model
+    )
+VALUES (
+    'latest model'
+    , @model
+    )
 ```
 
 **Results**
@@ -161,12 +177,20 @@ Did you notice that the original training data stops at a speed of 25 miles per 
 1. Create a table with new speed data.
 
    ```sql
-   CREATE TABLE dbo.NewCarSpeed(speed INT NOT NULL,
-       distance INT NULL
-   )
-   GO
-   INSERT dbo.NewCarSpeed(speed)
-   VALUES (40), (50), (60), (70), (80), (90), (100)
+    CREATE TABLE dbo.NewCarSpeed (
+        speed INT NOT NULL
+        , distance INT NULL
+        )
+    GO
+    
+    INSERT dbo.NewCarSpeed (speed)
+    VALUES (40)
+        , (50)
+        , (60)
+        , (70)
+        , (80)
+        , (90)
+        , (100)
    ```
 
 2. Predict stopping distance from these new speed values.
@@ -184,23 +208,28 @@ Did you notice that the original training data stops at a speed of 25 miles per 
    > For real-time scoring, see [Serialization functions](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR.
 
    ```sql
-   DECLARE @speedmodel varbinary(max) = 
-       (SELECT model FROM dbo.stopping_distance_models WHERE model_name = 'latest model');
-
-   EXECUTE sp_execute_external_script
-       @language = N'R'
-       , @script = N'
-               current_model <- unserialize(as.raw(speedmodel));
-               new <- data.frame(NewCarData);
-               predicted.distance <- rxPredict(current_model, new);
-               str(predicted.distance);
-               OutputDataSet <- cbind(new, ceiling(predicted.distance));
-               '
-       , @input_data_1 = N'SELECT speed FROM [dbo].[NewCarSpeed]'
-       , @input_data_1_name = N'NewCarData'
-       , @params = N'@speedmodel varbinary(max)'
-       , @speedmodel = @speedmodel
-   WITH RESULT SETS ((new_speed INT, predicted_distance INT));
+    DECLARE @speedmodel VARBINARY(max) = (
+            SELECT model
+            FROM dbo.stopping_distance_models
+            WHERE model_name = 'latest model'
+            );
+    
+    EXECUTE sp_execute_external_script @language = N'R'
+        , @script = N'
+    current_model <- unserialize(as.raw(speedmodel));
+    new <- data.frame(NewCarData);
+    predicted.distance <- rxPredict(current_model, new);
+    str(predicted.distance);
+    OutputDataSet <- cbind(new, ceiling(predicted.distance));
+    '
+        , @input_data_1 = N'SELECT speed FROM [dbo].[NewCarSpeed]'
+        , @input_data_1_name = N'NewCarData'
+        , @params = N'@speedmodel varbinary(max)'
+        , @speedmodel = @speedmodel
+    WITH RESULT SETS((
+                new_speed INT
+                , predicted_distance INT
+                ));
    ```
 
    **Results**

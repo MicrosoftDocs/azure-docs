@@ -44,7 +44,8 @@ To call this line of R from T-SQL, run `sp_execute_external_script` and add the 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-OutputDataSet <- as.data.frame(rnorm(100, mean = 50, sd =3));'
+OutputDataSet <- as.data.frame(rnorm(100, mean = 50, sd =3));
+'
     , @input_data_1 = N'   ;'
 WITH RESULT SETS(([Density] FLOAT NOT NULL));
 ```
@@ -62,7 +63,8 @@ CREATE PROCEDURE MyRNorm (
 AS
 EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-OutputDataSet <- as.data.frame(rnorm(mynumbers, mymean, mysd));'
+OutputDataSet <- as.data.frame(rnorm(mynumbers, mymean, mysd));
+'
     , @input_data_1 = N'   ;'
     , @params = N' @mynumbers int, @mymean int, @mysd int'
     , @mynumbers = @param1
@@ -96,7 +98,8 @@ EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
 library(utils);
 mymemory <- memory.limit();
-OutputDataSet <- as.data.frame(mymemory);'
+OutputDataSet <- as.data.frame(mymemory);
+'
     , @input_data_1 = N' ;'
 WITH RESULT SETS(([Col1] INT NOT NULL));
 ```

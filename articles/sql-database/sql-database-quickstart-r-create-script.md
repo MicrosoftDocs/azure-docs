@@ -178,8 +178,10 @@ For now, let's use the default input and output variables of [sp_execute_externa
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
-        , @script = N' mytextvariable <- c("hello", " ", "world");
-    OutputDataSet <- as.data.frame(mytextvariable);'
+        , @script = N'
+    mytextvariable <- c("hello", " ", "world");
+    OutputDataSet <- as.data.frame(mytextvariable);
+    '
         , @input_data_1 = N''
     WITH RESULT SETS(([Col1] CHAR(20) NOT NULL));
     ```

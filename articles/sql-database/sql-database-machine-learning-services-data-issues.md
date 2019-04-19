@@ -47,20 +47,19 @@ Compare these two "Hello World" scripts in R. The scripts look almost identical,
 **Example 1**
 
 ```sql
-EXECUTE sp_execute_external_script
-       @language = N'R'
-     , @script = N' mytextvariable <- c("hello", " ", "world");
-       OutputDataSet <- as.data.frame(mytextvariable);'
-     , @input_data_1 = N'';
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N' mytextvariable <- c("hello", " ", "world");
+OutputDataSet <- as.data.frame(mytextvariable);
+'
+    , @input_data_1 = N'';
 ```
 
 **Example 2**
 
 ```sql
-EXECUTE sp_execute_external_script
-        @language = N'R'
-      , @script = N' OutputDataSet<- data.frame(c("hello"), " ", c("world"));'
-      , @input_data_1 = N'';
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N' OutputDataSet<- data.frame(c("hello"), " ", c("world"));'
+    , @input_data_1 = N'';
 ```
 
 Why are the results so different?
@@ -72,30 +71,31 @@ To figure out why Example 1 and Example 2 have such different results, insert th
 **Example 1 with str function added**
 
 ```sql
-EXECUTE sp_execute_external_script
-        @language = N'R'
-      , @script = N' mytextvariable <- c("hello", " ", "world");
-      OutputDataSet <- as.data.frame(mytextvariable);
-      str(OutputDataSet);'
-      , @input_data_1 = N'  '
-;
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+mytextvariable <- c("hello", " ", "world");
+OutputDataSet <- as.data.frame(mytextvariable);
+str(OutputDataSet);
+'
+    , @input_data_1 = N'  ';
 ```
 
 **Example 2 with str function added**
 
 ```sql
-EXECUTE sp_execute_external_script
-  @language = N'R', 
-  @script = N' OutputDataSet <- data.frame(c("hello"), " ", c("world"));
-    str(OutputDataSet);' , 
-  @input_data_1 = N'  ';
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+OutputDataSet <- data.frame(c("hello"), " ", c("world"));
+str(OutputDataSet);
+'
+    , @input_data_1 = N'  ';
 ```
 
 Now, review the text in **Messages** to see why the output is different.
 
 **Results - Example 1**
 
-```sql
+```text
 STDOUT message(s) from external script:
 'data.frame':	3 obs. of  1 variable:
 $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
@@ -103,7 +103,7 @@ $ mytextvariable: Factor w/ 3 levels " ","hello","world": 2 1 3
 
 **Results - Example 2**
 
-```sql
+```text
 STDOUT message(s) from external script:
 'data.frame':	1 obs. of  3 variables:
 $ c..hello..: Factor w/ 1 level "hello": 1
@@ -128,23 +128,34 @@ First, create a small table of test data.
 
 ```sql
 CREATE TABLE RTestData (col1 INT NOT NULL)
-INSERT INTO RTestData VALUES (1);
-INSERT INTO RTestData VALUES (10);
-INSERT INTO RTestData VALUES (100);
+
+INSERT INTO RTestData
+VALUES (1);
+
+INSERT INTO RTestData
+VALUES (10);
+
+INSERT INTO RTestData
+VALUES (100);
 GO
 ```
 
 Now run the following script.
 
 ```sql
-EXECUTE sp_execute_external_script
-    @language = N'R'
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-        x <- as.matrix(InputDataSet);
-        y <- array(12:15);
-    OutputDataSet <- as.data.frame(x %*% y);'
+x <- as.matrix(InputDataSet);
+y <- array(12:15);
+OutputDataSet <- as.data.frame(x %*% y);
+'
     , @input_data_1 = N' SELECT [Col1]  from RTestData;'
-    WITH RESULT SETS (([Col1] int, [Col2] int, [Col3] int, Col4 int));
+WITH RESULT SETS((
+            [Col1] INT
+            , [Col2] INT
+            , [Col3] INT
+            , Col4 INT
+            ));
 ```
 
 Under the covers, the column of three values is converted to a single-column matrix. Because a matrix is just a special case of an array in R, the array `y` is implicitly coerced to a single-column matrix to make the two arguments conform.
@@ -160,14 +171,14 @@ Under the covers, the column of three values is converted to a single-column mat
 However, note what happens when you change the size of the array `y`.
 
 ```sql
-EXECUTE sp_execute_external_script
-   @language = N'R'
-   , @script = N'
-        x <- as.matrix(InputDataSet);
-        y <- array(12:14);
-   OutputDataSet <- as.data.frame(y %*% x);'
-   , @input_data_1 = N' SELECT [Col1]  from RTestData;'
-   WITH RESULT SETS (([Col1] int ));
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+x <- as.matrix(InputDataSet);
+y <- array(12:14);
+OutputDataSet <- as.data.frame(y %*% x);
+'
+    , @input_data_1 = N' SELECT [Col1]  from RTestData;'
+WITH RESULT SETS(([Col1] INT));
 ```
 
 Now R returns a single value as the result.
@@ -187,14 +198,17 @@ R provides great flexibility for working with vectors of different sizes, and fo
 For example, the following script defines a numeric array of length 6 and stores it in the R variable `df1`. The numeric array is then combined with the integers of the RTestData table (created above) which contains three (3) values, to make a new data frame, `df2`.
 
 ```sql
-EXECUTE sp_execute_external_script
-    @language = N'R'
+EXECUTE sp_execute_external_script @language = N'R'
     , @script = N'
-               df1 <- as.data.frame( array(1:6) );
-               df2 <- as.data.frame( c( InputDataSet , df1 ));
-               OutputDataSet <- df2'
+df1 <- as.data.frame( array(1:6) );
+df2 <- as.data.frame( c( InputDataSet , df1 ));
+OutputDataSet <- df2;
+'
     , @input_data_1 = N' SELECT [Col1]  from RTestData;'
-    WITH RESULT SETS (( [Col2] int not null, [Col3] int not null ));
+WITH RESULT SETS((
+            [Col2] INT NOT NULL
+            , [Col3] INT NOT NULL
+            ));
 ```
 
 To fill out the data frame, R repeats the elements retrieved from RTestData as many times as needed to match the number of elements in the array `df1`.
@@ -228,11 +242,11 @@ USE AdventureWorksDW
 GO
 
 SELECT ReportingDate
-         , CAST(ModelRegion as varchar(50)) as ProductSeries
-         , Amount
-           FROM [AdventureWorksDW].[dbo].[vTimeSeries]
-           WHERE [ModelRegion] = 'M200 Europe'
-           ORDER BY ReportingDate ASC
+    , CAST(ModelRegion AS VARCHAR(50)) AS ProductSeries
+    , Amount
+FROM [AdventureWorksDW].[dbo].[vTimeSeries]
+WHERE [ModelRegion] = 'M200 Europe'
+ORDER BY ReportingDate ASC
 ```
 
 > [!NOTE]
@@ -241,11 +255,12 @@ SELECT ReportingDate
 Now, try using this query as the input to the stored procedure.
 
 ```sql
-EXECUTE sp_execute_external_script
-       @language = N'R'
-      , @script = N' str(InputDataSet);
-      OutputDataSet <- InputDataSet;'
-      , @input_data_1 = N'
+EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+str(InputDataSet);
+OutputDataSet <- InputDataSet;
+'
+    , @input_data_1 = N'
            SELECT ReportingDate
          , CAST(ModelRegion as varchar(50)) as ProductSeries
          , Amount
@@ -261,7 +276,7 @@ After you get the query working, review the results of the `str` function to see
 
 **Results**
 
-```sql
+```text
 STDOUT message(s) from external script: 'data.frame':    37 obs. of  3 variables:
 STDOUT message(s) from external script: $ ReportingDate: POSIXct, format: "2010-12-24 23:00:00" "2010-12-24 23:00:00"
 STDOUT message(s) from external script: $ ProductSeries: Factor w/ 1 levels "M200 Europe",..: 1 1 1 1 1 1 1 1 1 1
