@@ -23,16 +23,19 @@ ms.custom: seodec18
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This quickstart shows how to deploy a Java web app to App Service by using the [Eclipse IDE for Java EE Developers](https://www.eclipse.org/).
 
-> [!NOTE]
->
-> The steps in this quickstart show how to use the Eclipse IDE to publish a Java web app to App Service, but you can use the IntelliJ IDEA Ultimate Edition or Community Edition. For more information, see [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
->
+> [!IMPORTANT]
+> Azure App Service on Linux is also an option to host Java web apps natively on Linux using managed Tomcat, Java SE, and WildFly offerings. If you're interested in getting started with App Service on Linux, see [Quickstart: Create a Java app in App Service on Linux](containers/quickstart-java.md).
 
 When you have completed this quickstart, your application will look similar to the following illustration when you view it in a web browser:
 
 !["Hello Azure!" example web app](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+> [!NOTE]
+>
+> The steps in this quickstart show how to use the Eclipse IDE to publish a Java web app to App Service, but you can use the IntelliJ IDEA Ultimate Edition or Community Edition. For more information, see [Create a Hello World web app for Azure using IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app).
+>
 
 ## Prerequisites
 

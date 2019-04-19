@@ -25,7 +25,7 @@ The support options for AppSource.
 
 | Support channel | Description |  
 |:--- |:--- |  
-| MSDN Forms: Azure Active Directory located at [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD in the MSDN forums") | Microsoft Developer Network forum. |  
+| MSDN Forums: Azure Active Directory located at [social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD](https://social.msdn.microsoft.com/Forums/azure/home?forum=WindowsAzureAD "Azure AD in the MSDN forums") | Microsoft Developer Network forum. |  
 | StackOverflow: Azure Active Directory located at [stackoverflow.com/questions/tagged/azure-active-directory](https://stackoverflow.com/questions/tagged/azure-active-directory "Azure AD on stackoverflow") | Stack Overflow environment to get solutions and ask questions about everything related to Azure Active Directory (Azure AD). |  
 
 ## Next steps

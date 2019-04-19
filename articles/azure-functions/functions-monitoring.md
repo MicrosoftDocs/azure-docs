@@ -427,18 +427,18 @@ using Microsoft.Extensions.Logging;
 
 namespace functionapp0915
 {
-    public static class HttpTrigger2
+    public class HttpTrigger2
     {
-        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
-        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
-        // automatically use that key for all telemetry. It will also enable telemetry correlation
-        // with the current operation.
-        // If you require a custom TelemetryConfiguration, create it initially with
-        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
-        private static TelemetryClient telemetryClient = new TelemetryClient();
+        private readonly TelemetryClient telemetryClient;
+
+        /// Using dependency injection will guarantee that you use the same configuration for telemetry collected automatically and manually.
+        public HttpTrigger2(TelemetryConfiguration telemetryConfiguration)
+        {
+            this.telemetryClient = new TelemetryClient(telemetryConfiguration);
+        }
 
         [FunctionName("HttpTrigger2")]
-        public static Task<IActionResult> Run(
+        public Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
             HttpRequest req, ExecutionContext context, ILogger log)
         {
@@ -453,12 +453,12 @@ namespace functionapp0915
             // Track an Event
             var evt = new EventTelemetry("Function called");
             evt.Context.User.Id = name;
-            telemetryClient.TrackEvent(evt);
+            this.telemetryClient.TrackEvent(evt);
 
             // Track a Metric
             var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
             metric.Context.User.Id = name;
-            telemetryClient.TrackMetric(metric);
+            this.telemetryClient.TrackMetric(metric);
 
             // Track a Dependency
             var dependency = new DependencyTelemetry
@@ -471,7 +471,7 @@ namespace functionapp0915
                 Success = true
             };
             dependency.Context.User.Id = name;
-            telemetryClient.TrackDependency(dependency);
+            this.telemetryClient.TrackDependency(dependency);
 
             return Task.FromResult<IActionResult>(new OkResult());
         }
@@ -591,7 +591,9 @@ The `tagOverrides` parameter sets the `operation_Id` to the function's invocatio
 
 ## Dependencies
 
-Dependencies that the function has to other services don't show up automatically. You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
+Functions v2 automatically collects dependencies for HTTP requests, ServiceBus, and SQL.
+
+You can write custom code to show the dependencies. For examples, see the sample code in the [C# custom telemetry section](#log-custom-telemetry-in-c-functions). The sample code results in an *application map* in Application Insights that looks like the following image:
 
 ![Application map](./media/functions-monitoring/app-map.png)
 

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 07/24/2018
+ms.date: 04/09/2019
 ms.author: celested
 
 ms.collection: M365-identity-device-management
@@ -39,27 +39,27 @@ To add a gallery application to your Azure AD tenant:
 
 1. In the [Azure portal](https://portal.azure.com), on the left navigation panel, select **Azure Active Directory**.
 
-2. In the **Azure Active Directory** pane, select **Enterprise applications**.
+1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 
     ![Open enterprise applications](media/add-application-portal/open-enterprise-apps.png)
 
-3. The **All applications** pane opens to show a random sample of the applications in your Azure AD tenant. Select **New application** at the top of the **All applications** pane.
+1. The **All applications** pane opens to show a random sample of the applications in your Azure AD tenant. Select **New application** at the top of the **All applications** pane.
 
     ![New application](media/add-application-portal/new-application.png)
 
-4. In the **Categories** pane, you'll see icons under the **Featured applications** area that are a random sample of gallery applications.  To see more applications, you could select **Show more**. But, we don't recommend searching this way since there are thousands of applications in the gallery.
+1. In the **Categories** pane, you'll see icons under the **Featured applications** area that are a random sample of gallery applications.  To see more applications, you could select **Show more**. But, we don't recommend searching this way since there are thousands of applications in the gallery.
 
     ![Search by name or category](media/add-application-portal/categories.png)
 
-5. To search for an application, under **Add from the gallery**, enter the name of the application you want to add. Select the application from the results and select **Add**. The following example shows the **Add app** form that appears after searching for github.com.
+1. To search for an application, under **Add from the gallery**, enter the name of the application you want to add. Select the application from the results and select **Add**. The following example shows the **Add app** form that appears after searching for github.com.
 
     ![Add an application](media/add-application-portal/add-an-application.png)
 
-6. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
+1. In the application-specific form, you can change property information. For example, you can edit the name of the application to match the needs of your organization. This example uses the name **GitHub-test**.
 
-7. When you've finished making changes to the properties, select **Add**.
+1. When you've finished making changes to the properties, select **Add**.
 
-8. A getting started page appears with the options for configuring the application for your organization.
+1. A getting started page appears with the options for configuring the application for your organization.
 
 You've finished adding your application. Feel free to take a break. The next sections show you how to change the logo and edit other properties for your application.
 
@@ -69,13 +69,13 @@ Let's assume you had to leave and now you're returning to continue configuring y
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, select **Azure Active Directory**.
 
-2. In the **Azure Active Directory** pane, select **Enterprise applications**.
+1. In the **Azure Active Directory** pane, select **Enterprise applications**.
 
-3. From the **Application Type** drop-down menu, select **All Applications**, and then select **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
+1. From the **Application Type** drop-down menu, select **All Applications**, and then select **Apply**. To learn more about the viewing options, see [View tenant applications](view-applications-portal.md).
 
-4. You can now see a list of all the applications in your Azure AD tenant. The list is a random sample. To see more applications, select **Show more** one or more times.
+1. You can now see a list of all the applications in your Azure AD tenant. The list is a random sample. To see more applications, select **Show more** one or more times.
 
-5. To quickly find an application in your tenant, enter the application name in the search box and select **Apply**. This example finds the GitHub-test application added previously.
+1. To quickly find an application in your tenant, enter the application name in the search box and select **Apply**. This example finds the GitHub-test application added previously.
 
     ![Search for an application](media/add-application-portal/find-application.png)
 
@@ -87,17 +87,17 @@ Now that you've found the application, you can open it and configure application
 To edit the application properties:
 
 1. Select the application to open it.
-2. Select **Properties** to open the properties pane for editing.
+1. Select **Properties** to open the properties pane for editing.
 
     ![Edit properties pane](media/add-application-portal/edit-properties.png)
 
-3. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
+1. Take a moment to understand the sign-in options. The options determine how users who are assigned or unassigned to the application can sign into the application. And, the options also determine if a user can see the application in the access panel.
 
     - **Enabled for users to sign-in** determines whether users assigned to the application can sign in.
     - **User assignment required** determines whether users who aren't assigned to the application can sign in.
     - **Visible to user** determines whether users assigned to an app can see it in the access panel and O365 launcher.
 
-4. Use the following tables to help you choose the best options for your needs.
+1. Use the following tables to help you choose the best options for your needs.
 
    - Behavior for **assigned** users:
 
@@ -134,10 +134,10 @@ To edit the application properties:
 To use a custom logo:
 
 1. Create a logo that is 215 by 215 pixels, and save it in PNG format.
-2. Since you've already found your application, select the application.
-2. In the left pane, select **Properties**.
-4. Upload the logo.
-5. When you're finished, select **Save**.
+1. Since you've already found your application, select the application.
+1. In the left pane, select **Properties**.
+1. Upload the logo.
+1. When you're finished, select **Save**.
 
     ![Change the logo](media/add-application-portal/change-logo.png)
 

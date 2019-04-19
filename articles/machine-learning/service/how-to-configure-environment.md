@@ -315,8 +315,8 @@ Once the cluster is running, [create a library](https://docs.databricks.com/user
       
    Also consider:
    + In Automl config, when using Azure Databricks please add the following parameters:
-    1. ```max_concurrent_iterations``` based on number of worker nodes in your cluster. 
-    2. ```spark_context=sc``` #databricks/spark default spark context. 
+        1. ```max_concurrent_iterations``` is based on number of worker nodes in your cluster. 
+        2. ```spark_context=sc``` is based on the default spark context. 
    + Or, if you have an old SDK version, deselect it from cluster’s installed libs and move to trash. Install the new SDK version and restart the cluster. If there is an issue after this, detach and reattach your cluster.
 
 If install was successful, the imported library should look like one of these:
@@ -347,7 +347,7 @@ The workspace configuration file is a JSON file that tells the SDK how to commun
 }
 ```
 
-This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *aml_config*, or in a parent directory.
+This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
 To use this file from your code, use `ws=Workspace.from_config()`. This code loads the information from the file and connects to your workspace.
 
@@ -376,7 +376,7 @@ You can create the configuration file in three ways:
         print('Workspace not found')
     ```
 
-    This code writes the configuration file to the *aml_config/config.json* file.
+    This code writes the configuration file to the *.azureml/config.json* file.
 
 
 ## Next steps

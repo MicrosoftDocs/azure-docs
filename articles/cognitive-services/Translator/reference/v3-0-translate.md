@@ -93,8 +93,8 @@ Request headers include:
   <th width="20%">Headers</th>
   <th>Description</th>
   <tr>
-    <td>_One authorization_<br/>_header_</td>
-    <td><em>Required request header</em>.<br/>See [available options for authentication](./v3-0-reference.md#authentication).</td>
+    <td>Authentication header(s)</td>
+    <td><em>Required request header</em>.<br/>See <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">available options for authentication</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -402,7 +402,7 @@ For example:
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
@@ -424,7 +424,7 @@ Compare with:
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 ---
