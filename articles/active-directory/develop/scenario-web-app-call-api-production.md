@@ -34,10 +34,10 @@ Now that you know how to acquire a token to call Web APIs, learn how to move to 
 Learn more  by trying out the full ASP.NET Core Web app progressive tutorial, which shows:
 
 - how to sign in users with multiple audiences, national clouds, or with social identities
-- call Microsoft Graph,
-- call several Microsoft APIs,
-- handle incremental consent,
-- call you own Web API,
+- call Microsoft Graph
+- call several Microsoft APIs
+- handle incremental consent
+- call your own Web API
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
