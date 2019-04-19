@@ -85,13 +85,9 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
-    - name: Visual Studio Code extension
+    - name: Use Visual Studio Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
-      items:
-      - name: Get started
-        href: how-to-vscode-tools.md
-      - name: Train and deploy
-        href: how-to-vscode-train-deploy.md
+      href: how-to-vscode-tools.md
   - name: Work with data
     displayName: data prep, ETL, ELT, data preparation
     items:
