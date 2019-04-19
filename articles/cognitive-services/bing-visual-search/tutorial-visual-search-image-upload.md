@@ -768,4 +768,5 @@ Add the following `<style>` section to the `<head>` tag to organize the layout o
 
 ## Next steps
 
-* [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Tutorial: Find similar images from previous searches using ImageInsightsToken](./tutorial-visual-search-insights-token.md)

@@ -183,7 +183,9 @@
     - name: Connectivity architecture
       href: sql-database-managed-instance-connectivity-architecture.md 
     - name: T-SQL differences
-      href: sql-database-managed-instance-transact-sql-information.md
+      href: sql-database-managed-instance-transact-sql-information.md 
+    - name: Time zone in Managed Instance
+      href: sql-database-managed-instance-timezone.md
   - name: Platform as a Service
     items:
     - name: Platform as a Service overview

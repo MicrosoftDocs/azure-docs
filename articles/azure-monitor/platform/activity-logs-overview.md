@@ -89,19 +89,11 @@ A **Log Profile** controls how your Activity Log is exported. Using a Log Profil
 * Which event categories (Write, Delete, Action) should be sent. *The meaning of "category" in Log Profiles and Activity Log events is different. In the Log Profile, "Category" represents the operation type (Write, Delete, Action). In an Activity Log event, the "category" property represents the source or type of event (for example, Administration, ServiceHealth, Alert, and more).*
 * Which regions (locations) should be exported. Make sure to include "global," as many events in the Activity Log are global events.
 * How long the Activity Log should be retained in a Storage Account.
-    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
+    - A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 365.
     - If retention policies are set but storing logs in a Storage Account is disabled (for example, if only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
     - Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted. The delete process begins at midnight UTC, but note that it can take up to 24 hours for the logs to be deleted from your storage account.
 
 You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
-
-> [!NOTE]
->  You cannot currently archive data to a storage account that is behind a secured virtual network.
-
-> [!WARNING]
-> The format of the log data in the storage account changed to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 

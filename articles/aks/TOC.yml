@@ -310,6 +310,8 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/container-service/
+  - name: Support policies
+    href: support-policies.md
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback

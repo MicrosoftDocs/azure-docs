@@ -168,7 +168,7 @@ Next determine where the model will be trained. An automated machine learning tr
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
-See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
+See the [GitHub site](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) for example notebooks with local and remote compute targets.
 
 <a name='configure-experiment'></a>
 
@@ -233,6 +233,9 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
     * Numeric features with very few unique values transformed into categorical features.
     * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
 
+## Ensemble Models
+Ensemble learning improves machine learning results and predictive performance by combing many models as opposed to using single models. When using automated machine learning, you can train ensemble models using the [Caruana ensemble selection algorithm with sorted Ensemble initialization](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). The ensemble iteration appears as the last iteration of your run.
+
 ## Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
 1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series. 
@@ -265,7 +268,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

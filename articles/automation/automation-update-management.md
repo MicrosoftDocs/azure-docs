@@ -6,7 +6,7 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/02/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -559,7 +559,7 @@ Update
 | project-away ClassificationWeight, InformationId, InformationUrl
 ```
 
-## <a name="using-dynamic-groups"></a>Using dynamic groups (preview)
+## <a name="using-dynamic-groups"></a>Using dynamic groups
 
 Update Management provides the ability to target a dynamic group of Azure VMs for update deployments. These groups are defined by a query, when an update deployment begins, the members of that group are evaluated. Dynamic groups do not work with classic VMs. When defining your query, the following items can be used together to populate the dynamic group
 

@@ -65,9 +65,13 @@ For more information, see [Streaming logs with the Azure CLI](../troubleshoot-di
 
 ### App logging
 
-Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container.
+Enable [application logging](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after it is configured. If you need longer retention, configure the application to write output to a Blob storage container. Your Java and Tomcat app logs can be found in the `/home/LogFiles/Application/` directory.
 
 If your application uses [Logback](https://logback.qos.ch/) or [Log4j](https://logging.apache.org/log4j) for tracing, you can forward these traces for review into Azure Application Insights using the logging framework configuration instructions in [Explore Java trace logs in Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### Troubleshooting Tools
+
+The built-in Java images are based on the [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) operating system. Use the `apk` package manager to install any troubleshooting tools or commands.
 
 ## Customization and tuning
 
@@ -77,31 +81,34 @@ Azure App Service for Linux supports out of the box tuning and customization thr
 - [Set up a custom domain](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Enable SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Add a CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configure the Kudu site](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### Set Java runtime options
 
-To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, set the JAVA_OPTS as shown below as an [application setting](/azure/app-service/web-sites-configure#app-settings). App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
+To set allocated memory or other JVM runtime options in both the Tomcat and Java SE environments, create an [application setting](/azure/app-service/web-sites-configure#app-settings) named `JAVA_OPTS` with the options. App Service Linux passes this setting as an environment variable to the Java runtime when it starts.
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `$JAVA_OPTS -Xms512m -Xmx1204m`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` that includes the additional settings, such as `-Xms512m -Xmx1204m`.
 
-To configure the app setting from the Azure App Service Linux Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heapsize:
+To configure the app setting from the Maven plugin, add setting/value tags in the Azure plugin section. The following example sets a specific minimum and maximum Java heapsize:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Developers running a single application with one deployment slot in their App Service plan can use the following options:
 
-- B1 and S1 instances: -Xms1024m -Xmx1024m
-- B2 and S2 instances: -Xms3072m -Xmx3072m
-- B3 and S3 instances: -Xms6144m -Xmx6144m
+- B1 and S1 instances: `-Xms1024m -Xmx1024m`
+- B2 and S2 instances: `-Xms3072m -Xmx3072m`
+- B3 and S3 instances: `-Xms6144m -Xmx6144m`
 
 When tuning application heap settings, review your App Service plan details and take into account multiple applications and deployment slot needs to find the optimal allocation of memory.
+
+If you are deploying a JAR application, it should be named `app.jar` so that the built-in image can correctly identify your app. (The Maven plugin does this renaming automatically.) If you do not wish to rename your JAR to `app.jar`, you can upload a shell script with the command to run your JAR. Then paste the full path to this script in the [Startup File](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) textbox in the Configuration section of the Portal.
 
 ### Turn on web sockets
 
@@ -122,7 +129,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### Set default character encoding
 
-In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+In the Azure portal, under **Application Settings** for the web app, create a new app setting named `JAVA_OPTS` with value `-Dfile.encoding=UTF-8`.
 
 Alternatively, you can configure the app setting using the App Service Maven plugin. Add the setting name and value tags in the plugin configuration:
 
@@ -130,10 +137,14 @@ Alternatively, you can configure the app setting using the App Service Maven plu
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### Adjust startup timeout
+
+If your Java application is particularly large, you should increase the startup time limit. To do this, create an application setting, `WEBSITES_CONTAINER_START_TIME_LIMIT` and set it to the number of seconds that App Service should wait before timing out. The maximum value is `1800` seconds.
 
 ## Secure applications
 

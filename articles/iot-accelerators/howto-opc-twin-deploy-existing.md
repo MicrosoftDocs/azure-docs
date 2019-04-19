@@ -1,5 +1,5 @@
 ---
-title: How to deploy Azure IoT OPC UA device management module to an existing project | Microsoft Docs
+title: How to deploy an OPC Twin module to an existing Azure project | Microsoft Docs
 description: How to deploy OPC Twin to an existing project.
 author: dominicbetts
 ms.author: dobett
@@ -12,13 +12,13 @@ manager: philmea
 
 # Deploy OPC Twin to an existing project
 
-The OPC Device Twin module runs on IoT Edge and provides several edge services to the OPC Device Twin and Registry services. 
+The OPC Twin module runs on IoT Edge and provides several edge services to the OPC Twin and Registry services. 
 
-The OPC Device Twin micro service facilitates the communication between factory operators and OPC UA server devices on the factory floor via an OPC Twin IoT Edge module. The micro service exposes OPC UA services (Browse, Read, Write, and Execute) via its REST API. 
+The OPC Twin micro service facilitates the communication between factory operators and OPC UA server devices on the factory floor via an OPC Twin IoT Edge module. The micro service exposes OPC UA services (Browse, Read, Write, and Execute) via its REST API. 
 
-The OPC UA Device Registry micro service provides access to registered OPC UA applications and their endpoints. Operators and administrators can register and unregister new OPC UA applications and browse the existing ones, including their endpoints. In addition to application and endpoint management, the registry service also catalogs registered OPC Device Twin IoT Edge modules. The service API gives you control of edge module functionality, for example, starting or stopping server discovery (scanning services), or activating new endpoint twins that can be accessed using the OPC Twin micro service.
+The OPC UA device registry microservice provides access to registered OPC UA applications and their endpoints. Operators and administrators can register and unregister new OPC UA applications and browse the existing ones, including their endpoints. In addition to application and endpoint management, the registry service also catalogs registered OPC Twin IoT Edge modules. The service API gives you control of edge module functionality, for example, starting or stopping server discovery (scanning services), or activating new endpoint twins that can be accessed using the OPC Twin micro service.
 
-The core of the module is the Supervisor identity. The supervisor manages endpoint twin, which corresponds to OPC UA server endpoints that are activated using the corresponding OPC UA registry API. This endpoint twins translate OPC UA JSON received from the OPC Twin micro service running in the cloud into OPC UA binary messages, which are sent over a stateful secure channel to the managed endpoint. The supervisor also provides discovery services that send device discovery events to the OPC UA Device Onboarding service for processing, where these events result in updates to the OPC UA registry.  This article shows you how to deploy the OPC Twin module to an existing project. 
+The core of the module is the Supervisor identity. The supervisor manages endpoint twin, which corresponds to OPC UA server endpoints that are activated using the corresponding OPC UA registry API. This endpoint twins translate OPC UA JSON received from the OPC Twin micro service running in the cloud into OPC UA binary messages, which are sent over a stateful secure channel to the managed endpoint. The supervisor also provides discovery services that send device discovery events to the OPC UA device onboarding service for processing, where these events result in updates to the OPC UA registry.  This article shows you how to deploy the OPC Twin module to an existing project. 
 
 > [!NOTE]
 > For more information on deployment details and instructions, see the GitHub [repository](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -66,7 +66,7 @@ The deployment script tries to register two AAD applications in Azure Active Dir
 2. Alternatively, deploy a private AAD tenant in another subscription, restart the script, and select to use it.
 
 > [!WARNING]
-> NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Device Management endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.
+> NEVER continue without Authentication.  If you choose to do so, anyone can access your OPC Twin endpoints from the Internet unauthenticated.   You can always choose the ["local" deployment option](howto-opc-twin-deploy-dependencies.md) to kick the tires.
 
 ## Deploy an all-in-one industrial IoT services demo
 

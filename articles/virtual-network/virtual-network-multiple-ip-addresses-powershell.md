@@ -92,7 +92,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 6. Define the primary IP configuration for the NIC. Change 10.0.0.4 to a valid address in the subnet you created, if you didn't use the value defined previously. Before assigning a static IP address, it's recommended that you first confirm it's not already in use. Enter the command `Test-AzPrivateIPAddressAvailability -IPAddress 10.0.0.4 -VirtualNetwork $VNet`. If the address is available, the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available. 
 
-	In the following commands, **Replace <replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
+	In the following commands, **Replace \<replace-with-your-unique-name> with the unique DNS name to use.** The name must be unique across all public IP addresses within an Azure region. This is an optional parameter. It can be removed if you only want to connect to the VM using the public IP address.
 
 	```powershell
 	

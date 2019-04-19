@@ -4,14 +4,14 @@ titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial
+ms.date: 04/01/2019
+ms.author: anavin
 
 ---
 # Virtual network peering
@@ -75,7 +75,6 @@ You can also try the [Troubleshooter for virtual network peering issues](https:/
 
 The following constraints apply only when virtual networks are globally peered:
 - Resources in one virtual network cannot communicate with the front-end IP address of a Basic internal load balancer in a globally peered virtual network. Support for Basic Load Balancer only exists within the same region. Support for Standard Load Balancer exists for Global VNet Peering.
-- You can use remote gateways or allow gateway transit in globally peered virtual networks in preview. The preview is available in all Azure regions, China cloud regions, and Government cloud regions. No whitelisting is required. You can test in preview through CLI, PowerShell, Templates, or API. Portal is not supported in the preview.
 
 To learn more about requirements and constraints, see [Virtual network peering requirements and constraints](virtual-network-manage-peering.md#requirements-and-constraints). To learn about the limits for the number of peerings you can create for a virtual network, see [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 

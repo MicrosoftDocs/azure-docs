@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
 ---
 
@@ -95,7 +95,34 @@ The performance chart displays four performance metrics:
 
 You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines.
 
-When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
+Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can also use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
+
+## View container metrics in metrics explorer
+In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
+
+|Namespace | Metric |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+You can apply [splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) of a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension, and from a pod you can segment it by the following dimensions:
+
+* Controller
+* Kubernetes namespace
+* Node
+* Phase
+
+## Analyze nodes, controllers, and container health
+
+When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -128,7 +155,7 @@ By default, Performance data is based on the last six hours, but you can change 
 
 When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, you can use the Alt+PageUp or Alt+PageDown keys to cycle through each bar individually and get the same details as you would on mouseover.
 
-![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Trend bar chart hover over example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 In the next example, note for the first in the list - node *aks-nodepool1-*, the value for **Containers** is 9, which is a rollup of the total number of containers deployed.
 
@@ -171,10 +198,10 @@ The information that's displayed when you view controllers is described in the f
 |--------|-------------|
 | Name | The name of the controller.|
 | Status | The rollup status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly displayed or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Rollup average of the average percentage of each entity for the selected metric and percentile. |
-| Avg, Min, Max, 50th, 90th  | Rollup of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Roll up average of the average percentage of each entity for the selected metric and percentile. |
+| Avg, Min, Max, 50th, 90th  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller or pod. |
-| Restarts | Rollup of the restart count from containers. |
+| Restarts | Roll up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
 | Node | Only for containers and pods. It shows which controller it is residing. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;%| Bar graph trend represents the average percentile metric of the controller. |

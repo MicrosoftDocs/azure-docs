@@ -286,11 +286,11 @@
         href: quickstart-v2-uwp.md
       - name: Windows Desktop .NET
         href: quickstart-v2-windows-desktop.md
+    - name: Daemon apps
+      items:
       - name: .NET Core console (daemon)
         href: quickstart-v2-netcore-daemon.md    
-    - name: Service-to-service
-      items:
-      - name: ASP .NET
+      - name: ASP.NET daemon Web app
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutorials
     items:
@@ -326,19 +326,20 @@
         href: authentication-scenarios.md
       - name: OAuth 2.0 and OpenID Connect protocols
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect 
-          href: v2-protocols-oidc.md
-        - name: OAuth 2.0 implicit grant flow
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: OAuth 2.0 auth code grant
-          href: v2-oauth2-auth-code-flow.md
-        - name: OAuth 2.0 on-behalf-of flow
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: OAuth 2.0 client credentials grant
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: OAuth 2.0 resource owner password credentials grant
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect 
+        href: v2-protocols-oidc.md
+      - name: OAuth 2.0 implicit grant flow
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: OAuth 2.0 auth code grant
+        href: v2-oauth2-auth-code-flow.md
+      - name: OAuth 2.0 on-behalf-of flow
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: OAuth 2.0 client credentials grant
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: OAuth 2.0 device code flow
+        href: v2-oauth2-device-code.md
+      - name: OAuth 2.0 resource owner password credentials grant
+        href: v2-oauth-ropc.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens
@@ -370,8 +371,6 @@
       items:
       - name: Configure role claims
         href: active-directory-enterprise-app-role-management.md
-      - name: Customize claims - Portal
-        href: active-directory-saml-claims-customization.md
       - name: Customize claims - PowerShell
         href: active-directory-claims-mapping.md
       - name: Configure optional claims
@@ -394,12 +393,10 @@
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Branding guidelines
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Publisher domain
+        href: howto-configure-publisher-domain.md
       - name: Terms of Service and Privacy Statement
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: Secure a Java web app
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Work with Visual Studio
       items:
       - name: Use the Active Directory connected service
@@ -419,8 +416,8 @@
     - name: Authentication libraries
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: Azure AD APIs in Microsoft Graph
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: Identity and access APIs in Microsoft Graph
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Application manifest
       href: reference-app-manifest.md
     - name: Authentication and authorization error codes
@@ -435,6 +432,8 @@
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Azure AD blog
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Microsoft identity platform developer blog
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Try Sign in with Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Getting help

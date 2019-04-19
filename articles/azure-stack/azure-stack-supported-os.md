@@ -49,7 +49,7 @@ Datacenter editions are available in the marketplace for downloading; customers 
 Linux distributions listed as available in the Marketplace include the necessary Windows Azure Linux Agent (WALA). If you bring your own image to Azure Stack, follow the guidelines in [Add Linux images to Azure Stack](azure-stack-linux.md).
 
 > [!NOTE]
-> Custom images should be built with the latest public WALA version or with version 2.2.20. Versions older than 2.2.20 and between 2.2.20 and 2.2.35.1 (exclusive) may not function properly on Azure Stack. 
+> Custom images should be built with the latest public WALA version (on 1903 azure stack build and above or with 1901/1902 hotfix) or with version 2.2.20. Versions before 2.2.20 and between 2.2.20 and 2.2.35 (exclusive) may not function properly on Azure Stack. 
 >
 > [cloud-init](https://cloud-init.io/) is not supported on Azure Stack at this time.
 

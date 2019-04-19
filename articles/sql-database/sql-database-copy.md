@@ -8,10 +8,10 @@ ms.custom:
 ms.devlang: 
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/11/2019
 ---
 # Copy a transactionally consistent copy of an Azure SQL database
 
@@ -84,10 +84,16 @@ This command copies Database1 on server1 to a new database named Database2 on se
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
 
-## To move a database between subscriptions
+### Copy a SQL database to a different subscription
 
-In the [Azure portal](https://portal.azure.com), click **SQL servers** and then select the server that hosts your database from the list. Click **Move**, and then pick the resources to move and the subscription to move to.
+You can use the steps descrbed in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
+
+> [!NOTE]
+> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
 
 ### Monitor the progress of the copying operation
 

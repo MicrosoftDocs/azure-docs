@@ -301,11 +301,11 @@ This section assumes that you already have an ISO file from the Red Hat website 
     tar xzf setuptools-7.0.tar.gz
     cd setuptools-7.0
     ```
-   b. Download and unzip the latest version of the agent from our github. This is an example where we download "2.2.36" version from the github repo.
+   b. Download and unzip the 2.2.35 version of the agent from our github. This is an example where we download "2.2.35" version from the github repo.
     ```bash
-    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.36.zip
-    unzip v2.2.36.zip
-    cd WALinuxAgent-2.2.36
+    wget https://github.com/Azure/WALinuxAgent/archive/v2.2.35.zip
+    unzip v2.2.35.zip
+    cd WALinuxAgent-2.2.35
     ```
     c. Install setup.py
     ```bash
@@ -315,7 +315,7 @@ This section assumes that you already have an ISO file from the Red Hat website 
     ```bash
     sudo systemctl restart waagent
     ```
-    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.36.
+    e. Test if the agent version matches the one your downloaded. For this example, it should be 2.2.35.
     
     ```bash
     waagent -version

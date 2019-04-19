@@ -162,9 +162,6 @@
       - name: Install and use Presto
         href: ../hdinsight-hadoop-install-presto.md
         maintainContext: true
-      - name: Install or update Mono
-        href: ../hdinsight-hadoop-install-mono.md
-        maintainContext: true
       - name: Add Apache Hive libraries
         href: ../hdinsight-hadoop-add-hive-libraries.md
         maintainContext: true

@@ -37,6 +37,8 @@ Before you begin, the builder should complete at least the first builder tutoria
 * [Configure rules and actions for your device](tutorial-configure-rules.md) (Optional)
 * [Customize the operator's views](tutorial-customize-operator.md) (Optional)
 
+Install [Node.js](https://nodejs.org/) version 8.0.0 or later on your development machine. You can run `node --version` in the command line to check your version. Node.js is available for a wide variety of operating systems.
+
 ## Add a real device
 
 To add a real device to your application, you use the **Connected Air Conditioner** device template you created in the [Define a new device type](tutorial-define-device-type.md) tutorial.
@@ -87,37 +89,27 @@ The articles listed in the [Next Steps](#next-steps) section include more comple
 
 The following steps show how to prepare the [Node.js](https://nodejs.org/) sample:
 
-1. Install [Node.js](https://nodejs.org/) version 4.0.x or later in your machine. Node.js is available for a wide variety of operating systems.
-
-1. Create a folder called `connectedairconditioner` on your machine.
-
-1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
-
-1. Install the DPS key generator by using the following command:
-
-    ```cmd/sh
-    npm i -g dps-keygen
-    ```
-
-   Learn more about the [command line tool here](https://www.npmjs.com/package/dps-keygen).
+### Get the device connection information
 
 1. The connection string for a device instance in your application is generated from device information provided by the IoT Central.
 
-   Return to the IoT Central portal. On the device screen for your real connected air conditioner, choose **Connect**.
+   On the device screen for your real connected air conditioner, choose **Connect**.
 
    ![Device page showing view connection information link](media/tutorial-add-device/connectionlink.png)
 
-1. On the Device Connection page, copy and paste Scope ID, Device ID and Primary Key on to a text editor, then save. You use these values in the next step.
+1. On the Device Connection page, make a note of the **Scope ID**, **Device ID** and **Primary Key** values. You use these values in the next step.
 
    ![Connection details](media/tutorial-add-device/device-connect.png)
 
-1. Return to the command-line environment and generate your connection string by executing:
+### Generate the connection string
 
-    ```cmd/sh
-    dps-keygen -si:<scope_id> -di:<device_id> -dk:<Primary Key>
-    ```
+[!INCLUDE [iot-central-howto-connection-string](../../includes/iot-central-howto-connection-string.md)]
 
-   Copy the output and save in a new file (for example, connection.txt).
+### Prepare the Node.js project
+
+1. Create a folder called `connectedairconditioner` on your development machine.
+
+1. In your command-line environment, navigate to the `connectedairconditioner` folder you created.
 
 1. To initialize your Node.js project, run the following command accepting all the defaults:
 
@@ -304,7 +296,7 @@ To configure your client code to connect to your Azure IoT Central application, 
     var connectionString = '{your device connection string}';
     ```
 
-1. Replace `{your device connection string}` with the connection string of your real device. You saved the connection string earlier in a text editor.
+1. Replace `{your device connection string}` with the connection string of your real device. You copied the connection string you generated in a previous step.
 
 1. Save the changes to the **ConnectedAirConditioner.js** file.
 

@@ -75,6 +75,7 @@ Augmented security rules simplify security definition for virtual networks, allo
 * **AzureMonitor** (Resource Manager only): This tag denotes the address prefixes of the AzureMonitor service. If you specify *AzureMonitor* for the value, traffic is allowed or denied to AzureMonitor. 
 * **ServiceFabric** (Resource Manager only): This tag denotes the address prefixes of the ServiceFabric service. If you specify *ServiceFabric* for the value, traffic is allowed or denied to ServiceFabric. 
 * **AzureMachineLearning** (Resource Manager only): This tag denotes the address prefixes of the AzureMachineLearning service. If you specify *AzureMachineLearning* for the value, traffic is allowed or denied to AzureMachineLearning. 
+* **BatchNodeManagement** (Resource Manager only): This tag denotes the address prefixes of the Azure BatchNodeManagement service. If you specify *BatchNodeManagement* for the value, traffic is allowed or denied from the Batch service to compute nodes.
 
 > [!NOTE]
 > Service tags of Azure services denotes the address prefixes from the specific cloud being used. 

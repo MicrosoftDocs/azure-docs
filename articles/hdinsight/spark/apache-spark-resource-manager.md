@@ -41,7 +41,7 @@ Spark History Server is the web UI for completed and running Spark applications.
     https://<ClusterName>.azurehdinsight.net/sparkhistory
     ```
 
-    Replace <ClusterName> with your Spark cluster name.
+    Replace `<ClusterName>` with your Spark cluster name.
 
 The Spark History Server web UI looks like:
 

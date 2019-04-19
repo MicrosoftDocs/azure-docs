@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: 
 ---
@@ -23,10 +23,12 @@ ms.custom:
 
 As a developer, you can use Media Services [REST API](https://aka.ms/ams-v3-rest-ref) or client libraries that allow you to interact with the REST API to easily create, manage, and maintain custom media workflows. The [Media Services v3](https://aka.ms/ams-v3-rest-sdk) API is based on the OpenAPI specification (formerly known as a Swagger).
 
-This topic provides links to the SDKs, tools, documentation. It also provides some useful information for different dev env.
+Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md).
 
 > [!NOTE]
 > The Azure Media Services v3 SDKs are not guaranteed to be thread-safe. When developing a multi-threaded application, you should add your own thread synchronization logic to protect the client or use a new AzureMediaServicesClient object per thread. You should also be careful of multi-threading issues introduced by optional objects provided by your code to the client (like an HttpClient instance in .NET).
+
+This topic provides links to the SDKs, tools, other documentaion.
 
 ## Prerequisites
 

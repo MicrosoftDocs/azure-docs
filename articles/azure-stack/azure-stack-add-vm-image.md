@@ -117,13 +117,9 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
 
    ```powershell
     # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-    Add-AzureRMEnvironment `
-      -Name "AzureStackAdmin" `
-      -ArmEndpoint $ArmEndpoint
-
-    Set-AzureRmEnvironment `
-      -Name "AzureStackAdmin" `
-      -GraphAudience $GraphAudience
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
 
     $TenantID = Get-AzsDirectoryTenantId `
       -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
@@ -144,9 +140,9 @@ Images must be able to be referenced by a blob storage URI. Prepare a Windows or
    $GraphAudience = "<GraphAudience endpoint for your environment>"
 
    # Create the Azure Stack operator's Azure Resource Manager environment by using the following cmdlet:
-   Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external" `
+      -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external `
+      -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
     ```
 
 3. Sign in to Azure Stack as an operator. For instructions, see [Sign in to Azure Stack as an operator](azure-stack-powershell-configure-admin.md).

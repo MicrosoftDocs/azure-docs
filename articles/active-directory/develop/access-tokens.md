@@ -25,14 +25,15 @@ ms.collection: M365-identity-device-management
 
 Access tokens enable clients to securely call APIs protected by Azure. Azure Active Directory (Azure AD) access tokens are [JWTs](https://tools.ietf.org/html/rfc7519), Base64 encoded JSON objects signed by Azure. Clients should treat access tokens as opaque strings, as the contents of the token are intended for the resource only. For validation and debugging purposes, developers can decode JWTs using a site like [jwt.ms](https://jwt.ms). Your client can get an access token from either endpoint (v1.0 or v2.0) using a variety of protocols.
 
-When you request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This data allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
+When your client request an access token, Azure AD also returns some metadata about the access token for your app's consumption. This information includes the expiry time of the access token and the scopes for which it is valid. This data allows your app to perform intelligent caching of access tokens without having to parse the access token itself.
 
 If your application is a resource (web API) that clients can request access to, access tokens provide helpful information for use in authentication and authorization, such as the user, client, issuer, permissions, and more. 
 
 See the following sections to learn how a resource can validate and use the claims inside an access token.
 
-> [!NOTE]
-> While testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and cannot be understood by the client.
+> [!Important]
+> Access tokens are created based on the *audience* of the token, meaning the application that owns the scopes in the token.  This is how a resource setting `accessTokenAcceptedVersion` in the [app manifest](reference-app-manifest.md#manifest-reference) to `2` allows a client calling the v1.0 endpoint to receive a v2.0 access token.  Similarly, this is why changing the access token [optional claims](active-directory-optional-claims.md) for your client do not change the access token recieved when a token is requested for `user.read`, which is owned by the MS Graph resource.  
+> For the same reason, while testing your client application with a personal account (such as hotmail.com or outlook.com), you may find that the access token received by your client is an opaque string. This is because the resource being accessed has requested legacy MSA (Microsoft account) tickets that are encrypted and cannot be understood by the client.
 
 ## Sample tokens
 

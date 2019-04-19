@@ -24,6 +24,11 @@ In this article, learn about the Azure Machine Learning service releases.  For a
 
 + **New features**
   + The Azure Machine Learning SDK now supports Python 3.7.
+  + Azure Machine Learning DNN Estimators now provide built-in multi-version support. For example,
+  `TensorFlow` estimator now accepts a `framework_version` parameter, and users can specify
+  version '1.10' or '1.12'. For a list of the versions supported by your current SDK release, call 
+  `get_supported_versions()` on the desired framework class (e.g. `TensorFlow.get_supported_versions()`).
+  For a list of the versions supported by the latest SDK release, see the [DNN Estimator documentation](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn?view=azure-ml-py).
 
 ### Azure Machine Learning Data Prep SDK v1.1.1
 
