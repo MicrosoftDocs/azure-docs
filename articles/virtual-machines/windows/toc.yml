@@ -77,6 +77,9 @@
     - name: Storage optimized
       displayName: ls
       href: sizes-storage.md    
+      items:
+      - name: Optimize performance
+        href: storage-performance.md
     - name: GPU optimized
       displayName: NV NVv2 NC NCv2 NCv3 ND
       href: sizes-gpu.md   
