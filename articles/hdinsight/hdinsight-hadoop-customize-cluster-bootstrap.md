@@ -1,20 +1,26 @@
 ---
-title: Customize HDInsight Clusters using bootstrap - Azure 
-description: Learn how to customize HDInsight clusters using bootstrap.
-services: hdinsight
+title: Customize Azure HDInsight cluster configurations using bootstrap
+description: Learn how to customize HDInsight cluster configuration programmatically using .Net, PowerShell, and Resource Manager templates.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/19/2019
-ms.author: hrasheed
 ---
 
 # Customize HDInsight clusters using Bootstrap
 
-Bootstrap scripts provide for the installation, and configuration of components useful for administering clusters. Sometimes, you want to configure the configuration files, which include:
+Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically. 
+
+There are three methods to use bootstrap to programatically set configuration file settings:
+
+* Use Azure PowerShell
+* Use .NET SDK
+* Use Azure Resource Manager template
+
+For example, using these programmatic methods, you can configure options in these files:
 
 * clusterIdentity.xml
 * core-site.xml
@@ -32,12 +38,6 @@ Bootstrap scripts provide for the installation, and configuration of components 
 * webhcat-site.xml
 * yarn-site.xml
 * server.properties (kafka-broker configuration)
-
-There are three methods to use bootstrap:
-
-* Use Azure PowerShell
-* Use .NET SDK
-* Use Azure Resource Manager template
 
 For information on installing additional components on HDInsight cluster during the creation time, see [Customize HDInsight clusters using Script Action (Linux)](hdinsight-hadoop-customize-cluster-linux.md).
 
