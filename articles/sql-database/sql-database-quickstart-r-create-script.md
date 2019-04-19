@@ -29,8 +29,6 @@ In this quickstart, you'll create and run a set of simple R scripts using the pu
 
 - Make sure you've installed the latest [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). You can run R scripts using other database management or query tools, but in this quickstart you'll use SSMS.
 
-- For the [add a package](#add-a-package) exercise, you will need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer. R is available for Windows, MacOS, and Linux. This quickstart assumes you're using Windows.
-
 - This quickstart requires that you configure a server-level firewall rule. For information on how to do this, see [Create server-level firewall rule](sql-database-server-level-firewall-rule.md).
 
 ## Run a simple script
