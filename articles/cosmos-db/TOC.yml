@@ -216,7 +216,7 @@
   - name: Cassandra, MongoDB, and other APIs
     expanded: true
     items:
-    - name: Azure Cosmos DB's API for MongoDB
+    - name: MongoDB API
       items: 
       - name: Introduction
         href: mongodb-introduction.md
@@ -288,42 +288,6 @@
         - name: MongoDB extension commands
           href: mongodb-custom-commands.md
           displayName: custom commands
-    - name: Gremlin API
-      displayName: graph, graph database
-      items: 
-      - name: Introduction
-        href: graph-introduction.md
-      - name: Wire protocol support
-        href: gremlin-support.md
-      - name: Quickstarts
-        items:
-        - name: Gremlin console
-          href: create-graph-gremlin-console.md
-        - name: .NET
-          href: create-graph-dotnet.md
-        - name: Java
-          href: create-graph-java.md
-        - name: Node.js
-          href: create-graph-nodejs.md
-        - name: Python
-          href: create-graph-python.md
-        - name: PHP
-          href: create-graph-php.md
-      - name: Tutorials
-        items:
-        - name: 1 - Query data
-          href: tutorial-query-graph.md
-      - name: How-to guides
-        items:
-        - name: Import graph data 
-          href: bulk-executor-graph-dotnet.md
-        - name: Graph data partitioning
-          href: graph-partitioning.md
-        - name: Optimize Gremlin queries
-          href: graph-execution-profile.md
-        - name: Store and manage Spring Data
-          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-          maintainContext: true
     - name: Cassandra API
       items: 
       - name: Introduction
@@ -378,6 +342,42 @@
             href: cassandra-spark-aggregation-ops.md
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
+    - name: Gremlin API
+      displayName: graph, graph database
+      items: 
+      - name: Introduction
+        href: graph-introduction.md
+      - name: Wire protocol support
+        href: gremlin-support.md
+      - name: Quickstarts
+        items:
+        - name: Gremlin console
+          href: create-graph-gremlin-console.md
+        - name: .NET
+          href: create-graph-dotnet.md
+        - name: Java
+          href: create-graph-java.md
+        - name: Node.js
+          href: create-graph-nodejs.md
+        - name: Python
+          href: create-graph-python.md
+        - name: PHP
+          href: create-graph-php.md
+      - name: Tutorials
+        items:
+        - name: 1 - Query data
+          href: tutorial-query-graph.md
+      - name: How-to guides
+        items:
+        - name: Import graph data 
+          href: bulk-executor-graph-dotnet.md
+        - name: Graph data partitioning
+          href: graph-partitioning.md
+        - name: Optimize Gremlin queries
+          href: graph-execution-profile.md
+        - name: Store and manage Spring Data
+          href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
+          maintainContext: true
     - name: Table API
       items:
       - name: Introduction
