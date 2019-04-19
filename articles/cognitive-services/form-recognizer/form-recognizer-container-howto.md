@@ -54,10 +54,8 @@ You must meet the following prerequisites before using Form Recognizer container
 
 [!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
-If you plan to use Azure Blob as a data storage, then the **host** has to be **Ubuntu Linux**.
-
 > [!TIP]
-> If the host computer is a virtual machine, for example Azure VM, then every docker command has to be run as ```sudo``` in case you face permission issues.
+> If the host computer is a virtual machine such as [Azure VM](https://azure.microsoft.com/services/virtual-machines/), then every docker command has to be run as `sudo` in case you face permission issues.
 
 ### Container requirements and recommendations
 
@@ -111,7 +109,7 @@ There are multiple options on how the forms can be provided to the service. The 
 
 * local volumes
 * [Azure Files](https://azure.microsoft.com/services/storage/files)
-* [Azure Blob](https://azure.microsoft.com/en-ca/services/storage/blobs) using [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
+* [Azure Blob](https://azure.microsoft.com/en-ca/services/storage/blobs) 
 
 
 ### Local volumes
@@ -124,11 +122,6 @@ Follow the instructions below to mount an Azure Files to two shares: `/input` an
 * [Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)  
 * [Linux](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux)  
 * [macOS](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-mac)
-
-### Azure blob
-This is only supported with **Ubuntu Linux host** and requires installation of [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). Blobfuse is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system.
-
-You need to create a single blob object for `/input` and `/output` instead of two separate blob objects.
 
 ## Run the container with `docker run`
 
