@@ -4,6 +4,7 @@
     href: https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/
   - name: Configuration
     href: configure.md
+    items:
     - name: RDMA capabilities
       href: rdma-capabilities.md
     - name: Cluster configuration
