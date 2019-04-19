@@ -189,12 +189,11 @@ Modify the `application.properties` file and add:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
-azure.application-insights.channel
 ```
 
 ### .NET Core
 
-Modify the appsettings.json file in your project as follows:
+Modify the appsettings.json file in your project as follows to adjust the main endpoint:
 
 ```json
 "ApplicationInsights": {
@@ -203,6 +202,15 @@ Modify the appsettings.json file in your project as follows:
       "EndpointAddress": "https://dc.applicationinsights.us/v2/track"
     }
   }
+```
+
+The values Live Metrics and the profile endpoint can only be set via code. To set the QuickPulse endpoint make the following change in the `ConfigureServices` method of the `Startup.cs` file:
+
+```csharp
+
+using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
+
+   services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QUICKPULSE ENDPOINT ADDRESS"); //place in ConfigureServices method
 ```
 
 ### Node.js
@@ -214,6 +222,14 @@ appInsights.defaultClient.config.endpointUrl = "https://dc.applicationinsights.u
 appInsights.defaultClient.config.profileQueryEndpoint = “https://dc.applicationinsights.us”; // appid/profile lookup
 appInsights.defaultClient.config.quickPulseHost = ”FAIRFAX QUICKPULSE ENDPOINT”; //live metrics
 appInsights.Configuration.start();
+```
+
+The endpoints can also be configured through environment variables:
+
+```
+Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
+Profile Endpoint: “APPINSIGHTS_PROFILE_QUERY_ENDPOINT”
+Live Metrics Endpoint: “APPINSIGHTS_QUICKPULSE_HOST”
 ```
 
 ### JavaScript
