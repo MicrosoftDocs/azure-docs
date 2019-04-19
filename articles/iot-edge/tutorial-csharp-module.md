@@ -279,7 +279,7 @@ You can see the full container image address with tag in the VS Code integrated 
 >[!TIP]
 >If you receive an error trying to build and push your module, make the following checks:
 >* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
->* Is your container repository correct? Open **modules** > **cmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/csharpmodule**. 
+>* Is your container repository correct? Open **modules** > **csharpmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/csharpmodule**. 
 >* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
 
 ## Deploy and run the solution

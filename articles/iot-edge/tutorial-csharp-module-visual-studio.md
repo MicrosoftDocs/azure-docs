@@ -113,54 +113,63 @@ The default module code receives messages on an input queue and passes them alon
     using Newtonsoft.Json;                // For JsonConvert
     ```
 
-3. Add the **temperatureThreshold** variable to the **Program** class. This variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub. 
+3. Add the **temperatureThreshold** variable to the **Program** class after the counter variable. The temperatureThreshold variable sets the value that the measured temperature must exceed for the data to be sent to the IoT hub. 
 
     ```csharp
-    static int TemperatureThreshold { get; set; } = 25;
+    static int temperatureThreshold { get; set; } = 25;
     ```
 
-4. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class. These classes define the expected schema for the body of incoming messages.
+4. Add the **MessageBody**, **Machine**, and **Ambient** classes to the **Program** class after the variable declarations. These classes define the expected schema for the body of incoming messages.
 
     ```csharp
     class MessageBody
     {
-        public Machine Machine {get;set;}
-        public Ambient Ambient {get; set;}
-        public string TimeCreated {get; set;}
+        public Machine machine {get;set;}
+        public Ambient ambient {get; set;}
+        public string timeCreated {get; set;}
     }
     class Machine
     {
-        public double Temperature {get; set;}
-        public double Pressure {get; set;}         
+        public double temperature {get; set;}
+        public double pressure {get; set;}         
     }
     class Ambient
     {
-        public double Temperature {get; set;}
-        public int Humidity {get; set;}         
+        public double temperature {get; set;}
+        public int humidity {get; set;}         
     }
     ```
 
 5. Find the **Init** method. This method creates and configures a **ModuleClient** object, which allows the module to connect to the local Azure IoT Edge runtime to send and receive messages. The code also registers a callback to receive messages from an IoT Edge hub via the **input1** endpoint.
 
-   Add new code to the Init method so that it reads the module twin's desired properties to retrieve the **temperatureThreshold** value. Then, create a callback that listens for any future updates to the module twin's desired properties. With this callback, you can update the temperature threshold in the module twin remotely, and the changes will be incorporated into the module. 
-
+   Replace the entire Init method with the following code:
+   
    ```csharp
-   // Read the TemperatureThreshold value from the module twin's desired properties
-   var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
-   await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+   static async Task Init()
+   {
+       AmqpTransportSettings amqpSetting = new AmqpTransportSettings(TransportType.Amqp_Tcp_Only);
+       ITransportSettings[] settings = { amqpSetting };
 
-   // Attach a callback for updates to the module twin's desired properties.
-   await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
+       // Open a connection to the Edge runtime
+       ModuleClient ioTHubModuleClient = await ModuleClient.CreateFromEnvironmentAsync(settings);
+       await ioTHubModuleClient.OpenAsync();
+       Console.WriteLine("IoT Hub module client initialized.");
+
+       // Read the TemperatureThreshold value from the module twin's desired properties
+       var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
+       await OnDesiredPropertiesUpdate(moduleTwin.Properties.Desired, ioTHubModuleClient);
+
+       // Attach a callback for updates to the module twin's desired properties.
+       await ioTHubModuleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertiesUpdate, null);
+
+       // Register a callback for messages that are received by the module.
+       await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
+   }
    ```
+   
+   This updated Init method still sets up the connection to the IoT Edge runtime with the ModuleClient, but also adds new functionality. It reads the module twin's desired properties to retrieve the **temperatureThreshold** value. Then, it create a callback that listens for any future updates to the module twin's desired properties. With this callback, you can update the temperature threshold in the module twin remotely, and the changes will be incorporated into the module. 
 
-   Update the existing **SetInputMessageHandlerAsync** method. In the sample code, incoming messages on *input1* are processed with the *PipeMessage* function, but we want to change that to use the *FilterMessages* function that we'll create in the following steps. 
-
-   ```csharp
-   // Register a callback for messages that are received by the module.
-   // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
-
-   await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", FilterMessages, ioTHubModuleClient);
-   ```
+   The updated Init method also changes the existing **SetInputMessageHandlerAsync** method. In the sample code, incoming messages on *input1* are processed with the *PipeMessage* function, but we want to change that to use the *FilterMessages* function that we'll create in the following steps. 
 
 6. Add a new **onDesiredPropertiesUpdate** method to the **Program** class. This method receives updates on the desired properties from the module twin, and updates the **temperatureThreshold** variable to match. All modules have their own module twin, which lets you configure the code that's running inside a module directly from the cloud.
 
@@ -250,12 +259,7 @@ The default module code receives messages on an input queue and passes them alon
 
 8. Save the Program.cs file.
 
-9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
-
-   1. Verify that the template has the correct module name, not the default **IotEdgeModule** name that you changed when you created the IoT Edge solution.
-
-   2. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. Add your credentials to the deployment template file if you haven't already.  
-   3. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
@@ -276,14 +280,66 @@ The default module code receives messages on an input queue and passes them alon
 
 In the previous section, you created an IoT Edge solution and added code to the **CSharpModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
 
+1. Use the following command to sign in to Docker on your development machine. Use the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
+
+   ```cmd
+   docker login -u <ACR username> -p <ACR password> <ACR login server>
+   ```
+
+   You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
+
+2. In the Visual Studio solution explorer, right-click the project name that you want to build. The default name is **AzureIotEdgeApp1** and since you're building a Windows module, the extension should be **Windows.Amd64**. 
+
+3. Select **Build and Push IoT Edge Modules**. 
+
+   ![Build and push IoT Edge modules](./media/tutorial-csharp-module-visual-studio/build-and-push-modules.png)
+
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
+
+   The build and push process may take several minutes the first time, but is faster the next time that you run the commands.
 
 ## Deploy and run the solution
 
-In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
+Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
+
+1. In the Visual Studio cloud explorer, expand the resources to see your list of IoT devices. 
+
+2. Right-click the name of the IoT Edge device that you want to receive the deployment. 
+
+3. Select **Create Deployment**.
+
+4. In the file explorer, select the **deployment.windows-amd64** file in the config folder of your solution. 
+
+5. Refresh the cloud explore
+
 
 ## View generated data
 
 Once you apply the deployment manifest to your IoT Edge device, the IoT Edge runtime on the device collects the new deployment information and starts executing on it. Any modules running on the device that aren't included in the deployment manifest are stopped. Any modules missing from the device are started. 
+
+You can use the IoT Edge Tools extension to view messages as they arrive at your IoT Hub. 
+
+1. In the Visual Studio cloud explorer, select the name of your IoT Edge device. 
+
+2. In the **Actions** list, select **Start Monitoring D2C Message**. 
+
+3. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the changes we made to the CSharpModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
+
+   ![View messages arriving at IoT Hub](./media/tutorial-csharp-module-visual-studio/view-d2c-message.png)
+
+## Edit the module twin
+
+We used the CSharpModule module twin to set the temperature threshold at 25 degrees. You can use the module twin to change the functionality without having to update the module code.
+
+1. In Visual Studio, open the **deployment.windows-amd64.json** file. (Not the deployment.template file. If you don't see the deployment manifest in the config file in the solution explorer, select the **Show all files** icon in the explorer toolbar.)
+
+2. Find the CSharpModule twin and change the value of the **temperatureThreshold** parameter to a new temperature five to ten degrees higher than the latest reported temperature. 
+
+3. Save the **deployment.windows-amd64.json** file.
+
+4. Follow the deployment steps again to apply the updated deployment manifest to your device. 
+
+5. Monitor the incoming device-to-cloud messages. You should see the messages stop until the new temperature threshold is reached. 
 
 ## Clean up resources 
 
@@ -293,12 +349,9 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
-
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [develop a C# module with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-module.md). You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [develop a C# module with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)
+> [Deploy Azure Stream Analytics as an IoT Edge module](tutorial-deploy-stream-analytics.md)
