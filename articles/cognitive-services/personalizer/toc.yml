@@ -15,3 +15,9 @@
   items:
   - name: Create and use feedback loop
     href: csharp-quickstart-commandline-feedback-loop.md
+- name: How-to guides
+  items: 
+  - name: Analyze
+    items: 
+    - name: Offline evaluation
+      href: how-to-offline-evaluation.md
