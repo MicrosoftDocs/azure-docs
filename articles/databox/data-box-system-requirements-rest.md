@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 04/018/2019
+ms.date: 04/19/2019
 ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
@@ -33,7 +33,7 @@ We recommend that you review the information carefully before you connect to the
 
 The following versions of Azure Storage service APIs are supported with Data Box Blob storage:
 
-Public preview release (Azure Data Box 1.8 onwards)
+Azure Data Box 1.8 onwards
 
 - [2017-11-09](/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](/rest/api/storageservices/version-2017-07-29)
