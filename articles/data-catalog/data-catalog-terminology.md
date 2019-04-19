@@ -1,8 +1,8 @@
 ---
 title: Azure Data Catalog terminology
 description: This article provides an introduction to concepts and terms used in Azure Data Catalog documentation.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
