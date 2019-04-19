@@ -31,8 +31,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 > [!NOTE]
 > **Prerequisites**
-> * Android Studio 3+
-> * Android 21+ is required 
+> * Android Studio 
+> * Android 16+ is required 
 
 
 > [!div renderon="docs"]
