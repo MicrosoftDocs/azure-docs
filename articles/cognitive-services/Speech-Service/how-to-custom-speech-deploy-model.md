@@ -35,6 +35,10 @@ After your endpoint is deployed, the endpoint name appears as a link. Click the 
 
 Logging data is available for download under **Endpoint > Details**.
 
+## Next steps
+
+* Use your custom endpoint with the [Speech SDK](speech-sdk.md)
+
 ## Additional resources
 
 * [Prepare and test your data](how-to-custom-speech-test-data.md)
