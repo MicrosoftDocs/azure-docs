@@ -214,54 +214,54 @@ ansible-playbook aks-kubenet.yml
 Running the playbook shows results similar to the following output:
 
 ```Output
-PLAY [localhost] ***************************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *********************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Ensure resource group exist] *********************************************
+TASK [Ensure resource group exist] 
 ok: [localhost]
 
-TASK [Create vnet] *************************************************************
+TASK [Create vnet] 
 included: /home/devops/aks-kubenet/vnet.yml for localhost
 
-TASK [Create vnet] *************************************************************
+TASK [Create vnet] 
 ok: [localhost]
 
-TASK [Create subnet] ***********************************************************
+TASK [Create subnet] 
 ok: [localhost]
 
-TASK [Create AKS] **************************************************************
+TASK [Create AKS] 
 included: /home/devops/aks-kubenet/aks.yml for localhost
 
-TASK [List supported kubernetes version from Azure] ****************************
+TASK [List supported kubernetes version from Azure] 
  [WARNING]: Azure API profile latest does not define an entry for
 ContainerServiceClient
 
 ok: [localhost]
 
-TASK [Create AKS cluster with vnet] ********************************************
+TASK [Create AKS cluster with vnet] 
 changed: [localhost]
 
-TASK [Associate network resources with the node subnet] ************************
+TASK [Associate network resources with the node subnet] 
 included: /home/devops/aks-kubenet/associate.yml for localhost
 
-TASK [Get route table] *********************************************************
+TASK [Get route table] 
 ok: [localhost]
 
-TASK [Get network security group] **********************************************
+TASK [Get network security group] 
 ok: [localhost]
 
-TASK [Parse subnet id] *********************************************************
+TASK [Parse subnet id] 
 ok: [localhost]
 
-TASK [Associate network resources with the node subnet] ************************
+TASK [Associate network resources with the node subnet] 
 changed: [localhost]
 
-TASK [Get details of the AKS] **************************************************
+TASK [Get details of the AKS] 
 ok: [localhost]
 
-TASK [Show AKS cluster detail] *************************************************
+TASK [Show AKS cluster detail] 
 ok: [localhost] => {
     "output.aks[0]": {
         "id": /subscriptions/BBBBBBBB-BBBB-BBBB-BBBB-BBBBBBBBBBBB/resourcegroups/aksansibletest/providers/Microsoft.ContainerService/managedClusters/aksansibletest",
@@ -312,7 +312,7 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP *********************************************************************
+PLAY RECAP 
 localhost                  : ok=15   changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 

@@ -248,23 +248,23 @@ ansible-playbook rediscache.yml
 The output looks similar to the following results:
 
 ```Output
-TASK [create resource group] *****************************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:21:07 +0800 (0:00:00.054)       0:00:01.503 *********
+TASK [create resource group] 
+Tuesday 12 March 2019  16:21:07 +0800 (0:00:00.054)       0:00:01.503 
 ok: [localhost]
 
-TASK [Create Azure Cache for Redis] **********************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:21:09 +0800 (0:00:01.950)       0:00:03.454 *********
+TASK [Create Azure Cache for Redis] 
+Tuesday 12 March 2019  16:21:09 +0800 (0:00:01.950)       0:00:03.454 
  [WARNING]: Azure API profile latest does not define an entry for RedisManagementClient
 
 changed: [localhost]
 
-TASK [Dump host name] ************************************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:21:49 +0800 (0:00:40.125)       0:00:43.580 *********
+TASK [Dump host name] 
+Tuesday 12 March 2019  16:21:49 +0800 (0:00:40.125)       0:00:43.580 
 ok: [localhost] =>
   output['host_name']: redis0312.redis.cache.windows.net
 
-TASK [Get facts] *****************************************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:21:49 +0800 (0:00:00.056)       0:00:43.636 *********
+TASK [Get facts] 
+Tuesday 12 March 2019  16:21:49 +0800 (0:00:00.056)       0:00:43.636 
  [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}
 
 FAILED - RETRYING: Get facts (100 retries left).
@@ -280,12 +280,12 @@ FAILED - RETRYING: Get facts (91 retries left).
 FAILED - RETRYING: Get facts (90 retries left).
 ok: [localhost]
 
-TASK [Scale up Azure Cache for Redis] *********************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:33:20 +0800 (0:11:31.296)       0:12:14.933 *********
+TASK [Scale up Azure Cache for Redis] 
+Tuesday 12 March 2019  16:33:20 +0800 (0:11:31.296)       0:12:14.933 
 changed: [localhost]
 
-TASK [Get facts] ******************************************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:33:29 +0800 (0:00:09.164)       0:12:24.097 *********
+TASK [Get facts] 
+Tuesday 12 March 2019  16:33:29 +0800 (0:00:09.164)       0:12:24.097 
  [WARNING]: conditional statements should not include jinja2 templating delimiters such as {{ }} or {% %}. Found: {{ facts.rediscaches[0]['provisioning_state'] == 'Succeeded' }}
 
 FAILED - RETRYING: Get facts (100 retries left).
@@ -300,23 +300,22 @@ FAILED - RETRYING: Get facts (92 retries left).
 FAILED - RETRYING: Get facts (91 retries left).
 ok: [localhost]
 
-TASK [Reboot Azure Cache for Redis] ***********************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:43:57 +0800 (0:10:27.740)       0:22:51.838 *********
+TASK [Reboot Azure Cache for Redis] 
+Tuesday 12 March 2019  16:43:57 +0800 (0:10:27.740)       0:22:51.838 
 ok: [localhost]
 
-TASK [Add Firewall rule] **********************************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:44:02 +0800 (0:00:05.432)       0:22:57.271 *********
+TASK [Add Firewall rule] 
+Tuesday 12 March 2019  16:44:02 +0800 (0:00:05.432)       0:22:57.271 
 changed: [localhost]
 
-TASK [Delete Azure Cache for Redis] ***********************************************************************************************************************************************************************
-Tuesday 12 March 2019  16:44:08 +0800 (0:00:05.137)       0:23:02.409 *********
+TASK [Delete Azure Cache for Redis] 
+Tuesday 12 March 2019  16:44:08 +0800 (0:00:05.137)       0:23:02.409 
 changed: [localhost]
 
-PLAY RECAP ************************************************************************************************************************************************************************************************
+PLAY RECAP 
 localhost                  : ok=10   changed=4    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
 
-Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626 *********
-===============================================================================
+Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626 
 
 ```
 

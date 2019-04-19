@@ -222,47 +222,47 @@ ansible-playbook vnet_peering.yml
 The output looks similar to the following results:
 
 ```Output
-PLAY [localhost] ***********************************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *****************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Prepare random postfix] **********************************************************
+TASK [Prepare random postfix] 
 ok: [localhost]
 
-PLAY [Connect virtual networks with virtual network peering] ***************************
+PLAY [Connect virtual networks with virtual network peering] 
 
-TASK [Gathering Facts] *****************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create a resource group] *********************************************************
+TASK [Create a resource group] 
 changed: [localhost]
 
-TASK [Create secondary resource group] *************************************************
+TASK [Create secondary resource group] 
 changed: [localhost]
 
-TASK [Create first virtual network] ****************************************************
+TASK [Create first virtual network] 
 changed: [localhost]
 
-TASK [Add subnet] *************************************************************************************
+TASK [Add subnet] 
 changed: [localhost]
 
-TASK [Ceate second virtual network] *******************************************************************
+TASK [Ceate second virtual network] 
 changed: [localhost]
 
-TASK [Add subnet] *************************************************************************************
+TASK [Add subnet] 
 changed: [localhost]
 
-TASK [Initial vnet peering] ***************************************************************************
+TASK [Initial vnet peering] 
 changed: [localhost]
 
-TASK [Connect vnet peering] ***************************************************************************
+TASK [Connect vnet peering] 
 changed: [localhost]
 
-TASK [Delete vnet peering] ****************************************************************************
+TASK [Delete vnet peering] 
 changed: [localhost]
 
-PLAY RECAP ********************************************************************************************
+PLAY RECAP 
 localhost                  : ok=12   changed=9    unreachable=0    failed=0    skipped=0   rescued=0    ignored=0
 ```
 

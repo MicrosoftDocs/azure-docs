@@ -224,18 +224,18 @@ The purpose of tags is to enable the ability to quickly and easily work with sub
 1. Once you run the playbook, you see results similar to the following output:
 
     ```Output
-    PLAY [Install and start Nginx on an Azure virtual machine] **********
+    PLAY [Install and start Nginx on an Azure virtual machine] 
 
-    TASK [Gathering Facts] **********
+    TASK [Gathering Facts] 
     ok: [ansible-inventory-test-vm1]
 
-    TASK [install nginx] **********
+    TASK [install nginx] 
     changed: [ansible-inventory-test-vm1]
 
-    RUNNING HANDLER [start nginx] **********
+    RUNNING HANDLER [start nginx] 
     ok: [ansible-inventory-test-vm1]
 
-    PLAY RECAP **********
+    PLAY RECAP 
     ansible-inventory-test-vm1 : ok=3    changed=1    unreachable=0    failed=0
     ```
 

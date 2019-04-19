@@ -72,18 +72,19 @@ ansible-playbook webapp_scaleup.yml
 ```
 
 After running the playbook, output similar to the following example shows that the App service plan has been successfully updated to S2 with three workers:
-```Output
-PLAY [localhost] **************************************************************
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -94,13 +95,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -111,7 +112,7 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 

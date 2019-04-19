@@ -73,20 +73,20 @@ ansible-playbook firstwebapp.yml
 The output from running the Ansible playbook shows that the web app was successfully created:
 
 ```Output
-PLAY [localhost] *************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create a resource group] *************************************************
+TASK [Create a resource group] 
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] *************************************************
+TASK [Create App Service on Linux with Java Runtime] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 changed: [localhost]
 
-PLAY RECAP *************************************************
+PLAY RECAP 
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
@@ -197,40 +197,40 @@ ansible-playbook webapp.yml
 The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
 
 ```Output
-PLAY [localhost] *************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create resource group] ****************************************************************************
+TASK [Create resource group] 
 changed: [localhost]
 
-TASK [Create resource group for app service plan] ****************************************************************************
+TASK [Create resource group for app service plan] 
 changed: [localhost]
 
-TASK [Create App Service Plan] ****************************************************************************
+TASK [Create App Service Plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 changed: [localhost]
 
-TASK [Create App Service on Linux with Java Runtime] ****************************************************************************
+TASK [Create App Service on Linux with Java Runtime] 
 changed: [localhost]
 
-TASK [Get web app facts] *****************************************************************************
+TASK [Get web app facts] 
 ok: [localhost]
 
-TASK [Create Traffic Manager Profile] *****************************************************************************
+TASK [Create Traffic Manager Profile] 
  [WARNING]: Azure API profile latest does not define an entry for TrafficManagerManagementClient
 
 changed: [localhost]
 
-TASK [Add endpoint to traffic manager profile, using the web site created above] *****************************************************************************
+TASK [Add endpoint to traffic manager profile, using the web site created above] 
 changed: [localhost]
 
-TASK [Get Traffic Manager Profile facts] ******************************************************************************
+TASK [Get Traffic Manager Profile facts] 
 ok: [localhost]
 
-PLAY RECAP ******************************************************************************
+PLAY RECAP 
 localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ```
 

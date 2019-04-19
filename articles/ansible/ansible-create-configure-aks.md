@@ -89,18 +89,18 @@ ansible-playbook azure_create_aks.yml
 Running the playbook shows results similar to the following output:
 
 ```Output
-PLAY [Create AKS] ****************************************************************************************
+PLAY [Create AKS] 
 
-TASK [Gathering Facts] ********************************************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Create resource group] **************************************************************************************
+TASK [Create resource group] 
 changed: [localhost]
 
-TASK [Create an Azure Container Services (AKS) cluster] ***************************************************
+TASK [Create an Azure Container Services (AKS) cluster] 
 changed: [localhost]
 
-PLAY RECAP *********************************************************************************************************
+PLAY RECAP 
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
@@ -154,15 +154,15 @@ ansible-playbook azure_configure_aks.yml
 Running the playbook shows results similar to the following output:
 
 ```Output
-PLAY [Scale AKS cluster] ***************************************************************
+PLAY [Scale AKS cluster] 
 
-TASK [Gathering Facts] ******************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Scaling an existed AKS cluster] **************************************************
+TASK [Scaling an existed AKS cluster] 
 changed: [localhost]
 
-PLAY RECAP ******************************************************************************
+PLAY RECAP 
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 
@@ -197,14 +197,14 @@ ansible-playbook azure_delete_aks.yml
 Running the playbook shows results similar to the following output:
 
 ```Output
-PLAY [Delete a managed Azure Container Services (AKS) cluster] ****************************
+PLAY [Delete a managed Azure Container Services (AKS) cluster] 
 
-TASK [Gathering Facts] ********************************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [azure_rm_aks] *********************************************************************
+TASK [azure_rm_aks] 
 
-PLAY RECAP *********************************************************************
+PLAY RECAP 
 localhost                  : ok=2    changed=1    unreachable=0    failed=0
 ```
 

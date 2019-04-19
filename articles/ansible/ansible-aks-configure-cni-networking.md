@@ -155,36 +155,36 @@ ansible-playbook aks-azure-cni.yml
 Running the playbook shows results similar to the following output:
 
 ```Output
-PLAY [localhost] ***************************************************************
+PLAY [localhost] 
 
-TASK [Gathering Facts] *********************************************************
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Ensure resource group exists] ********************************************
+TASK [Ensure resource group exists] 
 changed: [localhost]
 
-TASK [Create vnet] *************************************************************
+TASK [Create vnet] 
 included: /home/devops/aks-cni/vnet.yml for localhost
 
-TASK [Create vnet] *************************************************************
+TASK [Create vnet] 
 changed: [localhost]
 
-TASK [Create subnet] ***********************************************************
+TASK [Create subnet] 
 changed: [localhost]
 
-TASK [Create AKS] **************************************************************
+TASK [Create AKS] 
 included: /home/devops/aks-cni/aks.yml for localhost
 
-TASK [List supported kubernetes version from Azure] ****************************
+TASK [List supported kubernetes version from Azure] 
  [WARNING]: Azure API profile latest does not define an entry for
 ContainerServiceClient
 
 ok: [localhost]
 
-TASK [Create AKS cluster with vnet] ********************************************
+TASK [Create AKS cluster with vnet] 
 changed: [localhost]
 
-TASK [Show AKS cluster detail] *************************************************
+TASK [Show AKS cluster detail] 
 ok: [localhost] => {
     "aks": {
         "aad_profile": {},
@@ -232,7 +232,7 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP *********************************************************************
+PLAY RECAP 
 localhost                  : ok=9    changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
