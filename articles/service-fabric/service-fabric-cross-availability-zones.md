@@ -20,27 +20,31 @@ ms.author: pepogors
 # Overview
 Availability Zones is a high-availability offering that protects your applications and data from datacenter failures. Availability Zones are unique physical locations within an Azure region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking.
 
-Service Fabric supports clusters which span across availability zones through the deployment of node types which are pinned to zones in a supported region.
+Service Fabric supports clusters which span across availability zones through the deployment of node types which are pinned to zones in a supported region. 
 
 Azure Availability Zones are only available in select regions. Please see the [Azure Availability Zones Overview](https://docs.microsoft.com/azure/availability-zones/az-overview) for more details.
 
-## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across zones
-To ensure that a Service Fabric cluster which is distributed across availability zones it is important that a primary node type is located in each of the zones supported by the region. This can be marking multiple node types as primary will distribute seed nodes evenly across the multiple primary node types. The topology for the primary node type requires the resources outlined below:
+Sample templates are available: [cross avaiability zone templates](https://docs.microsoft.com/azure/availability-zones/az-overview)
 
-* Single Public IP Resource - Standard SKU.
-* Single Load Balancer Resource - Standard SKU.
-* 3 Node Types marked as primary. Each Node Type should be mapped to its own Virtual Machine Scale Set (VMSS) located in different zones.
-* Each Node Type should have at least 5 nodes (Silver Durability).
-* The cluster reliability setting should be Platinum (Run the System services with a target replica set count of seven and nine seed nodes).
+## Recommended Topology for primary node type of Azure Service Fabric clusters spanning across zones
+To ensure that a Service Fabric cluster which is distributed across availability zones it is important that a primary node type is located in each of the zones supported by the region. This can be marking multiple node types as primary will distribute seed nodes evenly across the multiple primary node types.
+
+The recommended topology for the primary node type requires the resources outlined below:
+* A Single Public IP Resource using Standard SKU.
+* A Single Load Balancer Resource using Standard SKU.
+* 3 Node Types marked as primary.
+    * Each Node Type should be mapped to its own Virtual Machine Scale Set (VMSS) located in different zones.
+    * Each VMSS should have at least 5 nodes (Silver Durability).
+* The cluster reliability level set to Platinum.
 
 >[!NOTE]
-> Service Fabric does not support Virutal Machine Scale Sets which span zones.
+> Service Fabric does not support Virtual Machine Scale Sets which span zones. The VMSS single placement group property must be set to true.
 
- ![Azure Service Fabric Availability Zone ArchitectureV][sf-architecture]
+ ![Azure Service Fabric Availability Zone Architecture][sf-architecture]
 
 ## Networking Requirements
-### Load Balancer and IP Resources
-To enables zones on a VMSS resource the load balancer and IP resource that is referenced by the VMSS must both be using a standard SKU. When creating a load balancer or IP resource without the SKU property, the default SKU will be basic, and the resources will not have the ability to support availability zones. 
+### Public IP and Load Balancer Resource
+To enables zones on a VMSS resource the load balancer and IP resource that is referenced by the VMSS must both be using a standard SKU. When creating a load balancer or IP resource without the SKU property, the default SKU will be basic, and the resources will not have the ability to support availability zones. When using a Standard SKU load balancer all traffic from the outside is blocked. To allow outside traffic, a NSG must be deployed to the subbnet.
 
 ```json
 {
@@ -66,6 +70,10 @@ To enables zones on a VMSS resource the load balancer and IP resource that is re
     }
 }
 ```
+
+>[!NOTE]
+> It is not possible to do an in-place change of SKU on the public IP and load balancer resources. If you are migrating from existing resources which are basic SKU please see migartion section for more info. 
+
 
 ### Virtual Machine Scale Set (VMSS) NAT Rules
 The load balancer inbound NAT rules should match the NAT pools from the Virtual Machine Scale Set. Each Virtual Machine Scale Set must have a unique inbound NAT pool.
@@ -113,9 +121,9 @@ The load balancer inbound NAT rules should match the NAT pools from the Virtual 
 ```
 
 ## Enabling Zones on a Virtual Machine Scale Set
-To enable a zone on a VMSS you must include two values in the VMSS resource. The first one is "zones" which specifies which availability zone in the region that you would like to deploy to. The second is the "singlePlacementGroup" property which must be set to true.
+To enable a zone on a VMSS you must include three values in the VMSS resource. The first value is the **zones** property which specifies which availability zone the VMSS will be deployed to. The second value is the "singlePlacementGroup" property which must be set to true.
 
-You must then also include the “faultDomainOverride” property in the Service Fabric VMSS Extension. The value for this property should include the zone in which this VMSS will be placed.
+You must then include the “faultDomainOverride” property in the Service Fabric VMSS Extension. The value for this property should include the region and zone in which this VMSS will be placed. Example: "faultDomainOverride": "eastus/az1" All VMSS resources must be placed in the same region as Service Fabric does not support clusters across regions.
 
 ```json
 {
@@ -157,7 +165,7 @@ You must then also include the “faultDomainOverride” property in the Service
 ```
 
 ## Enabling Multiple Primary Node Types in the Service Fabric Cluster Resource
-To set multiple node types as primary in a cluster resource, set the isPrimary property to "true" for each of the node types that you would like to be a primary node type.
+To set multiple node types as primary in a cluster resource, set the isPrimary property to "true" for each of the node types that you would like to mark as primary. When deploying a Service Fabric cluster across availability zones you should have 3 node types in distinct zones.
 
 ```json
 {
@@ -215,10 +223,62 @@ To set multiple node types as primary in a cluster resource, set the isPrimary p
 
 ```
 
-## Next steps
-* Learn about [cluster security](service-fabric-cluster-security.md).
-* Learn how to [rollover a cluster certificate](service-fabric-cluster-rollover-cert-cn.md)
-* [Update and Manage cluster certificates](service-fabric-cluster-security-update-certs-azure.md)
-* Simplify Certificate Management by [Changing cluster from certificate thumbprint to common name](service-fabric-cluster-change-cert-thumbprint-to-cn.md)
+## Migrate to availability zones from a cluster using a Basic SKU Load Balancer and a Basic SKU IP
+To migrate a cluster which was using a Load Balancer and IP with a basic SKU you must first create an entirely new Load Balancer and IP resource using the standard SKU. It is not possible to update these resources in-place. 
+
+The new LB and IP should be referenced in the new cross availability zone node types that you would like to use. In the example above, 3 new VMSS resources were added in zones 1,2, and 3. These VMSS reference the newly created LB and IP and are marked as primary node types in the Service Fabric Cluster Resource.
+
+To migrate the system services over from the existing primary node type to the new cross availability zone node types you must first disable with intent to remove all of the nodes in the existing primary node type.  The system services will then migrate to the new primary types as the nodes are disabled. This process takes several hours to complete due to the process of node and node type removal. 
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint $ClusterName -KeepAliveIntervalInSec 10 `
+
+KeepAliveIntervalInSec 10 `
+    -X509Credential `
+    -ServerCertThumbprint $thumb  `
+    -FindType FindByThumbprint `
+    -FindValue $thumb `
+    -StoreLocation CurrentUser `
+    -StoreName My 
+
+Write-Host "Connected to cluster"
+
+$nodeNames = @("_nt0_0", "_nt0_1", "_nt0_2", "_nt0_3", "_nt0_4")
+
+Write-Host "Disabling nodes..."
+foreach($name in $nodeNames) {
+    Disable-ServiceFabricNode -NodeName $name -Intent RemoveNode -Force
+}
+```
+
+Once the nodes are all disabled. You can delete the nodes and remove the node type from the Service Fabric cluster resource. You will also need to update the public IP. You can also delete the initial VMSS resource, IP resource, and Load Balancer resource.
+
+```powershell
+$scaleSetName="nt0"
+
+Remove-AzureRmVmss -ResourceGroupName $groupname -VMScaleSetName $scaleSetName -Force
+
+$lbname="LB-cluster-nt0"
+$oldPublicIpName="LBIP-cluster-0"
+$newPublicIpName="LBIP-cluster-1"
+
+$oldprimaryPublicIP = Get-AzureRmPublicIpAddress -Name $oldPublicIpName  -ResourceGroupName $groupname
+$primaryDNSName = $oldprimaryPublicIP.DnsSettings.DomainNameLabel
+$primaryDNSFqdn = $oldprimaryPublicIP.DnsSettings.Fqdn
+
+Remove-AzureRmLoadBalancer -Name $lbname -ResourceGroupName $groupname -Force
+Remove-AzureRmPublicIpAddress -Name $oldPublicIpName -ResourceGroupName $groupname -Force
+
+$PublicIP = Get-AzureRmPublicIpAddress -Name $newPublicIpName  -ResourceGroupName $groupname
+$PublicIP.DnsSettings.DomainNameLabel = $primaryDNSName
+$PublicIP.DnsSettings.Fqdn = $primaryDNSFqdn
+Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
+
+foreach($name in $nodeNames){
+    # Remove the node from the cluster
+    Remove-ServiceFabricNodeState -NodeName $name -TimeoutSec 300 -Force
+    Write-Host "Removed node state for node $name"
+}
+```
 
 [sf-architecture]: .\media\service-fabric-availability-zones\az-architecture.png
