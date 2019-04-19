@@ -156,9 +156,9 @@ This option is used when you have divided a dataset into multiple partitions and
 
 5. If you are working with multiple partitions, you must add additional instances of the **Partition and Sample** module to handle each partition.
 
-      For example, let's say previously partitioned patients into four folds using age. To work with each individual fold, you need four copies of the **Partition and Sample** module, and in each, you select a different fold. Like shown in below image. It's not correct to use the Assign to folds output directly.  
+    For example, let's say previously partitioned patients into four folds using age. To work with each individual fold, you need four copies of the **Partition and Sample** module, and in each, you select a different fold, as shown below. It's not correct to use the **Assign to Folds** output directly.  
 
-        ![partition-and-sample](./media/module/partition-and-sample.PNG)
+    ![partition and sample](./media/partition-and-sample/partition-and-sample.png)
 
 5. Run the experiment.
 
