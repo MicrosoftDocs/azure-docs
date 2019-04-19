@@ -23,7 +23,9 @@ that fits this scenario:
 * Handles data within a specific limit.
 * Uses the same libraries that Azure Functions supports.
 
-![Run code snippet](./media/logic-apps-add-run-inline-code/inline-code-example-overview.png)
+  For example, with JavaScript, this action uses these 
+  <a href="https://www.w3schools.com/nodejs/ref_modules.asp">Node.js modules</a>. For more information, see 
+  [Azure Functions JavaScript developer guide](../azure-functions/functions-reference-node.md).
 
 This action returns just one output named **Result**, 
 which you can use in subsequent actions in your logic app. 
@@ -67,10 +69,11 @@ From the actions list, select this action:
 
    ![Select "Execute JavaScript Code"](./media/logic-apps-add-run-inline-code/inline-code-action.png)
 
-1. In the **Code** editor, enter the code you want to run. 
-To reference outputs from previous steps, 
-you can select those values from the dynamic content list. 
-You can also select outputs from previous 
+1. In the **Code** box, enter the code you want to run. 
+
+   When you click inside the editor, the dynamic content 
+   list opens so that you can select any available outputs 
+   from previous steps.
 
    For example, this logic app triggers when a new email 
    arrives in an Office 365 Outlook account. The code 
