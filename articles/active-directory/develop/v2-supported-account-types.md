@@ -45,16 +45,16 @@ In the Microsoft Azure public Cloud, most types of apps can sign in users with a
 
 Some account types can't be used with certain authentication flows. For instance, in desktop, UWP applications, or daemon applications:
 
-- Daemon applications can only be used with Azure Active Directory organizations. It does not make sense to attempt to use daemon applications to manipulate Microsoft personal accounts (the admin consent will never be granted).  
+- Daemon applications can only be used with Azure Active Directory organizations. It doesn't make sense to attempt to use daemon applications to manipulate Microsoft personal accounts (the admin consent will never be granted).  
 - You can only use the Integrated Windows Authentication flow with work or school accounts (in your organization or any organization). Indeed, Integrated Windows Authentication works with domain accounts, and requires the machines to be domain joined or Azure AD joined. This flow doesn't make sense for personal Microsoft Accounts.
-- The [Resource Owner Password Grant](./v2-oauth-ropc.md) (Username/Password), can't be used with personal Microsoft accounts. Indeed, personal Microsoft accounts require that the user consents to accessing personal resources at each sign-in session. Therefore, this behavior isn't compatible with non-interactive flows.
+- The [Resource Owner Password Grant](./v2-oauth-ropc.md) (Username/Password), can't be used with personal Microsoft accounts. Indeed, personal Microsoft accounts require that the user consents to accessing personal resources at each sign-in session. That's why, this behavior isn't compatible with non-interactive flows.
 - Device code flow doesn't yet work with personal Microsoft accounts
   > [!NOTE]
   > There is ongoing work to support device code flow with personal Microsoft accounts;
 
 ## Supported account types in national clouds
 
- Apps can also sign in users in [national clouds](authentication-national-cloud.md). However, Microsoft personal accounts aren't supported in these clouds (by definition of these clouds). Therefore the supported account types are reduced for these clouds to your organization or any organizations (single tenants and multi-tenant applications).
+ Apps can also sign in users in [national clouds](authentication-national-cloud.md). However, Microsoft personal accounts aren't supported in these clouds (by definition of these clouds). That's why the supported account types are reduced, for these clouds, to your organization (single tenant) or any organizations (multi-tenant applications).
 
 ## Next steps
 

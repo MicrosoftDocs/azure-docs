@@ -101,10 +101,8 @@
           href: scenario-web-app-sign-user-app-registration.md
         - name: App's code configuration
           href: scenario-web-app-sign-user-app-configuration.md
-        - name: Sign-in
+        - name: Sign in and Sign out
           href: scenario-web-app-sign-user-sign-in.md
-        - name: Acquiring a token for the app
-          href: scenario-web-app-sign-user-acquire-token.md
         - name: Calling a Web API
           href: scenario-web-app-sign-user-call-api.md
         - name: Move to production
