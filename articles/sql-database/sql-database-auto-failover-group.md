@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
+ms.date: 04/19/2019
 ---
 
 # Use auto-failover groups to enable transparent and coordinated failover of multiple databases
@@ -35,7 +35,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
 ## Auto-failover group terminology and capabilities
 
-- **Failover group**
+- **Failover group (FOG)**
 
   A failover group is a group of databases managed by a single SQL Database server or within a single managed instance that can fail over as a unit to another region in case all or some primary databases become unavailable due to an outage in the primary region.
 
@@ -72,11 +72,11 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - **SQL Database server DNS CNAME record for read-write listener**
 
-     On a SQL Database server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.database.windows.net`.
+     On a SQL Database server, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.database.windows.net`.
 
   - **Managed Instance DNS CNAME record for read-write listener**
 
-     On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
+     On a Managed Instance, the DNS CNAME record for the failover group that points to the current primary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Failover group read-only listener**
 
@@ -88,7 +88,7 @@ To achieve real business continuity, adding database redundancy between datacent
 
   - **Managed Instance DNS CNAME record for read-only listener**
 
-     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `failover-group-name.zone_id.database.windows.net`.
+     On a Managed Instance, the DNS CNAME record for the read-only listener that points to the secondary's URL is formed as `<fog-name>.zone_id.database.windows.net`.
 
 - **Automatic failover policy**
 
