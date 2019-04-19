@@ -24,7 +24,7 @@ This article gives a basic overview of some of the benefits of using Ansible wit
 
 Ansible includes a suite of [Ansible modules](https://docs.ansible.com/ansible/latest/modules_by_category.html) that can be executed directly on remote hosts or via [playbooks](https://docs.ansible.com/ansible/latest/playbooks.html). Users can also create their own modules. Modules can be used to control system resources - such as services, packages, or files - or execute system commands.
 
-For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) that provides the tools to easily create and orchestrate your infrastructure on Azure. 
+For interacting with Azure services, Ansible includes a suite of [Ansible cloud modules](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure). These modules enable you to create and orchestrate your infrastructure on Azure. 
 
 ## Migrate existing workload to Azure
 
@@ -40,14 +40,16 @@ Via its [dynamic inventory](https://docs.ansible.com/ansible/intro_dynamic_inven
 
 ## Additional Azure Marketplace options
 
-The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace image by Red Hat helps organizations scale IT automation and manage complex deployments across physical, virtual, and cloud infrastructures. Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys so that you can delegate jobs to less experienced employees without the risk of exposing your credentials.
+The [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) is an Azure Marketplace image by Red Hat. Ansible Tower helps organizations scale IT automation and manage complex deployments across infrastructures. 
+
+Ansible Tower includes capabilities that provide additional levels of visibility, control, security, and efficiency necessary for today's enterprises. Ansible Tower encrypts credentials such as Azure and SSH keys. This layer of security enables you to delegate tasks without exposing credentials.
 
 ## Ansible module and version matrix for Azure
 
 Ansible ships with a number of modules that can be executed directly on remote hosts or through playbooks.
-The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure that can provision Azure cloud resources such as virtual machine, networking, and container services. 
+The [Ansible module and version matrix](./ansible-matrix.md) lists the Ansible modules for Azure. These modules enable you to provision Azure cloud resources such as virtual machine, networking, and container services. 
 
 ## Next steps
 
-- [Quickstart: Install Ansible on Linux virtual machines in Azure](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
-- [Quickstart: Configure a Linux virtual machine in Azure](/azure/virtual-machines/linux/ansible-create-vm?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
+- [Quickstart: Deploy the Ansible solution template for Azure to CentOS](./ansible-deploy-solution-template.md)
+- [Quickstart: Configure Linux virtual machines in Azure using Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
