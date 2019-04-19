@@ -83,7 +83,7 @@ For even more power, you can click the **Logs** icon, which displays your Activi
 
 ## Next Steps
 
-* [Create a log profile to export the Azure Activity Log](activity-logs-export.md)
+* [Create a log profile to export the Azure Activity Log](activity-log-export.md)
 * [Stream the Azure Activity Log to Event Hubs](activity-logs-stream-event-hubs.md)
 * [Archive the Azure Activity Log to storage](archive-activity-log.md)
 

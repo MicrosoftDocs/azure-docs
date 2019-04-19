@@ -44,7 +44,7 @@ The application tiers in the following table may be in Azure, another cloud, or 
 | Tier | Description | Collection method |
 |:---|:---|:---|
 | [Guest operating system](#guest-operating-system) | Data about the operating system on compute resources. | Install an agent such as the Windows Azure Diagnostic Agent or Linux Azure Diagnostic Agent. For Azure virtual machines, install Azure Diagnostic Extension and Azure Monitor for VMs. |
-| [Application](#application) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |
+| [Application](#applications) | Data about the performance and functionality of the actual application and code, including performance traces, application logs, and user telemetry. | Instrument your code for Application Insights. |
 
 ## Azure tenant
 Telemetry related to your Azure tenant is collected from tenant-wide services such as Azure Active Directory.
@@ -56,7 +56,7 @@ Telemetry related to your Azure tenant is collected from tenant-wide services su
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor. | [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) |
+| Azure Monitor Logs | Configure Azure AD logs to be collected in Azure Monitor. | [Integrate Azure AD logs with Azure Monitor logs (preview)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
 | Azure Storage | Export Azure AD logs to Azure Storage for archiving. | [Tutorial: Archive Azure AD logs to an Azure storage account (preview)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
 | Event Hub | Stream Azure AD logs to other locations using Event Hubs | [Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
@@ -166,7 +166,7 @@ When you enable Application Insights for an application by installing an instrum
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Application Insights supports multiple kinds of data in Azure Monitor Logs:<br>- Operational data about your application including page views, application requests, and exceptions.<br>- Dependency information between application components to support Application Map and telemetry correlation.<br>- Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. |[Analyze log data in Azure Monitor](../log-query/log-query-overview.md)<br>[Application Map](../app/app-map.md)<br>[Telemetry correlation in Application Insights](../../app/correlation.md)<br>[Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
+| Azure Monitor Logs | Application Insights supports multiple kinds of data in Azure Monitor Logs:<br>- Operational data about your application including page views, application requests, and exceptions.<br>- Dependency information between application components to support Application Map and telemetry correlation.<br>- Results of availability tests that test the availability and responsiveness of your application from different locations on the public Internet. |[Analyze log data in Azure Monitor](../log-query/log-query-overview.md)<br>[Application Map](../app/app-map.md)<br>[Telemetry correlation in Application Insights](../app/correlation.md)<br>[Monitor availability and responsiveness of any web site](../app/monitor-web-app-availability.md) |
 | Azure Monitor Metrics | Application Insights collects metrics describing the performance and operation of the application in addition to custom metrics that you define in your application into the Azure Monitor metrics database. | [Log-based and pre-aggregated metrics in Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[Application Insights API for custom events and metrics](../app/api-custom-events-metrics.md) |
 
 You can also use Application Insights to [create a custom metric](../app/api-custom-events-metrics.md).  This allows you to define your own logic for calculating a numeric value and then storing that value with other metrics that can be accessed from metric analytics and used for [Autoscale](autoscale-custom-metric.md) and metric alerts. |
