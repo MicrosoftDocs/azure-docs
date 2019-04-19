@@ -44,21 +44,23 @@ Consider the following guidelines when you choose a wake word:
 
 Before you can use a custom wake word with your device, you'll need to create a wake word with the Microsoft Custom Wake Word Generation service. After you provide a wake word, the service produces a file that you deploy to your development kit to enable the wake word on your device.
 
-1. Go to the [Custom Speech Service Portal](https://portal.develop.cris.ai/) and choose the Custom Wake Word option.
+1. Go to the [Custom Speech Service Portal](https://portal.develop.cris.ai/) and **Sign in** or if you do not have a speech subscription choose [**Create a subscription**](https://go.microsoft.com/fwlink/?linkid=2086754)
 
     ![The Custom Speech Service Portal](media/speech-devices-sdk/wake-word-4.png)
 
-1. Type in the wake word of your choice, and then select **Add wake word**. <NOTE: This image is draft>
+1. At the [Custom Wake Word](https://speech.azure.ai/app.html#/CustomWakeWord) page type in the wake word of your choice and click **Add wake word**. We have some [guidelines](#Choose-an-effective-wake-word) to help choose an effective keyword. Currently we only support en-US language.
 
     ![Enter your wake word](media/speech-devices-sdk/wake-word-5.png)
 
-1. Listen to the candidate pronunciations, and then select **Submit**. <NOTE: This image is draft>
+1. Three alternative pronunciations of your wake word will be created. You can choose all the pronunciations that you like. Then select **Submit** to generate the wake word. If you want to change the wake word please remove the existing one first. When you hover on the pronunciation line the delete icon will appear.
 
     ![Review your wake word](media/speech-devices-sdk/wake-word-6.png)
 
-1. It might take a few minutes for the files to be generated. After a moment you'll be provided with a link to download a .zip file.
+1. It might take up to 1 minute for the model to be generated. You will be prompted to download the file.
 
-1. Save the .zip file to your computer. You'll need this file to deploy your custom wake word to the development kit.
+    ![Download your wake word](media/speech-devices-sdk/wake-word-7.png)
+
+1. Save the .zip file to your computer. You will need this file to deploy your custom wake word to the development kit.
 
 ## Next steps
 
