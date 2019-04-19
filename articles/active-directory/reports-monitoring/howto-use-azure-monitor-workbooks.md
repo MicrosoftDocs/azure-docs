@@ -149,7 +149,7 @@ You can filter each trend by:
 ![Gallery](./media/howto-use-azure-monitor-workbooks/49.png)
 
 
-For each trend, you get a breakdown by app and protocol.
+For the disabled sign-ins, you get a breakdown by the conditional access status.
 
 ![Gallery](./media/howto-use-azure-monitor-workbooks/48.png)
 
