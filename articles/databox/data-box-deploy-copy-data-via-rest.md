@@ -43,7 +43,7 @@ You can connect to Data Box Blob storage over *http* or *https*.
 - *Https* is the secure and recommended way to connect to Data Box Blob storage.
 - *Http* is used  when connecting over trusted networks.
 
-Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
+The steps to connect are different when you connect to Data Box Blob storage over *http* or *https*, .
 
 ## Connect via http
 
@@ -87,9 +87,9 @@ Use the Azure portal to download certificate.
  
 ### Import certificate 
 
-Accessing Data Box Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate once it has been imported into the system’s certificate store, while other applications do not made use of that mechanism.
+Accessing Data Box Blob storage over HTTPS requires an SSL certificate for the device. The way in which this certificate is made available to the client application varies from application to application and across operating systems and distributions. Some applications can access the certificate after it is imported into the system’s certificate store, while other applications do not make use of that mechanism.
 
-Specific information for some applications is mentioned in this section; for others you should consult the documentation of the application and/or OS being used.
+Specific information for some applications is mentioned in this section. For more information on other applications, consult the documentation for the application and the operating system used.
 
 Follow these steps to import the `.cer` file into the root store of a Windows or Linux client. On a Windows system, you can use Windows PowerShell or the Windows Server UI to import and install the certificate on your system.
 
@@ -104,7 +104,7 @@ Follow these steps to import the `.cer` file into the root store of a Windows or
 
 #### Use Windows Server UI
 
-1.	Right-click the .cer file and select **Install certificate**. This starts the Certificate Import Wizard.
+1.	Right-click the `.cer` file and select **Install certificate**. This action starts the Certificate Import Wizard.
 2.	For **Store location**, select **Local Machine**, and then click **Next**.
 
     ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
