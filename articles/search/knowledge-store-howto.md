@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Build an AI-powered index in Azure portal - Azure Search'
-description: Data extraction, natural language and image processing skills in an Azure Search indexing portal, using the Azure portal and sample data. 
+title: 'How to use Knowledge Store - Azure Search'
+description: Learn the steps for sending enchriched documents created by AI indexing pipelines in Azure Search to an  Azure storage account, where you can view, reshape, and consume enriched documents in Azure Search and in other applications. 
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -8,9 +8,20 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/02/2019
 ms.author: heidist
-ms.custom: seodec2018
+
 ---
-# Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
+# How to use Knowledge Store
+
+
+
+[What is Knowledge Store in Azure Search](knowledge-store-concept-intro.md) ** concepts, architecture, use cases
+[How to use Knowledge Store](knowledge-store-howto.md) ** procedural
+[Shaper cognitive search skill - Azure Search](cognitive-search-skill-shaper.md) ** reference
+[What is "cognitive search" in Azure Search](cognitive-search-concept-intro.md) ** reference
+[Quickstart: Create an AI indexing pipeline in Azure Search](cognitive-search-quickstart-blob.md) ** portal
+[What is Azure Search > Feature list](search-what-is-azure-search.md) ** Feature list entry
+
+
 
 Azure Search integrates with [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/), adding content extraction, natural language processing (NLP), and image processing skills to an Azure Search indexing pipeline, making unsearchable or unstructured content more searchable. 
 

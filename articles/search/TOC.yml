@@ -2,10 +2,8 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Search
+  - name: About Azure Search
     href: search-what-is-azure-search.md
-  - name: What is cognitive search
-    href: cognitive-search-concept-intro.md
 - name: Quickstarts
   expanded: true
   items:
@@ -53,7 +51,11 @@
   items:
   - name: Full text search
     href: search-lucene-query-architecture.md
-  - name: Design patterns for multitenancy
+  - name: AI indexing (Cognitive Search)
+    href: cognitive-search-concept-intro.md
+  - name: Knowledge Store (preview)
+    href: knowledge-store-concept-intro.md
+  - name: Multitenant architecture
     href: search-modeling-multitenant-saas-applications.md
 - name: How-to guides
   items:
@@ -175,18 +177,24 @@
     items:
     - name: Attach a Cognitive Services resource
       href: cognitive-search-attach-cognitive-services.md
-    - name: Define a skillset
-      href: cognitive-search-defining-skillset.md
-    - name: Reference an annotation    
-      href: cognitive-search-concept-annotations-syntax.md
-    - name: Map to index fields
-      href: cognitive-search-output-field-mapping.md
-    - name: Process and extract information from images
-      href: cognitive-search-concept-image-scenarios.md
-    - name: Integrate custom skills
-      href: cognitive-search-custom-skill-interface.md
-    - name: Example - custom skills
-      href: cognitive-search-create-custom-skill-example.md
+    - name: Send enrichments to Knowledge Store 
+      href: knowledge-store-howto.md
+    - name: Skillsets
+      items:
+      - name: Define a skillset
+        href: cognitive-search-defining-skillset.md
+      - name: Reference an annotation    
+        href: cognitive-search-concept-annotations-syntax.md
+      - name: Map to index fields
+        href: cognitive-search-output-field-mapping.md
+      - name: Process and extract information from images
+        href: cognitive-search-concept-image-scenarios.md
+    - name: Custom skills
+      items:
+      - name: Integrate custom skills
+        href: cognitive-search-custom-skill-interface.md
+      - name: Example - custom skills
+        href: cognitive-search-create-custom-skill-example.md
     - name: Troubleshooting tips
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
