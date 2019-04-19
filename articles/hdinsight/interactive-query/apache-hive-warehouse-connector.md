@@ -192,8 +192,8 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     hive.table("stream_table").show()
     ```
 
->[!Note]
-> There is an issue about interpreting `spark.datasource.*` configurations into options internally in Apache Spark, which currently makes this library require to set metastore Uri and database options manually. For more information about this issue, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460). As soon as this issue is resolved, both metastore Uri and the database can be omitted likewise.
+>[!Important]
+> The `metastoreUri` and `database` options must currently be set manually due to a known issue in Apache Spark. For more information about this issue, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
 ### Securing data on Spark ESP clusters
 
@@ -224,9 +224,9 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
                 ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
 1. View the table's contents again. After applying the ranger policy, we can see only last four characters on the column.
 
-    ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-before-ranger-policy.png)
+    ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
 ## Next steps
 
-* [Use Interactive Query with HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
+* [Use Interactive Query with HDInsight](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-interactive-query-get-started)
 * [Examples of interacting with Hive Warehouse Connector using Zeppelin, Livy, spark-submit, and pyspark](https://community.hortonworks.com/articles/223626/integrating-apache-hive-with-apache-spark-hive-war.html)
