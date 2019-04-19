@@ -38,6 +38,10 @@ To protect against regional disasters, [Azure Backup](../articles/backup/backup-
 
 You can use [Azure role-based access control (RBAC)](../articles/role-based-access-control/overview.md) to assign specific permissions for a managed disk to one or more users. Managed disks expose a variety of operations, including read, write (create/update), delete, and retrieving a [shared access signature (SAS) URI](../articles/storage/common/storage-dotnet-shared-access-signature-part-1.md) for the disk. You can grant access to only the operations a person needs to perform their job. For example, if you don't want a person to copy a managed disk to a storage account, you can choose not to grant access to the export action for that managed disk. Similarly, if you don't want a person to use an SAS URI to copy a managed disk, you can choose not to grant that permission to the managed disk.
 
+### Bring your own vhd
+
+We make it easy to transfer your own vhd to an azure managed disk through our direct upload feature. The feature simplifies creation from an on-premise VHD by removing the need to stage your data in a storage account. It also reduces cost by allowing you to upload data to managed disks directly without attaching them to VMs. You can use it to upload vhds up to 32 TiB in size.
+
 ## Disk roles
 
 There are three main disk roles in Azure: the data disk, the OS disk, and the temporary disk. These roles map to disks that are attached to your virtual machine.
