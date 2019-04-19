@@ -80,7 +80,7 @@ Because **Aggregate Upon** is defined on **timestamp**, the data is sorted on th
 
 ## Log alert fired unnecessarily
 
-A configured [log alert rule in Azure Monitor](../platform/alerts-log.md) might be triggered unexpetedly when you view it in [Azure Alerts](../platform/alerts-managing-alert-states.md). The following sections describe some common reasons.
+A configured [log alert rule in Azure Monitor](../platform/alerts-log.md) might be triggered unexpectedly when you view it in [Azure Alerts](../platform/alerts-managing-alert-states.md). The following sections describe some common reasons.
 
 ### Alert triggered by partial data
 
@@ -185,6 +185,6 @@ You can find the exact time when Azure Monitor disabled the log alert rule by lo
 
 ## Next steps
 
-- Learn about [Log alerts in Azure](../platform/alerts-unified-log.md).
+- Learn about [log alerts in Azure](../platform/alerts-unified-log.md).
 - Learn more about [Application Insights](../../azure-monitor/app/analytics.md).
 - Learn more about [log queries](../log-query/log-query-overview.md).
