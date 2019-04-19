@@ -16,7 +16,7 @@ ms.author: yinhew
 
 In this article, you create a C++ console application for Windows. You use the Cognitive Services [Speech SDK](speech-sdk.md) to synthesize speech from text in real time and play the speech on your PC's speaker. The application is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017 (any edition).
 
-The feature described within this article is available from [Speech SDK 1.4.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.4.0).
+The feature described within this article is available from [Speech SDK 1.5.0](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/1.5.0).
 
 For a complete list of languages/voices available for speech synthesis, see [language support](language-support.md#text-to-speech).
 
