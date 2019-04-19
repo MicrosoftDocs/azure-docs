@@ -29,13 +29,13 @@ You can execute the script from the Azure [Cloud Shell](https://shell.azure.com/
 # Create a resource group
 az group create \
 --name DsResourceGroup01 \
---location WestUS
+--location eastus
 
 # Create an IPV4 IP address
 az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -44,7 +44,7 @@ az network public-ip create \
 az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
---location WestUS \
+--location eastus \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv6
@@ -53,7 +53,7 @@ az network public-ip create \
 az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -62,7 +62,7 @@ az network public-ip create \
 az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -70,7 +70,7 @@ az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
 --sku Basic \
---location WestUS \
+--location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \
 --backend-pool-name dsLbBackEndPool_v4
@@ -115,7 +115,7 @@ az network lb rule create
 az vm availability-set create \
 --name dsAVset  \
 --resource-group DsResourceGroup01  \
---location WestUS \
+--location eastus \
 --platform-fault-domain-count 2  \
 --platform-update-domain-count 2
 
@@ -124,7 +124,7 @@ az vm availability-set create \
 az network nsg create \
 --name dsNSG1  \
 --resource-group DsResourceGroup01  \
---location WestUS
+--location eastus
 
 # Create inbound rule for port 3389
 az network nsg rule create \
@@ -161,7 +161,7 @@ az network nsg rule create \
 az network vnet create \
 --name dsVNET \
 --resource-group DsResourceGroup01 \
---location WestUS  \
+--location eastus  \
 --address-prefixes "10.0.0.0/16" "ace:cab:deca::/48"
 
 # Create a single dual stack subnet

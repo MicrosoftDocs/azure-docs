@@ -46,12 +46,12 @@ az provider register --namespace Microsoft.Network
 ```
 ## Create a resource group
 
-Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myRGDualStack* in the *WestEurope* location:
+Before you can create your dual-stack virtual network, you must create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myRGDualStack* in the *eastus* location:
 
 ```azurecli
 az group create \
 --name DsResourceGroup01 \
---location WestUS
+--location eastus
 ```
 
 ## Create IPv4 and IPv6 public IP addresses for load balancer
@@ -62,7 +62,7 @@ To access your IPv4 and IPv6 endpoints on the Internet, you need IPv4 and IPv6 p
 az network public-ip create \
 --name dsPublicIP_v4  \
 --resource-group DsResourceGroup01  \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -71,7 +71,7 @@ az network public-ip create \
 az network public-ip create \
 --name dsPublicIP_v6  \
 --resource-group DsResourceGroup01  \
---location WestUS \
+--location eastus \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv6
@@ -86,7 +86,7 @@ To remotely access your VMs on the internet, you need IPv4 public IP addresses f
 az network public-ip create \
 --name dsVM0_remote_access  \
 --resource-group DsResourceGroup01 \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -94,7 +94,7 @@ az network public-ip create \
 az network public-ip create \
 --name dsVM1_remote_access  \
 --resource-group DsResourceGroup01  \
---location WestUS  \
+--location eastus  \
 --sku BASIC  \
 --allocation-method dynamic  \
 --version IPv4
@@ -113,7 +113,7 @@ az network lb create \
 --name dsLB  \
 --resource-group DsResourceGroup01 \
 --sku Basic \
---location WestUS \
+--location eastus \
 --frontend-ip-name dsLbFrontEnd_v4  \
 --public-ip-address dsPublicIP_v4  \
 --backend-pool-name dsLbBackEndPool_v4
@@ -184,7 +184,7 @@ Create an availability set with [az vm availability-set create](https://docs.mic
 az vm availability-set create \
 --name dsAVset  \
 --resource-group DsResourceGroup01  \
---location WestUS \
+--location eastus \
 --platform-fault-domain-count 2  \
 --platform-update-domain-count 2  
 ```
@@ -202,7 +202,7 @@ Create a network security group with [az network nsg create](https://docs.micros
 az network nsg create \
 --name dsNSG1  \
 --resource-group DsResourceGroup01  \
---location WestUS
+--location eastus
 
 ```
 
@@ -268,7 +268,7 @@ Create a virtual network with [az network vnet create](https://docs.microsoft.co
 az network vnet create \
 --name dsVNET \
 --resource-group DsResourceGroup01 \
---location WestUS  \
+--location eastus  \
 --address-prefixes "10.0.0.0/16" "ace:cab:deca::/48"
 
 # Create a single dual stack subnet
