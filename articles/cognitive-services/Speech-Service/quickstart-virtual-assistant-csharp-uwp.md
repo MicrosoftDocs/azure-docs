@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Custom voice-first virtual assistant, C# (UWP) - Speech Services'
 titleSuffix: Azure Cognitive Services
-description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech SDK. You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
+description: In this article, you create a C# Universal Windows Platform (UWP) application by using the Cognitive Services Speech Software Development Kit (SDK). You connect your client application to a previously created Bot Framework bot configured to use the Direct Line Speech channel. The application is built with the Speech SDK NuGet Package and Microsoft Visual Studio 2017.
 services: cognitive-services
 author: trrwilson
 manager: 
@@ -33,9 +33,9 @@ This quickstart requires:
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
 
-## Get started fast
+## Optional: Get started fast
 
-The complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
+This quickstart will describe, step by step, how to make a simple client application to connect to your speech-enabled bot. If you prefer to dive right in, the complete, ready-to-compile source code used in this quickstart is available in the [Speech SDK Samples](https://aka.ms/csspeech/samples) under the `quickstart` folder.
 
 ## Create a Visual Studio project
 
@@ -65,72 +65,140 @@ The complete, ready-to-compile source code used in this quickstart is available 
     </StackPanel>
     ```
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Ensure your namespaces include the following.
+1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace its entire contents with the following code. This starting document includes:
+
+    * using statements for the Speech and Speech.Dialog namespaces;
+    * a simple implementation to ensure application microphone access, wired to a button handler;
+    * very basic UI helpers to present messages and errors in the application;
+    * a landing point for the initialization code path that will be populated later;
+    * an empty button handler for starting listening that will be populated later.
 
     ```csharp
     using Microsoft.CognitiveServices.Speech;
     using Microsoft.CognitiveServices.Speech.Dialog;
-    ```
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Runtime.InteropServices.WindowsRuntime;
+    using Windows.Foundation;
+    using Windows.Foundation.Collections;
+    using Windows.UI.Xaml;
+    using Windows.UI.Xaml.Controls;
+    using Windows.UI.Xaml.Controls.Primitives;
+    using Windows.UI.Xaml.Data;
+    using Windows.UI.Xaml.Input;
+    using Windows.UI.Xaml.Media;
+    using Windows.UI.Xaml.Navigation;
 
-1. Find the `MainPage` class in the file and replace its implementation with the following starter code. This includes basic prerequisites needed for microphone access and updating text.
+    // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
-    ```csharp
-    public sealed partial class MainPage : Page
+    namespace App8
     {
-        private SpeechBotConnector botConnector;
-
-        public MainPage()
+        /// <summary>
+        /// An empty page that can be used on its own or navigated to within a Frame.
+        /// </summary>
+        public sealed partial class MainPage : Page
         {
-            this.InitializeComponent();
-            InitializeBotConnector();
-        }
+            private SpeechBotConnector botConnector;
 
-        private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
-        {
-            bool isMicAvailable = true;
-            try
+            private enum NotifyType
             {
-                var mediaCapture = new Windows.Media.Capture.MediaCapture();
-                var settings = new Windows.Media.Capture.MediaCaptureInitializationSettings();
-                settings.StreamingCaptureMode = Windows.Media.Capture.StreamingCaptureMode.Audio;
-                await mediaCapture.InitializeAsync(settings);
-            }
-            catch (Exception)
-            {
-                isMicAvailable = false;
-            }
-            if (!isMicAvailable)
-            {
-                await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-microphone"));
-            }
-            else
-            {
-                NotifyUser("Microphone was enabled", NotifyType.StatusMessage);
-            }
-        }
+                StatusMessage,
+                ErrorMessage
+            };
 
-        private void NotifyUser(string strMessage, NotifyType type)
-        {
-            // If called from the UI thread, then update immediately.
-            // Otherwise, schedule a task on the UI thread to perform the update.
-            if (Dispatcher.HasThreadAccess)
+            public MainPage()
             {
-                UpdateStatus(strMessage, type);
+                this.InitializeComponent();
+                InitializeBotConnector();
             }
-            else
-            {
-                var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => UpdateStatus(strMessage, type));
-            }
-        }
 
-        private void InitializeBotConnector()
-        {
-            // New code will go here
+            private async void EnableMicrophone_ButtonClicked(object sender, RoutedEventArgs e)
+            {
+                bool isMicAvailable = true;
+                try
+                {
+                    var mediaCapture = new Windows.Media.Capture.MediaCapture();
+                    var settings = new Windows.Media.Capture.MediaCaptureInitializationSettings();
+                    settings.StreamingCaptureMode = Windows.Media.Capture.StreamingCaptureMode.Audio;
+                    await mediaCapture.InitializeAsync(settings);
+                }
+                catch (Exception)
+                {
+                    isMicAvailable = false;
+                }
+                if (!isMicAvailable)
+                {
+                    await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-settings:privacy-microphone"));
+                }
+                else
+                {
+                    NotifyUser("Microphone was enabled", NotifyType.StatusMessage);
+                }
+            }
+
+            private void NotifyUser(string strMessage, NotifyType type)
+            {
+                // If called from the UI thread, then update immediately.
+                // Otherwise, schedule a task on the UI thread to perform the update.
+                if (Dispatcher.HasThreadAccess)
+                {
+                    UpdateStatus(strMessage, type);
+                }
+                else
+                {
+                    var task = Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () => UpdateStatus(strMessage, type));
+                }
+            }
+
+            private void UpdateStatus(string strMessage, NotifyType type)
+            {
+                switch (type)
+                {
+                    case NotifyType.StatusMessage:
+                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Green);
+                        break;
+                    case NotifyType.ErrorMessage:
+                        StatusBorder.Background = new SolidColorBrush(Windows.UI.Colors.Red);
+                        break;
+                }
+                StatusBlock.Text += string.IsNullOrEmpty(StatusBlock.Text) ? strMessage : "\n" + strMessage;
+
+                // Collapse the StatusBlock if it has no text to conserve real estate.
+                StatusBorder.Visibility = !string.IsNullOrEmpty(StatusBlock.Text) ? Visibility.Visible : Visibility.Collapsed;
+                if (!string.IsNullOrEmpty(StatusBlock.Text))
+                {
+                    StatusBorder.Visibility = Visibility.Visible;
+                    StatusPanel.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    StatusBorder.Visibility = Visibility.Collapsed;
+                    StatusPanel.Visibility = Visibility.Collapsed;
+                }
+                // Raise an event if necessary to enable a screen reader to announce the status update.
+                var peer = Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer.FromElement(StatusBlock);
+                if (peer != null)
+                {
+                    peer.RaiseAutomationEvent(Windows.UI.Xaml.Automation.Peers.AutomationEvents.LiveRegionChanged);
+                }
+            }
+
+            private void InitializeBotConnector()
+            {
+                // New code will go here
+            }
+
+            private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
+            {
+                // New code will go here
+            }
         }
     }
     ```
 
-1. Now you'll create the SpeechBotConnector from your own configuration details. Add the following to `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
+1. Next, you'll create the SpeechBotConnector from your own configuration details. Add the following to the method body of `InitializeBotConnector`, replacing the strings `YourChannelSecret`, `YourSpeechSubscriptionKey`, and `YourServiceRegion` with your own values for your bot, speech subscription, and [region](regions.md).
 
     > [!NOTE]
     > In preview, the Direct Line Speech channel currently supports only the **westus2** region. Further region support will be added in the future.
@@ -148,80 +216,44 @@ The complete, ready-to-compile source code used in this quickstart is available 
     botConnector = new SpeechBotConnector(botConnectorConfig);
     ```
 
-1. `SpeechBotConnector` relies on several events to communicate its results and other information. Add handlers for those next.
+1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add handlers for these events next, appending the following to the end of the method body of `InitializeBotConnector`.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client and uses bot framework activities
-    botConnector.ActivityReceived += BotConnector_ActivityReceived;
+    botConnector.ActivityReceived += (sender, activityReceivedEventArgs) =>
+    {
+        var media = this.mediaElement;
+        var activityAudio = activityReceivedEventArgs.Audio;
+        media.SetSource(activityAudio, "audio/wav");
+    };
     // Canceled will be signaled when a turn is aborted or experiences an error condition
-    botConnector.Canceled += BotConnector_Canceled;
-    // Recognizing will provide the intermediate recognized text while an audio stream is being processed
-    botConnector.Recognizing += BotConnector_Recognizing;
-    // Recognized will provide the final recognized text once audio capture is completed
-    botConnector.Recognized += BotConnector_Recognized;
+    botConnector.Canceled += (sender, canceledEventArgs) =>
+    {
+
+    };
+    // Recognizing (not 'Recognized') will provide the intermediate recognized text while an audio stream is being processed
+    botConnector.Recognizing += (sender, recognitionEventArgs) =>
+    {
+
+    };
+    // Recognized (not 'Recognizing') will provide the final recognized text once audio capture is completed
+    botConnector.Recognized += (sender, recognitionEventArgs) =>
+    {
+
+    };
     // SessionStarted will notify when audio begins flowing to the service for a turn
-    botConnector.SessionStarted += BotConnector_SessionStarted;
+    botConnector.SessionStarted += (sender, sessionEventArgs) =>
+    {
+
+    };
     // SessionStopped will notify when a turn is complete and it's safe to begin listening again
-    botConnector.SessionStopped += BotConnector_SessionStopped;
-    // Synthesizing contains text-to-speech audio for spoken text originating from your bot
-    botConnector.Synthesizing += BotConnector_Synthesizing;
+    botConnector.SessionStopped += (sender, sessionEventArgs) =>
+    {
+
+    };
     ```
 
-1. These event handlers that were just referenced don't exist yet. Add the following to the end of your `MainPage` class to implement them.
-
-    > [!NOTE]
-    > PREPUBLISH TODO: Complete/revise these handlers
-
-    ```csharp
-    /// <summary>
-    /// Processes incoming Synthesis events, writing audio chunks to a stream and finally creating a WAV for playback
-    /// </summary>
-    private void BotConnector_Synthesizing(object sender, Microsoft.CognitiveServices.Speech.Translation.TranslationSynthesisEventArgs e)
-    {
-        switch (e.Result.Reason)
-        {
-            case ResultReason.SynthesizingAudio:
-                Debug.Log($"Synthesizing audio");
-
-                // some optional action
-
-                // e.Result.GetAudio() will return a byte[], which we can process as needed
-
-                break;
-            case ResultReason.SynthesizingAudioCompleted:               
-                // some optional action
-                Debug.Log($"Synthesis complete");
-                break;
-            default:
-                break;
-        }
-    }
-
-    /// <summary>
-    /// Processes Recognizing events, used here to display hypothesis results
-    /// </summary> 
-    private void BotConnector_Recognizing(object sender, SpeechRecognitionEventArgs e)
-    {
-        Debug.LogFormat($"Hypothesis received:\r\n { e.Result.Text }");
-    }
-
-    /// <summary>
-    /// Processes Recognized events, used here to display final result
-    /// </summary> 
-    private void BotConnector_Recognized(object sender, SpeechRecognitionEventArgs e)
-    {
-        if (e.Result.Reason == ResultReason.RecognizedSpeech)
-        {
-            Debug.LogFormat($"Final recognition:\r\n {e.Result.Text}");
-        }
-        else if (e.Result.Reason == ResultReason.NoMatch)
-        {
-            Debug.LogFormat($"Speech could not be recognized.");
-        }
-    }
-    ```
-
-1. With the configuration established and the event handlers registered, the `SpeechBotConnector` now just needs to listen. Add the following to the end of the `MainPage` class.
+1. With the configuration established and the event handlers registered, the `SpeechBotConnector` now just needs to listen. Add the following to the body of the `ListenButton_ButtonClicked` method in the `MainPage` class.
 
     ```csharp
     private async void ListenButton_ButtonClicked(object sender, RoutedEventArgs e)
