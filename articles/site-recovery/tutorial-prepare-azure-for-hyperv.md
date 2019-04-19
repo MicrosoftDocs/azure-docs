@@ -71,7 +71,7 @@ Images of replicated machines are contained in Azure storage. Azure VMs are crea
 
    ![Create a new vault](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   The new vault appears on Dashboard > All resources, and on the main Recovery Services vaults page.
+The new vault appears on Dashboard > All resources, and on the main Recovery Services vaults page.
 
 ## Set up an Azure network
 
@@ -84,11 +84,9 @@ When Azure VMs are created from storage after failover, they're joined to this n
 5. In Subscription, select the subscription in which to create the network.
 6. In Location, choose **West Europe**. The network must be in the same region as the Recovery Services vault.
 7. Leave the default options of basic DDoS protection, with no service endpoint on the network.
-8. Select **Create**.
+8. Select **Create**. The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
    ![Create a virtual network](media/tutorial-prepare-azure/create-network.png)
-
-   The virtual network takes a few seconds to create. After it's created, you'll see it in the Azure portal dashboard.
 
 ## Useful links
 
