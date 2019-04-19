@@ -31,9 +31,6 @@ Use this table to determine availability of standard and neural voices by region
 | West US | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | No |
 | West US 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 | Yes | Yes |
 
-> [!IMPORTANT]
-> Microsoft Server Speech Text to Speech Voice (zh-CN, XiaoxiaoNeural) is only available via the Southeast Asia endpoint: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. For a complete list of neural voices, see [Language support](../articles/cognitive-services/speech-service/language-support.md).
-
 ### Custom voices
 
 If you've created a custom voice font, use the endpoint that you've created, not one of the endpoints in these lists.
