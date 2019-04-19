@@ -143,4 +143,4 @@ If you are using Read Scale-Out to load-balance read-only workloads on a databas
 
 ## Next steps
 
-- For information about SQL Database Hyperscale offering, see the [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).
+- For information about SQL Database Hyperscale offering, see [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).
