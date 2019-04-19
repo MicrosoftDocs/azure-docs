@@ -43,7 +43,7 @@ Otherwise if you prefer to stay with ASP.NET, try out the following tutorial:
 
 ## Scenario overview
 
-You add authentication to your Web App, so that it can sign in users. Adding authentication enables your web app to access limited profile information, and, for instance customize the experience you offer to its users. Web apps authenticate a user in a web browser. In this scenario, the web application directs the user’s browser to sign them in to Azure AD. Azure AD returns a sign-in response through the user’s browser, which contains claims about the user in a security token. Signing-in users leverage the [Open ID Connect](./v2-protocols-oidc.md) standard protocol itself simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration#libraries-used-to-protect-web-apps).
+You add authentication to your Web App, so that it can sign in users. Adding authentication enables your web app to access limited profile information, and, for instance customize the experience you offer to its users. Web apps authenticate a user in a web browser. In this scenario, the web application directs the user’s browser to sign them in to Azure AD. Azure AD returns a sign-in response through the user’s browser, which contains claims about the user in a security token. Signing-in users leverage the [Open ID Connect](./v2-protocols-oidc.md) standard protocol itself simplified by the use of middleware [libraries](scenario-web-app-sign-user-app-configuration.md#libraries-used-to-protect-web-apps).
 
 ![Web app signs-in users](./media/scenario-webapp/scenario-webapp-signs-in-users.svg)
 

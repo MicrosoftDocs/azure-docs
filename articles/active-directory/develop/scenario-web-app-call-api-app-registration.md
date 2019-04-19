@@ -29,7 +29,9 @@ However since the Web App now calls Web APIs, it becomes a confidential client a
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
-Finally since it calls APIs, it needs to declare the APIs it intends to call.
+## API permissions
+
+Web applications call APIs on behalf of the signed-in user. They need to request delegated permissions. For details see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)
 
 ## Next steps
 

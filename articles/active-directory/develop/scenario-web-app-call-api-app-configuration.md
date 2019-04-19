@@ -174,10 +174,21 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
                   .WithAuthority(new Uri(Globals.Authority))
                   .Build();
 
+  EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);
+
  AuthenticationResult result = await clientapp.AcquireTokenByAuthorizationCode(scopes, context.Code)
                                               .ExecuteAsync();
 }
 ```
+
+### MSAL.NET Token cache for a ASP.NET (Core) Web app
+
+In Web Apps (or Web APIs as a matter of fact), the token cache implementation is different from the Desktop applications token cache implementations (which are often [file based]()). It can use the ASP.NET/ASP.NET Core session, or a Redis cache, or a database, or even Azure Blog storage. In the code snippet above this is the object of the `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` method call, which binds a cache service. The detail of what happens here is beyond the scope of this scenario guide, but links are provided below.
+
+> [!IMPORTANT]
+> A very important thing to realize is that for Web Apps and Web APIs, there should be one token cache per user (per account). You need to serialize the token cache for each account.
+
+Examples of how to use token caches for Web apps and Web APIs are available in the [ASP.NET Core Web app tutorial](https://ms-identity-aspnetcore-webapp-tutorial) in the phase [2-2 Token Cache](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). For implementations have a look at the following folder [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) in the [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) library (in the [Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) folder. This library could be available in the future as a NuGet package.
 
 ## Next steps
 
