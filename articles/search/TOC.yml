@@ -55,8 +55,6 @@
     href: knowledge-store-concept-intro.md
   - name: Full text search
     href: search-lucene-query-architecture.md
-  - name: Multitenant architecture
-    href: search-modeling-multitenant-saas-applications.md
 - name: How-to guides
   items:
   - name: Capacity planning
@@ -69,6 +67,8 @@
       href: search-capacity-planning.md
     - name: Deployment strategies and best practices
       href: search-performance-optimization.md
+    - name: Multitenant architecture
+      href: search-modeling-multitenant-saas-applications.md
   - name: Security
     items:
     - name: Security overview
@@ -197,7 +197,7 @@
       href: cognitive-search-concept-troubleshooting.md
     - name: Documentation links
       href: cognitive-search-resources-documentation.md
-  - name: Knowledge Store
+  - name: Knowledge Store (preview)
     items:
     - name: How to get started
       href: knowledge-store-howto.md

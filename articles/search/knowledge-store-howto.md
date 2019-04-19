@@ -18,6 +18,23 @@ Postman and REST API calls
 
 Sample data
 
+
+Link list:
+
+[What is Knowledge Store in Azure Search](knowledge-store-concept-intro.md) ** concepts, architecture, use cases
+[How to use Knowledge Store](knowledge-store-howto.md) ** procedural
+[Shaper cognitive search skill - Azure Search](cognitive-search-skill-shaper.md) ** reference
+[What is "cognitive search" in Azure Search](cognitive-search-concept-intro.md) ** reference
+[Quickstart: Create an AI indexing pipeline in Azure Search](cognitive-search-quickstart-blob.md) ** portal
+[What is Azure Search > Feature list](search-what-is-azure-search.md) ** Feature list entry
+
+> [!NOTE]
+> As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to attach a billable Cognitive Services resource. Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
+>
+> Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400). Learn [more](cognitive-search-attach-cognitive-services.md).
+
+
+
 ## Prerequisites
 
 ## 
