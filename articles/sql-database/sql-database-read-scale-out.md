@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database - read queries on replicas| Microsoft Docs
-description: The Azure SQL Database provides the ability to load balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
+description: The Azure SQL Database provides the ability to load-balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,33 +11,30 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/28/2019
+ms.date: 04/19/2019
 ---
-# Use read-only replicas to load balance read-only query workloads
+# Use read-only replicas to load-balance read-only query workloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
-**Read Scale-Out** allows you to load balance Azure SQL Database read-only workloads using the capacity of one read-only replica.
+As part of the [High Availability architecture](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), each database in the Premium, Business Critical or Hyperscale service tier is automatically provisioned with a primary replica and several secondary replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load-balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics. They could gain performance benefits using this additional capacity at no extra cost.
 
-Each database in the Premium tier ([DTU-based purchasing model](sql-database-service-tiers-dtu.md)) or in the Business Critical tier ([vCore-based purchasing model](sql-database-service-tiers-vcore.md)) is automatically provisioned with several AlwaysON replicas to support the availability SLA. This is illustrated by the following diagram.
+The following diagram illustrates it using a Business Critical database.
 
 ![Readonly replicas](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. This way the read-only workload will be isolated from the main read-write workload and will not affect its performance. The feature is intended for the applications that include logically separated read-only workloads, such as analytics, and therefore could gain performance benefits using this additional capacity at no extra cost.
+The Read Scale-Out feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-To use the Read Scale-Out feature with a particular database, you must explicitly enable it when creating the database or afterwards by altering its configuration using PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets or through the Azure Resource Manager REST API using the [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) method.
-
-After Read Scale-Out is enabled for a database, applications connecting to that database will be directed by the gateway to either the read-write replica or to a read-only replica of that database according to the `ApplicationIntent` property configured in the application’s connection string. For information on the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
-
-If Read Scale-Out is disabled or you set the ReadScale property in an unsupported service tier, all connections are directed to the read-write replica, independent of the `ApplicationIntent` property.
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium, Business Critical or Hyperscale tier and want to make sure all your connections continue to go to the primary replica, disable Read Scale-out. For details on how to disable it, see [Enable and disable Read Scale-Out](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
 > Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas. 
+
 ## Data consistency
 
-One of the benefits of replicas is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it can be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible on the replica. The latency is caused by an asynchronous transaction log redo operation.
+One of the benefits of replicas is that the replicas are always in the transactionally consistent state, but at different points in time there may be some small latency between different replicas. Read Scale-Out supports session-level consistency. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it may be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible on the replica. The latency is caused by an asynchronous transaction log redo operation.
 
 > [!NOTE]
 > Replication latencies within the region are low and this situation is rare.
@@ -81,35 +78,43 @@ When connected to a read-only replica, you can access the performance metrics us
 
 ## Enable and disable Read Scale-Out
 
-Read Scale-Out is enabled by default in [Managed Instance](sql-database-managed-instance.md) Business Critical tier. It should be explicitly enabled in [database placed on SQL Database server](sql-database-servers.md) Premium and Business Critical tiers. The methods for enabling and disabling Read Scale-Out is described here.
+Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tiers. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read Scale-Out is automatically disabled on Hyperscale databases configured with 0 replicas. 
 
-### PowerShell: Enable and disable Read Scale-Out
+You can disable and re-enable Read Scale-Out on single databases and elastic pool databases in Premium or Business Critical service tier using the following methods.
+
+> [!NOTE]
+> The ability to disable Read Scale-Out is provided for backward compatibility.
+
+### Azure portal
+
+You can manage the Read Sacle-out setting on the **Configure** database blade. 
+
+### PowerShell
 
 Managing Read Scale-Out in Azure PowerShell requires the December 2016 Azure PowerShell release or newer. For the newest PowerShell release, see [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-Enable or disable read scale-out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter. Alternatively, you may use the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet to create a new database with read scale-out enabled.
+You can disable or re-enable Read Scale-Out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter. 
 
-For example, to enable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+To disable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+
+```powershell
+Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+```
+To disable read scale-out on a new database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+
+```powershell
+New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
+```
+
+To re-enable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
 Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
 ```
 
-To disable read scale-out for an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+### REST API
 
-```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
-```
-
-To create a new database with read scale-out enabled (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
-
-```powershell
-New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled -Edition Premium
-```
-
-### REST API: Enable and disable Read Scale-Out
-
-To create a database with read scale-out enabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
+To create a database with read scale-out disabled, or to change the setting for an existing database, use the following method with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
@@ -118,7 +123,7 @@ Body:
 {
    "properties":
    {
-      "readScale":"Enabled"
+      "readScale":"Disabled"
    }
 }
 ```
@@ -131,12 +136,11 @@ The TempDB database is not replicated to the read-only replicas. Each replica ha
 
 ## Using Read Scale-Out with geo-replicated databases
 
-If you are using read scale-out to load balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different end-point than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
+If you are using Read Scale-Out to load-balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. If you are connecting to the geo-replicated secondary database with read-scale enabled, your sessions with `ApplicationIntent=ReadOnly` will be routed to one of the  replicas the same way we route connections on the primary database.  The sessions without `ApplicationIntent=ReadOnly` will be routed to the primary replica of the geo-replicated secondary, which is also read-only. Because geo-replicated secondary database has a different endpoint than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. To ensure backward compatibility, `sys.geo_replication_links` DMV shows `secondary_allow_connections=2` (any client connection is allowed).
 
 > [!NOTE]
-> Round-robin or any other load balanced routing between the local replicas of the secondary database is not supported.
+> Round-robin or any other load-balanced routing between the local replicas of the secondary database is not supported.
 
 ## Next steps
 
-- For information about using PowerShell to set read scale-out, see the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) or the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlets.
-- For information about using the REST API to set read scale-out, see [Databases - Create or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+- For information about SQL Database Hyperscale offering, see [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).
