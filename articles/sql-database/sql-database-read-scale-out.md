@@ -78,10 +78,12 @@ When connected to a read-only replica, you can access the performance metrics us
 
 ## Enable and disable Read Scale-Out
 
-Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tier. You can change it on individual databases using the following methods. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers.
+Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tiers. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read Scale-Out is automatically disabled on Hyperscale databases configured with 0 replicas. 
+
+You can disbale and re-enable Read Scale-Out on single databases and elastic pool databases in Premium or Business Critical service tier using the following methods.
 
 > [!NOTE]
-> You cannot manage Read Scale-Out on databases created in Buisness Critical Managed Instance. It is always enabled. 
+> The ability to disable Read Scale-Out is provided for backward compatibility.
 
 ### Azure Portal
 
