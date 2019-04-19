@@ -55,13 +55,13 @@ Use this table to ensure that your audio files are formatted correctly for use w
 | Maximum length per audio | 2 hours |
 | Sample format | PCM, 16-bit |
 | Archive format | .zip |
-| Maximum zip size | 2 GB |
+| Maximum archive size | 2 GB |
 
-If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading sox to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
+If your audio doesn’t satisfy these properties or you want to check if it does, we suggest downloading [sox](http://sox.sourceforge.net) to check or convert the audio. Below are some examples of how each of these activities can be done through the command line:
 
 | Activity | Description | Sox command |
 |----------|-------------|-------------|
-| Check audio format | Use this command to check the audio file format. | `sox <filename>.wav` |
+| Check audio format | Use this command to check the audio file format. | `soxi <filename>.wav` |
 | Convert audio format | Use this command to convert the audio file to single channel, 16-bit, 48KHz. | `sox <filename>.wav -b 16 -3 signed-integer -c l -r 48k -t wav <filename>.wav` |
 
 ## Audio + human-labeled transcript data for testing/training
@@ -78,11 +78,18 @@ To measure the accuracy of Microsoft's speech-to-text accuracy when processing y
 | Archive format | .zip |
 | Maximum zip size | 2 GB |
 
-To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. This is a sample
+To address issues like word deletion or substitution, a significant amount of data is required to improve recognition. Generally, it's recommended to provide word-by-word transcriptions for roughly 10 to 1,000 hours of audio. The transcriptions for all WAV files should be contained in a single plain-text file. Each line of the transcription file should contain the name of one of the audio files, followed by the corresponding transcription. The file name and transcription should be separated by a tab (\t).
 
-![Select audio from the Speech Portal](./media/custom-speech/custom-speech-sample-transcription.png)
+  For example:
+```
+  speech01.wav  speech recognition is awesome
+  speech02.wav  the quick brown fox jumped all over the place
+  speech03.wav  the lazy dog was not amused
+```
+> [!NOTE]
+> Transcription should be encoded as UTF-8 byte order mark (BOM).
 
-[How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) provides guidance to help you build a high-quality transcription file.
+The transcriptions are text-normalized so they can be processed by the system. However, there are some important normalizations that must be done by the user _prior_ to uploading the data to the Custom Speech Service. For the appropriate language to use when you prepare your transcriptions, see [How to create a human-labeled transcription](how-to-custom-speech-human-labeled-transcriptions.md) 
 
 After you've gathered your audio files and corresponding transcriptions, they should be packaged as a single .zip file before uploading to the Custom Speech portal. The following is an example of a data set with three audio files and a human-labeled transcription file:
 
