@@ -14,9 +14,17 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Queues support asynchronous communications between applications. An app sends messages to a queue, which stores the messages. The receiving application then connects to and reads the messages from the queue.
+[!INCLUDE [open-source-devops-intro-servicebus.md](../../includes/open-source-devops-intro-servicebus.md)]
 
-In this tutorial, an Azure Service Bus queue is created using Ansible.
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create a queue
+> * Create a SAS plicy
+> * Retrieve namespace information
+> * Retrieve queue information
+> * Revoke the queue SAS policy
 
 ## Prerequisites
 

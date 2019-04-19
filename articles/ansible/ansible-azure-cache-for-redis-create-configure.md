@@ -16,7 +16,15 @@ ms.date: 04/04/2019
 
 [Azure Cache for Redis](/azure/azure-cache-for-redis/) is an open-source compatible service that allows you to build responsive apps by providing fast access to data. 
 
-In this article, you use Ansible to create a cache. Once created, you learn how to scale, reboot, add a firewall rule to, and delete the cache.
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create a cache
+> * Scale a cache
+> * Reboot a cache
+> * Add a firewall rule to a cache
+> * Delete a cache
 
 ## Prerequisites
 

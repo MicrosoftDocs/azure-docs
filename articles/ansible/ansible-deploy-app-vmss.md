@@ -16,7 +16,7 @@ ms.date: 04/04/2019
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-[!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >

@@ -14,9 +14,18 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) is an enterprise [integration](https://azure.microsoft.com/product-categories/integration/) message broker. Topics support the publish-subscribe pattern, which enables a one-to-many relationship between the message originator and the messager receiver(s). 
+[!INCLUDE [open-source-devops-intro-servicebus.md](../../includes/open-source-devops-intro-servicebus.md)]
 
-In this tutorial, you learn how to use Ansible to create a topic and a subscription to the topic.
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create a topic
+> * Create a subscription
+> * Create a SAS policy
+> * Retrieve namespace information
+> * Retrieve topic and subscription information
+> * Revoke a SAS policy
 
 ## Prerequisites
 

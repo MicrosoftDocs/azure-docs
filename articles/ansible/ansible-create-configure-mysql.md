@@ -16,7 +16,9 @@ ms.date: 04/04/2019
 
 [Azure Database for MySQL](/azure/mysql/overview) is a relational database service based on the MySQL Community Edition. Azure Database for MySQL enables you to manage MySQL databases in your web apps.
 
-[!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
 >
 > * Create a MySql server
 > * Create a MySql database

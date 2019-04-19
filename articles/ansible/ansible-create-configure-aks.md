@@ -12,9 +12,18 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure Azure Kubernetes Service (AKS) clusters in Azure using Ansible
 
-[!INCLUDE [ansible-26-note.md](../../includes/ansible-26-note.md)]
+[!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is a managed Kubernetes service that allows you to configure clusters. A cluster consists of a single master node and one or more worker nodes. In this article, Ansible is used to create and configure an AKS cluster.
+[!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
+
+AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directory/) for user authentication. Once configured, you use your Azure AD authentication token to sign into the AKS cluster. The RBAC can be based on a user's identity or directory group membership.
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create an AKS cluster
+> * Configure an AKS cluster
 
 ## Prerequisites
 

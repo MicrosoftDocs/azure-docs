@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Quickstart: Run Ansible playbooks via Bash in Azure Cloud Shell
 
-In this article, you learn how to use Bash within Azure Cloud Shell to configure an Azure subscription as your Ansible workspace. 
+Azure Cloud Shell is an interactive, browser-accessible shell for managing Azure resources. Cloud Shell provides enables you to use either a Bash or Powershell command line. In this article, you learn how to use Bash within Azure Cloud Shell to configure an Azure subscription as your Ansible workspace.
 
 ## Prerequisites
 

@@ -14,7 +14,16 @@ ms.date: 04/04/2019
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure HDInsight](/azure/hdinsight/) is a Hadoop-based analytics service for processing data. HDInsight is an ETL (extract, transform, load) tool used to work with big data - either structured or unstructured. HDInsight supports several [cluster types](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) where each type supports a different set of components. In this article, you use Ansible to configure a [Spark cluster in HDInsight](/azure/hdinsight/spark/apache-spark-overview).
+[Azure HDInsight](/azure/hdinsight/) is a Hadoop-based analytics service for processing data. HDInsight is an ETL (extract, transform, load) tool used to work with big data - either structured or unstructured. HDInsight supports several [cluster types](/azure/hdinsight/hadoop/apache-hadoop-introduction#cluster-types-in-hdinsight) where each type supports a different set of components. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create a storage account for HDInsight
+> * Configure a [HDInsight Spark cluster](/azure/hdinsight/spark/apache-spark-overview).
+> * Resize a cluster
+> * Delete a cluster
 
 ## Prerequisites
 

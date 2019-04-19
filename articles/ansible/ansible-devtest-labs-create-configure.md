@@ -16,7 +16,21 @@ ms.date: 04/04/2019
 
 [Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) allows developers to automate the creation of VM environments for their apps. These environments can be configured for app developing, testing, and training. 
 
-In this article, you create and manage labs in Azure DevTest Labs using Ansible.
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Create a lab
+> * Set the lab policies
+> * Set the lab schedules
+> * Create the lab virtual network
+> * Define an artifact source for the lab
+> * Create a VM within the lab
+> * List the lab's artifact sources and artifacts
+> * Get Azure Resource Manager information for the artifact sources
+> * Create the lab environment
+> * Create the lab image
+> * Delete the lab
 
 ## Prerequisites
 

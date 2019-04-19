@@ -16,7 +16,10 @@ ms.date: 04/04/2019
 
 Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. If you need more control over your environment's routing, you can create a [route table](/azure/virtual-network/virtual-networks-udr-overview). 
 
-[!INCLUDE [ansible-intro.md](../../includes/ansible-intro.md)]
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
 > Create a route table
 > Create a virtual network and subnet
 > Associate a route table with a subnet

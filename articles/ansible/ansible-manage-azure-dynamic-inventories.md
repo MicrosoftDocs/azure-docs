@@ -12,7 +12,16 @@ ms.date: 04/04/2019
 
 # Tutorial: Configure dynamics inventories of your Azure resources using Ansible
 
-Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. In this article, you use Ansible to configure two virtual machines. You then tag and install Nginx on one of the virtual machines. Finally, you configure a dynamic inventory that includes the Azure resources you've configured.
+Ansible can be used to pull inventory information from various sources (including cloud sources such as Azure) into a *dynamic inventory*. 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Configure two test virtual machines. 
+> * Tag one of the virtual machines
+> * Install Nginx on the tagged virtual machines
+> * Configure a dynamic inventory that includes the configured Azure resources
 
 ## Prerequisites
 
