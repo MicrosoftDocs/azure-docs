@@ -161,4 +161,4 @@ Azure Marketplace offerings can be purchased in 141 geographies as defined by th
 | Zimbabwe                            | ZW        | USD          |
 |   |   |   |
 
-* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
+\* For customers in Brazil, the Marketplace through Cloud Solution Providers (CSP) uses USD.
