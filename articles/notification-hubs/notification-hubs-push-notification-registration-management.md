@@ -32,7 +32,7 @@ Device registration with a Notification Hub is accomplished using a **Registrati
 A registration associates the Platform Notification Service (PNS) handle for a device with tags and possibly a template. The PNS handle could be a ChannelURI, device token, or FCM registration id. Tags are used to route notifications to the correct set of device handles. For more information, see [Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md). Templates are used to implement per-registration transformation. For more information, see [Templates](notification-hubs-templates-cross-platform-push-messages.md).
 
 > [!NOTE]
-> Azure Notification Hubs supports a maximum of 60 tags per registration.
+> Azure Notification Hubs supports a maximum of 60 tags per device.
 
 ### Installations
 
