@@ -99,7 +99,7 @@
         href: how-to-vscode-train-deploy.md
   - name: Work with data
     items:
-    - name: Create & register dataset (preview)
+    - name: Add & register datasets (preview)
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
     - name: Prepare data (GA)
@@ -116,13 +116,13 @@
     - name: Prepare data (preview)
       displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
       href: how-to-explore-prepare-data.md
-    - name: Version & manage dataset definitions (preview)
+    - name: Version dataset definitions (preview)
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
     - name: Snapshot your data (preview)
       displayName: snapshots, profile, summary statistics, data copy
       href: how-to-create-dataset-snapshots.md
-    - name: Get data in datastore
+    - name: Get data from datastore
       displayName: blob get fileshare access storage
       href: how-to-access-data.md
   - name: Train models
