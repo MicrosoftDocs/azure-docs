@@ -282,4 +282,4 @@ foreach($name in $nodeNames){
 
 ```
 
-[sf-architecture]: .\media\service-fabric-availability-zones\az-architecture.png
+[sf-architecture]: .\media\service-fabric-availability-zones\az-cross-architecture.png
