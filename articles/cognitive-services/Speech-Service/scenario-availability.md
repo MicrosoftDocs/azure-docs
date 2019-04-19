@@ -16,7 +16,7 @@ ms.author: cbasoglu
 
 The Speech service SDK features many scenarios across a wide variety of programming languages and environments.  Not all scenarios are currently available in all programming languages or all environments yet.  Listed below is the availability of each scenario.
 
-- **Speech-Recognition (SR), Intent, and Translation**
+- **Speech-Recognition (SR), Phrase List, Intent, and Translation**
   - All programming languages/environments where there is an an arrow link <img src="media/index/link.jpg" height="15" width="15"></img> in the quickstart table [here](https://aka.ms/csspeech).
 - **Text-to-Speech (TTS)**
   - C++/Windows & Linux
@@ -28,12 +28,6 @@ The Speech service SDK features many scenarios across a wide variety of programm
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (Speech Devices SDK)
   - Note: Keyword spotting (KWS) functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK
-- **Phrase List**
-  - C++/Windows & Linux
-  - C#/Windows & UWP & Unity & Linux
-  - Python/Windows & Linux
-  - Java/Windows & Linux & Android
-  - Java Script/Browser & Node.js
 - **Voice-First Virtual Assistant**
   - C#/UWP
   - Java/Windows
