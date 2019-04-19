@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor (preview) | Microsoft Docs
-description: Introduction to Azure Active Directory activity logs in Azure Monitor (preview)
+title: Azure Active Directory activity logs in Azure Monitor | Microsoft Docs
+description: Introduction to Azure Active Directory activity logs in Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
 ---
 
-# Azure AD activity logs in Azure Monitor (preview)
+# Azure AD activity logs in Azure Monitor
 
-You can now route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. The public preview of Azure AD logs in Azure Monitor allows you to:
+You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
