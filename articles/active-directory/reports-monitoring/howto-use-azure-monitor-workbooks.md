@@ -65,7 +65,7 @@ To Access workbooks:
 
 ## Sign-in analysis
 
-To access the sign-in analysis data, click **Sign-ins** in the **Usage** section. 
+To access the sign-in analysis workbook, click **Sign-ins** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -102,7 +102,7 @@ For each trend, you get a breakdown by:
 ## Sign-ins using legacy authentication 
 
 
-To access the sign-ins data, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
+To access the sign-ins using legacy authentication workbook, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -133,7 +133,7 @@ For each trend, you get a breakdown by app and protocol.
 ## Sign-ins by conditional access 
 
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+To access the sign-ins by [conditional access policies](../conditional-access/overview.md) workbook, click **Sign-ins by Conditional Access** in the **Conditional access** section. 
 
 This workbook shows the trend for disabled sign-ins.
 
@@ -161,7 +161,7 @@ For each trend, you get a breakdown by app and protocol.
 
 ## Sign-ins by grant controls
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+To access the sign-ins by [grant controls](../conditional-access/controls.md) workbook, click **Sign-ins by Grant Controls** in the **Conditional access** section. 
 
 This workbook shows the following disabled sign-in trends:
 
