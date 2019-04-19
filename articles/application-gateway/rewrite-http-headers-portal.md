@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Before you begin
 
-You need to have an Application Gateway v2 SKU  since the header rewrite capability is not supported for the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) before you begin.
+You need to have an Application Gateway v2 SKU  since the header rewrite capability is not supported for the v1 SKU. If you don't have the v2 SKU, create an [Application Gateway v2 SKU](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) before you begin.
 
 ## What is required to rewrite a header
 
@@ -119,8 +119,8 @@ In this example, we will modify the redirection URL by rewriting the location he
 
    ![Modify location header](media/rewrite-http-headers-portal/rewrite-set-list.png)
 
-   ## Next steps
+## Next steps
 
-   To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+To learn more about the configuration required to accomplish some of the common use cases, see [common header rewrite scenarios](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
 
    

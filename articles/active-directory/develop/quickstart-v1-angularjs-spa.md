@@ -43,6 +43,9 @@ To build the complete, working application, you'll need to:
 2. Install ADAL and configure the single-page app.
 3. Use ADAL to help secure pages in the single-page app.
 
+> [!NOTE]
+> If you need to enable sign-ins for personal accounts in addition to work and school accounts, you can use the *[Microsoft identity platform endpoint](azure-ad-endpoint-comparison.md)*. For more info, see [this JavaScript SPA tutorial](tutorial-v2-javascript-spa.md) as well as [this article](active-directory-v2-limitations.md) explaining the *Microsoft identity platform endpoint*. 
+
 ## Prerequisites
 
 To get started, complete these prerequisites:

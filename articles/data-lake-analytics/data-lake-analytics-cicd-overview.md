@@ -60,7 +60,7 @@ U-SQL scripts in a U-SQL project might have query statements for U-SQL database 
 Learn more about [U-SQL database project](data-lake-analytics-data-lake-tools-develop-usql-database.md).
 
 >[!NOTE]
->U-SQL database project is currently in public preview. If you have DROP statement in the project, the build fails. The DROP statement will be allowed soon.
+>DROP statement may cause accident deletion issue. To enable DROP statement, you need to explicitly specify the MSBuild arguments. **AllowDropStatement** will enable non-data related DROP operation, like drop assembly and drop table valued function. **AllowDataDropStatement** will enable data related DROP operation, like drop table and drop schema. You have to enable AllowDropStatement before using AllowDataDropStatement.
 >
 
 ### Build a U-SQL project with the MSBuild command line
