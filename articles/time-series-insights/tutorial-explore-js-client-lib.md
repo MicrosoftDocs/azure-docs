@@ -187,7 +187,7 @@ Look at the code that's behind some of the standard chart controls that are demo
 
 Recall from step #3 in the [Page source and structure section](#page-source-and-structure) that chart controls are arranged in rows on the page, each of which has a descriptive title row. In this example, the three charts are populated under the "Multiple Chart Types From the Same Data" title `<div>` element, and are bound to the three `<div>` elements that are beneath the title:
 
-[!code-javascript[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
+[!code-html[code-sample1-line-bar-pie](~/samples-javascript/pages/tutorial/index.html?range=59-73&highlight=1,5,9,13)]
 
 The following section of JavaScript code uses patterns that were outlined earlier: build TSI aggregate expressions, use them to query for TSI data, and render the three charts. Notice the three types that are used from the `tsiClient.ux` namespace: `LineChart`, `BarChart`, and `PieChart`, to create and render the respective charts. Also note that all three charts are able to use the same aggregate expression data `transformedResult`:
 
