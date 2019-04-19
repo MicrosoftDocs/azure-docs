@@ -477,33 +477,22 @@ FROM c
 Array expressions can also come after the FROM clause in subqueries.
 
 ```sql
-SELECT TOP 5 c.id, n.name
+SELECT TOP 1 c.id, ARRAY(SELECT VALUE t.name FROM t in c.tags) as tagNames
 FROM c
-JOIN n IN (SELECT VALUE (SELECT VALUE(c.tags)))
+JOIN n IN (SELECT VALUE ARRAY(SELECT t FROM t in c.tags WHERE t.name != 'infant formula'))
 ```
 Query Output:
 
-```json## <a id="Multi-Value Subqueries"></a>Multi-Value Subqueries
- [
+```json
+[
     {
-        "id": "03226",
-        "name": "babyfood"
-    },
-    {
-        "id": "03226",
-        "name": "dessert"
-    },
-    {
-        "id": "03226",
-        "name": "fruit pudding"
-    },
-    {
-        "id": "03226",
-        "name": "orange"
-    },
-    {
-        "id": "03226",
-        "name": "strained"
+        "id": "03238",
+        "tagNames": [
+            "babyfood",
+            "dessert",
+            "tropical fruit",
+            "junior"
+        ]
     }
 ]
 ```
