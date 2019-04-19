@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Quickstart: Install Ansible on Linux virtual machines in Azure
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. You can use Ansible to manage your virtual machines (VMs) in Azure, the same as you would any other resource. This article details how to install Ansible and the required Azure Python SDK modules for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. To create Azure resources in a secure manner, you also learn how to create and define credentials for Ansible to use. For a list of additional tools available in the Cloud Shell, see [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools).
+Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows how to configure Ansible for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. 
 
 ## Prerequisites
 
@@ -98,7 +98,7 @@ In this section, you configure SLES to use Ansible.
 
 ## Create Azure credentials
 
-To configure the Ansible credentials, you need the following:
+To configure the Ansible credentials, you need the following information:
 
 * Your Azure subscription ID 
 * The service principal values
