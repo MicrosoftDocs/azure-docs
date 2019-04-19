@@ -49,9 +49,9 @@ To use this feature, you need:
     ![Gallery](./media/howto-use-azure-monitor-workbooks/42.png)
 
 
-## Sign-ins report
+## Sign-in analysis
 
-To access the sign-ins data, click **Sign-ins** in the **Usage** section. 
+To access the sign-in analysis data, click **Sign-ins** in the **Usage** section. 
 
 This workbook shows the following sign-in trends:
 
@@ -85,7 +85,7 @@ For each trend, you get a breakdown by:
     ![Gallery](./media/howto-use-azure-monitor-workbooks/46.png)
 
 
-## Sign-ins using legacy authentication report
+## Sign-ins using legacy authentication 
 
 
 To access the sign-ins data, click **Sign-ins using Legacy Authentication** in the **Usage** section. 
@@ -105,6 +105,8 @@ You can filter each trend by:
 
 - Users
 
+- Protocols 
+
 ![Gallery](./media/howto-use-azure-monitor-workbooks/47.png)
 
 
@@ -114,7 +116,7 @@ For each trend, you get a breakdown by app and protocol.
 
 
 
-## Sign-ins by conditional access report
+## Sign-ins by conditional access 
 
 
 To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
@@ -147,7 +149,16 @@ For each trend, you get a breakdown by app and protocol.
 
 To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
 
-This workbook shows the trend for disabled sign-ins.
+This workbook shows the following disabled sign-in trends:
+
+- Require MFA
+ 
+- Require terms of use
+
+- Require privacy statement
+
+- Other
+
 
 You can filter each trend by:
 
@@ -167,11 +178,20 @@ For each trend, you get a breakdown by app and protocol.
 
 
 
-## Troubleshooting sign-ins
+## Sign-ins failure analysis
 
-To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Conditional access** section. 
+To access the sign-ins by conditional access data, click **Sign-ins using Legacy Authentication** in the **Troubleshoot** section. 
 
-This workbook shows the trend for disabled sign-ins.
+This workbook shows the following sign-in trends:
+
+- All sign-ins
+
+- Success
+
+- Pending action
+
+- Failure
+
 
 You can filter each trend by:
 
@@ -184,8 +204,7 @@ You can filter each trend by:
 ![Gallery](./media/howto-use-azure-monitor-workbooks/52.png)
 
 
-For each trend, you get a breakdown by:
-
+For troubleshooting sign-ins, you get a breakdown by:
 
 - Top errors
 
@@ -198,40 +217,7 @@ For each trend, you get a breakdown by:
 
 
 
-## Backup
 
-
-
-
-
-This workbook contains success and failure trends for attempted sign-ins over time, and shows a breakdown of sign-in attempts by location and platform (operating system and browser). 
-
-
-
-
-
-
-You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
-
-![Workbooks](./media/howto-use-azure-monitor-workbooks/signin-usage.png)
-
-## Usage - Sign-ins and conditional access
-
-The **Sign-ins and Conditional Access** workbook displays trends for the status of conditional access policies. It also displays the sign-ins by grant control policy, MFA sign-ins through conditional access and application sign-ins with and without conditional access. You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar.
-
-![Workbooks](./media/howto-use-azure-monitor-workbooks/signins-conditional-access.png)
-
-## Usage - Sign-ins using legacy authentication
-
-You can access information about legacy authentication using the **Sign-ins using Legacy Auth** workbook. It displays the sign-ins using legacy authentication, including the protocols used and the status of the authentication attempt. It also displays the breakdown of sign-in attempts by users and applications. You can filter this data by selecting a specific time range or application using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar.
-
-![Workbooks](./media/howto-use-azure-monitor-workbooks/signins-legacy-auth.png)
-
-## Troubleshoot - Sign-ins failure analysis
-
-Select the **Sign-ins failure analysis** workbook to troubleshoot errors with sign-ins, conditional access policies, and legacy authentication. The workbook shows the top sign-in errors, as well as information about errors due to conditional access policies and legacy authentication sign-ins. You can filter this data by selecting a specific time range, application, or user using the drop-down menus. You can also edit, save, or share the workbook using the buttons on the top bar. 
-
-![Workbooks](./media/howto-use-azure-monitor-workbooks/troubleshoot.png)
 
 ## Next steps
 
