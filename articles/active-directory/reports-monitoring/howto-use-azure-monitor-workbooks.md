@@ -20,13 +20,13 @@ ms.reviewer: dhanyahk
 
 # How to: Use Azure Monitor workbooks for Azure Active Directory reports
 
-[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides the following workbooks to help you gain insights into your environment.
+[Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks) combine text, Analytics queries, Azure Metrics, and parameters into rich interactive reports. Azure Active Directory provides workbooks that help you gain insights into your environment.
 
 This article:
 
 - Assumes that you are familiar with how to [Create interactive reports with Azure Monitor workbooks](https://docs.microsoft.com/azure/azure-monitor/app/usage-workbooks).
 
-- Explains how you can use the Azure Monitor workbooks for monitoring.
+- Explains how you can use the Azure Monitor workbooks about monitoring.
  
 
 
