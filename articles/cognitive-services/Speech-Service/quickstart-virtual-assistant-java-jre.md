@@ -41,14 +41,14 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-1. Additionally, to enable logging, update the **pom.xml** file to include the following dependency. 
+Additionally, to enable logging, update the **pom.xml** file to include the following dependency.
 
    ```xml
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>1.7.5</version>
-        </dependency>
+    <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>1.7.5</version>
+    </dependency>
    ```
 
 ## Add sample code
@@ -59,9 +59,9 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 
    ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Open the newly created **Main** class. Import the following speech SDK packages.
+1. Open the newly created **Main** class and import the following packages.
 
- ```java
+    ```java
     import com.microsoft.cognitiveservices.speech.ResultReason;
     import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
     import com.microsoft.cognitiveservices.speech.dialog.BotConnectorConfig;
@@ -71,25 +71,20 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 
     import org.slf4j.Logger; //Optional for logging only
     import org.slf4j.LoggerFactory; //Optional for logging only
-```
+    ```
 
 1. In the **main** method, you will first configure your `BotConnectorConfig`.
 
    ```java
-    final String channelSecret = "YourChannelSecret"; // Your bot channel secret
+    final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
     final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
     final BotConnectorConfig botConnectorConfig = BotConnectorConfig.fromBotConnectionId(channelSecret, subscriptionKey, region);
-    if (botConnectorConfig == null) {
-        log.error("BotConnectorConfig should not be null");
-    }
     ```
 
-1. Replace the string `YourSubscriptionKey` with your subscription key which you can get from [here](get-started.md).
-
-1. Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (Currently we are only supporting 'westus2').
-
-1. Replace the string `YourChannelSecret` with your direct line speech channel secret.
+   * Replace the string `YourSubscriptionKey` with your subscription key which you can get from [here](get-started.md).
+   * Replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (Currently we are only supporting 'westus2').
+   * Replace the string `YourChannelSecret` with your direct line speech channel secret.
 
 1. Enable the audio input by configuring the AudioConfig. In the quick start we use the default microphone input for audio input.
 
@@ -97,12 +92,13 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
      final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
     ```
 
-1. Create a `SpeechBotConnector` instance
+1. Create a `SpeechBotConnector` instance which will connect to the Direct line speech channel to interact with your bot.
+
     ```java
     final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` relies on several events to communicate its results and other information. Add these event listeners next.
+    `SpeechBotConnector` relies on several events to communicate its results and other information. Add these event listeners next.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -139,126 +135,156 @@ If you're running Windows (64-bit) ensure you have installed Microsoft Visual C+
 
     // TODO: Update once the TTS changes are ready
     // Synthesizing will provide the audio associated with the an activity that contains the "speak"
-    final AudioPlayer audioPlayer = new AudioPlayer();
-    final HashMap<String, PipedOutputStream> audioMap = new HashMap<>();
     botConnector.synthesizing.addEventListener((o, synthesisEventArgs) -> {
+
         final String requestId = synthesisEventArgs.getResult().getRequestId();
         final byte[] audio = synthesisEventArgs.getResult().getAudio();
         final ResultReason reason = synthesisEventArgs.getResult().getReason();
 
         log.info("Synthesizing event id: {}, reason: {}", requestId, reason);
-
         try {
+            // New request received
             if (!audioMap.containsKey(requestId)) {
                 audioMap.put(requestId, new PipedOutputStream());
             }
 
             final PipedOutputStream pos = audioMap.get(requestId);
-            // Start playback
-            if (!audioPlayer.isPlaying()) {
-                audioPlayer.play(pos);
+            switch (reason) {
+            case SynthesizingAudio: {
+                // Start playback
+                if (!audioPlayer.isPlaying()) {
+                    System.out.println("Response playback started....");
+                    audioPlayer.play(pos);
+                }
+                if (audio.length > 0) {
+                    pos.write(audio);
+                }
+                break;
             }
-            // Write audio bits to PipedOutputStream
-            if (audio.length > 0) {
-                pos.write(audio);
-            }
-            // When audio synthesis is completed, close the player and close the PipedOutputStream stream
-            if (reason == ResultReason.SynthesizingAudioCompleted && audioPlayer.isPlaying()) {
+            case SynthesizingAudioCompleted: {
+                if (audio.length > 0) {
+                    pos.write(audio);
+                }
+
+                // End playback
+                System.out.println("Response playback ended....");
                 audioPlayer.stopPlaying();
                 pos.close();
+                // Disconnect bot
+                botConnector.disconnectAsync();      
+                break;
             }
+
+            default:
+                log.info("Reason code {}  receieved.");
+            }
+
         } catch (IOException e) {
-            log.error("IOException thrown when writing to PipedOutputStream {}", e.getMessage(), e);
+            log.error("IOException thrown when writing to PipedOutputStream. Message: {}", e.getMessage(), e);
         }
     });
-
     ```
 
-1. Connect to the `SpeechBotConnector` and invoke the `listenOnceAsync` API .
+1. Connect to the `SpeechBotConnector` invoking the `connectAsync()` API. To test your bot, you can invoke the `listenOnceAsync` API to send direct speech from your microphone. Additionally, you can also use the `sendActivityAsync` API to send an activity as a serialized string.
 
     ```java
     botConnector.connectAsync();
     // Start listening.
     System.out.println("Say something ...");
     botConnector.listenOnceAsync();
+
+    // botConnector.sendActivityAsync(...)
     ```
+
 1. Save changes to the `Main` file.
 
-1. Additionally for supporting playback, we will add a new class which can handle audio playback. To add another new empty class to your Java project, select **File** > **New** > **Class**.
+1. For supporting response playback, you will add an additional class which will have utility methods to support audio. To enable audio, add another new empty class to your Java project, select **File** > **New** > **Class**.
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **AudioPlayer** into the **Name** field.
 
    ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Open the newly created **AudioPlayer** class and add the following code.
+1. Open the newly created **AudioPlayer** class and replace with code provided below.
 
     ```java
-    //The current audio supported by the Botframework ~ 16-bit PCM encoding, 16KHz sampling rate.
-    public static final int SAMPLE_RATE = 16000;
-    public static final int SAMPLE_SIZE_IN_BITS = 16;
-    public static final int CHANNELS = 1; // Mono / Single channel
-    public static final int FRAME_RATE = 16000;
-    public static final int FRAME_SIZE = 2;
+    import static javax.sound.sampled.AudioFormat.Encoding.PCM_SIGNED;
 
-    private static final Logger log = LoggerFactory.getLogger(AudioPlayer.class); // optional
-    private AtomicBoolean isPlaying = new AtomicBoolean(false);
+    import java.io.InputStream;
+    import java.io.PipedInputStream;
+    import java.io.PipedOutputStream;
+    import java.util.concurrent.ExecutorService;
+    import java.util.concurrent.Executors;
+    import java.util.concurrent.atomic.AtomicBoolean;
 
-    /**
-     * Method checks if is there is an active track playing on this audio player.
-     */
-    public boolean isPlaying() {
-        return isPlaying.get();
-    }
+    import javax.sound.sampled.AudioFormat;
+    import javax.sound.sampled.AudioSystem;
+    import javax.sound.sampled.DataLine;
+    import javax.sound.sampled.SourceDataLine;
 
-    /**
-     * Stops the player state once playback in completed
-     */
-    public void stopPlaying() {
-        isPlaying.set(false);
-    }
+    import org.slf4j.Logger;
+    import org.slf4j.LoggerFactory;
 
-    public void play(final PipedOutputStream pipedOutputStream) {
-        final AudioFormat defaultFormat = new AudioFormat(PCM_SIGNED, SAMPLE_RATE, SAMPLE_SIZE_IN_BITS, CHANNELS, FRAME_SIZE, FRAME_RATE, false);
-        try {
-            final PipedInputStream inputStream = new PipedInputStream(pipedOutputStream);
 
-            new Thread(() -> {
-                try {
-                    isPlaying.set(true);
-                    playStream(inputStream, defaultFormat);
-                    inputStream.close();
-                } catch (Exception e) {
-                    log.error("Exception thrown during playback {}", e.getMessage(), e);
-                }
-            }).start();
-        } catch (IOException e) {
-            log.error("IOException thrown during creating PipedInputStream {}", e.getMessage(), e);
+    public class AudioPlayer {
+
+        public static final int SAMPLE_RATE = 16000; // 16Hz sampling rate
+        public static final int SAMPLE_SIZE_IN_BITS = 16; // 16 bit PCM
+        public static final int CHANNELS = 1; // Use Mono / Single channel
+
+        public static final int FRAME_RATE = 16000;
+        public static final int FRAME_SIZE = 2;
+
+        private static final Logger log = LoggerFactory.getLogger(AudioPlayer.class);
+        private AtomicBoolean isPlaying = new AtomicBoolean(false);
+        private ExecutorService executorService = Executors.newSingleThreadExecutor();
+
+        public boolean isPlaying() {
+            return isPlaying.get();
         }
-    }
 
-    private void playStream(final InputStream inputStream, final AudioFormat targetFormat) throws Exception {
-        final byte[] data = new byte[8];
-        final SourceDataLine line = getLine(targetFormat);
-        if (line != null) {
-            line.start();
-            int nBytesRead = 0;
-            while (nBytesRead != -1) {
-                nBytesRead = inputStream.read(data, 0, data.length);
-                if (nBytesRead != -1) {
-                    line.write(data, 0, nBytesRead);
-                }
+        public void stopPlaying() {
+            isPlaying.set(false);
+        }
+
+        public void play(final PipedOutputStream pipedOutputStream) {
+            // The current audio supported by the Microsoft Bot framework ~ 16-bit PCM encoding, 16KHz sampling rate.
+            final AudioFormat defaultFormat = new AudioFormat(PCM_SIGNED, SAMPLE_RATE, SAMPLE_SIZE_IN_BITS, CHANNELS, FRAME_SIZE, FRAME_RATE, false);
+            try {
+                final PipedInputStream inputStream = new PipedInputStream(pipedOutputStream);
+
+                executorService.submit(() -> {
+                    try {
+                        isPlaying.set(true);
+                        play(inputStream, defaultFormat);
+                        inputStream.close();
+                    } catch (Exception e) {
+                        log.error("Exception thrown during playback. Message: {}", e.getMessage(), e);
+                    }
+                });
+            } catch (Exception e) {
+                log.error("Exception thrown during playback. Message: {}", e.getMessage(), e);
             }
-            line.drain();
-            line.stop();
-            line.close();
         }
-    }
 
-    private SourceDataLine getLine(final AudioFormat audioFormat) throws LineUnavailableException {
-        final DataLine.Info info = new DataLine.Info(SourceDataLine.class, audioFormat);
-        final SourceDataLine res = (SourceDataLine) AudioSystem.getLine(info);
-        res.open(audioFormat);
-        return res;
+        private void play(final InputStream inputStream, final AudioFormat targetFormat) throws Exception {
+            final byte[] buffer = new byte[1024];
+            final DataLine.Info info = new DataLine.Info(SourceDataLine.class, targetFormat);
+            final SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
+            line.open();
+            if (line != null) {
+                line.start();
+                int bytesRead = 0;
+                while (bytesRead != -1) {
+                    bytesRead = inputStream.read(buffer, 0, buffer.length);
+                    if (bytesRead != -1) {
+                        line.write(buffer, 0, bytesRead);
+                    }
+                }
+                line.drain();
+                line.stop();
+                line.close();
+            }
+        }
     }
     ```
 
