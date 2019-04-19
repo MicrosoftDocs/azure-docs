@@ -149,6 +149,34 @@
           href: scenario-daemon-call-api.md
         - name: Move to production
           href: scenario-daemon-production.md
+      - name: Protected Web API
+        items:
+        - name: Overview
+          href: scenario-protected-web-api-overview.md
+        - name: App registration
+          href: scenario-protected-web-api-app-registration.md
+        - name: App's code configuration
+          href: scenario-protected-web-api-app-configuration.md
+        - name: Acquiring a token for the app
+          href: scenario-protected-web-api-acquire-token.md
+        - name: Calling a Web API
+          href: scenario-protected-web-api-call-api.md
+        - name: Move to production
+          href: scenario-protected-web-api-production.md
+      - name: Web API that calls Web APIs
+        items:
+        - name: Overview
+          href: scenario-web-api-call-api-overview.md
+        - name: App registration
+          href: scenario-web-api-call-api-app-registration.md
+        - name: App's code configuration
+          href: scenario-web-api-call-api-app-configuration.md
+        - name: Acquiring a token for the app
+          href: scenario-web-api-call-api-acquire-token.md
+        - name: Calling a Web API
+          href: scenario-web-api-call-api-call-api.md
+        - name: Move to production
+          href: scenario-web-api-call-api-production.md
     - name: Microsoft Authentication Library (MSAL)
       items:        
         - name: Overview
