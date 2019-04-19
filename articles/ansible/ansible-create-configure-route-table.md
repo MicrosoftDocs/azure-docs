@@ -62,7 +62,7 @@ The playbook code in this section:
 * Creates a subnet within the virtual network
 * Associates a route table to the subnet
 
-Route tables are not associated to virtual networks. Rather, route tables are associated with the subnet of a virtual network.
+Route tables aren't associated to virtual networks. Rather, route tables are associated with the subnet of a virtual network.
 
 The virtual network and route table must coexist in the same Azure location and subscription.
 
@@ -142,7 +142,7 @@ ansible-playbook route_table_dissociate.yml
 
 ## Create a route
 
-The playbook code in this section a route within a the route table. 
+The playbook code in this section a route within a route table. 
 
 Save the following playbook as `route_create.yml`:
 
@@ -232,7 +232,9 @@ ansible-playbook route_table_facts.yml
 
 The playbook code in this section a route table.
 
-If a route table can't be deleted if it's associated with a subnet. The route table must first be [dissociated] and then deleted. When a route table is deleted, all of its routes are also deleted.
+When a route table is deleted, all of its routes are also deleted.
+
+A route table can't be deleted if it's associated with a subnet. You must first [dissociate the route table from any subnets](#dissociate-a-route-table-from-a-subnet). 
 
 Save the following playbook as `route_table_delete.yml`:
 
