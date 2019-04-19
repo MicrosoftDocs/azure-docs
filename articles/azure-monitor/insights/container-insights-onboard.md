@@ -31,7 +31,7 @@ Before you start, make sure that you have the following:
 
 - **A Log Analytics workspace.** You can create it when you enable monitoring of your new AKS cluster or let the onboarding experience create a default workspace in the default resource group of the AKS cluster subscription. If you chose to create it yourself, you can create it through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
 - You are a member of the **Log Analytics contributor role** to enable container monitoring. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../../azure-monitor/platform/manage-access.md).
-- You are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** role on the AKS cluster resource. 
+- You are a member of the **[Owner](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.md#owner)** role on the AKS cluster resource. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
