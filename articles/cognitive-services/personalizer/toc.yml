@@ -5,6 +5,18 @@
   items:
   - name: What is Personalizer?
     href: what-is-personalizer.md
+- name: Concepts
+  items:
+  - name: Fundamental concepts
+    items: 
+    - name: Actions and context
+      href: concepts-actions-context.md  
+      displayName: json, feature, rank api,options,list 
+  - name: Analysis
+    items: 
+    - name: Offline evaluation
+      href: concepts-offline-evaluation.md
+      displayName: learning policy, Counterfactual, features
 - name: Quickstarts
   items:
   - name: Create and use feedback loop

@@ -70,7 +70,7 @@ The following list provides a general summary of Azure services that can be move
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry - A container registry can't be moved when geo-replication is enabled.
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights
