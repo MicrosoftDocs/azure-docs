@@ -114,7 +114,7 @@ Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 
 ### REST API
 
-To create a database with read scale-out disabled, or to enable or disable read scale-out for an existing database, create, or update the corresponding database entity with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
+To create a database with read scale-out disabled, or to change the setting for an existing database, use the following method with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
@@ -123,7 +123,7 @@ Body:
 {
    "properties":
    {
-      "readScale":"Enabled"
+      "readScale":"Disabled"
    }
 }
 ```
