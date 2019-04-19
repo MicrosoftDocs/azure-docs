@@ -47,7 +47,7 @@ az network waf-policy create \
 
 Add a custom IP access control rule to the WAF policy created in the previous step with the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) command. Replace example IP ranges of ["192.168.1.0/24","192.168.2.2/32"] with your own range.
 
-First create the IP allow rule for the specified addresses.
+First, create the IP allow rule for the specified addresses.
 
 ```azurecli-interactive
 az network waf-policy custom-rule create \
@@ -59,7 +59,7 @@ az network waf-policy custom-rule create \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI
 ```
-Next, create a **Block all** IP rule with lower priority than the previous IP allow rule.
+Next, create a block all IP rule with lower priority than the previous IP allow rule.
 
 ```azurecli-interactive
 az network waf-policy custom-rule create \
