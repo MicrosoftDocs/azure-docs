@@ -19,18 +19,20 @@ ms.author: msalias
 # Enable InfiniBand with SRIOV
 
 
-The simplest and recommend way to configure your IB with RHEL/CentOS (ver 7.4-7.6) is to add the following VM extension to your deployment:?
+The simplest and recommend way to configure your VM with InfiniBand (IB) is to add the InfiniBandDriverLinux or InfiniBandDriverWindows VM extension to your deployment.
+
+Example, for Linux VM with RHEL/CentOS (ver 7.4-7.6):
 
 ```bash
 "properties":{
-"publisher": "Microsoft.HpcCompute.Edp",
+"publisher": "Microsoft.HpcCompute",
 "type": "InfiniBandDriverLinux",
 "typeHandlerVersion": "1.0",
 } 
 ```
 
 
-## Configure InfiniBand
+## Manully install OFED
 
 To manually configure InfiniBand for RHEL/CentOS 7.6, install latest Mellanox OFED drivers for ConnectX-5.
 
@@ -47,7 +49,6 @@ sudo ./MLNX_OFED_LINUX-4.5-1.0.1.0-rhel7.6-x86_64/mlnxofedinstall --add-kernel-s
 ## Assign an IP address
 
 Assign an IP address to the ib0 interface, using either:
-
 
 - Manually assign IP Address to the ib0 Interface (as root).
 
@@ -74,4 +75,4 @@ OR
 
 ## Next steps
 
-Learn more about [high-performance computing](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) in Azure.
+Learn more about [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) on Azure.
