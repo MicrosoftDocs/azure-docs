@@ -24,7 +24,7 @@ The Expression text box will open the Expression Builder where you can build the
 
 ## Column patterns
 
-If your column names are variable from your sources, you may wish to build transforamtions inside of the Derived Column using Column Patterns instead of using named columns. See the [Schema Drift](concepts-data-flow-schema-drift.md) article for more details.
+If your column names are variable from your sources, you may wish to build transformations inside of the Derived Column using Column Patterns instead of using named columns. See the [Schema Drift](concepts-data-flow-schema-drift.md) article for more details.
 
 ![column pattern](media/data-flow/columnpattern.png "Column Patterns")
 
