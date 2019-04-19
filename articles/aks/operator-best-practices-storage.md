@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 4/22/2019
+ms.date: 5/6/2019
 ms.author: iainfou
 ---
 
@@ -30,7 +30,7 @@ Applications often require different types and speeds of storage. Do your applic
 
 The following table outlines the available storage types and their capabilities:
 
-| Use case | Volume plugin | Read/write once | Read-only many | Read/write many | Windows Container support |
+| Use case | Volume plugin | Read/write once | Read-only many | Read/write many | Windows Server container support |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
 | Shared configuration       | Azure Files   | Yes | Yes | Yes | Yes |
 | Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
