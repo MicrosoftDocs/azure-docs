@@ -13,13 +13,13 @@ ms.author: pafarley
 ---
 # Install and run containers
 
+Form Recognizer is a cognitive service that uses machine learning technology to identify and extract key-value pairs and table data from form documents. It then outputs structured data that includes the relationships in the original file. 
+
 The Form Recognizer has the following container(s):
 
 |Function|Features|
 |-|-|
 |form-recognizer|Form Recognizer learns the structure of your forms in order to intelligently extract key value pairs and tables.|
-
-<!--If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.-->
 
 ## Prerequisites
 
@@ -29,34 +29,39 @@ You must meet the following prerequisites before using Form Recognizer container
 |--|--|
 |Docker Engine| You need the Docker Engine installed on a [host computer](#the-host-computer). Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.|
-|Azure CLI| You need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your host.|
+|Azure CLI| You need to install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) on your host.|
 |Computer Vision API resource| In order to process scanned documents and images, OCR is required. Please note that usual fees apply. Use this key and the billing endpoint as {COMPUTER_VISION_API_KEY} and {COMPUTER_VISION_BILLING_ENDPOINT_URI} in the following.|  
-|Form Recognizer resource |In order to use these containers, you must have:<br><br>A _Form Recognizer_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's Form Recognizer Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
+|Form Recognizer resource |In order to use these containers, you must have:<br><br>A _Form Recognizer_ Azure resource to get the associated billing key and billing endpoint URI. Both values are available on the Azure portal's **Form Recognizer** Overview and Keys pages and are required to start the container.<br><br>**{BILLING_KEY}**: resource key<br><br>**{BILLING_ENDPOINT_URI}**: endpoint URI example is: `https://westus.api.cognitive.microsoft.com/forms/v1.0`| 
 
 ### Create Form Recognizer resource
 
-1. Click on this link [Azure portal - Forms](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_formUnderstandingPreview#create/Microsoft.CognitiveServicesFormUnderstanding) to login to Azure Portal with your user account and open the create page of Form Recognizer  
+1. Click on this link [Azure portal - Forms](https://aka.ms/form-recognizer-resource) to log in to Azure portal with your user account and open the create page of Form Recognizer  
 
-2. In the create page enter a resource name, select your white-listed subscription, keep Location as is, select the Pricing tier (F0 (100 Calls per month) and select an existing or create a new resource group in the region "West US 2". Click Create
+1. In the create page, enter the following information then select **Create**:
 
-3. Once the Form Recognizer resource has been created go the quickstart and copy the key and the billing end point. Use these as {BILLING_KEY} and {BILLING_ENDPOINT_URI}.
+    * Resource name
+    * Location
+    * Pricing tier
+    * Resource group
 
-4. If you don't have one, provision [Cognitive Services Computer Vision API](https://azure.microsoft.com/en-us/services/cognitive-services/computer-vision/)  which is required to OCR the scanned documents and images. Please note that usual fees for this service apply. Use this as {COMPUTER_VISION_API_KEY} and {COMPUTER_VISION_API_ENDPOINT_URI} in the following.
+1. Once the **Form Recognizer** resource is created, go the **Overview** page and copy the **Endpoint** URI for the {BILLING_ENDPOINT_URI} setting used in the [`Docker run`](#run-the-container-with-docker-run) command.
+
+1. On the **Keys** page, copy a key for the {BILLING_KEY} setting used in the [`Docker run`](#run-the-container-with-docker-run) command. 
+
+1. If you don't have one, provision [Cognitive Services Computer Vision API](https://azure.microsoft.com/services/cognitive-services/computer-vision/),  which is required to provide the OCR scanning functionality for the documents and images. Please note that usual fees for this service apply. Use this as `{COMPUTER_VISION_API_KEY}` and `{COMPUTER_VISION_API_ENDPOINT_URI}` in the following.
 
 ### The host computer
 
-The **host** is the computer that runs the docker container. It can be a computer on your premises, a local kubernetes cluster or a docker hosting service in Azure including:
+The **host** is the computer that runs the docker container. It can be a computer on your premises, a local Kubernetes cluster, or a docker hosting service in Azure including:
 
-* [Azure Kubernetes Service](https://docs.microsoft.com/en-us/aks/index)
-<!-- * [Azure Container Instances](https://docs.microsoft.com/en-us/container-instances/index) -->
+* [Azure Kubernetes Service](https://docs.microsoft.com/aks/index)
+<!-- * [Azure Container Instances](https://docs.microsoft.com/container-instances/index) -->
 
-If you plan to use Azure Blob as a data storage then the **host** has to be ** Ubuntu Linux**.
+If you plan to use Azure Blob as a data storage, then the **host** has to be ** Ubuntu Linux**.
 
 > [!TIP]
 > If the host computer is a virtual machine, like for example Azure VM, then every docker command has to be run as ```sudo``` in case you face permission issues.
 >
-
-
 
 ### Container requirements and recommendations
 
@@ -109,8 +114,8 @@ Once the container is on the [host computer](#the-host-computer), use the follow
 There are multiple options on how the forms can be provided to the service. The data can be in local or on cloud storage.  
 
 * local volumes
-* [Azure Files](https://azure.microsoft.com/en-us/services/storage/files)
-* [Azure Blob](https://azure.microsoft.com/en-ca/services/storage/blobs) using [Blobfuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux)
+* [Azure Files](https://azure.microsoft.com/services/storage/files)
+* [Azure Blob](https://azure.microsoft.com/en-ca/services/storage/blobs) using [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux)
 
 
 ### Local volumes
@@ -118,19 +123,20 @@ Please refer to the [mount section](form-recognizer-container-configuration.md#m
 
 ### Azure files
 
-Follow the instructions below to mount an Azure Files to two shares: /input and /output (for example c:\input and c:\output for Windows). Follow the instructions and be sure to create the two shares:
+Follow the instructions below to mount an Azure Files to two shares: `/input` and `/output` (for example on Windows, `c:\input` and `c:\output`). Follow the instructions and be sure to create the two shares:
 
-* [Windows](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows)  
-* [Linux](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-linux)  
-* [macOS](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-mac)
+* [Windows](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-windows)  
+* [Linux](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-linux)  
+* [macOS](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-mac)
 
 ### Azure blob
-This is only supported for with **Ubuntu Linux** **host** and does require installation of [Blobfuse](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux). Blobfuse is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system.
-You need to create a single blob object for /input and /output instead of two separate blob objects for input and output.
+This is only supported with **Ubuntu Linux host** and requires installation of [Blobfuse](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux). Blobfuse is a virtual file system driver for Azure Blob storage. Blobfuse allows you to access your existing block blob data in your storage account through the Linux file system.
 
-## Run the container with ```docker run```
+You need to create a single blob object for `/input` and `/output` instead of two separate blob objects.
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. The command uses the following parameters:
+## Run the container with `docker run`
+
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. The command uses the following parameters:
 
 | Placeholder | Value |
 |-------------|-------|
@@ -138,7 +144,6 @@ Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) 
 |{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal's Form Recognizer Overview page.|
 |{COMPUTER_VISION_API_KEY} | The endpoint key of the Computer Vision API resource.|
 |{COMPUTER_VISION_API_ENDPOINT_URI} | The billing endpoint value including region for the Computer Vision API.|
-
 
 Replace these parameters with your own values in the following example `docker run` command.
 
@@ -197,23 +202,26 @@ Each subsequent container should be on a different port.
 
 ## Run the container in Azure Kubernetes Service
 
-1. Create a Azure Kubernetes Cluster {YOUR_KUBERNETES_CLUSTER} in Azure Portal under the whitelisted subscription using same resourcegroup and region as the Form Recognizer resource.
+1. Create an Azure Kubernetes Cluster {YOUR_KUBERNETES_CLUSTER} in Azure portal under the whitelisted subscription using same resource group and region as the Form Recognizer resource.
 
-1. Attach a data storage. Currently we support Azure Files only for kubernetes deployment.
-To mount a previously created  Azure file to kubernetes get the YOUR_STORAGEACCOUNTNAME  and YOUR_STORAGEACCOUNTKEY.
-`kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=YOUR_STORAGEACCOUNTNAME --from-literal=azurestorageaccountkey=YOUR_STORAGEACCOUNTKEY`
+1. Attach a data storage. Currently we support **Azure Files** only for kubernetes deployment.
+To mount a previously created Azure file to kubernetes, get the `YOUR_STORAGEACCOUNTNAME` and `YOUR_STORAGEACCOUNTKEY`.
 
-    Note: YOUR_STORAGEACCOUNTNAME AFS should contain two shares, namely input, output.
+    ```kubectl
+    kubectl create secret generic azure-secret --from-literal=azurestorageaccountname=YOUR_STORAGEACCOUNTNAME --from-literal=azurestorageaccountkey=YOUR_STORAGEACCOUNTKEY
+    ```
+    
+    Note: `YOUR_STORAGEACCOUNTNAME` AFS should contain two shares: `input`, `output`.
 
-1. Configure Kubernetes manifest file
+1. Configure the Kubernetes manifest file
 
-    a. Download this [aks.forms_understanding.pp.yaml](https://github.com/Azure/CSContainers/blob/master/FormUnderstanding/aks.forms_understanding.pp.yaml) file from thi github to the folder "kubectl/form-recognizer" on your **host** locally.
+    a. Download this [aks.forms_understanding.pp.yaml](https://aka.ms/form-recognizer-kubernetes-pp-yaml) file to the folder "kubectl/form-recognizer" on your **host** locally.
 
     b. Inside the local folder, open the file `aks.forms_understanding.pp.yaml`. You will need to fill in the following values, with keys specific to your Azure subscription.
 
-    Note, if you used different names (for input and output shares, you will need to modify them in this file as well.).
+    Note, if you used different names for `input` and `output` shares, you will need to modify them in this file as well.
     
-    ```
+    ```yaml
     env:
       - name: eula
         value: "accept"
@@ -227,31 +235,51 @@ To mount a previously created  Azure file to kubernetes get the YOUR_STORAGEACCO
         value: "{COMPUTER_VISION_API_ENDPOINT_URI}"
     ```
 
-1. Create a secret key with your docker password. Note: you must supply --docker-email and some email else you will get a failure.
-`kubectl create secret docker-registry acr-auth --docker-server {{ACR_TODO}}.azurecr.io --docker-username {YOUR_DOCKER_USERNAME} --docker-password {YOUR_DOCKER_PASSWORD} --docker-email {YOUR_EMAIL_ADDRESS}`
+1. Create a secret key with your docker password. Note: you must supply `--docker-email` and an email address. If you don't,  you will get a failure.
 
+    ```kubectl
+    kubectl create secret docker-registry acr-auth --docker-server {{ACR_TODO}}.azurecr.io --docker-username {YOUR_DOCKER_USERNAME} --docker-password {YOUR_DOCKER_PASSWORD} --docker-email {YOUR_EMAIL_ADDRESS}
+    ```
 
-1. Verify you have installed AKS cluster `az aks get-credentials -g {YOUR_AKS_RESOURCE_GROUP_NAME} -n {YOUR_AKS_CLUSTER_NAME}`
+1. Verify you have installed the AKS cluster with the following AZ CLI command: 
 
-1. Install the form-recognizer yaml file - From local folder in step 3a. above, run following command to install file and start service: `kubectl apply -f aks.forms_understanding.pp.yaml`
+    ```az
+    az aks get-credentials -g {YOUR_AKS_RESOURCE_GROUP_NAME} -n {YOUR_AKS_CLUSTER_NAME}
+    ```
 
-1. Wait for service to come online - Once service is fully online, EXTERNAL-IP field will be populated with a publicly accessible IPv4 address: `kubectl get service form-recognizer-1 --watch`
+1. Install the form-recognizer yaml file from the local folder in step 3a above. Run the following command to install the file and start the service: 
 
-1. Configure Port forwarding - In order to configure localhost port forwarding, run following command to get list of pods. From this list look for pod name with format:
+    ```kubectl
+    kubectl apply -f aks.forms_understanding.pp.yaml
+    ```
+
+1. Wait for the service to come online. Once the service is fully online, the `EXTERNAL-IP` field is populated with a publicly accessible IPv4 address: 
+
+    ```kubectl
+    kubectl get service form-recognizer-1 --watch
+    ```
+
+1. Configure Port forwarding. To configure `localhost` port forwarding, run following command to get list of pods. From this list look for pod name with format `form-recognizer-1-{xxxx-xxxx}`:
   
-    form-recognizer-1-{xxxx-xxxx}
-     `kubectl get pods --namespace default`
+    ```kubectl
+    kubectl get pods --namespace default
+    ```
 
     Use the pod name found in previous command to configure port forwarding:
-    `kubectl port-forward form-recognizer-1-{xxxx-xxxx} 5000:5000`
+    
+    ```kubectl
+    kubectl port-forward form-recognizer-1-{xxxx-xxxx} 5000:5000
+    ```
 
     Get the name:
-    ```
+
+    ```kubectl
     kubectl get pods --namespace default -l "app.kubernetes.io/name=form-recognizer,app.kubernetes.io/instance=form-recognizer-1" -o jsonpath="{.items[0].metadata.name}"
     ```
 
-    Using the name do the port forward:
-    ```
+    Use the name in the port forward command:
+    
+    ```kubectl
     kubectl port-forward form-recognizer-1-{XXXXXXX-XXXXX} 5000:5000
     ```
 
@@ -263,26 +291,15 @@ Use the host, https://localhost:5000, for container APIs.
 
 ## Stop the container
 
-### Stop the container - local
-
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
-
-<!-- ### Stop the container - Azure Kubernetes -->
-
 
 ## Troubleshooting
 
-You will find the log files when logging into your container under /app/forms/log.
+You will find the log files when logging into your container under `/app/forms/log`.
 
-Run
-`docker ps`
+Run `docker ps` to get the {CONTAINER_ID}.
 
-to get the {CONTAINER_ID}
-
-Run
-`docker exec {DOCKER_ID}`
-
-to log into the container. 
+Run `docker exec {DOCKER_ID}` to log into the container. 
 
 ## Container's API documentation
 
@@ -314,7 +331,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * You must specify billing information when instantiating a container.
 
 > [!IMPORTANT]
-> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.
+> Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.
 
 ## Next steps
 
