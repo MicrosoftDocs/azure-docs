@@ -14,14 +14,14 @@ ms.author: roaror
 
 Before you migrate your data from MongoDB (either on-premises or in the cloud (IaaS)) to Azure Cosmos DB’s API for MongoDB, you should:
 
-1. Create an Azure Cosmos DB account
-2. Estimate the throughput needed for your workloads
-3. Pick an optimal partition key for your data
-4. Understand the indexing policy that you can set on your data
+1. [Create an Azure Cosmos DB account](#create-account)
+2. [Estimate the throughput needed for your workloads](#estimate-throughput)
+3. [Pick an optimal partition key for your data](#partitioning)
+4. [Understand the indexing policy that you can set on your data](#indexing)
 
 If you have already completed the above pre-requisites for migration, see the [Migrate MongoDB data to Azure Cosmos DB's API for MongoDB](../dms/tutorial-mongodb-cosmos-db.md) for the actual data migration instructions. If not, this document provides instructions to handle these pre-requisites. 
 
-## Create an Azure Cosmos account using Azure Cosmos DB's API for MongoDB
+## <a id="create-account"></a> Create an Azure Cosmos DB account using Azure Cosmos DB's API for MongoDB
 
 Before starting the migration, you need to [create an Azure Cosmos account using Azure Cosmos DB’s API for MongoDB](create-mongodb-dotnet.md). 
 
@@ -29,7 +29,7 @@ At the account creation, you can choose settings to [globally distribute](distri
 
 ![Account-Creation](./media/mongodb-pre-migration/account-creation.png)
 
-## Estimate the throughput need for your workloads
+## <a id="estimate-throughput"></a> Estimate the throughput need for your workloads
 
 Before starting the migration by using the [Database Migration Service (DMS)](../dms/dms-overview.md), you should estimate the amount of throughput to provision for your Azure Cosmos databases and collections.
 
@@ -40,7 +40,7 @@ Throughput can be provisioned on either:
 - Database
 
 > [!NOTE]
-> You can also have a combination of the above, where some collections in a database may have dedicated provisioned throughput and others may share the throughput. For details, please see [set throughput on a database and a container](set-throughput.md).
+> You can also have a combination of the above, where some collections in a database may have dedicated provisioned throughput and others may share the throughput. For details, please see the [set throughput on a database and a container](set-throughput.md) page.
 >
 
 You should first decide whether you want to provision database or collection level throughput, or a combination of both. In general, it is recommended to configure a dedicated throughput at the collection level. Provisioning throughput at the database-level enables collections in your database to share the provisioned throughput . With shared throughput, however, there is no guarantee for a specific throughput on each individual collection, and you don’t get predictable performance on any specific collection.
@@ -67,14 +67,14 @@ If you export JSON files using [mongoexport](https://docs.mongodb.com/manual/ref
 
 This command will output a JSON document similar to the following:
 
-`globaldb:PRIMARY> db.runCommand({getLastRequestStatistics: 1}) {  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}`
+```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
 After you understand the number of RUs consumed by a query and the concurrency needs for that query, you can adjust the number of provisioned RUs. Optimizing RUs is not a one-time event - you should continually optimize or scale up the RUs provisioned, depending on whether you are not expecting a heavy traffic, as opposed to a heavy workload or importing data.
 
-## Choose your partition key
+## <a id="partitioning"></a>Choose your partition key
 Partitioning is a key point of consideration before migrating to a globally distributed Database like Azure Cosmos DB. Azure Cosmos DB uses partitioning to scale individual containers in a database to meet the scalability and performance needs of your application. In partitioning, the items in a container are divided into distinct subsets called logical partitions. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key section](https://docs.microsoft.com/en-us/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
-## Index your data
+## <a id="indexing"></a>Index your data
 By default, Azure Cosmos DB indexes all your data fields upon ingestion. You can modify the [indexing policy](index-policy.md) in Azure Cosmos DB at any time. In fact, it is often recommended to turn off indexing when migrating data, and then turn it back on when the data is already in Cosmos DB. For more details on indexing, you can read more about it in the [Indexing in Azure Cosmos DB](index-overview.md) section. 
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
