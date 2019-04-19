@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/19/2019
 ms.author: juliako
 
 ---
@@ -71,12 +71,6 @@ For Azure Media Services concepts, see [Concepts](media-services-concepts.md).
 For detailed information, see [AMS scenarios and availability of features and services across data centers](scenarios-and-availability.md).
 
 ## Service Level Agreement (SLA)
-
-* For Media Services Encoding, we guarantee 99.9% availability of REST API transactions.
-* For Streaming, we will successfully service requests with a 99.9% availability guarantee for existing media content when a standard or premium streaming endpoint is purchased.
-* For Live Channels, we guarantee that running Channels will have external connectivity at least 99.9% of the time.
-* For Content Protection, we guarantee that we will successfully fulfill key requests at least 99.9% of the time.
-* For Indexer, we will successfully service Indexer Task requests processed with an Encoding Reserved Unit 99.9% of the time.
 
 For more information, see [Microsoft Azure SLA](https://azure.microsoft.com/support/legal/sla/).
 

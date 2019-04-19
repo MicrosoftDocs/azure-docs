@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
 
 ---
@@ -396,22 +396,29 @@ Learn more about how to use PolyBase to efficiently load SQL Data Warehouse in t
 
 Using [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) is an efficient way to load a large amount of data into Azure SQL Data Warehouse with high throughput. You'll see a large gain in the throughput by using PolyBase instead of the default BULKINSERT mechanism. See [Performance reference](copy-activity-performance.md#performance-reference) for a detailed comparison. For a walkthrough with a use case, see [Load 1 TB into Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/v1/data-factory-load-sql-data-warehouse).
 
-* If your source data is in Azure Blob storage or Azure Data Lake Store, and the format is compatible with PolyBase, copy direct to Azure SQL Data Warehouse by using PolyBase. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
+* If your source data is in **Azure Blob, Azure Data Lake Storage Gen1 or Azure Data Lake Storage Gen2**, and the **format is PolyBase compatible**, you can use copy activity to directly invoke PolyBase to let Azure SQL Data Warehouse pull the data from source. For details, see **[Direct copy by using PolyBase](#direct-copy-by-using-polybase)**.
 * If your source data store and format isn't originally supported by PolyBase, use the **[Staged copy by using PolyBase](#staged-copy-by-using-polybase)** feature instead. The staged copy feature also provides you better throughput. It automatically converts the data into PolyBase-compatible format. And it stores the data in Azure Blob storage. It then loads the data into SQL Data Warehouse.
 
 ### Direct copy by using PolyBase
 
-SQL Data Warehouse PolyBase directly supports Azure Blob and Azure Data Lake Store. It uses service principal as a source and has specific file format requirements. If your source data meets the criteria described in this section, use PolyBase to copy direct from the source data store to Azure SQL Data Warehouse. Otherwise, use [Staged copy by using PolyBase](#staged-copy-by-using-polybase).
+SQL Data Warehouse PolyBase directly supports Azure Blob, Azure Data Lake Storage Gen1 and Azure Data Lake Storage Gen2. If your source data meets the criteria described in this section, use PolyBase to copy directly from the source data store to Azure SQL Data Warehouse. Otherwise, use [Staged copy by using PolyBase](#staged-copy-by-using-polybase).
 
 > [!TIP]
-> To copy data efficiently from Data Lake Store to SQL Data Warehouse, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
+> To copy data efficiently to SQL Data Warehouse, learn more from [Azure Data Factory makes it even easier and convenient to uncover insights from data when using Data Lake Store with SQL Data Warehouse](https://blogs.msdn.microsoft.com/azuredatalake/2017/04/08/azure-data-factory-makes-it-even-easier-and-convenient-to-uncover-insights-from-data-when-using-data-lake-store-with-sql-data-warehouse/).
 
 If the requirements aren't met, Azure Data Factory checks the settings and automatically falls back to the BULKINSERT mechanism for the data movement.
 
-1. The **Source linked service** type is Azure Blob storage (**AzureBLobStorage**/**AzureStorage**) with **account key authentication** or Azure Data Lake Storage Gen1 (**AzureDataLakeStore**) with **service principal authentication**.
-2. The **input dataset** type is **AzureBlob** or **AzureDataLakeStoreFile**. The format type under `type` properties is **OrcFormat**, **ParquetFormat**, or **TextFormat**, with the following configurations:
+1. The **source linked service** is with the following types and authentication methods:
 
-   1. `fileName` doesn't contain wildcard filter.
+    | Supported source data store type | Supported source authentication type |
+    |:--- |:--- |
+    | [Azure Blob](connector-azure-blob-storage.md) | Account key authentication |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication |
+    | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication |
+
+2. The **source dataset format** is of **ParquetFormat**, **OrcFormat**, or **TextFormat**, with the following configurations:
+
+   1. `folderPath` and `fileName` don't contain wildcard filter.
    2. `rowDelimiter` must be **\n**.
    3. `nullValue` is either set to **empty string** ("") or left as default, and `treatEmptyAsNull` is left as default or set to true.
    4. `encodingName` is set to **utf-8**, which is the default value.
@@ -420,7 +427,7 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
       ```json
       "typeProperties": {
-        "folderPath": "<blobpath>",
+        "folderPath": "<path>",
         "format": {
             "type": "TextFormat",
             "columnDelimiter": "<any delimiter>",
@@ -428,10 +435,6 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
             "nullValue": "",
             "encodingName": "utf-8",
             "firstRowAsHeader": <any>
-        },
-        "compression": {
-            "type": "GZip",
-            "level": "Optimal"
         }
       },
       ```

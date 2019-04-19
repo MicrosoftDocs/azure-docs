@@ -12,7 +12,7 @@ ms.date: 04/15/2019
 #Customer intent: I want to use Azure Data Factory to load data into Azure Data Explorer so that I can analyze it later.
 ---
 
-# Copy data from Azure Data Factory to Azure Data Explorer
+# Copy data to Azure Data Explorer using Azure Data Factory 
 
 Azure Data Explorer is a fast, fully managed data analytics service for real-time analysis on large volumes of data streaming from many sources such as applications, websites, and IoT devices. Iteratively explore data and identify patterns and anomalies to improve products, enhance customer experiences, monitor devices, and boost operations. Explore new questions and get answers in minutes. Azure Data Factory is a fully managed cloud-based data integration service. You can use the service to populate your Azure Data Explorer database with data from your existing system and save time when building your analytics solutions.
 
@@ -29,7 +29,7 @@ This article shows you how to use the Data Factory Copy Data tool to load data f
 
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * [An Azure Data Explorer cluster and database](create-cluster-database-portal.md)
-* Amazon S3.
+* Source of data.
 
 ## Create a data factory
 
