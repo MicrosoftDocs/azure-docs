@@ -29,6 +29,11 @@ Learn how to build a web app signing-in users on the Microsoft identity platform
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
+This scenario supposes that you've gone through the following scenario:
+
+> [!div class="nextstepaction"]
+> [Web app that signs-in users](scenario-web-app-sign-user-overview.md)
+
 ## Scenario overview
 
 You add authentication to your Web App, which can therefore sign in users and calls a web API on behalf of the signed-in user.
