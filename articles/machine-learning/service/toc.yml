@@ -87,6 +87,9 @@
     - name: Configure dev environments
       displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
       href: how-to-configure-environment.md
+    - name: Enable logging
+      displayName: logging
+      href: how-to-enable-logging.md  
     - name: Visual Studio Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       items:
@@ -96,6 +99,15 @@
         href: how-to-vscode-train-deploy.md
   - name: Work with data
     items:
+    - name: Load data
+      displayName: data, etl, data prep, dataprep
+      href: how-to-load-data.md
+    - name: Transform data
+      displayName: data, etl, dataprep, data prep
+      href: how-to-transform-data.md
+    - name: Write data
+      displayName: data, etl, data prep, dataprep
+      href: how-to-write-data.md
     - name: Create Datasets
       displayName: data, etl, dataset
       href: how-to-create-register-datasets.md
@@ -105,6 +117,9 @@
     - name: Manage Dataset definitions
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
+    - name: Create Dataset snapshots
+      displayName: snapshots, profile, summary statistics, data copy
+      href: how-to-create-dataset-snapshots.md
   - name: Get data in datastore
     displayName: blob get fileshare access storage
     href: how-to-access-data.md
@@ -169,17 +184,17 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights
       href: how-to-enable-app-insights.md
-  - name: Create your first pipeline
-    href: how-to-create-your-first-pipeline.md
-  - name: Enable logging
-    displayName: logging
-    href: how-to-enable-logging.md
+  - name: Use the machine learning CLI
+    displayName: cli extension command line command-line az ci/cd automate automated
+    href: reference-azure-machine-learning-cli.md
+  - name: Create reusable workflows
+    displayName: pipelines
+    items:
+    - name: Create an ML pipeline
+      href: how-to-create-your-first-pipeline.md  
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
-  - name: Use the Machine Learning CLI
-    displayName: cli extension command line command-line az ci/cd automate automated
-    href: reference-azure-machine-learning-cli.md
   - name: Export and delete data
     displayName: GDPR
     href: how-to-export-delete-data.md
@@ -188,6 +203,9 @@
   - name: Machine learning SDK
     displayName: api core package python data prep
     href: https://aka.ms/aml-sdk
+  - name: Data prep SDK
+    displayName: api core package python data prep
+    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api package python monitor
     href: https://aka.ms/aml-monitoring-sdk

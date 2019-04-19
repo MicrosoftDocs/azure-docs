@@ -162,7 +162,7 @@ Sometimes you need to modify the local network gateway settings; for example, wh
 
 When you set up a VPN Connection in Azure Stack, you must configure the connection at both ends. If you are configuring a VPN connection between Azure Stack and a hardware device such as a switch or router that is acting as a VPN gateway, that device might ask you for additional settings.
 
-Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer.
+Unlike Azure, which supports multiple offers as both an initiator and a responder, Azure Stack supports only one offer by default.  If you need to use different IPSec/IKE settings to work with your VPN device, there are more settings available to you to configure your connection manually.  For more details see [Configure IPsec/IKE policy for site-to-site VPN connections](azure-stack-vpn-s2s.md).
 
 ### IKE Phase 1 (Main Mode) parameters
 

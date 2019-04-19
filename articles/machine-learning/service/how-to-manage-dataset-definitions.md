@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: larryfr
-ms.date: 04/10/19
+ms.date: 05/02/19
 ---
 
-# Update and manage the lifecycle of Dataset definitions 
+# Version & manage dataset definitions 
 
-Dataset definitions are the recipes used to prepare your Datasets, which include both the reference to your source data and the transformation steps performed. One Dataset can have many definitions, and each definition has its own lifecycle. 
+Dataset definitions (preview) are the recipes used to prepare your Datasets, which include both the reference to your source data and the transformation steps performed. One Dataset can have many definitions, and each definition has its own lifecycle. 
 
 For example, after building a machine learning pipeline by consuming the current definition of your Dataset, you realized that the underlying data is changed with new attributes being added.  Now you want to add some extra transformation steps to your Dataset definition to deal with the new attributes, and you don’t want to break the old pipelines with these extra steps. You can do so by updating your Dataset definition to create a new version. In doing so, your old pipeline will continue to consume the previous definition, and you can use the latest definition for new machine learning scenarios such as model training and pipeline creation.
 
