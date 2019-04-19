@@ -39,7 +39,7 @@ We are currently working on migrating existing blog posts (excluding outage upda
 ### Where do I see outage updates?
 We will be posting outage updates using our Twitter handle going forward. Follow us on Twitter to get latest updates on outages and known bugs.
 
-### Twitter 
+### Twitter
 Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 
 ## What if my question isn't answered here?
@@ -82,7 +82,7 @@ Security access is determined by [Role-Based Access Control (RBAC)](../role-base
 Within the scope of DevTest Labs, there are two types of roles that define user permissions:
 
 * **Lab owner**: A lab owner has access to all resources in the lab. A lab owner can modify policies, read and write to any VMs, change the virtual network, and so on.
-* **Lab user**: A lab user can view all lab resources, such as VMs, policies, and virtual networks. But, a lab user can't modify policies or any VMs that were created by other users. 
+* **Lab user**: A lab user can view all lab resources, such as VMs, policies, and virtual networks. But, a lab user can't modify policies or any VMs that were created by other users.
 
 You also can create custom roles in DevTest Labs. To learn how to create custom roles in DevTest Labs, see [Grant user permissions to specific lab policies](devtest-lab-grant-user-permissions-to-specific-lab-policies.md).
 
@@ -100,7 +100,7 @@ For a comprehensive article about how to create custom roles and assign permissi
     $policyRoleDef.AssignableScopes.Add("subscriptions/<subscription Id>")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Start/action")
     $policyRoleDef.Actions.Add("Microsoft.DevTestLab/labs/virtualMachines/Stop/action")
-    $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef  
+    $policyRoleDef = New-AzRoleDefinition -Role $policyRoleDef
 
 
 **CI/CD integration and automation**
@@ -117,7 +117,7 @@ The following blog posts offer guidance and information about using the Azure De
 * [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 * [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.  
+For other continuous integration (CI)/continuous delivery (CD) toolchains, you can achieve the same scenarios by deploying [Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) by using [Azure PowerShell cmdlets](../azure-resource-manager/resource-group-template-deploy.md) and [.NET SDKs](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). You also can use [REST APIs for DevTest Labs](https://aka.ms/dtlrestapis) to integrate with your toolchain.
 
 
 **Virtual machines**
@@ -129,20 +129,20 @@ A custom image is a virtual hard disk (VHD). A formula is an image that you can 
 
 ## How do I create multiple VMs from the same template at once?
 You have two options for simultaneously creating multiple VMs from the same template:
-* You can use the [Azure DevOps Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* You can use the [Azure DevOps Tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 * You can [generate a Resource Manager template](devtest-lab-add-vm.md#save-azure-resource-manager-template) while you are creating a VM, and [deploy the Resource Manager template from Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## How do I move my existing Azure VMs into my DevTest Labs lab?
 To copy your existing VMs to DevTest Labs:
 
 1. Copy the VHD file of your existing VM by using a PowerShell script:
-   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyRmVHDFromVMToLab.ps1)
-   * Classic: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/Scripts/CopyClassicVHDFromVMToLab.ps1)
+   * Resource Manager: [CopyRmVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyRmVHDFromVMToLab.ps1)
+   * Classic: [CopyClassicVHDFromVMToLab.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/Scripts/CopyVirtualMachines/CopyClassicVHDFromVMToLab.ps1)
 2. [Create the custom image](devtest-lab-create-template.md) inside your DevTest Labs lab.
 3. Create a VM in the lab from your custom image.
 
 ## Can I attach multiple disks to my VMs?
-Yes, you can attach multiple disks to your VMs.  
+Yes, you can attach multiple disks to your VMs.
 
 ## If I want to use a Windows OS image for my testing, do I have to purchase an MSDN subscription?
 To use Windows client OS images (Windows 7 or a later version) for your development or testing in Azure, you must do one of the following:
@@ -156,7 +156,7 @@ For more information about the Azure credits for each MSDN offering, see [Monthl
 To automate uploading VHD files to create custom images, you have two options:
 
 * Use [AzCopy](../storage/common/storage-use-azcopy.md#upload-blobs-to-blob-storage) to copy or upload VHD files to the storage account that's associated with the lab.
-* Use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer is a standalone app that runs on Windows, OS X, and Linux.   
+* Use [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Storage Explorer is a standalone app that runs on Windows, OS X, and Linux.
 
 To find the destination storage account that's associated with your lab:
 
@@ -209,7 +209,7 @@ Artifacts are customizable elements that you can use to deploy your latest bits 
 We offer a [GitHub repository of lab Azure Resource Manager templates](https://aka.ms/dtlquickstarttemplate) that you can deploy as-is or modify to create custom templates for your labs. Each template has a link to deploy the lab as-is in your own Azure subscription. Or, you can customize the template and [deploy by using PowerShell or Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## Why are my VMs created in different resource groups, with arbitrary names? Can I rename or modify these resource groups?
-Resource groups are created this way so that DevTest Labs can manage user permissions and access to VMs. Although you can move a VM to another resource group, and use the name that you want, we recommend that you don't make changes to the resource groups. We are working on improving this experience to allow more flexibility.   
+Resource groups are created this way so that DevTest Labs can manage user permissions and access to VMs. Although you can move a VM to another resource group, and use the name that you want, we recommend that you don't make changes to the resource groups. We are working on improving this experience to allow more flexibility.
 
 ## How many labs can I create under the same subscription?
 There isn't a specific limit on the number of labs that can be created per subscription. However, the amount of resources used per subscription is limited. You can read about the [limits and quotas for Azure subscriptions](../azure-subscription-service-limits.md) and [how to increase these limits](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests).
