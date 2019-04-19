@@ -1,6 +1,6 @@
 ---
 
-title: What is Azure Active Directory monitoring? (preview) | Microsoft Docs
+title: What is Azure Active Directory monitoring? | Microsoft Docs
 description: Provides a general overview of Azure Active Directory monitoring.
 services: active-directory
 documentationcenter: ''
@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk  
 
@@ -23,7 +23,7 @@ ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ---
 
-# What is Azure Active Directory monitoring? (preview)
+# What is Azure Active Directory monitoring?
 
 With Azure Active Directory (Azure AD) monitoring, you can now route your Azure AD activity logs to different endpoints. You can then either retain it for long-term use or integrate it with third-party Security Information and Event Management (SIEM) tools to gain insights into your environment.
 

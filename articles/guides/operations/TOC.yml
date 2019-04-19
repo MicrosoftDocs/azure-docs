@@ -21,7 +21,7 @@
     - name: Azure Stack
       items:
       - name: Azure Stack deployment overview
-        href: /azure-stack/operator/azure-stack-deploy-overview
+        href: /azure-stack/asdk/asdk-download
     - name: Azure Backup
       items:
       - name: Backup a VM in Azure Portal
