@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: tutorial
-ms.date: 06/06/2019
+ms.date: 05/02/2019
 ms.author: erhopf
 ---
 

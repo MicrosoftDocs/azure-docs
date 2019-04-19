@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/02/2019
 ms.author: aahi
 ---
 
