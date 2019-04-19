@@ -5119,6 +5119,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/index-types.md",
+      "redirect_url": "/azure/cosmos-db/index-overview#index-kinds",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/index-paths.md",
+      "redirect_url": "/azure/cosmos-db/index-policy#including-and-excluding-property-paths",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/app-service-web/app-service-web-arm-with-msdeploy-provision.md",
       "redirect_url": "/azure/app-service/samples-resource-manager-templates",
       "redirect_document_id": false
