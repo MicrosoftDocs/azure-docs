@@ -1,5 +1,5 @@
 ---
-title: Upload a vhd to Azure using Azure CLI
+title: Upload a vhd to Azure using .Net
 description: Learn how to upload a vhd to an Azure managed disk, using the Azure CLI.
 services: "virtual-machines-linux,storage"
 author: roygara
@@ -10,6 +10,8 @@ ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
+
+# Upload a vhd to Azure using .Net
 
 Ensure that you are using the latest version (>= 25.0.0) of Azure .Net SDK from nuget.org 
 
