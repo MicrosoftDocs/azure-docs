@@ -26,12 +26,12 @@ Microsoft Authentication Library (MSAL) defines two types of clients: public cli
 
 - **Confidential client applications** are applications which run on servers (Web Apps, Web API, or even service/daemon applications). They are considered difficult to access, and therefore capable of keeping an application secret. Confidential clients are able to hold configuration time secrets. Each instance of the client has a distinct configuration (including clientId and secret). These values are difficult for end users to extract. A web app is the most common confidential client. The client ID is exposed through the web browser, but the secret is passed only in the back channel and never directly exposed.
 
-    Confidential client apps:
+    Confidential client apps: <BR>
     ![Web app](media/msal-client-applications/web-app.png) ![Web API](media/msal-client-applications/web-api.png) ![Daemon/service](media/msal-client-applications/daemon-service.png)
 
 - **Public client applications** are applications which run on devices (phones, for example) or desktop machines. They are not trusted to safely keep application secrets, and therefore only access Web APIs on behalf of the user (they only support public client flows). Public clients are unable to hold configuration time secrets, and as a result have no client secret.
 
-    Public client applications:
+    Public client applications: <BR>
     ![Desktop app](media/msal-client-applications/desktop-app.png) ![Browserless API](media/msal-client-applications/browserless-app.png) ![Mobile app](media/msal-client-applications/mobile-app.png)
 
 ## Comparing the client types
@@ -42,17 +42,6 @@ There are some commonalities and differences between public client and confident
 - Public client applications have four ways of acquiring a token (four flows), whereas confidential client applications have three (and one method to compute the URL of the identity provider authorize endpoint). For more details see Scenarios and Acquiring tokens
 
 If you used ADAL in the past, you might notice that, contrary to ADAL.NET's Authentication context, in MSAL.NET the clientID (also named applicationID or appId) is passed once at the construction of the Application, and no longer needs to be repeated when acquiring a token. This is the case both for a public and a confidential client applications. Constructors of confidential client applications are also passed client credentials: the secret they share with the identity provider.
-
-## Instantiating an application
-
-### Pre-requisites
-Before instantiating an application, you first need to [register it](quickstart-register-app.md) so that your app can be integrated with the Microsoft identity platform.  After registration, you may need the following information (which can be found in the Azure portal):
-
-- The client ID (a string representing a GUID)
-- The identity provider URL (named the instance) and the sign-in audience for your application. These two parameters are collectively known as the authority.
-- The tenant ID if you are writing a line of business application solely for your organization (also named single-tenant application).
-- The application secret (client secret string) or certificate (of type X509Certificate2) if it's a confidential client app.
-- For web apps, and sometimes for public client apps (in particular when your app needs to use a broker), you'll have also set the redirectUri where the identity provider will contact back your application with the security tokens.
 
 ## Application options
 
@@ -107,7 +96,6 @@ MSAL.NET will throw a meaningful exception if you specify both Azure AD authorit
 
 If you don't specify an audience your app will target Azure AD and personal Microsoft accounts as an audience (that is `common`).
 
-
 #### Effective audience
 The effective audience for your application will be the minimum (if there is an intersecton) of the audience you set in your application and the audience specified in the application registration. Indeed, the application registration experience ([App Registration Preview](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)) lets you specify the audience (supported account types) for the application. See [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md) for more information.
 
@@ -143,3 +131,6 @@ For daemon apps you don't need to specify a redirect URI.
 
 ### Logging
 The other options enable logging and troubleshooting. See the [Logging](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Logging) page for more details on how to use them.
+
+## Next steps
+Learn about [instantiating client applications using MSAL.NET](msal-net-instantiating-client-applications.md).
