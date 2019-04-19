@@ -91,6 +91,15 @@ MessagingFactory messagingFactory = MessagingFactory.Create(namespaceUri, mfs);
 
 Batching does not affect the number of billable messaging operations, and is available only for the Service Bus client protocol using the [Microsoft.ServiceBus.Messaging](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) library. The HTTP protocol does not support batching.
 
+> [!NOTE]
+> Setting BatchFlushInterval ensures that the batching is implicit from the application's perspective. i.e. The application makes SendAsync() and CompleteAsync() calls and does not make specific Batch calls.
+>
+> Explicit client side batching can be implemented by utilizing the below method call - 
+> ```csharp
+> Task SendBatchAsync (BrokeredMessage messages);
+> ```
+> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
+
 ## Batching store access
 
 To increase the throughput of a queue, topic, or subscription, Service Bus batches multiple messages when it writes to its internal store. If enabled on a queue or topic, writing messages into the store will be batched. If enabled on a queue or subscription, deleting messages from the store will be batched. If batched store access is enabled for an entity, Service Bus delays a store write operation regarding that entity by up to 20 ms. 
@@ -109,15 +118,6 @@ Queue q = namespaceManager.CreateQueue(qd);
 ```
 
 Batched store access does not affect the number of billable messaging operations, and is a property of a queue, topic, or subscription. It is independent of the receive mode and the protocol that is used between a client and the Service Bus service.
-
-> [!NOTE]
-> Setting BatchFlushInterval ensures that the batching is implicit from the application's perspective. i.e. The application makes SendAsync() and CompleteAsync() calls and does not make specific Batch calls.
->
-> However, explicit client side batching can be implemented by utilizing the below method call - 
-> ```csharp
-> Task SendBatchAsync (BrokeredMessage messages);
-> ```
-> Here the combined size of the messages must be less than the maximum size supported by the pricing tier.
 
 ## Prefetching
 
