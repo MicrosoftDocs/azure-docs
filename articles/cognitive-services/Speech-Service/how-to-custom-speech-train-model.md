@@ -1,7 +1,7 @@
 ---
 title: "Train a model for Custom Speech - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: "Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product specific terms."
+description: "Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product-specific terms."
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -14,7 +14,7 @@ ms.author: erhopf
 
 # Train a model for Custom Speech
 
-Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product specific terms. The more in-domain datasets that you provide (data that is related to what users will say and what you expect to recognize), the more accurate your model will be, which results in improved recognition. Keep in mind, that by feeding unrelated data into your training, you can reduce or hurt the accuracy of your model.
+Training a speech-to-text is necessary to improve recognition accuracy for both Microsoft's baseline model or a custom model that you're planning to create. A model is trained using human-labeled transcriptions and related text. These datasets along with previously uploaded audio data, are used to refine and train the speech-to-text model to recognize words, phrases, acronyms, names, and other product-specific terms. The more in-domain datasets that you provide (data that is related to what users will say and what you expect to recognize), the more accurate your model will be, which results in improved recognition. Keep in mind, that by feeding unrelated data into your training, you can reduce or hurt the accuracy of your model.
 
 ## Use training to resolve accuracy issues
 
@@ -22,9 +22,9 @@ If you're encountering recognition issues with your model, using human-labeled t
 
 | Use case | Data type | Data quantity |
 |----------|-----------|---------------|
-| Proper names are misrecognized | Relate text (sentences/utterances) | 10MB to 500MB |
+| Proper names are misrecognized | Relate text (sentences/utterances) | 10 MB to 500 MB |
 | Words are misrecognized because of an accent | Related text (pronunciation) | Provide the misrecognized words |
-| Common words are deleted or completely misrecognized | Audio + human-labeled transcripts | 10 to 1,000 transcription hours |
+| Common words are deleted or misrecognized | Audio + human-labeled transcripts | 10 to 1,000 transcription hours |
 
 > [!IMPORTANT]
 > If you haven't uploaded a data set, please see [Prepare and test your data](how-to-custom-speech-test-data.md). This document provides instructions for uploading data, and guidelines for creating high-quality datasets.
@@ -41,7 +41,7 @@ The first step to train a model is to upload training data. Use [Prepare and tes
 6. Once the training is complete, you can choose to perform accuracy testing on the newly trained model. This step is optional.
 7. Select **Create** to build your custom model.
 
-The Training table displays a new entry that corresponds to this newly created model. The table also displays the status:  Processing, Succeeded, or Failed.
+The Training table displays a new entry that corresponds to this newly created model. The table also displays the status:  Processing, Succeeded, Failed.
 
 ## Evaluate the accuracy of a trained model
 

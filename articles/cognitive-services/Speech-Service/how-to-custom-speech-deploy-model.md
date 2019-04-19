@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.author: erhopf
 ---
 
@@ -20,7 +20,7 @@ After you've uploaded and inspected data, evaluated accuracy, and trained a cust
 
 To create a new custom endpoint, select **Deployment** from the Custom Speech menu at the top of the page. If this is your first run, you'll notice that there are no endpoints listed in the table. After you've created an endpoint, you'll use this page to track each deployed endpoint.
 
-Next, select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom model that you'd like to associate with this endpoint. From this page you can also enable logging. This allows you to monitor endpoint traffic. If disabled, traffic will not be stored.
+Next, select **Add endpoint** and enter a **Name** and **Description** for your custom endpoint. Then select the custom model that you'd like to associate with this endpoint. From this page, you can also enable logging. Logging allows you to monitor endpoint traffic. If disabled, traffic won't be stored.
 
 ![How to deploy a model](./media/custom-speech/custom-speech-deploy-model.png)
 
@@ -29,7 +29,7 @@ Next, select **Add endpoint** and enter a **Name** and **Description** for your 
 
 Next, select **Create**. This action returns you to the **Deployment** page. The table now includes an entry that corresponds to your custom endpoint. The endpoint’s status shows its current state. It can take up to 30 minutes to instantiate a new endpoint using your custom models. When the status of the deployment changes to **Complete**, the endpoint is ready to use.
 
-After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code for your custom endpoint.
+After your endpoint is deployed, the endpoint name appears as a link. Click the link to display information specific to your endpoint, such as the endpoint key, endpoint URL, and sample code.
 
 ## View logging data
 

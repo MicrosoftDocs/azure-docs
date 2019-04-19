@@ -1,26 +1,26 @@
 ---
 title: "Human-labeled transcriptions guidelines - Speech Services"
 titlesuffix: Azure Cognitive Services
-description: "If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to provide human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they are word-by-word, verbatim transcriptions of an audio file."
+description: "If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to use human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they're word-by-word, verbatim transcriptions of an audio file."
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/06/2019
+ms.date: 05/02/2019
 ms.author: erhopf
 ---
 
 # How to create human-labeled transcriptions
 
-If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to provide human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they are word-by-word, verbatim transcriptions of an audio file.
+If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to use human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they're word-by-word, verbatim transcriptions of an audio file.
 
 A large sample of transcription data is required to improve recognition, we suggest providing between 10 and 1,000 hours of transcription data. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
 ## US English (en-US)
 
-Human-labeled transcriptions for English audio must be provided as plain text, only using ASCII characters. Avoid the use of Latin-1 or Unicode punctuation characters. These characters are often inadvertently added when copying text from a word processing application or scraping data from web pages. If these characters are present, make sure to update them with the appropriate ASCII substitution.
+Human-labeled transcriptions for English audio must be provided as plain text, only using ASCII characters. Avoid the use of Latin-1 or Unicode punctuation characters. These characters are often inadvertently added when copying text from a word-processing application or scraping data from web pages. If these characters are present, make sure to update them with the appropriate ASCII substitution.
 
 Here are a few examples:
 
@@ -28,7 +28,7 @@ Here are a few examples:
 |---------------------|--------------|-------|
 | “Hello world” | "Hello world" | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
 | John’s day | John's day | The apostrophe has been substituted with the appropriate ASCII character. |
-| it was good——no, it was great! | it was good--no, it was great! | The emdash was substituted with two hyphens. |
+| it was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens. |
 
 ### Text normalization for US English
 
@@ -38,7 +38,7 @@ Text normalization is the transformation of words into a consistent format used 
 * Write out non-standard numeric strings in words (such as accounting terms).
 * Non-alphabetic characters or mixed alphanumeric characters should be transcribed as pronounced.
 * Abbreviations that are pronounced as words shouldn't be edited (such as "radar", "laser", "RAM", or "NATO").
-* Write out abbreviations that are pronounced as separate letters with each letter separated by a spaces.
+* Write out abbreviations that are pronounced as separate letters with each letter separated by a space.
 
 Here are a few examples of normalization that you should perform on the transcription:
 
@@ -75,7 +75,7 @@ It costs $3.14| it costs three fourteen |
 
 ## Mandarin Chinese (zh-cn)
 
-Human-labeled transcriptions for Madarin Chinese audio must be UTF-8 encoded with a byte-order marker. Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from web pages. If these characters are present, make sure to update them with the appropriate full-width substitution.
+Human-labeled transcriptions for Mandarin Chinese audio must be UTF-8 encoded with a byte-order marker. Avoid the use of half-width punctuation characters. These characters can be included inadvertently when you prepare the data in a word-processing program or scrape data from web pages. If these characters are present, make sure to update them with the appropriate full-width substitution.
 
 Here are a few examples:
 

@@ -28,9 +28,9 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 2. [Upload test data](how-to-custom-speech-test-data.md) - Upload test data (audio and text) to customize and improve Microsoft's speech-to-text offering for your applications, tools, and products.
 
-3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inpsect data](how-to-custom-speech-inspect-data.md).
+3. [Inspect recognition quality](how-to-custom-speech-inspect-data.md) - Use the Custom Speech portal to play back uploaded audio and inspect the speech recognition quality of your test data. For quantitative measurements, see [Inspect data](how-to-custom-speech-inspect-data.md).
 
-4. [Evaluate accuracy](how-to-custom-speech-evaluate-data.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
+4. [Evaluate accuracy](how-to-custom-speech-evaluate-data.md) - Evaluate the accuracy of the speech-to-text model. The Custom Speech portal will provide a *Word Error Rate*, which can be used to determine if additional training is required. If you're satisfied with the accuracy, you can use the Speech Service APIs directly. If you'd like to improve accuracy by a relative average of 5% - 20%, use the **Training** tab in the portal to upload additional training data, such as human-labeled transcripts and related text.
 
 5. [Train the model](how-to-custom-speech-train-model.md) - Improve the accuracy of your speech-to-text model by providing written transcripts (10-1,000 hours) and related text (<50 MB) along with your audio test data. This data helps to train the speech-to-text model. After training, retest, and if you're satisfied with the result, you can deploy your model.
 
@@ -40,7 +40,7 @@ This diagram highlights the pieces that make up the Custom Speech portal. Use th
 
 A Speech Services subscription is required before you can use the Custom Speech portal to create a custom model. Follow these instructions to create an account: [Try Speech Services for free](get-started.md).
 
-Once you've created an Azure account and a Speech Services subscription, you'll need to sign-in to Custom Speech portal and connect your subscription.
+Once you've created an Azure account and a Speech Services subscription, you'll need to sign in to Custom Speech portal and connect your subscription.
 
 1. Get your Speech Services subscription key from the Azure portal.
 2. Sign-in to the [Custom Speech portal](https://portal.cris.ai/customspeech.html).
@@ -49,7 +49,7 @@ Once you've created an Azure account and a Speech Services subscription, you'll 
 
 ## How to create a project
 
-Content like data, models, tests, and endpoints are organized into **Projects** in the Custom Speech portal. Each project is usually specific to a domain and country/language. For example, you may create a project for call centers that use English in the United States.
+Content like data, models, tests, and endpoints are organized into **Projects** in the Custom Speech portal. Each project is specific to a domain and country/language. For example, you may create a project for call centers that use English in the United States.
 
 To create your first project, select the **Speech-to-text/Custom speech**, then click **New Project**. Follow the instructions provided by the wizard to create your project. After you've created a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
 
