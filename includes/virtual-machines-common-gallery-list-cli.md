@@ -42,9 +42,9 @@ Get the ID of an image version using [az sig image-version show](/cli/azure/sig/
 
 ```azurecli-interactive
 az sig image-version show \
--g myGalleryRG \     
--r myGallery \     
--i myImageDefinition \     
---gallery-image-version-name 1.0.0 \     
---query "id"
+   -g myGalleryRG \
+   -r myGallery \
+   -i myImageDefinition \
+   --gallery-image-version 1.0.0 \
+   --query "id"
 ```

@@ -8,21 +8,17 @@ manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/05/2019
+ms.date: 04/19/2019
 ms.author: akjosh; cynthn
 ms.custom: 
 
 #Customer intent: As an IT administrator, I want to learn about how to create shared VM images to minimize the number of post-deployment configuration tasks.
 ---
-
-
-
 # Shared Image Galleries overview
 
 [!INCLUDE [virtual-machines-common-shared-image-galleries](../../../includes/virtual-machines-common-shared-image-galleries.md)]
