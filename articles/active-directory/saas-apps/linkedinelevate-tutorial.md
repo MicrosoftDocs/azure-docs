@@ -44,6 +44,10 @@ In this tutorial, you configure and test Azure AD single sign-on in a test envir
 
 * LinkedIn Elevate supports **SP and IDP** initiated SSO
 
+* LinkedIn Elevate supports **Just In Time** user provisioning
+
+* LinkedIn Elevate supports [**Automated** user provisioning](linkedinelevate-provisioning-tutorial.md)
+
 ## Adding LinkedIn Elevate from the gallery
 
 To configure the integration of LinkedIn Elevate into Azure AD, you need to add LinkedIn Elevate from the gallery to your list of managed SaaS apps.
