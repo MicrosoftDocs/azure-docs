@@ -135,7 +135,7 @@ See [this PowerShell script](https://gallery.technet.microsoft.com/scriptcenter/
     -   An Azure public IP address, with the name *\<Guid>-azurebatch-cloudservicepublicip*.
     -   A network work security group, with the name *\<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
 
--   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or hang. 
+-   Make sure that you don't have any resource lock on the Resource Group or Subscription to which the virtual network belongs. If you configure either a read-only lock or a delete lock, starting and stopping the IR may fail or stop responding. 
 
 -   Make sure that you don't have an Azure policy which prevents the following resources from being created under the Resource Group or Subscription to which the virtual network belongs: 
     -   Microsoft.Network/LoadBalancers 

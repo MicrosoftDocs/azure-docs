@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Python SDK"
 titleSuffix: "Azure Cognitive Services"
-description: In this quickstart, you learn how to use the Python SDK for common tasks.
+description: In this quickstart, you learn how to use the Python SDK for common tasks, such as analyze image, get description, recognize text and generate thumbnail.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/10/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ---
 # Azure Cognitive Services Computer Vision SDK for Python
@@ -42,7 +42,7 @@ Create a free key valid for 7 days with the **[Try It][computervision_resource]*
 Keep the following after the key is created:
 
 * Key value: a 32 character string with the format of `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`
-* Key endpoint: the base endpoint URL, https://westcentralus.api.cognitive.microsoft.com
+* Key endpoint: the base endpoint URL, https\://westcentralus.api.cognitive.microsoft.com
 
 ### If you have an Azure Subscription
 

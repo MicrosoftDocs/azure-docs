@@ -330,4 +330,4 @@ As an operator in your Azure IoT Central application, for your real device you c
 
 ## Next steps
 
-Now that you've learned how to connect a generic Node.js client to your Azure IoT Central application, the suggested next step is to learn how to [prepare and connect a Raspberry Pi](howto-connect-raspberry-pi-python.md).
+Now that you've learned how to connect a generic Node.js client to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md) for your own IoT device.
