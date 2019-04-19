@@ -68,7 +68,7 @@ public async Task<IActionResult> Profile()
 }
 ```
 
-If you want to understand in details the total of the code required for this scenario, see the phase 2 [2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) step of the[ms-identity-aspnetcore-webapp-tutorial)](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial
+If you want to understand in details the total of the code required for this scenario, see the phase 2 [2-1-Web App Calls Microsoft Graph](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-1-Call-MSGraph) step of the [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) tutorial
 
 There are numerous additional complexities such as:
 
