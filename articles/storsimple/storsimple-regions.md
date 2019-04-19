@@ -65,7 +65,7 @@ If using a StorSimple 8100 or 8600 physical device, the device is available in t
 
 | #  | Country        | #  | Country     | #  | Country      | #  | Country              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | Hong Kong   | 31 | New Zealand  | 46 | South Africa         |
+| 1  | Australia      | 16 | Hong Kong SAR| 31 | New Zealand  | 46 | South Africa         |
 | 2  | Austria        | 17 | Hungary     | 32 | Nigeria      | 47 | South Korea          |
 | 3  | Bahrain        | 18 | Iceland     | 33 | Norway       | 48 | Spain                |
 | 4  | Belgium        | 19 | India       | 34 | Peru         | 49 | Sri Lanka            |
