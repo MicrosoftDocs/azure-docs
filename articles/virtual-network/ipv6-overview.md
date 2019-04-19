@@ -16,7 +16,7 @@ ms.author: kumud
 
 # What is IPv6 for Azure Virtual Network? (Preview)
 
-IPv6 for Azure virtual network enables you to host all applications in Azure with IPv6 connectivity between virtual machines in a virtual network that are secured with IPv6 Network Security Group rules, and have support for IPv6 User-defined routes and load balancing across VMs. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Even long established ISP and mobile networks are being transformed to IPv6. IPv4-only services can find themselves at a real disadvantage in both existing and emerging markets. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
+IPv6 for Azure Virtual Network (VNET) enables you to host applications in Azure with IPv6 and IPv4 connectivity both within a virtual network and to and from the Internet. Due to the exhaustion of public IPv4 addresses, new networks for mobility and Internet of Things (IoT) are often built on IPv6. Even long established ISP and mobile networks are being transformed to IPv6. IPv4-only services can find themselves at a real disadvantage in both existing and emerging markets. Dual stack IPv4/IPv6 connectivity enables Azure-hosted services to traverse this technology gap with globally available, dual-stacked services that readily connect with both the existing IPv4 and these new IPv6 devices and networks.
 
 Azure's original IPv6 connectivity makes it easy to provide dual stack (IPv4/IPv6) Internet connectivity for applications hosted in Azure. It allows for simple deployment of VMs with load balanced IPv6 connectivity for both inbound and outbound initiated connections. This feature is still available and more information is available [here](../load-balancer/load-balancer-ipv6-overview.md).
 IPv6 for Azure virtual network is much more full featured- enabling full IPv6 solution architectures to be deployed in Azure.
@@ -60,10 +60,9 @@ The preview release of IPv6 for Azure virtual network has the following limitati
 
 ## Pricing
 
-There is no additional charge for IPv6 support in Azure network services supporting IPv6. There's no distinction between dual-stack (IPv6 + IPv4) consumption pricing and IPv4 consumption pricing. You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
+IPv6 Azure resources and bandwidth are charged at the same rates as IPv4. There are no additional or different charges for IPv6. You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 ## Next steps
 
-- For step-by-step instructions to deploy IPv6 endpoints with Azure Load Balancer, see [Create IPv6 endpoints in an Azure Virtual Network](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
-- To deploy IPv6 endpoints using a sample script with Azure PowerShell, see [Configure IPv6 endpoints in virtual network script sample](./scripts/virtual-network-powershell-sample-ipv6-dual-stack.md)
-
+- Learn how to [deploy an IPv6 dual stack application using Azure PowerShell](virtual-network-ipv4-ipv6-dual-stack-powershell.md).
+- Learn how to [deploy an IPv6 dual stack application using Azure CLI](virtual-network-ipv4-ipv6-dual-stack-cli.md).
