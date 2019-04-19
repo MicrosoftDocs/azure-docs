@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - You must have [cURL](https://curl.haxx.se/windows).
-- You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
 ## Create and run the sample command
 
