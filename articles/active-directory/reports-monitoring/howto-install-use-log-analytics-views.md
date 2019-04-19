@@ -1,6 +1,6 @@
 ---
-title: How to install and use the log analytics views for Azure Active Directory (preview)  | Microsoft Docs
-description: Learn how to install and use the log analytics views for Azure Active Directory (preview)
+title: How to install and use the log analytics views for Azure Active Directory  | Microsoft Docs
+description: Learn how to install and use the log analytics views for Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
