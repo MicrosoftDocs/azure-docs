@@ -525,7 +525,7 @@ and check that the generated schemas generated exist.
 
 ## Enable Secure Network Communications (SNC)
 
-Before you start, ensure the following [Prerequisites](#pre-reqs) are taken care of:
+Before you start, make sure you've met the previously listed [prerequisites](#pre-reqs):
 
 * The on-premises data gateway is installed on a machine that is in the same network as your SAP system.
 
