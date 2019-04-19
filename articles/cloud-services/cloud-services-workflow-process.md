@@ -18,7 +18,7 @@ ms.date: 04/08/2019
 ms.author: kwill
 
 ---
-#   Azure architecture workflow
+#    Workflow of Windows Azure classic VM Architecture 
 This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
 
 > [!NOTE]
