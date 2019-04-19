@@ -31,7 +31,7 @@ LUIS offers the following prebuilt domains.
 | [HomeAutomation](#homeautomation) | Controlling smart home devices like lights and appliances.| 
 | [Note](#note) | Manage note taking tasks such as creating, editing, and finding notes.|
 | [Places](#places)  | Handling queries related to places like businesses, institutions, restaurants, public spaces, and addresses.| 
-| [RestaurantReservation](#restaurantreservation) | Manage tasks associated with reservations such as book a table at a restaurant, changing or cancelling a reservation at a restaurant.| 
+| [RestaurantReservation](#restaurantreservation) | Manage tasks associated with reservations, such as booking a table at a restaurant or changing or canceling a reservation at a restaurant.| 
 | [ToDo](#todo) | Handling requests for task list. |
 | [Utilities](#utilities)  | Handling requests that are common in many domains, like 'help', 'repeat', 'start over.'|
 | [Weather](#weather) | Getting weather reports and forecasts.| 
