@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
 - You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 - You must have the following Python packages installed. You can use [pip](https://packaging.python.org/tutorials/installing-packages/) to install Python packages.
-    - [requests](http://docs.python-requests.org/en/master/)
+    - requests
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 
