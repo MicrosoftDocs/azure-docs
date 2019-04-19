@@ -42,10 +42,12 @@ In this section, you use Ansible to deallocate (stop) an Azure virtual machine.
       tasks:
         - name: Deallocate the virtual machine
           azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
             allocated: no
     ```
+
+1. Replace the `{{ resource_group_name }}` and `{{ vm_name }}` placeholders with your values.
 
 1. Save the file and exit the editor.
 
@@ -93,9 +95,11 @@ In this section, you use Ansible to start a deallocated (stopped) Azure virtual 
       tasks:
         - name: Start the virtual machine
           azure_rm_virtualmachine:
-            resource_group: myResourceGroup
-            name: myVM
+            resource_group: {{ resource_group_name }}
+            name: {{ vm_name }}
     ```
+
+1. Replace the `{{ resource_group_name }}` and `{{ vm_name }}` placeholders with your values.
 
 1. Save the file and exit the editor.
 
