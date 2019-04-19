@@ -14,7 +14,7 @@ ms.date: 04/19/2019
 
 Bootstrap scripts allow you to install and configure components in Azure HDInsight programmatically. 
 
-There are three methods to use bootstrap to programatically set configuration file settings:
+There are three approaches to set configuration file settings as your HDInsight cluster is created:
 
 * Use Azure PowerShell
 * Use .NET SDK
