@@ -281,7 +281,7 @@ It might take several minutes for the application gateway to be created.
 
 1. If you see the following page, the application gateway is working as expected.
 
-    ![Successful test of a working application gateway](media/ansible-create-configure-application-gateway/applicationgateway.PNG)
+    ![Successful test of a working application gateway](media/ansible-application-gateway-configure/applicationgateway.jpg)
 
 ## Clean up resources
 
