@@ -157,6 +157,9 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 
 ## Application Insights
 
+> [!NOTE]
+> Snapshot Debugger is not currently available in Azure Government. As soon as it becomes available this article will be updated.
+
 ### SDK endpoint modifications
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
@@ -183,14 +186,6 @@ In order to send data from Application Insights to the Azure Government region, 
 </ApplicationInsights>
 ```
 
-### Spring Boot
-
-Modify the `application.properties` file and add:
-
-```yaml
-azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
-```
-
 ### .NET Core
 
 Modify the appsettings.json file in your project as follows to adjust the main endpoint:
@@ -204,13 +199,54 @@ Modify the appsettings.json file in your project as follows to adjust the main e
   }
 ```
 
-The values Live Metrics and the profile endpoint can only be set via code. To set the QuickPulse endpoint make the following change in the `ConfigureServices` method of the `Startup.cs` file:
+The values for Live Metrics and the Profile Query Endpoint can only be set via code. To override the default values, make the following changes in the `ConfigureServices` method of the `Startup.cs` file:
 
 ```csharp
-
+using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse; //place at top of Startup.cs file
 
    services.ConfigureTelemetryModule<QuickPulseTelemetryModule>((module, o) => module.QuickPulseServiceEndpoint="QUICKPULSE ENDPOINT ADDRESS"); //place in ConfigureServices method
+
+   services.AddSingleton(new ApplicationInsightsApplicationIdProvider() { ProfileQueryEndpoint = "https://dc.services.visualstudio.com/api/profiles/{0}/appId" }); //place in ConfigureServices method. If used, place this prior to   services.AddApplicationInsightsTelemetry();
+
+   
+
+```
+
+
+### Java
+
+Modify the applicationinsights.xml file to change the default endpoint address.
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings">
+  <InstrumentationKey>ffffeeee-dddd-cccc-bbbb-aaaa99998888</InstrumentationKey>
+  <TelemetryModules>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+  </TelemetryModules>
+  <TelemetryInitializers>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+  </TelemetryInitializers>
+  <!--Add the following Channel value to modify the Endpoint address-->
+  <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
+  <EndpointAddress>https://dc.services.visualstudio.us/v2/track</EndpointAddress>
+  </Channel>
+</ApplicationInsights>
+```
+
+### Spring Boot
+
+Modify the `application.properties` file and add:
+
+```yaml
+azure.application-insights.channel.in-process.endpoint-address= https://dc.applicationinsights.us/v2/track
 ```
 
 ### Node.js
