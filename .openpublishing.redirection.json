@@ -4695,7 +4695,11 @@
       "redirect_url": "/azure/automation/source-control-integration",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/virtual-machines/extensions/custom-script-classic.md",
+      "redirect_url": "/azure/virtual-machines/extensions/custom-script-windows",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/automation/automation-credentials.md",
       "redirect_url": "/azure/automation/shared-resources/credentials",
@@ -38471,6 +38475,11 @@
       "source_path": "articles/azure-stack/partner/index.yml",
       "redirect_url": "/azure-stack/partner",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/aks/aad-integration.md",
+      "redirect_url": "/azure/aks/azure-ad-integration",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/app-service/app-service-jre-support.md",

@@ -445,21 +445,22 @@
     - name: Current release notes
       href: ../hdinsight-release-notes.md
       maintainContext: true
-    - name: Archived release notes
-      href: ../hdinsight-release-notes-archive.md
+      items:
+      - name: Archived release notes
+        href: ../hdinsight-release-notes-archive.md
+        maintainContext: true
+      - name: Migrate to granular role-based access for cluster configurations
+        href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+    - name: Azure Roadmap
+      href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
+    - name: Get help on the forum
+      href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
+    - name: Learning path
+      href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
+    - name: Microsoft Professional Program for Big Data
+      href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/
+    - name: Windows tools for HDInsight
+      href: ../hdinsight-hadoop-windows-tools.md
       maintainContext: true
-  - name: Changes to cluster configuration access		
-    href: ../hdinsight-migrate-granular-access-cluster-configurations.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
-  - name: Get help on the forum
-    href: https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/
-  - name: Microsoft Professional Program for Big Data
-    href: https://academy.microsoft.com/en-us/professional-program/tracks/big-data/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Windows tools for HDInsight
-    href: ../hdinsight-hadoop-windows-tools.md
-    maintainContext: true
