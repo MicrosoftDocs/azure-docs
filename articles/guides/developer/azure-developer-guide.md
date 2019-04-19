@@ -125,7 +125,7 @@ You can use [Azure Data Factory](../../data-factory/introduction.md) to move exi
 
 #### Docker support
 
-Docker containers, a form of OS virtualization, let you deploy applications in a more efficient and predictable way. A containerized application works in production the same way as on your development and test systems. You can manage containers by using standard Docker tools. You can use your existing skills and popular open-source tools to deploy and manage container-based applications on Azure.
+Docker containers, a form of OS virtualization, lets you deploy applications in a more efficient and predictable way. A containerized application works in production the same way as on your development and test systems. You can manage containers by using standard Docker tools. You can use your existing skills and popular open-source tools to deploy and manage container-based applications on Azure.
 
 Azure provides several ways to use containers in your applications.
 
@@ -230,7 +230,7 @@ Azure is built on a set of REST APIs that support the Azure portal UI. Most of t
 
 ### APIs
 
-In addition to REST APIs, many Azure services also let you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
+In addition to REST APIs, many Azure services also lets you programmatically manage resources from your applications by using platform-specific Azure SDKs, including SDKs for the following development platforms:
 
 -   [.NET](https://go.microsoft.com/fwlink/?linkid=834925)
 -   [Node.js](https://docs.microsoft.com/javascript/azure)
@@ -283,7 +283,7 @@ When you allow access to Azure resources, it’s always a best practice to
 provide users with the least privilege that’s required to perform a
 given task.
 
-- **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy a set of resources into a resource group and grant permissions to a specific user or group. It also let you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
+- **Role-based access control (RBAC)**: In Azure, you can grant access to user accounts (principals) at a specified scope: subscription, resource group, or individual resources. RBAC lets you deploy a set of resources into a resource group and grant permissions to a specific user or group. It also lets you limit access to only the resources that belong to the target resource group. You can also grant access to a single resource, such as a virtual machine or virtual network. To grant access, you assign a role to the user, group, or service principal. There are many predefined roles, and you can also define your own custom roles. To learn more, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 
   > **When to use**: When you need fine-grained access management for users and groups or when you need to make a user an owner of a subscription.
   > 
