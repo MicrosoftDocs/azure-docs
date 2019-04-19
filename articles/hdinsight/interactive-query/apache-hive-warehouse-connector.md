@@ -11,9 +11,11 @@ ms.date: 04/18/2019
 ---
 # Integrate Apache Spark and Apache Hive with the Hive Warehouse Connector
 
-The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Spark and Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector is a library that works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
+The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
 
-Apache Hive offers ACID support, detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. Apache Spark, on the other hand, Spark has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs, which can make interoperability difficult. Hive Warehouse Connector makes it easier to use Spark and Hive together. Data is loaded from LLAP daemons to Spark executors in parallel, this architecture is much more efficient and scalable than using a standard JDBC connection from Spark to Hive.
+Hive Warehouse Connector allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. 
+
+Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs, which can make interoperability difficult. Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel, making it  more efficient and scalable than using a standard JDBC connection from Spark to Hive.
 
 ![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
