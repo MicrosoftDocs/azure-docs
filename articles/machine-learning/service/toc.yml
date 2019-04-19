@@ -99,6 +99,9 @@
         href: how-to-vscode-train-deploy.md
   - name: Work with data
     items:
+    - name: Create & register dataset (preview)
+      displayName: data, etl, dataset
+      href: how-to-create-register-datasets.md
     - name: Prepare data (GA)
       items:
       - name: Load data
@@ -110,9 +113,6 @@
       - name: Write data
         displayName: data, etl, data prep, dataprep
         href: how-to-write-data.md
-    - name: Create & register dataset (preview)
-      displayName: data, etl, dataset
-      href: how-to-create-register-datasets.md
     - name: Prepare data (preview)
       displayName: data, etl, dataset, summary statistics, profile, explore, data preparation, dataprep
       href: how-to-explore-prepare-data.md
