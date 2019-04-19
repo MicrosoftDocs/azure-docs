@@ -29,12 +29,15 @@ Now that you know how to acquire a token to call Web APIs, learn how to move it 
 
 ## Next steps
 
-To learn more aspects
-
-- Try the tutorial: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) is a progressive tutorial with production ready code for a Web app including how to add sign in.
-  ![Tutorial overview](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial)
+### Calling Web APIs scenario
 
 Once your web app signs-in users, it can call Web APIs on behalf of the signed-in users. Calling Web APIs from our Web App is the object of the following scenario:
 
 > [!div class="nextstepaction"]
 > [Web app that calls web APIs](scenario-web-app-call-api-overview.md)
+
+### Deep dive Web App tutorial
+
+You can also learn about other ways of sign-in users with the ASP.NET Core tutorial: [ms-identity-aspnetcore-webapp-tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial). This is a progressive tutorial with production ready code for a Web app including how to add sign in.
+  
+  ![Tutorial overview](media/scenarios/aspnetcore-webapp-tutorial.svg)

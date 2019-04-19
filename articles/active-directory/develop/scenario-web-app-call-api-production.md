@@ -38,4 +38,6 @@ See the full ASP.NET Core Web app progressive tutorial, which shows:
 - call you own Web API,
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial)
+> [ASP.NET Core Web app tutorial](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)
+  
+![Tutorial overview](media/scenarios/aspnetcore-webapp-tutorial.svg)
