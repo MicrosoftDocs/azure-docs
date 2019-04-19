@@ -188,14 +188,14 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
     lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
+    >[!Important]
+    > The `metastoreUri` and `database` options must currently be set manually due to a known issue in Apache Spark. For more information about this issue, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
+
 1. You can view the data inserted into the table with the following command:
 
     ```scala
     hive.table("stream_table").show()
     ```
-
->[!Important]
-> The `metastoreUri` and `database` options must currently be set manually due to a known issue in Apache Spark. For more information about this issue, see [SPARK-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
 ### Securing data on Spark ESP clusters
 
@@ -224,7 +224,7 @@ Follow the steps below to create a Hive Warehouse Connector example that ingests
         ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
     1. Provide a desired policy name. Select database: **Default**, Hive table: **demo**, Hive column: **name**, User: **rsadmin2**, Access Types: **select**, and **Partial mask: show last 4** from the **Select Masking Option** menu. Click **Add**.
                 ![policy list](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
-1. View the table's contents again. After applying the ranger policy, we can see only last four characters on the column.
+1. View the table's contents again. After applying the ranger policy, we can see only the last four characters of the column.
 
     ![demo table after applying ranger policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)
 
