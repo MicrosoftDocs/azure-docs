@@ -513,6 +513,6 @@ Query Output:
 
 ## Next steps
 
-- [Introduction to Azure Cosmos DB][introduction]
+- [SQL Query Examples][how-to-sql-query]
 - [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Azure Cosmos DB consistency levels][consistency-levels]
+- [Model Document Data][modeling-data]
