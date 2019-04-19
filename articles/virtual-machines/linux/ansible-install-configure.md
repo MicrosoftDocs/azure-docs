@@ -12,7 +12,7 @@ ms.date: 04/04/2019
 
 # Quickstart: Install Ansible on Linux virtual machines in Azure
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows how to configure Ansible for some of the most common Linux distros. You can install Ansible on other distros by adjusting the installed packages to fit your particular platform. 
+Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows how to configure Ansible for some of the most common Linux distros. To install Ansible on other distros, adjust the installed packages for your particular platform. 
 
 ## Prerequisites
 
