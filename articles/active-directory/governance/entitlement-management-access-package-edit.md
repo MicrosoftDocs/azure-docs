@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/12/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -211,6 +211,22 @@ You can only cancel a pending request that has not yet been delivered.
 1. Click the request you want to cancel
 
 1. In the request details pane, click **Cancel request**.
+
+## Copy My Access portal link
+
+Most users in your directory can sign in to the My Access portal and automatically see a list of access packages they can request. However, for external business partner users that are not yet in your directory, you will need to send them a link that they can use to request an access package. As long as the access package is enabled for external users and you have a policy for the external user's directory, the external user can use the My Access portal link to request the access package.
+
+**Prerequisite role:** User administrator, Catalog owner, or Access package manager
+
+1. In the Azure portal, click **Azure Active Directory** and then click **Identity governance**.
+
+1. In the left menu, click **Access packages** and then open the access package.
+
+1. On the Overview page, copy the **My Access portal link**.
+
+    ![Access package overview - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
+
+1. Email or send the link to your external business partner. They can share the link with their users to request the access package.
 
 ## Change the Hidden setting
 

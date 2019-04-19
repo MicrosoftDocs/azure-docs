@@ -178,11 +178,11 @@ A *policy* defines the rules or guardrails to access an access package. In this 
 
 1. In left menu of the Web project access package, click **Overview**.
 
-1. Copy the **MyAccess portal link**.
+1. Copy the **My Access portal link**.
 
     You'll use this link for the next step.
 
-    ![Access package overview](./media/entitlement-management-access-package-first/overview.png)
+    ![Access package overview - My Access portal link](./media/entitlement-management-shared/my-access-portal-link.png)
 
 ## Step 4: Request access
 

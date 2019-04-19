@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/12/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -28,9 +28,9 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Open the My Access portal
+## Sign in to the My Access portal
 
-The first step is to open the My Access portal where you can request access to an access package. There are two ways to open the My Access portal.
+The first step is to sign in to the My Access portal where you can request access to an access package.
 
 **Prerequisite role:** Requestor
 

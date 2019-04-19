@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/11/2019
+ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
@@ -41,6 +41,8 @@ The first step to approve or deny access requests is to find and open the access
     ![Approve request to access package email](./media/entitlement-management-shared/email-approve-request.png)
 
 1. Click the **Approve or deny request** link to open the access request.
+
+1. Sign in to the My Access portal.
 
 If you don't have the email, you can find the access requests pending your approval by following these steps.
 
