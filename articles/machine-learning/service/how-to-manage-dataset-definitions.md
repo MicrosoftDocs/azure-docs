@@ -68,7 +68,7 @@ The first Dataset definition (`version_id` = 1) is created when the Dataset is c
 
 ```python
 # get the Dataset from the workspace by name
-dataset = Dataset.get(workspace=workspace, dataset_name=dataset_name)
+dataset = workspace.datasets['dataset_name']
 
 # get the latest Dataset definition
 ds_def = dataset.get_definition()
@@ -79,7 +79,7 @@ ds_def = ds_def.keep_columns(['ID', 'Arrest', 'Latitude', 'Longitude'])
 # with this update, the latest definition for dataset now has `version_id = 2`
 dataset = dataset.update_definition(ds_def, 'select useful column')
 
-dataset = Dataset.get(workspace, dataset_name)
+dataset = workspace.datasets['dataset_name']
 dataset.head(5)
 ```
 <div>
@@ -320,6 +320,24 @@ ds_def_old.head(5)
 </div>
 
 As we can see from the result, the first version of Dataset definition still keeps all columns from the crime data regardless of later update. For example, if you have a machine learning model currently consuming the first version of the Dataset and using `Date` column from the Dataset as one of the features, you will not encounter any error with the latest definition update, which keeps only `ID`, `Arrest`, `Latitude`, `Longitude` columns from the crime data.
+
+## How to access Dataset definitions
+
+To get a list of all definitions, use `get_definitions()`. To get a specific version of a definition, use `get_definition()`. The following example demonstrates retrieving a list of all definitions, and then retrieving version 1:
+
+```python
+# list all definitions for the dataset
+dataset.get_definitions()
+# get version ID 2
+dataset.get_definition(version_id=2)
+```
+
+The output of `get_definitions()` is similar to the following example:
+
+```text
+{'2': VersionID: 2, State: active, Created: 2019-04-19 16:43:52.439890+00:00, Modified: 2019-04-19 16:43:52.439890+00:00, Notes: select useful column,
+ '1': VersionID: 1, State: active, Created: 2019-04-19 16:39:14.112046+00:00, Modified: 2019-04-19 16:44:12.912663+00:00, Notes: None}
+```
 
 ## Manage lifecycle of Dataset definitions
 

@@ -107,7 +107,7 @@ For example run configurations, see [Select and use a compute target to train yo
 
 Azure Machine Learning Datasets (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different dataset definitions, and compare between datasets used in training and in production.
 
-Datasets provides methods for working with data in popular formats, such as using `from_excel_files()` or `to_pandas_dataframe()`.
+Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).
 
