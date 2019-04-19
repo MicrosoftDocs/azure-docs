@@ -54,7 +54,8 @@ There are a number of different applications, which can be separated into two gr
 - [Logging options](#logging), including: log level, control of the PII, name of the component using the library
 
 ### Authority
-The authority URL is composed of the instance and the audience.
+The authority is a URL indicating a directory that MSAL can request tokens from. The authority URL is composed of the instance and the audience.
+
 The authority can be:
 - an Azure Active directory Cloud authority
 - an Azure AD B2C authority. See [B2C specifics](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics)
