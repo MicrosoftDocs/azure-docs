@@ -21,7 +21,7 @@ The Anomaly Detector API is a stateless anomaly detection service. The accuracy 
 
 Use this article to learn about best practices for using the API getting the best results for your data. 
 
-## When to use batch anomaly detection (entire) or latest point detection (last) 
+## When to use batch (entire) anomaly detection or latest (last) point detection
 
 The Anomaly Detector API's batch detection endpoint lets you detect anomalies through your entire times series data. In this detection mode, a single statistical model is created and applied to each point in the data set. If your time series has the below characteristics, we recommend using batch detection to preview your data in one API call.
 
