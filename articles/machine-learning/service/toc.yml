@@ -119,7 +119,7 @@
     - name: Version & manage dataset definitions (preview)
       displayName: data, etl, dataset, data preparation, dataprep, version
       href: how-to-manage-dataset-definitions.md
-    - name: Snapshot your data
+    - name: Snapshot your data (preview)
       displayName: snapshots, profile, summary statistics, data copy
       href: how-to-create-dataset-snapshots.md
     - name: Get data in datastore
