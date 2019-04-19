@@ -164,6 +164,10 @@ The following administrator roles are available:
 
 * **[Reports Reader](#reports-reader)**: Users with this role can view usage reporting data and the reports dashboard in Microsoft 365 admin center and the adoption context pack in Power BI. Additionally, the role provides access to sign-in reports and activity in Azure AD and data returned by the Microsoft Graph reporting API. A user assigned to the Reports Reader role can access only relevant usage and adoption metrics. They don't have any admin permissions to configure settings or access the product-specific admin centers like Exchange. This role has no access to view, create, or manage support tickets.
 
+* **[Search Administrator](#search-administrator)**: Users in this role have full access to all Microsoft Search management features in the Microsoft 365 admin center. Search Administrators can delegate the Search Administrators and Search Editor roles to users, and create and manage content, like bookmarks, Q&As, and locations. Additionally, these users can view the message center, monitor service health, and create service requests.
+
+* **[Search Editor](#search-editor)**: Users in this role can create, manage, and delete content for Microsoft Search in the Microsoft 365 admin center, including bookmarks, Q&As, and locations.
+
 * **[Security Administrator](#security-administrator)**: Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Office 365 Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
   In | Can do
@@ -921,6 +925,37 @@ Can read sign-in and audit reports.
 | microsoft.aad.directory/signInReports/allProperties/read | Read all properties (including privileged properties) on signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Read and configure Azure Service Health. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+
+### Search Administrator
+Can create and manage all aspects of Microsoft Search settings.
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.search/allEntities/allProperties/allTasks | Create and delete all resources, and read and update all properties in microsoft.office365.search. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Office 365 Service Health. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Office 365 support tickets. |
+| microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
+| microsoft.office365.webPortal/allEntities/basic/read | Read basic properties on all resources in microsoft.office365.webPortal. |
+
+### Search Editor
+Can create and manage the editorial content such as bookmarks, Q and As, locations, floorplan.
+
+  > [!NOTE]
+  > This role has additonal permissions outside of Azure Active Directory. For more information, see role description above.
+  >
+  >
+
+| **Actions** | **Description** |
+| --- | --- |
+| microsoft.office365.messageCenter/messages/read | Read messages in microsoft.office365.messageCenter. |
+| microsoft.office365.search/content/allProperties/allTasks | Create and delete content, and read and update all properties in microsoft.office365.search. |
 | microsoft.office365.usageReports/allEntities/read | Read Office 365 usage reports. |
 
 ### Security Administrator
