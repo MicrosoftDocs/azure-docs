@@ -288,6 +288,8 @@
       href: tshoot-connect-sync-errors.md
     - name: Object is not synchronized
       href: tshoot-connect-object-not-syncing.md
+    - name: Source anchor during installation
+      href: tshoot-connect-source-anchor.md
     - name: Object sync using the troubleshooting task
       href: tshoot-connect-objectsync.md
     - name: Password hash synchronization
