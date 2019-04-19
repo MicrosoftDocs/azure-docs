@@ -15,7 +15,7 @@ ms.author: edjez
 
 The Personalizer service works by learning what your application should show to users in a given context. Your application provides a list of options, called actions, when calling the Rank API. 
 
-Personalizer uses information about the current [context](concepts-context.md) to choose the best action. The context is a dictionary of [features](concepts-features.md) that represent all information you think may help personalize and achieve higher rewards.
+Personalizer uses information about the current context to choose the best action. The context is a dictionary of features that represent all information you think may help personalize and achieve higher rewards.
 
 ## Actions represent a list of options
 
