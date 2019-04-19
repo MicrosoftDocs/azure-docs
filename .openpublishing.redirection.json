@@ -36940,12 +36940,12 @@
     {
       "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-language-model.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/how-to-customize-pronunciation.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-speech-train-model",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/Speech-Service/how-to-create-custom-endpoint.md",
