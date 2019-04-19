@@ -51,24 +51,23 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status shows **Running**.
 
-    ![Refresh](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+    ![Refresh status](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+
 
 ## Launch Jupyter web interface
 
 After your workstation is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
-* Select **Jupyter** in the **Launch** column for your workstation.  
 
-    ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-notebook-server.png)
+1. Select **Jupyter** in the **Launch** column for your workstation.  
+
+    ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
     The link starts your notebook server and opens the server homepage in a new browser tab.  
 
-    > [!TIP]
-    > Stop the VM when you are not using it to reduce cost.  Select the resource and select **Stop** at the top of the list.  
+1. The notebook server opens in a new browser tab.  The URL can only be used by the person who creates the VM.
 
-* The notebook server opens in a new browser tab.  The URL can only be used by the person who creates the VM.
-
-* Select the **samples/quickstart** folder to see the quickstart notebook.
+1. Select the **samples/quickstart** folder to see the quickstart notebook.
 
 ### Run the notebook
 
@@ -101,6 +100,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
 
 1. Run the rest of the cells, starting with `experiment = Experiment(workspace = ws, name = "my-first-experiment")`.
 
+
 ## View logged values
 
 1. The output from the `run` cell contains a link back to the Azure portal to view the experiment results in your workspace. 
@@ -121,6 +121,15 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
+If you keep your workspace, stop the notebook VM to reduce cost.  
+
+1. In your workspace, select **Notebook VMs**.
+ 
+   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+
+1. From the list, select the VM.
+
+1. Select **Stop**.
 
 ## Next steps
 
