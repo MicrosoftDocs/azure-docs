@@ -7,14 +7,13 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 
-ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -25,7 +24,7 @@ ms.collection: M365-identity-device-management
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Microsoft identity platform supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
+The Microsoft identity platform supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!IMPORTANT]
 > At this time, the Microsoft identity platform endpoint only supports the device flow for Azure AD tenants, but not personal accounts.  This means that you must use an endpoint set up as a tenant, or the `organizations` endpoint.  
@@ -39,11 +38,11 @@ Microsoft identity platform supports the [device code grant](https://tools.ietf.
 
 The entire device code flow looks similar to the next diagram. We describe each of the steps later in this article.
 
-![Device code flow](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
+![Device code flow](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## Device authorization request
 
-The client must first check with the authentication server for a device and user code, used to initiate authentication.  The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user.  From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
+The client must first check with the authentication server for a device and user code that's used to initiate authentication. The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user. From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
 
 > [!TIP]
 > Try executing this request in Postman!
@@ -72,13 +71,13 @@ A successful response will be a JSON object containing the required information 
 
 | Parameter | Format | Description |
 | ---              | --- | --- |
-|`device_code`     | String | A long string used to verify the session between the client and the authorization server.  This is used by the client to request the access token from the authorization server. |
-|`user_code`       | String | A short string shown to the user, used to identify the session on a secondary device.|
+|`device_code`     | String | A long string used to verify the session between the client and the authorization server. The client uses this parameter to request the access token from the authorization server. |
+|`user_code`       | String | A short string shown to the user that's used to identify the session on a secondary device.|
 |`verification_uri`| URI | The URI the user should go to with the `user_code` in order to sign in. |
-|`verification_uri_complete`|URI| A URI combining the `user_code` and the `verification_uri`, used for non-textual transmission to the user (for example, via Bluetooth to a device, or through a QR code).  |
-|`expires_in`      |  int| The number of seconds before the `device_code` and `user_code` expire. |
+|`verification_uri_complete`| URI | A URI that combines the `user_code` and the `verification_uri`, used for non-textual transmission to the user (for example, via Bluetooth to a device, or through a QR code).  |
+|`expires_in`      | int | The number of seconds before the `device_code` and `user_code` expire. |
 |`interval`        | int | The number of seconds the client should wait between polling requests. |
-| `message`        | String | A human-readable string with instructions for the user.  This can be localized by including a **query parameter** in the request of the form `?mkt=xx-XX`, filling in the appropriate language culture code. |
+| `message`        | String | A human-readable string with instructions for the user. This can be localized by including a **query parameter** in the request of the form `?mkt=xx-XX`, filling in the appropriate language culture code. |
 
 ## Authenticating the user
 
@@ -103,15 +102,14 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 ### Expected errors
 
-Because the device code flow is a polling protocol, your client must expect to receive errors before the user has finished authenticating.  
+The device code flow is a polling protocol so your client must expect to receive errors before the user has finished authenticating.  
 
 | Error | Description | Client Action |
 | ------ | ----------- | -------------|
-| `authorization_pending` | The user has not yet finished authenticating, but has not canceled the flow. | Repeat the request after at least `interval` seconds. |
+| `authorization_pending` | The user hasn't finished authenticating, but hasn't canceled the flow. | Repeat the request after at least `interval` seconds. |
 | `authorization_declined` | The end user denied the authorization request.| Stop polling, and revert to an unauthenticated state.  |
-| `bad_verification_code`|The `device_code` sent to the `/token` endpoint was not recognized. | Verify that the client is sending the correct `device_code` in the request. |
-| `expired_token` | At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling, and revert to an unauthenticated state. |
-
+| `bad_verification_code`| The `device_code` sent to the `/token` endpoint wasn't recognized. | Verify that the client is sending the correct `device_code` in the request. |
+| `expired_token` | At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling and revert to an unauthenticated state. |
 
 ### Successful authentication response
 
@@ -137,4 +135,4 @@ A successful token response will look like:
 | `id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |
 | `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
 
-The refresh token can be used to acquire new access tokens and refresh tokens using the same flow detailed in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+You can use the refresh token to acquire new access tokens and refresh tokens using the same flow documented in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
