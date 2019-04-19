@@ -101,54 +101,58 @@ In this section, you configure SLES to use Ansible.
 To configure the Ansible credentials, you need the following:
 
 * Your Azure subscription ID 
-* The service principal information
+* The service principal values
 
-Once you have that information, you can configure the Ansible credentials in two different ways:
+If you're using Ansible Tower or Jenkins, declare the service principal values as environment variables.
+
+Configure the Ansible credentials using one of the following techniques:
 
 - [Create an Ansible credentials file](#file-credentials)
 - [Use Ansible environment variables](#env-credentials)
 
-If you are using tools such as Ansible Tower or Jenkins, you need to declare the service principal values as environment variables.
-
 ### <span id="file-credentials"/> Create Ansible credentials file
 
-This section explains how to create a local credentials file to provide credentials to Ansible. For more information about how to define Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
+In this section, you create a local credentials file to provide credentials to Ansible. 
 
-For a development environment, create a *credentials* file for Ansible on your host virtual machine as follows:
+For more information about defining Ansible credentials, see [Providing Credentials to Azure Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
 
-```bash
-mkdir ~/.azure
-vi ~/.azure/credentials
-```
+1. For a development environment, create a file named `credentials` on the host virtual machine:
 
-Insert the following lines into the *credentials* file - replacing the placeholders with the information from the service principal creation.
+    ```bash
+    mkdir ~/.azure
+    vi ~/.azure/credentials
+    ```
 
-```bash
-[default]
-subscription_id=<your-subscription_id>
-client_id=<security-principal-appid>
-secret=<security-principal-password>
-tenant=<security-principal-tenant>
-```
+1. Insert the following lines into the file. Replace the placeholders with the service principal values.
 
-Save and close the file.
+    ```bash
+    [default]
+    subscription_id=<your-subscription_id>
+    client_id=<security-principal-appid>
+    secret=<security-principal-password>
+    tenant=<security-principal-tenant>
+    ```
+
+1. Save and close the file.
 
 ### <span id="env-credentials"/>Use Ansible environment variables
 
-This section explains how to configure your Ansible credentials by exporting them as environment variables.
+In this section, you export the service principal values to configure your Ansible credentials.
 
-In a terminal or Bash window, enter the following commands:
+1. Open a terminal window.
 
-```bash
-export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
-export AZURE_CLIENT_ID=<security-principal-appid>
-export AZURE_SECRET=<security-principal-password>
-export AZURE_TENANT=<security-principal-tenant>
-```
+1. Export the service principal values:
+
+    ```bash
+    export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+    export AZURE_CLIENT_ID=<security-principal-appid>
+    export AZURE_SECRET=<security-principal-password>
+    export AZURE_TENANT=<security-principal-tenant>
+    ```
 
 ## Verify the configuration
 
-To verify the successful configuration, you can now use Ansible to create a resource group.
+To verify the successful configuration, use Ansible to create a resource group.
 
 [!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]
 
