@@ -23,29 +23,29 @@ You can use Immersive Reader in your web application by using the Immersive Read
 
 The Immersive Reader is designed to make reading more accessible for everyone.
 
-### Shows content in a minimal reading view
+* Shows content in a minimal reading view
 
-![Immersive Reader](./media/immersive-reader.png)
+  ![Immersive Reader](./media/immersive-reader.png)
 
-### Displays pictures of commonly used words
+* Displays pictures of commonly used words
 
-![Picture Dictionary](./media/picture-dictionary.png)
+  ![Picture Dictionary](./media/picture-dictionary.png)
 
-### Highlights nouns, verbs, adjectives, and adverbs
+* Highlights nouns, verbs, adjectives, and adverbs
 
-![Parts of Speech](./media/parts-of-speech.png)
+  ![Parts of Speech](./media/parts-of-speech.png)
 
-### Reads your content out loud to you
+* Reads your content out loud to you
 
-![Read Aloud](./media/read-aloud.png)
+  ![Read Aloud](./media/read-aloud.png)
 
-### Translates your content into another language
+* Translates your content into another language
 
-![Translation](./media/translation.png)
+  ![Translation](./media/translation.png)
 
-### Breaks down words into syllables
+* Breaks down words into syllables
 
-![Syllabification](./media/syllabification.png)
+  ![Syllabification](./media/syllabification.png)
 
 ## How does Immersive Reader work?
 
