@@ -12,7 +12,7 @@ ms.author: anzaman
 ---
 # Setting up alerts on VPN Gateway metrics
 
-This article helps you set up alerts for VPN Gateway metrics. Azure monitor provides the ability to set up alerts for Azure resources. Alerts can be set up for virtual network gateways of "VPN" type. ExpressRoute gateways do not emit metrics.
+This article helps you set up alerts for VPN Gateway metrics. Azure monitor provides the ability to set up alerts for Azure resources. Alerts can be set up for virtual network gateways of "VPN" type.
 
 
 |**Metric**   | **Unit** | **Granularity** | **Description** | 
@@ -40,7 +40,7 @@ The example steps below will create an alert on a gateway for: <br>
 
 
 
-### 1. Navigate to the virtual network gateway resource overview and select "Alerts" from the Monitoring tab, then create a new alert rule or edit an existing alert rule.
+### 1. Navigate to the virtual network gateway resource and select "Alerts" from the Monitoring tab, then create a new alert rule or edit an existing alert rule.
 
 ![point-to-site](./media/vpn-gateway-howto-setup-alerts-for-virtual-network-gateway-metric/metric-alert1.png "Create")
 
@@ -53,7 +53,7 @@ The example steps below will create an alert on a gateway for: <br>
 
 ### <a name="cmdlets"></a>4. Configure the signal logic. There are three components to signal logic:
 
-a. Dimensions: If the metrics has dimensions, specific dimension values can be selected so that the alert only evaluates data of that dimension. These are optional.<br>
+a. Dimensions: If the metric has dimensions, specific dimension values can be selected so that the alert only evaluates data of that dimension. These are optional.<br>
 b. Condition: The operation to evaluate the metric value.<br>
 c. Time: Specify the granularity of metric data, and the period of time to evaluate the alert on.<br>
 
