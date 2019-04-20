@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Configure apps in Azure App Service using Ansible | Microsoft Docs
-description: Learn how to create a Java web app in Azure App Service on Linux using Ansible
+description: Learn how to create an app in Azure App Service with Java 8 and the Tomcat container runtime
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.service: ansible
@@ -20,7 +20,7 @@ ms.date: 04/04/2019
 
 > [!div class="checklist"]
 >
-> * Create an app service on Linux with Java 8 and the Tomcat container runtime
+> * Create an app in Azure App Service with Java 8 and the Tomcat container runtime
 > * Create an Azure Traffic Manager profile
 > * Define a Traffic Manager endpoint using the created app
 
@@ -29,7 +29,7 @@ ms.date: 04/04/2019
 - [!INCLUDE [open-source-devops-prereqs-azure-sub.md](../../includes/open-source-devops-prereqs-azure-sub.md)]
 - [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## Create a simple app service
+## Create a basic app service
 
 The playbook code in this section defines the following resources:
 
@@ -76,7 +76,7 @@ Run the playbook using the `ansible-playbook` command:
 ansible-playbook firstwebapp.yml
 ```
 
-After running the playbook, you see output similar to the following results:"
+After running the playbook, you see output similar to the following results:
 
 ```Output
 PLAY [localhost] 
@@ -96,11 +96,11 @@ PLAY RECAP
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
-## Create an app service using Traffic Manager
+## Create an app and use Azure Traffic Manager
 
 [Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) enables you to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager is used to decide which endpoints should receive the traffic.
 
-In App Service, an app runs in an [App Service plan](/azure/app-service/overview-hosting-plans). An App Service plan defines a set of compute resources for a app to run. You can manage your App Service plan and web app in different groups.
+In App Service, an app runs in an [App Service plan](/azure/app-service/overview-hosting-plans). An App Service plan defines a set of compute resources for an app to run. You can manage your App Service plan and web app in different groups.
 
 The playbook code in this section defines the following resources:
 
