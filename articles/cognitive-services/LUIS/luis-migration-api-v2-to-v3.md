@@ -13,6 +13,7 @@ ms.date: 05/07/2019
 ms.author: diberry
 ---
 
+
 # Pre-release: API v2 to v3 Migration guide for LUIS apps
 The endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
