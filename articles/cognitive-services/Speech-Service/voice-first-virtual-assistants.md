@@ -35,6 +35,8 @@ As the name implies, Direct Line Speech and its associated functionality for cus
 Sample code for creating a voice-first virtual assistant is available on GitHub. These samples cover the client application for connecting to your bot in several popular programming languages.
 
 * [Voice-first virtual assistant samples (SDK)](https://aka.ms/csspeech/samples)
+* [Quickstart: voice-first virtual assistants (C#)](quickstart-virtual-assistant-csharp-uwp)
+* [Quickstart: voice-first virtual assistants (Java)](quickstart-virtual-assistant-java-jre)
 
 ## Customization
 

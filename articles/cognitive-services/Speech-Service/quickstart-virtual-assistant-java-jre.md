@@ -12,9 +12,9 @@ ms.date: 05/02/2019
 ms.author: bidishac
 ---
 
-# Quickstart: Use a voice-first virtual assistant from a Java app with the Cognitive Services Speech SDK
+# Quickstart: Use a voice-first virtual assistant from a Java app with the Speech SDK
 
-In this article, you create a Java console application by using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use "Direct Line Speech" channel, send a voice request and return a voice response activity (if configured). The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Ubuntu Linux 16.04 / 18.04 or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Cognitive Services Speech SDK](speech-sdk.md). The application will connect to a previously authored bot configured to use the Direct Line Speech channel, send a voice request, and return a voice response activity (if configured). The application is built with the Speech SDK Maven package and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Ubuntu Linux 16.04 / 18.04 or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 ## Prerequisites
 
@@ -32,14 +32,14 @@ This quickstart requires:
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
 
-If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse.
+If you're running Ubuntu 16.04/18.04, make sure these dependencies are installed before starting Eclipse:
 
 ```console
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-If you're running Windows (64-bit), ensure you have installed the Microsoft Visual C++ Redistributable for your platform.
+If you're running Windows (64-bit), ensure you have installed the Microsoft Visual C++ Redistributable for your platform:
 * [Download Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## Optional: Get started fast
@@ -106,7 +106,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     > [!NOTE]
     > The 30-day trial for the standard pricing tier described in [Try Speech Services for free](get-started.md) is restricted to **westus** (not **westus2**) and is thus not compatible with Direct Line Speech. Free and standard tier **westus2** subscriptions are compatible.
 
-   ```java
+    ```java
     final String channelSecret = "YourChannelSecret"; // Your channel secret
     final String subscriptionKey = "YourSubscriptionKey"; // your subscription key
     final String region = "YourServiceRegion"; // Your service region. Currently assumed to be westus2
@@ -119,7 +119,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     final SpeechBotConnector botConnector = new SpeechBotConnector(botConnectorConfig, audioConfig);
     ```
 
-1. `SpeechBotConnector` relies on several events to communicate its results and other information. Add these event listeners next.
+1. `SpeechBotConnector` relies on several events to communicate its bot activities, speech recognition results, and other information. Add these event listeners next.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -155,7 +155,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
     });
     ```
 
-1. Connect to the `SpeechBotConnector` invoking the `connectAsync()` API. To test your bot, you can invoke the `listenOnceAsync` API to send direct speech from your microphone. Additionally, you can also use the `sendActivityAsync` API to send an activity as a serialized string.
+1. Connect the `SpeechBotConnector` to Direct Line Speech by invoking the `connectAsync()` method. To test your bot, you can invoke the `listenOnceAsync` method to send audio input from your microphone. Additionally, you can also use the `sendActivityAsync` method to send a custom activity as a serialized string. These custom activities can provide additional data that your bot will use in the conversation.
 
     ```java
     botConnector.connectAsync();
@@ -168,7 +168,7 @@ Additionally, to enable logging, update the **pom.xml** file to include the foll
 
 1. Save changes to the `Main` file.
 
-1. For supporting response playback, you will add an additional class that will include utility methods to support audio. To enable audio, add another new empty class to your Java project, select **File** > **New** > **Class**.
+1. For supporting response playback, you will add an additional class that will include utility methods to support audio. To enable audio, add another new empty class to your Java project: select **File** > **New** > **Class**.
 
 1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **AudioPlayer** into the **Name** field.
 
@@ -266,7 +266,6 @@ Press F11, or select **Run** > **Debug**.
 The console will display a message "Say something"
 At this point, you may speak an English phrase or sentence that your bot will understand. Your speech will be transmitted to your bot through the Direct Line Speech channel where it will be recognized, processed by your bot and the response will be returned as an activity. If your bot returns speech as response, the audio will be played back using the `AudioPlayer` class.
 
-
 ![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
 ## Next steps
@@ -275,6 +274,7 @@ Additional samples, such as how to read speech from an audio file, are available
 
 > [!div class="nextstepaction"]
 > [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+
 ## See also
 
 - [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)

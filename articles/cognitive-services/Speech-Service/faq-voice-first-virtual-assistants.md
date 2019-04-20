@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions about the Direct Line Speech
+title: Frequently asked questions about Direct Line Speech
 titleSuffix: Azure Cognitive Services
 description: Get answers to the most popular questions about voice-first virtual assistants using the Direct Line Speech channel.
 services: cognitive-services
@@ -30,7 +30,9 @@ If you can't find answers to your questions in this FAQ, check out [other suppor
 
 **Q: I receive a 401 error when connecting and nothing works. I know my speech subscription key is valid. What's going on?**
 
-**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services") and *not* **Speech**. Additionally, please note that only the **westus2** region is currently supported, with further region support coming soon.
+**A:** In preview, Direct Line Speech has very specific limitations on the subscription used. Please ensure you're using the **Speech** resource (Microsoft.CognitiveServicesSpeechServices, "Speech") and *not* the **Cognitive Services** resource (Microsoft.CognitiveServicesAllInOne, "All Cognitive Services"). Additionally, please note that only the **westus2** region is currently supported, with further region support coming soon.
+
+![correct subscription for direct line speech](media/voice-first-virtual-assistants/faq-supported-subscription.png "example of a compatible Speech subscription")
 
 **Q: I get recognition text back from Direct Line Speech, but I see a '1011' error and nothing from my bot. Why?**
 
