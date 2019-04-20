@@ -57,7 +57,7 @@
     href: knowledge-store-concept-intro.md
 - name: How-to guides
   items:
-  - name: Capacity planning
+  - name: Planning
     items:
     - name: Choose a tier
       href: search-sku-tier.md

@@ -15,7 +15,7 @@ ms.author: heidist
 
 Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. 
 
-If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
+If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you are a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
 
@@ -38,9 +38,11 @@ Enumerated, the benefits of Knowledge Store include the following:
 > [!Note]
 > Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and rich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
 
-## How to create a knowledge store
+## Create a knowledge store
 
-A knowledge store is part of a skillset definition. The following JSON specifies a `knowledgeStore` in a skillset, which determines whether tables or objects are created in Azure storage.
+A knowledge store is part of a skillset definition. In this preview, creating it requires the REST API, using `api-version=2019-05-06-Preview`.
+
+The following JSON specifies a `knowledgeStore`, which is part of a skillset, which is invoked by an indexer (not shown). The specification of `knowledgeStore` determines whether tables or objects are created in Azure storage.
 
 If you are already familiar with AI-based indexing, the skillset definition determines the creation, organization, and substance of each enriched document.
 
@@ -78,16 +80,16 @@ If you are already familiar with AI-based indexing, the skillset definition dete
     "description": "mycogsvcs resource in West US 2",
     "key": "<your key goes here>"
     },
-    "knowledgeStore": { 
-      "storageConnectionString": "<your connection string goes here>", 
-      "projections": [ 
+  "knowledgeStore": { 
+    "storageConnectionString": "<your connection string goes here>", 
+    "projections": [ 
         { 
             "tables": [  
             { "tableName": "Reviews", "generatedKeyName": "ReviewId", "source": "/document/Review" , "sourceContext": null, "inputs": []}, 
             { "tableName": "Sentences", "generatedKeyName": "SentenceId", "source": "/document/Review/Sentences/*", "sourceContext": null, "inputs": []}, 
             { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/Review/Sentences/*/KeyPhrases", "sourceContext": null, "inputs": []}, 
             { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/Review/Sentences/*/Entities/*" ,"sourceContext": null, "inputs": []} 
- 
+
             ], 
             "objects": [ 
                 { 
@@ -115,7 +117,7 @@ The data or documents you want to enrich must exist in an Azure data source supp
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 
-[Azure Table Storage](search-howto-indexing-azure-tables.md) can be used as an outbound data knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
+[Azure Table Storage](search-howto-indexing-azure-tables.md) can be used for outbound data in a knowledge store, but cannot be used as a resource for inbound data to an AI-based indexing pipeline.
 
 ### 2 - Azure Search service
 
@@ -176,18 +178,30 @@ You can create multiple projections in a knowledge store to accommodate various 
 
 For instance, if one of the goals of the enrichment process is to also create a dataset used to train a model, projecting the data into the object store would be one way to use the data in your data science pipelines. Alternatively, if you want to create a quick Power BI dashboard based on the enriched documents the tabular projection would work well.
 
-## Cache and projection lifecycle
+## Cache and projection lifecycle and billing
 
 Each time you run the indexer, the cache in Azure storage is updated if the skillset definition or underlying source data has changed. As input documents are edited or deleted, changes are propagated through the annotation cache to the projections, ensuring that your projected data is a current representation of your inputs at the end of the indexer run. 
 
-Preservation of existing enrichments is a cost savings to you. Azure Search can determine whether individual skills have been changed, and if specific skills are intact across invocations, any processing represented by that skill is avoided.
+Generally speaking, pipeline processing can be an all-or-nothing operation, but Azure Search can process incremental changes, which saves you time and money.
 
-Skillset execution can be scheduled or user-initiated, depending on whether you add scheduling information to the indexer. During development, avoid schedules so that you don’t lose track of cache or projection state. Once your solution is in production and skillset composition is static, you can put the indexer on a schedule to pick up routine changes in the external source data. 
+### Changes to a skillset
+Suppose that you have a pipeline composed of multiple skills, operating over a large body of static data (for example, scanned documents), that takes 8 hours and costs $200 to create the knowledge store (hypothetical). Now suppose you need to tweak one of the skills in the skillset. Rather than starting over, Azure Search can determine which skill is affected, and reprocess only that skill. Cached data and projections that are unaffected by the change remain intact in the knowledge store.
 
-Although Azure Search creates and updates structures and content in Azure storage, it does not delete them. Projections and cached documents continue to exist even when the skillset is deleted. As the owner of the storage account, you should delete a projection if it is no longer needed. 
+### Changes in the data
+Scenarios can vary considerably, but lets supposed instead of static data, you have volatile data that changes between indexer invocations. Given no changes to the skillset, you are charged for processing the delta of new and modified document. The timestamp information varies by data source, but for illustration, in a Blob container, Azure Search looks at the `lastmodified` date to determine which blobs need to be ingested.
 
 > [!Note]
 > While you can edit the data in the projections, any edits will be overwritten on the next pipeline invocation, assuming the document in source data is updated. 
+
+### Deletions
+
+Although Azure Search creates and updates structures and content in Azure storage, it does not delete them. Projections and cached documents continue to exist even when the skillset is deleted. As the owner of the storage account, you should delete a projection if it is no longer needed. 
+
+### Tips for development
+
++ Start small with a representative sample of your data as you make significant changes to skillset composition. As your design finalizes, you can slowly add more data during later-stage development, and then roll in the entire data set when you are comfortable with the pipeline composition.
+
++ Retain control over indexer invocation. Indexers can run on a schedule, which is helpful for solutions that are rolled into production, but less helpful if you are actively developing your pipeline. During development, avoid schedules so that you don’t lose track of cache or projection state. Once your solution is in production and skillset composition is static, you can put the indexer on a schedule to pick up routine changes in the external source data. 
 
 ## Where do I start?
 
