@@ -25,11 +25,11 @@ It's critical to first understand how Notification Hubs pushes notifications to 
 
 ![Notification Hubs architecture][0]
 
-In a typical send notification flow, the message is sent from the *application back end* to Notification Hubs. Notification Hubs processes all the registrations. It takes into account the configured tags and tag expressions to determine targets. Targets are the registrations that need to receive the push notification. These registrations can span any of our supported platforms: iOS, Google, Windows, Windows Phone, Kindle, and Baidu for China Android.
+In a typical send notification flow, the message is sent from the *application back end* to Notification Hubs. Notification Hubs processes all the registrations. It takes into account the configured tags and tag expressions to determine targets. Targets are the registrations that need to receive the push notification. These registrations can span any of our supported platforms: Android, Baidu (Android devices in China), Fire OS (Amazon) iOS, Windows, and Windows Phone.
 
 With the targets established, Notification Hubs pushes notifications to the *push notification service* for the device platform. Examples include the Apple Push Notification service (APNs) for Apple and Firebase Cloud Messaging (FCM) for Google. Notification Hubs pushes notifications split across multiple batches of registrations. It authenticates with the respective push notification service, based on the credentials you set in the Azure portal, under **Configure Notification Hub**. The push notification service then forwards the notifications to the respective *client devices*.
 
-The final leg of notification delivery is between the platform's push notification service and the device. Any of the four major components in the push notification process might cause notifications to be dropped. (These components are the client, the application back end, Notification Hubs, and the platform's push notification service.) For more information about the Notification Hubs architecture, see [Notification Hubs overview].
+The final leg of notification delivery is between the platform's push notification service and the device. Notification delivery can fail at any of the four stages in the push notification process (client, application back end, Notification Hubs, and the platform's push notification service). For more information about the Notification Hubs architecture, see [Notification Hubs overview].
 
 A failure to deliver notifications might occur during the initial test/staging phase. Dropped notifications at this stage might indicate a configuration issue. If a failure to deliver notifications occurs in production, some or all of the notifications might be dropped. A deeper application or messaging pattern issue is indicated in this case.
 
@@ -37,7 +37,7 @@ The next section looks at scenarios in which notifications might be dropped, ran
 
 ## Notification Hubs misconfiguration ##
 
-To send notifications to the respective push notification service, Notification Hubs needs to authenticate itself in the context of your application. You must create a developer account with the respective platform (Google, Apple, Windows, and so on). Then, you must register your application with the platform where you get credentials.
+To send notifications to the respective push notification service, Notification Hubs must authenticate itself in the context of your application. You must create a developer account with the target platform's notification service (Microsoft, Apple, Google, etc.). Then, you must register your application with the OS where you get a token or key that you use to work with the target PNS.
 
 You must add platform credentials to the Azure portal. If no notifications are reaching the device, the first step is to ensure the correct credentials are configured in Notification Hubs. The credentials must match the application that's created under a platform-specific developer account.
 
@@ -45,7 +45,7 @@ For step-by-step instructions to complete this process, see [Get started with Az
 
 Here are some common misconfigurations to check for:
 
-### General ###
+### Notification hub name location
 
 Ensure that your notification hub name (without typos) is the same in each of these locations:
    * Where you register from the client
@@ -56,7 +56,7 @@ Ensure you use the correct shared access signature configuration strings on the 
 
 ### APN configuration ###
 
-You must maintain two different hubs: one for production and another for testing. You must upload the certificate you use in a sandbox environment to a separate hub than the certificate/hub you'll use in production. Don't try to upload different types of certificates to the same hub. It can cause notification failures.
+You must maintain two different hubs: one for production and another for testing. You must upload the certificate you use in a sandbox environment to a separate hub than the certificate/hub you'll use in production. Don't try to upload different types of certificates to the same hub. It will cause notification failures.
 
 If you inadvertently upload different types of certificates to the same hub, you should delete the hub and start fresh with a new hub. If for some reason you can't delete the hub, you must at least delete all the existing registrations from the hub.
 
@@ -89,11 +89,11 @@ If you use templates, ensure that you follow the guidelines described in [Templa
 If the notification hub was configured correctly and tags or tag expressions were used correctly, valid targets are found. Notifications should be sent to these targets. Notification Hubs then fires off several processing batches in parallel. Each batch sends messages to a set of registrations.
 
 > [!NOTE]
-> Because the batches are processed in parallel, the order in which the notifications are delivered is not guaranteed.
+> Because Notification Hubs processes batches in parallel, the order in which the notifications are delivered is not guaranteed.
 
 Notification Hubs is optimized for an "at-most-once" message delivery model. We attempt deduplication, so that no notifications are delivered more than once to a device. Registrations are checked to ensure that only one message is sent per device identifier before it's sent to the push notification service.
 
-Each batch is sent to the push notification service, which in turn is accepting and validating the registrations. During this process, it's possible that the push notification service will detect an error with one or more registration in a batch. The push notification service then returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNs, which uses a TCP stream protocol.
+Each batch is sent to the push notification service, which in turn accepts and validates the registrations. During this process, it's possible that the push notification service will detect an error with one or more registration in a batch. The push notification service then returns an error to Notification Hubs, and the process stops. The push notification service drops that batch completely. This is especially true with APNs, which uses a TCP stream protocol.
 
 In this case, the faulting registration is removed from the database. Then, we retry notification delivery for the rest of the devices in that batch.
 
