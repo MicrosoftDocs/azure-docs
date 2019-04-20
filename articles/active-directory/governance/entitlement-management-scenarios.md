@@ -45,8 +45,8 @@ There are several ways that you can configure entitlement management for your or
 > | Steps | Example |
 > | --- | --- |
 > | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
-> | **3.** [Create a policy](entitlement-management-access-package-create.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) |
+> | **2.** [Add resource roles to access package](entitlement-management-access-package-edit.md#add-resource-roles)<ul><li>Groups</li><li>Applications</li><li>SharePoint sites</li></ul> | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
+> | **3.** [Add a policy](entitlement-management-access-package-edit.md#policy-for-users-in-your-directory)<ul><li>For users in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) |
 
 ### I want to allow users from my business partners (including users not yet in my directory) to request access to groups, applications, or SharePoint sites
 
@@ -54,8 +54,8 @@ There are several ways that you can configure entitlement management for your or
 > | Steps | Example |
 > | --- | --- |
 > | **1.** [Create a new access package in a catalog](entitlement-management-access-package-create.md#start-new-access-package) | ![Create an access package](./media/entitlement-management-scenarios/icon-access-package.png) |
-> | **2.** [Add resource roles to access package](entitlement-management-access-package-create.md#resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
-> | **3.** [Create a policy for external users](entitlement-management-access-package-create.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) |
+> | **2.** [Add resource roles to access package](entitlement-management-access-package-edit.md#add-resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
+> | **3.** [Add a policy for external users](entitlement-management-access-package-edit.md#policy-for-users-not-in-your-directory)<ul><li>For users not in your directory</li><li>Require approval</li><li>Expiration settings</li></ul> | ![Add policy](./media/entitlement-management-scenarios/icon-policy.png) |
 > | **4.** [Send the My Access portal link to request the access package to your business partner](entitlement-management-access-package-edit.md#copy-my-access-portal-link)<ul><li>Business partner can share link with their users</li></ul> |  |
 
 ### I want to change the groups, applications, or SharePoint sites in an access package
@@ -64,7 +64,7 @@ There are several ways that you can configure entitlement management for your or
 > | Steps | Example |
 > | --- | --- |
 > | **1.** Open the access package | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
-> | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
+> | **2.** [Add or remove resource roles](entitlement-management-access-package-edit.md#add-resource-roles) | ![Add resource roles](./media/entitlement-management-scenarios/icon-resource-roles.png) |
 
 ### I want to view who has an assignment to groups, applications, or SharePoint sites
 

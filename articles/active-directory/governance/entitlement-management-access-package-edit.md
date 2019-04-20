@@ -32,7 +32,11 @@ An access package enables you to do a one-time setup of resources and policies t
 
 This article describes how to edit and manage existing access packages.
 
-## Add a group resource role
+## Add resource roles
+
+A resource role is a collection of permissions associated with a resource. The way you make resources available for users to request is add resource roles to your access package. You can add resource roles for groups, applications, and SharePoint sites.
+
+### Add a group resource role
 
 You can add users to a group when they are assigned an access package. You can use any Office 365 group or Azure AD security group. Here are some considerations when selecting a group:
 
@@ -68,7 +72,7 @@ You can add users to a group when they are assigned an access package. You can u
 
     Any users with existing assignments to the access package will automatically be given access to this group when it is added.
 
-## Add an application resource role
+### Add an application resource role
 
 You can assign users access to an Azure AD enterprise application, including both SaaS applications and your own applications federated to Azure AD, when they are assigned an access package. For applications that integrate with Azure AD through federated single sign on, Azure AD will issue federation tokens for users assigned to the application. Here are some considerations when selecting an application:
 
@@ -100,7 +104,7 @@ You can assign users access to an Azure AD enterprise application, including bot
 
     Any users with existing assignments to the access package will automatically be given access to this application when it is added.
 
-## Add an SharePoint site resource role
+### Add an SharePoint site resource role
 
 You can assign users access to a SharePoint Online site or SharePoint Online site collection when they are assigned an access package.
 
