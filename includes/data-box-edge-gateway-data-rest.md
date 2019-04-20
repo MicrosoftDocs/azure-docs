@@ -9,7 +9,7 @@ ms.author: alkohli
 For data at rest:
 
 - BitLocker XTS-AES 256-bit encryption is used to protect local data.
-- Access to data that resides in shares is restricted.
+- Access to data stored in shares is restricted.
 
     - SMB clients that access share data need user credentials associated with the share. These credentials are defined when the share is created.
     - The IP addresses of NFS clients that access a share need to be added when the share is created.

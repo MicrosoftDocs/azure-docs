@@ -14,4 +14,4 @@ For security reasons, many datacenters require key rotation. We recommend that y
 
 - Your storage account key is similar to the root password for your storage account. Carefully protect your account key. Don't distribute the password to other users, hard code it, or save it anywhere in plain text that's accessible to others.
 - [Regenerate your account key](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) via the Azure portal if you think it could be compromised.
-- Your Azure administrator should periodically change or regenerate the primary or secondary key by using the Storage section of the Azure portal to directly access the storage account.
+- Your Azure admin should periodically change or regenerate the primary or secondary key by using the Storage section of the Azure portal to access the storage account directly.

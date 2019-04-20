@@ -12,4 +12,4 @@ The activation key that you use:
 - Expires after three days.
 - Isn't used after device activation.
 
-After a device is activated, it uses tokens to communicate with Azure.
+After you activate a device, it uses tokens to communicate with Azure.

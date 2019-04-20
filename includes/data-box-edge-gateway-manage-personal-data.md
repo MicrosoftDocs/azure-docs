@@ -17,8 +17,8 @@ ms.author: alkohli
   - Country/province/region
   - Shipping tracking number
 
-    Order details are encrypted and stored in the service. The service retains the information until you delete the resource or order explicitly. The deletion of resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
+    Order details are encrypted and stored in the service. The service retains the information until you explicitly delete the resource or order. The deletion of the resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
 
 - **Shipping address**. After an order is placed, Data Box service provides the shipping address to third-party carriers like UPS.
 
-- **Share users**. Users on your device can also access the data that resides on the shares. A list of users who can access the share data can be viewed. When the shares are deleted, this list is also deleted.
+- **Share users**. Users on your device can also access the data located on the shares. A list of users who can access the share data can be viewed. When the shares are deleted, this list is also deleted.
