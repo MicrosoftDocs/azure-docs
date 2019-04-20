@@ -39,7 +39,9 @@ The query prediction endpoint [request](#changes-to-the-query-prediction-endpoin
 
 ## Pass in external entities at prediction time
 
-External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to composite entities. 
+External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to existing entities. This allows you to provide your own separate and custom entity extractors to the query prediction endpoint. Because this is done at the query prediction endpoint, you don't need to retrain and publish your model.
+
+The client-application is providing its own entity extractor by managing entity matching and determining the location within the utterance of that matched entity and then sending that information with the request. 
 
 External entities are the mechanism for extending any entity type while still being used as signals to other models like roles, composite and others.
 
@@ -58,7 +60,12 @@ This feature includes significant [JSON request and response changes](#json-requ
 
 ## Pass in dynamic lists at prediction time
 
-Dynamic lists allow you to update and extend an already published list entity during runtime for a period of time or a single request.
+Dynamic lists allow you to update and extend an existing trained and published list entity, already in the LUIS app. 
+
+Use this feature when your list entity values need to change periodically. This feature allows up to update an already trained and published list entity:
+
+* At the time of the query prediction endpoint request.
+* For a period of time or a single request.
 
 This feature includes significant [JSON response changes](#json-request-and-response-for-dynamic-list). 
 
@@ -67,6 +74,13 @@ This feature includes significant [JSON response changes](#json-request-and-resp
 This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action.
 
 This feature includes significant [JSON response changes](#detect-multiple-intents-within-single-utterance). 
+
+## Changes impacting both request and response of query prediction endpoint 
+
+### Changes to identifying placement of entities in utterances
+
+In V2, an entity was marked in an utterance with the `startIndex` and `endIndex`. 
+In V3, the entity is marked with `startIndex` and `entityLength`.
 
 ## Changes to the query prediction endpoint request
 
@@ -80,6 +94,17 @@ The V3 API has different query string parameters.
 |`query`|string|V3|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
 |`show-all-intents`|boolean|V3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
 |`verbose`|boolean|V2 & V3|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
+
+### Changes to the query prediction JSON body for the `POST` request
+
+```JSON
+"query":"your utterance here",
+"options":{
+    "timezoneOffset": "-8:00"
+},
+"externalEntities":[],
+"dynamicLists":[]
+```
 
 ## Changes to the query prediction endpoint response
 
@@ -177,14 +202,68 @@ In V3, the same result with the `verbose` flag to return entity metadata:
 
 ### JSON request and response changes for external entities
 
+#### JSON request body format for external entities
+
+Send in the following JSON body to mark the person's name, `Hazem`, as an external entity with the `POST` query prediction request:
+
+```JSON
+{
+    "query": "Send Hazem a new message.",
+    "options":{
+        "timezoneOffset": "-8:00"
+    },
+    "externalEntities": [
+        {
+            "entityName":"my-entity-name-already-in-LUIS-app",
+            "startIndex": 5,
+            "entityLength": 5
+        }
+    ]
+}
+```
+
+The entity name, `my-entity-name-already-in-LUIS-app`, exists in the trained and published app at the time the request is made. The type of entity doesn't matter, all types are supported.
+
+The prediction response includes that external entity, with all the other predicted entities, because it is defined in the request.  
+
 ### JSON request and response for Dynamic lists
+
+#### JSON request body format for dynamic lists
+
+Send in the following JSON body to add a new sublist with synonyms to the list, and predict the list entity for the text, `LUIS`, with the `POST` query prediction request:
+
+```JSON
+{
+    "query": "Send Hazem a message to add an item to the meeting agenda about LUIS.",
+    "options":{
+        "timezoneOffset": "-8:00"
+    },
+    "dynamicLists": [
+        {
+            "listEntityName":"ProductList",
+            "requestLists":[
+                {
+                    "name": "Azure Cognitive Services",
+                    "canonicalForm": "Azure-Cognitive-Services",
+                    "synonyms":[
+                        "language understanding",
+                        "luis",
+                        "qna maker"
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+The prediction response includes that list entity, with all the other predicted entities, because it is defined in the request. 
 
 ### Detect multiple intents within single utterance
 
 The V3 endpoint query supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
 
 In the V2 endpoint success response, the entire utterance is predicted to a single intent.
-
 
 In the V3 endpoint success response, each segment is predicted including entities:
 
@@ -248,6 +327,19 @@ In the V3 endpoint success response, each segment is predicted including entitie
 ```
 
 You can use `multiple-segments=true` with `verbose=true` to get the entity metadata.
+
+If multiple segments are not identified, value of `MultipleSegments` is `none`.
+
+#### Segment splitting tokens
+
+Segments are split based on tokens such as:
+
+Verbs are the primary splitting tokens. For example, where N represents a noun and V represents a verb, and you have an utterance schema that can be defined as `N V N N V N N`, the two segments will be `N V N N`, and `V N N`. 
+
+LUIS doesn't split into segments when:
+
+* Utterance has consecutive verbs. 
+* Entity is at the end of the utterance.
 
 ### Prebuilt domains with new models and language coverage
 
