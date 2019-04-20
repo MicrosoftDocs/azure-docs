@@ -3,7 +3,7 @@ author: yashesvi
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ---
 
 # Prepay for Virtual Machines with Azure Reserved VM Instances
@@ -30,6 +30,12 @@ You can use reservation recommendations to help determine the reservations you s
 - Azure Advisor provides purchase recommendations for individual subscriptions.  
 - You can use the APIs to get purchase recommendations for both shared scope and single subscription scope. For more information, see [Reserved instance purchase recommendation APIs for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - For EA customers, purchase recommendations for shared and single subscription scopes are available with the [Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
+
+### Classic VMs and cloud services
+
+Virtual machine reserved instances automatically apply to both classic VMs and cloud services when instance size flexibility is enabled. There aren't any special SKUs for classic VMs or cloud services. The same VM SKUs apply to them.
+
+For example, you might convert your classic VMs or cloud services to Azure Resource Manager-based VMs. In this example, the reservation discount automatically applies to  matching VMs. There's no need to *exchange* an existing reserved instance - it automatically applies.
 
 ### Analyze your usage information
 You should analyze your usage information to help determine which reservations you should purchase.
@@ -69,14 +75,8 @@ Reserved VM Instances are available for most VM sizes with some exceptions. Rese
     |Optimize for     |VM instance size flexibility applies the reservation discount to other VMs in the same [VM size group](https://aka.ms/RIVMGroups). Capacity priority prioritizes data center capacity for your deployments. This offers additional confidence in your ability to launch the VM instances when you need them. Capacity priority is only available when the reservation scope is single subscription. |
     |Term        |One year or three years.|
     |Quantity    |The number of instances being purchased within the reservation. The quantity is the number of running VM instances that can get the billing discount. For example, if you are running 10 Standard_D2 VMs in the East US, then you would specify quantity as 10 to maximize the benefit for all running machines. |
-5. You can view the cost of the reservation when you select **Calculate cost**.
 
-    ![Screenshot before submitting the reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvminstance-purchase.png)
-
-6. Select **Purchase**.
-7. Select **View this Reservation** to see the status of your purchase.
-
-    ![Screenshot after submitting the reservation purchase](./media/virtual-machines-buy-compute-reservations/virtualmachines-reservedvmInstance-submit.png)
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2PjmT]
 
 ## Change a reservation after purchase
 

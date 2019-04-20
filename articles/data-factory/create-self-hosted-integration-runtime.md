@@ -250,7 +250,7 @@ If your corporate network environment uses a proxy server to access the internet
 
 ![Specify proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-The self-hosted integration runtime uses the proxy server to connect to the cloud service. Select **Change link** during initial setup. You see the proxy-setting dialog box.
+When configured, the self-hosted integration runtime uses the proxy server to connect to the cloud service, source/ destination (those using HTTP/ HTTPS protocol). This is  Select **Change link** during initial setup. You see the proxy-setting dialog box.
 
 ![Set proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 
