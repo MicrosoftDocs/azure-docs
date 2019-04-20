@@ -54,13 +54,13 @@ In a [multi-intent](#multi-intent-prediction) utterance, you can use the externa
 
 The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
 
-This feature includes significant [JSON response changes](#multi-intent-prediction). 
+This feature includes significant [JSON request and response changes](#json-request-and-response-changes-for-external-entities). 
 
 ## Pass in dynamic lists at prediction time
 
 Dynamic lists allow you to update and extend an already published list entity during runtime for a period of time or a single request.
 
-This feature includes significant [JSON response changes](#multi-intent-prediction). 
+This feature includes significant [JSON response changes](#json-request-and-response-for-dynamic-list). 
 
 ## Multi-intent prediction
 
@@ -174,6 +174,10 @@ In V3, the same result with the `verbose` flag to return entity metadata:
     }
 }
 ```
+
+### JSON request and response changes for external entities
+
+### JSON request and response for Dynamic lists
 
 ### Detect multiple intents within single utterance
 
