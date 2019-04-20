@@ -13,9 +13,9 @@ ms.author: heidist
 ---
 # What is Knowledge Store in Azure Search?
 
-Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document.
+Knowledge Store is an optional feature of Azure Search, currently in public preview, that persists enriched documents and metadata created by an AI-based indexing pipeline (cognitive search). Knowledge Store is backed by an Azure storage account that you configure as part of the pipeline. When enabled, the search service uses this storage account to cache a representation of each enriched document. Enriched documents are consumable by Azure Search (same as before) but can also be viewed in [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) or any app that connects to Azure storage.
 
-If you have used cognitive search in the past, what you have now with Knowledge Store is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like.
+If you have used [cognitive search](cognitive-search-concept-intro.md) in the past, what Knowledge Store gives you is a way to peek inside the "black box" of AI-based indexing to see what an enriched document looks like. 
 
 ![Knowledge Store in pipeline diagram](./media/knowledge-store-concept-intro/pipeline-knowledge-store.png "Knowledge Store in pipeline diagram")
 
@@ -29,7 +29,7 @@ Although its useful to see what an AI-based indexing pipeline can produce, the r
 
 Enumerated, the benefits of Knowledge Store include the following:
 
-+ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer] in Azure storage to view the contents of a knowledge store.
++ Refine an AI-indexing pipeline while debugging steps and skillset definitions. A knowledge store shows you the product of a skillset definition in an AI-indexing pipeline. You can use those results to design a better skillset because you can see exactly what the enrichments look like. You can use [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Azure storage to view the contents of a knowledge store.
 
 + Shape the data into new forms. The reshaping is codified in skillsets, but the point is that a skillset can now provide this capability. The [Shaper skill](cognitive-search-skill-shaper.md) in Azure Search has been extended to accommodate this task.
 
@@ -38,11 +38,70 @@ Enumerated, the benefits of Knowledge Store include the following:
 > [!Note]
 > Not familiar with AI-based indexing using Cognitive Services? Azure Search integrates with Cognitive Services Vision and Language features to extract and rich source data using Optical Character Recognition (OCR) over image files, entity recognition and key phrase extraction from text files, and more. For more information, see [What is cognitive search](cognitive-search-concept-intro.md).
 
-## Example illustration
+## knowledgeStore in a skillset
 
-The following illustration shows a collection of tables, each one containing enriched documents. Tables and their contents are created by an indexing pipeline in Azure Search. If you are already familiar with AI-based indexing, the skillset definition determines the creation, organization, and substance of each enriched document.
+The following JSON specifies a `knowledgeStore` in a skillset, which determines whether tables or objects are created in Azure storage.
 
-PUT IMAGE HERE
+If you are already familiar with AI-based indexing, the skillset definition determines the creation, organization, and substance of each enriched document.
+
+```json
+{
+  "name": "my-new-skillset",
+  "description": 
+  "Example showing knowledgeStore placement, supported in api-version=2019-05-06-Preview. You need at least one skill, most likely a Shaper skill if you are modulating data structures.",
+  "skills":
+  [
+    {
+    "@odata.type": "#Microsoft.Skills.Util.ShaperSkill",
+    "context": "/document/content/phrases/*",
+    "inputs": [
+        {
+        "name": "text",
+        "source": "/document/content/phrases/*"
+        },
+        {
+        "name": "sentiment",
+        "source": "/document/content/phrases/*/sentiment"
+        }
+    ],
+    "outputs": [
+        {
+        "name": "output",
+        "targetName": "analyzedText"
+        }
+    ]
+    },
+  ],
+  "cognitiveServices": 
+    {
+    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
+    "description": "mycogsvcs resource in West US 2",
+    "key": "<your key goes here>"
+    },
+    "knowledgeStore": { 
+      "storageConnectionString": "<your connection string goes here>", 
+      "projections": [ 
+        { 
+            "tables": [  
+            { "tableName": "Reviews", "generatedKeyName": "ReviewId", "source": "/document/Review" , "sourceContext": null, "inputs": []}, 
+            { "tableName": "Sentences", "generatedKeyName": "SentenceId", "source": "/document/Review/Sentences/*", "sourceContext": null, "inputs": []}, 
+            { "tableName": "KeyPhrases", "generatedKeyName": "KeyPhraseId", "source": "/document/Review/Sentences/*/KeyPhrases", "sourceContext": null, "inputs": []}, 
+            { "tableName": "Entities", "generatedKeyName": "EntityId", "source": "/document/Review/Sentences/*/Entities/*" ,"sourceContext": null, "inputs": []} 
+ 
+            ], 
+            "objects": [ 
+                { 
+                "storageContainer": "Reviews", 
+                "format": "json", 
+                "source": "/document/Review", 
+                "key": "/document/Review/Id" 
+                } 
+            ]      
+        }    
+    ]     
+    } 
+}
+```
 
 ## Components backing a knowledge store
 
