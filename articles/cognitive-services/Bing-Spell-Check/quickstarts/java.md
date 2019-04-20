@@ -9,27 +9,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
 ---
+
 # Quickstart: Check spelling with the Bing Spell Check REST API and Java
 
 Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Java application sends a request to the API and returns a list of suggested corrections. While this application is written in Java, the API is a RESTful web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## Prerequisites
 
-The Java Development Kit(JDK) 7 or later.
+* The Java Development Kit(JDK) 7 or later.
+
+* Import the [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) or the most current [Gson](https://github.com/google/gson) version. For command line execution, add the `.jar` to your Java folder with the main class.
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-
 ## Create and initialize an application
 
-1. Create a new Java Project in your favorite IDE or editor, and import the following packages.
+1. Create a new Java Project in your favorite IDE or editor with a class name of your choosing, and then import the following packages.
 
     ```java
     import java.io.*;
     import java.net.*;
+    import com.google.gson.*;
     import javax.net.ssl.HttpsURLConnection;
     ```
 
@@ -39,7 +42,7 @@ The Java Development Kit(JDK) 7 or later.
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    static String key = "ENTER YOUR KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
@@ -53,21 +56,20 @@ The Java Development Kit(JDK) 7 or later.
    ```java
    public static void check () throws Exception {
 	   String params = "?mkt=" + mkt + "&mode=" + mode;
-   //...
+      // add the rest of the code snippets here (except prettify() and main())...
    }
    ```
 
-2. Create a URL by combining the endpoint host, path and parameters string. Create a new `HttpsURLConnection` obejct.
+2. Create a URL by combining the endpoint host, path and parameters string. Create a new `HttpsURLConnection` object.
 
     ```java
     URL url = new URL(host + path + params);
-    HttpsURLConnection connection = (HttpsURLConnection) 
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
     ```
 
-3. Open a connection to the URL. Set the request method to `POST`. Add your request parameters. Make sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header. 
+3. Open a connection to the URL. Set the request method to `POST`. Add your request parameters. Make sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
     ```java
-    url.openConnection();
 	connection.setRequestMethod("POST");
 	connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 	connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
@@ -83,7 +85,18 @@ The Java Development Kit(JDK) 7 or later.
         wr.close();
     ```
 
-## Read the response
+## Format and read the API response
+
+1. Add this method to your class. It formats the JSON for a more readable output.
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
+    }
 
 1. Create a `BufferedReader` and read the response from the API. Print it to the console.
     
@@ -92,12 +105,14 @@ The Java Development Kit(JDK) 7 or later.
 	new InputStreamReader(connection.getInputStream()));
 	String line;
 	while ((line = in.readLine()) != null) {
-		System.out.println(line);
+		System.out.println(prettify(line);
 	}
 	in.close();
     ```
 
-2. In the main function of your application, call the function created above. 
+## Call the API
+
+In the main function of your application, call your check() method created above.
 
     ```java
     public static void main(String[] args) {
@@ -109,10 +124,26 @@ The Java Development Kit(JDK) 7 or later.
     	}
     }
     ```
-    
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following commands to build and run the application.
+
+**Build:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
+```
+
+**Run:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
+
 ## Example JSON response
 
-A successful response is returned in JSON, as shown in the following example: 
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
