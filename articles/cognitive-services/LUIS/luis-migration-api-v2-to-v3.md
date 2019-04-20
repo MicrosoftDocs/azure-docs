@@ -246,7 +246,7 @@ Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md)
 
 ## Prediction endpoint JSON changes for prebuilt DatetimeV2 entity
 
-Review the [JSON response changes](luis-reference-prebuilt-datetimev2.md#preview-v3-json) to the datetimeV2 released in the API V3. 
+Review the [JSON response changes](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x) to the datetimeV2 released in the API V3. 
 
 ## Next steps
 
