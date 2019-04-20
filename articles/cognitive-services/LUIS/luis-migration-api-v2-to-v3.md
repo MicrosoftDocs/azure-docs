@@ -1,5 +1,5 @@
 ---
-title: v2 to v3 API Migration  
+title: V2 to V3 API Migration  
 titleSuffix: Azure Cognitive Services
 description: The version 3 endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 services: cognitive-services
@@ -14,240 +14,251 @@ ms.author: diberry
 ---
 
 
-# Pre-release: API v2 to v3 Migration guide for LUIS apps
-The endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
+# Preview: Migrate to API version 3.x  for LUIS apps
 
-[Questions:
-Mohamed's v3 had `connectedServiceResult` - but we never talked about this - what is it?
-]
+The query prediction endpoint APIs have changed. Use this guide to understand how to migrate to version 3 endpoint APIs. 
 
-## Endpoint JSON changes
+This V3 API provides the following features: 
 
-General changes:
+* [External entities](#pass-in-external-entities-at-prediction-time)
+* [Dynamic lists](#pass-in-dynamic-lists-at-prediction-time)
+* [Multi-intent](#multi-intent-prediction)
 
-* Uses object format, `{}`, instead of array format, `[]`. This allows for object navigation by name instead of enumeration. 
-* data types are respected: text is in quotes, numbers are not in quotes
-* primary prediction information is separated from metadata
+The following LUIS features are not supported in V3:
 
-### Entity role instead of entity name used
+* Bing Spell Check V7
 
-In v2, the `entities` array returned all the predicted entities with the entity name being the unique identifier. In v3, if the entity uses roles and the prediction is for an entity role, the primary identifier is the role name. This is possible because entity roles names must be unique across the entire app including other model (intent, entity) names.
+The query prediction endpoint [request](#changes-to-the-query-prediction-endpoint-request) and [response](#changes-to-the-query-prediction-endpoint-response) have significant changes.
 
-In v2, entity identified by entity name:
+[Reference documentation](https://cognitivewuppe.portal.azure-api.net/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a9459a1fe8fa44c28dd8) is available for V3.
+
+## Pass in external entities at prediction time
+
+External entities give your LUIS app the ability to identify and label entities during runtime, which can be used as features to composite entities. 
+
+External entities are the mechanism for extending any entity type while still being used as signals to other models like roles, composite and others.
+
+This is useful for an entity that has data available only at runtime. Examples of this type of data are constantly changing data or specific per user. You can extend a LUIS contact entity with external information from a user’s contact list. 
+
+`Send Hazem a new message`, where `Hazem` is directly matched as one of the user’s contacts.
+
+In a [multi-intent](#multi-intent-prediction) utterance, you can use the external entity data to help with secondary references. For example, in the utterance `Send Hazem a new message, and let him know about the party.`, two segments of the utterance are predicted:
+
+* `Send Hazem a new message, and`
+* `let him know about the party.`
+
+The first segment can correctly predict Hazem when the external entity is sent with the prediction request. The second segment won't know that `him` is a secondary reference to the same data unless you send it with the request and mark it as the same entity.
+
+## Pass in dynamic lists at prediction time
+
+Dynamic lists allow you to update and extend an already published list entity during runtime for a period of time or a single request.
+
+## Multi-intent prediction
+
+This feature identifies multiple intents from as utterance, enabling better understanding of complex and compound utterances that include more than one action.
+
+This feature includes significant [JSON response changes](#detect-multiple-intents-within-single utterance). 
+
+## Changes to the query prediction endpoint request
+
+### V3 Query string parameters
+
+The V3 API has different query string parameters.
+
+|Param name|Type|Version|Purpose|
+|--|--|--|--|
+|`multiple-segments`|boolean|V3|Break utterance into segments and predict each segment for intents and entities.|
+|`query`|string|V3|**In V2**, the utterance to be predicted is in the `q` parameter. <br><br>**In V3**, the functionality is passed in the `query` parameter.|
+|`show-all-intents`|boolean|V3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In V2, these were returned in an array. |
+|`verbose`|boolean|V2 & V3|**In V2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the V3 param of `show-all-intents`.<br><br>**In V3**, this parameter only provides entity metadata details of entity prediction.  |
+
+## Changes to the query prediction endpoint response
+
+The query response JSON changed to allow greater programmatic access to the data used most frequently. 
+
+### Top level JSON changes
+
+The top JSON properties for V2 are, when `verbose` is set to true, which returns all intents and their scores in the `intents` property:
+
+```JSON
+"query":"this is your utterance you want predicted",
+"topScoringIntent":{},
+"intents":[],
+"entities":[],
+"compositeEntities":[]
+```
+
+The top JSON properties for V3 are:
+
+```JSON
+"query": "this is your utterance you want predicted",
+"prediction":{
+    "normalizedQuery": "this is your utterance you want predicted - after normalization",
+    "topIntent": "intent-name-1",
+    "intents": {}, 
+    "entities":{}
+}
+```
+
+The schema changes allow for:
+
+* Clear distinction between original utterance, `query`, and returned prediction, `prediction`.
+* Easier programmatic access to predicted data. Instead of enumerating through an array in V2, you can access values by **named** for both intents and entities. For predicted entity roles, the role name is returned because it is unique across the entire app.
+* Data types, if determined, are respected. Numerics are no longer returned as strings.
+* Distinction between first priority prediction information and additional metadata, returned in the `$instance` object. 
+
+#### Entity role name instead of entity name 
+
+In V2, the `entities` array returned all the predicted entities with the entity name being the unique identifier. In V3, if the entity uses roles and the prediction is for an entity role, the primary identifier is the role name. This is possible because entity role names must be unique across the entire app including other model (intent, entity) names.
+
+In the following example: consider an utterance that includes the text, `Yellow Bird Lane`. This text is predicted as a custom `Location` entity's role of `Destination`.
+
+|Utterance text|Entity name|Role name|
+|--|--|--|
+|`Yellow Bird Lane`|`Location`|`Destination`|
+
+In V2, the entity is identified by the _entity name_ with the role as a property of the object:
 
 ```JSON
 "entities":[
     {
-        "entity": "12345 wa",
-        "type": "Address",
+        "entity": "Yellow Bird Lane",
+        "type": "Location",
         "startIndex": 13,
         "endIndex": 20,
         "score": 0.786378264,
-        "role": "Source"
+        "role": "Destination"
     }
 ]
 ```
 
-In v3, entity identified by entity role, if prediction was for the role:
+In V3, the entity is referenced by the _entity role_, if the prediction is for the role:
 
 ```JSON
 "entities":{
-    "Role1":[
-        {
-            "number":[
-                12345
-            ]
-        }
+    "Destination":[
+        "Yellow Bird Lane"
     ]
 }
 ```
 
-In v3, the same result with the `verbose` flag to return entity metadata:
+In V3, the same result with the `verbose` flag to return entity metadata:
 
 ```JSON
 "entities":{
-    "Role1":[
-        {
-            "number":[
-                12345
-            ]
-        }
+    "Destination":[
+        "Yellow Bird Lane"
     ],
     "$instance":{
-        "Role1": {
-            "number": [
-                "name": "number",
-                "type": "builtin.number"
-                "text": "12345"
+        "Destination": [
+            {
+                "role": "Role1",
+                "type": "simple",
+                "text": "Yellow Bird Lane",
                 "startIndex": 25,
-                "length":5,
-                "modelTypeId": 2,
-                "modelType": "Prebuilt Entity Extractor"
-            ]
-        }
+                "length":16,
+                "score": 0.9837309,
+                "modelTypeId": 1,
+                "modelType": "Entity Extractor"
+            }
+        ]
     }
 }
 ```
-
-### Detect dispatch child apps
 
 ### Detect multiple intents within single utterance
 
-The v3 endpoint query supports multi-intent query predictions. This means each sentence can have its own intent prediction.
+The V3 endpoint query supports multi-intent query predictions if `multiple-segments=true` is passed in the query string. This means each sentence can have its own intent prediction.
 
-v2 endpoint success response, entire utterance is predicted to a single intent:
+In the V2 endpoint success response, the entire utterance is predicted to a single intent.
 
-```json
-{
-  "query": "forward to frank 30 dollars through HSBC",
-  "topScoringIntent": {
-    "intent": "give",
-    "score": 0.8064121
-  },
-  "entities": [
-    {
-      "entity": "30",
-      "type": "builtin.number",
-      "startIndex": 17,
-      "endIndex": 18,
-      "resolution": {
-        "value": "30"
-      }
-    },
-    {
-      "entity": "30 dollars",
-      "type": "builtin.currency",
-      "startIndex": 17,
-      "endIndex": 26,
-      "resolution": {
-        "unit": "Dollar",
-        "value": "30"
-      }
-    }
-  ]
-}
-```
 
-v3 endpoint success response, predicted to multiple intents:
+In the V3 endpoint success response, each segment is predicted including entities:
 
 ```json
 {
-  "query": "forward to frank 30 dollars through HSBC",
-  "topScoringIntent": {
-    "intent": "give",
-    "score": 0.8064121
-  },
-  "entities": [
-    {
-      "entity": "30",
-      "type": "builtin.number",
-      "startIndex": 17,
-      "endIndex": 18,
-      "resolution": {
-        "value": "30"
-      }
-    },
-    {
-      "entity": "30 dollars",
-      "type": "builtin.currency",
-      "startIndex": 17,
-      "endIndex": 26,
-      "resolution": {
-        "unit": "Dollar",
-        "value": "30"
-      }
-    }
-  ]
-}
-```
-
-### V3 Query string parameters
-
-The v3 API has different query string parameters.
-
-|Param name|Version|Purpose|
-|--|--|--|
-|`log-query`|v3 only|This replaces the `log` querystring from v2.|
-|`show-all-intents`|v3 only|Return all intents with the corresponding score in the **prediction.intents** object. Intents are returned as objects in a parent `intents` object. This allows programmatic access without needing to find the intent in an array: `prediction.intents.give`. In v2, these were returned in an array. |
-|`verbose`|v2 & v3|**In v2**, when set to true, all predicted intents were returned. If you need all predicted intents, use the v3 param of `show-all-intents`.<br><br>**In v3**, this parameter only provides entity metadata details of entity prediction.  |
-
-### Prediction endpoint JSON schema changes
-
-The schema changes allow for easier programmatic access to data and align with the Bot Framework middleware.
-
-|Property|Version|Purpose|
-|--|--|--|
-|`prediction`|v3|Encapsulates the prediction response.|
-|`prediction.topIntent`|v3|Replaces v2's `topScoringIntent`. |
-|`<propertyname>.$instance`|v3|Contains details beyond prediction score.|
-
-v3 endpoint success response:
-
-```json
-{
-    "query": "forward to frank 30 dollars through HSBC",
+    "query": "Carol goes to Cairo and Mohamed attends the meeting",
     "prediction": {
-        "normalizedQuery": "forward to frank 30 dollars through hsbc",
-        "topIntent": "give",
+        "normalizedQuery": "carol goes to cairo and mohamed attends the meeting",
+        "topIntent": "Meetings",
         "intents": {
-            "give": {
-                "score": 0.8064121
-            }
-        },
-        "entities": {
-            "money": [
-                {
-                    "number": 30,
-                    "unit": "Dollar"
-                }
-            ],
-            "number": [
-                30
-            ],
-            "$instance": {
-                "money": [
+            "Travel": {
+                "score": 0.6123635
+            },
+            "MultipleSegments": {
+                "segments": [
                     {
-                        "name": "money",
-                        "type": "builtin.currency",
-                        "text": "30 dollars",
-                        "startIndex": 17,
-                        "length": 10,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ],
-                "number": [
+                        "normalizedQuery": "Carol goes to Cairo and",
+                        "topIntent": "Travel",
+                        "intents": {
+                            "Travel": {
+                                "score": 0.6826963
+                            }
+                        },
+                        "entities": {
+                            "geographyV2": [
+                                "Cairo"
+                            ],
+                            "personName": [
+                                "Carol"
+                            ]
+                        }
+                    },
                     {
-                        "name": "number",
-                        "type": "builtin.number",
-                        "text": "30",
-                        "startIndex": 17,
-                        "length": 2,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
+                        "normalizedQuery": "and Mohamed attends the meeting",
+                        "topIntent": "Meetings",
+                        "intents": {
+                            "Meetings": {
+                                "score": 0.7100854
+                            }
+                        },
+                        "entities": {
+                            "personName": [
+                                "Mohamed"
+                            ]
+                        }
                     }
                 ]
             }
+        },
+        "entities": {
+            "geographyV2": [
+                "Cairo"
+            ],
+            "personName": [
+                "Carol",
+                "Mohamed"
+            ]
         }
     }
 }
 ```
 
-## Prebuilt domains with new models and language coverage
+You can use `multiple-segments=true` with `verbose=true` to get the entity metadata.
+
+### Prebuilt domains with new models and language coverage
 
 Review the [V3 API list of prebuilt domains](luis-reference-prebuilt-domains.md). These domains are more complete, both in the model, and the language coverage. 
 
-<!--
+### Prebuilt entities with new JSON
 
-## Bind entities are runtime
+The following prebuilt entities have JSON schema changes:
 
+* [Age](luis-reference-prebuilt-age.md#preview-api-version-3x)
+* [Currency (Money)](luis-reference-prebuilt-currency.md#preview-api-version-3x)
+* [DateTimeV2](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x)
+* [Dimension](luis-reference-prebuilt-dimension.md#preview-api-version-3x)
+* [Email](luis-reference-prebuilt-email.md#preview-api-version-3x)
+* [GeographyV2](luis-reference-prebuilt-geographyv2.md#preview-api-version-3x)
+* [Number](luis-reference-prebuilt-number.md#preview-api-version-3x)
+* [Ordinal](luis-reference-prebuilt-ordinal.md#preview-api-version-3x)
+* [Percentage](luis-reference-prebuilt-percentage.md#preview-api-version-3x)
+* [PersonName](luis-reference-prebuilt-person.md#preview-api-version-3x)
+* [Phonenumber](luis-reference-prebuilt-phonenumber.md#preview-api-version-3x)
+* [Temperature](luis-reference-prebuilt-temperature.md#preview-api-version-3x)
+* [URL](luis-reference-prebuilt-url.md#preview-api-version-3x)
 
--->
-
-## Prediction endpoint JSON changes for prebuilt DatetimeV2 entity
-
-Review the [JSON response changes](luis-reference-prebuilt-datetimev2.md#preview-api-version-3x) to the datetimeV2 released in the API V3. 
 
 ## Next steps
 
-Use the v3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) APIs. 
+Use the V3 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) APIs. 
