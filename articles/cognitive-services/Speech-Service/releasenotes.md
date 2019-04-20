@@ -20,7 +20,7 @@ ms.custom: seodec18
 **New features**
 
 * Keyword spotting functionality (KWS) is available for Windows and Linux. KWS functionality might work with any microphone type, official KWS support, however, is currently limited to the microphone arrays found in the Azure Kinect DK hardware or the Speech Devices SDK.
-* Phrase hint functionality is available though the SDK. See the corresponding article in the `how-to`-section.
+* Phrase hint functionality is available though the SDK. See [this article for more details](how-to-phrase-lists.md).
 
 **Samples**
 
