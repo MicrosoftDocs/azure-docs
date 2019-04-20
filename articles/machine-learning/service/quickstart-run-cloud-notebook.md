@@ -45,23 +45,21 @@ If you don’t have an Azure subscription, create a free account before you begi
 
      ![Select Add VM](./media/quickstart-run-cloud-notebook/add-workstation.png)
 
-1. Provide a name for your VM. Then select **Create**.
+1. Provide a name for your VM. Then select **Create**. 
 
-    ![Create new workstation](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+    ![Create a new VM](media/quickstart-run-cloud-notebook/create-new-workstation.png)
 
-1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status shows **Running**.
-
-    ![Refresh status](media/quickstart-run-cloud-notebook/create-new-workstation.png)
+1. Wait approximately 4-5 minutes, then select **Refresh**.  Try refreshing every 30 seconds or so until the status is **Running**.
 
 
 ## Launch Jupyter web interface
 
-After your workstation is running, use the **Notebook VMs** section to launch the Jupyter web interface.
+After your VM is running, use the **Notebook VMs** section to launch the Jupyter web interface.
 
 
-1. Select **Jupyter** in the **Launch** column for your workstation.  
+1. Select **Jupyter** in the **Launch** column for your VM.  
 
-    ![Start Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
+    ![Start the Jupyter notebook server](./media/quickstart-run-cloud-notebook/start-server.png)
 
     The link starts your notebook server and opens the server homepage in a new browser tab.  
 
@@ -88,7 +86,7 @@ Run a notebook that estimates pi and logs the error to your workspace.
     ![Run the first code cell](media/quickstart-run-cloud-notebook/cell1.png)
 
     > [!NOTE]
-    > Code cells have brackets before them. If the brackets are empty (__[   ]__), the code has not been run. While the code is running, you see an asterisk(__[ * ]__). After the code completes, a number **[ 1 ]** appears.
+    > Code cells have brackets before them. If the brackets are empty (__[  ]__), the code has not been run. While the code is running, you see an asterisk(__[*]__). After the code completes, a number **[1]** appears.
     >
     > Use **Shift-Enter** as a shortcut to run a cell.
 
@@ -121,7 +119,9 @@ Because the code to approximate pi uses random values, your plots will show diff
 
 You can also keep the resource group but delete a single workspace. Display the workspace properties and select **Delete**.
 
-If you keep your workspace, stop the notebook VM to reduce cost.  
+### Stop the notebook VM
+
+If you keep your workspace, stop the notebook VM when you are not using it to reduce cost.  
 
 1. In your workspace, select **Notebook VMs**.
  
@@ -131,12 +131,14 @@ If you keep your workspace, stop the notebook VM to reduce cost.
 
 1. Select **Stop**.
 
+1. When you're ready to user the server again, select **Start**.
+
 ## Next steps
 
 In this quickstart, you completed these tasks:
 
-* Create a workstation
-* Start a Jupyter Notebook server on your workstation
+* Create a notebook VM
+* Start a Jupyter Notebook server on your notebook VM
 * Open a notebook that contains code to estimate pi and logs errors at each iteration.
 * Run the notebook.
 * View the logged error values in your workspace.  This example shows how the workspace can help you keep track of information generated in a script. 
