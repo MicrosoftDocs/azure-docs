@@ -22,9 +22,9 @@ ms.custom: aaddev
 
 # Microsoft identity platform integration checklist
 
-The Microsoft identity platform  integration checklist is intended to guide you to a high-quality and secure integration. It highlights best practices and common oversights when integrating with the identity platform so review the list on a regular basis to make sure you maintain the quality and security of your app’s integration with Microsoft identity platform. The checklist isn't intended to review your entire application. The contents of the checklist are subject to change as we make improvements to the platform.
+The Microsoft identity platform integration checklist is intended to guide you to a high-quality and secure integration. It highlights best practices and common oversights when integrating with the Microsoft identity platform so review the list on a regular basis to make sure you maintain the quality and security of your app’s integration with the identity platform. The checklist isn't intended to review your entire application. The contents of the checklist are subject to change as we make improvements to the platform.
 
-If you’re just getting started, check out our [documentation](index.yml) to learn about authentication basics, application scenarios in Microsoft identity platform, and more.
+If you’re just getting started, check out the [documentation](index.yml) to learn about authentication basics, application scenarios in Microsoft identity platform, and more.
 
 ## Testing your integration
 
@@ -59,7 +59,7 @@ Use the following checklist to ensure that your application is effectively integ
 
 |   |   |
 |---|---|
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Maintain ownership of all your redirect URIs and keep the DNS records for them up-to-date. Don't use wildcards (*) in your URIs. For web apps, make sure all URIs are secure and encrypted (for example, using https schemes). For public clients, use platform-specific redirect URIs if applicable (mainly for iOS and Android); otherwise, use redirect URIs with a high amount of randomness to prevent collisions when calling back to your app. If your app is being used from an isolated web agent, you may use https://login.microsoftonline.com/nativeclient. Review and trim all unused or unnecessary redirect URIs on a regular basis. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Maintain ownership of all your redirect URIs and keep the DNS records for them up-to-date. Don't use wildcards (*) in your URIs. For web apps, make sure all URIs are secure and encrypted (for example, using https schemes). For public clients, use platform-specific redirect URIs if applicable (mainly for iOS and Android). Otherwise, use redirect URIs with a high amount of randomness to prevent collisions when calling back to your app. If your app is being used from an isolated web agent, you may use https://login.microsoftonline.com/nativeclient. Review and trim all unused or unnecessary redirect URIs on a regular basis. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If your app is registered in a directory, minimize and manually monitor the list of app registration owners. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don't enable support for the [OAuth2 implicit grant flow](v2-oauth2-implicit-grant-flow.md) unless explicitly required. Learn about the valid scenario [here](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don't use [resource owner password credential flow (ROPC)](v2-oauth-ropc.md), which directly handles users’ passwords. This flow requires a high degree of trust and user exposure and should only be used when other, more secure, flows can't be used. |
@@ -75,14 +75,14 @@ Use the following checklist to ensure that your application is effectively integ
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don’t implement the protocols yourself – use [Microsoft-supported authentication libraries](reference-v2-libraries.md) (MSAL, server middleware). Make sure you're using the latest version of the authentication library that you've integrated with. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | If the data your app requires is available through [Microsoft Graph](https://developer.microsoft.com/graph), request permissions for this data using the Microsoft Graph endpoint rather than the individual API. |
 
-### End user experience
+### End-user experience
 
 |   |   |
 |---|---|
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | [Understand the consent experience](application-consent-experience.md) and configure the pieces of your app’s consent prompt so that end users and admins have enough information to determine if they trust your app. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimize the number of times a user needs to enter login credentials while using your app by attempting silent authentication (silent token acquisition) before interactive flows. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Don't use “prompt=consent” for every sign-in. Only use prompt=consent if you’ve determined that you need to ask for consent for additional permissions (for example, if you’ve changed your app’s required permissions). |
-| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Where applicable, enrich your application with user data. Using the [Microsoft Graph API](https://developer.microsoft.com/graph) is an easy way to do this. The [Graph explorer](https://developer.microsoft.com/graph/graph-explorer) tool that can help you get started. |
+| ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Where applicable, enrich your application with user data. Use the [Microsoft Graph API](https://developer.microsoft.com/graph) is an easy way to do this. The [Graph explorer](https://developer.microsoft.com/graph/graph-explorer) tool that can help you get started. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Register the full set of permissions that your app requires so admins can grant consent easily to their tenant. Use [incremental consent](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) at run time to help users understand why your app is requesting permissions that may concern or confuse users when requested on first start. |
 | ![checkbox](./media/active-directory-integration-checklist/checkbox-two.svg) | Implement a [clean single sign-out experience](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). It’s a privacy and a security requirement, and makes for a good user experience. |
 
