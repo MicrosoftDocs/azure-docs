@@ -23,7 +23,50 @@ ms.collection: M365-identity-device-management
 
 # web API that calls Web APIs - acquiring a token for the app
 
-Now you have built you client application object, you'll use it to acquire a token that you'll then use to call a Web APIs.
+Now you have built you client application object, you'll use it to acquire a token that you'll, then, use to call a Web API.
+
+## Code in the controller
+
+Here is an example of code that will be called in the actions of the API controllers, calling a downstream API (here named todolist)
+
+```CSharp
+private async Task GetTodoList(bool isAppStarting)
+{
+ ...
+ //
+ // Get an access token to call the To Do service.
+ //
+ AuthenticationResult result = null;
+ try
+ {
+  app = BuildConfidentialClient(HttpContext, HttpContext.User);
+  result = await app.AcquireTokenSilent(Scopes, account)
+                     .ExecuteAsync()
+                     .ConfigureAwait(false);
+ }
+...
+}
+```
+
+`BuildConfidentialClient()` is similar to what you've seen in the previous article [Web API that calls Web APIs - app configuration](scenario-web-api-call-api-app-configuration.md). It instantiates a `IConfidentialClientApplication` with a cache containing only information for one account, which account is is provided by the `GetAccountIdentifier` method:
+
+The `GetAccountIdentifier` method uses the claims associated with the identity of the user for which the Web API received the JWT:
+
+```CSharp
+public static string GetMsalAccountId(this ClaimsPrincipal claimsPrincipal)
+{
+ string userObjectId = GetObjectId(claimsPrincipal);
+ string tenantId = GetTenantId(claimsPrincipal);
+
+ if (    !string.IsNullOrWhiteSpace(userObjectId)
+      && !string.IsNullOrWhiteSpace(tenantId))
+ {
+  return $"{userObjectId}.{tenantId}";
+ }
+
+ return null;
+}
+```
 
 ## Next steps
 

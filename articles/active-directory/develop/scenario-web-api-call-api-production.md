@@ -28,3 +28,11 @@ Now that you know how to acquire a token to call Web APIs, learn how to move to 
 ## Next steps
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+
+## Learn more
+
+Here is a tutorial explaining in depth how to build a protected Web API calling Web APIs
+
+Sample | Platform | Description
+------ | -------- | -----------
+[active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | ASP.NET Core 2.2 Web API, Desktop (WPF) | ASP.NET Core 2.2 Web API calling Microsoft Graph, itself called from a WPF application using Azure AD V2

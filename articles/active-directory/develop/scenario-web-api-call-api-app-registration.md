@@ -25,6 +25,16 @@ ms.collection: M365-identity-device-management
 
 This page explains the app registration specifics for a web API that calls Web APIs.
 
+A Web API calling downstream Web APIs has the same registration as a protected Web API. You'll therefore need to follow the instructions in [Protected Web API - app registration](scenario-protected-web-api-app-registration.md)
+
+However since the Web App now calls Web APIs, it becomes a confidential client application. That's why there's a bit of extra registration required: it needs to share secrets (client credentials) with the Microsoft identity platform.
+
+[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+
+## API permissions
+
+Web applications call APIs on behalf of the user for which the bearer token was received. They need to request delegated permissions. For details see [Add permissions to access web APIs](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+
 ## Next steps
 
 > [!div class="nextstepaction"]

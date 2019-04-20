@@ -23,10 +23,13 @@ ms.collection: M365-identity-device-management
 
 # web API that calls Web APIs - app's code configuration
 
-Learn how to configure the code for your web API that calls Web APIs.
+## This is a protected API
 
+The code to configure your web API so that it calls downstream Web APIs builds on top of the code used to project Web API. See also [Protected Web API - app configuration](scenario-protected-web-api-app-configuration.md).
 
-## Subscribe to OnTokenValidated
+## It subscribes to OnTokenValidated
+
+Then, on top of the code configuration for any protected Web APIs, you need to subscribe to the validation of the bearer token received when your API is called:
 
 ```CSharp
 /// <summary>
@@ -43,23 +46,101 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
     services.AddTokenAcquisition();
     services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
     {
-        // When an access token for our own Web API is validated, we add it to MSAL.NET's cache so that it can
-        // be used from the controllers.
+        // When an access token for our own Web API is validated, we add it 
+        // to MSAL.NET's cache so that it can be used from the controllers.
         options.Events = new JwtBearerEvents();
 
         options.Events.OnTokenValidated = async context =>
         {
-            var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
             context.Success();
 
-            // Adds the token to the cache, and also handles the incremental consent and claim challenges
-            tokenAcquisition.AddAccountToCacheFromJwt(context, scopes);
+            // Adds the token to the cache, and also handles the incremental consent 
+            // and claim challenges
+            AddAccountToCacheFromJwt(context, scopes);
             await Task.FromResult(0);
         };
     });
     return services;
 }
 ```
+
+## On behalf of flow
+
+The AddAccountToCacheFromJwt() method needs to:
+
+- instantiate an MSAL confidential client application
+- Call `AcquireTokenOnBehalf` to exchange the bearer token that was acquired by the client for our Web API, against a bearer token for the same user, but for our API to call a downstream API.
+
+### Instantiating a confidential client application 
+
+This flow is only available in the confidential client flow; therefore the protected Web API provides client credentials (client secret or certificate) to the [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.confidentialclientapplicationbuilder?view=azure-dotnet-preview) via the `WithClientSecret` or `WithCertificate` methods respectively.
+
+![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+
+
+```CSharp
+IConfidentialClientApplication app;
+
+#if !VariationWithCertificateCredentials
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+           .WithClientSecret(config.ClientSecret)
+           .Build();
+#else
+// Building the client credentials from a certificate
+X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+    .WithCertificate(certificate)
+    .Build();
+#endif
+```
+
+### How to call OBO
+
+The OBO call is done by calling the [AcquireTokenOnBehalf](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.apiconfig.acquiretokenonbehalfofparameterbuilder?view=azure-dotnet-preview) method on the `IConfidentialClientApplication` interface.
+
+The `ClientAssertion` is built from the bearer token received by the Web API from its own clients. There are [two constructors](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), one taking a JWT bearer token, and one taking any kind of user assertion (another kind of security token, which type is then specified in an additional parameter named `assertionType`)
+
+![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+
+In practice, the OBO flow is often used to acquire a token for a downstream API, and store it in the MSAL.NET user token cache, so that other parts of the Web API can, later call on of the [overrides](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) of ``AcquireTokenOnSilent`` to call the downstream APIs (which also has the effect of refreshing the tokens if needed):
+
+```CSharp
+private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
+{
+ try
+ {
+  UserAssertion userAssertion;
+  IEnumerable<string> requestedScopes;
+  if (jwtToken != null)
+  {
+   userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
+   requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
+  }
+  else
+  {
+   throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
+  }
+
+  // Create the application
+  var application = BuildConfidentialClientApplication(httpContext, principal);
+
+  // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
+  var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
+                                                  userAssertion)
+                                        .ExecuteAsync()
+                                        .GetAwaiter().GetResult();
+ }
+ catch (MsalException ex)
+ {
+  Debug.WriteLine(ex.Message);
+  throw;
+ }
+}
+```
+
+## Protocol
+
+For more information about the on-behalf-of protocol, see [Azure Active Directory v2.0 and OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)
 
 ## Next steps
 

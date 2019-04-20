@@ -34,13 +34,15 @@ This scenario "protected Web API that calls Web APIs" builds on top of the "Prot
 
 ## Scenario overview
 
-You protected Web API now calls downstream Web APIs, and therefore it becomes a client of these downstream APIs. So far the protected API was protected by the JwtBearer middleware. It now uses MSAL to acquire tokens for the downstream APIS
+- A client (Web, desktop, mobile, Single-page application) - not represented on the picture below - calls a protected Web API, providing a JWT bearer token in its "Authorization" Http Header.
+- The protected Web API validates the token, and uses MSAL `AcquireTokenOnBehalfOf` method to request, to Azure AD, another token so that it can, itself, call a second Web API (named the downstream Web API) on behalf of the user.
+- The protected Web API uses this token to call a downstream API, it can also later call `AcquireTokenSilent` to request tokens for other downstream APIs (but still on behalf of the same user). `AcquireTokenSilent` refreshes the token when needed.
 
 ![Web API calling a Web API](media/scenarios/web-api.svg)
 
 ## Specifics
 
-The part of app registration related to the API permissions is classical. The application configuration involves using the OAuth 2.0 on behalf of flow to exchange the Jwt bearer token against a token for a downstream API. This token is added to the token cache where it's available in the Web API's controllers which can acquire a token silently to call downstream APIs  
+The part of app registration related to the API permissions is classical. The application configuration involves using the OAuth 2.0 on behalf of flow to exchange the Jwt bearer token against a token for a downstream API. This token is added to the token cache where it's available in the Web API's controllers, which can acquire a token silently to call downstream APIs  
 
 ## Next steps
 
