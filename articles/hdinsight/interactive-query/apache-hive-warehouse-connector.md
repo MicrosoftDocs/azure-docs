@@ -13,9 +13,9 @@ ms.date: 04/18/2019
 
 The Apache Hive Warehouse Connector (HWC) is a library that allows you to work more easily with Apache Spark and Apache Hive by supporting tasks such as moving data between Spark DataFrames and Hive tables, and also directing Spark streaming data into Hive tables. Hive Warehouse Connector works like a bridge between Spark and Hive. It supports Scala, Java, and Python for development.
 
-Hive Warehouse Connector allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark. 
+The Hive Warehouse Connector allows you to take advantage of the unique features of Hive and Spark to build powerful big-data applications. Apache Hive offers support for database transactions that are Atomic, Consistent, Isolated, and Durable (ACID). For more information on ACID and transactions in Hive, see [Hive Transactions](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions). Hive also offers detailed security controls through Apache Ranger and Low Latency Analytical Processing not available in Apache Spark.
 
-Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate data catalogs, which can make interoperability difficult. Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel, making it  more efficient and scalable than using a standard JDBC connection from Spark to Hive.
+Apache Spark, has a Structured Streaming API that gives streaming capabilities not available in Apache Hive. Beginning with Hortonworks Data Platform (HDP) 3.0, Apache Spark and Apache Hive have separate metastores, which can make interoperability difficult. THe Hive Warehouse Connector makes it easier to use Spark and Hive together. The HWC library loads data from LLAP daemons to Spark executors in parallel, making it  more efficient and scalable than using a standard JDBC connection from Spark to Hive.
 
 ![Architecture](./media/apache-hive-warehouse-connector/hive-warehouse-connector-architecture.png)
 
@@ -31,13 +31,13 @@ Some of the operations supported by the Hive Warehouse Connector are:
 
 ## Hive Warehouse Connector setup
 
-Do the following to setup the Hive Warehouse Connector between a Spark and Interactive Query cluster in Azure HDInsight:
+Follow these steps to setup the Hive Warehouse Connector between a Spark and Interactive Query cluster in Azure HDInsight:
 
 1. Create a HDInsight Spark 4.0 cluster using the Azure portal with a storage account and a custom Azure virtual network. For information on creating a cluster in an Azure virtual network, see [Add HDInsight to an existing virtual network](../../hdinsight/hdinsight-extend-hadoop-virtual-network.md#existingvnet).
 1. Create a HDInsight Interactive Query (LLAP) 4.0 cluster using the Azure portal with the same storage account and Azure virtual network as the Spark cluster.
-1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. Once you have completed this step, the hosts file on your Spark cluster will look something like the output shown in the screenshot below.
+1. Copy the contents of the `/etc/hosts` file on headnode0 of your Interactive Query cluster to the `/etc/hosts` file on the headnode0 of your Spark cluster. This step will allow your Spark cluster to resolve IP addresses of the nodes in Interactive Query cluster. View the contents of the updated file with `cat /etc/hosts`. The output should look something like what is shown in the screenshot below.
 
-![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+    ![viewing the hosts file](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
 1. Configure the Spark cluster settings by doing the following steps: 
     1. Go to Azure portal, select HDInsight clusters, and then click on your cluster name.
@@ -48,7 +48,11 @@ Do the following to setup the Hive Warehouse Connector between a Spark and Inter
 
     1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
 
-    1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like `jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`, where `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
+    1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like URI below. `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
+
+        ```
+        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
+        ```
 
         >[!Note] 
         > The JDBC URL should contain credentials for connecting to Hiveserver2 including a username and password.
@@ -99,18 +103,18 @@ To start a spark-shell session, do the following steps:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. You will see a prompt like the one below indicating that the spark shell has been started correctly
+1. You will see a welcome message and a `scala>` prompt where you can enter commands.
 
-    ![spark shell running](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-shell-running.png)
+1. After starting the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
 
-After starting the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
+    ```scala
+    import com.hortonworks.hwc.HiveWarehouseSession
+    val hive = HiveWarehouseSession.session(spark).build()
+    ```
 
-```scala
-import com.hortonworks.hwc.HiveWarehouseSession
-val hive = HiveWarehouseSession.session(spark).build()
-```
+### Connecting and running queries on Enterprise Security Package (ESP) clusters
 
-### Connecting and running queries on ESP clusters
+The Enterprise Security Package (ESP) provides enterprise-grade capabilities like Active Directory-based authentication, multi-user support, and role-based access control for Apache Hadoop clusters in Azure HDInsight. For more information on ESP, see [An introduction to Apache Hadoop security with Enterprise Security Package](../domain-joined/apache-domain-joined-introduction.md).
 
 1. Follow the initial steps 1 and 2 under [Connecting and running queries](#connecting-and-running-queries).
 1. Type `kinit` and login with a domain user.
@@ -144,15 +148,15 @@ Spark doesn’t natively support writing to Hive’s managed ACID tables. Using 
 
 1. Create a table called `sampletable_colorado` and specify its columns using the following command:
 
-```scala
-hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
-```
+    ```scala
+    hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
+    ```
 
 2. Filter the table `hivesampletable` where the column `state` equals `Colorado`. This query of the Hive table is returned as a Spark DataFrame. Then the DataFrame is saved in the Hive table `sampletable_colorado` using the `write` function.
-
-```scala
-hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
-```
+    
+    ```scala
+    hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
+    ```
 
 You can see the resulting table in the screenshot below.
 
