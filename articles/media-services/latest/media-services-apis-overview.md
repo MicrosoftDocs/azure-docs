@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
 
@@ -23,7 +23,8 @@ This article discusses rules that apply to entities and APIs when developing wit
 
 ## Accessing the Azure Media Services API
 
-To access the Azure Media Services resources, you should use the Azure Active Directory (AD) service principal authentication. The Azure Media Services API requires that the user or application that makes the REST API requests have access to the Azure Media Services account resource (typically either the **Contributor** or **Owner** role). For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
+To access the Azure Media Services resources, you can use the Azure Active Directory (AD) service principal authentication.
+The Media Services API requires that the user or application making the REST API requests have access to the Media Services account resource and use a **Contributor** or **Owner** role. The API can be accessed with the **Reader** role but only **Get** or **List**  operations will be available. For more information, see [Role-based access control for Media Services accounts](rbac-overview.md).
 
 Instead of creating a service principal, consider using managed identities for Azure resources to access the Media Services API through Azure Resource Manager. To learn more about managed identities for Azure resources, see [What is managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -35,7 +36,7 @@ If you are not sure whether you have permissions to create an Azure AD applicati
 
 In the following figure, the numbers represent the flow of the requests in chronological order:
 
-![Middle-tier apps](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![Middle-tier apps](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. A middle-tier app requests an Azure AD access token that has the following parameters:  
 

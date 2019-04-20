@@ -81,7 +81,7 @@ All the setup for your development work can be accomplished in a Python notebook
 Use the following to install necessary packages if you don't already have them.
 
 ```shell
-pip install "azureml-dataprep>=1.1.0,<1.2.0"
+pip install "azureml-dataprep[pandas]>=1.1.0,<1.2.0"
 ```
 
 Import the SDK.

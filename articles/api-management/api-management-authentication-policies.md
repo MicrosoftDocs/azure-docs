@@ -24,6 +24,8 @@ This topic provides a reference for the following API Management policies. For i
 -   [Authenticate with Basic](api-management-authentication-policies.md#Basic) - Authenticate with a backend service using Basic authentication.  
   
 -   [Authenticate with client certificate](api-management-authentication-policies.md#ClientCertificate) - Authenticate with a backend service using client certificates.  
+
+-   [Authenticate with managed identity](api-management-authentication-policies.md#ManagedIdentity) - Authenticate with the [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the API Management service.  
   
 ##  <a name="Basic"></a> Authenticate with Basic  
  Use the `authentication-basic` policy to authenticate with a backend service using Basic authentication. This policy effectively sets the HTTP Authorization header to the value corresponding to the credentials provided in the policy.  
@@ -93,7 +95,42 @@ This topic provides a reference for the following API Management policies. For i
 -   **Policy sections:** inbound  
   
 -   **Policy scopes:** API  
+
+##  <a name="ManagedIdentity"></a> Authenticate with managed identity  
+ Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity of the API Management service. This policy effectively uses the managed identity to obtain an access token from Azure Active Directory for accessing the specified resource. 
   
+### Policy statement  
+  
+```xml  
+<authentication-managed-identity resource="resource" output-token-variable-name="token-variable" ignore-error="true|false"/>  
+```  
+  
+### Example  
+  
+```xml  
+<authentication-managed-identity resource="https://graph.windows.net" output-token-variable-name="test-access-token" ignore-error="true" /> 
+```  
+  
+### Elements  
+  
+|Name|Description|Required|  
+|----------|-----------------|--------------|  
+|authentication-managed-identity |Root element.|Yes|  
+  
+### Attributes  
+  
+|Name|Description|Required|Default|  
+|----------|-----------------|--------------|-------------|  
+|resource|String. The App ID URI of the target web API (secured resource) in Azure Active Directory.|Yes|N/A|  
+|output-token-variable-name|String. Name of the context variable that will receive token value as an object type `string`.|No|N/A|  
+|ignore-error|Boolean. If set to `true`, the policy pipeline will continue to execute even if an access token is not obtained.|No|false|  
+  
+### Usage  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+  
+-   **Policy sections:** inbound  
+  
+-   **Policy scopes:** global, product, API, operation  
 
 ## Next steps
 For more information working with policies, see:

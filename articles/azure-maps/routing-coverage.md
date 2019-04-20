@@ -133,12 +133,12 @@ The following table provides coverage information for Azure Maps routing.
 | Cambodia                       |        ✓       |                      |             |
 | Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| Hong Kong                      |        ✓       |         ✓            |             |
+| Hong Kong SAR                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Korea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| Macau                          |        ✓       |         ✓            |             |
+| Macao SAR                      |        ✓       |         ✓            |             |
 | Malaysia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | New Zealand                    |        ✓       |         ✓            |     ✓       | 
@@ -187,7 +187,7 @@ The following table provides coverage information for Azure Maps routing.
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lithuania                      |        ✓       |         ✓            |     ✓      | 
 | Luxembourg                     |        ✓       |         ✓            |     ✓      | 
-| Macedonia                      |        ✓       |                      |             |
+| North Macedonia                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Monaco                         |        ✓       |         ✓            |             |

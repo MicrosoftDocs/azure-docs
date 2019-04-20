@@ -59,6 +59,8 @@
       href: container-instances-restart-policy.md
     - name: Set environment variables (env)
       href: container-instances-environment-variables.md
+    - name: Override container entrypoint
+      href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
     - name: Run Jenkins build job
@@ -81,6 +83,8 @@
     items:
     - name: Configure liveness probes
       href: container-instances-liveness-probe.md
+    - name: Stop and start containers
+      href: container-instances-stop-start.md
     - name: Update running containers
       href: container-instances-update.md
   - name: Monitor and log
