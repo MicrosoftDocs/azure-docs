@@ -22,7 +22,7 @@ ms.collection: M365-identity-device-management
 
 # Azure Active Directory device management FAQ
 
-###Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
+### Q: I registered the device recently. Why can’t I see the device under my user info in the Azure portal? Or why is the device owner marked as N/A for hybrid Azure Active Directory (Azure AD) joined devices?
 
 **A:** Windows 10 devices that are hybrid Azure AD joined don't show up under **USER devices**.
 Use the **All devices** view in the Azure portal. You can also use a PowerShell [Get-MsolDevice](https://docs.microsoft.com/powershell/module/msonline/get-msoldevice?view=azureadps-1.0) cmdlet.

@@ -59,7 +59,7 @@ The Load graph might show high CPU consumption, or high consumption in the past:
 
 ![The Load graph might show high CPU consumption, or high consumption in the past](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-An alert triggered due to high CPU utilization could be caused by several reasons, including, but not limited to: execution of certain transactions, data loading, hanging of jobs, long running SQL statements, and bad query performance (for example, with BW on HANA cubes).
+An alert triggered due to high CPU utilization could be caused by several reasons, including, but not limited to: execution of certain transactions, data loading, jobs that are not responding, long running SQL statements, and bad query performance (for example, with BW on HANA cubes).
 
 Refer to the [SAP HANA Troubleshooting: CPU Related Causes and Solutions](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) site for detailed troubleshooting steps.
 

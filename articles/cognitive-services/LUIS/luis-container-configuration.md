@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual 
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry 
 ---
 
@@ -37,11 +37,11 @@ This container has the following configuration settings:
 
 ## ApiKey setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Language Understanding_ resource specified for the [`Billing`](#billing-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Cognitive Services_ resource specified for the [`Billing`](#billing-setting) configuration setting.
 
 This setting can be found in the following places:
 
-* Azure portal: **Language Understanding's** Resource Management, under **Keys**
+* Azure portal: **Cognitive Services** Resource Management, under **Keys**
 * LUIS portal: **Keys and Endpoint settings** page. 
 
 Do not use the starter key or the authoring key. 
@@ -52,12 +52,15 @@ Do not use the starter key or the authoring key.
 
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure. The container reports usage about every 10 to 15 minutes.
+The `Billing` setting specifies the endpoint URI of the _Cognitive Services_ resource on Azure used to meter billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Cognitive Services_ resource on Azure. The container reports usage about every 10 to 15 minutes.
 
 This setting can be found in the following places:
 
-* Azure portal: **Language Understanding's** Overview, labeled `Endpoint`
+* Azure portal: **Cognitive Services** Overview, labeled `Endpoint`
 * LUIS portal: **Keys and Endpoint settings** page, as part of the endpoint URI.
+
+Remember to include the `luis/v2.0` routing in the URL as shown in the following table:
+
 
 |Required| Name | Data type | Description |
 |--|------|-----------|-------------|
@@ -104,16 +107,18 @@ The following examples use the configuration settings to illustrate how to write
 * **Line-continuation character**: The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
 * **Argument order**: Do not change the order of the arguments unless you are very familiar with docker containers.
 
+Remember to include the `luis/v2.0` routing in the URL as shown in the following table.
+
 Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | The endpoint key of the trained LUIS application. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure `Cognitive Services` Overview page. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](luis-container-howto.md#billing).
-> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page. 
+> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure `Cognitive Services` resource keys page. 
 
 ### Basic example
 

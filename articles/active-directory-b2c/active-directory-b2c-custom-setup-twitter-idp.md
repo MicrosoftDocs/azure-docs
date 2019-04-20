@@ -42,7 +42,7 @@ To use Twitter as an identity provider in Azure AD B2C, you need to create a Twi
 You need to store the secret key that you previously recorded in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
 5. Select **Policy Keys** and then select **Add**.
@@ -83,7 +83,7 @@ You can define a Twitter account as a claims provider by adding it to the **Clai
             <Key Id="client_secret" StorageReferenceId="B2C_1A_TwitterSecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
             <OutputClaim ClaimTypeReferenceId="email" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -138,13 +138,13 @@ The **ClaimsProviderSelection** element is analogous to an identity provider but
 Now that you have a button in place, you need to link it to an action. The action, in this case, is for Azure AD B2C to communicate with a Twitter account to receive a token.
 
 1. Find the **OrchestrationStep** that includes `Order="2"` in the user journey.
-2. Add the following **ClaimsExchange** element making sure that you use the same value for **Id** that you used for **TargetClaimsExchangeId**:
+2. Add the following **ClaimsExchange** element making sure that you use the same value for the ID that you used for **TargetClaimsExchangeId**:
 
     ```XML
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
     
-    Update the value of **TechnicalProfileReferenceId** to the **Id** of the technical profile you created earlier. For example, `Twitter-OAUTH1`.
+    Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Twitter-OAUTH1`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.
 
@@ -153,7 +153,7 @@ Now that you have a button in place, you need to link it to an action. The actio
 Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 4. Select **Applications**, and then select **Add**.
 5. Enter a name for the application, for example *testapp1*.
