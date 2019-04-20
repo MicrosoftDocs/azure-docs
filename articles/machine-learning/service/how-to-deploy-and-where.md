@@ -35,7 +35,7 @@ The process of deploying a model is similar for all compute targets:
 1. Test the deployment.
 
 > [!NOTE]
-> When deploying as an IoT Edge module, you must also create a docker image that contains the model.
+> There are extra steps involved in deploying to IoT Edge. For more information, check out THIS ARTICLE.
 
 For more information on the concepts involved in the deployment workflow, see [Manage, deploy, and monitor models with Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
@@ -56,12 +56,13 @@ The model registry is a way to store and organize your trained models in the Azu
 
 **Using the SDK**
 
+**Scikit-learn example:**
 ```python
 from azureml.core.model import Model
 
 # Register the model.
-# To use an ONNX model instead, set model_path to the path of the .onnx file
-model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
+# You can specify either a single file or a path to a folder which contains your model files here.
+model = Model.register(model_path = "sklearn_mnist.pkl",
                        model_name = "sklearn_mnist",
                        tags = {"key": "0.1"},
                        description = "test",
@@ -71,17 +72,10 @@ model = Model.register(model_path = "outputs/sklearn_mnist_model.pkl",
 **Using the CLI**
 
 ```azurecli
-az ml model register -n mymodel -p model.pkl
+az ml model register -n mymodel -p sklearn_mnist_model.pkl
 ```
 
 **Time estimate**: Approximately 10 seconds.
-
-> [!TIP]
-> You can also register ONNX models. ONNX is a portable, open format that allows you to move your model between tools and frameworks. Converting your model to ONNX can also increase it's performance. For more information see [https://onnx.ai](https://onnx.ai).
->  
-> If you have a model that you'd like to convert to an ONNX model, see the tutorials at [https://github.com/onnx/tutorials](https://github.com/onnx/tutorials).
-
-For an example of registering a model, see [Train an image classifier](tutorial-train-models-with-aml.md).
 
 For an example of registering an ONNX model, see the [example ONNX notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/onnx).
 
@@ -91,7 +85,7 @@ For more information, see the reference documentation for the [Model class](http
 
 To deploy as a web service, you must create an inference configuration (`InferenceConfig`) and a deployment configuration. The deployment configuration is specific to the compute target that you deploy to.
 
-### Inference configuration
+### Define your InferenceConfiguration
 
 The inference configuration describes how to configure the model to make predictions. The following example demonstrates how to create an inference configuration:
 
@@ -109,7 +103,7 @@ In this example, the configuration contains the following items:
 * The [entry script](#script), which is used to handle web requests sent to the deployed service
 * The conda file that describes the Python packages needed to run inferencing
 
-#### <a id="customimage"></a> Use a custom image
+#### <a id="customimage"></a> Use a custom base image
 
 Internally, InferenceConfig creates a Docker image that contains the model and other assets needed by the service. If not specified, a default base image is used.
 
@@ -141,7 +135,7 @@ If your model is trained on Azure Machine Learning Compute, using __version 1.0.
 image_config.base_image = run.properties["AzureML.DerivedImageName"]
 ```
 
-### <a id="script"></a> Entry script
+### <a id="script"></a> Define your entry script
 
 The entry script receives data submitted to a deployed web service, and passes it to the model. It then takes the response returned by the model and returns that to the client. **The script is specific to your model**; it must understand the data that the model expects and returns.
 
@@ -151,116 +145,7 @@ The script contains two functions that load and run the model:
 
 * `run(input_data)`: This function uses the model to predict a value based on the input data. Inputs and outputs to the run typically use JSON for serialization and de-serialization. You can also work with raw binary data. You can transform the data before sending to the model, or before returning to the client.
 
-The following example scripts accept and returns JSON data. The first script uses scikit-learn while the second uses an ONNX model.
-
-**Scikit-learn example:**
-
-```python
-import json
-import numpy as np
-import os
-import pickle
-from sklearn.externals import joblib
-from sklearn.linear_model import LogisticRegression
-from azureml.core.model import Model
-
-# load the model
-def init():
-    global model
-    # retrieve the path to the model file using the model name
-    model_path = Model.get_model_path('sklearn_mnist')
-    model = joblib.load(model_path)
-
-# Passes data to the model and returns the prediction
-def run(raw_data):
-    data = np.array(json.loads(raw_data)['data'])
-    # make prediction
-    y_hat = model.predict(data)
-    return {"result": y_hat.tolist()}
-```
-
-**ONNX example:**
-
-```python
-import onnxruntime
-import json
-import numpy as np
-import sys
-from azureml.core.model import Model
-
-def init():
-    global session
-    model = Model.get_model_path(model_name = 'MyONNXModel')
-    # Create an instance of the model
-    session = onnxruntime.InferenceSession(model)
-
-def preprocess(input_data_json):
-    # convert the JSON data into the tensor input
-    return np.array(json.loads(input_data_json)['data']).astype('float32')
-
-def postprocess(result):
-    return np.array(result).tolist()
-
-def run(input_data_json):
-    try:
-        input_data = preprocess(input_data_json)
-        # get the id of the first input of the model
-        input_name = session.get_inputs()[0].name
-        # Score the data and retrieve the results
-        result = session.run([], {input_name: input_data})
-
-        return {"result": postprocess(result)}
-    except Exception as e:
-        result = str(e)
-        return {"error": result}
-```
-
-For more example scripts, see the following examples:
-
-* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
-* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
-* Keeras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
-
-#### Working with Binary data
-
-If your model accepts __binary data__, use `AMLRequest`, `AMLResponse`, and `rawhttp`. The following example script accepts binary data and returns the reversed bytes for POST requests. For GET requests, it returns the full URL in the response body:
-
-```python
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
-
-def init():
-    print("This is init()")
-
-# Accept and return binary data
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    # handle GET requests
-    if request.method == 'GET':
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    # handle POST requests
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        respBody = bytearray(reqBody)
-        respBody.reverse()
-        respBody = bytes(respBody)
-        return AMLResponse(respBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> The `azureml.contrib` namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
->
-> If you need to test this on your local development environment, you can install the components in the `contrib` namespace by using the following command:
-> ```shell
-> pip install azureml-contrib-services
-> ```
-
-## Define schema
+#### Automatic Swagger schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. This creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service.
 
@@ -269,10 +154,11 @@ The following types are currently supported:
 * `pandas`
 * `numpy`
 * `pyspark`
-* standard Python
+* standard Python object
 
 To use schema generation, include the `inference-schema` package in your conda environment file. The following example uses `[numpy-support]` since the entry script uses a numpy parameter type: 
 
+**Example inference_environment.yml**
 ```python
 name: project_environment
 dependencies:
@@ -283,8 +169,18 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-The entry script must import from the `inference-schema` packages. Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The following example shows an entry script that uses the `NumpyParameterType` for input and output schemas:
+The entry script **must** import the `inference-schema` packages. 
 
+Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The scikit-learn example below uses schema generation.
+
+
+> [!TIP]
+> After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
+
+#### Example entry script
+The following example script accepts and returns JSON data.
+
+**Scikit-learn example with Swagger generation:**
 ```python
 import json
 import numpy as np
@@ -297,12 +193,10 @@ from azureml.core.model import Model
 from inference_schema.schema_decorators import input_schema, output_schema
 from inference_schema.parameter_types.numpy_parameter_type import NumpyParameterType
 
-
 def init():
     global model
     model_path = Model.get_model_path('sklearn_mnist')
     model = joblib.load(model_path)
-
 
 input_sample = np.array([[1.8]])
 output_sample = np.array([43638.88])
@@ -315,15 +209,20 @@ def run(raw_data):
     return {"result": y_hat.tolist()}
 ```
 
-After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
+For more example scripts, see the following examples:
 
-## <a id="deploy"></a> Deploy as a web service
+* Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
+* TensorFlow: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow)
+* Keras: [https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
+* Image classification with raw binary input: **TODO**
+
+## <a id="deploy"></a> Deploy to the cloud
 
 Before deploying, you must define the deployment configuration. The deployment configuration is specific to the compute target that will host the web service. For example, when deploying locally you must specify the port where the service accepts requests.
 
 You may also need to create the compute resource. For example, if you do not already have an Azure Kubernetes Service associated with your workspace.
 
-### Define the deployment configuration
+### Define your DeploymentConfiguration
 
 The following table provides an example of creating a deployment configuration for each compute target:
 
@@ -351,7 +250,7 @@ print(service.state)
 **Using the CLI**
 
 ```azurecli
-az ml model deploy -m mymodel:1 -ic inferenceconfig.json
+az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.json
 ```
 
 ### <a id="aci"></a> Deploy to Azure Container Instances (DEVTEST)
@@ -389,13 +288,11 @@ Creating an AKS cluster is a one time process for your workspace. You can reuse 
 > [!IMPORTANT]
 > If you delete the cluster, then you must create a new cluster the next time you need to deploy.
 
-#### Create and deploy to a new cluster
+#### Create a new cluster
 
-Creating the AKS cluster is a one time process for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
+Creating the AKS cluster is a **one time process** for your workspace. Once created, you can reuse this cluster for multiple deployments. If you delete the cluster or the resource group that contains it, then you must create a new cluster the next time you need to deploy.
 
-To create a new Azure Kubernetes Service cluster and deploy to it, use the following code:
-
-**Using the SDK**
+To create a new Azure Kubernetes Service cluster use the following code:
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -411,22 +308,19 @@ aks_target = ComputeTarget.create(workspace = ws,
 
 # Wait for the create process to complete
 aks_target.wait_for_completion(show_output = True)
-print(aks_target.provisioning_state)
-print(aks_target.provisioning_errors)
-# Create deployment config
-deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-# Deploy
-service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
-service.wait_for_deployment(show_output = True)
-print(service.state)
 ```
+
+For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
+* [Create an AKS cluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+
 
 > [!IMPORTANT]
 > For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for agent_count and vm_size, then you need to make sure agent_count multiplied by vm_size is greater than or equal to 12 virtual CPUs. For example, if you use a vm_size of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an agent_count of 3 or greater.
 
 **Time estimate**: Approximately 20 minutes.
 
-#### Use an existing AKS cluster
+#### Attach an existing AKS cluster
 
 If you already have AKS cluster in your Azure subscription, and it is version 1.12.## and has at least 12 virtual CPUs, you can use it to deploy your image. The following code demonstrates how to attach an existing AKS 1.12.## cluster to your workspace:
 
@@ -440,13 +334,12 @@ cluster_name = 'mycluster'
 attach_config = AksCompute.attach_configuration(resource_group = resource_group,
                                          cluster_name = cluster_name)
 aks_target = ComputeTarget.attach(ws, 'mycompute', attach_config)
+```
 
-# Wait for the operation to complete
-aks_target.wait_for_completion(True)
-
-# Create deployment config
+#### Deploy to AKS <a id="deploy-aks"></a>
+```python
+aks_target = AksCompute(ws,"myaks")
 deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
-# Deploy
 service = Model.deploy(ws, "aksservice", [model], inference_config, deployment_config, aks_target)
 service.wait_for_deployment(show_output = True)
 print(service.state)
@@ -455,15 +348,7 @@ print(service.get_logs())
 
 **Time estimate**: Approximately 5 minutes.
 
-For more information on creating an AKS cluster outside of the Azure Machine Learning SDK, see the following articles:
-
-* [Create an AKS cluster](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
-
-Azure Kubernetes Service provides the following capabilities:
-
-#### Autoscaling
-
+#### Autoscaling your AKS cluster
 Autoscaling of your service can be controlled by setting `autoscale_target_utilization`, `autoscale_min_replicas`, and `autoscale_max_replicas` for the AKS web service. The following example demonstrates how to enable autoscaling:
 
 ```python
@@ -498,12 +383,6 @@ replicas = ceil(concurrentRequests / maxReqPerContainer)
 
 For more information on setting `autoscale_target_utilization`, `autoscale_max_replicas`, and `autoscale_min_replicas`, see the [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none-) reference.
 
-
-### <a id="azuremlcompute"></a> Inference with Azure Machine Learning Compute
-
-Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
-
-For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
 
 ## Consume web service deployments
 
@@ -548,140 +427,24 @@ service.update(models = [new_model])
 print(service.state)
 ```
 
-For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
-
-## <a id="iotedge"></a> Deploy to Azure IoT Edge
-
-An Azure IoT Edge device is a Linux or Windows-based device that runs the Azure IoT Edge runtime. Using the Azure IoT Hub, you can deploy machine learning models to these devices as IoT Edge modules. Deploying a model to an IoT Edge device allows the device to use the model directly, instead of having to send data to the cloud for processing. You get faster response times and less data transfer.
-
-Azure IoT Edge modules are deployed to your device from a container registry. You can use the Azure Machine Learning SDK to create an image from your model. When you create an image from your model, it is stored in the container registry for your workspace.
-
-> [!IMPORTANT]
-> The information in this section assumes that you are already familiar with Azure IoT Hub and Azure IoT Edge modules. While some of the information in this section is specific to Azure Machine Learning service, the majority of the process to deploy to an edge device happens in the Azure IoT service.
->
-> If you are unfamiliar with Azure IoT, see [Azure IoT Fundamentals](https://docs.microsoft.com/azure/iot-fundamentals/) and [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) for basic information. Then use the other links in this section to learn more about specific operations.
-
-### Set up your environment
-
-* A development environment. For more information, see the [How to configure a development environment](how-to-configure-environment.md) document.
-
-* An [Azure IoT Hub](../../iot-hub/iot-hub-create-through-portal.md) in your Azure subscription.
-
-* A trained model. For an example of how to train a model, see the [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md) document. A pre-trained model is available on the [AI Toolkit for Azure IoT Edge GitHub repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial).
-
-### Create an image
-
-The [azureml.core.image.ContainerImage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) class is used to create an image configuration. The image configuration is then used to create a new Docker image.
-
-The following code demonstrates how to create a new image configuration:
-
-```python
-from azureml.core.image import ContainerImage
-
-# Image configuration
-image_config = ContainerImage.image_configuration(execution_script = "score.py",
-                                                 runtime = "python",
-                                                 conda_file = "myenv.yml"}
-                                                 )
-```
-
-**Time estimate**: Approximately 10 seconds.
-
-The important parameters in this example described in the following table:
-
-| Parameter | Description |
-| ----- | ----- |
-| `execution_script` | Specifies a Python script that is used to receive requests submitted to the service. In this example, the script is contained in the `score.py` file. It is functionally the same as the entry script used by web service deployments. For more information, see the [Entry script](#script) section. |
-| `runtime` | Indicates that the image uses Python. The other option is `spark-py`, which uses Python with Apache Spark. |
-| `conda_file` | Used to provide a conda environment file. This file defines the conda environment for the deployed model. For more information on creating this file, see [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file). |
-
-Once you have created the image configuration, you can use it to register an image. This image is stored in the container registry for your workspace. Once created, you can deploy the same image to multiple services.
-
-```python
-# Register the image from the image configuration
-image = ContainerImage.create(name = "myimage",
-                              models = [model], #this is the model object
-                              image_config = image_config,
-                              workspace = ws
-                              )
-```
-
-**Time estimate**: Approximately 3 minutes.
-
-Images are versioned automatically when you register multiple images with the same name. For example, the first image registered as `myimage` is assigned an ID of `myimage:1`. The next time you register an image as `myimage`, the ID of the new image is `myimage:2`.
-
-For more information, see the reference documentation for [ContainerImage class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py).
-
-### <a id="getcontainer"></a> Get the container registry credentials
-
-To deploy an IoT Edge module to your device, Azure IoT needs the credentials for the container registry that Azure Machine Learning service stores docker images in.
-
-You can get the credentials in two ways:
-
-+ **In the Azure portal**:
-
-  1. Sign in to the [Azure portal](https://portal.azure.com/signin/index).
-
-  1. Go to your Azure Machine Learning service workspace and select __Overview__. To go to the container registry settings, select the __Registry__ link.
-
-     ![An image of the container registry entry](./media/how-to-deploy-and-where/findregisteredcontainer.png)
-
-  1. Once in the container registry, select **Access Keys** and then enable the admin user.
-
-     ![An image of the access keys screen](./media/how-to-deploy-and-where/findaccesskey.png)
-
-  1. Save the values for **login server**, **username**, and **password**.
-
-+ **With a Python script**:
-
-  1. Use the following Python script after the code you ran above to create a container:
-
-     ```python
-     # Getting your container details
-     container_reg = ws.get_details()["containerRegistry"]
-     reg_name=container_reg.split("/")[-1]
-     container_url = "\"" + image.image_location + "\","
-     subscription_id = ws.subscription_id
-     from azure.mgmt.containerregistry import ContainerRegistryManagementClient
-     from azure.mgmt import containerregistry
-     client = ContainerRegistryManagementClient(ws._auth,subscription_id)
-     result= client.registries.list_credentials(resource_group_name, reg_name, custom_headers=None, raw=False)
-     username = result.username
-     password = result.passwords[0].value
-     print('ContainerURL{}'.format(image.image_location))
-     print('Servername: {}'.format(reg_name))
-     print('Username: {}'.format(username))
-     print('Password: {}'.format(password))
-     ```
-  1. Save the values for ContainerURL, servername, username, and password.
-
-     These credentials are necessary to provide the IoT Edge device access to images in your private container registry.
-
-### Prepare the IoT device
-
-Register your device with Azure IoT Hub, and then install the IoT Edge runtime on the device. If you are not familiar with this process, see [Quickstart: Deploy your first IoT Edge module to a Linux x64 device](../../iot-edge/quickstart-linux.md).
-
-Other methods of registering a device are:
-
-* [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
-* [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
-
-### Deploy the model to the device
-
-To deploy the model to the device, use the registry information gathered in the [Get container registry credentials](#getcontainer) section with the module deployment steps for IoT Edge modules. For example, when [Deploying Azure IoT Edge modules from the Azure portal](../../iot-edge/how-to-deploy-modules-portal.md), you must configure the __Registry settings__ for the device. Use the __login server__, __username__, and __password__ for your workspace container registry.
-
-You can also deploy using [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) and [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode).
 
 ## Clean up
-
 To delete a deployed web service, use `service.delete()`.
-
 To delete a registered model, use `model.delete()`.
 
-If you created an image for an IoT Edge module, use `image.delete()` to delete it.
-
 For more information, see the reference documentation for [WebService.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--), [Image.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#delete--), and [Model.delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--).
+
+## Other inference options
+
+### <a id="azuremlcompute"></a> Batch inference
+Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
+
+For a walkthrough of batch inference with Azure Machine Learning Compute, read the [How to Run Batch Predictions](how-to-run-batch-predictions.md) document.
+
+For more information, see the reference documentation for the [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class.
+
+## <a id="iotedge"></a> Inference on the edge
+Coming soon.
 
 ## Next steps
 
