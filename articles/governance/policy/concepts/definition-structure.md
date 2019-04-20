@@ -559,39 +559,7 @@ another that has **[\*]** attached to it. For example:
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 The 'normal' alias represents the field as a single value. This field is for exact match comparison
-scenarios when the entire set of values must be exactly as defined, no more and no less. Using
-**ipRules**, an example would be validating that an exact set of rules exists including the number
-of rules and makeup of each rule. This sample rule checks for exactly both **192.168.1.1** and
-**10.0.4.1** with _action_ of **Allow** in **ipRules** to apply the **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+scenarios when the entire set of values must be exactly as defined, no more and no less.
 
 The **[\*]** alias makes it possible to compare against the value of each element in the array and
 specific properties of each element. This approach makes it possible to compare element properties
