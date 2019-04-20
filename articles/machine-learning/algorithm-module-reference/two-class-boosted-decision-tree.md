@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Two-Class Boosted Decision Tree: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Two-Class Boosted Decision Tree module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Two-Class Boosted Decision Tree
+
 *Creates a binary classifier using a boosted decision tree algorithm*  
   
  Category: Machine Learning / Initialize Model / Classification
   
 ## Module overview  
 
-This article describes how to use the **Two-Class Boosted Decision Tree** module in Azure Machine Learning to create a machine learning model that is based on the boosted decision trees algorithm. 
+This article describes how to use the **Two-Class Boosted Decision Tree** module in Azure Machine Learning service to create a machine learning model that is based on the boosted decision trees algorithm. 
 
 A boosted decision tree is an ensemble learning method in which the second tree corrects for the errors of the first tree, the third tree corrects for the errors of the first and second trees, and so forth.  Predictions are based on the entire ensemble of trees together that makes the prediction.
   

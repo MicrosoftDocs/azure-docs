@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot module errors in Azure Machine Learning
+title: Troubleshoot module errors
 titleSuffix: "Azure Machine Learning service"
 description: Troubleshoot module exceptions in Azure Machine Learning Studio using error codes
 services: machine-learning
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Exceptions and error codes for Algorithm & Module Reference
@@ -2094,7 +2094,7 @@ Resolution:
  This error in Azure Machine Learning occurs when there are not enough unique values in the selected column to perform the operation.  
   
 **Resolution:**
- Some operations perform statistical operations on feature and categorical columns, and if there are not enough values, the operation might fail or return an invalid result. Check your dataset to see how many values there are in the fature and label columns, and determine whether the operation you are trying to perform is statistically valid.  
+ Some operations perform statistical operations on feature and categorical columns, and if there are not enough values, the operation might fail or return an invalid result. Check your dataset to see how many values there are in the feature and label columns, and determine whether the operation you are trying to perform is statistically valid.  
   
  If the source dataset is valid, you might also check whether some upstream data manipulation or metadata operation has changed the data and removed some values.  
   

@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Create  your first data science experiment without writing code"
+title: "Quickstart: Prepare and visualize data without writing code"
 titleSuffix: Azure Machine Learning service
 description: Create a machine learning experiment to prepare and visualize your data with a drag-and-drop user interface.
 services: machine-learning
@@ -9,96 +9,103 @@ ms.topic: quickstart
 author: sdgilley
 ms.author: sgilley
 ms.date: 04/15/2019
-# Customer intent: As a data scientist, I want to create machine learning models without writing any code.
+# Customer intent: As a beginner data scientist who does not want to write code, I want to visualize my data so that I can use it to create machine learning models.
 ---
 
-# Quickstart: Create your first data science experiment without writing code
+# Quickstart: Prepare and visualize data without writing code
 
-Create a machine learning experiment to prepare and visualize your data with a drag-and-drop user interface.
+Prepare and visualize your data with a drag-and-drop user interface. The data you'll use includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
 
 In this quickstart you'll explore and prepare data:
 
-- Create your first experiment
-- Add data
-- Select columns in the data
+- Create your first experiment to add and preview data
+- Prepare the data by removing missing values
 - Run the experiment
-- Visualize the data
-- Prepare the data
-- Visualize the results
+- Visualize the resulting data
 
-After you complete this quickstart, you can use this experiment to [train a model]().
-
-If you're brand new to machine learning, the video series [Data Science for Beginners](https://docs.microsoft.com/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers) is a great introduction to machine learning using everyday language and concepts.
+If you're brand new to machine learning, the video series [Data Science for Beginners](https://docs.microsoft.com/azure/machine-learning/studio/data-science-for-beginners-the-5-questions-data-science-answers) is a great introduction to machine learning.
 
 ## Prerequisites
 
-[!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
+If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
+### Create a workspace
+
+If you have an Azure Machine Learning service workspace, skip to the [next section](#start). Otherwise, create one now.
+
+[!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
+
+## <a name="start"></a> Open the visual interface webpage
+
+1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
+
+1. In your workspace, select **Visual interface (preview)**.  Then select **Launch visual interface**.  
+ 
+    ![Launch visual interface](./media/ui-quickstart-run-experiment/launch-ui.png)
+
+    The interface webpage opens in a new browser page.  
 
 ## Create your first experiment
 
+The visual interface tool provides an interactive, visual place to easily build, test, and iterate on a predictive analysis model. You drag-and-drop datasets and analysis modules onto an interactive canvas, connecting them together to form an _experiment_.  Create your first experiment now.
 
-1. Select  **Add New**  in the left bottom corner.
+1. In the bottom-left corner, select  **Add New**.
 ![Add new experiment](./media/ui-quickstart-run-experiment/add-new.png)
 
 1. Select **Blank Experiment**.
 
-1. Your experiment is given a default name. Select this text and rename it to something meaningful, for example, "Quickstart-explore data." This name doesn't need to be unique.
+1. Your experiment is given a default name. Select this text and rename it to "Quickstart-explore data." This name doesn't need to be unique.
 
-1. The **Mini Map** at the bottom of the screen is useful for viewing large experiments.  You won't need it in this quickstart so click on the arrow at the top to close it.  
+1. The **Mini Map** at the bottom of the screen is useful for viewing large experiments.  You won't need it in this quickstart so click on the arrow at the top to minimize it.  
 
-![Rename experiment](./media/ui-quickstart-run-experiment/rename.png)
+    ![Rename experiment](./media/ui-quickstart-run-experiment/rename.png)
 
 ## Add data
 
-The first thing you need for machine learning is data. There are several sample datasets included with Studio that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. This dataset includes entries for various individual automobiles, including information such as make, model, technical specifications, and price.  
+The first thing you need for machine learning is data. There are several sample datasets included in this interface that you can use, or you can import data from many sources. For this example, you'll use the sample dataset **Automobile price data (Raw)**. 
 
 1. To the left of the experiment canvas is a palette of datasets and modules. Select **Saved Datasets** then select **Samples** to view the available sample datasets.
 
-1. Select the third dataset, **Automobile price data (raw)**, and drag it onto the canvas.
+1. Select the dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
    ![Drag data to canvas](./media/ui-quickstart-run-experiment/drag-data.png)
 
- > [!TIP]
- > If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of this quickstart will use this shortcut.
 
 ## Select columns
 
-Select which columns of data to work with.  For now, view all the available columns.
+Select which columns of data to work with.  To start with, configure the module to show all available columns.
+
+> [!TIP]
+> If you know the name of the data or module you want, use the search bar at the top of the palette to find it quickly.  The rest of the quickstart will use this shortcut.
 
 1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
 
-1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop this module below the dataset you added earlier.
+1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop the module below the dataset you added earlier.
+
+1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset, drag to the input port of **Select Columns in Dataset**, then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
 
     > [!TIP]
-    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. To create a flow of data through your experiment, you'll connect an output port of one module to an input port of another.
-
-1. Connect the dataset to the **Select Columns in Dataset**: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of **Select Columns in Dataset** (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
+    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
+    >
+    > If you have trouble connecting modules, try dragging all the way into the node you are connecting.
 
     ![Connect modules](./media/ui-quickstart-run-experiment/connect-modules.gif) 
 
-    > [!TIP]
-    > If you have trouble connecting modules, try dragging all the way into the node you are connecting.  
-
-    The experiment should now look something like this:
-
-    ![select-column](./media/ui-quickstart-run-experiment/select-columns.png)
-
-    The red exclamation mark indicates that you haven't set the properties for this module yet. You'll do that next.
+    The red exclamation mark indicates that you haven't set the properties for the module yet. You'll do that next.
    
-1. Select **Select Columns in Dataset**.
-
-1. In the Properties pane to the right of the canvas, select **Launch column selector**.
-
-    In the Select columns dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
-
-     ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
+1. Select the **Select Columns in Dataset** module.
 
 1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
 
+    In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
+
+     ![column-selector](./media/ui-quickstart-run-experiment/select-all.PNG)
+
+1. On the lower right, select the check mark (OK) button to close the column selector.
+
 ## Run the experiment
 
-At any time, you can click the output port of a dataset or module to see what the data looks like at that point in the data flow.  However, before the experiment has run, the module doesn't yet know its data, In this situation, the **Visualize** option will be disabled.  By running the experiment, the column definitions for your data pass from the dataset, through the **Select Columns in Dataset** module.  After the run, you will be able to visualize your initial data.
+At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow.  If the **Visualize** option is disabled, you first need to run the experiment.  You'll do that next.
 
 An experiment runs on a compute target, a compute resource that is attached to your workspace.  Once you create a compute target, you can reuse it for future runs.
 
@@ -106,9 +113,9 @@ An experiment runs on a compute target, a compute resource that is attached to y
 
      ![Run experiment](./media/ui-quickstart-run-experiment/run-experiment.png)
 
-1. In the **Setup Compute Targets** dialog, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
+1. When the **Setup Compute Targets** dialog appears, if your workspace already has a compute target, you can select it now.  Otherwise, select **Create new**.
 
-1. Provide a name for your compute target.
+1. Provide a name for your compute target. 
 
 1. Select **Run**.
 
@@ -117,40 +124,40 @@ An experiment runs on a compute target, a compute resource that is attached to y
     Your compute resource will now be created. View the status in the top-right corner of the experiment. 
 
     > [!NOTE]
-    > It takes approximately 10 minutes to create a compute target. After the resource has created, you can reuse it and skip this wait time for future runs.
+    > It takes approximately 10 minutes to create a compute target. After the resource is created, you can reuse it and skip this wait time for future runs.
 
     After the compute target is available, the experiment runs. When the run is complete, a green checkmark appears on each module.
 
     ![View status](./media/ui-quickstart-run-experiment/status1.png)
 
-## Visualize the data
+## Preview the data
 
 Now that you have run your initial experiment, you can visualize the data to understand more about the information you have to work with.
 
 1. Select the output port at the bottom of the **Select Columns in Dataset** then select **Visualize**.
 
-     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns.  In the [Develop a predictive solution tutorial](), you'll predict the price of an automobile, found in far-right column (column 26, titled "price").  There are 205 rows and 26 columns in this dataset.
+1. Click on different columns in the data window to view information about that column.  
 
-     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. 
+    In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns.    There are 205 rows and 26 columns in this dataset.
 
-1. Click on **make**.  This column is a String Feature, with 22 unique value and no missing values. The histogram shows the distribution of **make** in the dataset. 
+     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.  For example, when you click on **num-of-doors** you see it has 2 unique values and 2 missing values.  Scroll down to see the values: two and four doors.
 
-     ![visualization-result](./media/ui-quickstart-run-experiment/make.png)
+     ![Preview the data](./media/ui-quickstart-run-experiment/preview-data.gif)
 
 1. Click on each column to understand more about your dataset.
 
 ## Prepare data
 
-A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the normalized-losses column has a large proportion of missing values, so you'll exclude that column from the model altogether.
+A dataset usually requires some preprocessing before it can be analyzed. You might have noticed the missing values present in the columns of various rows. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules.  
 
-### Remove normalized-losses
+### Remove column
 
 First,  remove the **normalized-losses** column completely.
 
-1. Select **Select Columns in Dataset**.
+1. Select the **Select Columns in Dataset** module.
 
 1. In the **Properties** pane to the right of the canvas, select **Launch column selector**.
 
@@ -158,7 +165,7 @@ First,  remove the **normalized-losses** column completely.
 
     * From the drop-downs, select **Exclude** and **column names**, and then click inside the text box. Type **normalized-losses**.
 
-    * Select the check mark (OK) button to close the column selector (on the lower-right).
+    * On the lower right, select the check mark (OK) button to close the column selector.
 
     ![Exclude a column](./media/ui-quickstart-run-experiment/exclude-column.png)
         
@@ -216,6 +223,14 @@ Since you made changes to the modules in your experiment, the status has changed
 
     ![Visualize clean data](./media/ui-quickstart-run-experiment/visualize-cleaned.png)
 
+1. Click on different columns in the cleaned data window to see how data has changed.  
+
+    ![Visualize Clean Data](media/ui-quickstart-run-experiment/visualize-result.png)
+
+    There are now 193 rows and 25 columns.
+
+    When you click on **num-of-doors** you see it still has 2 unique values but now has 0 missing values.  
+
 ## Clean up resources
 
 [!INCLUDE [aml-ui-cleanup](../../../includes/aml-ui-cleanup.md)]
@@ -224,15 +239,11 @@ Since you made changes to the modules in your experiment, the status has changed
 
 In this quickstart, you learned how to:
 
-- Create your first experiment
-- Add data
-- Select columns in the data
-- Run the experiment
-- Visualize the data
-- Prepare the data
-- Visualize the results
+- Create your first experiment to add and preview data
+- Prepare the data by removing missing values
+- Visualize the resulting data
 
 Continue to the tutorial to use this data to predict the price of an automobile.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Develop a predictive solution in Studio]()
+> [Tutorial: Develop a predictive solution without writing code]()

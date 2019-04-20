@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Execute Python Script: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Execute Python Script module in Azure Machine Learning service to run Python code.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Execute Python Script
@@ -20,16 +20,61 @@ Category: Python Language Modules
 
 ## Module overview
 
-This article describes how to use the **Execute Python Script** module in Azure Machine Learning to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+This article describes how to use the **Execute Python Script** module in Azure Machine Learning service to run Python code. For more information about the architecture and design principles of Python, see [the following article.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
 
 With Python, you can perform tasks that aren't currently supported by existing modules such as:
 
 + Visualizing data using `matplotlib`
 + Using Python libraries to enumerate datasets and models in your workspace
 + Reading, loading, and manipulating data from sources not supported by the [Import Data](./import-data.md) module
++ Run your own deep learning code 
+
 
 Azure Machine Learning uses the Anaconda distribution of Python, which includes many common utilities for data processing. We will update Anaconda version automatically. Current version is:
  -  Anaconda 4.5+ distribution for Python 3.6 
+
+The pre-installed packages are:
+-  asn1crypto==0.24.0
+- attrs==19.1.0
+- azure-common==1.1.18
+- azure-storage-blob==1.5.0
+- azure-storage-common==1.4.0
+- certifi==2019.3.9
+- cffi==1.12.2
+- chardet==3.0.4
+- cryptography==2.6.1
+- distro==1.4.0
+- idna==2.8
+- jsonschema==3.0.1
+- lightgbm==2.2.3
+- more-itertools==6.0.0
+- numpy==1.16.2
+- pandas==0.24.2
+- Pillow==6.0.0
+- pip==19.0.3
+- pyarrow==0.12.1
+- pycparser==2.19
+- pycryptodomex==3.7.3
+- pyrsistent==0.14.11
+- python-dateutil==2.8.0
+- pytz==2018.9
+- requests==2.21.0
+- scikit-learn==0.20.3
+- scipy==1.2.1
+- setuptools==40.8.0
+- six==1.12.0
+- torch==1.0.1.post2
+- torchvision==0.2.2.post3
+- urllib3==1.24.1
+- wheel==0.33.1 
+
+ To install other packages not in the pre-installed list, for example *scikit-misc*, add the following code to your script: 
+
+ ```python
+import os
+os.system(f"pip install scikit-misc")
+```
+
 
 
 ## How to use Execute Python Script
@@ -62,7 +107,7 @@ The **Execute Python Script** module contains sample Python code that you can us
 
     Therefore, if your zip file contains `mymodule.py`, import it using `import mymodule`.
 
-    + A single dataset can be returned to the interface, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage, or create visualizations using the **Python device**.
+    + Two datasets can be returned to the interface, which must be a sequence of type `pandas.DataFrame`. You can create other outputs in your Python code and write them directly to Azure storage.
 
 6. Run the experiment, or select the module and click **Run selected** to run just the Python script.
 
@@ -70,8 +115,10 @@ The **Execute Python Script** module contains sample Python code that you can us
 
 ### Results
 
-The module returns these outputs:  
-  
-+ **Results Dataset 1**. The results of any computations performed by the embedded Python code must be provided as a pandas data.frame, which is automatically converted to the Azure Machine Learning dataset format, so that you can use the results with other modules in the experiment. The module is limited to a single dataset as output. 
+The results of any computations performed by the embedded Python code must be provided as a pandas.DataFrame, which is automatically converted to the Azure Machine Learning dataset format, so that you can use the results with other modules in the experiment.
 
-+ **Result Dataset 2**
+The module returns two datasets:  
+  
++ **Results Dataset 1**, defined by the first returned pandas dataframe in Python script
+
++ **Result Dataset 2**, defined by the second returned pandas dataframe in Python script

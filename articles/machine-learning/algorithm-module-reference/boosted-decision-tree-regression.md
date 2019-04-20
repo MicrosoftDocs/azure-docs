@@ -1,7 +1,7 @@
 ---
 title:  "Boosted Decision Tree Regression: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the **Boosted Decision Tree Regression** module in Azure Machine Learning to create an ensemble of regression trees using boosting. 
+description: Learn how to use the Boosted Decision Tree Regression module in Azure Machine Learning service to create an ensemble of regression trees using boosting. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 
@@ -21,7 +21,7 @@ Category: Machine Learning / Initialize Model / Regression
 
 ## Module overview  
 
-This article describes how to use the **Boosted Decision Tree Regression** module in Azure Machine Learning to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
+This article describes how to use the **Boosted Decision Tree Regression** module in Azure Machine Learning service to create an ensemble of regression trees using boosting. *Boosting* means that each tree is dependent on prior trees. The algorithm learns by fitting the residual of the trees that preceded it. Thus, boosting in a decision tree ensemble tends to improve accuracy with some small risk of less coverage.  
   
 This regression method is a supervised learning method, and therefore requires a *labeled dataset*. The label column must contain numerical values.  
 

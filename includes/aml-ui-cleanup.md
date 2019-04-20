@@ -11,21 +11,39 @@ ms.date: 05/06/2019
 ---
 
 >[!IMPORTANT]
->The resources you created can be used as prerequisites to other Azure Machine Learning service tutorials and how-to articles. 
+>You can use the resources that you created as prerequisites for other Azure Machine Learning service tutorials and how-to articles.
 
 
-If you don't plan to use the resources you created, delete them, so you don't incur any charges.
+### Delete everything
 
-### Delete resources
+If you don't plan to use anything that you created, delete the entire resource group so you don't incur any charges:
 
-Delete experiments, web services, or datasets you created by selecting them, and then selecting **Delete**.
+1. In the Azure portal, select **Resource groups** on the left side of the window.
+ 
+   ![Delete resource group in the Azure portal](./media/aml-ui-cleanup/delete-resources.png)
+
+1. In the list, select the resource group that you created.
+
+1. On the right side of the window, select the ellipsis button (**...**).
+
+1. Select **Delete resource group**.
+
+Deleting the resource group also deletes all resources that you created in the visual interface.  
+
+### Delete only the compute target
+
+The compute target that you created here *automatically autoscales* to zero nodes when it's not being used. This is to minimize charges. If you want to delete the compute target, take these steps:
+
+1. In the [Azure portal](https://portal.azure.com), open your workspace.
+
+    ![Delete the compute target](./media/aml-ui-cleanup/delete-compute-target.png)
+
+1. In the **Compute** section of your workspace, select the resource.
+
+1. Select **Delete**.
+
+### Delete individual assets
+
+In the visual interface where you created your experiment, delete individual assets by selecting them and then selecting the **Delete** button.
 
 ![Delete experiments](./media/aml-ui-cleanup/delete-experiment.png)
-
-### Delete compute target
-
-The compute target used to run experiments autoscales to `0` nodes when not in use to avoid extra charges.
-
-To delete the compute resource altogether, select it in the **Compute** section of your workspace in the [Azure portal](https://portal.azure.com).
-
-![Delete compute target](./media/aml-ui-cleanup/delete-compute-target.png)

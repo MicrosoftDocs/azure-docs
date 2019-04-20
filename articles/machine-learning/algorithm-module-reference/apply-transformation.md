@@ -1,7 +1,7 @@
 ---
-title:  "Add Transformation: Module Reference"
+title:  "Apply Transformation: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the **Apply Transformation** module in Azure Machine Learning to modify an input dataset based on a previously computed transformation. 
+description: Learn how to use the Apply Transformation module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation.  . 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 
@@ -20,7 +20,7 @@ ROBOTS: NOINDEX
 
 ## Module overview  
 
-This article describes how to use the **Apply Transformation** module in Azure Machine Learning to modify an input dataset based on a previously computed transformation.  
+This article describes how to use the **Apply Transformation** module in Azure Machine Learning service to modify an input dataset based on a previously computed transformation.  
   
 For example, if you used z-scores to normalize your training data by using the **Normalize Data** module, you would want to use the z-score value that was computed for training during the scoring phase as well. In Azure Machine Learning, you can do this easily by saving the normalization method as a transform, and then using **Apply Transformation** to apply the z-score to the input data before scoring.
   

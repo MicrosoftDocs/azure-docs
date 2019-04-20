@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Split Data: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Split Data module in Azure Machine Learning service to divide a dataset into two distinct sets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,7 +9,7 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Split Data
@@ -20,7 +20,7 @@ Category: Data Transformation / Sample and Split
 
 ## Module overview
 
-This topic describes how to use the [Split Data](./split-data.md) module in Azure Machine Learning to divide a dataset into two distinct sets.
+This topic describes how to use the **Split Data** module in Azure Machine Learning service to divide a dataset into two distinct sets.
 
 This module is particularly useful when you need to separate data into training and testing sets. You can customize the way that data is divided as well. Some options support randomization of data; others are tailored for a certain data type or model type.
 
@@ -76,9 +76,8 @@ This module is particularly useful when you need to separate data into training 
 
 3. In the **Regular expression** box, type a valid regular expression. 
   
-    The regular expression is applied only to the specified column, which must be a string data type.
+   The regular expression should follow Python regular expression syntax.
 
-    For help with composing regular expressions, see the [Regular Expression Language - Quick Reference](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference).
 
 4. Run the experiment.
 
@@ -90,8 +89,10 @@ This module is particularly useful when you need to separate data into training 
   
 2. For **Splitting mode**, select **relative expression split**.
   
-3. In the **Relational expression** text box, type an expression that performs a numeric comparison operation, on a single column:
+3. . In the **Relational expression** text box, type an expression that performs a comparison operation, on a single column:
 
+
+ - Numeric column:
     - The column contains numbers of any numeric data type, including date/time data types.
 
     - The expression can reference a maximum of one column name.
@@ -101,6 +102,10 @@ This module is particularly useful when you need to separate data into training 
     - The following operators are supported: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
     - You cannot group operations by using `(` and `)`.
+
+ - String column: 
+    - The following operators are supported: `==`, `!=`
+
 
 
 4. Run the experiment.

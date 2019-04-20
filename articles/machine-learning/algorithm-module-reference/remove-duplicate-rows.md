@@ -1,7 +1,7 @@
 ---
-title:  "Decision Forest Regression: Module Reference"
+title:  "Remove Duplicate Rows: Module Reference"
 titleSuffix: Azure Machine Learning service
-description: Learn how to use the Decision Forest Regression module in Azure Machine Learning to create a regression model based on an ensemble of decision trees.
+description: Learn how to use the Remove Duplicate Rows module in Azure Machine Learning service to remove potential duplicates from a dataset.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,18 @@ ms.topic: reference
 
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ROBOTS: NOINDEX
 ---
 # Remove Duplicate Rows
+
 *Removes the duplicate rows from a dataset*  
   
  Category: Data Transformation / Manipulation 
   
 ## Module overview  
 
-This article describes how to use the **Remove Duplicate Rows** module in Azure Machine Learning to remove potential duplicates from a dataset.
+This article describes how to use the **Remove Duplicate Rows** module in Azure Machine Learning service to remove potential duplicates from a dataset.
 
 For example, assume your data looks like the following, and represents multiple records for patients. 
 
@@ -32,6 +33,8 @@ For example, assume your data looks like the following, and represents multiple 
 |4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
+|6| F.A.M.| M| NaN| |
+|7| F.A.M.| M| NaN| |
 
 Clearly, this example has multiple columns with potentially duplicate data. Whether they are actually duplicates depends on your knowledge of the data. 
 
@@ -39,7 +42,7 @@ Clearly, this example has multiple columns with potentially duplicate data. Whet
 
 + Alternatively, you might decide to allow duplicates in the ID field, and use some other combination of files to find unique records, such as first name, last name, age, and gender.  
 
-To set the criteria for whether a row is duplicate or not, you specify a single column or a set of columns to use as **keys**. Two rows are considered duplicates only when the values in **all** key columns are equal. 
+To set the criteria for whether a row is duplicate or not, you specify a single column or a set of columns to use as **keys**. Two rows are considered duplicates only when the values in **all** key columns are equal. If any row has missing value for **keys**, they will not be considered duplicate rows. For example, if Gender and Age are set as Keys in above table,  row 6 and 7 are not duplicate rows given they have missing value in Age.
 
 When you run the module, it creates a candidate dataset, and returns a set of rows that have no duplicates across the set of columns you specified.
 
