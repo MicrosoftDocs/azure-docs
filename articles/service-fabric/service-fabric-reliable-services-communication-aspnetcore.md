@@ -510,6 +510,7 @@ Stateful services that are only reachable from within the cluster should use dyn
 ## Next steps
 [Debug your Service Fabric application by using Visual Studio](service-fabric-debugging-your-application.md)
 
+
 <!--Image references-->
 [0]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-standalone.png
 [1]:./media/service-fabric-reliable-services-communication-aspnetcore/webhost-servicefabric.png
