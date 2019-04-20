@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial C# module for Linux - Azure IoT Edge | Microsoft Docs 
+title: Tutorial develop C# module for Linux - Azure IoT Edge| Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Linux IoT Edge device.
 services: iot-edge
 author: kgremban
@@ -14,7 +14,7 @@ ms.custom: "mvc, seodec18"
 
 ---
 
-# Tutorial: Develop a C# IoT Edge module and deploy to a Linux device
+# Tutorial: Develop a C# IoT Edge module for Linux devices
 
 Use Visual Studio Code to develop C# code and deploy it to a Linux device running Azure IoT Edge. 
 
@@ -32,12 +32,13 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C#** using Visual Studio Code, and how to deploy it to a **Linux device**. The sample code included here can work in other tools and for other devices, as well. Use the following table to understand your options for developing and deploying C# modules: 
+This tutorial demonstrates how to develop a module in C using **Visual Studio Code**, and how to deploy it to a **Linux device**. If you're developing modules for Windows devices, go to [Develop a C# IoT Edge module for Windows devices](tutorial-csharp-module-visual-studio.md) instead.
 
+Use the following table to understand your options for developing and deploying C modules to Linux: 
 | C# | Visual Studio Code | Visual Studio 2017 | 
 | -- | ------------------ | ------------------ |
 | **Linux AMD64 develop and debug** | ![C# modules for LinuxAMD64 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxAMD64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
-| **Linux ARM32 develop and debug** | ![C# modules for LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) |  |
+| **Linux ARM32 develop and debug** | ![C# modules for LinuxARM32 in VS Code](./media/tutorial-c-module/green-check.png) | ![C# modules for LinuxARM64 in Visual Studio](./media/tutorial-c-module/green-check.png) |
 
 ## Prerequisites
 
@@ -55,11 +56,11 @@ To complete these tutorials, prepare the following additional prerequisites on y
 * [C# for Visual Studio Code (powered by OmniSharp) extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 
-## Create an IoT Edge module project
+## Create a module project
 
-The following steps create an IoT Edge module project that's based on the .NET Core 2.0 SDK by using Visual Studio Code and the Azure IoT Tools.
+The following steps create an IoT Edge module project for C# by using Visual Studio Code and the Azure IoT Tools extension. Once you have a project template created, add new code so that the module filters out messages based on their reported properties. 
 
-### Create a new solution
+### Create a new project
 
 Create a C# solution template that you can customize with your own code. 
 
@@ -87,6 +88,14 @@ The environment file stores the credentials for your container registry and shar
 1. In the VS Code explorer, open the **.env** file. 
 2. Update the fields with the **username** and **password** values from your Azure container registry. 
 3. Save this file. 
+
+### Select your target architecture
+
+Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux ARM32v7 devices. You need to select which architecture you're targeting with each solution, because the container is built and run differently for each architecture type. The default is Linux AMD64. 
+
+1. Open the command palette and search for **Azure IoT Edge: Set Default Target Platform for Edge Solution**, or select the shortcut icon in the side bar at the bottom of the window. 
+
+2. In the command palette, select the target architecture from the list of options. For this tutorial, we're using an Ubuntu virtual machine as the IoT Edge device, so will keep the default **amd64**. 
 
 ### Update the module with custom code
 
@@ -232,17 +241,7 @@ The environment file stores the credentials for your container registry and shar
 
 8. Save the Program.cs file.
 
-9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them. The Visual Studio Code extension automatically populates most of the information that you need in the deployment template, but verify that everything is accurate for your solution: 
-
-   1. The default platform of your IoT Edge is set to **amd64** in your VS Code status bar, which means your **CSharpModule** is set to Linux amd64 version of the image. Change the default platform in status bar from **amd64** to **arm32v7** or **windows-amd64** if that is your IoT Edge device's architecture. 
-
-      ![Update module image platform](./media/tutorial-csharp-module/image-platform.png)
-
-   2. Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
-
-   3. The **registryCredentials** section stores your Docker registry credentials, so that the IoT Edge agent can pull your module image. The actual username and password pairs are stored in the .env file, which is ignored by git. Add your credentials to the .env file if you haven't already.  
-
-   4. If you want to learn more about deployment manifests, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
+9. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. 
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 
@@ -259,42 +258,31 @@ The environment file stores the credentials for your container registry and shar
 11. Save the deployment.template.json file.
 
 
-## Build your IoT Edge solution
+## Build and push your module
 
-In the previous section, you created an IoT Edge solution and added code to the **CSharpModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
+In the previous section, you created an IoT Edge solution and added code to the CSharpModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry.
 
-1. Sign in to Docker by entering the following command in the Visual Studio Code integrated terminal. Then you can push your module image to your Azure container registry.
+1. Open the VS Code integrated terminal by selecting **View** > **Terminal**.
+
+1. Sign in to Docker by entering the following command in the terminal. Sign in with the username, password, and login server from your Azure container registry. You can retrieve these values from the **Access keys** section of your registry in the Azure portal.
      
-   ```csh/sh
+   ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
-   Use the username, password, and login server that you copied from your Azure container registry in the first section. You can also retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
+   You may receive a security warning recommending the use of `--password-stdin`. While that best practice is recommended for production scenarios, it's outside the scope of this tutorial. For more information, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) reference.
 
-When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution. 
+2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**.
 
-You can see the full container image address with tag in the VS Code integrated terminal. The image address is built from information that's in the module.json file with the format \<repository\>:\<version\>-\<platform\>. For this tutorial, it should look like registryname.azurecr.io/csharpmodule:0.0.1-amd64.
-
->[!TIP]
->If you receive an error trying to build and push your module, make the following checks:
->* Did you sign in to Docker in Visual Studio Code using the credentials from your container registry? These credentials are different than the ones you use to sign in to the Azure portal.
->* Is your container repository correct? Open **modules** > **csharpmodule** > **module.json** and find the **repository** field. The image repository should look like **\<registryname\>.azurecr.io/csharpmodule**. 
->* Are you building the same type of containers that your development machine is running? Visual Studio Code defaults to Linux amd64 containers. If your development machine is running Windows containers or Linux arm32v7 containers, update the platform on the blue status bar at the bottom of your VS Code window to match your container platform.
+   The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry.
 
 ## Deploy and run the solution
 
 In the quickstart article that you used to set up your IoT Edge device, you deployed a module by using the Azure portal. You can also deploy modules using the Azure IoT Hub Toolkit extension (formerly Azure IoT Toolkit extension) for Visual Studio Code. You already have a deployment manifest prepared for your scenario, the **deployment.json** file. All you need to do now is select a device to receive the deployment.
 
-1. In the VS Code command palette, run **Azure IoT Hub: Select IoT Hub**. 
+1. In the Visual Studio Code explorer, expand the **Azure IoT Hub Devices** section to see your list of IoT devices.
 
-2. Choose the subscription and IoT hub that contain the IoT Edge device that you want to configure. 
-
-3. In the VS Code explorer, expand the **Azure IoT Hub Devices** section. 
-
-4. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
-
-   ![Create deployment for single device](./media/tutorial-csharp-module/create-deployment.png)
+2. Right-click the name of your IoT Edge device, then select **Create Deployment for Single Device**. 
 
 5. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file. 
 
@@ -302,22 +290,32 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
 
 ## View generated data
 
-Once you apply the deployment manifest to your IoT Edge device, the IoT Edge runtime on the device collects the new deployment information and starts executing on it. Any modules running on the device that aren't included in the deployment manifest are stopped. Any modules missing from the device are started. 
+Once you apply the deployment manifest to your IoT Edge device, the IoT Edge runtime on the device collects the new deployment information and starts executing on it. Any modules running on the device that aren't included in the deployment manifest are stopped. Any modules missing from the device are started.
 
-You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules. 
+You can view the status of your IoT Edge device using the **Azure IoT Hub Devices** section of the Visual Studio Code explorer. Expand the details of your device to see a list of deployed and running modules.
 
-On the IoT Edge device itself you can see the status of your deployment modules using the command `iotedge list`. You should see four modules: the two IoT Edge runtime modules, tempSensor, and the custom module that you created in this tutorial. It may take a few minutes for all the modules to start, so rerun the command if you don't see them all initially. 
+1. In the Visual Studio Code explorer, right-click the name of your IoT Edge device and select **Start Monitoring D2C Messages**.
 
-To view the messages being generated by any module, use the command `iotedge logs <module name>`. 
+2. View the messages arriving at your IoT Hub. It may take a while for the messages to arrive, because the IoT Edge device has to receive its new deployment and start all the modules. Then, the changes we made to the CModule code wait until the machine temperature reaches 25 degrees before sending messages. It also adds the message type **Alert** to any messages that reach that temperature threshold. 
 
-You can view the messages as they arrive at your IoT hub using Visual Studio Code. 
-
-1. To monitor data that arrives at the IoT hub, select the ellipsis (**...**), and then select **Start Monitoring D2C Messages**.
-2. To monitor the D2C message for a specific device, right-click the device in the list, and select **Start Monitoring D2C Messages**.
-3. To stop monitoring data, run the command **Azure IoT Hub: Stop monitoring D2C message** in the command palette. 
-4. To view or update the module twin, right-click the module in the list, and select **Edit module twin**. To update the module twin, save the twin JSON file, right-click the editor area, and select **Update Module Twin**.
-5. To view Docker logs, install [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) for VS Code. You can find your running modules locally in Docker explorer. In the context menu, select **Show Logs** to view in the integrated terminal.
+   ![View messages arriving at IoT Hub](./media/tutorial-csharp-module/view-d2c-message.png)
  
+## Edit the module twin
+
+We used the CSharpModule module twin in the deployment manifest to set the temperature threshold at 25 degrees. You can use the module twin to change the functionality without having to update the module code.
+
+1. In Visual Studio Code, expand the details under your IoT Edge device to see the running modules. 
+
+2. Right-click **CSharpModule** and select **Edit module twin**. 
+
+3. Find **TemperatureThreshold** in the desired properties. Change its value to a new temperature five to ten degrees higher than the latest reported temperature. 
+
+4. Save the module twin file.
+
+5. Right-click anywhere in the module twin editing pane and select **Update module twin**. 
+
+5. Monitor the incoming device-to-cloud messages. You should see the messages stop until the new temperature threshold is reached. 
+
 ## Clean up resources 
 
 If you plan to continue to the next recommended article, you can keep the resources and configurations that you created and reuse them. You can also keep using the same IoT Edge device as a test device. 
@@ -326,12 +324,13 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [develop a C# module with Azure IoT Edge for Visual Studio Code](how-to-develop-csharp-module.md). You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an IoT Edge module that contains code to filter raw data generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio Code](how-to-vs-code-develop-module.md).You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)
+> [Azure Functions](tutorial-deploy-function.md)
+> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
+> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)

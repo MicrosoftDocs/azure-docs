@@ -1,6 +1,6 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Tutorial C# module for Windows - Azure IoT Edge | Microsoft Docs 
+title: Tutorial develop C# module for Windows - Azure IoT Edge | Microsoft Docs 
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Windows IoT Edge device.
 services: iot-edge
 author: kgremban
@@ -14,14 +14,14 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: Develop a C# IoT Edge module and deploy to a Windows device
+# Tutorial: Develop a C# IoT Edge module for Windows devices
 
 Use Visual Studio to develop C# code and deploy it to a Windows device running Azure IoT Edge. 
 
 You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
-> * Use Visual Studio to create an IoT Edge module that's based on the .NET Core 2.1 SDK.
+> * Use Visual Studio to create an IoT Edge module that's based on the C# SDK.
 > * Use Visual Studio and Docker to create a Docker image and publish it to your registry.
 > * Deploy the module to your IoT Edge device.
 > * View generated data.
@@ -32,7 +32,9 @@ The IoT Edge module that you create in this tutorial filters the temperature dat
 
 ## Solution scope
 
-This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2017**, and how to deploy it to a **Windows device**. The sample code included here can work in other tools and for other devices, as well. Use the following table to understand your options for developing and deploying C# modules to Windows devices: 
+This tutorial demonstrates how to develop a module in **C#** using **Visual Studio 2017**, and how to deploy it to a **Windows device**. If you're developing modules for Linux devices, go to [Develop a C# IoT Edge module for Linux devices](tutorial-csharp-module.md) instead. 
+
+Use the following table to understand your options for developing and deploying C modules to Windows devices: 
 
 | C# | Visual Studio Code | Visual Studio 2017 | 
 | -- | ------------------ | ------------------ |
@@ -49,9 +51,9 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * [Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2017) configured with the [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) extension.
 * [Docker CE](https://docs.docker.com/install/) on your development machine, configured to run Windows containers.
 
-## Create an IoT Edge module project
+## Create a module project
 
-The following steps create an IoT Edge module project that's based on the .NET Core 2.0 SDK by using Visual Studio and the Azure IoT Edge Tools extension.
+The following steps create an IoT Edge module project  by using Visual Studio and the Azure IoT Edge Tools extension. Once you have a project template created, add new code so that the module filters out messages based on their reported properties. 
 
 ### Create a new project
 
@@ -276,7 +278,7 @@ The default module code receives messages on an input queue and passes them alon
 11. Save the deployment.template.json file.
 
 
-## Build your IoT Edge solution
+## Build and push your module
 
 In the previous section, you created an IoT Edge solution and added code to the **CSharpModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
 
@@ -292,13 +294,9 @@ In the previous section, you created an IoT Edge solution and added code to the 
 
 3. Select **Build and Push IoT Edge Modules**. 
 
-   ![Build and push IoT Edge modules](./media/tutorial-csharp-module-visual-studio/build-and-push-modules.png)
-
    The build and push command starts three operations. First, it creates a new folder in the solution called **config** which holds the full deployment manifest, built out of information in the deployment template and other solution files. Second, it runs `docker build` to build the container image based on the appropriate dockerfile for your target architecture. Then, it runs `docker push` to push the image repository to your container registry. 
 
-   The build and push process may take several minutes the first time, but is faster the next time that you run the commands.
-
-## Deploy and run the solution
+## Deploy modules to device
 
 Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to deploy the module project to your IoT Edge device. You already have a deployment manifest prepared for your scenario, the **deployment.json** file in the config folder. All you need to do now is select a device to receive the deployment.
 
@@ -310,8 +308,7 @@ Use the Visual Studio cloud explorer and the Azure IoT Edge Tools extension to d
 
 4. In the file explorer, select the **deployment.windows-amd64** file in the config folder of your solution. 
 
-5. Refresh the cloud explore
-
+5. Refresh the cloud explorer to see the deployed modules listed under your device. 
 
 ## View generated data
 
@@ -351,7 +348,10 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 
 ## Next steps
 
-In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about how to [develop a C# module with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn other ways that Azure IoT Edge can help you turn data into business insights at the edge.
+In this tutorial, you created an IoT Edge module with code to filter raw data that's generated by your IoT Edge device. When you're ready to build your own modules, you can learn more about [Developing your own IoT Edge modules](module-development.md) or how to [develop modules with Visual Studio](how-to-visual-studio-develop-module.md). You can continue on to the next tutorials to learn how Azure IoT Edge can help you deploy Azure cloud services to process and analyze data at the edge.
 
 > [!div class="nextstepaction"]
-> [Deploy Azure Stream Analytics as an IoT Edge module](tutorial-deploy-stream-analytics.md)
+> [Azure Functions](tutorial-deploy-function.md)
+> [Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
+> [Azure Machine Learning](tutorial-deploy-machine-learning.md)
+> [Azure Custom Vision Service](tutorial-deploy-custom-vision.md)

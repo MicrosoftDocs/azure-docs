@@ -43,7 +43,7 @@ The following table lists the supported development scenarios for **Windows cont
 |   | Visual Studio Code | Visual Studio 2017 |
 | - | ------------------ | ------------------ |
 | **Azure services** | Azure Functions <br> Azure Stream Analytics |   |
-| **Languages** | C# (debugging not supported) <br> Python | C <br> C# |
+| **Languages** | C# (debugging not supported) | C <br> C# |
 | **More information** | [Azure IoT Edge for Visual Studio Code](https://marketplace.visualstudio.com/itemdetails?itemName=vsciot-vscode.azure-iot-edge) | [Azure IoT Edge Tools for Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) |
 
 This tutorial teaches the development steps for Visual Studio 2017. If you would rather use Visual Studio Code, refer to the instructions in [Use Visual Studio Code to develop and debug modules for Azure IoT Edge](how-to-vs-code-develop-module.md).
@@ -65,7 +65,7 @@ A development machine:
    .\vcpkg --triplet x64-windows integrate install
    ```
 
-An Azure IoT Edge device:
+An Azure IoT Edge device on Windows:
 
 * We recommend that you don't run IoT Edge on your development machine, but instead use a separate device. This distinction between development machine and IoT Edge device more accurately mirrors a true deployment scenario, and helps to keep the different concepts straight.
 * If you don't have a second device available, use the quickstart article to create an IoT Edge device in Azure with a [Windows virtual machine](quickstart.md).

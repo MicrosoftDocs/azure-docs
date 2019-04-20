@@ -249,7 +249,7 @@ If you encounter errors when building and pushing your module image, it often ha
 * If you used a different name than **SampleModule** for your module, is that name consistent throughout the solution?
 * Is your machine running the same type of containers that you're building? This tutorial is for Linux IoT Edge devices, so Visual Studio Code should say **amd64** or **arm32v7** in the side bar, and Docker Desktop should be running Linux containers. C modules in Visual Studio Code do not support Windows containers. 
 
-## Deploy solution to a device
+## Deploy modules to device
 
 You verified that the built container images are stored in your container registry, so it's time to deploy them to a device. Make sure that your IoT Edge device is up and running. 
 
@@ -293,7 +293,7 @@ The commands in this section are for your IoT Edge device, not your development 
    iotedge list
    ```
 
-   You should see four modoules: the two IoT Edge runtime modules, tempSensor, and IotEdgeModule1. All four should be listed as running.
+   You should see four modoules: the two IoT Edge runtime modules, tempSensor, and SampleModule. All four should be listed as running.
 
 * Inspect the logs for a specific module:
 
@@ -303,7 +303,7 @@ The commands in this section are for your IoT Edge device, not your development 
 
    IoT Edge modules are case-sensitive. 
 
-   The tempSensor and IotEdgeModule1 logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
+   The tempSensor and SamplModule logs should show the messages they're processing. The edgeAgent module is responsible for starting the other modules, so its logs will have information about implementing the deployment manifest. If any module isn't listed or isn't running, the edgeAgent logs will probably have the errors. The edgeHub module is responsible for communications between the modules and IoT Hub. If the modules are up and running, but the messages aren't arriving at your IoT hub, the edgeHub logs will probably have the errors. 
 
 ## Next steps
 
