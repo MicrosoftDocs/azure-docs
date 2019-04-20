@@ -261,6 +261,8 @@
         href: shared-images.md
       - name: Portal
         href: shared-images-portal.md
+      - name: Share images across tenants
+        href: cross-tenant-image-sharing.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
     - name: Find and use images
